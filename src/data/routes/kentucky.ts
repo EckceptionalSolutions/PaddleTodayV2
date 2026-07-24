@@ -8157,6 +8157,20 @@ export const kentuckyRoutes: River[] = [
       "siteName": "Green River at Mammoth Cave, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "remote"
+      ],
+      "safetyNotes": [
+        "NPS prohibits park launches at or above 20 ft, and this 19.8-mile route should be treated as experienced water once the Mammoth Cave gauge rises above the beginner-friendly 9 to 15 ft band.",
+        "The Green River Ferry crossing is mid-route; stay well back, make eye contact with the ferry operator, and use only the posted canoe/kayak access if stopping there.",
+        "Expect limited cell service, slower rescue, ferry traffic, swift current, submerged trees, logjams, drifting debris, and shifting gravel bars through the park corridor."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 9,
@@ -12275,6 +12289,21 @@ export const kentuckyRoutes: River[] = [
       "siteName": "Green River at Greensburg, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "fast_rise",
+        "private_banks",
+        "strainers",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This 32.9-mile route is a hard all-day commitment; use Glenview Road as the midpoint bailout if low water, wind, weather, or fatigue makes the Lynn Camp leg questionable.",
+        "Stay within the KDFWR Greensburg 1.0 to 1.75 ft good band unless the group is prepared for slower shoals below the band or faster current and harder landings above it.",
+        "Most banks below Greensburg are private, and Lynn Camp Creek is a VPA access where continued public use depends on staying inside the access footprint and respecting posted rules."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 1,
@@ -12528,6 +12557,21 @@ export const kentuckyRoutes: River[] = [
       "kind": "direct",
       "siteName": "Green River at Greensburg, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "fast_rise",
+        "private_banks",
+        "strainers",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This 34.9-mile route adds a rough American Legion launch to the full Greensburg-to-Lynn-Camp commitment, so treat it as a dawn-to-finish advanced planning day.",
+        "Use Greensburg City Ramp as the early bailout and Glenview Road as the last clean midpoint exit before committing to the long private-bank corridor toward Lynn Camp.",
+        "Stay within the KDFWR Greensburg 1.0 to 1.75 ft good band and expect fresh wood, broad-river wind, slick landings, sparse legal exits, and a steep VPA finish at Lynn Camp."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",

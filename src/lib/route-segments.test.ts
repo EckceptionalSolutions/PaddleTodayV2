@@ -44,6 +44,20 @@ describe('route segment discovery', () => {
     expect(selectRouteSegment({ river: riceCreek }, { paddleTime: '5-to-7' })).toBeNull();
   });
 
+  it('does not offer trips across an unverified access gap', () => {
+    const segments = buildRouteSegments({
+      ...riceCreek,
+      segmentEdges: [
+        { fromId: 'peltier-lake', toId: 'baldwin-lake', status: 'verified' },
+        { fromId: 'baldwin-lake', toId: 'county-road-i', status: 'unknown' },
+        { fromId: 'county-road-i', toId: 'long-lake', status: 'verified' },
+      ],
+    });
+
+    expect(segments.some((segment) => segment.putIn.id === 'peltier-lake' && segment.takeOut.id === 'baldwin-lake')).toBe(true);
+    expect(segments.some((segment) => segment.putIn.id === 'peltier-lake' && segment.takeOut.id === 'long-lake')).toBe(false);
+  });
+
   it('labels both the route family and selected segment', () => {
     const summary = routeSegmentSummary(riceCreek);
     expect(formatRouteSegmentLabel(summary, null)).toBe('Shorter options: 4.2–11.0 mi');

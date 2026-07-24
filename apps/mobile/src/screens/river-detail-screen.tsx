@@ -200,6 +200,9 @@ export default function RiverDetailScreen() {
     trackAppEvent('route_opened', {
       slug: detail.river.slug,
       riverId: detail.river.riverId,
+      river: detail.river.name,
+      state: detail.river.state,
+      region: detail.river.region,
       rating: detail.rating,
       score: detail.score,
     });

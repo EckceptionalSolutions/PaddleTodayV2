@@ -21,8 +21,11 @@ export interface RoutePlotPoint {
   score?: number | null;
   rating?: string | null;
   meta?: string | null;
+  markerLabel?: string | null;
+  markerAccessibilityLabel?: string | null;
   routeCount?: number | null;
   spanCoordinates?: RouteSpanCoordinate[] | null;
+  spanSegments?: RouteSpanCoordinate[][] | null;
 }
 
 export interface RoutePlotMapHandle {
@@ -69,8 +72,8 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     () => visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null,
     [selectedId, visiblePoints]
   );
-  const selectedSpan = useMemo(
-    () => (selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint, canonicalSpans) : []),
+  const selectedSpans = useMemo(
+    () => (selectedId && selectedPoint ? routeSpanSegments(selectedPoint, canonicalSpans) : []),
     [canonicalSpans, selectedId, selectedPoint]
   );
   const nativeMaps = getNativeMaps();
@@ -96,8 +99,9 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
       return;
     }
 
-    if (selectedSpan.length >= 2) {
-      mapRef.current?.fitToCoordinates?.(selectedSpan, {
+    const selectedCoordinates = selectedSpans.flat();
+    if (selectedCoordinates.length >= 2) {
+      mapRef.current?.fitToCoordinates?.(selectedCoordinates, {
         animated: true,
         edgePadding: mapEdgePadding(height, showFooter, 'selected', selectedFocusBottomInset),
       });
@@ -114,7 +118,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
     const coordinates = [
       ...backgroundSpan,
-      ...visiblePoints.flatMap((point) => routeSpanCoordinates(point, canonicalSpans)),
+      ...visiblePoints.flatMap((point) => routeSpanSegments(point, canonicalSpans).flat()),
     ];
 
     if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {
@@ -260,16 +264,17 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             />
           ) : null}
 
-          {selectedSpan.length >= 2 ? (
+          {selectedSpans.map((span, index) => span.length >= 2 ? (
             <Polyline
-              coordinates={selectedSpan}
+              key={`selected-span-${index}`}
+              coordinates={span}
               strokeColor={ROUTE_SPAN_COLOR}
               strokeWidth={5}
               lineCap="round"
               lineJoin="round"
               zIndex={0}
             />
-          ) : null}
+          ) : null)}
 
           {nativeMarkerPoints.map((point) => {
             const selected = point.id === selectedId;
@@ -313,7 +318,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 >
                   {showScore ? (
                     <Text style={styles.nativeMarkerText}>
-                      {typeof point.score === 'number' ? point.score : ''}
+                      {markerTextForPoint(point)}
                     </Text>
                   ) : null}
                 </View>
@@ -347,7 +352,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
         ) : null}
 
         {backgroundSpan.length >= 2 ? <ProjectedRouteSpan coordinates={backgroundSpan} bounds={bounds} tone="background" /> : null}
-        {selectedSpan.length >= 2 ? <ProjectedRouteSpan coordinates={selectedSpan} bounds={bounds} tone="selected" /> : null}
+        {selectedSpans.map((span, index) => (
+          span.length >= 2
+            ? <ProjectedRouteSpan key={`selected-span-${index}`} coordinates={span} bounds={bounds} tone="selected" />
+            : null
+        ))}
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
@@ -363,7 +372,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               onPress={() => onSelectPoint?.(point)}
               hitSlop={10}
               accessibilityRole="button"
-              accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
+              accessibilityLabel={`${point.label}${point.markerAccessibilityLabel ? `, ${point.markerAccessibilityLabel}` : point.score ? `, score ${point.score}` : ''}`}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
               <View
@@ -376,7 +385,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               >
                 {showScore ? (
                   <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
-                    {typeof point.score === 'number' ? point.score : ''}
+                    {markerTextForPoint(point)}
                   </Text>
                 ) : null}
               </View>
@@ -468,18 +477,32 @@ function isFiniteCoordinate(point: RouteSpanCoordinate) {
   return Number.isFinite(point.latitude) && Number.isFinite(point.longitude);
 }
 
-function routeSpanCoordinates(point: RoutePlotPoint, canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>): RouteSpanCoordinate[] {
+function routeSpanSegments(
+  point: RoutePlotPoint,
+  canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>
+): RouteSpanCoordinate[][] {
   const canonicalSpan = finiteSpanCoordinates(canonicalSpans?.get(point.id));
   if (canonicalSpan.length >= 2) {
-    return canonicalSpan;
+    return [canonicalSpan];
+  }
+
+  const segments = point.spanSegments
+    ?.map(finiteSpanCoordinates)
+    .filter((segment) => segment.length >= 2) ?? [];
+  if (segments.length > 0) {
+    return segments;
   }
 
   const span = finiteSpanCoordinates(point.spanCoordinates);
   if (span.length >= 2) {
-    return span;
+    return [span];
   }
 
-  return [{ latitude: point.latitude, longitude: point.longitude }];
+  return [[{ latitude: point.latitude, longitude: point.longitude }]];
+}
+
+function markerTextForPoint(point: RoutePlotPoint) {
+  return point.markerLabel ?? (typeof point.score === 'number' ? String(point.score) : '');
 }
 
 function finiteSpanCoordinates(coordinates: RouteSpanCoordinate[] | null | undefined) {
@@ -491,9 +514,11 @@ function compareMapPointIds(left: RoutePlotPoint, right: RoutePlotPoint) {
 }
 
 function mapPointSignature(point: RoutePlotPoint) {
-  const spanSignature = finiteSpanCoordinates(point.spanCoordinates)
-    .map((coordinate) => `${coordinate.latitude.toFixed(4)},${coordinate.longitude.toFixed(4)}`)
-    .join(';');
+  const spanSignature = routeSpanSegments(point)
+    .map((span) => span
+      .map((coordinate) => `${coordinate.latitude.toFixed(4)},${coordinate.longitude.toFixed(4)}`)
+      .join(';'))
+    .join('/');
 
   return `${point.id}:${point.latitude.toFixed(4)},${point.longitude.toFixed(4)}:${spanSignature}`;
 }
@@ -508,7 +533,7 @@ function getBounds(
     ...extraCoordinates,
     ...points
       .filter(isFinitePoint)
-      .flatMap((point) => routeSpanCoordinates(point, canonicalSpans)),
+      .flatMap((point) => routeSpanSegments(point, canonicalSpans).flat()),
   ];
 
   if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {
@@ -694,9 +719,10 @@ const styles = StyleSheet.create({
     borderColor: colors.surfaceStrong,
   },
   nativeScoreMarker: {
-    width: 32,
+    minWidth: 36,
     height: 32,
     borderRadius: 16,
+    paddingHorizontal: 4,
   },
   nativeDotMarker: {
     width: 16,
@@ -811,13 +837,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   marker: {
-    width: 32,
+    minWidth: 36,
     height: 32,
     borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
     borderColor: colors.surfaceStrong,
+    paddingHorizontal: 4,
   },
   dotMarker: {
     width: 16,

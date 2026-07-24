@@ -13,6 +13,8 @@ import type {
 } from '@paddletoday/api-contract';
 import { classifyCamping } from './camping-classification';
 import { gaugeDisplayForSource, thresholdAdapterForSource } from './source-adapters';
+import { conditionZoneIdForRiver } from './condition-zones';
+import { getRiverGroupHeroPhoto } from '../data/river-group-hero';
 export type {
   RiverDetailApiResult,
   RiverGroupApiResult,
@@ -29,6 +31,10 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
   return {
     river: {
       riverId: result.river.riverId,
+      conditionZoneId: conditionZoneIdForRiver(result.river),
+      corridorId: result.river.corridorId,
+      corridorLabel: result.river.corridorLabel,
+      continuityStatus: result.river.continuityStatus,
       slug: result.river.slug,
       name: result.river.name,
       reach: result.river.reach,
@@ -43,6 +49,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
       accessPoints: result.river.accessPoints,
+      segmentEdges: result.river.segmentEdges,
       logistics: serializeSummaryLogistics(result.river.logistics),
     },
     sources: summarySourceBadges(result),
@@ -89,6 +96,10 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
   return {
     river: {
       riverId: result.river.riverId,
+      conditionZoneId: conditionZoneIdForRiver(result.river),
+      corridorId: result.river.corridorId,
+      corridorLabel: result.river.corridorLabel,
+      continuityStatus: result.river.continuityStatus,
       slug: result.river.slug,
       name: result.river.name,
       reach: result.river.reach,
@@ -103,6 +114,7 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
       accessPoints: result.river.accessPoints,
+      segmentEdges: result.river.segmentEdges,
       logistics: serializeSummaryLogistics(result.river.logistics),
     },
     current: {
@@ -188,6 +200,10 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
   return {
     river: {
       riverId: result.river.riverId,
+      conditionZoneId: conditionZoneIdForRiver(result.river),
+      corridorId: result.river.corridorId,
+      corridorLabel: result.river.corridorLabel,
+      continuityStatus: result.river.continuityStatus,
       slug: result.river.slug,
       name: result.river.name,
       reach: result.river.reach,
@@ -219,6 +235,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
       accessPoints: result.river.accessPoints,
+      segmentEdges: result.river.segmentEdges,
       logistics: serializeLogistics(result.river.logistics),
     },
     sources: summarySourceBadges(result),
@@ -257,6 +274,8 @@ export function serializeRiverGroupResult(args: {
   const first = args.routes[0]?.river;
   const states = [...new Set(args.routes.map((result) => result.river.state))].sort();
   const regions = [...new Set(args.routes.map((result) => result.river.region))].sort();
+  const difficultyOptions = difficultyOptionsForRoutes(args.routes.map((result) => result.river.profile.difficulty));
+  const distanceRange = distanceRangeForLabels(args.routes.map((result) => result.river.logistics?.distanceLabel));
 
   return {
     group: {
@@ -265,9 +284,42 @@ export function serializeRiverGroupResult(args: {
       routeCount: args.routes.length,
       stateSummary: states.join(', '),
       regionSummary: regions.join(', '),
+      regions,
+      difficultyOptions,
+      distanceRange,
+      heroPhoto: getRiverGroupHeroPhoto(args.riverId, args.routes.map((result) => result.river)),
     },
     routes: args.routes.map(serializeDetailResult),
   };
+}
+
+export function distanceRangeForLabels(labels: Array<string | null | undefined>) {
+  const distances = labels
+    .map((label) => Number(String(label ?? '').match(/(\d+(?:\.\d+)?)/)?.[1]))
+    .filter((distance) => Number.isFinite(distance));
+
+  if (distances.length === 0) {
+    return null;
+  }
+
+  const minMiles = Math.min(...distances);
+  const maxMiles = Math.max(...distances);
+  return {
+    minMiles,
+    maxMiles,
+    label: `${formatDistanceNumber(minMiles)}–${formatDistanceNumber(maxMiles)} mi`,
+  };
+}
+
+export function difficultyOptionsForRoutes(
+  difficulties: Array<'easy' | 'moderate' | 'hard'>
+): Array<'easy' | 'moderate' | 'hard'> {
+  const present = new Set(difficulties);
+  return (['easy', 'moderate', 'hard'] as const).filter((difficulty) => present.has(difficulty));
+}
+
+function formatDistanceNumber(value: number) {
+  return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(1)));
 }
 
 export function serializeRiverHistoryResult(args: {

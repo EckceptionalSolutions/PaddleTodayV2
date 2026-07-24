@@ -9,6 +9,8 @@ import {
 } from './json-guards';
 import {
   serializeDetailResult,
+  difficultyOptionsForRoutes,
+  distanceRangeForLabels,
   serializeSummaryResult,
   serializeWeekendSummaryResult,
   type RiverDetailApiResult,
@@ -16,8 +18,11 @@ import {
   type RiverSummaryApiItem,
   type WeekendSummaryApiItem,
 } from './api-contract';
+import { getRiverGroupHeroPhoto } from '../data/river-group-hero';
 import { getRiverBySlug, listRiverGroups } from './rivers';
 import { gaugeDisplayForSource } from './source-adapters';
+import { conditionZoneIdForRiver } from './condition-zones';
+import { corridorForSlug } from '../data/route-corridors';
 import { mapWithConcurrency } from './async-concurrency';
 import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
 
@@ -331,6 +336,10 @@ async function readSummaryGroupFallback(riverId: string): Promise<RiverGroupSnap
         routeCount: routes.length,
         stateSummary: states.join(', '),
         regionSummary: regions.join(', '),
+        regions,
+        difficultyOptions: difficultyOptionsForRoutes(routes.map((route) => route.river.difficulty)),
+        distanceRange: distanceRangeForLabels(routes.map((route) => route.river.distanceLabel)),
+        heroPhoto: getRiverGroupHeroPhoto(riverId, routes.map((route) => route.river)),
       },
       routes,
     },
@@ -346,6 +355,10 @@ function detailFromSummaryItem(item: RiverSummaryApiItem): RiverDetailApiResult 
   return {
     river: {
       riverId: normalized.river.riverId,
+      conditionZoneId: normalized.river.conditionZoneId,
+      corridorId: normalized.river.corridorId,
+      corridorLabel: normalized.river.corridorLabel,
+      continuityStatus: normalized.river.continuityStatus,
       slug: normalized.river.slug,
       name: normalized.river.name,
       reach: normalized.river.reach,
@@ -376,6 +389,7 @@ function detailFromSummaryItem(item: RiverSummaryApiItem): RiverDetailApiResult 
       putIn: normalized.river.putIn,
       takeOut: normalized.river.takeOut,
       logistics: river?.logistics,
+      segmentEdges: normalized.river.segmentEdges,
     },
     score: item.score,
     rating: item.rating,
@@ -494,6 +508,10 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
     ...item,
     river: {
       ...storedRiver,
+      conditionZoneId: item.river.conditionZoneId || (river ? conditionZoneIdForRiver(river) : undefined),
+      corridorId: item.river.corridorId || river?.corridorId || corridorForSlug(item.river.slug)?.corridorId,
+      corridorLabel: item.river.corridorLabel || river?.corridorLabel || corridorForSlug(item.river.slug)?.label,
+      continuityStatus: item.river.continuityStatus || river?.continuityStatus || corridorForSlug(item.river.slug)?.continuityStatus,
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
       routeType: item.river.routeType || river?.routeType || 'recreational',

@@ -1,0 +1,12 @@
+[
+  {"corridorId":"mn-sauk-water-trail","status":"approved","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-21","notes":"Grouping is for condition discovery only; no continuous access chain asserted."},
+  {"corridorId":"wi-turtle-creek-upper","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Intermediate access chain is explicitly verified."},
+  {"corridorId":"ia-middle-river-water-trail","status":"approved","owner":"route-data-team","continuityStatus":"partial","nextReview":"2026-08-21","notes":"Reviewed chain covers the canonical Pammel-to-Holliwell span; upstream gaps remain."},
+  {"corridorId":"ia-upper-iowa-cattle-malanaphy","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Canonical access chain is explicitly verified."},
+  {"corridorId":"ia-cedar-river-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Condition-family grouping only; source review required before continuity claims."},
+  {"corridorId":"mn-crow-wing-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Branching route family; preserve independent trip options."},
+  {"corridorId":"ia-des-moines-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Dam and gauge boundaries require family-level review."},
+  {"corridorId":"mn-minnesota-river-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Long multi-reach family; preserve independent access options."},
+  {"corridorId":"wi-wisconsin-river-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Gauge and dam boundaries require reach-specific review."},
+  {"corridorId":"ia-north-raccoon-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Condition grouping only until access continuity is source-reviewed."}
+]

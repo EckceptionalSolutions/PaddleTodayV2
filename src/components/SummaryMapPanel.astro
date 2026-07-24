@@ -97,7 +97,7 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
     <div class="summary-map" data-summary-map aria-label={ariaLabel}></div>
     <div class="summary-map-footer">
       <p class="summary-map__status muted" data-summary-map-status>{status}</p>
-      <div class="summary-map-legend" aria-label="Score map legend">
+      <div class="summary-map-legend" aria-label="Map marker legend">
         {showRiverLegend && (
           <>
             <span class="summary-map-legend__item">
@@ -110,6 +110,10 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
             </span>
           </>
         )}
+        <span class="summary-map-legend__item">
+          <span class="summary-map-legend__marker summary-map-legend__marker--good">4/25</span>
+          Ready / matching routes
+        </span>
         <span class="summary-map-legend__item">
           <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
           Great

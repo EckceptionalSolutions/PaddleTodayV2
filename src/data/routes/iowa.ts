@@ -2289,6 +2289,20 @@ export const iowaRoutes: River[] = [
     "statusText": "Treat roughly 125 cfs at the South Skunk near Ames gauge as the practical low-water floor for the above-Ames reach. This upper greenbelt segment is logjam-prone, so avoid high or rising water unless you know the corridor well.",
     "latitude": 42.1819,
     "longitude": -93.5708,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "County guidance says log jams are usual between Story City and Soper's Mill; scout wood early and portage or cancel if the channel is blocked.",
+        "The Ames gauge is the same-river planning signal, but no trusted source gives a broad upper band. Avoid high or rising water on this wooded corridor.",
+        "The South Skunk is non-meandered through Story County. Use public accesses and confirmed greenbelt or parkland only for stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05470000",
       "provider": "usgs",
@@ -2526,6 +2540,20 @@ export const iowaRoutes: River[] = [
     "statusText": "Treat roughly 125 cfs at the South Skunk near Ames gauge as the practical low-water floor for the above-Ames reach. No trusted source gives a broad upper band, so avoid high or rising water unless you know this wooded corridor well.",
     "latitude": 42.10443,
     "longitude": -93.57549,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Story County describes the Soper's-to-Peterson stretch as trees-and-riffles water for at least intermediate paddlers; scout the Soper's Mill constructed riffle.",
+        "No trusted source gives this wooded segment a broad recreational upper band. Avoid high or rising water and expect fresh strainers after storms.",
+        "The South Skunk is non-meandered in this corridor. Stay with the Soper's Mill and Peterson Park West public accesses and confirmed parkland."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05470000",
       "provider": "usgs",

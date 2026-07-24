@@ -1,0 +1,5 @@
+[
+  {"corridorId":"wi-turtle-creek-upper","canonicalSlug":"turtle-creek-school-section-east-creek","status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"ia-middle-river-water-trail","canonicalSlug":"middle-river-pammel-holliwell","status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"mn-sauk-water-trail","canonicalSlug":null,"status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"condition-family-only"}
+]

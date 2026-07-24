@@ -50,7 +50,12 @@ import {
 } from '../lib/explore-intents';
 import { trackAppEvent } from '../lib/observability';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
-import { buildRouteGroupMeta, routeGroupMetaForRoute } from '../lib/route-groups';
+import {
+  buildRouteGroupMeta,
+  matchingRiverReadiness,
+  riverGroupKeyForRoute,
+  routeGroupMetaForRoute,
+} from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -437,7 +442,10 @@ function FullScreenExploreMap({
 }) {
   const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('half');
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
-  const selectedGeometryQuery = useRiverGeometryQuery(selectedSlug ?? '');
+  const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
+  const selectedGeometryQuery = useRiverGeometryQuery(
+    selectedRouteCount <= 1 || selectedRiver?.selectedSegment ? selectedSlug ?? '' : ''
+  );
   const mapResults = useMemo(() => {
     if (results.length <= MAX_MAP_POINTS) {
       return results;
@@ -448,7 +456,8 @@ function FullScreenExploreMap({
       : results;
     return (selectedRiver ? [selectedRiver, ...withoutSelected] : withoutSelected).slice(0, MAX_MAP_POINTS);
   }, [results, selectedRiver]);
-  const points = useExploreMapPoints(mapResults, routeCounts);
+  const points = useExploreMapPoints(mapResults, routeCounts, results);
+  const matchingRiverCount = useMemo(() => dedupeExploreRoutes(results).length, [results]);
   const selectedCanonicalSpan = useMemo(
     () => (selectedRiver ? endpointSnappedRouteCoordinates(selectedGeometryQuery.data, routeSpanCoordinatesForRiver(selectedRiver)) : null),
     [selectedGeometryQuery.data, selectedRiver]
@@ -460,7 +469,6 @@ function FullScreenExploreMap({
   const requesting = status === 'requesting';
   const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap) : 0) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
-  const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   const filterFocusSignature = [
     filters.query,
     filters.state,
@@ -603,10 +611,12 @@ function FullScreenExploreMap({
           <View
             style={styles.mapStatusChip}
             accessibilityRole="text"
-             accessibilityLabel={`${mapResults.length} of ${results.length} routes shown on map`}
+             accessibilityLabel={`${points.length} of ${matchingRiverCount} rivers shown on map`}
            >
              <Text style={styles.mapStatusChipText} numberOfLines={1}>
-               {mapResults.length === results.length ? `${results.length} routes` : `${mapResults.length} of ${results.length} routes`}
+               {points.length === matchingRiverCount
+                 ? `${matchingRiverCount} rivers`
+                 : `${points.length} of ${matchingRiverCount} rivers`}
              </Text>
            </View>
          </View>
@@ -646,7 +656,7 @@ function FullScreenExploreMap({
           style={styles.mapFab}
           onPress={() => mapRef.current?.focusAll()}
           accessibilityRole="button"
-          accessibilityLabel="Show all routes"
+          accessibilityLabel="Show all rivers"
         >
           <MaterialCommunityIcons name="map-marker-multiple" color={colors.accent} size={20} />
         </Pressable>
@@ -654,7 +664,7 @@ function FullScreenExploreMap({
           style={styles.mapFab}
           onPress={handleGpsFocus}
           accessibilityRole="button"
-          accessibilityLabel="Focus nearest routes"
+          accessibilityLabel="Focus nearest rivers"
         >
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={20} />
         </Pressable>
@@ -678,7 +688,7 @@ function FullScreenExploreMap({
           style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]}
           onPress={handleGpsFocus}
           accessibilityRole="button"
-          accessibilityLabel="Focus nearest routes"
+          accessibilityLabel="Focus nearest rivers"
         >
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={18} />
           <Text style={styles.fullMapLocationText}>Near you</Text>
@@ -750,6 +760,8 @@ function ExploreListView({
   onViewModeChange: (mode: 'map' | 'list') => void;
   isSaved: (slug: string) => boolean;
 }) {
+  const groupedResults = useMemo(() => dedupeExploreRoutes(results), [results]);
+
   function openRoute(route: ExploreRiver) {
     if (route.selectedSegment) {
       onOpenRoute(route);
@@ -767,7 +779,7 @@ function ExploreListView({
   return (
     <View style={styles.exploreListScreen}>
       <FlatList
-        data={results}
+        data={groupedResults}
         keyExtractor={(item) => item.river.slug}
         contentContainerStyle={[
           styles.exploreListContent,
@@ -783,7 +795,9 @@ function ExploreListView({
             <View style={styles.exploreListTitleRow}>
               <View style={styles.exploreListTitleCopy}>
                 <Text style={styles.exploreListTitle}>Explore routes</Text>
-                <Text style={styles.exploreListSubtitle}>{results.length} matching routes</Text>
+                <Text style={styles.exploreListSubtitle}>
+                  {groupedResults.length} matching {groupedResults.length === 1 ? 'river' : 'rivers'}
+                </Text>
               </View>
               <ExploreViewToggle mode="list" onChange={onViewModeChange} />
             </View>
@@ -818,6 +832,7 @@ function ExploreListView({
             onPress={() => openRoute(item)}
             segmentLabel={formatRouteSegmentLabel(item.segmentSummary, item.selectedSegment)}
             segmentEndpointLabel={segmentEndpointLabel(item.selectedSegment)}
+            routeCount={item.selectedSegment ? 1 : routeGroupMetaForRoute(item, routeCounts).routeCount}
           />
         )}
         ItemSeparatorComponent={() => <View style={styles.exploreListSeparator} />}
@@ -861,11 +876,26 @@ function ExploreViewToggle({
   );
 }
 
-function useExploreMapPoints(results: ExploreRiver[], routeCounts: ReadonlyMap<string, number>) {
+function useExploreMapPoints(
+  results: ExploreRiver[],
+  routeCounts: ReadonlyMap<string, number>,
+  allMatchingRoutes: ExploreRiver[] = results
+) {
   return useMemo<RoutePlotPoint[]>(
     () =>
-      results.map((river) => {
+      dedupeExploreRoutes(results).map((river) => {
         const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
+        const riverKey = riverGroupKeyForRoute(river);
+        const matchingRiverRoutes = allMatchingRoutes.filter((candidate) => (
+            river.selectedSegment
+              ? candidate.river.slug === river.river.slug
+              : riverGroupKeyForRoute(candidate) === riverKey
+          ));
+        const spanSegments = matchingRiverRoutes
+          .map(routeSpanCoordinatesForRiver)
+          .filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2));
+        const groupedRiver = routeCount > 1 && !river.selectedSegment;
+        const { readyCount, matchingRouteCount } = matchingRiverReadiness(matchingRiverRoutes);
         return {
           id: river.river.slug,
           label: river.river.name,
@@ -873,19 +903,36 @@ function useExploreMapPoints(results: ExploreRiver[], routeCounts: ReadonlyMap<s
           longitude: river.river.longitude,
           score: river.score,
           rating: river.rating,
+          markerLabel: groupedRiver ? `${readyCount}/${matchingRouteCount}` : null,
+          markerAccessibilityLabel: groupedRiver
+            ? `${readyCount} ready of ${matchingRouteCount} matching routes`
+            : null,
           routeCount,
-          spanCoordinates: routeSpanCoordinatesForRiver(river),
+          spanSegments,
           meta: [
             accessPointCountLabel(river),
-            routeCount > 1 ? `${routeCount} route options` : '1 route',
+            groupedRiver ? `${readyCount} ready of ${matchingRouteCount} matching` : '1 route',
+            groupedRiver && routeCount !== matchingRouteCount ? `${routeCount} total routes` : null,
             river.travelLabel ? `${river.travelLabel} drive` : null,
           ]
             .filter(Boolean)
             .join(' - '),
         };
       }),
-    [results, routeCounts]
+    [allMatchingRoutes, results, routeCounts]
   );
+}
+
+function dedupeExploreRoutes(results: ExploreRiver[]) {
+  const seen = new Set<string>();
+  return results.filter((river) => {
+    const key = river.selectedSegment
+      ? `segment:${river.river.slug}`
+      : `river:${riverGroupKeyForRoute(river)}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function routeSpanCoordinatesForRiver(river: RiverSummaryApiItem): MapCoordinate[] | null {

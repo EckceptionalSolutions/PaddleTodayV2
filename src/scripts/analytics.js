@@ -1,11 +1,12 @@
 const ANALYTICS_EVENT_ATTRIBUTE = 'data-analytics-event';
 
 function analyticsEnabled() {
-  return typeof window.plausible === 'function';
+  return typeof window.umami?.track === 'function';
 }
 
 function pageContext() {
   const route = document.querySelector('[data-river-detail]');
+  const riverGroup = document.querySelector('[data-river-group-page]');
   const path = window.location.pathname;
 
   if (route instanceof HTMLElement) {
@@ -15,6 +16,15 @@ function pageContext() {
       river: route.dataset.riverName || undefined,
       state: route.dataset.riverState || undefined,
       region: route.dataset.riverRegion || undefined,
+    };
+  }
+
+  if (riverGroup instanceof HTMLElement) {
+    return {
+      path,
+      river: riverGroup.dataset.riverName || undefined,
+      state: riverGroup.dataset.riverState || undefined,
+      region: riverGroup.dataset.riverRegion || undefined,
     };
   }
 
@@ -43,6 +53,9 @@ function eventProperties(target) {
   const analyticsRiver = element.dataset.analyticsRiver || element.dataset.favoriteName;
   const analyticsState = element.dataset.analyticsState || element.dataset.favoriteState;
   const analyticsRegion = element.dataset.analyticsRegion || element.dataset.favoriteRegion;
+  const analyticsCorridor = element.dataset.analyticsCorridor;
+  const analyticsTripCount = element.dataset.analyticsTripCount;
+  const analyticsSource = element.dataset.analyticsSource;
   const analyticsPlatform = element.dataset.analyticsPlatform || element.closest('[data-platform]')?.dataset.platform;
   const analyticsSourcePage = element.dataset.analyticsSourcePage || document.body?.className || undefined;
   const rawHref = element instanceof HTMLAnchorElement ? element.href : undefined;
@@ -71,6 +84,15 @@ function eventProperties(target) {
   if (analyticsRegion) {
     properties.region = analyticsRegion;
   }
+  if (analyticsCorridor) {
+    properties.corridor_id = analyticsCorridor;
+  }
+  if (analyticsTripCount) {
+    properties.trip_option_count = Number(analyticsTripCount);
+  }
+  if (analyticsSource) {
+    properties.source = analyticsSource;
+  }
   if (analyticsPlatform) {
     properties.platform = analyticsPlatform;
   }
@@ -90,7 +112,7 @@ export function trackEvent(name, properties = {}) {
     return;
   }
 
-  window.plausible(name, { props: cleanProperties({ ...pageContext(), ...properties }) });
+  window.umami.track(name, cleanProperties({ ...pageContext(), ...properties }));
 }
 
 document.addEventListener('click', (event) => {

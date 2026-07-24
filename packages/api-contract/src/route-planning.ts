@@ -14,6 +14,16 @@ export interface RoutePlanningRiver {
     estimatedPaddleTime?: string;
     campingClassification?: CampingClassification;
   };
+  /** Reviewed adjacent access links. When present, unverified/blocked links are not offered. */
+  segmentEdges?: RouteSegmentEdge[];
+  continuityStatus?: 'verified' | 'partial' | 'condition-family';
+}
+
+export interface RouteSegmentEdge {
+  fromId: string;
+  toId: string;
+  status: 'verified' | 'blocked' | 'unknown';
+  note?: string;
 }
 
 export interface RouteSegment {
@@ -122,6 +132,7 @@ export function buildRouteSegments(river: RoutePlanningRiver): RouteSegment[] {
       const takeOut = points[endIndex];
       const distanceMiles = Number((takeOut.mileFromStart - putIn.mileFromStart).toFixed(1));
       if (!Number.isFinite(distanceMiles) || distanceMiles < 1 || distanceMiles >= fullDistance - 0.2) continue;
+      if (river.segmentEdges && !verifiedPathBetween(points, startIndex, endIndex, river.segmentEdges)) continue;
 
       const minHours = Math.max(0.5, distanceMiles / 3);
       const maxHours = Math.max(minHours + 0.25, distanceMiles / 2.2);
@@ -139,6 +150,23 @@ export function buildRouteSegments(river: RoutePlanningRiver): RouteSegment[] {
   }
 
   return segments.sort((left, right) => left.distanceMiles - right.distanceMiles);
+}
+
+function verifiedPathBetween(
+  points: RiverRouteAccessPoint[],
+  startIndex: number,
+  endIndex: number,
+  edges: RouteSegmentEdge[],
+) {
+  const verified = new Set(
+    edges.filter((edge) => edge.status === 'verified').map((edge) => `${edge.fromId}->${edge.toId}`),
+  );
+
+  for (let index = startIndex; index < endIndex; index += 1) {
+    if (!verified.has(`${points[index].id}->${points[index + 1].id}`)) return false;
+  }
+
+  return true;
 }
 
 export function routeSegmentSummary(river: RoutePlanningRiver): RouteSegmentSummary | null {

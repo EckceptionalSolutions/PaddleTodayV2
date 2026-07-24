@@ -551,7 +551,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       alt: 'Rice Creek flowing under bright sun with sparkling water, grassy banks, and early spring trees along the channel.',
       caption: 'Open bend on Rice Creek',
       credit: 'Photo by user',
-      takenLabel: 'Taken today',
+      takenLabel: 'Taken April 17, 2026',
     },
     {
       id: 'rice-creek-user-photo-2',
@@ -559,7 +559,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       alt: 'Rice Creek from kayak level with calm current, grassy banks, and leafless trees arching over the water.',
       caption: 'Kayak-level view on Rice Creek',
       credit: 'Photo by user',
-      takenLabel: 'Taken today',
+      takenLabel: 'Taken April 17, 2026',
     },
   ],
   'mississippi-river-norin-babcock': [
@@ -569,7 +569,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       alt: 'A rocky Mississippi River landing at Norin with canoes pulled up beside the launch and wooded banks across the channel.',
       caption: 'Norin Landing on the Mississippi',
       credit: 'Photo by user',
-      takenLabel: 'Taken today',
+      takenLabel: 'Taken April 17, 2026',
     },
     {
       id: 'mississippi-norin-landing-user-2',
@@ -577,7 +577,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       alt: 'The Mississippi River flows past a shallow gravel shore at Norin Landing under a clear blue sky.',
       caption: 'Shoreline at Norin Landing',
       credit: 'Photo by user',
-      takenLabel: 'Taken today',
+      takenLabel: 'Taken April 17, 2026',
     },
   ],
   'minnehaha-creek-grays-bay-longfellow-lagoon': [

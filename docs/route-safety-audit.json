@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-24T09:34:48.804Z",
-  "routeCount": 929,
-  "issueCount": 574,
+  "generatedAt": "2026-07-24T17:37:39.910Z",
+  "routeCount": 937,
+  "issueCount": 546,
   "summary": {
     "Critical": 0,
-    "High": 342,
-    "Medium": 232,
+    "High": 326,
+    "Medium": 220,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "boone-river-riverside-albright",
-      "slug": "boone-river-riverside-albright",
-      "name": "Boone River",
-      "reach": "Riverside Park Access to Albright's Canoe Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "gs Woods-to-Albright section has faster gradient, rocks, boulders, and moderate swiftwater. Treat the full eight-mile combination as a guarded novice-to-intermediate day. Confidence is good for a mixed official/community Iowa add: Hamilton County's Boone River"
-    },
-    {
-      "routeId": "iowa-river-sturgis-ferry-hills-access",
-      "slug": "iowa-river-sturgis-ferry-hills-access",
-      "name": "Iowa River",
-      "reach": "Sturgis Ferry Park to Hills Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "his segment. Usually an approachable downstream day, but nine-plus miles, storm wood, and soft river banks keep it from being a blind beginner yes. The route is official and the gauge is direct. Confidence is capped mainly by level guidance: Johnson County cle"
-    },
-    {
-      "routeId": "iowa-river-sturgis-ferry-hills-access",
-      "slug": "iowa-river-sturgis-ferry-hills-access",
-      "name": "Iowa River",
-      "reach": "Sturgis Ferry Park to Hills Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "City launch to county ramp Iowa City lists Sturgis Ferry Park with a boat ramp, parking, restrooms, and a 2024 renovation, while Johnson County says Hills Access has a boat ramp, parking, water, restrooms, playground, and camping. Observed working levels Offic"
-    },
     {
       "routeId": "middle-river-schildberg-roseman",
       "slug": "middle-river-schildberg-roseman",
@@ -53,28 +20,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "ge, with timbered valleys, open pasture, scattered riffles, chutes, and a shale ledge above the P53 bridge. Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be con"
-    },
-    {
-      "routeId": "south-skunk-river-lekwa-sopers-mill",
-      "slug": "south-skunk-river-lekwa-sopers-mill",
-      "name": "South Skunk River",
-      "reach": "Lekwa Access to Soper's Mill",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "18 bridge to Soper's Mill, with wooded greenbelt banks, rock riffles, recurring wood hazards, and a direct South Skunk gauge downstream in Ames. Treat roughly 125 cfs at the South Skunk near Ames gauge as the practical low-water floor for the above-Ames reach."
-    },
-    {
-      "routeId": "south-skunk-river-sopers-mill-peterson-park",
-      "slug": "south-skunk-river-sopers-mill-peterson-park",
-      "name": "South Skunk River",
-      "reach": "Soper's Mill to Peterson Park West",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ers with at least intermediate skill. Access and shore-use caveat Public water, private banks Story County and Skunk River Paddlers both warn that the South Skunk is non-meandered and much adjoining land is private, so use only public accesses and confirmed pu"
     },
     {
       "routeId": "turkey-river-elkader-garber",
@@ -451,17 +396,6 @@
       "evidence": "identifies Dump Hollow Ford Road as a year-round carry-down access with unpaved parking and no amenities. Take-out access Laurel Branch Road Access, 37.2370, -83.6703 KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, n"
     },
     {
-      "routeId": "green-river-american-legion-lynn-camp-creek",
-      "slug": "green-river-american-legion-lynn-camp-creek",
-      "name": "Green River",
-      "reach": "American Legion Park Ramp to Lynn Camp Creek Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
       "routeId": "green-river-dennison-green-river-ferry",
       "slug": "green-river-dennison-green-river-ferry",
       "name": "Green River",
@@ -482,39 +416,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "nd 16.15 ft at 2026-07-14 08:00 CDT. That stage is below the NPS 20-foot launch closure but above the park's broad beginner-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution rather than comfort framing. Official route segmen"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-houchins-ferry",
-      "slug": "green-river-dennison-ferry-houchins-ferry",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Houchins Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-houchins-ferry",
-      "slug": "green-river-dennison-ferry-houchins-ferry",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Houchins Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ohibits launching in the park at or above 20 ft. The water remains flatwater by whitewater standards, but 19.8 miles, ferry interaction, changing gravel bars, shifting channels, limited rescue access, and a near-closure high-water ceiling make this a committed"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-houchins-ferry",
-      "slug": "green-river-dennison-ferry-houchins-ferry",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Houchins Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ion, changing gravel bars, shifting channels, limited rescue access, and a near-closure high-water ceiling make this a committed Mammoth Cave route rather than a casual float. Confidence is good for a conservative Kentucky add: KDFWR's Pool 6 page still lists"
     },
     {
       "routeId": "green-river-green-river-ferry-brownsville-city-park",
@@ -559,28 +460,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "026 values of 3950 cfs and 16.15 ft. That stage is below the NPS 20-foot launch closure but above the park's broad beginner-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution. Official route segment Green River Ferry to Houch"
-    },
-    {
-      "routeId": "green-river-greensburg-city-ramp-lynn-camp-creek",
-      "slug": "green-river-greensburg-city-ramp-lynn-camp-creek",
-      "name": "Green River",
-      "reach": "Greensburg City Ramp to Lynn Camp Creek Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "green-river-greensburg-city-ramp-lynn-camp-creek",
-      "slug": "green-river-greensburg-city-ramp-lynn-camp-creek",
-      "name": "Green River",
-      "reach": "Greensburg City Ramp to Lynn Camp Creek Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "; below that expect a slower all-day grind, while above that the broad current, private banks, and steep Lynn Camp finish deserve more caution. The current stays recreational, but 32.9 miles, broad-river wind, sparse legal stops below Glenview, private-bank li"
     },
     {
       "routeId": "green-river-hh-wilson-park-dennison-ferry",
@@ -1087,39 +966,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "endly moving water, but the long mileage, occasional riffles, and storm-changed wood still deserve respect. The route itself is well documented and the Northfield gauge is direct. The strongest hard number is a defensible low-water floor, not a precise preferr"
-    },
-    {
-      "routeId": "cloquet-river-island-lake-bachelor-road",
-      "slug": "cloquet-river-island-lake-bachelor-road",
-      "name": "Cloquet River",
-      "reach": "Island Lake Dam to Bachelor Road",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "cloquet-river-island-lake-bachelor-road",
-      "slug": "cloquet-river-island-lake-bachelor-road",
-      "name": "Cloquet River",
-      "reach": "Island Lake Dam to Bachelor Road",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Official lower-Cloquet day with dam-release-dependent current, Class I-II rapids, and a cleaner trust story than most unsurfaced Minnesota route gaps. The gauge is direct and the route is official, but the app st"
-    },
-    {
-      "routeId": "cloquet-river-island-lake-bachelor-road",
-      "slug": "cloquet-river-island-lake-bachelor-road",
-      "name": "Cloquet River",
-      "reach": "Island Lake Dam to Bachelor Road",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "re is no published route-specific upper band. Mostly Class I current with a few Class II rapids. A workable gauge does not remove the need to scout and portage, especially for less experienced paddlers. MN DNR recommends this trip, the gauge is direct, and the"
     },
     {
       "routeId": "cottonwood-river-juenemann-springfield",
@@ -1747,28 +1593,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ll work, but upper 5s get pushy fast. Small-river current, shallow riffles, and wood make this more technical than the score alone suggests. The preferred band starts from community trip data, but MN DNR seasonality guidance plus DNR weekly stream-flow reports"
-    },
-    {
-      "routeId": "whitewater-river-elba-highway-74",
-      "slug": "whitewater-river-elba-highway-74",
-      "name": "Whitewater River",
-      "reach": "Elba to Highway 74",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Narrow Driftless creek-style Whitewater run with bluff-country scenery and real wood hazard. DNR level bands at Beaver make the go/no-go call more defensible, but this is still a maneuvering route rather than"
-    },
-    {
-      "routeId": "whitewater-river-elba-highway-74",
-      "slug": "whitewater-river-elba-highway-74",
-      "name": "Whitewater River",
-      "reach": "Elba to Highway 74",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "Narrow Driftless creek-style Whitewater run with bluff-country scenery and real wood hazard. DNR level bands at Beaver make the go/no-go call more defensible, but this is still a maneuvering route rather than a lazy float. The Beaver gauge is best around 692.3"
     },
     {
       "routeId": "zumbro-river-falls",
@@ -3773,39 +3597,6 @@
       "evidence": "der gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely. Use the Wolf River at Langlade gauge. The most broadly useful window is 250 to 500 cfs. From 150 to 250 cfs"
     },
     {
-      "routeId": "boone-river-riverside-albright",
-      "slug": "boone-river-riverside-albright",
-      "name": "Boone River",
-      "reach": "Riverside Park Access to Albright's Canoe Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ight's Canoe Access as consecutive water-trail sections, gives mileage/gradient/hazard notes, and publishes cfs safety guidance. Paddling.com documents the same Webster City park-to-Albright trip with 200 cfs minimum and 200-400 cfs normal-level guidance. Webs"
-    },
-    {
-      "routeId": "iowa-river-sturgis-ferry-hills-access",
-      "slug": "iowa-river-sturgis-ferry-hills-access",
-      "name": "Iowa River",
-      "reach": "Sturgis Ferry Park to Hills Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Straightforward Johnson County water-trail day from Iowa City to Hills. The access story is strong and the Iowa City gauge is direct, but the threshold model stays conservative bec"
-    },
-    {
-      "routeId": "iowa-river-sturgis-ferry-hills-access",
-      "slug": "iowa-river-sturgis-ferry-hills-access",
-      "name": "Iowa River",
-      "reach": "Sturgis Ferry Park to Hills Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "cfs only as a conservative floor, not as a claimed sweet spot. Route character Urban edge into bottomland forest Johnson County describes the first half as light industry and cabin-lined banks, with longer forested bottomland miles in the latter half. Take-ou"
-    },
-    {
       "routeId": "maquoketa-river-canton-royertown",
       "slug": "maquoketa-river-canton-royertown",
       "name": "Maquoketa River",
@@ -3815,39 +3606,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "the named Canton County Park topo feature. Royertown coordinates come from the Water Quality Portal site named AWARE 13 Royerton Bridge Access Maquoketa River, matching the county-listed Royertown Bridge Access. Hazards Low spots, wind, high-water push WRT re"
-    },
-    {
-      "routeId": "south-skunk-river-lekwa-sopers-mill",
-      "slug": "south-skunk-river-lekwa-sopers-mill",
-      "name": "South Skunk River",
-      "reach": "Lekwa Access to Soper's Mill",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Upper Story County water-trail leg from Lekwa Access near the E-18 bridge to Soper's Mill, with wooded greenbelt banks, rock riffles, recurring wood hazards, and a direct South Sku"
-    },
-    {
-      "routeId": "south-skunk-river-sopers-mill-peterson-park",
-      "slug": "south-skunk-river-sopers-mill-peterson-park",
-      "name": "South Skunk River",
-      "reach": "Soper's Mill to Peterson Park West",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short official South Skunk water-trail leg from the renovated Soper's Mill launch to Peterson Park West, with a constructed riffle at the put-in, public county access on both ends,"
-    },
-    {
-      "routeId": "south-skunk-river-sopers-mill-peterson-park",
-      "slug": "south-skunk-river-sopers-mill-peterson-park",
-      "name": "South Skunk River",
-      "reach": "Soper's Mill to Peterson Park West",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ble for paddlers with at least intermediate skill because of trees and riffles. Scout the constructed Soper's Mill riffle and be ready for shallow gravel or fresh strainers. Confidence is good for a guarded Iowa minimum-only add: Story County lists Soper's Mil"
     },
     {
       "routeId": "turkey-river-elkader-garber",
@@ -4048,17 +3806,6 @@
       "evidence": "oals and muddier edges; above that the broad current through town deserves more caution at bends and landings. This is one of the easiest Upper Green splits, but it is still moving water with shoals, anglers, and city-ramp traffic rather than a flat pond lap."
     },
     {
-      "routeId": "green-river-american-legion-lynn-camp-creek",
-      "slug": "green-river-american-legion-lynn-camp-creek",
-      "name": "Green River",
-      "reach": "American Legion Park Ramp to Lynn Camp Creek Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "broader current, private-bank corridor, and steep Lynn Camp finish deserve more caution. The current stays recreational, but 34.9 miles, sparse legal exits after Glenview, private-bank limits, and the steep Lynn Camp finish make this a hard planning route rath"
-    },
-    {
       "routeId": "green-river-dennison-green-river-ferry",
       "slug": "green-river-dennison-green-river-ferry",
       "name": "Green River",
@@ -4068,17 +3815,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "r-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution rather than comfort framing. Official route segment Dennison Ferry to Green River Ferry, about 7.5-7.6 mi KDFWR lists Dennison Ferry to Green River Ferry as a 7.5-mile Pool"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-houchins-ferry",
-      "slug": "green-river-dennison-ferry-houchins-ferry",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Houchins Ferry",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ark's beginner-friendly band, so the route should ship with explicit high-water caution. Official route segment Dennison Ferry to Houchins Ferry, about 19.8-20.0 mi KDFWR lists Dennison Ferry to Green River Ferry as 7.5 miles and Green River Ferry to Houchins"
     },
     {
       "routeId": "green-river-glenview-road-lynn-camp-creek",
@@ -4112,17 +3848,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "same route as 12.4 miles with a 4 to 6 hour travel time plus explicit camping, hazard, and wildlife context. The park-maintained direct USGS gauge at Mammoth Cave returned same-day July 14, 2026 values of 3950 cfs and 16.15 ft. That stage is below the NPS 20-"
-    },
-    {
-      "routeId": "green-river-greensburg-city-ramp-lynn-camp-creek",
-      "slug": "green-river-greensburg-city-ramp-lynn-camp-creek",
-      "name": "Green River",
-      "reach": "Greensburg City Ramp to Lynn Camp Creek Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "that the broad current, private banks, and steep Lynn Camp finish deserve more caution. The current stays recreational, but 32.9 miles, broad-river wind, sparse legal stops below Glenview, private-bank limits, and the steep Lynn Camp finish make this a hard p"
     },
     {
       "routeId": "green-river-hh-wilson-park-dennison-ferry",
@@ -4431,28 +4156,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "based and not route-specific enough to replace the app threshold model. Primary caution Wood and post-rain debris The river is usually friendly, but the route report calls out snag and log-pile evidence after higher water. MN DNR recommended Cannon River paddl"
-    },
-    {
-      "routeId": "cloquet-river-island-lake-bachelor-road",
-      "slug": "cloquet-river-island-lake-bachelor-road",
-      "name": "Cloquet River",
-      "reach": "Island Lake Dam to Bachelor Road",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Official lower-Cloquet day with dam-release-dependent current, Class I-II rapids, and a cleaner trust story than most unsurfaced Minnesota route gaps. The gauge is direct and the r"
-    },
-    {
-      "routeId": "cloquet-river-island-lake-bachelor-road",
-      "slug": "cloquet-river-island-lake-bachelor-road",
-      "name": "Cloquet River",
-      "reach": "Island Lake Dam to Bachelor Road",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "urrent with a few Class II rapids. A workable gauge does not remove the need to scout and portage, especially for less experienced paddlers. MN DNR recommends this trip, the gauge is direct, and the low-flow guidance is official. Remaining uncertainty comes fr"
     },
     {
       "routeId": "little-fork-river-veterans-park-highway-73",
@@ -4805,17 +4508,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "h, which is a defensible conservative floor for this upstream subset. Big-river caution Powerboats common; slow-no-wake above 683.0 ft at Stillwater NPS says powerboats are common on this part of the lower St. Croix and documents a slow-no-wake rule when the S"
-    },
-    {
-      "routeId": "whitewater-river-elba-highway-74",
-      "slug": "whitewater-river-elba-highway-74",
-      "name": "Whitewater River",
-      "reach": "Elba to Highway 74",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "w Driftless creek-style Whitewater run with bluff-country scenery and real wood hazard. DNR level bands at Beaver make the go/no-go call more defensible, but this is still a maneuvering route rather than a lazy float. The Beaver gauge is best around 692.3 to 6"
     },
     {
       "routeId": "zumbro-river-falls",

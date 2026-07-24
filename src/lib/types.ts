@@ -14,6 +14,7 @@ import type {
   ScoreImpact,
   ScoreRating,
   WeatherSnapshot,
+  RouteSegmentEdge,
 } from '@paddletoday/api-contract';
 export type {
   ApiErrorResponse,
@@ -142,6 +143,10 @@ export interface RiverTripDetails {
   takeOut: RiverAccessPoint;
   logistics: RiverTripLogistics;
   accessPoints?: RiverRouteAccessPoint[];
+  segmentEdges?: RouteSegmentEdge[];
+  corridorId?: string;
+  corridorLabel?: string;
+  continuityStatus?: 'verified' | 'partial' | 'condition-family';
 }
 
 export interface River {

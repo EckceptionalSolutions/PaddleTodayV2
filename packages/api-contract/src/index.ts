@@ -322,6 +322,10 @@ export interface LiveDataStatus {
 export interface RiverSummaryApiItem {
   river: {
     riverId?: string;
+    conditionZoneId?: string;
+    corridorId?: string;
+    corridorLabel?: string;
+    continuityStatus?: 'verified' | 'partial' | 'condition-family';
     slug: string;
     name: string;
     reach: string;
@@ -337,6 +341,7 @@ export interface RiverSummaryApiItem {
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
     accessPoints?: RiverRouteAccessPoint[];
+    segmentEdges?: import('./route-planning').RouteSegmentEdge[];
     logistics?: RiverSummaryLogistics;
   };
   sources: Array<{
@@ -376,6 +381,10 @@ export interface RiverSummaryApiItem {
 export interface WeekendSummaryApiItem {
   river: {
     riverId?: string;
+    conditionZoneId?: string;
+    corridorId?: string;
+    corridorLabel?: string;
+    continuityStatus?: 'verified' | 'partial' | 'condition-family';
     slug: string;
     name: string;
     reach: string;
@@ -391,6 +400,7 @@ export interface WeekendSummaryApiItem {
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
     accessPoints?: RiverRouteAccessPoint[];
+    segmentEdges?: import('./route-planning').RouteSegmentEdge[];
     logistics?: RiverSummaryLogistics;
   };
   current: {
@@ -423,6 +433,10 @@ export * from './route-planning';
 export interface RiverDetailApiResult {
   river: {
     riverId?: string;
+    conditionZoneId?: string;
+    corridorId?: string;
+    corridorLabel?: string;
+    continuityStatus?: 'verified' | 'partial' | 'condition-family';
     slug: string;
     name: string;
     reach: string;
@@ -454,6 +468,7 @@ export interface RiverDetailApiResult {
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
     accessPoints?: RiverRouteAccessPoint[];
+    segmentEdges?: import('./route-planning').RouteSegmentEdge[];
     logistics?: RiverRouteLogistics;
   };
   sources?: RiverSummaryApiItem['sources'];
@@ -473,6 +488,18 @@ export interface RiverDetailApiResult {
   generatedAt: string;
 }
 
+export interface RiverGroupHeroPhoto {
+  src: string;
+  alt: string;
+  caption: string;
+  credit: string;
+  sourceUrl?: string;
+  licenseLabel: string;
+  licenseUrl?: string;
+  width?: number;
+  height?: number;
+}
+
 export interface RiverGroupApiResult {
   group: {
     riverId: string;
@@ -480,6 +507,14 @@ export interface RiverGroupApiResult {
     routeCount: number;
     stateSummary: string;
     regionSummary: string;
+    regions?: string[];
+    difficultyOptions?: Array<'easy' | 'moderate' | 'hard'>;
+    distanceRange?: {
+      minMiles: number;
+      maxMiles: number;
+      label: string;
+    } | null;
+    heroPhoto?: RiverGroupHeroPhoto | null;
   };
   routes: RiverDetailApiResult[];
 }

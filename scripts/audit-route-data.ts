@@ -1,5 +1,6 @@
 import { rivers } from '../src/data/rivers';
 import { riverTripDetails } from '../src/data/river-trip-details';
+import { minnesotaPaddleGuideEntries } from '../src/data/minnesota-paddle-guide';
 import type { River, RiverAccessPoint } from '../src/lib/types';
 
 type Severity = 'Critical' | 'High' | 'Medium' | 'Low';
@@ -182,6 +183,18 @@ for (const route of rivers) {
         );
       }
     }
+  }
+}
+
+for (const entry of minnesotaPaddleGuideEntries) {
+  if (entry.trackedSlug && !slugs.has(entry.trackedSlug)) {
+    addIssue(
+      { id: `guide:${entry.id}` },
+      'Guide link',
+      'Minnesota paddle guide entry points to a missing route slug',
+      `${entry.id} -> ${entry.trackedSlug}`,
+      'High',
+    );
   }
 }
 

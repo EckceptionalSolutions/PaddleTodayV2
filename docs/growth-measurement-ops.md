@@ -23,23 +23,23 @@ https://paddletoday.com/sitemap-index.xml
 
 Submit that URL in Search Console after deployment. The sitemap excludes admin and alert-unsubscribe pages.
 
-### Plausible Web Analytics
+### Umami Cloud Web Analytics
 
-Plausible is loaded in `src/layouts/BaseLayout.astro` only when `PUBLIC_PLAUSIBLE_DOMAIN` is configured. Local development and builds without this value remain analytics no-op.
+Umami Cloud is loaded in `src/layouts/BaseLayout.astro` only when `PUBLIC_UMAMI_WEBSITE_ID` is configured. Local development and builds without this value remain analytics no-op.
 
 Required production env var:
 
 ```sh
-PUBLIC_PLAUSIBLE_DOMAIN=paddletoday.com
+PUBLIC_UMAMI_WEBSITE_ID=your-umami-website-id
 ```
 
-Optional when using a custom or proxied Plausible script:
+Optional when using a custom or self-hosted Umami script:
 
 ```sh
-PUBLIC_PLAUSIBLE_SCRIPT_SRC=https://paddletoday.com/js/script.js
+PUBLIC_UMAMI_SCRIPT_SRC=https://cloud.umami.is/script.js
 ```
 
-If `PUBLIC_PLAUSIBLE_SCRIPT_SRC` is absent, the app uses `https://plausible.io/js/script.js`.
+If `PUBLIC_UMAMI_SCRIPT_SRC` is absent, the app uses `https://cloud.umami.is/script.js`.
 
 ### Cloudflare Traffic Summary
 
@@ -68,14 +68,14 @@ See `docs/cloudflare-traffic-ops.md` for details.
 
 ### Firebase And Mobile Analytics
 
-Web uses Plausible for page and conversion events. Native mobile uses Firebase Analytics and Crashlytics through `apps/mobile/src/lib/observability.ts`.
+Web uses Umami Cloud for page and conversion events. Native mobile uses Firebase Analytics and Crashlytics through `apps/mobile/src/lib/observability.ts`.
 
 Firebase is enabled only for preview and production native builds when the native config files exist:
 
 - `apps/mobile/firebase/GoogleService-Info.plist`
 - `apps/mobile/firebase/google-services.json`
 
-Use Firebase for app opens, route opens, saves, directions, reports, alerts, support links, and crash-free sessions. Use Plausible for web acquisition, landing pages, guide clicks, route-detail entry points, and web conversions. Use Cloudflare to cross-check total edge traffic and API health.
+Use Firebase for app opens, route opens, saves, directions, reports, alerts, support links, and crash-free sessions. Use Umami for web acquisition, landing pages, guide clicks, route-detail entry points, and web conversions. Use Cloudflare to cross-check total edge traffic and API health.
 
 ## Web Event Registry
 
@@ -111,6 +111,8 @@ Common safe properties:
 | `Open route planner` | Discovery card opens a route with a selected access pair | `path`, `route`, `river`, `state`, `region`, `label`, `href` | none | Home or Explore |
 | `Route planner view` | Access planner initializes on a route detail page | `path`, `route`, `river`, `state`, `region` | `put_in_id`, `take_out_id`, `segment_distance_miles`, `source` | Route detail access plan |
 | `Select route segment` | Paddler changes the put-in or take-out | `path`, `route`, `river`, `state`, `region` | `put_in_id`, `take_out_id`, `segment_distance_miles`, `source` | Route detail access planner |
+| `corridor_selected` | Paddler opens a condition corridor from a river hub | `path`, `river`, `state`, `region`, `label` | `corridor_id`, `trip_option_count` | Web river hub |
+| `corridor_trip_selected` | Paddler chooses a trip option inside a corridor | `path`, `river`, `state`, `region`, `label` | `corridor_id`, `trip_option_count`, `source` | Web/mobile river hub |
 | `Open site search` | Header search button click | `path` | `source_page` | Any page |
 | `Submit location search` | Homepage location search form submit | `path` | `source_page` | Homepage |
 | `Use current location` | Current-location button click | `path` | `source_page` | Homepage |
@@ -119,12 +121,16 @@ Non-conversion helper events may exist for product diagnostics, such as `Open ro
 
 ## Dashboard And Reporting Spec
 
-Do not build a dashboard unless the product adds an internal reporting surface. For now, report from Plausible, Search Console, Cloudflare, Firebase, and API/server health.
+### Corridor pilot report
+
+Export the web/mobile events `corridor_selected`, `corridor_trip_selected`, and route-detail opens (`Route view` / `route_opened`) from Umami/Firebase as JSON, then run `npm run routes:report:corridor-funnel -- path/to/export.json`. The report separates Minnesota, Wisconsin, and Iowa by state and calculates both trip-option selections and route-detail opens divided by corridor selections. Keep session or user identifiers in the export so the report can deduplicate the funnel at the user/session level.
+
+Do not build a dashboard unless the product adds an internal reporting surface. For now, report from Umami, Search Console, Cloudflare, Firebase, and API/server health.
 
 ### Acquisition
 
-- Organic search from Search Console and Plausible source/medium.
-- Referral, direct, and social visits from Plausible.
+- Organic search from Search Console and Umami source/medium.
+- Referral, direct, and social visits from Umami.
 - Query and page impressions/clicks from Search Console.
 
 ### Landing Pages
@@ -161,6 +167,8 @@ Do not build a dashboard unless the product adds an internal reporting surface. 
 - `route_planner_opened_from_filter`.
 - `route_planner_viewed`.
 - `route_segment_selected`.
+- `corridor_selected`.
+- `corridor_trip_selected`.
 - Saves.
 - Alerts.
 - Directions.
@@ -188,7 +196,7 @@ Use the web and mobile event names separately, then compare the rate of planner 
 Every Monday:
 
 1. Search Console: top queries, top pages, new indexed route/guide pages, coverage issues.
-2. Plausible: acquisition mix, top landing pages, route entry pages, conversion counts.
+2. Umami: acquisition mix, top landing pages, route entry pages, conversion counts.
 3. Guides: guide page visits, `Guide-to-route click`, downstream route conversions.
 4. Routes: top organic route landing pages, `Route view`, alerts, saves, shares, reports.
 5. App download: prompt views, opens by platform, and store-console install changes.
@@ -199,8 +207,8 @@ Every Monday:
 
 - Verify `paddletoday.com` in Google Search Console.
 - Submit `https://paddletoday.com/sitemap-index.xml`.
-- Configure Plausible site for `paddletoday.com`.
-- Set `PUBLIC_PLAUSIBLE_DOMAIN` in production.
-- Set `PUBLIC_PLAUSIBLE_SCRIPT_SRC` only if a custom/proxied script is used.
+- Create an Umami Cloud website for `paddletoday.com`.
+- Set the GitHub Actions secret `PUBLIC_UMAMI_WEBSITE_ID` to the Umami website ID so the production build enables analytics.
+- Set `PUBLIC_UMAMI_SCRIPT_SRC` only if a custom/self-hosted script is used.
 - Confirm Cloudflare API token and zone ID for operational summaries.
 - Confirm Firebase events are arriving for production mobile builds after store release.

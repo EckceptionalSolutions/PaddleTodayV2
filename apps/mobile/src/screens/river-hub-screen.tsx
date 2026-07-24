@@ -10,14 +10,35 @@ import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
 import { normalizeApiText, verdictForRating } from '../lib/format';
+import { resolveApiUrl } from '../lib/api-base-url';
 import { photoForRiver } from '../lib/route-photos';
 import { routePreviewFactLine } from '../lib/route-facts';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
+import {
+  activeRiverHubFilterCount,
+  filterRiverHubRoutes,
+  routeDistanceMiles,
+  type HubDifficultyFilter,
+  type HubDistanceFilter,
+} from '../lib/river-hub-filters';
 import { androidBottomInset } from '../lib/safe-area';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
+import { trackAppEvent } from '../lib/observability';
 import { colors, radius, shadow, spacing } from '../theme/tokens';
 
 const SORT_MODES = ['Best', 'Shortest', 'Easiest', 'Confidence'] as const;
+const DISTANCE_FILTERS: Array<{ value: HubDistanceFilter; label: string }> = [
+  { value: 'all', label: 'All trips' },
+  { value: 'under-5', label: 'Under 5 mi' },
+  { value: '5-10', label: '5–10 mi' },
+  { value: '10-plus', label: '10+ mi' },
+];
+const DIFFICULTY_FILTERS: Array<{ value: HubDifficultyFilter; label: string }> = [
+  { value: 'all', label: 'All difficulty' },
+  { value: 'easy', label: 'Easy' },
+  { value: 'moderate', label: 'Moderate' },
+  { value: 'hard', label: 'Hard' },
+];
 type SortMode = (typeof SORT_MODES)[number];
 type MapCoordinate = { latitude: number; longitude: number };
 type HubAccessPoint = NonNullable<RiverDetailApiResult['river']['accessPoints']>[number];
@@ -29,17 +50,31 @@ export default function RiverHubScreen() {
   const [expandedRoutes, setExpandedRoutes] = useState<Set<string>>(() => new Set());
   const [selectedRouteSlug, setSelectedRouteSlug] = useState<string | null>(null);
   const [sortMode, setSortMode] = useState<SortMode>('Best');
+  const [distanceFilter, setDistanceFilter] = useState<HubDistanceFilter>('all');
+  const [difficultyFilter, setDifficultyFilter] = useState<HubDifficultyFilter>('all');
+  const [regionFilter, setRegionFilter] = useState<string | null>(null);
+  const [showMoreFilters, setShowMoreFilters] = useState(false);
   const listRef = useRef<FlatList<RiverDetailApiResult> | null>(null);
   const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
   const groupQuery = useRiverGroupQuery(riverId);
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const result = groupQuery.data?.result ?? null;
   const allRoutes = result?.routes ?? [];
-  const bestRoute = useMemo(() => [...allRoutes].sort(compareBestRoute)[0] ?? null, [allRoutes]);
-  const routes = useMemo(() => sortedRoutes(allRoutes, sortMode), [allRoutes, sortMode]);
-  const routePoints = useMemo(() => routeMapPoints(allRoutes), [allRoutes]);
+  const filters = useMemo(() => ({
+    distance: distanceFilter,
+    difficulty: difficultyFilter,
+    region: regionFilter,
+  }), [difficultyFilter, distanceFilter, regionFilter]);
+  const filteredRoutes = useMemo(() => filterRiverHubRoutes(allRoutes, filters), [allRoutes, filters]);
+  const corridorRoutes = useMemo(() => uniqueRoutesByCorridor(filteredRoutes), [filteredRoutes]);
+  const bestRoute = useMemo(() => [...corridorRoutes].sort(compareBestRoute)[0] ?? null, [corridorRoutes]);
+  const routes = useMemo(() => sortedRoutes(corridorRoutes, sortMode), [corridorRoutes, sortMode]);
+  const routePoints = useMemo(() => routeMapPoints(routes), [routes]);
   const selectedGeometryQuery = useRiverGeometryQuery(selectedRouteSlug ?? '');
   const selectedRoute = allRoutes.find((route) => route.river.slug === selectedRouteSlug) ?? null;
+  const filterCount = activeRiverHubFilterCount(filters);
+  const regions = result?.group.regions
+    ?? [...new Set(allRoutes.map((route) => route.river.region))].sort();
   const selectedCanonicalSpan = useMemo(
     () => (selectedRoute ? endpointSnappedRouteCoordinates(selectedGeometryQuery.data, routeSpanCoordinates(selectedRoute)) : null),
     [selectedGeometryQuery.data, selectedRoute]
@@ -96,7 +131,11 @@ export default function RiverHubScreen() {
   }
 
   const summary = routeStatusSummary(allRoutes);
-  const planningStats = routePlanningStats(allRoutes);
+  const distanceRangeLabel = result.group.distanceRange?.label ?? distanceRangeForRoutes(allRoutes);
+  const difficultyLabel = difficultySummary(
+    result.group.difficultyOptions ?? allRoutes.map((route) => route.river.profile.difficulty)
+  );
+  const heroPhoto = result.group.heroPhoto;
   const bottomContentInset = androidBottomInset(insets.bottom);
 
   function toggleExpandedRoute(slug: string) {
@@ -123,8 +162,9 @@ export default function RiverHubScreen() {
     return (
       <RouteChoiceCard
         route={route}
+        tripCount={tripCountForRoute(route, allRoutes)}
         rank={index + 1}
-        recommended={index === 0}
+        recommended={route.river.slug === bestRoute?.river.slug}
         selected={route.river.slug === selectedRouteSlug}
         saved={isSaved(route.river.slug)}
         expanded={expandedRoutes.has(route.river.slug)}
@@ -137,7 +177,18 @@ export default function RiverHubScreen() {
             reach: route.river.reach,
           })
         }
-        onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
+        onOpen={() => {
+          trackAppEvent('corridor_trip_selected', {
+            corridor_id: route.river.corridorId ?? route.river.conditionZoneId ?? route.river.riverId,
+            slug: route.river.slug,
+            trip_option_count: tripCountForRoute(route, allRoutes),
+            river: route.river.name,
+            state: route.river.state,
+            region: route.river.region,
+            source: 'river_hub',
+          });
+          router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } });
+        }}
       />
     );
   }
@@ -172,35 +223,119 @@ export default function RiverHubScreen() {
         ListHeaderComponent={
           <>
             <View style={styles.hero}>
-              <Text style={styles.kicker}>{result.group.stateSummary}</Text>
-              <Text style={styles.title}>{result.group.name} Routes</Text>
-              <Text style={styles.subtitle}>{hubStatusLine(summary, result.group.routeCount)}</Text>
-              <View style={styles.heroMeta}>
-                <MetricPill label="Routes" value={String(result.group.routeCount)} />
-                <MetricPill label="Good for paddling today" value={String(summary.paddleable)} />
-                <MetricPill label="Skip" value={String(summary.skip)} />
-              </View>
-            </View>
-
-            <View style={styles.mapSection}>
-              <SectionCard title="Route map" subtitle="Tap a score to jump to that stretch.">
-                <View style={styles.mapFrame}>
-                  <RoutePlotMap
-                    points={routePoints}
-                    selectedId={selectedRouteSlug}
-                    canonicalSpans={canonicalSpans}
-                    height={220}
-                    fitToAllOnReady
-                    fullBleed
-                    onSelectPoint={(point) => selectRouteFromMap(point.id)}
-                  />
+              <ImageBackground
+                source={{ uri: heroPhoto ? resolveApiUrl(heroPhoto.src) : photoForRiver(allRoutes[0].river) }}
+                style={styles.heroPhoto}
+                imageStyle={styles.heroPhotoImage}
+                accessibilityRole="image"
+                accessibilityLabel={heroPhoto?.alt ?? `${result.group.name} river`}
+              >
+                <View style={styles.heroPhotoScrim} />
+                {heroPhoto ? (
+                  <View style={styles.heroPhotoCaption}>
+                    <Text style={styles.heroPhotoCaptionText}>{heroPhoto.caption}</Text>
+                    <Text style={styles.heroPhotoCredit}>{heroPhoto.credit} · {heroPhoto.licenseLabel}</Text>
+                  </View>
+                ) : null}
+              </ImageBackground>
+              <View style={styles.heroCopy}>
+                <Text style={styles.kicker}>{result.group.stateSummary} · River guide</Text>
+                <Text style={styles.title}>{result.group.name}</Text>
+                <Text style={styles.subtitle}>
+                  Plan a paddle across {regions.length} {regions.length === 1 ? 'paddle area' : 'paddle areas'}. Compare distance, difficulty, and today’s conditions.
+                </Text>
+                <View style={styles.heroFacts}>
+                  <HeroFact label="Mapped trips" value={String(result.group.routeCount)} />
+                  <HeroFact label="Distance range" value={distanceRangeLabel ?? 'Varies'} />
+                  <HeroFact label="Difficulty" value={difficultyLabel} />
                 </View>
-              </SectionCard>
+                <Text style={styles.routeCalls}>{hubStatusLine(summary, result.group.routeCount)}</Text>
+              </View>
             </View>
 
             <View style={styles.listIntro}>
               <Text style={styles.listIntroTitle}>Choose a stretch</Text>
-              <Text style={styles.listIntroSubtitle}>{comparisonSubtitle(summary)}</Text>
+              <Text style={styles.listIntroSubtitle}>Start with distance, then narrow by difficulty or paddle area.</Text>
+              <Text style={styles.filterLabel}>Distance</Text>
+              <View style={styles.filterChips}>
+                {DISTANCE_FILTERS.map((option) => (
+                  <FilterChip
+                    key={option.value}
+                    label={option.label}
+                    selected={distanceFilter === option.value}
+                    onPress={() => {
+                      setDistanceFilter(option.value);
+                      trackAppEvent('river_hub_filter_applied', { river_id: riverId, filter: 'distance', value: option.value });
+                    }}
+                  />
+                ))}
+              </View>
+              <View style={styles.filterActions}>
+                <Pressable
+                  style={[styles.moreFiltersButton, showMoreFilters ? styles.moreFiltersButtonActive : null]}
+                  onPress={() => setShowMoreFilters((current) => !current)}
+                  accessibilityRole="button"
+                  accessibilityState={{ expanded: showMoreFilters }}
+                >
+                  <MaterialCommunityIcons name="tune-variant" color={colors.accent} size={16} />
+                  <Text style={styles.moreFiltersButtonText}>
+                    More filters{filterCount > Number(distanceFilter !== 'all') ? ` (${filterCount - Number(distanceFilter !== 'all')})` : ''}
+                  </Text>
+                </Pressable>
+                {filterCount > 0 ? (
+                  <Pressable
+                    onPress={() => {
+                      setDistanceFilter('all');
+                      setDifficultyFilter('all');
+                      setRegionFilter(null);
+                    }}
+                    accessibilityRole="button"
+                  >
+                    <Text style={styles.clearFiltersText}>Clear</Text>
+                  </Pressable>
+                ) : null}
+              </View>
+              {showMoreFilters ? (
+                <View style={styles.moreFiltersPanel}>
+                  <Text style={styles.filterLabel}>Difficulty</Text>
+                  <View style={styles.filterChips}>
+                    {DIFFICULTY_FILTERS.map((option) => (
+                      <FilterChip
+                        key={option.value}
+                        label={option.label}
+                        selected={difficultyFilter === option.value}
+                        onPress={() => {
+                          setDifficultyFilter(option.value);
+                          trackAppEvent('river_hub_filter_applied', { river_id: riverId, filter: 'difficulty', value: option.value });
+                        }}
+                      />
+                    ))}
+                  </View>
+                  {regions.length > 1 ? (
+                    <>
+                      <Text style={styles.filterLabel}>Paddle area</Text>
+                      <View style={styles.filterChips}>
+                        <FilterChip label="All areas" selected={!regionFilter} onPress={() => setRegionFilter(null)} />
+                        {regions.map((region) => (
+                          <FilterChip
+                            key={region}
+                            label={region}
+                            selected={regionFilter === region}
+                            onPress={() => {
+                              setRegionFilter(region);
+                              trackAppEvent('river_hub_filter_applied', { river_id: riverId, filter: 'region', value: region });
+                            }}
+                          />
+                        ))}
+                      </View>
+                    </>
+                  ) : null}
+                </View>
+              ) : null}
+              <Text style={styles.resultCount}>
+                Showing {routes.length} of {uniqueRoutesByCorridor(allRoutes).length} stretches
+                {filterCount ? ` · ${filterCount} active ${filterCount === 1 ? 'filter' : 'filters'}` : ''}
+              </Text>
               <View style={styles.sortTabs}>
                 {SORT_MODES.map((mode) => (
                   <Pressable
@@ -215,15 +350,34 @@ export default function RiverHubScreen() {
                   </Pressable>
                 ))}
               </View>
-              <View style={styles.planningGrid}>
-                <PlanningStat label="Best score" value={planningStats.bestScoreLabel} />
-                <PlanningStat label="Shortest" value={planningStats.shortestLabel} />
-                <PlanningStat label="Easiest" value={planningStats.easyCountLabel} />
-                <PlanningStat label="Good for paddling today" value={planningStats.paddleableLabel} />
-              </View>
             </View>
+
+            {routes.length > 0 ? (
+              <View style={styles.mapSection}>
+                <SectionCard title="Compare on the map" subtitle="Each line is a stretch. Tap a score to jump to its card.">
+                  <View style={styles.mapFrame}>
+                    <RoutePlotMap
+                      points={routePoints}
+                      selectedId={selectedRouteSlug}
+                      canonicalSpans={canonicalSpans}
+                      height={260}
+                      fitToAllOnReady
+                      fullBleed
+                      onSelectPoint={(point) => selectRouteFromMap(point.id)}
+                    />
+                  </View>
+                </SectionCard>
+              </View>
+            ) : null}
           </>
         }
+        ListEmptyComponent={(
+          <View style={styles.emptyResults}>
+            <MaterialCommunityIcons name="filter-remove-outline" color={colors.textMuted} size={30} />
+            <Text style={styles.emptyResultsTitle}>No stretches match</Text>
+            <Text style={styles.emptyResultsBody}>Clear a filter to see more of this river.</Text>
+          </View>
+        )}
       />
     </>
   );
@@ -231,6 +385,7 @@ export default function RiverHubScreen() {
 
 function RouteChoiceCard({
   route,
+  tripCount,
   rank,
   recommended = false,
   selected,
@@ -241,6 +396,7 @@ function RouteChoiceCard({
   onOpen,
 }: {
   route: RiverDetailApiResult;
+  tripCount: number;
   rank?: number;
   recommended?: boolean;
   selected: boolean;
@@ -272,9 +428,10 @@ function RouteChoiceCard({
             {rank ? <Text style={styles.routeRank}>Rank #{rank}</Text> : null}
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
-          <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
+          <Text style={styles.routeName} numberOfLines={2}>{route.river.corridorLabel ?? route.river.reach}</Text>
           <Text style={styles.routeVerdict}>{verdictForRating(route.rating)}</Text>
-          <Text style={styles.routeMeta} numberOfLines={1}>{routeMetaLine(route)}</Text>
+          <Text style={styles.routeMeta} numberOfLines={2}>{tripCount} trip option{tripCount === 1 ? '' : 's'} · {routeMetaLine(route)}</Text>
+          <Text style={styles.routeMeta} numberOfLines={2}>{continuityLabel(route.river.continuityStatus)}</Text>
         </View>
       </Pressable>
 
@@ -339,12 +496,33 @@ function ReasonChip({ label }: { label: string }) {
   );
 }
 
-function MetricPill({ label, value }: { label: string; value: string }) {
+function HeroFact({ label, value }: { label: string; value: string }) {
   return (
-    <View style={styles.metricPill}>
-      <Text style={styles.metricPillLabel}>{label}</Text>
-      <Text style={styles.metricPillValue}>{value}</Text>
+    <View style={styles.heroFact}>
+      <Text style={styles.heroFactValue} numberOfLines={2}>{value}</Text>
+      <Text style={styles.heroFactLabel}>{label}</Text>
     </View>
+  );
+}
+
+function FilterChip({
+  label,
+  selected,
+  onPress,
+}: {
+  label: string;
+  selected: boolean;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      style={[styles.filterChip, selected ? styles.filterChipSelected : null]}
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityState={{ selected }}
+    >
+      <Text style={[styles.filterChipText, selected ? styles.filterChipTextSelected : null]}>{label}</Text>
+    </Pressable>
   );
 }
 
@@ -352,6 +530,7 @@ function routeMapPoints(routes: RiverDetailApiResult[]): RoutePlotPoint[] {
   return routes.map((route) => {
     const spanCoordinates = routeSpanCoordinates(route);
     const markerCoordinate = mapMarkerCoordinate(route, spanCoordinates);
+    const distance = routeDistanceMiles(route);
 
     return {
       id: route.river.slug,
@@ -360,8 +539,12 @@ function routeMapPoints(routes: RiverDetailApiResult[]): RoutePlotPoint[] {
       longitude: markerCoordinate.longitude,
       score: route.score,
       rating: route.rating,
+      markerLabel: distance === null ? null : formatDistance(distance),
+      markerAccessibilityLabel: distance === null ? null : `${formatDistance(distance)} miles`,
       spanCoordinates,
-      meta: [accessPointCountLabel(route), `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
+      meta: [route.river.distanceLabel, accessPointCountLabel(route), `${route.score} ${route.rating}`]
+        .filter(Boolean)
+        .join(' - '),
     };
   });
 }
@@ -430,15 +613,6 @@ function hasMappedAccessCoordinate(
   return entry.coordinate !== null;
 }
 
-function PlanningStat({ label, value }: { label: string; value: string }) {
-  return (
-    <View style={styles.planningStat}>
-      <Text style={styles.planningStatLabel}>{label}</Text>
-      <Text style={styles.planningStatValue} numberOfLines={1}>{value}</Text>
-    </View>
-  );
-}
-
 function routeStatusSummary(routes: RiverDetailApiResult[]) {
   return routes.reduce(
     (summary, route) => {
@@ -457,12 +631,6 @@ function hubStatusLine(summary: { paddleable: number; skip: number }, total: num
   const paddleable = `${summary.paddleable} of ${total} good for paddling today`;
   const skips = `${summary.skip} skip${summary.skip === 1 ? '' : 's'}`;
   return [paddleable, skips].join(' - ');
-}
-
-function comparisonSubtitle(summary: { paddleable: number; skip: number }) {
-  const paddleableLabel = `${summary.paddleable} good for paddling today`;
-  const skipLabel = `${summary.skip} skip${summary.skip === 1 ? '' : 's'}`;
-  return `${paddleableLabel}, ${skipLabel}. Sorted by today's score.`;
 }
 
 function compareBestRoute(left: RiverDetailApiResult, right: RiverDetailApiResult) {
@@ -487,9 +655,7 @@ function sortedRoutes(routes: RiverDetailApiResult[], sortMode: SortMode) {
 }
 
 function comparableDistance(route: RiverDetailApiResult) {
-  const match = route.river.distanceLabel.match(/(\d+(?:\.\d+)?)/);
-  const value = match ? Number(match[1]) : Number.POSITIVE_INFINITY;
-  return Number.isFinite(value) ? value : Number.POSITIVE_INFINITY;
+  return routeDistanceMiles(route) ?? Number.POSITIVE_INFINITY;
 }
 
 function difficultyRank(route: RiverDetailApiResult) {
@@ -498,18 +664,29 @@ function difficultyRank(route: RiverDetailApiResult) {
   return 2;
 }
 
-function routePlanningStats(routes: RiverDetailApiResult[]) {
-  const shortest = [...routes].sort((left, right) => comparableDistance(left) - comparableDistance(right))[0];
-  const easyCount = routes.filter((route) => route.river.profile.difficulty === 'easy').length;
-  const bestScore = [...routes].sort(compareBestRoute)[0]?.score;
-  const summary = routeStatusSummary(routes);
+function distanceRangeForRoutes(routes: RiverDetailApiResult[]) {
+  const distances = routes
+    .map(routeDistanceMiles)
+    .filter((distance): distance is number => distance !== null);
+  if (distances.length === 0) {
+    return null;
+  }
 
-  return {
-    bestScoreLabel: typeof bestScore === 'number' ? String(bestScore) : 'Unknown',
-    shortestLabel: shortest?.river.distanceLabel || 'Unknown',
-    easyCountLabel: `${easyCount} easy`,
-    paddleableLabel: `${summary.paddleable}/${routes.length}`,
-  };
+  const min = Math.min(...distances);
+  const max = Math.max(...distances);
+  return `${formatDistance(min)}–${formatDistance(max)} mi`;
+}
+
+function formatDistance(distance: number) {
+  return Number.isInteger(distance) ? String(distance) : String(Number(distance.toFixed(1)));
+}
+
+function difficultySummary(difficulties: Array<'easy' | 'moderate' | 'hard'>) {
+  const present = new Set(difficulties);
+  return (['easy', 'moderate', 'hard'] as const)
+    .filter((difficulty) => present.has(difficulty))
+    .map((difficulty) => `${difficulty.charAt(0).toUpperCase()}${difficulty.slice(1)}`)
+    .join(' · ') || 'Varies';
 }
 
 function sortIcon(sortMode: SortMode) {
@@ -525,6 +702,34 @@ function sourceStrengthLabel(route: RiverDetailApiResult) {
   if (strength === 'mixed') return 'Mixed sources';
   if (strength === 'derived') return 'Calculated water levels';
   return 'Paddler-reported levels';
+}
+
+function corridorKey(route: RiverDetailApiResult) {
+  return route.river.continuityStatus === 'condition-family'
+    ? route.river.conditionZoneId || route.river.slug
+    : route.river.corridorId || route.river.conditionZoneId || route.river.riverId || route.river.slug;
+}
+
+function continuityLabel(status: string | undefined) {
+  if (status === 'verified') return 'Continuous access chain reviewed';
+  if (status === 'partial') return 'Partial corridor; gaps remain';
+  if (status === 'condition-family') return 'Condition family; continuity unverified';
+  return 'Continuity review pending';
+}
+
+function uniqueRoutesByCorridor(routes: RiverDetailApiResult[]) {
+  const seen = new Set<string>();
+  return routes.filter((route) => {
+    const key = corridorKey(route);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function tripCountForRoute(route: RiverDetailApiResult, routes: RiverDetailApiResult[]) {
+  const key = corridorKey(route);
+  return routes.filter((candidate) => corridorKey(candidate) === key).length;
 }
 
 function routeMetaLine(route: RiverDetailApiResult) {
@@ -618,9 +823,42 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.lg,
-    gap: 10,
+    overflow: 'hidden',
     ...shadow,
+  },
+  heroPhoto: {
+    height: 190,
+    justifyContent: 'flex-end',
+    backgroundColor: colors.canvasMuted,
+  },
+  heroPhotoImage: {
+    resizeMode: 'cover',
+  },
+  heroPhotoScrim: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(9, 24, 31, 0.22)',
+  },
+  heroPhotoCaption: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    backgroundColor: 'rgba(9, 24, 31, 0.62)',
+    gap: 1,
+  },
+  heroPhotoCaptionText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: '900',
+  },
+  heroPhotoCredit: {
+    color: 'rgba(255, 255, 255, 0.82)',
+    fontSize: 10,
+    lineHeight: 13,
+    fontWeight: '700',
+  },
+  heroCopy: {
+    padding: spacing.lg,
+    gap: 9,
   },
   kicker: {
     color: colors.accentDeep,
@@ -640,29 +878,37 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 21,
   },
-  heroMeta: {
+  heroFacts: {
     flexDirection: 'row',
-    flexWrap: 'nowrap',
-    gap: spacing.sm,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: colors.border,
+    paddingVertical: spacing.sm,
   },
-  metricPill: {
+  heroFact: {
     flex: 1,
-    backgroundColor: colors.canvasMuted,
-    borderRadius: radius.md,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 9,
+    minHeight: 48,
+    paddingHorizontal: 8,
+    justifyContent: 'center',
     gap: 2,
   },
-  metricPillLabel: {
+  heroFactLabel: {
     color: colors.textMuted,
-    fontSize: 11,
+    fontSize: 9,
     fontWeight: '800',
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
-  metricPillValue: {
+  heroFactValue: {
     color: colors.text,
-    fontSize: 16,
+    fontSize: 14,
+    lineHeight: 17,
+    fontWeight: '900',
+  },
+  routeCalls: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    lineHeight: 17,
     fontWeight: '900',
   },
   mapSection: {
@@ -695,6 +941,87 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
   },
+  filterLabel: {
+    color: colors.textMuted,
+    fontSize: 10,
+    lineHeight: 14,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    marginTop: spacing.sm,
+  },
+  filterChips: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 7,
+    marginTop: 5,
+  },
+  filterChip: {
+    minHeight: 36,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 12,
+    justifyContent: 'center',
+  },
+  filterChipSelected: {
+    borderColor: colors.accent,
+    backgroundColor: colors.accent,
+  },
+  filterChipText: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  filterChipTextSelected: {
+    color: colors.surfaceStrong,
+  },
+  filterActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: spacing.sm,
+  },
+  moreFiltersButton: {
+    minHeight: 36,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  moreFiltersButtonActive: {
+    borderColor: colors.accent,
+    backgroundColor: colors.accentSoft,
+  },
+  moreFiltersButtonText: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  clearFiltersText: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
+    padding: 8,
+  },
+  moreFiltersPanel: {
+    marginTop: spacing.sm,
+    paddingTop: spacing.sm,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+  },
+  resultCount: {
+    color: colors.textMuted,
+    fontSize: 11,
+    lineHeight: 16,
+    fontWeight: '800',
+    marginTop: spacing.sm,
+  },
   sortTabs: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -724,35 +1051,21 @@ const styles = StyleSheet.create({
   sortTabTextSelected: {
     color: colors.surfaceStrong,
   },
-  planningGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-    marginTop: spacing.sm,
+  emptyResults: {
+    alignItems: 'center',
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.lg,
+    gap: 5,
   },
-  planningStat: {
-    flexGrow: 1,
-    flexBasis: '47%',
-    minHeight: 50,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 8,
-    gap: 3,
-  },
-  planningStatLabel: {
-    color: colors.textMuted,
-    fontSize: 10,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
-  },
-  planningStatValue: {
+  emptyResultsTitle: {
     color: colors.text,
-    fontSize: 13,
+    fontSize: 17,
     fontWeight: '900',
+  },
+  emptyResultsBody: {
+    color: colors.textMuted,
+    fontSize: 13,
+    textAlign: 'center',
   },
   routeCard: {
     backgroundColor: colors.surface,

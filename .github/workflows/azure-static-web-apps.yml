@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SITE_URL: https://paddletoday.com
+      PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.PUBLIC_UMAMI_WEBSITE_ID }}
     steps:
       - uses: actions/checkout@v4
 

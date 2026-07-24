@@ -1069,6 +1069,7 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
           : `/rivers/${cardRoute.river.slug}/`,
       cardRoute,
       totalRouteCount,
+      matchingRouteCount: routes.length,
       paddleableRouteCount,
       representativeMode: representative.mode,
       distanceMiles: distanceMilesValue,
@@ -1134,6 +1135,31 @@ function isGroupedItem(item) {
   return item.kind === 'group' && item.totalRouteCount > 1;
 }
 
+function mapMarkerLabel(item) {
+  if (!isGroupedItem(item)) {
+    return String(item.cardRoute.score);
+  }
+
+  return `${item.paddleableRouteCount}/${item.matchingRouteCount ?? item.totalRouteCount}`;
+}
+
+function mapMarkerContext(item) {
+  if (!isGroupedItem(item)) {
+    return recommendationVerdict(item);
+  }
+
+  const matchingCount = item.matchingRouteCount ?? item.totalRouteCount;
+  return `${item.paddleableRouteCount} ready of ${matchingCount} matching routes`;
+}
+
+function mapMarkerAriaLabel(item) {
+  if (!isGroupedItem(item)) {
+    return `${item.cardRoute.river.name}: score ${item.cardRoute.score}, ${confidenceDisplayLabel(item.cardRoute.confidence.label).toLowerCase()}`;
+  }
+
+  return `${item.cardRoute.river.name}: ${mapMarkerContext(item)}; top matching stretch score ${item.cardRoute.score}`;
+}
+
 function routeCountLabel(item) {
   return `${item.totalRouteCount} routes on this river`;
 }
@@ -1152,7 +1178,8 @@ function routeLabelForItem(item) {
 }
 
 function segmentLabelForItem(item) {
-  return formatRouteSegmentLabel(item.segmentSummary, item.selectedSegment);
+  return formatRouteSegmentLabel(item.segmentSummary, item.selectedSegment)
+    || (isGroupedItem(item) ? representativeRouteLabel(item) : '');
 }
 
 function featuredRouteLabelForItem(item) {
@@ -2179,7 +2206,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
     } else {
       const markerNode = document.createElement('div');
       markerNode.className = markerClassFor(item);
-      markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
+      markerNode.innerHTML = `<span>${escapeHtml(mapMarkerLabel(item))}</span>`;
       markerNode.setAttribute('aria-hidden', 'true');
 
       const marker = new maplibregl.Marker({
@@ -2596,9 +2623,9 @@ function createRecommendationCard(item, index, nearbyReady) {
   }
 
   setText(card, 'recommendation-slot', index === 0 ? "Today's Best" : recommendationSlotLabel(index, nearbyReady));
-  setText(card, 'recommendation-kind', item.kind === 'group' ? 'River' : 'Route');
+  setText(card, 'recommendation-kind', item.kind === 'group' ? 'River · top stretch score' : 'Route score');
   setText(card, 'recommendation-state', regionStateText(item));
-  setText(card, 'recommendation-route', routeLabelForItem(item));
+  setText(card, 'recommendation-route', featuredRouteLabelForItem(item));
   setText(card, 'recommendation-summary', recommendationSummaryText(item, nearbyReady));
   setText(card, 'recommendation-score', String(item.cardRoute.score));
   setText(card, 'recommendation-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
@@ -2720,7 +2747,7 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   }
   card.classList.add(item.kind === 'group' ? 'river-card--group' : 'river-card--route');
 
-  setText(card, 'card-kind', item.kind === 'group' ? 'River' : 'Route');
+  setText(card, 'card-kind', item.kind === 'group' ? 'River · top stretch score' : 'Route score');
   setText(card, 'state', regionStateText(item));
   setText(card, 'route-label', routeLabelForItem(item));
   setText(card, 'segment-label', segmentLabelForItem(item));
@@ -3846,8 +3873,8 @@ function popupMarkup(item) {
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       ${reachMarkup}
       <div class="score-map-popup__scoreline">
-        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingKey)}">${escapeHtml(String(item.cardRoute.score))}</span>
-        <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(item))}</p>
+        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingKey)}">${escapeHtml(mapMarkerLabel(item))}</span>
+        <p class="score-map-popup__verdict">${escapeHtml(mapMarkerContext(item))}</p>
       </div>
       <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(item, nearbyReady))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
@@ -4061,11 +4088,13 @@ function renderSummaryMapResults(items) {
     button.dataset.summaryMapItem = item.key;
     button.setAttribute('aria-pressed', selectedSummaryMapKey === item.key ? 'true' : 'false');
     button.innerHTML = `
-      <span class="summary-map-result__score score-map-marker ${markerClassFor(item)}"><span>${item.cardRoute.score}</span></span>
+      <span class="summary-map-result__score score-map-marker ${markerClassFor(item)}"><span>${escapeHtml(mapMarkerLabel(item))}</span></span>
       <span class="summary-map-result__body">
         <strong class="summary-map-result__name">${escapeHtml(item.cardRoute.river.name)}</strong>
         <span class="summary-map-result__route">${escapeHtml(routeLabelForItem(item))}</span>
-        <span class="summary-map-result__meta">${escapeHtml(joinWithBullet([confidenceLabel(item), shortRouteLengthLabel(item)]))}</span>
+        <span class="summary-map-result__meta">${escapeHtml(isGroupedItem(item)
+          ? joinWithBullet([mapMarkerContext(item), `Top stretch score ${item.cardRoute.score}`])
+          : joinWithBullet([confidenceLabel(item), shortRouteLengthLabel(item)]))}</span>
       </span>
     `;
     button.addEventListener('click', () => {
@@ -4302,10 +4331,10 @@ async function renderRequestedSummaryMap(items) {
       const markerNode = document.createElement('button');
       markerNode.type = 'button';
       markerNode.className = markerClassFor(item);
-      markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
+      markerNode.innerHTML = `<span>${escapeHtml(mapMarkerLabel(item))}</span>`;
       markerNode.setAttribute(
         'aria-label',
-        `${item.cardRoute.river.name}: score ${item.cardRoute.score}, ${confidenceDisplayLabel(item.cardRoute.confidence.label).toLowerCase()}`
+        mapMarkerAriaLabel(item)
       );
 
       const marker = new maplibregl.Marker({

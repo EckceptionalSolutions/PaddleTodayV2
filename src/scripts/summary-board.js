@@ -978,6 +978,7 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
       kind: totalRouteCount > 1 ? 'group' : 'route',
       cardRoute,
       totalRouteCount,
+      matchingRouteCount: routes.length,
       paddleableRouteCount,
       representativeMode: representative.mode,
       distanceMiles: distanceMilesValue,
@@ -1002,26 +1003,27 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
 
 function buildRouteMapItems(allResults, filteredResults, options = {}) {
   const allByRiver = groupResultsByRiverId(allResults);
+  const filteredByRiver = groupResultsByRiverId(filteredResults);
 
-  return filteredResults
-    .filter((result) => {
-      const latitude = result?.river?.latitude;
-      const longitude = result?.river?.longitude;
-      return Number.isFinite(latitude) && Number.isFinite(longitude);
-    })
-    .map((cardRoute) => {
-      const totalRouteCount = allByRiver.get(cardRoute.river.riverId || cardRoute.river.slug)?.length ?? 1;
+  return [...filteredByRiver.entries()].flatMap(([groupKey, routes]) => {
+      const cardRoute = pickRepresentativeRoute(routes, 'best-now').route;
+      if (!cardRoute) return [];
+      const latitude = cardRoute?.river?.latitude;
+      const longitude = cardRoute?.river?.longitude;
+      if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return [];
+      const totalRouteCount = allByRiver.get(groupKey)?.length ?? routes.length;
       const distanceMilesValue = distanceForResult(cardRoute);
       const travelMinutes = estimateTravelMinutes(distanceMilesValue);
       const segmentFilters = options.segmentFilters ?? null;
       const selectedSegment = segmentFilters ? selectRouteSegment(cardRoute, segmentFilters) : null;
 
       return {
-        key: cardRoute.river.slug,
-        kind: 'route',
+        key: groupKey,
+        kind: totalRouteCount > 1 ? 'group' : 'route',
         cardRoute,
         totalRouteCount,
-        paddleableRouteCount: ['Strong', 'Good'].includes(cardRoute.rating) ? 1 : 0,
+        matchingRouteCount: routes.length,
+        paddleableRouteCount: routes.filter((result) => ['Strong', 'Good'].includes(result.rating)).length,
         representativeMode: 'route',
         distanceMiles: distanceMilesValue,
         travelMinutes,
@@ -1029,7 +1031,11 @@ function buildRouteMapItems(allResults, filteredResults, options = {}) {
         distanceBucket: distanceBucketLabel(travelMinutes),
         segmentSummary: routeSegmentSummary(cardRoute.river),
         selectedSegment,
-        link: buildRoutePlannerHref(cardRoute.river.slug, selectedSegment),
+        link: selectedSegment
+          ? buildRoutePlannerHref(cardRoute.river.slug, selectedSegment)
+          : totalRouteCount > 1
+            ? buildGroupedRiverLink({ cardRoute })
+            : `/rivers/${cardRoute.river.slug}/`,
       };
     });
 }
@@ -1077,6 +1083,31 @@ function isGroupedItem(item) {
   return item.kind === 'group' && item.totalRouteCount > 1;
 }
 
+function mapMarkerLabel(item) {
+  if (!isGroupedItem(item)) {
+    return String(item.cardRoute.score);
+  }
+
+  return `${item.paddleableRouteCount}/${item.matchingRouteCount ?? item.totalRouteCount}`;
+}
+
+function mapMarkerContext(item) {
+  if (!isGroupedItem(item)) {
+    return recommendationVerdict(item);
+  }
+
+  const matchingCount = item.matchingRouteCount ?? item.totalRouteCount;
+  return `${item.paddleableRouteCount} ready of ${matchingCount} matching routes`;
+}
+
+function mapMarkerAriaLabel(item) {
+  if (!isGroupedItem(item)) {
+    return `${item.cardRoute.river.name}: score ${item.cardRoute.score}, ${confidenceDisplayLabel(item.cardRoute.confidence.label).toLowerCase()}`;
+  }
+
+  return `${item.cardRoute.river.name}: ${mapMarkerContext(item)}; top matching stretch score ${item.cardRoute.score}`;
+}
+
 function routeCountLabel(item) {
   return `${item.totalRouteCount} routes on this river`;
 }
@@ -1099,7 +1130,8 @@ function routeLabelForItem(item) {
 }
 
 function segmentLabelForItem(item) {
-  return formatRouteSegmentLabel(item.segmentSummary, item.selectedSegment);
+  return formatRouteSegmentLabel(item.segmentSummary, item.selectedSegment)
+    || (isGroupedItem(item) ? representativeRouteLabel(item) : '');
 }
 
 function featuredRouteLabelForItem(item) {
@@ -1973,7 +2005,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
     } else {
       const markerNode = document.createElement('div');
       markerNode.className = markerClassFor(item);
-      markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
+      markerNode.innerHTML = `<span>${escapeHtml(mapMarkerLabel(item))}</span>`;
       markerNode.setAttribute('aria-hidden', 'true');
 
       const marker = new maplibregl.Marker({
@@ -2371,9 +2403,9 @@ function createRecommendationCard(item, index, nearbyReady) {
   }
 
   setText(card, 'recommendation-slot', index === 0 ? "Today's Best" : recommendationSlotLabel(index, nearbyReady));
-  setText(card, 'recommendation-kind', item.kind === 'group' ? 'River' : 'Route');
+  setText(card, 'recommendation-kind', item.kind === 'group' ? 'River · top stretch score' : 'Route score');
   setText(card, 'recommendation-state', regionStateText(item));
-  setText(card, 'recommendation-route', routeLabelForItem(item));
+  setText(card, 'recommendation-route', featuredRouteLabelForItem(item));
   setText(card, 'recommendation-summary', recommendationSummaryText(item, nearbyReady));
   setText(card, 'recommendation-score', String(item.cardRoute.score));
   setText(card, 'recommendation-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
@@ -2496,7 +2528,7 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   card.classList.add(item.kind === 'group' ? 'river-card--group' : 'river-card--route');
   card.dataset.summaryMapCard = item.key;
 
-  setText(card, 'card-kind', item.kind === 'group' ? 'River' : 'Route');
+  setText(card, 'card-kind', item.kind === 'group' ? 'River · top stretch score' : 'Route score');
   setText(card, 'state', regionStateText(item));
   setText(card, 'route-label', routeLabelForItem(item));
   setText(card, 'segment-label', segmentLabelForItem(item));
@@ -4438,8 +4470,8 @@ function popupMarkup(item) {
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       ${reachMarkup}
       <div class="score-map-popup__scoreline">
-        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingKey)}">${escapeHtml(String(item.cardRoute.score))}</span>
-        <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(item))}</p>
+        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingKey)}">${escapeHtml(mapMarkerLabel(item))}</span>
+        <p class="score-map-popup__verdict">${escapeHtml(mapMarkerContext(item))}</p>
       </div>
       <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(item, nearbyReady))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
@@ -4487,7 +4519,11 @@ function summaryMapOverviewStatus(items) {
     return isNearbySummaryMapMode() ? 'Nearby map is up to date.' : 'Map is up to date.';
   }
   const riverCount = new Set(items.map((item) => item.cardRoute.river.riverId || item.cardRoute.river.name)).size;
-  return `Showing ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'} and ${items.length} ${items.length === 1 ? 'route' : 'routes'}. Route dots are visible now; zoom in for labels or select a route to trace its reach.`;
+  const routeCount = items.reduce(
+    (total, item) => total + (item.matchingRouteCount ?? 1),
+    0
+  );
+  return `Showing ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'} across ${routeCount} matching ${routeCount === 1 ? 'route' : 'routes'}. Select a river to trace its best matching reach.`;
 }
 
 function updateSummaryMarkerZoomMode() {
@@ -4717,11 +4753,13 @@ function renderSummaryMapResults(items) {
     button.dataset.summaryMapItem = item.key;
     button.setAttribute('aria-pressed', selectedSummaryMapKey === item.key ? 'true' : 'false');
     button.innerHTML = `
-      <span class="summary-map-result__score score-map-marker ${markerClassFor(item)}"><span>${item.cardRoute.score}</span></span>
+      <span class="summary-map-result__score score-map-marker ${markerClassFor(item)}"><span>${escapeHtml(mapMarkerLabel(item))}</span></span>
       <span class="summary-map-result__body">
         <strong class="summary-map-result__name">${escapeHtml(item.cardRoute.river.name)}</strong>
         <span class="summary-map-result__route">${escapeHtml(routeLabelForItem(item))}</span>
-        <span class="summary-map-result__meta">${escapeHtml(joinWithBullet([confidenceLabel(item), shortRouteLengthLabel(item)]))}</span>
+        <span class="summary-map-result__meta">${escapeHtml(isGroupedItem(item)
+          ? joinWithBullet([mapMarkerContext(item), `Top stretch score ${item.cardRoute.score}`])
+          : joinWithBullet([confidenceLabel(item), shortRouteLengthLabel(item)]))}</span>
       </span>
     `;
     button.addEventListener('click', () => {
@@ -4900,10 +4938,10 @@ async function renderSummaryMap(items) {
       markerNode.type = 'button';
       markerNode.className = markerClassFor(item);
       markerNode.dataset.summaryMapMarker = item.key;
-      markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
+      markerNode.innerHTML = `<span>${escapeHtml(mapMarkerLabel(item))}</span>`;
       markerNode.setAttribute(
         'aria-label',
-        `${item.cardRoute.river.name}: score ${item.cardRoute.score}, ${confidenceDisplayLabel(item.cardRoute.confidence.label).toLowerCase()}`
+        mapMarkerAriaLabel(item)
       );
 
       const marker = new maplibregl.Marker({

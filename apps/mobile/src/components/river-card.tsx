@@ -16,6 +16,7 @@ export function RiverCard({
   onPress,
   segmentLabel,
   segmentEndpointLabel,
+  routeCount = 1,
 }: {
   river: RiverSummaryApiItem;
   travelLabel?: string;
@@ -25,6 +26,7 @@ export function RiverCard({
   onPress: () => void;
   segmentLabel?: string;
   segmentEndpointLabel?: string;
+  routeCount?: number;
 }) {
   const facts = routePreviewFactItems(river.river, {
     includeNoCamping: true,
@@ -38,7 +40,9 @@ export function RiverCard({
       <View style={styles.header}>
         <View style={styles.scoreBlock}>
           <Text style={styles.score}>{river.score}</Text>
-          <Text style={styles.scoreLabel}>Score</Text>
+          <Text style={[styles.scoreLabel, routeCount > 1 ? styles.scoreLabelCompact : null]} numberOfLines={1}>
+            {routeCount > 1 ? 'Top stretch' : 'Score'}
+          </Text>
         </View>
         <View style={styles.copy}>
           <View style={styles.topRow}>
@@ -48,7 +52,9 @@ export function RiverCard({
               <RatingPill rating={river.rating} />
             </View>
           </View>
-          <Text style={styles.reach}>{river.river.reach}</Text>
+          <Text style={styles.reach}>
+            {routeCount > 1 ? `Best matching stretch: ${river.river.reach}` : river.river.reach}
+          </Text>
           {segmentLabel ? (
             <View style={styles.segmentContext}>
               <Text style={styles.segmentLabel}>{segmentLabel}</Text>
@@ -168,6 +174,10 @@ const styles = StyleSheet.create({
     fontSize: 11,
     textTransform: 'uppercase',
     letterSpacing: 0.4,
+  },
+  scoreLabelCompact: {
+    fontSize: 8,
+    letterSpacing: 0.1,
   },
   copy: {
     flex: 1,

@@ -7,6 +7,7 @@ import { fetchGaugeReading } from './gauges';
 import { fetchWeatherSnapshot } from './weather';
 import { mapWithConcurrency } from './async-concurrency';
 import type { River, RiverAccessPoint, RiverScoreResult } from './types';
+import { corridorForSlug } from '../data/route-corridors';
 
 const GAUGE_CACHE_TTL_MS = 5 * 60 * 1000;
 const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
@@ -227,12 +228,21 @@ function enrichRiver(river: River): River {
       }
     : undefined;
 
-  return {
+  const base = {
     ...enriched,
     logistics,
     latitude: putInCoordinates?.latitude ?? enriched.latitude,
     longitude: putInCoordinates?.longitude ?? enriched.longitude,
     riverId: enriched.riverId || inferredRiverIdsBySlug.get(enriched.slug) || deriveRiverId(enriched.name),
+  };
+  const corridor = corridorForSlug(base.slug);
+  if (!corridor) return base;
+  return {
+    ...base,
+    corridorId: corridor.corridorId,
+    corridorLabel: corridor.label,
+    continuityStatus: corridor.continuityStatus,
+    ...(corridor.canonicalSlug === base.slug && corridor.segmentEdges ? { segmentEdges: corridor.segmentEdges } : {}),
   };
 }
 

@@ -82,9 +82,9 @@ const pageClass =
         .replace(/[^a-zA-Z0-9/_-]+/g, '')
         .replace(/[\\/]+/g, '-')
         .toLowerCase() || 'page'}`;
-const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
-const plausibleScriptSrc = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https://plausible.io/js/script.js';
-const assetVersion = import.meta.env.PUBLIC_ASSET_VERSION || '20260721-ux4';
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const umamiScriptSrc = import.meta.env.PUBLIC_UMAMI_SCRIPT_SRC || 'https://cloud.umami.is/script.js';
+const assetVersion = import.meta.env.PUBLIC_ASSET_VERSION || '20260724-river-hero2';
 const appleAppId = import.meta.env.PUBLIC_APPLE_APP_ID || '6769542734';
 const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL || (appleAppId ? `https://apps.apple.com/app/id${appleAppId}` : '');
 const playStoreUrl =
@@ -128,15 +128,7 @@ const appDownloadConfigJson = JSON.stringify({
       )
     }
     {
-      plausibleDomain && (
-        <>
-          <script
-            is:inline
-            set:html={`window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}`}
-          />
-          <script defer data-domain={plausibleDomain} src={plausibleScriptSrc}></script>
-        </>
-      )
+      umamiWebsiteId && <script defer src={umamiScriptSrc} data-website-id={umamiWebsiteId}></script>
     }
     <script type="application/ld+json" set:html={structuredDataJson}></script>
     <link rel="icon" type="image/png" href="/brand/paddle-today-logo-transparent-512.png" />
@@ -190,7 +182,6 @@ const appDownloadConfigJson = JSON.stringify({
             </a>
             <div class="site-header__app-promo" data-app-header-promo hidden aria-label="Paddle Today mobile apps">
               <span class="site-header__app-promo-badge">New app</span>
-              <span class="site-header__app-promo-label">Get the app</span>
               <a
                 class="site-header__app-promo-link"
                 href="#"

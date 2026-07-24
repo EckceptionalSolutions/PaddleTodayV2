@@ -76,7 +76,11 @@ export function ExploreRouteDrawer({
             <Text style={[styles.mapPreviewScoreText, { color: ratingColors(selectedRiver.rating).textColor }]} selectable={false}>{selectedRiver.score}</Text>
           </View>
           <View style={styles.mapPreviewCopy}>
-            <Text style={styles.mapPreviewLabel} selectable={false}>{selectedRiver.rating}</Text>
+            <Text style={styles.mapPreviewLabel} selectable={false}>
+              {routeCount > 1 && !selectedRiver.selectedSegment
+                ? `Best matching stretch · ${selectedRiver.rating}`
+                : selectedRiver.rating}
+            </Text>
             <Text style={styles.mapPreviewTitle} numberOfLines={1} selectable={false}>
               {selectedRiver.river.name}
             </Text>

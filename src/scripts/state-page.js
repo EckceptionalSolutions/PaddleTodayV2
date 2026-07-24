@@ -530,6 +530,7 @@ function routePopupMarkup(route) {
       <h3>${escapeHtml(route.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
       ${facts ? `<p class="score-map-popup__summary">${escapeHtml(facts)}</p>` : ''}
+      ${route.routeCount > 1 ? `<p class="score-map-popup__summary">${route.routeCount} trip options share this condition zone.</p>` : ''}
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
   `;
@@ -836,7 +837,8 @@ async function renderMap(routes) {
     // the tile highlight remains a short-lived fallback while it loads.
     hydrateCanonicalStateGeometry(routes);
 
-    for (const route of routes) {
+    const displayRoutes = collapseRoutesByConditionZone(routes);
+    for (const route of displayRoutes) {
       const point = routePoint(route);
       if (!point) continue;
 
@@ -873,7 +875,7 @@ async function renderMap(routes) {
       updateMarkerZoomMode();
       if (mapStatus instanceof HTMLElement) {
         const riverCount = new Set(routes.map((route) => route.riverId || route.name)).size;
-        mapStatus.textContent = `Showing ${riverCount} supported rivers and ${markers.length} routes. Route dots are visible now; zoom in for labels or select a route to trace its reach.`;
+        mapStatus.textContent = `Showing ${riverCount} supported rivers and ${markers.length} condition zones. Select a zone to open a representative route.`;
       }
       return;
     }
@@ -887,6 +889,22 @@ async function renderMap(routes) {
       mapStatus.textContent = 'Static route starts shown. Interactive map unavailable right now.';
     }
   }
+}
+
+function collapseRoutesByConditionZone(routes) {
+  const groups = new Map();
+  for (const route of routes) {
+    const key = route.continuityStatus === 'condition-family'
+      ? route.conditionZoneId || route.slug
+      : route.corridorId || route.conditionZoneId || route.riverId || route.name || route.slug;
+    const existing = groups.get(key);
+    if (existing) {
+      existing.routeCount += 1;
+      continue;
+    }
+    groups.set(key, { ...route, routeCount: 1 });
+  }
+  return [...groups.values()];
 }
 
 function currentFilterValue(name) {

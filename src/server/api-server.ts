@@ -83,16 +83,16 @@ const server = createServer(async (request, response) => {
     }
 
     if (requestUrl.pathname === '/api/rivers/summary.json') {
-      return handleRiverSummary(response, requestId, includeBody);
+      return await handleRiverSummary(response, requestId, includeBody);
     }
 
     if (requestUrl.pathname === '/api/weekend/summary.json') {
-      return handleWeekendSummary(response, requestId, includeBody);
+      return await handleWeekendSummary(response, requestId, includeBody);
     }
 
     const detailMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\.json$/);
     if (detailMatch) {
-      return handleRiverDetail(
+      return await handleRiverDetail(
         response,
         requestId,
         includeBody,
@@ -103,7 +103,7 @@ const server = createServer(async (request, response) => {
 
     const historyMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/history\.json$/);
     if (historyMatch) {
-      return handleRiverHistory(
+      return await handleRiverHistory(
         requestUrl,
         request,
         response,
@@ -115,7 +115,7 @@ const server = createServer(async (request, response) => {
 
     const geometryMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/geometry\.json$/);
     if (geometryMatch) {
-      return handleRiverGeometry(
+      return await handleRiverGeometry(
         response,
         requestId,
         includeBody,
@@ -125,12 +125,12 @@ const server = createServer(async (request, response) => {
 
     const groupMatch = requestUrl.pathname.match(/^\/api\/river-groups\/([^/]+)\.json$/);
     if (groupMatch) {
-      return handleRiverGroup(response, requestId, includeBody, decodeURIComponent(groupMatch[1] || ''));
+      return await handleRiverGroup(response, requestId, includeBody, decodeURIComponent(groupMatch[1] || ''));
     }
 
     const riverCommunityMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/community\.json$/);
     if (riverCommunityMatch) {
-      return handleRouteCommunity(
+      return await handleRouteCommunity(
         request,
         response,
         requestId,
@@ -141,7 +141,7 @@ const server = createServer(async (request, response) => {
 
     const communityPhotoMatch = requestUrl.pathname.match(/^\/api\/community-photos\/([^/]+)\/([^/]+)\/([^/]+)$/);
     if (communityPhotoMatch) {
-      return handleCommunityPhoto(
+      return await handleCommunityPhoto(
         request,
         response,
         requestId,

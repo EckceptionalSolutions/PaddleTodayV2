@@ -4,6 +4,7 @@ import FeatureIcon from '../../components/FeatureIcon.astro';
 import { getRoutePreviewPhoto } from '../../data/route-gallery';
 import { listRiverGroups, listRiverStateGroups } from '../../lib/rivers';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../../lib/route-segments';
+import { conditionZoneIdForRiver } from '../../lib/condition-zones';
 import type { River } from '../../lib/types';
 
 export function getStaticPaths() {
@@ -101,6 +102,9 @@ const multiRouteRiverCount = routeGroupsByRiver.filter((group) => group.routes.l
 const stateMapRoutes = stateGroup.routes.map((route) => ({
   slug: route.slug,
   riverId: route.riverId ?? route.slug,
+  conditionZoneId: conditionZoneIdForRiver(route),
+  corridorId: route.corridorId,
+  continuityStatus: route.continuityStatus,
   name: route.name,
   reach: route.reach,
   region: route.region,

@@ -94,7 +94,7 @@ export const minnesotaPaddleGuideEntries: MinnesotaPaddleGuideEntry[] = [
       'A good upstream Crow Wing option when you want the same easygoing canoe-camping feel with shorter mileage and room to build a multi-section plan.',
     fastFacts: ['Beginner-friendly character', 'Good camping region', 'Can pair with downstream sections'],
     categories: ['camping', 'beginner'],
-    trackedSlug: 'crow-wing-river-stigmans-little-white-dog',
+    trackedSlug: 'crow-wing-river-stigmans-mound-little-white-dog',
     sourceLabel: 'MN DNR Tales of Water Trails: Crow Wing River',
     sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/audio-tales/crow-wing-transcript.pdf',
   },

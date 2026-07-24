@@ -194,6 +194,7 @@ export default function HomeScreen() {
         <BoardHero
           mode={headlineMode}
           headline={headline}
+          routeCount={headline ? routeGroupMetaForRoute(headline, routeCounts).routeCount : 1}
           snapshot={snapshot}
           snapshotContext={snapshotContext}
           saved={headline ? isSaved(headline.river.slug) : false}
@@ -204,7 +205,7 @@ export default function HomeScreen() {
           }
           onOpen={
             headline
-              ? () => router.push({ pathname: '/river/[slug]', params: { slug: headline.river.slug } })
+              ? () => openBoardRoute(headline)
               : undefined
           }
           onOpenStatus={(statusIntent) => openExploreIntent(statusIntent)}
@@ -327,6 +328,7 @@ export default function HomeScreen() {
 function BoardHero({
   mode,
   headline,
+  routeCount,
   snapshot,
   snapshotContext,
   saved,
@@ -340,6 +342,7 @@ function BoardHero({
 }: {
   mode: BoardMode;
   headline: BoardItem | null;
+  routeCount: number;
   snapshot: ReturnType<typeof buildBoardSnapshot>;
   snapshotContext: string;
   saved: boolean;
@@ -404,14 +407,20 @@ function BoardHero({
               <View style={styles.heroScoreRow}>
                 <View style={[styles.scoreOrb, { backgroundColor: ratingColors(headline.rating).backgroundColor }]}>
                   <Text style={[styles.scoreValue, { color: ratingColors(headline.rating).textColor }]}>{headline.score}</Text>
-                  <Text style={[styles.scoreLabel, { color: ratingColors(headline.rating).textColor }]}>{headline.rating}</Text>
+                  <Text style={[styles.scoreLabel, { color: ratingColors(headline.rating).textColor }]}>
+                    {routeCount > 1 ? 'Top stretch' : headline.rating}
+                  </Text>
                 </View>
                 {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
               <View style={styles.headlineCopy}>
                 <Text style={styles.headlineKicker}>{headlineLabelForMode(mode, headline)}</Text>
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
-                <Text style={styles.headlineReach} numberOfLines={1}>{routeReachWithState(headline)}</Text>
+                <Text style={styles.headlineReach} numberOfLines={1}>
+                  {routeCount > 1
+                    ? `Best matching stretch: ${routeReachWithState(headline)} · ${headline.rating}`
+                    : routeReachWithState(headline)}
+                </Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
                   {routeDecisionLine(verdictForRating(headline.rating), headline.summary.shortExplanation)}
                 </Text>
@@ -504,6 +513,7 @@ function RiverImageCard({
           <View style={styles.imageCardTop}>
             <View style={styles.imageScore}>
               <Text style={styles.imageScoreValue}>{river.score}</Text>
+              <Text style={styles.imageScoreLabel}>{routeCount > 1 ? 'Top stretch' : 'Score'}</Text>
             </View>
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
@@ -601,7 +611,11 @@ function CompactRiverRow({
       <View style={styles.quickCopy}>
         <Text style={styles.quickName} numberOfLines={1}>{river.river.name}</Text>
         <Text style={styles.quickMeta} numberOfLines={1}>
-          {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
+          {[
+            routeCount > 1 ? `Top stretch score ${river.score}` : routeReachWithState(river),
+            distanceLabelForRiver(river),
+            routeCount > 1 ? `${routeCount} routes` : null,
+          ].filter(Boolean).join(' - ')}
         </Text>
         {routeSegmentSummary(river.river) ? (
           <Text style={styles.quickSegment} numberOfLines={1}>
@@ -841,7 +855,11 @@ function RouteSearchModal({
                           <RatingPill rating={river.rating} />
                         </View>
                         <Text style={styles.knownSearchMeta} numberOfLines={1}>
-                          {[stateLabel(river.river.state), river.river.region, routeCount > 1 ? `${routeCount} routes` : '1 route'].filter(Boolean).join(' - ')}
+                          {[
+                            stateLabel(river.river.state),
+                            river.river.region,
+                            routeCount > 1 ? `Top stretch score ${river.score} · ${routeCount} routes` : '1 route',
+                          ].filter(Boolean).join(' - ')}
                         </Text>
                         <Text style={styles.knownSearchReach} numberOfLines={1}>{river.river.reach}</Text>
                         <View style={styles.knownSearchFacts}>
@@ -1930,6 +1948,14 @@ const styles = StyleSheet.create({
     color: colors.accentDeep,
     fontSize: 20,
     fontWeight: '900',
+  },
+  imageScoreLabel: {
+    color: colors.accentDeep,
+    fontSize: 7,
+    lineHeight: 8,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.1,
   },
   imageCardCopy: {
     gap: 4,

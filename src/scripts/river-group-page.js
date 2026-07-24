@@ -1,9 +1,7 @@
 import {
   MAP_STYLE_URL,
-  bindMarkerPopup,
   ensureMapLibre,
   escapeHtml,
-  markerClassForRating,
   syncActualRiverLayer,
 } from './map-runtime.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
@@ -11,7 +9,7 @@ import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
-import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
+import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -33,6 +31,14 @@ const refreshNote = root.querySelector('[data-group-refresh-note]');
 const groupMap = root.querySelector('[data-group-map]');
 const groupMapStatus = root.querySelector('[data-group-map-status]');
 const groupMapToggle = root.querySelector('[data-group-map-toggle]');
+const resultsSummary = root.querySelector('[data-group-results-summary]');
+const distanceFilterButtons = Array.from(root.querySelectorAll('[data-group-distance-filter]'));
+const regionFilterContainer = root.querySelector('[data-group-region-filters]');
+const difficultyFilterContainer = root.querySelector('[data-group-difficulty-filters]');
+const moreFilters = root.querySelector('[data-group-more-filters]');
+const moreFilterCount = root.querySelector('[data-group-more-filter-count]');
+const sortSelect = root.querySelector('[data-group-sort]');
+const selectedSummary = root.querySelector('[data-group-selected-summary]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
@@ -44,14 +50,25 @@ let lastSuccessAt = null;
 let currentResult = null;
 let selectedSlug = initialSelectedSlug || null;
 let mapRuntime = null;
+let maplibreRuntime = null;
+let mapReadyPromise = null;
 let mapMarkers = [];
-let groupMapCollapsed = phoneBreakpoint.matches;
+let groupMapCollapsed = false;
+let distanceFilter = 'all';
+let regionFilter = 'all';
+let difficultyFilter = 'all';
+let sortMode = 'recommended';
+let pinSelectedRoute = Boolean(initialSelectedSlug);
+let routeGeometryLoadVersion = 0;
+const routeGeometryBySlug = new Map();
 const groupRequestGuard = createRequestGuard();
 const confidenceWeight = {
   High: 3,
   Medium: 2,
   Low: 1,
 };
+
+document.body.classList.add('page-river-hub');
 
 function setText(field, value) {
   const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
@@ -77,8 +94,25 @@ function ratingToneKey(rating) {
   return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
-function segmentLabelForRoute(route) {
-  return formatRouteSegmentLabel(routeSegmentSummary(route), null);
+function corridorKey(route) {
+  return route.continuityStatus === 'condition-family'
+    ? route.conditionZoneId || route.slug
+    : route.corridorId || route.conditionZoneId || route.riverId || route.slug;
+}
+
+function corridorGroups(routes) {
+  const groups = new Map();
+  for (const route of routes) {
+    const key = corridorKey(route);
+    const group = groups.get(key) || { key, routes: [] };
+    group.routes.push(route);
+    groups.set(key, group);
+  }
+
+  return [...groups.values()].map((group) => ({
+    ...group,
+    routes: [...group.routes].sort(compareRoutes),
+  }));
 }
 
 function compareRoutes(left, right) {
@@ -93,6 +127,72 @@ function compareRoutes(left, right) {
   }
 
   return String(left?.reach ?? '').localeCompare(String(right?.reach ?? ''));
+}
+
+function routeDistanceMiles(route) {
+  const match = String(route?.distanceLabel || '').match(/(\d+(?:\.\d+)?)/);
+  return match ? Number(match[1]) : null;
+}
+
+function routeMatchesDistanceFilter(route) {
+  const miles = routeDistanceMiles(route);
+  if (distanceFilter === 'all') return true;
+  if (miles === null) return false;
+  if (distanceFilter === 'short') return miles < 5;
+  if (distanceFilter === 'medium') return miles >= 5 && miles < 10;
+  if (distanceFilter === 'long') return miles >= 10;
+  return true;
+}
+
+function routeMatchesRegionFilter(route) {
+  return regionFilter === 'all' || route.region === regionFilter;
+}
+
+function difficultyKey(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
+function routeMatchesDifficultyFilter(route) {
+  return difficultyFilter === 'all' || difficultyKey(route.difficulty) === difficultyFilter;
+}
+
+function comparePickerRoutes(left, right) {
+  const leftMiles = routeDistanceMiles(left);
+  const rightMiles = routeDistanceMiles(right);
+  if (sortMode === 'shortest') {
+    return (leftMiles ?? Number.POSITIVE_INFINITY) - (rightMiles ?? Number.POSITIVE_INFINITY) || compareRoutes(left, right);
+  }
+  if (sortMode === 'longest') {
+    return (rightMiles ?? Number.NEGATIVE_INFINITY) - (leftMiles ?? Number.NEGATIVE_INFINITY) || compareRoutes(left, right);
+  }
+  return compareRoutes(left, right);
+}
+
+function visiblePickerRoutes(routes) {
+  const visible = routes
+    .filter(routeMatchesDistanceFilter)
+    .filter(routeMatchesRegionFilter)
+    .filter(routeMatchesDifficultyFilter)
+    .sort(comparePickerRoutes);
+  if (!pinSelectedRoute || !selectedSlug) return visible;
+  const selectedIndex = visible.findIndex((route) => route.slug === selectedSlug);
+  if (selectedIndex <= 0) return visible;
+  const [selected] = visible.splice(selectedIndex, 1);
+  return [selected, ...visible];
+}
+
+function shortTimeLabel(value) {
+  if (!value) return '';
+  return String(value).split(',')[0].trim();
+}
+
+function difficultyLabel(value) {
+  if (!value) return '';
+  return `${String(value).slice(0, 1).toUpperCase()}${String(value).slice(1)} difficulty`;
+}
+
+function pickerFacts(route) {
+  return [route.distanceLabel, shortTimeLabel(route.estimatedPaddleTime), difficultyLabel(route.difficulty)].filter(Boolean);
 }
 
 function hasStrongerRouteOnRiver(route) {
@@ -556,10 +656,12 @@ function routeSpanCoordinates(route) {
 }
 
 function routePopupMarkup(route) {
+  const facts = pickerFacts(route).join(BULLET);
   return `
     <article class="score-map-popup">
       <h3>${escapeHtml(route.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
+      ${facts ? `<p class="score-map-popup__summary">${escapeHtml(facts)}</p>` : ''}
       <div class="score-map-popup__scoreline">
         <span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span>
         <p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating, route.score))}</p>
@@ -597,7 +699,269 @@ function updateGroupMapToggle() {
   }
 }
 
-async function renderGroupMap(routes, { preserveViewport = false } = {}) {
+function fallbackRouteLineFeature(route) {
+  const coordinates = routeSpanCoordinates(route).map((point) => [point.longitude, point.latitude]);
+  if (coordinates.length < 2) return null;
+  return {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+      type: 'LineString',
+      coordinates,
+    },
+  };
+}
+
+function routeLineFeature(route) {
+  const stored = routeGeometryBySlug.get(route.slug);
+  const feature = stored || fallbackRouteLineFeature(route);
+  if (!feature?.geometry) return null;
+  return {
+    ...feature,
+    properties: {
+      ...(feature.properties || {}),
+      slug: route.slug,
+      reach: route.reach,
+      distanceLabel: route.distanceLabel || '',
+      rating: route.rating,
+      selected: route.slug === selectedSlug,
+    },
+  };
+}
+
+function routeLineCollection(routes) {
+  return {
+    type: 'FeatureCollection',
+    features: routes.map(routeLineFeature).filter(Boolean),
+  };
+}
+
+function routeLabelCollection(routes) {
+  return {
+    type: 'FeatureCollection',
+    features: routes
+      .map((route) => {
+        const point = midpointForRoute(route);
+        if (!point) return null;
+        return {
+          type: 'Feature',
+          properties: {
+            slug: route.slug,
+            distanceLabel: route.distanceLabel || '',
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [point.longitude, point.latitude],
+          },
+        };
+      })
+      .filter(Boolean),
+  };
+}
+
+function flattenRouteGeometry(geometry) {
+  if (!geometry) return [];
+  if (geometry.type === 'LineString') return [geometry.coordinates];
+  if (geometry.type === 'MultiLineString') return geometry.coordinates;
+  return [];
+}
+
+function boundsForRouteFeatures(maplibregl, routes) {
+  const bounds = new maplibregl.LngLatBounds();
+  let hasBounds = false;
+  for (const route of routes) {
+    const feature = routeLineFeature(route);
+    for (const coordinate of flattenRouteGeometry(feature?.geometry).flat()) {
+      if (!Array.isArray(coordinate) || coordinate.length < 2) continue;
+      bounds.extend(coordinate);
+      hasBounds = true;
+    }
+  }
+  return hasBounds ? bounds : null;
+}
+
+function syncRouteLayers(routes) {
+  if (!mapRuntime) return;
+  const sourceId = 'river-group-trip-lines';
+  const labelSourceId = 'river-group-trip-labels';
+  const data = routeLineCollection(routes);
+  const labelData = routeLabelCollection(routes);
+  const source = mapRuntime.getSource(sourceId);
+  const labelSource = mapRuntime.getSource(labelSourceId);
+  if (labelSource && typeof labelSource.setData === 'function') {
+    labelSource.setData(labelData);
+  } else if (!labelSource) {
+    mapRuntime.addSource(labelSourceId, { type: 'geojson', data: labelData });
+  }
+  if (source && typeof source.setData === 'function') {
+    source.setData(data);
+  } else if (!source) {
+    mapRuntime.addSource(sourceId, { type: 'geojson', data });
+    mapRuntime.addLayer({
+      id: 'river-group-trip-lines-base',
+      type: 'line',
+      source: sourceId,
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': [
+          'match',
+          ['get', 'rating'],
+          'Strong', '#267457',
+          'Good', '#28798a',
+          'Fair', '#a36b22',
+          '#a84b3c',
+        ],
+        'line-width': 4,
+        'line-opacity': 0.34,
+      },
+    });
+    mapRuntime.addLayer({
+      id: 'river-group-trip-line-halo',
+      type: 'line',
+      source: sourceId,
+      filter: ['==', ['get', 'slug'], selectedSlug || ''],
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': 'rgba(255, 255, 255, 0.96)',
+        'line-width': 11,
+        'line-opacity': 0.96,
+      },
+    });
+    mapRuntime.addLayer({
+      id: 'river-group-trip-line-selected',
+      type: 'line',
+      source: sourceId,
+      filter: ['==', ['get', 'slug'], selectedSlug || ''],
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': '#116b82',
+        'line-width': 6,
+        'line-opacity': 1,
+      },
+    });
+    mapRuntime.addLayer({
+      id: 'river-group-trip-distance-labels',
+      type: 'symbol',
+      source: labelSourceId,
+      minzoom: 8.2,
+      layout: {
+        'text-field': ['get', 'distanceLabel'],
+        'text-font': ['Noto Sans Bold'],
+        'text-size': ['interpolate', ['linear'], ['zoom'], 5, 10, 8, 12, 11, 14],
+        'text-padding': 12,
+        'text-allow-overlap': false,
+      },
+      paint: {
+        'text-color': '#123f4c',
+        'text-halo-color': 'rgba(255, 255, 255, 0.97)',
+        'text-halo-width': 3,
+      },
+    });
+    mapRuntime.addLayer({
+      id: 'river-group-trip-distance-selected',
+      type: 'symbol',
+      source: labelSourceId,
+      filter: ['==', ['get', 'slug'], selectedSlug || ''],
+      layout: {
+        'text-field': ['get', 'distanceLabel'],
+        'text-font': ['Noto Sans Bold'],
+        'text-size': 15,
+        'text-padding': 4,
+        'text-allow-overlap': true,
+        'text-ignore-placement': true,
+      },
+      paint: {
+        'text-color': '#0f5f74',
+        'text-halo-color': 'rgba(255, 255, 255, 0.99)',
+        'text-halo-width': 4,
+      },
+    });
+
+    mapRuntime.on('click', 'river-group-trip-lines-base', (event) => {
+      const slug = event.features?.[0]?.properties?.slug;
+      if (!slug) return;
+      selectPickerRoute(slug, { focusMap: false });
+      const route = currentResult?.routes.find((candidate) => candidate.slug === slug);
+      if (route && event.lngLat && maplibreRuntime) {
+        new maplibreRuntime.Popup({ closeButton: true, closeOnClick: true, maxWidth: '288px' })
+          .setLngLat(event.lngLat)
+          .setHTML(routePopupMarkup(route))
+          .addTo(mapRuntime);
+      }
+    });
+    mapRuntime.on('mouseenter', 'river-group-trip-lines-base', () => {
+      mapRuntime.getCanvas().style.cursor = 'pointer';
+    });
+    mapRuntime.on('mouseleave', 'river-group-trip-lines-base', () => {
+      mapRuntime.getCanvas().style.cursor = '';
+    });
+  }
+
+  mapRuntime.setFilter('river-group-trip-line-halo', ['==', ['get', 'slug'], selectedSlug || '']);
+  mapRuntime.setFilter('river-group-trip-line-selected', ['==', ['get', 'slug'], selectedSlug || '']);
+  mapRuntime.setFilter('river-group-trip-distance-selected', ['==', ['get', 'slug'], selectedSlug || '']);
+}
+
+function endpointMarkerNode(label, detail, kind) {
+  const node = document.createElement('span');
+  node.className = `river-route-endpoint river-route-endpoint--${kind}`;
+  node.textContent = label;
+  node.title = detail;
+  node.setAttribute('aria-label', detail);
+  return node;
+}
+
+function syncSelectedRouteEndpoints(route, maplibregl) {
+  for (const marker of mapMarkers) marker.remove();
+  mapMarkers = [];
+  if (!route) return;
+
+  const endpoints = [
+    { point: accessCoordinate(route.putIn), label: 'IN', detail: `Put-in: ${route.putIn?.name || route.reach}`, kind: 'put-in' },
+    { point: accessCoordinate(route.takeOut), label: 'OUT', detail: `Take-out: ${route.takeOut?.name || route.reach}`, kind: 'take-out' },
+  ].filter((entry) => entry.point);
+
+  for (const endpoint of endpoints) {
+    const marker = new maplibregl.Marker({
+      element: endpointMarkerNode(endpoint.label, endpoint.detail, endpoint.kind),
+      anchor: 'center',
+    })
+      .setLngLat([endpoint.point.longitude, endpoint.point.latitude])
+      .addTo(mapRuntime);
+    mapMarkers.push(marker);
+  }
+}
+
+async function hydrateRouteGeometries(routes) {
+  const pending = routes.filter((route) => !routeGeometryBySlug.has(route.slug));
+  if (pending.length === 0) return;
+  const version = ++routeGeometryLoadVersion;
+  await Promise.all(
+    pending.map(async (route) => {
+      try {
+        const feature = await loadCanonicalRiverRouteLine(route.slug, routeSpanCoordinates(route));
+        routeGeometryBySlug.set(route.slug, feature);
+      } catch (error) {
+        routeGeometryBySlug.set(route.slug, null);
+        console.warn(`Canonical geometry unavailable for ${route.slug}.`, error);
+      }
+    })
+  );
+
+  if (version !== routeGeometryLoadVersion || !currentResult) return;
+  renderGroupMap(visiblePickerRoutes(currentResult.routes), { preserveViewport: true });
+}
+
+async function renderGroupMap(routes, { preserveViewport = false, focusSelected = false } = {}) {
   if (!(groupMap instanceof HTMLElement)) {
     return;
   }
@@ -624,7 +988,7 @@ async function renderGroupMap(routes, { preserveViewport = false } = {}) {
       });
 
       mapRuntime.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-      await new Promise((resolve) => {
+      mapReadyPromise = new Promise((resolve) => {
         if (mapRuntime.loaded()) {
           resolve();
           return;
@@ -632,94 +996,38 @@ async function renderGroupMap(routes, { preserveViewport = false } = {}) {
         mapRuntime.once('load', resolve);
       });
     }
+    await mapReadyPromise;
 
-    for (const marker of mapMarkers) {
-      marker.remove();
-    }
-    mapMarkers = [];
-
-    const bounds = new maplibregl.LngLatBounds();
-    let hasBounds = false;
+    maplibreRuntime = maplibregl;
     const selectedRoute = routes.find((route) => route.slug === selectedSlug) ?? routes[0] ?? null;
     syncActualRiverLayer(mapRuntime, 'river-group-actual-river-line', selectedRoute ? [selectedRoute.name] : [], {
-      lineColor: '#2563eb',
-      lineWidth: 6,
-      lineOpacity: 0.36,
+      lineColor: '#4f8795',
+      lineWidth: 3,
+      lineOpacity: 0.18,
     });
+    syncRouteLayers(routes);
+    syncSelectedRouteEndpoints(selectedRoute, maplibregl);
 
-    const routeSpans = routes.map((route) => ({
-      slug: route.slug,
-      rating: route.rating,
-      coordinates: routeSpanCoordinates(route),
-    }));
-
-    for (const [routeIndex, route] of routes.entries()) {
-      const routeCoordinates = routeSpans[routeIndex]?.coordinates ?? [];
-      if (routeCoordinates.length >= 2) {
-        for (const point of routeCoordinates) {
-          bounds.extend([point.longitude, point.latitude]);
-        }
-        hasBounds = true;
-      }
-
-      const midpoint = midpointForRoute(route);
-      if (!midpoint) continue;
-
-      const markerNode = document.createElement('button');
-      markerNode.type = 'button';
-      markerNode.className = markerClassForRating(route.rating, route.confidence.label);
-      if (route.slug === selectedSlug) {
-        markerNode.classList.add('score-map-marker--selected');
-      }
-      markerNode.innerHTML = `<span>${route.score}</span>`;
-      markerNode.setAttribute(
-        'aria-label',
-        `${route.reach}: score ${route.score}, ${confidenceDisplayLabel(route.confidence.label).toLowerCase()}`
-      );
-
-      const marker = new maplibregl.Marker({
-        element: markerNode,
-        anchor: 'center',
-      })
-        .setLngLat([midpoint.longitude, midpoint.latitude])
-        .setPopup(
-          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '288px' }).setHTML(routePopupMarkup(route))
-        )
-        .addTo(mapRuntime);
-
-      bindMarkerPopup(marker, markerNode, {
-        map: mapRuntime,
-        onSelectedChange(selected) {
-          if (!selected || route.slug === selectedSlug || !currentResult) {
-            return;
-          }
-          selectedSlug = route.slug;
-          renderRouteList(currentResult.routes);
-        },
-      });
-      mapMarkers.push(marker);
-      bounds.extend([midpoint.longitude, midpoint.latitude]);
-      hasBounds = true;
-    }
-
-    if (hasBounds && !preserveViewport) {
+    const fitRoutes = focusSelected && selectedRoute ? [selectedRoute] : routes;
+    const bounds = boundsForRouteFeatures(maplibregl, fitRoutes);
+    if (bounds && (!preserveViewport || focusSelected)) {
       const compact = window.matchMedia('(max-width: 720px)').matches;
       mapRuntime.fitBounds(bounds, {
         padding: compact
-          ? { top: 22, right: 22, bottom: 22, left: 22 }
-          : { top: 46, right: 46, bottom: 46, left: 46 },
-        maxZoom: 10.6,
-        duration: 600,
+          ? { top: 42, right: 34, bottom: 42, left: 34 }
+          : { top: 72, right: 72, bottom: 72, left: 72 },
+        maxZoom: focusSelected ? 11.2 : 9.4,
+        duration: 520,
       });
-      mapRuntime.resize();
-      if (groupMapStatus instanceof HTMLElement) {
-        groupMapStatus.textContent = `Showing ${routes.length} routes.`;
-      }
-      return;
     }
+    mapRuntime.resize();
 
     if (groupMapStatus instanceof HTMLElement) {
-      groupMapStatus.textContent = 'Route map unavailable for this river.';
+      groupMapStatus.textContent = routes.length === 0
+        ? 'No routes match these filters.'
+        : routes.length === 1
+        ? '1 route · mileage follows the mapped reach.'
+        : `${routes.length} routes · select one to zoom.`;
     }
   } catch (error) {
     console.error('Failed to load river group map.', error);
@@ -744,7 +1052,7 @@ function setBanner(kind, title, detail) {
 function setRefreshState(state, detail = '') {
   if (refreshButton instanceof HTMLButtonElement) {
     refreshButton.disabled = state === 'loading';
-    refreshButton.textContent = state === 'loading' ? 'Refreshing...' : 'Refresh river';
+    refreshButton.textContent = state === 'loading' ? 'Refreshing...' : 'Refresh conditions';
   }
 
   if (refreshNote instanceof HTMLElement) {
@@ -773,97 +1081,310 @@ function setRefreshState(state, detail = '') {
 function renderRouteList(routes) {
   if (!(routeList instanceof HTMLElement)) return;
 
+  if (routes.length === 0) {
+    routeList.innerHTML = `
+      <div class="river-route-picker__empty">
+        <strong>No trips match these filters.</strong>
+        <span>Try another distance, difficulty, or area.</span>
+        <button class="filter-chip" type="button" data-group-reset-filters>Show all trips</button>
+      </div>
+    `;
+    const resetButton = routeList.querySelector('[data-group-reset-filters]');
+    if (resetButton instanceof HTMLButtonElement) {
+      resetButton.addEventListener('click', () => {
+        distanceFilter = 'all';
+        regionFilter = 'all';
+        difficultyFilter = 'all';
+        renderPicker({ fitMap: true });
+      });
+    }
+    return;
+  }
+
   routeList.innerHTML = routes
     .map((route) => {
       const active = route.slug === selectedSlug;
+      const facts = (active ? [route.distanceLabel] : pickerFacts(route))
+        .filter(Boolean)
+        .map((fact, factIndex) => `<span class="route-choice__fact${factIndex === 0 ? ' route-choice__fact--distance' : ''}">${escapeHtml(fact)}</span>`)
+        .join('');
+      const bestMatch = sortMode === 'recommended'
+        && distanceFilter === 'all'
+        && regionFilter === 'all'
+        && difficultyFilter === 'all'
+        && route.slug === currentResult?.routes[0]?.slug;
+      const rowLabel = active
+        ? '<span class="route-choice__on-map">On map</span>'
+        : bestMatch
+          ? `Best match today · ${escapeHtml(route.state)} · ${escapeHtml(route.region)}`
+          : `${escapeHtml(route.state)} · ${escapeHtml(route.region)}`;
 
       return `
         <article
           class="route-choice${active ? ' route-choice--active' : ''}"
-          tabindex="0"
-          role="button"
           data-group-route-card
           data-route-slug="${route.slug}"
         >
-          <span class="route-choice__kind">Route</span>
-          <span class="route-choice__eyebrow">${route.state} | ${route.region}</span>
-          <strong class="route-choice__title">${route.reach}</strong>
-          <span class="route-choice__verdict">${decisionLabel(route.rating, route.score)}</span>
-          ${segmentLabelForRoute(route) ? `<span class="route-choice__segment">${escapeHtml(segmentLabelForRoute(route))}</span>` : ''}
-          <div class="route-choice__scoreline">
-            <div class="score-orb route-choice__score-orb score-orb--${ratingToneKey(route.rating)}" aria-label="Route score">
-              <span class="score-orb__score">${route.score}</span>
-              <span class="score-orb__rating">${ratingDisplayLabel(route.rating, { liveData: route.liveData, compact: true })}</span>
-            </div>
-            <div class="route-choice__score-copy">
-              <span class="route-choice__meta">${conditionsLine(route)}</span>
-              <span class="route-choice__weather">${weatherBadgeMarkup(route)}</span>
-              <span class="route-choice__signal">
-                ${signalRowMarkup(route)}
-              </span>
-            </div>
-          </div>
-          <span class="route-choice__summary">${decisionSummary(route)}</span>
-          ${supportingNote(route) ? `<span class="route-choice__note">${escapeHtml(supportingNote(route))}</span>` : ''}
-          <div class="route-choice__facts-section">
-            <p class="route-choice__facts-label">Route facts</p>
-            <div class="route-choice__facts">${routeFactsMarkup(route)}</div>
-          </div>
-          <div class="route-choice__footer">
-            <span class="route-choice__selection">${active ? 'Selected on map' : 'Click card to show on map'}</span>
-            <div class="route-choice__actions">
-              ${favoriteButtonMarkup(route)}
-              <a class="river-link river-link--inline route-choice__link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
-            </div>
-          </div>
+          <button
+            class="route-choice__select"
+            type="button"
+            data-group-route-select
+            aria-pressed="${active ? 'true' : 'false'}"
+            data-analytics-event="corridor_trip_selected"
+            data-analytics-route="${escapeHtml(route.slug)}"
+            data-analytics-corridor="${escapeHtml(corridorKey(route))}"
+            data-analytics-source="river_hub"
+          >
+            <span class="route-choice__copy">
+              <span class="route-choice__eyebrow">${rowLabel}</span>
+              <strong class="route-choice__title">${escapeHtml(route.reach)}</strong>
+              <span class="route-choice__facts">${facts}</span>
+            </span>
+            <span class="route-choice__score-compact route-choice__score-compact--${ratingToneKey(route.rating)}">
+              <strong>${escapeHtml(String(route.score))}</strong>
+              <span>${escapeHtml(decisionLabel(route.rating, route.score))}</span>
+            </span>
+          </button>
         </article>
       `;
     })
     .join('');
 
-  for (const card of Array.from(routeList.querySelectorAll('[data-group-route-card]'))) {
-    if (!(card instanceof HTMLElement)) continue;
-
-    const selectRoute = () => {
-      selectedSlug = card.dataset.routeSlug;
-      if (!currentResult) return;
-      const route = currentResult.routes.find((candidate) => candidate.slug === selectedSlug);
-      if (!route) return;
-      renderRouteList(currentResult.routes);
-      renderGroupMap(currentResult.routes, { preserveViewport: true });
-    };
-
-    card.addEventListener('click', (event) => {
-      if ((event.target instanceof HTMLElement) && event.target.closest('a, button')) {
-        return;
-      }
-      selectRoute();
-    });
-
-    card.addEventListener('keydown', (event) => {
-      if (!(event instanceof KeyboardEvent)) {
-        return;
-      }
-
-      if (event.key !== 'Enter' && event.key !== ' ') {
-        return;
-      }
-
-      if ((event.target instanceof HTMLElement) && event.target.closest('a, button')) {
-        return;
-      }
-
-      event.preventDefault();
-      selectRoute();
+  for (const button of Array.from(routeList.querySelectorAll('[data-group-route-select]'))) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    button.addEventListener('click', () => {
+      const card = button.closest('[data-group-route-card]');
+      if (!(card instanceof HTMLElement) || !card.dataset.routeSlug) return;
+      selectPickerRoute(card.dataset.routeSlug);
     });
   }
+}
 
-  refreshFavoriteButtons(routeList);
+function nearbyPickerRoutes(route) {
+  if (!currentResult || !route) return [];
+  const origin = midpointForRoute(route);
+  return currentResult.routes
+    .filter((candidate) => candidate.slug !== route.slug)
+    .map((candidate) => {
+      const point = midpointForRoute(candidate);
+      const distance = origin && point
+        ? ((origin.longitude - point.longitude) ** 2) + ((origin.latitude - point.latitude) ** 2)
+        : Number.POSITIVE_INFINITY;
+      const relationship = candidate.conditionZoneId === route.conditionZoneId
+        ? 0
+        : candidate.region === route.region
+          ? 1
+          : 2;
+      return { route: candidate, relationship, distance };
+    })
+    .sort((left, right) => left.relationship - right.relationship || left.distance - right.distance || compareRoutes(left.route, right.route))
+    .slice(0, 2)
+    .map((entry) => entry.route);
+}
+
+function renderSelectedSummary(route) {
+  if (!(selectedSummary instanceof HTMLElement)) return;
+  if (!route) {
+    selectedSummary.innerHTML = `
+      <div class="river-route-picker__selected-copy">
+        <span class="eyebrow">No matching trip</span>
+        <strong>Change a filter to continue</strong>
+      </div>
+    `;
+    return;
+  }
+  const nearby = nearbyPickerRoutes(route);
+  const nearbyMarkup = nearby.length > 0
+    ? `
+      <div class="river-route-picker__nearby">
+        <span>Nearby trips</span>
+        <div>
+          ${nearby.map((candidate) => `
+            <button type="button" data-group-nearby-route="${escapeHtml(candidate.slug)}">
+              <span>${escapeHtml(candidate.reach)}</span>
+              <strong>${escapeHtml(candidate.distanceLabel || '')}</strong>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `
+    : '';
+
+  selectedSummary.innerHTML = `
+    <div class="river-route-picker__selected-copy">
+      <span class="eyebrow">Your trip</span>
+      <strong>${escapeHtml(route.reach)}</strong>
+      <span>${escapeHtml(pickerFacts(route).join(BULLET))}</span>
+      <small>${escapeHtml(conditionsLine(route))}</small>
+    </div>
+    <div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}">
+      <strong>${escapeHtml(String(route.score))}</strong>
+      <span>${escapeHtml(decisionLabel(route.rating, route.score))}</span>
+    </div>
+    <div class="river-route-picker__selected-actions">
+      ${favoriteButtonMarkup(route)}
+      <a class="river-link river-link--inline" href="/rivers/${encodeURIComponent(route.slug)}/">View route details</a>
+    </div>
+    ${nearbyMarkup}
+  `;
+
+  for (const button of Array.from(selectedSummary.querySelectorAll('[data-group-nearby-route]'))) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    button.addEventListener('click', () => {
+      const slug = button.dataset.groupNearbyRoute;
+      if (slug) selectPickerRoute(slug);
+    });
+  }
+  refreshFavoriteButtons(selectedSummary);
+}
+
+function renderRegionFilters(routes) {
+  if (!(regionFilterContainer instanceof HTMLElement)) return;
+  const regions = [...new Set(routes.map((route) => route.region).filter(Boolean))].sort();
+  regionFilterContainer.innerHTML = [
+    '<button class="filter-chip filter-chip--quiet" type="button" data-group-region-filter="all" aria-pressed="false">All areas</button>',
+    ...regions.map((region) => `<button class="filter-chip filter-chip--quiet" type="button" data-group-region-filter="${escapeHtml(region)}" aria-pressed="false">${escapeHtml(region)}</button>`),
+  ].join('');
+
+  for (const button of Array.from(regionFilterContainer.querySelectorAll('[data-group-region-filter]'))) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    button.addEventListener('click', () => {
+      regionFilter = button.dataset.groupRegionFilter || 'all';
+      renderPicker({ fitMap: true });
+    });
+  }
+}
+
+function renderDifficultyFilters(routes) {
+  if (!(difficultyFilterContainer instanceof HTMLElement)) return;
+  const difficulties = [...new Set(routes.map((route) => difficultyKey(route.difficulty)).filter(Boolean))]
+    .sort((left, right) => {
+      const order = ['easy', 'moderate', 'hard'];
+      return (order.indexOf(left) === -1 ? order.length : order.indexOf(left))
+        - (order.indexOf(right) === -1 ? order.length : order.indexOf(right));
+    });
+  difficultyFilterContainer.innerHTML = [
+    '<button class="filter-chip filter-chip--quiet" type="button" data-group-difficulty-filter="all" aria-pressed="false">Any difficulty</button>',
+    ...difficulties.map((difficulty) => {
+      const label = `${difficulty.slice(0, 1).toUpperCase()}${difficulty.slice(1)}`;
+      return `<button class="filter-chip filter-chip--quiet" type="button" data-group-difficulty-filter="${escapeHtml(difficulty)}" aria-pressed="false">${escapeHtml(label)}</button>`;
+    }),
+  ].join('');
+
+  for (const button of Array.from(difficultyFilterContainer.querySelectorAll('[data-group-difficulty-filter]'))) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    button.addEventListener('click', () => {
+      difficultyFilter = button.dataset.groupDifficultyFilter || 'all';
+      renderPicker({ fitMap: true });
+    });
+  }
+}
+
+function updatePickerControls(visibleCount, totalCount) {
+  for (const button of distanceFilterButtons) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const active = button.dataset.groupDistanceFilter === distanceFilter;
+    button.classList.toggle('filter-chip--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+
+  for (const button of Array.from(root.querySelectorAll('[data-group-region-filter]'))) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const active = button.dataset.groupRegionFilter === regionFilter;
+    button.classList.toggle('filter-chip--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+
+  for (const button of Array.from(root.querySelectorAll('[data-group-difficulty-filter]'))) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const active = button.dataset.groupDifficultyFilter === difficultyFilter;
+    button.classList.toggle('filter-chip--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+
+  const secondaryFilterCount = Number(regionFilter !== 'all') + Number(difficultyFilter !== 'all');
+  if (moreFilterCount instanceof HTMLElement) {
+    moreFilterCount.textContent = String(secondaryFilterCount);
+    moreFilterCount.hidden = secondaryFilterCount === 0;
+  }
+  if (moreFilters instanceof HTMLDetailsElement) {
+    moreFilters.classList.toggle('river-route-picker__more-filters--active', secondaryFilterCount > 0);
+  }
+
+  if (resultsSummary instanceof HTMLElement) {
+    const filterLabels = {
+      all: 'all distances',
+      short: 'under 5 miles',
+      medium: 'from 5 to 10 miles',
+      long: '10 miles or longer',
+    };
+    const areaLabel = regionFilter === 'all' ? 'all areas' : regionFilter;
+    const difficultyLabelText = difficultyFilter === 'all'
+      ? 'any difficulty'
+      : `${difficultyFilter.slice(0, 1).toUpperCase()}${difficultyFilter.slice(1)}`;
+    const sortLabel = sortMode === 'recommended'
+      ? 'ranked by today’s conditions'
+      : sortMode === 'shortest'
+        ? 'shortest first'
+        : 'longest first';
+    const secondaryLabels = [
+      difficultyFilter === 'all' ? '' : difficultyLabelText,
+      regionFilter === 'all' ? '' : areaLabel,
+    ].filter(Boolean);
+    resultsSummary.textContent = [
+      `Showing ${visibleCount} of ${totalCount} trips`,
+      filterLabels[distanceFilter],
+      ...secondaryLabels,
+      sortLabel,
+    ].join(BULLET) + '.';
+  }
+}
+
+function renderPicker({ fitMap = false, focusSelected = false } = {}) {
+  if (!currentResult) return;
+  const routes = visiblePickerRoutes(currentResult.routes);
+  const previousSelectedSlug = selectedSlug;
+  if (!routes.some((route) => route.slug === selectedSlug)) {
+    selectedSlug = routes[0]?.slug || null;
+  }
+  if (selectedSlug && selectedSlug !== previousSelectedSlug) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('route', selectedSlug);
+    window.history.replaceState({}, '', url);
+  }
+  renderRouteList(routes);
+  renderSelectedSummary(routes.find((route) => route.slug === selectedSlug) || routes[0]);
+  updatePickerControls(routes.length, currentResult.routes.length);
+  renderGroupMap(routes, { preserveViewport: !fitMap, focusSelected });
+}
+
+function selectPickerRoute(slug, { focusMap = true } = {}) {
+  if (!currentResult) return;
+  const selectedRoute = currentResult.routes.find((route) => route.slug === slug);
+  if (!selectedRoute) return;
+  selectedSlug = slug;
+  pinSelectedRoute = true;
+  if (!routeMatchesDistanceFilter(selectedRoute)) distanceFilter = 'all';
+  if (!routeMatchesRegionFilter(selectedRoute)) regionFilter = 'all';
+  if (!routeMatchesDifficultyFilter(selectedRoute)) difficultyFilter = 'all';
+  const routes = visiblePickerRoutes(currentResult.routes);
+  renderRouteList(routes);
+  renderSelectedSummary(selectedRoute);
+  updatePickerControls(routes.length, currentResult.routes.length);
+  renderGroupMap(routes, { preserveViewport: !focusMap, focusSelected: focusMap });
+  const url = new URL(window.location.href);
+  url.searchParams.set('route', slug);
+  window.history.replaceState({}, '', url);
 }
 
 function normalizeRoutes(routes) {
   return routes.map((route) => ({
     slug: route.river.slug,
+    riverId: route.river.riverId,
+    conditionZoneId: route.river.conditionZoneId,
+    corridorId: route.river.corridorId,
+    corridorLabel: route.river.corridorLabel,
+    continuityStatus: route.river.continuityStatus,
     name: route.river.name,
     reach: route.river.reach,
     state: route.river.state,
@@ -883,6 +1404,7 @@ function normalizeRoutes(routes) {
     putIn: route.river.putIn,
     takeOut: route.river.takeOut,
     accessPoints: route.river.accessPoints,
+    segmentEdges: route.river.segmentEdges,
     gauge: route.gauge,
     weather: route.weather,
   }));
@@ -926,15 +1448,17 @@ async function loadGroup({ silent = false } = {}) {
       selectedSlug = routes[0].slug;
     }
 
-    renderRouteList(routes);
-    renderGroupMap(routes);
+    renderRegionFilters(routes);
+    renderDifficultyFilters(routes);
+    renderPicker({ fitMap: true, focusSelected: Boolean(initialSelectedSlug) });
+    hydrateRouteGeometries(routes);
 
     const liveCount = routes.filter((route) => route.liveData?.overall === 'live').length;
     setBanner(
       liveCount === routes.length ? 'live' : 'degraded',
-      `${routes.length} route recommendations are ready for ${result.group.name}.`,
+      `${routes.length} current route calls are ready.`,
       liveCount === routes.length
-        ? 'All compared routes are using current enough reads right now.'
+        ? 'Gauge and weather reads are current enough to compare.'
         : 'At least one route is using stale or partial reads. Open the route page before you drive.'
     );
 
@@ -963,6 +1487,21 @@ async function loadGroup({ silent = false } = {}) {
 if (refreshButton instanceof HTMLButtonElement) {
   refreshButton.addEventListener('click', () => {
     loadGroup();
+  });
+}
+
+for (const button of distanceFilterButtons) {
+  if (!(button instanceof HTMLButtonElement)) continue;
+  button.addEventListener('click', () => {
+    distanceFilter = button.dataset.groupDistanceFilter || 'all';
+    renderPicker({ fitMap: true });
+  });
+}
+
+if (sortSelect instanceof HTMLSelectElement) {
+  sortSelect.addEventListener('change', () => {
+    sortMode = sortSelect.value || 'recommended';
+    renderPicker();
   });
 }
 
