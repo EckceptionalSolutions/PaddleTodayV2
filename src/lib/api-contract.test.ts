@@ -252,12 +252,7 @@ describe('api-contract serializers', () => {
     const summary = serializeSummaryResult(scored);
     const detail = serializeDetailResult(scored);
 
-    expect(summary.river.safetyProfile).toEqual({
-      riskLevel: 'caution',
-      hazards: ['strainers', 'access_uncertain'],
-      safetyNotes: ['Scout access and watch for fresh wood after storms.'],
-      reviewStatus: 'reviewed',
-    });
+    expect(summary.river.safetyProfile).toBeUndefined();
     expect(detail.river.safetyProfile?.hazards).toEqual(['strainers', 'access_uncertain']);
 
     const unreviewed = serializeDetailResult(

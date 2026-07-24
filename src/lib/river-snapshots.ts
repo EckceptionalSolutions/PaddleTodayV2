@@ -9,7 +9,6 @@ import {
 } from './json-guards';
 import {
   serializeDetailResult,
-  serializeRiverGroupResult,
   serializeSummaryResult,
   serializeWeekendSummaryResult,
   type RiverDetailApiResult,
@@ -27,6 +26,7 @@ const DEFAULT_SNAPSHOT_DIR = '.local';
 // capture is more than two hours old, a stored "live" call is more misleading
 // than useful, so callers fall back to a fresh live read instead.
 const MAX_STORED_SNAPSHOT_AGE_MS = 2 * 60 * 60 * 1000;
+const MAX_SUMMARY_SNAPSHOT_BYTES = 4 * 1024 * 1024;
 
 type BlobContainer = {
   base: string;
@@ -135,15 +135,14 @@ export async function captureRiverSnapshots(args: {
   const summary = buildSummarySnapshot(args.results, generatedAt);
   const weekendSummary = buildWeekendSummarySnapshot(args.results, generatedAt);
   const detailSnapshots = buildDetailSnapshots(args.results, generatedAt);
-  const groupSnapshots = buildGroupSnapshots(args.results, generatedAt);
+  const groupCount = listRiverGroups().length;
 
-  const routeBlobs = [
-    ...detailSnapshots.map(({ slug, payload }) => ({ name: detailBlobName(slug), payload })),
-    ...groupSnapshots.map(({ riverId, payload }) => ({ name: groupBlobName(riverId), payload })),
-  ];
+  const routeBlobs = detailSnapshots.map(({ slug, payload }) => ({ name: detailBlobName(slug), payload }));
+  assertSnapshotSize(summaryBlobName(), summary, MAX_SUMMARY_SNAPSHOT_BYTES);
 
   // Keep upstream/storage fan-out bounded so a refresh cannot starve normal API
-  // traffic. Publish the summary manifests last, after every route blob exists.
+  // traffic. Group responses are derived from the summary instead of writing a
+  // duplicate collection for every river family. Publish summaries last.
   await mapWithConcurrency(routeBlobs, args.writeConcurrency ?? 12, ({ name, payload }) => storage.writeJson(name, payload));
   await Promise.all([
     storage.writeJson(summaryBlobName(), summary),
@@ -153,15 +152,13 @@ export async function captureRiverSnapshots(args: {
   return {
     generatedAt,
     routeCount: args.results.length,
-    groupCount: groupSnapshots.length,
+    groupCount,
     storage: storage.kind,
   };
 }
 
 export async function getStoredRiverSummarySnapshot(): Promise<RiverSummarySnapshot | null> {
-  const snapshot =
-    (await snapshotStorage().readJson<RiverSummarySnapshot>(summaryBlobName())) ??
-    (await readLocalSummaryFallback());
+  const snapshot = await readStoredOrLocalSummary();
   if (!snapshot) {
     return null;
   }
@@ -173,6 +170,13 @@ export async function getStoredRiverSummarySnapshot(): Promise<RiverSummarySnaps
     ...snapshot,
     rivers: snapshot.rivers.map(normalizeSummarySnapshotItem),
   };
+}
+
+async function readStoredOrLocalSummary(): Promise<RiverSummarySnapshot | null> {
+  return (
+    (await snapshotStorage().readJson<RiverSummarySnapshot>(summaryBlobName())) ??
+    (await readLocalSummaryFallback())
+  );
 }
 
 async function readLocalSummaryFallback(): Promise<RiverSummarySnapshot | null> {
@@ -220,9 +224,7 @@ export async function getStoredWeekendSummarySnapshot(): Promise<WeekendSummaryS
 }
 
 export async function getStoredRiverGroupSnapshot(riverId: string): Promise<RiverGroupSnapshot | null> {
-  const snapshot =
-    (await snapshotStorage().readJson<RiverGroupSnapshot>(groupBlobName(riverId))) ??
-    (await readSummaryGroupFallback(riverId));
+  const snapshot = await readSummaryGroupFallback(riverId);
   if (!snapshot) {
     return null;
   }
@@ -240,7 +242,7 @@ export async function getStoredRiverGroupSnapshot(riverId: string): Promise<Rive
 }
 
 async function readSummaryDetailFallback(slug: string): Promise<RiverDetailSnapshot | null> {
-  const summary = await readLocalSummaryFallback();
+  const summary = await readStoredOrLocalSummary();
   const item = summary?.rivers.find((river) => river.river.slug === slug);
   if (!summary || !item) {
     return null;
@@ -250,7 +252,7 @@ async function readSummaryDetailFallback(slug: string): Promise<RiverDetailSnaps
 }
 
 async function readSummaryWeekendFallback(): Promise<WeekendSummarySnapshot | null> {
-  const summary = await readLocalSummaryFallback();
+  const summary = await readStoredOrLocalSummary();
   if (!summary) {
     return null;
   }
@@ -307,7 +309,7 @@ async function readSummaryWeekendFallback(): Promise<WeekendSummarySnapshot | nu
 }
 
 async function readSummaryGroupFallback(riverId: string): Promise<RiverGroupSnapshot | null> {
-  const summary = await readLocalSummaryFallback();
+  const summary = await readStoredOrLocalSummary();
   const routes = summary?.rivers
     .filter((item) => item.river.riverId === riverId)
     .map((item) => detailFromSummaryItem(item))
@@ -487,18 +489,23 @@ function confidenceLevel(label: RiverSummaryApiItem['confidence']['label']): Riv
 
 function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryApiItem {
   const river = getRiverBySlug(item.river.slug);
+  const { safetyProfile: _safetyProfile, logistics: storedLogistics, ...storedRiver } = item.river;
   return {
     ...item,
     river: {
-      ...item.river,
+      ...storedRiver,
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
       routeType: item.river.routeType || river?.routeType || 'recreational',
-      safetyProfile: item.river.safetyProfile || river?.safetyProfile,
       putIn: item.river.putIn || river?.putIn,
       takeOut: item.river.takeOut || river?.takeOut,
       accessPoints: item.river.accessPoints || river?.accessPoints,
-      logistics: item.river.logistics || river?.logistics,
+      logistics: {
+        campingClassification:
+          storedLogistics?.campingClassification
+          ?? river?.logistics?.campingClassification
+          ?? 'unknown',
+      },
     },
   };
 }
@@ -510,16 +517,21 @@ function isStoredSnapshotFresh(snapshot: { generatedAt: string }) {
 
 function normalizeWeekendSnapshotItem(item: WeekendSummaryApiItem): WeekendSummaryApiItem {
   const river = getRiverBySlug(item.river.slug);
+  const { safetyProfile: _safetyProfile, logistics: storedLogistics, ...storedRiver } = item.river;
   return {
     ...item,
     river: {
-      ...item.river,
+      ...storedRiver,
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
       routeType: item.river.routeType || river?.routeType || 'recreational',
-      safetyProfile: item.river.safetyProfile || river?.safetyProfile,
       accessPoints: item.river.accessPoints || river?.accessPoints,
-      logistics: item.river.logistics || river?.logistics,
+      logistics: {
+        campingClassification:
+          storedLogistics?.campingClassification
+          ?? river?.logistics?.campingClassification
+          ?? 'unknown',
+      },
     },
   };
 }
@@ -603,44 +615,6 @@ function buildDetailSnapshots(results: RiverScoreResult[], generatedAt: string) 
   }));
 }
 
-function buildGroupSnapshots(results: RiverScoreResult[], generatedAt: string) {
-  const byRiverId = new Map<string, RiverScoreResult[]>();
-
-  for (const result of results) {
-    const riverId = result.river.riverId;
-    if (!riverId) {
-      continue;
-    }
-
-    const bucket = byRiverId.get(riverId) ?? [];
-    bucket.push(result);
-    byRiverId.set(riverId, bucket);
-  }
-
-  return listRiverGroups()
-    .map((group) => {
-      const routes = [...(byRiverId.get(group.riverId) ?? [])].sort((left, right) => right.score - left.score);
-      if (routes.length === 0) {
-        return null;
-      }
-
-      return {
-        riverId: group.riverId,
-        payload: {
-          generatedAt,
-          result: serializeRiverGroupResult({
-            riverId: group.riverId,
-            routes: routes.map((route) => ({
-              ...route,
-              generatedAt,
-            })),
-          }),
-        } satisfies RiverGroupSnapshot,
-      };
-    })
-    .filter(Boolean) as Array<{ riverId: string; payload: RiverGroupSnapshot }>;
-}
-
 function summaryBlobName() {
   return `${snapshotPrefix()}/summary.json`;
 }
@@ -651,10 +625,6 @@ function weekendSummaryBlobName() {
 
 function detailBlobName(slug: string) {
   return `${snapshotPrefix()}/details/${slug}.json`;
-}
-
-function groupBlobName(riverId: string) {
-  return `${snapshotPrefix()}/groups/${riverId}.json`;
 }
 
 function snapshotPrefix() {
@@ -707,7 +677,7 @@ function snapshotStorage():
         return payload as T;
       },
       async writeJson(blobName: string, value: unknown) {
-        const payload = JSON.stringify(value, null, 2);
+        const payload = JSON.stringify(value);
         const response = await fetch(blobUrl(container, blobName), {
           method: 'PUT',
           headers: {
@@ -750,9 +720,19 @@ function snapshotStorage():
     async writeJson(blobName: string, value: unknown) {
       const filePath = localPathFor(blobName);
       await mkdir(dirname(filePath), { recursive: true });
-      await writeFile(filePath, JSON.stringify(value, null, 2), 'utf8');
+      await writeFile(filePath, JSON.stringify(value), 'utf8');
     },
   };
+}
+
+function assertSnapshotSize(blobName: string, value: unknown, maxBytes: number) {
+  const bytes = Buffer.byteLength(JSON.stringify(value));
+  if (bytes > maxBytes) {
+    throw new Error(
+      `Snapshot ${blobName} is ${bytes} bytes; maximum is ${maxBytes}. `
+      + 'Move detail-only fields out of the summary contract.',
+    );
+  }
 }
 
 function localPathFor(blobName: string) {

@@ -2604,16 +2604,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
-  'pecatonica-river-wes-block-tuttys': [
-    {
-      id: 'pecatonica-river-iowa-county-commons',
-      src: '/gallery/pecatonica-river-wes-block-tuttys/pecatonica-river-iowa-county-wisconsin.jpg',
-      alt: 'The Pecatonica River winds through a calm wooded corridor with green banks and reflective water.',
-      caption: 'Pecatonica River corridor',
-      credit: 'wackybadger via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
-    },
-  ],
   'eleven-point-river-cane-bluff-greer-crossing': [
     {
       id: 'eleven-point-river-missouri-commons',
@@ -2704,26 +2694,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
-  'sugar-creek-deers-mill-cox-ford': [
-    {
-      id: 'sugar-creek-shades-state-park-commons',
-      src: '/gallery/sugar-creek-deers-mill-cox-ford/sugar-creek-shades-state-park.png',
-      alt: 'Sugar Creek bends around Canoe Island below the wooded bluffs of Shades State Park in Indiana.',
-      caption: 'Sugar Creek at Shades State Park',
-      credit: 'MrBook via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
-    },
-  ],
-  'wildcat-creek-knop-lake-mis-so-lah': [
-    {
-      id: 'wildcat-creek-kokomo-commons',
-      src: '/gallery/wildcat-creek-knop-lake-mis-so-lah/wildcat-creek-kokomo.jpg',
-      alt: 'Wildcat Creek flows past wooded banks in Kokomo, Indiana, with a broad shallow channel.',
-      caption: 'Wildcat Creek in Kokomo',
-      credit: 'Rapierce via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
   'village-creek-fm418-sh327': [
     {
       id: 'village-creek-silsbee-commons',
@@ -2742,16 +2712,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Guadalupe River southeast of Cuero',
       credit: '25or6to4 via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
-    },
-  ],
-  'fox-river-yorkville-whitewater-course': [
-    {
-      id: 'fox-river-yorkville-course-commons',
-      src: '/gallery/fox-river-yorkville-whitewater-course/fox-river-yorkville-course.jpg',
-      alt: 'Kayakers paddle the Marge Cline Whitewater Course on the Fox River at Yorkville, Illinois.',
-      caption: 'Fox River at Yorkville whitewater course',
-      credit: 'David Jakes via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY 4.0',
     },
   ],
   'otter-tail-river-phelps-mill-west-lost-lake': [

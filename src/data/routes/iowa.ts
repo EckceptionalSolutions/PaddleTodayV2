@@ -8173,7 +8173,7 @@ export const iowaRoutes: River[] = [
     "reach": "Bridge Sixteen to Highway 76",
     "state": "Iowa",
     "region": "Northeast Iowa",
-    "summary": "Long lower Yellow River day from the public Bridge Sixteen launch through rugged Driftless bluffs, faster riffles, Yellow River State Forest, and Effigy Mounds bottomlands to the Highway 76 mouth-area access.",
+    "summary": "Long lower Yellow River day from Bridge Sixteen to Highway 76, with Ion Bridge retained as a public alternate put-in for a shorter roughly 7-mile lower-river option.",
     "statusText": "Use the Yellow River near Ion gauge. Treat 201 to 300 cfs as the best broad target, 100 cfs as the low floor, and 600+ cfs as too high for a normal recreational recommendation because rapids, strainers, and Mississippi backwater debris get more consequential.",
     "latitude": 43.1277592,
     "longitude": -91.3140227,
@@ -8186,6 +8186,22 @@ export const iowaRoutes: River[] = [
       "kind": "direct",
       "siteName": "Yellow River near Ion, IA",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "The Sixteen-to-Ion reach is the faster, more rugged portion. Use Ion Bridge as an alternate put-in only when the shorter lower-river trip and shuttle are explicitly staged.",
+        "Scout wood and the Highway 76 take-out before launching; missing the take-out commits the group toward Mississippi backwater and railroad/highway infrastructure.",
+        "Yellow River State Forest camping is designated-site camping, not permission to stop on private or unmarked banks."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
@@ -8212,7 +8228,7 @@ export const iowaRoutes: River[] = [
       "seasonNotes": "Spring and fall are best for this long Driftless day. Summer can be workable when the Ion gauge stays above the low floor, but the lower river can be affected by recent rain, reduced clarity, and Mississippi backwater near the mouth.",
       "difficulty": "moderate",
       "difficultyNotes": "Miles Paddled rates this reach intermediate with riffles and Class I+ water. Wisconsin River Trips describes the Sixteen-to-Ion leg as faster and more rugged than the popular upstream reach, with bigger Class II-style rapids possible as water rises.",
-      "confidenceNotes": "Confidence is good for a community-source Iowa add: Miles Paddled documents the exact Old Sixteen Road-to-Highway-76 route with GPS points, distance, hazards, and an Ion gauge observation; Wisconsin River Trips publishes the same-river Ion gauge ladder and identifies Bridge Sixteen as a public paddler launch; USGS operates the Ion gauge in the route corridor; NPS and Iowa DNR materials confirm public lower-corridor context around Effigy Mounds, Yellow River State Forest, canoe access, parking, and the Highway 76 area."
+      "confidenceNotes": "Confidence is good for a community-source Iowa add: Miles Paddled documents the exact Old Sixteen Road-to-Highway-76 route with GPS points, distance, hazards, and an Ion gauge observation; Wisconsin River Trips publishes the same-river Ion gauge ladder and identifies Bridge Sixteen as a public paddler launch; the Yellow River water-trail guide and Iowa DNR materials support the Ion-area alternate access; USGS operates the Ion gauge in the route corridor; and NPS confirms public lower-corridor context near Effigy Mounds and Highway 76."
     },
     "evidenceNotes": [
       {
@@ -8258,6 +8274,12 @@ export const iowaRoutes: River[] = [
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney"
       },
       {
+        "label": "Short-route option",
+        "value": "Ion Bridge to Highway 76, about 7 mi",
+        "note": "The Yellow River water-trail guide and Iowa DNR state-forest materials support the Ion Road / Old Mission Road canoe-access corridor. It is retained as an intermediate alternate put-in rather than a duplicate route card.",
+        "sourceUrl": "https://www.northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
         "label": "Take-out support",
         "value": "Highway 76 / Yellow River mouth access context",
         "note": "Miles Paddled used the Highway 76 and railroad bridge area as the safer take-out. NPS describes the Yellow River boardwalk and South Unit highway access area, while Iowa DNR maps canoe access and parking in the Yellow River State Forest lower corridor.",
@@ -8289,124 +8311,11 @@ export const iowaRoutes: River[] = [
         "label": "Iowa DNR Yellow River State Forest map",
         "url": "https://www.iowadnr.gov/Portals/idnr/uploads/forestry/YRSF/YRSFMap.pdf",
         "provider": "local"
-      }
-    ]
-  },
-  {
-    "id": "yellow-river-ion-highway-76",
-    "slug": "yellow-river-ion-highway-76",
-    "name": "Yellow River",
-    "reach": "Ion Bridge Access to Highway 76 Access",
-    "state": "Iowa",
-    "region": "Northeast Iowa",
-    "summary": "Fast lower Yellow River split from Ion Bridge to Highway 76, using the direct Ion gauge, official water-trail guidance, and Yellow River State Forest canoe-access context.",
-    "statusText": "Use the Yellow River near Ion gauge. CanWePaddle lists 80 to 900 cfs for Volney to Ion, and the water-trail guide says flows should be above 80 cfs; this short split still needs rapid, wood, and take-out checks.",
-    "latitude": 43.08612,
-    "longitude": -91.18213,
-    "gaugeSource": {
-      "id": "usgs-05389000",
-      "provider": "usgs",
-      "siteId": "05389000",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "direct",
-      "siteName": "Yellow River near Ion, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/"
-    },
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "whitewater",
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "cold_water"
-      ],
-      "safetyNotes": [
-        "The Yellow River drops quickly through the lower state-forest corridor. At high water, Class I rapids and tight bends become more consequential.",
-        "Scout wood and the Ion Bridge take-out from land before launching; missing the take-out commits the group toward the lower forest and Mississippi backwater planning zone.",
-        "Yellow River State Forest camping is designated-site camping, not permission to stop on private or unmarked banks."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 80,
-      "idealMax": 900,
-      "tooLow": 80,
-      "tooHigh": 900,
-      "thresholdSource": {
-        "label": "CanWePaddle Yellow River Volney-to-Ion estimated range and Iowa water-trail 80 cfs floor",
-        "url": "https://canwepaddle.com/rivers/iowa/yellow-river-volney-to-ion/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "mixed",
-      "rainfallSensitivity": "high",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "Spring and fall often have the best depth and visibility. Summer can scrape below the 80 cfs floor, while storms can rapidly turn the narrow bluff corridor pushy.",
-      "difficulty": "moderate",
-      "difficultyNotes": "This is a short lower-Yellow split, but the river remains swift, riffly, and wood-sensitive. Treat it as an active moving-water trip rather than casual flatwater.",
-      "confidenceNotes": "Confidence is moderate-good: CanWePaddle ties the full Volney-to-Ion route family to USGS 05389000 with an 80-900 cfs range, the Yellow River water-trail guide gives the same 80 cfs canoe/kayak floor, and Iowa DNR Yellow River State Forest materials confirm canoe access and canoe-in camping context near Ion. The split is extracted from a longer represented corridor, so copy emphasizes take-out discipline and direct-gauge visual checks."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Threshold range",
-        "value": "80-900 cfs",
-        "note": "CanWePaddle publishes an 80 to 900 cfs estimated range for the broader Volney-to-Ion route using USGS 05389000.",
-        "sourceUrl": "https://canwepaddle.com/rivers/iowa/yellow-river-volney-to-ion/"
-      },
-      {
-        "label": "Official low-water floor",
-        "value": "Above 80 cfs for canoeing or kayaking",
-        "note": "The Yellow River water-trail guide says paddlers should check the river gage and that flows should ideally be above 80 cfs for canoeing or kayaking this section.",
-        "sourceUrl": "https://www.northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
-      },
-      {
-        "label": "Current gauge check",
-        "value": "USGS 05389000 125 cfs / 5.78 ft",
-        "note": "USGS Water Services returned current Yellow River near Ion data at 2026-07-23 18:45 CDT during this run.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05389000&parameterCd=00060,00065&siteStatus=all"
-      },
-      {
-        "label": "State-forest access and camping context",
-        "value": "Yellow River State Forest canoe access and canoe-in campsite",
-        "note": "Iowa DNR Yellow River State Forest materials describe kayaking the Yellow River Water Trail and note a primitive Ridgetop canoe-in campsite; the unit map directs paddlers to canoe access and parking from Highway 76 via Ion Road and Old Mission Road.",
-        "sourceUrl": "https://www.iowadnr.gov/places-go/state-forests/yellow-river-state-forest"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "CanWePaddle Yellow River Volney to Ion",
-        "url": "https://canwepaddle.com/rivers/iowa/yellow-river-volney-to-ion/",
-        "provider": "local"
       },
       {
         "label": "Yellow River Water Trail guide",
         "url": "https://www.northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
         "provider": "local"
-      },
-      {
-        "label": "Iowa DNR Yellow River State Forest",
-        "url": "https://www.iowadnr.gov/places-go/state-forests/yellow-river-state-forest",
-        "provider": "local"
-      },
-      {
-        "label": "Iowa DNR Yellow River Unit map",
-        "url": "https://www.iowadnr.gov/media/1179/download?inline=",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05389000 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/",
-        "provider": "usgs"
       }
     ]
   },
@@ -9339,127 +9248,6 @@ export const iowaRoutes: River[] = [
       {
         "label": "Chautauqua Park Oakland",
         "url": "https://www.unleashcb.com/play/chautauqua_park/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 06807410 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06807410/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "west-nishnabotna-river-oakland-carson",
-    "slug": "west-nishnabotna-river-oakland-carson",
-    "name": "West Nishnabotna River",
-    "reach": "Chautauqua Park / Oakland to Millstone City Park / Carson",
-    "state": "Iowa",
-    "region": "Southwest Iowa",
-    "summary": "Shorter West Nishnabotna water-trail day from Oakland to Carson, with signed public town accesses, Highway 6 and 400th Street bridge context, and Hancock-gauge stage guidance.",
-    "statusText": "Use the West Nishnabotna at Hancock stage gauge with a local 2.5 to 4.5 ft window. Below the floor expect scraping and walking; above the ceiling the current may be too strong for beginners and wood avoidance gets harder.",
-    "latitude": 41.30695,
-    "longitude": -95.40363,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "access_uncertain"
-      ],
-      "safetyNotes": [
-        "Oakland-to-Carson is a contained split of the existing Oakland-to-Macedonia corridor, added for a shorter official access-pair option with the stronger Hancock gauge guidance.",
-        "Stage Millstone City Park from land and know the signed Carson take-out. The water-trail partner says paddling upstream is not easy if you miss an access.",
-        "Most sandbars and banks are private. Use signed public accesses and avoid unplanned stops unless you have landowner permission."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-06807410",
-      "provider": "usgs",
-      "siteId": "06807410",
-      "metric": "gage_height_ft",
-      "unit": "ft",
-      "kind": "proxy",
-      "siteName": "West Nishnabotna River at Hancock, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06807410/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 2.5,
-      "idealMax": 4.5,
-      "tooLow": 2.5,
-      "tooHigh": 4.5,
-      "thresholdSource": {
-        "label": "Friends of the West Nish Hancock gauge water-level guidance",
-        "url": "https://friendsofthewestnish.weebly.com/water-levels.html",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "high",
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "seasonNotes": "The Hancock gauge is upstream of this split and should be paired with a local Oakland/Carson visual check, especially after localized storms.",
-      "difficulty": "easy",
-      "difficultyNotes": "This is a shorter flatwater day, but channelized bends, eroding banks, wood, private land, and a proxy gauge require caution.",
-      "confidenceNotes": "Confidence is moderate-good: the official/local water-trail partner lists Chautauqua and Millstone as signed accesses, describes the bridge sequence and Carson approach, and publishes numeric Hancock-gauge guidance. This card is intentionally a shorter split of the existing Oakland-to-Macedonia route; overlap should be reviewed as an access-planning improvement rather than a new long duplicate."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Official access pair",
-        "value": "Chautauqua Park to Millstone City Park",
-        "note": "Friends of the West Nish lists Chautauqua Park in Oakland and Millstone City Park in Carson as water-trail accesses with parking.",
-        "sourceUrl": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html"
-      },
-      {
-        "label": "Route landmarks",
-        "value": "Highway 6, 400th Street, Millstone Park",
-        "note": "The water-trail partner says paddlers pass the Highway 6 bridge about a mile south of Oakland, then the 400th Street bridge, and soon after reach Millstone Park access in Carson.",
-        "sourceUrl": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html"
-      },
-      {
-        "label": "Threshold guidance",
-        "value": "2.5-4.5 ft at Hancock",
-        "note": "The local water-level page gives 2.5 to 4.5 ft as the many-paddler comfort band, with scraping likely below about 3.5 ft and difficult paddling below 2.5 ft.",
-        "sourceUrl": "https://friendsofthewestnish.weebly.com/water-levels.html"
-      },
-      {
-        "label": "Current gauge check",
-        "value": "USGS 06807410 156 cfs / 2.19 ft",
-        "note": "USGS reported current West Nishnabotna River at Hancock data at 2026-07-23 21:00 CDT during this run.",
-        "sourceUrl": "https://waterdata.usgs.gov/ia/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=06807410"
-      },
-      {
-        "label": "Carson access and camping",
-        "value": "Millstone City Park access and public camping",
-        "note": "The water-trail partner lists Millstone City Park as the Carson access and lists public camping in Carson, but still prohibits private-bank and sandbar camping without permission.",
-        "sourceUrl": "https://friendsofthewestnish.weebly.com/camping--lodging.html"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Friends of the West Nish visit the water trail",
-        "url": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html",
-        "provider": "local"
-      },
-      {
-        "label": "Friends of the West Nish water levels",
-        "url": "https://friendsofthewestnish.weebly.com/water-levels.html",
-        "provider": "local"
-      },
-      {
-        "label": "Chautauqua Park Oakland",
-        "url": "https://www.unleashcb.com/play/chautauqua_park/",
-        "provider": "local"
-      },
-      {
-        "label": "City of Carson parks and recreation",
-        "url": "https://www.carsongov.com/parks-rec",
         "provider": "local"
       },
       {
@@ -11086,14 +10874,14 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
-    "id": "des-moines-river-highway-30-dogwood",
-    "slug": "des-moines-river-highway-30-dogwood",
+    "id": "des-moines-river-highway-30-sportsman",
+    "slug": "des-moines-river-highway-30-sportsman",
     "name": "Des Moines River",
-    "reach": "Highway 30 Access to Dogwood Ramp / E-57",
+    "reach": "Highway 30 Access to Sportsman Ramp",
     "state": "Iowa",
     "region": "Central Iowa",
-    "summary": "Scenic Boone County Des Moines River water-trail section from Highway 30 toward the Dogwood/E-57 ramp, passing the Ledges State Park bluff corridor with official access mapping.",
-    "statusText": "Use the Des Moines River near Stratford gauge as the upstream corridor signal. Treat 400 to 8,000 cfs as a guarded Boone County range, then verify the Highway 30 and Dogwood ramps because silt, wind, and releases can change the day.",
+    "summary": "Combined 11-mile Boone County Des Moines River water-trail route from Highway 30 through the Ledges State Park corridor to Sportsman Ramp, with Dogwood/E-57 retained as a public intermediate access and short-trip option.",
+    "statusText": "Use the Des Moines River near Stratford gauge as the upstream corridor signal and compare it with Saylorville conditions. Treat 400 to 8,000 cfs as a guarded Boone County range, then verify all three ramps because silt, wind, and releases can change the day.",
     "latitude": 42.047,
     "longitude": -93.931,
     "safetyProfile": {
@@ -11106,7 +10894,8 @@ export const iowaRoutes: River[] = [
       ],
       "safetyNotes": [
         "Launch at Highway 30 only after confirming the Boone Waterworks rapids are upstream of the route plan; do not drift into or out of the rapids without a separate plan.",
-        "Iowa DNR notes bridge piers and other in-water hazards in this Boone County reach. Give piers, wood, and bank debris space.",
+        "Iowa DNR notes bridge piers and other in-water hazards in this Boone County reach. Give piers, old bridge remnants, wood, and bank debris space.",
+        "Dogwood/E-57 is the represented intermediate access. Both Dogwood and Sportsman can be silt-covered even though they are maintained, so walk the intended take-out before launching.",
         "The river is meandered, but private property begins at the high-water mark. Keep routine stops to public areas or legal bars."
       ],
       "reviewStatus": "reviewed"
@@ -11143,22 +10932,28 @@ export const iowaRoutes: River[] = [
         9,
         10
       ],
-      "seasonNotes": "Spring and early summer normally have the most dependable depth. Late-summer lows can expose bars and old bridge remnants; storm rises can make the wide bends pushy.",
+      "seasonNotes": "Spring and early summer normally have the most dependable depth. Late-summer lows can expose bars and old bridge remnants; storm rises and Saylorville conditions can make the lower bends pushy or cover bars and ramps.",
       "difficulty": "easy",
-      "difficultyNotes": "DNR says this section is appropriate for paddlers of all skill levels and both endpoints are well developed, but the seven-mile distance, bridge hazards, proxy gauge, and Ledges-area exposure warrant a caution profile.",
-      "confidenceNotes": "Confidence is moderate-good: the Iowa DNR Boone County guide identifies Highway 30 Access to E-57/Dogwood as a water-trail section, describes the Ledges State Park bluff corridor, marks Highway 30 and Dogwood/E-57 ramps, and Boone County confirms the state water-trail ramp system. Threshold confidence is mixed because the 400-8,000 cfs model is the accepted upstream Des Moines River corridor range rather than an exact Boone County publication."
+      "difficultyNotes": "DNR says both component sections are appropriate for paddlers of all skill levels and all three accesses are developed, but the combined 11-mile distance, bridge hazards, proxy gauge, and Saylorville-influenced lower reach warrant a caution profile.",
+      "confidenceNotes": "Confidence is moderate-good: the Iowa DNR Boone County guide identifies Highway 30-to-Dogwood and Dogwood-to-Sportsman as consecutive water-trail sections, describes the Ledges bluff corridor and lower sandbar bends, and marks all three ramps. USACE and Boone County confirm the access chain. Threshold confidence is mixed because the 400-8,000 cfs model is adapted from the upper Des Moines corridor rather than published for this exact combined route."
     },
     "evidenceNotes": [
       {
         "label": "Official route and mileage",
-        "value": "Highway 30 Access to E-57/Dogwood, about 7 mi",
-        "note": "The Iowa DNR Boone County map places Highway 30 Access near river mile 237 and Dogwood/E-57 near river mile 230.",
+        "value": "Highway 30 to Dogwood to Sportsman, about 11 mi",
+        "note": "The Iowa DNR Boone County map places Highway 30 near river mile 237, Dogwood/E-57 near mile 230, and Sportsman near mile 226, supporting one route with Dogwood as the intermediate short-trip access.",
         "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
       },
       {
         "label": "Route character",
-        "value": "Ledges State Park bluff corridor",
-        "note": "DNR says this section has some of the most beautiful scenery on the river, including dramatic sandstone bluffs near Ledges State Park.",
+        "value": "Ledges bluffs followed by lower sandbar bends",
+        "note": "DNR highlights dramatic sandstone bluffs around Ledges State Park, then describes maintained ramps, long sandbars, and growing Saylorville influence below Dogwood.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      },
+      {
+        "label": "Intermediate access",
+        "value": "Dogwood Ramp / E-57 at about mile 7",
+        "note": "Dogwood is retained as a staged alternate take-out or put-in, allowing either component section without publishing two near-identical route cards.",
         "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
       },
       {
@@ -11171,123 +10966,6 @@ export const iowaRoutes: River[] = [
         "label": "Safety guidance",
         "value": "Check levels, weather, PFDs, strainers, dams, and private property",
         "note": "The DNR Boone County guide includes general safety guidance to check river levels, know weather, wear PFDs, portage obstacles and low-head dams, and use public lands/access points respectfully.",
-        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Iowa DNR Des Moines River Water Trail, Boone County",
-        "url": "https://www.iowadnr.gov/media/8885/download?inline=",
-        "provider": "local"
-      },
-      {
-        "label": "Boone County Des Moines River Water Trail",
-        "url": "https://www.boonecounty.iowa.gov/conservation/recreational_areas/des_moines_river_water_trail/",
-        "provider": "local"
-      },
-      {
-        "label": "USACE Boone County Des Moines River trail map",
-        "url": "https://www.mvr.usace.army.mil/Portals/48/docs/Recreation/ODS/Maps/Boone%20County%20River%20Trail.pdf",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle Des Moines River Fort Dodge to Lehigh",
-        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05481300 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "des-moines-river-dogwood-sportsman",
-    "slug": "des-moines-river-dogwood-sportsman",
-    "name": "Des Moines River",
-    "reach": "Dogwood Ramp / E-57 to Sportsman Ramp",
-    "state": "Iowa",
-    "region": "Central Iowa",
-    "summary": "Short lower Boone County Des Moines River water-trail section from Dogwood/E-57 to Sportsman Ramp, with maintained ramps, sandbar bends, and Saylorville-influenced flow caveats.",
-    "statusText": "Use the Des Moines River near Stratford gauge as the upstream signal and compare it with Saylorville. The 400 to 8,000 cfs corridor range is guarded here; low water exposes bridge remnants and high water can flood bars and ramps.",
-    "latitude": 42.005,
-    "longitude": -93.878,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "remote"
-      ],
-      "safetyNotes": [
-        "DNR says both ramps are maintained and accessible, but silt may cover them. Walk both landings before launching.",
-        "Very low water can expose old wooden bridge supports near Sportsman / Old Hubby Bridge; give any remnants wide clearance.",
-        "The river starts feeling the downstream Saylorville system in this area. Watch for fishing boats, wind, release effects, and floodplain inundation."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05481300",
-      "provider": "usgs",
-      "siteId": "05481300",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "Des Moines River near Stratford, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 400,
-      "idealMax": 8000,
-      "tooLow": 400,
-      "tooHigh": 8000,
-      "thresholdSource": {
-        "label": "CanWePaddle Fort Dodge-to-Lehigh estimated range, applied conservatively to the upper Des Moines corridor",
-        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "mixed",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "This short lower-Boone section depends on both upstream Des Moines River flow and downstream Saylorville conditions. Low water can be slow and silted; high releases or floods can cover bars and speed up the current.",
-      "difficulty": "easy",
-      "difficultyNotes": "DNR frames the reach as suitable for all skill levels and the mileage is short, but the proxy gauge, silted ramps, bridge-remnant possibility, wind, and motorboat mix require caution.",
-      "confidenceNotes": "Confidence is moderate-good: Iowa DNR identifies E-57/Dogwood to Sportsman as a short water-trail section with maintained ramps, long sandbars, and Saylorville influence; USACE mapping labels Dogwood and Sportsman ramps; Boone County confirms the state water-trail ramp network. Threshold confidence is mixed because the numeric model is adapted from the upper Des Moines CanWePaddle corridor range and cross-checked with current Stratford/Saylorville values rather than an exact local publication."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Official route and mileage",
-        "value": "E-57/Dogwood to Sportsman, about 4 mi",
-        "note": "The Iowa DNR guide describes E-57 Access to Sportsman Ramp as a short section; the map places Dogwood/E-57 near river mile 230 and Sportsman near river mile 226.",
-        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
-      },
-      {
-        "label": "Access condition",
-        "value": "Maintained ramps, sometimes silt-covered",
-        "note": "DNR says both ramps are maintained and accessible, though silt may sometimes cover them, and notes Sportsman is also known as Old Hubby Bridge Access.",
-        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
-      },
-      {
-        "label": "Current gauge check",
-        "value": "USGS 05481300 1,020 cfs / 5.76 ft; USGS 05481650 1,530 cfs / 3.65 ft",
-        "note": "USGS Water Services returned current upstream Stratford and downstream Saylorville values at 2026-07-23 20:00 CDT during this run.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05481300,05481650&parameterCd=00060,00065&siteStatus=all"
-      },
-      {
-        "label": "Saylorville influence",
-        "value": "Fishing boats and flood-tolerant floodplain downstream",
-        "note": "DNR says the next Sportsman-to-Highway-210 reach is strongly influenced by Saylorville Dam, and that fishing boats become more common approaching public recreation areas.",
         "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
       }
     ],

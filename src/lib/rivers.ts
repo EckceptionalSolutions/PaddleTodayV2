@@ -207,7 +207,9 @@ function gaugeCacheKey(river: River) {
 
 async function getCachedWeatherSnapshot(river: River) {
   return remember({
-    key: `weather:${river.slug}:${river.latitude}:${river.longitude}`,
+    // Route sections can share a forecast coordinate. Key by location rather
+    // than slug so a refresh does not request identical weather repeatedly.
+    key: `weather:${river.latitude}:${river.longitude}`,
     ttlMs: WEATHER_CACHE_TTL_MS,
     staleWhileErrorMs: STALE_WHILE_ERROR_MS,
     load: () => fetchWeatherSnapshot(river.latitude, river.longitude),

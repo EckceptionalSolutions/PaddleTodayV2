@@ -2707,14 +2707,14 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "16.75 mi",
       "estimatedPaddleTime": "Long day, about 5 hr to 6.5 hr depending on level and stops",
-      "shuttle": "Use a two-car or local outfitter shuttle between Bridge Sixteen and the Highway 76 mouth-area access. Avoid a bike shuttle unless you are comfortable with a long hilly Highway 76 shoulder route.",
+      "shuttle": "Stage Highway 76 first. Launch at Bridge Sixteen for the full 16.75-mile route or at Ion Bridge / Old Mission Road for the shorter roughly 7-mile option. Avoid a bike shuttle unless you are comfortable with a long hilly Highway 76 shoulder route.",
       "permits": "No route-specific paddling permit is known. Follow Iowa DNR, Yellow River State Forest, Effigy Mounds, railroad-area, and posted access rules; use only established public access points.",
       "camping": "Yellow River State Forest has designated camping options, including canoe-in context on DNR maps. Do not assume informal riverbank camping is allowed; Miles Paddled notes state forest camping is limited to designated areas.",
-      "summary": "Launch from the public Bridge Sixteen access below the bridge and paddle the long lower Yellow River to the Highway 76 / railroad bridge area near the Mississippi. Expect fast early miles, bluffs, riffles, public-land solitude, and a floodplain finish near Effigy Mounds.",
+      "summary": "Launch from Bridge Sixteen for the full lower Yellow River or use Ion Bridge as an alternate put-in for the shorter final 7 miles to Highway 76. Expect riffles, wood, public-land solitude, and a floodplain finish near Effigy Mounds.",
       "accessCaveats": [
         "Use the public Bridge Sixteen launch downstream and river left of the bridge. Do not use Scenic View Campground take-outs, bathrooms, or private banks unless you are a paying customer or have permission.",
         "The Highway 76 finish is a mouth-area access near railroad and highway infrastructure. Scout the take-out before launching, especially if the Mississippi is high or debris is present.",
-        "The route is almost 17 miles and becomes harder to shorten once committed below the Ion Road area; plan daylight and shuttle carefully."
+        "Ion Bridge is the only represented shorter-route put-in. Stage it intentionally; do not treat private or unsigned banks as casual bailout points."
       ],
       "watchFor": [
         "Frequent riffles and Class I+ current, with stronger rapids in the Sixteen-to-Ion stretch and pushier behavior as the Ion gauge rises.",
@@ -2722,58 +2722,34 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "Mississippi River backwater, floating debris, and confusing banks near the mouth at high river stages.",
         "Cold water, trout anglers, private campground banks at the put-in, and posted land-management rules through Yellow River State Forest and Effigy Mounds."
       ]
-    }
-  },
-  "yellow-river-ion-highway-76": {
-    "putIn": {
-      "id": "ion-bridge-access",
-      "name": "Ion Bridge Access / Old Mission Road canoe access",
-      "latitude": 43.11191667,
-      "longitude": -91.2651389
-    },
-    "takeOut": {
-      "id": "highway-76-yellow-river-access",
-      "name": "Highway 76 / Yellow River access",
-      "latitude": 43.08612,
-      "longitude": -91.18213
-    },
-    "logistics": {
-      "distanceLabel": "About 7 mi",
-      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low-water scraping or wood scouting",
-      "shuttle": "Stage at the Highway 76 lower-river access first, then launch from the Ion Bridge / Old Mission Road canoe access. Confirm both landings from the road because this short split has fast water and limited clean alternates.",
-      "permits": "No route-specific paddling permit is known. Follow Iowa DNR, Yellow River State Forest, Effigy Mounds, railroad-area, and posted access rules.",
-      "camping": "Yellow River State Forest has designated camping and canoe-in campsite context nearby, but this short access-pair route should be treated as a day run unless a separate legal state-forest camping plan is confirmed.",
-      "campingClassification": "nearby_basecamp",
-      "summary": "Launch at the Ion Bridge / Old Mission Road canoe access and paddle the lower-Yellow split to the Highway 76 access, using the direct Ion gauge and the official water-trail low-water floor.",
-      "accessCaveats": [
-        "Highway 76 and Ion access coordinates are practical access anchors; use signed parking and launch paths rather than railroad, highway, or private banks.",
-        "Highway 76 is the planned take-out. Missing it changes the trip into a different lower-Yellow plan with more public-land and Mississippi-backwater exposure.",
-        "The water-trail guide and CanWePaddle support the broader Volney-to-Ion family, so make a visual check for local wood, depth, and take-out conditions before launching."
-      ],
-      "watchFor": [
-        "Class I riffles, shallow rocks, tight bends, and occasional portage-worthy strainers.",
-        "Fast rises and pushier current above the selected 900 cfs ceiling.",
-        "Private banks, trout anglers, cold water, and designated-only camping rules in the state forest corridor."
-      ]
     },
     "accessPoints": [
+      {
+        "id": "bridge-sixteen-canoe-access",
+        "name": "Bridge Sixteen Canoe Access",
+        "latitude": 43.1277592,
+        "longitude": -91.3140227,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for the full 16.75-mile route; use the public launch downstream and river left of the bridge."
+      },
       {
         "id": "ion-bridge-access",
         "name": "Ion Bridge Access / Old Mission Road canoe access",
         "latitude": 43.11191667,
         "longitude": -91.2651389,
-        "mileFromStart": 0,
+        "mileFromStart": 9.75,
         "segmentKind": "creek",
-        "note": "Default put-in near the direct USGS Ion gauge and DNR-mapped canoe access / parking corridor."
+        "note": "Alternate put-in for the shorter roughly 7-mile lower-river option to Highway 76."
       },
       {
         "id": "highway-76-yellow-river-access",
         "name": "Highway 76 / Yellow River access",
         "latitude": 43.08612,
         "longitude": -91.18213,
-        "mileFromStart": 7,
+        "mileFromStart": 16.75,
         "segmentKind": "creek",
-        "note": "Default take-out at the lower Yellow River Highway 76 access corridor."
+        "note": "Default take-out for both the full route and the Ion Bridge short option."
       }
     ]
   },
@@ -3721,7 +3697,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "des-moines-river-highway-30-dogwood": {
+  "des-moines-river-highway-30-sportsman": {
     "putIn": {
       "id": "highway-30-access-boone",
       "name": "Highway 30 Access",
@@ -3729,27 +3705,28 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -93.931
     },
     "takeOut": {
-      "id": "dogwood-ramp-e57",
-      "name": "Dogwood Ramp / E-57 Access",
-      "latitude": 42.005,
-      "longitude": -93.878
+      "id": "sportsman-ramp-old-hubby",
+      "name": "Sportsman Ramp / Old Hubby Bridge Access",
+      "latitude": 41.962,
+      "longitude": -93.838
     },
     "logistics": {
-      "distanceLabel": "About 7 mi",
-      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with wind or low water",
-      "shuttle": "Stage at Dogwood Ramp / E-57, then launch from Highway 30 after confirming the route starts below the Boone Waterworks rapids boundary.",
+      "distanceLabel": "About 11 mi",
+      "estimatedPaddleTime": "About 4 hr to 6 hr for the full route; roughly 1.5 hr to 4 hr for either Dogwood split",
+      "shuttle": "Stage Sportsman Ramp for the full route. Dogwood/E-57 can instead be staged as a mile-7 take-out from Highway 30 or used as the put-in for the final roughly 4 miles.",
       "permits": "No route-specific paddling permit is known. Follow Boone County access postings, Iowa boating/PFD rules, and high-water-mark private-property limits.",
       "camping": "DNR says sandbar camping is allowed on meandered streams, but this should be treated as a day route unless a legal dry sandbar and stable water are confirmed.",
       "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch from Highway 30 and paddle the scenic Boone County/Ledges corridor to Dogwood Ramp / E-57.",
+      "summary": "Launch from Highway 30 and paddle through the Ledges corridor to Sportsman Ramp. Dogwood/E-57 is the represented intermediate access for either shorter component trip.",
       "accessCaveats": [
         "Highway 30 is just downstream of the Boone Waterworks rapids area; keep the rapids as an upstream boundary unless separately planned.",
-        "Dogwood/E-57 is the planned take-out. Confirm ramp condition and silt before committing.",
+        "Dogwood/E-57 is an intermediate access, not the default full-route take-out. Confirm the intended Dogwood or Sportsman landing and stage the matching shuttle.",
+        "DNR says silt may sometimes cover Dogwood and Sportsman even though both ramps are maintained.",
         "Saved coordinates are practical access-area anchors from official DNR/USACE map labels; use current signs for exact ramps."
       ],
       "watchFor": [
         "Bridge piers, old structures, wood, and bank debris.",
-        "Wind in wider bends and faster current during rises.",
+        "Wind in wider bends, faster current during rises, and increasing Saylorville influence below Dogwood.",
         "Private uplands above the high-water mark and limited exits through the bluff corridor."
       ]
     },
@@ -3770,60 +3747,16 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -93.878,
         "mileFromStart": 7,
         "segmentKind": "creek",
-        "note": "Default take-out; labeled as Dogwood Ramp / E-57 in official Boone County water-trail mapping."
-      }
-    ]
-  },
-  "des-moines-river-dogwood-sportsman": {
-    "putIn": {
-      "id": "dogwood-ramp-e57",
-      "name": "Dogwood Ramp / E-57 Access",
-      "latitude": 42.005,
-      "longitude": -93.878
-    },
-    "takeOut": {
-      "id": "sportsman-ramp-old-hubby",
-      "name": "Sportsman Ramp / Old Hubby Bridge Access",
-      "latitude": 41.962,
-      "longitude": -93.838
-    },
-    "logistics": {
-      "distanceLabel": "About 4 mi",
-      "estimatedPaddleTime": "About 1.5 hr to 2.5 hr, longer with wind or silted ramps",
-      "shuttle": "Stage at Sportsman Ramp / Old Hubby Bridge Access, then launch from Dogwood/E-57 after walking both maintained ramps.",
-      "permits": "No route-specific paddling permit is known. Follow Boone County access postings, Iowa boating/PFD rules, and high-water-mark private-property limits.",
-      "camping": "DNR says sandbar camping is legal on meandered streams, but this short ramp-to-ramp section should be treated as a day float unless a dry legal bar and stable water are confirmed.",
-      "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch at Dogwood/E-57 and paddle the short lower Boone County water-trail section to Sportsman Ramp / Old Hubby Bridge Access.",
-      "accessCaveats": [
-        "DNR says silt may sometimes cover both ramps even though they are maintained.",
-        "Sportsman is the planned take-out; do not continue toward Highway 210 or the Saylorville-influenced lower reach without that separate shuttle.",
-        "Saved coordinates are practical access-area anchors from official DNR/USACE map labels; use current signs for exact ramps."
-      ],
-      "watchFor": [
-        "Old wooden bridge supports visible in very low water.",
-        "Silted ramps, wind, fishing boats, and release or floodplain effects approaching Saylorville.",
-        "Strainers, private uplands, and fewer developed exits between ramps."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "dogwood-ramp-e57",
-        "name": "Dogwood Ramp / E-57 Access",
-        "latitude": 42.005,
-        "longitude": -93.878,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in; DNR describes this access as maintained though sometimes silt-covered."
+        "note": "Intermediate access at about mile 7; use it as an alternate take-out from Highway 30 or put-in for the final roughly 4 miles."
       },
       {
         "id": "sportsman-ramp-old-hubby",
         "name": "Sportsman Ramp / Old Hubby Bridge Access",
         "latitude": 41.962,
         "longitude": -93.838,
-        "mileFromStart": 4,
+        "mileFromStart": 11,
         "segmentKind": "creek",
-        "note": "Default take-out; DNR says Sportsman is locally known as Old Hubby Bridge Access."
+        "note": "Default take-out for the full route; DNR says Sportsman is locally known as Old Hubby Bridge Access."
       }
     ]
   },
@@ -4054,59 +3987,6 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 7,
         "segmentKind": "creek",
         "note": "Default take-out; local tourism and water-trail sources identify Chautauqua Park as a public water-trail access."
-      }
-    ]
-  },
-  "west-nishnabotna-river-oakland-carson": {
-    "putIn": {
-      "id": "chautauqua-park-oakland",
-      "name": "Chautauqua Park / Oakland Water Trail Access",
-      "latitude": 41.30695,
-      "longitude": -95.40363
-    },
-    "takeOut": {
-      "id": "millstone-city-park-carson",
-      "name": "Millstone City Park / Carson access",
-      "latitude": 41.2379,
-      "longitude": -95.4219
-    },
-    "logistics": {
-      "distanceLabel": "About 8 mi",
-      "estimatedPaddleTime": "About 3 hr to 4.5 hr, longer in low water or wind",
-      "shuttle": "Stage at Millstone City Park in Carson, then launch from Chautauqua Park in Oakland. Confirm the Carson landing and signed access before leaving the shuttle car.",
-      "permits": "No route-specific paddling permit is known. Follow Iowa boating/PFD rules and posted city park/access rules.",
-      "camping": "Millstone City Park has public camping support at the take-out. Do not camp on private banks or sandbars between Oakland and Carson without permission.",
-      "campingClassification": "endpoint_campground",
-      "summary": "Launch from Oakland and paddle the shorter West Nishnabotna town-to-town split to Carson, ending before the longer Olde Town / Macedonia continuation.",
-      "accessCaveats": [
-        "This is a shorter split inside the already-live Oakland-to-Macedonia corridor, intended for paddlers who want a staged Carson take-out.",
-        "The Hancock gauge is upstream of Oakland; pair it with local visual checks because water levels can vary north or south of Hancock.",
-        "Millstone is the planned take-out. Do not continue to Macedonia unless the downstream shuttle is also staged."
-      ],
-      "watchFor": [
-        "Highway 6 bridge, 400th Street bridge, eroding channelized banks, and fresh wood.",
-        "Low-water scraping below the Hancock-gauge floor and pushy current above the local ceiling.",
-        "Private banks, sandbars, row-crop erosion, and muddy access footing."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "chautauqua-park-oakland",
-        "name": "Chautauqua Park / Oakland Water Trail Access",
-        "latitude": 41.30695,
-        "longitude": -95.40363,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in and campground-supported Oakland park."
-      },
-      {
-        "id": "millstone-city-park-carson",
-        "name": "Millstone City Park / Carson access",
-        "latitude": 41.2379,
-        "longitude": -95.4219,
-        "mileFromStart": 8,
-        "segmentKind": "creek",
-        "note": "Default take-out; Friends of the West Nish lists Millstone City Park as the Carson water-trail access."
       }
     ]
   },

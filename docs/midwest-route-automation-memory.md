@@ -1,5 +1,14 @@
 # Midwest Route Automation Memory
 
+<<<<<<< Updated upstream
+=======
+- 2026-07-23 route-scale consolidation follow-up.
+  - Consolidated the nested Yellow River Ion-to-Highway-76 card into `yellow-river-sixteen-bridge-highway-76`, with Ion retained as an alternate mile-9.75 put-in.
+  - Consolidated the adjacent Boone County Des Moines cards into `des-moines-river-highway-30-sportsman`, with Dogwood/E-57 retained as the mile-7 intermediate access.
+  - Retired the nested `west-nishnabotna-river-oakland-carson` card because the existing Oakland-to-Macedonia route already carries Carson as its mile-8 alternate take-out.
+  - Current exported Iowa inventory after consolidation: 112 routes.
+
+>>>>>>> Stashed changes
 - 2026-07-23 22:15 America/Chicago / 2026-07-24 03:15 UTC: Minnesota Mississippi / Minnesota River gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 214-route exported Minnesota baseline: `mississippi-river-wolds-ferry-palisade`, `mississippi-river-fletcher-creek-overlook`, and `minnesota-river-war-memorial-kinney`, bringing Minnesota to 217 live routes.
   - Qualification path: MN DNR recommended one-way sections, Mississippi Maps 4/6, Minnesota River Map 3, MN DNR river-level JSON, adjacent public-access-backed V2 endpoint records, DNR Morrison County access mapping, and Baxter's Overlook Park page support the access pairs and route shapes.

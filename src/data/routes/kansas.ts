@@ -198,6 +198,20 @@ export const kansasRoutes: River[] = [
       "siteName": "Kansas River at De Soto, KS",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06892350/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Eudora take-out requires turning upstream into the Wakarusa; Clinton Reservoir releases can make that finish difficult or impossible.",
+        "Use the below-dam 8th Street launch for this route, then check wind, storms, floating wood, and shifting sandbars before committing.",
+        "Stay with public ramps and legal sandbar stops; do not use private banks as planned rest or bailout points."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 1500,
@@ -341,6 +355,20 @@ export const kansasRoutes: River[] = [
       "kind": "direct",
       "siteName": "Kansas River at De Soto, KS",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06892350/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Scout the De Soto take-out before launching because event closures and a recurring ramp-toe sandbar can change the landing plan.",
+        "Check Clinton Reservoir releases and same-day Wakarusa conditions before using the Eudora launch.",
+        "Wind, storms, floating wood, shifting sandbars, and private banks make this a guarded Kaw day rather than a casual beginner float."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
@@ -658,6 +686,19 @@ export const kansasRoutes: River[] = [
       "kind": "proxy",
       "siteName": "Kansas River at Wamego, KS",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06887500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Watch the Republican and Smoky Hill confluence line near the start, and reassess if current, visibility, or group spacing feels off.",
+        "Use the downstream Wamego gauge only as a broad same-river proxy, then make a same-day visual call at Junction City and Ogden.",
+        "Wind, rising water, floating wood, shifting sandbars, and private banks make bailout planning important."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",

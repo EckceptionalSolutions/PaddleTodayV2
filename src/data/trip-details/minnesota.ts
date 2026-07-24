@@ -10125,7 +10125,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "26.3 mi",
       "estimatedPaddleTime": "Very long day or overnight, roughly 9 hr to 12 hr depending on level, wind, and campsite strategy",
-      "shuttle": "Stage Highway 4 before launching at Morton. Identify Franklin, Mack Lake, Kettner's, and Fort Ridgely as checkpoints or contingency exits before committing to the full distance.",
+      "shuttle": "Stage Highway 4 before launching at Morton. Franklin, Mack Lake, and Kettner Landing are structured contingency exits; Fort Ridgely is nearby park/campground support rather than an assumed river landing.",
       "permits": "No route-specific paddling permit is known. Fort Ridgely State Park parking requires the appropriate permit if used as a stop or bailout; follow posted DNR, park, county, and public-access rules.",
       "camping": "DNR Map 4 maps watercraft campsites at Franklin City Park and Mack Lake Park, plus Fort Ridgely State Park campground support near the lower half. Treat overnight use as designated-site or managed-park only.",
       "campingClassification": "on_route_campsite",
@@ -10133,7 +10133,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Morton and Highway 4 both resolve as public-water-access GIS records, but this is a long rural section with limited fast exits.",
         "Check the river mile 184 logjam status locally before committing to the full route.",
-        "Fort Ridgely, Franklin, Mack Lake, and Kettner's are useful checkpoints, but each has its own posted rules and access conditions."
+        "Franklin, Mack Lake, and Kettner Landing are mapped public accesses. Fort Ridgely is useful park/campground context, but do not assume a river landing there."
       ],
       "watchFor": [
         "Large logjam near river mile 184 that DNR says may be impassable at times.",
@@ -10150,6 +10150,33 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in near the direct Morton DNR gauge."
+      },
+      {
+        "id": "minnesota-river-franklin",
+        "name": "Minnesota River, Franklin Public Water Access Site",
+        "latitude": 44.51775525831505,
+        "longitude": -94.88453768815654,
+        "mileFromStart": 10.5,
+        "segmentKind": "creek",
+        "note": "Intermediate public access and campsite near DNR river mile 179.4; resolves as WAS02279."
+      },
+      {
+        "id": "minnesota-river-mack-lake",
+        "name": "Minnesota River, Renville County Park #4 / Mack Lake Public Water Access Site",
+        "latitude": 44.45858964621297,
+        "longitude": -94.79306958952684,
+        "mileFromStart": 20.4,
+        "segmentKind": "creek",
+        "note": "Intermediate public access and campsite near DNR river mile 169.5; resolves as WAS02304."
+      },
+      {
+        "id": "minnesota-river-kettner",
+        "name": "Minnesota River, Kettner Landing Public Water Access Site",
+        "latitude": 44.44608194790892,
+        "longitude": -94.775453675901,
+        "mileFromStart": 22.5,
+        "segmentKind": "creek",
+        "note": "Intermediate contingency exit near DNR river mile 167.4; resolves as WAS01020."
       },
       {
         "id": "minnesota-river-highway-4",

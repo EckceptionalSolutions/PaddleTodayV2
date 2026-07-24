@@ -117,6 +117,8 @@ export interface RiverRouteLogistics {
   watchFor: string[];
 }
 
+export type RiverSummaryLogistics = Pick<RiverRouteLogistics, 'campingClassification'>;
+
 export interface RouteSafetyProfile {
   riskLevel: RouteRiskLevel;
   hazards: RouteHazard[];
@@ -335,7 +337,7 @@ export interface RiverSummaryApiItem {
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
     accessPoints?: RiverRouteAccessPoint[];
-    logistics?: RiverRouteLogistics;
+    logistics?: RiverSummaryLogistics;
   };
   sources: Array<{
     label: string;
@@ -389,7 +391,7 @@ export interface WeekendSummaryApiItem {
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
     accessPoints?: RiverRouteAccessPoint[];
-    logistics?: RiverRouteLogistics;
+    logistics?: RiverSummaryLogistics;
   };
   current: {
     score: number;

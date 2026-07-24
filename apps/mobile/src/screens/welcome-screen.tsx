@@ -79,11 +79,9 @@ export default function WelcomeScreen() {
     ? previewRoute.river.reach
     : 'Nearby river route';
   const previewAccessLabel = previewRoute
-    ? /multiple|intermediate|several/.test(previewRoute.river.logistics?.summary.toLowerCase() ?? '')
-      ? 'Multiple access options'
-      : previewRoute.river.accessPoints && previewRoute.river.accessPoints.length > 1
-        ? `${previewRoute.river.accessPoints.length} access points`
-        : 'Put-in + take-out'
+    ? previewRoute.river.accessPoints && previewRoute.river.accessPoints.length > 1
+      ? `${previewRoute.river.accessPoints.length} access points`
+      : 'Put-in + take-out'
     : 'Access details on route page';
   const previewFacts = [
     { label: 'DISTANCE', value: previewRoute?.river.distanceLabel ?? '8.4 mi' },

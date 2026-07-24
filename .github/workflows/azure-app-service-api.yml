@@ -27,13 +27,12 @@ jobs:
         run: npm test
 
       - name: Build app
-        run: npm run build
+        run: npm run build:app
 
       - name: Create deploy package
         run: |
           mkdir deploy-package
           cp -R dist deploy-package/dist
-          cp -R public deploy-package/public
           cp -R src deploy-package/src
           cp -R packages deploy-package/packages
           cp package-lock.json deploy-package/package-lock.json

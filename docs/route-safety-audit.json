@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-23T21:29:51.957Z",
-  "routeCount": 869,
-  "issueCount": 604,
+  "generatedAt": "2026-07-24T03:30:02.442Z",
+  "routeCount": 896,
+  "issueCount": 579,
   "summary": {
     "Critical": 0,
-    "High": 367,
-    "Medium": 237,
+    "High": 347,
+    "Medium": 232,
     "Low": 0
   },
   "issues": [
@@ -154,17 +154,6 @@
       "evidence": "ate small-river run because the channel is narrow, shallow, swift in spots, and strainer-prone near Heron Road. The last mile can be skipped by using the easier state-park picnic-area access if conditions look messy. Confidence is good for a guarded Iowa minim"
     },
     {
-      "routeId": "yellow-river-sixteen-bridge-highway-76",
-      "slug": "yellow-river-sixteen-bridge-highway-76",
-      "name": "Yellow River",
-      "reach": "Bridge Sixteen to Highway 76",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "-Ion leg as faster and more rugged than the popular upstream reach, with bigger Class II-style rapids possible as water rises. Confidence is good for a community-source Iowa add: Miles Paddled documents the exact Old Sixteen Road-to-Highway-76 route with GPS p"
-    },
-    {
       "routeId": "yellow-river-volney-sixteen-bridge",
       "slug": "yellow-river-volney-sixteen-bridge",
       "name": "Yellow River",
@@ -174,72 +163,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "fast, coldwater stream with several strainers and high-water escalation toward Class II-style consequences. Confidence is good for a community-source add: Wisconsin River Trips documents the exact popular Volney-to-Sixteen route, provides a detailed Ion-gauge"
-    },
-    {
-      "routeId": "kansas-river-eudora-de-soto",
-      "slug": "kansas-river-eudora-de-soto",
-      "name": "Kansas River",
-      "reach": "Eudora to De Soto",
-      "state": "Kansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "om river for about 10.7 miles. Shifting sandbars, wind exposure, private banks, wood, and the De Soto ramp sandbar caveat matter even though both endpoints are public ramps. Confidence is high for access and route shape: Friends of the Kaw documents Eudora at"
-    },
-    {
-      "routeId": "kansas-river-eudora-de-soto",
-      "slug": "kansas-river-eudora-de-soto",
-      "name": "Kansas River",
-      "reach": "Eudora to De Soto",
-      "state": "Kansas",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "allow sand-bottom river for about 10.7 miles. Shifting sandbars, wind exposure, private banks, wood, and the De Soto ramp sandbar caveat matter even though both endpoints are public ramps. Confidence is high for access and route shape: Friends of the Kaw docum"
-    },
-    {
-      "routeId": "kansas-river-junction-city-ogden",
-      "slug": "kansas-river-junction-city-ogden",
-      "name": "Kansas River",
-      "reach": "Junction City Access Ramp to Ogden Access Ramp",
-      "state": "Kansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "fluence current line, shifting sandbars, private banks, wind exposure, possible wood, and a proxy gauge. Treat it as a guarded upper-Kaw day, not a casual park float. Confidence is high for access and route shape: Friends of the Kaw documents Junction City at"
-    },
-    {
-      "routeId": "kansas-river-junction-city-ogden",
-      "slug": "kansas-river-junction-city-ogden",
-      "name": "Kansas River",
-      "reach": "Junction City Access Ramp to Ogden Access Ramp",
-      "state": "Kansas",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "s is still a big-river route with a confluence current line, shifting sandbars, private banks, wind exposure, possible wood, and a proxy gauge. Treat it as a guarded upper-Kaw day, not a casual park float. Confidence is high for access and route shape: Friends"
-    },
-    {
-      "routeId": "kansas-river-lawrence-8th-eudora",
-      "slug": "kansas-river-lawrence-8th-eudora",
-      "name": "Kansas River",
-      "reach": "Lawrence 8th Street to Eudora",
-      "state": "Kansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "is is still a big, shallow, moving river with shifting sandbars, wind exposure, wood, private banks, and a tricky upstream turn into the Wakarusa at Eudora. Treat it as a guarded moderate day unless flows are low, weather is calm, and the group already knows K"
-    },
-    {
-      "routeId": "kansas-river-lawrence-8th-eudora",
-      "slug": "kansas-river-lawrence-8th-eudora",
-      "name": "Kansas River",
-      "reach": "Lawrence 8th Street to Eudora",
-      "state": "Kansas",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "still a big, shallow, moving river with shifting sandbars, wind exposure, wood, private banks, and a tricky upstream turn into the Wakarusa at Eudora. Treat it as a guarded moderate day unless flows are low, weather is calm, and the group already knows Kaw nav"
     },
     {
       "routeId": "kansas-river-ogden-manhattan",
@@ -317,72 +240,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "evels, and it tells paddlers to use marked landings only and not to take out on private property. KDFWR Floyds Fork https://fw.ky.gov/Fish/Pages/floyds-fork.aspx KDFWR Floyds Fork lower-section PDF https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf KDFW"
-    },
-    {
-      "routeId": "floyds-fork-cane-run-broad-run-valley",
-      "slug": "floyds-fork-cane-run-broad-run-valley",
-      "name": "Floyds Fork",
-      "reach": "Cane Run Canoe Access to Broad Run Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "d-Run route pieces, while the lower-corridor PDF adds Mary's Island, bluff, and strainer cautions for the downstream half. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDF"
-    },
-    {
-      "routeId": "floyds-fork-cane-run-broad-run-valley",
-      "slug": "floyds-fork-cane-run-broad-run-valley",
-      "name": "Floyds Fork",
-      "reach": "Cane Run Canoe Access to Broad Run Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ies Cane Run Canoe Access as a free carry-down site off Echo Trail with unpaved parking. Take-out access Broad Run Valley Paddling Access, 38.1039, -85.5455 KDFWR identifies Broad Run Valley Paddling Access as a free carry-down site with year-round limited-hou"
-    },
-    {
-      "routeId": "floyds-fork-cane-run-cliffside",
-      "slug": "floyds-fork-cane-run-cliffside",
-      "name": "Floyds Fork",
-      "reach": "Cane Run Canoe Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "records, while the lower-corridor PDF and Parklands guidance add Mary's Island, wood, and marked-landings-only cautions. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR"
-    },
-    {
-      "routeId": "floyds-fork-cane-run-cliffside",
-      "slug": "floyds-fork-cane-run-cliffside",
-      "name": "Floyds Fork",
-      "reach": "Cane Run Canoe Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ies Cane Run Canoe Access as a free carry-down site off Echo Trail with unpaved parking. Take-out access Cliffside Paddling Access, 38.0864, -85.5520 KDFWR identifies Cliffside Paddling Access as a free carry-down site in Broad Run Park with year-round limited"
-    },
-    {
-      "routeId": "floyds-fork-cane-run-seaton-valley",
-      "slug": "floyds-fork-cane-run-seaton-valley",
-      "name": "Floyds Fork",
-      "reach": "Cane Run Canoe Access to Seaton Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "m, but The Parklands still classifies Floyds Fork as Class I+ moving water with wood, waves, and quickly changing levels. Treat it as a moderate moving-water trip rather than a casual flatwater float. Confidence is solid for a conservative add: KDFWR names the"
-    },
-    {
-      "routeId": "floyds-fork-cane-run-seaton-valley",
-      "slug": "floyds-fork-cane-run-seaton-valley",
-      "name": "Floyds Fork",
-      "reach": "Cane Run Canoe Access to Seaton Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": ", and its paddling page says to use marked landings only and not to take out on private property. KDFWR Floyds Fork https://fw.ky.gov/Fish/Pages/floyds-fork.aspx KDFWR Floyd's Fork route feature https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx KDFWR Cane"
     },
     {
       "routeId": "floyds-fork-creekside-broad-run-valley",
@@ -803,39 +660,6 @@
       "evidence": "s a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a day-use-only park finish make it a committed moderate outing rather than a casual family float. Confidence is good for a conservative Kentucky"
     },
     {
-      "routeId": "green-river-hh-wilson-park-green-river-ferry",
-      "slug": "green-river-hh-wilson-park-green-river-ferry",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "green-river-hh-wilson-park-green-river-ferry",
-      "slug": "green-river-hh-wilson-park-green-river-ferry",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "d, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 32.1 miles, limited bailout options after Stovall, broad-river wind, and a managed park ferry finish make this a hard route for strong all-day paddlers ra"
-    },
-    {
-      "routeId": "green-river-hh-wilson-park-green-river-ferry",
-      "slug": "green-river-hh-wilson-park-green-river-ferry",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ishing. Below that expect a slower all-day route; above that the broad current, wood, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 32.1 miles, limited bailout options after Stovall, broad-river wind, an"
-    },
-    {
       "routeId": "green-river-hh-wilson-stovall",
       "slug": "green-river-hh-wilson-stovall",
       "name": "Green River",
@@ -900,61 +724,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "th extra caution at the park carry-down finish. The water is still flatwater by whitewater standards, but 21 miles, broad-river wind, limited bailout options, and a day-use-only park finish make this a committed moderate outing rather than a casual family floa"
-    },
-    {
-      "routeId": "green-river-stovall-park-green-river-ferry",
-      "slug": "green-river-stovall-park-green-river-ferry",
-      "name": "Green River",
-      "reach": "Munfordville-Stovall Park Ramp to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "green-river-stovall-park-green-river-ferry",
-      "slug": "green-river-stovall-park-green-river-ferry",
-      "name": "Green River",
-      "reach": "Munfordville-Stovall Park Ramp to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "d, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 28.5 miles, limited bailout options after Stovall, broad-river wind, and a managed park ferry finish make this a hard route for all but strong all-day pad"
-    },
-    {
-      "routeId": "green-river-stovall-park-green-river-ferry",
-      "slug": "green-river-stovall-park-green-river-ferry",
-      "name": "Green River",
-      "reach": "Munfordville-Stovall Park Ramp to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ishing. Below that expect a slower all-day route; above that the broad current, wood, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 28.5 miles, limited bailout options after Stovall, broad-river wind, an"
-    },
-    {
-      "routeId": "green-river-rio-carrydown-dennison-ferry",
-      "slug": "green-river-rio-carrydown-dennison-ferry",
-      "name": "Green River",
-      "reach": "Rio Carrydown Access to Dennison Ferry Carrydown",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "green-river-rio-carrydown-dennison-ferry",
-      "slug": "green-river-rio-carrydown-dennison-ferry",
-      "name": "Green River",
-      "reach": "Rio Carrydown Access to Dennison Ferry Carrydown",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "expect a slower, more consequential all-day trip; above that the broad current, wood, and park carry-down finish deserve extra caution. This is still flatwater-style Green River paddling, but 33 miles, broad-river wind, private-bank limits, limited bailout opt"
     },
     {
       "routeId": "green-river-rio-carrydown-hh-wilson-park",
@@ -1857,6 +1626,17 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "Map 2 places Pineview Park at river mile 6.2 and Heims Mill at river mile 0.0. Rapid finish Class I-II in final 2.5 mi MN DNR warns the final 2.5 miles are boulder-filled Class I-II rapids that may not be passable at low water. Access support Official DNR and"
+    },
+    {
+      "routeId": "sauk-river-richmond-horseshoe-lake",
+      "slug": "sauk-river-richmond-horseshoe-lake",
+      "name": "Sauk River",
+      "reach": "Richmond City Park to Horseshoe Lake",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "boat traffic, bridge approaches, weeds, and the need to stay out of downstream dam plans still require normal judgment. Confidence is good with a proxy caveat: DNR Map 2 places Richmond City Park, Highway 23/Glacial Lakes bridges, Horseshoe Lake access, and d"
     },
     {
       "routeId": "sauk-river-rockville-heims-mill",
@@ -4180,17 +3960,6 @@
       "evidence": ", USGS 05412400 is a direct same-river live gauge downstream at Littleport, and Water Quality Portal/Iowa DNR records support the Mederville access coordinates. The route uses Osborne Canoe Access rather than the rougher Hwy 13 bridge launch because the county"
     },
     {
-      "routeId": "yellow-river-sixteen-bridge-highway-76",
-      "slug": "yellow-river-sixteen-bridge-highway-76",
-      "name": "Yellow River",
-      "reach": "Bridge Sixteen to Highway 76",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "parately says this lower route needs enough water and gives 80 cfs as a minimum caution. High-water ceiling 601+ cfs WRT treats 601 to 1000 cfs as very high and perhaps only suitable for expert paddlers, with 1001+ cfs maybe too high for kayaking. The app keep"
-    },
-    {
       "routeId": "yellow-river-volney-sixteen-bridge",
       "slug": "yellow-river-volney-sixteen-bridge",
       "name": "Yellow River",
@@ -4222,17 +3991,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Popular Warren County Blueways trip from Romanza Johnson Park on Trammel Fork into Drakes Creek and down to Phil Moore Park. Warren County and KDFWR support the public accesses, an"
-    },
-    {
-      "routeId": "floyds-fork-cane-run-seaton-valley",
-      "slug": "floyds-fork-cane-run-seaton-valley",
-      "name": "Floyds Fork",
-      "reach": "Cane Run Canoe Access to Seaton Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "plies the marked-landings-only and moving-water safety posture for this managed urban corridor. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and an older KDFWR route feature frames 35 to 500"
     },
     {
       "routeId": "floyds-fork-fisherville-cliffside",
@@ -4433,17 +4191,6 @@
       "evidence": "ip; above that the broad current, wood, and park carry-down finish deserve more caution. This is a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a day-use-only park finish make it a committed mo"
     },
     {
-      "routeId": "green-river-hh-wilson-park-green-river-ferry",
-      "slug": "green-river-hh-wilson-park-green-river-ferry",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "route; above that the broad current, wood, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 32.1 miles, limited bailout options after Stovall, broad-river wind, and a managed park ferry finish make this a"
-    },
-    {
       "routeId": "green-river-hh-wilson-stovall",
       "slug": "green-river-hh-wilson-stovall",
       "name": "Green River",
@@ -4486,28 +4233,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "at 1670 cfs, so expect a faster, more consequential broad-river day with extra caution at the park carry-down finish. The water is still flatwater by whitewater standards, but 21 miles, broad-river wind, limited bailout options, and a day-use-only park finish"
-    },
-    {
-      "routeId": "green-river-stovall-park-green-river-ferry",
-      "slug": "green-river-stovall-park-green-river-ferry",
-      "name": "Green River",
-      "reach": "Munfordville-Stovall Park Ramp to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "route; above that the broad current, wood, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 28.5 miles, limited bailout options after Stovall, broad-river wind, and a managed park ferry finish make this a"
-    },
-    {
-      "routeId": "green-river-rio-carrydown-dennison-ferry",
-      "slug": "green-river-rio-carrydown-dennison-ferry",
-      "name": "Green River",
-      "reach": "Rio Carrydown Access to Dennison Ferry Carrydown",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "p; above that the broad current, wood, and park carry-down finish deserve extra caution. This is still flatwater-style Green River paddling, but 33 miles, broad-river wind, private-bank limits, limited bailout options, and a day-use-only park finish make it a"
     },
     {
       "routeId": "green-river-rio-carrydown-hh-wilson-park",

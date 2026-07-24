@@ -8,7 +8,9 @@
   },
   "include": [
     "src/data/rivers.ts",
+    "src/data/routes/**/*.ts",
     "src/data/river-trip-details.ts",
+    "src/data/trip-details/**/*.ts",
     "src/lib/types.ts"
   ]
 }

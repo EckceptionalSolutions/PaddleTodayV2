@@ -1,4 +1,4 @@
-import type { RiverAccessPoint, RiverRouteAccessPoint } from './index';
+import type { CampingClassification, RiverAccessPoint, RiverRouteAccessPoint } from './index';
 
 export type PaddleLengthFilter = 'under-5' | '5-to-10' | '10-plus' | '';
 export type PaddleTimeFilter = 'up-to-3' | '3-to-5' | '5-to-7' | '7-plus' | '';
@@ -12,6 +12,7 @@ export interface RoutePlanningRiver {
   logistics?: {
     distanceLabel?: string;
     estimatedPaddleTime?: string;
+    campingClassification?: CampingClassification;
   };
 }
 

@@ -40,11 +40,10 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       difficulty: result.river.profile.difficulty,
       routeType: result.river.routeType ?? 'recreational',
-      safetyProfile: result.river.safetyProfile,
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
       accessPoints: result.river.accessPoints,
-      logistics: serializeLogistics(result.river.logistics),
+      logistics: serializeSummaryLogistics(result.river.logistics),
     },
     sources: summarySourceBadges(result),
     score: result.score,
@@ -101,11 +100,10 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       difficulty: result.river.profile.difficulty,
       routeType: result.river.routeType ?? 'recreational',
-      safetyProfile: result.river.safetyProfile,
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
       accessPoints: result.river.accessPoints,
-      logistics: serializeLogistics(result.river.logistics),
+      logistics: serializeSummaryLogistics(result.river.logistics),
     },
     current: {
       score: result.score,
@@ -148,6 +146,13 @@ function summarySourceBadges(result: RiverScoreResult): RiverSummaryApiItem['sou
   }
 
   return badges;
+}
+
+function serializeSummaryLogistics(logistics: RiverScoreResult['river']['logistics']): RiverSummaryApiItem['river']['logistics'] {
+  if (!logistics) return undefined;
+  return {
+    campingClassification: logistics.campingClassification ?? classifyCamping(logistics.camping),
+  };
 }
 
 function gaugeProviderBadge(result: RiverScoreResult): RiverSummaryApiItem['sources'][number] {

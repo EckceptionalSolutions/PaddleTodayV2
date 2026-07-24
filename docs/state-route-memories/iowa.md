@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-23 consolidation update: 112 live Iowa routes after folding Yellow River Ion-to-Highway-76 into the longer lower-Yellow card, combining the two Boone County Des Moines sections around Dogwood, and folding Oakland-to-Carson into Oakland-to-Macedonia as an alternate takeout.
 - 2026-07-23 21:20 CDT update: live exported Iowa routes were 109 at the start of the Boone County Des Moines River pass and 112 after adding `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`.
 - 2026-07-23 20:06 CDT update: live exported Iowa routes were 106 at the start of the current Iowa route-additions pass and 109 after adding `yellow-river-ion-highway-76`, `cedar-river-osage-spring-road-t38`, and `upper-iowa-river-iverson-bridge-kumpf`.
 - 2026-07-23 16:57 CDT update: live exported Iowa routes were 100 at the start of the upper Cedar Mitchell pass and 103 after adding `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`.
@@ -17,7 +18,7 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 22:10 run added three routes beyond the current 112-route baseline: `west-nishnabotna-river-avoca-hancock`, `west-nishnabotna-river-hancock-oakland`, and `west-nishnabotna-river-oakland-carson`.
+Iowa remains mature overall. The current exported inventory is 112 routes after the route-scale consolidation described above; the historical run notes below preserve what each automation pass originally added.
 
 ## 2026-07-23 22:10 West Nishnabotna official split pass
 
