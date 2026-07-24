@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 19:10 America/Chicago / 2026-07-24 00:10 UTC: Minnesota Snake / Sauk / Long Prairie connector pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 205-route exported Minnesota baseline: `snake-river-mora-canary`, `sauk-river-richmond-horseshoe-lake`, and `long-prairie-river-lake-carlos-highway-29`, bringing Minnesota to 208 live routes.
+  - Qualification path: MN DNR recommended one-way sections, Snake/Sauk/Long Prairie water-trail pages and map PDFs, MN DNR interpreted river-level JSON, and Minnesota public-water-access GIS for the Mora/Canary, Richmond/Horseshoe, and Lake-Carlos/Highway-29 endpoint chains.
+  - Gauge posture: MN DNR feed returned Snake Mora site `226` at `1.35 ft`, Sauk St. Martin site `328` at `14.71 ft`, and Long Prairie site `89` at `89.60 cfs` on 2026-07-23 late afternoon CDT. Snake is direct and below scrapable; Sauk and Long Prairie are conservative downstream proxies and currently below their medium bands.
+  - Safety/image posture: cards carry Snake long-day/fast-rise/wood/low-water caveats, Sauk lake-wind/motor/snags/dam-awareness caveats, Long Prairie constructed-rapids-portage/low-bridge/low-water/state-park-permit caveats, conservative camping classifications, and no selected gallery images after bounded DNR / public-access / Commons / same-route review.
+  - Validation: route import/count confirmed 208 Minnesota routes; ledger JSON parse, routes audit, geometry generation/audit, typecheck, build, tests, overlap audit, and diff check passed. Build emitted only the existing `SITE_URL` fallback warning; diff check emitted CRLF warnings only. Commit created after validation with subject `Add Minnesota Snake Sauk Long Prairie routes`.
+
 - 2026-07-23 18:13 America/Chicago / 2026-07-23 23:13 UTC: Minnesota Cedar / Little Fork / Rum connector pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 202-route exported Minnesota baseline: `cedar-river-marcusen-riverwood`, `little-fork-river-lofgren-kuttes`, and `rum-river-cambridge-martins`, bringing Minnesota to 205 live routes.
   - Qualification path: MN DNR Cedar, Little Fork, and Rum water-trail pages/map PDFs plus MN DNR interpreted river-level JSON and Minnesota public-water-access GIS for the Marcusen/Riverwood, Lofgren/Kuttes, and Cambridge/Martin's endpoint chains.
