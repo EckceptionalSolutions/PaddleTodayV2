@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 22:10 America/Chicago / 2026-07-24 03:10 UTC: Iowa West Nishnabotna official split pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 112-route exported Iowa baseline: `west-nishnabotna-river-avoca-hancock`, `west-nishnabotna-river-hancock-oakland`, and `west-nishnabotna-river-oakland-carson`, bringing Iowa to 115 live routes.
+  - Qualification path: Friends of the West Nish access, water-level, safety, and camping pages support the exact Avoca / Hancock / Oakland / Carson access-chain splits, bridge landmarks, no-public-access-between-sites warning, flashy-water context, private-bank/sandbar camping restrictions, and Hancock stage thresholds. Travel Iowa corroborates the 26.8-mile state water trail; Pottawattamie and local park pages corroborate endpoint public access / camping context.
+  - Gauge posture: USGS `06807410` West Nishnabotna River at Hancock returned `156 cfs / 2.19 ft` at 2026-07-23 21:00 CDT. Avoca-Hancock and Hancock-Oakland use the route-guidance gauge directly; Oakland-Carson uses it as an upstream same-water-trail proxy with visual-check caveats.
+  - Safety/image posture: routes carry East Branch variation, bridge, industrial-discharge, flash-rise, eroding-bank, wood, private-bank, no-sandbar-camping, sparse-exit, and contained-overlap caveats. No gallery image was selected after bounded Friends / Travel Iowa / Pottawattamie / USGS / Commons / same-route review.
+
 - 2026-07-23 21:20 America/Chicago / 2026-07-24 02:20 UTC: Iowa Boone County Des Moines implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 109-route exported Iowa baseline: `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`, bringing Iowa to 112 live routes.
   - Qualification path: Iowa DNR Boone County Des Moines River Water Trail guide, Boone County water-trail page, USACE Boone County map, CanWePaddle Fort-Dodge-to-Lehigh threshold model, and USGS Water Services support the exact Boone County access-pair package.

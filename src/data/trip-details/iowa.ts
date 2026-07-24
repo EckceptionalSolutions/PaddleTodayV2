@@ -3951,6 +3951,165 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "west-nishnabotna-river-avoca-hancock": {
+    "putIn": {
+      "id": "edgington-memorial-park-avoca",
+      "name": "Edgington Memorial Park / Avoca Water Trail Access",
+      "latitude": 41.4775,
+      "longitude": -95.3261
+    },
+    "takeOut": {
+      "id": "botna-bend-park-hancock",
+      "name": "Botna Bend Park / Hancock Water Trail Access",
+      "latitude": 41.39009,
+      "longitude": -95.36811
+    },
+    "logistics": {
+      "distanceLabel": "About 8 mi",
+      "estimatedPaddleTime": "About 3 hr to 4.5 hr, longer if the East Branch is shallow",
+      "shuttle": "Stage at Botna Bend Park in Hancock, then launch from Edgington Memorial Park in Avoca. Check the East Branch depth at Avoca and the Hancock gauge before unloading.",
+      "permits": "No route-specific paddling permit is known. Use signed West Nishnabotna Water Trail access areas, follow Iowa boating/PFD rules, and obey city/county park hours.",
+      "camping": "Botna Bend County Park has public camping at the take-out. Do not camp on private banks or sandbars between accesses without landowner permission.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Avoca's Edgington Memorial Park and paddle the East Branch / upper West Nish water-trail split to Botna Bend Park in Hancock.",
+      "accessCaveats": [
+        "The first miles are on the smaller East Branch, so the Hancock gauge is direct for the water trail but still needs an Avoca visual check.",
+        "The water-trail partner says no public accesses exist between designated sites.",
+        "Know the Botna Bend landing from shore; paddling upstream is not an easy fallback if you miss the access."
+      ],
+      "watchFor": [
+        "Highway 83, Highway 59, abandoned railroad bridge, and transmission-line crossings.",
+        "Fast rises after upstream rain, mud, sweepers, and shallow inside bends.",
+        "Private banks and sandbars outside public parks."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "edgington-memorial-park-avoca",
+        "name": "Edgington Memorial Park / Avoca Water Trail Access",
+        "latitude": 41.4775,
+        "longitude": -95.3261,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Friends of the West Nish lists Edgington Memorial Park as the Avoca water-trail access."
+      },
+      {
+        "id": "botna-bend-park-hancock",
+        "name": "Botna Bend Park / Hancock Water Trail Access",
+        "latitude": 41.39009,
+        "longitude": -95.36811,
+        "mileFromStart": 8,
+        "segmentKind": "creek",
+        "note": "Default take-out; county and water-trail sources document Botna Bend as river access with campground support."
+      }
+    ]
+  },
+  "west-nishnabotna-river-hancock-oakland": {
+    "putIn": {
+      "id": "botna-bend-park-hancock",
+      "name": "Botna Bend Park / Hancock Water Trail Access",
+      "latitude": 41.39009,
+      "longitude": -95.36811
+    },
+    "takeOut": {
+      "id": "chautauqua-park-oakland",
+      "name": "Chautauqua Park / Oakland Water Trail Access",
+      "latitude": 41.30695,
+      "longitude": -95.40363
+    },
+    "logistics": {
+      "distanceLabel": "About 7 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low water or headwind",
+      "shuttle": "Stage at Chautauqua Park in Oakland and launch from Botna Bend Park in Hancock. Check the Hancock bridge/gauge and verify the Oakland landing before committing.",
+      "permits": "No route-specific paddling permit is known. Use the signed water-trail accesses, follow Iowa boating/PFD rules, and obey county/city park postings.",
+      "camping": "Public camping is available at both Botna Bend County Park and Chautauqua City Park, but private-bank and sandbar camping between accesses is not allowed without permission.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Botna Bend and paddle the main West Nishnabotna corridor through Hancock-to-Oakland bridge and industrial landmarks to Chautauqua Park.",
+      "accessCaveats": [
+        "The Hancock gauge is at the upstream town corridor; still inspect wood and landing conditions at both parks.",
+        "Do not rely on informal banks between Hancock and Oakland. The water-trail partner says there are no public accesses between designated access points.",
+        "Industrial discharge pipes are noted downstream of Hancock; avoid this route after spills, heavy runoff, or water-quality advisories."
+      ],
+      "watchFor": [
+        "Highway G-30, Iowa Interstate Railroad bridge, M-16 bridge, and possible bridge debris.",
+        "Flashy rises, sweepers, eroding banks, and muddy landings.",
+        "The Chautauqua Park access sign and landing after the M-16 bridge."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "botna-bend-park-hancock",
+        "name": "Botna Bend Park / Hancock Water Trail Access",
+        "latitude": 41.39009,
+        "longitude": -95.36811,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in and campground-supported county park in Hancock."
+      },
+      {
+        "id": "chautauqua-park-oakland",
+        "name": "Chautauqua Park / Oakland Water Trail Access",
+        "latitude": 41.30695,
+        "longitude": -95.40363,
+        "mileFromStart": 7,
+        "segmentKind": "creek",
+        "note": "Default take-out; local tourism and water-trail sources identify Chautauqua Park as a public water-trail access."
+      }
+    ]
+  },
+  "west-nishnabotna-river-oakland-carson": {
+    "putIn": {
+      "id": "chautauqua-park-oakland",
+      "name": "Chautauqua Park / Oakland Water Trail Access",
+      "latitude": 41.30695,
+      "longitude": -95.40363
+    },
+    "takeOut": {
+      "id": "millstone-city-park-carson",
+      "name": "Millstone City Park / Carson access",
+      "latitude": 41.2379,
+      "longitude": -95.4219
+    },
+    "logistics": {
+      "distanceLabel": "About 8 mi",
+      "estimatedPaddleTime": "About 3 hr to 4.5 hr, longer in low water or wind",
+      "shuttle": "Stage at Millstone City Park in Carson, then launch from Chautauqua Park in Oakland. Confirm the Carson landing and signed access before leaving the shuttle car.",
+      "permits": "No route-specific paddling permit is known. Follow Iowa boating/PFD rules and posted city park/access rules.",
+      "camping": "Millstone City Park has public camping support at the take-out. Do not camp on private banks or sandbars between Oakland and Carson without permission.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from Oakland and paddle the shorter West Nishnabotna town-to-town split to Carson, ending before the longer Olde Town / Macedonia continuation.",
+      "accessCaveats": [
+        "This is a shorter split inside the already-live Oakland-to-Macedonia corridor, intended for paddlers who want a staged Carson take-out.",
+        "The Hancock gauge is upstream of Oakland; pair it with local visual checks because water levels can vary north or south of Hancock.",
+        "Millstone is the planned take-out. Do not continue to Macedonia unless the downstream shuttle is also staged."
+      ],
+      "watchFor": [
+        "Highway 6 bridge, 400th Street bridge, eroding channelized banks, and fresh wood.",
+        "Low-water scraping below the Hancock-gauge floor and pushy current above the local ceiling.",
+        "Private banks, sandbars, row-crop erosion, and muddy access footing."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "chautauqua-park-oakland",
+        "name": "Chautauqua Park / Oakland Water Trail Access",
+        "latitude": 41.30695,
+        "longitude": -95.40363,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in and campground-supported Oakland park."
+      },
+      {
+        "id": "millstone-city-park-carson",
+        "name": "Millstone City Park / Carson access",
+        "latitude": 41.2379,
+        "longitude": -95.4219,
+        "mileFromStart": 8,
+        "segmentKind": "creek",
+        "note": "Default take-out; Friends of the West Nish lists Millstone City Park as the Carson water-trail access."
+      }
+    ]
+  },
   "west-nishnabotna-river-oakland-macedonia": {
     "putIn": {
       "id": "chautauqua-park-oakland",

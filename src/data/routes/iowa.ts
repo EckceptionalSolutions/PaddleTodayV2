@@ -9112,6 +9112,364 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
+    "id": "west-nishnabotna-river-avoca-hancock",
+    "slug": "west-nishnabotna-river-avoca-hancock",
+    "name": "West Nishnabotna River",
+    "reach": "Edgington Memorial Park / Avoca to Botna Bend Park / Hancock",
+    "state": "Iowa",
+    "region": "Southwest Iowa",
+    "summary": "Upper official West Nishnabotna water-trail split from Avoca's Edgington Memorial Park to Botna Bend Park in Hancock, starting on the East Branch and ending at the Hancock gauge corridor.",
+    "statusText": "Use the West Nishnabotna at Hancock stage gauge. Local water-trail guidance says 2.5 to 4.5 ft is the safe, comfortable window for many paddlers; below 2.5 ft expect walking, and above 4.5 ft the current may be too strong for beginners.",
+    "latitude": 41.4775,
+    "longitude": -95.3261,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "The Avoca-to-Hancock reach begins on the smaller East Branch before joining the main West Nishnabotna, so compare the Hancock gauge with a visual check at Edgington Memorial Park.",
+        "Friends of the West Nish says the river is flashy and can rise drastically within hours after upstream rain or snowmelt.",
+        "There are no public accesses between designated water-trail accesses; most banks and sandbars are private, so do not camp or stop without permission."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-06807410",
+      "provider": "usgs",
+      "siteId": "06807410",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "West Nishnabotna River at Hancock, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06807410/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.5,
+      "idealMax": 4.5,
+      "tooLow": 2.5,
+      "tooHigh": 4.5,
+      "thresholdSource": {
+        "label": "Friends of the West Nish Hancock gauge water-level guidance",
+        "url": "https://friendsofthewestnish.weebly.com/water-levels.html",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "May through September is the normal West Nish paddling season. The route is gauge-first because the watershed is flashy and upstream rain can change the level quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is normally an easy water-trail float, but the smaller East Branch start, bridge sequence, private banks, and fast rises justify a caution profile.",
+      "confidenceNotes": "Confidence is moderate-good: the local water-trail partner identifies Edgington Memorial Park and Botna Bend Park as signed accesses, describes the Avoca-to-Hancock experience and bridge sequence, and publishes numeric Hancock-gauge guidance. USGS 06807410 returned current Hancock data during this run. Coordinates are practical park/access anchors from published park addresses and map records, so same-day landing confirmation remains required."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official access pair",
+        "value": "Edgington Memorial Park to Botna Bend Park",
+        "note": "Friends of the West Nish lists Edgington Memorial Park in Avoca and Botna Bend Park in Hancock as water-trail accesses, with parking near each access.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html"
+      },
+      {
+        "label": "Route character",
+        "value": "East Branch start, three bridges, then main West Nish",
+        "note": "The water-trail partner says the first three miles from Avoca to Hancock are on the East Branch, cross Highway 83, Highway 59, and an abandoned railroad bridge, then continue after the East/West branch confluence.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html"
+      },
+      {
+        "label": "Threshold guidance",
+        "value": "2.5-4.5 ft at Hancock",
+        "note": "Friends of the West Nish says 2.5 to 4.5 ft at the Hancock gauge is a safe, comfortable level for many paddlers; below 2.5 ft becomes difficult and above 4.5 ft can be too strong for beginners.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/water-levels.html"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 06807410 156 cfs / 2.19 ft",
+        "note": "USGS reported West Nishnabotna River at Hancock current values at 2026-07-23 21:00 CDT during this run.",
+        "sourceUrl": "https://waterdata.usgs.gov/ia/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=06807410"
+      },
+      {
+        "label": "Camping and private banks",
+        "value": "Endpoint camping only; private sandbars/banks",
+        "note": "Friends of the West Nish says Botna Bend has public camping and that most land near the water trail, including sandbars, is privately owned unless permission is obtained.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/camping--lodging.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Friends of the West Nish visit the water trail",
+        "url": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html",
+        "provider": "local"
+      },
+      {
+        "label": "Friends of the West Nish water levels",
+        "url": "https://friendsofthewestnish.weebly.com/water-levels.html",
+        "provider": "local"
+      },
+      {
+        "label": "Friends of the West Nish camping and lodging",
+        "url": "https://friendsofthewestnish.weebly.com/camping--lodging.html",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 06807410 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06807410/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "west-nishnabotna-river-hancock-oakland",
+    "slug": "west-nishnabotna-river-hancock-oakland",
+    "name": "West Nishnabotna River",
+    "reach": "Botna Bend Park / Hancock to Chautauqua Park / Oakland",
+    "state": "Iowa",
+    "region": "Southwest Iowa",
+    "summary": "Official West Nishnabotna water-trail split from Botna Bend Park to Oakland's Chautauqua Park, passing the Hancock bridge, railroad bridge, and a wider main-channel corridor.",
+    "statusText": "Use the West Nishnabotna at Hancock stage gauge. The local water-trail window is 2.5 to 4.5 ft; below that the river scrapes or requires walking, and above it beginners may face too much current.",
+    "latitude": 41.39009,
+    "longitude": -95.36811,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "The route passes below the Highway G-30 bridge, railroad bridge, and an industrial discharge area noted by the water-trail partner. Avoid contact after spills or heavy runoff.",
+        "The West Nish is flashy. Do not launch on a quickly rising gauge, and use extra caution when the Hancock gauge is above the 4.5 ft beginner ceiling.",
+        "Use Botna Bend and Chautauqua Park for planned access. The water-trail partner warns there are no public accesses between designated sites."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-06807410",
+      "provider": "usgs",
+      "siteId": "06807410",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "West Nishnabotna River at Hancock, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06807410/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.5,
+      "idealMax": 4.5,
+      "tooLow": 2.5,
+      "tooHigh": 4.5,
+      "thresholdSource": {
+        "label": "Friends of the West Nish Hancock gauge water-level guidance",
+        "url": "https://friendsofthewestnish.weebly.com/water-levels.html",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Use the Hancock gauge and weather forecast rather than the calendar. The water-trail partner says a large upstream storm can raise the river even when local Pottawattamie County rain is limited.",
+      "difficulty": "easy",
+      "difficultyNotes": "Normally flatwater, but bridges, wood, water-quality context, private banks, and rapid level changes keep this in the caution tier.",
+      "confidenceNotes": "Confidence is good for access and gauge posture: Friends of the West Nish lists Botna Bend and Chautauqua as signed water-trail accesses, describes the Hancock-to-Oakland landmarks, and ties water levels to the Hancock USGS gauge. USGS data was fresh during this run. Chautauqua coordinates reuse the existing approved V2 access anchor."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official access pair",
+        "value": "Botna Bend Park to Chautauqua Park",
+        "note": "Friends of the West Nish lists Botna Bend Park in Hancock and Chautauqua Park in Oakland as water-trail accesses with parking.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html"
+      },
+      {
+        "label": "Route landmarks",
+        "value": "G-30 bridge, railroad bridge, discharge pipes, M-16 bridge",
+        "note": "The water-trail description places these landmarks between Hancock and Oakland and says Chautauqua Park is reached quickly after the Highway M-16 bridge.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html"
+      },
+      {
+        "label": "Threshold guidance",
+        "value": "2.5-4.5 ft at Hancock",
+        "note": "Friends of the West Nish publishes the accepted Hancock-gauge comfort window and warns that levels above 4.5 ft may be too strong for beginning paddlers.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/water-levels.html"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 06807410 156 cfs / 2.19 ft",
+        "note": "USGS reported current West Nishnabotna River at Hancock data at 2026-07-23 21:00 CDT during this run.",
+        "sourceUrl": "https://waterdata.usgs.gov/ia/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=06807410"
+      },
+      {
+        "label": "Camping",
+        "value": "Botna Bend and Chautauqua public camping",
+        "note": "Friends of the West Nish lists public camping at Botna Bend County Park and Chautauqua City Park, while warning that most riverbanks and sandbars are private.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/camping--lodging.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Friends of the West Nish visit the water trail",
+        "url": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html",
+        "provider": "local"
+      },
+      {
+        "label": "Friends of the West Nish water levels",
+        "url": "https://friendsofthewestnish.weebly.com/water-levels.html",
+        "provider": "local"
+      },
+      {
+        "label": "Pottawattamie Conservation Botna Bend Park",
+        "url": "https://www.pottconservation.com/parks/botna_bend/",
+        "provider": "local"
+      },
+      {
+        "label": "Chautauqua Park Oakland",
+        "url": "https://www.unleashcb.com/play/chautauqua_park/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 06807410 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06807410/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "west-nishnabotna-river-oakland-carson",
+    "slug": "west-nishnabotna-river-oakland-carson",
+    "name": "West Nishnabotna River",
+    "reach": "Chautauqua Park / Oakland to Millstone City Park / Carson",
+    "state": "Iowa",
+    "region": "Southwest Iowa",
+    "summary": "Shorter West Nishnabotna water-trail day from Oakland to Carson, with signed public town accesses, Highway 6 and 400th Street bridge context, and Hancock-gauge stage guidance.",
+    "statusText": "Use the West Nishnabotna at Hancock stage gauge with a local 2.5 to 4.5 ft window. Below the floor expect scraping and walking; above the ceiling the current may be too strong for beginners and wood avoidance gets harder.",
+    "latitude": 41.30695,
+    "longitude": -95.40363,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Oakland-to-Carson is a contained split of the existing Oakland-to-Macedonia corridor, added for a shorter official access-pair option with the stronger Hancock gauge guidance.",
+        "Stage Millstone City Park from land and know the signed Carson take-out. The water-trail partner says paddling upstream is not easy if you miss an access.",
+        "Most sandbars and banks are private. Use signed public accesses and avoid unplanned stops unless you have landowner permission."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-06807410",
+      "provider": "usgs",
+      "siteId": "06807410",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "West Nishnabotna River at Hancock, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06807410/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.5,
+      "idealMax": 4.5,
+      "tooLow": 2.5,
+      "tooHigh": 4.5,
+      "thresholdSource": {
+        "label": "Friends of the West Nish Hancock gauge water-level guidance",
+        "url": "https://friendsofthewestnish.weebly.com/water-levels.html",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "The Hancock gauge is upstream of this split and should be paired with a local Oakland/Carson visual check, especially after localized storms.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is a shorter flatwater day, but channelized bends, eroding banks, wood, private land, and a proxy gauge require caution.",
+      "confidenceNotes": "Confidence is moderate-good: the official/local water-trail partner lists Chautauqua and Millstone as signed accesses, describes the bridge sequence and Carson approach, and publishes numeric Hancock-gauge guidance. This card is intentionally a shorter split of the existing Oakland-to-Macedonia route; overlap should be reviewed as an access-planning improvement rather than a new long duplicate."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official access pair",
+        "value": "Chautauqua Park to Millstone City Park",
+        "note": "Friends of the West Nish lists Chautauqua Park in Oakland and Millstone City Park in Carson as water-trail accesses with parking.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html"
+      },
+      {
+        "label": "Route landmarks",
+        "value": "Highway 6, 400th Street, Millstone Park",
+        "note": "The water-trail partner says paddlers pass the Highway 6 bridge about a mile south of Oakland, then the 400th Street bridge, and soon after reach Millstone Park access in Carson.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html"
+      },
+      {
+        "label": "Threshold guidance",
+        "value": "2.5-4.5 ft at Hancock",
+        "note": "The local water-level page gives 2.5 to 4.5 ft as the many-paddler comfort band, with scraping likely below about 3.5 ft and difficult paddling below 2.5 ft.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/water-levels.html"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 06807410 156 cfs / 2.19 ft",
+        "note": "USGS reported current West Nishnabotna River at Hancock data at 2026-07-23 21:00 CDT during this run.",
+        "sourceUrl": "https://waterdata.usgs.gov/ia/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=06807410"
+      },
+      {
+        "label": "Carson access and camping",
+        "value": "Millstone City Park access and public camping",
+        "note": "The water-trail partner lists Millstone City Park as the Carson access and lists public camping in Carson, but still prohibits private-bank and sandbar camping without permission.",
+        "sourceUrl": "https://friendsofthewestnish.weebly.com/camping--lodging.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Friends of the West Nish visit the water trail",
+        "url": "https://friendsofthewestnish.weebly.com/visit-the-water-trail.html",
+        "provider": "local"
+      },
+      {
+        "label": "Friends of the West Nish water levels",
+        "url": "https://friendsofthewestnish.weebly.com/water-levels.html",
+        "provider": "local"
+      },
+      {
+        "label": "Chautauqua Park Oakland",
+        "url": "https://www.unleashcb.com/play/chautauqua_park/",
+        "provider": "local"
+      },
+      {
+        "label": "City of Carson parks and recreation",
+        "url": "https://www.carsongov.com/parks-rec",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 06807410 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06807410/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "west-nishnabotna-river-oakland-macedonia",
     "slug": "west-nishnabotna-river-oakland-macedonia",
     "name": "West Nishnabotna River",

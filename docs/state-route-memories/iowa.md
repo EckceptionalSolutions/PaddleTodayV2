@@ -17,7 +17,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 21:20 run added three routes beyond the current 109-route baseline: `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`.
+Iowa remains mature overall. The latest 2026-07-23 22:10 run added three routes beyond the current 112-route baseline: `west-nishnabotna-river-avoca-hancock`, `west-nishnabotna-river-hancock-oakland`, and `west-nishnabotna-river-oakland-carson`.
+
+## 2026-07-23 22:10 West Nishnabotna official split pass
+
+- Baseline at run start: 112 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`.
+- Added `west-nishnabotna-river-avoca-hancock`, `west-nishnabotna-river-hancock-oakland`, and `west-nishnabotna-river-oakland-carson`, bringing the imported Iowa count to 115 live routes.
+- Qualification path: Friends of the West Nish documents the official access chain at Edgington Memorial Park / Avoca, Botna Bend Park / Hancock, Chautauqua Park / Oakland, Millstone City Park / Carson, and Olde Town Park / Macedonia; the same source publishes Hancock-gauge water-level guidance, no-public-access-between-sites warnings, flashy-water safety language, private-bank/sandbar camping restrictions, bridge and industrial-discharge landmarks, and endpoint camping locations. Travel Iowa corroborates the 26.8-mile state water-trail status, and Pottawattamie / local park pages corroborate public access and camping context.
+- Gauge posture: USGS `06807410` West Nishnabotna River at Hancock returned `156 cfs / 2.19 ft` at 2026-07-23 21:00 CDT. Avoca-to-Hancock and Hancock-to-Oakland use the Hancock gauge as direct water-trail guidance; Oakland-to-Carson uses it as an upstream same-water-trail proxy with visual-check caveats.
+- Threshold posture: all three use Friends of the West Nish's numeric stage guidance as a two-sided `2.5-4.5 ft` model. The copy documents that scraping can begin below about 3.5 ft, below 2.5 ft becomes difficult / walking, and above 4.5 ft can be too strong for beginners. No cfs threshold was invented.
+- Caveat posture: Avoca-to-Hancock foregrounds the smaller East Branch start and bridge sequence; Hancock-to-Oakland foregrounds G-30 / railroad / M-16 bridges and industrial-discharge context; Oakland-to-Carson foregrounds contained-overlap rationale inside the already-live Oakland-to-Macedonia corridor, Highway 6 / 400th Street bridge context, and a firm Carson take-out. All three warn on flashiness, wood, eroding muddy banks, private banks/sandbars, no informal camping, and sparse public exits.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains blocked because product-fetchable USGS `05421760` still returns 2017 data even though Anamosa `05421740` is fresh; West Nish Carson-to-Macedonia was not added because it is already represented by the live Oakland-to-Macedonia card and the run needed only three official split cards; broader Cedar / Turkey / Maquoketa / Des Moines prompt leads remain already represented or lower value.
+- No route-gallery assets were added after bounded Friends / Travel Iowa / Pottawattamie / USGS / Commons / same-route image review.
 
 ## 2026-07-23 21:20 Boone County Des Moines pass
 
