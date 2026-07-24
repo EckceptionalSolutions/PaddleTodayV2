@@ -586,10 +586,10 @@ a {
 
 .river-route-picker .route-choice__facts {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 0.35rem;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .river-route-picker .route-choice__fact {
@@ -607,21 +607,18 @@ a {
 }
 
 .river-route-picker .route-choice__fact:nth-child(2) {
-  max-width: 12rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 15rem;
 }
 
 .route-choice__score-compact {
-  min-width: 3.15rem;
-  min-height: 2.75rem;
-  padding: 0.24rem 0.15rem 0.24rem 0.62rem;
-  border: 0;
-  border-left: 3px solid rgba(31, 101, 119, 0.28);
-  border-radius: 0;
-  background: transparent;
+  min-width: 3.75rem;
+  min-height: 3rem;
+  padding: 0.32rem 0.4rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.8);
   display: grid;
-  justify-items: end;
+  place-items: center;
   align-content: center;
   gap: 0.1rem;
   text-align: center;
@@ -641,19 +638,23 @@ a {
 }
 
 .route-choice__score-compact--great {
-  border-left-color: rgba(34, 110, 77, 0.7);
+  border-color: rgba(34, 110, 77, 0.25);
+  background: rgba(229, 245, 236, 0.9);
 }
 
 .route-choice__score-compact--good {
-  border-left-color: rgba(23, 109, 104, 0.7);
+  border-color: rgba(23, 109, 104, 0.24);
+  background: rgba(229, 245, 244, 0.9);
 }
 
 .route-choice__score-compact--marginal {
-  border-left-color: rgba(138, 90, 23, 0.72);
+  border-color: rgba(138, 90, 23, 0.25);
+  background: rgba(251, 243, 225, 0.92);
 }
 
 .route-choice__score-compact--no-go {
-  border-left-color: rgba(157, 62, 46, 0.72);
+  border-color: rgba(157, 62, 46, 0.24);
+  background: rgba(251, 235, 231, 0.92);
 }
 
 .route-choice__save {
@@ -719,6 +720,7 @@ a {
 }
 
 .river-route-picker__selected {
+  position: relative;
   min-height: 4.5rem;
   padding: 0.68rem 0.8rem;
   border: 1px solid rgba(31, 101, 119, 0.15);
@@ -735,6 +737,17 @@ a {
   display: grid;
   gap: 0.18rem;
   min-width: 0;
+  padding-right: 4.8rem;
+}
+
+.river-route-picker__selected-save {
+  position: absolute;
+  z-index: 1;
+  top: 0.56rem;
+  right: 0.62rem;
+  min-height: 1.7rem;
+  padding: 0.2rem 0.48rem;
+  font-size: 0.66rem;
 }
 
 .river-route-picker__selected-copy strong {
@@ -756,13 +769,12 @@ a {
 }
 
 .river-route-picker__selected-decision {
-  min-width: 4.25rem;
-  min-height: 3.2rem;
-  padding: 0.28rem 0.42rem 0.28rem 0.68rem;
-  border: 0;
-  border-left: 3px solid rgba(31, 101, 119, 0.28);
-  border-radius: 0;
-  background: transparent;
+  min-width: 4.5rem;
+  min-height: 3.45rem;
+  padding: 0.34rem 0.45rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.82);
   display: grid;
   place-items: center;
   align-content: center;
@@ -785,19 +797,23 @@ a {
 }
 
 .river-route-picker__selected-decision--great {
-  border-left-color: rgba(34, 110, 77, 0.7);
+  border-color: rgba(34, 110, 77, 0.25);
+  background: rgba(229, 245, 236, 0.9);
 }
 
 .river-route-picker__selected-decision--good {
-  border-left-color: rgba(23, 109, 104, 0.7);
+  border-color: rgba(23, 109, 104, 0.24);
+  background: rgba(229, 245, 244, 0.9);
 }
 
 .river-route-picker__selected-decision--marginal {
-  border-left-color: rgba(138, 90, 23, 0.72);
+  border-color: rgba(138, 90, 23, 0.25);
+  background: rgba(251, 243, 225, 0.92);
 }
 
 .river-route-picker__selected-decision--no-go {
-  border-left-color: rgba(157, 62, 46, 0.72);
+  border-color: rgba(157, 62, 46, 0.24);
+  background: rgba(251, 235, 231, 0.92);
 }
 
 .river-route-picker__selected-actions {

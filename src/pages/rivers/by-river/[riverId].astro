@@ -37,6 +37,15 @@ const staticRoutes = [...group.routes].sort((left, right) =>
 );
 const staticSelectedRoute = staticRoutes[0];
 const heroPhoto = getRiverGroupHeroPhoto(group.riverId, group.routes);
+const shortTimeLabel = (value) => {
+  if (!value) return '';
+  const text = String(value).trim();
+  const hourRange = text.match(/(\d+(?:\.\d+)?)\s*hr(?:\s*to\s*(\d+(?:\.\d+)?)\s*hr)?/i);
+  if (hourRange) return hourRange[2] ? `About ${hourRange[1]}–${hourRange[2]} hr` : `About ${hourRange[1]} hr`;
+  const minuteRange = text.match(/(\d+(?:\.\d+)?)\s*min(?:\s*to\s*(\d+(?:\.\d+)?)\s*min)?/i);
+  if (minuteRange) return minuteRange[2] ? `About ${minuteRange[1]}–${minuteRange[2]} min` : `About ${minuteRange[1]} min`;
+  return text.split(/[,.]/)[0].trim().slice(0, 34);
+};
 const areaLabel = group.regions.length === 1 ? 'paddle area' : 'paddle areas';
 const faqItems = [
   {
@@ -277,8 +286,8 @@ const groupStructuredData = [
                       <strong class="route-choice__title">{route.reach}</strong>
                       <span class="route-choice__facts">
                         {route.logistics?.distanceLabel ? <span class="route-choice__fact route-choice__fact--distance">{route.logistics.distanceLabel}</span> : null}
-                        {!active && route.logistics?.estimatedPaddleTime ? <span class="route-choice__fact route-choice__fact--time">{route.logistics.estimatedPaddleTime}</span> : null}
-                        {!active ? <span class="route-choice__fact">{route.profile.difficulty} difficulty</span> : null}
+                        {route.logistics?.estimatedPaddleTime ? <span class="route-choice__fact route-choice__fact--time">{shortTimeLabel(route.logistics.estimatedPaddleTime)}</span> : null}
+                        <span class="route-choice__fact">{route.profile.difficulty} difficulty</span>
                       </span>
                     </span>
                     <span class="route-choice__score-compact">
@@ -298,24 +307,26 @@ const groupStructuredData = [
               <span class="eyebrow">Your trip</span>
               <strong>{staticSelectedRoute?.reach}</strong>
               <span>
-                {[staticSelectedRoute?.logistics?.distanceLabel, staticSelectedRoute?.logistics?.estimatedPaddleTime, staticSelectedRoute?.profile.difficulty].filter(Boolean).join(' · ')}
+                {[staticSelectedRoute?.logistics?.distanceLabel, shortTimeLabel(staticSelectedRoute?.logistics?.estimatedPaddleTime), staticSelectedRoute?.profile.difficulty].filter(Boolean).join(' · ')}
               </span>
             </div>
+            {staticSelectedRoute ? (
+              <FavoriteButton
+                className="favorite-toggle favorite-toggle--card favorite-toggle--inline river-route-picker__selected-save"
+                slug={staticSelectedRoute.slug}
+                name={group.name}
+                reach={staticSelectedRoute.reach}
+                state={staticSelectedRoute.state}
+                region={staticSelectedRoute.region}
+                url={`/rivers/${staticSelectedRoute.slug}/`}
+              />
+            ) : null}
             <div class="river-route-picker__selected-decision">
               <strong>--</strong>
               <span>Loading conditions</span>
             </div>
             {staticSelectedRoute ? (
               <div class="river-route-picker__selected-actions">
-                <FavoriteButton
-                  className="favorite-toggle favorite-toggle--card favorite-toggle--inline"
-                  slug={staticSelectedRoute.slug}
-                  name={group.name}
-                  reach={staticSelectedRoute.reach}
-                  state={staticSelectedRoute.state}
-                  region={staticSelectedRoute.region}
-                  url={`/rivers/${staticSelectedRoute.slug}/`}
-                />
                 <a class="river-link river-link--inline" href={`/rivers/${staticSelectedRoute.slug}/`}>View route details</a>
               </div>
             ) : null}

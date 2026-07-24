@@ -197,7 +197,20 @@ function visiblePickerRoutes(routes) {
 
 function shortTimeLabel(value) {
   if (!value) return '';
-  return String(value).split(',')[0].trim();
+  const text = String(value).trim();
+  const hourRange = text.match(/(\d+(?:\.\d+)?)\s*hr(?:\s*to\s*(\d+(?:\.\d+)?)\s*hr)?/i);
+  if (hourRange) {
+    return hourRange[2]
+      ? `About ${hourRange[1]}–${hourRange[2]} hr`
+      : `About ${hourRange[1]} hr`;
+  }
+  const minuteRange = text.match(/(\d+(?:\.\d+)?)\s*min(?:\s*to\s*(\d+(?:\.\d+)?)\s*min)?/i);
+  if (minuteRange) {
+    return minuteRange[2]
+      ? `About ${minuteRange[1]}–${minuteRange[2]} min`
+      : `About ${minuteRange[1]} min`;
+  }
+  return text.split(/[,.]/)[0].trim().slice(0, 34);
 }
 
 function difficultyLabel(value) {
@@ -1118,7 +1131,7 @@ function renderRouteList(routes) {
   routeList.innerHTML = routes
     .map((route) => {
       const active = route.slug === selectedSlug;
-      const facts = (active ? [route.distanceLabel] : pickerFacts(route))
+      const facts = pickerFacts(route)
         .filter(Boolean)
         .map((fact, factIndex) => `<span class="route-choice__fact${factIndex === 0 ? ' route-choice__fact--distance' : ''}">${escapeHtml(fact)}</span>`)
         .join('');
@@ -1232,12 +1245,12 @@ function renderSelectedSummary(route) {
       <span>${escapeHtml(pickerFacts(route).join(BULLET))}</span>
       <small>${escapeHtml(conditionsLine(route))}</small>
     </div>
+    ${favoriteButtonMarkup(route).replace('favorite-toggle--inline', 'favorite-toggle--inline river-route-picker__selected-save')}
     <div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}">
       <strong>${escapeHtml(String(route.score))}</strong>
       <span>${escapeHtml(decisionLabel(route.rating, route.score))}</span>
     </div>
     <div class="river-route-picker__selected-actions">
-      ${favoriteButtonMarkup(route)}
       <a class="river-link river-link--inline" href="/rivers/${encodeURIComponent(route.slug)}/">View route details</a>
     </div>
     ${nearbyMarkup}
