@@ -2374,6 +2374,99 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "turkey-river-garber-osterdock": {
+    "putIn": {
+      "name": "Garber Access #20",
+      "latitude": 42.74002,
+      "longitude": -91.26159
+    },
+    "takeOut": {
+      "name": "Osterdock Access #12",
+      "latitude": 42.7489,
+      "longitude": -91.1564
+    },
+    "logistics": {
+      "distanceLabel": "7.5 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 3.75 hr",
+      "shuttle": "Use a two-car shuttle between Garber and Osterdock. Scout Osterdock first; the official guide says not to park at the Osterdock Store for river access.",
+      "permits": "No route-specific paddling permit is known. Follow posted Clayton County, water-trail, bridge, and access rules, and use only named public accesses.",
+      "camping": "No on-route public campground was confirmed for this short split. Use nearby private or public campgrounds as separate basecamp reservations rather than assuming legal river camping.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch from Garber Access #20 and continue down the official Turkey River Water Trail to Osterdock Access #12. This is the first lower-river segment below Garber, with more rural exposure and fewer convenient exits than the Elkader or Motor Mill day.",
+      "accessCaveats": [
+        "Garber Access #20 is the established downstream endpoint for the Motor Mill route and the start of this lower continuation.",
+        "Osterdock Access #12 is an official water-trail access, but parking and landing details should be checked from land before unloading boats.",
+        "The official map warns paddlers not to park at the Osterdock Store for access."
+      ],
+      "watchFor": [
+        "Downed trees, outside-bend wood, and large rocks called out in the water-trail safety guidance.",
+        "Shallow gravel bars near or below the 100 cfs floor and pushy, muddy current above the 1,500 cfs high-water line.",
+        "Private banks and limited public exits between Garber and Osterdock."
+      ]
+    }
+  },
+  "turkey-river-osterdock-millville": {
+    "putIn": {
+      "name": "Osterdock Access #12",
+      "latitude": 42.7489,
+      "longitude": -91.1564
+    },
+    "takeOut": {
+      "name": "Millville Access #5",
+      "latitude": 42.70763,
+      "longitude": -91.07608
+    },
+    "logistics": {
+      "distanceLabel": "7.5 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 3.75 hr",
+      "shuttle": "Use a two-car shuttle between Osterdock and the signed Millville Access #5 corridor. Confirm the exact Millville public landing before launch because older route reports describe access confusion near Highway 52.",
+      "permits": "No route-specific paddling permit is known. Follow posted water-trail and Clayton County access rules, and avoid private launches or private bar landings unless you have explicit permission.",
+      "camping": "No legal on-route public camping was confirmed for this split. Nearby private campgrounds can support a basecamp plan, but gravel-bar camping should not be assumed.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Paddle the official Osterdock-to-Millville lower Turkey River access pair. The route is flatter and broader than the bluffier Elkader corridor, but the access planning is more important because the take-out is less obvious from third-party route reports.",
+      "accessCaveats": [
+        "Osterdock Access #12 is the official put-in; do not use nearby business parking unless it is explicitly posted for river access.",
+        "Use the official Millville Access #5 location rather than the private pier described in some trip reports.",
+        "The Garber gauge is upstream of the route, so confirm the river has enough local depth at both endpoints."
+      ],
+      "watchFor": [
+        "Large gravel bars and slower current that can lengthen the day at low flows or in headwinds.",
+        "Wood, muddy banks, and shifting channels after storms.",
+        "Missed or unclear take-out cues at Millville."
+      ]
+    }
+  },
+  "turkey-river-millville-ferry-landing": {
+    "putIn": {
+      "name": "Millville Access #5",
+      "latitude": 42.70763,
+      "longitude": -91.07608
+    },
+    "takeOut": {
+      "name": "Ferry Landing Canoe Takeout",
+      "latitude": 42.7178,
+      "longitude": -91.00978
+    },
+    "logistics": {
+      "distanceLabel": "5.0 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 2.5 hr, longer with wind on the Mississippi",
+      "shuttle": "Use a two-car shuttle between Millville Access #5 and the Ferry Landing Canoe Takeout. Scout both ends and include the final Mississippi River approach in the plan, not just the Turkey River mileage.",
+      "permits": "No route-specific paddling permit is known. Follow posted Turkey River Water Trail, Clayton County, ferry-landing, and Mississippi River navigation rules.",
+      "camping": "No public river campsite was confirmed on this short endpoint leg. Plan overnight stays through nearby campgrounds or lodging, not unposted riverbank use.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Finish the official Turkey River Water Trail from Millville Access #5 to the Ferry Landing Canoe Takeout. The route reaches the Turkey River mouth and includes a short downstream move on the Mississippi, so wind and boat traffic matter more than on the upstream Turkey segments.",
+      "accessCaveats": [
+        "Confirm the public Millville Access #5 location; do not launch from a private pier unless you have direct permission.",
+        "The water trail ends at the Ferry Landing Canoe Takeout after a short Mississippi River move downstream from the Turkey River mouth.",
+        "If wind, ferry traffic, or big-river conditions look wrong, postpone or use an upstream take-out instead of committing to the mouth."
+      ],
+      "watchFor": [
+        "Bottomland wood and shifting channels near the Turkey River mouth.",
+        "Wind, waves, motorboats, ferry traffic, and broad-river current on the Mississippi finish.",
+        "Fast rises after heavy rain and muddy low-gradient take-outs."
+      ]
+    }
+  },
   "turkey-river-elkader-garber": {
     "putIn": {
       "name": "Elkader Whitewater Park / Elkader Access #39B",

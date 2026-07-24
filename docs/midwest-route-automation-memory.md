@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 04:15 America/Chicago / 2026-07-24 09:15 UTC: Iowa lower Turkey River continuation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 127-route exported Iowa baseline: `turkey-river-garber-osterdock`, `turkey-river-osterdock-millville`, and `turkey-river-millville-ferry-landing`, bringing Iowa to 130 live routes.
+  - Qualification path: official Turkey River Water Trail map/guide access sequence, TurkeyRiver.org mileage notes, Wisconsin River Trips lower Turkey River segment and navigability evidence, Travel Iowa Millville-to-Ferry-Landing context, Miles Paddled final-route access caveat, and USGS Water Services support the selected lower-water-trail cards.
+  - Gauge posture: USGS `05412500` Turkey River at Garber returned `1,670 cfs / 8.13 ft` at 2026-07-24 03:15 CDT. Garber-to-Osterdock is direct; Osterdock-to-Millville and Millville-to-Ferry-Landing use the Garber gauge as an upstream proxy.
+  - Threshold posture: all three use the Wisconsin River Trips community Turkey River ladder, with `100 cfs` as the low-water floor and `1,500 cfs` as the high-water cutoff. No official range was found and no new ideal range was invented.
+  - Safety/image posture: cards carry lower-river wood, large rocks, fast-rise, rural rescue, private-bank, Osterdock parking, Millville public-access, no-assumed-camping, and final Mississippi wind/boat/ferry-traffic caveats. No gallery image was selected after bounded official/community/Commons/same-route review.
+
 - 2026-07-24 03:08 America/Chicago / 2026-07-24 08:08 UTC: Iowa Sac/Calhoun North Raccoon continuation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 124-route exported Iowa baseline: `north-raccoon-river-hagge-white-horse`, `north-raccoon-river-white-horse-grant`, and `north-raccoon-river-grant-rainbow-bend`, bringing Iowa to 127 live routes.
   - Qualification path: Iowa DNR's North Raccoon Sac/Calhoun/Carroll guide, Sac County water-trail access page, Iowa DNR White Horse release, MyCountyParks Grant Park and Rainbow Bend pages, Travel Iowa water-trail context, and USGS Water Services support the access chain, route shape, camping posture, hazards, and official Lanesboro/Jefferson gauge model.

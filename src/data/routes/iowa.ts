@@ -6929,6 +6929,369 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
+    "id": "turkey-river-garber-osterdock",
+    "slug": "turkey-river-garber-osterdock",
+    "name": "Turkey River",
+    "reach": "Garber Access to Osterdock Access",
+    "aliases": [
+      "Turkey River - Garber to Osterdock",
+      "Turkey River Water Trail - Access #20 to Access #12",
+      "Lower Turkey River - Garber to Osterdock"
+    ],
+    "state": "Iowa",
+    "region": "Northeast Iowa",
+    "summary": "Lower Turkey River continuation from Garber to Osterdock, extending the official water trail below the Volga confluence with gravel bars, light riffles, rural bluffs, and the direct Garber gauge at the put-in corridor.",
+    "statusText": "Use the Turkey River at Garber gauge as the direct lower-corridor check. Wisconsin River Trips' Turkey River ladder treats under 100 cfs as maybe too shallow and above 1,500 cfs as maybe too high, so the card stays community-sourced and two-sided.",
+    "latitude": 42.74002,
+    "longitude": -91.26159,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Turkey River Water Trail safety panel tells paddlers to look ahead for downed trees and large rocks; those hazards matter more on this less-developed lower continuation.",
+        "The Garber gauge is at the upstream end of the route. Confirm local depth, wood, and take-out visibility at Osterdock before committing to the shuttle.",
+        "Do not assume legal landings away from named public accesses; the lower corridor is rural and bordered by private land."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05412500",
+      "provider": "usgs",
+      "siteId": "05412500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Turkey River at Garber, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 100,
+      "idealMax": 1500,
+      "tooLow": 100,
+      "tooHigh": 1500,
+      "thresholdSource": {
+        "label": "Wisconsin River Trips Turkey River navigability estimates",
+        "url": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader",
+        "provider": "wisconsin_river_trips"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The spring-fed lower Turkey often keeps enough water after smaller neighboring rivers fade, but drought still exposes gravel and high water turns the broad bends, bridges, and wood into a more consequential trip.",
+      "difficulty": "moderate",
+      "difficultyNotes": "A competent flatwater group should find this manageable at normal levels, but it is more remote than the Elkader day, has light riffles and wood exposure, and depends on recognizing the Osterdock landing.",
+      "confidenceNotes": "Confidence is good for a guarded official continuation: the Turkey River Water Trail names Garber Access #20 to Osterdock Access #12 as the next 7.5-mile downstream section; Wisconsin River Trips separately describes the lower Garber-to-Mississippi corridor and this Garber-to-Osterdock split with a route-family cfs ladder; USGS 05412500 is a direct live station at Garber and returned 1,670 cfs / 8.13 ft at 2026-07-24 03:15 CDT. Coordinates are practical named-access anchors rather than surveyed ramp points, so the card tells paddlers to scout the Osterdock landing."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official water-trail section",
+        "value": "Garber #20 to Osterdock #12, 7.5 mi",
+        "note": "The Turkey River Water Trail states that from Garber it is 7.5 miles to the next access at Osterdock.",
+        "sourceUrl": "https://turkeyriver.org/map/"
+      },
+      {
+        "label": "Published lower-corridor split",
+        "value": "Garber Access to Osterdock Access",
+        "note": "Wisconsin River Trips lists Garber-to-Osterdock as a lower Turkey River segment with light rapids and bluffs below Garber.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader"
+      },
+      {
+        "label": "Community threshold ladder",
+        "value": "100 to 1,500 cfs at Turkey River @ Elkader / lower-family guide",
+        "note": "Wisconsin River Trips describes under 100 cfs as maybe too shallow and 1,501+ cfs as maybe too high for Turkey River paddling. Paddle Today applies that ladder cautiously to this larger downstream continuation and requires same-day visual checks.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader"
+      },
+      {
+        "label": "Direct gauge",
+        "value": "USGS 05412500 at 1,670 cfs / 8.13 ft",
+        "note": "USGS Water Services returned current Turkey River at Garber values at 2026-07-24 03:15 CDT.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05412500&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Turkey River Water Trail map",
+        "url": "https://turkeyriver.org/map/",
+        "provider": "local"
+      },
+      {
+        "label": "Turkey River Water Trail guide PDF",
+        "url": "https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Wisconsin River Trips Turkey River Elkader",
+        "url": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader",
+        "provider": "wisconsin_river_trips"
+      },
+      {
+        "label": "USGS 05412500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "turkey-river-osterdock-millville",
+    "slug": "turkey-river-osterdock-millville",
+    "name": "Turkey River",
+    "reach": "Osterdock Access to Millville Access",
+    "aliases": [
+      "Turkey River - Osterdock to Millville",
+      "Turkey River Water Trail - Access #12 to Access #5",
+      "Lower Turkey River - Osterdock to Millville"
+    ],
+    "state": "Iowa",
+    "region": "Northeast Iowa",
+    "summary": "Middle lower Turkey River water-trail leg from Osterdock to Millville, a quieter broad-valley float with large gravel bars, fewer exits, and a Garber gauge check upstream.",
+    "statusText": "Use the Turkey River at Garber gauge as the best live lower-corridor signal. The published community ladder flags below 100 cfs as maybe too shallow and above 1,500 cfs as maybe too high; verify local depth because the gauge is upstream of this split.",
+    "latitude": 42.7489,
+    "longitude": -91.1564,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote",
+        "private_banks",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "The official map labels Osterdock and Millville as access points, but same-day scouting is important because the lower accesses are less documented than Elkader, Motor Mill, or Garber.",
+        "Miles Paddled reported confusion around the Millville public-access location and used a private pier instead; use the official Access #5 corridor only after confirming the signed public landing.",
+        "Expect broad lower-river gravel bars, slower current, wood on outside bends, and limited emergency exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05412500",
+      "provider": "usgs",
+      "siteId": "05412500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Turkey River at Garber, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 100,
+      "idealMax": 1500,
+      "tooLow": 100,
+      "tooHigh": 1500,
+      "thresholdSource": {
+        "label": "Wisconsin River Trips Turkey River navigability estimates",
+        "url": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader",
+        "provider": "wisconsin_river_trips"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Best during stable spring through fall levels. This split is below Garber and usually has more water than upstream reaches, but it is flatter and more exposed to wind at low or falling flows.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The route is not technically hard, but the access certainty, rural exposure, and slower lower-river hydraulics make it a planning route rather than a casual short-town float.",
+      "confidenceNotes": "Confidence is moderate-good: the Turkey River Water Trail identifies Osterdock Access #12 to Millville Access #5 as the next 7.5-mile official access pair, and Wisconsin River Trips supports the same lower-river corridor plus a broad Turkey River cfs ladder. The gauge is marked proxy because Garber is upstream of both endpoints, and the card explicitly carries the Millville access-location caveat from Miles Paddled instead of treating the access coordinates as survey-grade."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official water-trail section",
+        "value": "Osterdock #12 to Millville #5, 7.5 mi",
+        "note": "TurkeyRiver.org says paddlers continuing from Osterdock journey 7.5 miles to Millville Access #5.",
+        "sourceUrl": "https://turkeyriver.org/map/"
+      },
+      {
+        "label": "Access caveat",
+        "value": "Millville public landing requires scouting",
+        "note": "Miles Paddled found the mapped Millville access confusing and used a private pier, so Paddle Today directs paddlers to verify the signed Access #5 location rather than using private property.",
+        "sourceUrl": "https://milespaddled.com/turkey-river-iii/"
+      },
+      {
+        "label": "Community threshold ladder",
+        "value": "100 to 1,500 cfs at Turkey River family gauges",
+        "note": "Wisconsin River Trips' Turkey River navigability estimates provide the only numeric lower-family ladder found in this bounded search; the downstream split keeps proxy and visual-check caveats.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "Garber 1,670 cfs / 8.13 ft",
+        "note": "The Garber USGS station was live during this run, but it is upstream of this reach and cannot replace a take-out scout.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05412500&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Turkey River Water Trail map",
+        "url": "https://turkeyriver.org/map/",
+        "provider": "local"
+      },
+      {
+        "label": "Turkey River Water Trail guide PDF",
+        "url": "https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Wisconsin River Trips Turkey River Elkader",
+        "url": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader",
+        "provider": "wisconsin_river_trips"
+      },
+      {
+        "label": "Miles Paddled Turkey River III",
+        "url": "https://milespaddled.com/turkey-river-iii/",
+        "provider": "miles_paddled"
+      },
+      {
+        "label": "USGS 05412500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "turkey-river-millville-ferry-landing",
+    "slug": "turkey-river-millville-ferry-landing",
+    "name": "Turkey River",
+    "reach": "Millville Access to Ferry Landing Canoe Takeout",
+    "aliases": [
+      "Turkey River - Millville to Ferry Landing",
+      "Turkey River Water Trail - Access #5 to Ferry Landing",
+      "Lower Turkey River - Millville to the Mississippi"
+    ],
+    "state": "Iowa",
+    "region": "Northeast Iowa",
+    "summary": "Final official Turkey River Water Trail leg from Millville to the Mississippi River and Ferry Landing Canoe Takeout, with bottomland current, Turkey River Mounds context, and a short big-river finish.",
+    "statusText": "Use the Turkey River at Garber gauge only as a lower-corridor proxy, then scout Millville and the ferry landing. The community ladder treats 100 to 1,500 cfs as the usable Turkey River planning band, but Mississippi wind and traffic can override that reading.",
+    "latitude": 42.70763,
+    "longitude": -91.07608,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote",
+        "private_banks",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "This route leaves the Turkey River at its mouth and finishes with a short Mississippi River move to the official ferry landing; wind, larger boats, and broad-river navigation matter at the end.",
+        "Verify the Millville public launch and ferry landing from land before paddling because source coordinate support is less precise than the official access names.",
+        "Do not continue into the Mississippi without a river-current, wind, and ferry-traffic plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05412500",
+      "provider": "usgs",
+      "siteId": "05412500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Turkey River at Garber, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 100,
+      "idealMax": 1500,
+      "tooLow": 100,
+      "tooHigh": 1500,
+      "thresholdSource": {
+        "label": "Wisconsin River Trips Turkey River navigability estimates",
+        "url": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader",
+        "provider": "wisconsin_river_trips"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Plan this as a stable-weather lower-river outing. The Turkey River may remain floatable in dry weather, but the final Mississippi approach is more affected by wind, waves, and big-river visibility than by the Garber cfs number alone.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The Turkey River mileage is short and mostly quietwater, but the final mouth-and-ferry approach raises consequence for wind, boat traffic, missed take-outs, and confused access points.",
+      "confidenceNotes": "Confidence is moderate-good for a guarded official endpoint add: the Turkey River Water Trail names Millville Access #5 to Ferry Landing Canoe Takeout as the final 5-mile water-trail leg and Travel Iowa corroborates the Millville-to-Ferry-Landing float. Miles Paddled documents the same lower finish and a 240 cfs Garber reading but used a private Millville pier, so Paddle Today uses the official public access name, flags access uncertainty, and treats Garber as a proxy rather than a precise segment gauge."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official water-trail endpoint",
+        "value": "Millville #5 to Ferry Landing, 5.0 mi",
+        "note": "The Turkey River Water Trail table lists Millville Access #5 as five miles above the Ferry Landing Canoe Takeout, and the map page describes turning downstream on the Mississippi a short distance to reach the take-out.",
+        "sourceUrl": "https://turkeyriver.org/map/"
+      },
+      {
+        "label": "Tourism corroboration",
+        "value": "Millville five-mile float to Ferry Landing",
+        "note": "Travel Iowa's Millville page describes the canoe access at Millville and a five-mile float ending at the Ferry Landing Canoe Takeout.",
+        "sourceUrl": "https://www.traveliowa.com/cities/millville-iowa/196/"
+      },
+      {
+        "label": "Published route report",
+        "value": "Millville to Cassville Ferry Landing, 240 cfs",
+        "note": "Miles Paddled documents the final lower Turkey / Mississippi finish at 240 cfs on the Garber gauge and says there should generally be enough water, but its private-pier put-in is not used as Paddle Today's public endpoint.",
+        "sourceUrl": "https://milespaddled.com/turkey-river-iii/"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "Garber 1,670 cfs / 8.13 ft",
+        "note": "USGS Water Services returned current Turkey River at Garber values during this run; the reading is useful lower-corridor context but does not capture Mississippi wind or ferry-landing conditions.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05412500&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Turkey River Water Trail map",
+        "url": "https://turkeyriver.org/map/",
+        "provider": "local"
+      },
+      {
+        "label": "Turkey River Water Trail guide PDF",
+        "url": "https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Travel Iowa Millville",
+        "url": "https://www.traveliowa.com/cities/millville-iowa/196/",
+        "provider": "local"
+      },
+      {
+        "label": "Miles Paddled Turkey River III",
+        "url": "https://milespaddled.com/turkey-river-iii/",
+        "provider": "miles_paddled"
+      },
+      {
+        "label": "USGS 05412500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "turkey-river-elkader-garber",
     "slug": "turkey-river-elkader-garber",
     "name": "Turkey River",

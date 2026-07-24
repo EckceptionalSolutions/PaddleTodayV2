@@ -1,7 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T08:08:00Z",
+  "updatedAt": "2026-07-24T09:15:00Z",
   "notes": [
+    {
+      "date": "2026-07-24",
+      "automation": "iowa-route-additions",
+      "summary": "Added three Iowa lower Turkey River route slugs beyond the 127-route current Iowa baseline: turkey-river-garber-osterdock, turkey-river-osterdock-millville, and turkey-river-millville-ferry-landing, bringing Iowa to 130 live routes. Sources included the official Turkey River Water Trail map and guide, TurkeyRiver.org mileage/access notes, Wisconsin River Trips lower Turkey River segment and navigability estimates, Travel Iowa Millville context, Miles Paddled final-route access caveat, and USGS Water Services. Current Garber check returned 1,670 cfs / 8.13 ft at 2026-07-24 03:15 CDT. No route-gallery image was selected after bounded official/community/Commons/same-route review."
+    },
     {
       "date": "2026-07-24",
       "automation": "iowa-route-additions",
@@ -2556,6 +2561,135 @@
     "2026-07-22 16:05 America/Chicago / 2026-07-22 21:05 UTC Minnesota implementation pass. Added three Minnesota route slugs beyond the current 130-route Minnesota baseline: `mississippi-river-highway-6-trommald`, `mississippi-river-kiwanis-crow-wing-state-park`, and `mississippi-river-royalton-stearns-county-park`, bringing the checkout to 133 Minnesota routes. Qualification path: MN DNR Mississippi Maps 5/6/7, Mississippi Headwaters Board signed excursions for Highway 6 and Kiwanis, MN DNR river-level site data for Brainerd site 121 and Royalton site 149, and Minnesota public-water-access GIS for Highway 6 WAS00999, Trommald WAS02294, Kiwanis WAS01003, Crow Wing State Park WAS00990, Royalton WAS00463, and Mississippi River County Park / Stearns County Park WAS01283. Brainerd returned 952 cfs at 2026-07-22 14:30 CDT, in the official low band below medium; Royalton returned 2,040 cfs at 2026-07-22 14:15 CDT, barely inside the official low band. No route-gallery assets were added; bounded DNR / MHB / public-access / USGS / Commons review found no clearly rights-clean exact-route images."
   ],
   "candidates": [
+    {
+      "candidateId": "ia-turkey-river-garber-osterdock-current-2026-07-24",
+      "river": "Turkey River",
+      "route": "Garber Access to Osterdock Access",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-07-24",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as turkey-river-garber-osterdock. Revisit only if Turkey River Water Trail access status, Garber gauge interpretation, lower-corridor hazard guidance, camping rules, closures, or image-rights evidence changes.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Turkey River Water Trail map",
+        "Turkey River Water Trail guide PDF",
+        "Wisconsin River Trips Turkey River Elkader/lower-corridor page",
+        "USGS Water Services 05412500",
+        "Wikimedia Commons and same-route web image search"
+      ],
+      "aliases": [
+        "Garber Access to Osterdock Access",
+        "Turkey River - Garber to Osterdock",
+        "Turkey River Water Trail Access #20 to Access #12"
+      ],
+      "v2Slug": "turkey-river-garber-osterdock",
+      "gauge": {
+        "quality": "direct",
+        "siteId": "USGS-05412500",
+        "notes": "Turkey River at Garber is at the put-in corridor; Water Services returned 1,670 cfs / 8.13 ft at 2026-07-24 03:15 CDT."
+      },
+      "thresholds": {
+        "model": "two-sided",
+        "values": "100-1,500 cfs",
+        "source": "Wisconsin River Trips Turkey River navigability estimates; community strength.",
+        "notes": "Used because it is the only route-family numeric Turkey River ladder found during bounded review; the route card keeps same-day visual-check caveats."
+      },
+      "access": {
+        "putIn": "Garber Access #20",
+        "takeOut": "Osterdock Access #12",
+        "notes": "Official water trail documents the access pair and 7.5-mile mileage; coordinates are practical named-access anchors."
+      },
+      "imageStatus": "No route-gallery image selected after bounded official/community/Commons/same-route review."
+    },
+    {
+      "candidateId": "ia-turkey-river-osterdock-millville-current-2026-07-24",
+      "river": "Turkey River",
+      "route": "Osterdock Access to Millville Access",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-07-24",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as turkey-river-osterdock-millville. Revisit only if public Millville/Osterdock access details, Garber proxy-gauge guidance, lower-corridor hazards, closures, or image-rights evidence changes.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Turkey River Water Trail map",
+        "Turkey River Water Trail guide PDF",
+        "Wisconsin River Trips Turkey River Elkader/lower-corridor page",
+        "USGS Water Services 05412500",
+        "Wikimedia Commons and same-route web image search",
+        "Miles Paddled Turkey River III"
+      ],
+      "aliases": [
+        "Osterdock Access to Millville Access",
+        "Turkey River - Osterdock to Millville",
+        "Turkey River Water Trail Access #12 to Access #5"
+      ],
+      "v2Slug": "turkey-river-osterdock-millville",
+      "gauge": {
+        "quality": "proxy",
+        "siteId": "USGS-05412500",
+        "notes": "Garber gauge is upstream of both endpoints; Water Services returned 1,670 cfs / 8.13 ft at 2026-07-24 03:15 CDT, so card requires local visual checks."
+      },
+      "thresholds": {
+        "model": "two-sided",
+        "values": "100-1,500 cfs",
+        "source": "Wisconsin River Trips Turkey River navigability estimates; community strength.",
+        "notes": "No official exact-segment ladder surfaced; proxy relationship is explicit and conservative for the lower larger river."
+      },
+      "access": {
+        "putIn": "Osterdock Access #12",
+        "takeOut": "Millville Access #5",
+        "notes": "Official water trail documents the access pair and 7.5-mile mileage. Miles Paddled access confusion is preserved as a public-access scout caveat."
+      },
+      "imageStatus": "No route-gallery image selected after bounded official/community/Commons/same-route review."
+    },
+    {
+      "candidateId": "ia-turkey-river-millville-ferry-landing-current-2026-07-24",
+      "river": "Turkey River",
+      "route": "Millville Access to Ferry Landing Canoe Takeout",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-07-24",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as turkey-river-millville-ferry-landing. Revisit only if Ferry Landing access/ferry-operation status, Mississippi finish hazards, Garber proxy-gauge guidance, closures, or image-rights evidence changes.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Turkey River Water Trail map",
+        "Turkey River Water Trail guide PDF",
+        "Wisconsin River Trips Turkey River Elkader/lower-corridor page",
+        "USGS Water Services 05412500",
+        "Wikimedia Commons and same-route web image search",
+        "Travel Iowa Millville",
+        "Miles Paddled Turkey River III"
+      ],
+      "aliases": [
+        "Millville Access to Ferry Landing Canoe Takeout",
+        "Turkey River - Millville to Ferry Landing",
+        "Turkey River Water Trail Access #5 to Ferry Landing"
+      ],
+      "v2Slug": "turkey-river-millville-ferry-landing",
+      "gauge": {
+        "quality": "proxy",
+        "siteId": "USGS-05412500",
+        "notes": "Garber gauge is upstream of the route and does not capture Mississippi wind/boat/ferry conditions; Water Services returned 1,670 cfs / 8.13 ft at 2026-07-24 03:15 CDT."
+      },
+      "thresholds": {
+        "model": "two-sided",
+        "values": "100-1,500 cfs",
+        "source": "Wisconsin River Trips Turkey River navigability estimates; community strength.",
+        "notes": "Applies only to Turkey River floatability; final Mississippi River approach must be judged separately."
+      },
+      "access": {
+        "putIn": "Millville Access #5",
+        "takeOut": "Ferry Landing Canoe Takeout",
+        "notes": "Official water trail and Travel Iowa describe the final 5-mile route; card avoids private Millville pier use and flags the Mississippi finish."
+      },
+      "imageStatus": "No route-gallery image selected after bounded official/community/Commons/same-route review."
+    },
     {
       "candidateId": "mn-mississippi-river-schoolcraft-sylvan-current-2026-07-23",
       "river": "Mississippi River",

@@ -1,9 +1,10 @@
 # Iowa Route Memory
 
-Last summarized: 2026-07-23.
+Last summarized: 2026-07-24.
 
 ## Current Inventory
 
+- 2026-07-24 04:15 CDT update: live exported Iowa routes were 127 at the start of this run and 130 after adding `turkey-river-garber-osterdock`, `turkey-river-osterdock-millville`, and `turkey-river-millville-ferry-landing`.
 - 2026-07-24 03:08 CDT update: live exported Iowa routes were 124 at the start of this run and 127 after adding `north-raccoon-river-hagge-white-horse`, `north-raccoon-river-white-horse-grant`, and `north-raccoon-river-grant-rainbow-bend`.
 - 2026-07-24 02:09 CDT update: live exported Iowa routes were 121 at the start of this run and 124 after adding `north-raccoon-river-vogel-mcdonald`, `north-raccoon-river-mcdonald-riverview`, and `north-raccoon-river-sac-city-hagge`.
 - 2026-07-24 00:04 CDT update: live exported Iowa routes were 115 at the start of this run and 118 after adding `middle-river-roseman-pammel`, `middle-river-pammel-middle-river-county-park`, and `middle-river-middle-river-county-park-holliwell`.
@@ -22,7 +23,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 127 routes after this Sac/Calhoun North Raccoon continuation pass; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current exported inventory is 130 routes after this lower Turkey River continuation pass; the historical run notes below preserve what each automation pass originally added.
+
+## 2026-07-24 04:15 lower Turkey River continuation pass
+
+- Baseline at run start: 127 Iowa live routes, verified from `src/data/routes/iowa.ts` with `tsx` before the current Iowa edits.
+- Added `turkey-river-garber-osterdock`, `turkey-river-osterdock-millville`, and `turkey-river-millville-ferry-landing`, bringing the intended Iowa count to 130 live routes.
+- Qualification path: the official Turkey River Water Trail map and guide identify the downstream public access sequence as Garber Access #20, Osterdock Access #12, Millville Access #5, and Ferry Landing Canoe Takeout; TurkeyRiver.org gives 7.5 miles from Garber to Osterdock, 7.5 miles from Osterdock to Millville, and 5 miles from Millville to the ferry landing. Wisconsin River Trips corroborates the lower Garber-to-mouth corridor and supplies the only numeric lower-family cfs ladder found in this bounded search, while Travel Iowa and Miles Paddled support the final Millville-to-ferry landing route context.
+- Gauge posture: USGS Water Services returned Turkey River at Garber `05412500` at `1,670 cfs / 8.13 ft` at 2026-07-24 03:15 CDT. Garber-to-Osterdock uses it as a direct lower-corridor gauge; the two downstream splits mark it as a proxy and require same-day visual/access checks.
+- Threshold posture: all three use Wisconsin River Trips' community Turkey River ladder: below `100 cfs` may be too shallow and above `1,500 cfs` may be too high. No official ideal band or invented high cutoff was added.
+- Caveat posture: cards foreground downed trees, large rocks, fast rises, private banks, rural rescue exposure, Osterdock parking limits, Millville public-access uncertainty, no assumed gravel-bar camping, and the final Mississippi River wind/boat/ferry-traffic exposure. The Millville card explicitly avoids Miles Paddled's private-pier put-in.
+- Reviewed but not added: Black Hawk Creek Franck/Ranchero/Hope and Boone River DNR splits were reconciled as already represented in the current inventory; lower Iowa River / Louisa leads stayed threshold-weak; additional Turkey through-cards were avoided as duplicate consolidation of the three new official access pairs.
+- Image posture: no route-gallery assets added after bounded TurkeyRiver.org / Travel Iowa / Wisconsin River Trips / Miles Paddled / USGS / Commons / same-route image review.
 
 ## 2026-07-24 03:08 Sac/Calhoun North Raccoon continuation pass
 
