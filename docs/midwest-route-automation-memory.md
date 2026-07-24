@@ -1,5 +1,13 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 07:12 America/Chicago / 2026-07-24 12:12 UTC: Minnesota North Fork Crow middle-gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 238-route exported Minnesota baseline: `north-fork-crow-river-wildlife-albrights-mill`, `north-fork-crow-river-albrights-mill-bill-anderson`, and `north-fork-crow-river-bill-anderson-humphrey-arends`, bringing Minnesota to 241 live routes.
+  - Qualification path: MN DNR North Fork Crow segments page, official Maps 1/2, MN DNR interpreted river-level feed, and Minnesota public-water-access GIS support the Wildlife / Albright's Mill / Bill Anderson / Humphrey Arends access chain, route shape, camping posture, coordinates, gauge mapping, and caveats.
+  - Gauge posture: MN DNR feed returned Cokato site `308` at `261 cfs` at `2026-07-24 05:45 CDT`, in official low. Wildlife-to-Albright is direct because the gauge is inside the split; the two downstream cards use it as an upstream same-map/same-corridor proxy with local visual checks.
+  - Threshold posture: all three use official MN DNR Cokato bands only: `241 cfs` scrapable floor, `300-600 cfs` medium/ideal, and `800 cfs` very-high cutoff. No invented upper cutoff or local ideal range was added.
+  - Safety/image posture: cards carry low-water dragging, wood, overhanging branches, possible unlawful fences, low bridges, private banks, limited rural bailouts, endpoint-only permit-dependent camping, downstream dam-context stops, and no selected gallery images after bounded DNR / public-access / Commons / same-route review.
+  - Reviewed but not added: prior broad Albright's-to-Humphrey history was already-existing automation context, not a current-run slug; Des Moines Mayflower-to-Christianna remains proxy weak; several prompt targets were reconciled as already live or lower-quality than the accepted official access-pair gaps.
+
 - 2026-07-24 07:18 America/Chicago / 2026-07-24 12:18 UTC: Iowa lower Wapsipinicon continuation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 136-route exported Iowa baseline: `wapsipinicon-river-oxford-mills-massillon`, `wapsipinicon-river-massillon-walnut-grove`, and `wapsipinicon-river-walnut-grove-syracuse`, bringing Iowa to 139 live routes.
   - Qualification path: Iowa DNR lower Wapsipinicon guide and Jones County map, Clinton County / MyCountyParks Walnut Grove context, Cedar County / MyCountyParks Massillon Park context, Lincoln Highway corridor plan Syracuse access coordinates, CanWePaddle lower-Wapsi threshold guidance, and USGS Water Services support the selected lower access-pair cards.

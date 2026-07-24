@@ -2987,6 +2987,99 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "north-fork-crow-river-wildlife-albrights-mill": {
+    "putIn": {
+      "name": "Wildlife County Park carry-in access",
+      "latitude": 45.1380365,
+      "longitude": -94.176126
+    },
+    "takeOut": {
+      "name": "Albright's Mill County Park carry-in access",
+      "latitude": 45.1268083,
+      "longitude": -94.1116757
+    },
+    "logistics": {
+      "distanceLabel": "6.2 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr 30 min, longer at low water",
+      "shuttle": "Stage a vehicle at Albright's Mill County Park, then drive back to Wildlife County Park. Check the Cokato/CSAH 4 gauge between the endpoints and still inspect the landings because wood can change this reach quickly.",
+      "permits": "No route-specific paddling permit is known. DNR map context lists permit-required camping at Wildlife and Albright's Mill; follow Wright County reservation, fee, and parking rules if using either campsite.",
+      "camping": "DNR Map 1 identifies permit-required campsites at both endpoints. Treat them as separately reserved endpoint options, not guaranteed same-day availability or permission to camp elsewhere along private banks.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Wildlife County Park and take out at Albright's Mill County Park. This is a compact middle North Fork Crow segment with a direct Cokato gauge, but it still needs low-water and obstruction checks before committing.",
+      "accessCaveats": [
+        "Wildlife County Park resolves to the Minnesota public-water-access record at river mile 68.9; DNR Map 1 also labels it as a carry-in access and permit-required campsite.",
+        "Albright's Mill resolves to the public-water-access record at river mile 62.7 and is mapped by DNR as a carry-in access with drinking water and permit-required camping.",
+        "The Cokato/CSAH 4 gauge sits between the endpoints, so it is a strong level signal, but it cannot show fresh strainers, fences, or landing mud."
+      ],
+      "watchFor": [
+        "Low-water scraping or short carries when the Cokato gauge falls through the low band.",
+        "Underwater branches, overhanging trees, and new strainers on tight bends.",
+        "Possible low bridges or unlawful fences; avoid trespass and report blocked navigation through official channels."
+      ]
+    }
+  },
+  "north-fork-crow-river-albrights-mill-bill-anderson": {
+    "putIn": {
+      "name": "Albright's Mill County Park carry-in access",
+      "latitude": 45.1268083,
+      "longitude": -94.1116757
+    },
+    "takeOut": {
+      "name": "Bill Anderson Park carry-in access",
+      "latitude": 45.1275576,
+      "longitude": -94.0327945
+    },
+    "logistics": {
+      "distanceLabel": "7.4 mi",
+      "estimatedPaddleTime": "About 2 hr 30 min to 4 hr, longer with low water or scouting",
+      "shuttle": "Set the take-out vehicle at Bill Anderson Park and return to Albright's Mill. The Cokato gauge is just upstream of this split, so pair the reading with a local visual check at Albright before launching.",
+      "permits": "No route-specific paddling permit is known. Albright's Mill campsite use requires following posted Wright County permit or reservation rules if used before the trip.",
+      "camping": "DNR Map 1 identifies permit-required camping at Albright's Mill and a watercraft campsite at Bill Anderson. Plan any overnight as a separately confirmed county/DNR-mapped campsite stay.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Paddle from Albright's Mill County Park to Bill Anderson Park. This fills the next official North Fork Crow access pair downstream of Cokato, with a short enough day to stop and work around wood.",
+      "accessCaveats": [
+        "Albright's Mill is mapped by DNR as a carry-in access at river mile 62.7 with drinking water and permit-required camping.",
+        "Bill Anderson Park resolves to the Minnesota public-water-access record at river mile 55.3 and DNR Map 1 identifies it as a carry-in access and watercraft campsite.",
+        "The Cokato gauge is upstream of the put-in, so treat it as a same-corridor proxy and verify enough local water over shallow riffles before committing."
+      ],
+      "watchFor": [
+        "Shallow riffles and exposed gravel if the Cokato gauge is below medium.",
+        "Fresh wood, overhanging branches, and fence-like obstructions in the narrow channel.",
+        "Private banks between bridge crossings; do not count on informal exits."
+      ]
+    }
+  },
+  "north-fork-crow-river-bill-anderson-humphrey-arends": {
+    "putIn": {
+      "name": "Bill Anderson Park carry-in access",
+      "latitude": 45.1275576,
+      "longitude": -94.0327945
+    },
+    "takeOut": {
+      "name": "Humphrey Arends County Park carry-in access",
+      "latitude": 45.1006712,
+      "longitude": -93.9539676
+    },
+    "logistics": {
+      "distanceLabel": "10.2 mi",
+      "estimatedPaddleTime": "About 3 hr 30 min to 5 hr 30 min",
+      "shuttle": "Stage at Humphrey Arends County Park first, then return to Bill Anderson Park. This is a longer rural split below the Cokato gauge, so leave time for wood scouting and avoid late starts.",
+      "permits": "No route-specific paddling permit is known. Campsite use at Bill Anderson or Humphrey Arends should be confirmed under posted Wright County and DNR watercraft-campsite rules.",
+      "camping": "DNR maps show watercraft-campsite support at Bill Anderson and permit-required camping at Humphrey Arends. Treat camping as endpoint logistics only unless a separate permit or reservation is confirmed.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Bill Anderson Park and take out at Humphrey Arends County Park. This longer North Fork Crow day links the DNR Map 1 and Map 2 access chain before the river bends toward Crow Springs and Rockford.",
+      "accessCaveats": [
+        "Bill Anderson Park is a carry-in public access at river mile 55.3 with DNR-mapped watercraft-campsite context.",
+        "Humphrey Arends County Park resolves to the public-water-access record at river mile 45.1; DNR Map 2 maps the carry-in access on river right with drinking water and permit-required camping on river left.",
+        "The Cokato gauge is upstream of the route, so require a local landing check and avoid assuming the reading captures downstream tributary, wood, or backwater conditions."
+      ],
+      "watchFor": [
+        "Low-water dragging and shallow riffles when the Cokato gauge is only low.",
+        "Underwater branches, overhanging trees, and rural debris on blind bends.",
+        "Do not drift past Humphrey Arends without a separate plan; downstream routes include additional hazards and the Hanover dam is farther below the next access chain."
+      ]
+    }
+  },
   "north-fork-crow-river-rockford-riverside": {
     "putIn": {
       "name": "Rockford Boat Launch / Rockford public water access",

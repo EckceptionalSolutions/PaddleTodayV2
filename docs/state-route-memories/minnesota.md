@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-24 07:12 America/Chicago / 2026-07-24 12:12 UTC Minnesota North Fork Crow middle-gap pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `238` to `241` live route slugs by adding `north-fork-crow-river-wildlife-albrights-mill`, `north-fork-crow-river-albrights-mill-bill-anderson`, and `north-fork-crow-river-bill-anderson-humphrey-arends`.
+- Qualification path: MN DNR North Fork Crow segments page and official Maps 1/2 document the Wildlife / Albright's Mill / Bill Anderson / Humphrey Arends access chain, river miles, endpoint campsite context, low-water hazards, wood/fence/low-bridge cautions, and downstream dam context. Minnesota public-water-access GIS resolves Wildlife `WAS01954`, Albright's Mill `WAS01743`, Bill Anderson `WAS02856`, and Humphrey Arends `WAS01744` with named access records and coordinates.
+- Live gauge verification: MN DNR river-level JSON returned North Fork Crow River near Cokato / CSAH 4 site `308` at `261 cfs` at `2026-07-24 05:45 CDT`, in official low.
+- Threshold posture: all three use official MN DNR interpreted Cokato bands only: `241 cfs` scrapable floor, `300-600 cfs` medium/ideal, and `800 cfs` very-high cutoff. Wildlife-to-Albright is direct because the gauge sits between endpoints; Albright-to-Bill-Anderson and Bill-Anderson-to-Humphrey-Arends mark the same gauge as an upstream same-map/same-corridor proxy with local visual-check caveats.
+- Safety/camping posture: cards carry low-water scraping, underwater branches, overhanging trees, possible unlawful fences, low bridges, private banks, limited rural bailouts, fresh-wood checks, and no unplanned continuation past Humphrey Arends without downstream hazard planning. Camping is endpoint-only and permit/reservation-dependent at the DNR-mapped Wright County sites.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded MN DNR / public-access / Commons / same-route image review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add: the older broad `north-fork-crow-river-albrights-humphrey-arends` ledger history was treated as already-existing prior automation context, not a current-run slug. Prompt targets including Des Moines Mayflower-to-Christianna, lower Blue Earth/Rapidan, St. Louis Fond-du-Lac/Oldenburg/Paupores, Otter Tail Phelps/Wannigan, and several Mississippi/Red/Rum/Root/Crow Wing ideas remain either already live, proxy weak, access unclear, or lower-value than the cleaner official North Fork Crow access-pair gaps.
+
 ## 2026-07-24 06:12 America/Chicago / 2026-07-24 11:12 UTC Minnesota lower Red Lake / Cloquet / Cannon gap pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `235` to `238` live route slugs by adding `red-lake-river-fisher-red-river-recreation`, `cloquet-river-bear-lake-road-island-lake`, and `cannon-river-miesville-highway-61`.

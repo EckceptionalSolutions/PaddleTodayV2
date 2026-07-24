@@ -8922,6 +8922,485 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "north-fork-crow-river-wildlife-albrights-mill",
+    "slug": "north-fork-crow-river-wildlife-albrights-mill",
+    "name": "North Fork Crow River",
+    "reach": "Wildlife County Park to Albright's Mill County Park",
+    "state": "Minnesota",
+    "region": "Central Minnesota",
+    "summary": "Short North Fork Crow connector below the DNR-recommended Betty-to-Wildlife day, ending at Albright's Mill County Park with endpoint campsite support and the Cokato DNR gauge in the route corridor.",
+    "statusText": "Use the Cokato DNR gauge: 300 to 600 cfs is the official medium band. Below 241 cfs is scrapable, and above 800 cfs is very high.",
+    "latitude": 45.1380365,
+    "longitude": -94.176126,
+    "gaugeSource": {
+      "id": "mn-dnr-308",
+      "provider": "mn_dnr",
+      "siteId": "308",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "direct",
+      "siteName": "North Fork Crow River nr Cokato, CSAH4",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=18083001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18083001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 300,
+      "idealMax": 600,
+      "tooLow": 241,
+      "tooHigh": 800,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for North Fork Crow River near Cokato",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through early fall is realistic when the Cokato gauge is at least above the scrapable floor. Low summer water slows the narrow channel, while storms can add wood and pushy bridge current.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The mileage is short and rapids are few, but DNR warns that this North Fork reach has underwater branches, overhanging trees, possible fences, low-water shallows, and fast changes after rain.",
+      "confidenceNotes": "Confidence is high for this short connector: MN DNR Map 1 and public-water-access GIS place Wildlife County Park, the Cokato / Highway 4 gauge, and Albright's Mill in order, with official DNR interpretation bands on the route corridor. The practical caveat is same-day wood and landing condition, not source quality."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Scout both county-park carries and make a visual check near Highway 4 because wood can move faster than the gauge score changes.",
+        "Expect overhanging trees, underwater branches, possible fences, and shallow bends when the Cokato gauge is below the official medium band.",
+        "Use the named public county-park accesses and designated campsites only; do not treat farm banks as routine stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Crow River, Wildlife Park Public Water Access Site",
+      "latitude": 45.1380365,
+      "longitude": -94.176126
+    },
+    "takeOut": {
+      "name": "North Fork Crow River, Albright's Mill Public Water Access Site",
+      "latitude": 45.1268083,
+      "longitude": -94.1116757
+    },
+    "accessPoints": [
+      {
+        "id": "wildlife-park-north-fork-crow",
+        "name": "Crow River, Wildlife Park Public Water Access Site",
+        "latitude": 45.1380365,
+        "longitude": -94.176126,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; resolves as WAS01954 at DNR river mile 68.9 with a DNR-mapped campsite."
+      },
+      {
+        "id": "north-fork-crow-cokato-gauge",
+        "name": "North Fork Crow River near Cokato / Highway 4 gauge",
+        "latitude": 45.126946,
+        "longitude": -94.146667,
+        "mileFromStart": 3.1,
+        "segmentKind": "transition",
+        "note": "Official DNR interpreted gauge at river mile 65.8, inside this connector."
+      },
+      {
+        "id": "albrights-mill-north-fork-crow",
+        "name": "North Fork Crow River, Albright's Mill Public Water Access Site",
+        "latitude": 45.1268083,
+        "longitude": -94.1116757,
+        "mileFromStart": 6.2,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS01743 at DNR river mile 62.7 with drinking water and permit campsite context on the DNR map."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Wildlife RM 68.9 to Albright's Mill RM 62.7",
+        "note": "MN DNR Map 1 places Wildlife County Park, the Highway 4 / Cokato gauge, and Albright's Mill in downstream order, making this a 6.2-mile access-to-access connector.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow1.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS01954 to WAS01743",
+        "note": "Minnesota public-water-access GIS resolves Wildlife Park and Albright's Mill with official names, administrators, coordinates, and river-mile values.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "241 / 300-600 / 800 cfs",
+        "note": "MN DNR interprets the Cokato gauge as Scrapable below 241 cfs, Low from 241 to 300, Medium from 300 to 600, High from 600 to 800, and Very High above 800.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "261 cfs at 2026-07-24 05:45 CDT",
+        "note": "The current MN DNR feed placed Cokato in the official low band during this run, below the preferred medium range.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping and hazards",
+        "value": "Endpoint campsites; obstruction-prone bends",
+        "note": "DNR Map 1 identifies permit campsites at Wildlife County Park and Albright's Mill and warns about underwater branches, overhanging trees, frequent obstacles, possible fences, and low-water issues on the upper North Fork Crow.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR North Fork Crow segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR North Fork Crow Map 1 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow1.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
+    "id": "north-fork-crow-river-albrights-mill-bill-anderson",
+    "slug": "north-fork-crow-river-albrights-mill-bill-anderson",
+    "name": "North Fork Crow River",
+    "reach": "Albright's Mill County Park to Bill Anderson Memorial County Park",
+    "state": "Minnesota",
+    "region": "Central Minnesota",
+    "summary": "Middle North Fork Crow day between two Wright County public-access parks, using the nearby upstream Cokato DNR gauge and ending at Bill Anderson's mapped watercraft campsite.",
+    "statusText": "Use the Cokato DNR gauge as an upstream same-corridor check: 300 to 600 cfs is the official medium band. Below 241 cfs is scrapable, and above 800 cfs is very high.",
+    "latitude": 45.1268083,
+    "longitude": -94.1116757,
+    "gaugeSource": {
+      "id": "mn-dnr-308",
+      "provider": "mn_dnr",
+      "siteId": "308",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "North Fork Crow River nr Cokato, CSAH4",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=18083001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18083001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 300,
+      "idealMax": 600,
+      "tooLow": 241,
+      "tooHigh": 800,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for North Fork Crow River near Cokato",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Plan this as a spring-through-fall trip when the Cokato gauge is not scrapable and local access checks show enough depth below Albright's Mill. Summer low water and post-storm wood are the main go/no-go variables.",
+      "difficulty": "moderate",
+      "difficultyNotes": "DNR describes the upper and middle North Fork Crow as obstruction-prone with easy rapids, underwater branches, overhanging trees, possible fences, and low-water trouble. The route is not technical whitewater, but it needs active steering and conservative water-level judgment.",
+      "confidenceNotes": "Confidence is good: MN DNR Map 1 and public-water-access GIS resolve both county-park endpoints and river miles, and the Cokato gauge has official DNR bands just upstream of the put-in. Confidence is slightly capped because the gauge is upstream of this exact split."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Make a local visual check at Albright's Mill because the gauge is upstream and cannot show a fresh logjam, fence, or shallow bar on this split.",
+        "Watch the County Road 5, Keats Avenue, County Road 6, and County Road 7 bridge areas for current, debris, and low-clearance surprises.",
+        "Use the Wright County park accesses and designated campsites only; most banks between parks should be treated as private."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "North Fork Crow River, Albright's Mill Public Water Access Site",
+      "latitude": 45.1268083,
+      "longitude": -94.1116757
+    },
+    "takeOut": {
+      "name": "Crow River, Bill Anderson Park Public Water Access Site",
+      "latitude": 45.1275576,
+      "longitude": -94.0327945
+    },
+    "accessPoints": [
+      {
+        "id": "albrights-mill-north-fork-crow",
+        "name": "North Fork Crow River, Albright's Mill Public Water Access Site",
+        "latitude": 45.1268083,
+        "longitude": -94.1116757,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; resolves as WAS01743 at DNR river mile 62.7."
+      },
+      {
+        "id": "bill-anderson-north-fork-crow",
+        "name": "Crow River, Bill Anderson Park Public Water Access Site",
+        "latitude": 45.1275576,
+        "longitude": -94.0327945,
+        "mileFromStart": 7.4,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS02856 at DNR river mile 55.3 with DNR-mapped watercraft campsite context."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Albright's Mill RM 62.7 to Bill Anderson RM 55.3",
+        "note": "MN DNR Map 1 places Albright's Mill, County Road 6, and Bill Anderson Memorial County Park in downstream order, making this a 7.4-mile connector.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow1.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS01743 to WAS02856",
+        "note": "Minnesota public-water-access GIS resolves Albright's Mill and Bill Anderson Park with official names, administrators, coordinates, and river-mile values.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "241 / 300-600 / 800 cfs",
+        "note": "MN DNR interprets the Cokato gauge as Scrapable below 241 cfs, Low from 241 to 300, Medium from 300 to 600, High from 600 to 800, and Very High above 800.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "261 cfs at 2026-07-24 05:45 CDT",
+        "note": "The current MN DNR feed placed Cokato in the official low band during this run; this downstream split requires a visual depth check before launch.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping and safety context",
+        "value": "County park campsites; bridge and wood caveats",
+        "note": "DNR Map 1 identifies Albright's Mill and Bill Anderson as campsite-capable county-park accesses and describes the North Fork's downed trees, underwater branches, overhanging trees, and possible fences.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR North Fork Crow segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR North Fork Crow Map 1 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow1.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
+    "id": "north-fork-crow-river-bill-anderson-humphrey-arends",
+    "slug": "north-fork-crow-river-bill-anderson-humphrey-arends",
+    "name": "North Fork Crow River",
+    "reach": "Bill Anderson Memorial County Park to Humphrey-Arends Memorial County Park",
+    "state": "Minnesota",
+    "region": "Central Minnesota",
+    "summary": "Middle-lower North Fork Crow connector from Bill Anderson's watercraft campsite to Humphrey-Arends County Park, below the Cokato gauge and above the more popular Rockford corridor.",
+    "statusText": "Use the Cokato DNR gauge as an upstream same-corridor check: 300 to 600 cfs is the official medium band. Below 241 cfs is scrapable, and above 800 cfs is very high.",
+    "latitude": 45.1275576,
+    "longitude": -94.0327945,
+    "gaugeSource": {
+      "id": "mn-dnr-308",
+      "provider": "mn_dnr",
+      "siteId": "308",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "North Fork Crow River nr Cokato, CSAH4",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=18083001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18083001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 300,
+      "idealMax": 600,
+      "tooLow": 241,
+      "tooHigh": 800,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for North Fork Crow River near Cokato",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall can work when levels are not scrapable and local landings look clean. Treat rising water, recent wind, or visible wood as stronger signals than the card score on this downstream proxy split.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is not a whitewater reach, but it is a 10-mile rural moving-water day with bridge current, overhanging trees, underwater branches, possible fences, private banks, and limited bailout options.",
+      "confidenceNotes": "Confidence is good for route shape and access because DNR Map 1/2 and public-water-access GIS resolve Bill Anderson and Humphrey-Arends with river-mile and coordinate support. Gauge confidence is moderate because Cokato is upstream of the route; local visual checks remain mandatory."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Confirm the Bill Anderson and Humphrey-Arends carries from land before launching; the route has several bridge crossings but no guaranteed legal mid-route bailout.",
+        "Watch for debris and current at Highway 7, Highway 8, and County Road 9, plus overhanging trees and underwater branches on bends.",
+        "Humphrey-Arends is the planned take-out. Do not continue casually toward Crow Springs, Rockford, or the Hanover dam corridor without a separate plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Crow River, Bill Anderson Park Public Water Access Site",
+      "latitude": 45.1275576,
+      "longitude": -94.0327945
+    },
+    "takeOut": {
+      "name": "North Fork Crow River, Humphrey Arends Public Water Access Site",
+      "latitude": 45.1006712,
+      "longitude": -93.9539676
+    },
+    "accessPoints": [
+      {
+        "id": "bill-anderson-north-fork-crow",
+        "name": "Crow River, Bill Anderson Park Public Water Access Site",
+        "latitude": 45.1275576,
+        "longitude": -94.0327945,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; resolves as WAS02856 at DNR river mile 55.3 with watercraft campsite context."
+      },
+      {
+        "id": "humphrey-arends-north-fork-crow",
+        "name": "North Fork Crow River, Humphrey Arends Public Water Access Site",
+        "latitude": 45.1006712,
+        "longitude": -93.9539676,
+        "mileFromStart": 10.2,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS01744 at DNR river mile 45.1 with drinking-water and permit-campsite context on the DNR map."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Bill Anderson RM 55.3 to Humphrey-Arends RM 45.1",
+        "note": "MN DNR Map 1 and Map 2 place Bill Anderson Memorial County Park and Humphrey-Arends Memorial County Park in downstream order across the map-sheet boundary, making this a 10.2-mile connector.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow2.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS02856 to WAS01744",
+        "note": "Minnesota public-water-access GIS resolves Bill Anderson Park and Humphrey Arends with official names, administrators, coordinates, and river-mile values.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "241 / 300-600 / 800 cfs",
+        "note": "MN DNR interprets the upstream Cokato gauge as Scrapable below 241 cfs, Low from 241 to 300, Medium from 300 to 600, High from 600 to 800, and Very High above 800.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "261 cfs at 2026-07-24 05:45 CDT",
+        "note": "The current MN DNR feed placed Cokato in the official low band during this run; use it as a conservative upstream signal and check local depth before launch.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Downstream boundary",
+        "value": "Hanover dam remains below this card",
+        "note": "DNR Map 2 places the Hanover dam at river mile 17.9, far downstream of Humphrey-Arends. The app card intentionally stops at Humphrey-Arends and does not imply continuation through later dam or Rockford routing.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow2.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR North Fork Crow segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR North Fork Crow Map 1 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow1.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR North Fork Crow Map 2 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow2.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
     "id": "north-fork-crow-river-rockford-riverside",
     "slug": "north-fork-crow-river-rockford-riverside",
     "name": "North Fork Crow River",
