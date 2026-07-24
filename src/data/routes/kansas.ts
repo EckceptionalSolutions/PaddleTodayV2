@@ -1161,6 +1161,19 @@ export const kansasRoutes: River[] = [
       "siteName": "Kansas River at Wamego, KS",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06887500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This is a 14-mile upper-Kaw day with limited normal exits; confirm wind, storms, and Wamego proxy-gauge conditions before launching.",
+        "Expect shifting sandbars, possible floating wood, and a sandbar that often forms at the Manhattan ramp toe.",
+        "Use the public Ogden and Manhattan ramps and legal sandbar stops; do not treat private banks as planned rest or bailout points."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 1500,

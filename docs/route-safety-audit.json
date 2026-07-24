@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-24T03:30:02.442Z",
-  "routeCount": 896,
-  "issueCount": 579,
+  "generatedAt": "2026-07-24T05:31:49.100Z",
+  "routeCount": 908,
+  "issueCount": 577,
   "summary": {
     "Critical": 0,
-    "High": 347,
+    "High": 345,
     "Medium": 232,
     "Low": 0
   },
@@ -163,28 +163,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "fast, coldwater stream with several strainers and high-water escalation toward Class II-style consequences. Confidence is good for a community-source add: Wisconsin River Trips documents the exact popular Volney-to-Sixteen route, provides a detailed Ion-gauge"
-    },
-    {
-      "routeId": "kansas-river-ogden-manhattan",
-      "slug": "kansas-river-ogden-manhattan",
-      "name": "Kansas River",
-      "reach": "Ogden Access Ramp to Manhattan K-177 / Fairmont",
-      "state": "Kansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "at it as a longer big-river day with shifting sandbars, wind exposure, possible wood, private banks, and limited normal exits. Confidence is high for access and route shape: Friends of the Kaw documents Ogden at river mile 163.4, Manhattan K-177 / Fairmont at"
-    },
-    {
-      "routeId": "kansas-river-ogden-manhattan",
-      "slug": "kansas-river-ogden-manhattan",
-      "name": "Kansas River",
-      "reach": "Ogden Access Ramp to Manhattan K-177 / Fairmont",
-      "state": "Kansas",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "as a longer big-river day with shifting sandbars, wind exposure, possible wood, private banks, and limited normal exits. Confidence is high for access and route shape: Friends of the Kaw documents Ogden at river mile 163.4, Manhattan K-177 / Fairmont at river"
     },
     {
       "routeId": "barren-river-vpa-3-martinsville",
