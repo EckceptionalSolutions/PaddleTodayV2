@@ -18,7 +18,7 @@ jobs:
       EXPO_PUBLIC_APP_ENV: preview
       EAS_LOCAL_BUILD_ARTIFACTS_DIR: ${{ github.workspace }}/apps/mobile/artifacts
       GRADLE_OPTS: -Dorg.gradle.caching=true
-      CCACHE_DIR: ${{ runner.temp }}/ccache
+      CCACHE_DIR: ${{ github.workspace }}/.ccache
       CCACHE_COMPILERCHECK: content
       CCACHE_MAXSIZE: 1G
 

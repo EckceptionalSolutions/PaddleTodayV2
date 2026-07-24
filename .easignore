@@ -24,6 +24,7 @@ codex_sandbox_test.txt
 Thumbs.db
 .DS_Store
 .local
+/.ccache/
 
 # Generated/local files inside the Expo workspace. Nested .gitignore files are
 # not consulted once a root .easignore exists.
