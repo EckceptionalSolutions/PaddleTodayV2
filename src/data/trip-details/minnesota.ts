@@ -5406,6 +5406,66 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "mississippi-river-schoolcraft-sylvan": {
+    "putIn": {
+      "name": "Mississippi River, Schoolcraft SPK Public Water Access Site",
+      "latitude": 47.225074,
+      "longitude": -93.8021304
+    },
+    "takeOut": {
+      "name": "Mississippi River, Sylvan Bay Public Water Access Site",
+      "latitude": 47.2305044,
+      "longitude": -93.5477331
+    },
+    "logistics": {
+      "distanceLabel": "18.7 mi",
+      "estimatedPaddleTime": "About 6 hr to 8.5 hr depending on level, wind, dam-portage timing, and stops",
+      "shuttle": "Stage the Sylvan Bay / Sylvan Municipal Park take-out first, then drive upstream to Schoolcraft State Park. Confirm state-park entry, parking, and any launch rules before leaving a vehicle.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Schoolcraft State Park rules, City of Grand Rapids access rules, DNR water-trail rules, and posted dam/portage signs.",
+      "camping": "Schoolcraft State Park has campground support at the put-in, and DNR Map 3 identifies Leaning Willow as a watercraft campsite early in the route. Use designated or otherwise legal sites only and do not camp on private banks.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Schoolcraft State Park and finish at Sylvan Bay for the full MN DNR 18.7-mile Schoolcraft-to-Sylvan one-way. The direct Days High Landing gauge is current but below the preferred medium band.",
+      "accessCaveats": [
+        "Schoolcraft State Park resolves as WAS01351 in Minnesota public-water-access GIS and is also shown by DNR Map 3 as a trailer access with campground and drinking water.",
+        "Sylvan Bay resolves as WAS00983 at DNR Map 3 river mile 1180.1 and is the planned finish before the downstream Blandin Paper Company Dam corridor.",
+        "DNR Map 3 shows Pokegama Dam and the Blandin dam corridor near the Grand Rapids finish. Know the portage locations and do not drift past Sylvan without a separate dam plan."
+      ],
+      "watchFor": [
+        "Low-water riffles and shallow reservoir margins when Days High Landing is in the low or scrapable bands.",
+        "Wind and motorboat exposure on reservoir/open-water sections, cold water, floating wood after storms, and long-day fatigue.",
+        "Private banks and designated-campsite limits; #10 is an intermediate public access but is not the planned take-out for this card."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "schoolcraft-state-park",
+        "name": "Mississippi River, Schoolcraft SPK Public Water Access Site",
+        "latitude": 47.225074,
+        "longitude": -93.8021304,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR Map 3 river mile 1198.8; resolves as WAS01351."
+      },
+      {
+        "id": "number-10-access",
+        "name": "Mississippi River, #10 Public Water Access Site",
+        "latitude": 47.2253901,
+        "longitude": -93.7611191,
+        "mileFromStart": 4.1,
+        "segmentKind": "creek",
+        "note": "Intermediate bailout at DNR Map 3 river mile 1194.7; use only if shuttle logistics support it."
+      },
+      {
+        "id": "sylvan-bay",
+        "name": "Mississippi River, Sylvan Bay Public Water Access Site",
+        "latitude": 47.2305044,
+        "longitude": -93.5477331,
+        "mileFromStart": 18.7,
+        "segmentKind": "creek",
+        "note": "Default take-out at DNR Map 3 river mile 1180.1; take out before the downstream Blandin dam corridor."
+      }
+    ]
+  },
   "sauk-river-mill-pond-oak-township": {
     "putIn": {
       "name": "Sauk River, Mill Pond Public Water Access Site",
@@ -6419,6 +6479,135 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 11.4,
         "segmentKind": "creek",
         "note": "Default take-out at DNR Map 7 river mile 942.2 / GIS river mile 942.3; resolves as WAS01283."
+      }
+    ]
+  },
+  "mississippi-river-overlook-belle-prairie": {
+    "putIn": {
+      "name": "Mississippi River Overlook Park Carry-in Access",
+      "latitude": 46.3178778,
+      "longitude": -94.2755325
+    },
+    "takeOut": {
+      "name": "Mississippi River, Belle Prairie Co Park Public Water Access Site",
+      "latitude": 46.0353503,
+      "longitude": -94.3435523
+    },
+    "logistics": {
+      "distanceLabel": "25.6 mi",
+      "estimatedPaddleTime": "About 8 hr to 11 hr, or split as an overnight when legal campsites and water levels line up",
+      "shuttle": "Stage Belle Prairie County Park first, then drive back to Baxter's Mississippi River Overlook Park. Confirm Overlook carry-in parking and river access on arrival because it is a city park/carry-in rather than a DNR SWAS record.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Baxter park rules, DNR water-trail guidance, county-park rules, and any Camp Ripley shoreline restrictions.",
+      "camping": "DNR Map 6 identifies Overlook Park as a watercraft campsite, Crow Wing State Park campground context on river left, and Fletcher Creek as a watercraft campsite near the end. Treat all overnight stops as designated/posted or separately reserved; Camp Ripley and private banks are not camping options.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Baxter's Overlook Park and take out at Belle Prairie County Park for the official 25.6-mile MN DNR Map 6 one-way. The Brainerd gauge is a DNR-interpreted corridor proxy and is currently below the scrapable floor.",
+      "accessCaveats": [
+        "DNR Map 6 names Overlook Park as a river-mile 995.8 carry-in access and watercraft campsite. Baxter publishes Mississippi River Overlook Park at 6005 Oakdale Road with canoe access; the saved coordinate is a Census geocode for that address.",
+        "Belle Prairie County Park resolves as WAS01278 in Minnesota public-water-access GIS at river mile 970.2 with Morrison County administration.",
+        "DNR Map 6 says access to Camp Ripley Training Center is not allowed from the Mississippi or Crow Wing rivers. Use mapped public accesses, legal islands, and designated campsites only."
+      ],
+      "watchFor": [
+        "Below-scrapable water at the Brainerd gauge during this run; do not launch this long reach without enough water and a local visual check.",
+        "Broad-river wind, motorboat wake, cold water, floating debris, long response times, and limited legal bailout points.",
+        "Camp Ripley restrictions, private shoreline, Fletcher Creek campsite availability, and Little Falls Dam downstream of Belle Prairie if anyone continues."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "overlook-park-baxter",
+        "name": "Mississippi River Overlook Park Carry-in Access",
+        "latitude": 46.3178778,
+        "longitude": -94.2755325,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR Map 6 river mile 995.8; coordinate comes from the US Census geocode of Baxter's published 6005 Oakdale Road park address."
+      },
+      {
+        "id": "crow-wing-state-park",
+        "name": "Mississippi River, Crow Wing State Park Public Water Access Site",
+        "latitude": 46.26827,
+        "longitude": -94.3431079,
+        "mileFromStart": 5.4,
+        "segmentKind": "creek",
+        "note": "Intermediate state-park access and campground context near DNR Map 6 river mile 990.4."
+      },
+      {
+        "id": "belle-prairie-county-park",
+        "name": "Mississippi River, Belle Prairie Co Park Public Water Access Site",
+        "latitude": 46.0353503,
+        "longitude": -94.3435523,
+        "mileFromStart": 25.6,
+        "segmentKind": "creek",
+        "note": "Default take-out at DNR Map 6 river mile 970.2; resolves as WAS01278."
+      }
+    ]
+  },
+  "mississippi-river-royalton-sartell": {
+    "putIn": {
+      "name": "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+      "latitude": 45.8297201,
+      "longitude": -94.3506845
+    },
+    "takeOut": {
+      "name": "Mississippi River, Sartell Public Water Access Site",
+      "latitude": 45.6435082,
+      "longitude": -94.2025067
+    },
+    "logistics": {
+      "distanceLabel": "19.8 mi",
+      "estimatedPaddleTime": "About 6.5 hr to 9 hr depending on water level, wind, island-channel choices, and stops",
+      "shuttle": "Stage the Sartell public access first, then drive upstream to Royalton Sportsman's Club. Confirm any Royalton fee or parking requirement before launching.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Royalton Sportsman's Club access rules, Stearns County park and township access rules, and all Sartell Dam warning signs.",
+      "camping": "DNR Map 7 notes a watercraft campsite downstream of Stearns County Park and private islands/shorelines on the route. Treat camping as first-come or separately arranged and keep a no-camping day-trip backup.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Royalton Sportsman's Club and finish at the Sartell public access for the full official MN DNR 19.8-mile Map 7 route. The direct Royalton gauge is current but below the scrapable floor during this run.",
+      "accessCaveats": [
+        "Royalton Sportsman's Club resolves as WAS00463 at river mile 953.6 and may require a fee.",
+        "Sartell resolves as WAS02448 at river mile 933.8 in Minnesota public-water-access GIS and is the planned finish. Walleye Road is an intermediate public access, not the intended take-out for this longer card.",
+        "Sartell Dam is downstream of the take-out at river mile 932.2. Take out at Sartell and do not drift below the access without a separate portage/dam plan."
+      ],
+      "watchFor": [
+        "Rocky riffles and channel picking when the Royalton gauge is below or near the official low band.",
+        "Private islands and shorelines; stop only at legal public accesses or designated campsites.",
+        "Wind on open bends, motorboats, anglers, cold water, floating wood after storms, and fatigue near the mandatory take-out above Sartell Dam."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "royalton-sportsmans-club",
+        "name": "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+        "latitude": 45.8297201,
+        "longitude": -94.3506845,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR Map 7 river mile 953.6; resolves as WAS00463 and may require a club fee."
+      },
+      {
+        "id": "mississippi-county-park",
+        "name": "Mississippi River County Park / Stearns County Park Public Water Access Site",
+        "latitude": 45.7265772,
+        "longitude": -94.2228602,
+        "mileFromStart": 11.4,
+        "segmentKind": "creek",
+        "note": "Intermediate access and campsite context near DNR Map 7 river mile 942.2; use as a bailout only if staged."
+      },
+      {
+        "id": "walleye-road",
+        "name": "Mississippi River, Walleye Road Landing Public Water Access Site",
+        "latitude": 45.7167445,
+        "longitude": -94.2258147,
+        "mileFromStart": 12.6,
+        "segmentKind": "creek",
+        "note": "Intermediate public access at DNR Map 7 river mile 941.0; resolves as WAS01899."
+      },
+      {
+        "id": "sartell-access",
+        "name": "Mississippi River, Sartell Public Water Access Site",
+        "latitude": 45.6435082,
+        "longitude": -94.2025067,
+        "mileFromStart": 19.8,
+        "segmentKind": "creek",
+        "note": "Default take-out at DNR Map 7 river mile 933.8; resolves as WAS02448 and sits upstream of Sartell Dam."
       }
     ]
   },

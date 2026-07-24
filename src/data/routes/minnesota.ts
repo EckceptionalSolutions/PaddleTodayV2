@@ -15386,6 +15386,136 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "mississippi-river-schoolcraft-sylvan",
+    "slug": "mississippi-river-schoolcraft-sylvan",
+    "name": "Mississippi River",
+    "reach": "Schoolcraft State Park to Sylvan Municipal Park",
+    "state": "Minnesota",
+    "region": "Mississippi Headwaters",
+    "summary": "Official MN DNR Mississippi headwaters one-way from Schoolcraft State Park to Sylvan Municipal Park, extending past the #10 access through the Pokegama reservoir and Grand Rapids dam corridor with direct Days High Landing gauge support.",
+    "statusText": "Use the Days High Landing DNR gauge: 1,273.8 to 1,274.5 ft is the official medium band. Below 1,272.9 ft is scrapable, and above 1,275 ft is very high; the current reading is in the low band.",
+    "latitude": 47.225074,
+    "longitude": -93.8021304,
+    "gaugeSource": {
+      "id": "mn-dnr-116",
+      "provider": "mn_dnr",
+      "siteId": "116",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "metricLabel": "Gauge height",
+      "kind": "direct",
+      "siteName": "Mississippi River at Days High Landing nr Deer River, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=07008001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=07008001&var1=232&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 1273.8,
+      "idealMax": 1274.5,
+      "tooLow": 1272.9,
+      "tooHigh": 1275,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Mississippi River at Days High Landing",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.15,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the normal window. Low readings create shallow riffles and slow reservoir margins, while high or rising water adds debris and faster approaches to accesses and dam portages.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The river character is generally gentle, but 18.7 miles, a reservoir section, mapped dams/portages near Grand Rapids, private-bank limits, and wind exposure make this more committed than the short Schoolcraft-to-#10 card.",
+      "confidenceNotes": "Confidence is high: MN DNR recommended one-way materials list the exact Schoolcraft State Park to Sylvan Municipal Park trip, DNR Map 3 places Schoolcraft, #10, #1, Pokegama Dam, Sylvan, and the downstream Blandin dam in order, public-water-access GIS resolves Schoolcraft, #10, and Sylvan, and the Days High Landing gauge has official interpreted bands on the same headwaters corridor."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "strainers",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Plan for a long day or an intentional overnight. Do not treat the short #10 card as a substitute for the full Sylvan shuttle and daylight plan.",
+        "DNR Map 3 shows Pokegama Dam and the downstream Blandin Paper Company Dam corridor; know the portage plan and take out at Sylvan before the Blandin dam.",
+        "Low water can make riffles and reservoir margins scrapable. Wind, motorboats, cold water, and fresh wood can turn the long flat sections into a harder trip."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route",
+        "value": "18.7 river miles",
+        "note": "MN DNR recommended one-way materials list Schoolcraft State Park Trailer Access at river mile 1198.8 to Sylvan Municipal Park Trailer Access at river mile 1180.1.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Map support",
+        "value": "Schoolcraft RM 1199.5-1198.2 to Sylvan RM 1180.1",
+        "note": "DNR Mississippi Map 3 places Schoolcraft State Park, Leaning Willow campsite, #10, #1, Pokegama Dam, Izaak Walton Park, Sylvan Municipal Park, and the downstream Blandin dam corridor in sequence.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi3.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS01351 to WAS00983",
+        "note": "Minnesota public-water-access GIS resolves Schoolcraft State Park and Sylvan Bay public access sites with Mississippi river-mile records and coordinates; #10 is a coordinate-backed intermediate bailout.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "1,272.9 / 1,273.8-1,274.5 / 1,275 ft",
+        "note": "MN DNR interprets Days High Landing as Scrapable below 1,272.9 ft, Low from 1,272.9 to 1,273.8, Medium from 1,273.8 to 1,274.5, High from 1,274.5 to 1,275, and Very High above 1,275.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "1,273.46 ft at 2026-07-23 17:30 CDT",
+        "note": "The current MN DNR feed placed Days High Landing in the official low band during this run, below the preferred medium band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping and safety context",
+        "value": "Leaning Willow watercraft campsite; designated sites only",
+        "note": "DNR Map 3 identifies Leaning Willow as a watercraft campsite and warns that riverbed camping next to private property is not permitted.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi3.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Mississippi River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR recommended one-way routes",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Mississippi River Map 3 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi3.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
     "id": "mississippi-river-crow-wing-state-park-fort-ripley",
     "slug": "mississippi-river-crow-wing-state-park-fort-ripley",
     "name": "Mississippi River",
@@ -18064,6 +18194,292 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR Mississippi River segments and maps",
         "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "USGS 05267000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/05267000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "mississippi-river-overlook-belle-prairie",
+    "slug": "mississippi-river-overlook-belle-prairie",
+    "name": "Mississippi River",
+    "reach": "Overlook Park to Belle Prairie County Park",
+    "state": "Minnesota",
+    "region": "Brainerd Lakes Area",
+    "summary": "Long official MN DNR Map 6 Mississippi one-way from Baxter's Overlook Park carry-in to Belle Prairie County Park, using the Brainerd DNR gauge as a same-corridor interpreted proxy and emphasizing Camp Ripley/public-bank limits.",
+    "statusText": "Use the Brainerd DNR gauge as the corridor check: 1,800 to 7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high; the current reading is below the scrapable floor.",
+    "latitude": 46.3178778,
+    "longitude": -94.2755325,
+    "gaugeSource": {
+      "id": "mn-dnr-121",
+      "provider": "mn_dnr",
+      "siteId": "121",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "Mississippi River at Brainerd, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=10082002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=10082002&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 1800,
+      "idealMax": 7000,
+      "tooLow": 908,
+      "tooHigh": 10000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Mississippi River at Brainerd",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.2,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Open-water season is best. Low readings can make this 25.6-mile reach a scrape-and-drag day, while high or rising water adds stronger current, debris, harder landings, and fewer practical bailout choices.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The reach is not a whitewater trip, but the length, broad-river wind, Camp Ripley shoreline restrictions, private banks, and limited legal exits make it a committed day or overnight plan.",
+      "confidenceNotes": "Confidence is good: MN DNR recommends the exact Overlook Park to Belle Prairie County Park trip, DNR Map 6 places the endpoints and intermediate public/camping context in sequence, Belle Prairie resolves in public-water-access GIS, Baxter publishes Overlook Park as a canoe-access park, and Brainerd has official interpreted bands just upstream of the route. The Overlook coordinate is geocoded from Baxter's published park address rather than a DNR SWAS point, so same-day signage still matters."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "remote",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Treat this as a long, committed route. Stage Belle Prairie first and confirm Overlook Park carry-in parking/signage before leaving a vehicle.",
+        "DNR Map 6 notes Camp Ripley shoreline restrictions and private-bank limits. Use mapped public accesses and designated campsites only.",
+        "Do not continue below Belle Prairie into the Little Falls dam corridor without a separate plan; the dam is downstream of this route."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route",
+        "value": "25.6 river miles",
+        "note": "MN DNR recommended one-way materials list Overlook Park Carry-in Access at river mile 995.8 to Belle Prairie County Trailer Access at river mile 970.2.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Map support",
+        "value": "Overlook RM 995.8 to Belle Prairie RM 970.2",
+        "note": "DNR Mississippi Map 6 places Overlook Park, Crow Wing State Park, Camp Ripley boundary context, Fletcher Creek campsite, Otter Point WMA, and Belle Prairie County Park in downstream order.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi6.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "Overlook city park address; Belle Prairie WAS01278",
+        "note": "Baxter publishes Mississippi River Overlook Park at 6005 Oakdale Road with canoe access; Minnesota public-water-access GIS resolves Belle Prairie County Park with coordinates and river-mile context.",
+        "sourceUrl": "https://www.baxtermn.gov/amenities/city-parks/mississippi-river-overlook-park"
+      },
+      {
+        "label": "Coordinate source",
+        "value": "46.3178778, -94.2755325",
+        "note": "The US Census geocoder resolves Baxter's published 6005 Oakdale Road park address; use it as arrival guidance paired with DNR's named river-mile access, not as a substitute for local signs.",
+        "sourceUrl": "https://geocoding.geo.census.gov/geocoder/"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "908 / 1,800-7,000 / 10,000 cfs",
+        "note": "MN DNR interprets Brainerd as Scrapable below 908 cfs, Low from 908 to 1,800, Medium from 1,800 to 7,000, High from 7,000 to 10,000, and Very High above 10,000.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "861 cfs at 2026-07-23 17:30 CDT",
+        "note": "The current MN DNR feed placed Brainerd below the official scrapable floor during this run, so this route should wait for more water.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Mississippi River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR recommended one-way routes",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Mississippi River Map 6 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi6.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Baxter Mississippi River Overlook Park",
+        "url": "https://www.baxtermn.gov/amenities/city-parks/mississippi-river-overlook-park",
+        "provider": "local"
+      },
+      {
+        "label": "US Census geocoder",
+        "url": "https://geocoding.geo.census.gov/geocoder/",
+        "provider": "local"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
+    "id": "mississippi-river-royalton-sartell",
+    "slug": "mississippi-river-royalton-sartell",
+    "name": "Mississippi River",
+    "reach": "Royalton Sportsman's Club to Sartell",
+    "state": "Minnesota",
+    "region": "Central Minnesota",
+    "summary": "Official MN DNR longer Map 7 Mississippi one-way from Royalton Sportsman's Club to the Sartell public access, extending past Stearns County Park and Walleye Road while ending above Sartell Dam.",
+    "statusText": "Use the direct Royalton DNR gauge: 3,000 to 9,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 12,000 cfs is very high; the current reading is below the scrapable floor.",
+    "latitude": 45.8297201,
+    "longitude": -94.3506845,
+    "gaugeSource": {
+      "id": "mn-dnr-149",
+      "provider": "mn_dnr",
+      "siteId": "149",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "direct",
+      "siteName": "Mississippi River nr Royalton, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=15001002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=15001002&var1=262&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05267000",
+        "provider": "usgs",
+        "siteId": "05267000",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "direct",
+        "siteName": "Mississippi River near Royalton, MN"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3000,
+      "idealMax": 9000,
+      "tooLow": 2000,
+      "tooHigh": 12000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Mississippi River near Royalton",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.15,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the practical window. Low water exposes rocky riffles and slows island-channel choices; high or rising water increases push, debris, and landing exposure.",
+      "difficulty": "moderate",
+      "difficultyNotes": "DNR lists this as a longer recommended one-way, not a whitewater run. The 19.8 miles, private islands, open bends, low-water riffles, and mandatory Sartell take-out above the dam make it a committed route.",
+      "confidenceNotes": "Confidence is high: MN DNR recommended one-way materials list Royalton Sportsman's Club to Sartell, DNR Map 7 places Royalton, Stearns County Park, Walleye Road, Sartell, and Sartell Dam in sequence, public-water-access GIS resolves Royalton, Walleye Road, and Sartell with coordinates, and the Royalton gauge is direct with official bands."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "strainers",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Take out at Sartell public access. Sartell Dam is downstream at river mile 932.2 and should not be approached casually after a long day.",
+        "Royalton Sportsman's Club may require a fee; confirm launch rules before staging the shuttle.",
+        "Low water exposes rocky riffles and island-channel scraping, while high water adds debris and faster approaches to private shorelines and public landings."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route",
+        "value": "19.8 river miles",
+        "note": "MN DNR recommended one-way materials list Royalton Sportsman's Club Trailer Access at river mile 953.6 to Sartell Trailer Access at river mile 933.8.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Map support",
+        "value": "Royalton RM 953.6 to Sartell RM 933.8",
+        "note": "DNR Mississippi Map 7 places Royalton Sportsman's Club, Stearns County Park, Walleye Road, Sartell, Sartell Linear Park, and Sartell Dam in downstream order.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi7.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS00463 to WAS02448",
+        "note": "Minnesota public-water-access GIS resolves Royalton Sportsman's Club, Walleye Road, and Sartell as public Mississippi River access records with coordinates and river-mile context.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "2,000 / 3,000-9,000 / 12,000 cfs",
+        "note": "MN DNR interprets Royalton as Scrapable below 2,000 cfs, Low from 2,000 to 3,000, Medium from 3,000 to 9,000, High from 9,000 to 12,000, and Very High above 12,000.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "1,890 cfs at 2026-07-23 17:15 CDT",
+        "note": "The current MN DNR feed placed Royalton below the official scrapable floor during this run, so this route should wait for more water.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping and route character",
+        "value": "Stearns County Park area watercraft campsite; private islands",
+        "note": "DNR Map 7 notes a watercraft campsite downstream of Stearns County Park, numerous islands including private land, and the need to stop only where legal.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi7.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Mississippi River Map 7 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi7.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Mississippi River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR recommended one-way routes",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways",
         "provider": "mn_dnr"
       },
       {
