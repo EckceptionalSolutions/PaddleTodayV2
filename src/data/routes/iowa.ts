@@ -8293,6 +8293,124 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
+    "id": "yellow-river-ion-highway-76",
+    "slug": "yellow-river-ion-highway-76",
+    "name": "Yellow River",
+    "reach": "Ion Bridge Access to Highway 76 Access",
+    "state": "Iowa",
+    "region": "Northeast Iowa",
+    "summary": "Fast lower Yellow River split from Ion Bridge to Highway 76, using the direct Ion gauge, official water-trail guidance, and Yellow River State Forest canoe-access context.",
+    "statusText": "Use the Yellow River near Ion gauge. CanWePaddle lists 80 to 900 cfs for Volney to Ion, and the water-trail guide says flows should be above 80 cfs; this short split still needs rapid, wood, and take-out checks.",
+    "latitude": 43.08612,
+    "longitude": -91.18213,
+    "gaugeSource": {
+      "id": "usgs-05389000",
+      "provider": "usgs",
+      "siteId": "05389000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Yellow River near Ion, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "The Yellow River drops quickly through the lower state-forest corridor. At high water, Class I rapids and tight bends become more consequential.",
+        "Scout wood and the Ion Bridge take-out from land before launching; missing the take-out commits the group toward the lower forest and Mississippi backwater planning zone.",
+        "Yellow River State Forest camping is designated-site camping, not permission to stop on private or unmarked banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 80,
+      "idealMax": 900,
+      "tooLow": 80,
+      "tooHigh": 900,
+      "thresholdSource": {
+        "label": "CanWePaddle Yellow River Volney-to-Ion estimated range and Iowa water-trail 80 cfs floor",
+        "url": "https://canwepaddle.com/rivers/iowa/yellow-river-volney-to-ion/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring and fall often have the best depth and visibility. Summer can scrape below the 80 cfs floor, while storms can rapidly turn the narrow bluff corridor pushy.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is a short lower-Yellow split, but the river remains swift, riffly, and wood-sensitive. Treat it as an active moving-water trip rather than casual flatwater.",
+      "confidenceNotes": "Confidence is moderate-good: CanWePaddle ties the full Volney-to-Ion route family to USGS 05389000 with an 80-900 cfs range, the Yellow River water-trail guide gives the same 80 cfs canoe/kayak floor, and Iowa DNR Yellow River State Forest materials confirm canoe access and canoe-in camping context near Ion. The split is extracted from a longer represented corridor, so copy emphasizes take-out discipline and direct-gauge visual checks."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Threshold range",
+        "value": "80-900 cfs",
+        "note": "CanWePaddle publishes an 80 to 900 cfs estimated range for the broader Volney-to-Ion route using USGS 05389000.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/yellow-river-volney-to-ion/"
+      },
+      {
+        "label": "Official low-water floor",
+        "value": "Above 80 cfs for canoeing or kayaking",
+        "note": "The Yellow River water-trail guide says paddlers should check the river gage and that flows should ideally be above 80 cfs for canoeing or kayaking this section.",
+        "sourceUrl": "https://www.northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05389000 125 cfs / 5.78 ft",
+        "note": "USGS Water Services returned current Yellow River near Ion data at 2026-07-23 18:45 CDT during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05389000&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "State-forest access and camping context",
+        "value": "Yellow River State Forest canoe access and canoe-in campsite",
+        "note": "Iowa DNR Yellow River State Forest materials describe kayaking the Yellow River Water Trail and note a primitive Ridgetop canoe-in campsite; the unit map directs paddlers to canoe access and parking from Highway 76 via Ion Road and Old Mission Road.",
+        "sourceUrl": "https://www.iowadnr.gov/places-go/state-forests/yellow-river-state-forest"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "CanWePaddle Yellow River Volney to Ion",
+        "url": "https://canwepaddle.com/rivers/iowa/yellow-river-volney-to-ion/",
+        "provider": "local"
+      },
+      {
+        "label": "Yellow River Water Trail guide",
+        "url": "https://www.northeastiowarcd.org/wp-content/uploads/yellowRiverWaterTrail.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR Yellow River State Forest",
+        "url": "https://www.iowadnr.gov/places-go/state-forests/yellow-river-state-forest",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR Yellow River Unit map",
+        "url": "https://www.iowadnr.gov/media/1179/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05389000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05389000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "maquoketa-river-manchester-whitewater",
     "slug": "maquoketa-river-manchester-whitewater",
     "name": "Maquoketa River",
@@ -12585,6 +12703,216 @@ export const iowaRoutes: River[] = [
       {
         "label": "USGS 05457700 monitoring location",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05457700/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "cedar-river-osage-spring-road-t38",
+    "slug": "cedar-river-osage-spring-road-t38",
+    "name": "Cedar River",
+    "reach": "Osage Spring Park to Road T38 Access",
+    "state": "Iowa",
+    "region": "North Central Iowa",
+    "summary": "Osage-area upper Cedar connector from Osage Spring Park to Road T38, with frequent shallow riffles, a low pontoon footbridge sweeper hazard, and a downstream Charles City gauge floor.",
+    "statusText": "Use the Cedar River at Charles City gauge as the downstream route-family signal. The guide says 200 cfs is preferable and 400 to 600 cfs is better; scout the low Sunny Brae pontoon footbridge and carry if needed.",
+    "latitude": 43.275409,
+    "longitude": -92.849622,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The guide warns that a low pontoon footbridge at Sunny Brae Country Club can require a short carry and is a sweeper hazard.",
+        "The route starts with shallow rock riffles. Low water can mean scraping or walking, while rising water reduces time to deal with wood and the footbridge.",
+        "Stop at Road T38 unless the downstream Idlewild shuttle is also staged; do not rely on private banks or golf-course property for routine exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05457700",
+      "provider": "usgs",
+      "siteId": "05457700",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Cedar River at Charles City, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05457700/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 200,
+      "tooLow": 200,
+      "thresholdSource": {
+        "label": "Cedar River Paddling Trips Otranto-to-Janesville guide",
+        "url": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall is the normal window. The guide's 400 to 600 cfs better range is documented, but this card stays minimum-only because no source publishes a high cutoff for the footbridge reach.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Mileage is short, but shallow rock, the low pontoon footbridge, private-bank limits, and proxy-gauge limitations make this a caution route.",
+      "confidenceNotes": "Confidence is moderate-good: the Cedar River Paddling Trips guide publishes the Osage-Spring-to-Road-T38 mileage, endpoint coordinates, shallow-riffle description, low-pontoon-footbridge hazard, and route-family 200 cfs floor. USGS 05457700 returned current downstream same-guide-corridor data during this run."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and mileage",
+        "value": "Osage Spring Park to Road T38 Access, 2.9 mi",
+        "note": "The Cedar River Paddling Trips guide lists Osage Spring Park to Road T38 Access as 2.9 miles and publishes coordinates for both endpoints.",
+        "sourceUrl": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf"
+      },
+      {
+        "label": "Footbridge hazard",
+        "value": "Low pontoon footbridge at Sunny Brae",
+        "note": "The guide says the low pontoon footbridge may require a short carry depending on level and explicitly calls it a sweeper hazard.",
+        "sourceUrl": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05457700 1,270 cfs / 3.87 ft",
+        "note": "USGS Water Services returned current Cedar River at Charles City data at 2026-07-23 19:30 CDT during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05457700&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Water-trail context",
+        "value": "Mitchell County Cedar River Water Trail",
+        "note": "Mitchell County identifies Road T38/255 as a Cedar River Water Trail access point south of Osage.",
+        "sourceUrl": "https://mitchellcountyconservation.com/t-38-access/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Cedar River Paddling Trips guide",
+        "url": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Mitchell County T-38 Access",
+        "url": "https://mitchellcountyconservation.com/t-38-access/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05457700 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05457700/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "upper-iowa-river-iverson-bridge-kumpf",
+    "slug": "upper-iowa-river-iverson-bridge-kumpf",
+    "name": "Upper Iowa River",
+    "reach": "Iverson Bridge Access to Kumpf Access",
+    "state": "Iowa",
+    "region": "Northeast Iowa",
+    "summary": "Lower Upper Iowa continuation from Iverson Bridge to Kumpf Access, using the direct Dorchester gauge, source-backed access coordinates, and riffle/bluff corridor guidance.",
+    "statusText": "Use the Upper Iowa near Dorchester gauge. Miles Paddled recommends 300 to 350 cfs for a smooth Iverson-to-Kumpf ride; the route can scrape below that and becomes pushier around wood as the gauge rises.",
+    "latitude": 43.41256,
+    "longitude": -91.5769,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "The Dorchester gauge is direct and downstream in the same lower-Upper-Iowa corridor, but same-day wood and shallow riffles still decide the trip.",
+        "Kumpf is the planned take-out above the final lower-river corridor. Scout the landing and do not assume private banks or bridge shoulders are acceptable backups.",
+        "The Upper Iowa is scenic but private-bank-sensitive. Use guide-listed accesses and public areas only unless you have permission."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05388250",
+      "provider": "usgs",
+      "siteId": "05388250",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Upper Iowa River near Dorchester, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05388250/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 300,
+      "tooLow": 300,
+      "thresholdSource": {
+        "label": "Miles Paddled Upper Iowa River VIII Dorchester-gauge recommendation",
+        "url": "https://milespaddled.com/upper-iowa-river-viii/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall is the practical season. Low water can scrape in riffles; rain can improve depth but add wood and faster current on tight bends.",
+      "difficulty": "easy",
+      "difficultyNotes": "Miles Paddled rates the reach beginner / Class I, but distance, rural exposure, riffles, private banks, and cold-water springs justify caution.",
+      "confidenceNotes": "Confidence is moderate-good: Miles Paddled documents Iverson Bridge Road Access to Kumpf Access with GPS coordinates and a Dorchester-gauge recommendation of roughly 300-350 cfs, while the Upper Iowa Paddler's Guide names Iverson Bridge and Kumpf in the lower access chain. The app uses minimum-only at 300 cfs because the source does not publish a defended high cutoff."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route and coordinates",
+        "value": "Iverson Bridge to Kumpf Access",
+        "note": "Miles Paddled Upper Iowa VIII identifies Iverson Bridge Road Access as the put-in and Kumpf Access as the take-out, with GPS coordinates.",
+        "sourceUrl": "https://milespaddled.com/upper-iowa-river-viii/"
+      },
+      {
+        "label": "Threshold guidance",
+        "value": "300-350 cfs for a smooth ride",
+        "note": "Miles Paddled says roughly 300 to 350 cfs at the Dorchester gauge is the preferred smooth-water target for this reach.",
+        "sourceUrl": "https://milespaddled.com/upper-iowa-river-viii/"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05388250 1,140 cfs / 8.25 ft",
+        "note": "USGS Water Services returned current Upper Iowa River near Dorchester data at 2026-07-23 19:00 CDT during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05388250&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Official access-chain context",
+        "value": "Iverson Bridge and Kumpf named in Upper Iowa guide",
+        "note": "The Upper Iowa River Paddler's Guide lists Iverson Bridge Access and Kumpf Access in the lower-river landmark/access chain.",
+        "sourceUrl": "https://northeastiowarcd.org/wp-content/uploads/2016/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Miles Paddled Upper Iowa River VIII",
+        "url": "https://milespaddled.com/upper-iowa-river-viii/",
+        "provider": "local"
+      },
+      {
+        "label": "Upper Iowa River Paddler's Guide",
+        "url": "https://northeastiowarcd.org/wp-content/uploads/2016/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05388250 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05388250/",
         "provider": "usgs"
       }
     ]

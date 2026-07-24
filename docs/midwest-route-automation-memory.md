@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 20:06 America/Chicago / 2026-07-24 01:06 UTC: Iowa Yellow / Cedar / Upper Iowa connector pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 106-route exported Iowa baseline: `yellow-river-ion-highway-76`, `cedar-river-osage-spring-road-t38`, and `upper-iowa-river-iverson-bridge-kumpf`, bringing Iowa to 109 live routes.
+  - Qualification path: CanWePaddle / Yellow River water-trail / Iowa DNR state-forest sources support Ion-to-Highway-76; Cedar River Paddling Trips and Mitchell County support Osage Spring-to-Road-T38; Miles Paddled Upper Iowa VIII and the Upper Iowa Paddler's Guide support Iverson Bridge-to-Kumpf.
+  - Gauge posture: USGS Water Services returned Yellow River near Ion `125 cfs / 5.78 ft`, Cedar River at Charles City `1,270 cfs / 3.87 ft`, and Upper Iowa near Dorchester `1,140 cfs / 8.25 ft` during this run.
+  - Safety/image posture: routes carry Yellow riffle/wood/fast-rise/camping-boundary caveats, Cedar low-pontoon-footbridge and shallow-rock caveats, Upper Iowa long-day/private-bank/remote-rescue caveats, and no selected gallery images after bounded official/community/Commons/same-route review.
+
 - 2026-07-23 19:10 America/Chicago / 2026-07-24 00:10 UTC: Minnesota Snake / Sauk / Long Prairie connector pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 205-route exported Minnesota baseline: `snake-river-mora-canary`, `sauk-river-richmond-horseshoe-lake`, and `long-prairie-river-lake-carlos-highway-29`, bringing Minnesota to 208 live routes.
   - Qualification path: MN DNR recommended one-way sections, Snake/Sauk/Long Prairie water-trail pages and map PDFs, MN DNR interpreted river-level JSON, and Minnesota public-water-access GIS for the Mora/Canary, Richmond/Horseshoe, and Lake-Carlos/Highway-29 endpoint chains.

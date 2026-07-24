@@ -2724,6 +2724,59 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "yellow-river-ion-highway-76": {
+    "putIn": {
+      "id": "ion-bridge-access",
+      "name": "Ion Bridge Access / Old Mission Road canoe access",
+      "latitude": 43.11191667,
+      "longitude": -91.2651389
+    },
+    "takeOut": {
+      "id": "highway-76-yellow-river-access",
+      "name": "Highway 76 / Yellow River access",
+      "latitude": 43.08612,
+      "longitude": -91.18213
+    },
+    "logistics": {
+      "distanceLabel": "About 7 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low-water scraping or wood scouting",
+      "shuttle": "Stage at the Highway 76 lower-river access first, then launch from the Ion Bridge / Old Mission Road canoe access. Confirm both landings from the road because this short split has fast water and limited clean alternates.",
+      "permits": "No route-specific paddling permit is known. Follow Iowa DNR, Yellow River State Forest, Effigy Mounds, railroad-area, and posted access rules.",
+      "camping": "Yellow River State Forest has designated camping and canoe-in campsite context nearby, but this short access-pair route should be treated as a day run unless a separate legal state-forest camping plan is confirmed.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at the Ion Bridge / Old Mission Road canoe access and paddle the lower-Yellow split to the Highway 76 access, using the direct Ion gauge and the official water-trail low-water floor.",
+      "accessCaveats": [
+        "Highway 76 and Ion access coordinates are practical access anchors; use signed parking and launch paths rather than railroad, highway, or private banks.",
+        "Highway 76 is the planned take-out. Missing it changes the trip into a different lower-Yellow plan with more public-land and Mississippi-backwater exposure.",
+        "The water-trail guide and CanWePaddle support the broader Volney-to-Ion family, so make a visual check for local wood, depth, and take-out conditions before launching."
+      ],
+      "watchFor": [
+        "Class I riffles, shallow rocks, tight bends, and occasional portage-worthy strainers.",
+        "Fast rises and pushier current above the selected 900 cfs ceiling.",
+        "Private banks, trout anglers, cold water, and designated-only camping rules in the state forest corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "ion-bridge-access",
+        "name": "Ion Bridge Access / Old Mission Road canoe access",
+        "latitude": 43.11191667,
+        "longitude": -91.2651389,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in near the direct USGS Ion gauge and DNR-mapped canoe access / parking corridor."
+      },
+      {
+        "id": "highway-76-yellow-river-access",
+        "name": "Highway 76 / Yellow River access",
+        "latitude": 43.08612,
+        "longitude": -91.18213,
+        "mileFromStart": 7,
+        "segmentKind": "creek",
+        "note": "Default take-out at the lower Yellow River Highway 76 access corridor."
+      }
+    ]
+  },
   "wapsipinicon-river-independence-quasqueton": {
     "putIn": {
       "id": "knotts-landing-independence",
@@ -3978,6 +4031,59 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "upper-iowa-river-iverson-bridge-kumpf": {
+    "putIn": {
+      "id": "iverson-bridge-access",
+      "name": "Iverson Bridge Access",
+      "latitude": 43.41256,
+      "longitude": -91.5769
+    },
+    "takeOut": {
+      "id": "kumpf-access",
+      "name": "Kumpf Access",
+      "latitude": 43.41165,
+      "longitude": -91.45962
+    },
+    "logistics": {
+      "distanceLabel": "About 8.5 mi",
+      "estimatedPaddleTime": "About 3 hr to 4.5 hr, longer with low-water scraping or stops",
+      "shuttle": "Stage Kumpf Access first, then launch from Iverson Bridge. Confirm the Kumpf take-out from land because lower-river access points can be easy to miss from the water.",
+      "permits": "No route-specific paddling permit is known. Follow Iowa boating/PFD rules, Upper Iowa access postings, and private-property boundaries.",
+      "camping": "Treat this as a day route with nearby private campground or livery base-camp options. No public on-route campsite was selected for the Iverson-to-Kumpf split.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Iverson Bridge and paddle the lower Upper Iowa toward Kumpf Access. This is the downstream continuation from the existing Lower-Dam-to-Iverson card and uses the direct Dorchester gauge.",
+      "accessCaveats": [
+        "Iverson Bridge is the start of this card and the take-out for the upstream existing route; avoid leaving vehicles where they block bridge or access traffic.",
+        "Kumpf Access is the planned take-out. Do not continue into the final lower Upper Iowa corridor without staging a separate downstream shuttle.",
+        "The Dorchester gauge is downstream and direct for the lower corridor, but make a visual check for wood, depth, and landing condition before launching."
+      ],
+      "watchFor": [
+        "Scraping in riffles below the 300 cfs selected floor and smoother water around the 300-350 cfs target.",
+        "Fresh wood, strainers, bridge current, fast rises after rain, and private banks.",
+        "Cold spring-fed water, long rural response times, and limited alternate exits."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "iverson-bridge-access",
+        "name": "Iverson Bridge Access",
+        "latitude": 43.41256,
+        "longitude": -91.5769,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in and endpoint shared with the existing Lower-Dam-to-Iverson route."
+      },
+      {
+        "id": "kumpf-access",
+        "name": "Kumpf Access",
+        "latitude": 43.41165,
+        "longitude": -91.45962,
+        "mileFromStart": 8.5,
+        "segmentKind": "creek",
+        "note": "Default take-out documented by Miles Paddled and the Upper Iowa guide access chain."
+      }
+    ]
+  },
   "maquoketa-river-ebys-mill-supples-bridge": {
     "putIn": {
       "id": "ebys-mill-access",
@@ -4914,6 +5020,59 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 1.9,
         "segmentKind": "creek",
         "note": "Default take-out at 3540 Spring Park Road, Osage; fish riffle immediately above the park requires attention."
+      }
+    ]
+  },
+  "cedar-river-osage-spring-road-t38": {
+    "putIn": {
+      "id": "osage-spring-park",
+      "name": "Osage Spring Park",
+      "latitude": 43.275409,
+      "longitude": -92.849622
+    },
+    "takeOut": {
+      "id": "road-t38-access",
+      "name": "Road T38 Access",
+      "latitude": 43.253006,
+      "longitude": -92.811759
+    },
+    "logistics": {
+      "distanceLabel": "2.9 mi",
+      "estimatedPaddleTime": "About 1 hr to 2 hr, plus footbridge scouting or a short carry",
+      "shuttle": "Stage at Road T38 south of Osage, then launch from Osage Spring Park. Identify the Sunny Brae low pontoon footbridge from land or satellite before committing.",
+      "permits": "No route-specific paddling permit is known. Follow posted city/county access rules and Iowa boating/PFD requirements.",
+      "camping": "Treat this as a short day run. No verified on-route or endpoint camping was selected for this access pair.",
+      "campingClassification": "none",
+      "summary": "Launch at Osage Spring Park and paddle the short Cedar connector to Road T38. The route fills the gap between the Osage Spring card and the existing T38-to-Idlewild card while foregrounding the low footbridge hazard.",
+      "accessCaveats": [
+        "The guide says shallow rock riffles are frequent at the beginning of the reach.",
+        "Sunny Brae Country Club has a low pontoon footbridge that may require a short carry depending on water level and is specifically described as a sweeper hazard.",
+        "Road T38 is the planned take-out unless the downstream Idlewild route is also staged."
+      ],
+      "watchFor": [
+        "Low pontoon footbridge, shallow rock riffles, and possible scraping.",
+        "Wood, bridge debris, faster current after rain, and private banks.",
+        "Proxy-gauge limitations because Charles City is downstream of this short Osage-area reach."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "osage-spring-park",
+        "name": "Osage Spring Park",
+        "latitude": 43.275409,
+        "longitude": -92.849622,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at 3540 Spring Park Road, Osage."
+      },
+      {
+        "id": "road-t38-access",
+        "name": "Road T38 Access",
+        "latitude": 43.253006,
+        "longitude": -92.811759,
+        "mileFromStart": 2.9,
+        "segmentKind": "creek",
+        "note": "Default take-out and start of the existing T38-to-Idlewild segment."
       }
     ]
   },

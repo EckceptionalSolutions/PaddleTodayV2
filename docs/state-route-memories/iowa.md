@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-23 20:06 CDT update: live exported Iowa routes were 106 at the start of the current Iowa route-additions pass and 109 after adding `yellow-river-ion-highway-76`, `cedar-river-osage-spring-road-t38`, and `upper-iowa-river-iverson-bridge-kumpf`.
 - 2026-07-23 16:57 CDT update: live exported Iowa routes were 100 at the start of the upper Cedar Mitchell pass and 103 after adding `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`.
 - 2026-07-23 16:01 CDT update: live exported Iowa routes were 97 at the start of the Greene County North Raccoon gap pass and 100 after adding `north-raccoon-river-richey-hyde-park`, `north-raccoon-river-hyde-park-mcmahon`, and `north-raccoon-river-henderson-squirrel-hollow`.
 - 2026-07-23 12:53 CDT update: live exported Iowa routes were 89 at the start of the Waverly Cedar gap pass and 92 after adding the three new slugs listed below.
@@ -15,7 +16,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 16:57 run added three routes beyond the current 100-route baseline: `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`.
+Iowa remains mature overall. The latest 2026-07-23 20:06 run added three routes beyond the current 106-route baseline: `yellow-river-ion-highway-76`, `cedar-river-osage-spring-road-t38`, and `upper-iowa-river-iverson-bridge-kumpf`.
+
+## 2026-07-23 20:06 Yellow / Cedar / Upper Iowa connector pass
+
+- Baseline at run start: 106 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`.
+- Added `yellow-river-ion-highway-76`, `cedar-river-osage-spring-road-t38`, and `upper-iowa-river-iverson-bridge-kumpf`, bringing the imported Iowa count to 109 live routes.
+- Qualification path: Yellow River uses CanWePaddle's Volney-to-Ion range, the Yellow River water-trail 80 cfs floor, Iowa DNR Yellow River State Forest canoe-access/camping context, and direct USGS `05389000` data. Cedar uses the Cedar River Paddling Trips Osage-Spring-to-Road-T38 segment, Mitchell County T-38 access support, the guide's 200 cfs floor / 400-600 cfs better range, and USGS `05457700` as the same-guide-corridor gauge. Upper Iowa uses Miles Paddled Upper Iowa VIII, the Upper Iowa Paddler's Guide access chain, and direct USGS `05388250` Dorchester data.
+- Gauge posture: USGS Water Services returned Yellow River near Ion `125 cfs / 5.78 ft` at 2026-07-23 18:45 CDT, Cedar River at Charles City `1,270 cfs / 3.87 ft` at 2026-07-23 19:30 CDT, and Upper Iowa near Dorchester `1,140 cfs / 8.25 ft` at 2026-07-23 19:00 CDT.
+- Threshold posture: Yellow uses the existing two-sided `80-900 cfs` community range with the official guide's 80 cfs low-water floor. Cedar stays conservative `minimum-only` at `200 cfs`, documenting the guide's `400-600 cfs` better range without inferring a high cutoff. Upper Iowa uses a conservative `minimum-only` `300 cfs` floor from route-specific community guidance and does not infer a high cutoff from a recommended smooth-ride value.
+- Caveat posture: Yellow foregrounds Class I riffles, cold water, wood, fast rises, designated camping, private banks, and the Highway 76 take-out boundary. Cedar foregrounds shallow rock riffles, Sunny Brae low-pontoon bridge carry / sweeper checks, private banks, and no camping. Upper Iowa foregrounds long-day exposure, strainers, private / permission-only banks, fast rises, remote rescue exposure, and endpoint-basecamp assumptions.
+- Reviewed but not added: Upper Iowa Lime Springs / Highway 30 / Kendallville leads remain blocked by stale `05387320` gauge data; Black Hawk Creek downstream of Hope Martin was held because the official DNR guide does not clearly support a new access-pair segment beyond existing live cards; broader Turkey, Maquoketa, Volga, Wapsipinicon, Iowa, and Des Moines leads were lower value or already represented for this run.
+- No route-gallery assets were added after bounded CanWePaddle / Iowa DNR / Cedar guide / Mitchell County / Miles Paddled / Upper Iowa guide / USGS / Commons / same-route image review.
 
 ## 2026-07-23 16:57 Upper Cedar Mitchell gap pass
 

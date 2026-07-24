@@ -302,6 +302,7 @@ const routeOrder = [
   "cedar-river-kohlmann-brookwood",
   "yellow-river-volney-sixteen-bridge",
   "yellow-river-sixteen-bridge-highway-76",
+  "yellow-river-ion-highway-76",
   "turtle-creek-east-creek-road-highway-140",
   "maquoketa-river-manchester-whitewater",
   "kansas-river-lecompton-lawrence-riverfront",
@@ -822,6 +823,7 @@ const routeOrder = [
   "east-nishnabotna-river-red-oak-essex",
   "maquoketa-river-pictured-rocks-ebys-mill",
   "upper-iowa-river-lower-dam-iverson-bridge",
+  "upper-iowa-river-iverson-bridge-kumpf",
   "black-river-cormican-irving",
   "black-river-irving-melrose",
   "black-river-wayside-reese",
@@ -920,7 +922,8 @@ const routeOrder = [
   "cedar-river-halvorson-interstate",
   "cedar-river-interstate-bennett",
   "cedar-river-bennett-highway-9",
-  "cedar-river-highway-9-osage-spring"
+  "cedar-river-highway-9-osage-spring",
+  "cedar-river-osage-spring-road-t38"
 ];
 
 export const rivers: River[] = routeOrder.map((slug) => {
