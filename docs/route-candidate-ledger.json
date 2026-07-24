@@ -1,7 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T07:13:00Z",
+  "updatedAt": "2026-07-24T08:08:00Z",
   "notes": [
+    {
+      "date": "2026-07-24",
+      "automation": "iowa-route-additions",
+      "summary": "Added three Iowa Sac/Calhoun North Raccoon route slugs beyond the 124-route current Iowa baseline: north-raccoon-river-hagge-white-horse, north-raccoon-river-white-horse-grant, and north-raccoon-river-grant-rainbow-bend, bringing Iowa to 127 live routes. Sources included Iowa DNR North Raccoon Sac/Calhoun/Carroll guide, Sac County water-trail access page, Iowa DNR White Horse release, MyCountyParks Grant Park and Rainbow Bend pages, Travel Iowa North Raccoon context, and USGS Water Services. Current checks returned Sac City 05482300 at 54.3 cfs / 6.85 ft, Lanesboro 05482430 at 7.65 ft, and Jefferson 05482500 at 218 cfs / 5.12 ft at 2026-07-24 02:15 CDT. No route-gallery image was selected after bounded official/local/Commons/same-route review."
+    },
     {
       "date": "2026-07-24",
       "automation": "minnesota-route-additions-2",
@@ -55542,6 +55547,129 @@
         "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html",
         "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
         "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
+    {
+      "candidateId": "ia-north-raccoon-river-hagge-white-horse-2026-07-24",
+      "river": "North Raccoon River",
+      "route": "Hagge Park to White Horse Access",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "north-raccoon-river-hagge-white-horse",
+      "sourceQuality": "official Iowa DNR water-trail guide / county and DNR access corroboration / official USGS live gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05482430",
+        "siteName": "North Raccoon River near Lanesboro, IA",
+        "kind": "official upper-corridor proxy",
+        "latest": "7.65 ft at 2026-07-24 02:15 CDT; Sac City context 54.3 cfs / 6.85 ft; Jefferson context 218 cfs / 5.12 ft"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "0-11 ft at Lanesboro",
+        "source": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide",
+        "strength": "official",
+        "caveat": "Official guidance is a broad upper-corridor ceiling; the card also requires local Sac City depth, Hagge relaunch, White Horse, wood, and portage checks."
+      },
+      "access": {
+        "putIn": "Hagge Park below-dam relaunch",
+        "takeOut": "White Horse Access",
+        "coordinateSource": "Hagge reuses the current source-backed V2 Hagge Park access anchor; White Horse uses Nominatim named-site coordinates supported by Iowa DNR and Sac County named-access evidence."
+      },
+      "caveats": [
+        "Route starts only below the Hagge Park rock dam; DNR says the dam is not passable by canoe or kayak.",
+        "Below-dam Hagge relaunch is over unstable boulders and low local flow can make the start impractical.",
+        "White Horse rock dam is an experienced-paddler-only feature at decent levels; take out unless the downstream route is separately staged."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Sac County / MyCountyParks / Travel Iowa / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8896/download?inline=",
+        "https://www.saccountyiowa.gov/conservation/parks/north_raccoon_river_water_trail/",
+        "https://www.iowadnr.gov/news-release/2025-07-29/gravel-pits-raccoon-river-timber-and-prairie-white-horse-access-offers-lot-outdoor-recreation-sac",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
+      ]
+    },
+    {
+      "candidateId": "ia-north-raccoon-river-white-horse-grant-2026-07-24",
+      "river": "North Raccoon River",
+      "route": "White Horse Access to Grant Park",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "north-raccoon-river-white-horse-grant",
+      "sourceQuality": "official Iowa DNR water-trail guide / DNR and MyCountyParks access corroboration / official USGS live gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05482430",
+        "siteName": "North Raccoon River near Lanesboro, IA",
+        "kind": "official upper-corridor proxy",
+        "latest": "7.65 ft at 2026-07-24 02:15 CDT; Sac City context 54.3 cfs / 6.85 ft; Jefferson context 218 cfs / 5.12 ft"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "0-11 ft at Lanesboro",
+        "source": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide",
+        "strength": "official",
+        "caveat": "Uses official corridor guidance; the Grant rock-dam take-out and local visual checks control go/no-go."
+      },
+      "access": {
+        "putIn": "White Horse Access",
+        "takeOut": "Grant Park",
+        "coordinateSource": "White Horse uses Nominatim named-site coordinates supported by DNR/Sac County public-access evidence; Grant uses practical park/ramp anchor from MyCountyParks location text and DNR map/ramp context."
+      },
+      "caveats": [
+        "DNR says the Grant Park rock-dam take-out requires scouting because no signs are visible from the river.",
+        "Portaging at Grant is recommended at normal levels for everyone except skilled whitewater paddlers.",
+        "Private banks and active railroad property near White Horse are not routine access points."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Sac County / MyCountyParks / Travel Iowa / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8896/download?inline=",
+        "https://www.iowadnr.gov/news-release/2025-07-29/gravel-pits-raccoon-river-timber-and-prairie-white-horse-access-offers-lot-outdoor-recreation-sac",
+        "https://www.mycountyparks.com/county/sac/Park/Grant-Park",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
+      ]
+    },
+    {
+      "candidateId": "ia-north-raccoon-river-grant-rainbow-bend-2026-07-24",
+      "river": "North Raccoon River",
+      "route": "Grant Park to Rainbow Bend Access",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "north-raccoon-river-grant-rainbow-bend",
+      "sourceQuality": "official Iowa DNR water-trail guide / county park access corroboration / official USGS live gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05482430",
+        "siteName": "North Raccoon River near Lanesboro, IA",
+        "kind": "official upper-corridor proxy",
+        "latest": "7.65 ft at 2026-07-24 02:15 CDT; Sac City context 54.3 cfs / 6.85 ft; Jefferson context 218 cfs / 5.12 ft"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "0-11 ft at Lanesboro",
+        "source": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide",
+        "strength": "official",
+        "caveat": "Starts below the Grant rock-dam boundary; same-day relaunch, wood, local depth, and Rainbow Bend landing checks still govern."
+      },
+      "access": {
+        "putIn": "Grant Park below-dam relaunch",
+        "takeOut": "Rainbow Bend Access",
+        "coordinateSource": "Grant uses practical park/ramp anchor from MyCountyParks and DNR map/ramp context; Rainbow Bend reuses the current accepted V2 access coordinates corroborated by DNR/MyCountyParks."
+      },
+      "caveats": [
+        "Start only below the Grant rock-dam/portage boundary.",
+        "DNR describes a narrower pasture and row-crop corridor with eroded banks and limited public exits below Grant.",
+        "Rainbow Bend is a walk-down access; do not continue into the existing Rainbow-to-Richey route unless that long shuttle is separately staged."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Sac County / MyCountyParks / Travel Iowa / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8896/download?inline=",
+        "https://www.mycountyparks.com/county/sac/Park/Grant-Park",
+        "https://www.mycountyparks.com/county/Calhoun/Park/Raccoon-River-Wildlife-Area-and-Rainbow-Bend",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
       ]
     }
   ]

@@ -161,6 +161,165 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "north-raccoon-river-hagge-white-horse": {
+    "putIn": {
+      "id": "hagge-park-below-dam",
+      "name": "Hagge Park below-dam relaunch",
+      "latitude": 42.385453216741,
+      "longitude": -94.997965528911
+    },
+    "takeOut": {
+      "id": "white-horse-access",
+      "name": "White Horse Access",
+      "latitude": 42.2999386,
+      "longitude": -94.89957
+    },
+    "logistics": {
+      "distanceLabel": "About 13.5 mi",
+      "estimatedPaddleTime": "Long day; plan 5 hr to 7 hr plus Hagge relaunch and White Horse scouting",
+      "shuttle": "Stage White Horse first, then scout Hagge Park from land. Launch only below the Hagge rock dam after confirming a safe carry and boulder relaunch.",
+      "permits": "No route-specific paddling permit is known. Use marked public access areas only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.",
+      "camping": "Primitive camping is allowed at Hagge Park according to the DNR guide, but no water or toilets are available there. Treat White Horse as day-use unless current DNR rules say otherwise.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Run the wild downstream continuation from Hagge Park to White Horse only after completing the mandatory Hagge rock-dam portage and below-dam relaunch plan.",
+      "accessCaveats": [
+        "Hagge is not a normal upstream launch for this split unless the paddler has already portaged or deliberately staged below the non-passable rock dam.",
+        "White Horse Access is a public DNR access with a cement boat ramp, but the adjacent active railroad line is private property.",
+        "Endpoint coordinates are named-site access anchors from county/DNR/context mapping, not surveyed low-water ramp points."
+      ],
+      "watchFor": [
+        "Unstable boulder relaunch below Hagge Park dam and shallow boulder exposure at low local flow.",
+        "Logjams, rock-dam-style riffles, eroding banks, and livestock or field-edge bank damage.",
+        "White Horse rock dam; take out unless a separate downstream plan and scout support continuing."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "hagge-park-below-dam",
+        "name": "Hagge Park below-dam relaunch",
+        "latitude": 42.385453216741,
+        "longitude": -94.997965528911,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in only after the mandatory Hagge Park rock-dam portage and below-dam relaunch check."
+      },
+      {
+        "id": "white-horse-access",
+        "name": "White Horse Access",
+        "latitude": 42.2999386,
+        "longitude": -94.89957,
+        "mileFromStart": 13.5,
+        "segmentKind": "creek",
+        "note": "Default take-out at the DNR White Horse public access and rock-dam boundary."
+      }
+    ]
+  },
+  "north-raccoon-river-white-horse-grant": {
+    "putIn": {
+      "id": "white-horse-access",
+      "name": "White Horse Access",
+      "latitude": 42.2999386,
+      "longitude": -94.89957
+    },
+    "takeOut": {
+      "id": "grant-park",
+      "name": "Grant Park",
+      "latitude": 42.273,
+      "longitude": -94.872
+    },
+    "logistics": {
+      "distanceLabel": "4.5 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr plus Grant rock-dam scout time",
+      "shuttle": "Stage at Grant Park north of Auburn, identify the take-out and rock-dam portage from land, then launch from White Horse Access.",
+      "permits": "No route-specific paddling permit is known. Use public access areas only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.",
+      "camping": "Grant Park has endpoint campground support, including improved and primitive camping areas. White Horse is treated as day-use / wildlife-area access for this route.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Paddle the short wooded White Horse-to-Grant split, ending at Grant Park before the rock-dam decision and campground area.",
+      "accessCaveats": [
+        "DNR says the Grant Park rock-dam take-out requires scouting because no signs are visible from the river.",
+        "Grant Park's coordinate is a practical park/ramp anchor derived from the named park location and North Raccoon shoreline context; verify the actual ramp before launching.",
+        "Do not drift past Grant unless the Grant-to-Rainbow route is staged from below the rock-dam boundary."
+      ],
+      "watchFor": [
+        "White Horse rock-dam context at the put-in and low-water scrape points.",
+        "Unsigned Grant Park rock-dam approach and portage/take-out decision.",
+        "Wood, private banks, fast rises, and short-route timing into the take-out."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "white-horse-access",
+        "name": "White Horse Access",
+        "latitude": 42.2999386,
+        "longitude": -94.89957,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at the public DNR White Horse access."
+      },
+      {
+        "id": "grant-park",
+        "name": "Grant Park",
+        "latitude": 42.273,
+        "longitude": -94.872,
+        "mileFromStart": 4.5,
+        "segmentKind": "creek",
+        "note": "Default take-out and campground-supported park; scout the rock-dam boundary from land."
+      }
+    ]
+  },
+  "north-raccoon-river-grant-rainbow-bend": {
+    "putIn": {
+      "id": "grant-park-below-dam",
+      "name": "Grant Park below-dam relaunch",
+      "latitude": 42.273,
+      "longitude": -94.872
+    },
+    "takeOut": {
+      "id": "rainbow-bend-access",
+      "name": "Rainbow Bend Access",
+      "latitude": 42.22859,
+      "longitude": -94.75616
+    },
+    "logistics": {
+      "distanceLabel": "About 12.1 mi",
+      "estimatedPaddleTime": "About 4.5 hr to 6.5 hr, longer with low water, wood, or access carries",
+      "shuttle": "Stage Rainbow Bend south of Lake City and confirm the walk-down landing, then start only below the Grant Park rock-dam/portage boundary.",
+      "permits": "No route-specific paddling permit is known. Use marked public access areas only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.",
+      "camping": "Endpoint camping support exists at both ends: Grant Park has improved and primitive campground areas, and DNR says Rainbow Bend has primitive camping and toilets.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch below the Grant Park rock-dam boundary and paddle the rural North Raccoon corridor to Rainbow Bend, where the existing downstream Rainbow-to-Richey card begins.",
+      "accessCaveats": [
+        "Do not launch above or run the Grant rock dam as part of this split. Stage the below-dam relaunch from land.",
+        "Rainbow Bend no longer has the older ramp; DNR says paddlers should carry to the sand/silt beach.",
+        "Grant coordinates are practical park/ramp anchors, and Rainbow Bend coordinates reuse the existing accepted V2 access point."
+      ],
+      "watchFor": [
+        "Grant rock-dam/relaunch discipline before starting.",
+        "Narrower pasture and row-crop corridor, eroded cut banks, wood, strainers, and limited public exits.",
+        "Walk-down Rainbow Bend take-out and no unplanned continuation into the long Rainbow-to-Richey section."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "grant-park-below-dam",
+        "name": "Grant Park below-dam relaunch",
+        "latitude": 42.273,
+        "longitude": -94.872,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in only below the Grant Park rock-dam/portage boundary."
+      },
+      {
+        "id": "rainbow-bend-access",
+        "name": "Rainbow Bend Access",
+        "latitude": 42.22859,
+        "longitude": -94.75616,
+        "mileFromStart": 12.1,
+        "segmentKind": "creek",
+        "note": "Default take-out and start of the existing Rainbow-Bend-to-Richey route."
+      }
+    ]
+  },
   "north-raccoon-river-richey-hyde-park": {
     "putIn": {
       "id": "richey-access",

@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 03:08 America/Chicago / 2026-07-24 08:08 UTC: Iowa Sac/Calhoun North Raccoon continuation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 124-route exported Iowa baseline: `north-raccoon-river-hagge-white-horse`, `north-raccoon-river-white-horse-grant`, and `north-raccoon-river-grant-rainbow-bend`, bringing Iowa to 127 live routes.
+  - Qualification path: Iowa DNR's North Raccoon Sac/Calhoun/Carroll guide, Sac County water-trail access page, Iowa DNR White Horse release, MyCountyParks Grant Park and Rainbow Bend pages, Travel Iowa water-trail context, and USGS Water Services support the access chain, route shape, camping posture, hazards, and official Lanesboro/Jefferson gauge model.
+  - Gauge posture: USGS returned Sac City `05482300` at `54.3 cfs / 6.85 ft`, Lanesboro `05482430` at `7.65 ft`, and Jefferson `05482500` at `218 cfs / 5.12 ft` at 2026-07-24 02:15 CDT.
+  - Threshold posture: all three use the existing official upper-North-Raccoon `0-11 ft` Lanesboro stage model, with Jefferson-around-1,000-cfs and low-Sac-City-flow caveats; no new range was invented.
+  - Safety/image posture: cards carry Hagge mandatory non-passable rock-dam portage, unstable boulder relaunch, White Horse and Grant rock-dam scouting, Grant unsigned portage, low local flow, wood/logjams, eroded/private banks, remote rescue exposure, endpoint camping caveats, and no selected gallery image after bounded official/local/Commons/same-route review.
+
 - 2026-07-24 02:13 America/Chicago / 2026-07-24 07:13 UTC: Minnesota St. Croix Map 7 gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 226-route exported Minnesota baseline: `st-croix-river-highway-70-stevens-creek`, `st-croix-river-stevens-creek-sunrise`, and `st-croix-river-sunrise-wild-river`, bringing Minnesota to 229 live routes.
   - Qualification path: NPS St. Croix Map 7, the current NPS St. Croix maps index, MN DNR's St. Croix water-trail page, MN DNR recommended-one-way list, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, and USGS fallback station context support the access pairs, route shape, gauges, camping posture, and caveats.

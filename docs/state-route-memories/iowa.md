@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-24 03:08 CDT update: live exported Iowa routes were 124 at the start of this run and 127 after adding `north-raccoon-river-hagge-white-horse`, `north-raccoon-river-white-horse-grant`, and `north-raccoon-river-grant-rainbow-bend`.
 - 2026-07-24 02:09 CDT update: live exported Iowa routes were 121 at the start of this run and 124 after adding `north-raccoon-river-vogel-mcdonald`, `north-raccoon-river-mcdonald-riverview`, and `north-raccoon-river-sac-city-hagge`.
 - 2026-07-24 00:04 CDT update: live exported Iowa routes were 115 at the start of this run and 118 after adding `middle-river-roseman-pammel`, `middle-river-pammel-middle-river-county-park`, and `middle-river-middle-river-county-park-holliwell`.
 - 2026-07-23 23:07 CDT update: live exported Iowa routes were 112 at the start of this run and 115 after adding `wapsipinicon-river-olin-jungletown`, `boone-river-riverside-briggs-woods`, and `boone-river-briggs-woods-albright`.
@@ -21,7 +22,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 124 routes after this Sac County North Raccoon pass; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current exported inventory is 127 routes after this Sac/Calhoun North Raccoon continuation pass; the historical run notes below preserve what each automation pass originally added.
+
+## 2026-07-24 03:08 Sac/Calhoun North Raccoon continuation pass
+
+- Baseline at run start: 124 Iowa live routes, verified from `src/data/routes/iowa.ts` with `tsx` before the current Iowa edits.
+- Added `north-raccoon-river-hagge-white-horse`, `north-raccoon-river-white-horse-grant`, and `north-raccoon-river-grant-rainbow-bend`, bringing the intended Iowa count to 127 live routes.
+- Qualification path: Iowa DNR's North Raccoon Sac/Calhoun/Carroll water-trail guide documents Sac City-to-Hagge-to-White-Horse and White-Horse-to-Grant-to-Rainbow-Bend, including mileage, route character, White Horse cement ramp, Hagge non-passable rock dam, Grant rock-dam portage recommendation, Rainbow Bend walk-down access, camping/amenity context, logjams, eroded banks, non-meandered private-bank limits, and official Lanesboro/Jefferson gauge guidance. Sac County corroborates the county-managed water-trail access chain, Iowa DNR's 2025 White Horse release corroborates public paddling access and carry-down ramp context, MyCountyParks corroborates Grant Park and Rainbow Bend access/camping context, and USGS Water Services supplied live gauge values.
+- Gauge posture: USGS Water Services returned North Raccoon near Sac City `05482300` at `54.3 cfs / 6.85 ft`, Lanesboro `05482430` at `7.65 ft`, and Jefferson `05482500` at `218 cfs / 5.12 ft` at 2026-07-24 02:15 CDT.
+- Threshold posture: all three use the existing official upper-North-Raccoon Lanesboro stage model already accepted upstream: `0-11 ft` at Lanesboro, with copy documenting DNR's Jefferson-flow target around `1,000 cfs` and very low local Sac City flow. No new high cutoff or ideal range was invented.
+- Caveat posture: Hagge-to-White-Horse starts only below the mandatory Hagge rock-dam portage and foregrounds unstable boulder relaunch, long wooded exposure, wood, low local flow, and White Horse rock-dam boundary. White-Horse-to-Grant foregrounds the short official 4.5-mile split, White Horse rock-dam context, unsigned Grant rock-dam take-out, and portage recommendation. Grant-to-Rainbow starts below the Grant dam boundary and foregrounds rural rescue exposure, eroded banks, private banks, walk-down Rainbow Bend landing, and no unplanned Rainbow-to-Richey continuation.
+- Reviewed but not added: further North Raccoon through-cards were avoided because the new split cards plus existing Rainbow-to-Richey card now represent the official Sac/Calhoun chain; West Fork Des Moines remains threshold-weak; lower Wapsipinicon Clinton/Scott still lacks clean route-specific numeric threshold evidence; Black Hawk Creek Franck/Ranchero/Hope/Hudson leads remain duplicate-prone or weaker than this official chain.
+- Image posture: no route-gallery assets added after bounded Iowa DNR / Sac County / MyCountyParks / Travel Iowa / Commons / same-route review.
 
 ## 2026-07-24 02:09 Sac County North Raccoon pass
 
