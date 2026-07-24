@@ -275,6 +275,22 @@ export const illinoisRoutes: River[] = [
     "statusText": "Use the Belvidere USGS gauge. The most useful window is roughly 201 to 600 cfs. Below 200 cfs, expect low but usually passable water with scraping; above 600 cfs, the river is very high, less attractive, and less appropriate for a broad recommendation.",
     "latitude": 42.255487,
     "longitude": -88.861792,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "Use only the established Hickory Bills and Distillery Road public launches. Do not assume permission to land on private banks except for emergency safety needs.",
+        "Stage and inspect the Distillery Road take-out before launching because it is a natural conservation-area landing with posted hours and possible hunting-season or winter closures.",
+        "Stay inside the Belvidere-gauge planning window and skip high, dirty, or rising water after storms, when strainers, wood, and water-quality concerns become less beginner-friendly."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05438500",
       "provider": "usgs",

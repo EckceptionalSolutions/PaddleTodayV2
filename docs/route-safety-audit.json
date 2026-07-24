@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-24T05:31:49.100Z",
-  "routeCount": 908,
-  "issueCount": 577,
+  "generatedAt": "2026-07-24T07:32:11.724Z",
+  "routeCount": 920,
+  "issueCount": 576,
   "summary": {
     "Critical": 0,
-    "High": 345,
+    "High": 344,
     "Medium": 232,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "kishwaukee-river-hickory-bills-distillery",
-      "slug": "kishwaukee-river-hickory-bills-distillery",
-      "name": "Kishwaukee River",
-      "reach": "Hickory Bills Canoe Launch to Distillery Road Conservation Area",
-      "state": "Illinois",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ss package as the public-use authority and does not imply permission to land on private banks. Water-trail segment 4.35 to 4.7 miles The BCCD/Openlands Kishwaukee water-trail map lists Hickory Bills Island to Distillery Road as a 4.35-mile trip, while Wisconsi"
-    },
     {
       "routeId": "wabash-river-vera-cruz-hale-street",
       "slug": "wabash-river-vera-cruz-hale-street",
