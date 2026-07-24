@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 02:13 America/Chicago / 2026-07-24 07:13 UTC: Minnesota St. Croix Map 7 gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 226-route exported Minnesota baseline: `st-croix-river-highway-70-stevens-creek`, `st-croix-river-stevens-creek-sunrise`, and `st-croix-river-sunrise-wild-river`, bringing Minnesota to 229 live routes.
+  - Qualification path: NPS St. Croix Map 7, the current NPS St. Croix maps index, MN DNR's St. Croix water-trail page, MN DNR recommended-one-way list, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, and USGS fallback station context support the access pairs, route shape, gauges, camping posture, and caveats.
+  - Gauge posture: MN DNR St. Croix Falls site `236` returned `1,900 cfs` at `2026-07-24 00:00 CDT`, below the official `2,000 cfs` scrapable floor. All three use official St. Croix Falls bands only: `2,000 / 3,000-8,000 / 11,000 cfs`, with same-day visual-check caveats for the upstream Map 7 reaches.
+  - Safety/image posture: cards carry Stevens Creek rapids, shallow bars, wood, private-bank, motorboat/wind, Old Railroad erratic-current, old Nevers Dam turbulence, Indian Head Flowage, no-unplanned-continuation-to-dam-pool, designated Riverway camping, and Wild River permit/reservation caveats. No gallery image was selected after bounded NPS / DNR / public-access / Commons / same-route review.
+
 - 2026-07-24 02:09 America/Chicago / 2026-07-24 07:09 UTC: Iowa Sac County North Raccoon implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 121-route exported Iowa baseline: `north-raccoon-river-vogel-mcdonald`, `north-raccoon-river-mcdonald-riverview`, and `north-raccoon-river-sac-city-hagge`, bringing the intended Iowa count to 124 live routes.
   - Qualification path: Iowa DNR's North Raccoon Sac/Calhoun/Carroll water-trail guide, Sac County access pages, Sac City water-trail and park pages, Travel Iowa Hagge Park, MyCountyParks Hagge campground, and USGS Water Services support the three access-pair cards.

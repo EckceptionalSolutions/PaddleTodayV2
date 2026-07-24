@@ -12159,6 +12159,498 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "st-croix-river-highway-70-stevens-creek",
+    "slug": "st-croix-river-highway-70-stevens-creek",
+    "name": "St. Croix River",
+    "reach": "Highway 70 Landing to Stevens Creek Landing",
+    "state": "Minnesota",
+    "region": "Lower St. Croix",
+    "summary": "NPS Map 7 St. Croix Riverway split from Highway 70 to Stevens Creek Landing, filling the upstream Highway-70-to-Wild-River gap with public NPS landings, designated Riverway camping rules, and the official St. Croix Falls DNR gauge.",
+    "statusText": "Use St. Croix Falls as a downstream same-corridor check: 3,000 to 8,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 11,000 cfs is very high.",
+    "latitude": 45.7739241,
+    "longitude": -92.7820489,
+    "gaugeSource": {
+      "id": "mn-dnr-236",
+      "provider": "mn_dnr",
+      "siteId": "236",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "St. Croix River at St. Croix Falls, WI",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=37048002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=37048002&var1=262&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05340500",
+        "provider": "usgs",
+        "siteId": "05340500",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "proxy",
+        "siteName": "St. Croix River at St. Croix Falls, WI"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3000,
+      "idealMax": 8000,
+      "tooLow": 2000,
+      "tooHigh": 11000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for St. Croix River at St. Croix Falls",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.4,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the normal Riverway window. The St. Croix Falls gauge is downstream of the selected split, so pair it with same-day checks for shallow bars, Stevens Creek rapid character, wood, and wind.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is a short public-access St. Croix split, but NPS flags shallow summer water, downed trees, and a short rapid series around Stevens Creek Landing. It is not a no-current beginner lake paddle.",
+      "confidenceNotes": "Confidence is good: NPS Map 7 is the current Highway 70-to-Highway 8 section map, Minnesota public-water-access GIS resolves Highway 70 and Stevens Creek with river miles and coordinates, and the St. Croix Falls DNR gauge publishes official interpretation bands. Confidence is conservative because the gauge is downstream, so local visual checks remain required."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "NPS says a short series of rapids exists around Stevens Creek Landing. Scout from shore or take out earlier if the line is not clear for the group.",
+        "Shallow summer water can expose sandbars and force walking. Read channels from the boat and avoid dragging into private or restricted banks.",
+        "Use Riverway-designated sites and public landings only. Avoid fallen trees and treat rising water as a reason to reassess."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "St. Croix River, Highway 70 Landing",
+      "latitude": 45.7739241,
+      "longitude": -92.7820489
+    },
+    "takeOut": {
+      "name": "St. Croix River, Stevens Creek Public Water Access Site",
+      "latitude": 45.7294177,
+      "longitude": -92.8488268
+    },
+    "accessPoints": [
+      {
+        "id": "st-croix-highway-70",
+        "name": "St. Croix River, Highway 70 Landing",
+        "latitude": 45.7739241,
+        "longitude": -92.7820489,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS00085 near St. Croix river mile 89.5."
+      },
+      {
+        "id": "stevens-creek-landing",
+        "name": "St. Croix River, Stevens Creek Public Water Access Site",
+        "latitude": 45.7294177,
+        "longitude": -92.8488268,
+        "mileFromStart": 4.9,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS02204 near St. Croix river mile 84.6."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "About 4.9 river miles",
+        "note": "Minnesota public-water-access GIS places Highway 70 near river mile 89.5 and Stevens Creek near river mile 84.6 on the NPS Map 7 corridor.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "NPS Map 7 safety",
+        "value": "Shallow bars and Stevens Creek rapids",
+        "note": "NPS Map 7 warns that shallow water can create sandbars in summer and that a short series of rapids exists around Stevens Creek Landing.",
+        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "2,000 / 3,000-8,000 / 11,000 cfs",
+        "note": "MN DNR interprets St. Croix Falls as Scrapable below 2,000 cfs, Low from 2,000 to 3,000, Medium from 3,000 to 8,000, High from 8,000 to 11,000, and Very High above 11,000.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "1,900 cfs at 2026-07-24 00:00 CDT",
+        "note": "The current MN DNR feed placed St. Croix Falls below the official scrapable floor during this run, so this card should score as too low until flows recover.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping posture",
+        "value": "Designated Riverway campsites only",
+        "note": "NPS Map 7 allows camping only at designated first-come sites and lists limits for group size, stay length, fires, sanitation, trash, and food storage.",
+        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "NPS St. Croix Map 7 PDF",
+        "url": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      },
+      {
+        "label": "NPS St. Croix Riverway maps",
+        "url": "https://www.nps.gov/sacn/planyourvisit/maps.htm"
+      },
+      {
+        "label": "MN DNR St. Croix River State Water Trail",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
+    "id": "st-croix-river-stevens-creek-sunrise",
+    "slug": "st-croix-river-stevens-creek-sunrise",
+    "name": "St. Croix River",
+    "reach": "Stevens Creek Landing to Sunrise Landing",
+    "state": "Minnesota",
+    "region": "Lower St. Croix",
+    "summary": "Middle NPS Map 7 St. Croix Riverway day from Stevens Creek to Sunrise Landing, with source-backed public endpoints, designated Riverway camping rules, shallow-water cautions, and the official St. Croix Falls DNR gauge.",
+    "statusText": "Use St. Croix Falls as a downstream same-corridor check: 3,000 to 8,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 11,000 cfs is very high.",
+    "latitude": 45.7294177,
+    "longitude": -92.8488268,
+    "gaugeSource": {
+      "id": "mn-dnr-236",
+      "provider": "mn_dnr",
+      "siteId": "236",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "St. Croix River at St. Croix Falls, WI",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=37048002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=37048002&var1=262&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05340500",
+        "provider": "usgs",
+        "siteId": "05340500",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "proxy",
+        "siteName": "St. Croix River at St. Croix Falls, WI"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3000,
+      "idealMax": 8000,
+      "tooLow": 2000,
+      "tooHigh": 11000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for St. Croix River at St. Croix Falls",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.5,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the practical Riverway season. Below-medium St. Croix Falls readings can mean shallow bars and slower channel-finding in this midsection; high or rising water adds stronger current around wood and landings.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is a long enough Riverway day to require daylight and weather planning. It is not technical whitewater, but shallow bars, downed trees, private or restricted banks, and remote rescue exposure make it more than a short casual float.",
+      "confidenceNotes": "Confidence is good: NPS Map 7 covers the selected corridor, Minnesota public-water-access GIS resolves Stevens Creek and Sunrise with river miles and coordinates, and the St. Croix Falls DNR gauge has official bands. Confidence is capped because St. Croix Falls is downstream, so use the gauge as a conservative condition check rather than an exact local measurement."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "remote",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Avoid fallen trees and outside-bend strainers; NPS explicitly warns that trees in the river can catch and overturn boats.",
+        "Shallow summer water can expose sandbars and require walking. Check the St. Croix Falls gauge and make a local visual call before committing to the 12-plus-mile split.",
+        "Use only public landings and designated Riverway campsites. Keep private or restricted banks out of the bailout and camping plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "St. Croix River, Stevens Creek Public Water Access Site",
+      "latitude": 45.7294177,
+      "longitude": -92.8488268
+    },
+    "takeOut": {
+      "name": "St. Croix River, Sunrise Public Water Access Site",
+      "latitude": 45.5667416,
+      "longitude": -92.864868
+    },
+    "accessPoints": [
+      {
+        "id": "stevens-creek-landing",
+        "name": "St. Croix River, Stevens Creek Public Water Access Site",
+        "latitude": 45.7294177,
+        "longitude": -92.8488268,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS02204 near St. Croix river mile 84.6."
+      },
+      {
+        "id": "sunrise-landing",
+        "name": "St. Croix River, Sunrise Public Water Access Site",
+        "latitude": 45.5667416,
+        "longitude": -92.864868,
+        "mileFromStart": 12.7,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00299 near St. Croix river mile 71.9."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "About 12.7 river miles",
+        "note": "Minnesota public-water-access GIS places Stevens Creek near river mile 84.6 and Sunrise near river mile 71.9 on the NPS Map 7 corridor.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "NPS Map 7 corridor",
+        "value": "Highway 70 to Highway 8 section",
+        "note": "NPS publishes Map 7 as the detailed current Riverway section map for Highway 70 Landing to Highway 8, with access, campsite, low-water, fallen-tree, and current-condition guidance.",
+        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "2,000 / 3,000-8,000 / 11,000 cfs",
+        "note": "MN DNR interprets St. Croix Falls as Scrapable below 2,000 cfs, Low from 2,000 to 3,000, Medium from 3,000 to 8,000, High from 8,000 to 11,000, and Very High above 11,000.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "1,900 cfs at 2026-07-24 00:00 CDT",
+        "note": "The current MN DNR feed placed St. Croix Falls below the official scrapable floor during this run, so this card should score as too low until flows recover.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping posture",
+        "value": "Designated Riverway campsites only",
+        "note": "NPS Map 7 restricts camping to designated sites with stay, group-size, fire, sanitation, trash, and food-storage rules.",
+        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "NPS St. Croix Map 7 PDF",
+        "url": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      },
+      {
+        "label": "NPS St. Croix Riverway maps",
+        "url": "https://www.nps.gov/sacn/planyourvisit/maps.htm"
+      },
+      {
+        "label": "MN DNR St. Croix River State Water Trail",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
+    "id": "st-croix-river-sunrise-wild-river",
+    "slug": "st-croix-river-sunrise-wild-river",
+    "name": "St. Croix River",
+    "reach": "Sunrise Landing to Wild River State Park Landing",
+    "state": "Minnesota",
+    "region": "Lower St. Croix",
+    "summary": "Downstream NPS Map 7 St. Croix split from Sunrise Landing to Wild River State Park, ending before the existing Wild-River-to-Lion's-Park dam-pool card and using official DNR St. Croix Falls bands.",
+    "statusText": "Use St. Croix Falls as a downstream same-corridor check: 3,000 to 8,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 11,000 cfs is very high.",
+    "latitude": 45.5667416,
+    "longitude": -92.864868,
+    "gaugeSource": {
+      "id": "mn-dnr-236",
+      "provider": "mn_dnr",
+      "siteId": "236",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "St. Croix River at St. Croix Falls, WI",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=37048002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=37048002&var1=262&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05340500",
+        "provider": "usgs",
+        "siteId": "05340500",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "proxy",
+        "siteName": "St. Croix River at St. Croix Falls, WI"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3000,
+      "idealMax": 8000,
+      "tooLow": 2000,
+      "tooHigh": 11000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for St. Croix River at St. Croix Falls",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.6,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the practical Riverway season. The selected finish is upstream of the lake-like Indian Head Flowage and the St. Croix Falls dam-pool card, so do not extend past Wild River unless that separate take-out plan is staged.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is an approachable but committed Riverway split. NPS flags shallow-water sandbars, downed trees, erratic currents near old landings, and deceptively turbulent water at the old Nevers Dam site in this map section.",
+      "confidenceNotes": "Confidence is good: NPS Map 7 covers the Sunrise-to-Wild-River corridor, public-water-access GIS resolves both endpoints with river miles and coordinates, and the St. Croix Falls DNR gauge provides official interpretation bands. Confidence stays conservative because the gauge is downstream and the old Nevers Dam / flowage transition requires local visual checks."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "NPS warns that the river narrows at the old Nevers Dam site and can be deceptively turbulent there. Scout and avoid committing a novice group when water is pushy or rising.",
+        "Take out at Wild River State Park unless the separate Wild-River-to-Lion's-Park dam-pool route is staged. Do not let this become an unplanned approach to the Taylors Falls dam corridor.",
+        "Use designated Riverway campsites and public landings only. Watch for fallen trees, shallow bars, motorboat traffic near broader pools, and cold water."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "St. Croix River, Sunrise Public Water Access Site",
+      "latitude": 45.5667416,
+      "longitude": -92.864868
+    },
+    "takeOut": {
+      "name": "St. Croix River, Wild River State Park Public Water Access Site",
+      "latitude": 45.5227585,
+      "longitude": -92.7290202
+    },
+    "accessPoints": [
+      {
+        "id": "sunrise-landing",
+        "name": "St. Croix River, Sunrise Public Water Access Site",
+        "latitude": 45.5667416,
+        "longitude": -92.864868,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS00299 near St. Croix river mile 71.9."
+      },
+      {
+        "id": "wild-river-state-park-public-water-access",
+        "name": "St. Croix River, Wild River State Park Public Water Access Site",
+        "latitude": 45.5227585,
+        "longitude": -92.7290202,
+        "mileFromStart": 8.9,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00298 near St. Croix river mile 63.0."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "About 8.9 river miles",
+        "note": "Minnesota public-water-access GIS places Sunrise near river mile 71.9 and Wild River State Park near river mile 63.0 on the NPS Map 7 corridor.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "NPS hazard notes",
+        "value": "Old landings, Nevers Dam site, and flowage transition",
+        "note": "NPS Map 7 warns that currents can be erratic at Old Railroad Landing, the river narrows and can be deceptively turbulent at the old Nevers Dam site, and the downstream dam-pool section is lake-like.",
+        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "2,000 / 3,000-8,000 / 11,000 cfs",
+        "note": "MN DNR interprets St. Croix Falls as Scrapable below 2,000 cfs, Low from 2,000 to 3,000, Medium from 3,000 to 8,000, High from 8,000 to 11,000, and Very High above 11,000.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "1,900 cfs at 2026-07-24 00:00 CDT",
+        "note": "The current MN DNR feed placed St. Croix Falls below the official scrapable floor during this run, so this card should score as too low until flows recover.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping posture",
+        "value": "Designated Riverway and Wild River sites",
+        "note": "NPS Map 7 restricts Riverway camping to designated first-come sites and notes additional primitive shoreline campsites inside Wild River State Park are reservable for a fee.",
+        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "NPS St. Croix Map 7 PDF",
+        "url": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
+      },
+      {
+        "label": "NPS St. Croix Riverway maps",
+        "url": "https://www.nps.gov/sacn/planyourvisit/maps.htm"
+      },
+      {
+        "label": "MN DNR St. Croix River State Water Trail",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
     "id": "st-croix-river-wild-river-lions-park",
     "slug": "st-croix-river-wild-river-lions-park",
     "name": "St. Croix River",

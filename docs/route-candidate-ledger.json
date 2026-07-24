@@ -1,7 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T06:20:00Z",
+  "updatedAt": "2026-07-24T07:13:00Z",
   "notes": [
+    {
+      "date": "2026-07-24",
+      "automation": "minnesota-route-additions-2",
+      "summary": "Added three Minnesota St. Croix Map 7 route slugs beyond the 226-route current Minnesota baseline: st-croix-river-highway-70-stevens-creek, st-croix-river-stevens-creek-sunrise, and st-croix-river-sunrise-wild-river. Sources included NPS St. Croix Map 7 and current maps index, MN DNR St. Croix water-trail page, MN DNR recommended one-way list, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, and USGS 05340500 fallback context. Current DNR check returned St. Croix Falls site 236 at 1,900 cfs at 2026-07-24 00:00 CDT, below the official 2,000 cfs scrapable floor; all cards use official St. Croix Falls 2,000 / 3,000-8,000 / 11,000 cfs bands with upstream-split visual-check caveats. No route-gallery image was selected after bounded NPS / DNR / public-access / Commons / same-route review."
+    },
     {
       "date": "2026-07-24",
       "automation": "minnesota-route-additions-2",

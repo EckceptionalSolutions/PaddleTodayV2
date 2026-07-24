@@ -3928,6 +3928,159 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "st-croix-river-highway-70-stevens-creek": {
+    "putIn": {
+      "name": "St. Croix River, Highway 70 Landing",
+      "latitude": 45.7739241,
+      "longitude": -92.7820489
+    },
+    "takeOut": {
+      "name": "St. Croix River, Stevens Creek Public Water Access Site",
+      "latitude": 45.7294177,
+      "longitude": -92.8488268
+    },
+    "logistics": {
+      "distanceLabel": "About 4.9 mi",
+      "estimatedPaddleTime": "About 1.75 hr to 3 hr, longer with low-water dragging or rapid scouting",
+      "shuttle": "Stage Stevens Creek Landing first, then drive back to Highway 70. Walk the Stevens Creek take-out before launching because the short rapid series is near the finish.",
+      "permits": "No route-specific paddling permit is known. Follow National Scenic Riverway rules, Minnesota boating/PFD requirements, and posted NPS/DNR public-access and campsite rules.",
+      "camping": "NPS Map 7 allows camping only at designated first-come Riverway sites with stay, group-size, fire, sanitation, trash, and food-storage rules. Treat this short split as a day route unless a designated campsite is deliberately part of the plan.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Highway 70 and take out at Stevens Creek for the first missing NPS Map 7 St. Croix split below the existing Sand-Creek-to-Highway-70 card. The downstream St. Croix Falls DNR gauge was below scrapable during this run.",
+      "accessCaveats": [
+        "Minnesota public-water-access GIS resolves Highway 70 as WAS00085 near river mile 89.5 and Stevens Creek as WAS02204 near river mile 84.6.",
+        "The St. Croix Falls gauge is downstream of this split. Use it as the official corridor check, then make a local visual call for shallow bars, rapid shape, and wood.",
+        "Do not treat private banks or unsigned shoreline as bailout or camping options."
+      ],
+      "watchFor": [
+        "The short series of rapids around Stevens Creek Landing noted by NPS Map 7.",
+        "Shallow summer bars, channel reading, and possible walking when St. Croix Falls is below the official floor.",
+        "Fallen trees, cold water, private banks, Riverway campsite rules, and changing current after rain."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "st-croix-highway-70",
+        "name": "St. Croix River, Highway 70 Landing",
+        "latitude": 45.7739241,
+        "longitude": -92.7820489,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS00085 near river mile 89.5."
+      },
+      {
+        "id": "stevens-creek-landing",
+        "name": "St. Croix River, Stevens Creek Public Water Access Site",
+        "latitude": 45.7294177,
+        "longitude": -92.8488268,
+        "mileFromStart": 4.9,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS02204 near river mile 84.6."
+      }
+    ]
+  },
+  "st-croix-river-stevens-creek-sunrise": {
+    "putIn": {
+      "name": "St. Croix River, Stevens Creek Public Water Access Site",
+      "latitude": 45.7294177,
+      "longitude": -92.8488268
+    },
+    "takeOut": {
+      "name": "St. Croix River, Sunrise Public Water Access Site",
+      "latitude": 45.5667416,
+      "longitude": -92.864868
+    },
+    "logistics": {
+      "distanceLabel": "About 12.7 mi",
+      "estimatedPaddleTime": "About 4.5 hr to 6.5 hr, longer with low water, headwind, or campsite stops",
+      "shuttle": "Stage Sunrise Landing first, then drive back to Stevens Creek. Confirm the Sunrise landing and daylight margin before committing because public exits are limited.",
+      "permits": "No route-specific paddling permit is known. Follow National Scenic Riverway rules, Minnesota boating/PFD requirements, and posted NPS/DNR public-access and campsite rules.",
+      "camping": "Use only designated first-come Riverway campsites under current NPS rules. Do not assume island, sandbar, private-bank, or unsigned shoreline camping is legal.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Stevens Creek and take out at Sunrise Landing for the middle NPS Map 7 St. Croix split. This fills a practical day-route gap between the Highway 70 and Wild River endpoints.",
+      "accessCaveats": [
+        "Minnesota public-water-access GIS resolves Stevens Creek as WAS02204 near river mile 84.6 and Sunrise as WAS00299 near river mile 71.9.",
+        "The St. Croix Falls gauge is downstream of the route, so local depth, wood, and landing checks matter before launch.",
+        "Keep stops to legal Riverway sites and public landings; much of the shoreline cannot be used as an improvised exit."
+      ],
+      "watchFor": [
+        "Fallen trees, strainers, cold water, and remote rescue spacing.",
+        "Shallow bars or walking in summer low water, especially when St. Croix Falls is below the official floor.",
+        "High or rising water, wind, private/restricted banks, and Riverway campsite regulations."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "stevens-creek-landing",
+        "name": "St. Croix River, Stevens Creek Public Water Access Site",
+        "latitude": 45.7294177,
+        "longitude": -92.8488268,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS02204 near river mile 84.6."
+      },
+      {
+        "id": "sunrise-landing",
+        "name": "St. Croix River, Sunrise Public Water Access Site",
+        "latitude": 45.5667416,
+        "longitude": -92.864868,
+        "mileFromStart": 12.7,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00299 near river mile 71.9."
+      }
+    ]
+  },
+  "st-croix-river-sunrise-wild-river": {
+    "putIn": {
+      "name": "St. Croix River, Sunrise Public Water Access Site",
+      "latitude": 45.5667416,
+      "longitude": -92.864868
+    },
+    "takeOut": {
+      "name": "St. Croix River, Wild River State Park Public Water Access Site",
+      "latitude": 45.5227585,
+      "longitude": -92.7290202
+    },
+    "logistics": {
+      "distanceLabel": "About 8.9 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr, longer with low water, wind, or turbulence checks",
+      "shuttle": "Stage Wild River State Park first, then drive back to Sunrise Landing. Wild River State Park vehicle permits and park rules may apply for vehicles using the landing.",
+      "permits": "No route-specific paddling permit is known. Follow National Scenic Riverway rules, Minnesota boating/PFD requirements, Wild River State Park vehicle and site rules, and posted public-access rules.",
+      "camping": "NPS Map 7 allows only designated Riverway camping and notes additional primitive shoreline campsites inside Wild River State Park that are reservable for a fee. Treat overnight use as designated or reserved only.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Sunrise and take out at Wild River State Park to finish the missing Map 7 chain above the existing Wild-River-to-Lion's-Park dam-pool card.",
+      "accessCaveats": [
+        "Minnesota public-water-access GIS resolves Sunrise as WAS00299 near river mile 71.9 and Wild River State Park as WAS00298 near river mile 63.0.",
+        "Wild River is the planned finish. Continuing downstream changes the trip into the separate Indian Head Flowage and Taylors Falls dam-takeout route.",
+        "The St. Croix Falls gauge is downstream, so pair it with local checks for the old Nevers Dam site, wind, and shallow bars."
+      ],
+      "watchFor": [
+        "Deceptively turbulent current where NPS says the river narrows at the old Nevers Dam site.",
+        "Erratic current around old landings, fallen trees, shallow summer sandbars, cold water, and private banks.",
+        "Wind and motorboat effects near broader water as the route approaches the Wild River / Indian Head Flowage transition."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "sunrise-landing",
+        "name": "St. Croix River, Sunrise Public Water Access Site",
+        "latitude": 45.5667416,
+        "longitude": -92.864868,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS00299 near river mile 71.9."
+      },
+      {
+        "id": "wild-river-state-park-public-water-access",
+        "name": "St. Croix River, Wild River State Park Public Water Access Site",
+        "latitude": 45.5227585,
+        "longitude": -92.7290202,
+        "mileFromStart": 8.9,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00298 near river mile 63.0."
+      }
+    ]
+  },
   "st-croix-river-wild-river-lions-park": {
     "putIn": {
       "name": "St. Croix River, Wild River State Park Public Water Access Site",
