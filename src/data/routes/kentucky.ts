@@ -463,6 +463,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, expect shallow riffles, dragging, and a harder day; above that, this narrow creek gets pushier around wood, fords, and bends.",
     "latitude": 37.1242,
     "longitude": -85.3395,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the 7.8-mile KDFWR segment as a narrow, fairly remote riffle/run creek with limited amenities, not as a park-style beginner float.",
+        "Stay within KDFWR's 100 to 350 cfs or 3.5 to 4.5 ft good band; lower water means dragging, while higher water gets pushier around wood, fords, and bends.",
+        "Use only the Hatcher/Todd Ford and Milltown public access areas, do not block the ford, and respect private property near the limited parking areas."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03307000",
       "provider": "usgs",
@@ -573,6 +587,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, expect shallow riffles, dragging, and a slower day; above that, this narrow creek gets pushier around wood, bends, and the slab take-out.",
     "latitude": 37.1237,
     "longitude": -85.4049,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Plan the 13.2-mile KDFWR segment as a long rural moving-water day with few bailout conveniences and no amenities at either access.",
+        "Stay within KDFWR's 100 to 350 cfs or 3.5 to 4.5 ft good band; lower water adds repeated dragging, while higher water gets pushier around wood and narrow bends.",
+        "Confirm the Russell Creek Road slab-crossing take-out before launch, keep stops to documented public access, and respect private-adjacent banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03307000",
       "provider": "usgs",
@@ -683,6 +711,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, this long narrow-creek day turns into repeated scraping and delay; above that, current and wood stack consequences quickly on a 21-mile commitment.",
     "latitude": 37.1242,
     "longitude": -85.3395,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "strainers",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the 21-mile combined KDFWR chain as an expert-judgment daylight commitment, even though the creek is not technical whitewater.",
+        "Launch only with enough water, weather margin, daylight, and shuttle certainty; low water, wood, thunderstorms, or a late start can make the route hard to finish.",
+        "Use Milltown as the only documented midpoint access, expect private banks away from public sites, and inspect the Russell Creek Road slab-crossing take-out before committing."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03307000",
       "provider": "usgs",

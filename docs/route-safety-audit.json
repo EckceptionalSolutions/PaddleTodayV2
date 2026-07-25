@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-25T21:48:06.904Z",
+  "generatedAt": "2026-07-25T23:48:30.504Z",
   "routeCount": 937,
-  "issueCount": 478,
+  "issueCount": 471,
   "summary": {
     "Critical": 0,
-    "High": 276,
+    "High": 269,
     "Medium": 202,
     "Low": 0
   },
@@ -339,83 +339,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "at this longer route can feel slow and shoaly; above that the mainstem current, wood, and fatigue make the full downstream commitment much less forgiving. The water is not technical at normal levels, but the full 16.3-mile lower-Levisa commitment is a longer d"
-    },
-    {
-      "routeId": "russell-creek-hatcher-todd-ford-milltown",
-      "slug": "russell-creek-hatcher-todd-ford-milltown",
-      "name": "Russell Creek",
-      "reach": "Hatcher Road / Todd Ford Road Access to Milltown Road Bridge Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "rrow, fairly remote, and access points as far apart. The route is not technical whitewater, but 7.8 miles of riffle/run habitat, limited amenities, private-adjacent banks, wood, fords, and low-water dragging make it more committed than an easy park float. Conf"
-    },
-    {
-      "routeId": "russell-creek-hatcher-todd-ford-milltown",
-      "slug": "russell-creek-hatcher-todd-ford-milltown",
-      "name": "Russell Creek",
-      "reach": "Hatcher Road / Todd Ford Road Access to Milltown Road Bridge Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": ", dragging, and a harder day; above that, this narrow creek gets pushier around wood, fords, and bends. KDFWR describes Russell Creek as narrow, fairly remote, and access points as far apart. The route is not technical whitewater, but 7.8 miles of riffle/run h"
-    },
-    {
-      "routeId": "russell-creek-hatcher-todd-ford-milltown",
-      "slug": "russell-creek-hatcher-todd-ford-milltown",
-      "name": "Russell Creek",
-      "reach": "Hatcher Road / Todd Ford Road Access to Milltown Road Bridge Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "idge accesses KDFWR says both endpoints provide canoe/kayak access with limited parking and no amenities; bank fishing is limited near each access because adjacent property is private. Hatcher/Todd Ford users should not block the ford. Live direct gauge USGS 0"
-    },
-    {
-      "routeId": "russell-creek-hatcher-todd-ford-russell-creek-road",
-      "slug": "russell-creek-hatcher-todd-ford-russell-creek-road",
-      "name": "Russell Creek",
-      "reach": "Hatcher Road / Todd Ford Road Access to Russell Creek Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "russell-creek-hatcher-todd-ford-russell-creek-road",
-      "slug": "russell-creek-hatcher-todd-ford-russell-creek-road",
-      "name": "Russell Creek",
-      "reach": "Hatcher Road / Todd Ford Road Access to Russell Creek Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "consequences quickly on a 21-mile commitment. The creek itself is not technical whitewater, but KDFWR describes it as narrow and remote with access points far apart. Combining the first two official public segments into a 21-mile run creates a dawn-to-dusk com"
-    },
-    {
-      "routeId": "russell-creek-hatcher-todd-ford-russell-creek-road",
-      "slug": "russell-creek-hatcher-todd-ford-russell-creek-road",
-      "name": "Russell Creek",
-      "reach": "Hatcher Road / Todd Ford Road Access to Russell Creek Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "arrow-creek day turns into repeated scraping and delay; above that, current and wood stack consequences quickly on a 21-mile commitment. The creek itself is not technical whitewater, but KDFWR describes it as narrow and remote with access points far apart. Com"
-    },
-    {
-      "routeId": "russell-creek-milltown-russell-creek-road",
-      "slug": "russell-creek-milltown-russell-creek-road",
-      "name": "Russell Creek",
-      "reach": "Milltown Road Bridge Access to Russell Creek Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": ", dragging, and a slower day; above that, this narrow creek gets pushier around wood, bends, and the slab take-out. This is a longer version of the same narrow, remote Russell Creek character KDFWR describes upstream. The 13.2-mile length, limited amenities, p"
     },
     {
       "routeId": "russell-creek-russell-creek-road-green-river-russell-creek-vpa",
