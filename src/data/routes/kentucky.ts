@@ -5404,6 +5404,21 @@ export const kentuckyRoutes: River[] = [
       "siteName": "Drakes Creek near Alvaton, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03314000/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "access_uncertain",
+        "whitewater"
+      ],
+      "safetyNotes": [
+        "Warren County identifies the Romanza ford hydraulic as dangerous when water is flowing over the ford, so skip the route when the ford, current, or county flag status looks wrong.",
+        "This minimum-only gauge model does not define a safe high-water ceiling. Treat rising water, storms, strainers, and debris as stop signals rather than stretching the 100 cfs floor into a general go condition.",
+        "Both endpoint parks operate on limited public access rules and close at dark, so confirm current park status and leave enough daylight that a delay does not force an after-hours take-out."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 100,
@@ -8329,6 +8344,20 @@ export const kentuckyRoutes: River[] = [
       "kind": "direct",
       "siteName": "Barren River near Finney, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "private_banks",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Barren River VPA #3 is private property in the Voluntary Public Access program, so keep staging tight, follow all posted rules, and do not treat the launch as a general public park.",
+        "KDFWR says Martinsville Ford is surrounded by private property and that boaters should expect shallow shoals and deep rocky pools, making low water and informal bank stops poor assumptions.",
+        "The KDFWR Finney band is narrow at 78.0 to 78.5 ft; treat levels outside it, recent rain, and changing current as reasons for extra caution even on this short segment."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",

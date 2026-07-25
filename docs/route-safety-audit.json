@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-25T03:42:12.824Z",
+  "generatedAt": "2026-07-25T05:45:13.255Z",
   "routeCount": 937,
-  "issueCount": 534,
+  "issueCount": 529,
   "summary": {
     "Critical": 0,
-    "High": 318,
-    "Medium": 216,
+    "High": 315,
+    "Medium": 214,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "barren-river-vpa-3-martinsville",
-      "slug": "barren-river-vpa-3-martinsville",
-      "name": "Barren River",
-      "reach": "Barren River VPA #3 to Martinsville Ford / Claypool Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ard broad-river day segment with simple route-finding, but it still has shoals, private banks, a private-land VPA launch, and changing current that deserve more respect than the mileage alone suggests. Confidence is high for a conservative Kentucky add: KDFWR"
-    },
-    {
-      "routeId": "drakes-creek-romanza-johnson-phil-moore",
-      "slug": "drakes-creek-romanza-johnson-phil-moore",
-      "name": "Drakes Creek",
-      "reach": "Romanza Johnson Park to Phil Moore Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "reek; below that, expect dragging. Avoid high or rising water, the Romanza ford hydraulic, strainers, and any red-flag or posted park/access closure. Warren County and local blueway material frame Romanza Johnson Park to Phil Moore Park as a common six-mile re"
-    },
-    {
-      "routeId": "drakes-creek-romanza-johnson-phil-moore",
-      "slug": "drakes-creek-romanza-johnson-phil-moore",
-      "name": "Drakes Creek",
-      "reach": "Romanza Johnson Park to Phil Moore Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": ", the Romanza ford hydraulic, strainers, and any red-flag or posted park/access closure. Warren County and local blueway material frame Romanza Johnson Park to Phil Moore Park as a common six-mile recreational float. It is generally approachable at ordinary le"
-    },
     {
       "routeId": "floyds-fork-creekside-broad-run-valley",
       "slug": "floyds-fork-creekside-broad-run-valley",
@@ -3540,28 +3507,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": ", USGS 05412400 is a direct same-river live gauge downstream at Littleport, and Water Quality Portal/Iowa DNR records support the Mederville access coordinates. The route uses Osborne Canoe Access rather than the rougher Hwy 13 bridge launch because the county"
-    },
-    {
-      "routeId": "barren-river-vpa-3-martinsville",
-      "slug": "barren-river-vpa-3-martinsville",
-      "name": "Barren River",
-      "reach": "Barren River VPA #3 to Martinsville Ford / Claypool Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "the day over shoals; above that is high and deserves extra current and landing caution. This is a straightforward broad-river day segment with simple route-finding, but it still has shoals, private banks, a private-land VPA launch, and changing current that d"
-    },
-    {
-      "routeId": "drakes-creek-romanza-johnson-phil-moore",
-      "slug": "drakes-creek-romanza-johnson-phil-moore",
-      "name": "Drakes Creek",
-      "reach": "Romanza Johnson Park to Phil Moore Park",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Popular Warren County Blueways trip from Romanza Johnson Park on Trammel Fork into Drakes Creek and down to Phil Moore Park. Warren County and KDFWR support the public accesses, an"
     },
     {
       "routeId": "floyds-fork-fisherville-cliffside",
