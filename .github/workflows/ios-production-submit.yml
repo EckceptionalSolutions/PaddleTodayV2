@@ -42,6 +42,9 @@ jobs:
       - name: Typecheck mobile app
         run: npm run mobile:typecheck
 
+      - name: Test mobile app
+        run: npm test --workspace @paddletoday/mobile
+
       - name: Build iOS production and submit to App Store Connect
         working-directory: apps/mobile
         run: eas build --platform ios --profile production --auto-submit --non-interactive

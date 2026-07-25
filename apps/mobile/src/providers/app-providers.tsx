@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Constants from 'expo-constants';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
 import { focusManager, MutationCache, QueryCache, QueryClient } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
@@ -9,11 +10,17 @@ import { captureAppException, trackAppEvent } from '../lib/observability';
 import { AlertPreferencesProvider } from './alert-preferences-provider';
 import { SavedRiversProvider } from './saved-rivers-provider';
 import { StoredLocationProvider } from '../hooks/use-stored-location';
+import { QUERY_CACHE_STORAGE_KEY, queryCacheBuster } from '../lib/query-cache';
 
 const queryPersister = createAsyncStoragePersister({
   storage: AsyncStorage,
-  key: 'paddletoday-mobile-query-cache',
+  key: QUERY_CACHE_STORAGE_KEY,
 });
+
+const QUERY_CACHE_BUSTER = queryCacheBuster(
+  Constants.nativeAppVersion ?? Constants.expoConfig?.version,
+  Constants.nativeBuildVersion
+);
 
 export function AppProviders({ children }: PropsWithChildren) {
   const [queryClient] = useState(
@@ -64,6 +71,7 @@ export function AppProviders({ children }: PropsWithChildren) {
       client={queryClient}
       persistOptions={{
         persister: queryPersister,
+        buster: QUERY_CACHE_BUSTER,
         maxAge: 24 * 60 * 60 * 1000,
         dehydrateOptions: {
           shouldDehydrateQuery: (query) => query.state.status === 'success',

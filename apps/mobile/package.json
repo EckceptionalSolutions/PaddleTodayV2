@@ -8,6 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
     "release-check": "node ../../scripts/mobile-release-check.mjs",
     "eas": "eas",
     "ios:testflight": "eas build --platform ios --profile production --auto-submit"

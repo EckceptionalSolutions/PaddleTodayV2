@@ -1,8 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants, { ExecutionEnvironment } from 'expo-constants';
 import { Component, createElement, type ComponentType, type ErrorInfo, type PropsWithChildren, type ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { recordFeedbackUsageEvent } from './feedback-usage';
 import { colors, radius, spacing } from '../theme/tokens';
+import { QUERY_CACHE_STORAGE_KEY } from './query-cache';
 
 type EventProperties = Record<string, boolean | number | string | null | undefined>;
 type FirebaseBridge = {
@@ -75,13 +77,23 @@ class RenderErrorBoundary extends Component<
         Pressable,
         {
           style: styles.renderErrorButton,
-          onPress: () => this.setState({ hasError: false }),
+          onPress: () => void this.recover(),
           accessibilityRole: 'button',
           accessibilityLabel: 'Try this screen again',
         },
         createElement(Text, { style: styles.renderErrorButtonText }, 'Try again')
       )
     );
+  }
+
+  private async recover() {
+    try {
+      await AsyncStorage.removeItem(QUERY_CACHE_STORAGE_KEY);
+    } catch (error) {
+      captureAppException(error, { name: 'render_error_cache_reset' });
+    } finally {
+      this.setState({ hasError: false });
+    }
   }
 }
 

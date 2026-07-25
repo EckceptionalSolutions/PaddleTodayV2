@@ -44,6 +44,9 @@ jobs:
       - name: Typecheck mobile app
         run: npm run mobile:typecheck
 
+      - name: Test mobile app
+        run: npm test --workspace @paddletoday/mobile
+
       - name: Build Android production app bundle
         working-directory: apps/mobile
         run: eas build --platform android --profile production --local --non-interactive
