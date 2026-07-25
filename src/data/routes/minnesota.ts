@@ -4800,6 +4800,22 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft can make the rapids at the mouth bony or partially impassable, while above 20 ft pushes the finish well beyond a casual urban paddle.",
     "latitude": 45.5600406,
     "longitude": -94.2446825,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR marks the final 2.5 miles above Heims Mill as boulder-filled Class I-II rapids with scattered surfing waves; treat Pineview to Heims as a moving-water route, not an easy city float.",
+        "Stay near the official 15 to 17 ft St. Martin band. Low water can make the rapids bony or partly impassable, while levels above 20 ft increase current speed and recovery consequence.",
+        "Watch for snags, deadfall, and private shoreline constraints. Use the signed Pineview and Heims Mill carry-ins and stop only where public access or posted rules allow."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -6104,6 +6120,22 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the final rapids can turn bony or partly impassable, while above 20 ft the stronger current raises the consequence even on this moderate-length route.",
     "latitude": 45.5504544,
     "longitude": -94.2641031,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR marks the final 2.5 miles above Heims Mill as boulder-filled Class I-II rapids with scattered surfing waves; the Miller-to-Heims route saves the technical section for the finish.",
+        "Stay near the official 15 to 17 ft St. Martin band. Low water can make the rapids bony or partly impassable, while levels above 20 ft increase current speed and recovery consequence.",
+        "Watch for snags, deadfall, and private shoreline constraints. Use the county-managed Miller Landing and Heims Mill carry-ins and confirm same-day park hours before leaving vehicles."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -6225,6 +6257,22 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the final rapids can turn bony or partly impassable, while above 20 ft the short mileage does not cancel the stronger consequence.",
     "latitude": 45.5670560130672,
     "longitude": -94.2286380074072,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR marks the final 2.5 miles above Heims Mill as boulder-filled Class I-II rapids with scattered surfing waves; Knights of Columbus to Heims is short but still technical.",
+        "Stay near the official 15 to 17 ft St. Martin band. Low water can make the rapids bony or partly impassable, while levels above 20 ft increase current speed and recovery consequence.",
+        "Watch for snags, deadfall, and private shoreline constraints. Use the documented Knights of Columbus Park and Heims Mill carry-ins and scout the simple county take-out before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",

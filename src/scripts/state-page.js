@@ -1,4 +1,4 @@
-import { MAP_STYLE_URL, ensureMapLibre, escapeHtml, markerClassForRating, riverNameVariants, syncActualRiverLayer } from './map-runtime.js';
+import { MAP_STYLE_URL, ensureMapLibre, escapeHtml, markerClassForRating, riverNameVariants, scoreZoneRouteLabel, syncActualRiverLayer } from './map-runtime.js';
 import { ratingDisplayLabel } from './ui-taxonomy.js';
 import { canonicalRiverRouteLineFromFeature, loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
 import {
@@ -151,7 +151,7 @@ function stateScoreZonePopupMarkup(group) {
       <h3>${escapeHtml(river.name || 'River')}</h3>
       <div class="score-map-popup__scoreline">
         <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
-        <p class="score-map-popup__verdict">${escapeHtml(`${routeCount} ${routeCount === 1 ? 'route' : 'routes'} in this score zone`)}</p>
+        <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, item))}</p>
       </div>
       <p class="score-map-popup__reach">${escapeHtml(river.reach || 'Mapped coverage')}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(river.slug || '')}/">View route</a>

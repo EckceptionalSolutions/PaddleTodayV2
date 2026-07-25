@@ -87,6 +87,17 @@ export function markerClassForRating(rating, confidenceLabel) {
   ].join(' ');
 }
 
+export function scoreZoneRouteLabel(routeCount, route) {
+  if (routeCount !== 1) {
+    return `${routeCount} routes in this score zone`;
+  }
+
+  const river = route?.river ?? route ?? {};
+  const putIn = river.putIn?.name || river.putIn?.id || 'Put-in unavailable';
+  const takeOut = river.takeOut?.name || river.takeOut?.id || 'Take-out unavailable';
+  return `IN: ${putIn} · OUT: ${takeOut}`;
+}
+
 export function bindMarkerPopup(marker, markerNode, options = {}) {
   const ensurePopupVisible = () => {
     const popup = marker.getPopup();

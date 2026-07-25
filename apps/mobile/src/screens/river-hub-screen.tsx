@@ -71,9 +71,8 @@ export default function RiverHubScreen() {
     region: regionFilter,
   }), [difficultyFilter, distanceFilter, regionFilter]);
   const filteredRoutes = useMemo(() => filterRiverHubRoutes(allRoutes, filters), [allRoutes, filters]);
-  const corridorRoutes = useMemo(() => uniqueRoutesByCorridor(filteredRoutes), [filteredRoutes]);
-  const bestRoute = useMemo(() => [...corridorRoutes].sort(compareBestRoute)[0] ?? null, [corridorRoutes]);
-  const routes = useMemo(() => sortedRoutes(corridorRoutes, sortMode), [corridorRoutes, sortMode]);
+  const bestRoute = useMemo(() => [...filteredRoutes].sort(compareBestRoute)[0] ?? null, [filteredRoutes]);
+  const routes = useMemo(() => sortedRoutes(filteredRoutes, sortMode), [filteredRoutes, sortMode]);
   const routePoints = useMemo(() => routeMapPoints(routes), [routes]);
   const coverageSpans = useMemo(
     () => routes.map(routeSpanCoordinates).filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2)),
@@ -346,7 +345,7 @@ export default function RiverHubScreen() {
                 </View>
               ) : null}
               <Text style={styles.resultCount}>
-                Showing {routes.length} of {uniqueRoutesByCorridor(allRoutes).length} stretches
+                Showing {routes.length} of {allRoutes.length} stretches
                 {filterCount ? ` · ${filterCount} active ${filterCount === 1 ? 'filter' : 'filters'}` : ''}
               </Text>
               <View style={styles.sortTabs}>
@@ -442,7 +441,7 @@ function RouteChoiceCard({
             {rank ? <Text style={styles.routeRank}>Rank #{rank}</Text> : null}
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
-          <Text style={styles.routeName} numberOfLines={2}>{route.river.corridorLabel ?? route.river.reach}</Text>
+          <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
           <Text style={styles.routeVerdict}>{verdictForRating(route.rating)}</Text>
           <Text style={styles.routeMeta} numberOfLines={2}>
             {groupedReachCount} {groupedReachCount === 1 ? 'reach uses' : 'reaches share'} these conditions · {routeMetaLine(route)}
@@ -739,16 +738,6 @@ function corridorKey(route: RiverDetailApiResult) {
   return route.river.continuityStatus === 'condition-family'
     ? route.river.conditionZoneId || route.river.slug
     : route.river.corridorId || route.river.conditionZoneId || route.river.riverId || route.river.slug;
-}
-
-function uniqueRoutesByCorridor(routes: RiverDetailApiResult[]) {
-  const seen = new Set<string>();
-  return routes.filter((route) => {
-    const key = corridorKey(route);
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
 }
 
 function groupedReachCountForRoute(route: RiverDetailApiResult, routes: RiverDetailApiResult[]) {

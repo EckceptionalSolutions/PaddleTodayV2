@@ -104,3 +104,65 @@ export function coverageCenterForRoutes(results) {
     latitude: centers.reduce((sum, point) => sum + point.latitude, 0) / centers.length,
   };
 }
+
+/**
+ * Returns a coverage center constrained to the mapped river geometry when it
+ * is available. A raw access-point average can fall off the river on a bend.
+ */
+export function coverageAnchorForRoutes(results, geometryBySlug) {
+  const center = coverageCenterForRoutes(results);
+  if (!center || !geometryBySlug) return center;
+
+  const lines = (Array.isArray(results) ? results : [])
+    .flatMap((result) => {
+      const route = riverForResult(result);
+      const stored = geometryBySlug.get?.(route.slug)?.geometry;
+      const geometryLines = flattenCoverageGeometry(stored);
+      if (geometryLines.length > 0) return geometryLines;
+
+      const fallbackPoints = routeCoveragePoints(result);
+      return fallbackPoints.length >= 2
+        ? [fallbackPoints.map((point) => [point.longitude, point.latitude])]
+        : [];
+    });
+  if (lines.length === 0) return center;
+
+  let best = null;
+  for (const line of lines) {
+    for (let index = 1; index < line.length; index += 1) {
+      const candidate = nearestPointOnCoverageSegment(center, line[index - 1], line[index]);
+      if (!best || candidate.distanceSquared < best.distanceSquared) best = candidate;
+    }
+  }
+
+  return best ? { longitude: best.longitude, latitude: best.latitude } : center;
+}
+
+function flattenCoverageGeometry(geometry) {
+  if (!geometry) return [];
+  if (geometry.type === 'LineString') return [geometry.coordinates];
+  if (geometry.type === 'MultiLineString') return geometry.coordinates;
+  return [];
+}
+
+function nearestPointOnCoverageSegment(target, start, end) {
+  const latitudeScale = Math.cos((target.latitude * Math.PI) / 180);
+  const startX = start[0] * latitudeScale;
+  const startY = start[1];
+  const endX = end[0] * latitudeScale;
+  const endY = end[1];
+  const targetX = target.longitude * latitudeScale;
+  const targetY = target.latitude;
+  const dx = endX - startX;
+  const dy = endY - startY;
+  const lengthSquared = dx * dx + dy * dy;
+  const rawT = lengthSquared === 0
+    ? 0
+    : ((targetX - startX) * dx + (targetY - startY) * dy) / lengthSquared;
+  const t = Math.max(0, Math.min(1, rawT));
+  const longitude = start[0] + (end[0] - start[0]) * t;
+  const latitude = start[1] + (end[1] - start[1]) * t;
+  const distanceSquared = ((longitude - target.longitude) * latitudeScale) ** 2
+    + (latitude - target.latitude) ** 2;
+  return { longitude, latitude, distanceSquared };
+}

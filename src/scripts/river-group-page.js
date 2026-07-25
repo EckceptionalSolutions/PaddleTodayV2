@@ -4,6 +4,7 @@ import {
   ensureMapLibre,
   escapeHtml,
   markerClassForRating,
+  scoreZoneRouteLabel,
   syncActualRiverLayer,
 } from './map-runtime.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
@@ -12,7 +13,7 @@ import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
-import { coverageCenterForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
+import { coverageAnchorForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -86,11 +87,11 @@ function setText(field, value) {
 
 function decisionLabel(rating, score = null) {
   return ratingVerdictLabel(rating, Number(score), {
-    strongMaxLabel: 'Ideal today',
-    strongLabel: 'Great today',
-    goodLabel: 'Solid option',
-    fairLabel: 'Paddleable with tradeoffs',
-    noGoLabel: 'Skip today',
+    strongMaxLabel: 'Strong',
+    strongLabel: 'Strong',
+    goodLabel: 'Good',
+    fairLabel: 'Fair: tradeoffs',
+    noGoLabel: 'No-go',
   });
 }
 
@@ -980,15 +981,18 @@ function clearConditionScoreMarkers() {
 function conditionScorePopupMarkup(group) {
   const representative = group.representative;
   const routeCount = group.routes.length;
+  const reachMarkup = routeCount === 1
+    ? ''
+    : `<p class="score-map-popup__reach">${escapeHtml(representative?.reach || 'Mapped river coverage')}</p>`;
   return `
     <article class="score-map-popup">
       <p class="score-map-popup__state">${escapeHtml(group.regions.join(', ') || representative?.region || 'River score zone')}</p>
       <h3>${escapeHtml(representative?.name || currentResult?.group?.name || 'River')}</h3>
       <div class="score-map-popup__scoreline">
         <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
-        <p class="score-map-popup__verdict">${escapeHtml(`${routeCount} ${routeCount === 1 ? 'route' : 'routes'} share these conditions`)}</p>
+        <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, representative))}</p>
       </div>
-      <p class="score-map-popup__reach">${escapeHtml(representative?.reach || 'Mapped river coverage')}</p>
+      ${reachMarkup}
       <button class="score-map-popup__link score-map-popup__link--button" type="button" data-score-zone-route="${escapeHtml(representative?.slug || '')}">Select this stretch</button>
     </article>
   `;
@@ -999,37 +1003,49 @@ function syncConditionScoreMarkers(routes, maplibregl) {
   if (!mapRuntime) return;
 
   for (const group of groupRoutesByConditionScore(routes)) {
-    const point = coverageCenterForRoutes(group.routes);
-    if (!point || group.score === null) continue;
+    for (const route of group.routes) {
+      const point = coverageAnchorForRoutes([route], routeGeometryBySlug);
+      if (!point || group.score === null) continue;
+      const routeGroup = {
+        ...group,
+        routes: [route],
+        representative: route,
+        regions: [...new Set([route.river?.region || route.region].filter(Boolean))],
+      };
 
-    const markerNode = document.createElement('button');
-    markerNode.type = 'button';
-    markerNode.className = `${markerClassForRating(group.rating, group.confidence?.label)} score-map-marker--condition-zone`;
-    markerNode.innerHTML = `<span>${escapeHtml(String(group.score))}</span>`;
-    const markerAriaLabel = `${group.representative?.name || 'River'}, ${group.regions.join(', ') || 'score zone'}: score ${group.score}, ${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`;
-    markerNode.setAttribute('aria-label', markerAriaLabel);
+      const markerNode = document.createElement('button');
+      markerNode.type = 'button';
+      markerNode.className = `${markerClassForRating(routeGroup.rating, routeGroup.confidence?.label)} score-map-marker--condition-zone`;
+      markerNode.innerHTML = `<span>${escapeHtml(String(routeGroup.score))}</span>`;
+      const markerAriaLabel = `${routeGroup.representative?.name || 'River'}, ${routeGroup.regions.join(', ') || 'score zone'}: score ${routeGroup.score}, 1 route`;
+      markerNode.setAttribute('aria-label', markerAriaLabel);
 
-    const marker = new maplibregl.Marker({ element: markerNode, anchor: 'center' })
-      .setLngLat([point.longitude, point.latitude])
-      .setPopup(
-        new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '260px' })
-          .setHTML(conditionScorePopupMarkup(group))
-      )
-      .addTo(mapRuntime);
-    markerNode.setAttribute('aria-label', markerAriaLabel);
+      const marker = new maplibregl.Marker({ element: markerNode, anchor: 'center' })
+        .setLngLat([point.longitude, point.latitude])
+        .setPopup(
+          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '260px' })
+            .setHTML(conditionScorePopupMarkup(routeGroup))
+        )
+        .addTo(mapRuntime);
+      markerNode.setAttribute('aria-label', markerAriaLabel);
 
-    bindMarkerPopup(marker, markerNode, { map: mapRuntime });
-    marker.getPopup()?.on('open', () => {
-      const button = marker.getPopup()?.getElement()?.querySelector('[data-score-zone-route]');
-      if (button instanceof HTMLButtonElement && button.dataset.scoreZoneBound !== 'true') {
-        button.dataset.scoreZoneBound = 'true';
-        button.addEventListener('click', () => {
-          const slug = button.dataset.scoreZoneRoute;
-          if (slug) selectPickerRoute(slug);
-        });
-      }
-    });
-    conditionScoreMarkers.push(marker);
+      bindMarkerPopup(marker, markerNode, { map: mapRuntime });
+      markerNode.addEventListener('click', () => {
+        const slug = routeGroup.representative?.slug;
+        if (slug) selectPickerRoute(slug);
+      });
+      marker.getPopup()?.on('open', () => {
+        const button = marker.getPopup()?.getElement()?.querySelector('[data-score-zone-route]');
+        if (button instanceof HTMLButtonElement && button.dataset.scoreZoneBound !== 'true') {
+          button.dataset.scoreZoneBound = 'true';
+          button.addEventListener('click', () => {
+            const slug = button.dataset.scoreZoneRoute;
+            if (slug) selectPickerRoute(slug);
+          });
+        }
+      });
+      conditionScoreMarkers.push(marker);
+    }
   }
 }
 

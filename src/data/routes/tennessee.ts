@@ -166,6 +166,23 @@ export const tennesseeRoutes: River[] = [
       "siteName": "Pigeon River below Power Plant near Waterville, NC",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03460795/"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "dam_release",
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Confirm the current Duke Energy release schedule and USGS 03460795 trend before driving; the gauge can change quickly around generation and storms.",
+        "Use the current Waterville / Big Creek bridge put-in only if it is open and signed for public use; American Whitewater says the powerhouse-area access remains affected by I-40 and road reconstruction.",
+        "Post-Helene lines, debris, metal, strainers, commercial raft traffic, holes, and Class II-III+ rapids make this a whitewater run for equipped groups, not a casual float."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 300,
@@ -285,6 +302,21 @@ export const tennesseeRoutes: River[] = [
       "kind": "direct",
       "siteName": "Pigeon River below Power Plant near Waterville, NC",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03460795/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "dam_release",
+        "whitewater",
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Confirm the Waterville release schedule and allow the release water to reach Hartford before launching; do not rely on a dry-looking put-in or stale gauge number.",
+        "Use public access discipline at Hartford and Greasy Cove / Denton, including parking permission where needed and identifying the river-right take-out before launch.",
+        "Class II(III) ledges, Maytag, holes above about 2,000 cfs, bridge supports, commercial traffic, and broad-channel rescue exposure still require whitewater skills and gear."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",

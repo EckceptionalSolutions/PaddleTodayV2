@@ -14,6 +14,21 @@ export const michiganRoutes: River[] = [
     "latitude": 44.062496,
     "longitude": -85.583206,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "American Whitewater rates Edgetts to Lincoln Bridge Class I-II and describes shallow fast current, tight turns, and logs or stumps jammed into bends. Treat this as a skilled moving-water route, not a casual tube float.",
+        "Use 170 cfs at the Hoxeyville gauge only as a conservative low-water screen. Skip the route when the river is rising, storm-damaged, or visually too fast for safe wood avoidance.",
+        "Launch and land only where current signage and the Pine River map support access. Do not continue below Lincoln without checking the downstream Scenic River permit and access rules."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04125460",
       "provider": "usgs",
@@ -141,6 +156,22 @@ export const michiganRoutes: River[] = [
     "latitude": 44.203235,
     "longitude": -85.799124,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Forest Service describes the Pine as swift with challenging rapids, sharp turns, narrow passages, downed trees, and logjams. Peterson to Low Bridge needs moving-water boat control and self-rescue judgment.",
+        "Recreation.gov's Pine safety notice flags changing post-flood conditions, unstable banks, submerged debris, and logjams. Check current Forest Service alerts, permit status, and recent local reports before launching.",
+        "Stay with permit-managed access sites and designated camping rules. The Pine corridor has fragile banks, private-property constraints, cold water, and limited quick exits between Peterson Bridge and Low Bridge."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04125460",
       "provider": "usgs",

@@ -4,6 +4,7 @@
   ensureMapLibre,
   escapeHtml,
   markerClassForRating,
+  scoreZoneRouteLabel,
 } from './map-runtime.js';
 import {
   formatMixedFilterSummary,
@@ -3920,7 +3921,7 @@ function homeConditionZonePopupMarkup(item, group) {
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       <div class="score-map-popup__scoreline">
         <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
-        <p class="score-map-popup__verdict">${escapeHtml(`${routeCount} ${routeCount === 1 ? 'route' : 'routes'} in this score zone`)}</p>
+        <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, group.representative))}</p>
       </div>
       <p class="score-map-popup__reach">${escapeHtml(group.representative?.river?.reach || 'Mapped river coverage')}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">Compare river routes</a>
