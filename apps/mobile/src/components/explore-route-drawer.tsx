@@ -128,14 +128,36 @@ export function ExploreRouteDrawer({
         onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
       />
       <View style={styles.mapSheetActions}>
-        <Pressable
-          style={styles.mapPreviewOpenButton}
-          onPress={onOpenRoute}
-          accessibilityRole="button"
-          accessibilityLabel={`Open ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
-        >
-          <Text style={styles.mapPreviewOpenText} numberOfLines={1}>Open route</Text>
-        </Pressable>
+        <View style={styles.mapSheetPrimaryActions}>
+          <Pressable
+            style={styles.mapPreviewOpenButton}
+            onPress={onOpenRoute}
+            accessibilityRole="button"
+            accessibilityLabel={`${routeCount > 1 ? 'Open best route' : 'Open route'}: ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
+          >
+            <Text style={styles.mapPreviewOpenText} numberOfLines={1}>{routeCount > 1 ? 'Open best route' : 'Open route'}</Text>
+          </Pressable>
+          <Pressable
+            style={[styles.mapDirectionsButton, selectedDirectionsUrl ? null : styles.mapDirectionsButtonDisabled]}
+            disabled={!selectedDirectionsUrl}
+            onPress={() => selectedDirectionsUrl ? void openExternalUrl(selectedDirectionsUrl, 'Directions') : undefined}
+            accessibilityRole="button"
+            accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
+          >
+            <MaterialCommunityIcons name="directions" color={selectedDirectionsUrl ? colors.accent : colors.textMuted} size={18} />
+            <Text style={[styles.mapDirectionsText, selectedDirectionsUrl ? null : styles.mapDirectionsTextDisabled]} numberOfLines={1}>
+              Directions
+            </Text>
+          </Pressable>
+          <Pressable
+            style={styles.mapSheetSnapButton}
+            onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
+            accessibilityRole="button"
+            accessibilityLabel={sheetSnap === 'full' ? 'Collapse route drawer' : 'Expand route drawer'}
+          >
+            <MaterialCommunityIcons name={sheetSnap === 'full' ? 'chevron-down' : 'chevron-up'} color={colors.text} size={21} />
+          </Pressable>
+        </View>
         {routeCount > 1 && onOpenRiverRoutes && !selectedRiver.selectedSegment ? (
           <Pressable
             style={styles.drawerCompareButton}
@@ -143,30 +165,10 @@ export function ExploreRouteDrawer({
             accessibilityRole="button"
             accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
           >
-            <MaterialCommunityIcons name="map-marker-path" color={colors.surfaceStrong} size={18} />
-            <Text style={styles.drawerCompareText} numberOfLines={1}>Compare</Text>
+            <MaterialCommunityIcons name="map-marker-path" color={colors.accent} size={18} />
+            <Text style={styles.drawerCompareText} numberOfLines={1}>Compare {routeCount} routes</Text>
           </Pressable>
         ) : null}
-        <Pressable
-          style={[styles.mapDirectionsButton, selectedDirectionsUrl ? null : styles.mapDirectionsButtonDisabled]}
-          disabled={!selectedDirectionsUrl}
-          onPress={() => selectedDirectionsUrl ? void openExternalUrl(selectedDirectionsUrl, 'Directions') : undefined}
-          accessibilityRole="button"
-          accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
-        >
-          <MaterialCommunityIcons name="directions" color={selectedDirectionsUrl ? colors.accent : colors.textMuted} size={18} />
-          <Text style={[styles.mapDirectionsText, selectedDirectionsUrl ? null : styles.mapDirectionsTextDisabled]} numberOfLines={1}>
-            Directions
-          </Text>
-        </Pressable>
-        <Pressable
-          style={styles.mapSheetSnapButton}
-          onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
-          accessibilityRole="button"
-          accessibilityLabel={sheetSnap === 'full' ? 'Collapse route drawer' : 'Expand route drawer'}
-        >
-          <MaterialCommunityIcons name={sheetSnap === 'full' ? 'chevron-down' : 'chevron-up'} color={colors.text} size={21} />
-        </Pressable>
       </View>
       {full ? (
         <ScrollView
@@ -532,8 +534,11 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
   },
   mapSheetActions: {
+    gap: 8,
+  },
+  mapSheetPrimaryActions: {
     flexDirection: 'row',
-    gap: 6,
+    gap: 8,
   },
   mapSheetSnapButton: {
     width: 44,
@@ -578,13 +583,12 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   drawerCompareButton: {
-    flex: 1.16,
-    minWidth: 0,
+    width: '100%',
     minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.accent,
-    backgroundColor: colors.accent,
+    backgroundColor: colors.surfaceStrong,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -592,7 +596,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   drawerCompareText: {
-    color: colors.surfaceStrong,
+    color: colors.accent,
     flexShrink: 1,
     fontSize: 11,
     fontWeight: '900',

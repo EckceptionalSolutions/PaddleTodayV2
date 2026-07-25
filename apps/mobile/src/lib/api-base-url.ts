@@ -1,7 +1,7 @@
 import Constants from 'expo-constants';
 import * as ExpoLinking from 'expo-linking';
 
-const DEFAULT_API_PORT = 4323;
+const DEFAULT_API_PORT = 4322;
 const PRODUCTION_API_BASE_URL = 'https://paddletoday.com';
 
 export function resolveApiBaseUrl() {
