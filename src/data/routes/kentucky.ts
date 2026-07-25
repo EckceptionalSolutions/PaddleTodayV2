@@ -1747,6 +1747,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, while the older route feature treats 35 to 500 cfs as the wider recreation range. Low water means shoal walking and a slower day; high water means swifter bends and fewer easy recoveries.",
     "latitude": 38.2158,
     "longitude": -85.4778,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use only the KDFWR-listed Creekside and Seaton Valley carry-downs, and follow the Parklands marked-landings-only rule.",
+        "Stay inside the KDFWR 50 to 300 cfs good band unless the group is ready for faster Class I+ current, shoal walking, and fewer recovery eddies.",
+        "Check recent rain and gauge trend before launching because Floyds Fork can rise quickly and collect fresh wood in bends and shoals."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",
@@ -3343,6 +3357,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect scraping and longer shoal walks; above that expect faster current and fewer forgiving eddies.",
     "latitude": 38.1887,
     "longitude": -85.4779,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use only the KDFWR-listed Fisherville and Broad Run Valley carry-downs, and follow the Parklands marked-landings-only rule.",
+        "Stay inside the KDFWR 50 to 300 cfs good band unless the group is ready for faster Class I+ current, longer recovery swims, and fewer easy eddies.",
+        "Watch for strainers, bedrock shoals, undercut banks, and the Marys Island split; the lower-corridor guide tells paddlers to stay left there."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",
@@ -3627,6 +3655,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect scraping and a longer day; above it expect faster current and fewer forgiving recovery spots.",
     "latitude": 38.2158,
     "longitude": -85.4778,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat this as a long Parklands commitment, use only the KDFWR-listed Creekside and Cliffside carry-downs, and follow the marked-landings-only rule.",
+        "Stay inside the KDFWR 50 to 300 cfs good band unless the group is ready for faster Class I+ current, fatigue, and fewer recovery eddies.",
+        "Watch for strainers, bedrock shoals, undercut banks, the Cane Run side-channel area, and the Marys Island split where the lower-corridor guide says to stay left."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",

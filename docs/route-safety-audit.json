@@ -1,70 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-25T17:47:49.267Z",
+  "generatedAt": "2026-07-25T19:47:37.025Z",
   "routeCount": 937,
-  "issueCount": 490,
+  "issueCount": 485,
   "summary": {
     "Critical": 0,
-    "High": 286,
+    "High": 281,
     "Medium": 204,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "floyds-fork-creekside-cliffside",
-      "slug": "floyds-fork-creekside-cliffside",
-      "name": "Floyds Fork",
-      "reach": "Creekside Canoe Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "cess records, while the lower-corridor PDF keeps Marys Island, bedrock shelves, wood, and marked-landings-only discipline explicit. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Park"
-    },
-    {
-      "routeId": "floyds-fork-creekside-cliffside",
-      "slug": "floyds-fork-creekside-cliffside",
-      "name": "Floyds Fork",
-      "reach": "Creekside Canoe Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "reekside Canoe Access as a free carry-down access at The Parklands with unpaved parking. Take-out access Cliffside Paddling Access, 38.0864, -85.5520 KDFWR identifies Cliffside Paddling Access as a free carry-down site in Broad Run Park with year-round limited"
-    },
-    {
-      "routeId": "floyds-fork-creekside-seaton-valley",
-      "slug": "floyds-fork-creekside-seaton-valley",
-      "name": "Floyds Fork",
-      "reach": "Creekside Canoe Access to Seaton Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "flatwater greenway drift. The Parklands and KDFWR still describe shoals, bends, wood, and quick level changes that justify a moderate rating. Confidence is high for a guarded add: KDFWR names Creekside to Fisherville at 4.3 miles, Fisherville to Cane Run at 4."
-    },
-    {
-      "routeId": "floyds-fork-fisherville-broad-run-valley",
-      "slug": "floyds-fork-fisherville-broad-run-valley",
-      "name": "Floyds Fork",
-      "reach": "Fisherville Canoe Access to Broad Run Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "int access records, while the lower-corridor PDF adds Mary's Island, bluff, and strainer context. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to"
-    },
-    {
-      "routeId": "floyds-fork-fisherville-broad-run-valley",
-      "slug": "floyds-fork-fisherville-broad-run-valley",
-      "name": "Floyds Fork",
-      "reach": "Fisherville Canoe Access to Broad Run Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "e Canoe Access as a free carry-down site off Old Taylorsville Road with unpaved parking. Take-out access Broad Run Valley Paddling Access, 38.1039, -85.5455 KDFWR identifies Broad Run Valley Paddling Access as a free carry-down site with year-round limited-hou"
-    },
     {
       "routeId": "floyds-fork-fisherville-cliffside",
       "slug": "floyds-fork-fisherville-cliffside",
