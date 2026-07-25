@@ -109,6 +109,20 @@ const trackedRiverCount = riverGroups.length;
                 </label>
               </div>
 
+              <div class="board-filters__controls board-filters__controls--primary board-filters__controls--score">
+                <label class="filter-select">
+                  <span class="filter-select__label">Show scores</span>
+                  <select class="filter-select__input" data-filter-rating>
+                    <option value="">Good and Strong</option>
+                    <option value="all">All scores</option>
+                    <option value="Strong">Strong only</option>
+                    <option value="Good">Good only</option>
+                    <option value="Fair">Fair: tradeoffs</option>
+                    <option value="No-go">No-go only</option>
+                  </select>
+                </label>
+              </div>
+
               <details class="board-filters__advanced">
                 <summary>
                   <span>More filters</span>
@@ -178,17 +192,6 @@ const trackedRiverCount = riverGroups.length;
                       <option value="under-5">Under 5 mi</option>
                       <option value="5-to-10">5–10 mi</option>
                       <option value="10-plus">10+ mi</option>
-                    </select>
-                  </label>
-                  <label class="filter-select">
-                    <span class="sr-only">Filter by Paddle Today Score</span>
-                    <select class="filter-select__input" data-filter-rating>
-                      <option value="">Good and Strong by default</option>
-                      <option value="all">All scores</option>
-                      <option value="Strong">Strong only</option>
-                      <option value="Good">Good only</option>
-                      <option value="Fair">Fair: tradeoffs</option>
-                      <option value="No-go">No-go only</option>
                     </select>
                   </label>
                 </div>

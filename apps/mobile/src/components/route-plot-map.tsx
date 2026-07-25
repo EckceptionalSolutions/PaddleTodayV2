@@ -42,6 +42,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   backgroundSpanSegments?: RouteSpanCoordinate[][];
   canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>;
   onSelectPoint?: (point: RoutePlotPoint) => void;
+  onZoomLevelChange?: (zoomLevel: number) => void;
   height?: number;
   showFooter?: boolean;
   fullBleed?: boolean;
@@ -57,6 +58,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   backgroundSpanSegments = [],
   canonicalSpans,
   onSelectPoint,
+  onZoomLevelChange,
   height = 290,
   showFooter = true,
   fullBleed = false,
@@ -242,6 +244,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           style={[styles.nativeMap, { height }]}
           initialRegion={initialRegion}
           onRegionChangeComplete={(region) => {
+            onZoomLevelChange?.(Math.log2(360 / Math.max(region.longitudeDelta, 0.0001)));
             setRegionDelta((current) => {
               if (
                 Math.abs(current.latitudeDelta - region.latitudeDelta) < 0.01 &&

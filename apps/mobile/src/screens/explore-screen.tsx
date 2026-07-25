@@ -48,7 +48,7 @@ import {
 } from '../lib/explore-intents';
 import { trackAppEvent } from '../lib/observability';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
-import { coverageCenter, groupRoutesByConditionScore } from '../lib/river-coverage';
+import { coverageAnchorForRoute, coverageCenter, groupRoutesByConditionScore } from '../lib/river-coverage';
 import {
   buildRouteGroupMeta,
   riverGroupKeyForRoute,
@@ -434,6 +434,7 @@ function FullScreenExploreMap({
 }) {
   const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('half');
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
+  const [mapZoomLevel, setMapZoomLevel] = useState(5);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   const selectedGeometryQuery = useRiverGeometryQuery(
     selectedRouteCount <= 1 || selectedRiver?.selectedSegment ? selectedSlug ?? '' : ''
@@ -448,7 +449,7 @@ function FullScreenExploreMap({
       : results;
     return (selectedRiver ? [selectedRiver, ...withoutSelected] : withoutSelected).slice(0, MAX_MAP_POINTS);
   }, [results, selectedRiver]);
-  const points = useExploreMapPoints(mapResults, routeCounts, results);
+  const points = useExploreMapPoints(mapResults, routeCounts, results, mapZoomLevel);
   const matchingRiverCount = useMemo(() => dedupeExploreRoutes(results).length, [results]);
   const selectedMapPointId = useMemo(
     () => points.find((point) => point.routeSlugs.includes(selectedSlug ?? ''))?.id ?? null,
@@ -554,13 +555,14 @@ function FullScreenExploreMap({
             canonicalSpans={canonicalSpans}
             selectedFocusBottomInset={selectedRiver ? sheetHeightValue('half') + bottomInset : 0}
           userLocation={userLocation}
-          onSelectPoint={(point) => {
+            onSelectPoint={(point) => {
             setSheetSnap('half');
             onSelectSlug(points.find((candidate) => candidate.id === point.id)?.routeSlug ?? null);
           }}
           height={mapHeight}
           showFooter={false}
           fullBleed
+          onZoomLevelChange={setMapZoomLevel}
         />
       ) : (
         <View style={[styles.fullMapEmptyCanvas, { height: mapHeight }]}>
@@ -856,7 +858,8 @@ function ExploreViewToggle({
 function useExploreMapPoints(
   results: ExploreRiver[],
   routeCounts: ReadonlyMap<string, number>,
-  allMatchingRoutes: ExploreRiver[] = results
+  allMatchingRoutes: ExploreRiver[] = results,
+  zoomLevel = 5
 ) {
   return useMemo<ExploreMapPoint[]>(
     () =>
@@ -870,6 +873,27 @@ function useExploreMapPoints(
           ));
         const matchingRouteCount = matchingRiverRoutes.length;
         const scoreZones = groupRoutesByConditionScore(matchingRiverRoutes);
+
+        if (zoomLevel >= 8.5) {
+          return matchingRiverRoutes.map((route) => {
+            const center = coverageAnchorForRoute(route, routeSpanCoordinatesForRiver(route));
+            if (!center) return null;
+            return {
+              id: `route:${route.river.slug}`,
+              routeSlug: route.river.slug,
+              routeSlugs: [route.river.slug],
+              label: route.river.name,
+              latitude: center.latitude,
+              longitude: center.longitude,
+              score: route.score,
+              rating: route.rating,
+              markerAccessibilityLabel: `${route.river.reach}, score ${route.score}`,
+              routeCount: 1,
+              spanSegments: [routeSpanCoordinatesForRiver(route)].filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2)),
+              meta: [route.river.reach, `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
+            };
+          }).filter(Boolean) as ExploreMapPoint[];
+        }
 
         return scoreZones.flatMap((group) => {
           const representative = group.representative;
@@ -903,7 +927,7 @@ function useExploreMapPoints(
           }];
         });
       }),
-    [allMatchingRoutes, results, routeCounts]
+    [allMatchingRoutes, results, routeCounts, zoomLevel]
   );
 }
 

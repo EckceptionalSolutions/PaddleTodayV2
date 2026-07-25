@@ -38,6 +38,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   backgroundSpanSegments?: RouteSpanCoordinate[][];
   canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>;
   onSelectPoint?: (point: RoutePlotPoint) => void;
+  onZoomLevelChange?: (zoomLevel: number) => void;
   height?: number;
   showFooter?: boolean;
   fullBleed?: boolean;

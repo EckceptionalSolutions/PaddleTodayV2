@@ -81,6 +81,34 @@ export function coverageCenter(routes: RiverCoverageResult[]) {
   };
 }
 
+export function coverageAnchorForRoute(route: RiverCoverageResult, span: Array<{ latitude: number; longitude: number }> | null) {
+  const center = coverageCenter([route]);
+  if (!center || !span || span.length < 2) return center;
+  let best = span[0];
+  let bestDistance = Number.POSITIVE_INFINITY;
+  for (let index = 1; index < span.length; index += 1) {
+    const start = span[index - 1];
+    const end = span[index];
+    const dx = end.longitude - start.longitude;
+    const dy = end.latitude - start.latitude;
+    const lengthSquared = dx * dx + dy * dy;
+    const rawT = lengthSquared === 0
+      ? 0
+      : ((center.longitude - start.longitude) * dx + (center.latitude - start.latitude) * dy) / lengthSquared;
+    const t = Math.max(0, Math.min(1, rawT));
+    const candidate = {
+      longitude: start.longitude + (end.longitude - start.longitude) * t,
+      latitude: start.latitude + (end.latitude - start.latitude) * t,
+    };
+    const distance = (candidate.longitude - center.longitude) ** 2 + (candidate.latitude - center.latitude) ** 2;
+    if (distance < bestDistance) {
+      best = candidate;
+      bestDistance = distance;
+    }
+  }
+  return best;
+}
+
 function isCoordinate(
   value: { latitude?: number; longitude?: number } | null | undefined
 ): value is { latitude: number; longitude: number } {

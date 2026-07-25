@@ -37,7 +37,7 @@ export const defaultFilters: ExploreFilters = {
   state: '',
   difficulty: 'any',
   routeType: 'all',
-  status: 'any',
+  status: 'clean',
   rating: 'any',
   distance: 'any',
   paddleTime: 'any',
@@ -586,7 +586,7 @@ function PresetChip({ label, selected, onPress }: { label: string; selected: boo
 export function ActiveFilterStrip({ filters, locationReady }: { filters: ExploreFilters; locationReady: boolean }) {
   const active = activeFilterLabels(filters, locationReady);
   if (active.length === 0) {
-    return <Text style={styles.filterHint}>Default view shows every route. Routes are sorted by score.</Text>;
+    return <Text style={styles.filterHint}>Default view shows Good and Strong routes. Routes are sorted by score.</Text>;
   }
 
   return (
@@ -619,7 +619,7 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
   const labels: string[] = [];
   if (filters.query.trim()) labels.push(`Search: ${filters.query.trim()}`);
   if (filters.state) labels.push(filters.state);
-  if (filters.status === 'clean') labels.push('Good+');
+  if (filters.status === 'clean') labels.push('Good and Strong');
   if (filters.status === 'watch') labels.push('Fair');
   if (filters.status === 'skip') labels.push('No-go');
   if (filters.rating !== 'any') labels.push(filters.rating);

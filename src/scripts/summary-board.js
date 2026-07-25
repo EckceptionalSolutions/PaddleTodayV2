@@ -4568,9 +4568,29 @@ function clearSummaryConditionMarkers() {
 function conditionZonePopupMarkup(item, group) {
   const routeCount = group.routes.length;
   const regions = group.regions.length > 0 ? group.regions.join(', ') : item.cardRoute.river.region;
+  if (routeCount === 1 && group.representative) {
+    const routeItem = { ...item, cardRoute: group.representative };
+    const nearbyReady = userLocationState === 'ready' && userLocation && Number.isFinite(item.travelMinutes);
+    return `
+      <article class="score-map-popup">
+        <p class="score-map-popup__state">${escapeHtml(regions)}</p>
+        <h3>${escapeHtml(group.representative.river.name)}</h3>
+        <p class="score-map-popup__reach">${escapeHtml(group.representative.river.reach || 'Mapped river coverage')}</p>
+        <div class="score-map-popup__scoreline">
+          <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
+          <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(routeItem))}</p>
+        </div>
+        <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(routeItem, nearbyReady))}</p>
+        <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${escapeHtml(cardLinkLabel(item))}</a>
+      </article>
+    `;
+  }
   const reachMarkup = routeCount === 1
     ? ''
     : `<p class="score-map-popup__reach">${escapeHtml(group.representative?.river?.reach || 'Mapped river coverage')}</p>`;
+  const actionMarkup = routeCount > 1
+    ? '<button class="score-map-popup__link score-map-popup__link--button" type="button" data-summary-zone-zoom>Zoom in to choose a route</button>'
+    : `<a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${escapeHtml(cardLinkLabel(item))}</a>`;
   return `
     <article class="score-map-popup">
       <p class="score-map-popup__state">${escapeHtml(regions)}</p>
@@ -4580,7 +4600,7 @@ function conditionZonePopupMarkup(item, group) {
         <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, group.representative))}</p>
       </div>
       ${reachMarkup}
-      <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">Compare river routes</a>
+      ${actionMarkup}
     </article>
   `;
 }
@@ -4693,10 +4713,22 @@ function syncSummaryConditionMarkers({ force = false } = {}) {
                 zoneKey: markerNode.dataset.summaryMapZoneKey,
                 zoneRoutes: markerGroup.routes,
               });
-              focusSummaryMapRoute(item.key, markerGroup.routes);
+              if (markerGroup.routes.length === 1) {
+                focusSummaryMapRoute(item.key, markerGroup.routes);
+              }
               focusSummaryMapCard(item.key);
             }
           },
+        });
+        marker.getPopup()?.on('open', () => {
+          const zoomButton = marker.getPopup()?.getElement()?.querySelector('[data-summary-zone-zoom]');
+          if (zoomButton instanceof HTMLButtonElement && zoomButton.dataset.summaryZoneZoomBound !== 'true') {
+            zoomButton.dataset.summaryZoneZoomBound = 'true';
+            zoomButton.addEventListener('click', () => {
+              focusSummaryMapRoute(item.key, markerGroup.routes);
+              focusSummaryMapCard(item.key);
+            });
+          }
         });
         if (!mapMarkersByKey.has(item.key)) {
           mapMarkersByKey.set(item.key, marker);

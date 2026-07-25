@@ -16,6 +16,7 @@ import { routePreviewFactLine } from '../lib/route-facts';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import {
   conditionScoreKey,
+  coverageAnchorForRoute,
   coverageCenter,
   groupRoutesByConditionScore,
 } from '../lib/river-coverage';
@@ -59,6 +60,7 @@ export default function RiverHubScreen() {
   const [difficultyFilter, setDifficultyFilter] = useState<HubDifficultyFilter>('all');
   const [regionFilter, setRegionFilter] = useState<string | null>(null);
   const [showMoreFilters, setShowMoreFilters] = useState(false);
+  const [mapZoomLevel, setMapZoomLevel] = useState(5);
   const listRef = useRef<FlatList<RiverDetailApiResult> | null>(null);
   const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
   const groupQuery = useRiverGroupQuery(riverId);
@@ -73,7 +75,7 @@ export default function RiverHubScreen() {
   const filteredRoutes = useMemo(() => filterRiverHubRoutes(allRoutes, filters), [allRoutes, filters]);
   const bestRoute = useMemo(() => [...filteredRoutes].sort(compareBestRoute)[0] ?? null, [filteredRoutes]);
   const routes = useMemo(() => sortedRoutes(filteredRoutes, sortMode), [filteredRoutes, sortMode]);
-  const routePoints = useMemo(() => routeMapPoints(routes), [routes]);
+  const routePoints = useMemo(() => routeMapPoints(routes, mapZoomLevel), [routes, mapZoomLevel]);
   const coverageSpans = useMemo(
     () => routes.map(routeSpanCoordinates).filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2)),
     [routes]
@@ -377,6 +379,7 @@ export default function RiverHubScreen() {
                       fitToSelectedOnReady
                       fullBleed
                       onSelectPoint={(point) => selectRouteFromMap(point.id)}
+                      onZoomLevelChange={setMapZoomLevel}
                     />
                   </View>
                 </SectionCard>
@@ -540,13 +543,32 @@ function FilterChip({
   );
 }
 
-function routeMapPoints(routes: RiverDetailApiResult[]): RoutePlotPoint[] {
+function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlotPoint[] {
+  if (zoomLevel >= 8.5) {
+    return routes.map((route) => {
+      const span = routeSpanCoordinates(route);
+      const markerCoordinate = coverageAnchorForRoute(route, span) ?? mapMarkerCoordinate(route, span);
+      return {
+        id: route.river.slug,
+        label: route.river.reach,
+        latitude: markerCoordinate.latitude,
+        longitude: markerCoordinate.longitude,
+        score: route.score,
+        rating: route.rating,
+        markerAccessibilityLabel: `${route.river.reach}, score ${route.score}`,
+        routeCount: 1,
+        spanSegments: span ? [span] : [],
+        meta: [route.river.reach, `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
+      };
+    });
+  }
+
   return groupRoutesByConditionScore(routes).map((group) => {
     const route = group.representative;
     const spanSegments = group.routes
       .map(routeSpanCoordinates)
       .filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2));
-    const markerCoordinate = coverageCenter(group.routes) ?? mapMarkerCoordinate(route, routeSpanCoordinates(route));
+    const markerCoordinate = coverageAnchorForRoute(route, routeSpanCoordinates(route)) ?? mapMarkerCoordinate(route, routeSpanCoordinates(route));
     return {
       id: route.river.slug,
       label: group.regions.join(', ') || route.river.reach,
@@ -573,6 +595,8 @@ function mapPointIdForRoute(
   routes: RiverDetailApiResult[]
 ) {
   if (!route) return null;
+  const direct = routes.find((candidate) => candidate.river.slug === route.river.slug);
+  if (direct) return direct.river.slug;
   const group = groupRoutesByConditionScore(routes).find((candidate) => (
     candidate.key === conditionScoreKey(route)
   ));
