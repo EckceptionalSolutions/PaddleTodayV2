@@ -18,6 +18,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Green River at Mammoth Cave gauge. NPS treats roughly 9 to 15 ft as beginner-friendly park conditions, 15 to 20 ft as more consequential experienced water, and prohibits launching in the park at or above 20 ft.",
     "latitude": 37.2174,
     "longitude": -86.0493,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Use the NPS canoe and kayak access just upstream of Green River Ferry on the south side, and stay clear of the ferry crossing until the operator has seen the group.",
+        "Do not launch in the park at or above 20 ft on the Mammoth Cave gauge; treat 15 to 20 ft as experienced-water territory, not beginner conditions.",
+        "Expect swift current, submerged trees, rocks, drifting debris, logjams, steep or muddy carry-downs, limited cell service, and slow rescue response inside the park."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03309000",
       "provider": "usgs",
@@ -152,6 +166,22 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Green River at Mammoth Cave gauge. NPS treats roughly 9 to 15 ft as the broad beginner-friendly park window, 15 to 20 ft as more consequential experienced water, and prohibits launching in the park at or above 20 ft.",
     "latitude": 37.1795,
     "longitude": -86.1123,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "dam",
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This full continuation includes the NPS-posted Class 2 rapid at the former Lock and Dam 6 site shortly before the Brownsville ramp; adjust plans before committing downstream of Houchins.",
+        "Outside the park boundary, stop only where access is legal; NPS warns the river is surrounded by private land and riverside camping permits apply only inside the park.",
+        "Do not launch in the park at or above 20 ft on the Mammoth Cave gauge, and treat 15 to 20 ft as consequential experienced water with faster current, logjams, and fewer easy exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03309000",
       "provider": "usgs",
@@ -285,6 +315,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Green River at Mammoth Cave gauge. NPS treats roughly 9 to 15 ft as the broad beginner-friendly park window, 15 to 20 ft as more consequential experienced water, and prohibits launching in the park at or above 20 ft.",
     "latitude": 37.1795,
     "longitude": -86.1123,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Launch and load below Green River Ferry without interfering with ferry operations, and use the NPS canoe and kayak ramp rules at the ferry crossing.",
+        "Do not launch in the park at or above 20 ft on the Mammoth Cave gauge; treat 15 to 20 ft as experienced-water territory for this longer, less-traveled section.",
+        "Watch for swift current, submerged trees, rocks, drifting debris, logjams, shifting gravel bars, limited cell service, and rising overnight water if camping with a permit."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03309000",
       "provider": "usgs",

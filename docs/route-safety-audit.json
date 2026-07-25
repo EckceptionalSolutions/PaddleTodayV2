@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-25T13:47:11.986Z",
+  "generatedAt": "2026-07-25T15:47:09.692Z",
   "routeCount": 937,
-  "issueCount": 505,
+  "issueCount": 496,
   "summary": {
     "Critical": 0,
-    "High": 296,
-    "Medium": 209,
+    "High": 290,
+    "Medium": 206,
     "Low": 0
   },
   "issues": [
@@ -251,72 +251,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "identifies Dump Hollow Ford Road as a year-round carry-down access with unpaved parking and no amenities. Take-out access Laurel Branch Road Access, 37.2370, -83.6703 KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, n"
-    },
-    {
-      "routeId": "green-river-dennison-green-river-ferry",
-      "slug": "green-river-dennison-green-river-ferry",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "nd prohibits launching in the park at or above 20 ft. The route is flatwater by whitewater standards, but NPS still says prior paddling experience is recommended because the river is wide, current can be swift, and ferry traffic, logjams, mud, and steep carry-"
-    },
-    {
-      "routeId": "green-river-dennison-green-river-ferry",
-      "slug": "green-river-dennison-green-river-ferry",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "nd 16.15 ft at 2026-07-14 08:00 CDT. That stage is below the NPS 20-foot launch closure but above the park's broad beginner-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution rather than comfort framing. Official route segmen"
-    },
-    {
-      "routeId": "green-river-green-river-ferry-brownsville-city-park",
-      "slug": "green-river-green-river-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Green River Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "s stretch with the swift final miles toward Brownsville and the former lock-and-dam rapid near the finish. Confidence is high for a conservative continuation add: NPS still publishes Green River Ferry to Houchin Ferry as 12.4 miles and Houchin Ferry to Brownsv"
-    },
-    {
-      "routeId": "green-river-green-river-ferry-brownsville-city-park",
-      "slug": "green-river-green-river-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Green River Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "retch with the swift final miles toward Brownsville and the former lock-and-dam rapid near the finish. Confidence is high for a conservative continuation add: NPS still publishes Green River Ferry to Houchin Ferry as 12.4 miles and Houchin Ferry to Brownsville"
-    },
-    {
-      "routeId": "green-river-green-river-ferry-brownsville-city-park",
-      "slug": "green-river-green-river-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Green River Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "k's broad beginner-friendly 9 to 15-foot band but below the hard 20-foot launch closure, so the route should ship with explicit above-band caution. Official route shape Green River Ferry to Brownsville, about 16.0 mi NPS publishes Green River Ferry to Houchin"
-    },
-    {
-      "routeId": "green-river-green-river-ferry-houchins",
-      "slug": "green-river-green-river-ferry-houchins",
-      "name": "Green River",
-      "reach": "Green River Ferry to Houchins Ferry",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "026 values of 3950 cfs and 16.15 ft. That stage is below the NPS 20-foot launch closure but above the park's broad beginner-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution. Official route segment Green River Ferry to Houch"
     },
     {
       "routeId": "green-river-hh-wilson-park-dennison-ferry",
@@ -3410,17 +3344,6 @@
       "evidence": "oals and muddier edges; above that the broad current through town deserves more caution at bends and landings. This is one of the easiest Upper Green splits, but it is still moving water with shoals, anglers, and city-ramp traffic rather than a flat pond lap."
     },
     {
-      "routeId": "green-river-dennison-green-river-ferry",
-      "slug": "green-river-dennison-green-river-ferry",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Green River Ferry",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "r-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution rather than comfort framing. Official route segment Dennison Ferry to Green River Ferry, about 7.5-7.6 mi KDFWR lists Dennison Ferry to Green River Ferry as a 7.5-mile Pool"
-    },
-    {
       "routeId": "green-river-glenview-road-lynn-camp-creek",
       "slug": "green-river-glenview-road-lynn-camp-creek",
       "name": "Green River",
@@ -3430,28 +3353,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "hat the broader current, private-bank corridor, and longer shuttle deserve more caution. The current is still recreational Green River water, but this 19.2-mile day adds commitment. Low water, broad-river wind, private-bank limits, and a steep Lynn Camp finish"
-    },
-    {
-      "routeId": "green-river-green-river-ferry-brownsville-city-park",
-      "slug": "green-river-green-river-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Green River Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "hard 20-foot launch closure, so the route should ship with explicit above-band caution. Official route shape Green River Ferry to Brownsville, about 16.0 mi NPS publishes Green River Ferry to Houchin Ferry as 12.4 miles and Houchin Ferry to Brownsville as 3.6"
-    },
-    {
-      "routeId": "green-river-green-river-ferry-houchins",
-      "slug": "green-river-green-river-ferry-houchins",
-      "name": "Green River",
-      "reach": "Green River Ferry to Houchins Ferry",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "same route as 12.4 miles with a 4 to 6 hour travel time plus explicit camping, hazard, and wildlife context. The park-maintained direct USGS gauge at Mammoth Cave returned same-day July 14, 2026 values of 3950 cfs and 16.15 ft. That stage is below the NPS 20-"
     },
     {
       "routeId": "green-river-hh-wilson-park-dennison-ferry",
