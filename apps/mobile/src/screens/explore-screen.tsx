@@ -482,7 +482,7 @@ function FullScreenExploreMap({
   const overlayTop = topInset + 216;
 
   useEffect(() => {
-    if (activeFilterCount === 0 || points.length === 0) {
+    if (activeFilterCount === 0 || points.length === 0 || selectedSlug) {
       return;
     }
 

@@ -197,7 +197,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     const previousPointSignature = previousPointSignatureRef.current;
     previousPointSignatureRef.current = pointSignature;
 
-    if (!nativeMaps || !previousPointSignature || previousPointSignature === pointSignature) {
+    if (!nativeMaps || selectedId || !previousPointSignature || previousPointSignature === pointSignature) {
       return;
     }
 
