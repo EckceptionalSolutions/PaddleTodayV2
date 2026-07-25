@@ -1021,6 +1021,21 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR rates 50 to 300 cfs, or 1.3 to 2.5 ft, as good for boating and fishing. Below that is low and draggy; above that is high, faster, and better left to experienced moving-water paddlers.",
     "latitude": 38.1887,
     "longitude": -85.4779,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat this as Class I+ moving water with chutes, small ledges, waves, strainers, sharp bends, and storm wood rather than a flatwater park drift.",
+        "Use the Fisherville gauge conservatively: KDFWR's good band is 50 to 300 cfs or 1.3 to 2.5 ft, and higher water is for experienced paddlers.",
+        "Identify Cane Run before launching; The Parklands route notes place the take-out about 50 yards up the Cane Run side channel on river right."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",
@@ -1306,6 +1321,21 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and an older KDFWR feature frames 35 to 500 cfs as the broader recreation range. Below that expect dragging; above that expect faster current and fewer recovery spots.",
     "latitude": 38.2308,
     "longitude": -85.4682,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Keep the short mileage in context: this is still Class I+ moving water with shallow braided chutes, downed timber, blind bends, and quick post-rain changes.",
+        "Stay in the main current around The Oxbow and avoid the small left channel described in the KDFWR route feature.",
+        "Use the marked North Beckley and Creekside landings only; The Parklands says not to take out on private property."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",
@@ -3019,6 +3049,21 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and the older KDFWR feature frames 35 to 500 cfs as the broader recreation range. Below that expect braided dragging; above that expect faster current and fewer recovery spots.",
     "latitude": 38.2308,
     "longitude": -85.4682,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Plan for Class I+ moving water through The Oxbow, shallow summer chutes, Distillery Bend, bridge current, and wood along bends.",
+        "Use the Fisherville gauge conservatively: KDFWR's good band is 50 to 300 cfs or 1.3 to 2.5 ft, with higher water reserved for experienced paddlers.",
+        "Scout the Fisherville right-bank take-out below KY 155 before launch and use only the named public landings."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",

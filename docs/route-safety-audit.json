@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-25T15:47:09.692Z",
+  "generatedAt": "2026-07-25T17:47:49.267Z",
   "routeCount": 937,
-  "issueCount": 496,
+  "issueCount": 490,
   "summary": {
     "Critical": 0,
-    "High": 290,
-    "Medium": 206,
+    "High": 286,
+    "Medium": 204,
     "Low": 0
   },
   "issues": [
@@ -64,28 +64,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "e Canoe Access as a free carry-down site off Old Taylorsville Road with unpaved parking. Take-out access Broad Run Valley Paddling Access, 38.1039, -85.5455 KDFWR identifies Broad Run Valley Paddling Access as a free carry-down site with year-round limited-hou"
-    },
-    {
-      "routeId": "floyds-fork-fisherville-cane-run",
-      "slug": "floyds-fork-fisherville-cane-run",
-      "name": "Floyds Fork",
-      "reach": "Fisherville Canoe Access to Cane Run Canoe Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ands Fisherville-to-Cane Run guide describes islands, narrow chutes, a six-inch ledge, a remote pool-and-drop stretch, wave features near the end, and a signed take-out up the Cane Run side channel. KDFWR Floyds Fork https://fw.ky.gov/Fish/Pages/floyds-fork.as"
-    },
-    {
-      "routeId": "floyds-fork-fisherville-cane-run",
-      "slug": "floyds-fork-fisherville-cane-run",
-      "name": "Floyds Fork",
-      "reach": "Fisherville Canoe Access to Cane Run Canoe Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "official Fisherville gauge bands; The Parklands adds practical moving-water and strainer cautions. Use the Floyds Fork at Fisherville gauge. KDFWR rates 50 to 300 cfs, or 1.3 to 2.5 ft, as good for boating and fishing. Below that is low and draggy; above that"
     },
     {
       "routeId": "floyds-fork-fisherville-cliffside",
@@ -174,28 +152,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "down site in Beckley Creek Park with limited-hours shoreline access and unpaved parking. Take-out access Cliffside Paddling Access, 38.0864, -85.5520 KDFWR identifies Cliffside Paddling Access as a free carry-down site in Broad Run Park with year-round limited"
-    },
-    {
-      "routeId": "floyds-fork-north-beckley-creekside",
-      "slug": "floyds-fork-north-beckley-creekside",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Creekside Canoe Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "isherville during this run. Route hazards Class I+ moving water, braid choices, wood, quick rises The Parklands says Floyds Fork is Class I+ moving water with small rapids, waves, obstructions, strainers, and quickly changing water levels, and KDFWR says to st"
-    },
-    {
-      "routeId": "floyds-fork-north-beckley-fisherville",
-      "slug": "floyds-fork-north-beckley-fisherville",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Fisherville Canoe Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "and stage good-band floors. Route hazards Class I+ moving water, braid choices, wood, bridge pinch points The Parklands says Floyds Fork is Class I+ moving water with small rapids, waves, obstructions, strainers, and quickly changing levels, and the KDFWR rout"
     },
     {
       "routeId": "floyds-fork-north-beckley-seaton-valley",
@@ -3276,28 +3232,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ute feature and Parklands guidance keep the upper Oxbow and lower Mary's Island hazard story explicit. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 3"
-    },
-    {
-      "routeId": "floyds-fork-north-beckley-creekside",
-      "slug": "floyds-fork-north-beckley-creekside",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Creekside Canoe Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "t strainers, braided current choices, and quicker post-rain current than casual urban paddlers may expect. Confidence is high for a conservative add: KDFWR names the exact North Beckley-to-Creekside access pair, gives official coordinates for both carry-down s"
-    },
-    {
-      "routeId": "floyds-fork-north-beckley-fisherville",
-      "slug": "floyds-fork-north-beckley-fisherville",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Fisherville Canoe Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "th warn about strainers, braid choices, and quicker post-rain current than many urban greenway users expect. Confidence is high for a conservative add: KDFWR names North Beckley to Creekside at 2.1 miles and Creekside to Fisherville at 4.3 miles, which support"
     },
     {
       "routeId": "floyds-fork-seaton-valley-broad-run-valley",
