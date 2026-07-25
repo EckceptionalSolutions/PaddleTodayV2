@@ -144,7 +144,7 @@ export function ExploreRouteDrawer({
             accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
           >
             <MaterialCommunityIcons name="map-marker-path" color={colors.surfaceStrong} size={18} />
-            <Text style={styles.drawerCompareText} numberOfLines={1}>Compare routes</Text>
+            <Text style={styles.drawerCompareText} numberOfLines={1}>Compare</Text>
           </Pressable>
         ) : null}
         <Pressable
@@ -307,7 +307,9 @@ function useMapSheetPanResponder(
 }
 
 export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
-  if (value === 'full') return Math.min(500, maxHeight);
+  // Keep the expanded tray close to its content height. The previous 500pt
+  // cap left a large dead zone above the tab bar on phone-sized screens.
+  if (value === 'full') return Math.min(430, maxHeight);
   return Math.min(268, Math.max(252, maxHeight - 246));
 }
 
@@ -531,7 +533,7 @@ const styles = StyleSheet.create({
   },
   mapSheetActions: {
     flexDirection: 'row',
-    gap: spacing.sm,
+    gap: 6,
   },
   mapSheetSnapButton: {
     width: 44,
@@ -576,7 +578,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   drawerCompareButton: {
-    flex: 1,
+    flex: 1.16,
     minWidth: 0,
     minHeight: 44,
     borderRadius: radius.pill,
@@ -586,13 +588,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 7,
-    paddingHorizontal: spacing.sm,
+    gap: 4,
+    paddingHorizontal: 5,
   },
   drawerCompareText: {
     color: colors.surfaceStrong,
     flexShrink: 1,
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '900',
   },
   drawerOpenRouteButton: {

@@ -12,6 +12,106 @@ export interface RouteCorridorDefinition {
 
 export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
   {
+    corridorId: 'mn-cannon-lower',
+    label: 'Lower Cannon River access corridor',
+    continuityStatus: 'verified',
+    slugs: ['cannon-river-byllesby-highway-61', 'cannon-river-riverside-miesville', 'cannon-river-welch'],
+    canonicalSlug: 'cannon-river-byllesby-highway-61',
+    segmentEdges: [
+      { fromId: 'lake-byllesby-east-cannon', toId: 'cannon-riverside-park', status: 'verified' },
+      { fromId: 'cannon-riverside-park', toId: 'cannon-miesville-ravine', status: 'verified' },
+      { fromId: 'cannon-miesville-ravine', toId: 'cannon-welch-mill-access', status: 'verified' },
+      { fromId: 'cannon-welch-mill-access', toId: 'highway-61-cannon', status: 'verified' },
+    ],
+  },
+  {
+    corridorId: 'mn-little-fork-fiedler-lofgren',
+    label: 'Little Fork Fiedler-to-Lofgren corridor',
+    continuityStatus: 'verified',
+    slugs: ['little-fork-river-fiedler-lofgren-park', 'little-fork-river-fiedler-devereaux', 'little-fork-river-devereaux-lofgren-park'],
+    canonicalSlug: 'little-fork-river-fiedler-lofgren-park',
+    segmentEdges: [
+      { fromId: 'fiedler', toId: 'devereaux', status: 'verified' },
+      { fromId: 'devereaux', toId: 'lofgren-park', status: 'verified' },
+    ],
+  },
+  {
+    corridorId: 'mn-pomme-de-terre-lower',
+    label: 'Lower Pomme de Terre access corridor',
+    continuityStatus: 'verified',
+    slugs: ['pomme-de-terre-river-pomme-1-appleton', 'pomme-de-terre-river-larson-appleton'],
+    canonicalSlug: 'pomme-de-terre-river-pomme-1-appleton',
+    segmentEdges: [
+      { fromId: 'pomme-de-terre-pomme-1', toId: 'pomme-de-terre-larson', status: 'verified' },
+      { fromId: 'pomme-de-terre-larson', toId: 'appleton-pomme-de-terre', status: 'verified' },
+    ],
+  },
+  {
+    corridorId: 'mn-mississippi-royalton-sartell',
+    label: 'Mississippi Royalton-to-Sartell access corridor',
+    continuityStatus: 'verified',
+    slugs: ['mississippi-river-royalton-sartell', 'mississippi-river-royalton-stearns-county-park'],
+    canonicalSlug: 'mississippi-river-royalton-sartell',
+    segmentEdges: [
+      { fromId: 'royalton-sportsmans-club', toId: 'mississippi-county-park', status: 'verified' },
+      { fromId: 'mississippi-county-park', toId: 'walleye-road', status: 'verified' },
+      { fromId: 'walleye-road', toId: 'sartell-access', status: 'verified' },
+    ],
+  },
+  {
+    corridorId: 'mn-big-fork-lower',
+    label: 'Lower Big Fork River condition family',
+    continuityStatus: 'condition-family',
+    slugs: ['big-fork-river-big-falls-west-kueffners', 'big-fork-river-ben-linn-ivan-crawford', 'big-fork-river-gowdy-reedy-flats'],
+  },
+  {
+    corridorId: 'mn-vermilion-condition-family',
+    label: 'Vermilion River condition family',
+    continuityStatus: 'condition-family',
+    slugs: ['vermilion-river-shively-eightmile', 'vermilion-river-twomile-eightmile'],
+  },
+  {
+    corridorId: 'wi-chippewa-upper',
+    label: 'Upper Chippewa County D-to-Highway 8 corridor',
+    continuityStatus: 'verified',
+    slugs: ['chippewa-river-county-d-highway-8', 'chippewa-river-county-d-imalone', 'chippewa-river-county-a-highway-8'],
+    canonicalSlug: 'chippewa-river-county-d-highway-8',
+    segmentEdges: [
+      { fromId: 'chippewa-county-d', toId: 'chippewa-imalone', status: 'verified' },
+      { fromId: 'chippewa-imalone', toId: 'chippewa-highway-8', status: 'verified' },
+    ],
+  },
+  {
+    corridorId: 'ia-turkey-elkader-garber',
+    label: 'Turkey River Elkader-to-Garber corridor',
+    continuityStatus: 'verified',
+    slugs: ['turkey-river-elkader-garber', 'turkey-river-elkader-motor-mill', 'turkey-river-motor-mill-garber'],
+    canonicalSlug: 'turkey-river-elkader-garber',
+    segmentEdges: [
+      { fromId: 'turkey-elkader-whitewater', toId: 'turkey-motor-mill', status: 'verified' },
+      { fromId: 'turkey-motor-mill', toId: 'turkey-garber', status: 'verified' },
+    ],
+  },
+  {
+    corridorId: 'ia-north-fork-maquoketa-cascade-caven',
+    label: 'North Fork Maquoketa Cascade-to-Caven corridor',
+    continuityStatus: 'verified',
+    slugs: [
+      'north-fork-maquoketa-river-cascade-caven',
+      'north-fork-maquoketa-river-cascade-d61',
+      'north-fork-maquoketa-river-d61-ozark',
+      'north-fork-maquoketa-river-cascade-ozark',
+      'north-fork-maquoketa-river-ozark-caven',
+      'north-fork-maquoketa-river-d61-caven',
+    ],
+    canonicalSlug: 'north-fork-maquoketa-river-cascade-caven',
+    segmentEdges: [
+      { fromId: 'north-fork-cascade', toId: 'north-fork-d61', status: 'verified' },
+      { fromId: 'north-fork-d61', toId: 'north-fork-ozark', status: 'verified' },
+      { fromId: 'north-fork-ozark', toId: 'north-fork-caven', status: 'verified' },
+    ],
+  },
+  {
     corridorId: 'mn-sauk-water-trail',
     label: 'Sauk River water-trail corridor',
     continuityStatus: 'condition-family',
@@ -49,7 +149,7 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     corridorId: 'ia-upper-iowa-cattle-malanaphy',
     label: 'Upper Iowa Cattle Creek-Malanaphy corridor',
     continuityStatus: 'verified',
-    slugs: ['upper-iowa-river-cattle-creek-malanaphy'],
+    slugs: ['upper-iowa-river-cattle-creek-malanaphy', 'upper-iowa-river-kendallville-bluffton'],
     canonicalSlug: 'upper-iowa-river-cattle-creek-malanaphy',
     segmentEdges: [
       { fromId: 'cattle-creek-road-daley-bridge', toId: 'chimney-rock-park-access', status: 'verified' },
@@ -66,8 +166,17 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
   {
     corridorId: 'mn-crow-wing-condition-family',
     label: 'Crow Wing River condition family',
-    continuityStatus: 'condition-family',
+    continuityStatus: 'partial',
     slugPrefix: 'crow-wing-river-',
+    canonicalSlug: 'crow-wing-river-mary-brown-cottingham',
+    segmentEdges: [
+      { fromId: 'mary-brown-rest-area', toId: 'andersons-crossing', status: 'verified' },
+      { fromId: 'andersons-crossing', toId: 'stigmans-mound', status: 'verified' },
+      { fromId: 'stigmans-mound', toId: 'frames-landing', status: 'verified' },
+      { fromId: 'frames-landing', toId: 'little-white-dog', status: 'verified' },
+      { fromId: 'little-white-dog', toId: 'knob-hill', status: 'verified' },
+      { fromId: 'knob-hill', toId: 'cottingham-county-park', status: 'verified' },
+    ],
   },
   {
     corridorId: 'ia-des-moines-condition-family',

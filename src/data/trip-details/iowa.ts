@@ -2320,11 +2320,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "turkey-river-elkader-garber": {
     "putIn": {
+      "id": "turkey-elkader-whitewater",
       "name": "Elkader Whitewater Park / Elkader Access #39B",
       "latitude": 42.853356,
       "longitude": -91.402402
     },
     "takeOut": {
+      "id": "turkey-garber",
       "name": "Garber Access #20",
       "latitude": 42.74002,
       "longitude": -91.26159
@@ -2347,7 +2349,36 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "A long sequence of riffles, outside-bend wood, and fatigue-related mistakes late in the day as the route continues below Motor Mill.",
         "Fast rises, muddy landings, and more consequential current when the Garber gauge is well above the conservative 550 cfs floor."
       ]
-    }
+    },
+    "accessPoints": [
+      {
+        "id": "turkey-elkader-whitewater",
+        "name": "Elkader Whitewater Park / Elkader Access #39B",
+        "latitude": 42.853356,
+        "longitude": -91.402402,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for the full Elkader-to-Garber combination route."
+      },
+      {
+        "id": "turkey-motor-mill",
+        "name": "Motor Mill Access #32",
+        "latitude": 42.80692,
+        "longitude": -91.35124,
+        "mileFromStart": 6.8,
+        "segmentKind": "creek",
+        "note": "Natural midpoint and public bailout between the Elkader and Garber source segments."
+      },
+      {
+        "id": "turkey-garber",
+        "name": "Garber Access #20",
+        "latitude": 42.74002,
+        "longitude": -91.26159,
+        "mileFromStart": 18.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for the full lower Turkey River day."
+      }
+    ]
   },
   "little-turkey-river-gouldsburg-eldorado": {
     "putIn": {
@@ -2531,11 +2562,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "north-fork-maquoketa-river-cascade-caven": {
     "putIn": {
+      "id": "north-fork-cascade",
       "name": "Cascade Historic Limestone Silo / Cascade landing",
       "latitude": 42.29902,
       "longitude": -91.01244
     },
     "takeOut": {
+      "id": "north-fork-caven",
       "name": "Caven Bridge Access / 60th Ave",
       "latitude": 42.18,
       "longitude": -90.83
@@ -2557,7 +2590,45 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "Fast rises and muddy water after storms, which make this full corridor much more consequential than the shorter live North Fork routes.",
         "Private banks and private campground accesses that should not be treated as public stops or fallback take-outs."
       ]
-    }
+    },
+    "accessPoints": [
+      {
+        "id": "north-fork-cascade",
+        "name": "Cascade Historic Limestone Silo / Cascade landing",
+        "latitude": 42.29902,
+        "longitude": -91.01244,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in below the Cascade dam."
+      },
+      {
+        "id": "north-fork-d61",
+        "name": "D61 Access / Whitewater Creek bridge access",
+        "latitude": 42.27778,
+        "longitude": -90.9371,
+        "mileFromStart": 7.8,
+        "segmentKind": "creek",
+        "note": "Intermediate access on Whitewater Creek and the handoff to the middle source segment."
+      },
+      {
+        "id": "north-fork-ozark",
+        "name": "Ozark Bridge / 21st Ave access area",
+        "latitude": 42.19,
+        "longitude": -90.87,
+        "mileFromStart": 19.9,
+        "segmentKind": "creek",
+        "note": "Intermediate undeveloped access before the final Ozark-to-Caven section."
+      },
+      {
+        "id": "north-fork-caven",
+        "name": "Caven Bridge Access / 60th Ave",
+        "latitude": 42.18,
+        "longitude": -90.83,
+        "mileFromStart": 24.3,
+        "segmentKind": "creek",
+        "note": "Default east-bank take-out; scout the undeveloped bridge corridor before launch."
+      }
+    ]
   },
   "boone-river-riverside-albright": {
     "putIn": {

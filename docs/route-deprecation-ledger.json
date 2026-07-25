@@ -1,5 +1,15 @@
 [
   {"corridorId":"wi-turtle-creek-upper","canonicalSlug":"turtle-creek-school-section-east-creek","status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
   {"corridorId":"ia-middle-river-water-trail","canonicalSlug":"middle-river-pammel-holliwell","status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
-  {"corridorId":"mn-sauk-water-trail","canonicalSlug":null,"status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"condition-family-only"}
+  {"corridorId":"mn-sauk-water-trail","canonicalSlug":null,"status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"condition-family-only"},
+  {"corridorId":"mn-crow-wing-condition-family","canonicalSlug":"crow-wing-river-mary-brown-cottingham","status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"partial-chain-only"},
+  {"corridorId":"mn-cannon-lower","canonicalSlug":"cannon-river-byllesby-highway-61","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"mn-little-fork-fiedler-lofgren","canonicalSlug":"little-fork-river-fiedler-lofgren-park","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"mn-pomme-de-terre-lower","canonicalSlug":"pomme-de-terre-river-pomme-1-appleton","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"mn-mississippi-royalton-sartell","canonicalSlug":"mississippi-river-royalton-sartell","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"mn-big-fork-lower","canonicalSlug":null,"status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"condition-family-only"},
+  {"corridorId":"mn-vermilion-condition-family","canonicalSlug":null,"status":"observe","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"condition-family-only"},
+  {"corridorId":"wi-chippewa-upper","canonicalSlug":"chippewa-river-county-d-highway-8","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"ia-turkey-elkader-garber","canonicalSlug":"turkey-river-elkader-garber","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"},
+  {"corridorId":"ia-north-fork-maquoketa-cascade-caven","canonicalSlug":"north-fork-maquoketa-river-cascade-caven","status":"recommend","underlyingTripOptionsPreserved":true,"conversionBaseline":null,"conversionPilot":null,"safetyReview":"approved"}
 ]

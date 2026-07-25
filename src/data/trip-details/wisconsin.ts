@@ -1143,11 +1143,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "chippewa-river-county-d-highway-8": {
     "putIn": {
+      "id": "chippewa-county-d",
       "name": "County D Bridge landing",
       "latitude": 45.671121,
       "longitude": -91.18108
     },
     "takeOut": {
+      "id": "chippewa-highway-8",
       "name": "Highway 8 Canoe Landing",
       "latitude": 45.452909,
       "longitude": -91.256361
@@ -1169,7 +1171,36 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "Island splits, strainers, and fresh wood through the middle wooded corridor.",
         "Fatigue, slow progress, and a late finish on a nearly twenty-mile day if headwinds or low water sap your pace."
       ]
-    }
+    },
+    "accessPoints": [
+      {
+        "id": "chippewa-county-d",
+        "name": "County D Bridge landing",
+        "latitude": 45.671121,
+        "longitude": -91.18108,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upper put-in; the approach is a rough dirt-track trailer landing."
+      },
+      {
+        "id": "chippewa-imalone",
+        "name": "Imalone / County A Bridge access",
+        "latitude": 45.552358,
+        "longitude": -91.228388,
+        "mileFromStart": 10.7,
+        "segmentKind": "creek",
+        "note": "Documented hand-carry midpoint between the two component Chippewa routes."
+      },
+      {
+        "id": "chippewa-highway-8",
+        "name": "Highway 8 Canoe Landing",
+        "latitude": 45.452909,
+        "longitude": -91.256361,
+        "mileFromStart": 19.7,
+        "segmentKind": "creek",
+        "note": "Default Bruce-area take-out."
+      }
+    ]
   },
   "chippewa-river-highway-8-flambeau-river": {
     "putIn": {

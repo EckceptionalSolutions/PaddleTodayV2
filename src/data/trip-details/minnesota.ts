@@ -626,11 +626,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "little-fork-river-fiedler-lofgren-park": {
     "putIn": {
+      "id": "fiedler",
       "name": "Fiedler Public Water Access Site",
       "latitude": 48.2920545,
       "longitude": -93.4416055
     },
     "takeOut": {
+      "id": "lofgren-park",
       "name": "Lofgren Park Public Water Access Site",
       "latitude": 48.4002431,
       "longitude": -93.564833
@@ -10536,6 +10538,15 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 9.4,
         "segmentKind": "creek",
         "note": "Public intermediate access before committing to the final Highway 61 leg."
+      },
+      {
+        "id": "cannon-welch-mill-access",
+        "name": "Cannon River, Welch Mill access",
+        "latitude": 44.5679337,
+        "longitude": -92.7385579,
+        "mileFromStart": 14.15,
+        "segmentKind": "creek",
+        "note": "Approximate intermediate point from the existing Riverside-to-Welch route endpoint; verify current public access, parking, and any private-property restrictions before treating it as a routine bailout."
       },
       {
         "id": "highway-61-cannon",

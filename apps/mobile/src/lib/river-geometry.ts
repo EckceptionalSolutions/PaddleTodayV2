@@ -3,13 +3,23 @@ import type { RouteSpanCoordinate } from '../components/route-plot-map';
 
 type Coordinate = [number, number];
 
+// A small number of NHD route assets are split at a larger gap than the
+// normal tile-boundary tolerance. Keep this in sync with the web map's
+// route-specific stitching exception so mobile selections use the same line.
+const routeStitchTolerances = new Map([
+  ['little-miami-river-rogers-ballpark-carl-rahe', 0.0075],
+]);
+
 export function endpointSnappedRouteCoordinates(
   geometry: RiverGeometryResponse | null | undefined,
   routePoints: RouteSpanCoordinate[] | null | undefined,
 ): RouteSpanCoordinate[] | null {
   if (!geometry || !routePoints || routePoints.length < 2) return null;
 
-  const lines = stitchRiverLines(flattenGeometry(geometry.geometry));
+  const lines = stitchRiverLines(
+    flattenGeometry(geometry.geometry),
+    routeStitchTolerances.get(geometry.routeId) ?? 0.0025,
+  );
   const best = endpointSnappedGeometry(lines, routePoints);
   return best?.coordinates.map(([longitude, latitude]) => ({ latitude, longitude })) ?? null;
 }

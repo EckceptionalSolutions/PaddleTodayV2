@@ -436,9 +436,10 @@ function FullScreenExploreMap({
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
   const [mapZoomLevel, setMapZoomLevel] = useState(5);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
-  const selectedGeometryQuery = useRiverGeometryQuery(
-    selectedRouteCount <= 1 || selectedRiver?.selectedSegment ? selectedSlug ?? '' : ''
-  );
+  // Load the representative route geometry for grouped results too. Without
+  // this, a grouped river selection only had access-point chords to draw,
+  // which can visibly cut across bends instead of following the river.
+  const selectedGeometryQuery = useRiverGeometryQuery(selectedSlug ?? '');
   const mapResults = useMemo(() => {
     if (results.length <= MAX_MAP_POINTS) {
       return results;
