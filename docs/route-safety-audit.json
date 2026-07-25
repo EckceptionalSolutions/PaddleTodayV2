@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-24T23:40:39.867Z",
+  "generatedAt": "2026-07-25T03:42:12.824Z",
   "routeCount": 937,
-  "issueCount": 540,
+  "issueCount": 534,
   "summary": {
     "Critical": 0,
-    "High": 322,
-    "Medium": 218,
+    "High": 318,
+    "Medium": 216,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "volga-river-klocks-island-heron-road",
-      "slug": "volga-river-klocks-island-heron-road",
-      "name": "Volga River",
-      "reach": "Klock's Island Park to Heron Road Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ate small-river run because the channel is narrow, shallow, swift in spots, and strainer-prone near Heron Road. The last mile can be skipped by using the easier state-park picnic-area access if conditions look messy. Confidence is good for a guarded Iowa minim"
-    },
-    {
-      "routeId": "yellow-river-volney-sixteen-bridge",
-      "slug": "yellow-river-volney-sixteen-bridge",
-      "name": "Yellow River",
-      "reach": "Volney Canoe Access to Sixteen Bridge",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "fast, coldwater stream with several strainers and high-water escalation toward Class II-style consequences. Confidence is good for a community-source add: Wisconsin River Trips documents the exact popular Volney-to-Sixteen route, provides a detailed Ion-gauge"
-    },
     {
       "routeId": "barren-river-vpa-3-martinsville",
       "slug": "barren-river-vpa-3-martinsville",
@@ -64,28 +42,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": ", the Romanza ford hydraulic, strainers, and any red-flag or posted park/access closure. Warren County and local blueway material frame Romanza Johnson Park to Phil Moore Park as a common six-mile recreational float. It is generally approachable at ordinary le"
-    },
-    {
-      "routeId": "floyds-fork-broad-run-valley-cliffside",
-      "slug": "floyds-fork-broad-run-valley-cliffside",
-      "name": "Floyds Fork",
-      "reach": "Broad Run Valley Paddling Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "t 2.5-mile public route, and the Parklands safety sheet keeps the moving-water, wood, and private-bank cautions explicit. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, with older KDFWR/Parklan"
-    },
-    {
-      "routeId": "floyds-fork-broad-run-valley-cliffside",
-      "slug": "floyds-fork-broad-run-valley-cliffside",
-      "name": "Floyds Fork",
-      "reach": "Broad Run Valley Paddling Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "evels, and it tells paddlers to use marked landings only and not to take out on private property. KDFWR Floyds Fork https://fw.ky.gov/Fish/Pages/floyds-fork.aspx KDFWR Floyds Fork lower-section PDF https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf KDFW"
     },
     {
       "routeId": "floyds-fork-creekside-broad-run-valley",
@@ -3564,17 +3520,6 @@
       "evidence": "the named Canton County Park topo feature. Royertown coordinates come from the Water Quality Portal site named AWARE 13 Royerton Bridge Access Maquoketa River, matching the county-listed Royertown Bridge Access. Hazards Low spots, wind, high-water push WRT re"
     },
     {
-      "routeId": "volga-river-klocks-island-heron-road",
-      "slug": "volga-river-klocks-island-heron-road",
-      "name": "Volga River",
-      "reach": "Klock's Island Park to Heron Road Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Upper-Volga route from Fayette's Klock's Island Park into Volga River State Recreation Area, with clear water, frequent Class I riffles, limestone bluffs, and a guarded Littleport"
-    },
-    {
       "routeId": "volga-river-mederville-littleport",
       "slug": "volga-river-mederville-littleport",
       "name": "Volga River",
@@ -3595,17 +3540,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": ", USGS 05412400 is a direct same-river live gauge downstream at Littleport, and Water Quality Portal/Iowa DNR records support the Mederville access coordinates. The route uses Osborne Canoe Access rather than the rougher Hwy 13 bridge launch because the county"
-    },
-    {
-      "routeId": "yellow-river-volney-sixteen-bridge",
-      "slug": "yellow-river-volney-sixteen-bridge",
-      "name": "Yellow River",
-      "reach": "Volney Canoe Access to Sixteen Bridge",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "Volney-to-Sixteen route, provides a detailed Ion-gauge ladder, and gives access/hazard notes. Iowa DNR confirms public access, picnic facilities, rustic restroom, and carry-down boat launch context at Volney, while independent map sources identify Bridge Sixte"
     },
     {
       "routeId": "barren-river-vpa-3-martinsville",

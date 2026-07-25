@@ -41,11 +41,9 @@ import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { androidBottomInset } from '../lib/safe-area';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
 import {
-  descriptionForExploreIntent,
   EXPLORE_PREFERENCES_STORAGE_KEY,
   filtersForExploreIntent,
   isExploreIntentId,
-  labelForExploreIntent,
   type ExploreIntentId,
 } from '../lib/explore-intents';
 import { trackAppEvent } from '../lib/observability';
@@ -65,6 +63,11 @@ interface ExploreRiver extends RiverSummaryApiItem {
   travelLabel: string | null;
   selectedSegment: RouteSegment | null;
   segmentSummary: RouteSegmentSummary | null;
+}
+
+interface ExploreMapPoint extends RoutePlotPoint {
+  routeSlug: string;
+  routeSlugs: string[];
 }
 
 interface ExplorePreferences {
@@ -283,7 +286,6 @@ export default function ExploreScreen() {
       <FullScreenExploreMap
         activeFilterCount={activeFilterCount}
         filters={filters}
-        requestedIntent={requestedIntent}
         viewMode={viewMode}
         onViewModeChange={setViewMode}
         mapHeight={windowHeight}
@@ -305,12 +307,6 @@ export default function ExploreScreen() {
         }}
         onOpenRiverRoutes={openExploreRiverRoutes}
         onOpenRoute={openExploreRoute}
-        onClearIntent={() => {
-          setFilters(defaultFilters);
-          setDraftFilters(defaultFilters);
-          setSelectedSlug(null);
-          router.replace('/explore');
-        }}
         onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
         onSelectSlug={setSelectedSlug}
         onUseLocation={() => void requestLocation()}
@@ -384,7 +380,6 @@ export default function ExploreScreen() {
 function FullScreenExploreMap({
   activeFilterCount,
   filters,
-  requestedIntent,
   viewMode,
   onViewModeChange,
   mapHeight,
@@ -404,7 +399,6 @@ function FullScreenExploreMap({
   onContributePhotos,
   onOpenRiverRoutes,
   onOpenRoute,
-  onClearIntent,
   onSearchChange,
   onSelectSlug,
   onToggleSaved,
@@ -413,7 +407,6 @@ function FullScreenExploreMap({
 }: {
   activeFilterCount: number;
   filters: ExploreFilters;
-  requestedIntent: ExploreIntentId | null;
   viewMode: 'map' | 'list';
   onViewModeChange: (mode: 'map' | 'list') => void;
   mapHeight: number;
@@ -433,7 +426,6 @@ function FullScreenExploreMap({
   onContributePhotos: (slug: string) => void;
   onOpenRiverRoutes: (route: ExploreRiver) => void;
   onOpenRoute: (route: ExploreRiver) => void;
-  onClearIntent: () => void;
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string | null) => void;
   onToggleSaved: (river: RiverSummaryApiItem) => void;
@@ -458,13 +450,17 @@ function FullScreenExploreMap({
   }, [results, selectedRiver]);
   const points = useExploreMapPoints(mapResults, routeCounts, results);
   const matchingRiverCount = useMemo(() => dedupeExploreRoutes(results).length, [results]);
+  const selectedMapPointId = useMemo(
+    () => points.find((point) => point.routeSlugs.includes(selectedSlug ?? ''))?.id ?? null,
+    [points, selectedSlug]
+  );
   const selectedCanonicalSpan = useMemo(
     () => (selectedRiver ? endpointSnappedRouteCoordinates(selectedGeometryQuery.data, routeSpanCoordinatesForRiver(selectedRiver)) : null),
     [selectedGeometryQuery.data, selectedRiver]
   );
   const canonicalSpans = useMemo(
-    () => (selectedSlug && selectedCanonicalSpan ? new Map([[selectedSlug, selectedCanonicalSpan]]) : undefined),
-    [selectedCanonicalSpan, selectedSlug]
+    () => (selectedMapPointId && selectedCanonicalSpan ? new Map([[selectedMapPointId, selectedCanonicalSpan]]) : undefined),
+    [selectedCanonicalSpan, selectedMapPointId]
   );
   const requesting = status === 'requesting';
   const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap) : 0) + spacing.md;
@@ -482,13 +478,7 @@ function FullScreenExploreMap({
     filters.camping,
     filters.sort,
   ].join('|');
-  const intentBanner = requestedIntent
-    ? {
-        title: labelForExploreIntent(requestedIntent),
-        body: descriptionForExploreIntent(requestedIntent, Boolean(userLocation)),
-      }
-    : null;
-  const overlayTop = topInset + (intentBanner ? 284 : 216);
+  const overlayTop = topInset + 216;
 
   useEffect(() => {
     if (activeFilterCount === 0 || points.length === 0) {
@@ -560,13 +550,13 @@ function FullScreenExploreMap({
           <RoutePlotMap
             ref={mapRef}
             points={points}
-            selectedId={selectedSlug}
+            selectedId={selectedMapPointId}
             canonicalSpans={canonicalSpans}
             selectedFocusBottomInset={selectedRiver ? sheetHeightValue('half') + bottomInset : 0}
           userLocation={userLocation}
           onSelectPoint={(point) => {
             setSheetSnap('half');
-            onSelectSlug(point.id);
+            onSelectSlug(points.find((candidate) => candidate.id === point.id)?.routeSlug ?? null);
           }}
           height={mapHeight}
           showFooter={false}
@@ -619,17 +609,6 @@ function FullScreenExploreMap({
            </View>
          </View>
         <ExploreViewToggle mode={viewMode} onChange={onViewModeChange} />
-        {intentBanner ? (
-          <View style={styles.intentBanner}>
-            <View style={styles.intentBannerCopy}>
-              <Text style={styles.intentBannerTitle}>{intentBanner.title}</Text>
-              <Text style={styles.intentBannerBody} numberOfLines={1}>{intentBanner.body}</Text>
-            </View>
-            <Pressable style={styles.intentBannerClear} onPress={onClearIntent} accessibilityRole="button" accessibilityLabel="Clear Home filters">
-              <MaterialCommunityIcons name="close" color={colors.accent} size={17} />
-            </Pressable>
-          </View>
-        ) : null}
       </View>
 
       {userOutOfRange ? (
@@ -879,7 +858,7 @@ function useExploreMapPoints(
   routeCounts: ReadonlyMap<string, number>,
   allMatchingRoutes: ExploreRiver[] = results
 ) {
-  return useMemo<RoutePlotPoint[]>(
+  return useMemo<ExploreMapPoint[]>(
     () =>
       dedupeExploreRoutes(results).flatMap((river) => {
         const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
@@ -889,9 +868,6 @@ function useExploreMapPoints(
               ? candidate.river.slug === river.river.slug
               : riverGroupKeyForRoute(candidate) === riverKey
           ));
-        const spanSegments = matchingRiverRoutes
-          .map(routeSpanCoordinatesForRiver)
-          .filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2));
         const matchingRouteCount = matchingRiverRoutes.length;
         const scoreZones = groupRoutesByConditionScore(matchingRiverRoutes);
 
@@ -899,9 +875,14 @@ function useExploreMapPoints(
           const representative = group.representative;
           const center = coverageCenter(group.routes);
           if (!representative || !center || group.score === null) return [];
+          const spanSegments = group.routes
+            .map(routeSpanCoordinatesForRiver)
+            .filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2));
 
           return [{
-            id: representative.river.slug,
+            id: `score-group:${group.key}`,
+            routeSlug: representative.river.slug,
+            routeSlugs: group.routes.map((route) => route.river.slug),
             label: representative.river.name,
             latitude: center.latitude,
             longitude: center.longitude,
@@ -939,6 +920,27 @@ function dedupeExploreRoutes(results: ExploreRiver[]) {
 }
 
 function routeSpanCoordinatesForRiver(river: RiverSummaryApiItem): MapCoordinate[] | null {
+  const selectedSegment = 'selectedSegment' in river
+    ? (river as ExploreRiver).selectedSegment
+    : null;
+  if (selectedSegment) {
+    const segmentStart = Math.min(selectedSegment.putIn.mileFromStart, selectedSegment.takeOut.mileFromStart);
+    const segmentEnd = Math.max(selectedSegment.putIn.mileFromStart, selectedSegment.takeOut.mileFromStart);
+    const segmentChain = [
+      selectedSegment.putIn,
+      ...(river.river.accessPoints ?? []).filter((point) => (
+        point.mileFromStart > segmentStart && point.mileFromStart < segmentEnd
+      )),
+      selectedSegment.takeOut,
+    ]
+      .map(accessCoordinate)
+      .filter(isMapCoordinate);
+
+    if (segmentChain.length >= 2) {
+      return segmentChain;
+    }
+  }
+
   const accessPoints = river.river.accessPoints
     ?.map((point) => ({ point, coordinate: accessCoordinate(point) }))
     .filter(hasMappedAccessCoordinate)
@@ -1343,47 +1345,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.sm,
     padding: spacing.xl,
-  },
-  intentBanner: {
-    minHeight: 50,
-    borderRadius: radius.md,
-    backgroundColor: 'rgba(255, 255, 255, 0.96)',
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    shadowColor: '#000',
-    shadowOpacity: 0.12,
-    shadowRadius: 9,
-    elevation: 3,
-  },
-  intentBannerCopy: {
-    flex: 1,
-    minWidth: 0,
-  },
-  intentBannerTitle: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  intentBannerBody: {
-    color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: '700',
-    marginTop: 2,
-  },
-  intentBannerClear: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   fullMapLocationPrompt: {
     position: 'absolute',

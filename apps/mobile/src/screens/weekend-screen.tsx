@@ -6,6 +6,7 @@ import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'r
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useWeekendSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
+import { RoutePlotMap, type RoutePlotPoint, type RouteSpanCoordinate } from '../components/route-plot-map';
 import { SectionCard } from '../components/section-card';
 import { WeekendRiverCard } from '../components/weekend-river-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -24,6 +25,7 @@ interface WeekendRoute extends WeekendSummaryApiItem {
 }
 
 type WeekendFilter = 'all' | 'day-trips' | 'camping' | 'rechecks';
+type WeekendAccessPoint = NonNullable<WeekendSummaryApiItem['river']['accessPoints']>[number];
 
 const weekendConfidenceRank = {
   High: 3,
@@ -81,6 +83,24 @@ export default function WeekendScreen() {
     .filter((river) => !shownSlugs.has(river.river.slug))
     .filter((river) => river.weekend.rating === 'Fair')
     .slice(0, 5);
+  const weekendMapRoutes = uniqueWeekendRoutes(
+    weekendFilter === 'day-trips'
+      ? [...topPicks, ...lowerCommitment, ...expandedPicks]
+      : weekendFilter === 'camping'
+        ? campingFriendlyRoutes
+        : weekendFilter === 'rechecks'
+          ? [...(!hasWeekendPlan ? nearbyWatch : []), ...watchList]
+          : [
+              ...topPicks,
+              ...lowerCommitment,
+              ...(!hasWeekendPlan ? nearbyWatch : []),
+              ...expandedPicks,
+              ...campingFriendlyRoutes,
+              ...watchList,
+            ]
+  );
+  const weekendMapPoints = weekendRouteMapPoints(weekendMapRoutes);
+  const weekendMapSpans = weekendMapPoints.flatMap((point) => point.spanSegments ?? []);
   const locationLabel = location?.label ?? null;
 
   useEffect(() => {
@@ -223,6 +243,25 @@ export default function WeekendScreen() {
           selected={weekendFilter}
           onSelect={setWeekendFilter}
         />
+      ) : null}
+
+      {weekendMapPoints.length > 0 ? (
+        <SectionCard
+          title="Weekend routes on the map"
+          subtitle={`Showing all ${weekendMapPoints.length} ${weekendFilter === 'all' ? 'weekend routes below' : `${weekendFilterLabel(weekendFilter)} routes`}. Tap a score to open the route.`}
+        >
+          <View style={styles.mapFrame}>
+            <RoutePlotMap
+              points={weekendMapPoints}
+              backgroundSpanSegments={weekendMapSpans}
+              height={270}
+              showFooter={false}
+              fitToAllOnReady
+              fullBleed
+              onSelectPoint={(point) => router.push({ pathname: '/river/[slug]', params: { slug: point.id } })}
+            />
+          </View>
+        </SectionCard>
       ) : null}
 
       {(weekendFilter === 'all' || weekendFilter === 'day-trips') && topPicks.length > 0 ? (
@@ -486,6 +525,95 @@ function slugSet(rivers: WeekendSummaryApiItem[]) {
   return new Set(rivers.map((river) => river.river.slug));
 }
 
+function uniqueWeekendRoutes(rivers: WeekendSummaryApiItem[]) {
+  const seen = new Set<string>();
+  return rivers.filter((river) => {
+    if (seen.has(river.river.slug)) {
+      return false;
+    }
+    seen.add(river.river.slug);
+    return true;
+  });
+}
+
+function weekendFilterLabel(filter: WeekendFilter) {
+  if (filter === 'day-trips') return 'day trip';
+  if (filter === 'camping') return 'camping-friendly';
+  if (filter === 'rechecks') return 'recheck';
+  return 'weekend';
+}
+
+function weekendRouteMapPoints(rivers: WeekendSummaryApiItem[]): RoutePlotPoint[] {
+  return rivers.map((river) => {
+    const span = weekendRouteSpan(river);
+    const center = span.length > 0
+      ? {
+          latitude: span.reduce((sum, point) => sum + point.latitude, 0) / span.length,
+          longitude: span.reduce((sum, point) => sum + point.longitude, 0) / span.length,
+        }
+      : { latitude: river.river.latitude, longitude: river.river.longitude };
+
+    return {
+      id: river.river.slug,
+      label: river.river.name,
+      latitude: center.latitude,
+      longitude: center.longitude,
+      score: river.weekend.score,
+      rating: river.weekend.rating,
+      markerAccessibilityLabel: `${river.river.reach}, weekend score ${river.weekend.score}`,
+      spanSegments: span.length >= 2 ? [span] : [],
+      meta: [river.river.reach, river.river.distanceLabel].filter(Boolean).join(' - '),
+    };
+  });
+}
+
+function weekendRouteSpan(river: WeekendSummaryApiItem): RouteSpanCoordinate[] {
+  const accessPoints = river.river.accessPoints
+    ?.map((point) => ({ point, coordinate: weekendAccessCoordinate(point) }))
+    .filter(hasMappedWeekendAccessCoordinate)
+    .sort((left, right) => left.point.mileFromStart - right.point.mileFromStart);
+  const chain = [
+    weekendAccessCoordinate(river.river.putIn),
+    ...(accessPoints?.map((entry) => entry.coordinate) ?? []),
+    weekendAccessCoordinate(river.river.takeOut),
+  ].filter(isWeekendMapCoordinate);
+
+  return dedupeAdjacentCoordinates(chain);
+}
+
+function weekendAccessCoordinate(
+  point: { latitude?: number; longitude?: number } | null | undefined
+): RouteSpanCoordinate | null {
+  if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
+    return null;
+  }
+
+  return {
+    latitude: point.latitude as number,
+    longitude: point.longitude as number,
+  };
+}
+
+function hasMappedWeekendAccessCoordinate(
+  entry: { point: WeekendAccessPoint; coordinate: RouteSpanCoordinate | null }
+): entry is { point: WeekendAccessPoint; coordinate: RouteSpanCoordinate } {
+  return entry.coordinate !== null;
+}
+
+function isWeekendMapCoordinate(
+  coordinate: RouteSpanCoordinate | null
+): coordinate is RouteSpanCoordinate {
+  return coordinate !== null;
+}
+
+function dedupeAdjacentCoordinates(coordinates: RouteSpanCoordinate[]) {
+  return coordinates.filter((coordinate, index) => (
+    index === 0
+    || coordinate.latitude !== coordinates[index - 1].latitude
+    || coordinate.longitude !== coordinates[index - 1].longitude
+  ));
+}
+
 function isLowerCommitmentRoute(river: WeekendSummaryApiItem) {
   if (!isCleanWeekendRoute(river)) {
     return false;
@@ -745,6 +873,10 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: spacing.md,
     gap: spacing.md,
+  },
+  mapFrame: {
+    borderRadius: radius.md,
+    overflow: 'hidden',
   },
   heroHeader: {
     flexDirection: 'row',

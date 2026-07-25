@@ -175,7 +175,7 @@ export default function RiverHubScreen() {
     return (
       <RouteChoiceCard
         route={route}
-        tripCount={tripCountForRoute(route, allRoutes)}
+        groupedReachCount={groupedReachCountForRoute(route, allRoutes)}
         rank={index + 1}
         recommended={route.river.slug === bestRoute?.river.slug}
         selected={route.river.slug === selectedRouteSlug}
@@ -194,7 +194,7 @@ export default function RiverHubScreen() {
           trackAppEvent('corridor_trip_selected', {
             corridor_id: route.river.corridorId ?? route.river.conditionZoneId ?? route.river.riverId,
             slug: route.river.slug,
-            trip_option_count: tripCountForRoute(route, allRoutes),
+            grouped_reach_count: groupedReachCountForRoute(route, allRoutes),
             river: route.river.name,
             state: route.river.state,
             region: route.river.region,
@@ -234,7 +234,7 @@ export default function RiverHubScreen() {
           />
         }
         ListHeaderComponent={
-          <>
+          <View style={styles.headerStack}>
             <View style={styles.hero}>
               <ImageBackground
                 source={{ uri: heroPhoto ? resolveApiUrl(heroPhoto.src) : photoForRiver(allRoutes[0].river) }}
@@ -375,7 +375,7 @@ export default function RiverHubScreen() {
                       backgroundSpanSegments={coverageSpans}
                       canonicalSpans={canonicalSpans}
                       height={260}
-                      fitToAllOnReady
+                      fitToSelectedOnReady
                       fullBleed
                       onSelectPoint={(point) => selectRouteFromMap(point.id)}
                     />
@@ -383,7 +383,7 @@ export default function RiverHubScreen() {
                 </SectionCard>
               </View>
             ) : null}
-          </>
+          </View>
         }
         ListEmptyComponent={(
           <View style={styles.emptyResults}>
@@ -399,7 +399,7 @@ export default function RiverHubScreen() {
 
 function RouteChoiceCard({
   route,
-  tripCount,
+  groupedReachCount,
   rank,
   recommended = false,
   selected,
@@ -410,7 +410,7 @@ function RouteChoiceCard({
   onOpen,
 }: {
   route: RiverDetailApiResult;
-  tripCount: number;
+  groupedReachCount: number;
   rank?: number;
   recommended?: boolean;
   selected: boolean;
@@ -444,8 +444,9 @@ function RouteChoiceCard({
           </View>
           <Text style={styles.routeName} numberOfLines={2}>{route.river.corridorLabel ?? route.river.reach}</Text>
           <Text style={styles.routeVerdict}>{verdictForRating(route.rating)}</Text>
-          <Text style={styles.routeMeta} numberOfLines={2}>{tripCount} trip option{tripCount === 1 ? '' : 's'} · {routeMetaLine(route)}</Text>
-          <Text style={styles.routeMeta} numberOfLines={2}>{continuityLabel(route.river.continuityStatus)}</Text>
+          <Text style={styles.routeMeta} numberOfLines={2}>
+            {groupedReachCount} {groupedReachCount === 1 ? 'reach uses' : 'reaches share'} these conditions · {routeMetaLine(route)}
+          </Text>
         </View>
       </Pressable>
 
@@ -740,13 +741,6 @@ function corridorKey(route: RiverDetailApiResult) {
     : route.river.corridorId || route.river.conditionZoneId || route.river.riverId || route.river.slug;
 }
 
-function continuityLabel(status: string | undefined) {
-  if (status === 'verified') return 'Continuous access chain reviewed';
-  if (status === 'partial') return 'Partial corridor; gaps remain';
-  if (status === 'condition-family') return 'Condition family; continuity unverified';
-  return 'Continuity review pending';
-}
-
 function uniqueRoutesByCorridor(routes: RiverDetailApiResult[]) {
   const seen = new Set<string>();
   return routes.filter((route) => {
@@ -757,7 +751,7 @@ function uniqueRoutesByCorridor(routes: RiverDetailApiResult[]) {
   });
 }
 
-function tripCountForRoute(route: RiverDetailApiResult, routes: RiverDetailApiResult[]) {
+function groupedReachCountForRoute(route: RiverDetailApiResult, routes: RiverDetailApiResult[]) {
   const key = corridorKey(route);
   return routes.filter((candidate) => corridorKey(candidate) === key).length;
 }
@@ -846,6 +840,9 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: spacing.md,
+    gap: spacing.md,
+  },
+  headerStack: {
     gap: spacing.md,
   },
   hero: {

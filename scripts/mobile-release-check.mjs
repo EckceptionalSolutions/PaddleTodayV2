@@ -45,6 +45,19 @@ check('Firebase iOS config matches bundle identifier', () => {
   return plistValue(plist, 'BUNDLE_ID') === appConfig.ios?.bundleIdentifier;
 });
 checkFile('Metro config', join(mobileRoot, 'metro.config.js'));
+checkFile(
+  'React Native Android drawing-order fix installer',
+  join(root, 'scripts/apply-react-native-android-drawing-order-fix.mjs')
+);
+check('React Native Android drawing-order fix is installed', () =>
+  fileIncludes(
+    join(
+      root,
+      'node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/uimanager/ViewGroupDrawingOrderHelper.kt'
+    ),
+    ['update()\n      currentDrawingOrderIndices = null']
+  )
+);
 
 for (const profile of ['development', 'preview', 'production']) {
   const env = easConfig.build?.[profile]?.env ?? {};

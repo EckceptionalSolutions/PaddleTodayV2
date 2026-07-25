@@ -2816,6 +2816,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, with older KDFWR/Parklands guidance broadening the recreation window to 35 to 500 cfs. Below that expect scrape-prone shallows; above that expect faster current and fewer easy landing spots.",
     "latitude": 38.1039,
     "longitude": -85.5455,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use only the KDFWR-listed Broad Run Valley and Cliffside carry-downs, and follow the Parklands marked-landings-only rule.",
+        "Stay inside the KDFWR 50 to 300 cfs good band unless the group is ready for faster Class I+ current, quick bends, and fewer recovery eddies.",
+        "Check recent rain and gauge trend before launching because Floyds Fork can rise quickly and collect fresh wood in bends and shoals."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",

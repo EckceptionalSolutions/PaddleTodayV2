@@ -128,14 +128,26 @@ export function ExploreRouteDrawer({
         onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
       />
       <View style={styles.mapSheetActions}>
-        <Pressable
-          style={styles.mapPreviewOpenButton}
-          onPress={onOpenRoute}
-          accessibilityRole="button"
-          accessibilityLabel={`Open ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
-        >
-          <Text style={styles.mapPreviewOpenText} numberOfLines={1}>Open route</Text>
-        </Pressable>
+        {routeCount > 1 && onOpenRiverRoutes && !selectedRiver.selectedSegment ? (
+          <Pressable
+            style={styles.drawerCompareButton}
+            onPress={onOpenRiverRoutes}
+            accessibilityRole="button"
+            accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
+          >
+            <MaterialCommunityIcons name="map-marker-path" color={colors.surfaceStrong} size={18} />
+            <Text style={styles.drawerCompareText} numberOfLines={1}>Compare {routeCount} routes</Text>
+          </Pressable>
+        ) : (
+          <Pressable
+            style={styles.mapPreviewOpenButton}
+            onPress={onOpenRoute}
+            accessibilityRole="button"
+            accessibilityLabel={`Open ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
+          >
+            <Text style={styles.mapPreviewOpenText} numberOfLines={1}>Open route</Text>
+          </Pressable>
+        )}
         <Pressable
           style={[styles.mapDirectionsButton, selectedDirectionsUrl ? null : styles.mapDirectionsButtonDisabled]}
           disabled={!selectedDirectionsUrl}
@@ -202,13 +214,12 @@ export function ExploreRouteDrawer({
           </View>
           {routeCount > 1 && onOpenRiverRoutes && !selectedRiver.selectedSegment ? (
             <Pressable
-              style={styles.drawerCompareButton}
-              onPress={onOpenRiverRoutes}
+              style={styles.drawerOpenRouteButton}
+              onPress={onOpenRoute}
               accessibilityRole="button"
-              accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
+              accessibilityLabel={`Open ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
             >
-              <MaterialCommunityIcons name="map-marker-path" color={colors.accent} size={17} />
-              <Text style={styles.drawerCompareText} numberOfLines={1}>Compare {routeCount} routes</Text>
+              <Text style={styles.drawerOpenRouteText} numberOfLines={1}>Open this route</Text>
             </Pressable>
           ) : null}
         </ScrollView>
@@ -575,11 +586,12 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   drawerCompareButton: {
-    minHeight: 40,
+    flex: 1,
+    minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surfaceStrong,
+    borderColor: colors.accent,
+    backgroundColor: colors.accent,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -587,6 +599,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
   },
   drawerCompareText: {
+    color: colors.surfaceStrong,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  drawerOpenRouteButton: {
+    minHeight: 40,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    backgroundColor: colors.surfaceStrong,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: spacing.md,
+  },
+  drawerOpenRouteText: {
     color: colors.accent,
     fontSize: 13,
     fontWeight: '900',

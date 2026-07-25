@@ -47,6 +47,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
   fitToAllOnReady?: boolean;
+  fitToSelectedOnReady?: boolean;
   selectedFocusBottomInset?: number;
 }>(function RoutePlotMap({
   points,
@@ -61,6 +62,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fullBleed = false,
   markerMode = 'score',
   fitToAllOnReady = false,
+  fitToSelectedOnReady = false,
   selectedFocusBottomInset = 0,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
@@ -218,6 +220,15 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     const timeout = setTimeout(() => focusAll(), 120);
     return () => clearTimeout(timeout);
   }, [fitToAllOnReady, height, nativeMaps, pointSignature, showFooter]);
+
+  useEffect(() => {
+    if (!fitToSelectedOnReady || !selectedId || !nativeMaps || !selectedPoint) {
+      return;
+    }
+
+    const timeout = setTimeout(() => focusSelected(), 120);
+    return () => clearTimeout(timeout);
+  }, [fitToSelectedOnReady, height, nativeMaps, pointSignature, selectedId, selectedPoint, showFooter]);
 
   if (nativeMaps && visiblePoints.length > 0) {
     const MapView = nativeMaps.default;

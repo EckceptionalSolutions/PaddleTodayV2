@@ -5136,6 +5136,21 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Volga River at Littleport gauge as the best live same-river signal. Treat about 5.0 ft as the practical floor for this shallow upper route; 5.5 ft had strong same-route support, but no trusted upper band is published.",
     "latitude": 42.84288,
     "longitude": -91.81917,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Treat this as an intermediate small-river run, not a casual flatwater float. Launch only when the Littleport gauge is above the route floor and local conditions look stable.",
+        "Scout Heron Road before launching. If the final mile has fresh wood, poor daylight, or messy current, use the easier state-park picnic-area access upstream instead.",
+        "Avoid high or rising water after northeast Iowa storms; the narrow upper-Volga channel and boxed-in limestone bends leave little margin around strainers."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05412400",
       "provider": "usgs",
@@ -10128,6 +10143,22 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Yellow River near Ion gauge. Treat 201 to 300 cfs as the best broad target, 100 cfs as the low floor, and 600+ cfs as too high for a normal recreational recommendation because strainers and rapids get more consequential.",
     "latitude": 43.13022,
     "longitude": -91.37586,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Most rapids are Class I at normal levels, but higher water makes the fast riffles and strainers more consequential. Keep this in the 201 to 300 cfs target when possible.",
+        "Stage the public Bridge Sixteen take-out downstream of the bridge before launching, and do not use nearby private campground take-outs unless separately authorized.",
+        "Treat cloudy, rising, or post-storm water conservatively on this cold trout stream; wood and bank hazards can change after rain."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05389000",
       "provider": "usgs",
