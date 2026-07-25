@@ -49,6 +49,12 @@ checkFile(
   'React Native Android drawing-order fix installer',
   join(root, 'scripts/apply-react-native-android-drawing-order-fix.mjs')
 );
+check('EAS archive includes React Native Android drawing-order fix installer', () =>
+  fileIncludes(join(root, '.easignore'), [
+    '/scripts/*',
+    '!/scripts/apply-react-native-android-drawing-order-fix.mjs',
+  ])
+);
 check('React Native Android drawing-order fix is installed', () =>
   fileIncludes(
     join(

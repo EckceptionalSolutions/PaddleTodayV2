@@ -43,7 +43,8 @@ apps/mobile/*.tsbuildinfo
 /automations/
 /docs/
 /public/
-/scripts/
+/scripts/*
+!/scripts/apply-react-native-android-drawing-order-fix.mjs
 /src/
 /tests/
 /MOBILE_UI_TODO.md
