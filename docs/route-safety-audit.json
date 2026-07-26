@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-26T09:49:03.682Z",
+  "generatedAt": "2026-07-26T11:49:53.881Z",
   "routeCount": 937,
-  "issueCount": 451,
+  "issueCount": 447,
   "summary": {
     "Critical": 0,
-    "High": 255,
-    "Medium": 196,
+    "High": 252,
+    "Medium": 195,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "floyds-fork-north-beckley-seaton-valley",
-      "slug": "floyds-fork-north-beckley-seaton-valley",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Seaton Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ount justify a moderate rating. KDFWR and The Parklands keep the braid choices, wood, quick level changes, and marked-landings-only discipline explicit enough that this should not be treated like a casual greenway drift. Confidence is high for a conservative a"
-    },
-    {
-      "routeId": "floyds-fork-seaton-valley-broad-run-valley",
-      "slug": "floyds-fork-seaton-valley-broad-run-valley",
-      "name": "Floyds Fork",
-      "reach": "Seaton Valley Paddling Access to Broad Run Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "yds Fork PDF names this exact 3.5-mile route and adds Mary’s Island, bluff, and strainer cautions. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to"
-    },
-    {
-      "routeId": "floyds-fork-seaton-valley-cliffside",
-      "slug": "floyds-fork-seaton-valley-cliffside",
-      "name": "Floyds Fork",
-      "reach": "Seaton Valley Paddling Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "drift. The lower PDF and Parklands guidance keep the braid choices, strainers, wood, and quickly changing levels explicit enough for a moderate rating. Confidence is high for a conservative add: the lower Floyds Fork PDF lists Seaton Valley to Broad Run Valle"
-    },
     {
       "routeId": "green-river-lynn-camp-creek-rio-carrydown",
       "slug": "green-river-lynn-camp-creek-rio-carrydown",
@@ -2847,17 +2814,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": ", USGS 05412400 is a direct same-river live gauge downstream at Littleport, and Water Quality Portal/Iowa DNR records support the Mederville access coordinates. The route uses Osborne Canoe Access rather than the rougher Hwy 13 bridge launch because the county"
-    },
-    {
-      "routeId": "floyds-fork-seaton-valley-broad-run-valley",
-      "slug": "floyds-fork-seaton-valley-broad-run-valley",
-      "name": "Floyds Fork",
-      "reach": "Seaton Valley Paddling Access to Broad Run Valley Paddling Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "igh bands. The Parklands safety sheet and the route PDF add specific downstream hazard context. Official level band 50-300 cfs / 1.3-2.5 ft KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and Hi"
     },
     {
       "routeId": "goose-creek-tobacco-road-dump-hollow",
