@@ -87,7 +87,7 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Use the City of Ann Arbor livery shuttle when operating, or stage a two-car shuttle between Gallup Park and Argo. Parking at Argo is limited, so check city parking guidance before unloading on busy weekends.",
       "permits": "No route-specific paddling permit is known for private boats. Follow City of Ann Arbor livery, launch, parking, and park rules, and confirm seasonal hours if relying on rentals or shuttle service.",
       "camping": "Treat this as a short urban day trip. No on-route camping plan is assumed between Argo and Gallup.",
-      "summary": "Launch at Argo Park Canoe Livery, run the Argo Cascades or use the appropriate city launch option for your craft, then continue through Ann Arbor parkland to Gallup Park Livery. Use the Ann Arbor USGS gauge and make a visual check because the Cascades are dam-adjacent and can be crowded.",
+      "summary": "Launch at Argo Park Canoe Livery, run the Argo Cascades or use the appropriate city launch option for your craft, then continue through Ann Arbor parkland to Gallup Park Livery. Use the Ann Arbor USGS gauge plus same-day livery, signage, and visual checks because the Cascades are dam-adjacent and can be crowded.",
       "accessCaveats": [
         "Argo and Gallup are City of Ann Arbor facilities with seasonal livery operations, launches, parking, restrooms, and rentals; hours and shuttle availability change by season.",
         "Canoes may be launched downstream of the Cascades under city livery operations, while kayaks, rafts, tubes, and properly skilled private paddlers use the Cascades according to current rules and signage.",
@@ -96,7 +96,7 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Argo Cascades drops, rock chutes, and pools; scout from the adjacent path if you have not run them before.",
         "Crowded summer weekends with kayaks, rafts, tubes, paddleboards, rowboats, and livery traffic sharing a short corridor.",
-        "Erratic gauge changes from dam operations; American Whitewater says visual confirmation is required even with the Ann Arbor gauge.",
+        "Low, high, or changing dam-adjacent levels; verify current livery rules, boat availability, and visual conditions even when the Ann Arbor gauge looks acceptable.",
         "PFAS advisories on the Huron River include avoiding contact with foam and washing hands, pets, and gear after exposure."
       ]
     }

@@ -278,6 +278,21 @@ export const michiganRoutes: River[] = [
     "latitude": 42.29148,
     "longitude": -83.74444,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "dam",
+        "fast_rise",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "Argo Cascades is a dam-bypass channel with nine manmade drops and pools. City rules warn that boats can flip and require paddlers to steer, swim, and right a capsized boat before using the Cascades.",
+        "Use the Ann Arbor USGS gauge as a same-city corridor check, then verify current livery rules, posted closures, and the visual level at Argo before committing. Boat availability and the character of the drops change with water level.",
+        "Keep this trip to the official Argo-to-Gallup corridor. Barton Dam access is closed upstream through construction, Argo parking is limited, and Huron River PFAS guidance includes avoiding contact with river foam."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04174500",
       "provider": "usgs",

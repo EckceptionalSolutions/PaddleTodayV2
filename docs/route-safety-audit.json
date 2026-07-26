@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-26T03:49:27.695Z",
+  "generatedAt": "2026-07-26T05:49:38.894Z",
   "routeCount": 937,
-  "issueCount": 464,
+  "issueCount": 459,
   "summary": {
     "Critical": 0,
-    "High": 264,
-    "Medium": 200,
+    "High": 260,
+    "Medium": 199,
     "Low": 0
   },
   "issues": [
@@ -350,50 +350,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "le, but the 12.5-mile length, shallow riffles, remote gorge, tight bluff turns, wood, and borderline Class II behavior above 300 cfs make it a guarded moving-water route rather than a casual park float. Confidence is good for a conservative Kentucky add: KDFWR"
-    },
-    {
-      "routeId": "huron-river-argo-gallup",
-      "slug": "huron-river-argo-gallup",
-      "name": "Huron River",
-      "reach": "Argo Park Canoe Livery to Gallup Park Livery",
-      "state": "Michigan",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "huron-river-argo-gallup",
-      "slug": "huron-river-argo-gallup",
-      "name": "Huron River",
-      "reach": "Argo Park Canoe Livery to Gallup Park Livery",
-      "state": "Michigan",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "y. Unlike the upstream Dexter-Huron-to-Delhi lead, this route starts below Argo Dam and uses the Ann Arbor gauge as a same-city corridor gauge; still, AW warns that dam operations can cause erratic readings, so visual confirmation remains part of the route cop"
-    },
-    {
-      "routeId": "huron-river-argo-gallup",
-      "slug": "huron-river-argo-gallup",
-      "name": "Huron River",
-      "reach": "Argo Park Canoe Livery to Gallup Park Livery",
-      "state": "Michigan",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "e in the urban river corridor. Use the Huron River at Ann Arbor gauge. American Whitewater lists 400 to 1,700 cfs as the runnable/play range for the Ann Arbor / Argo Cascades gauge family; below 400 cfs, expect shallow, less useful drops, and above 1,700 cfs t"
-    },
-    {
-      "routeId": "huron-river-argo-gallup",
-      "slug": "huron-river-argo-gallup",
-      "name": "Huron River",
-      "reach": "Argo Park Canoe Livery to Gallup Park Livery",
-      "state": "Michigan",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ssolved oxygen, pH, conductivity, and turbidity. Closures and advisories Barton closure upstream; PFAS foam advisory HRWC river conditions list the Barton Dam / Barton Pond access closure through 2027 upstream of this route and PFAS advisories that include avo"
     },
     {
       "routeId": "cannon-river-faribault-dundas",
@@ -3210,17 +3166,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "-river paddling where motorboat traffic, wind, waves, open-water proximity, and urban water quality matter. Confidence is high for a guarded water-trail add: the 2024 CRWC Clinton River Water Trail map lists Neil Dempsey at MacArthur Park and Harley Ensign (DN"
-    },
-    {
-      "routeId": "huron-river-argo-gallup",
-      "slug": "huron-river-argo-gallup",
-      "name": "Huron River",
-      "reach": "Argo Park Canoe Livery to Gallup Park Livery",
-      "state": "Michigan",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "channel, public liveries at both ends, and a direct USGS Ann Arbor gauge in the urban river corridor. Use the Huron River at Ann Arbor gauge. American Whitewater lists 400 to 1,700 cfs as the runnable/play range for the Ann Arbor / Argo Cascades gauge family;"
     },
     {
       "routeId": "big-fork-river-highway-6-south-north",
