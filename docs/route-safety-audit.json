@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-26T15:53:32.807Z",
+  "generatedAt": "2026-07-26T17:54:15.666Z",
   "routeCount": 937,
-  "issueCount": 433,
+  "issueCount": 429,
   "summary": {
     "Critical": 0,
-    "High": 244,
-    "Medium": 189,
+    "High": 241,
+    "Medium": 188,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "levisa-fork-airport-boat-ramp",
-      "slug": "levisa-fork-airport-boat-ramp",
-      "name": "Levisa Fork",
-      "reach": "Airport Ramp to Levisa Fork Boat Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "exposed shoals; above that is high and the broader river can push harder around wood, banks, and bridge current. At normal levels this is a straightforward developed-ramp float on a larger warmwater river. The main complications are distance, low-water pacing,"
-    },
-    {
-      "routeId": "levisa-fork-cedar-creek-thompson-road",
-      "slug": "levisa-fork-cedar-creek-thompson-road",
-      "name": "Levisa Fork",
-      "reach": "Cedar Creek Ramp to Thompson Road Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "auge bands, but the route still needs same-day judgment around woody debris and dam-release changes. Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low; above that is high"
-    },
-    {
-      "routeId": "levisa-fork-island-creek-cedar-creek",
-      "slug": "levisa-fork-island-creek-cedar-creek",
-      "name": "Levisa Fork",
-      "reach": "Island Creek Ramp to Cedar Creek Canoe Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ing. Below that is low and likely shallow; above that is high and faster around wood, bridge current, and busy urban banks. KDFWR describes this Pikeville corridor as a warmwater public-access float, but it is still moving water with shoals, bridge current, wo"
-    },
     {
       "routeId": "levisa-fork-island-creek-thompson-road",
       "slug": "levisa-fork-island-creek-thompson-road",
@@ -2803,17 +2770,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ng, while above that the broader current and private-bank corridor deserve more caution. The river itself remains recreational, but 18 miles, limited public bailout options away from the named access chain, and the no-amenity Glenview finish make this a more c"
-    },
-    {
-      "routeId": "levisa-fork-island-creek-cedar-creek",
-      "slug": "levisa-fork-island-creek-cedar-creek",
-      "name": "Levisa Fork",
-      "reach": "Island Creek Ramp to Cedar Creek Canoe Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "ly shallow; above that is high and faster around wood, bridge current, and busy urban banks. KDFWR describes this Pikeville corridor as a warmwater public-access float, but it is still moving water with shoals, bridge current, wood, and urban corridor distract"
     },
     {
       "routeId": "levisa-fork-island-creek-thompson-road",

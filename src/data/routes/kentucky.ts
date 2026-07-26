@@ -4542,6 +4542,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low and likely shallow; above that is high and faster around wood, bridge current, and busy urban banks.",
     "latitude": 37.4646,
     "longitude": -82.5284,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat this short Pikeville Cut-Through segment as moving water with shoals, bridge current, mussel shells, and woody debris rather than a flatwater park float.",
+        "Stay with the KDFWR-listed Island Creek and Cedar Creek carry-down accesses; do not assume nearby commercial lots or private banks are available for parking, stopping, or scouting.",
+        "Use the KDFWR Pikeville band as the guardrail: below 800 cfs or 7.4 ft expect shallow dragging, and above 1,400 cfs or 8.5 ft KDFWR moves the reach out of the good band."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03209500",
       "provider": "usgs",
@@ -4666,6 +4680,21 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low; above that is high and swift current or woody debris can make the river inappropriate for casual paddling.",
     "latitude": 37.4802,
     "longitude": -82.5446,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam_release",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the Cedar Creek-to-Thompson Road reach as beginner-friendly only when the Pikeville gauge is stable inside the KDFWR good band.",
+        "KDFWR describes Fishtrap Lake Dam releases and Russell Fork inflow as part of the Levisa flow story; after rain or release changes, swift current and wood can make the short route inappropriate for casual paddlers.",
+        "Use the documented Cedar Creek and Thompson Road accesses, and keep stops off private or heavily vegetated banks except in an emergency."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03209500",
       "provider": "usgs",
@@ -5307,6 +5336,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Levisa Fork at Prestonsburg gauge. KDFWR rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as good for boating and fishing. Below that is low and slower with more exposed shoals; above that is high and the broader river can push harder around wood, banks, and bridge current.",
     "latitude": 37.7427,
     "longitude": -82.7702,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This lower Levisa reach is nontechnical at normal levels, but KDFWR still documents a broad river with riffles, shoals, and abundant woody debris.",
+        "Stay inside the KDFWR Prestonsburg good band when possible; below 800 cfs or 3.5 ft the wider lower river can become slow and scrapey, and above 1,500 cfs or 5.0 ft the current is outside the good range.",
+        "Use the KDFWR Airport Ramp and Levisa Fork Boat Ramp as the planned endpoints, and do not assume private banks or side properties are available as casual exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03209800",
       "provider": "usgs",
