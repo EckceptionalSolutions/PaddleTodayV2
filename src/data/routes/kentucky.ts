@@ -13400,6 +13400,20 @@ export const kentuckyRoutes: River[] = [
     "region": "South-Central Kentucky",
     "summary": "Short Hart County Green River day from KDFWR H.H. Wilson Park Ramp to Munfordville-Stovall Park Ramp. KDFWR documents the 3.6-mile public-access segment, both endpoint coordinates, and official Munfordville gauge cfs bands.",
     "statusText": "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that is low and may expose shoals or ramp edges; above that is high and deserves extra broad-river caution around current, wood, and landings.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Keep this short route inside KDFWR's 300 to 600 cfs good band unless the group is ready for stronger broad-river current, debris, and less forgiving ramp approaches.",
+        "Use only H.H. Wilson and Stovall Park as the planned public access points; KDFWR notes private-property concerns around Pool 6 access sites.",
+        "Inspect both ramps before launching. H.H. Wilson and Stovall each have concrete-ramp drop or shallow-edge concerns that matter more at low or high water."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 37.2979,
     "longitude": -85.8506,
     "gaugeSource": {
@@ -14780,6 +14794,21 @@ export const kentuckyRoutes: River[] = [
     "region": "South-Central Kentucky",
     "summary": "Long Hart County Green River float from Lynn Camp Creek Ramp to H.H. Wilson Park Ramp. KDFWR documents the 18.2-mile public route, exact endpoint coordinates, and official Munfordville discharge bands tied to the local USGS gauge.",
     "statusText": "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect a slower, shallower day with more dragging; above that the broad river, fresh wood, and the H.H. Wilson landing deserve extra caution.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the Lynn Camp-to-H.H. Wilson route as a committed 18.2-mile day with limited public bailout options; choose a shorter Green River family route if daylight, pace, or shuttle margin is thin.",
+        "Use KDFWR's Munfordville band conservatively: below 300 cfs the route can become slow and shallow, while above 600 cfs fresh wood, broad current, and the H.H. Wilson landing leave less margin.",
+        "Respect the Lynn Camp VPA rules and private-bank corridor. Launch compactly at the privately owned public access and keep stops tied to named legal access points."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 37.3533,
     "longitude": -85.7098,
     "gaugeSource": {

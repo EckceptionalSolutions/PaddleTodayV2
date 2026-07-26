@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-26T07:48:33.739Z",
+  "generatedAt": "2026-07-26T09:49:03.682Z",
   "routeCount": 937,
-  "issueCount": 456,
+  "issueCount": 451,
   "summary": {
     "Critical": 0,
-    "High": 258,
-    "Medium": 198,
+    "High": 255,
+    "Medium": 196,
     "Low": 0
   },
   "issues": [
@@ -42,39 +42,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "drift. The lower PDF and Parklands guidance keep the braid choices, strainers, wood, and quickly changing levels explicit enough for a moderate rating. Confidence is high for a conservative add: the lower Floyds Fork PDF lists Seaton Valley to Broad Run Valle"
-    },
-    {
-      "routeId": "green-river-hh-wilson-stovall",
-      "slug": "green-river-hh-wilson-stovall",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Stovall Park Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "dges; above that is high and deserves extra broad-river caution around current, wood, and landings. This is a short KDFWR public-ramp segment on a broad Class I river corridor. Treat it as easy only when the Munfordville gauge is stable in the KDFWR good band;"
-    },
-    {
-      "routeId": "green-river-hh-wilson-stovall",
-      "slug": "green-river-hh-wilson-stovall",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Stovall Park Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "stable in the KDFWR good band; high water, wind, boat traffic, ramp drops, and private banks can make landings less forgiving. Confidence is high for a conservative Kentucky restore: KDFWR lists H.H. Wilson Park Ramp to Stovall Park Ramp as a 3.6-mile Green R"
-    },
-    {
-      "routeId": "green-river-lynn-camp-creek-hh-wilson-park",
-      "slug": "green-river-lynn-camp-creek-hh-wilson-park",
-      "name": "Green River",
-      "reach": "Lynn Camp Creek Ramp to H.H. Wilson Park Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "t a slower, shallower day with more dragging; above that the broad river, fresh wood, and the H.H. Wilson landing deserve extra caution. This is still a recreational Green River corridor, but 18.2 miles, limited public bailout options, private-bank limits, and"
     },
     {
       "routeId": "green-river-lynn-camp-creek-rio-carrydown",
@@ -2935,28 +2902,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "hat the broader current, private-bank corridor, and longer shuttle deserve more caution. The current is still recreational Green River water, but this 19.2-mile day adds commitment. Low water, broad-river wind, private-bank limits, and a steep Lynn Camp finish"
-    },
-    {
-      "routeId": "green-river-hh-wilson-stovall",
-      "slug": "green-river-hh-wilson-stovall",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Stovall Park Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "expose shoals or ramp edges; above that is high and deserves extra broad-river caution around current, wood, and landings. This is a short KDFWR public-ramp segment on a broad Class I river corridor. Treat it as easy only when the Munfordville gauge is stable"
-    },
-    {
-      "routeId": "green-river-lynn-camp-creek-hh-wilson-park",
-      "slug": "green-river-lynn-camp-creek-hh-wilson-park",
-      "name": "Green River",
-      "reach": "Lynn Camp Creek Ramp to H.H. Wilson Park Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ove that the broad river, fresh wood, and the H.H. Wilson landing deserve extra caution. This is still a recreational Green River corridor, but 18.2 miles, limited public bailout options, private-bank limits, and the broad-river wind and debris story make it a"
     },
     {
       "routeId": "green-river-lynn-camp-creek-rio-carrydown",
