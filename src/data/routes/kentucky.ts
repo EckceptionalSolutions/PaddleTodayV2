@@ -11947,6 +11947,20 @@ export const kentuckyRoutes: River[] = [
       "siteName": "Green River at Greensburg, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "private_banks",
+        "strainers"
+      ],
+      "safetyNotes": [
+        "Russell Ford is a limited gravel-bar carry-down, and KDFWR describes shoals and deep rocky pools on this short reach.",
+        "Stay within KDFWR's 1.0 to 1.75 ft Greensburg good band; above band, bends and the muddy American Legion park approach leave less margin.",
+        "Use Russell Ford and American Legion Park as the legal access points and avoid treating private banks between them as casual stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 1,
@@ -13064,6 +13078,21 @@ export const kentuckyRoutes: River[] = [
       "kind": "direct",
       "siteName": "Green River at Greensburg, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "fast_rise",
+        "private_banks",
+        "strainers",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Treat the 24.8-mile Roachville-to-Glenview chain as a committed full-day route with Russell Ford, American Legion Park, and Greensburg City Ramp as the practical bailout points.",
+        "KDFWR's Greensburg band is narrow: below 1.0 ft expect dragging around shoals and islands, while above 1.75 ft current at bends and the Glenview road-end finish becomes less forgiving.",
+        "Glenview is a no-amenity public road-end carrydown surrounded by private land. Keep stops tied to named access points and obey any posted signs."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
@@ -14762,6 +14791,21 @@ export const kentuckyRoutes: River[] = [
       "kind": "direct",
       "siteName": "Green River at Munfordville, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat Stovall-to-Dennison as a 21-mile committed day into Mammoth Cave with limited bailout options and a day-use park carry-out at the finish.",
+        "Use KDFWR's Munfordville band conservatively: below 300 cfs the route slows down, while above 600 cfs broad current, debris, and slick carry-out footing leave less margin.",
+        "NPS describes the park Green River as flat water with swift current and dynamic hazards such as submerged trees, rocks, and drifting debris. Save energy for the Dennison Ferry stairs and ramp."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",

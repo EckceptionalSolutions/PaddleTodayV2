@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-26T13:50:59.571Z",
+  "generatedAt": "2026-07-26T15:53:32.807Z",
   "routeCount": 937,
-  "issueCount": 439,
+  "issueCount": 433,
   "summary": {
     "Critical": 0,
-    "High": 247,
-    "Medium": 192,
+    "High": 244,
+    "Medium": 189,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "green-river-stovall-park-dennison-ferry",
-      "slug": "green-river-stovall-park-dennison-ferry",
-      "name": "Green River",
-      "reach": "Munfordville-Stovall Park Ramp to Dennison Ferry Carrydown",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "th extra caution at the park carry-down finish. The water is still flatwater by whitewater standards, but 21 miles, broad-river wind, limited bailout options, and a day-use-only park finish make this a committed moderate outing rather than a casual family floa"
-    },
-    {
-      "routeId": "green-river-roachville-glenview-road",
-      "slug": "green-river-roachville-glenview-road",
-      "name": "Green River",
-      "reach": "Roachville Ford to Glenview Road Carrydown",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "that expect more shoal dragging and a long day; above that the broader current, private banks, and no-amenity Glenview finish deserve more caution. The current is still recreational Green River water, but 24.8 miles, limited legal stops away from the named acc"
-    },
-    {
-      "routeId": "green-river-russell-ford-american-legion",
-      "slug": "green-river-russell-ford-american-legion",
-      "name": "Green River",
-      "reach": "Russell Ford Access to American Legion Park Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "y route-finding, but it is still a broad moving river with shoals, muddy edges, private banks, and current that becomes less forgiving above the KDFWR good band. Confidence is high for a conservative Kentucky restore: KDFWR still lists Russell Ford to American"
-    },
     {
       "routeId": "levisa-fork-airport-boat-ramp",
       "slug": "levisa-fork-airport-boat-ramp",
@@ -2805,17 +2772,6 @@
       "evidence": "hat the broader current, private-bank corridor, and longer shuttle deserve more caution. The current is still recreational Green River water, but this 19.2-mile day adds commitment. Low water, broad-river wind, private-bank limits, and a steep Lynn Camp finish"
     },
     {
-      "routeId": "green-river-stovall-park-dennison-ferry",
-      "slug": "green-river-stovall-park-dennison-ferry",
-      "name": "Green River",
-      "reach": "Munfordville-Stovall Park Ramp to Dennison Ferry Carrydown",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "at 1670 cfs, so expect a faster, more consequential broad-river day with extra caution at the park carry-down finish. The water is still flatwater by whitewater standards, but 21 miles, broad-river wind, limited bailout options, and a day-use-only park finish"
-    },
-    {
       "routeId": "green-river-roachville-american-legion",
       "slug": "green-river-roachville-american-legion",
       "name": "Green River",
@@ -2827,17 +2783,6 @@
       "evidence": "and islands, while above that the chutes, bends, and park landing deserve more caution. This remains an approachable Green River float, but it is longer than the short split routes and still rewards active line choice around islands, shallow shoals, and the p"
     },
     {
-      "routeId": "green-river-roachville-glenview-road",
-      "slug": "green-river-roachville-glenview-road",
-      "name": "Green River",
-      "reach": "Roachville Ford to Glenview Road Carrydown",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "the broader current, private banks, and no-amenity Glenview finish deserve more caution. The current is still recreational Green River water, but 24.8 miles, limited legal stops away from the named access chain, the muddy Roachville start, and the private-bank"
-    },
-    {
       "routeId": "green-river-roachville-russell-ford",
       "slug": "green-river-roachville-russell-ford",
       "name": "Green River",
@@ -2847,17 +2792,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "uddier landings; above that the islands and chutes get pushier and deserve more caution. This is still a manageable Green River float, but the islands, chutes, shallow shoals, and easy-to-miss Russell Ford landing reward active line choice rather than sleepy d"
-    },
-    {
-      "routeId": "green-river-russell-ford-american-legion",
-      "slug": "green-river-russell-ford-american-legion",
-      "name": "Green River",
-      "reach": "Russell Ford Access to American Legion Park Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "d muddier landings, while above that the current and park approach deserve more caution. This is a short public-ramp Green River segment with easy route-finding, but it is still a broad moving river with shoals, muddy edges, private banks, and current that bec"
     },
     {
       "routeId": "green-river-russell-ford-glenview-road",
