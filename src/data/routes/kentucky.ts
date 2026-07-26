@@ -2418,6 +2418,21 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and the older route feature frames 35 to 500 cfs as the broader recreation range. Below that expect dragging and shoal walking; above that expect swifter current and fewer forgiving recovery spots.",
     "latitude": 38.2308,
     "longitude": -85.4682,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the 10.7-mile Parklands run as Class I+ moving water with shallow braided chutes, bridge current, wood, and fatigue pressure.",
+        "Inspect the signed Cane Run side-channel take-out before launch; drifting past it creates a downstream access problem in a managed corridor.",
+        "Use only the KDFWR-listed North Beckley and Cane Run carry-downs, follow the Parklands marked-landings-only rule, and stay off private banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",
@@ -4053,6 +4068,21 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect long scraping sections and a very slow day; above that expect stronger current, fewer easy recoveries, and a committing full-corridor float.",
     "latitude": 38.2308,
     "longitude": -85.4682,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the full 19.7-mile corridor as a committing Class I+ day with shallow chutes, The Oxbow, Distillery Bend, bridge current, Mary's Island, and lower-corridor wood.",
+        "Use only the North Beckley and Cliffside carry-downs unless another KDFWR-listed access is part of a planned exit, and follow the Parklands marked-landings-only rule.",
+        "Check the Fisherville gauge, recent rain, visible launch current, and Cliffside landing before committing; high water, low-water scraping, and fatigue all raise the consequence of missed route choices."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",

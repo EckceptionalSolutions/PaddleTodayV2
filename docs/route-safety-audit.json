@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-25T23:48:30.504Z",
+  "generatedAt": "2026-07-26T01:47:50.664Z",
   "routeCount": 937,
-  "issueCount": 471,
+  "issueCount": 466,
   "summary": {
     "Critical": 0,
-    "High": 269,
-    "Medium": 202,
+    "High": 266,
+    "Medium": 200,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "floyds-fork-north-beckley-cane-run",
-      "slug": "floyds-fork-north-beckley-cane-run",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Cane Run Canoe Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "s fatigue and route-finding pressure on top of shoals, braided current choices, wood, and the signed Cane Run side-channel finish. Confidence is high for a guarded add: the KDFWR Blue Water Trail map names North Beckley to Cane Run as an exact 10.7-mile public"
-    },
-    {
-      "routeId": "floyds-fork-north-beckley-cliffside",
-      "slug": "floyds-fork-north-beckley-cliffside",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ount justify a moderate rating. KDFWR and The Parklands keep the braid choices, wood, quick level changes, and marked-landings-only discipline explicit enough that this should not be treated like a casual greenway drift. Confidence is high for a conservative a"
-    },
-    {
-      "routeId": "floyds-fork-north-beckley-cliffside",
-      "slug": "floyds-fork-north-beckley-cliffside",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "down site in Beckley Creek Park with limited-hours shoreline access and unpaved parking. Take-out access Cliffside Paddling Access, 38.0864, -85.5520 KDFWR identifies Cliffside Paddling Access as a free carry-down site in Broad Run Park with year-round limited"
-    },
     {
       "routeId": "floyds-fork-north-beckley-seaton-valley",
       "slug": "floyds-fork-north-beckley-seaton-valley",
@@ -3001,28 +2968,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": ", USGS 05412400 is a direct same-river live gauge downstream at Littleport, and Water Quality Portal/Iowa DNR records support the Mederville access coordinates. The route uses Osborne Canoe Access rather than the rougher Hwy 13 bridge launch because the county"
-    },
-    {
-      "routeId": "floyds-fork-north-beckley-cane-run",
-      "slug": "floyds-fork-north-beckley-cane-run",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Cane Run Canoe Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "pots. This is still a Class I+ Parklands moving-water trip rather than a casual urban float. The longer length adds fatigue and route-finding pressure on top of shoals, braided current choices, wood, and the signed Cane Run side-channel finish. Confidence is h"
-    },
-    {
-      "routeId": "floyds-fork-north-beckley-cliffside",
-      "slug": "floyds-fork-north-beckley-cliffside",
-      "name": "Floyds Fork",
-      "reach": "North Beckley Canoe Access to Cliffside Paddling Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ute feature and Parklands guidance keep the upper Oxbow and lower Mary's Island hazard story explicit. Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 3"
     },
     {
       "routeId": "floyds-fork-seaton-valley-broad-run-valley",
