@@ -13718,6 +13718,20 @@ export const kentuckyRoutes: River[] = [
     "region": "South-Central Kentucky",
     "summary": "Hart County Green River float from Rio Carrydown Access to H.H. Wilson Park Ramp. KDFWR's Hart County Blue Water Trail supports the 8-mile public segment, endpoint coordinates, and official Munfordville discharge bands tied to the local USGS gauge.",
     "statusText": "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect shallower riffles and more dragging; above that the broad river, bends, and landings deserve extra current and debris caution.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use KDFWR's Munfordville band conservatively: below 300 cfs expect shallow riffles and dragging, while above 600 cfs broad current, fresh wood, and landings become less forgiving.",
+        "Keep stops and any exit plan tied to Rio, H.H. Wilson, or other verified public access points; private banks and sandbars should not be treated as general bailout or camping areas.",
+        "Inspect the H.H. Wilson finish before launch because KDFWR notes the paved ramp drops off at the waterline."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 37.3183,
     "longitude": -85.7692,
     "gaugeSource": {
@@ -14001,6 +14015,20 @@ export const kentuckyRoutes: River[] = [
     "region": "Hart County",
     "summary": "Hart County Green River continuation from Rio Carrydown Access to Munfordville-Stovall Park Ramp. KDFWR supports this 12-mile public route by combining the official Rio-to-H.H.-Wilson and H.H.-Wilson-to-Stovall segments against the direct Munfordville USGS gauge.",
     "statusText": "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect a slower shoal-filled day; above that the broader current, wood, and Stovall ramp drop deserve more caution.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the Rio-to-Stovall chain as a 12-mile moving-water day, not a short beginner float; H.H. Wilson is the cleanest verified public bailout if the group needs to shorten the route.",
+        "Use KDFWR's Munfordville band conservatively: below 300 cfs the shoals slow the route, while above 600 cfs broad current, wood, and the Stovall finish leave less margin.",
+        "Keep stops and any camping plan tied to verified public support. Stovall has endpoint camping, but private banks between the named accesses are not general-purpose stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 37.3183,
     "longitude": -85.7692,
     "gaugeSource": {
@@ -14128,6 +14156,20 @@ export const kentuckyRoutes: River[] = [
     "region": "Hart County",
     "summary": "Shorter upper Hart County Green River split from Lynn Camp Creek Ramp to Rio Carrydown Access. KDFWR's Hart County mileage table supports this public route by combining the official Lynn Camp to H.H. Wilson and Rio to H.H. Wilson distances against the direct Munfordville gauge.",
     "statusText": "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect a slower shoal-filled day; above that the steep Lynn Camp carry-down, wood, and faster current deserve more caution.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use KDFWR's Munfordville band conservatively: below 300 cfs expect slower shoals, while above 600 cfs faster current, fresh wood, and muddy carry-downs leave less margin.",
+        "Respect the Lynn Camp VPA footprint and Rio carry-down access. Both endpoints are public-use sites, but the surrounding private-bank corridor is not a general bailout or camping area.",
+        "Inspect Lynn Camp and Rio before launch because this route depends on a steeper upstream carry-down and a simple road-end take-out with limited amenities."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 37.3533,
     "longitude": -85.7098,
     "gaugeSource": {
