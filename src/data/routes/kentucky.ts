@@ -13523,6 +13523,21 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect a slower, more consequential all-day trip; above that the broad current, wood, and park carry-down finish deserve more caution.",
     "latitude": 37.2979,
     "longitude": -85.8506,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the H.H. Wilson-to-Dennison chain as a committed 24.6-mile Green River route; choose shorter family routes unless the group has enough daylight, pace, and bailout margin.",
+        "Use KDFWR's Munfordville band conservatively: below 300 cfs this route can become unreasonably slow, while above 600 cfs broad current, fresh wood, and the Mammoth Cave carry-down finish leave less margin.",
+        "Keep stops and any overnight plan tied to verified public or legal support. Dennison Ferry is day-use only, and private banks between access points should not be treated as general bailout or camping areas."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03308500",
       "provider": "usgs",

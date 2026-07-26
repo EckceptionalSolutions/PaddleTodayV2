@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-26T05:49:38.894Z",
+  "generatedAt": "2026-07-26T07:48:33.739Z",
   "routeCount": 937,
-  "issueCount": 459,
+  "issueCount": 456,
   "summary": {
     "Critical": 0,
-    "High": 260,
-    "Medium": 199,
+    "High": 258,
+    "Medium": 198,
     "Low": 0
   },
   "issues": [
@@ -42,28 +42,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "drift. The lower PDF and Parklands guidance keep the braid choices, strainers, wood, and quickly changing levels explicit enough for a moderate rating. Confidence is high for a conservative add: the lower Floyds Fork PDF lists Seaton Valley to Broad Run Valle"
-    },
-    {
-      "routeId": "green-river-hh-wilson-park-dennison-ferry",
-      "slug": "green-river-hh-wilson-park-dennison-ferry",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Dennison Ferry Carrydown",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "expect a slower, more consequential all-day trip; above that the broad current, wood, and park carry-down finish deserve more caution. This is a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a d"
-    },
-    {
-      "routeId": "green-river-hh-wilson-park-dennison-ferry",
-      "slug": "green-river-hh-wilson-park-dennison-ferry",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Dennison Ferry Carrydown",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "s a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a day-use-only park finish make it a committed moderate outing rather than a casual family float. Confidence is good for a conservative Kentucky"
     },
     {
       "routeId": "green-river-hh-wilson-stovall",
@@ -2957,17 +2935,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "hat the broader current, private-bank corridor, and longer shuttle deserve more caution. The current is still recreational Green River water, but this 19.2-mile day adds commitment. Low water, broad-river wind, private-bank limits, and a steep Lynn Camp finish"
-    },
-    {
-      "routeId": "green-river-hh-wilson-park-dennison-ferry",
-      "slug": "green-river-hh-wilson-park-dennison-ferry",
-      "name": "Green River",
-      "reach": "H.H. Wilson Park Ramp to Dennison Ferry Carrydown",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ip; above that the broad current, wood, and park carry-down finish deserve more caution. This is a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a day-use-only park finish make it a committed mo"
     },
     {
       "routeId": "green-river-hh-wilson-stovall",
