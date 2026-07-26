@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-26T01:47:50.664Z",
+  "generatedAt": "2026-07-26T03:49:27.695Z",
   "routeCount": 937,
-  "issueCount": 466,
+  "issueCount": 464,
   "summary": {
     "Critical": 0,
-    "High": 266,
+    "High": 264,
     "Medium": 200,
     "Low": 0
   },
@@ -42,28 +42,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "drift. The lower PDF and Parklands guidance keep the braid choices, strainers, wood, and quickly changing levels explicit enough for a moderate rating. Confidence is high for a conservative add: the lower Floyds Fork PDF lists Seaton Valley to Broad Run Valle"
-    },
-    {
-      "routeId": "goose-creek-dump-hollow-laurel-branch",
-      "slug": "goose-creek-dump-hollow-laurel-branch",
-      "name": "Goose Creek",
-      "reach": "Dump Hollow Ford to Laurel Branch Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "mal levels this is a manageable shallow-creek float, but the ford-style launch, wood, and narrow outside bends mean conditions outside the official band should be treated cautiously. Confidence is high for a conservative split add: KDFWR publishes this exact 4"
-    },
-    {
-      "routeId": "goose-creek-dump-hollow-laurel-branch",
-      "slug": "goose-creek-dump-hollow-laurel-branch",
-      "name": "Goose Creek",
-      "reach": "Dump Hollow Ford to Laurel Branch Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "identifies Dump Hollow Ford Road as a year-round carry-down access with unpaved parking and no amenities. Take-out access Laurel Branch Road Access, 37.2370, -83.6703 KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, n"
     },
     {
       "routeId": "green-river-hh-wilson-park-dennison-ferry",

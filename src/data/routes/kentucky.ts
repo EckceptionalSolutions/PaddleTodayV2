@@ -10519,6 +10519,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping; above that is high and makes the ford-style put-in and narrow creek bends less forgiving.",
     "latitude": 37.2127,
     "longitude": -83.704,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use KDFWR's Manchester bands the same day: below 175 cfs or 7.4 ft expect scraping, while above 514 cfs or 8.5 ft the ford-style put-in and narrow creek bends get less forgiving.",
+        "Inspect Dump Hollow Ford before unloading because KDFWR warns high flow can make the ford and narrow-road turnaround difficult or dangerous.",
+        "Land at the KDFWR-listed Laurel Branch access and keep stops inside the public access footprint; adjacent banks are private and parking is limited."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03281100",
       "provider": "usgs",
