@@ -368,14 +368,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Use a two-car shuttle from the Highway 64 DNR landing at Langlade to the County M landing near Markton. Paddlers running the shorter Section III variant often start at Herb's Landing, but this route keeps the full Wisconsin Trail Guide Langlade-to-Markton segment.",
       "permits": "No route-specific permit was found for the Langlade County segment above Markton. Check posted DNR/fishery-area access rules, and do not continue into downstream Menominee Reservation access without separate permission and local guidance.",
       "camping": "No on-route campsite is assumed for this whitewater day run. Nearby forest and private lodging options exist in the broader Wolf River corridor, but they should be planned separately.",
-      "summary": "Launch from the public Highway 64 DNR landing at Langlade and paddle Section III of the upper Wolf to Markton County M Landing. The run starts with several miles of riffles and Class II rapids, then builds into the Boy Scout, Hanson, and Gilmore's Mistake sequence near the lower end.",
+      "summary": "Launch from the public Highway 64 DNR landing at Langlade and paddle Section III of the upper Wolf to Markton County M Landing. The run starts with several miles of riffles and Class II rapids, then builds into the Boy Scout and Hanson sequence before the take-out.",
       "accessCaveats": [
         "The Highway 64 landing is a public DNR access next to the live Langlade gauge and is also the take-out for the upstream Hollister-to-Langlade route.",
         "County M is the planned take-out before downstream Menominee Reservation access rules become a separate issue. Do not assume downstream landings are public without checking current tribal and outfitter guidance.",
         "Herb's Landing and Crab n Jack's/Wild Wolf-area landings are common whitewater alternates, but this route uses the published Markton County M endpoint and coordinates."
       ],
       "watchFor": [
-        "Long boulder gardens and named rapids including Crowle, Horserace, Twenty Day, Boy Scout, Hanson, and Gilmore's Mistake.",
+        "Long boulder gardens and named rapids including Crowle, Horserace, Twenty Day, Boy Scout, and Hanson before the County M take-out.",
         "Bony lines below about 400 cfs and stronger holes, pushier waves, and more consequential swims above about 950 cfs on the Langlade gauge.",
         "Strainers, deadfall, cold water, and private/reservation access issues if you miss the planned take-out."
       ]

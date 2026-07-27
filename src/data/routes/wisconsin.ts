@@ -426,6 +426,21 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Wolf River at Langlade, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04074950/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This is an intermediate Class II-III whitewater route with long boulder gardens. Scout Boy Scout Rapids from river right, and avoid standing in the current after a swim because the rocky channel creates foot-entrapment risk.",
+        "Use the direct Langlade gauge and recent rain trend. Wisconsin Trail Guide warns that sustained rain can raise the river rapidly, strainers and deadfall become more hazardous at higher levels, and 950-1,200 cfs is experienced-paddler water.",
+        "Finish at the County M DNR landing on river right, about 100 yards below the bridge. Gilmore's Mistake is downstream of this route and is not part of the Langlade-to-Markton reach."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 600,
@@ -448,8 +463,8 @@ export const wisconsinRoutes: River[] = [
       ],
       "seasonNotes": "Spring through fall can work because the upper Wolf holds water well, but dry spells make the boulder gardens bumpy and high rain-fed water raises the consequence of holes, waves, wood, and swims.",
       "difficulty": "moderate",
-      "difficultyNotes": "Intermediate whitewater. Wisconsin Trail Guide lists Class II-III, including Crowle, Horserace, Twenty Day, Boy Scout, Hanson, and Gilmore's Mistake rapids. Less experienced paddlers should scout, portage, or choose an easier Wolf reach.",
-      "confidenceNotes": "Confidence is high for a guarded whitewater add: Wisconsin Trail Guide documents the exact Highway 64 DNR Landing-to-Markton County M route, endpoint WGS84 coordinates, and a full Langlade-gauge flow ladder; USGS operates the direct gauge at the put-in bridge; Wisconsin DNR and Langlade County confirm the upper Wolf public-access/fishery-area context; and American Whitewater corroborates the same Highway 64-to-Markton/Crab n Jack's Section III reach and gauge."
+      "difficultyNotes": "Intermediate whitewater. Wisconsin Trail Guide lists Class II-III, including Crowle, Horserace, Twenty Day, Boy Scout, and Hanson rapids before the County M take-out. Less experienced paddlers should scout, portage, or choose an easier Wolf reach.",
+      "confidenceNotes": "Confidence is high for a guarded whitewater add: Wisconsin Trail Guide documents the exact Highway 64 DNR Landing-to-Markton County M route, endpoint WGS84 coordinates, and a full Langlade-gauge flow ladder; USGS operates the direct gauge at the put-in bridge; Wisconsin DNR and Langlade County confirm the upper Wolf public-access/fishery-area context; and American Whitewater corroborates the overlapping Highway 64-to-Crab n Jack's Section III corridor and gauge."
     },
     "evidenceNotes": [
       {

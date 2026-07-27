@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T02:42:54.001Z",
+  "generatedAt": "2026-07-27T02:54:43.267Z",
   "routeCount": 937,
-  "issueCount": 317,
+  "issueCount": 313,
   "summary": {
     "Critical": 0,
-    "High": 161,
-    "Medium": 156,
+    "High": 158,
+    "Medium": 155,
     "Low": 0
   },
   "issues": [
@@ -1703,39 +1703,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "The route is marked moderate because commitment and planning are the issue, not whitewater. Official route Spring Green to Muscoda, 22 miles Wisconsin DNR lists Spring Green to Muscoda as a 22-mile Lower Wisconsin State Riverway canoe route with an estimated 6"
-    },
-    {
-      "routeId": "wolf-river-langlade-markton",
-      "slug": "wolf-river-langlade-markton",
-      "name": "Wolf River",
-      "reach": "Highway 64 DNR Landing to Markton County M Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "wolf-river-langlade-markton",
-      "slug": "wolf-river-langlade-markton",
-      "name": "Wolf River",
-      "reach": "Highway 64 DNR Landing to Markton County M Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": ", Hanson, and Gilmore's Mistake rapids. Less experienced paddlers should scout, portage, or choose an easier Wolf reach. Confidence is high for a guarded whitewater add: Wisconsin Trail Guide documents the exact Highway 64 DNR Landing-to-Markton County M route"
-    },
-    {
-      "routeId": "wolf-river-langlade-markton",
-      "slug": "wolf-river-langlade-markton",
-      "name": "Wolf River",
-      "reach": "Highway 64 DNR Landing to Markton County M Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "y 64 DNR landing at Langlade to the Markton County M landing. This is a compact whitewater day with long boulder gardens, Class II rapids, and a direct gauge at the put-in bridge. Use the Wolf River at Langlade gauge. Section III is best around 600 to 950 cfs."
     },
     {
       "routeId": "wolf-river-markton-big-smokey-falls",
@@ -3474,17 +3441,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "varies by paddler and camping plan, so the app separates the 17,000 cfs camping caution from the 20,000 cfs no-go ceiling. Published level bands 4,000 to 10,000 cfs normal Wisconsin Trail Guide treats 4,000 to 10,000 cfs at Muscoda as normal summer conditions"
-    },
-    {
-      "routeId": "wolf-river-langlade-markton",
-      "slug": "wolf-river-langlade-markton",
-      "name": "Wolf River",
-      "reach": "Highway 64 DNR Landing to Markton County M Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "in Trail Guide lists Class II-III, including Crowle, Horserace, Twenty Day, Boy Scout, Hanson, and Gilmore's Mistake rapids. Less experienced paddlers should scout, portage, or choose an easier Wolf reach. Confidence is high for a guarded whitewater add: Wisco"
     },
     {
       "routeId": "wolf-river-markton-big-smokey-falls",
