@@ -12317,6 +12317,20 @@ export const minnesotaRoutes: River[] = [
       "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=14051001",
       "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=14051001&var1=262&width=700&height=320"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR describes this exact 13.3-mile route as narrow, winding, and a full-day trip. Blind bends shorten reaction time, so check current conditions for overhanging or dead trees and other channel obstacles before launching.",
+        "Use the direct Long Prairie gauge and reassess after rain. DNR says river levels can change rapidly, and its interpreted ladder treats readings above 650 cfs as very high and dangerous.",
+        "Use the named city carry-ins and do not assume an unmarked bank is a bailout. DNR says much of the Long Prairie shoreland is private and paddlers should stop only at designated sites."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 200,
@@ -12356,6 +12370,12 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://www.dnr.state.mn.us/watertrails/longprairieriver/segments-maps.html"
       },
       {
+        "label": "Safety and shore access",
+        "value": "Obstacles, changing levels, private shoreland",
+        "note": "The current DNR water-trail map tells paddlers to avoid overhanging and dead trees, check changing river levels, and stay off private shoreland except at designated sites.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/longprairie.pdf"
+      },
+      {
         "label": "Access confidence",
         "value": "Verified",
         "note": "Both the Long Prairie and Browerville public water access sites were resolved in the MN DNR public-water-access GIS and match the official water-trail recommendation."
@@ -12374,6 +12394,11 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR Long Prairie River segments and maps",
         "url": "https://www.dnr.state.mn.us/watertrails/longprairieriver/segments-maps.html"
+      },
+      {
+        "label": "MN DNR Long Prairie River map PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/longprairie.pdf",
+        "provider": "mn_dnr"
       },
       {
         "label": "MN DNR interactive gauge detail for Long Prairie site 89",

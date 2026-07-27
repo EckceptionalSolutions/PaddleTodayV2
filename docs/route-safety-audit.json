@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T20:41:57.941Z",
+  "generatedAt": "2026-07-27T20:54:26.322Z",
   "routeCount": 936,
-  "issueCount": 260,
+  "issueCount": 259,
   "summary": {
     "Critical": 0,
-    "High": 119,
+    "High": 118,
     "Medium": 141,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "long-prairie-river-long-prairie-browerville",
-      "slug": "long-prairie-river-long-prairie-browerville",
-      "name": "Long Prairie River",
-      "reach": "Long Prairie to Browerville",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "hable meandering river day, but the full-day mileage, tight bends, and changing wood conditions mean it is not a lazy float at every level. This route clears the bar because MN DNR directly recommends the exact day trip, the Long Prairie gauge is on the put-in"
-    },
     {
       "routeId": "minnesota-river-henderson-belle-plaine",
       "slug": "minnesota-river-henderson-belle-plaine",

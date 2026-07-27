@@ -3876,14 +3876,15 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Simple two-town car shuttle on local roads. Most groups should look at the Browerville exit first, leave a car there, and keep the rest of the day uncomplicated.",
       "permits": "No special paddling permit is known. Follow posted public-water-access and local parking rules at both city carry-ins.",
       "camping": "Treat this as a day trip unless you separately confirm legal camping nearby.",
-      "summary": "Launch in Long Prairie and finish in Browerville for a full meandering day between two clear city accesses. Gauge level is the main call; low summer water and fresh wood are the main quality changers.",
+      "summary": "Launch in Long Prairie and finish in Browerville for a full, narrow meandering day between two clear city accesses. Gauge level and current channel obstacles are the main same-day calls.",
       "accessCaveats": [
         "Both endpoints are backed by Minnesota public-water-access records, which is the key reason this route clears the endpoint bar cleanly.",
-        "These are carry-in city accesses rather than deluxe ramp facilities, so verify parking layout and carry path on arrival instead of assuming the shoreline setup from a map pin alone."
+        "These are carry-in city accesses rather than deluxe ramp facilities, so verify parking layout and carry path on arrival instead of assuming the shoreline setup from a map pin alone.",
+        "DNR says much of the Long Prairie shoreland is private. Use the named public accesses and do not assume an unmarked bank is a legal bailout."
       ],
       "watchFor": [
         "Dragging and scrape-heavy shallow spots when Long Prairie drops toward 53 cfs.",
-        "Tight bends, fresh wood, and blind-corner strainers after storms or fast rises.",
+        "Tight bends, overhanging or dead trees, and other channel obstacles after storms or fast rises.",
         "A longer full-day pace than the shorter beginner routes in the app, especially if the current is soft."
       ]
     }
