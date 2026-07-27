@@ -1161,6 +1161,22 @@ export const minnesotaRoutes: River[] = [
       "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=76023001",
       "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76023001&var1=262&width=700&height=320"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "mandatory_takeout",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR recommends this route only for paddlers with Class II experience. Scout the larger rapids, follow mapped portage guidance, and do not treat the medium flow band as a beginner rating.",
+        "Finish at the Highway 73 carry-in. Hannine Falls, a mapped Class VI hazard with a portage, is about 3.2 river miles downstream and is not part of this route.",
+        "River levels can change rapidly. Check the direct Highway 73 gauge and recent river conditions before launch, and use only designated access or portage locations because much of the shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 175,
@@ -1211,6 +1227,12 @@ export const minnesotaRoutes: River[] = [
         "value": "Class I-II rapids and rock riffles",
         "note": "DNR says to expect several rock riffles and multiple rapids, and to scout larger rapids before attempting them.",
         "sourceUrl": "https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html"
+      },
+      {
+        "label": "Downstream boundary",
+        "value": "Hannine Falls at river mile 123.6",
+        "note": "The planned Highway 73 take-out is at river mile 126.8. DNR Map 1 places Class VI Hannine Falls about 3.2 river miles downstream and marks a river-right portage, so paddlers should not continue past the route finish without a separate plan.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf"
       }
     ],
     "sourceLinks": [

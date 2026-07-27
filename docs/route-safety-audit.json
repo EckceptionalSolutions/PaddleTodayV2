@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T20:11:31.737Z",
+  "generatedAt": "2026-07-27T20:26:34.080Z",
   "routeCount": 937,
-  "issueCount": 268,
+  "issueCount": 266,
   "summary": {
     "Critical": 0,
-    "High": 125,
-    "Medium": 143,
+    "High": 124,
+    "Medium": 142,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "little-fork-river-veterans-park-highway-73",
-      "slug": "little-fork-river-veterans-park-highway-73",
-      "name": "Little Fork River",
-      "reach": "Veterans Park to Highway 73 Bridge",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "recommendation. DNR frames this as a route for paddlers with experience running Class II rapids. The mileage, rock riffles, remote feel, and need to scout larger rapids keep it out of the easy bucket. Confidence is high: MN DNR recommends Veterans Park to High"
-    },
     {
       "routeId": "long-prairie-river-long-prairie-browerville",
       "slug": "long-prairie-river-long-prairie-browerville",
@@ -1505,17 +1494,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ulty Easy Good first-pass river, but not a blind yes when levels spike. Primary caution Welch take-out logistics Private landing context reduces confidence outside well-known conditions. City of Cannon Falls Riverside Park https://www.cannonfallsmn.gov/1285/Ri"
-    },
-    {
-      "routeId": "little-fork-river-veterans-park-highway-73",
-      "slug": "little-fork-river-veterans-park-highway-73",
-      "name": "Little Fork River",
-      "reach": "Veterans Park to Highway 73 Bridge",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ce running Class II rapids. The mileage, rock riffles, remote feel, and need to scout larger rapids keep it out of the easy bucket. Confidence is high: MN DNR recommends Veterans Park to Highway 73 bridge as a 15.2-mile trip, the Highway 73 DNR gauge sits at t"
     },
     {
       "routeId": "mississippi-river-county-line-jacobson",

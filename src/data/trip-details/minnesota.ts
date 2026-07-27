@@ -381,13 +381,14 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Veterans Park in Cook and take out at the Highway 73 bridge. MN DNR recommends this 15.2-mile Little Fork route for paddlers with experience running Class II rapids.",
       "accessCaveats": [
         "Veterans Park is the practical town-side put-in, while the downstream Highway 73 bridge access is a bridge/gauge-area carry-in rather than a developed park.",
-        "The route is remote enough that weather, daylight, and shuttle reliability should be checked before launch.",
-        "Some Little Fork portages can be brushy; do not rely on an easy roadside exit between the endpoints."
+        "Check weather, daylight, the direct Highway 73 gauge, and shuttle reliability before launch; this is a long rural route with limited services.",
+        "Much of the Little Fork shoreline is private. Use the named accesses and mapped portage locations, and follow posted property restrictions."
       ],
       "watchFor": [
         "Multiple rock riffles and Class I-II rapids; scout larger rapids before committing.",
         "Scrapable or too-shallow rapids when the Highway 73/Linden Grove flow falls toward the low band.",
-        "Downed trees, sweepers, cold water, and limited quick exits on a long northern route."
+        "Downed trees and sweepers after storms or rapid level changes.",
+        "Take out at Highway 73. Class VI Hannine Falls is mapped about 3.2 river miles downstream and is not part of this route."
       ]
     }
   },
