@@ -10490,6 +10490,19 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat this as in play only when Rice Creek is inside the official 6.30 to 7.90 ft passable band and wind on the lake section looks manageable.",
     "latitude": 45.175054,
     "longitude": -93.0701588,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "mandatory_takeout",
+        "strainers"
+      ],
+      "safetyNotes": [
+        "The full route starts below the Peltier Lake dam. Do not improvise an upstream dam crossing as part of this water-trail plan.",
+        "The electric fish barrier upstream of Long Lake is a mandatory marked portage only when operational. Obey all signs and buoys; RCWD says paddlers may pass without portaging only when neither is present.",
+        "Fallen trees are expected, and high or low water can block culverts and road crossings, especially between Baldwin Lake and I-35W. Portage blocked passages instead of forcing them."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05288580",
       "provider": "usgs",
@@ -10545,9 +10558,9 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Barrier note",
-        "value": "Fish barrier near Long Lake",
-        "note": "The downstream end can require a portage near the Long Lake fish barrier depending on posted conditions.",
-        "sourceUrl": "https://www.anokacountymn.gov/DocumentCenter/View/10433/Rice-Creek-Water-Trail"
+        "value": "Marked portage when the Long Lake fish barrier is operational",
+        "note": "RCWD says signs and buoys mark the barrier and portages when in use; paddlers must follow them and may pass without portaging only when neither is present.",
+        "sourceUrl": "https://www.ricecreek.org/the-watershed/rice-creek-water-trail/"
       }
     ],
     "sourceLinks": [

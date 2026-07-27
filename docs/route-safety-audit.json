@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T03:25:16.291Z",
+  "generatedAt": "2026-07-27T03:39:40.362Z",
   "routeCount": 937,
-  "issueCount": 308,
+  "issueCount": 307,
   "summary": {
     "Critical": 0,
-    "High": 154,
+    "High": 153,
     "Medium": 154,
     "Low": 0
   },
@@ -218,17 +218,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "sents this as a beginner-friendly route, but it is still a real river day where wood, wind, and changing levels can matter. This route qualifies because the endpoint names are official, the Appleton gauge is direct and live in-product through the MN DNR path,"
-    },
-    {
-      "routeId": "rice-creek-peltier-to-long-lake",
-      "slug": "rice-creek-peltier-to-long-lake",
-      "name": "Rice Creek",
-      "reach": "Peltier Lake to Long Lake",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "t. The remaining uncertainty is mostly wind on the lake crossings and whether a portage is needed at road or fish-barrier crossings. Published level band 6.30 to 7.90 ft Rice Creek Watershed District publishes this as the passable water-level recommendation. R"
     },
     {
       "routeId": "root-river-lanesboro-peterson",

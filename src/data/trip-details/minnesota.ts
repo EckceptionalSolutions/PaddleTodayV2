@@ -3568,12 +3568,12 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Multiple intermediate landings make it easy to shorten the route if wind or time becomes a problem.",
         "Reshanau Lake is not modeled as a public access point; use the documented George Watch/Wargo or Aqua Lane options instead.",
-        "An electric fish barrier near Long Lake may require a marked portage depending on posted conditions."
+        "The electric fish barrier upstream of Long Lake is a mandatory marked portage when operational. Obey all signs and buoys; RCWD says paddlers may pass without portaging only when neither is present."
       ],
       "watchFor": [
         "Wind and chop on the opening lake chain.",
         "High-water or low-water culvert issues, especially between Baldwin Lake and I-35W.",
-        "Fallen trees and the Long Lake fish-barrier portage decision."
+        "Fallen trees and the marked Long Lake fish-barrier portage when the barrier is operational."
       ]
     },
     "accessPoints": [
