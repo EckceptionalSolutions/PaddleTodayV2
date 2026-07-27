@@ -283,7 +283,6 @@ const routeOrder = [
   "pine-river-stevens-lake-chipmunk-rapids",
   "pine-river-chipmunk-rapids-bull-falls",
   "menominee-river-piers-gorge",
-  "red-river-weed-dam-zeimers-falls",
   "jump-river-wayside-park-sheldon",
   "jump-south-fork-county-line-little-falls",
   "jump-south-fork-little-falls-big-falls",

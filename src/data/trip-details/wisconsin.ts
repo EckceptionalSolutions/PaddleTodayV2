@@ -3232,37 +3232,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
-  "red-river-weed-dam-zeimers-falls": {
-    "putIn": {
-      "name": "Weed Dam Powerhouse Landing",
-      "latitude": 44.84168,
-      "longitude": -88.76063
-    },
-    "takeOut": {
-      "name": "Zeimer's Falls Landing",
-      "latitude": 44.84287,
-      "longitude": -88.72289
-    },
-    "logistics": {
-      "distanceLabel": "2.2 mi",
-      "estimatedPaddleTime": "About 1 hr to 2 hr plus scouting time",
-      "shuttle": "Run a very short rural shuttle between Weed Dam Powerhouse Landing and the Butternut Road access for Zeimer's Falls Landing. The river miles are short, but scout time and release timing can matter more than mileage.",
-      "permits": "No route-specific paddling permit is known from the sources checked. Use only the named hand-carry landings and stay off private banks while scouting or portaging.",
-      "camping": "No on-route camping is documented for this 2.2-mile whitewater run. Treat it as a short day route and use nearby public campgrounds only after checking separate rules and availability.",
-      "summary": "Launch below Weed Dam Powerhouse and paddle the Red River through First Drop, Second Drop, Monastery Falls, and Zeimer's Falls. This is a compact Class III-IV whitewater run, not a casual recreational float.",
-      "accessCaveats": [
-        "Wisconsin Trail Guide describes Weed Dam Powerhouse Landing as a hand-carry access with parking and a trailer turnaround.",
-        "Zeimer's Falls Landing is reached from a sand-and-gravel drive off Butternut Road, with parking, trailer turnaround, and a woodchip path down to the river.",
-        "The guide warns that land on either side of Monastery Falls is privately owned; scout or portage from river right and stay on exposed rock ledges."
-      ],
-      "watchFor": [
-        "Dam-release changes from Weed Dam Powerhouse; a horn may sound before release and water can rise quickly.",
-        "Scrappy boulder gardens below about 150 cfs, including possible low-water portage at Monastery Falls.",
-        "Monastery Falls can reach Class IV at high flows, while Zeimer's Falls becomes pushy Class III+ in the high band.",
-        "Treat the Morgan Road USGS gauge as a corridor signal, not a substitute for same-day release and visual checks at the put-in."
-      ]
-    }
-  },
   "jump-river-wayside-park-sheldon": {
     "putIn": {
       "name": "Wayside Park / Highway 73 Jump River Access",

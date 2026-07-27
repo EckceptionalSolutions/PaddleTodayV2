@@ -1,5 +1,13 @@
 # Wisconsin Route Memory
 
+## 2026-07-27 America/Chicago Red River stale-gauge block
+
+- Removed `red-river-weed-dam-zeimers-falls` from the live route inventory and trip-details surface.
+- FERC's 2017 Weed Dam license confirms frequent downstream whitewater use, a project canoe/kayak put-in, run-of-river operation, and USGS `04077630` as a similar-condition planning signal for the downstream reach.
+- Wisconsin Trail Guide still documents the exact 2.2-mile Class III-IV route, named hand-carry endpoints, private-bank scouting constraint, dam-release horn, and route-specific Morgan Road gauge ladder.
+- The official USGS feed was current only through 2026-07-17 when checked on 2026-07-27. Because the route is dam-influenced Class III-IV water, the stale selected live gauge fails the route-safety policy and cannot be cured with warning copy.
+- Downgraded the ledger record from `added` to `blocked_until_date`; reconsider only after consistently fresh product-fetchable USGS observations or a product-supported downstream gauge, plus a fresh public-access check for both endpoints.
+
 ## 2026-07-27 America/Chicago Eau Claire dam-portage block
 
 - Removed `eau-claire-river-bear-lake-county-n` from the live route inventory and trip-details surface.

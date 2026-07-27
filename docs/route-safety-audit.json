@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T23:40:12.135Z",
-  "routeCount": 936,
-  "issueCount": 231,
+  "generatedAt": "2026-07-27T23:56:49.447Z",
+  "routeCount": 935,
+  "issueCount": 225,
   "summary": {
     "Critical": 0,
-    "High": 100,
-    "Medium": 131,
+    "High": 95,
+    "Medium": 130,
     "Low": 0
   },
   "issues": [
@@ -955,61 +955,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ars, tall sand banks, and a direct Colfax gauge ladder. The route is scenic but strainer-sensitive, so it is best treated as an intermediate moving-water run. Use the Red Cedar River near Colfax gauge. The best normal window is about 401 to 600 cfs. Below 400"
-    },
-    {
-      "routeId": "red-river-weed-dam-zeimers-falls",
-      "slug": "red-river-weed-dam-zeimers-falls",
-      "name": "Red River",
-      "reach": "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "red-river-weed-dam-zeimers-falls",
-      "slug": "red-river-weed-dam-zeimers-falls",
-      "name": "Red River",
-      "reach": "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "red-river-weed-dam-zeimers-falls",
-      "slug": "red-river-weed-dam-zeimers-falls",
-      "name": "Red River",
-      "reach": "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Short Shawano County whitewater run from Weed Dam Powerhouse Landing through Second Drop, Monastery Falls, and Zeimer's Falls. This is a playboating-oriented Class III-IV route with dam-release swings, private-bank constraints"
-    },
-    {
-      "routeId": "red-river-weed-dam-zeimers-falls",
-      "slug": "red-river-weed-dam-zeimers-falls",
-      "name": "Red River",
-      "reach": "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Short Shawano County whitewater run from Weed Dam Powerhouse Landing through Second Drop, Monastery Falls, and Zeimer's Falls. This is a playboating-oriented Class III-IV route with dam-release swings,"
-    },
-    {
-      "routeId": "red-river-weed-dam-zeimers-falls",
-      "slug": "red-river-weed-dam-zeimers-falls",
-      "name": "Red River",
-      "reach": "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "class IV waves; scout Monastery Falls from river right and avoid trespassing on private banks. Confidence is good for a guarded whitewater add: Wisconsin Trail Guide documents the exact R1 route, named hand-carry endpoints, WGS84 waypoint coordinates, hazards,"
     },
     {
       "routeId": "turtle-creek-east-creek-road-highway-140",
@@ -2429,17 +2374,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "e Bottoms Boat Landing are backed by Wisconsin DNR boat-access records. Primary caution Wood after storms Even an easy lower Red Cedar day can change fast after storms if strainers and fresh wood move into the current. MilesPaddled Red Cedar River I https://mi"
-    },
-    {
-      "routeId": "red-river-weed-dam-zeimers-falls",
-      "slug": "red-river-weed-dam-zeimers-falls",
-      "name": "Red River",
-      "reach": "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "water can be scrapey, while high water creates pushy holes and class IV waves; scout Monastery Falls from river right and avoid trespassing on private banks. Confidence is good for a guarded whitewater add: Wisconsin Trail Guide documents the exact R1 route,"
     },
     {
       "routeId": "st-croix-river-fox-highway-70",

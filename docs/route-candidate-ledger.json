@@ -11251,16 +11251,18 @@
       "river": "Red River",
       "route": "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
       "state": "WI",
-      "status": "added",
-      "lastReviewed": "2026-05-25",
-      "reviewCount": 1,
-      "blocker": null,
-      "retryCondition": "Already implemented as red-river-weed-dam-zeimers-falls. Revisit if USGS current-data availability remains stale, if Weed Dam release guidance changes, if land-manager access metadata appears, or if a rights-clean exact-route photo is found.",
+      "status": "blocked_until_date",
+      "lastReviewed": "2026-07-27",
+      "reviewCount": 2,
+      "blocker": "Removed from the live inventory because official USGS 04077630 data is stale for a Class III-IV dam-influenced route. The official page was current only through 2026-07-17 when checked on 2026-07-27. FERC supports the upstream gauge relationship and project canoe/kayak access, but the route-safety policy does not allow a stale live gauge to be cured with warning copy.",
+      "retryCondition": "Reconsider only after USGS 04077630 consistently returns fresh product-fetchable observations, or a product-supported downstream Weed Project gauge becomes available, and a fresh source review confirms the project put-in and Zeimer's Falls take-out remain open for public paddling use.",
       "retryDate": null,
       "sourcesChecked": [
         "Wisconsin Trail Guide Red River R1 page",
         "Wisconsin Trail Guide Red River R1 PDF",
         "USGS 04077630 Red River at Morgan Road near Morgan, WI current conditions",
+        "FERC 2017 Weed Dam Hydroelectric Project P-2464 license order",
+        "Wisconsin DNR FERC-regulated dams list",
         "Wisconsin River Trips Red River",
         "Hydropower Reform Coalition Weed Dam project",
         "Wikimedia Commons / USGS / local-government photo search"
@@ -11294,7 +11296,7 @@
         },
         "coordinateSource": "Wisconsin Trail Guide Red River R1 PDF GPS table, NAD83 / WGS84. The same guide describes both endpoints as hand-carry landings with parking and trailer turnarounds."
       },
-      "notes": "Implemented 2026-05-25 as a guarded Shawano County whitewater route after the prompted Bark and Sugar routes were confirmed already implemented, Black Earth Creek remained blocked, and Menominee/Piers Gorge was already present. This route clears the route-specific threshold and endpoint-coordinate bar with Wisconsin Trail Guide's exact R1 documentation. Confidence is capped because the USGS current-conditions page checked during this pass showed data availability only through 2026-04-25, and because Weed Dam releases can decouple actual route flow from the upstream Morgan Road gauge during dry periods. No gallery asset was added because no clearly reusable exact-route photo was found."
+      "notes": "Implemented 2026-05-25 as a guarded Shawano County whitewater route, then removed from the live inventory on 2026-07-27. FERC's 2017 license order confirms frequent downstream whitewater use, the project canoe/kayak put-in, run-of-river operation, and the upstream Morgan Road gauge as a similar-condition planning signal. Wisconsin Trail Guide still supplies the exact route, endpoints, hazards, and threshold ladder. The remaining blocker is live-data freshness: USGS 04077630 was current only through 2026-07-17 when checked on 2026-07-27, which is not acceptable for a Class III-IV dam-influenced route under the route-safety policy."
     },
     {
       "candidateId": "wi-wolf-river-lily-hollister",
