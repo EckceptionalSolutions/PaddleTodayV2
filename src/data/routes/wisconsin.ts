@@ -7282,7 +7282,7 @@ export const wisconsinRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through fall is the main window. Early starts and lower-traffic weekdays improve the route because motorboat and jet-ski wakes are a key hazard.",
       "difficulty": "moderate",
-      "difficultyNotes": "Not whitewater, but back-channel choices, motorboat wakes, sandstone-wall rebound waves, wind, and hidden drop-offs make this a more attentive route than a short distance alone suggests.",
+      "difficultyNotes": "Back-channel choices, motorboat wakes, sandstone-wall rebound waves, wind, and hidden drop-offs make this a more attentive route than a short distance alone suggests.",
       "confidenceNotes": "Wisconsin River Trips provides the route-specific gauge ladder and explicitly recommends Camp Rest Park as the better take-out than continuing to James Whalen. Town of Dekorra source material supports public water access in the Dekorra/Camp Rest corridor."
     },
     "evidenceNotes": [

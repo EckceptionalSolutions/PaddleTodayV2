@@ -113,7 +113,9 @@ export function auditRouteSafety(rivers: River[]): RouteSafetyAuditIssue[] {
     if (
       route.profile.thresholdModel === "minimum-only" &&
       !safetyProfile &&
-      hazardPatterns.some((rule) => rule.pattern.test(haystack))
+      hazardPatterns.some((rule) =>
+        rule.pattern.test(hazardSearchText(haystack, rule.category)),
+      )
     ) {
       issues.push(
         makeIssue(
@@ -127,7 +129,9 @@ export function auditRouteSafety(rivers: River[]): RouteSafetyAuditIssue[] {
     }
 
     for (const rule of hazardPatterns) {
-      const match = haystack.match(rule.pattern);
+      const match = hazardSearchText(haystack, rule.category).match(
+        rule.pattern,
+      );
       if (!match) {
         continue;
       }
@@ -210,6 +214,19 @@ function routeSafetyText(route: River) {
     .filter(Boolean)
     .join(" ")
     .replace(/\s+/g, " ");
+}
+
+function hazardSearchText(value: string, category: string) {
+  if (category !== "Dam") {
+    return value;
+  }
+
+  return value
+    .replace(/\bhttps?:\/\/\S+/g, (match) => " ".repeat(match.length))
+    .replace(
+      /(?:\b(?:city of|at|near|in|to|from|between)\s+|\blower-)Portage\b|\bPortage\b(?=\s+(?:segment|put-in|rules|leg|corridor|area))/g,
+      (match) => " ".repeat(match.length),
+    );
 }
 
 function makeIssue(

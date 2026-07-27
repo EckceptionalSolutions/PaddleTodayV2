@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T21:10:33.205Z",
+  "generatedAt": "2026-07-27T21:30:27.456Z",
   "routeCount": 936,
-  "issueCount": 255,
+  "issueCount": 252,
   "summary": {
     "Critical": 0,
-    "High": 114,
+    "High": 111,
     "Medium": 141,
     "Low": 0
   },
@@ -1175,39 +1175,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "r with restrooms, shelter, trails, and river/lake water access context. Hazards Wood, rocks, riffles, and whitewater Visit Waupaca County warns of fallen trees, rocks, and whitewater; Wisconsin River Trips adds duck-unders, hop-overs, shallow boulder gardens,"
-    },
-    {
-      "routeId": "wisconsin-river-dekorra-camp-rest",
-      "slug": "wisconsin-river-dekorra-camp-rest",
-      "name": "Wisconsin River",
-      "reach": "Dekorra Park to Camp Rest Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Shorter lower-Portage Wisconsin River route that keeps the best back channels, sandstone outcrops, islands, and sandbars while avoiding the rough final open-water mile to James Whalen. This is t"
-    },
-    {
-      "routeId": "wisconsin-river-dekorra-camp-rest",
-      "slug": "wisconsin-river-dekorra-camp-rest",
-      "name": "Wisconsin River",
-      "reach": "Dekorra Park to Camp Rest Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ls, and above 13,000 cfs as high-water only for very conservative paddlers. Not whitewater, but back-channel choices, motorboat wakes, sandstone-wall rebound waves, wind, and hidden drop-offs make this a more attentive route than a short distance alone suggest"
-    },
-    {
-      "routeId": "wisconsin-river-portage-dekorra",
-      "slug": "wisconsin-river-portage-dekorra",
-      "name": "Wisconsin River",
-      "reach": "Highway 33 Portage to Dekorra Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Overlooked sandbar-and-side-channel Wisconsin River day between Portage and Dekorra. Wisconsin River Trips gives exact endpoints and a Dells-gauge level ladder, so this can be added as a conservative recreational route. Use the Wisconsin Dells"
     },
     {
       "routeId": "wisconsin-river-spring-green-muscoda",

@@ -160,4 +160,71 @@ describe('route safety audit', () => {
       ]),
     );
   });
+
+  it('does not treat the city of Portage as a dam or portage hazard', () => {
+    const issues = auditRouteSafety([
+      {
+        ...baseRoute,
+        summary: 'Paddle between Portage and Dekorra.',
+        evidenceNotes: [
+          {
+            label: 'Portage segment',
+            value: 'Highway 33 city route',
+            note: 'The Portage put-in is a documented carry-in launch.',
+            sourceUrl: 'https://example.com/wisconsin-river/portage',
+          },
+        ],
+        sourceLinks: [
+          {
+            label: 'Wisconsin River Island in Portage',
+            url: 'https://example.com/wisconsin-river/portage',
+          },
+        ],
+      },
+    ]);
+
+    expect(issues).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          category: 'Dam',
+        }),
+      ]),
+    );
+  });
+
+  it('still flags an actual lowercase portage instruction', () => {
+    const issues = auditRouteSafety([
+      {
+        ...baseRoute,
+        summary: 'Use the marked portage around the falls.',
+      },
+    ]);
+
+    expect(issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          severity: 'High',
+          category: 'Dam',
+        }),
+      ]),
+    );
+  });
+
+  it('still flags an actual dam mentioned near the city of Portage', () => {
+    const issues = auditRouteSafety([
+      {
+        ...baseRoute,
+        summary: 'Between Portage and Dekorra, a dam blocks the route.',
+      },
+    ]);
+
+    expect(issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          severity: 'High',
+          category: 'Dam',
+        }),
+      ]),
+    );
+  });
 });
