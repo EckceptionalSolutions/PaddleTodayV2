@@ -51,7 +51,8 @@ const hazardPatterns: Array<{
   {
     category: "Obstruction",
     severity: "High",
-    pattern: /\b(?:strainer|logjam|log jam|wood|sweeper)\b/i,
+    pattern:
+      /\b(?:strainer|logjam|log jam|sweeper)\b|(?<!\bkay[ -])\bwood\b/i,
     message: "Route text mentions wood or obstruction hazards.",
   },
   {

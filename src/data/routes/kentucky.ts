@@ -963,6 +963,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Tygarts Creek near Greenup gauge as the same-creek flow check. KDFWR says flows below 150 cfs make this long reach hard to finish in a day, while flows above 300 cfs add borderline Class II rapids, strong bluff current, and more demanding boat control.",
     "latitude": 38.2993,
     "longitude": -83.1745,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Treat this as a 12.5-mile gorge commitment with limited margin for a late start. KDFWR says flows below 150 cfs can make the route difficult to finish in a day and recommends launching just after dawn.",
+        "Above 300 cfs, KDFWR says the route becomes more difficult with borderline Class II rapids and strong current that can carry paddlers toward overhanging bluffs.",
+        "Expect brush, fallen treetops, and sunken logs along the corridor. Identify the wooden-step take-out on river left about 150 yards before the KY 182 bridge before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03217000",
       "provider": "usgs",

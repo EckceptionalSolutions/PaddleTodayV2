@@ -4341,7 +4341,7 @@ export const wisconsinRoutes: River[] = [
       ],
       "seasonNotes": "Spring is the easiest time to find water, but Wisconsin River Trips notes mid-summer to late fall can be the best clarity window when flows stay up. Summer can still work after rain, while low water quickly turns the trip scrapey.",
       "difficulty": "easy",
-      "difficultyNotes": "Mostly straightforward current with intermittent riffles and easy Class I drops near Newburg. Low water, fresh wood, and high-water speed are bigger concerns than technical whitewater.",
+      "difficultyNotes": "Mostly straightforward current with intermittent riffles and easy Class I drops near Newburg. Low water and high-water speed matter more than the small moving-water features.",
       "confidenceNotes": "Confidence is good for a community-sourced Wisconsin add: Wisconsin River Trips documents the exact Newburg segment and a Cedarburg-gauge ladder, Miles Paddled documents the full Newburg-to-Waubedonia shuttle and corroborates the low-water sensitivity, USGS 04086600 is a direct same-river gauge, and Waubedonia Park is an official county canoe/kayak launch. The main caveat is distance: the Cedarburg gauge sits downstream of the route, so recent local rain can make the upper river differ from the live number."
     },
     "evidenceNotes": [
@@ -4366,8 +4366,20 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Public put-in",
         "value": "Fireman's Park / Main Street bridge",
-        "note": "The Village of Newburg lists Fireman's Park as a village park, and Wisconsin River Trips / Miles Paddled both describe the public put-in just downstream of the Main Street bridge by the old dam site.",
-        "sourceUrl": "https://village.newburg.wi.us/our-parks/"
+        "note": "Wisconsin River Trips describes a public put-in in Fireman's Park just downstream of the Main Street bridge; Miles Paddled uses the same access and documents the short carry from parking.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/milwaukee-river/newburg"
+      },
+      {
+        "label": "Newburg river restoration",
+        "value": "Barrier removed in 2012",
+        "note": "Ozaukee County says the Newburg project restored recreational passage and added improved kayak/canoe access.",
+        "sourceUrl": "https://www.ozaukeecounty.gov/1635/Newburg-Dam"
+      },
+      {
+        "label": "Waubeka river restoration",
+        "value": "Barrier removed in 2004",
+        "note": "Ozaukee County's Ehlers Park history says removal at the Waubeka site left more than 15 miles of the Milwaukee River free-flowing to Grafton.",
+        "sourceUrl": "https://www.ozaukeecounty.gov/653/Ehlers-Park"
       },
       {
         "label": "Downstream high-water check",

@@ -123,4 +123,41 @@ describe('route safety audit', () => {
 
     expect(issues).toHaveLength(0);
   });
+
+  it('does not treat Kay Wood Road Access as an obstruction hazard', () => {
+    const issues = auditRouteSafety([
+      {
+        ...baseRoute,
+        reach: 'Rocky Branch Road Access to Kay Wood Road Access',
+        aliases: ['Rocky-Branch-to-Kay-Wood'],
+        summary: 'Use the public Kay Wood Road Access take-out.',
+      },
+    ]);
+
+    expect(issues).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          category: 'Obstruction',
+        }),
+      ]),
+    );
+  });
+
+  it('still flags actual wood hazards near Kay Wood Road Access', () => {
+    const issues = auditRouteSafety([
+      {
+        ...baseRoute,
+        summary: 'Kay Wood Road Access can collect wood after storms.',
+      },
+    ]);
+
+    expect(issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          severity: 'High',
+          category: 'Obstruction',
+        }),
+      ]),
+    );
+  });
 });

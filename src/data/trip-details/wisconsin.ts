@@ -1496,7 +1496,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Scraping or short wades when Cedarburg drops toward the minimum floor.",
         "Mild riffles and shallow gravel runs that still need boat control.",
-        "Fresh wood after storms and cold water outside summer."
+        "Faster current above the preferred band and cold water outside summer."
       ]
     }
   },

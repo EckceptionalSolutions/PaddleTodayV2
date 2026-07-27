@@ -70,10 +70,19 @@ const weekendMapSection = document.querySelector('[data-weekend-map-section]');
 const weekendMap = document.querySelector('[data-summary-map]');
 const weekendMapStatus = document.querySelector('[data-summary-map-status]');
 const weekendMapShell = document.querySelector('[data-summary-map-shell]');
+const weekendResults = document.querySelector('[data-summary-map-results]');
+const weekendResultsTitle = document.querySelector('[data-summary-map-results-title]');
+const weekendResultsNote = document.querySelector('[data-summary-map-results-note]');
+const weekendMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
+const weekendMobileViewButtons = Array.from(document.querySelectorAll('[data-summary-map-mobile-view]'));
+const weekendMobileCountNodes = Array.from(document.querySelectorAll('[data-summary-map-mobile-count]'));
 const weekendMapEmpty = document.querySelector('[data-weekend-map-empty]');
 const weekendMapEmptyTitle = document.querySelector('[data-weekend-map-empty-title]');
 const weekendMapEmptyCopy = document.querySelector('[data-weekend-map-empty-copy]');
 const weekendMapEmptyReset = document.querySelector('[data-weekend-map-empty-reset]');
+let weekendMobileView = 'list';
+let selectedWeekendMapKey = null;
+let weekendMapMarkersByKey = new Map();
 
 const featuredPanel = document.querySelector('.weekend-hero__featured');
 const featuredLabel = document.querySelector('[data-weekend-featured-label]');
@@ -187,6 +196,9 @@ function weekendDistanceLabel(distance = selectedWeekendDistance) {
 
 function updateWeekendControls(plan) {
   if (weekendPlanner instanceof HTMLElement) {
+    weekendPlanner.hidden = !latestWeekendPayload;
+  }
+  if (weekendPlanner instanceof HTMLElement) {
     weekendPlanner.classList.toggle('weekend-planner--without-location', !userLocation);
   }
   if (weekendLocationLabel instanceof HTMLElement) {
@@ -249,10 +261,11 @@ function updateWeekendControls(plan) {
 
   if (weekendFilterSummary instanceof HTMLElement) {
     const routeCount = plan.mapRoutes.length;
+    const scoredCount = plan.inRangeRoutes.length;
     const typeLabel = weekendFilterLabel(selectedWeekendFilter);
     const rangeLabel = userLocation ? ` within ${weekendDistanceLabel()}` : '';
     weekendFilterSummary.textContent = routeCount > 0
-      ? `Showing ${routeCount} ${typeLabel} ${routeCount === 1 ? 'route' : 'routes'}${rangeLabel}.`
+      ? `Showing ${routeCount} curated ${typeLabel} ${routeCount === 1 ? 'route' : 'routes'}${scoredCount > routeCount ? ` from ${scoredCount} board routes` : ''}${rangeLabel}.`
       : `No ${typeLabel} routes match${rangeLabel || ' right now'}.`;
   }
 }
@@ -970,6 +983,142 @@ function renderGrid(items) {
   }
 }
 
+function weekendResultMeta(item) {
+  return [
+    item.travelLabel,
+    confidenceDisplayLabel(item.weekend.confidence),
+    campingFactLabel(item),
+  ].filter(Boolean).join(' • ');
+}
+
+function updateWeekendMapSelection(key) {
+  selectedWeekendMapKey = key || null;
+
+  for (const [markerKey, marker] of weekendMapMarkersByKey.entries()) {
+    const markerElement = marker?.getElement?.();
+    if (markerElement instanceof HTMLElement) {
+      markerElement.classList.toggle('score-map-marker--selected', markerKey === selectedWeekendMapKey);
+      markerElement.classList.toggle('score-map-marker--river-expanded', markerKey === selectedWeekendMapKey);
+    }
+  }
+
+  if (weekendResults instanceof HTMLElement) {
+    for (const row of weekendResults.querySelectorAll('[data-weekend-result-key]')) {
+      if (!(row instanceof HTMLElement)) continue;
+      const active = row.dataset.weekendResultKey === selectedWeekendMapKey;
+      row.classList.toggle('weekend-result-row--active', active);
+      const button = row.querySelector('[data-weekend-result-select]');
+      if (button instanceof HTMLButtonElement) {
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      }
+    }
+  }
+}
+
+function setWeekendMobileView(view) {
+  weekendMobileView = view === 'map' ? 'map' : 'list';
+  if (!(weekendMapShell instanceof HTMLElement)) {
+    return;
+  }
+
+  const compact = window.matchMedia('(max-width: 760px)').matches;
+  weekendMapShell.classList.toggle('summary-map-shell--mobile-list', compact && weekendMobileView === 'list');
+  weekendMapShell.classList.toggle('summary-map-shell--mobile-map', compact && weekendMobileView === 'map');
+  weekendMapShell.dataset.summaryMapView = weekendMobileView;
+  if (weekendMobileSwitch instanceof HTMLElement) {
+    weekendMobileSwitch.hidden = !compact;
+  }
+  for (const button of weekendMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const active = button.dataset.summaryMapMobileView === weekendMobileView;
+    button.classList.toggle('summary-map-mobile-switch__button--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+  if (weekendMobileView === 'map' && weekendMapRuntime) {
+    window.setTimeout(() => weekendMapRuntime.resize(), 40);
+  }
+}
+
+function createWeekendResultRow(item) {
+  const row = document.createElement('article');
+  const tone = ratingToneKey(item.weekend.rating);
+  row.className = `weekend-result-row weekend-result-row--${tone}`;
+  row.dataset.weekendResultKey = item.river.slug;
+
+  const select = document.createElement('button');
+  select.type = 'button';
+  select.className = 'weekend-result-row__select';
+  select.dataset.weekendResultSelect = 'true';
+  select.setAttribute('aria-pressed', 'false');
+  select.setAttribute('aria-label', `Show ${item.river.name} on the map`);
+  select.innerHTML = `
+    <span class="weekend-result-row__score score-map-marker score-map-marker--${tone}">${escapeHtml(String(item.weekend.score))}</span>
+    <span class="weekend-result-row__body">
+      <strong class="weekend-result-row__name">${escapeHtml(item.river.name)}</strong>
+      <span class="weekend-result-row__reach">${escapeHtml(item.river.reach)}</span>
+      <span class="weekend-result-row__meta">${escapeHtml(weekendResultMeta(item) || 'Weekend route')}</span>
+    </span>
+    <span class="weekend-result-row__rating">${escapeHtml(ratingDisplayLabel(item.weekend.rating, { compact: true }))}</span>
+  `;
+  select.addEventListener('click', () => {
+    updateWeekendMapSelection(item.river.slug);
+    if (window.matchMedia('(max-width: 760px)').matches) {
+      setWeekendMobileView('map');
+    }
+  });
+
+  const link = document.createElement('a');
+  link.className = 'weekend-result-row__link';
+  link.href = `/rivers/${encodeURIComponent(item.river.slug)}/`;
+  link.textContent = 'View route';
+
+  row.append(select, link);
+  return row;
+}
+
+function renderWeekendResults(routes) {
+  if (!(weekendResults instanceof HTMLElement)) {
+    return;
+  }
+
+  weekendResults.innerHTML = '';
+  if (weekendResultsTitle instanceof HTMLElement) {
+    weekendResultsTitle.textContent = `${routes.length} ${routes.length === 1 ? 'route' : 'routes'} in this view`;
+  }
+  if (weekendResultsNote instanceof HTMLElement) {
+    weekendResultsNote.textContent = routes.length > 0
+      ? 'Select a route to highlight it on the map.'
+      : 'Try another route type or widen your weekend range.';
+  }
+  for (const countNode of weekendMobileCountNodes) {
+    if (countNode instanceof HTMLElement) {
+      countNode.textContent = String(routes.length);
+      countNode.hidden = routes.length === 0;
+    }
+  }
+
+  if (routes.length === 0) {
+    weekendResults.innerHTML = `
+      <div class="weekend-results-empty">
+        <strong>No routes match this view</strong>
+        <p class="muted">Try another route type or widen your weekend range.</p>
+        <button class="river-link river-link--inline" type="button" data-weekend-results-empty-reset>Show all routes</button>
+      </div>
+    `;
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  for (const item of routes) {
+    fragment.appendChild(createWeekendResultRow(item));
+  }
+  weekendResults.appendChild(fragment);
+  const selected = routes.some((item) => item.river.slug === selectedWeekendMapKey)
+    ? selectedWeekendMapKey
+    : routes[0]?.river.slug;
+  updateWeekendMapSelection(selected);
+}
+
 function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false } = {}) {
   if (!(weekendEmpty instanceof HTMLElement)) {
     return;
@@ -1091,18 +1240,19 @@ async function renderWeekendMap(routes) {
 
   const points = weekendRouteMapPoints(routes);
   const renderVersion = ++weekendMapRenderVersion;
-  if (weekendMapSection instanceof HTMLElement) {
-    weekendMapSection.hidden = false;
-  }
+  renderWeekendResults(routes);
   if (weekendMapEmpty instanceof HTMLElement) {
     weekendMapEmpty.hidden = points.length > 0;
   }
   if (weekendMapShell instanceof HTMLElement) {
-    weekendMapShell.classList.toggle('weekend-page__map--empty', points.length === 0);
+    weekendMapShell.classList.toggle('weekend-map-shell--empty', points.length === 0);
   }
 
   if (points.length === 0) {
+    setWeekendMobileView('map');
     weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
+    weekendMapMarkersByKey = new Map();
+    updateWeekendMapSelection(null);
     if (weekendMapRuntime?.getSource('weekend-route-spans')) {
       weekendMapRuntime.getSource('weekend-route-spans').setData({
         type: 'FeatureCollection',
@@ -1113,16 +1263,16 @@ async function renderWeekendMap(routes) {
       weekendMapStatus.textContent = 'No routes match the selected filters.';
     }
     const emptyLabels = {
-      all: 'No weekend routes are available',
-      'day-trips': 'No day trips match this range',
+      all: 'No shortlist routes are available',
+      'day-trips': 'No best bets match this range',
       camping: 'No camping-friendly routes match this range',
-      rechecks: 'No routes need a recheck in this range',
+      rechecks: 'No routes worth watching match this range',
     };
     const emptyTypeLabels = {
-      all: 'weekend routes',
-      'day-trips': 'day trips',
+      all: 'shortlist routes',
+      'day-trips': 'best bets',
       camping: 'camping-friendly routes',
-      rechecks: 'recheck routes',
+      rechecks: 'routes worth watching',
     };
     setText(
       weekendMapEmptyTitle,
@@ -1163,6 +1313,7 @@ async function renderWeekendMap(routes) {
     }
 
     weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
+    weekendMapMarkersByKey = new Map();
     syncWeekendRouteLines(points);
     const bounds = new maplibregl.LngLatBounds();
 
@@ -1176,6 +1327,7 @@ async function renderWeekendMap(routes) {
         `${point.label}, ${point.reach}, weekend score ${point.score}. Open route.`,
       );
       markerNode.addEventListener('click', () => {
+        updateWeekendMapSelection(point.id);
         window.location.assign(`/rivers/${encodeURIComponent(point.id)}/`);
       });
 
@@ -1186,6 +1338,7 @@ async function renderWeekendMap(routes) {
         .setLngLat([point.longitude, point.latitude])
         .addTo(weekendMapRuntime);
       weekendMapMarkers.push(marker);
+      weekendMapMarkersByKey.set(point.id, marker);
 
       if (point.span.length >= 2) {
         for (const coordinate of point.span) {
@@ -1204,6 +1357,11 @@ async function renderWeekendMap(routes) {
       duration: 0,
     });
     weekendMapRuntime.resize();
+    updateWeekendMapSelection(
+      points.some((point) => point.id === selectedWeekendMapKey)
+        ? selectedWeekendMapKey
+        : points[0]?.id,
+    );
 
     if (weekendMapStatus instanceof HTMLElement) {
       const label = weekendFilterLabel(selectedWeekendFilter);
@@ -1238,56 +1396,6 @@ function renderWeekend(payload) {
     hasWeekendPlan: plan.hasWeekendPlan,
     hasExpandedPicks: plan.expandedPicks.length > 0,
   });
-
-  const showPrimary = selectedWeekendFilter === 'all' || selectedWeekendFilter === 'day-trips';
-  if (weekendPrimarySection instanceof HTMLElement) {
-    weekendPrimarySection.hidden = !showPrimary;
-  }
-  if (weekendPrimaryTitle instanceof HTMLElement) {
-    weekendPrimaryTitle.textContent = plan.expandedPicks.length > 0
-      ? 'Expand the drive'
-      : userLocation
-        ? 'Best near you'
-        : 'Top weekend picks';
-  }
-  if (weekendPrimaryNote instanceof HTMLElement) {
-    weekendPrimaryNote.textContent = plan.expandedPicks.length > 0
-      ? `No Good routes are inside ${weekendDistanceLabel()}. These are the closest farther options.`
-      : userLocation
-        ? 'Good weekend calls with drive time included.'
-        : 'Use this as a planning read for Saturday and Sunday, then check again before you drive.';
-  }
-  renderGrid(plan.dayTrips);
-
-  if (weekendEmpty instanceof HTMLElement) {
-    if (plan.dayTrips.length > 0 || !showPrimary) {
-      weekendEmpty.hidden = true;
-    } else {
-      updateWeekendEmptyState({
-        worthWatchingCount: plan.rechecks.length,
-        hasWithheld: (payload?.withheldCount ?? 0) > 0,
-      });
-    }
-  }
-
-  if (selectedWeekendFilter === 'all' || selectedWeekendFilter === 'camping') {
-    renderCampingGrid(
-      selectedWeekendFilter === 'camping'
-        ? plan.campingRoutes
-        : plan.campingSectionRoutes,
-      { forceVisible: selectedWeekendFilter === 'camping' },
-    );
-  } else if (weekendCampingSection instanceof HTMLElement) {
-    weekendCampingSection.hidden = true;
-  }
-
-  if (selectedWeekendFilter === 'all' || selectedWeekendFilter === 'rechecks') {
-    renderWatchGrid(plan.rechecks, {
-      forceVisible: selectedWeekendFilter === 'rechecks',
-    });
-  } else if (weekendWatchSection instanceof HTMLElement) {
-    weekendWatchSection.hidden = true;
-  }
 
   void renderWeekendMap(plan.mapRoutes);
 }
@@ -1338,6 +1446,13 @@ async function loadWeekend({ silent = false } = {}) {
     updateSnapshotLine({ riverCount: 0, withheldCount: 0 });
     renderFeatured(null);
     renderGrid([]);
+    if (weekendPlanner instanceof HTMLElement) {
+      weekendPlanner.hidden = false;
+    }
+    renderWeekendResults([]);
+    if (weekendMapEmpty instanceof HTMLElement) {
+      weekendMapEmpty.hidden = false;
+    }
   } finally {
     weekendRequestGuard.finish(controller);
   }
@@ -1445,18 +1560,38 @@ if (weekendLocationClear instanceof HTMLButtonElement) {
   });
 }
 
+function resetWeekendFilters() {
+  selectedWeekendFilter = 'all';
+  selectedWeekendDistance = null;
+  saveWeekendDistance(selectedWeekendDistance);
+  if (latestWeekendPayload) {
+    renderWeekend(latestWeekendPayload);
+  }
+}
+
 if (weekendMapEmptyReset instanceof HTMLButtonElement) {
-  weekendMapEmptyReset.addEventListener('click', () => {
-    selectedWeekendFilter = 'all';
-    selectedWeekendDistance = null;
-    saveWeekendDistance(selectedWeekendDistance);
-    if (latestWeekendPayload) {
-      renderWeekend(latestWeekendPayload);
+  weekendMapEmptyReset.addEventListener('click', resetWeekendFilters);
+}
+
+if (weekendResults instanceof HTMLElement) {
+  weekendResults.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target instanceof Element && target.closest('[data-weekend-results-empty-reset]')) {
+      resetWeekendFilters();
     }
   });
 }
 
+for (const button of weekendMobileViewButtons) {
+  if (!(button instanceof HTMLButtonElement)) continue;
+  button.addEventListener('click', () => {
+    setWeekendMobileView(button.dataset.summaryMapMobileView);
+  });
+}
+
 bindFavoriteButtons(document);
+setWeekendMobileView('list');
+window.addEventListener('resize', () => setWeekendMobileView(weekendMobileView));
 updateWeekendControls(buildWeekendPlan([], {
   location: userLocation,
   distanceLimit: selectedWeekendDistance,

@@ -1,59 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T19:07:50.650Z",
+  "generatedAt": "2026-07-27T19:54:52.542Z",
   "routeCount": 938,
-  "issueCount": 277,
+  "issueCount": 269,
   "summary": {
     "Critical": 0,
-    "High": 133,
-    "Medium": 144,
+    "High": 126,
+    "Medium": 143,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "south-fork-kentucky-river-rocky-branch-fish-creek",
-      "slug": "south-fork-kentucky-river-rocky-branch-fish-creek",
-      "name": "South Fork Kentucky River",
-      "reach": "Rocky Branch Road Access to Fish Creek Boat Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "Road Access to Upper Wolf Creek Ramp at 2.9 miles, Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, and Kay Wood Road Access to Fish Creek Boat Ramp at 7.9 miles, supporting a 26.9-mile public float. KDFWR still publishes exact public endpoint coord"
-    },
-    {
-      "routeId": "south-fork-kentucky-river-rocky-branch-kay-wood",
-      "slug": "south-fork-kentucky-river-rocky-branch-kay-wood",
-      "name": "South Fork Kentucky River",
-      "reach": "Rocky Branch Road Access to Kay Wood Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ng middle-to-lower South Fork continuation from Rocky Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this exact chained public float, but the Booneville gauge sat above the official good band during this run. Use the South Fo"
-    },
-    {
-      "routeId": "tygarts-creek-olive-hill-carter-caves",
-      "slug": "tygarts-creek-olive-hill-carter-caves",
-      "name": "Tygarts Creek",
-      "reach": "Olive Hill Depot Trailhead and Campground Access to Carter Caves State Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "is long reach hard to finish in a day, while flows above 300 cfs add borderline Class II rapids, strong bluff current, and more demanding boat control. At normal levels KDFWR describes the float as beginner- and family-suitable, but the 12.5-mile length, shall"
-    },
-    {
-      "routeId": "tygarts-creek-olive-hill-carter-caves",
-      "slug": "tygarts-creek-olive-hill-carter-caves",
-      "name": "Tygarts Creek",
-      "reach": "Olive Hill Depot Trailhead and Campground Access to Carter Caves State Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "le, but the 12.5-mile length, shallow riffles, remote gorge, tight bluff turns, wood, and borderline Class II behavior above 300 cfs make it a guarded moving-water route rather than a casual park float. Confidence is good for a conservative Kentucky add: KDFWR"
-    },
     {
       "routeId": "cottonwood-river-juenemann-springfield",
       "slug": "cottonwood-river-juenemann-springfield",
@@ -1111,39 +1067,6 @@
       "evidence": "aukee run with bedrock riffles, remediation rapids, strainers, and one stronger ledge. This is a gauge-sensitive moving-water route for skilled paddlers, not a casual family float. Hard urban swiftwater only. Treat roughly 151 to 250 cfs at Wauwatosa as the be"
     },
     {
-      "routeId": "milwaukee-river-newburg-fredonia",
-      "slug": "milwaukee-river-newburg-fredonia",
-      "name": "Milwaukee River",
-      "reach": "Fireman's Park to Waubedonia Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "describe the public put-in just downstream of the Main Street bridge by the old dam site. Downstream high-water check 801+ cfs too high for most groups On the adjacent Waubeka-to-Waubedonia section, Wisconsin River Trips treats 801+ cfs at Cedarburg as too hig"
-    },
-    {
-      "routeId": "milwaukee-river-newburg-fredonia",
-      "slug": "milwaukee-river-newburg-fredonia",
-      "name": "Milwaukee River",
-      "reach": "Fireman's Park to Waubedonia Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Low water, fresh wood, and high-water speed are bigger concerns than technical whitewater. Confidence is good for a community-sourced Wisconsin add: Wisconsin River Trips documents the exact Newburg segment and a Cedarburg-gauge ladder, Miles Paddled document"
-    },
-    {
-      "routeId": "milwaukee-river-newburg-fredonia",
-      "slug": "milwaukee-river-newburg-fredonia",
-      "name": "Milwaukee River",
-      "reach": "Fireman's Park to Waubedonia Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "with intermittent riffles and easy Class I drops near Newburg. Low water, fresh wood, and high-water speed are bigger concerns than technical whitewater. Confidence is good for a community-sourced Wisconsin add: Wisconsin River Trips documents the exact Newbur"
-    },
-    {
       "routeId": "milwaukee-river-waubedonia-veterans",
       "slug": "milwaukee-river-waubedonia-veterans",
       "name": "Milwaukee River",
@@ -1560,17 +1483,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "w the official good discharge band but right at the stage floor for a low-water caution framing. Official level band 800-1,400 cfs / 7.4-8.5 ft KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, an"
-    },
-    {
-      "routeId": "tygarts-creek-olive-hill-carter-caves",
-      "slug": "tygarts-creek-olive-hill-carter-caves",
-      "name": "Tygarts Creek",
-      "reach": "Olive Hill Depot Trailhead and Campground Access to Carter Caves State Park",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "eek Gorge float, publishes the 150 cfs low-water floor and 300 cfs higher-water caution, identifies the left-bank wooden-step take-out cue above the KY 182 bridge, and lists both public carry-down accesses with coordinates. USGS Water Services returned same-da"
     },
     {
       "routeId": "big-fork-river-highway-6-south-north",
