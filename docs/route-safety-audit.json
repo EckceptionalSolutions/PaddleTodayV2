@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T00:24:44.963Z",
+  "generatedAt": "2026-07-27T00:52:45.087Z",
   "routeCount": 937,
-  "issueCount": 347,
+  "issueCount": 345,
   "summary": {
     "Critical": 0,
-    "High": 182,
+    "High": 180,
     "Medium": 165,
     "Low": 0
   },
@@ -1593,28 +1593,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "ghtforward moving water, but one longer day, intermittent riffles, and an upper ledge-like feature keep it from being a pure flatwater float. The access points and direct gauge are solid. The weakest part is still the threshold model: the app can defend a same"
-    },
-    {
-      "routeId": "peshtigo-river-ccc-burnt-bridge",
-      "slug": "peshtigo-river-ccc-burnt-bridge",
-      "name": "Peshtigo River",
-      "reach": "CCC Bridge to Burnt Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "peshtigo-river-ccc-burnt-bridge",
-      "slug": "peshtigo-river-ccc-burnt-bridge",
-      "name": "Peshtigo River",
-      "reach": "CCC Bridge to Burnt Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "tea-colored water, and a route-specific Wabeno gauge ladder. This is a step-up whitewater day, not a casual flatwater float. Use the Wabeno / County C gauge as a downstream same-river indicator. Below 4.5 ft is not recommended; 5.0 to 6.0 ft is the best novic"
     },
     {
       "routeId": "peshtigo-river-goodman-park-farm-dam",

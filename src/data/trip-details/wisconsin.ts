@@ -1574,12 +1574,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "distanceLabel": "9.2 to 9.25 mi",
       "estimatedPaddleTime": "About 3 hr to 4 hr, plus scouting or portage time if wood is present",
       "shuttle": "Use a remote national-forest shuttle between CCC Bridge on Forest Road 2131 / Peshtigo River Road and Burnt Bridge Landing on Forest Road 2134 / Michigan Creek Road. Expect gravel roads; low-clearance vehicles and bike shuttles need extra planning.",
-      "permits": "No route-specific paddling permit is known. Follow Chequamegon-Nicolet National Forest rules and posted parking, camping, and landing guidance at both forest-road access points.",
-      "camping": "Rustic camping at the Burnt Bridge take-out can support an endpoint campground plan, but confirm current forest rules before relying on it for an overnight.",
+      "permits": "No route-specific paddling permit is known. Follow Chequamegon-Nicolet National Forest orders and posted parking and landing guidance, and confirm both forest roads remain open on the current motor vehicle use map.",
+      "camping": "Do not rely on Burnt Bridge amenities or camping without current Forest Service confirmation. An older route guide identifies rustic campsites, but the Forest Service's final proposed facility action would remove the toilet and fire ring and convert the canoe access to a general forest area.",
       "summary": "Launch at CCC Bridge and take out at Burnt Bridge Landing for the P2 Peshtigo forest run. The day mixes quiet remote water with repeated Class I-II boulder gardens and the longer Preserve Rapids section.",
       "accessCaveats": [
         "Both endpoints are remote forest-road landings rather than full-service parks; check road condition, parking room, and cell coverage before committing to the shuttle.",
         "Miles Paddled reports ample room at both landings and an easy downstream river-right take-out at Burnt Bridge with railroad-tie steps, but access conditions can change after storms or forest-road maintenance.",
+        "The Forest Service proposes retaining Burnt Bridge access only on existing open MVUM roads while removing the toilet and fire ring; verify current road and site status before staging the take-out.",
         "Do not use this route as a substitute for the easier upper P1 section after major blowdowns; current wood conditions should be checked locally before launching."
       ],
       "watchFor": [

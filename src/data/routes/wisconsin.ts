@@ -4613,6 +4613,20 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Peshtigo River Near Wabeno, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04067958/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Preserve Rapids is a long Class I-II boulder-garden sequence where constricted current can require quick moves; novice paddlers should avoid the route above 6.5 ft at Wabeno.",
+        "The Wabeno gauge is about 26 miles downstream. Treat it as an estimate and pair the reading with gauge trend, recent rain, and a visual check at CCC Bridge.",
+        "Check current wood and forest-road conditions before launching. This remote reach has little development, and the Forest Service proposes removing Burnt Bridge amenities while retaining access on open MVUM roads."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 5,
@@ -4672,6 +4686,12 @@ export const wisconsinRoutes: River[] = [
         "sourceUrl": "https://wisconsintrailguide.com/paddle/peshtigo-river-ccc-bridge.html"
       },
       {
+        "label": "Burnt Bridge facility plan",
+        "value": "Road access retained; amenities proposed for removal",
+        "note": "The Forest Service's final proposed recreation-facility action would convert Burnt Bridge Canoe Access to a general forest area, remove the toilet and fire ring, and maintain access on existing open MVUM roads.",
+        "sourceUrl": "https://www.fs.usda.gov/media/244329"
+      },
+      {
         "label": "Hazards",
         "value": "Preserve Rapids and strainers",
         "note": "Wisconsin Trail Guide highlights the mile-plus Preserve Rapids as the most difficult section and cautions that constricted rapids require quick maneuvering around boulders; Miles Paddled also reports one nearly river-wide blockage that was passable without portaging in 2024.",
@@ -4701,7 +4721,12 @@ export const wisconsinRoutes: River[] = [
       },
       {
         "label": "Chequamegon-Nicolet National Forest",
-        "url": "https://www.fs.usda.gov/cnnf",
+        "url": "https://www.fs.usda.gov/r09/chequamegon-nicolet",
+        "provider": "local"
+      },
+      {
+        "label": "Forest Service recreation facility strategy",
+        "url": "https://www.fs.usda.gov/media/244329",
         "provider": "local"
       }
     ]

@@ -3484,9 +3484,7 @@ function updateLocationStatus() {
     }
 
     if (homeRadiusSummary instanceof HTMLElement) {
-      homeRadiusSummary.textContent = shouldCollapseHomePreferences()
-        ? `Within ${selectedRadiusMiles} mi`
-        : `Showing picks within ${selectedRadiusMiles} miles`;
+      homeRadiusSummary.textContent = `Showing picks within ${selectedRadiusMiles} miles`;
     }
 
   if (homeRefineSummary instanceof HTMLElement) {
