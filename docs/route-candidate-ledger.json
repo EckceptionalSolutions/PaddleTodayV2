@@ -11565,19 +11565,20 @@
       "river": "Eau Claire River",
       "route": "Bear Lake Road Bridge Landing to County N Bridge Landing",
       "state": "WI",
-      "status": "added",
-      "lastReviewed": "2026-05-25",
-      "reviewCount": 1,
-      "blocker": null,
-      "retryCondition": "Already implemented as eau-claire-river-bear-lake-county-n. Revisit only if official county landing metadata improves or to ingest the route-representative Commons Dells of the Eau Claire image after file-level metadata and download are verified.",
+      "status": "blocked_until_date",
+      "lastReviewed": "2026-07-27",
+      "reviewCount": 2,
+      "blocker": "The route-specific Wisconsin Trail Guide requires novice paddlers to take out before the Dells of the Eau Claire dam and describes a nearly 400-yard right-bank portage around the dam and Class IV falls. Current Marathon County and Wisconsin DNR materials confirm the county park, dam, beach, parking, and hiking trails but do not document paddling signage, a maintained portage, or manager-approved mandatory-takeout instructions. The former live route is blocked under the route-safety policy rather than made acceptable with warning copy.",
+      "retryCondition": "Retry only after Marathon County, Wisconsin DNR, or another responsible route manager publishes current paddling-specific confirmation of the upstream take-out, signage, public portage path, dam-clearance behavior, and full Bear Lake Road-to-County N public-use status.",
       "retryDate": null,
       "sourcesChecked": [
-        "Wisconsin Trail Guide Eau Claire River EC1 page",
-        "Wisconsin Trail Guide Eau Claire EC1 guide PDF",
+        "Wisconsin Trail Guide Eau Claire River EC1 page, rechecked 2026-07-27",
+        "Wisconsin Trail Guide Eau Claire EC1 guide PDF, rechecked 2026-07-27",
         "Wisconsin Trail Guide Eau Claire EC1 map PDF",
-        "USGS 05397500 Eau Claire River at Kelly, WI monitoring location",
+        "USGS 05397500 Eau Claire River at Kelly, WI monitoring location; provisional 85.3 cfs / 0.40 ft at 2026-07-27 15:00 CDT",
         "Wisconsin River Trips Eau Claire River - Bear Lake Road",
-        "Wisconsin DNR Dells Of The Eau Claire River State Natural Area",
+        "Wisconsin DNR Dells Of The Eau Claire River State Natural Area, rechecked 2026-07-27",
+        "Marathon County Things To Do / Dells of the Eau Claire Park, rechecked 2026-07-27",
         "Wikimedia Commons Eau Claire River category"
       ],
       "aliases": [
@@ -11585,7 +11586,7 @@
         "Eau Claire River - Bear Lake Road to County N Bridge",
         "Eau Claire River - Bear Lake Road Bridge to County N Landing"
       ],
-      "v2Slug": "eau-claire-river-bear-lake-county-n",
+      "v2Slug": null,
       "gauge": {
         "quality": "direct",
         "notes": "The route uses USGS 05397500 Eau Claire River at Kelly, WI. Wisconsin Trail Guide ties EC1 to this same-river gauge, while explicitly warning that the gauge is about 11 miles downstream of the route and can be misleading after small storms."
@@ -11610,7 +11611,7 @@
         },
         "coordinateSource": "Wisconsin Trail Guide Eau Claire EC1 guide PDF, GPS NAD83/WGS84 waypoint table; guide text describes both endpoints as hand-carry landings with parking."
       },
-      "notes": "Implemented 2026-05-25 as a guarded central Wisconsin whitewater route. Wisconsin Trail Guide supplies the exact route, endpoint names, route map, WGS84 coordinates, access notes, hazards, and Kelly-gauge level ladder. Wisconsin River Trips corroborates the upstream Bear Lake Road access, rapids, boulder gardens, and post-storm wood concerns. No gallery asset was wired; Commons has route-representative Dells of the Eau Claire images, but this pass did not complete file-level metadata/download verification."
+      "notes": "Implemented 2026-05-25 as eau-claire-river-bear-lake-county-n, then removed from the live inventory on 2026-07-27. The route-specific guide documents a novice mandatory take-out before the dam and a nearly 400-yard right-bank portage, but current manager-grade sources do not document paddling signage or portage infrastructure. The direct gauge, guide thresholds, endpoint coordinates, and hazard facts remain preserved here but do not override the hard-block rule."
     },
     {
       "candidateId": "wi-waupaca-river-county-q-brainards-bridge",

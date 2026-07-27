@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T20:26:34.080Z",
-  "routeCount": 937,
-  "issueCount": 266,
+  "generatedAt": "2026-07-27T20:41:57.941Z",
+  "routeCount": 936,
+  "issueCount": 260,
   "summary": {
     "Critical": 0,
-    "High": 124,
-    "Medium": 142,
+    "High": 119,
+    "Medium": 141,
     "Low": 0
   },
   "issues": [
@@ -944,61 +944,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "the border Brule is available at county and forest-service roads, and American Whitewater separately lists the same Highway 189-to-FS2150 reach with the same USGS gauge. The app does not claim a preferred upper range because the strongest published route guid"
-    },
-    {
-      "routeId": "eau-claire-river-bear-lake-county-n",
-      "slug": "eau-claire-river-bear-lake-county-n",
-      "name": "Eau Claire River",
-      "reach": "Bear Lake Road Bridge Landing to County N Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "eau-claire-river-bear-lake-county-n",
-      "slug": "eau-claire-river-bear-lake-county-n",
-      "name": "Eau Claire River",
-      "reach": "Bear Lake Road Bridge Landing to County N Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "eau-claire-river-bear-lake-county-n",
-      "slug": "eau-claire-river-bear-lake-county-n",
-      "name": "Eau Claire River",
-      "reach": "Bear Lake Road Bridge Landing to County N Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "nd Dells. This is a whitewater route with mandatory scouting and a normal Dells portage, not a casual beginner float. Use the Eau Claire River at Kelly gauge. Below 300 cfs is not recommended; 600 to 1,500 cfs is the best broad whitewater window; 1,500 to 2,00"
-    },
-    {
-      "routeId": "eau-claire-river-bear-lake-county-n",
-      "slug": "eau-claire-river-bear-lake-county-n",
-      "name": "Eau Claire River",
-      "reach": "Bear Lake Road Bridge Landing to County N Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Long Marathon County whitewater day through wooded banks, boulder gardens, the Dells of the Eau Claire, and the lower Island Dells. This is a whitewater route with mandatory scouting and a normal Dells"
-    },
-    {
-      "routeId": "eau-claire-river-bear-lake-county-n",
-      "slug": "eau-claire-river-bear-lake-county-n",
-      "name": "Eau Claire River",
-      "reach": "Bear Lake Road Bridge Landing to County N Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "tes the upstream Bear Lake Road access, boulder gardens, rapids, and post-storm wood risk on the first part of the EC1 corridor. Wisconsin Trail Guide Eau Claire River EC1 https://wisconsintrailguide.com/paddle/eau-claire-river.html Wisconsin Trail Guide Eau C"
     },
     {
       "routeId": "jump-river-wayside-park-sheldon",
@@ -2627,17 +2572,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Remote border-river day on the Wisconsin-Michigan Brule with narrow current, long quietwater stretches, class I-II riffles, primitive campsites, and a direct same-river USGS gauge"
-    },
-    {
-      "routeId": "eau-claire-river-bear-lake-county-n",
-      "slug": "eau-claire-river-bear-lake-county-n",
-      "name": "Eau Claire River",
-      "reach": "Bear Lake Road Bridge Landing to County N Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "Trail Guide lists below 300 cfs as not recommended, 300 to 600 cfs as bony low-hazard whitewater, 600 to 1,000 cfs as low runnable, 1,000 to 1,500 cfs as medium runnable and excellent/challenging, 1,500 to 2,000 cfs as high runnable for novice-whitewater padd"
     },
     {
       "routeId": "jump-river-wayside-park-sheldon",

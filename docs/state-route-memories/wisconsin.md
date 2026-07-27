@@ -1,5 +1,12 @@
 # Wisconsin Route Memory
 
+## 2026-07-27 America/Chicago Eau Claire dam-portage block
+
+- Removed `eau-claire-river-bear-lake-county-n` from the live route inventory and trip-details surface.
+- Wisconsin Trail Guide EC1 requires novice paddlers to take out before the Dells of the Eau Claire dam and describes a nearly 400-yard right-bank portage around the dam and Class IV falls.
+- Current Marathon County and Wisconsin DNR materials confirm the county park, dam, beach, parking, and hiking trails, but do not document paddling signage, a maintained portage, or manager-approved mandatory-takeout instructions. The direct Kelly gauge and guide-based thresholds do not cure that safety-infrastructure gap.
+- Downgraded the ledger record from `added` to `blocked_until_date`; retry only after a responsible route manager publishes current paddling-specific confirmation of the take-out, signage, public portage path, dam-clearance behavior, and full route status.
+
 - 2026-07-23 16:20 America/Chicago / 2026-07-23 21:20 UTC: current-baseline southern Wisconsin tributary pass added `ashippun-river-druid-lake-highway-o`, `west-branch-sugar-river-fritz-pb`, and `little-sugar-river-tin-can-american-legion`, bringing this checkout from 173 to 176 Wisconsin routes.
 - Source posture: selected three Wisconsin-only routes that were absent from the current route inventory even though older memory referenced a prior attempt. Ashippun uses Wisconsin River Trips' exact Druid-Lake-to-Highway-O route, WRT shuttle coordinates, WRT hazard/access notes, Wisconsin DNR Druid Lake public-landing support, and USGS `05426067` Bark River at Delafield as WRT's proxy gauge. West Branch Sugar uses WRT's 2025 Fritz-to-PB route support, Miles Paddled endpoint GPS/access/gauge corroboration, and USGS `05435950` Sugar River near Verona as a Sugar-system proxy. Little Sugar uses WRT's Tin-Can-to-American-Legion route support, Village of Albany / Wisconsin DNR Albany Wildlife Area and Sugar River State Trail context, Miles Paddled Albany take-out corroboration, and the same Verona proxy.
 - Live gauge verification: USGS Water Services returned Bark River at Delafield `05426067` at `20.1 cfs / 12.46 ft` and Sugar River near Verona `05435950` at `38.0 cfs / 2.88 ft`, both at 2026-07-23 15:00 CDT. Ashippun is above WRT's 15 cfs low floor but below the 31-55 cfs target; West Branch Sugar and Little Sugar are in WRT low/shallow-but-fine bands below the 41-70 cfs average band.

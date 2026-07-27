@@ -225,7 +225,6 @@ const routeOrder = [
   "peshtigo-river-burnt-bridge-goodman-park",
   "peshtigo-river-goodman-park-farm-dam",
   "peshtigo-river-roaring-rapids",
-  "eau-claire-river-bear-lake-county-n",
   "bois-brule-river-stones-winneboujou",
   "bois-brule-river-winneboujou-bois-brule",
   "bois-brule-river-bois-brule-pine-tree",

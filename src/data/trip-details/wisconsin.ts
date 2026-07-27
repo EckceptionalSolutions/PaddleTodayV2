@@ -1704,36 +1704,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
-  "eau-claire-river-bear-lake-county-n": {
-    "putIn": {
-      "name": "Bear Lake Road Bridge Landing",
-      "latitude": 45.0586,
-      "longitude": -89.27024
-    },
-    "takeOut": {
-      "name": "County N Bridge Landing",
-      "latitude": 44.94419,
-      "longitude": -89.41916
-    },
-    "logistics": {
-      "distanceLabel": "13.9 mi",
-      "estimatedPaddleTime": "Long day, about 6 hr to 8 hr with scouting and portage time",
-      "shuttle": "Plan a rural two-car shuttle between Bear Lake Road and County N. The route passes Dells of the Eau Claire County Park, so some groups may stage food, scouting, or an alternate plan there.",
-      "permits": "No route-specific paddling permit is known. Follow posted rules at bridge landings, Dells of the Eau Claire County Park, and any portage or parking areas.",
-      "camping": "Dells of the Eau Claire County Park has a family campground near the middle of the segment, but do not assume a riverbank overnight. Reserve or confirm camping separately before planning this as more than a day run.",
-      "summary": "Launch at Bear Lake Road Bridge Landing and take out at County N Bridge Landing for Wisconsin Trail Guide EC1. This is a long whitewater day with the Dells of the Eau Claire in the middle and the Kelly USGS gauge downstream.",
-      "accessCaveats": [
-        "Bear Lake Road is a hand-carry bridge landing with roadside parking, not a large developed ramp.",
-        "County N Bridge Landing is a hand-carry take-out on river right above the bridge with parking west of the bridge.",
-        "The USGS Kelly gauge is downstream of the route, so recent local rain, falling or rising trends, and visual scouting matter more than the number alone."
-      ],
-      "watchFor": [
-        "Class II-III rapids, boulder gardens, and scratchy ledges when the river is low.",
-        "The Eau Claire Dells class IV feature; most full-route paddlers should portage at the county park unless they have appropriate whitewater skill.",
-        "Powerful hydraulics above about 2,000 cfs, possible debris or downed trees after storms, cold water, and a long shuttle with limited quick exits."
-      ]
-    }
-  },
   "bois-brule-river-stones-winneboujou": {
     "putIn": {
       "name": "Stone's Bridge Landing",
