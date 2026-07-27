@@ -1,59 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T21:30:27.456Z",
+  "generatedAt": "2026-07-27T22:55:40.108Z",
   "routeCount": 936,
-  "issueCount": 252,
+  "issueCount": 237,
   "summary": {
     "Critical": 0,
-    "High": 111,
-    "Medium": 141,
+    "High": 104,
+    "Medium": 133,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "minnesota-river-henderson-belle-plaine",
-      "slug": "minnesota-river-henderson-belle-plaine",
-      "name": "Minnesota River",
-      "reach": "Henderson Station to Belle Plaine",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "shuttle with a much better trust story than the old draft. It is not technical whitewater, but mileage, wind, and big-river pacing matter enough that a clean gauge read alone does not make it automatic. The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0"
-    },
-    {
-      "routeId": "mississippi-river-county-line-jacobson",
-      "slug": "mississippi-river-county-line-jacobson",
-      "name": "Mississippi River",
-      "reach": "County Line Access to Jacobson Campground",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "nded day trip. It is short and generally gentle, but limited exits, cold water, private banks, and changing debris still require a planned shuttle. Confidence is high for route shape and access: DNR recommended-one-way materials list County Line to Jacobson Ca"
-    },
-    {
-      "routeId": "mississippi-river-hidden-falls-harriet-island",
-      "slug": "mississippi-river-hidden-falls-harriet-island",
-      "name": "Mississippi River",
-      "reach": "Hidden Falls to Harriet Island",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "general recommendation. This is urban big-river paddling rather than technical whitewater. Swift current, barge wakes, bridge piers, and the Minnesota River confluence require confident boat handling. Confidence is high: MN DNR recommends Hidden Falls to Harr"
-    },
-    {
-      "routeId": "mississippi-river-norin-babcock",
-      "slug": "mississippi-river-norin-babcock",
-      "name": "Mississippi River",
-      "reach": "Norin Landing to Babcock Public Water Access",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "3,060 cfs is scrapable and above 33,000 cfs is very high. This is not technical whitewater, but it is an 8-mile big-river split with current, islands, possible shallow bars, wind exposure, and a remote-feeling finish at Babcock. Confidence is good but intentio"
-    },
     {
       "routeId": "mississippi-river-schoolcraft-number-10",
       "slug": "mississippi-river-schoolcraft-number-10",
@@ -616,28 +572,6 @@
       "evidence": "oals and dragging. Do not treat high or rising water as casual, and respect NPS closure notices. NPS treats both component segments as standard easy Upper Current floats, but the combined 17.3-mile day is a much bigger commitment. The river is still mostly app"
     },
     {
-      "routeId": "current-river-cedar-grove-round-spring",
-      "slug": "current-river-cedar-grove-round-spring",
-      "name": "Current River",
-      "reach": "Cedar Grove to Round Spring",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "oals and dragging. Do not treat high or rising water as casual, and respect NPS closure notices. Each component segment is an easy NPS float at ordinary levels, but this full continuation is an all-day commitment bordering on an overnight plan for many groups."
-    },
-    {
-      "routeId": "current-river-pulltite-round-spring",
-      "slug": "current-river-pulltite-round-spring",
-      "name": "Current River",
-      "reach": "Pulltite to Round Spring",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "s and slower travel. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS lists Pulltite to Round Spring as a standard four-hour canoe/kayak float. It is generally easy at ordinary levels, but cold spring water, week"
-    },
-    {
       "routeId": "current-river-van-buren-big-spring",
       "slug": "current-river-van-buren-big-spring",
       "name": "Current River",
@@ -878,17 +812,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "target or high-water cutoff for this reach. Short but not casual. Tight bends, wood, and roadside access friction matter almost as much as the gauge. The app only has a clear low-water floor here. That is enough to avoid obviously bad days, but not enough to"
-    },
-    {
-      "routeId": "bark-river-princes-point-burnt-village-park",
-      "slug": "bark-river-princes-point-burnt-village-park",
-      "name": "Bark River",
-      "reach": "Prince's Point to Burnt Village Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": ". Mostly slow flatwater with no rapids. The main issues are a possible hop-over logjam just below Princes Point, slow open marsh miles, motorboat traffic, private-bank no-trespassing areas, and flooded access when levels rise. Confidence is good for a conserva"
     },
     {
       "routeId": "big-eau-pleine-river-cherokee-march-rapids",
@@ -1243,17 +1166,6 @@
       "evidence": "ols, and rock bars, while the Dump Hollow access note keeps the downstream ford caution explicit. KDFWR Goose Creek https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx KDFWR Tobacco Road Bridge Access https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196 K"
     },
     {
-      "routeId": "green-river-american-legion-glenview-road",
-      "slug": "green-river-american-legion-glenview-road",
-      "name": "Green River",
-      "reach": "American Legion Park Ramp to Glenview Road Carrydown",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "hile above that the broad current and private-bank Glenview finish deserve more caution. The river itself remains recreational, but 15.7 miles, the private-bank Glenview finish, and fewer comfortable legal stops after Greensburg make this more committed than t"
-    },
-    {
       "routeId": "green-river-american-legion-greensburg",
       "slug": "green-river-american-legion-greensburg",
       "name": "Green River",
@@ -1263,17 +1175,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "oals and muddier edges; above that the broad current through town deserves more caution at bends and landings. This is one of the easiest Upper Green splits, but it is still moving water with shoals, anglers, and city-ramp traffic rather than a flat pond lap."
-    },
-    {
-      "routeId": "green-river-glenview-road-lynn-camp-creek",
-      "slug": "green-river-glenview-road-lynn-camp-creek",
-      "name": "Green River",
-      "reach": "Glenview Road Carrydown to Lynn Camp Creek Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "hat the broader current, private-bank corridor, and longer shuttle deserve more caution. The current is still recreational Green River water, but this 19.2-mile day adds commitment. Low water, broad-river wind, private-bank limits, and a steep Lynn Camp finish"
     },
     {
       "routeId": "green-river-roachville-american-legion",
@@ -1296,17 +1197,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "uddier landings; above that the islands and chutes get pushier and deserve more caution. This is still a manageable Green River float, but the islands, chutes, shallow shoals, and easy-to-miss Russell Ford landing reward active line choice rather than sleepy d"
-    },
-    {
-      "routeId": "green-river-russell-ford-glenview-road",
-      "slug": "green-river-russell-ford-glenview-road",
-      "name": "Green River",
-      "reach": "Russell Ford Access to Glenview Road Carrydown",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ng, while above that the broader current and private-bank corridor deserve more caution. The river itself remains recreational, but 18 miles, limited public bailout options away from the named access chain, and the no-amenity Glenview finish make this a more c"
     },
     {
       "routeId": "levisa-fork-jubilee-island-creek",
@@ -1351,17 +1241,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ulty Easy Good first-pass river, but not a blind yes when levels spike. Primary caution Welch take-out logistics Private landing context reduces confidence outside well-known conditions. City of Cannon Falls Riverside Park https://www.cannonfallsmn.gov/1285/Ri"
-    },
-    {
-      "routeId": "mississippi-river-county-line-jacobson",
-      "slug": "mississippi-river-county-line-jacobson",
-      "name": "Mississippi River",
-      "reach": "County Line Access to Jacobson Campground",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "mile recommended day trip. It is short and generally gentle, but limited exits, cold water, private banks, and changing debris still require a planned shuttle. Confidence is high for route shape and access: DNR recommended-one-way materials list County Line to"
     },
     {
       "routeId": "mississippi-river-hidden-falls-harriet-island",
@@ -1879,50 +1758,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Long Upper Current continuation inside Ozark National Scenic Riverways that combines the Cedar Grove to Akers and Akers to Pulltite public floats. NPS still documents both segments"
-    },
-    {
-      "routeId": "current-river-cedar-grove-round-spring",
-      "slug": "current-river-cedar-grove-round-spring",
-      "name": "Current River",
-      "reach": "Cedar Grove to Round Spring",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Full Upper Current continuation inside Ozark National Scenic Riverways from Cedar Grove to Round Spring. NPS still documents all three component segments, the Akers gauge remains l"
-    },
-    {
-      "routeId": "current-river-cedar-grove-round-spring",
-      "slug": "current-river-cedar-grove-round-spring",
-      "name": "Current River",
-      "reach": "Cedar Grove to Round Spring",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "l-day commitment bordering on an overnight plan for many groups. Pace, weather, cold water, crowding, and access discipline matter more than the simple segment ratings suggest. Confidence is good for a guarded long-route add: NPS still lists Cedar Grove to Ake"
-    },
-    {
-      "routeId": "current-river-pulltite-round-spring",
-      "slug": "current-river-pulltite-round-spring",
-      "name": "Current River",
-      "reach": "Pulltite to Round Spring",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Popular Upper Current River day float from Pulltite to Round Spring inside Ozark National Scenic Riverways. NPS lists the 8.9-mile route, the Akers gauge is fresh and already suppo"
-    },
-    {
-      "routeId": "current-river-pulltite-round-spring",
-      "slug": "current-river-pulltite-round-spring",
-      "name": "Current River",
-      "reach": "Pulltite to Round Spring",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ulltite and Round Spring Bridge during flood conditions. Use this as high-water caution, not as a scoring high cutoff for the Akers cfs gauge. Flood-repair caveat Pulltite landing repair priority NPS reported 2025 flood-repair work at Pulltite and asked visito"
     },
     {
       "routeId": "current-river-van-buren-big-spring",

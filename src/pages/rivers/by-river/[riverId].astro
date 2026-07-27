@@ -104,9 +104,10 @@ const groupStructuredData = [
   title={groupTitle}
   description={groupDescription}
   structuredData={groupStructuredData}
+  bodyClass="page-river-hub"
 >
   <article class="river-group-page" data-river-group-page data-river-id={group.riverId} data-river-name={group.name} data-river-state={stateSummary} data-river-region={regionSummary}>
-    <section class={`river-group-page__hero${heroPhoto ? ' river-group-page__hero--photo' : ''}`}>
+    <section class={`river-group-page__hero${heroPhoto ? ' river-group-page__hero--photo' : ' river-group-page__hero--fallback'}`}>
       <div class="river-group-page__hero-main">
         <p class="eyebrow river-group-page__hero-kicker">
           <span>River guide</span>
@@ -135,15 +136,6 @@ const groupStructuredData = [
               <span>difficulty options</span>
             </div>
           ) : null}
-        </div>
-
-        <div class="river-group-page__actions river-group-page__hero-actions">
-          <button class="filter-chip" type="button" data-group-refresh>
-            Refresh conditions
-          </button>
-          <p class="muted river-group-page__refresh-note" data-group-refresh-note>
-            Auto-refreshes every 5 minutes.
-          </p>
         </div>
       </div>
       {heroPhoto ? (
@@ -181,6 +173,14 @@ const groupStructuredData = [
           Pulling the latest scores for this river.
         </p>
       </div>
+      <div class="river-group-page__status-actions">
+        <button class="filter-chip filter-chip--quiet" type="button" data-group-refresh>
+          Refresh
+        </button>
+        <p class="muted river-group-page__refresh-note" data-group-refresh-note>
+          Auto-refreshes every 5 minutes.
+        </p>
+      </div>
     </section>
 
     <section class="river-group-page__panel river-route-picker">
@@ -205,35 +205,44 @@ const groupStructuredData = [
             <button class="filter-chip" type="button" data-group-distance-filter="medium" aria-pressed="false">5–10 mi</button>
             <button class="filter-chip" type="button" data-group-distance-filter="long" aria-pressed="false">10+ mi</button>
           </div>
-          <div class="river-route-picker__advanced-filters" aria-label="More trip filters">
-            <label class="river-route-picker__filter-select">
-              <span>Difficulty</span>
-              <select data-group-difficulty-filter aria-label="Filter by difficulty">
-                <option value="all">Any difficulty</option>
-              </select>
-            </label>
-            <label class="river-route-picker__filter-select">
-              <span>Camping</span>
-              <select data-group-camping-filter aria-label="Filter by camping">
-                <option value="all">Any camping</option>
-                <option value="available">Camping available</option>
-                <option value="none">No camping</option>
-              </select>
-            </label>
-            <label class="river-route-picker__filter-select">
-              <span>Route type</span>
-              <select data-group-route-type-filter aria-label="Filter by route type">
-                <option value="all">All types</option>
-                <option value="recreational">Recreation</option>
-                <option value="whitewater">Non-recreation</option>
-              </select>
-            </label>
-            <label class="river-route-picker__filter-select">
-              <span>Area</span>
-              <select data-group-region-filter aria-label="Filter by area">
-                <option value="all">All areas</option>
-              </select>
-            </label>
+          <div class="river-route-picker__filter-actions">
+            <details class="river-route-picker__more-filters" data-group-more-filters>
+              <summary class="filter-chip filter-chip--quiet">
+                More filters
+                <span class="river-route-picker__filter-count" data-group-filter-count hidden>0</span>
+              </summary>
+              <div class="river-route-picker__advanced-filters" aria-label="More trip filters">
+                <label class="river-route-picker__filter-select" data-group-filter-field="difficulty">
+                  <span>Difficulty</span>
+                  <select data-group-difficulty-filter aria-label="Filter by difficulty">
+                    <option value="all">Any difficulty</option>
+                  </select>
+                </label>
+                <label class="river-route-picker__filter-select" data-group-filter-field="camping">
+                  <span>Camping</span>
+                  <select data-group-camping-filter aria-label="Filter by camping">
+                    <option value="all">Any camping</option>
+                    <option value="available">Camping available</option>
+                    <option value="none">No camping</option>
+                  </select>
+                </label>
+                <label class="river-route-picker__filter-select" data-group-filter-field="route-type">
+                  <span>Route type</span>
+                  <select data-group-route-type-filter aria-label="Filter by route type">
+                    <option value="all">All types</option>
+                  </select>
+                </label>
+                <label class="river-route-picker__filter-select" data-group-filter-field="region">
+                  <span>Area</span>
+                  <select data-group-region-filter aria-label="Filter by area">
+                    <option value="all">All areas</option>
+                  </select>
+                </label>
+              </div>
+            </details>
+            <button class="river-route-picker__clear" type="button" data-group-clear-filters hidden>
+              Clear filters
+            </button>
           </div>
         </div>
         <label class="river-route-picker__sort">
@@ -242,13 +251,36 @@ const groupStructuredData = [
             <option value="recommended">Recommended</option>
             <option value="shortest">Shortest first</option>
             <option value="longest">Longest first</option>
+            <option value="easiest">Easiest first</option>
+            <option value="confidence">Highest confidence</option>
           </select>
         </label>
       </div>
 
-      <div class="river-route-picker__layout">
-        <div class="river-route-picker__results">
-          <p class="river-route-picker__results-summary" data-group-results-summary>
+      <div class="river-route-picker__mobile-switch" data-group-mobile-switch hidden aria-label="Choose route list or map">
+        <button
+          type="button"
+          data-group-mobile-view="list"
+          aria-pressed="true"
+          aria-controls="river-hub-route-results"
+        >
+          List
+          <span data-group-mobile-count>0</span>
+        </button>
+        <button
+          type="button"
+          data-group-mobile-view="map"
+          aria-pressed="false"
+          aria-controls="river-hub-map-view"
+        >
+          Map
+          <span data-group-mobile-count>0</span>
+        </button>
+      </div>
+
+      <div class="river-route-picker__layout" data-group-picker-layout>
+        <div class="river-route-picker__results" id="river-hub-route-results">
+          <p class="river-route-picker__results-summary" data-group-results-summary aria-live="polite">
             Showing all {group.routeCount} trips.
           </p>
           <div class="river-group-page__route-list" data-group-route-list>
@@ -274,6 +306,7 @@ const groupStructuredData = [
                     type="button"
                     data-group-route-select
                     aria-pressed={active ? 'true' : 'false'}
+                    aria-label={`Show ${route.reach} on the map`}
                     data-analytics-event="corridor_trip_selected"
                     data-analytics-route={route.slug}
                     data-analytics-corridor={route.conditionZoneId || route.slug}
@@ -295,13 +328,16 @@ const groupStructuredData = [
                       <span>Loading</span>
                     </span>
                   </button>
+                  <a class="river-link river-link--inline route-choice__details-link" href={`/rivers/${route.slug}/`}>
+                    View route
+                  </a>
                 </article>
               );
             })}
           </div>
         </div>
 
-        <div class="river-route-picker__map-column">
+        <div class="river-route-picker__map-column" id="river-hub-map-view">
           <div class="river-route-picker__selected" data-group-selected-summary aria-live="polite">
             <div class="river-route-picker__selected-copy">
               <span class="eyebrow">Your trip</span>
@@ -333,6 +369,16 @@ const groupStructuredData = [
           </div>
           <div class="river-group-page__map-shell">
             <div class="river-group-page__map" data-group-map aria-label={`${group.name} trip map`}></div>
+            <div class="river-route-picker__map-empty" data-group-map-empty role="status" hidden>
+              <div class="river-route-picker__map-empty-card">
+                <span class="eyebrow">Nothing in this view</span>
+                <strong>No trips match these filters</strong>
+                <p class="muted">Clear a filter to see more of this river.</p>
+                <button class="river-link river-link--inline" type="button" data-group-map-empty-reset>
+                  Show all trips
+                </button>
+              </div>
+            </div>
             <p class="muted river-group-page__map-status" data-group-map-status>
               Loading trip map.
             </p>

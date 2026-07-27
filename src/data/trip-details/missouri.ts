@@ -135,7 +135,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.47959
     },
     "takeOut": {
-      "name": "Round Spring river access / campground area",
+      "name": "Round Spring (middle) river landing",
       "latitude": 37.27996,
       "longitude": -91.40792
     },
@@ -147,14 +147,14 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "Treat this as a day float unless you have a separate legal camping plan. Pulltite and Round Spring have developed NPS camping areas, and gravel-bar camping has park rules and location limits; do not assume any bank is public just because it is reachable from the river.",
       "summary": "Launch at Pulltite and take out at Round Spring for the NPS-listed 8.9-mile Upper Current River day float. Use the upstream Akers USGS gauge as a conservative same-day low-water check, with the app using only a 300 cfs minimum floor.",
       "accessCaveats": [
-        "Pulltite and Round Spring are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.",
+        "The current NPS Superintendent's Compendium lists Pulltite and Round Spring (middle) as Current River landings. Follow signs to the Round Spring floater landing; the separately listed Round Spring Boat Ramp is for motorized-vessel launching.",
         "The coordinates are practical access-area anchors from Mapcarta / GeoNames / OpenStreetMap records paired with NPS route and access confirmation, not official ramp-coordinate tables. Follow current NPS signs and ramp layout on arrival.",
         "The Akers gauge is upstream of this route. It is supported by MoHERP Pulltite-to-Round-Spring reports, but it should still be treated as a proxy and paired with a visual check at Pulltite."
       ],
       "watchFor": [
         "Shallow riffles, scraping, and slower travel when the Akers gauge is near or below the 300 cfs floor.",
-        "High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Pulltite at 4.20 ft and Round Spring Bridge at 5.20 ft as non-motorized closure levels during flood conditions.",
-        "Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, and limited cell service.",
+        "High or rising water, rootwads, fallen trees, cloudy water, and faster current after rain. NPS lists Pulltite at 4.20 ft and Round Spring Bridge at 5.20 ft as local non-motorized closure levels; do not compare those local stages directly with the upstream Akers proxy.",
+        "Cold spring-fed water, crowding on warm weekends, and limited cell service. NPS says help can be hours away, so wear a PFD, file an itinerary, and be prepared to self-rescue.",
         "Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land."
       ]
     }
@@ -179,7 +179,8 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "overnight_capable",
       "summary": "Launch at Cedar Grove and take out at Round Spring for the full NPS-listed 26.2-mile Upper Current continuation. Use the upstream Akers USGS gauge as a conservative route check, with the app keeping the score at a 300 cfs minimum-only floor because the downstream half is not directly gauged.",
       "accessCaveats": [
-        "Cedar Grove, Akers, Pulltite, and Round Spring are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.",
+        "The 2026 NPS Superintendent's Compendium lists Cedar Grove, Akers, Pulltite, and Round Spring (middle) as Current River landings. Use the signed Round Spring floater landing; the separately listed Round Spring Boat Ramp is reserved for trailered motorboats.",
+        "Pulltite Ranger Station is closed for the 2026 season because of flood damage, but NPS still lists Pulltite as a river landing. Follow current signs and do not assume every campground facility is operating normally.",
         "The Akers gauge is upstream of much of this route. Treat it as a proxy and re-evaluate at Akers or Pulltite instead of forcing the full continuation if water, weather, or fatigue looks wrong.",
         "This route is too long for a casual scenic float. Daylight, pace, weather, and whether the group has a legal overnight plan matter before leaving Cedar Grove."
       ],

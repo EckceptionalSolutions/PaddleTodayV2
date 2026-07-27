@@ -6227,19 +6227,19 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 4.9 mi",
       "estimatedPaddleTime": "About 1.5 hr to 3 hr depending on wind, level, and campground stops",
-      "shuttle": "Stage Jacobson Campground first, then drive back to County Line. Confirm campground access, parking, and any current Aitkin County rules before counting on the endpoint as more than a take-out.",
+      "shuttle": "Stage Jacobson Campground first, then drive back to County Line. Aitkin County lists the campground as open for the 2026 season with a Mississippi River boat ramp; check posted conditions before launching.",
       "permits": "No route-specific paddling permit is known. Follow posted MN DNR public-water-access rules at County Line and Aitkin County campground/access rules at Jacobson.",
       "camping": "Jacobson Campground is endpoint-campground support, not permission to camp on private banks along the route. Confirm current county campground rules, fees, and availability before planning an overnight.",
       "campingClassification": "endpoint_campground",
       "summary": "Launch at County Line and take out at Jacobson Campground for DNR recommended Map 3/4 short trip. Use the upstream Grand Rapids DNR gauge as an official corridor check, then make the same-day call from local depth, wind, and debris.",
       "accessCaveats": [
         "County Line resolves in Minnesota public-water-access GIS as WAS01336 at DNR river mile 1145.5.",
-        "Jacobson Campground resolves in Minnesota public-water-access GIS as WAS02564 at DNR river mile 1140.6 with Aitkin County administration.",
+        "Jacobson Campground resolves in Minnesota public-water-access GIS as WAS02564 at DNR river mile 1140.6, and Aitkin County lists the endpoint boat ramp as open for the 2026 season.",
         "The Grand Rapids gauge is upstream of this split. It is official same-corridor evidence, not a take-out reading at Jacobson."
       ],
       "watchFor": [
-        "Low-water riffles, shallow bars, floating debris, and slow current below the Grand Rapids gauge.",
-        "Cold water, private banks, and limited bailout options even on a short 4.9-mile trip.",
+        "Low-water riffles and shallow bars; scan ahead for debris, overhanging branches, and downed trees as MN DNR advises.",
+        "Cold water, private shoreland, and limited bailout options even on a short 4.9-mile trip; wear a life jacket and dress for the water temperature.",
         "Campground and access rules at Jacobson; use the endpoint campground only under current posted rules."
       ]
     },

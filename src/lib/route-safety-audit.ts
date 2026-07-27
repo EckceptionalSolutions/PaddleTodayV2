@@ -217,16 +217,23 @@ function routeSafetyText(route: River) {
 }
 
 function hazardSearchText(value: string, category: string) {
-  if (category !== "Dam") {
-    return value;
+  if (category === "Dam") {
+    return value
+      .replace(/\bhttps?:\/\/\S+/g, (match) => " ".repeat(match.length))
+      .replace(
+        /(?:\b(?:city of|at|near|in|to|from|between)\s+|\blower-)Portage\b|\bPortage\b(?=\s+(?:segment|put-in|rules|leg|corridor|area))/g,
+        (match) => " ".repeat(match.length),
+      );
   }
 
-  return value
-    .replace(/\bhttps?:\/\/\S+/g, (match) => " ".repeat(match.length))
-    .replace(
-      /(?:\b(?:city of|at|near|in|to|from|between)\s+|\blower-)Portage\b|\bPortage\b(?=\s+(?:segment|put-in|rules|leg|corridor|area))/g,
+  if (category === "Whitewater") {
+    return value.replace(
+      /\b(?:not|rather than) technical whitewater\b/gi,
       (match) => " ".repeat(match.length),
     );
+  }
+
+  return value;
 }
 
 function makeIssue(

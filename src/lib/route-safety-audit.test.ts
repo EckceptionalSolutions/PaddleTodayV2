@@ -227,4 +227,56 @@ describe('route safety audit', () => {
       ]),
     );
   });
+
+  it('does not treat "not technical whitewater" as a whitewater hazard', () => {
+    const issues = auditRouteSafety([
+      {
+        ...baseRoute,
+        summary: 'This is not technical whitewater, but wind and distance still matter.',
+      },
+    ]);
+
+    expect(issues).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          category: 'Whitewater',
+        }),
+      ]),
+    );
+  });
+
+  it('does not treat "rather than technical whitewater" as a whitewater hazard', () => {
+    const issues = auditRouteSafety([
+      {
+        ...baseRoute,
+        summary: 'This is big-river paddling rather than technical whitewater.',
+      },
+    ]);
+
+    expect(issues).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          category: 'Whitewater',
+        }),
+      ]),
+    );
+  });
+
+  it('still flags a real rapid after negated technical-whitewater wording', () => {
+    const issues = auditRouteSafety([
+      {
+        ...baseRoute,
+        summary: 'This is not technical whitewater, but a Class II rapid still requires scouting.',
+      },
+    ]);
+
+    expect(issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          severity: 'High',
+          category: 'Whitewater',
+        }),
+      ]),
+    );
+  });
 });

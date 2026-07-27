@@ -3718,6 +3718,19 @@ export const wisconsinRoutes: River[] = [
     "statusText": "Use the Bark River near Rome gauge. Treat 31 to 75 cfs as the normal paddling window, 0 to 30 cfs as low but still navigable, 76 to 100 cfs as high but generally fine, and 101+ cfs as flooded woods-paddling conditions.",
     "latitude": 42.8941667,
     "longitude": -88.7010972,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "A June 2025 route report found one logjam just downstream from Prince's Point that was passable as a hop-over at 67 cfs. Wood can shift or collect, so stop upstream and reassess instead of assuming the same passage remains open.",
+        "The route report notes many no-trespassing signs after the wildlife-area reach. Use the named public endpoints and do not treat private banks as routine rest or exit points.",
+        "Above 101 cfs the route-specific gauge guide describes water spreading into the floodplain woods. Hidden banks and flooded timber add navigation and entrapment risk even though the main river remains slow."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05426250",
       "provider": "usgs",

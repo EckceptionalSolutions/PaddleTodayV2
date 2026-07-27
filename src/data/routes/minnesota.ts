@@ -18211,17 +18211,16 @@ export const minnesotaRoutes: River[] = [
       "confidenceNotes": "Confidence is high for route shape and access: DNR recommended-one-way materials list County Line to Jacobson Campground as a 4.9-mile trip, Map 3/4 place both endpoints in sequence, and public-water-access GIS resolves both access sites. Threshold confidence is good but conservative because the Grand Rapids interpreted gauge is upstream of this lower Map 3 finish."
     },
     "safetyProfile": {
-      "riskLevel": "standard",
+      "riskLevel": "caution",
       "hazards": [
         "strainers",
         "private_banks",
-        "cold_water",
-        "access_uncertain"
+        "cold_water"
       ],
       "safetyNotes": [
-        "This short route still uses a remote public-access pair; confirm Jacobson Campground access and parking before launching.",
-        "Low water can expose gravel bars and shallow riffles below the Grand Rapids gauge. High or rising water can move wood and make the campground landing faster.",
-        "Use the named accesses or designated campsite areas only. Treat wooded and farm banks as private unless signed otherwise."
+        "MN DNR lists County Line and Jacobson Campground as trailer accesses, and Aitkin County lists a Mississippi River boat ramp at Jacobson. Check posted conditions before staging the shuttle.",
+        "MN DNR notes that conditions can change and tells paddlers to avoid overhanging and dead trees. Low water can expose shallow riffles; high or rising water can move debris and speed up the landing.",
+        "Use the named accesses or designated campsites only, stay off private shoreland, and dress for the water temperature with a properly fitted life jacket."
       ],
       "reviewStatus": "reviewed"
     },
@@ -18252,9 +18251,15 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Camping support",
-        "value": "Jacobson Campground endpoint",
-        "note": "DNR Map 4 identifies Jacobson Campground as trailer access with drinking water, and the public-water-access record identifies Aitkin County as administrator.",
-        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi4.pdf"
+        "value": "Jacobson Campground boat ramp and 2026 season",
+        "note": "Aitkin County lists Jacobson Campground as open for the 2026 season with a boat ramp to the Mississippi River, while DNR Map 3 identifies the campground as trailer access with drinking water.",
+        "sourceUrl": "https://aitkincountymn.gov/departments/land/land-campground-jacobson.php"
+      },
+      {
+        "label": "Map 3 safety guidance",
+        "value": "Private shoreland, changing conditions, and tree obstacles",
+        "note": "The current DNR map says river conditions can change, directs paddlers to stay off private property and stop only at designated sites, and advises avoiding overhanging and dead trees.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi3.pdf"
       }
     ],
     "accessPoints": [
@@ -18301,6 +18306,14 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Minnesota public water access feature service",
         "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Aitkin County Jacobson Campground",
+        "url": "https://aitkincountymn.gov/departments/land/land-campground-jacobson.php"
+      },
+      {
+        "label": "MN DNR paddling safety tips",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/paddling-safety.html"
       }
     ]
   },

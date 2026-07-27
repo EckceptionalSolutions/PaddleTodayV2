@@ -387,6 +387,23 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River above Akers gauge as an upstream route check. Around 300 cfs is the conservative low-water floor for Cedar Grove to Round Spring; below that, expect a very long day with repeated shallow shoals and dragging. Do not treat high or rising water as casual, and respect NPS closure notices.",
     "latitude": 37.42238,
     "longitude": -91.6083,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This 26.2-mile continuation combines roughly 11 hours of NPS float-time estimates. Limited phone service and potentially long waits for help make a staged shuttle, a legal overnight or bailout plan, daylight margin, and self-rescue ability essential even though the component reaches are easy at ordinary levels.",
+        "NPS warns that Ozark streams can rise quickly after moderate to heavy rain and that rootwad strainers can occur on any river section. Do not launch on high or rising water, and give fresh wood room.",
+        "Use the named NPS river landings. The 2026 Superintendent's Compendium lists Round Spring (middle) as the floater landing and separately reserves the Round Spring Boat Ramp for trailered motorboats.",
+        "Pulltite Ranger Station is closed for the 2026 season because of flood damage, but the 2026 Compendium still lists Pulltite as a river landing. Follow current signs, and do not treat every reachable bank or gravel bar as a legal stop or campsite."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07064533",
       "provider": "usgs",
@@ -421,7 +438,7 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "The Upper Current is spring-fed and remains runnable well beyond peak runoff, but a 26.2-mile continuation amplifies low-water drag, fatigue, and storm timing. Heavy rain can raise the river quickly, add debris, and push the park toward non-motorized closures.",
       "difficulty": "easy",
       "difficultyNotes": "Each component segment is an easy NPS float at ordinary levels, but this full continuation is an all-day commitment bordering on an overnight plan for many groups. Pace, weather, cold water, crowding, and access discipline matter more than the simple segment ratings suggest.",
-      "confidenceNotes": "Confidence is good for a guarded long-route add: NPS still lists Cedar Grove to Akers as 7.7 miles / 3 hours, Akers to Pulltite as 9.6 miles / 4 hours, and Pulltite to Round Spring as 8.9 miles / 4 hours; the park brochure still confirms the full Upper Current access chain and campground context; USGS 07064533 returned same-day July 10, 2026 observations; and Rivers.MOHERP still supports the same lower-Upper-Current floor already used on Pulltite to Round Spring. The app keeps this minimum-only and proxy-gauged because the live source sits upstream of much of the route and no official ideal/high band exists for the full continuation."
+      "confidenceNotes": "Confidence is good for a guarded long-route add: NPS still lists Cedar Grove to Akers as 7.7 miles / 3 hours, Akers to Pulltite as 9.6 miles / 4 hours, and Pulltite to Round Spring as 8.9 miles / 4 hours; the 2026 Superintendent's Compendium confirms the full river-landing chain and distinguishes the Round Spring middle floater landing from the motorized-only boat ramp; USGS 07064533 returned same-day July 27, 2026 observations; and Rivers.MOHERP still supports the same lower-Upper-Current floor already used on Pulltite to Round Spring. The app keeps this minimum-only and proxy-gauged because the live source sits upstream of much of the route and no official ideal/high band exists for the full continuation."
     },
     "evidenceNotes": [
       {
@@ -433,13 +450,13 @@ export const missouriRoutes: River[] = [
       {
         "label": "Upper Current access chain",
         "value": "Cedar Grove, Akers, Pulltite, and Round Spring",
-        "note": "The current park brochure still identifies all four named access areas in the Upper Current district, along with campground and ranger-station context for the middle and downstream stops.",
-        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm"
+        "note": "The 2026 NPS Superintendent's Compendium lists Cedar Grove, Akers, Pulltite, and Round Spring (middle) as Current River landings. It separately lists the Round Spring Boat Ramp as a motorized-vessel launch with no floater access.",
+        "sourceUrl": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm"
       },
       {
         "label": "Live proxy gauge",
-        "value": "USGS 07064533 at 269 cfs / 1.00 ft",
-        "note": "USGS Current River above Akers returned same-day discharge and gage height at 2026-07-10 15:30 CDT. Because the gauge sits upstream of much of this full route, Paddle Today treats it as a proxy and pairs it with a conservative low-water-only model.",
+        "value": "USGS 07064533 at 208 cfs / 0.86 ft",
+        "note": "USGS Current River above Akers returned provisional same-day discharge and gage height at 2026-07-27 16:30 CDT, below the route's 300 cfs floor. Because the gauge sits upstream of much of this full route, Paddle Today treats it as a proxy and pairs it with a conservative low-water-only model.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07064533&parameterCd=00060,00065&siteStatus=all"
       },
       {
@@ -457,8 +474,8 @@ export const missouriRoutes: River[] = [
       {
         "label": "Camping support",
         "value": "Akers, Pulltite, and Round Spring campgrounds",
-        "note": "The current park brochure still lists campgrounds at Akers, Pulltite, and Round Spring, which supports treating this very long continuation as overnight-capable rather than a default one-day float.",
-        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm"
+        "note": "NPS still identifies campground support along the Upper Current. Pulltite Ranger Station is closed for the 2026 season because of flood damage, while showers and restrooms remain available; paddlers should not assume all facilities are operating normally.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/basicinfo.htm"
       },
       {
         "label": "Access rules",
@@ -497,6 +514,16 @@ export const missouriRoutes: River[] = [
       {
         "label": "NPS Ozark Superintendent Compendium",
         "url": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS River Safety",
+        "url": "https://www.nps.gov/ozar/river-safety.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS 2026 Pulltite facility status",
+        "url": "https://www.nps.gov/ozar/planyourvisit/basicinfo.htm",
         "provider": "nps"
       },
       {
@@ -850,6 +877,23 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River above Akers gauge as an upstream proxy. Around 300 cfs is the conservative low-water floor for this reach; below that, expect shallow riffles and slower travel. Do not treat high or rising water as casual, and check NPS closure notices before launching.",
     "latitude": 37.33505,
     "longitude": -91.47959,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the NPS-listed Pulltite river landing and Round Spring (middle) river landing. The separate Round Spring Boat Ramp is a motorized-vessel launch, so follow the signed floater landing rather than the hardened ramp.",
+        "NPS warns that rootwads and fallen trees can occur on any section and that Current River levels can rise quickly after moderate to heavy rain. Check current closures, avoid high or rising water, and leave room to stop upstream of fresh wood.",
+        "The Akers gauge is upstream of this route and the 300 cfs value is only a conservative low-water floor. Do not turn the separate NPS local-stage closure levels at Pulltite and Round Spring Bridge into an inferred high cutoff on the Akers gauge.",
+        "Cold spring water, limited phone service, and potentially long waits for help make a worn PFD, a filed itinerary, and self-rescue ability important even on this NPS-listed easy day float. Use designated access and legal stopping or camping areas rather than assuming every reachable bank is public."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07064533",
       "provider": "usgs",
@@ -884,7 +928,7 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "The Upper Current is spring-fed and NPS lists private paddling year-round, but low summer levels can still make shoals slow and scrape-heavy. Heavy rain can raise the river quickly, add floating wood, and trigger NPS non-motorized closures.",
       "difficulty": "easy",
       "difficultyNotes": "NPS lists Pulltite to Round Spring as a standard four-hour canoe/kayak float. It is generally easy at ordinary levels, but cold spring water, weekend crowding, limited cell service, shallow riffles, and high-water closure thresholds still matter.",
-      "confidenceNotes": "Confidence is good for a conservative add: NPS lists Pulltite to Round Spring as an 8.9-mile / 4-hour Upper Current float, NPS brochure text identifies Pulltite and Round Spring as Upper Current river access points, USGS 07064533 showed same-day May 31, 2026 discharge and gage-height observations, and Rivers.MOHERP ties exact Pulltite-to-Round-Spring trip rows to the Akers gauge. The caveat is the gauge relationship: Akers is upstream of the route, so the app uses only a 300 cfs low-water floor and does not claim an ideal range or high-water cutoff."
+      "confidenceNotes": "Confidence is good for a conservative route: NPS lists Pulltite to Round Spring as an 8.9-mile / 4-hour Upper Current float, the current Superintendent's Compendium identifies Pulltite and Round Spring (middle) as river landings and separately identifies the Round Spring Boat Ramp, USGS 07064533 returned same-day July 27, 2026 discharge and gage-height observations, and Rivers.MOHERP ties exact Pulltite-to-Round-Spring trip rows to the Akers gauge. The caveat is the gauge relationship: Akers is upstream of the route, so the app uses only a 300 cfs low-water floor and does not claim an ideal range or high-water cutoff."
     },
     "evidenceNotes": [
       {
@@ -901,15 +945,15 @@ export const missouriRoutes: River[] = [
       },
       {
         "label": "Public access context",
-        "value": "Pulltite RM 82 to Round Spring RM 71",
-        "note": "The NPS park brochure lists Round Spring at river mile 71 with a campground, picnic area, boat ramp, and ranger station, and Pulltite at river mile 82 with campground, picnic area, ranger station, and hiking.",
-        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm"
+        "value": "Pulltite landing to Round Spring (middle) landing",
+        "note": "The current NPS Superintendent's Compendium lists Pulltite and Round Spring (middle) as Current River landings. It separately lists the Round Spring Boat Ramp as a motorized-vessel launch.",
+        "sourceUrl": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm"
       },
       {
         "label": "Live proxy gauge",
-        "value": "USGS 07064533 at 311 cfs / 1.09 ft",
-        "note": "USGS Current River above Akers showed same-day discharge and gage height at 06:30 CDT on May 31, 2026. The gauge is upstream of Pulltite, so it is used as a proxy rather than a precise route gauge.",
-        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07064533"
+        "value": "USGS 07064533 at 208 cfs / 0.86 ft",
+        "note": "USGS Current River above Akers returned provisional same-day discharge and gage height at 2026-07-27 16:30 CDT, below the route's 300 cfs floor. The gauge is upstream of Pulltite, so it remains a proxy rather than a precise route gauge.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07064533&parameterCd=00060,00065&siteStatus=all"
       },
       {
         "label": "Low-water floor",
@@ -924,10 +968,10 @@ export const missouriRoutes: River[] = [
         "sourceUrl": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm"
       },
       {
-        "label": "Flood-repair caveat",
-        "value": "Pulltite landing repair priority",
-        "note": "NPS reported 2025 flood-repair work at Pulltite and asked visitors to watch for construction zones and closures. Verify current access conditions before leaving a take-out vehicle or launching.",
-        "sourceUrl": "https://home.nps.gov/ozar/learn/news/2025-03-11-campground-repairs.htm"
+        "label": "NPS river safety",
+        "value": "Self-rescue, fast-rise, and obstacle guidance",
+        "note": "NPS warns that help may be hours away without phone service, that local streams can rise quickly after moderate to heavy rain, and that rootwads or strainers can occur on any river section.",
+        "sourceUrl": "https://www.nps.gov/ozar/river-safety.htm"
       },
       {
         "label": "Endpoint coordinates",
@@ -963,8 +1007,8 @@ export const missouriRoutes: River[] = [
         "provider": "nps"
       },
       {
-        "label": "NPS 2025 campground and access repairs",
-        "url": "https://home.nps.gov/ozar/learn/news/2025-03-11-campground-repairs.htm",
+        "label": "NPS River Safety",
+        "url": "https://www.nps.gov/ozar/river-safety.htm",
         "provider": "nps"
       },
       {

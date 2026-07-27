@@ -12379,6 +12379,18 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.63 ft; below that expect slower shoals and more dragging, while above that the broader current and private-bank corridor deserve more caution.",
     "latitude": 37.2738,
     "longitude": -85.4784,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use only the KDFWR access chain on this 18-mile route. American Legion Park and Greensburg City Ramp are the documented intermediate public exits before Glenview.",
+        "At Glenview, use only the KDFWR-listed road-end carrydown. KDFWR says the access is surrounded by private land, has no bank-fishing area or amenities, and requires paddlers to obey posted signs.",
+        "Preserve daylight for the long route and use KDFWR's direct Greensburg guidance: below 1.0 ft is low, 1.0 to 1.75 ft is good, and above 1.75 ft is high."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03306500",
       "provider": "usgs",
@@ -12933,6 +12945,18 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.64 ft; below that expect slower shoals and more dragging, while above that the broad current and private-bank Glenview finish deserve more caution.",
     "latitude": 37.2441,
     "longitude": -85.4795,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat Greensburg City Ramp, 2 miles below the put-in, as the last serviced public bailout before the 13.7-mile continuation to Glenview.",
+        "At Glenview, use only the KDFWR-listed road-end carrydown. KDFWR says the access is surrounded by private land, has no bank-fishing area or amenities, and requires paddlers to obey posted signs.",
+        "Plan the 15.7-mile route with daylight margin and use KDFWR's direct Greensburg guidance: below 1.0 ft is low, 1.0 to 1.75 ft is good, and above 1.75 ft is high."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03306500",
       "provider": "usgs",
@@ -13490,6 +13514,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect a slower, scrape-prone all-day float; above that the broader current, private-bank corridor, and longer shuttle deserve more caution.",
     "latitude": 37.291,
     "longitude": -85.5913,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the 19.2-mile KDFWR segment as a full-day access-to-access commitment; KDFWR's Pool 6 table does not list another public access between Glenview and Lynn Camp.",
+        "Stay within the Glenview road-end carrydown and obey posted signs because KDFWR says the access is surrounded by private land and has no amenities.",
+        "Lynn Camp Creek VPA #1 is private property open through KDFWR for day use only. Follow all posted rules, leave no trash, and do not camp, light fires, use alcohol, or swim at the access.",
+        "Use KDFWR's direct Greensburg guidance: below 1.0 ft is low, 1.0 to 1.75 ft is good, and above 1.75 ft is high."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03306500",
       "provider": "usgs",
@@ -13551,7 +13589,7 @@ export const kentuckyRoutes: River[] = [
       {
         "label": "Take-out access",
         "value": "Lynn Camp Creek Ramp, 37.3533, -85.7098",
-        "note": "KDFWR identifies Lynn Camp Creek VPA #1 as a free publicly open private launch with unpaved parking, year-round availability, and no camping.",
+        "note": "KDFWR identifies Lynn Camp Creek VPA #1 as a free publicly open private day-use access with unpaved parking, year-round limited hours, and no camping.",
         "sourceUrl": "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=968"
       },
       {

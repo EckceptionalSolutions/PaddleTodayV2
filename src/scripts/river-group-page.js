@@ -17,6 +17,11 @@ import { createRequestGuard, isAbortError } from './request-guard.js';
 import { ratingToneKey, ratingVerdictLabel, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { coverageAnchorForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
+import {
+  activeRiverHubFilterCount,
+  defaultRiverHubFilters,
+  riverHubFilterOptions,
+} from '../lib/river-hub-planning.js';
 import { getBrowserApiClient } from './browser-api-client.js';
 
 const root = document.querySelector('[data-river-group-page]');
@@ -37,6 +42,7 @@ const bannerDetail = root.querySelector('[data-group-banner-detail]');
 const refreshButton = root.querySelector('[data-group-refresh]');
 const refreshNote = root.querySelector('[data-group-refresh-note]');
 const groupMap = root.querySelector('[data-group-map]');
+const groupMapShell = groupMap?.closest('.river-group-page__map-shell');
 const groupMapStatus = root.querySelector('[data-group-map-status]');
 const groupMapToggle = root.querySelector('[data-group-map-toggle]');
 const resultsSummary = root.querySelector('[data-group-results-summary]');
@@ -47,12 +53,24 @@ const campingFilterSelect = root.querySelector('[data-group-camping-filter]');
 const routeTypeFilterSelect = root.querySelector('[data-group-route-type-filter]');
 const sortSelect = root.querySelector('[data-group-sort]');
 const selectedSummary = root.querySelector('[data-group-selected-summary]');
+const moreFilters = root.querySelector('[data-group-more-filters]');
+const activeFilterCount = root.querySelector('[data-group-filter-count]');
+const clearFiltersButton = root.querySelector('[data-group-clear-filters]');
+const pickerLayout = root.querySelector('[data-group-picker-layout]');
+const mobileSwitch = root.querySelector('[data-group-mobile-switch]');
+const mobileViewButtons = Array.from(root.querySelectorAll('[data-group-mobile-view]'));
+const mobileCountNodes = Array.from(root.querySelectorAll('[data-group-mobile-count]'));
+const groupMapEmpty = root.querySelector('[data-group-map-empty]');
+const groupMapEmptyReset = root.querySelector('[data-group-map-empty-reset]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const BULLET = ' \u2022 ';
 const DEG_F = '\u00B0F';
-const initialSelectedSlug = new URLSearchParams(window.location.search).get('route');
+const initialParams = new URLSearchParams(window.location.search);
+const initialSelectedSlug = initialParams.get('route');
+const distanceFilterValues = new Set(['all', 'short', 'medium', 'long']);
+const sortModeValues = new Set(['recommended', 'shortest', 'longest', 'easiest', 'confidence']);
 
 let lastSuccessAt = null;
 let currentResult = null;
@@ -63,13 +81,24 @@ let mapReadyPromise = null;
 let mapMarkers = [];
 let conditionScoreMarkers = [];
 let groupMapCollapsed = false;
-let distanceFilter = 'all';
-let regionFilter = 'all';
-let difficultyFilter = 'all';
-let campingFilter = 'all';
-let routeTypeFilter = 'all';
-let sortMode = 'recommended';
-let pinSelectedRoute = Boolean(initialSelectedSlug);
+let distanceFilter = distanceFilterValues.has(initialParams.get('distance'))
+  ? initialParams.get('distance')
+  : 'all';
+let regionFilter = initialParams.get('area') || 'all';
+let difficultyFilter = initialParams.get('difficulty') || 'all';
+let campingFilter = initialParams.get('camping') || 'all';
+let routeTypeFilter = initialParams.get('type') || 'all';
+let sortMode = sortModeValues.has(initialParams.get('sort'))
+  ? initialParams.get('sort')
+  : 'recommended';
+let mobileView = initialParams.get('view') === 'map' ? 'map' : 'list';
+let availableFilters = {
+  difficulty: false,
+  camping: false,
+  region: false,
+  routeType: false,
+};
+let adaptiveFilterOptions = null;
 let routeGeometryLoadVersion = 0;
 const routeGeometryBySlug = new Map();
 const groupRequestGuard = createRequestGuard();
@@ -81,6 +110,95 @@ function setText(field, value) {
     element.textContent = value;
   }
   return elements[0] ?? null;
+}
+
+function activeAdvancedFilterTotal() {
+  return Number(difficultyFilter !== 'all')
+    + Number(campingFilter !== 'all')
+    + Number(regionFilter !== 'all')
+    + Number(routeTypeFilter !== 'all');
+}
+
+function activeFilterTotal() {
+  return activeRiverHubFilterCount({
+    distance: distanceFilter,
+    difficulty: difficultyFilter,
+    camping: campingFilter,
+    routeType: routeTypeFilter,
+    region: regionFilter,
+  });
+}
+
+function syncPickerUrl() {
+  const url = new URL(window.location.href);
+  const params = [
+    ['route', selectedSlug],
+    ['distance', distanceFilter === 'all' ? null : distanceFilter],
+    ['difficulty', difficultyFilter === 'all' ? null : difficultyFilter],
+    ['camping', campingFilter === 'all' ? null : campingFilter],
+    ['type', routeTypeFilter === 'all' ? null : routeTypeFilter],
+    ['area', regionFilter === 'all' ? null : regionFilter],
+    ['sort', sortMode === 'recommended' ? null : sortMode],
+    ['view', phoneBreakpoint.matches && mobileView === 'map' ? 'map' : null],
+  ];
+
+  for (const [key, value] of params) {
+    if (value) {
+      url.searchParams.set(key, value);
+    } else {
+      url.searchParams.delete(key);
+    }
+  }
+  window.history.replaceState({}, '', url);
+}
+
+function setMobileView(view, { persist = true } = {}) {
+  mobileView = view === 'map' ? 'map' : 'list';
+  const compact = phoneBreakpoint.matches;
+
+  if (pickerLayout instanceof HTMLElement) {
+    pickerLayout.classList.toggle('river-route-picker__layout--mobile-list', compact && mobileView === 'list');
+    pickerLayout.classList.toggle('river-route-picker__layout--mobile-map', compact && mobileView === 'map');
+    pickerLayout.dataset.mobileView = mobileView;
+  }
+  if (mobileSwitch instanceof HTMLElement) {
+    mobileSwitch.hidden = !compact;
+  }
+  for (const button of mobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const active = button.dataset.groupMobileView === mobileView;
+    button.classList.toggle('river-route-picker__mobile-switch-button--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+  if (mobileView === 'map' && mapRuntime) {
+    window.setTimeout(() => {
+      mapRuntime?.resize();
+      if (currentResult) {
+        renderGroupMap(visiblePickerRoutes(currentResult.routes), {
+          preserveViewport: false,
+          focusSelected: Boolean(selectedSlug),
+        });
+      }
+    }, 40);
+  }
+  if (persist) {
+    syncPickerUrl();
+  }
+}
+
+function resetPickerFilters({ render = true } = {}) {
+  const defaults = defaultRiverHubFilters();
+  distanceFilter = defaults.distance;
+  regionFilter = defaults.region;
+  difficultyFilter = defaults.difficulty;
+  campingFilter = defaults.camping;
+  routeTypeFilter = defaults.routeType;
+  if (moreFilters instanceof HTMLDetailsElement) {
+    moreFilters.open = false;
+  }
+  if (render && currentResult) {
+    renderPicker({ fitMap: true });
+  }
 }
 
 function decisionLabel(rating, score = null) {
@@ -165,6 +283,22 @@ function routeMatchesTypeFilter(route) {
   return routeTypeFilter === 'all' || route.routeType === routeTypeFilter;
 }
 
+function routeDifficultyRank(route) {
+  const ranks = {
+    easy: 0,
+    moderate: 1,
+    hard: 2,
+  };
+  return ranks[difficultyKey(route?.difficulty)] ?? 3;
+}
+
+function routeConfidenceScore(route) {
+  if (Number.isFinite(route?.confidence?.score)) {
+    return Number(route.confidence.score);
+  }
+  return todayBoardConfidenceWeight[route?.confidence?.label] ?? 0;
+}
+
 function comparePickerRoutes(left, right) {
   const leftMiles = routeDistanceMiles(left);
   const rightMiles = routeDistanceMiles(right);
@@ -174,22 +308,23 @@ function comparePickerRoutes(left, right) {
   if (sortMode === 'longest') {
     return (rightMiles ?? Number.NEGATIVE_INFINITY) - (leftMiles ?? Number.NEGATIVE_INFINITY) || compareRoutes(left, right);
   }
+  if (sortMode === 'easiest') {
+    return routeDifficultyRank(left) - routeDifficultyRank(right) || compareRoutes(left, right);
+  }
+  if (sortMode === 'confidence') {
+    return routeConfidenceScore(right) - routeConfidenceScore(left) || compareRoutes(left, right);
+  }
   return compareRoutes(left, right);
 }
 
 function visiblePickerRoutes(routes) {
-  const visible = routes
+  return routes
     .filter(routeMatchesDistanceFilter)
     .filter(routeMatchesRegionFilter)
     .filter(routeMatchesDifficultyFilter)
     .filter(routeMatchesCampingFilter)
     .filter(routeMatchesTypeFilter)
     .sort(comparePickerRoutes);
-  if (!pinSelectedRoute || !selectedSlug) return visible;
-  const selectedIndex = visible.findIndex((route) => route.slug === selectedSlug);
-  if (selectedIndex <= 0) return visible;
-  const [selected] = visible.splice(selectedIndex, 1);
-  return [selected, ...visible];
 }
 
 function shortTimeLabel(value) {
@@ -701,6 +836,14 @@ function updateGroupMapToggle() {
     return;
   }
 
+  if (mobileSwitch instanceof HTMLElement) {
+    groupMapCollapsed = false;
+    groupMapToggle.hidden = true;
+    const mapShell = groupMap.closest('.river-group-page__map-shell');
+    mapShell?.classList.remove('river-group-page__map-shell--collapsed');
+    return;
+  }
+
   const compact = phoneBreakpoint.matches;
   if (!compact) {
     groupMapCollapsed = false;
@@ -913,7 +1056,7 @@ function syncRouteLayers(routes) {
     mapRuntime.on('click', 'river-group-trip-lines-base', (event) => {
       const slug = event.features?.[0]?.properties?.slug;
       if (!slug) return;
-      selectPickerRoute(slug, { focusMap: false });
+      selectPickerRoute(slug, { focusMap: false, reveal: 'list', scrollToSelection: true });
       const route = currentResult?.routes.find((candidate) => candidate.slug === slug);
       if (route && event.lngLat && maplibreRuntime) {
         new maplibreRuntime.Popup({ closeButton: true, closeOnClick: true, maxWidth: '288px' })
@@ -1022,7 +1165,7 @@ function syncConditionScoreMarkers(routes, maplibregl) {
       bindMarkerPopup(marker, markerNode, { map: mapRuntime });
       markerNode.addEventListener('click', () => {
         const slug = routeGroup.representative?.slug;
-        if (slug) selectPickerRoute(slug);
+        if (slug) selectPickerRoute(slug, { focusMap: false, reveal: 'list', scrollToSelection: true });
       });
       marker.getPopup()?.on('open', () => {
         const button = marker.getPopup()?.getElement()?.querySelector('[data-score-zone-route]');
@@ -1030,7 +1173,7 @@ function syncConditionScoreMarkers(routes, maplibregl) {
           button.dataset.scoreZoneBound = 'true';
           button.addEventListener('click', () => {
             const slug = button.dataset.scoreZoneRoute;
-            if (slug) selectPickerRoute(slug);
+            if (slug) selectPickerRoute(slug, { focusMap: false, reveal: 'list', scrollToSelection: true });
           });
         }
       });
@@ -1040,27 +1183,69 @@ function syncConditionScoreMarkers(routes, maplibregl) {
 }
 
 async function hydrateRouteGeometries(routes) {
-  const pending = routes.filter((route) => !routeGeometryBySlug.has(route.slug));
+  const pending = routes
+    .filter((route) => !routeGeometryBySlug.has(route.slug))
+    .sort((left, right) => Number(right.slug === selectedSlug) - Number(left.slug === selectedSlug));
   if (pending.length === 0) return;
   const version = ++routeGeometryLoadVersion;
-  await Promise.all(
-    pending.map(async (route) => {
-      try {
-        const feature = await loadCanonicalRiverRouteLine(route.slug, routeSpanCoordinates(route));
-        routeGeometryBySlug.set(route.slug, feature);
-      } catch (error) {
-        routeGeometryBySlug.set(route.slug, null);
-        console.warn(`Canonical geometry unavailable for ${route.slug}.`, error);
-      }
-    })
-  );
+  const batchSize = 6;
 
-  if (version !== routeGeometryLoadVersion || !currentResult) return;
-  renderGroupMap(visiblePickerRoutes(currentResult.routes), { preserveViewport: true });
+  for (let index = 0; index < pending.length; index += batchSize) {
+    const batch = pending.slice(index, index + batchSize);
+    await Promise.all(
+      batch.map(async (route) => {
+        try {
+          const feature = await loadCanonicalRiverRouteLine(route.slug, routeSpanCoordinates(route));
+          routeGeometryBySlug.set(route.slug, feature);
+        } catch (error) {
+          routeGeometryBySlug.set(route.slug, null);
+          console.warn(`Canonical geometry unavailable for ${route.slug}.`, error);
+        }
+      })
+    );
+
+    if (version !== routeGeometryLoadVersion || !currentResult) return;
+    if (index === 0 || index + batchSize >= pending.length) {
+      renderGroupMap(visiblePickerRoutes(currentResult.routes), { preserveViewport: true });
+    }
+  }
 }
 
 async function renderGroupMap(routes, { preserveViewport = false, focusSelected = false } = {}) {
   if (!(groupMap instanceof HTMLElement)) {
+    return;
+  }
+
+  const empty = routes.length === 0;
+  if (pickerLayout instanceof HTMLElement) {
+    pickerLayout.classList.toggle('river-route-picker__layout--empty', empty);
+  }
+  if (groupMapShell instanceof HTMLElement) {
+    groupMapShell.classList.toggle('river-group-page__map-shell--empty', empty);
+  }
+  if (groupMapEmpty instanceof HTMLElement) {
+    groupMapEmpty.hidden = !empty;
+  }
+
+  if (empty) {
+    mapMarkers = clearMapMarkers(mapMarkers);
+    clearConditionScoreMarkers();
+    if (mapRuntime && mapReadyPromise) {
+      try {
+        await mapReadyPromise;
+        syncRouteLayers([]);
+        syncActualRiverLayer(mapRuntime, 'river-group-actual-river-line', [], {
+          lineColor: '#4f8795',
+          lineWidth: 3,
+          lineOpacity: 0.18,
+        });
+      } catch {
+        // The replacement panel remains useful even if the prior map failed.
+      }
+    }
+    if (groupMapStatus instanceof HTMLElement) {
+      groupMapStatus.textContent = 'No routes match these filters.';
+    }
     return;
   }
 
@@ -1113,9 +1298,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     mapRuntime.resize();
 
     if (groupMapStatus instanceof HTMLElement) {
-      groupMapStatus.textContent = routes.length === 0
-        ? 'No routes match these filters.'
-        : routes.length === 1
+      groupMapStatus.textContent = routes.length === 1
         ? '1 route · mileage follows the mapped reach.'
         : `${routes.length} routes · ${groupRoutesByConditionScore(routes).length} score zones · select one to zoom.`;
     }
@@ -1175,18 +1358,13 @@ function renderRouteList(routes) {
     routeList.innerHTML = `
       <div class="river-route-picker__empty">
         <strong>No trips match these filters.</strong>
-        <span>Try another distance, difficulty, or area.</span>
+        <span>Try another filter or return to all trips.</span>
         <button class="filter-chip" type="button" data-group-reset-filters>Show all trips</button>
       </div>
     `;
     const resetButton = routeList.querySelector('[data-group-reset-filters]');
     if (resetButton instanceof HTMLButtonElement) {
-      resetButton.addEventListener('click', () => {
-        distanceFilter = 'all';
-        regionFilter = 'all';
-        difficultyFilter = 'all';
-        renderPicker({ fitMap: true });
-      });
+      resetButton.addEventListener('click', () => resetPickerFilters());
     }
     return;
   }
@@ -1202,6 +1380,8 @@ function renderRouteList(routes) {
         && distanceFilter === 'all'
         && regionFilter === 'all'
         && difficultyFilter === 'all'
+        && campingFilter === 'all'
+        && routeTypeFilter === 'all'
         && route.slug === currentResult?.routes[0]?.slug;
       const rowLabel = active
         ? '<span class="route-choice__on-map">On map</span>'
@@ -1221,6 +1401,7 @@ function renderRouteList(routes) {
             type="button"
             data-group-route-select
             aria-pressed="${active ? 'true' : 'false'}"
+            aria-label="Show ${escapeHtml(route.reach)} on the map"
             data-analytics-event="corridor_trip_selected"
             data-analytics-route="${escapeHtml(route.slug)}"
             data-analytics-corridor="${escapeHtml(corridorKey(route))}"
@@ -1236,6 +1417,7 @@ function renderRouteList(routes) {
               <span>${escapeHtml(decisionLabel(route.rating, route.score))}</span>
             </span>
           </button>
+          <a class="river-link river-link--inline route-choice__details-link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
         </article>
       `;
     })
@@ -1246,7 +1428,7 @@ function renderRouteList(routes) {
     button.addEventListener('click', () => {
       const card = button.closest('[data-group-route-card]');
       if (!(card instanceof HTMLElement) || !card.dataset.routeSlug) return;
-      selectPickerRoute(card.dataset.routeSlug);
+      selectPickerRoute(card.dataset.routeSlug, { reveal: 'map' });
     });
   }
 }
@@ -1329,20 +1511,29 @@ function renderSelectedSummary(route) {
   refreshFavoriteButtons(selectedSummary);
 }
 
+function setFilterFieldVisibility(name, visible) {
+  const field = root.querySelector(`[data-group-filter-field="${name}"]`);
+  if (field instanceof HTMLElement) {
+    field.hidden = !visible;
+  }
+}
+
 function renderRegionFilters(routes) {
   if (!(regionFilterSelect instanceof HTMLSelectElement)) return;
-  const regions = [...new Set(routes.map((route) => route.region).filter(Boolean))].sort();
+  const regions = adaptiveFilterOptions?.regions
+    ?? [...new Set(routes.map((route) => route.region).filter(Boolean))].sort();
   regionFilterSelect.innerHTML = ['<option value="all">All areas</option>', ...regions.map((region) => `<option value="${escapeHtml(region)}">${escapeHtml(region)}</option>`)].join('');
+  availableFilters.region = adaptiveFilterOptions?.availability.region ?? regions.length > 1;
+  if (!availableFilters.region || (regionFilter !== 'all' && !regions.includes(regionFilter))) {
+    regionFilter = 'all';
+  }
+  setFilterFieldVisibility('region', availableFilters.region);
 }
 
 function renderDifficultyFilters(routes) {
   if (!(difficultyFilterSelect instanceof HTMLSelectElement)) return;
-  const difficulties = [...new Set(routes.map((route) => difficultyKey(route.difficulty)).filter(Boolean))]
-    .sort((left, right) => {
-      const order = ['easy', 'moderate', 'hard'];
-      return (order.indexOf(left) === -1 ? order.length : order.indexOf(left))
-        - (order.indexOf(right) === -1 ? order.length : order.indexOf(right));
-    });
+  const difficulties = adaptiveFilterOptions?.difficulties
+    ?? [...new Set(routes.map((route) => difficultyKey(route.difficulty)).filter(Boolean))];
   difficultyFilterSelect.innerHTML = [
     '<option value="all">Any difficulty</option>',
     ...difficulties.map((difficulty) => {
@@ -1350,6 +1541,57 @@ function renderDifficultyFilters(routes) {
       return `<option value="${escapeHtml(difficulty)}">${escapeHtml(label)}</option>`;
     }),
   ].join('');
+  availableFilters.difficulty = adaptiveFilterOptions?.availability.difficulty ?? difficulties.length > 1;
+  if (!availableFilters.difficulty || (difficultyFilter !== 'all' && !difficulties.includes(difficultyFilter))) {
+    difficultyFilter = 'all';
+  }
+  setFilterFieldVisibility('difficulty', availableFilters.difficulty);
+}
+
+function renderCampingFilters(routes) {
+  if (!(campingFilterSelect instanceof HTMLSelectElement)) return;
+  const options = adaptiveFilterOptions?.camping ?? [...new Set(routes.map((route) => (
+    route.campingClassification && route.campingClassification !== 'none' ? 'available' : 'none'
+  )))];
+  availableFilters.camping = adaptiveFilterOptions?.availability.camping ?? options.length > 1;
+  if (!availableFilters.camping || (campingFilter !== 'all' && !options.includes(campingFilter))) {
+    campingFilter = 'all';
+  }
+  campingFilterSelect.innerHTML = [
+    '<option value="all">Any camping</option>',
+    ...(options.includes('available') ? ['<option value="available">Camping available</option>'] : []),
+    ...(options.includes('none') ? ['<option value="none">No camping</option>'] : []),
+  ].join('');
+  setFilterFieldVisibility('camping', availableFilters.camping);
+}
+
+function renderRouteTypeFilters(routes) {
+  if (!(routeTypeFilterSelect instanceof HTMLSelectElement)) return;
+  const routeTypes = adaptiveFilterOptions?.routeTypes
+    ?? [...new Set(routes.map((route) => route.routeType).filter(Boolean))].sort();
+  availableFilters.routeType = adaptiveFilterOptions?.availability.routeType ?? false;
+  if (!availableFilters.routeType || (routeTypeFilter !== 'all' && !routeTypes.includes(routeTypeFilter))) {
+    routeTypeFilter = 'all';
+  }
+  const labels = {
+    recreational: 'Recreation',
+    whitewater: 'Whitewater',
+  };
+  routeTypeFilterSelect.innerHTML = [
+    '<option value="all">All types</option>',
+    ...routeTypes.map((type) => `<option value="${escapeHtml(type)}">${escapeHtml(labels[type] || type)}</option>`),
+  ].join('');
+  setFilterFieldVisibility('route-type', availableFilters.routeType);
+}
+
+function updateMoreFiltersVisibility() {
+  const hasAdaptiveFilters = Object.values(availableFilters).some(Boolean);
+  if (moreFilters instanceof HTMLDetailsElement) {
+    moreFilters.hidden = !hasAdaptiveFilters;
+    if (!hasAdaptiveFilters) {
+      moreFilters.open = false;
+    }
+  }
 }
 
 for (const [select, onChange] of [
@@ -1377,6 +1619,26 @@ function updatePickerControls(visibleCount, totalCount) {
   if (difficultyFilterSelect instanceof HTMLSelectElement) difficultyFilterSelect.value = difficultyFilter;
   if (campingFilterSelect instanceof HTMLSelectElement) campingFilterSelect.value = campingFilter;
   if (routeTypeFilterSelect instanceof HTMLSelectElement) routeTypeFilterSelect.value = routeTypeFilter;
+  if (sortSelect instanceof HTMLSelectElement) sortSelect.value = sortMode;
+
+  const advancedCount = activeAdvancedFilterTotal();
+  const totalActive = activeFilterTotal();
+  if (activeFilterCount instanceof HTMLElement) {
+    activeFilterCount.textContent = String(advancedCount);
+    activeFilterCount.hidden = advancedCount === 0;
+  }
+  if (moreFilters instanceof HTMLElement) {
+    moreFilters.classList.toggle('river-route-picker__more-filters--active', advancedCount > 0);
+  }
+  if (clearFiltersButton instanceof HTMLButtonElement) {
+    clearFiltersButton.hidden = totalActive === 0;
+  }
+  for (const countNode of mobileCountNodes) {
+    if (countNode instanceof HTMLElement) {
+      countNode.textContent = String(visibleCount);
+      countNode.hidden = visibleCount === 0;
+    }
+  }
 
   if (resultsSummary instanceof HTMLElement) {
     const filterLabels = {
@@ -1393,9 +1655,13 @@ function updatePickerControls(visibleCount, totalCount) {
       ? 'ranked by today’s conditions'
       : sortMode === 'shortest'
         ? 'shortest first'
-        : 'longest first';
+        : sortMode === 'longest'
+          ? 'longest first'
+          : sortMode === 'easiest'
+            ? 'easiest first'
+            : 'highest confidence';
     const campingLabel = campingFilter === 'all' ? '' : campingFilter === 'available' ? 'camping available' : 'no camping';
-    const routeTypeLabel = routeTypeFilter === 'all' ? '' : routeTypeFilter === 'recreational' ? 'recreation' : 'non-recreation';
+    const routeTypeLabel = routeTypeFilter === 'all' ? '' : routeTypeFilter === 'recreational' ? 'recreation' : 'whitewater';
     const secondaryLabels = [
       difficultyFilter === 'all' ? '' : difficultyLabelText,
       regionFilter === 'all' ? '' : areaLabel,
@@ -1414,27 +1680,21 @@ function updatePickerControls(visibleCount, totalCount) {
 function renderPicker({ fitMap = false, focusSelected = false } = {}) {
   if (!currentResult) return;
   const routes = visiblePickerRoutes(currentResult.routes);
-  const previousSelectedSlug = selectedSlug;
   if (!routes.some((route) => route.slug === selectedSlug)) {
     selectedSlug = routes[0]?.slug || null;
-  }
-  if (selectedSlug && selectedSlug !== previousSelectedSlug) {
-    const url = new URL(window.location.href);
-    url.searchParams.set('route', selectedSlug);
-    window.history.replaceState({}, '', url);
   }
   renderRouteList(routes);
   renderSelectedSummary(routes.find((route) => route.slug === selectedSlug) || routes[0]);
   updatePickerControls(routes.length, currentResult.routes.length);
   renderGroupMap(routes, { preserveViewport: !fitMap, focusSelected });
+  syncPickerUrl();
 }
 
-function selectPickerRoute(slug, { focusMap = true } = {}) {
+function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelection = false } = {}) {
   if (!currentResult) return;
   const selectedRoute = currentResult.routes.find((route) => route.slug === slug);
   if (!selectedRoute) return;
   selectedSlug = slug;
-  pinSelectedRoute = true;
   if (!routeMatchesDistanceFilter(selectedRoute)) distanceFilter = 'all';
   if (!routeMatchesRegionFilter(selectedRoute)) regionFilter = 'all';
   if (!routeMatchesDifficultyFilter(selectedRoute)) difficultyFilter = 'all';
@@ -1445,9 +1705,19 @@ function selectPickerRoute(slug, { focusMap = true } = {}) {
   renderSelectedSummary(selectedRoute);
   updatePickerControls(routes.length, currentResult.routes.length);
   renderGroupMap(routes, { preserveViewport: !focusMap, focusSelected: focusMap });
-  const url = new URL(window.location.href);
-  url.searchParams.set('route', slug);
-  window.history.replaceState({}, '', url);
+  if (reveal) {
+    setMobileView(reveal);
+  } else {
+    syncPickerUrl();
+  }
+  if (scrollToSelection && phoneBreakpoint.matches) {
+    window.setTimeout(() => {
+      routeList?.querySelector(`[data-route-slug="${CSS.escape(slug)}"]`)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 40);
+  }
 }
 
 function normalizeRoutes(routes) {
@@ -1516,15 +1786,21 @@ async function loadGroup({ silent = false } = {}) {
       selectedSlug = routes[0].slug;
     }
 
+    adaptiveFilterOptions = riverHubFilterOptions(routes);
     renderRegionFilters(routes);
     renderDifficultyFilters(routes);
+    renderCampingFilters(routes);
+    renderRouteTypeFilters(routes);
+    updateMoreFiltersVisibility();
+    setMobileView(mobileView, { persist: false });
     renderPicker({ fitMap: true, focusSelected: Boolean(initialSelectedSlug) });
     hydrateRouteGeometries(routes);
 
     const liveCount = routes.filter((route) => route.liveData?.overall === 'live').length;
+    const readyCount = routes.filter((route) => route.rating === 'Strong' || route.rating === 'Good').length;
     setBanner(
       liveCount === routes.length ? 'live' : 'degraded',
-      `${routes.length} current route calls are ready.`,
+      `${readyCount} of ${routes.length} routes look ready today.`,
       liveCount === routes.length
         ? 'Gauge and weather reads are current enough to compare.'
         : 'At least one route is using stale or partial reads. Open the route page before you drive.'
@@ -1573,6 +1849,24 @@ if (sortSelect instanceof HTMLSelectElement) {
   });
 }
 
+if (clearFiltersButton instanceof HTMLButtonElement) {
+  clearFiltersButton.addEventListener('click', () => resetPickerFilters());
+}
+
+if (groupMapEmptyReset instanceof HTMLButtonElement) {
+  groupMapEmptyReset.addEventListener('click', () => {
+    resetPickerFilters();
+    setMobileView('list');
+  });
+}
+
+for (const button of mobileViewButtons) {
+  if (!(button instanceof HTMLButtonElement)) continue;
+  button.addEventListener('click', () => {
+    setMobileView(button.dataset.groupMobileView);
+  });
+}
+
 if (groupMapToggle instanceof HTMLButtonElement) {
   groupMapToggle.addEventListener('click', () => {
     groupMapCollapsed = !groupMapCollapsed;
@@ -1582,11 +1876,15 @@ if (groupMapToggle instanceof HTMLButtonElement) {
 
 phoneBreakpoint.addEventListener('change', () => {
   updateGroupMapToggle();
+  setMobileView(mobileView);
 });
 
 bindFavoriteButtons(document);
 updateGroupMapToggle();
+setMobileView(mobileView, { persist: false });
 loadGroup();
 window.setInterval(() => {
-  loadGroup({ silent: true });
+  if (!document.hidden) {
+    loadGroup({ silent: true });
+  }
 }, AUTO_REFRESH_MS);

@@ -15,6 +15,7 @@ type Props = {
   socialImageHeight?: number;
   ogType?: string;
   twitterCard?: 'summary' | 'summary_large_image';
+  bodyClass?: string;
 };
 
 const {
@@ -30,6 +31,7 @@ const {
   socialImageHeight,
   ogType = 'website',
   twitterCard = 'summary_large_image',
+  bodyClass = '',
 } =
   Astro.props as Props;
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
@@ -74,7 +76,7 @@ const extraStructuredData = structuredData
   : [];
 const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStructuredData]);
 const footerStateLinks = listRiverStateGroups();
-const pageClass =
+const generatedPageClass =
   Astro.url.pathname === '/'
     ? 'page-home'
     : `page-${Astro.url.pathname
@@ -82,9 +84,10 @@ const pageClass =
         .replace(/[^a-zA-Z0-9/_-]+/g, '')
         .replace(/[\\/]+/g, '-')
         .toLowerCase() || 'page'}`;
+const pageClass = [generatedPageClass, bodyClass].filter(Boolean).join(' ');
 const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 const umamiScriptSrc = import.meta.env.PUBLIC_UMAMI_SCRIPT_SRC || 'https://cloud.umami.is/script.js';
-const assetVersion = import.meta.env.PUBLIC_ASSET_VERSION || '20260727-weekend-workspace2';
+const assetVersion = import.meta.env.PUBLIC_ASSET_VERSION || '20260727-river-hub2';
 const appleAppId = import.meta.env.PUBLIC_APPLE_APP_ID || '6769542734';
 const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL || (appleAppId ? `https://apps.apple.com/app/id${appleAppId}` : '');
 const playStoreUrl =
