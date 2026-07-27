@@ -62,6 +62,7 @@ export default function RiverHubScreen() {
   const [showMoreFilters, setShowMoreFilters] = useState(false);
   const [mapZoomLevel, setMapZoomLevel] = useState(5);
   const listRef = useRef<FlatList<RiverDetailApiResult> | null>(null);
+  const routeCardScrollRequestRef = useRef<{ index: number; retries: number } | null>(null);
   const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
   const groupQuery = useRiverGroupQuery(riverId);
   const { isSaved, toggleSavedRiver } = useSavedRivers();
@@ -166,9 +167,13 @@ export default function RiverHubScreen() {
 
   function selectRouteFromMap(slug: string) {
     setSelectedRouteSlug(slug);
+  }
+
+  function viewRouteCard(slug: string) {
     const index = routes.findIndex((route) => route.river.slug === slug);
     if (index >= 0) {
-      listRef.current?.scrollToIndex({ index, animated: true, viewPosition: 0.2 });
+      routeCardScrollRequestRef.current = { index, retries: 0 };
+      listRef.current?.scrollToIndex({ index, animated: true, viewPosition: 0.08 });
     }
   }
 
@@ -226,6 +231,19 @@ export default function RiverHubScreen() {
             offset: Math.max(0, averageItemLength * index),
             animated: true,
           });
+          const request = routeCardScrollRequestRef.current;
+          if (!request || request.index !== index || request.retries >= 1) {
+            return;
+          }
+
+          request.retries += 1;
+          setTimeout(() => {
+            listRef.current?.scrollToIndex({
+              index,
+              animated: true,
+              viewPosition: 0.08,
+            });
+          }, 180);
         }}
         refreshControl={
           <RefreshControl
@@ -368,7 +386,7 @@ export default function RiverHubScreen() {
 
             {routes.length > 0 ? (
               <View style={styles.mapSection}>
-                <SectionCard title="Compare on the map" subtitle="Each line is a stretch. Tap a score to jump to its card.">
+                <SectionCard title="Compare on the map" subtitle="Tap a score to focus its stretch, then choose when to view the card.">
                   <View style={styles.mapFrame}>
                     <RoutePlotMap
                       points={routePoints}
@@ -376,9 +394,12 @@ export default function RiverHubScreen() {
                       backgroundSpanSegments={coverageSpans}
                       canonicalSpans={canonicalSpans}
                       height={260}
-                      fitToSelectedOnReady
+                      fitToAllOnReady
+                      focusOnSelect
+                      showAllControl
                       fullBleed
                       onSelectPoint={(point) => selectRouteFromMap(point.id)}
+                      onViewSelected={(point) => viewRouteCard(point.id)}
                       onZoomLevelChange={setMapZoomLevel}
                     />
                   </View>

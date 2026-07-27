@@ -18,6 +18,20 @@ export const nebraskaRoutes: River[] = [
     "statusText": "Use the Platte River at Louisville gauge. Nebraska Game and Parks/Nebraskaland says 7,000 to 12,000 cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level.",
     "latitude": 41.02036,
     "longitude": -96.24974,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Nebraska Game and Parks says the Lied Bridge pilings often collect trees and debris; choose the opening carefully and avoid downstream-side entrapment exposure.",
+        "Heavy rain can push the lower Platte to dangerous levels in any month. Use the Louisville gauge and do not launch near or above the published 18,000 cfs avoid level.",
+        "The water surface is open to public use, but banks, sandbars, and the stream bed require landowner permission except where walking or portaging is necessary. Plan to remain in the boat between the three public park accesses."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06805500",
       "provider": "usgs",
@@ -137,6 +151,20 @@ export const nebraskaRoutes: River[] = [
     "statusText": "Use the Platte River at Louisville gauge. Nebraska Game and Parks/Nebraskaland says 7,000 to 12,000 cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level.",
     "latitude": 41.02036,
     "longitude": -96.24974,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Nebraska Game and Parks says the Lied Bridge pilings often collect trees and debris; choose the opening carefully and avoid downstream-side entrapment exposure.",
+        "Heavy rain can push the lower Platte to dangerous levels in any month. Use the Louisville gauge and do not launch near or above the published 18,000 cfs avoid level.",
+        "The water surface is open to public use, but banks, sandbars, and the stream bed require landowner permission except where walking or portaging is necessary. Use the designated Schramm and Decker Creek accesses for the planned route."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06805500",
       "provider": "usgs",
@@ -251,6 +279,20 @@ export const nebraskaRoutes: River[] = [
     "statusText": "Use the Platte River at Louisville gauge. Nebraska Game and Parks/Nebraskaland says 7,000 to 12,000 cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level.",
     "latitude": 41.0175,
     "longitude": -96.2038,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Expect shifting channels and floating wood on this braided river; keep clear of collected debris and do not let the short mileage hide the consequences of a blocked channel.",
+        "Heavy rain can push the lower Platte to dangerous levels in any month. Use the Louisville gauge and do not launch near or above the published 18,000 cfs avoid level.",
+        "The water surface is open to public use, but banks, sandbars, and the stream bed require landowner permission except where walking or portaging is necessary. Use the designated Decker Creek and Louisville accesses for the planned route."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06805500",
       "provider": "usgs",

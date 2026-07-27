@@ -613,6 +613,12 @@ export const michiganRoutes: River[] = [
         "value": "Macomb County launch list",
         "note": "Macomb County paddling guidance identifies MacArthur Park and Harley Ensign Memorial among county-area kayak, canoe, and paddleboard launch locations.",
         "sourceUrl": "https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river"
+      },
+      {
+        "label": "Urban water quality",
+        "value": "Check current conditions after rain",
+        "note": "Macomb County monitors the Clinton River and Lake St. Clair watershed for E. coli and documents that rain can trigger sanitary or combined sewer overflows. Treat water contact and any posted advisory as part of the launch decision.",
+        "sourceUrl": "https://www.macombgov.org/departments/health-department/environmental-health-services/surface-water-quality"
       }
     ],
     "sourceLinks": [
@@ -637,11 +643,30 @@ export const michiganRoutes: River[] = [
         "provider": "local"
       },
       {
+        "label": "Macomb County surface water quality",
+        "url": "https://www.macombgov.org/departments/health-department/environmental-health-services/surface-water-quality",
+        "provider": "local"
+      },
+      {
         "label": "USGS 04161820 Clinton River at Sterling Heights",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04161820/",
         "provider": "usgs"
       }
-    ]
+    ],
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "urban_water_quality"
+      ],
+      "reviewStatus": "reviewed",
+      "safetyNotes": [
+        "Use the Sterling Heights gauge only as CRWC's downstream warning check: 8 ft is its low-water warning and 10 ft is its high-water warning, not a claimed ideal range for this mouth reach.",
+        "Recheck the river after rain. CRWC warns that fast, high water can move woody debris and block passages; skip the trip when the proxy gauge, visual current, or debris makes the route unsuitable for the group.",
+        "Check current water-quality information, wind, waves, and motorboat traffic before launching. Inspect Harley Ensign first and do not drift or continue onto Lake St. Clair without a separate open-water plan."
+      ]
+    }
   },
   {
     "id": "clinton-river-shadyside-macarthur",

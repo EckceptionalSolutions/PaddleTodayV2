@@ -14855,10 +14855,6 @@ body.site-search-open {
 
 /* Desktop UX simplification: keep the homepage focused on route discovery. */
 @media (min-width: 761px) {
-  .page-home .brand__title {
-    display: none;
-  }
-
   .home-hero__trust--below-fold {
     margin-top: 1rem;
   }

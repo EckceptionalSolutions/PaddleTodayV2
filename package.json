@@ -27,6 +27,7 @@
     "routes:audit:corridors": "tsx scripts/audit-route-corridors.ts",
     "routes:report:corridor-funnel": "tsx scripts/report-corridor-funnel.ts",
     "routes:audit:deprecations": "tsx scripts/audit-route-deprecations.ts",
+    "photos:audit": "tsx scripts/audit-photo-coverage.ts",
     "gallery:audit": "node scripts/optimize-gallery-images.mjs",
     "gallery:optimize": "node scripts/optimize-gallery-images.mjs --write",
     "routes:leads:gather": "tsx scripts/gather-route-leads.ts",

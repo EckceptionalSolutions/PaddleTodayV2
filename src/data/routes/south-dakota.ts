@@ -23,6 +23,19 @@ export const southDakotaRoutes: River[] = [
       "siteName": "Skunk Creek at Sioux Falls, SD",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06481500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "Use the 4.5 ft community floor as a minimum-only screen, then inspect bridges and tight bends for storm debris, strainers, or fences before committing.",
+        "Treat Skunk Creek as limited-contact urban water: check the City of Sioux Falls monitoring dashboard, avoid immersion when results are poor, and remember E. coli is monitored May through September.",
+        "Take out at Farm Field Park as planned; do not continue onto the Big Sioux or toward downstream dam areas without separate route-specific planning."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 4.5,
@@ -149,6 +162,20 @@ export const southDakotaRoutes: River[] = [
       "kind": "direct",
       "siteName": "Big Sioux River at Sioux Falls, SD",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06482000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "strainers",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "Use the 250 cfs community floor as a minimum-only screen, then check current weather and inspect bridges and landings for storm debris or strainers before launching.",
+        "Treat the Big Sioux as limited-contact urban water: check the City of Sioux Falls monitoring dashboard, avoid immersion when results are poor, and remember E. coli is monitored May through September.",
+        "Take out at Rotary Park as planned. The local guide warns of dangerous low-head dams on the broader Big Sioux; do not continue downtown without a separately verified route and portage plan."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "minimum-only",

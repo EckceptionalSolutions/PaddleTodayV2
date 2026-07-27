@@ -670,6 +670,22 @@ export const northDakotaRoutes: River[] = [
     "latitude": 48.9169,
     "longitude": -98.056,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Expect boulder gardens, small ledges or drops, and strainers. Near the 300 cfs low end, exposed rocks require precise navigation; scout from a safe bank or skip features you cannot read.",
+        "Steep muddy or quicksand-like banks and root-cliff embankments can block exits for long stretches. Use only the named access corridor and do not rely on private banks as routine bailout points.",
+        "Check the direct Walhalla gauge, recent rain, and local access status before launching. American Whitewater treats 1,400 to 3,000 cfs as high runnable and flows above 3,000 cfs as above recommended."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05099600",
       "provider": "usgs",

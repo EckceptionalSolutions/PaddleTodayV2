@@ -29,6 +29,22 @@ export const tennesseeRoutes: River[] = [
       "siteName": "South FK Cumberland River at Leatherwood Ford, TN",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03410210/"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Treat this as serious Class III-IV gorge whitewater for highly skilled, properly equipped groups; NPS says the run becomes powerful quickly and challenges even advanced and expert paddlers.",
+        "Check USGS 03410210, recent rain, and the NPS gauge guidance immediately before launching. The river is free-flowing, can rise quickly, and the historic level descriptions are generalized, so scout rather than treating a number as clearance.",
+        "Confirm Burnt Mill Bridge and Leatherwood Ford access before leaving vehicles, keep the group together, and plan for undercuts, sieves, strainers, cold-water swims, long pools, and only a few emergency exit points."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 1000,
@@ -89,6 +105,12 @@ export const tennesseeRoutes: River[] = [
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1719/main"
       },
       {
+        "label": "Manager safety guidance",
+        "value": "Dynamic whitewater, cold-water exposure, strainers, and limited emergency access",
+        "note": "NPS says some Big South Fork sections should be attempted only by highly skilled paddlers with proper equipment, conditions can change quickly, and groups should avoid strainers and hydraulics, know the take-out, and prepare for cold-water swims and limited emergency access.",
+        "sourceUrl": "https://www.nps.gov/biso/planyourvisit/riversafety.htm"
+      },
+      {
         "label": "Coordinate anchors",
         "value": "36.3800, -84.6200 to 36.4710, -84.6730",
         "note": "Burnt Mill Bridge is anchored to USGS-topo-derived public bridge coordinates. The take-out is anchored to the Leatherwood Ford access/gauge corridor, where the USGS gauge and NPS access are at the planned finish.",
@@ -114,6 +136,11 @@ export const tennesseeRoutes: River[] = [
       {
         "label": "NPS Big South Fork river access points",
         "url": "https://www.nps.gov/biso/planyourvisit/riveraccesspoints.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Big South Fork river safety",
+        "url": "https://www.nps.gov/biso/planyourvisit/riversafety.htm",
         "provider": "nps"
       },
       {

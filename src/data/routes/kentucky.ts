@@ -4829,6 +4829,20 @@ export const kentuckyRoutes: River[] = [
       "siteName": "Levisa Fork at Pikeville, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03209500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "dam_release",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Check the Pikeville gauge before launching. KDFWR says Russell Fork inflow and Fishtrap Lake releases help set this corridor's flow, and its official good band is 800 to 1,400 cfs or 7.4 to 8.5 ft.",
+        "KDFWR reports abundant woody debris on the Levisa Fork and warns that swift current makes it more dangerous above the recommended band. Give wood and bridge constrictions extra room.",
+        "Use the named public ramps only. Parking at Jubilee is limited and requires church permission for the paved lot, while land around Cedar Creek is privately owned or steep and rocky."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 800,
@@ -4957,6 +4971,20 @@ export const kentuckyRoutes: River[] = [
       "kind": "direct",
       "siteName": "Levisa Fork at Pikeville, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03209500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "dam_release",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Check the Pikeville gauge before launching. KDFWR says Russell Fork inflow and Fishtrap Lake releases help set this corridor's flow, and its official good band is 800 to 1,400 cfs or 7.4 to 8.5 ft.",
+        "KDFWR reports abundant woody debris on the Levisa Fork and warns that swift current makes it more dangerous above the recommended band. Give wood and bridge constrictions extra room.",
+        "Land at the named public ramps rather than nearby banks. KDFWR says land surrounding Thompson Road is privately owned or thickly vegetated."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
@@ -5091,6 +5119,20 @@ export const kentuckyRoutes: River[] = [
       "kind": "direct",
       "siteName": "Levisa Fork at Pikeville, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03209500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "dam_release",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Check the Pikeville gauge before committing to the full route. KDFWR says Russell Fork inflow and Fishtrap Lake releases help set this corridor's flow, and its official good band is 800 to 1,400 cfs or 7.4 to 8.5 ft.",
+        "KDFWR reports abundant woody debris on the Levisa Fork and warns that swift current makes it more dangerous above the recommended band. The longer mileage increases exposure to wood and bridge constrictions.",
+        "Use the named public accesses only. Jubilee has limited parking and requires church permission for the paved lot, and land around the downstream ramps includes private or heavily vegetated banks."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",

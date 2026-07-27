@@ -1,3 +1,5 @@
+import { getDedicatedRiverGroupHeroPhoto } from './river-group-hero-photos';
+
 export interface RouteGalleryPhoto {
   id: string;
   src: string;
@@ -9,6 +11,7 @@ export interface RouteGalleryPhoto {
 
 export interface RoutePreviewPhoto extends RouteGalleryPhoto {
   isPlaceholder: boolean;
+  sourceKind: 'route' | 'river' | 'placeholder';
 }
 
 interface RoutePhotoTarget {
@@ -104,6 +107,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
     },
   ],
+  'upper-iowa-river-kendallville-bluffton': [
+    {
+      id: 'upper-iowa-river-new-albin-commons',
+      src: '/gallery/upper-iowa-river-kendallville-bluffton/upper-iowa-river-new-albin.jpg',
+      alt: 'An aerial view looks down at the Upper Iowa River winding between wooded bluffs and farm fields.',
+      caption: 'Upper Iowa River bluff-country corridor',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
   'upper-iowa-river-chimney-rock-malanaphy': [
     {
       id: 'upper-iowa-river-new-albin-commons',
@@ -131,6 +144,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       alt: 'A person fishes from a rock in the Maquoketa River, with wooded banks and a shallow rocky channel around them.',
       caption: 'Maquoketa River in Iowa',
       credit: 'Mara Koenig/USFWS via USGS',
+      takenLabel: 'USGS asset: public domain',
+    },
+  ],
+  'maquoketa-river-backbone-dundee': [
+    {
+      id: 'backbone-state-park-usgs',
+      src: '/gallery/maquoketa-river-backbone-dundee/backbone-state-park-usgs.jpg',
+      alt: 'The Maquoketa River runs below the rocky wooded bluffs of Backbone State Park.',
+      caption: 'Maquoketa River at Backbone State Park',
+      credit: 'USGS',
       takenLabel: 'USGS asset: public domain',
     },
   ],
@@ -2761,6 +2784,21 @@ export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto
     return {
       ...photo,
       isPlaceholder: false,
+      sourceKind: 'route',
+    };
+  }
+
+  const riverPhoto = getDedicatedRiverGroupHeroPhoto(route.riverId);
+  if (riverPhoto) {
+    return {
+      id: `river-group-${route.riverId}`,
+      src: riverPhoto.src,
+      alt: riverPhoto.alt,
+      caption: `${riverPhoto.caption} river-level photo`,
+      credit: riverPhoto.credit,
+      takenLabel: riverPhoto.licenseLabel,
+      isPlaceholder: false,
+      sourceKind: 'river',
     };
   }
 
@@ -2772,5 +2810,6 @@ export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto
       ? `Placeholder river image for ${routeLabel}.`
       : fallback.alt,
     isPlaceholder: true,
+    sourceKind: 'placeholder',
   };
 }

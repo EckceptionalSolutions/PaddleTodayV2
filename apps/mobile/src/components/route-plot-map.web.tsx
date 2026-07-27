@@ -38,13 +38,16 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   backgroundSpanSegments?: RouteSpanCoordinate[][];
   canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>;
   onSelectPoint?: (point: RoutePlotPoint) => void;
+  onViewSelected?: (point: RoutePlotPoint) => void;
   onZoomLevelChange?: (zoomLevel: number) => void;
   height?: number;
   showFooter?: boolean;
+  showAllControl?: boolean;
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
   fitToAllOnReady?: boolean;
   fitToSelectedOnReady?: boolean;
+  focusOnSelect?: boolean;
   selectedFocusBottomInset?: number;
 }>(function RoutePlotMap({
   points,
@@ -54,9 +57,13 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   backgroundSpanSegments = [],
   canonicalSpans,
   onSelectPoint,
+  onViewSelected,
   height = 290,
   showFooter = true,
+  showAllControl = false,
   fullBleed = false,
+  focusOnSelect: _focusOnSelect = false,
+  fitToAllOnReady: _fitToAllOnReady = false,
   fitToSelectedOnReady: _fitToSelectedOnReady = false,
   selectedFocusBottomInset: _selectedFocusBottomInset = 0,
 }, ref) {
@@ -150,7 +157,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
       </View>
 
-      {showFooter ? <MapFooter selectedPoint={selectedPoint} /> : null}
+      {showAllControl ? <ShowAllButton onPress={() => undefined} /> : null}
+      {showFooter ? (
+        <MapFooter
+          points={visiblePoints}
+          selectedPoint={selectedPoint}
+          onViewSelected={onViewSelected}
+        />
+      ) : null}
     </View>
   );
 });
@@ -163,7 +177,30 @@ function MapLabel({ label, style }: { label: string; style: object }) {
   );
 }
 
-function MapFooter({ selectedPoint }: { selectedPoint: RoutePlotPoint | null }) {
+function ShowAllButton({ onPress }: { onPress: () => void }) {
+  return (
+    <Pressable
+      style={styles.showAllButton}
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel="Show all routes on map"
+    >
+      <Text style={styles.showAllButtonText}>Show all</Text>
+    </Pressable>
+  );
+}
+
+function MapFooter({
+  points,
+  selectedPoint,
+  onViewSelected,
+}: {
+  points: RoutePlotPoint[];
+  selectedPoint: RoutePlotPoint | null;
+  onViewSelected?: (point: RoutePlotPoint) => void;
+}) {
+  const legendItems = legendItemsForPoints(points);
+
   return (
     <View style={styles.footer}>
       <View style={styles.footerCopy}>
@@ -177,12 +214,40 @@ function MapFooter({ selectedPoint }: { selectedPoint: RoutePlotPoint | null }) 
           </Text>
         ) : null}
       </View>
-      <View style={styles.legend}>
-        <LegendDot color={colors.strong} label="Good+" />
-        <LegendDot color={colors.fair} label="Watch" />
+      <View style={styles.footerActions}>
+        <View style={styles.legend}>
+          {legendItems.map((item) => (
+            <LegendDot key={item.label} color={item.color} label={item.label} />
+          ))}
+        </View>
+        {selectedPoint && onViewSelected ? (
+          <Pressable
+            style={styles.viewCardButton}
+            onPress={() => onViewSelected(selectedPoint)}
+            accessibilityRole="button"
+            accessibilityLabel={`View card for ${selectedPoint.label}`}
+          >
+            <Text style={styles.viewCardButtonText}>View card</Text>
+          </Pressable>
+        ) : null}
       </View>
     </View>
   );
+}
+
+function legendItemsForPoints(points: RoutePlotPoint[]) {
+  const ratings = new Set(points.map((point) => point.rating));
+  return [
+    ratings.has('Strong') || ratings.has('Good')
+      ? { color: colors.strong, label: 'Good+' }
+      : null,
+    ratings.has('Fair')
+      ? { color: colors.fair, label: 'Watch' }
+      : null,
+    [...ratings].some((rating) => rating && rating !== 'Strong' && rating !== 'Good' && rating !== 'Fair')
+      ? { color: colors.noGo, label: 'No-go' }
+      : null,
+  ].filter((item): item is { color: string; label: string } => item !== null);
 }
 
 function LegendDot({ color, label }: { color: string; label: string }) {
@@ -674,6 +739,10 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
   },
+  footerActions: {
+    alignItems: 'flex-end',
+    gap: spacing.sm,
+  },
   legend: {
     gap: spacing.xs,
   },
@@ -691,5 +760,32 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 11,
     fontWeight: '700',
+  },
+  showAllButton: {
+    position: 'absolute',
+    top: spacing.sm,
+    right: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: 'rgba(255, 255, 255, 0.94)',
+  },
+  showAllButtonText: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  viewCardButton: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+  },
+  viewCardButtonText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
+    fontWeight: '900',
   },
 });

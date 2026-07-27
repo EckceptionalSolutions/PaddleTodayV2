@@ -45,11 +45,23 @@ const routeGalleryImages: Record<string, string[]> = {
   'boone-river-riverside-albright': [
     '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
   ],
+  'boone-river-albright-tunnel-mill': [
+    '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
+  ],
+  'boone-river-bells-mill-boone-forks': [
+    '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
+  ],
+  'boone-river-tunnel-mill-bells-mill': [
+    '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
+  ],
   'big-fork-river-highway-6-south-north': [
     '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
   ],
   'red-lake-river-smiley-bridge-centennial-park': [
     '/gallery/red-lake-river-smiley-bridge-centennial-park/red-lake-river-red-lake-falls.jpg',
+  ],
+  'red-lake-river-sportsmans-huot': [
+    '/gallery/red-lake-river-sportsmans-huot/red-lake-river-red-lake-falls.jpg',
   ],
   'sauk-river-spring-hill-st-martin': [
     '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
@@ -62,6 +74,66 @@ const routeGalleryImages: Record<string, string[]> = {
   ],
   'sauk-river-st-martin-rockville': [
     '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-eagle-heims-mill': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-eagle-knights-of-columbus': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-frogtown-eagle-park': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-frogtown-knights-of-columbus': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-frogtown-miller-landing': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-frogtown-rockville': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-knights-of-columbus-heims-mill': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-miller-landing-heims-mill': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-miller-landing-knights-of-columbus': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-pineview-heims-mill': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-rockville-heims-mill': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-rockville-knights-of-columbus': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-rockville-miller-landing': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-st-martin-eagle-park': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-st-martin-frogtown': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'chippewa-river-lentz-watson-lions-park': [
+    '/gallery/chippewa-river-lentz-watson-lions-park/chippewa-river.webp',
+  ],
+  'little-fork-river-dentaybow-devereaux': [
+    '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.webp',
+  ],
+  'little-fork-river-dentaybow-fiedler': [
+    '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.webp',
+  ],
+  'little-fork-river-highway-73-samuelson': [
+    '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.webp',
+  ],
+  'little-fork-river-highway-73-silverdale': [
+    '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.webp',
   ],
   'cottonwood-river-juenemann-springfield': [
     '/gallery/cottonwood-river-juenemann-springfield/cottonwood-river-flandrau.jpg',
@@ -117,8 +189,27 @@ const routeGalleryImages: Record<string, string[]> = {
   'minnesota-river-henderson-belle-plaine': [
     '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
   ],
+  'minnesota-river-belle-plaine-carver': [
+    '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+  ],
+  'minnesota-river-belle-plaine-thompson-ferry': [
+    '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+  ],
+  'minnesota-river-henderson-station-thompson-ferry': [
+    '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+  ],
   'mississippi-river-hidden-falls-harriet-island': [
     '/gallery/mississippi-river-hidden-falls-harriet-island/hidden-falls-st-paul.jpg',
+  ],
+  'mississippi-river-norin-babcock': [
+    '/gallery/mississippi-river-norin-babcock/norin-landing-1.jpg',
+    '/gallery/mississippi-river-norin-babcock/norin-landing-2.jpg',
+  ],
+  'otter-tail-river-phelps-mill-west-lost-lake': [
+    '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
+  ],
+  'otter-tail-river-phelps-mill-west-red-river-lake': [
+    '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
   ],
   'kickapoo-river-ontario-rockton': [
     '/gallery/kickapoo-river-ontario-rockton/kickapoo-river-valley.jpg',
@@ -445,11 +536,121 @@ const placeholderImages = [
   '/gallery/fallbacks/river-fallback-wide.jpg',
 ];
 
+const riverGroupImages: Record<string, string> = {
+  'allen-creek': '/gallery/river-groups/allen-creek/allen-creek-wetlands.webp',
+  'ashippun-river': '/gallery/river-groups/ashippun-river/ashippun-river.webp',
+  'badfish-creek': '/gallery/river-groups/badfish-creek/badfish-creek-cooksville.webp',
+  'badger-mill-creek': '/gallery/river-groups/badger-mill-creek/badger-mill-creek-verona.webp',
+  'bad-axe-river-north-fork': '/gallery/river-groups/bad-axe-river-north-fork/north-fork-bad-axe-river-wis-56.webp',
+  'barren-river': '/gallery/river-groups/barren-river/barren-river-bowling-green-bridges.webp',
+  'baraboo-river': '/gallery/river-groups/baraboo-river/baraboo-river.webp',
+  'bark-river': '/gallery/river-groups/bark-river/bark-river-greenway.webp',
+  'bayou-deview': '/gallery/river-groups/bayou-deview/bayou-deview-cache-refuge.webp',
+  'beaver-dam-river': '/gallery/river-groups/beaver-dam-river/beaver-dam-river.webp',
+  'black-hawk-creek': '/gallery/river-groups/black-hawk-creek/black-hawk-creek-sunderbruch-park.webp',
+  'big-eau-pleine-river': '/gallery/river-groups/big-eau-pleine-river/big-eau-pleine-river-stratford-gauge.webp',
+  'big-rib-river': '/gallery/river-groups/big-rib-river/marathon-city-bridge-big-rib-river.webp',
+  'bois-brule-river': '/gallery/river-groups/bois-brule-river/brule-river-boreal-forest.webp',
+  'brule-river': '/gallery/river-groups/brule-river/brule-river-bridge.webp',
+  'blue-river': '/gallery/river-groups/blue-river/blue-river-wisconsin.webp',
+  'cedar-river': '/gallery/river-groups/cedar-river/cedar-river-george-wyth.webp',
+  'cedar-creek': '/gallery/river-groups/cedar-creek/cedar-creek-cedarburg.webp',
+  'black-river': '/gallery/river-groups/black-river/falls-of-the-black-river.webp',
+  'chippewa-river-wisconsin': '/gallery/river-groups/chippewa-river-wisconsin/chippewa-river-wisconsin.webp',
+  'cloquet-river': '/gallery/river-groups/cloquet-river/cloquet-river-state-forest.webp',
+  'crawfish-river': '/gallery/river-groups/crawfish-river/crawfish-river-dodge-county.webp',
+  'crystal-river': '/gallery/river-groups/crystal-river/crystal-river-dayton.webp',
+  'crow-wing-river': '/gallery/river-groups/crow-wing-river/crow-wing-river-oylen.webp',
+  'des-moines-river': '/gallery/river-groups/des-moines-river/des-moines-river-downtown-pexels.webp',
+  'east-nishnabotna-river': '/gallery/river-groups/east-nishnabotna-river/east-nishnabotna-river-elliott-gauge.webp',
+  'east-branch-pecatonica-river': '/gallery/river-groups/east-branch-pecatonica-river/east-branch-pecatonica-argyle.webp',
+  'eau-claire-river-east-branch': '/gallery/river-groups/eau-claire-river-east-branch/east-branch-eau-claire-wayside-highway-64-aerial.webp',
+  'eau-claire-river': '/gallery/river-groups/eau-claire-river/eau-claire-river-dells.webp',
+  'eau-galle-river': '/gallery/river-groups/eau-galle-river/eau-galle-wagon-trail-bridge.webp',
+  'embarrass-river-south-branch': '/gallery/river-groups/embarrass-river-south-branch/south-branch-embarrass-tigerton-dells-aerial.webp',
+  'fox-river': '/gallery/river-groups/fox-river/fox-river-illinois.webp',
+  'green-river-kentucky': '/gallery/river-groups/green-river-kentucky/green-river-mammoth-cave.webp',
+  'hay-river': '/gallery/river-groups/hay-river/hay-river.webp',
+  'honey-creek': '/gallery/river-groups/honey-creek/honey-creek-bieneman-road-bridge.webp',
+  'iowa-river': '/gallery/river-groups/iowa-river/iowa-river-ralston-confluence.webp',
+  'jump-river': '/gallery/river-groups/jump-river/jump-river-below-wayside.webp',
+  'lemonweir-river': '/gallery/river-groups/lemonweir-river/lemonweir-river-mauston.webp',
+  'little-platte-river': '/gallery/river-groups/little-platte-river/little-platte-river-church-road.webp',
+  'little-sioux-river': '/gallery/river-groups/little-sioux-river/little-sioux-river-martins-access.webp',
+  'little-sugar-river': '/gallery/river-groups/little-sugar-river/little-sugar-river-tin-can-albany-aerial.webp',
+  'little-turkey-river': '/gallery/river-groups/little-turkey-river/little-turkey-river-gouldsburg-eldorado-aerial.webp',
+  'lizard-creek': '/gallery/river-groups/lizard-creek/lizard-creek-aerial-corridor.webp',
+  'long-prairie-river': '/gallery/river-groups/long-prairie-river/long-prairie-river.webp',
+  'manitowoc-river': '/gallery/river-groups/manitowoc-river/manitowoc-river-june-2023.webp',
+  'mecan-river': '/gallery/river-groups/mecan-river/mecan-river-pine-oak-forest.webp',
+  'menominee-river': '/gallery/river-groups/menominee-river/menominee-recreational-river.webp',
+  'menomonee-river': '/gallery/river-groups/menomonee-river/menomonee-river-milwaukee.webp',
+  'middle-raccoon-river': '/gallery/river-groups/middle-raccoon-river/redfield-dam-middle-raccoon-river.webp',
+  'mississippi-river': '/gallery/river-groups/mississippi-river/mississippi-river-weaver-pexels.webp',
+  'mukwonago-river': '/gallery/river-groups/mukwonago-river/mukwonago-river.webp',
+  'mullet-river': '/gallery/river-groups/mullet-river/mullet-river-glenbeulah.webp',
+  'new-wood-river': '/gallery/river-groups/new-wood-river/new-wood-river-county-e.webp',
+  'north-fork-zumbro-river': '/gallery/river-groups/north-fork-zumbro-river/north-fork-zumbro-zumbrota.webp',
+  'north-fork-maquoketa-river': '/gallery/river-groups/north-fork-maquoketa-river/north-fork-maquoketa-river.webp',
+  'north-raccoon-river': '/gallery/river-groups/north-raccoon-river/north-raccoon-lake-city-bridge.webp',
+  'north-skunk-river': '/gallery/river-groups/north-skunk-river/north-skunk-river-new-sharon.webp',
+  'pecatonica-river': '/gallery/river-groups/pecatonica-river/pecatonica-river-woods.webp',
+  'pecatonica-river-mineral-point-branch': '/gallery/river-groups/pecatonica-river-mineral-point-branch/mineral-point-branch-pecatonica-ludden-north-oak-aerial.webp',
+  'peshtigo-river': '/gallery/river-groups/peshtigo-river/peshtigo-river-state-forest.webp',
+  'pine-river-minnesota': '/gallery/river-groups/pine-river-minnesota/pine-river-float.webp',
+  'pine-river-wisconsin': '/gallery/river-groups/pine-river-wisconsin/pine-river-waushara-county.webp',
+  'pike-river': '/gallery/river-groups/pike-river/pike-river-usgs-sampling.webp',
+  'plover-river': '/gallery/river-groups/plover-river/plover-river-hwy-k-jordan-park-aerial.webp',
+  'prairie-river': '/gallery/river-groups/prairie-river/prairie-river-merrill-gauge.webp',
+  'pomme-de-terre-river-minnesota': '/gallery/river-groups/pomme-de-terre-river-minnesota/pomme-de-terre-appleton.webp',
+  'popple-river': '/gallery/river-groups/popple-river/popple-river-headwaters.webp',
+  'raccoon-river': '/gallery/river-groups/raccoon-river/raccoon-river-walnut-woods.webp',
+  'red-cedar-river': '/gallery/river-groups/red-cedar-river/red-cedar-river-menomonie.webp',
+  'red-river': '/gallery/river-groups/red-river/red-river-gresham-gauge.webp',
+  'red-river-of-the-north': '/gallery/river-groups/red-river-of-the-north/red-river-fargo.webp',
+  'redwood-river': '/gallery/river-groups/redwood-river/redwood-river-camden.webp',
+  'rock-river': '/gallery/river-groups/rock-river/rock-river-indianford.webp',
+  'root-river-minnesota': '/gallery/river-groups/root-river-minnesota/root-river-lanesboro-dam-pexels.webp',
+  'root-river-wisconsin': '/gallery/river-groups/root-river-wisconsin/root-river-racine.webp',
+  'rum-river': '/gallery/river-groups/rum-river/rum-river-princeton.webp',
+  'shell-rock-river': '/gallery/river-groups/shell-rock-river/shell-rock-river-cherry-street-bridge.webp',
+  'sheboygan-river': '/gallery/river-groups/sheboygan-river/sheboygan-river-riverfront.webp',
+  'snake-river': '/gallery/river-groups/snake-river/snake-river-pine-city-winter.webp',
+  'south-fork-jump-river': '/gallery/river-groups/south-fork-jump-river/south-fork-jump-river-big-falls.webp',
+  'south-fork-zumbro': '/gallery/river-groups/zumbro-river/south-fork-zumbro-rochester.webp',
+  'south-raccoon-river': '/gallery/river-groups/south-raccoon-river/south-raccoon-river-redfield-van-meter-aerial.webp',
+  'st-croix-river': '/gallery/river-groups/st-croix-river/st-croix-river-interstate-state-park-pexels.webp',
+  'st-louis-river': '/gallery/river-groups/st-louis-river/st-louis-river-jay-cooke.webp',
+  'straight-river': '/gallery/river-groups/straight-river/straight-river-owatonna.webp',
+  'sugar-river': '/gallery/river-groups/sugar-river/sugar-river-donald-park.webp',
+  'trempealeau-river': '/gallery/river-groups/trempealeau-river/trempealeau-river-arcadia.webp',
+  'turtle-creek': '/gallery/river-groups/turtle-creek/turtleville-iron-bridge.webp',
+  'tyler-forks': '/gallery/river-groups/tyler-forks/wren-falls-tyler-forks.webp',
+  'upper-cumberland-river': '/gallery/river-groups/upper-cumberland-river/cumberland-river-loyall.webp',
+  'vermilion-river-minnesota': '/gallery/river-groups/vermilion-river-minnesota/vermilion-river-gorge.webp',
+  'wapsipinicon-river': '/gallery/river-groups/wapsipinicon-river/wapsipinicon-independence.webp',
+  'waupaca-river': '/gallery/river-groups/waupaca-river/waupaca-river-cobb-town.webp',
+  'watonwan-river': '/gallery/river-groups/watonwan-river/watonwan-river-garden-city.webp',
+  'west-branch-sugar-river': '/gallery/river-groups/west-branch-sugar-river/west-branch-sugar-river-restoration.webp',
+  'west-branch-white-river': '/gallery/river-groups/west-branch-white-river/west-branch-white-river-cottonville-aerial.webp',
+  'west-nishnabotna-river': '/gallery/river-groups/west-nishnabotna-river/nishnabotna-river-bridge-310th-street.webp',
+  'white-river-wisconsin-northwest-wisconsin': '/gallery/river-groups/white-river-wisconsin-northwest-wisconsin/white-river-maple-ridge-highway-112-aerial.webp',
+  'white-river-wisconsin-southeast-wisconsin': '/gallery/river-groups/white-river-wisconsin-southeast-wisconsin/white-river-county-park-riverview-aerial.webp',
+  'whitewater-river': '/gallery/river-groups/whitewater-river/whitewater-river-state-park.webp',
+  'winnebago-river': '/gallery/river-groups/winnebago-river/taylor-bridge-winnebago-river.webp',
+  'wolf-river': '/gallery/river-groups/wolf-river/wolf-river-pearson.webp',
+  'yahara-river': '/gallery/river-groups/yahara-river/mouth-of-yahara-river.webp',
+  'yellow-breeches-creek': '/gallery/river-groups/yellow-breeches-creek/yellow-breeches-boiling-springs.webp',
+  'zumbro-river': '/gallery/river-groups/zumbro-river/zumbro-river-hammond-pexels.webp',
+};
+
 export function routePhotoForRiver(river: PhotoRiver) {
   const key = `${river.riverId ?? 'route'}:${river.slug}`;
   const routeImages = routeGalleryImages[river.slug];
-  const isPlaceholder = !routeImages?.length;
-  const images = isPlaceholder ? placeholderImages : routeImages;
+  const riverGroupImage = river.riverId ? riverGroupImages[river.riverId] : undefined;
+  const sourceKind = routeImages?.length ? 'route' : riverGroupImage ? 'river' : 'placeholder';
+  const isPlaceholder = sourceKind === 'placeholder';
+  const images = routeImages?.length ? routeImages : riverGroupImage ? [riverGroupImage] : placeholderImages;
   let hash = 0;
   for (let index = 0; index < key.length; index += 1) {
     hash = (hash * 31 + key.charCodeAt(index)) % images.length;
@@ -457,6 +658,7 @@ export function routePhotoForRiver(river: PhotoRiver) {
   return {
     uri: resolveApiUrl(images[hash]),
     isPlaceholder,
+    sourceKind,
   };
 }
 

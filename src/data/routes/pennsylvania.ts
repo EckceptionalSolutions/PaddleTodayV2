@@ -19,6 +19,20 @@ export const pennsylvaniaRoutes: River[] = [
     "latitude": 39.866528,
     "longitude": -79.493395,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "dam_release",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "DCNR describes the Lower Yough as a seven-mile Class III-IV run with undercut rocks, ledges, and swift currents that should be attempted only by experienced whitewater boaters or guided groups.",
+        "Use a whitewater-designed craft, wear the required PFD and helmet, and check the Ohiopyle gauge plus current park alerts before launching because water level and dam-regulated flow changes can materially change the difficulty.",
+        "American Whitewater documents cold water, the undercut and portage at Dimple Rock, pinning hazards at River's End, and the river-left Bruner Run take-out; confirm current launch-ticket, gate, shuttle, and take-out operations with the park before committing to the gorge."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03081500",
       "provider": "usgs",
@@ -101,6 +115,11 @@ export const pennsylvaniaRoutes: River[] = [
         "provider": "local"
       },
       {
+        "label": "PA DCNR Ohiopyle current alerts",
+        "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/alerts",
+        "provider": "local"
+      },
+      {
         "label": "American Whitewater Lower Yough reach",
         "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1687/main",
         "provider": "american_whitewater"
@@ -148,6 +167,20 @@ export const pennsylvaniaRoutes: River[] = [
       "kind": "direct",
       "siteName": "Lehigh River below Francis E. Walter Reservoir near White Haven, PA",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-01447800/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "dam_release",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "DCNR classifies the Lehigh Gorge as Class II-III whitewater and says inexperienced boaters should not attempt it without qualified guides.",
+        "Check the White Haven outflow gauge and current park alerts before launching; Francis E. Walter Dam releases and tributary inflow control conditions and can change access traffic.",
+        "Use only the designated White Haven and Rockport access areas, whitewater-designed craft, and the required whitewater PFD; DCNR also recommends helmets for canoe and kayak paddlers and cold-water gear in spring and fall."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
@@ -269,6 +302,20 @@ export const pennsylvaniaRoutes: River[] = [
       "siteName": "Lehigh River below Francis E. Walter Reservoir near White Haven, PA",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-01447800/"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "dam_release",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "DCNR classifies the Lehigh Gorge as Class II-III whitewater and says inexperienced boaters should not attempt it without qualified guides.",
+        "Check the White Haven outflow gauge and current park alerts before launching; Francis E. Walter Dam releases and tributary inflow control conditions and can change access traffic.",
+        "Use only the designated Rockport and Glen Onoko access areas, whitewater-designed craft, and the required whitewater PFD; DCNR also recommends helmets for canoe and kayak paddlers and cold-water gear in spring and fall."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 250,
@@ -382,6 +429,20 @@ export const pennsylvaniaRoutes: River[] = [
       "kind": "direct",
       "siteName": "Lehigh River below Francis E. Walter Reservoir near White Haven, PA",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-01447800/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "dam_release",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "DCNR classifies the Lehigh Gorge as Class II-III whitewater and says inexperienced boaters should not attempt it without qualified guides.",
+        "Check the White Haven outflow gauge and current park alerts before launching; Francis E. Walter Dam releases and tributary inflow control conditions can change both difficulty and access traffic.",
+        "Use only the designated White Haven and Glen Onoko access areas, whitewater-designed craft, and the required whitewater PFD; this 20.9-mile run can take 10 to 12 hours at low water, so leave enough daylight and carry spring or fall cold-water gear."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",

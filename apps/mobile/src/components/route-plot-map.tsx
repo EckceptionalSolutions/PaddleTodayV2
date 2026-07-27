@@ -42,13 +42,16 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   backgroundSpanSegments?: RouteSpanCoordinate[][];
   canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>;
   onSelectPoint?: (point: RoutePlotPoint) => void;
+  onViewSelected?: (point: RoutePlotPoint) => void;
   onZoomLevelChange?: (zoomLevel: number) => void;
   height?: number;
   showFooter?: boolean;
+  showAllControl?: boolean;
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
   fitToAllOnReady?: boolean;
   fitToSelectedOnReady?: boolean;
+  focusOnSelect?: boolean;
   selectedFocusBottomInset?: number;
 }>(function RoutePlotMap({
   points,
@@ -58,13 +61,16 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   backgroundSpanSegments = [],
   canonicalSpans,
   onSelectPoint,
+  onViewSelected,
   onZoomLevelChange,
   height = 290,
   showFooter = true,
+  showAllControl = false,
   fullBleed = false,
   markerMode = 'score',
   fitToAllOnReady = false,
   fitToSelectedOnReady = false,
+  focusOnSelect = false,
   selectedFocusBottomInset = 0,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
@@ -89,6 +95,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const nativeMaps = getNativeMaps();
   const mapRef = useRef<NativeMapView | null>(null);
   const previousPointSignatureRef = useRef<string | null>(null);
+  const didFitAllOnReadyRef = useRef(false);
   const initialRegion = regionFromBounds(bounds);
   // Route geometry can arrive after the summary markers. Updating that overlay
   // should not change the user's camera position.
@@ -119,6 +126,25 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     }
 
     mapRef.current?.animateToRegion?.(regionAroundPoint(selectedPoint, selectedFocusBottomInset, height), 260);
+  }
+
+  function selectPoint(point: RoutePlotPoint) {
+    onSelectPoint?.(point);
+    if (!focusOnSelect || !nativeMaps) {
+      return;
+    }
+
+    const pointSpans = routeSpanSegments(point, canonicalSpans);
+    const pointCoordinates = pointSpans.flat();
+    if (pointCoordinates.length >= 2) {
+      mapRef.current?.fitToCoordinates?.(pointCoordinates, {
+        animated: true,
+        edgePadding: mapEdgePadding(height, showFooter, 'selected', selectedFocusBottomInset),
+      });
+      return;
+    }
+
+    mapRef.current?.animateToRegion?.(regionAroundPoint(point, selectedFocusBottomInset, height), 260);
   }
 
   function focusAll() {
@@ -215,13 +241,19 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   }, [nativeMaps, pointSignature, selectedId, showScoreMarkers]);
 
   useEffect(() => {
-    if (!fitToAllOnReady || !nativeMaps || visiblePoints.length === 0) {
+    if (!fitToAllOnReady) {
+      didFitAllOnReadyRef.current = false;
       return;
     }
 
+    if (didFitAllOnReadyRef.current || !nativeMaps || visiblePoints.length === 0) {
+      return;
+    }
+
+    didFitAllOnReadyRef.current = true;
     const timeout = setTimeout(() => focusAll(), 120);
     return () => clearTimeout(timeout);
-  }, [fitToAllOnReady, height, nativeMaps, pointSignature, showFooter]);
+  }, [fitToAllOnReady, nativeMaps, visiblePoints.length]);
 
   useEffect(() => {
     if (!fitToSelectedOnReady || !selectedId || !nativeMaps || !selectedPoint) {
@@ -308,7 +340,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 <Marker
                   key={point.id}
                   coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-                  onPress={() => onSelectPoint?.(point)}
+                  onPress={() => selectPoint(point)}
                   zIndex={selected ? 10 : 1}
                   pinColor={pinColor}
                   tracksViewChanges={false}
@@ -320,7 +352,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               <Marker
                 key={point.id}
                 coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-                onPress={() => onSelectPoint?.(point)}
+                onPress={() => selectPoint(point)}
                 zIndex={selected ? 10 : 1}
                 anchor={{ x: 0.5, y: 0.5 }}
                 centerOffset={{ x: 0, y: 0 }}
@@ -349,7 +381,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
         </MapView>
 
-        {showFooter ? <MapFooter selectedPoint={selectedPoint} /> : null}
+        {showAllControl ? <ShowAllButton onPress={focusAll} /> : null}
+        {showFooter ? (
+          <MapFooter
+            points={visiblePoints}
+            selectedPoint={selectedPoint}
+            onViewSelected={onViewSelected}
+          />
+        ) : null}
       </View>
     );
   }
@@ -393,7 +432,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 styles.markerTarget,
                 projectPoint(point.latitude, point.longitude, bounds),
               ]}
-              onPress={() => onSelectPoint?.(point)}
+              onPress={() => selectPoint(point)}
               hitSlop={10}
               accessibilityRole="button"
               accessibilityLabel={`${point.label}${point.markerAccessibilityLabel ? `, ${point.markerAccessibilityLabel}` : point.score ? `, score ${point.score}` : ''}`}
@@ -419,7 +458,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
       </View>
 
-      {showFooter ? <MapFooter selectedPoint={selectedPoint} /> : null}
+      {showAllControl ? <ShowAllButton onPress={focusAll} /> : null}
+      {showFooter ? (
+        <MapFooter
+          points={visiblePoints}
+          selectedPoint={selectedPoint}
+          onViewSelected={onViewSelected}
+        />
+      ) : null}
     </View>
   );
 });
@@ -432,7 +478,30 @@ function getNativeMaps(): typeof import('react-native-maps') | null {
   return require<typeof import('react-native-maps')>('react-native-maps');
 }
 
-function MapFooter({ selectedPoint }: { selectedPoint: RoutePlotPoint | null }) {
+function ShowAllButton({ onPress }: { onPress: () => void }) {
+  return (
+    <Pressable
+      style={styles.showAllButton}
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel="Show all routes on map"
+    >
+      <Text style={styles.showAllButtonText}>Show all</Text>
+    </Pressable>
+  );
+}
+
+function MapFooter({
+  points,
+  selectedPoint,
+  onViewSelected,
+}: {
+  points: RoutePlotPoint[];
+  selectedPoint: RoutePlotPoint | null;
+  onViewSelected?: (point: RoutePlotPoint) => void;
+}) {
+  const legendItems = legendItemsForPoints(points);
+
   return (
     <View style={styles.footer}>
       <View style={styles.footerCopy}>
@@ -446,12 +515,40 @@ function MapFooter({ selectedPoint }: { selectedPoint: RoutePlotPoint | null }) 
           </Text>
         ) : null}
       </View>
-      <View style={styles.legend}>
-        <LegendDot color={colors.strong} label="Good+" />
-        <LegendDot color={colors.fair} label="Watch" />
+      <View style={styles.footerActions}>
+        <View style={styles.legend}>
+          {legendItems.map((item) => (
+            <LegendDot key={item.label} color={item.color} label={item.label} />
+          ))}
+        </View>
+        {selectedPoint && onViewSelected ? (
+          <Pressable
+            style={styles.viewCardButton}
+            onPress={() => onViewSelected(selectedPoint)}
+            accessibilityRole="button"
+            accessibilityLabel={`View card for ${selectedPoint.label}`}
+          >
+            <Text style={styles.viewCardButtonText}>View card</Text>
+          </Pressable>
+        ) : null}
       </View>
     </View>
   );
+}
+
+function legendItemsForPoints(points: RoutePlotPoint[]) {
+  const ratings = new Set(points.map((point) => point.rating));
+  return [
+    ratings.has('Strong') || ratings.has('Good')
+      ? { color: colors.strong, label: 'Good+' }
+      : null,
+    ratings.has('Fair')
+      ? { color: colors.fair, label: 'Watch' }
+      : null,
+    [...ratings].some((rating) => rating && rating !== 'Strong' && rating !== 'Good' && rating !== 'Fair')
+      ? { color: colors.noGo, label: 'No-go' }
+      : null,
+  ].filter((item): item is { color: string; label: string } => item !== null);
 }
 
 function LegendDot({ color, label }: { color: string; label: string }) {
@@ -935,6 +1032,10 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
   },
+  footerActions: {
+    alignItems: 'flex-end',
+    gap: spacing.sm,
+  },
   legend: {
     gap: spacing.xs,
   },
@@ -952,5 +1053,32 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 11,
     fontWeight: '700',
+  },
+  showAllButton: {
+    position: 'absolute',
+    top: spacing.sm,
+    right: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: 'rgba(255, 255, 255, 0.94)',
+  },
+  showAllButtonText: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  viewCardButton: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+  },
+  viewCardButtonText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
+    fontWeight: '900',
   },
 });

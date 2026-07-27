@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-26T17:54:15.666Z",
+  "generatedAt": "2026-07-27T00:07:44.820Z",
   "routeCount": 937,
-  "issueCount": 429,
+  "issueCount": 352,
   "summary": {
     "Critical": 0,
-    "High": 241,
-    "Medium": 188,
+    "High": 186,
+    "Medium": 166,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "levisa-fork-island-creek-thompson-road",
-      "slug": "levisa-fork-island-creek-thompson-road",
-      "name": "Levisa Fork",
-      "reach": "Island Creek Ramp to Thompson Road Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "expect slower shoals and more dragging; above that expect faster current around wood, bridges, and busy urban banks. KDFWR and Pikeville route materials frame this corridor as beginner-friendly at normal levels, but the longer Island-to-Thompson combination st"
-    },
-    {
-      "routeId": "levisa-fork-jubilee-cedar-creek",
-      "slug": "levisa-fork-jubilee-cedar-creek",
-      "name": "Levisa Fork",
-      "reach": "Jubilee Christian Church Ramp to Cedar Creek Canoe Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "s low and slower with more exposed shoals; above that is high and faster around wood, bridges, and urban banks. KDFWR frames the Pikeville Levisa Fork as a family-friendly moving-water corridor with gentle riffles, shoals, and deep pools at normal levels. The"
-    },
-    {
-      "routeId": "levisa-fork-jubilee-thompson-road",
-      "slug": "levisa-fork-jubilee-thompson-road",
-      "name": "Levisa Fork",
-      "reach": "Jubilee Christian Church Ramp to Thompson Road Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": ". Below that expect a slower, shoalier all-day float; above that swift current, wood, and the longer mileage become much less forgiving. The current KDFWR Levisa pages still frame this as a beginner-friendly moving-water corridor at normal levels, but the full"
-    },
     {
       "routeId": "levisa-fork-prestonsburg-airport",
       "slug": "levisa-fork-prestonsburg-airport",
@@ -163,17 +130,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ing a good river for beginning paddlers, but this short upper reach still needs wood, mud, and low-water judgment. Confidence is good for the gauge and access story because the DNR gauge is at the County Road 2 / Juenemann access and both endpoints resolve in"
-    },
-    {
-      "routeId": "kettle-river-lower-kettle-5-to-6",
-      "slug": "kettle-river-lower-kettle-5-to-6",
-      "name": "Kettle River",
-      "reach": "#5 trailer access to #6 trailer access",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "in quickly. Mostly flatwater, but it is still a real river day with one Class I rapid and stronger current after storms. The 6 to 10 ft band comes from American Whitewater rather than MN DNR. Official DNR materials support the same day-trip reach and its mostl"
     },
     {
       "routeId": "little-fork-river-veterans-park-highway-73",
@@ -1078,39 +1034,6 @@
       "evidence": "ow Alley Spring. It is easier than the upper Jacks Fork, but low water, crowds, private banks near Eminence, and rising water still require judgment. Confidence is good for a conservative minimum-only add: NPS identifies Alley Spring to Eminence as the most po"
     },
     {
-      "routeId": "jacks-fork-river-bay-creek-alley-spring",
-      "slug": "jacks-fork-river-bay-creek-alley-spring",
-      "name": "Jacks Fork River",
-      "reach": "Bay Creek to Alley Spring",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "jacks-fork-river-bay-creek-alley-spring",
-      "slug": "jacks-fork-river-bay-creek-alley-spring",
-      "name": "Jacks Fork River",
-      "reach": "Bay Creek to Alley Spring",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "with Class I-II Ozark moving water, shoals, bluff pools, gravel bars, possible wood, and shallow ledges that can require poling or lining near the floor. It should not be treated like the easier spring-fed water below Alley Spring. Confidence is good for a co"
-    },
-    {
-      "routeId": "jacks-fork-river-buck-hollow-rymers",
-      "slug": "jacks-fork-river-buck-hollow-rymers",
-      "name": "Jacks Fork River",
-      "reach": "Buck Hollow / Highway 17 Bridge to Rymers",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
       "routeId": "james-river-delaware-town-shelvin-rock",
       "slug": "james-river-delaware-town-shelvin-rock",
       "name": "James River",
@@ -1199,94 +1122,6 @@
       "evidence": "g, tight riffles, and possible walking. High or rising water can make channels, wood, and bridge approaches dangerous. National Rivers Project lists Shoal Creek as Class I-II, and lower-Shoal trip notes mention log jams, brush piles, and a treacherous split ch"
     },
     {
-      "routeId": "platte-river-platte-river-state-park-louisville",
-      "slug": "platte-river-platte-river-state-park-louisville",
-      "name": "Platte River",
-      "reach": "Platte River State Park to Louisville SRA",
-      "state": "Nebraska",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "ission to stop on banks, sandbars, or the stream bed, except where necessary to portage around obstacles or walk through shallow water. Nebraskaland Platte River Water Trail https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-t"
-    },
-    {
-      "routeId": "platte-river-platte-river-state-park-louisville",
-      "slug": "platte-river-platte-river-state-park-louisville",
-      "name": "Platte River",
-      "reach": "Platte River State Park to Louisville SRA",
-      "state": "Nebraska",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "atte is a braided sandy river with shifting channels, debris at bridge pilings, private banks and sandbars, wind exposure, and low-water dragging risk. Confidence is good for a conservative Nebraska split: Nebraska Game and Parks/Nebraskaland documents Platte"
-    },
-    {
-      "routeId": "platte-river-schramm-louisville",
-      "slug": "platte-river-schramm-louisville",
-      "name": "Platte River",
-      "reach": "Schramm Park SRA to Louisville SRA",
-      "state": "Nebraska",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "ission to stop on banks, sandbars, or the stream bed, except where necessary to portage around obstacles or walk through shallow water. Nebraskaland Platte River Water Trail https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-t"
-    },
-    {
-      "routeId": "platte-river-schramm-louisville",
-      "slug": "platte-river-schramm-louisville",
-      "name": "Platte River",
-      "reach": "Schramm Park SRA to Louisville SRA",
-      "state": "Nebraska",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "atte is a braided sandy river with shifting channels, debris at bridge pilings, private banks and sandbars, wind exposure, and low-water dragging risk. Confidence is high for Nebraska implementation: Nebraska Game and Parks/Nebraskaland documents the Schramm-t"
-    },
-    {
-      "routeId": "platte-river-schramm-platte-river-state-park",
-      "slug": "platte-river-schramm-platte-river-state-park",
-      "name": "Platte River",
-      "reach": "Schramm Park SRA to Platte River State Park",
-      "state": "Nebraska",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "ission to stop on banks, sandbars, or the stream bed, except where necessary to portage around obstacles or walk through shallow water. Nebraskaland Platte River Water Trail https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-t"
-    },
-    {
-      "routeId": "platte-river-schramm-platte-river-state-park",
-      "slug": "platte-river-schramm-platte-river-state-park",
-      "name": "Platte River",
-      "reach": "Schramm Park SRA to Platte River State Park",
-      "state": "Nebraska",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "atte is a braided sandy river with shifting channels, debris at bridge pilings, private banks and sandbars, wind exposure, and low-water dragging risk. Confidence is good for a conservative Nebraska split: Nebraska Game and Parks/Nebraskaland documents Schramm"
-    },
-    {
-      "routeId": "pembina-river-vang-riverside-park",
-      "slug": "pembina-river-vang-riverside-park",
-      "name": "Pembina River",
-      "reach": "Vang Bridge / County 55 to Walhalla Riverside Park",
-      "state": "North Dakota",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "pembina-river-vang-riverside-park",
-      "slug": "pembina-river-vang-riverside-park",
-      "name": "Pembina River",
-      "reach": "Vang Bridge / County 55 to Walhalla Riverside Park",
-      "state": "North Dakota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ridor. County and city sources identify public canoe/kayak access, and American Whitewater ties the reach to the direct Walhalla USGS gauge. Use the Pembina River at Walhalla gauge. American Whitewater marks 300 to 800 cfs low runnable, 800 to 1,400 cfs medium"
-    },
-    {
       "routeId": "cuyahoga-river-ira-lock-29",
       "slug": "cuyahoga-river-ira-lock-29",
       "name": "Cuyahoga River",
@@ -1318,50 +1153,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "oat handling, training attainments, poor water quality, and changing post-storm wood keep this from being a simple beginner float. Confidence is acceptable for a guarded community-threshold add: AW documents the exact E. Ira Road to Route 303 reach, distance,"
-    },
-    {
-      "routeId": "great-miami-river-heritage-dravo",
-      "slug": "great-miami-river-heritage-dravo",
-      "name": "Great Miami River",
-      "reach": "Heritage Park to Obergiesing Soccer Complex at Dravo Park",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "great-miami-river-heritage-dravo",
-      "slug": "great-miami-river-heritage-dravo",
-      "name": "Great Miami River",
-      "reach": "Heritage Park to Obergiesing Soccer Complex at Dravo Park",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "great-miami-river-heritage-dravo",
-      "slug": "great-miami-river-heritage-dravo",
-      "name": "Great Miami River",
-      "reach": "Heritage Park to Obergiesing Soccer Complex at Dravo Park",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "play spots, real strainer history, and a strong Hamilton gauge story. This is a whitewater-skills route, not a casual recreational float. Whitewater/swiftwater only. Use the Hamilton gauge; treat about 1000 to 3500 cfs as the guarded training window, 500 cfs a"
-    },
-    {
-      "routeId": "great-miami-river-heritage-dravo",
-      "slug": "great-miami-river-heritage-dravo",
-      "name": "Great Miami River",
-      "reach": "Heritage Park to Obergiesing Soccer Complex at Dravo Park",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "Great Miami training run with Class I-II wave features, named play spots, real strainer history, and a strong Hamilton gauge story. This is a whitewater-skills route, not a casual recreational float. Whitewater/swiftwater only. Use the Hamilton gauge; treat a"
     },
     {
       "routeId": "vermilion-river-schoepfle-mill-hollow",
@@ -1430,171 +1221,6 @@
       "evidence": "eek link with improved public launches, but it still needs a same-day check for wood, dragging, and stronger post-rain current. Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Willow Mill Park and Vincent DiFilippo Nat"
     },
     {
-      "routeId": "lehigh-river-rockport-glen-onoko",
-      "slug": "lehigh-river-rockport-glen-onoko",
-      "name": "Lehigh River",
-      "reach": "Rockport to Glen Onoko",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "lehigh-river-rockport-glen-onoko",
-      "slug": "lehigh-river-rockport-glen-onoko",
-      "name": "Lehigh River",
-      "reach": "Rockport to Glen Onoko",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "lehigh-river-rockport-glen-onoko",
-      "slug": "lehigh-river-rockport-glen-onoko",
-      "name": "Lehigh River",
-      "reach": "Rockport to Glen Onoko",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "paddlers to the same USGS/USACE White Haven flow story below Francis E. Walter Dam. Use the Lehigh River below Francis E. Walter Reservoir gauge near White Haven. DCNR says below 250 cfs is very low, 250 to 1,000 cfs is better for boating, difficulty rises ab"
-    },
-    {
-      "routeId": "lehigh-river-rockport-glen-onoko",
-      "slug": "lehigh-river-rockport-glen-onoko",
-      "name": "Lehigh River",
-      "reach": "Rockport to Glen Onoko",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Lower Lehigh Gorge whitewater from the DCNR Rockport access to Glen Onoko. DCNR names this 12.2-mile Class II-III trip, publishes official flow bands, and points paddlers to the same USGS/USACE White"
-    },
-    {
-      "routeId": "lehigh-river-white-haven-glen-onoko",
-      "slug": "lehigh-river-white-haven-glen-onoko",
-      "name": "Lehigh River",
-      "reach": "White Haven to Glen Onoko",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "lehigh-river-white-haven-glen-onoko",
-      "slug": "lehigh-river-white-haven-glen-onoko",
-      "name": "Lehigh River",
-      "reach": "White Haven to Glen Onoko",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "lehigh-river-white-haven-glen-onoko",
-      "slug": "lehigh-river-white-haven-glen-onoko",
-      "name": "Lehigh River",
-      "reach": "White Haven to Glen Onoko",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Class II-III whitewater through a steep-walled gorge. The full-corridor length, release traffic, and cold-water consequence make it a major day even for qualified private groups. Confidence is high for this Pennsylvania add: DCNR identifies White Haven to Glen"
-    },
-    {
-      "routeId": "lehigh-river-white-haven-glen-onoko",
-      "slug": "lehigh-river-white-haven-glen-onoko",
-      "name": "Lehigh River",
-      "reach": "White Haven to Glen Onoko",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Full Lehigh Gorge whitewater from the DCNR White Haven access to Glen Onoko. DCNR names this 20.9-mile Class II-III trip, warns that raft trips can take 10 to 12 hours at lower water, and publishes"
-    },
-    {
-      "routeId": "lehigh-river-white-haven-rockport",
-      "slug": "lehigh-river-white-haven-rockport",
-      "name": "Lehigh River",
-      "reach": "White Haven to Rockport",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "lehigh-river-white-haven-rockport",
-      "slug": "lehigh-river-white-haven-rockport",
-      "name": "Lehigh River",
-      "reach": "White Haven to Rockport",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "lehigh-river-white-haven-rockport",
-      "slug": "lehigh-river-white-haven-rockport",
-      "name": "Lehigh River",
-      "reach": "White Haven to Rockport",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "oints paddlers to the USGS/USACE White Haven flow story below Francis E. Walter Dam. Use the Lehigh River below Francis E. Walter Reservoir gauge near White Haven. DCNR says below 250 cfs is very low, 250 to 1,000 cfs is better for boating, difficulty rises ab"
-    },
-    {
-      "routeId": "lehigh-river-white-haven-rockport",
-      "slug": "lehigh-river-white-haven-rockport",
-      "name": "Lehigh River",
-      "reach": "White Haven to Rockport",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Lehigh Gorge whitewater from the DCNR White Haven access to Rockport. DCNR names this 8.7-mile Class II-III trip, publishes official flow bands, and points paddlers to the USGS/USACE White Have"
-    },
-    {
-      "routeId": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
-      "slug": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
-      "name": "Youghiogheny River",
-      "reach": "Lower Yough: Ohiopyle to Bruner Run",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
-      "slug": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
-      "name": "Youghiogheny River",
-      "reach": "Lower Yough: Ohiopyle to Bruner Run",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
-      "slug": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
-      "name": "Youghiogheny River",
-      "reach": "Lower Yough: Ohiopyle to Bruner Run",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Classic Lower Yough whitewater through Ohiopyle State Park, from the state-park launch below Ohiopyle Falls to Bruner Run. DCNR names the exact seven-mile route, American Whitewater ties it to the Ohi"
-    },
-    {
       "routeId": "split-rock-creek-split-rock-park-palisades",
       "slug": "split-rock-creek-split-rock-park-palisades",
       "name": "Split Rock Creek",
@@ -1639,39 +1265,6 @@
       "evidence": "plit Rock Creek as an activity at Palisades State Park. Hazards Ledges, fences, wood, high-water wave Local route guidance calls out ledges, possible fences across the creek, and stronger Class III behavior near 1,000 cfs; GFP also broadly warns that fences cr"
     },
     {
-      "routeId": "big-south-fork-burnt-mill-leatherwood",
-      "slug": "big-south-fork-burnt-mill-leatherwood",
-      "name": "Big South Fork",
-      "reach": "Burnt Mill Bridge to Leatherwood Ford",
-      "state": "Tennessee",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "big-south-fork-burnt-mill-leatherwood",
-      "slug": "big-south-fork-burnt-mill-leatherwood",
-      "name": "Big South Fork",
-      "reach": "Burnt Mill Bridge to Leatherwood Ford",
-      "state": "Tennessee",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "big-south-fork-burnt-mill-leatherwood",
-      "slug": "big-south-fork-burnt-mill-leatherwood",
-      "name": "Big South Fork",
-      "reach": "Burnt Mill Bridge to Leatherwood Ford",
-      "state": "Tennessee",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Ford gauge. Around 1,000 to 2,500 cfs is the guarded target window for skilled whitewater groups; below 500 cfs the gorge gets very rocky and technical, and above about 3,500 cfs the run is too powerful for a Paddle Today recommendation. This is not a recreat"
-    },
-    {
       "routeId": "south-chickamauga-creek-shallowford-sterchi",
       "slug": "south-chickamauga-creek-shallowford-sterchi",
       "name": "South Chickamauga Creek",
@@ -1714,39 +1307,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "ly. The route is still moving urban water, so low-water scraping, wood, debris, private banks, water quality, and fast post-rain changes matter. Confidence is good for a conservative Tennessee add: Outdoor Chattanooga lists Shallowford Road to Sterchi Farm as"
-    },
-    {
-      "routeId": "green-river-flaming-gorge-dam-little-hole",
-      "slug": "green-river-flaming-gorge-dam-little-hole",
-      "name": "Green River",
-      "reach": "Flaming Gorge Dam / Spillway Boat Launch to Little Hole",
-      "state": "Utah",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "green-river-flaming-gorge-dam-little-hole",
-      "slug": "green-river-flaming-gorge-dam-little-hole",
-      "name": "Green River",
-      "reach": "Flaming Gorge Dam / Spillway Boat Launch to Little Hole",
-      "state": "Utah",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "old, clear tailwater day float on the Green River A Section below Flaming Gorge Dam. Ashley National Forest and Recreation.gov document the exact 7-mile Spillway-to-Little-Hole route, and the Greendale USGS gauge is immediately below the dam. Use the Green Riv"
-    },
-    {
-      "routeId": "green-river-flaming-gorge-dam-little-hole",
-      "slug": "green-river-flaming-gorge-dam-little-hole",
-      "name": "Green River",
-      "reach": "Flaming Gorge Dam / Spillway Boat Launch to Little Hole",
-      "state": "Utah",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "se the Green River near Greendale gauge as the direct tailwater check. American Whitewater showed this reach runnable around 1,000 cfs; Paddle Today treats 1,000 cfs as a conservative minimum and does not claim an ideal or high-water band. Section A is general"
     },
     {
       "routeId": "badfish-creek-old-stage-casey",
@@ -1870,28 +1430,6 @@
       "evidence": "cold-water Brule run with named rapids, bony low-water riffles, and high-water strainer consequences. Confidence is high for a guarded state-forest route: Wisconsin Trail Guide publishes the exact Bois Brule Landing-to-Pine Tree route, WGS84 endpoint coordina"
     },
     {
-      "routeId": "bois-brule-river-pine-tree-highway-13",
-      "slug": "bois-brule-river-pine-tree-highway-13",
-      "name": "Bois Brule River",
-      "reach": "Pine Tree Landing to Highway 13 Canoe Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "bois-brule-river-pine-tree-highway-13",
-      "slug": "bois-brule-river-pine-tree-highway-13",
-      "name": "Bois Brule River",
-      "reach": "Pine Tree Landing to Highway 13 Canoe Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Classic Bois Brule whitewater segment from Pine Tree Landing to Highway 13, with near-continuous riffles, Lenroot Ledges, Mays Ledges, and the Highway 13 Rapids inside Brule River State Forest. Use t"
-    },
-    {
       "routeId": "bois-brule-river-stones-winneboujou",
       "slug": "bois-brule-river-stones-winneboujou",
       "name": "Bois Brule River",
@@ -1967,61 +1505,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "tes the upstream Bear Lake Road access, boulder gardens, rapids, and post-storm wood risk on the first part of the EC1 corridor. Wisconsin Trail Guide Eau Claire River EC1 https://wisconsintrailguide.com/paddle/eau-claire-river.html Wisconsin Trail Guide Eau C"
-    },
-    {
-      "routeId": "flambeau-river-highway-w-hervas",
-      "slug": "flambeau-river-highway-w-hervas",
-      "name": "Flambeau River",
-      "reach": "County Highway W to Hervas Camp Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "flambeau-river-highway-w-hervas",
-      "slug": "flambeau-river-highway-w-hervas",
-      "name": "Flambeau River",
-      "reach": "County Highway W to Hervas Camp Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "er; below that, expect more scraping in the boulder gardens and less dependable whitewater. Paddler reports will help tune the useful range. American Whitewater rates Babbs Island / County W to Hervas as Class I-II, and Wisconsin Trail Guide adds Porcupine Rap"
-    },
-    {
-      "routeId": "flambeau-river-hervas-beaver-dam",
-      "slug": "flambeau-river-hervas-beaver-dam",
-      "name": "Flambeau River",
-      "reach": "Hervas Camp Landing to Beaver Dam Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "flambeau-river-hervas-beaver-dam",
-      "slug": "flambeau-river-hervas-beaver-dam",
-      "name": "Flambeau River",
-      "reach": "Hervas Camp Landing to Beaver Dam Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Short, concentrated Flambeau whitewater run from Hervas Camp Landing to Beaver Dam Landing. Cedar Rapids and Beaver Dam Rapids make this a real Class II route with a stronger AW gauge ladder than the longer upstream North Fork segments. Use the Flambeau River"
-    },
-    {
-      "routeId": "flambeau-river-hervas-beaver-dam",
-      "slug": "flambeau-river-hervas-beaver-dam",
-      "name": "Flambeau River",
-      "reach": "Hervas Camp Landing to Beaver Dam Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Short, concentrated Flambeau whitewater run from Hervas Camp Landing to Beaver Dam Landing. Cedar Rapids and Beaver Dam Rapids make this a real Class II route with a stronger AW gauge ladder than the longer up"
     },
     {
       "routeId": "jump-river-wayside-park-sheldon",
@@ -2220,94 +1703,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "I Skinners Elbow, Class II Wilson Rapids, pushier current at higher levels, and strainer/deadfall consequences in wooded bends. Confidence is high for a guarded scenic-whitewater add: Wisconsin Trail Guide documents the exact P4 Goodman Park-to-Farm Dam route,"
-    },
-    {
-      "routeId": "pike-river-amberg-yellow-bridge",
-      "slug": "pike-river-amberg-yellow-bridge",
-      "name": "Pike River",
-      "reach": "Amberg Highway 141 Landing to Yellow Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "pike-river-amberg-yellow-bridge",
-      "slug": "pike-river-amberg-yellow-bridge",
-      "name": "Pike River",
-      "reach": "Amberg Highway 141 Landing to Yellow Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "ards Bull Falls, Scrounge Canyon, Horseshoe Falls, Yellow Bridge Falls Scout or portage the named drops as needed, and take out at Yellow Bridge Landing before the stronger Class III Yellow Bridge Falls below Barker Road. Wisconsin Trail Guide Pike River PK1 p"
-    },
-    {
-      "routeId": "pike-river-amberg-yellow-bridge",
-      "slug": "pike-river-amberg-yellow-bridge",
-      "name": "Pike River",
-      "reach": "Amberg Highway 141 Landing to Yellow Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Wild-river whitewater day south of Amberg with clear water, granite dells, Bull Falls, Scrounge Canyon, Horseshoe Falls, and a guarded finish above Yellow Bridge Falls. It is scenic enough fo"
-    },
-    {
-      "routeId": "pike-river-yellow-bridge-grogan-road",
-      "slug": "pike-river-yellow-bridge-grogan-road",
-      "name": "Pike River",
-      "reach": "Yellow Bridge Landing to Grogan Road Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "pike-river-yellow-bridge-grogan-road",
-      "slug": "pike-river-yellow-bridge-grogan-road",
-      "name": "Pike River",
-      "reach": "Yellow Bridge Landing to Grogan Road Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "pike-river-yellow-bridge-grogan-road",
-      "slug": "pike-river-yellow-bridge-grogan-road",
-      "name": "Pike River",
-      "reach": "Yellow Bridge Landing to Grogan Road Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "onfluence. Hazards Yellow Bridge Falls, private banks, boulder gardens Scout or portage Yellow Bridge Falls from river left while staying along the riverbank because nearby land is private. Expect 2- to 5-foot drops, a rocky Class II runout, and a ledge before"
-    },
-    {
-      "routeId": "pike-river-yellow-bridge-grogan-road",
-      "slug": "pike-river-yellow-bridge-grogan-road",
-      "name": "Pike River",
-      "reach": "Yellow Bridge Landing to Grogan Road Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "advanced Pike River run starting at Yellow Bridge Landing, dropping through the Class III Yellow Bridge Falls short-run, then continuing through boulder gardens and quieter Wild River miles to Grogan Road Landing at the Menominee confluence. Use the Pike River"
-    },
-    {
-      "routeId": "pike-river-yellow-bridge-grogan-road",
-      "slug": "pike-river-yellow-bridge-grogan-road",
-      "name": "Pike River",
-      "reach": "Yellow Bridge Landing to Grogan Road Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "nd trailer turnaround at the Menominee confluence. Hazards Yellow Bridge Falls, private banks, boulder gardens Scout or portage Yellow Bridge Falls from river left while staying along the riverbank because nearby land is private. Expect 2- to 5-foot drops, a r"
     },
     {
       "routeId": "pine-river-richland-center-canoe-port-1-port-4",
@@ -2673,28 +2068,6 @@
       "evidence": "the named Canton County Park topo feature. Royertown coordinates come from the Water Quality Portal site named AWARE 13 Royerton Bridge Access Maquoketa River, matching the county-listed Royertown Bridge Access. Hazards Low spots, wind, high-water push WRT re"
     },
     {
-      "routeId": "volga-river-mederville-littleport",
-      "slug": "volga-river-mederville-littleport",
-      "name": "Volga River",
-      "reach": "Mederville Canoe Access to Littleport Canoe Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "ladder; USGS 05412400 is a direct same-river live gauge at the take-out bridge; Water Quality Portal/Iowa DNR records identify Volga River at Mederville Access and Volga River at Littleport coordinates; and Clayton County map context marks canoe access in the"
-    },
-    {
-      "routeId": "volga-river-osborne-mederville",
-      "slug": "volga-river-osborne-mederville",
-      "name": "Volga River",
-      "reach": "Osborne Canoe Access to Mederville Canoe Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": ", USGS 05412400 is a direct same-river live gauge downstream at Littleport, and Water Quality Portal/Iowa DNR records support the Mederville access coordinates. The route uses Osborne Canoe Access rather than the rougher Hwy 13 bridge launch because the county"
-    },
-    {
       "routeId": "goose-creek-tobacco-road-dump-hollow",
       "slug": "goose-creek-tobacco-road-dump-hollow",
       "name": "Goose Creek",
@@ -2772,28 +2145,6 @@
       "evidence": "ng, while above that the broader current and private-bank corridor deserve more caution. The river itself remains recreational, but 18 miles, limited public bailout options away from the named access chain, and the no-amenity Glenview finish make this a more c"
     },
     {
-      "routeId": "levisa-fork-island-creek-thompson-road",
-      "slug": "levisa-fork-island-creek-thompson-road",
-      "name": "Levisa Fork",
-      "reach": "Island Creek Ramp to Thompson Road Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "more dragging; above that expect faster current around wood, bridges, and busy urban banks. KDFWR and Pikeville route materials frame this corridor as beginner-friendly at normal levels, but the longer Island-to-Thompson combination still includes bridge curr"
-    },
-    {
-      "routeId": "levisa-fork-jubilee-cedar-creek",
-      "slug": "levisa-fork-jubilee-cedar-creek",
-      "name": "Levisa Fork",
-      "reach": "Jubilee Christian Church Ramp to Cedar Creek Canoe Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "th more exposed shoals; above that is high and faster around wood, bridges, and urban banks. KDFWR frames the Pikeville Levisa Fork as a family-friendly moving-water corridor with gentle riffles, shoals, and deep pools at normal levels. The longer Jubilee-to-C"
-    },
-    {
       "routeId": "levisa-fork-jubilee-island-creek",
       "slug": "levisa-fork-jubilee-island-creek",
       "name": "Levisa Fork",
@@ -2825,17 +2176,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "eek Gorge float, publishes the 150 cfs low-water floor and 300 cfs higher-water caution, identifies the left-bank wooden-step take-out cue above the KY 182 bridge, and lists both public carry-down accesses with coordinates. USGS Water Services returned same-da"
-    },
-    {
-      "routeId": "clinton-river-macarthur-harley-ensign",
-      "slug": "clinton-river-macarthur-harley-ensign",
-      "name": "Clinton River",
-      "reach": "MacArthur Park to Harley Ensign",
-      "state": "Michigan",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "-river paddling where motorboat traffic, wind, waves, open-water proximity, and urban water quality matter. Confidence is high for a guarded water-trail add: the 2024 CRWC Clinton River Water Trail map lists Neil Dempsey at MacArthur Park and Harley Ensign (DN"
     },
     {
       "routeId": "big-fork-river-highway-6-south-north",
@@ -3839,28 +3179,6 @@
       "evidence": "Popular lower Jacks Fork day float from Alley Spring into Eminence. NPS names Alley Spring to Eminence as the classic summer float, MDC confirms the Joshua T. Chilton public landin"
     },
     {
-      "routeId": "jacks-fork-river-bay-creek-alley-spring",
-      "slug": "jacks-fork-river-bay-creek-alley-spring",
-      "name": "Jacks Fork River",
-      "reach": "Bay Creek to Alley Spring",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short upper Jacks Fork day from Bay Creek to Alley Spring. NPS lists the exact float, Recreation.gov confirms Bay Creek river-edge access, and the direct Alley Spring gauge now sup"
-    },
-    {
-      "routeId": "jacks-fork-river-bay-creek-alley-spring",
-      "slug": "jacks-fork-river-bay-creek-alley-spring",
-      "name": "Jacks Fork River",
-      "reach": "Bay Creek to Alley Spring",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "xpect frequent dragging above Alley Spring. High or rising water deserves extra caution, and MoHERP marks current high and flood stages as unsuitable for casual trips. This is a short but seasonal upper Jacks Fork reach with Class I-II Ozark moving water, shoa"
-    },
-    {
       "routeId": "james-river-delaware-town-shelvin-rock",
       "slug": "james-river-delaware-town-shelvin-rock",
       "name": "James River",
@@ -4070,39 +3388,6 @@
       "evidence": "uses a conservative 225 cfs floor and does not infer an ideal range. High-water caution High reports include capsizes A MoHERP Tipton-Ford-to-Wildcat trip at 1,370 cfs was marked high and noted a treacherous split channel with many capsizes after the Highway 1"
     },
     {
-      "routeId": "platte-river-platte-river-state-park-louisville",
-      "slug": "platte-river-platte-river-state-park-louisville",
-      "name": "Platte River",
-      "reach": "Platte River State Park to Louisville SRA",
-      "state": "Nebraska",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level. The route is a short designated water-trail day when flows are in range, but the Platte is a braided sandy river with shifting channels,"
-    },
-    {
-      "routeId": "platte-river-schramm-louisville",
-      "slug": "platte-river-schramm-louisville",
-      "name": "Platte River",
-      "reach": "Schramm Park SRA to Louisville SRA",
-      "state": "Nebraska",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level. The route is a short designated water-trail day when flows are in range, but the Platte is a braided sandy river with shifting channels,"
-    },
-    {
-      "routeId": "platte-river-schramm-platte-river-state-park",
-      "slug": "platte-river-schramm-platte-river-state-park",
-      "name": "Platte River",
-      "reach": "Schramm Park SRA to Platte River State Park",
-      "state": "Nebraska",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level. The route is a short designated water-trail day when flows are in range, but the Platte is a braided sandy river with shifting channels,"
-    },
-    {
       "routeId": "cuyahoga-river-ira-lock-29",
       "slug": "cuyahoga-river-ira-lock-29",
       "name": "Cuyahoga River",
@@ -4123,17 +3408,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "dow, 100 cfs as the bare runnable floor, and 1000 cfs as the upper app ceiling. Scout visually after rain or snowmelt. AW rates the reach Class I and describes only a few rapids between flatwater stretches, but strainers, long-boat handling, training attainmen"
-    },
-    {
-      "routeId": "great-miami-river-heritage-dravo",
-      "slug": "great-miami-river-heritage-dravo",
-      "name": "Great Miami River",
-      "reach": "Heritage Park to Obergiesing Soccer Complex at Dravo Park",
-      "state": "Ohio",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "anoe ramp, parking, picnic facilities, and ODNR boating-facility grant context. Hazard escalation Denny's Run strainers and non-rec warning AW describes rescues, wrapped boats, and persistent strainers at Denny's Run; a 2018 trip report explicitly warns the ro"
     },
     {
       "routeId": "conodoguinet-creek-good-hope-acri-meadow",
@@ -4167,61 +3441,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Short Cumberland County Conodoguinet day from Willow Mill Park to Vincent DiFilippo Nature Preserve. The county water-trail materials publish both named public launches, official m"
-    },
-    {
-      "routeId": "big-sioux-river-farm-field-rotary",
-      "slug": "big-sioux-river-farm-field-rotary",
-      "name": "Big Sioux River",
-      "reach": "Farm Field Park to Rotary Park",
-      "state": "South Dakota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short Sioux Falls Big Sioux paddle from Farm Field Park to Rotary Park, using city-managed kayak/canoe accesses and the direct USGS Sioux Falls gauge at the put-in. This is an urba"
-    },
-    {
-      "routeId": "big-sioux-river-farm-field-rotary",
-      "slug": "big-sioux-river-farm-field-rotary",
-      "name": "Big Sioux River",
-      "reach": "Farm Field Park to Rotary Park",
-      "state": "South Dakota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "/canoe accesses and the direct USGS Sioux Falls gauge at the put-in. This is an urban river route with water-quality and low-water caveats. Use the Big Sioux River at Sioux Falls gauge. Around 250 cfs is the low-water marker; below that, expect dragging, shall"
-    },
-    {
-      "routeId": "skunk-creek-legacy-park-farm-field",
-      "slug": "skunk-creek-legacy-park-farm-field",
-      "name": "Skunk Creek",
-      "reach": "Legacy Park to Farm Field Park",
-      "state": "South Dakota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short Sioux Falls Skunk Creek paddle from Legacy Park to Farm Field Park, using city park access points and the direct USGS Skunk Creek gauge. This is an urban creek route with low"
-    },
-    {
-      "routeId": "skunk-creek-legacy-park-farm-field",
-      "slug": "skunk-creek-legacy-park-farm-field",
-      "name": "Skunk Creek",
-      "reach": "Legacy Park to Farm Field Park",
-      "state": "South Dakota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "using city park access points and the direct USGS Skunk Creek gauge. This is an urban creek route with low-water, debris, and water-quality caveats. Use the Skunk Creek at Sioux Falls gauge. Around 4.5 ft is the low-water marker; below that, expect shallow scr"
-    },
-    {
-      "routeId": "skunk-creek-legacy-park-farm-field",
-      "slug": "skunk-creek-legacy-park-farm-field",
-      "name": "Skunk Creek",
-      "reach": "Legacy Park to Farm Field Park",
-      "state": "South Dakota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "d and avoid contact after heavy rain or known poor results. South Dakota stream hazard Fence caution South Dakota GFP warns that fences cross many navigable streams in the state. Scout any unexpected obstruction rather than forcing it. Sioux Empire Paddlers ri"
     },
     {
       "routeId": "split-rock-creek-split-rock-park-palisades",
@@ -4268,17 +3487,6 @@
       "evidence": "Urban greenway paddle on the Tennessee River Blueway from the Shallowford Road launch to Sterchi Farm Park. Outdoor Chattanooga lists the exact two-hour trip, the direct South Chic"
     },
     {
-      "routeId": "green-river-flaming-gorge-dam-little-hole",
-      "slug": "green-river-flaming-gorge-dam-little-hole",
-      "name": "Green River",
-      "reach": "Flaming Gorge Dam / Spillway Boat Launch to Little Hole",
-      "state": "Utah",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Cold, clear tailwater day float on the Green River A Section below Flaming Gorge Dam. Ashley National Forest and Recreation.gov document the exact 7-mile Spillway-to-Little-Hole ro"
-    },
-    {
       "routeId": "baraboo-river-haskins-glenville",
       "slug": "baraboo-river-haskins-glenville",
       "name": "Baraboo River",
@@ -4323,17 +3531,6 @@
       "evidence": "d leg with multiple boulder gardens and significant Class II rapids. High-water caution 301+ cfs changes the audience Wisconsin River Trips says 301-400 cfs is high for recreational paddlers but good for whitewater paddlers, 401-500 cfs is likely only for whit"
     },
     {
-      "routeId": "bois-brule-river-pine-tree-highway-13",
-      "slug": "bois-brule-river-pine-tree-highway-13",
-      "name": "Bois Brule River",
-      "reach": "Pine Tree Landing to Highway 13 Canoe Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "the most challenging whitewater on the Bois Brule, and Highway 13 Rapids as low-hazard Class I riffles near the take-out. Whitewater corroboration American Whitewater reach 2280 American Whitewater lists the Copper Range-to-Highway 13 reach at about 8.7 miles"
-    },
-    {
       "routeId": "bois-brule-river-stones-winneboujou",
       "slug": "bois-brule-river-stones-winneboujou",
       "name": "Bois Brule River",
@@ -4365,28 +3562,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "Trail Guide lists below 300 cfs as not recommended, 300 to 600 cfs as bony low-hazard whitewater, 600 to 1,000 cfs as low runnable, 1,000 to 1,500 cfs as medium runnable and excellent/challenging, 1,500 to 2,000 cfs as high runnable for novice-whitewater padd"
-    },
-    {
-      "routeId": "flambeau-river-highway-w-hervas",
-      "slug": "flambeau-river-highway-w-hervas",
-      "name": "Flambeau River",
-      "reach": "County Highway W to Hervas Camp Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "State-forest North Fork Flambeau day or overnight from the Highway W landing to Hervas Camp Landing, with public landings, canoe camps, Porcupine Rapids, Wannigan Rapids, and Flamb"
-    },
-    {
-      "routeId": "flambeau-river-hervas-beaver-dam",
-      "slug": "flambeau-river-hervas-beaver-dam",
-      "name": "Flambeau River",
-      "reach": "Hervas Camp Landing to Beaver Dam Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ss II rapid and Beaver Dam Rapids as a Class II-III ledge at higher flows, with scout or portage options on river left. American Whitewater Hervas to Beaver Dam https://www.americanwhitewater.org/content/River/view/river-detail/2292/main American Whitewater He"
     },
     {
       "routeId": "jump-river-wayside-park-sheldon",
@@ -4508,28 +3683,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "quicker current appears as the river approaches Highway 63 in Trego. Low-water caution Scraping possible near the islands below Highway 63 NPS says this stretch is generally floatable throughout the season, but low-rainfall periods can require scraping or wal"
-    },
-    {
-      "routeId": "pike-river-amberg-yellow-bridge",
-      "slug": "pike-river-amberg-yellow-bridge",
-      "name": "Pike River",
-      "reach": "Amberg Highway 141 Landing to Yellow Bridge Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "PK1 route, WGS84 endpoint coordinates, named hand-carry landings, a route map, hazard notes, and a full Amberg-gauge ladder. USGS confirms 04066500 is the Pike River at Amberg gauge at County V, about a mile upstream of the Highway 141 put-in. The main cautio"
-    },
-    {
-      "routeId": "pike-river-yellow-bridge-grogan-road",
-      "slug": "pike-river-yellow-bridge-grogan-road",
-      "name": "Pike River",
-      "reach": "Yellow Bridge Landing to Grogan Road Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "nominee confluence. Hazards Yellow Bridge Falls, private banks, boulder gardens Scout or portage Yellow Bridge Falls from river left while staying along the riverbank because nearby land is private. Expect 2- to 5-foot drops, a rocky Class II runout, and a led"
     },
     {
       "routeId": "pine-river-richland-center-canoe-port-1-port-4",

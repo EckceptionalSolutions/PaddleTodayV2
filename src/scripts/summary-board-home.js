@@ -22,6 +22,7 @@ import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './u
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
+import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
 import {
   coverageCenterForRoutes,
   groupRoutesByConditionScore,
@@ -53,16 +54,6 @@ const HOME_PADDLE_TIME_OPTIONS = ['up-to-3', '3-to-5', '5-to-7', '7-plus'];
 const HOME_PADDLE_LENGTH_OPTIONS = ['under-5', '5-to-10', '10-plus'];
 const HOME_CAMPING_OPTIONS = ['overnight', 'nearby'];
 const HOME_NEARBY_SORT_OPTIONS = ['best-score', 'closest', 'shortest-paddle', 'easiest'];
-const FALLBACK_ROUTE_PHOTOS = [
-  {
-    src: '/gallery/fallbacks/river-fallback-stream.jpg',
-    alt: 'A representative river scene used as a placeholder until a route photo is available.',
-  },
-  {
-    src: '/gallery/fallbacks/river-fallback-wide.jpg',
-    alt: 'A representative wide river scene used as a placeholder until a route photo is available.',
-  },
-];
 const US_STATE_ABBREVIATIONS = {
   Alabama: 'AL',
   Alaska: 'AK',
@@ -131,7 +122,6 @@ const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-ta
   const homeLocationSortSummary = document.querySelector('[data-home-location-sort-summary]');
   const homeRefineRow = document.querySelector('[data-home-refine-row]');
   const homeRefineSummary = document.querySelector('[data-home-refine-summary]');
-  const homeRefineToggle = document.querySelector('[data-home-refine-toggle]');
   const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
   const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
 const homeRadiusSlider = document.querySelector('[data-home-radius-slider]');
@@ -318,7 +308,6 @@ let exploreLayoutKey = '';
       ? 'map'
       : 'list'
     : 'map';
-  let homePreferencesExpanded = !phoneBreakpoint.matches;
   let initialized = false;
 let homeMapRefreshClassTimeout = 0;
 let hoveredSummaryMapKey = null;
@@ -635,40 +624,22 @@ function splitBulletParts(text) {
       .join('');
   }
 
-  function shouldCollapseHomePreferences() {
-    return phoneBreakpoint.matches;
-  }
-
   function syncHomePreferencesVisibility() {
-    const shouldCollapse = shouldCollapseHomePreferences();
-    const isExpanded = shouldCollapse ? homePreferencesExpanded : true;
-
     if (homeRefineRow instanceof HTMLElement) {
-      homeRefineRow.dataset.expanded = isExpanded ? 'true' : 'false';
+      homeRefineRow.dataset.expanded = 'true';
     }
 
     if (homeRadiusPanel instanceof HTMLElement) {
-      homeRadiusPanel.hidden = !isExpanded;
-    }
-
-    if (homeRefineToggle instanceof HTMLButtonElement) {
-      homeRefineToggle.hidden = !shouldCollapse;
-      homeRefineToggle.textContent = isExpanded ? 'Hide filters' : 'Show filters';
-      homeRefineToggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      homeRadiusPanel.hidden = false;
     }
 
     if (homeRadiusSummary instanceof HTMLElement) {
-      homeRadiusSummary.classList.toggle('sr-only', !shouldCollapse || isExpanded);
+      homeRadiusSummary.classList.add('sr-only');
     }
 
     if (homeRefineSummary instanceof HTMLElement) {
-      homeRefineSummary.classList.toggle('sr-only', !shouldCollapse || isExpanded);
+      homeRefineSummary.classList.add('sr-only');
     }
-  }
-
-  function setHomePreferencesExpanded(nextExpanded) {
-    homePreferencesExpanded = shouldCollapseHomePreferences() ? Boolean(nextExpanded) : true;
-    syncHomePreferencesVisibility();
   }
 
 function homeSetupSummaryLabels() {
@@ -2581,11 +2552,6 @@ function supportingReasonList(item, nearbyReady) {
   return Array.from(new Set(reasons)).slice(0, 2);
 }
 
-function fallbackRoutePhotoForSlug(slug = '') {
-  const index = Array.from(slug).reduce((sum, char) => sum + char.charCodeAt(0), 0) % FALLBACK_ROUTE_PHOTOS.length;
-  return FALLBACK_ROUTE_PHOTOS[index] || FALLBACK_ROUTE_PHOTOS[0];
-}
-
 function updateFeaturedGallery(item) {
   if (!(featuredGallery instanceof HTMLElement) || !(featuredGalleryImage instanceof HTMLImageElement)) {
     return;
@@ -2602,12 +2568,12 @@ function updateFeaturedGallery(item) {
     return;
   }
 
-  const photo = fallbackRoutePhotoForSlug(river.slug);
+  const photo = getRoutePreviewPhoto(river);
   featuredGallery.hidden = false;
   featuredGalleryImage.src = photo.src;
   featuredGalleryImage.alt = photo.alt || `${river.name} route photo`;
   if (featuredGalleryPlaceholder instanceof HTMLElement) {
-    featuredGalleryPlaceholder.hidden = false;
+    featuredGalleryPlaceholder.hidden = !photo.isPlaceholder;
   }
   if (featuredGalleryContribute instanceof HTMLAnchorElement) {
     featuredGalleryContribute.href = `/contribute/?riverSlug=${encodeURIComponent(river.slug)}`;
@@ -3915,9 +3881,28 @@ function clearHomeConditionMarkers() {
 
 function homeConditionZonePopupMarkup(item, group) {
   const routeCount = group.routes.length;
+  const regions = group.regions.length > 0 ? group.regions.join(', ') : item.cardRoute.river.region;
+  if (routeCount === 1 && group.representative) {
+    const routeItem = { ...item, cardRoute: group.representative };
+    const nearbyReady = userLocationState === 'ready' && userLocation && Number.isFinite(item.travelMinutes);
+    return `
+      <article class="score-map-popup">
+        <p class="score-map-popup__state">${escapeHtml(regions)}</p>
+        <h3>${escapeHtml(group.representative.river.name)}</h3>
+        <p class="score-map-popup__reach">${escapeHtml(group.representative.river.reach || 'Mapped river coverage')}</p>
+        <div class="score-map-popup__scoreline">
+          <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
+          <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, group.representative))}</p>
+        </div>
+        <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(routeItem, nearbyReady))}</p>
+        <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${escapeHtml(cardLinkLabel(item))}</a>
+      </article>
+    `;
+  }
+
   return `
     <article class="score-map-popup">
-      <p class="score-map-popup__state">${escapeHtml(group.regions.join(', ') || item.cardRoute.river.region)}</p>
+      <p class="score-map-popup__state">${escapeHtml(regions)}</p>
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       <div class="score-map-popup__scoreline">
         <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
@@ -5553,13 +5538,6 @@ export function initSummaryBoard() {
       nearbySortSelect.value = nearbySortMode;
     }
 
-    if (homeRefineToggle instanceof HTMLButtonElement && homeRefineToggle.dataset.bound !== 'true') {
-      homeRefineToggle.dataset.bound = 'true';
-      homeRefineToggle.addEventListener('click', () => {
-        setHomePreferencesExpanded(!homePreferencesExpanded);
-      });
-    }
-
     updateLocationStatus();
   maybeUseGrantedLocation();
 
@@ -5627,7 +5605,6 @@ export function initSummaryBoard() {
     if (summaryMapSupportsMobileViews && phoneBreakpoint.matches) {
       summaryMapMobileView = homeSummaryMapMode ? 'map' : 'list';
     }
-    homePreferencesExpanded = !phoneBreakpoint.matches;
     syncAppMobileViewportHeight();
     updateLocationStatus();
     updateSummaryMapToggle();

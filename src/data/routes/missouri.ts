@@ -962,6 +962,21 @@ export const missouriRoutes: River[] = [
     "latitude": 37.057183,
     "longitude": -91.664061,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "fast_rise",
+        "strainers",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This NPS-listed upper Jacks Fork float is a remote, seasonal Class I-II moving-water route with fast riffles, tight bends, boulder runs, wood, and strainers. Paddlers should be prepared to self-rescue without reliable cell service.",
+        "Below the 100 cfs floor, expect shallow shoals, dragging, and possible poling or lining. Moderate to heavy rain can raise the narrow upper-river corridor quickly and make obstacles less forgiving.",
+        "Use only the named NPS accesses at Buck Hollow and Rymers. Check current park closures and the remote Highway M gravel-road approach before leaving a vehicle at Rymers."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07065200",
       "provider": "usgs",
@@ -2247,6 +2262,21 @@ export const missouriRoutes: River[] = [
     "latitude": 37.1231,
     "longitude": -91.5018,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "fast_rise",
+        "strainers",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This short reach remains seasonal Class I-II upper Jacks Fork moving water above Alley Spring, with shallow riffles, slick ledges, wood, and strainers. Paddlers should be prepared to self-rescue without reliable cell service.",
+        "Below the 100 cfs floor, expect frequent dragging, poling, or lining. Moderate to heavy rain can raise the river quickly and make changing obstacles less forgiving.",
+        "Use only the named NPS accesses at Bay Creek and Alley Spring. Check current park closures and the remote Bay Creek gravel-road approach before leaving a vehicle."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07065495",
       "provider": "usgs",

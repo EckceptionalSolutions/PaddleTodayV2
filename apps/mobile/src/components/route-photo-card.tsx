@@ -32,11 +32,15 @@ export function RoutePhotoCard({
       imageStyle={styles.photoImage}
     >
       <View style={styles.scrim} />
-      {photo.isPlaceholder ? (
+      {photo.isPlaceholder || photo.sourceKind === 'river' ? (
         <View style={[styles.placeholderBadge, compact ? styles.placeholderBadgeCompact : null]}>
-          <MaterialCommunityIcons name="image-plus" color={colors.surfaceStrong} size={compact ? 13 : 14} />
+          <MaterialCommunityIcons
+            name={photo.isPlaceholder ? 'image-plus' : 'image'}
+            color={colors.surfaceStrong}
+            size={compact ? 13 : 14}
+          />
           <Text style={[styles.placeholderBadgeText, compact ? styles.placeholderBadgeTextCompact : null]}>
-            Needs route photo
+            {photo.isPlaceholder ? 'Needs route photo' : 'River photo'}
           </Text>
         </View>
       ) : null}

@@ -5273,6 +5273,18 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Volga River at Littleport gauge. Treat about 4.4 to 4.9 ft as the broad target, below 4.1 ft as too shallow, and 5.4+ ft as high enough for experienced paddlers only.",
     "latitude": 42.7897657,
     "longitude": -91.442417,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Use the direct Littleport gauge and the route-specific ladder: 5.0 to 5.3 ft may be pushy, 5.4 to 5.8 ft is for experienced paddlers, and 5.9 ft or higher is expert-only.",
+        "Launch at the county-managed Osborne Canoe Access rather than the rough Highway 13 bridge. The route source says both Osborne and Mederville public landings are difficult to find, so scout the Mederville take-out before launching.",
+        "Check the gauge trend immediately before launch and skip rising water after heavy rain; the Class I riffles and steep Mederville exit become less forgiving as current builds."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05412400",
       "provider": "usgs",
@@ -6247,6 +6259,19 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Volga River at Littleport gauge. Treat about 4.4 to 4.9 ft as the broad target, below 4.1 ft as too shallow, and 5.4+ ft as high enough for experienced paddlers only.",
     "latitude": 42.7637267,
     "longitude": -91.4218817,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Use the direct Littleport gauge and the route-specific ladder: 5.0 to 5.3 ft may be pushy, 5.4 to 5.8 ft is for experienced paddlers, and 5.9 ft or higher is expert-only.",
+        "The route report found low branches over faster current and says they become trickier at high water. Keep an upstream escape line and do not enter a branch-obstructed bend without a clear path.",
+        "Scout both landings from the road. Mederville has an extremely steep hidden path, and Littleport has steep stairs and a guardrail carry; the route source recommends a rope or second person."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05412400",
       "provider": "usgs",

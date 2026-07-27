@@ -1169,8 +1169,8 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "island-creek-ramp",
         "name": "Island Creek Ramp",
-        "latitude": 37.47,
-        "longitude": -82.5144,
+        "latitude": 37.4646,
+        "longitude": -82.5284,
         "mileFromStart": 3,
         "segmentKind": "creek",
         "note": "Intermediate public access for the shorter Jubilee-to-Island or Island-to-Thompson planning split."
@@ -1178,8 +1178,8 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "cedar-creek-canoe-access",
         "name": "Cedar Creek Canoe Access",
-        "latitude": 37.4869,
-        "longitude": -82.5313,
+        "latitude": 37.4802,
+        "longitude": -82.5446,
         "mileFromStart": 5.5,
         "segmentKind": "creek",
         "note": "Official mid-route access where the shorter Cedar-to-Thompson baseline route begins."

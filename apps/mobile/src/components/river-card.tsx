@@ -103,9 +103,9 @@ function RouteCardPhoto({ river }: { river: RiverSummaryApiItem }) {
   return (
     <ImageBackground source={{ uri: photo.uri }} style={styles.photo} imageStyle={styles.photoImage}>
       <View style={styles.photoScrim} />
-      {photo.isPlaceholder ? (
+      {photo.isPlaceholder || photo.sourceKind === 'river' ? (
         <View style={styles.photoBadge}>
-          <Text style={styles.photoBadgeText}>Needs photo</Text>
+          <Text style={styles.photoBadgeText}>{photo.isPlaceholder ? 'Needs photo' : 'River photo'}</Text>
         </View>
       ) : null}
     </ImageBackground>

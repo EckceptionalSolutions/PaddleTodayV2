@@ -10581,6 +10581,18 @@ export const minnesotaRoutes: River[] = [
       "difficultyNotes": "Mostly flatwater, but it is still a real river day with one Class I rapid and stronger current after storms.",
       "confidenceNotes": "The 6 to 10 ft band comes from American Whitewater rather than MN DNR. Official DNR materials support the same day-trip reach and its mostly flatwater character, but not the exact numeric thresholds."
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Watch for the mapped Class I rapid at river mile 11 and scout from shore if the line is not obvious.",
+        "The Kettle responds dramatically to rain. Recheck the gauge and weather immediately before launch, and avoid high or rising water beyond the group's moving-water skills."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "evidenceNotes": [
       {
         "label": "Working gauge band",
@@ -10608,11 +10620,11 @@ export const minnesotaRoutes: River[] = [
     "sourceLinks": [
       {
         "label": "MN DNR Kettle River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/kettleriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/kettle-river/segments-maps.html"
       },
       {
         "label": "MN DNR Kettle River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/kettleriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/kettle-river/index.html"
       },
       {
         "label": "MN DNR Kettle River Map 2 PDF",

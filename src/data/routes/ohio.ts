@@ -412,6 +412,19 @@ export const ohioRoutes: River[] = [
     "latitude": 39.291548,
     "longitude": -84.661803,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers"
+      ],
+      "safetyNotes": [
+        "Treat this as a whitewater-skills route, even though American Whitewater rates it Class I-II. The reach has moving-water play features, strong eddylines, wave trains, and flow-dependent lines.",
+        "Denny's Run has persistent tree-strainer history, wrapped boats, and multiple swiftwater rescues. Scout it from a safe position and do not commit when wood blocks a clean line.",
+        "Inspect the Dravo take-out before launching. American Whitewater says the usable channel changes with flow and that low water can require navigating gravel-island channels, branches, and debris to reach the ramp."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03274000",
       "provider": "usgs",

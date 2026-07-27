@@ -28,6 +28,21 @@ export const utahRoutes: River[] = [
       "siteName": "Green River near Greendale, UT",
       "detailUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09234500"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "dam_release",
+        "whitewater",
+        "fast_rise",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Treat Section A as cold, swift Class I-II tailwater rather than a casual float; Recreation.gov requires a worn life jacket plus a bail bucket, throw line, and spare oar or paddle for launching.",
+        "Check USGS 09234500 and the current Flaming Gorge release schedule immediately before launching. Reclamation says the 2026 release plan can fluctuate hourly and change with river conditions or forecasts.",
+        "The 1,000 cfs value is only a conservative runnable minimum, not an ideal range or high-water clearance. During elevated releases, Reclamation warns that the below-dam river can run colder, higher, and swifter."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 1000,
@@ -89,6 +104,12 @@ export const utahRoutes: River[] = [
         "sourceUrl": "https://www.blm.gov/sites/default/files/documents/files/floating_the_green_river_brochure.pdf"
       },
       {
+        "label": "Current dam-release caution",
+        "value": "2026 hourly release fluctuations",
+        "note": "The Bureau of Reclamation says Flaming Gorge releases can fluctuate hourly, the release plan can change with conditions or forecasts, and elevated releases can make the Green River below the dam colder, higher, and swifter.",
+        "sourceUrl": "https://www.usbr.gov/uc/water/crsp/cs/fgd.html"
+      },
+      {
         "label": "No camping",
         "value": "No camping on Section A",
         "note": "The BLM/Forest Service brochure states that River Section A has no camping, and the Little Hole trail guidance also prohibits camping and fires along the Spillway-to-Little-Hole trail section.",
@@ -131,6 +152,11 @@ export const utahRoutes: River[] = [
         "label": "American Whitewater Green River Flaming Gorge to Lodore",
         "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1852/main",
         "provider": "american_whitewater"
+      },
+      {
+        "label": "Bureau of Reclamation Flaming Gorge water operations",
+        "url": "https://www.usbr.gov/uc/water/crsp/cs/fgd.html",
+        "provider": "local"
       },
       {
         "label": "Utah DWR stream access guidance",

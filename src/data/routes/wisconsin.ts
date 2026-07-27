@@ -5643,6 +5643,22 @@ export const wisconsinRoutes: River[] = [
       "difficultyNotes": "Intermediate whitewater judgment is appropriate. Lenroot Ledges and Mays Ledges can reach Class II-III character, should be scouted as needed, and become more consequential at high flows.",
       "confidenceNotes": "Confidence is high for a guarded whitewater add: Wisconsin DNR identifies Pine Tree to Highway 13 as a named Brule River State Forest trip, Wisconsin Trail Guide publishes the exact BB3 route, endpoint coordinates, landing amenities, hazards, and cfs ladder, American Whitewater corroborates the same reach family and gauge, and USGS operates the direct same-river Brule gauge."
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Be prepared for nearly continuous riffles, ledges, and rapids. Scout Lenroot Ledges from river left and scout every drop at Mays Ledges; the guide identifies a river-right footpath for scouting or portage.",
+        "Recheck USGS 04025500 and recent rain or snowmelt before launch. Below 125 cfs paddling is not recommended; above 600 cfs novice paddlers should avoid the reach; above 1,000 cfs is experienced-paddler-only and strainers may be unavoidable.",
+        "Use only the designated Pine Tree and Highway 13 canoe landings, respect private property, and wear the DNR-required PFD. The Brule carries cool spring water, increasing immersion consequences."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "evidenceNotes": [
       {
         "label": "Route level bands",
@@ -5679,12 +5695,23 @@ export const wisconsinRoutes: River[] = [
         "value": "American Whitewater reach 2280",
         "note": "American Whitewater lists the Copper Range-to-Highway 13 reach at about 8.7 miles with the Bois Brule at Brule gauge, including Lenroot Ledges, May Ledges, and Highway 13 Rapids in the route feature list.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2280/main"
+      },
+      {
+        "label": "Cold-water character",
+        "value": "Steady cool spring water",
+        "note": "Wisconsin DNR describes the Bois Brule as a trout stream sustained by a steady flow of cool spring water.",
+        "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/fishing"
       }
     ],
     "sourceLinks": [
       {
         "label": "Wisconsin DNR Brule River paddling",
         "url": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle",
+        "provider": "local"
+      },
+      {
+        "label": "Wisconsin DNR Brule River cold-water context",
+        "url": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/fishing",
         "provider": "local"
       },
       {
@@ -8156,6 +8183,21 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Pike River at Amberg, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04066500/"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "mandatory_takeout",
+        "whitewater",
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Take out at Yellow Bridge Landing on river left before Barker Road. Wisconsin Trail Guide says not to paddle below the bridge because Class III Yellow Bridge Rapids begins immediately downstream.",
+        "Scout the named rapids and portage when needed. Bull Falls is a Class II drop that the guide recommends less-experienced paddlers portage, and Scrounge Canyon and Horseshoe Falls should also be scouted.",
+        "Recheck the Amberg gauge and recent rain before launch. The Pike is rainfall- and snowmelt-dependent; above 4.1 ft the route becomes challenging, above 4.6 ft novice paddlers should avoid it, and above 5.0 ft paddling is not recommended."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 2.9,
@@ -8271,6 +8313,21 @@ export const wisconsinRoutes: River[] = [
       "kind": "direct",
       "siteName": "Pike River at Amberg, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04066500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "private_banks",
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Scout or portage Class III Yellow Bridge Falls from river left and stay along the riverbank because the guide identifies private land on both sides. The falls include 2- to 5-foot drops, a long rocky Class II runout, and a river-wide ledge.",
+        "Use the Amberg gauge conservatively for this downstream subreach. Below 3.5 ft the falls can be bony and dangerous; above 4.6 ft waves may overpower intermediate paddlers; above 5.0 ft paddling is not recommended.",
+        "Rain and snowmelt can change Pike River levels quickly. Recheck the gauge immediately before launch, scout the falls from shore, and account for strainers and deadfall becoming more consequential at higher water."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
@@ -10252,6 +10309,19 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Flambeau River Near Bruce, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05360500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Treat the named boulder-bed rapids as moving-water features, not flatwater interruptions. Wisconsin Trail Guide says the third pitch of Porcupine Rapids should be scouted and advises portaging whenever a rapid exceeds the group's skills.",
+        "Do not treat the downstream Bruce gauge as a direct reading for this reach. Wisconsin Trail Guide says there is no USGS gauge on the segment and advises less-experienced paddlers to avoid early melt-off and sustained heavy-rain periods; recheck local weather and DNR water-level information before launch.",
+        "Plan the 14.2-mile state-forest commitment around the established Highway W, Camp 41, and Hervas landings, using Camp 41 as the main split option. Carry and wear the DNR-required life jacket and do not assume an unlisted bank is an exit."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 1000,
@@ -10389,6 +10459,18 @@ export const wisconsinRoutes: River[] = [
       "kind": "proxy",
       "siteName": "Flambeau River Near Bruce, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05360500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater"
+      ],
+      "safetyNotes": [
+        "Scout the first pitch of Cedar Rapids from river left and portage there if in doubt. Scout or portage Beaver Dam Rapids from river left; Wisconsin Trail Guide says novice paddlers should portage its four-foot, river-wide drop.",
+        "Use the Bruce gauge only as a proxy. American Whitewater says the route drainage differs from the gauge and three intervening dams can make gauge flow diverge from conditions on this reach; recheck local weather and water at the landing.",
+        "Use the established Hervas and Beaver Dam state-forest landings, identify the Beaver Dam take-out before launching, and carry and wear the DNR-required life jacket. The short mileage does not remove the scouting and rural-shuttle commitment."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
