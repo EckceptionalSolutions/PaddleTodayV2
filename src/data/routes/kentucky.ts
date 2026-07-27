@@ -5511,6 +5511,19 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Levisa Fork at Prestonsburg gauge. KDFWR rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as good for boating and fishing. Below that this longer route can feel slow and shoaly; above that the mainstem current, wood, and fatigue make the full downstream commitment much less forgiving.",
     "latitude": 37.6663,
     "longitude": -82.7759,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "dam_release"
+      ],
+      "safetyNotes": [
+        "KDFWR describes abundant woody debris throughout the Levisa Fork. Keep scanning through riffles, shoals, bridge current, and outside bends, and give fresh wood room.",
+        "Fishtrap Dam releases help create the lower river's year-round flow. Use the direct Prestonsburg gauge and stay within KDFWR's 800-1,500 cfs / 3.5-5.0 ft good band rather than assuming release-supported flow is automatically suitable.",
+        "This 16.3-mile route chains two official segments. Stage the shuttle at the public Levisa Fork Boat Ramp and identify the public Airport Ramp as the only documented intermediate exit before committing to the full day."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03209800",
       "provider": "usgs",

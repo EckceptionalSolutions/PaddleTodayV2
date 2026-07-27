@@ -464,6 +464,22 @@ export const tennesseeRoutes: River[] = [
       "siteName": "South Chickamauga Creek Near Chickamauga, TN",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03567500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam_release",
+        "strainers",
+        "fast_rise",
+        "urban_water_quality",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Check USGS 03567500, recent rain, and current City of Chattanooga access notices immediately before launching. The 180 cfs value is a community-supported low-water floor, not an ideal range or high-water clearance.",
+        "Use the signed public launch at Shallowford Road and take out at Sterchi Farm Park. Confirm both approaches before staging because the city currently posts a separate Camp Jordan-to-Brainerd greenway closure through summer 2027.",
+        "Skip high or rising water and poor post-storm water quality; expect rapid level changes, swift current, strainers, floating or underwater debris, and broken glass, and do not use private banks as routine access."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 180,

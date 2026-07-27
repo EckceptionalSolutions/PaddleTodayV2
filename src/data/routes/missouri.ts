@@ -178,6 +178,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River above Akers gauge as an upstream route check. Around 300 cfs is the conservative low-water floor for Akers to Round Spring; below that, expect slower shoals and dragging over a long day. Do not treat high or rising water as casual, and check NPS closure notices before launching.",
     "latitude": 37.37591,
     "longitude": -91.55148,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This 18.5-mile continuation combines two NPS four-hour floats. Limited phone service and potentially long waits for help make a staged shuttle, daylight margin, and self-rescue ability important even though the ordinary-water route is easy.",
+        "NPS warns that Ozark streams can rise quickly after moderate to heavy rain and that rootwad strainers can occur on any river section. Do not launch on high or rising water, and give fresh wood room.",
+        "Launch and land only at the named NPS accesses at Akers, Pulltite, and Round Spring. Gravel-bar camping is legal only on NPS-owned land, so do not treat every reachable bank as a public stop."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07064533",
       "provider": "usgs",
@@ -258,6 +274,24 @@ export const missouriRoutes: River[] = [
         "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/floating.htm"
       },
       {
+        "label": "NPS route-hazard guidance",
+        "value": "Fast rises, strainers, and delayed rescue",
+        "note": "NPS warns that local rivers can quickly reach unsafe levels after moderate to heavy rain, identifies rootwad strainers on every river section, and says floaters must be ready to self-rescue because phone service and help can be hours away.",
+        "sourceUrl": "https://www.nps.gov/ozar/river-safety.htm"
+      },
+      {
+        "label": "Cold-water context",
+        "value": "NPS describes the Upper Current as cold",
+        "note": "The current NPS Dee Murray page describes the Upper Current River immediately upstream of Akers as cold, clear water, supporting an explicit cold-water caution.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/dee-murray-campground.htm"
+      },
+      {
+        "label": "Legal overnight stops",
+        "value": "Camp only on NPS-owned gravel bars",
+        "note": "NPS allows float-in gravel-bar camping only on NPS-owned land, so every reachable bank is not a legal public stop.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/gravel-bar-camping.htm"
+      },
+      {
         "label": "Endpoint coordinates",
         "value": "37.37591, -91.55148 to 37.27996, -91.40792",
         "note": "Coordinates reuse the practical Akers and Round Spring access-area anchors already used on adjacent Current River routes. They are route-ready access anchors, not survey-grade ramp corners.",
@@ -273,6 +307,21 @@ export const missouriRoutes: River[] = [
       {
         "label": "NPS Floating in the Ozarks",
         "url": "https://www.nps.gov/ozar/planyourvisit/floating.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS River Safety",
+        "url": "https://www.nps.gov/ozar/river-safety.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Gravel Bar Camping",
+        "url": "https://www.nps.gov/ozar/planyourvisit/gravel-bar-camping.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Dee Murray Campground",
+        "url": "https://www.nps.gov/ozar/planyourvisit/dee-murray-campground.htm",
         "provider": "nps"
       },
       {

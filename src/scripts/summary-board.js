@@ -1024,11 +1024,14 @@ function buildRouteMapItems(allResults, filteredResults, options = {}) {
   const filteredByRiver = groupResultsByRiverId(filteredResults);
 
   return [...filteredByRiver.entries()].flatMap(([groupKey, routes]) => {
-      const cardRoute = pickRepresentativeRoute(routes, 'best-now').route;
+      const representativeRoute = pickRepresentativeRoute(routes, 'best-now').route;
+      // A filter can include legacy routes without river coordinates. Keep the
+      // group visible by falling back to its first mappable route instead of
+      // dropping the entire river from the Explore list/map.
+      const cardRoute = [representativeRoute, ...routes].find((route) =>
+        Number.isFinite(route?.river?.latitude) && Number.isFinite(route?.river?.longitude)
+      );
       if (!cardRoute) return [];
-      const latitude = cardRoute?.river?.latitude;
-      const longitude = cardRoute?.river?.longitude;
-      if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return [];
       const totalRouteCount = allByRiver.get(groupKey)?.length ?? routes.length;
       const distanceMilesValue = distanceForResult(cardRoute);
       const travelMinutes = estimateTravelMinutes(distanceMilesValue);

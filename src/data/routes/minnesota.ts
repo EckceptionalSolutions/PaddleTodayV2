@@ -10012,6 +10012,22 @@ export const minnesotaRoutes: River[] = [
       "kind": "direct",
       "siteName": "Minnehaha Creek at Hiawatha Ave. in Minneapolis, MN"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "dam",
+        "mandatory_takeout",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The full corridor requires portages around the Edina Mills and West 54th Street dams and a separate carry into Lake Nokomis. Use the current MCWD paddling map and complete every marked portage.",
+        "MCWD does not recommend paddling above 150 cfs and says conditions can change rapidly after rain. Check the Hiawatha gauge and Gray's Bay Dam operations before launching.",
+        "Land only at designated MCWD sites. Scan ahead for downed trees, overhanging limbs, rocks, low bridges, and rapids, and portage any section that is not clearly passable."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 75,
@@ -10061,6 +10077,12 @@ export const minnesotaRoutes: River[] = [
         "value": "21.3 miles",
         "note": "MCWD treats the entire creek from Gray's Bay headwaters to Longfellow Lagoon as about 6 to 9 hours, with shorter official sub-segments in between.",
         "sourceUrl": "https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/"
+      },
+      {
+        "label": "Required portages",
+        "value": "Edina Mills, West 54th Street, and Lake Nokomis",
+        "note": "The official MCWD creek map marks required portages around the Edina Mills and West 54th Street dams and a required carry into Lake Nokomis.",
+        "sourceUrl": "https://minnehahacreek.org/wp-content/uploads/2023/04/MCWD-Creek-Map-2018-FINAL-tagged.pdf"
       }
     ],
     "sourceLinks": [

@@ -1294,7 +1294,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "Low water below 800 cfs or 3.5 ft, when the long route can stack up dragging, shallow shoals, and slow pool mileage.",
-        "High water above 1,500 cfs or 5.0 ft, when KDFWR moves the route out of the good band and the broader river current becomes much less forgiving over a full-day commitment.",
+        "High water above 1,500 cfs or 5.0 ft, when KDFWR moves the route out of the good band. Fishtrap Dam releases contribute to lower-river flow, so check the direct Prestonsburg gauge rather than assuming release-supported water is suitable.",
         "Woody debris, bridge current, occasional motorboat or fishing traffic, and fatigue on a long warmwater mainstem day.",
         "Private banks, limited informal exits, and complacency on the middle or lower half because the water is nontechnical."
       ]

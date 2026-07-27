@@ -3898,6 +3898,13 @@ function homeConditionZonePopupMarkup(item, group) {
     `;
   }
 
+  const reachMarkup = routeCount === 1
+    ? ''
+    : `<p class="score-map-popup__reach">${escapeHtml(group.representative?.river?.reach || 'Mapped river coverage')}</p>`;
+  const actionMarkup = routeCount > 1
+    ? '<button class="score-map-popup__link score-map-popup__link--button" type="button" data-summary-zone-zoom>Zoom in to choose a route</button>'
+    : `<a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${escapeHtml(cardLinkLabel(item))}</a>`;
+
   return `
     <article class="score-map-popup">
       <p class="score-map-popup__state">${escapeHtml(regions)}</p>
@@ -3906,8 +3913,8 @@ function homeConditionZonePopupMarkup(item, group) {
         <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
         <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, group.representative))}</p>
       </div>
-      <p class="score-map-popup__reach">${escapeHtml(group.representative?.river?.reach || 'Mapped river coverage')}</p>
-      <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">Compare river routes</a>
+      ${reachMarkup}
+      ${actionMarkup}
     </article>
   `;
 }
@@ -3952,6 +3959,16 @@ function syncHomeConditionMarkers() {
             scrollHomeResultsRailToKey(item.key);
           }
         },
+      });
+      marker.getPopup()?.on('open', () => {
+        const zoomButton = marker.getPopup()?.getElement()?.querySelector('[data-summary-zone-zoom]');
+        if (zoomButton instanceof HTMLButtonElement && zoomButton.dataset.summaryZoneZoomBound !== 'true') {
+          zoomButton.dataset.summaryZoneZoomBound = 'true';
+          zoomButton.addEventListener('click', () => {
+            focusHomeRiverCoverage(item);
+            scrollHomeResultsRailToKey(item.key);
+          });
+        }
       });
       if (!mapMarkersByKey.has(item.key)) {
         mapMarkersByKey.set(item.key, marker);

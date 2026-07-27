@@ -3280,7 +3280,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "No camping is part of this route. Treat Minnehaha as a day-trip corridor with many shorter segment options.",
       "summary": "The official MCWD access list turns Minnehaha into a choose-your-segment corridor. Use the planner below instead of assuming one default put-in and take-out.",
       "accessCaveats": [
-        "Several official access points are parks or roadside landings rather than formal ramps. Confirm parking, legal access, and any current closures on the ground.",
+        "MCWD says to respect private property and land only at designated sites. Several official access points are parks or roadside landings rather than formal ramps, so confirm parking and current closures before staging vehicles.",
         "Required portages around dams and lake transitions matter as much as the gauge on this creek."
       ],
       "watchFor": [

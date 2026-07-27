@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T00:52:45.087Z",
+  "generatedAt": "2026-07-27T02:25:38.935Z",
   "routeCount": 937,
-  "issueCount": 345,
+  "issueCount": 323,
   "summary": {
     "Critical": 0,
-    "High": 180,
-    "Medium": 165,
+    "High": 164,
+    "Medium": 159,
     "Low": 0
   },
   "issues": [
@@ -20,28 +20,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "shoals; above that is high and the larger mainstem current gets pushier around wood, bridge piers, and outside bends. At normal levels this is a straightforward warmwater mainstem float between developed ramps, but it is still a moving river with long pools,"
-    },
-    {
-      "routeId": "levisa-fork-prestonsburg-boat-ramp",
-      "slug": "levisa-fork-prestonsburg-boat-ramp",
-      "name": "Levisa Fork",
-      "reach": "Prestonsburg Ramp to Levisa Fork Boat Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "r downstream splits. Treat it as moderate because of length and commitment, not whitewater. Confidence is high for a conservative Kentucky add: KDFWR still publishes the direct Prestonsburg-to-Airport 8.2-mile segment and Airport-to-Levisa Fork Boat Ramp 8.1-m"
-    },
-    {
-      "routeId": "levisa-fork-prestonsburg-boat-ramp",
-      "slug": "levisa-fork-prestonsburg-boat-ramp",
-      "name": "Levisa Fork",
-      "reach": "Prestonsburg Ramp to Levisa Fork Boat Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "at this longer route can feel slow and shoaly; above that the mainstem current, wood, and fatigue make the full downstream commitment much less forgiving. The water is not technical at normal levels, but the full 16.3-mile lower-Levisa commitment is a longer d"
     },
     {
       "routeId": "russell-creek-russell-creek-road-green-river-russell-creek-vpa",
@@ -152,28 +130,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "hable meandering river day, but the full-day mileage, tight bends, and changing wood conditions mean it is not a lazy float at every level. This route clears the bar because MN DNR directly recommends the exact day trip, the Long Prairie gauge is on the put-in"
-    },
-    {
-      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
-      "slug": "minnehaha-creek-grays-bay-longfellow-lagoon",
-      "name": "Minnehaha Creek",
-      "reach": "Gray's Bay to Longfellow Lagoon",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "between 75 and 150 cfs. Below range Poor MCWD says below 75 cfs you may need to portage over portions of the creek. Above range Dangerous MCWD says above 150 cfs it becomes difficult to navigate through fast-moving rapids and under bridges. Trip length 21.3 mi"
-    },
-    {
-      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
-      "slug": "minnehaha-creek-grays-bay-longfellow-lagoon",
-      "name": "Minnehaha Creek",
-      "reach": "Gray's Bay to Longfellow Lagoon",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ell-supported route. The main limitation is the creek itself: bridge clearance, wood, and urban obstacles can change the day even inside the official flow range. Official band 75 to 150 cfs MCWD says ideal paddling conditions are when the Hiawatha gauge reads"
     },
     {
       "routeId": "minnesota-river-henderson-belle-plaine",
@@ -814,17 +770,6 @@
       "evidence": "d possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS treats Akers to Pulltite as a standard 4-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold"
     },
     {
-      "routeId": "current-river-akers-ferry-round-spring",
-      "slug": "current-river-akers-ferry-round-spring",
-      "name": "Current River",
-      "reach": "Akers Ferry to Round Spring",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ing over a long day. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS treats both component segments as standard easy Upper Current floats, but combining them into an 8-hour route makes pace, weather, and exit di"
-    },
-    {
       "routeId": "current-river-big-spring-cataract",
       "slug": "current-river-big-spring-cataract",
       "name": "Current River",
@@ -1155,39 +1100,6 @@
       "evidence": "oat handling, training attainments, poor water quality, and changing post-storm wood keep this from being a simple beginner float. Confidence is acceptable for a guarded community-threshold add: AW documents the exact E. Ira Road to Route 303 reach, distance,"
     },
     {
-      "routeId": "vermilion-river-schoepfle-mill-hollow",
-      "slug": "vermilion-river-schoepfle-mill-hollow",
-      "name": "Vermilion River",
-      "reach": "Schoepfle Garden / Birmingham to Mill Hollow",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "toring-location/USGS-04199500/ ODNR Vermilion River public access guide https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/coastal/public-access/pag-riv-06-VermilionRiver.pdf ODNR Vermilion-Lorain Water Trail PDF https://dam.assets.ohio.gov/image/u"
-    },
-    {
-      "routeId": "vermilion-river-schoepfle-mill-hollow",
-      "slug": "vermilion-river-schoepfle-mill-hollow",
-      "name": "Vermilion River",
-      "reach": "Schoepfle Garden / Birmingham to Mill Hollow",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "run with shale-valley scenery, pool-and-drop Class I water, and a couple light Class II riffle sections when the stage is right. Use the Vermilion near Vermilion stage gauge. Treat about 3.5 to 4.25 ft as the best novice-friendly window, 2.55 ft as the bare r"
-    },
-    {
-      "routeId": "vermilion-river-schoepfle-mill-hollow",
-      "slug": "vermilion-river-schoepfle-mill-hollow",
-      "name": "Vermilion River",
-      "reach": "Schoepfle Garden / Birmingham to Mill Hollow",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "oordinates for the Mill Hollow side. Hazards Low water, light Class II riffles, wood, bridge hydraulics downstream AW notes the light Class II sections on this middle reach; ODNR water-trail materials warn the lower Vermilion can include log jams and bridge ab"
-    },
-    {
       "routeId": "conodoguinet-creek-good-hope-acri-meadow",
       "slug": "conodoguinet-creek-good-hope-acri-meadow",
       "name": "Conodoguinet Creek",
@@ -1263,50 +1175,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "plit Rock Creek as an activity at Palisades State Park. Hazards Ledges, fences, wood, high-water wave Local route guidance calls out ledges, possible fences across the creek, and stronger Class III behavior near 1,000 cfs; GFP also broadly warns that fences cr"
-    },
-    {
-      "routeId": "south-chickamauga-creek-shallowford-sterchi",
-      "slug": "south-chickamauga-creek-shallowford-sterchi",
-      "name": "South Chickamauga Creek",
-      "reach": "Shallowford Road to Sterchi Farm Park",
-      "state": "Tennessee",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "ideal range or high-water cutoff. Rapid-change and access cautions Urban creek, dam/backwater influence, debris, and swift current Outdoor Chattanooga warns creek levels and current can fluctuate due to Chickamauga Dam releases, while Chattanooga Audubon says"
-    },
-    {
-      "routeId": "south-chickamauga-creek-shallowford-sterchi",
-      "slug": "south-chickamauga-creek-shallowford-sterchi",
-      "name": "South Chickamauga Creek",
-      "reach": "Shallowford Road to Sterchi Farm Park",
-      "state": "Tennessee",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "as a conservative floor and does not infer an ideal range or high-water cutoff. Rapid-change and access cautions Urban creek, dam/backwater influence, debris, and swift current Outdoor Chattanooga warns creek levels and current can fluctuate due to Chickamauga"
-    },
-    {
-      "routeId": "south-chickamauga-creek-shallowford-sterchi",
-      "slug": "south-chickamauga-creek-shallowford-sterchi",
-      "name": "South Chickamauga Creek",
-      "reach": "Shallowford Road to Sterchi Farm Park",
-      "state": "Tennessee",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "eginner-friendly. The route is still moving urban water, so low-water scraping, wood, debris, private banks, water quality, and fast post-rain changes matter. Confidence is good for a conservative Tennessee add: Outdoor Chattanooga lists Shallowford Road to St"
-    },
-    {
-      "routeId": "south-chickamauga-creek-shallowford-sterchi",
-      "slug": "south-chickamauga-creek-shallowford-sterchi",
-      "name": "South Chickamauga Creek",
-      "reach": "Shallowford Road to Sterchi Farm Park",
-      "state": "Tennessee",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ly. The route is still moving urban water, so low-water scraping, wood, debris, private banks, water quality, and fast post-rain changes matter. Confidence is good for a conservative Tennessee add: Outdoor Chattanooga lists Shallowford Road to Sterchi Farm as"
     },
     {
       "routeId": "badfish-creek-old-stage-casey",
@@ -1903,28 +1771,6 @@
       "evidence": "y 64 DNR landing at Langlade to the Markton County M landing. This is a compact whitewater day with long boulder gardens, Class II rapids, and a direct gauge at the put-in bridge. Use the Wolf River at Langlade gauge. Section III is best around 600 to 950 cfs."
     },
     {
-      "routeId": "wolf-river-lily-hollister",
-      "slug": "wolf-river-lily-hollister",
-      "name": "Wolf River",
-      "reach": "Hwy 52 to West Hollister Road",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "wolf-river-lily-hollister",
-      "slug": "wolf-river-lily-hollister",
-      "name": "Wolf River",
-      "reach": "Hwy 52 to West Hollister Road",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "pids and multiple boulder-garden lines. This is one of the clearer gauge-driven whitewater-ish day trips in the old repo, but it still deserves a moderate-skill stance. Treat about 250 cfs as the low cutoff and 500 cfs as a strong target. Above that, the river"
-    },
-    {
       "routeId": "wolf-river-markton-big-smokey-falls",
       "slug": "wolf-river-markton-big-smokey-falls",
       "name": "Wolf River",
@@ -1967,28 +1813,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "ribal lands, with County M access, the Dalles Gorge, Big Smokey Falls, multiple Class III drops, a Class IV finish, and a full Langlade-gauge flow ladder. Use the Wolf River at Langlade gauge. Treat 400 to 700 cfs as the best broad target, 250 to 400 cfs as lo"
-    },
-    {
-      "routeId": "wolf-river-hollister-highway-64",
-      "slug": "wolf-river-hollister-highway-64",
-      "name": "Wolf River",
-      "reach": "West Hollister Road to Highway 64 DNR Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "wolf-river-hollister-highway-64",
-      "slug": "wolf-river-hollister-highway-64",
-      "name": "Wolf River",
-      "reach": "West Hollister Road to Highway 64 DNR Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "der gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely. Use the Wolf River at Langlade gauge. The most broadly useful window is 250 to 500 cfs. From 150 to 250 cfs"
     },
     {
       "routeId": "maquoketa-river-canton-royertown",
@@ -2090,17 +1914,6 @@
       "evidence": "w the official good discharge band but right at the stage floor for a low-water caution framing. Official level band 800-1,400 cfs / 7.4-8.5 ft KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, an"
     },
     {
-      "routeId": "levisa-fork-prestonsburg-boat-ramp",
-      "slug": "levisa-fork-prestonsburg-boat-ramp",
-      "name": "Levisa Fork",
-      "reach": "Prestonsburg Ramp to Levisa Fork Boat Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "s run, below the official good band, so the route ships with explicit low-water caution instead of comfort framing. Official level band 800-1,500 cfs / 3.5-5.0 ft KDFWR rates Levisa Fork at Prestonsburg as Low below 800 cfs or 3.5 ft, Good from 800 to 1,500 cf"
-    },
-    {
       "routeId": "tygarts-creek-olive-hill-carter-caves",
       "slug": "tygarts-creek-olive-hill-carter-caves",
       "name": "Tygarts Creek",
@@ -2176,17 +1989,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ce running Class II rapids. The mileage, rock riffles, remote feel, and need to scout larger rapids keep it out of the easy bucket. Confidence is high: MN DNR recommends Veterans Park to Highway 73 bridge as a 15.2-mile trip, the Highway 73 DNR gauge sits at t"
-    },
-    {
-      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
-      "slug": "minnehaha-creek-grays-bay-longfellow-lagoon",
-      "name": "Minnehaha Creek",
-      "reach": "Gray's Bay to Longfellow Lagoon",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "Urban Minnehaha Creek corridor with many designated landings, but it only works when the Hiawatha gauge is inside the MCWD paddling band. Low water means scraping and portaging; hi"
     },
     {
       "routeId": "mississippi-river-county-line-jacobson",
@@ -2660,28 +2462,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "conditions and lists Akers and Pulltite closure stages. Use this as high-water caution, not an ideal range. Endpoint coordinates 37.37591, -91.55148 to 37.33505, -91.47959 Coordinates reuse the already implemented Akers Lower and Pulltite access-area anchors"
-    },
-    {
-      "routeId": "current-river-akers-ferry-round-spring",
-      "slug": "current-river-akers-ferry-round-spring",
-      "name": "Current River",
-      "reach": "Akers Ferry to Round Spring",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long Upper Current continuation inside Ozark National Scenic Riverways that combines the Akers to Pulltite and Pulltite to Round Spring public floats. NPS still documents both sect"
-    },
-    {
-      "routeId": "current-river-akers-ferry-round-spring",
-      "slug": "current-river-akers-ferry-round-spring",
-      "name": "Current River",
-      "reach": "Akers Ferry to Round Spring",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "the Upper Current landings used on this continuation. Treat those as high-water caution and closure support, not as an ideal gauge band. Flood-repair caveat Pulltite remains partly repaired NPS said in March 2025 that Akers and Round Spring group sites were ex"
     },
     {
       "routeId": "current-river-big-spring-cataract",
@@ -3397,28 +3177,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "I features around 1,000 cfs. The short mileage does not make it beginner water; scout ledges and avoid the route if fences, strainers, or high water exceed the group. Confidence is good for a conservative first South Dakota add: local route guidance names the"
-    },
-    {
-      "routeId": "south-chickamauga-creek-shallowford-sterchi",
-      "slug": "south-chickamauga-creek-shallowford-sterchi",
-      "name": "South Chickamauga Creek",
-      "reach": "Shallowford Road to Sterchi Farm Park",
-      "state": "Tennessee",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Urban greenway paddle on the Tennessee River Blueway from the Shallowford Road launch to Sterchi Farm Park. Outdoor Chattanooga lists the exact two-hour trip, the direct South Chic"
-    },
-    {
-      "routeId": "south-chickamauga-creek-shallowford-sterchi",
-      "slug": "south-chickamauga-creek-shallowford-sterchi",
-      "name": "South Chickamauga Creek",
-      "reach": "Shallowford Road to Sterchi Farm Park",
-      "state": "Tennessee",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "Urban greenway paddle on the Tennessee River Blueway from the Shallowford Road launch to Sterchi Farm Park. Outdoor Chattanooga lists the exact two-hour trip, the direct South Chic"
     },
     {
       "routeId": "baraboo-river-haskins-glenville",

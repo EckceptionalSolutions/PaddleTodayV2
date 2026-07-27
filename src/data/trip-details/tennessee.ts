@@ -131,7 +131,7 @@ export const tennesseeRiverTripDetails: Record<string, RiverTripDetails> = {
         "Outdoor Chattanooga lists Shallowford Road to Sterchi Farm as a recommended paddle, but this is still an urban creek corridor with bridges, industrial edges, private banks, and changing debris.",
         "Sterchi Farm Park is the planned take-out. Do not drift downstream toward the Tennessee River without a separate plan for backwater, current, river traffic, and a confirmed downstream landing.",
         "The lower creek can be affected by Chickamauga Dam releases and Tennessee River backwater. The gauge is direct for South Chickamauga, but same-day visual judgment at the launch still matters.",
-        "Check Chattanooga greenway and park notices before committing to the shuttle, especially during stormwater, sewer-overflow reduction, trail, or access construction work."
+        "Check Chattanooga greenway and park notices before committing to the shuttle. The city currently posts a separate Camp Jordan-to-Brainerd greenway closure through summer 2027 for stormwater and wastewater construction, so verify that the Shallowford and Sterchi approaches remain available."
       ],
       "watchFor": [
         "Low water below about 180 cfs, when shallow bars and scraping become likely.",

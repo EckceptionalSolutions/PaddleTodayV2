@@ -23,6 +23,20 @@ export const ohioRoutes: River[] = [
       "siteName": "Vermilion River near Vermilion, OH",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04199500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "American Whitewater rates this exact reach Class I(II) and identifies two light Class II sections: below the SR 113 crossing and before Dean Hollow Bridge.",
+        "Use 3.5 to 4.25 ft as the novice target from the same-reach report; 6 ft is the high-runnable ceiling, not a novice recommendation.",
+        "ODNR warns that high water can hide floating logs and submerged trees. Check recent rain and scout changing wood rather than relying on the gauge alone."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 3.5,

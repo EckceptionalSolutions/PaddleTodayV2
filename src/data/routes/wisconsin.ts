@@ -173,6 +173,20 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Wolf River at Langlade, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04074950/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Little Slough Gundy is the route's strongest Class II rapid. Scout from river right when you see its horizon line, and do not treat this as a first moving-water trip.",
+        "The Langlade gauge is 8.3 river miles downstream. Check its trend and recent rain as well as the reading; Wisconsin Trail Guide warns that wood hazards increase at high water and does not recommend paddling above 2,000 cfs.",
+        "Finish at river-left Hollister Landing before continuing into Burnt Point Rapids. Identify the landing before launch so the group is ready for the take-out."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 500,
@@ -280,6 +294,19 @@ export const wisconsinRoutes: River[] = [
       "kind": "direct",
       "siteName": "Wolf River at Langlade, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04074950/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This is an 8-mile Class I-II route for paddlers with whitewater experience. Burnt Point Rapids begins at the put-in, and the route continues through repeated boulder gardens and named Class II rapids.",
+        "Use the direct Langlade gauge and keep general trips within the app's conservative 250-500 cfs target. Wisconsin River Trips warns that about 500 cfs and above calls for complete whitewater gear and proper training.",
+        "The forested corridor has little shoreline development. Travel with a group, plan the shuttle and rescue response before launch, and finish at the public DNR access on river right just past the Highway 64 bridge."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
