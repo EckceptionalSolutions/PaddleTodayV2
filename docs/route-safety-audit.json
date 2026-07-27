@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T22:55:40.108Z",
+  "generatedAt": "2026-07-27T23:10:09.244Z",
   "routeCount": 936,
-  "issueCount": 237,
+  "issueCount": 234,
   "summary": {
     "Critical": 0,
-    "High": 104,
-    "Medium": 133,
+    "High": 103,
+    "Medium": 131,
     "Low": 0
   },
   "issues": [
@@ -394,17 +394,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "wer paddlers. Generally beginner-friendly at the right level, but rising water, wood, and wind on Lake Zumbro can change the day quickly. The 3 to 4 ft band is still trip-report guidance. MN DNR and Olmsted County support the route and its flash-flood and wind"
-    },
-    {
-      "routeId": "st-croix-river-interstate-osceola",
-      "slug": "st-croix-river-interstate-osceola",
-      "name": "St. Croix River",
-      "reach": "Minnesota Interstate State Park Landing to Osceola Landing",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "in the main channel and avoid the side sloughs. Route character No rapids, but wood, sandbars, wingdams, rocks, and motorboats NPS describes this reach as having no existing rapids, but says strainers, submerged logs, sandbars, wingdams, rocks, and shared mot"
     },
     {
       "routeId": "straight-river-faribault",
@@ -1494,28 +1483,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "d beginner window on the Rochester gauge for this exact South Fork reach. Flood caution Rapid rises after rain MN DNR repeatedly warns that the Zumbro system can rise dramatically and dangerously after rainstorms. Lake finish Wind matters at the take-out The r"
-    },
-    {
-      "routeId": "st-croix-river-interstate-osceola",
-      "slug": "st-croix-river-interstate-osceola",
-      "name": "St. Croix River",
-      "reach": "Minnesota Interstate State Park Landing to Osceola Landing",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Classic Taylors Falls to Osceola lower St. Croix day with strong official support and a cleaner trust story than most border-river additions. It is beginner-friendly by Riverway st"
-    },
-    {
-      "routeId": "st-croix-river-interstate-osceola",
-      "slug": "st-croix-river-interstate-osceola",
-      "name": "St. Croix River",
-      "reach": "Minnesota Interstate State Park Landing to Osceola Landing",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "y 8 to Osceola trip, the lower-river paddling guide gives an official low-water caution tied to the St. Croix Falls gauge, and both landings are clearly documented. The app stays conservative because the official source gives a low-water warning, not a polishe"
     },
     {
       "routeId": "st-croix-river-osceola-william-obrien",

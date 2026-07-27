@@ -270,6 +270,7 @@ const filterButtons = Array.from(document.querySelectorAll('[data-filter-toggle]
 const filterSearch = document.querySelector('[data-filter-search]');
 const filterState = document.querySelector('[data-filter-state]');
 const filterRating = document.querySelector('[data-filter-rating]');
+const filterRatingButtons = Array.from(document.querySelectorAll('[data-filter-rating-button]'));
 const filterDifficulty = document.querySelector('[data-filter-difficulty]');
 const filterRouteType = document.querySelector('[data-filter-route-type]');
 const filterCamping = document.querySelector('[data-filter-camping]');
@@ -1595,6 +1596,7 @@ function resetExploreFilters({ rerender = true } = {}) {
   }
 
   updateFilterButtonStates();
+  updateRatingFilterButtons();
   updateLocationIndicator();
 
   if (rerender && latestResults.length > 0) {
@@ -1836,6 +1838,15 @@ function updateFilterSummary(exploreItems) {
       : '';
   const ratingLabel = activeFilters.rating ? ` / ${ratingDisplayLabel(activeFilters.rating)} only` : '';
   filterSummary.textContent = formatMixedFilterSummary(exploreItems.length, { sortLabel, locationLabel, ratingLabel });
+}
+
+function updateRatingFilterButtons() {
+  for (const button of filterRatingButtons) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const active = (button.dataset.filterRatingButton || '') === activeFilters.rating;
+    button.classList.toggle('score-filter__option--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
 }
 
 function buildExploreFilterPills() {
@@ -3401,6 +3412,7 @@ function renderHomepage(results, { preserveMapViewport = false } = {}) {
   renderRecommendationSection(nearbyItems, overallItems);
 
   updateFilterButtonStates();
+  updateRatingFilterButtons();
   updateLocationIndicator();
   updateLocationStatus();
   updateFilterSummary(exploreItems);
@@ -3556,6 +3568,19 @@ function setupFilters() {
     filterCamping.dataset.filterBound = 'true';
     filterCamping.addEventListener('change', () => {
       activeFilters.camping = filterCamping.value;
+      currentExplorePage = 1;
+      renderHomepage(latestResults);
+    });
+  }
+
+  for (const button of filterRatingButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      activeFilters.rating = button.dataset.filterRatingButton || '';
+      if (filterRating instanceof HTMLSelectElement) {
+        filterRating.value = activeFilters.rating;
+      }
       currentExplorePage = 1;
       renderHomepage(latestResults);
     });

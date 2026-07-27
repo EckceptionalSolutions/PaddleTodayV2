@@ -3016,6 +3016,18 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat about 3,000 cfs at St. Croix Falls as the conservative floor. Below that, stay in the main channel and expect more sandbars and side-slough dead ends.",
     "latitude": 45.401,
     "longitude": -92.651,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers"
+      ],
+      "safetyNotes": [
+        "NPS says this reach has no existing rapids, but strainers, submerged logs, wingdams, sandbars, and rocks occur throughout it. Give downed wood and fixed obstacles extra room instead of treating the easy rating as obstacle-free.",
+        "When flow at St. Croix Falls is below 3,000 cfs, stay in the main channel and avoid side sloughs where shallow sandbars and dead ends become more likely.",
+        "Expect fishing boats, pontoons, and paddleboat traffic. Stay right approaching the Highway 243 bridge; Osceola Landing is just beyond it on the Minnesota side."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05340500",
       "provider": "usgs",

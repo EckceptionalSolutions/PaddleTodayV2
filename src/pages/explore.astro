@@ -109,18 +109,26 @@ const trackedRiverCount = riverGroups.length;
                 </label>
               </div>
 
-              <div class="board-filters__controls board-filters__controls--primary board-filters__controls--score">
-                <label class="filter-select">
-                  <span class="filter-select__label">Show scores</span>
-                  <select class="filter-select__input" data-filter-rating>
-                    <option value="">Good and Strong</option>
-                    <option value="all">All scores</option>
-                    <option value="Strong">Strong only</option>
-                    <option value="Good">Good only</option>
-                    <option value="Fair">Fair: tradeoffs</option>
-                    <option value="No-go">No-go only</option>
-                  </select>
-                </label>
+              <div class="score-filter" role="group" aria-labelledby="explore-score-filter-label">
+                <span class="score-filter__label" id="explore-score-filter-label">Scores</span>
+                <div class="score-filter__options">
+                  <button class="score-filter__option score-filter__option--active" type="button" data-filter-rating-button="" aria-pressed="true">
+                    Good + Strong
+                  </button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="all" aria-pressed="false">All</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Strong" aria-pressed="false">Strong</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Good" aria-pressed="false">Good</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Fair" aria-pressed="false">Fair</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="No-go" aria-pressed="false">No-go</button>
+                </div>
+                <select class="sr-only" data-filter-rating aria-label="Show scores">
+                  <option value="">Good and Strong</option>
+                  <option value="all">All scores</option>
+                  <option value="Strong">Strong only</option>
+                  <option value="Good">Good only</option>
+                  <option value="Fair">Fair: tradeoffs</option>
+                  <option value="No-go">No-go only</option>
+                </select>
               </div>
 
               <details class="board-filters__advanced">
