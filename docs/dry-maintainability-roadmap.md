@@ -24,38 +24,162 @@ answers or interactions.
 - A map behavior change has one implementation point and a test matrix that
   covers Home, Explore, State, River Group, River Detail, and Favorites.
 
-## Audit evidence
+## Implementation status
 
-- There are nine direct `new maplibregl.Map(...)` calls across six web scripts.
-  Each call repeats some combination of creation defaults, readiness handling,
-  controls, bounds, marker cleanup, popup behavior, and route-layer setup.
-- `src/scripts/summary-board.js` is about 5,700 lines and
-  `src/scripts/summary-board-home.js` is about 5,000 lines. They define 248 and
-  218 named functions respectively, with 183 function names in common.
-- `src/scripts/map-runtime.js` and `public/scripts/map-runtime.js` have already
-  drifted. The public copy lacks newer asset-readiness behavior, score-zone
-  labels, river-name aliases, and actual-river layer synchronization.
-  `ui-taxonomy.js` has also drifted between `src` and `public`.
-- Current visual tests deliberately hide maps, so the highest-risk behavior has
-  no end-to-end regression coverage.
-- Pure geometry algorithms are implemented separately in web and mobile:
-  endpoint snapping, line measurement, slicing, stitching, and fingerprints.
-  River coverage grouping and anchor calculations are also duplicated.
-- Rating, confidence, weather, difficulty, freshness, distance, and score
-  breakdown presentation rules recur across many web scripts and mobile
-  screens. `ratingToneKey` exists in eight web scripts; `signedPoints` and
-  `friendlyCapReason` each exist across five web/mobile surfaces.
-- Shared ranking policy exists in `@paddletoday/api-contract`, but clients still
-  define local confidence/status weights and comparison functions.
-- Azure Blob SAS parsing is implemented eight times. Path cleaning, blob URL
-  construction, local fallback storage, and JSON read/write behavior recur
-  across alerts, history, snapshots, route requests, route audits, route
-  contributions, feedback, and request handlers.
-- Azure email client setup, sending, polling, and HTML escaping are repeated in
-  the alert, feedback, and route-request email modules.
-- Email validation appears in four server routes and again in mobile. Request
-  contracts are shared as TypeScript types, but runtime validation rules are
-  not.
+Completed:
+
+- All web MapLibre construction and readiness handling now goes through the
+  tested `map-runtime` adapter.
+- Home, Explore, Favorites, State, River Group, and both River Detail maps use
+  the adapter's reduced-motion-aware viewport fitting and marker lifecycle.
+  Actual-river overlays are idempotent and reapply after MapLibre style resets.
+- Stable `public/scripts` URLs are generated from `src/scripts`, with drift
+  checks in development, typechecking, and builds.
+- Home and Explore share their first domain/presenter layers: recommendation
+  viability, grouping, radius/filter policy, paddle-time parsing, nearby
+  sorting, all board sort modes, pagination, travel math, ranking, route facts,
+  signal/weather/freshness presentation, score presentation, and manual
+  location parsing. Their first board-map model now also owns marker labels,
+  accessibility copy, group context, representative-route labels, segment
+  labels, and featured access captions while preserving page-specific wording.
+  Shared card policy now also owns stronger-call detection, recommendation
+  summaries/tags/slots, metadata, warning/action labels, signal rows, weather
+  icons/badges, condition markup, tags, and source badges. The two boards also
+  use one injected preference store for location, radius, difficulty, and
+  paddle-time persistence. Their first shared board-map controller now owns
+  mobile list/map state, collapse presentation, popup cleanup, result/route
+  counts, selected-result prompts, switch accessibility labels, and selection
+  fallback policy. It now also owns map-result markup, event binding, empty
+  states, and DOM synchronization, with page-specific hover/selection callbacks.
+  Mobile view switching, collapse controls, scroll-to-map behavior, and resize
+  scheduling also live there. Rating filters share one predicate, including
+  the `all` sentinel used by Explore. Manual-location search, parsed query
+  fallback, candidate validation, result shaping, and reverse geocoding now
+  use one injected board-location service while each page retains its intended
+  candidate-selection policy. Permission probing, browser request options,
+  reverse-label fallback, and success/denial/unavailable transitions also use
+  one geolocation controller with page-owned rendering callbacks. Same-named
+  entry-file functions are down from the original 183 to 75. Score-breakdown
+  disclosure modeling and DOM rendering now also live in the shared card
+  markup module instead of both entry files. A shared board loader controller
+  now owns request cancellation, stale-response protection, cache writes,
+  refresh/fallback transitions, and initial-load failure policy. Recommendation
+  slot selection—including confidence and grouped-river fallbacks—now comes
+  from the shared board domain. Manual-submit empty/loading/not-found/error
+  transitions and location-indicator presentation now use one location
+  controller. That controller also owns accepted-location state, near-you sort
+  activation, pagination reset, distance/radius selectors, and the compact
+  location label, so manual search and browser geolocation cannot drift.
+  Featured-map rendering now uses one controller for MapLibre readiness,
+  route/access layers, marker cleanup, render cancellation, camera fitting,
+  captions, and failure states. Shared board-map popup markup and marker
+  classes live beside the existing selection controller.
+- Home and Explore now use the same recommendation-card, river-card,
+  recommendation-grid, and card-grid renderers. Page-specific route facts,
+  hover behavior, and route-type copy are injected adapters. Featured-weather
+  presentation is shared by the same card module.
+- Board status and preference transitions now have dedicated controllers.
+  Summary live/degraded/offline counts, refresh and fetch-failure states,
+  initial failure copy, cache hydration, radius/difficulty/paddle-time changes,
+  nearby sorting, and filter-button state each have one implementation.
+  Two unused duplicated summary helpers were removed during the final audit.
+- Web and mobile share route snapping, line stitching/deduplication, coordinate
+  conversion, coverage centers, and line projection through
+  `@paddletoday/geo`.
+- Ranking weights, distance/travel policy, email validation, rating tones,
+  signed score values, and cap-reason copy are authoritative shared exports.
+- SAS parsing, blob URLs, prefix cleaning, JSON writes, and validated
+  Blob/local JSON repositories are shared. Alerts, history, snapshots, route
+  audits, route contributions, and route-request listing/replies use the
+  repository.
+- Azure email client reuse, send/poll/error handling, provider aliases, and
+  HTML escaping are shared by alerts, feedback, and route-request replies.
+- Public browser endpoints now use the environment-neutral
+  `@paddletoday/api-client`, including cache policy, abort signals, structured
+  errors, river/detail/history/community reads, alerts, requests, and
+  contributions. Admin/session, unsubscribe, search-index, and third-party
+  calls remain intentionally local; board geocoding now uses the shared
+  board-location service.
+- Rating and live-status colors have one `@paddletoday/design-tokens` source.
+  Native consumes it directly and web CSS variables are generated with a drift
+  check.
+- Control, card, panel, and pill radius roles now also come from
+  `@paddletoday/design-tokens`. Web and native use platform-specific values
+  behind the same semantic roles, and existing web radius aliases consume the
+  generated variables.
+- The `xs` through `xl` spacing scale now follows the same pattern: native
+  consumes its platform scale directly and web receives generated spacing
+  variables for incremental adoption.
+- Web and mobile River Detail share the first pure section view model for score
+  breakdown rows, applied limits, cap explanations, and summary copy.
+- Web and mobile River Detail now also share effective freshness downgrades,
+  go/watch/skip readiness, weather risk and labels, access completeness, and
+  warning selection.
+- Camping prose classification, support/overnight policy, and compact labels
+  now come from `@paddletoday/api-contract`; server/web compatibility imports
+  and native River Detail consume the same implementation.
+- Astro and native River Detail now consume one route-safety view model for
+  risk level, semantic tone, headings, summaries, hazard labels, review state,
+  and normalized note deduplication while retaining platform-specific standard
+  safety wording.
+- Web and native River Detail now share hourly condition classification, rain
+  onset selection, display labels, risk thresholds, and paddle-window timing
+  decisions. Native icons/styles and the web-only short-route scoring model
+  remain platform-local.
+- Threshold source strength now has one semantic view model for impact,
+  confidence copy, score guidance, water-level labels, compact badges, and
+  source-specific detail. Astro River Detail, mobile River Hub, scoring, and
+  API serialization select their intended copy variant from that model.
+- Astro and native River Detail now share trip-planning headlines, compact
+  shuttle/permit/camping values, and conservative access-caveat fallbacks
+  through one logistics view model.
+- A deterministic Playwright contract now exercises Home, Explore, State,
+  River Group, River Detail, and Favorites through fake MapLibre, including
+  Home and Explore marker/list selection, Explore all-score reveal/reset, and
+  refresh viewport preservation. It also verifies shared manual-location
+  behavior on Home and Explore. Run it with `npm run test:maps`.
+- `npm run dry:check` enforces thirty-one single-source-of-truth boundaries and runs as
+  part of typechecking.
+
+Remaining:
+
+- Treat the remaining Home/Explore overlap as a review queue, not a merge
+  target. Most remaining same-named functions bind page-owned state or compose
+  intentionally different Home and Explore interfaces; extract a function only
+  when a shared decision or lifecycle appears.
+- Typography was audited but not forced into cross-platform tokens: the current
+  web CSS and native screen styles do not yet expose equivalent semantic roles.
+  Introduce shared roles when components are redesigned around the same
+  meaning, while retaining platform-specific values.
+- Add surface-specific selection or reset/show-all browser cases when those
+  interactions are introduced on State, River Group, River Detail, or
+  Favorites. Their current shared initialization contract remains covered.
+
+## Current audit evidence
+
+- The only direct `new maplibregl.Map(...)` call is inside `map-runtime.js`;
+  the DRY guard rejects new calls elsewhere.
+- `summary-board.js` is 3,859 lines and `summary-board-home.js` is 3,237 lines.
+  Their same-named function overlap is 38, down from 183. The remaining names
+  are primarily page composition and state-bound adapters rather than copied
+  map, card, loading, location, or preference lifecycles.
+- Four stable `public/scripts` assets are generated from `src/scripts`, and
+  both typechecking and builds fail on drift.
+- Twelve deterministic browser cases exercise visible maps across all six web
+  surfaces plus Home/Explore selection and manual location, all-score reset,
+  and viewport preservation.
+- Web and mobile geometry consumers compile against `@paddletoday/geo`; local
+  platform files retain rendering and camera/permission integration only.
+- Shared contract/presentation tests cover ranking, location/travel policy,
+  score breakdown, readiness, safety, camping, hourly weather, source
+  strength, logistics, validation, and semantic presentation helpers.
+- Storage repositories, email modules, public API callers, and request
+  validation now consume their shared primitives; the DRY guard rejects the
+  original local implementations.
+- `npm run dry:check` currently enforces 31 boundaries across 251 source files.
+- `npm test` passes 256 root tests and 19 API-contract tests, and includes
+  mobile/route typechecking plus route, geometry, gallery, generated-script,
+  and semantic-token audits. `npm run build:app` builds all 1,108 pages.
 
 ## Prioritized backlog
 

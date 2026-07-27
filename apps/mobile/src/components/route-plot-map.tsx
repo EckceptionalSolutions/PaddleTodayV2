@@ -1,4 +1,5 @@
 import type { default as NativeMapView } from 'react-native-maps';
+import { distanceMiles } from '@paddletoday/api-contract';
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -777,18 +778,6 @@ function shouldShowProjectedScoreMarkers(
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
-}
-
-function distanceMiles(latA: number, lonA: number, latB: number, lonB: number) {
-  const radiusMiles = 3958.8;
-  const toRadians = (value: number) => (value * Math.PI) / 180;
-  const dLat = toRadians(latB - latA);
-  const dLon = toRadians(lonB - lonA);
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(toRadians(latA)) * Math.cos(toRadians(latB)) * Math.sin(dLon / 2) ** 2;
-
-  return radiusMiles * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
 function toneForRating(rating: string | null | undefined) {

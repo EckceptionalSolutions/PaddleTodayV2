@@ -1,4 +1,10 @@
-import type { RiverDetailApiResult, ScoreBreakdown } from '@paddletoday/api-contract';
+import {
+  buildSourceStrengthViewModel,
+  friendlyCapReason,
+  signedPoints,
+  type RiverDetailApiResult,
+  type ScoreBreakdown,
+} from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -477,7 +483,7 @@ function RouteChoiceCard({
         <StatusPill status={route.liveData.overall} />
         <ReasonChip label={normalizeApiText(route.gaugeBandLabel)} />
         <ReasonChip label={`${route.confidence.label} confidence`} />
-        <ReasonChip label={sourceStrengthLabel(route)} />
+        <ReasonChip label={buildSourceStrengthViewModel(route.river.profile.thresholdSourceStrength).waterLevelLabel} />
         {route.weather?.windMph ? <ReasonChip label={`${Math.round(route.weather.windMph)} mph wind`} /> : null}
       </View>
 
@@ -771,14 +777,6 @@ function sortIcon(sortMode: SortMode) {
   return 'star-outline';
 }
 
-function sourceStrengthLabel(route: RiverDetailApiResult) {
-  const strength = route.river.profile.thresholdSourceStrength;
-  if (strength === 'official') return 'Official water levels';
-  if (strength === 'mixed') return 'Mixed sources';
-  if (strength === 'derived') return 'Calculated water levels';
-  return 'Paddler-reported levels';
-}
-
 function corridorKey(route: RiverDetailApiResult) {
   return route.river.continuityStatus === 'condition-family'
     ? route.river.conditionZoneId || route.river.slug
@@ -813,11 +811,6 @@ function scoreBreakdownRows(breakdown: ScoreBreakdown) {
   return rows;
 }
 
-function signedPoints(value: number) {
-  if (value > 0) return `+${value}`;
-  return String(value);
-}
-
 function scoreBreakdownValueTone(value: number) {
   if (value > 0) {
     return { color: colors.accentDeep };
@@ -828,31 +821,6 @@ function scoreBreakdownValueTone(value: number) {
   }
 
   return { color: colors.textMuted };
-}
-
-function friendlyCapReason(reason: string) {
-  const normalized = String(reason || '').trim();
-  if (!normalized) {
-    return '';
-  }
-
-  if (/Near-freezing air caps today at 70\.|Cold air limits today's score to 70 or lower\./i.test(normalized)) {
-    return 'Cold air lowered the score.';
-  }
-
-  if (/High wind caps today at 75\.|Strong wind limits today's score to 75 or lower\./i.test(normalized)) {
-    return 'Strong wind lowered the score.';
-  }
-
-  if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\.|Heavy rain or storms likely soon limit today's score to 65 or lower\./i.test(normalized)) {
-    return 'Heavy rain or storms likely within 3 hours limit the score to 65.';
-  }
-
-  if (/Minimum-only guidance caps the trip score at 74\.|This route has minimum-only gauge guidance, so today's score is limited to 74 or lower\./i.test(normalized)) {
-    return 'This route only has a reliable low-water floor, so the score stops short of the top range.';
-  }
-
-  return normalized;
 }
 
 function toneScoreBox(rating: RiverDetailApiResult['rating']) {

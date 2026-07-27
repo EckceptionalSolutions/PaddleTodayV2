@@ -1,3 +1,4 @@
+import { isValidEmailAddress as isValidEmail } from '@paddletoday/api-contract';
 import type { ServerResponse } from 'node:http';
 import type { RiverAlertThreshold } from '../../lib/alerts';
 import { initialAlertStateForSnapshot } from '../../lib/alert-policy';
@@ -241,7 +242,4 @@ export async function handleRiverAlertUnsubscribe(
       'no-store'
     );
   }
-}
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }

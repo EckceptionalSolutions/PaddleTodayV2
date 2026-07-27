@@ -5,6 +5,22 @@ const MAP_CSS_URL = 'https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.css';
 
 let maplibreLoadPromise = null;
 
+export const MAP_PROFILES = Object.freeze({
+  interactive: Object.freeze({
+    mapOptions: Object.freeze({
+      attributionControl: true,
+    }),
+    navigationControl: true,
+  }),
+  staticPreview: Object.freeze({
+    mapOptions: Object.freeze({
+      attributionControl: false,
+      interactive: false,
+    }),
+    navigationControl: false,
+  }),
+});
+
 function ensureAsset(tagName, attrs) {
   return new Promise((resolve, reject) => {
     const selector = Object.entries(attrs)
@@ -57,6 +73,154 @@ export async function ensureMapLibre() {
   }
 
   return maplibreLoadPromise;
+}
+
+export function createPaddleMap(maplibregl, options = {}) {
+  if (!maplibregl || typeof maplibregl.Map !== 'function') {
+    throw new Error('MapLibre runtime missing.');
+  }
+
+  const {
+    profile: profileName = 'interactive',
+    navigationControl,
+    navigationPosition = 'top-right',
+    ...mapOptions
+  } = options;
+  const profile = MAP_PROFILES[profileName];
+  if (!profile) {
+    throw new Error(`Unknown map profile: ${profileName}`);
+  }
+
+  const runtime = new maplibregl.Map({
+    style: MAP_STYLE_URL,
+    ...profile.mapOptions,
+    ...mapOptions,
+  });
+  const shouldAddNavigation = navigationControl ?? profile.navigationControl;
+  if (shouldAddNavigation) {
+    if (typeof maplibregl.NavigationControl !== 'function' || typeof runtime.addControl !== 'function') {
+      throw new Error('MapLibre navigation control missing.');
+    }
+    runtime.addControl(new maplibregl.NavigationControl({ showCompass: false }), navigationPosition);
+  }
+
+  return runtime;
+}
+
+export function isMapReady(runtime) {
+  if (!runtime) {
+    return false;
+  }
+
+  const mapLoaded = typeof runtime.loaded !== 'function' || runtime.loaded();
+  const styleLoaded = typeof runtime.isStyleLoaded !== 'function' || runtime.isStyleLoaded();
+  return mapLoaded && styleLoaded;
+}
+
+export function waitForMapReady(
+  runtime,
+  {
+    timeoutMs = 2500,
+    rejectOnError = false,
+    rejectOnTimeout = false,
+  } = {}
+) {
+  if (!runtime) {
+    return Promise.reject(new Error('Map runtime missing.'));
+  }
+
+  if (isMapReady(runtime)) {
+    return Promise.resolve(true);
+  }
+
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    let timeoutId = null;
+    const events = ['load', 'styledata', 'idle'];
+
+    const cleanup = () => {
+      if (timeoutId !== null) {
+        globalThis.clearTimeout(timeoutId);
+      }
+      if (typeof runtime.off === 'function') {
+        for (const eventName of events) {
+          runtime.off(eventName, handleProgress);
+        }
+        runtime.off('error', handleError);
+      }
+    };
+    const settle = (callback, value) => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      cleanup();
+      callback(value);
+    };
+    const handleProgress = () => {
+      if (isMapReady(runtime)) {
+        settle(resolve, true);
+      }
+    };
+    const handleError = (event) => {
+      if (rejectOnError) {
+        settle(reject, event?.error instanceof Error ? event.error : new Error('Map failed to load.'));
+      }
+    };
+
+    if (typeof runtime.on === 'function') {
+      for (const eventName of events) {
+        runtime.on(eventName, handleProgress);
+      }
+      if (rejectOnError) {
+        runtime.on('error', handleError);
+      }
+    }
+
+    timeoutId = globalThis.setTimeout(() => {
+      if (rejectOnTimeout) {
+        settle(reject, new Error(`Map readiness timed out after ${Math.round(timeoutMs / 1000)} seconds.`));
+        return;
+      }
+      settle(resolve, false);
+    }, timeoutMs);
+  });
+}
+
+export function fitMapBounds(
+  runtime,
+  bounds,
+  {
+    preserveViewport = false,
+    reducedMotion = typeof globalThis.matchMedia === 'function'
+      && globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    ...options
+  } = {}
+) {
+  if (
+    preserveViewport
+    || !runtime
+    || !bounds
+    || typeof runtime.fitBounds !== 'function'
+  ) {
+    return false;
+  }
+
+  const fitOptions = { ...options };
+  if (reducedMotion) {
+    fitOptions.duration = 0;
+  }
+  runtime.fitBounds(bounds, fitOptions);
+  return true;
+}
+
+export function clearMapMarkers(markers) {
+  for (const marker of Array.isArray(markers) ? markers : []) {
+    if (marker && typeof marker.remove === 'function') {
+      marker.remove();
+    }
+  }
+  return [];
 }
 
 export function escapeHtml(value) {

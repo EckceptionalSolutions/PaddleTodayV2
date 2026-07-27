@@ -1,4 +1,5 @@
 import { ratingDisplayLabel } from './ui-taxonomy.js';
+import { getBrowserApiClient } from './browser-api-client.js';
 
 const statusLine = document.querySelector('[data-minnesota-guide-status]');
 const entries = [...document.querySelectorAll('[data-minnesota-guide-entry]')];
@@ -51,16 +52,9 @@ async function loadScores() {
   }
 
   try {
-    const response = await fetch('/api/rivers/summary.json', {
-      headers: { accept: 'application/json' },
+    const payload = await getBrowserApiClient().getSummary({
       cache: 'no-store',
     });
-
-    if (!response.ok) {
-      throw new Error(`API request failed for /api/rivers/summary.json: HTTP ${response.status}`);
-    }
-
-    const payload = await response.json();
     const itemsBySlug = new Map(
       (Array.isArray(payload?.rivers) ? payload.rivers : [])
         .filter((item) => item?.river?.slug)

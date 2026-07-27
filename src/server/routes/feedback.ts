@@ -1,7 +1,8 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import type { ServerResponse } from 'node:http';
-import type { AppFeedbackCategory } from '@paddletoday/api-contract';
+import { isValidEmailAddress as isValidEmail, type AppFeedbackCategory } from '@paddletoday/api-contract';
+import { parseContainerSas, putJsonBlob } from '../../lib/blob-storage';
 import { sendFeedbackNotificationEmail } from '../../lib/feedback-email';
 import type { ApiRequest } from '../http';
 import { clean, readJsonBody, sendBodyLimitResponse, sendJson } from '../http';
@@ -93,9 +94,12 @@ export async function handleAppFeedback(
     };
 
     const containerSas = parseContainerSas(
-      process.env.FEEDBACK_CONTAINER_SAS_URL ||
-        process.env.ROUTE_REQUESTS_CONTAINER_SAS_URL ||
-        ''
+      clean(
+        process.env.FEEDBACK_CONTAINER_SAS_URL
+          || process.env.ROUTE_REQUESTS_CONTAINER_SAS_URL,
+        4000,
+      ),
+      { throwOnInvalid: true },
     );
     const prefix = clean(process.env.FEEDBACK_BLOB_PREFIX || 'app-feedback', 120).replace(/^\/+|\/+$/g, '');
     const fileName = `${Date.now()}-${Math.random().toString(16).slice(2, 10)}.json`;
@@ -108,14 +112,7 @@ export async function handleAppFeedback(
       storage = 'local';
     } else {
       const blobName = `${prefix}/${fileName}`;
-      const upstream = await fetch(putBlobUrl(containerSas, blobName), {
-        method: 'PUT',
-        headers: {
-          'x-ms-blob-type': 'BlockBlob',
-          'content-type': 'application/json; charset=utf-8',
-        },
-        body: JSON.stringify(payload, null, 2),
-      });
+      const upstream = await putJsonBlob(containerSas, blobName, payload);
 
       if (!upstream.ok) {
         console.error('[feedback] blob upload failed', { status: upstream.status, requestId });
@@ -157,28 +154,4 @@ export async function handleAppFeedback(
       'no-store'
     );
   }
-}
-
-function parseContainerSas(urlRaw: string) {
-  const raw = clean(urlRaw, 4000);
-  if (!raw) {
-    return null;
-  }
-
-  const parsed = new URL(raw);
-  const query = parsed.search || '';
-  parsed.search = '';
-
-  return {
-    base: parsed.toString().replace(/\/$/, ''),
-    query,
-  };
-}
-
-function putBlobUrl(container: { base: string; query: string }, blobName: string) {
-  return `${container.base}/${blobName}${container.query}`;
-}
-
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }

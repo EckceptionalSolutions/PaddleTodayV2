@@ -11,6 +11,7 @@ import type {
   RiverSummaryApiItem,
   WeekendSummaryApiItem,
 } from '@paddletoday/api-contract';
+import { buildSourceStrengthViewModel, isColdWeatherDrivenCall } from '@paddletoday/api-contract';
 import { classifyCamping } from './camping-classification';
 import { gaugeDisplayForSource, thresholdAdapterForSource } from './source-adapters';
 import { conditionZoneIdForRiver } from './condition-zones';
@@ -148,7 +149,10 @@ function summarySourceBadges(result: RiverScoreResult): RiverSummaryApiItem['sou
   const badges: RiverSummaryApiItem['sources'] = [
     gaugeProviderBadge(result),
     {
-      label: thresholdBadgeLabel(result),
+      label: thresholdAdapter?.shortLabel ?? buildSourceStrengthViewModel(
+        result.river.profile.thresholdSourceStrength,
+        { thresholdModel: result.river.profile.thresholdModel },
+      ).badgeLabel,
       tone: thresholdAdapter?.sourceBadgeTone ?? result.river.profile.thresholdSourceStrength,
     },
   ];
@@ -173,27 +177,6 @@ function gaugeProviderBadge(result: RiverScoreResult): RiverSummaryApiItem['sour
     label: display.shortLabel,
     tone: result.river.gaugeSource.provider === 'usgs' ? 'usgs' : 'official',
   };
-}
-
-function thresholdBadgeLabel(result: RiverScoreResult): string {
-  const adapter = thresholdAdapterForSource(result.river.profile.thresholdSource);
-  if (adapter) {
-    return adapter.shortLabel;
-  }
-
-  if (result.river.profile.thresholdSourceStrength === 'official') {
-    return 'Official';
-  }
-
-  if (result.river.profile.thresholdSourceStrength === 'mixed') {
-    return 'Mixed';
-  }
-
-  if (result.river.profile.thresholdModel === 'minimum-only') {
-    return 'Minimum';
-  }
-
-  return 'Community';
 }
 
 export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiResult {
@@ -386,7 +369,7 @@ function trendExplanation(result: RiverScoreResult): string {
 function weatherExplanation(result: RiverScoreResult): string {
   const weather = result.weather;
   if (!weather) return 'weather mixed';
-  if (coldWeatherDrivenCall(result)) {
+  if (isColdWeatherDrivenCall(result.weather, result.gaugeBand)) {
     return weather.temperatureF != null && weather.temperatureF <= 35 ? 'very cold' : 'cold';
   }
   if (weather.next12hStormRisk) {
@@ -405,21 +388,6 @@ function weatherExplanation(result: RiverScoreResult): string {
     return weather.conditionLabel.trim().toLowerCase();
   }
   return 'mostly dry';
-}
-
-function coldWeatherDrivenCall(result: RiverScoreResult): boolean {
-  const weather = result.weather;
-  const temp = weather?.temperatureF;
-  const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? 0;
-  const rainChance = weather?.next12hPrecipProbabilityMax ?? 0;
-
-  return (
-    typeof temp === 'number' &&
-    temp <= 40 &&
-    ['ideal', 'minimum-met', 'low-shoulder'].includes(result.gaugeBand) &&
-    !weather?.next12hStormRisk &&
-    (rainChance < 70 || wind < 20)
-  );
 }
 
 function gaugeValueText(result: RiverScoreResult): string {

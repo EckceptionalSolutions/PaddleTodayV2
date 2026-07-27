@@ -4,6 +4,7 @@ type LiveDataOverall = 'live' | 'degraded' | 'offline';
 
 interface TodayBoardRiver {
   name: string;
+  reach?: string;
 }
 
 interface TodayBoardConfidence {
@@ -32,6 +33,13 @@ export const todayBoardStatusWeight: Record<LiveDataOverall, number> = {
   live: 2,
   degraded: 1,
   offline: 0,
+};
+
+export const todayBoardRatingRiskWeight: Record<ScoreRating, number> = {
+  Strong: 0,
+  Good: 1,
+  Fair: 2,
+  'No-go': 3,
 };
 
 export interface TodayBoardSnapshot {
@@ -124,6 +132,45 @@ export function compareTodayBoardQuality(left: TodayBoardItem, right: TodayBoard
   }
 
   return compareTodayCertainty(left, right);
+}
+
+export function compareTodayStatusThenScore(left: TodayBoardItem, right: TodayBoardItem) {
+  const leftStatus = todayBoardStatusWeight[left.liveData.overall] ?? 0;
+  const rightStatus = todayBoardStatusWeight[right.liveData.overall] ?? 0;
+  if (leftStatus !== rightStatus) {
+    return rightStatus - leftStatus;
+  }
+
+  return right.score - left.score;
+}
+
+export function compareTodayConfidenceStatusScore(left: TodayBoardItem, right: TodayBoardItem) {
+  const leftConfidence = todayBoardConfidenceWeight[left.confidence.label] ?? 0;
+  const rightConfidence = todayBoardConfidenceWeight[right.confidence.label] ?? 0;
+  if (leftConfidence !== rightConfidence) {
+    return rightConfidence - leftConfidence;
+  }
+
+  return compareTodayStatusThenScore(left, right);
+}
+
+export function compareTodayLowestRisk(left: TodayBoardItem, right: TodayBoardItem) {
+  const leftRating = todayBoardRatingRiskWeight[left.rating] ?? 4;
+  const rightRating = todayBoardRatingRiskWeight[right.rating] ?? 4;
+  if (leftRating !== rightRating) {
+    return leftRating - rightRating;
+  }
+
+  return compareTodayConfidenceStatusScore(left, right);
+}
+
+export function compareTodayAlphabetically(left: TodayBoardItem, right: TodayBoardItem) {
+  const riverCompare = left.river.name.localeCompare(right.river.name);
+  if (riverCompare !== 0) {
+    return riverCompare;
+  }
+
+  return String(left.river.reach ?? '').localeCompare(String(right.river.reach ?? ''));
 }
 
 export function todayBoardRank(river: TodayBoardItem, travelPenalty = 0) {

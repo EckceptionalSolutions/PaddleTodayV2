@@ -1,4 +1,7 @@
-import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
+import {
+  hasCampingSupport as classificationHasCampingSupport,
+  type WeekendSummaryApiItem,
+} from '@paddletoday/api-contract';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
@@ -634,20 +637,7 @@ function hasWeekendCampingSupport(river: WeekendSummaryApiItem) {
   }
 
   const classification = river.river.logistics?.campingClassification;
-  return classification !== undefined && classification !== 'none' && classification !== 'unknown';
-}
-
-function hasOvernightCampingSupport(river: WeekendSummaryApiItem) {
-  if (!hasWeekendCampingSupport(river)) {
-    return false;
-  }
-
-  const classification = river.river.logistics?.campingClassification;
-  return (
-    classification === 'overnight_capable' ||
-    classification === 'on_route_campsite' ||
-    classification === 'sandbar_or_gravel_bar'
-  );
+  return classificationHasCampingSupport(classification);
 }
 
 function isCleanWeekendRoute(river: WeekendSummaryApiItem) {

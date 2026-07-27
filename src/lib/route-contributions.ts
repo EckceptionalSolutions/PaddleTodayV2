@@ -2,13 +2,18 @@ import { randomUUID, createHmac, timingSafeEqual } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import {
+  blobUrl,
+  cleanBlobPath as cleanPathSegment,
+  createJsonStorage,
+  parseContainerSas,
+} from './blob-storage';
+import {
   isArrayOf,
   isBoolean,
   isOptionalString,
   isRecord,
   isNumber,
   isString,
-  safeParseJson,
 } from './json-guards';
 
 const DEFAULT_CONTRIBUTIONS_DIR = '.local';
@@ -90,11 +95,6 @@ interface ApprovedCommunityStore {
   photos: ApprovedCommunityPhoto[];
   reports: ApprovedTripReport[];
 }
-
-type BlobContainer = {
-  base: string;
-  query: string;
-};
 
 type BinaryStorage = {
   kind: 'blob' | 'local';
@@ -499,31 +499,19 @@ function communityPhotoUrl(slug: string, submissionId: string, fileName: string)
 }
 
 function contributionsStorage(): BinaryStorage {
-  const container = parseContainerSas(process.env.ROUTE_CONTRIBUTIONS_CONTAINER_SAS_URL ?? '');
+  const containerSasUrl = process.env.ROUTE_CONTRIBUTIONS_CONTAINER_SAS_URL ?? '';
+  const container = parseContainerSas(containerSasUrl);
+  const jsonStorage = createJsonStorage({
+    containerSasUrl,
+    localDirectory: process.env.ROUTE_CONTRIBUTIONS_DIR || DEFAULT_CONTRIBUTIONS_DIR,
+    validate: isContributionStorageValue,
+    label: 'contribution',
+  });
   if (container) {
     return {
       kind: 'blob',
-      async readJson<T>(blobName: string) {
-        const response = await fetch(blobUrl(container, blobName), { method: 'GET', headers: { accept: 'application/json' } });
-        if (response.status === 404) return null;
-        if (!response.ok) throw new Error(`Failed to read contribution blob ${blobName}: HTTP ${response.status}`);
-        const payload: unknown = await response.json();
-        if (!isContributionStorageValue(payload)) {
-          throw new Error(`Invalid contribution blob ${blobName}`);
-        }
-        return payload as T;
-      },
-      async writeJson(blobName: string, value: unknown) {
-        const response = await fetch(blobUrl(container, blobName), {
-          method: 'PUT',
-          headers: {
-            'x-ms-blob-type': 'BlockBlob',
-            'content-type': 'application/json; charset=utf-8',
-          },
-          body: JSON.stringify(value, null, 2),
-        });
-        if (!response.ok) throw new Error(`Failed to write contribution blob ${blobName}: HTTP ${response.status}`);
-      },
+      readJson: jsonStorage.readJson,
+      writeJson: jsonStorage.writeJson,
       async readBytes(blobName: string) {
         const response = await fetch(blobUrl(container, blobName), { method: 'GET' });
         if (response.status === 404) return null;
@@ -550,23 +538,8 @@ function contributionsStorage(): BinaryStorage {
 
   return {
     kind: 'local',
-    async readJson<T>(blobName: string) {
-      const filePath = localPathFor(blobName);
-      try {
-        const payload = await readFile(filePath, 'utf8');
-        return safeParseJson(payload, isContributionStorageValue) as T | null;
-      } catch (error) {
-        if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-          return null;
-        }
-        throw error;
-      }
-    },
-    async writeJson(blobName: string, value: unknown) {
-      const filePath = localPathFor(blobName);
-      await mkdir(dirname(filePath), { recursive: true });
-      await writeFile(filePath, JSON.stringify(value, null, 2), 'utf8');
-    },
+    readJson: jsonStorage.readJson,
+    writeJson: jsonStorage.writeJson,
     async readBytes(blobName: string) {
       const filePath = localPathFor(blobName);
       try {
@@ -589,27 +562,6 @@ function contributionsStorage(): BinaryStorage {
 
 function localPathFor(blobName: string) {
   return resolve(process.cwd(), process.env.ROUTE_CONTRIBUTIONS_DIR || DEFAULT_CONTRIBUTIONS_DIR, blobName);
-}
-
-function parseContainerSas(value: string): BlobContainer | null {
-  if (!value) return null;
-  try {
-    const url = new URL(value);
-    return {
-      base: url.origin + url.pathname.replace(/\/$/, ''),
-      query: url.search,
-    };
-  } catch {
-    return null;
-  }
-}
-
-function blobUrl(container: BlobContainer, blobName: string) {
-  return `${container.base}/${blobName}${container.query}`;
-}
-
-function cleanPathSegment(value: string) {
-  return value.trim().replace(/^\/+|\/+$/g, '').replace(/[^a-zA-Z0-9/_-]+/g, '-');
 }
 
 function sanitizeFileSegment(value: string, fallback: string) {

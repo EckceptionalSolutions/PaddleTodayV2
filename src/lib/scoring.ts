@@ -17,6 +17,7 @@ import type {
   ScoreRating,
   WeatherSnapshot,
 } from './types';
+import { buildSourceStrengthViewModel } from '@paddletoday/api-contract';
 import { staleMinutesForGaugeProvider } from './source-adapters';
 
 const WEATHER_STALE_MINUTES = 180;
@@ -165,9 +166,9 @@ export function scoreRiverCondition(args: {
     {
       id: 'threshold-quality',
       label: 'Threshold evidence',
-      value: sourceStrengthLabel(args.river.profile.thresholdSourceStrength),
-      detail: sourceStrengthDetail(args.river),
-      impact: sourceStrengthImpact(args.river.profile.thresholdSourceStrength),
+      value: sourceStrengthViewModel(args.river).guidanceLabel,
+      detail: sourceStrengthViewModel(args.river).detail ?? '',
+      impact: sourceStrengthViewModel(args.river).impact,
     },
     {
       id: 'difficulty',
@@ -298,9 +299,9 @@ function scoreWithoutGauge(args: {
       {
         id: 'threshold-quality',
         label: 'Threshold evidence',
-        value: sourceStrengthLabel(args.river.profile.thresholdSourceStrength),
-        detail: sourceStrengthDetail(args.river),
-        impact: sourceStrengthImpact(args.river.profile.thresholdSourceStrength),
+        value: sourceStrengthViewModel(args.river).guidanceLabel,
+        detail: sourceStrengthViewModel(args.river).detail ?? '',
+        impact: sourceStrengthViewModel(args.river).impact,
       },
       {
         id: 'seasonality',
@@ -1827,30 +1828,11 @@ function titleCase(value: string): string {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
-function sourceStrengthLabel(strength: River['profile']['thresholdSourceStrength']): string {
-  switch (strength) {
-    case 'official':
-      return 'Official numeric guidance';
-    case 'mixed':
-      return 'Mixed-source numeric guidance';
-    case 'community':
-      return 'Community numeric guidance';
-    default:
-      return 'Derived numeric guidance';
-  }
-}
-
-function sourceStrengthImpact(strength: River['profile']['thresholdSourceStrength']): ScoreImpact {
-  switch (strength) {
-    case 'official':
-      return 'positive';
-    case 'mixed':
-      return 'neutral';
-    case 'community':
-      return 'warning';
-    default:
-      return 'warning';
-  }
+function sourceStrengthViewModel(river: River) {
+  return buildSourceStrengthViewModel(river.profile.thresholdSourceStrength, {
+    thresholdModel: river.profile.thresholdModel,
+    sourceLabel: river.profile.thresholdSource.label,
+  });
 }
 
 function thresholdModelLabel(model: River['profile']['thresholdModel']): string {
@@ -1867,21 +1849,6 @@ function thresholdModelDetail(river: River): string {
   }
 
   return 'This reach has a preferred range plus low and high bounds.';
-}
-
-function sourceStrengthDetail(river: River): string {
-  const sourceLabel = river.profile.thresholdSource.label;
-
-  switch (river.profile.thresholdSourceStrength) {
-    case 'official':
-      return `Threshold guidance comes from an official published source. Current numeric thresholds are anchored by ${sourceLabel}.`;
-    case 'mixed':
-      return `Thresholds are built from multiple source types rather than one official range. Current guidance is anchored by ${sourceLabel} and supporting notes.`;
-    case 'community':
-      return `Thresholds currently lean on community trip reports. Current guidance is anchored by ${sourceLabel}, so leave yourself extra margin.`;
-    default:
-      return `Thresholds are built from partial evidence rather than a published range. Current guidance is anchored by ${sourceLabel}.`;
-  }
 }
 
 function formatGauge(value: number, unit: GaugeUnit): string {

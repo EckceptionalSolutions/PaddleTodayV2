@@ -1,3 +1,4 @@
+import { isValidEmailAddress as isValidEmail } from '@paddletoday/api-contract';
 import type { ServerResponse } from 'node:http';
 import type { ApiRequest } from '../http';
 import { clean, readJsonBody, sendBinary, sendBodyLimitResponse, sendJson } from '../http';
@@ -472,8 +473,4 @@ export async function handleAdminContributionFile(
       'no-store'
     );
   }
-}
-
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }

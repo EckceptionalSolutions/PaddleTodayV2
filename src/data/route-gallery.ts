@@ -37,6 +37,36 @@ const placeholderRoutePhotos: RouteGalleryPhoto[] = [
 ];
 
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'west-fork-white-river-barlow-mcculloch': [
+    {
+      id: 'west-washington-street-bridge-muncie-commons',
+      src: '/gallery/west-fork-white-river-barlow-mcculloch/west-washington-street-bridge-muncie.jpg',
+      alt: 'The historic West Washington Street Bridge crosses the White River beside the riverfront trail in Muncie.',
+      caption: 'White River at West Washington Street in Muncie',
+      credit: 'Nyttend via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'west-fork-white-river-morrows-meadow-canoe-country': [
+    {
+      id: 'white-river-muncie-commons',
+      src: '/gallery/west-fork-white-river-morrows-meadow-canoe-country/white-river-muncie.jpg',
+      alt: 'The shallow White River curves past a wooded bank and riverfront trail in Muncie.',
+      caption: 'White River corridor in Muncie',
+      credit: 'Rafaela Ely via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'west-fork-white-river-canoe-country-edgewater': [
+    {
+      id: 'white-river-kayaking-indianapolis-commons',
+      src: '/gallery/west-fork-white-river-canoe-country-edgewater/white-river-kayaking-indianapolis.jpg',
+      alt: 'A group of kayakers paddles the White River with the Indianapolis skyline in the distance.',
+      caption: 'Kayaking the White River farther downstream in Indianapolis',
+      credit: "City of Indianapolis Mayor's Office via Wikimedia Commons",
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
   'des-moines-river-bentonsport-bonaparte': [
     {
       id: 'des-moines-river-bonaparte-commons',

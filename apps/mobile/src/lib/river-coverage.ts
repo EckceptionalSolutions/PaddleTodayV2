@@ -1,4 +1,5 @@
 import type { RiverDetailApiResult, RiverSummaryApiItem, ScoreRating } from '@paddletoday/api-contract';
+import { coverageCenter as sharedCoverageCenter, nearestPointOnLines } from '@paddletoday/geo';
 
 export type RiverCoverageResult = RiverSummaryApiItem | RiverDetailApiResult;
 
@@ -49,9 +50,8 @@ export function groupRoutesByConditionScore<Result extends RiverCoverageResult>(
 }
 
 export function coverageCenter(routes: RiverCoverageResult[]) {
-  const routeCenters = routes
-    .map((route) => {
-      const points = [
+  return sharedCoverageCenter(routes.map((route) => {
+    const points = [
         route.river.putIn,
         ...(route.river.accessPoints ?? []),
         route.river.takeOut,
@@ -61,52 +61,19 @@ export function coverageCenter(routes: RiverCoverageResult[]) {
           : []
       ));
 
-      if (points.length === 0) {
-        return isCoordinate(route.river)
-          ? { latitude: route.river.latitude, longitude: route.river.longitude }
-          : null;
-      }
-
-      return {
-        latitude: points.reduce((sum, point) => sum + point.latitude, 0) / points.length,
-        longitude: points.reduce((sum, point) => sum + point.longitude, 0) / points.length,
-      };
-    })
-    .filter((point): point is { latitude: number; longitude: number } => point !== null);
-
-  if (routeCenters.length === 0) return null;
-  return {
-    latitude: routeCenters.reduce((sum, point) => sum + point.latitude, 0) / routeCenters.length,
-    longitude: routeCenters.reduce((sum, point) => sum + point.longitude, 0) / routeCenters.length,
-  };
+    if (points.length > 0) return points;
+    return isCoordinate(route.river)
+      ? [{ latitude: route.river.latitude, longitude: route.river.longitude }]
+      : [];
+  }));
 }
 
 export function coverageAnchorForRoute(route: RiverCoverageResult, span: Array<{ latitude: number; longitude: number }> | null) {
   const center = coverageCenter([route]);
   if (!center || !span || span.length < 2) return center;
-  let best = span[0];
-  let bestDistance = Number.POSITIVE_INFINITY;
-  for (let index = 1; index < span.length; index += 1) {
-    const start = span[index - 1];
-    const end = span[index];
-    const dx = end.longitude - start.longitude;
-    const dy = end.latitude - start.latitude;
-    const lengthSquared = dx * dx + dy * dy;
-    const rawT = lengthSquared === 0
-      ? 0
-      : ((center.longitude - start.longitude) * dx + (center.latitude - start.latitude) * dy) / lengthSquared;
-    const t = Math.max(0, Math.min(1, rawT));
-    const candidate = {
-      longitude: start.longitude + (end.longitude - start.longitude) * t,
-      latitude: start.latitude + (end.latitude - start.latitude) * t,
-    };
-    const distance = (candidate.longitude - center.longitude) ** 2 + (candidate.latitude - center.latitude) ** 2;
-    if (distance < bestDistance) {
-      best = candidate;
-      bestDistance = distance;
-    }
-  }
-  return best;
+  return nearestPointOnLines(center, [
+    span.map(({ longitude, latitude }) => [longitude, latitude]),
+  ]) ?? center;
 }
 
 function isCoordinate(

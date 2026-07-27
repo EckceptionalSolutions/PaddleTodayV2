@@ -122,7 +122,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "About 12.6 mi",
-      "estimatedPaddleTime": "Long daylight day, often 5 hr to 8 hr depending on level, wood, and mouth-current conditions",
+      "estimatedPaddleTime": "Long daylight day, often 5 hr to 8 hr depending on level and group pace",
       "shuttle": "Stage the take-out at the Green River-Russell Creek VPA gate, then drive back to Russell Creek Road Access. The mouth take-out is a low-amenity walk-in VPA site with limited parking, so inspect the landing and parking plan before launching.",
       "permits": "No route-specific private paddling permit is known. Use only the KDFWR-listed public access areas, follow Kentucky boating and PFD rules, obey posted VPA regulations, and respect private property around the corridor.",
       "camping": "Treat this as a daylight day trip. The Green River-Russell Creek VPA is private property enrolled in KDFWR's VPA program with daylight-hours-only access and no camping.",
@@ -135,10 +135,9 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "Shallow riffles, gravel bars, and scraping below about 100 cfs.",
-        "Wood, strainers, blind corners, and debris near the lower bends and the mouth approach.",
-        "High or rising water above KDFWR's good band, especially where the lower creek pushes through bends with fewer easy exits.",
+        "Flow above KDFWR's 100 to 350 cfs / 3.5 to 4.5 ft good band; KDFWR rates higher readings as High and notes that suitable levels depend on paddler skill and experience.",
         "Private banks, VPA rules, and the need to finish before dark because the mouth access is daylight-hours-only.",
-        "Limited parking, no amenities, and the possibility of Green River backwater or mouth turbulence affecting the take-out zone."
+        "Limited parking, no amenities, and a gate-to-bank walk at the Green River-Russell Creek VPA take-out."
       ]
     }
   },

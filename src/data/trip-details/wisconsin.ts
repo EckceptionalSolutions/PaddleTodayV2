@@ -2082,11 +2082,11 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Put in at Wayside Park near Wonewoc and take out near Kalepp Road. This is a short scenic Baraboo River segment with sandstone outcrops, but muddy banks, strainers, and changing wood make it a moderate route.",
       "accessCaveats": [
         "Wayside Park is a public park/rest area, but the water entry is not a polished boat ramp.",
-        "The Kalepp Road exit uses a side-creek/400 State Trail corridor described by Wisconsin River Trips; verify same-day access and avoid private land."
+        "The Kalepp Road exit uses the side creek beside the 400 State Trail described by Wisconsin River Trips. Park only in the DNR lot; land west of the trail includes a Voluntary Public Access easement but remains technically private, so follow postings and stay on the documented exit path."
       ],
       "watchFor": [
         "Downed trees and strainers in deep, muddy, fast water.",
-        "Steep muddy banks that can make portages harder than they look.",
+        "Do not rely on an easy portage around new wood; steep muddy banks can make getting out difficult.",
         "Pushy, dirty water above the target stage range."
       ]
     }

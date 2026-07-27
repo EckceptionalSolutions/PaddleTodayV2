@@ -1,4 +1,5 @@
 import { Platform } from 'react-native';
+import { semanticColors, semanticRadii, semanticSpacing } from '@paddletoday/design-tokens';
 
 export const colors = {
   canvas: '#F4F1E8',
@@ -11,29 +12,29 @@ export const colors = {
   accent: '#2F6B59',
   accentSoft: '#DDEAE3',
   accentDeep: '#224D40',
-  strong: '#2F6B59',
-  good: '#567B46',
-  fair: '#8A6A2A',
-  noGo: '#8C4A36',
-  live: '#2F6B59',
-  degraded: '#8A6A2A',
-  offline: '#8C4A36',
+  strong: semanticColors.rating.strong,
+  good: semanticColors.rating.good,
+  fair: semanticColors.rating.fair,
+  noGo: semanticColors.rating.noGo,
+  live: semanticColors.status.live,
+  degraded: semanticColors.status.degraded,
+  offline: semanticColors.status.offline,
   shadow: 'rgba(31, 42, 36, 0.08)',
 };
 
 export const spacing = {
-  xs: 4,
-  sm: 8,
-  md: 12,
-  lg: 16,
-  xl: 22,
+  xs: semanticSpacing.native.xs,
+  sm: semanticSpacing.native.sm,
+  md: semanticSpacing.native.md,
+  lg: semanticSpacing.native.lg,
+  xl: semanticSpacing.native.xl,
 };
 
 export const radius = {
-  sm: 8,
-  md: 12,
-  lg: 16,
-  pill: 999,
+  sm: semanticRadii.native.control,
+  md: semanticRadii.native.card,
+  lg: semanticRadii.native.panel,
+  pill: semanticRadii.native.pill,
 };
 
 export const shadow = Platform.select({

@@ -1,5 +1,8 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import {
+  cleanBlobPath as cleanPathSegment,
+  createJsonStorage,
+  type JsonStorage,
+} from './blob-storage';
 import { isArrayOf, isNullableNumber, isNullableString, isNumber, isOneOf, isRecord, isString } from './json-guards';
 import type { RiverScoreResult, ScoreRating } from './types';
 
@@ -43,11 +46,6 @@ export interface RiverHistoryResult {
   todayHourly: RiverHistorySnapshot[];
   latestSnapshotAt: string | null;
 }
-
-type BlobContainer = {
-  base: string;
-  query: string;
-};
 
 function isRiverHistorySnapshot(value: unknown): value is RiverHistorySnapshot {
   if (!isRecord(value)) {
@@ -230,115 +228,13 @@ function historyPrefix() {
   return cleanPathSegment(process.env.RIVER_HISTORY_BLOB_PREFIX || 'river-history');
 }
 
-function historyStorage():
-  | {
-      kind: 'local';
-      readJson<T>(blobName: string): Promise<T | null>;
-      writeJson(blobName: string, value: unknown): Promise<void>;
-    }
-  | {
-      kind: 'blob';
-      readJson<T>(blobName: string): Promise<T | null>;
-      writeJson(blobName: string, value: unknown): Promise<void>;
-    } {
-  const container = parseContainerSas(process.env.RIVER_HISTORY_CONTAINER_SAS_URL ?? '');
-  if (container) {
-    return {
-      kind: 'blob',
-      async readJson<T>(blobName: string) {
-        const response = await fetch(putBlobUrl(container, blobName), {
-          method: 'GET',
-          headers: { accept: 'application/json' },
-        });
-
-        if (response.status === 404) {
-          return null;
-        }
-
-        if (!response.ok) {
-          throw new Error(`Failed to read history blob ${blobName}: HTTP ${response.status}`);
-        }
-
-        const payload: unknown = await response.json();
-        if (!isRiverHistorySnapshotArray(payload) && !isRiverHistoryDaySummaryArray(payload)) {
-          throw new Error(`Invalid history blob ${blobName}`);
-        }
-        return payload as T;
-      },
-      async writeJson(blobName: string, value: unknown) {
-        const payload = JSON.stringify(value, null, 2);
-        const response = await fetch(putBlobUrl(container, blobName), {
-          method: 'PUT',
-          headers: {
-            'x-ms-blob-type': 'BlockBlob',
-            'content-type': 'application/json; charset=utf-8',
-          },
-          body: payload,
-        });
-
-        if (!response.ok) {
-          throw new Error(`Failed to write history blob ${blobName}: HTTP ${response.status}`);
-        }
-      },
-    };
-  }
-
-  return {
-    kind: 'local',
-    async readJson<T>(blobName: string) {
-      const filePath = localPathFor(blobName);
-      try {
-        const payload = await readFile(filePath, 'utf8');
-        const parsed: unknown = JSON.parse(payload);
-        if (!isRiverHistorySnapshotArray(parsed) && !isRiverHistoryDaySummaryArray(parsed)) {
-          throw new Error(`Invalid history JSON in ${blobName}`);
-        }
-        return parsed as T;
-      } catch (error) {
-        if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-          return null;
-        }
-        throw error;
-      }
-    },
-    async writeJson(blobName: string, value: unknown) {
-      const filePath = localPathFor(blobName);
-      const parentDir = dirname(filePath);
-      await mkdir(parentDir, { recursive: true });
-      await writeFile(filePath, JSON.stringify(value, null, 2), 'utf8');
-    },
-  };
-}
-
-function localPathFor(blobName: string) {
-  return resolve(process.cwd(), process.env.RIVER_HISTORY_DIR || DEFAULT_HISTORY_DIR, blobName);
-}
-
-function parseContainerSas(value: string): BlobContainer | null {
-  if (!value) {
-    return null;
-  }
-
-  try {
-    const url = new URL(value);
-    return {
-      base: url.origin + url.pathname.replace(/\/$/, ''),
-      query: url.search,
-    };
-  } catch {
-    return null;
-  }
-}
-
-function putBlobUrl(container: BlobContainer, blobName: string) {
-  return `${container.base}/${blobName}${container.query}`;
-}
-
-function cleanPathSegment(value: string) {
-  return value
-    .trim()
-    .replace(/^\/+|\/+$/g, '')
-    .replace(/[^a-zA-Z0-9/_-]+/g, '-');
+function historyStorage(): JsonStorage {
+  return createJsonStorage({
+    containerSasUrl: process.env.RIVER_HISTORY_CONTAINER_SAS_URL,
+    localDirectory: process.env.RIVER_HISTORY_DIR || DEFAULT_HISTORY_DIR,
+    validate: (value) => isRiverHistorySnapshotArray(value) || isRiverHistoryDaySummaryArray(value),
+    label: 'history',
+  });
 }
 
 function localDateKey(date: Date) {

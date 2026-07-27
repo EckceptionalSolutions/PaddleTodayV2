@@ -1,3 +1,5 @@
+import { coverageCenter, nearestPointOnLines } from '@paddletoday/geo';
+
 function riverForResult(result) {
   return result?.river ?? result ?? {};
 }
@@ -84,25 +86,7 @@ export function routeCoveragePoints(result) {
 }
 
 export function coverageCenterForRoutes(results) {
-  const centers = (Array.isArray(results) ? results : [])
-    .map((result) => {
-      const points = routeCoveragePoints(result);
-      if (points.length === 0) return null;
-      return {
-        longitude: points.reduce((sum, point) => sum + point.longitude, 0) / points.length,
-        latitude: points.reduce((sum, point) => sum + point.latitude, 0) / points.length,
-      };
-    })
-    .filter(Boolean);
-
-  if (centers.length === 0) {
-    return null;
-  }
-
-  return {
-    longitude: centers.reduce((sum, point) => sum + point.longitude, 0) / centers.length,
-    latitude: centers.reduce((sum, point) => sum + point.latitude, 0) / centers.length,
-  };
+  return coverageCenter((Array.isArray(results) ? results : []).map(routeCoveragePoints));
 }
 
 /**
@@ -127,15 +111,7 @@ export function coverageAnchorForRoutes(results, geometryBySlug) {
     });
   if (lines.length === 0) return center;
 
-  let best = null;
-  for (const line of lines) {
-    for (let index = 1; index < line.length; index += 1) {
-      const candidate = nearestPointOnCoverageSegment(center, line[index - 1], line[index]);
-      if (!best || candidate.distanceSquared < best.distanceSquared) best = candidate;
-    }
-  }
-
-  return best ? { longitude: best.longitude, latitude: best.latitude } : center;
+  return nearestPointOnLines(center, lines) ?? center;
 }
 
 function flattenCoverageGeometry(geometry) {
@@ -143,26 +119,4 @@ function flattenCoverageGeometry(geometry) {
   if (geometry.type === 'LineString') return [geometry.coordinates];
   if (geometry.type === 'MultiLineString') return geometry.coordinates;
   return [];
-}
-
-function nearestPointOnCoverageSegment(target, start, end) {
-  const latitudeScale = Math.cos((target.latitude * Math.PI) / 180);
-  const startX = start[0] * latitudeScale;
-  const startY = start[1];
-  const endX = end[0] * latitudeScale;
-  const endY = end[1];
-  const targetX = target.longitude * latitudeScale;
-  const targetY = target.latitude;
-  const dx = endX - startX;
-  const dy = endY - startY;
-  const lengthSquared = dx * dx + dy * dy;
-  const rawT = lengthSquared === 0
-    ? 0
-    : ((targetX - startX) * dx + (targetY - startY) * dy) / lengthSquared;
-  const t = Math.max(0, Math.min(1, rawT));
-  const longitude = start[0] + (end[0] - start[0]) * t;
-  const latitude = start[1] + (end[1] - start[1]) * t;
-  const distanceSquared = ((longitude - target.longitude) * latitudeScale) ** 2
-    + (latitude - target.latitude) ** 2;
-  return { longitude, latitude, distanceSquared };
 }

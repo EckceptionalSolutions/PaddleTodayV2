@@ -832,9 +832,22 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "South-Central Kentucky",
     "summary": "Lower Russell Creek from the Russell Creek Road slab crossing to the Green River-Russell Creek VPA at the mouth. KDFWR documents the 12.6-mile lower public segment and the Columbia gauge bands; the VPA detail adds daylight-only and no-camping rules.",
-    "statusText": "Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, expect shallow riffles and gravel bars; above that, current and wood get pushier, and the VPA take-out remains a low-amenity bank access.",
+    "statusText": "Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, expect shallow riffles and gravel bars; above that, KDFWR rates the creek high, and the VPA take-out remains a low-amenity bank access.",
     "latitude": 37.1701,
     "longitude": -85.4354,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "KDFWR describes Russell Creek as fairly remote with public access sites considerably far apart. This lower segment is 12.6 miles, so preserve daylight and do not depend on an intermediate public exit.",
+        "The Green River-Russell Creek VPA is private property enrolled in KDFWR's Voluntary Public Access Program. Access is daylight-hours-only, and continued public use depends on following all posted rules.",
+        "Inspect both endpoints before launching. Russell Creek Road is a gravel/dirt slab-crossing access, while the VPA take-out requires parking at the gate, walking to the bank, and working with very limited parking and no amenities."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03307000",
       "provider": "usgs",
@@ -871,7 +884,7 @@ export const kentuckyRoutes: River[] = [
       ],
       "seasonNotes": "Russell Creek responds quickly to rain, and this lower segment still wants water. Spring and wetter fall periods are most reliable; in summer, low water can expose bars and slow the day dramatically before the gauge fully fails.",
       "difficulty": "moderate",
-      "difficultyNotes": "This lower reach stays on the same narrow, remote creek character, but the 12.6-mile length and VPA take-out mean the route still demands planning. Wood, limited amenities, private-adjacent banks, and a low-amenity mouth access make it more committing than a short local float.",
+      "difficultyNotes": "This lower reach stays on the same narrow, remote creek character, but the 12.6-mile length and VPA take-out mean the route still demands planning. Widely spaced public accesses, limited amenities, private-adjacent banks, and a low-amenity mouth access make it more committing than a short local float.",
       "confidenceNotes": "Confidence is high for a conservative Kentucky add: KDFWR lists Russell Creek Road Access to Green River-Russell Creek VPA as a 12.6-mile Russell Creek segment, publishes the official Low/Good/High cfs and stage bands tied to USGS 03307000, and provides access details and coordinates for Russell Creek Road. The Green River-Russell Creek VPA detail page confirms the mouth take-out coordinates and daylight-only, no-camping VPA rules. USGS Water Services returned same-day July 14, 2026 values during this run. Current review flow was below the good band, but that affects today's score rather than route readiness."
     },
     "evidenceNotes": [

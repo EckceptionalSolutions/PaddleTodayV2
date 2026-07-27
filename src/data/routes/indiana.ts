@@ -891,5 +891,372 @@ export const indianaRoutes: River[] = [
         "url": "https://api.openstreetmap.org/api/0.6/way/17590121/full.json"
       }
     ]
+  },
+  {
+    "id": "west-fork-white-river-barlow-mcculloch",
+    "slug": "west-fork-white-river-barlow-mcculloch",
+    "name": "White River",
+    "reach": "Barlow Landing to McCulloch Park",
+    "aliases": [
+      "West Fork White River - Barlow Landing to McCulloch Park",
+      "Muncie White River urban float"
+    ],
+    "state": "Indiana",
+    "region": "East Central Indiana",
+    "summary": "Short urban Muncie float between two current public paddle launches. Barlow Landing and McCulloch Park provide a beginner-friendly introduction to the restored West Fork White River without continuing toward the remaining west-side dam structure.",
+    "statusText": "Use the White River at Muncie gauge. Canoe Country's same-river guidance rates 4.00 to 5.04 ft fair through excellent and closes at 5.50 ft or higher; use 4.00 to 5.04 ft as the preferred band and skip at 5.50 ft or higher.",
+    "latitude": 40.190296,
+    "longitude": -85.360578,
+    "gaugeSource": {
+      "id": "usgs-03347000",
+      "provider": "usgs",
+      "siteId": "03347000",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "White River at Muncie, IN",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03347000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "urban_water_quality",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This is the short Barlow-to-McCulloch reach only. Take out at McCulloch Park; do not improvise a continuation toward the remaining west-side Muncie dam/fish-ladder structure.",
+        "Trees, bridge debris, and fresh log jams can change after storms. Look downstream before committing to bends and bridge openings, and skip water that is muddy, rapidly rising, or carrying debris.",
+        "Use the named public launches and avoid unnecessary contact after heavy rain. Banks away from public park and greenway property may be private."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 4,
+      "idealMax": 5.04,
+      "tooLow": 4,
+      "tooHigh": 5.5,
+      "thresholdSource": {
+        "label": "Canoe Country White River level guidance",
+        "url": "https://canoeindiana.com/contact-2/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall is the practical window. Prairie Creek Reservoir regulation and municipal diversions affect flow, so check the live Muncie stage even during otherwise dry weather and reassess after thunderstorms.",
+      "difficulty": "easy",
+      "difficultyNotes": "The short mileage and gentle city reach suit newer paddlers at ordinary levels, but it is still moving water with bridges, possible wood, variable shallow riffles, and an urban take-out that must not be missed.",
+      "confidenceNotes": "Confidence is good for a conservative requested add: Destination Muncie's June 2026 guide identifies Barlow Landing as a dedicated public canoe/kayak launch and McCulloch Park as another current launch; Ball Brothers Foundation documents the launch buildout; the endpoints are coordinate-backed at the dedicated Luick Avenue landing and the McCulloch river access near Martin Luther King Jr. Boulevard; Canoe Country publishes numeric stage guidance tied to USGS 03347000; and USGS Water Services returned same-day 2026-07-27 values of 4.09 ft and 38.5 cfs during implementation. Distance is river-geometry derived rather than manager-published."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Current Muncie launch pair",
+        "value": "Barlow Landing to McCulloch Park",
+        "note": "Destination Muncie's June 2026 guide describes Barlow as a dedicated canoe/kayak launch and lists McCulloch Park as another public White River launch.",
+        "sourceUrl": "https://destinationmuncie.org/heres-how-to-get-on-the-white-river/"
+      },
+      {
+        "label": "Launch buildout",
+        "value": "Barlow completed 2024; McCulloch scheduled 2025",
+        "note": "Ball Brothers Foundation documented the public launch program and construction timeline; the later Destination Muncie guide confirms both locations in current launch use.",
+        "sourceUrl": "https://www.ballfdn.org/news-archive/updates-on-canoekayak-launches-white-river-branding-and-more-shared-at-convening"
+      },
+      {
+        "label": "Local gauge ladder",
+        "value": "4.00-5.04 ft preferred; closed at 5.50 ft",
+        "note": "Canoe Country links to the Muncie USGS gauge and publishes fair, good, excellent, and closed stage guidance. Paddle Today combines fair through excellent as the preferred band and uses the outfitter's 5.50-ft closure.",
+        "sourceUrl": "https://canoeindiana.com/contact-2/"
+      },
+      {
+        "label": "Live gauge",
+        "value": "USGS 03347000 at 4.09 ft / 38.5 cfs",
+        "note": "USGS Water Services returned same-day values for White River at Muncie at 2026-07-27 08:30 EDT.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03347000/"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "40.190296, -85.360578 to 40.19768, -85.37617",
+        "note": "The put-in uses the Barlow Landing map coordinate; the take-out uses the coordinate-backed McCulloch river access near the Martin Luther King Jr. Boulevard crossing.",
+        "sourceUrl": "https://destinationmuncie.org/heres-how-to-get-on-the-white-river/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Destination Muncie White River launch guide",
+        "url": "https://destinationmuncie.org/heres-how-to-get-on-the-white-river/",
+        "provider": "local"
+      },
+      {
+        "label": "Ball Brothers Foundation launch update",
+        "url": "https://www.ballfdn.org/news-archive/updates-on-canoekayak-launches-white-river-branding-and-more-shared-at-convening",
+        "provider": "local"
+      },
+      {
+        "label": "City of Muncie McCulloch Park",
+        "url": "https://www.muncie.in.gov/egov/apps/locations/facilities.egov?id=32&view=detail",
+        "provider": "local"
+      },
+      {
+        "label": "Canoe Country water levels",
+        "url": "https://canoeindiana.com/contact-2/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 03347000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03347000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Community Enhancement Projects Muncie dam removals",
+        "url": "https://www.cepmuncie.org/portfolio/mccullough-park-dam-removal-indiana-steel-wire-kitselman-gateway-dam-removal/",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "west-fork-white-river-morrows-meadow-canoe-country",
+    "slug": "west-fork-white-river-morrows-meadow-canoe-country",
+    "name": "White River",
+    "reach": "Morrow's Meadow Park to Canoe Country",
+    "aliases": [
+      "West Fork White River - Morrow's Meadow to Canoe Country",
+      "Canoe Country Trip 3"
+    ],
+    "state": "Indiana",
+    "region": "East Central Indiana",
+    "summary": "Canoe Country's scenic three-hour West Fork White River trip from public Morrow's Meadow Park in Yorktown to the outfitter landing in Daleville. The exact route is published as about seven miles and is the outfitter's most scenic trip.",
+    "statusText": "Use the White River at Muncie gauge as an upstream same-river proxy. Canoe Country rates 4.00 to 5.04 ft fair through excellent and closes at 5.50 ft or higher; verify that the private Canoe Country take-out is available before launching.",
+    "latitude": 40.178559,
+    "longitude": -85.49512,
+    "gaugeSource": {
+      "id": "usgs-03347000",
+      "provider": "usgs",
+      "siteId": "03347000",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "White River at Muncie, IN",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03347000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Canoe Country is a private outfitter landing. Confirm current hours, fees, shuttle terms, and permission for private boats before leaving a vehicle or depending on the take-out.",
+        "Expect shallow riffles at low stages and changing wood after storms. Skip muddy, rapidly rising, debris-heavy water even when the upstream Muncie gauge has not yet peaked.",
+        "Use the named park and outfitter landings. Much of the bank between Yorktown and Daleville is private, so do not assume casual stopping or bailout access."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 4,
+      "idealMax": 5.04,
+      "tooLow": 4,
+      "tooHigh": 5.5,
+      "thresholdSource": {
+        "label": "Canoe Country White River level guidance",
+        "url": "https://canoeindiana.com/contact-2/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Canoe Country operates seasonally with reduced spring and post-Labor-Day hours. Confirm the landing and shuttle plan directly, and remember that the upstream Muncie gauge may lag or understate a fresh local thunderstorm downstream.",
+      "difficulty": "easy",
+      "difficultyNotes": "The outfitter presents this as a scenic three-hour trip, but moving current, shallow riffles, wood, private banks, and the private take-out require more planning than the easy label alone suggests.",
+      "confidenceNotes": "Confidence is good for a conservative outfitter-supported add: Canoe Country publishes the exact Morrow's Meadow-to-Canoe-Country trip at about seven miles and three hours, calls it its most scenic trip, provides its Daleville address and current operating hours, and publishes numeric Muncie-gauge guidance. Yorktown and county map sources identify Morrow's Meadow and its canoe launch, while the outfitter address and embedded map provide a coordinate-backed landing anchor. USGS Water Services returned same-day 2026-07-27 values of 4.09 ft and 38.5 cfs. Access remains conditional because the downstream endpoint is private."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Published outfitter route",
+        "value": "About 7 mi / 3 hr",
+        "note": "Canoe Country Trip #3 starts at Morrow's Meadow Park, ends at Canoe Country in Daleville, and is described as the outfitter's most scenic trip.",
+        "sourceUrl": "https://canoeindiana.com/river-map/"
+      },
+      {
+        "label": "Private landing",
+        "value": "Canoe Country, 6660 S County Rd 900 W",
+        "note": "The outfitter publishes its address, seasonal hours, and contact information. Private-boat users should confirm take-out and shuttle arrangements directly.",
+        "sourceUrl": "https://canoeindiana.com/contact-2/"
+      },
+      {
+        "label": "Local gauge ladder",
+        "value": "4.00-5.04 ft preferred; closed at 5.50 ft",
+        "note": "Canoe Country links to USGS real-time water data and publishes the stage ladder used conservatively for this route.",
+        "sourceUrl": "https://canoeindiana.com/contact-2/"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "40.178559, -85.49512 to 40.132438, -85.55517",
+        "note": "The Morrow's Meadow start is anchored at the official river-monitoring/launch area in the park; the Canoe Country endpoint is the White River landing beside the outfitter's embedded address-map property pin.",
+        "sourceUrl": "https://canoeindiana.com/river-map/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Canoe Country river map",
+        "url": "https://canoeindiana.com/river-map/",
+        "provider": "local"
+      },
+      {
+        "label": "Canoe Country contact and water levels",
+        "url": "https://canoeindiana.com/contact-2/",
+        "provider": "local"
+      },
+      {
+        "label": "Town of Yorktown parks",
+        "url": "https://www.yorktownindiana.org/parks",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 03347000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03347000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "west-fork-white-river-canoe-country-edgewater",
+    "slug": "west-fork-white-river-canoe-country-edgewater",
+    "name": "White River",
+    "reach": "Canoe Country to Edgewater Park",
+    "aliases": [
+      "West Fork White River - Canoe Country to Edgewater Park",
+      "Canoe Country Trip 4"
+    ],
+    "state": "Indiana",
+    "region": "East Central Indiana",
+    "summary": "Longer West Fork White River day from Canoe Country in Daleville to the public Edgewater Park boat ramp in Anderson. Canoe Country publishes the exact trip at about 11 miles and four hours, with many small rapids through the Timberline Ranch and Mounds State Park corridor.",
+    "statusText": "Use the White River at Muncie gauge as an upstream same-river proxy. Canoe Country rates 4.00 to 5.04 ft fair through excellent and closes at 5.50 ft or higher; confirm launch arrangements at Canoe Country before the trip.",
+    "latitude": 40.132438,
+    "longitude": -85.55517,
+    "gaugeSource": {
+      "id": "usgs-03347000",
+      "provider": "usgs",
+      "siteId": "03347000",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "White River at Muncie, IN",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03347000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Canoe Country is a private outfitter launch. Confirm current hours, fees, shuttle terms, and permission for private boats before staging the trip.",
+        "The outfitter notes many small rapids. At higher or rising levels, waves, bridge current, wood, and outside bends can become materially stronger than an easy float.",
+        "The 11-mile route has limited confirmed public bailout access. Use Edgewater Park's public boat-ramp area and do not assume that campground, state-park, or private banks are open landing sites."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 4,
+      "idealMax": 5.04,
+      "tooLow": 4,
+      "tooHigh": 5.5,
+      "thresholdSource": {
+        "label": "Canoe Country White River level guidance",
+        "url": "https://canoeindiana.com/contact-2/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall is the normal operating season. Confirm the private launch and shuttle, check the Muncie stage and trend, and make a local weather call because storms between Muncie and Anderson can change this downstream reach before the proxy gauge reflects it.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Canoe Country calls out many small rapids. The 11-mile commitment, moving-water features, possible wood, limited confirmed exits, and upstream proxy gauge make this a moderate river day even though it is a standard livery trip at ordinary levels.",
+      "confidenceNotes": "Confidence is good for a guarded outfitter-supported add: Canoe Country publishes this exact launch-to-Edgewater route at about 11 miles and four hours, names its small rapids and corridor landmarks, provides the private launch address, and ties its numeric operating guidance to USGS 03347000. The City of Anderson confirms Edgewater Park on the White River, and Indiana STORET independently identifies the Edgewater Park Boat Ramp at 40.1039725, -85.6683267. USGS Water Services returned same-day 2026-07-27 values of 4.09 ft and 38.5 cfs. The gauge remains explicitly upstream proxy evidence."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Published outfitter route",
+        "value": "About 11 mi / 4 hr",
+        "note": "Canoe Country Trip #4 starts at its Daleville launch, passes Timberline Ranch and Mounds State Park, ends at Edgewater Park, and includes many small rapids.",
+        "sourceUrl": "https://canoeindiana.com/river-map/"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Edgewater Park Boat Ramp",
+        "note": "The City of Anderson confirms Edgewater Park's White River frontage, and Indiana STORET names and coordinates the Edgewater Park Boat Ramp.",
+        "sourceUrl": "https://www.cityofanderson.com/facilities/facility/details/Edgewater-Park-14"
+      },
+      {
+        "label": "Local gauge ladder",
+        "value": "4.00-5.04 ft preferred; closed at 5.50 ft",
+        "note": "Canoe Country links to USGS real-time water data and publishes the stage ladder used conservatively for this route.",
+        "sourceUrl": "https://canoeindiana.com/contact-2/"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "40.132438, -85.55517 to 40.1039725, -85.6683267",
+        "note": "The launch is the White River landing beside Canoe Country's embedded address-map property pin; the take-out is the Indiana STORET coordinate for Edgewater Park Boat Ramp.",
+        "sourceUrl": "https://www.waterqualitydata.us/provider/STORET/INSTOR_WQX/INSTOR_WQX-2398/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Canoe Country river map",
+        "url": "https://canoeindiana.com/river-map/",
+        "provider": "local"
+      },
+      {
+        "label": "Canoe Country contact and water levels",
+        "url": "https://canoeindiana.com/contact-2/",
+        "provider": "local"
+      },
+      {
+        "label": "City of Anderson Edgewater Park",
+        "url": "https://www.cityofanderson.com/facilities/facility/details/Edgewater-Park-14",
+        "provider": "local"
+      },
+      {
+        "label": "Indiana STORET Edgewater Park Boat Ramp",
+        "url": "https://www.waterqualitydata.us/provider/STORET/INSTOR_WQX/INSTOR_WQX-2398/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 03347000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03347000/",
+        "provider": "usgs"
+      }
+    ]
   }
 ];

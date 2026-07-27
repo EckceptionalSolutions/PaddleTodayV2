@@ -1,12 +1,32 @@
-import { escapeHtml } from './map-runtime.js';
+import {
+  clearMapMarkers,
+  createPaddleMap,
+  ensureMapLibre,
+  escapeHtml,
+  fitMapBounds,
+  markerClassForRating,
+  waitForMapReady,
+} from './map-runtime.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
+import { createBoardLocationService } from './board-location-service.js';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
+import {
+  buildWeekendPlan,
+  DEFAULT_WEEKEND_DISTANCE_LIMIT,
+  parseWeekendDistanceLimit,
+  weekendFilterLabel,
+  weekendRouteMapPoints,
+} from '../lib/weekend-planning.ts';
+import { ratingToneKey } from '@paddletoday/api-contract';
+import { getBrowserApiClient } from './browser-api-client.js';
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const WEEKEND_CACHE_KEY = 'weekend-summary:v1';
+const WEEKEND_DISTANCE_STORAGE_KEY = 'paddletoday:weekend-distance-limit:v1';
+const LOCATION_STORAGE_KEY = 'paddletoday:user-location';
 const FALLBACK_ROUTE_PHOTOS = [
   {
     src: '/gallery/fallbacks/river-fallback-stream.jpg',
@@ -29,6 +49,31 @@ const weekendEmptyTitle = document.querySelector('[data-weekend-empty-title]');
 const weekendEmptyCopy = document.querySelector('[data-weekend-empty-copy]');
 const weekendWatchSection = document.querySelector('[data-weekend-watch-section]');
 const weekendWatchGrid = document.querySelector('[data-weekend-watch-grid]');
+const weekendWatchEmpty = document.querySelector('[data-weekend-watch-empty]');
+const weekendPrimarySection = document.querySelector('[data-weekend-primary-section]');
+const weekendPrimaryTitle = document.querySelector('[data-weekend-primary-title]');
+const weekendPrimaryNote = document.querySelector('[data-weekend-primary-note]');
+const weekendCampingSection = document.querySelector('[data-weekend-camping-section]');
+const weekendCampingGrid = document.querySelector('[data-weekend-camping-grid]');
+const weekendCampingEmpty = document.querySelector('[data-weekend-camping-empty]');
+const weekendFilterSummary = document.querySelector('[data-weekend-filter-summary]');
+const weekendPlanner = document.querySelector('.weekend-planner');
+const weekendFilterButtons = Array.from(document.querySelectorAll('[data-weekend-filter]'));
+const weekendFilterCountNodes = Array.from(document.querySelectorAll('[data-weekend-filter-count]'));
+const weekendDistance = document.querySelector('[data-weekend-distance]');
+const weekendDistanceButtons = Array.from(document.querySelectorAll('[data-weekend-distance-option]'));
+const weekendLocationLabel = document.querySelector('[data-weekend-location-label]');
+const weekendLocationHint = document.querySelector('[data-weekend-location-hint]');
+const weekendLocationUse = document.querySelector('[data-weekend-location-use]');
+const weekendLocationClear = document.querySelector('[data-weekend-location-clear]');
+const weekendMapSection = document.querySelector('[data-weekend-map-section]');
+const weekendMap = document.querySelector('[data-summary-map]');
+const weekendMapStatus = document.querySelector('[data-summary-map-status]');
+const weekendMapShell = document.querySelector('[data-summary-map-shell]');
+const weekendMapEmpty = document.querySelector('[data-weekend-map-empty]');
+const weekendMapEmptyTitle = document.querySelector('[data-weekend-map-empty-title]');
+const weekendMapEmptyCopy = document.querySelector('[data-weekend-map-empty-copy]');
+const weekendMapEmptyReset = document.querySelector('[data-weekend-map-empty-reset]');
 
 const featuredPanel = document.querySelector('.weekend-hero__featured');
 const featuredLabel = document.querySelector('[data-weekend-featured-label]');
@@ -61,7 +106,18 @@ const withheldCount = document.querySelector('[data-weekend-withheld-count]');
 
 let lastGeneratedAt = null;
 let latestWeekendItems = [];
+let latestWeekendPayload = null;
+let selectedWeekendFilter = 'all';
+let selectedWeekendDistance = loadStoredWeekendDistance();
+let userLocation = loadStoredWeekendLocation();
+let weekendMapRuntime = null;
+let weekendMapMarkers = [];
+let weekendMapRenderVersion = 0;
 const weekendRequestGuard = createRequestGuard();
+const weekendLocationService = createBoardLocationService({
+  fetchImpl: (...args) => fetch(...args),
+  chooseCandidate: (candidates) => candidates[0],
+});
 
 function splitWeekendItems(items) {
   return {
@@ -70,16 +126,141 @@ function splitWeekendItems(items) {
   };
 }
 
+function loadStoredWeekendLocation() {
+  try {
+    const raw = window.localStorage.getItem(LOCATION_STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+
+    const parsed = JSON.parse(raw);
+    if (
+      parsed
+      && Number.isFinite(parsed.latitude)
+      && Number.isFinite(parsed.longitude)
+      && typeof parsed.label === 'string'
+    ) {
+      return parsed;
+    }
+  } catch (error) {
+    console.warn('Failed to load the saved weekend location.', error);
+  }
+
+  return null;
+}
+
+function loadStoredWeekendDistance() {
+  try {
+    const parsed = parseWeekendDistanceLimit(
+      window.localStorage.getItem(WEEKEND_DISTANCE_STORAGE_KEY),
+    );
+    return parsed === undefined ? DEFAULT_WEEKEND_DISTANCE_LIMIT : parsed;
+  } catch (error) {
+    console.warn('Failed to load the saved weekend range.', error);
+    return DEFAULT_WEEKEND_DISTANCE_LIMIT;
+  }
+}
+
+function saveWeekendLocation(location) {
+  try {
+    if (location) {
+      window.localStorage.setItem(LOCATION_STORAGE_KEY, JSON.stringify(location));
+    } else {
+      window.localStorage.removeItem(LOCATION_STORAGE_KEY);
+    }
+  } catch (error) {
+    console.warn('Failed to save the weekend location.', error);
+  }
+}
+
+function saveWeekendDistance(distance) {
+  try {
+    window.localStorage.setItem(WEEKEND_DISTANCE_STORAGE_KEY, JSON.stringify(distance));
+  } catch (error) {
+    console.warn('Failed to save the weekend range.', error);
+  }
+}
+
+function weekendDistanceLabel(distance = selectedWeekendDistance) {
+  return distance === null ? 'all distances' : `${distance} miles`;
+}
+
+function updateWeekendControls(plan) {
+  if (weekendPlanner instanceof HTMLElement) {
+    weekendPlanner.classList.toggle('weekend-planner--without-location', !userLocation);
+  }
+  if (weekendLocationLabel instanceof HTMLElement) {
+    weekendLocationLabel.textContent = userLocation
+      ? `Planning from ${userLocation.label}`
+      : 'Plan from your location';
+  }
+  if (weekendLocationHint instanceof HTMLElement) {
+    weekendLocationHint.textContent = userLocation
+      ? 'Drive time is included in the weekend ranking.'
+      : 'Use your location to include drive time in the weekend ranking.';
+  }
+  if (weekendLocationUse instanceof HTMLButtonElement) {
+    weekendLocationUse.hidden = Boolean(userLocation);
+    weekendLocationUse.disabled = false;
+    weekendLocationUse.textContent = 'Use my location';
+  }
+  if (weekendLocationClear instanceof HTMLButtonElement) {
+    weekendLocationClear.hidden = !userLocation;
+  }
+  if (weekendDistance instanceof HTMLElement) {
+    weekendDistance.hidden = !userLocation;
+  }
+
+  for (const button of weekendDistanceButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+    const value = button.dataset.weekendDistanceOption === 'any'
+      ? null
+      : Number(button.dataset.weekendDistanceOption);
+    const active = value === selectedWeekendDistance;
+    button.classList.toggle('filter-chip--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+
+  const counts = {
+    all: new Set(
+      [...plan.dayTrips, ...plan.campingRoutes, ...plan.rechecks]
+        .map((route) => route.river.slug),
+    ).size,
+    'day-trips': plan.dayTrips.length,
+    camping: plan.campingRoutes.length,
+    rechecks: plan.rechecks.length,
+  };
+  for (const node of weekendFilterCountNodes) {
+    if (!(node instanceof HTMLElement)) {
+      continue;
+    }
+    node.textContent = String(counts[node.dataset.weekendFilterCount] ?? 0);
+  }
+  for (const button of weekendFilterButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+    const active = button.dataset.weekendFilter === selectedWeekendFilter;
+    button.classList.toggle('weekend-plan-lane--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+
+  if (weekendFilterSummary instanceof HTMLElement) {
+    const routeCount = plan.mapRoutes.length;
+    const typeLabel = weekendFilterLabel(selectedWeekendFilter);
+    const rangeLabel = userLocation ? ` within ${weekendDistanceLabel()}` : '';
+    weekendFilterSummary.textContent = routeCount > 0
+      ? `Showing ${routeCount} ${typeLabel} ${routeCount === 1 ? 'route' : 'routes'}${rangeLabel}.`
+      : `No ${typeLabel} routes match${rangeLabel || ' right now'}.`;
+  }
+}
+
 function setText(node, value) {
   if (node instanceof HTMLElement) {
     node.textContent = value;
   }
-}
-
-function ratingToneKey(rating) {
-  if (rating === 'Strong') return 'great';
-  if (rating === 'Fair') return 'marginal';
-  return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
 function splitBulletParts(text) {
@@ -339,9 +520,10 @@ function favoriteRecord(item) {
 
 function weekendMetaText(item) {
   const parts = [
+    item.travelLabel,
     confidenceDisplayLabel(item.weekend.confidence),
     `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`,
-  ];
+  ].filter(Boolean);
 
   if (difficultyLabel(item)) {
     parts.push(difficultyLabel(item));
@@ -358,9 +540,10 @@ function weekendMetaText(item) {
 
 function weekendFactsMarkup(item) {
   const facts = [
+    item.travelLabel,
     confidenceDisplayLabel(item.weekend.confidence),
     `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`,
-  ];
+  ].filter(Boolean);
 
   if (difficultyLabel(item)) {
     facts.push(difficultyLabel(item));
@@ -485,8 +668,8 @@ function updateSnapshotLine(payload) {
   snapshotLine.textContent = `${countLabel} / ${insight}`;
 }
 
-function updateOverviewCounts(payload) {
-  const rivers = Array.isArray(payload?.rivers) ? payload.rivers : [];
+function updateOverviewCounts(payload, visibleRivers = payload?.rivers) {
+  const rivers = Array.isArray(visibleRivers) ? visibleRivers : [];
   const strong = rivers.filter((item) => item.weekend.rating === 'Strong').length;
   const good = rivers.filter((item) => item.weekend.rating === 'Good').length;
   const fair = rivers.filter((item) => item.weekend.rating === 'Fair').length;
@@ -549,7 +732,14 @@ function updateFeaturedGallery(item) {
   }
 }
 
-function renderFeatured(item, worthWatchingCount = 0) {
+function renderFeatured(
+  item,
+  {
+    worthWatchingCount = 0,
+    hasWeekendPlan = true,
+    hasExpandedPicks = false,
+  } = {},
+) {
   if (!item) {
     updateFeaturedGallery(null);
     setText(featuredLabel, 'Top weekend pick');
@@ -619,12 +809,24 @@ function renderFeatured(item, worthWatchingCount = 0) {
     featuredPanel.classList.add(`hero-call--${tone}`);
   }
 
-  setText(featuredLabel, 'Top weekend pick');
+  setText(
+    featuredLabel,
+    hasWeekendPlan
+      ? userLocation
+        ? 'Best nearby'
+        : 'Top weekend pick'
+      : hasExpandedPicks
+        ? 'Next closest option'
+        : 'No clean weekend plan',
+  );
   updateFeaturedGallery(item);
-  setText(featuredState, item.weekend.label);
+  setText(featuredState, userLocation ? `Near ${userLocation.label}` : item.weekend.label);
   setText(featuredName, item.river.name);
   setText(featuredReach, item.river.reach);
-  setText(featuredVerdict, weekendVerdict(item));
+  setText(
+    featuredVerdict,
+    hasWeekendPlan ? weekendVerdict(item) : 'Recheck before planning',
+  );
   setText(featuredScore, String(item.weekend.score));
   setText(featuredRating, ratingDisplayLabel(item.weekend.rating, { compact: true }));
   setText(featuredConfidence, confidenceDisplayLabel(item.weekend.confidence));
@@ -739,19 +941,30 @@ function createWeekendCard(item, index, options = {}) {
   return card;
 }
 
-function renderGrid(items) {
-  if (!(weekendGrid instanceof HTMLElement)) {
+function renderCardGrid(container, items, { watchCards = false, limit = 8 } = {}) {
+  if (!(container instanceof HTMLElement)) {
     return;
   }
 
-  weekendGrid.innerHTML = '';
+  container.innerHTML = '';
   const fragment = document.createDocumentFragment();
-  items.slice(0, 6).forEach((item, index) => {
-    fragment.appendChild(createWeekendCard(item, index));
+  items.slice(0, limit).forEach((item, index) => {
+    fragment.appendChild(
+      createWeekendCard(
+        item,
+        index,
+        watchCards
+          ? { slotLabel: watchSlotLabel(index), watchCard: true }
+          : {},
+      ),
+    );
   });
-  weekendGrid.appendChild(fragment);
-  refreshFavoriteButtons(weekendGrid);
+  container.appendChild(fragment);
+  refreshFavoriteButtons(container);
+}
 
+function renderGrid(items) {
+  renderCardGrid(weekendGrid, items);
   if (weekendEmpty instanceof HTMLElement) {
     weekendEmpty.hidden = items.length > 0;
   }
@@ -784,49 +997,299 @@ function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false }
   );
 }
 
-function renderWatchGrid(items) {
+function renderWatchGrid(items, { forceVisible = false } = {}) {
   if (!(weekendWatchSection instanceof HTMLElement) || !(weekendWatchGrid instanceof HTMLElement)) {
     return;
   }
 
-  weekendWatchSection.hidden = items.length <= 0;
-  weekendWatchGrid.innerHTML = '';
+  weekendWatchSection.hidden = items.length <= 0 && !forceVisible;
+  renderCardGrid(weekendWatchGrid, items, { watchCards: true, limit: 10 });
+  if (weekendWatchEmpty instanceof HTMLElement) {
+    weekendWatchEmpty.hidden = items.length > 0 || !forceVisible;
+  }
+}
 
-  if (items.length <= 0) {
+function renderCampingGrid(items, { forceVisible = false } = {}) {
+  if (!(weekendCampingSection instanceof HTMLElement)) {
     return;
   }
 
-  const fragment = document.createDocumentFragment();
-  items.slice(0, 6).forEach((item, index) => {
-    fragment.appendChild(createWeekendCard(item, index, { slotLabel: watchSlotLabel(index), watchCard: true }));
+  weekendCampingSection.hidden = items.length <= 0 && !forceVisible;
+  renderCardGrid(weekendCampingGrid, items);
+  if (weekendCampingEmpty instanceof HTMLElement) {
+    weekendCampingEmpty.hidden = items.length > 0 || !forceVisible;
+  }
+}
+
+function syncWeekendRouteLines(points) {
+  if (!weekendMapRuntime) {
+    return;
+  }
+
+  const sourceId = 'weekend-route-spans';
+  const layerId = 'weekend-route-spans';
+  const data = {
+    type: 'FeatureCollection',
+    features: points
+      .filter((point) => point.span.length >= 2)
+      .map((point) => ({
+        type: 'Feature',
+        properties: {
+          slug: point.id,
+          rating: point.rating,
+        },
+        geometry: {
+          type: 'LineString',
+          coordinates: point.span.map((coordinate) => [
+            coordinate.longitude,
+            coordinate.latitude,
+          ]),
+        },
+      })),
+  };
+
+  const existingSource = weekendMapRuntime.getSource(sourceId);
+  if (existingSource) {
+    existingSource.setData(data);
+    return;
+  }
+
+  weekendMapRuntime.addSource(sourceId, {
+    type: 'geojson',
+    data,
   });
-  weekendWatchGrid.appendChild(fragment);
-  refreshFavoriteButtons(weekendWatchGrid);
+  weekendMapRuntime.addLayer({
+    id: layerId,
+    type: 'line',
+    source: sourceId,
+    layout: {
+      'line-cap': 'round',
+      'line-join': 'round',
+    },
+    paint: {
+      'line-color': [
+        'match',
+        ['get', 'rating'],
+        'Strong',
+        '#2c8a54',
+        'Good',
+        '#3e8f65',
+        'Fair',
+        '#ad752c',
+        '#1e7397',
+      ],
+      'line-width': 4,
+      'line-opacity': 0.72,
+    },
+  });
+}
+
+async function renderWeekendMap(routes) {
+  if (!(weekendMap instanceof HTMLElement)) {
+    return;
+  }
+
+  const points = weekendRouteMapPoints(routes);
+  const renderVersion = ++weekendMapRenderVersion;
+  if (weekendMapSection instanceof HTMLElement) {
+    weekendMapSection.hidden = false;
+  }
+  if (weekendMapEmpty instanceof HTMLElement) {
+    weekendMapEmpty.hidden = points.length > 0;
+  }
+  if (weekendMapShell instanceof HTMLElement) {
+    weekendMapShell.classList.toggle('weekend-page__map--empty', points.length === 0);
+  }
+
+  if (points.length === 0) {
+    weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
+    if (weekendMapRuntime?.getSource('weekend-route-spans')) {
+      weekendMapRuntime.getSource('weekend-route-spans').setData({
+        type: 'FeatureCollection',
+        features: [],
+      });
+    }
+    if (weekendMapStatus instanceof HTMLElement) {
+      weekendMapStatus.textContent = 'No routes match the selected filters.';
+    }
+    const emptyLabels = {
+      all: 'No weekend routes are available',
+      'day-trips': 'No day trips match this range',
+      camping: 'No camping-friendly routes match this range',
+      rechecks: 'No routes need a recheck in this range',
+    };
+    const emptyTypeLabels = {
+      all: 'weekend routes',
+      'day-trips': 'day trips',
+      camping: 'camping-friendly routes',
+      rechecks: 'recheck routes',
+    };
+    setText(
+      weekendMapEmptyTitle,
+      emptyLabels[selectedWeekendFilter] || 'No routes match this filter',
+    );
+    setText(
+      weekendMapEmptyCopy,
+      userLocation
+        ? `No ${emptyTypeLabels[selectedWeekendFilter] || 'routes'} are within ${weekendDistanceLabel()}. Try another route type or show all routes.`
+        : 'Try another route type or show all weekend routes.',
+    );
+    return;
+  }
+
+  if (weekendMapStatus instanceof HTMLElement) {
+    weekendMapStatus.textContent = 'Loading filtered weekend routes.';
+  }
+
+  try {
+    const maplibregl = await ensureMapLibre();
+    if (!maplibregl || renderVersion !== weekendMapRenderVersion) {
+      return;
+    }
+
+    if (!weekendMapRuntime) {
+      weekendMapRuntime = createPaddleMap(maplibregl, {
+        container: weekendMap,
+        center: [-93.7, 44.6],
+        zoom: 5.2,
+        minZoom: 3.4,
+        maxZoom: 12,
+      });
+    }
+
+    await waitForMapReady(weekendMapRuntime);
+    if (renderVersion !== weekendMapRenderVersion) {
+      return;
+    }
+
+    weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
+    syncWeekendRouteLines(points);
+    const bounds = new maplibregl.LngLatBounds();
+
+    for (const point of points) {
+      const markerNode = document.createElement('button');
+      markerNode.type = 'button';
+      markerNode.className = markerClassForRating(point.rating, point.confidence);
+      markerNode.innerHTML = `<span>${escapeHtml(point.score)}</span>`;
+      markerNode.setAttribute(
+        'aria-label',
+        `${point.label}, ${point.reach}, weekend score ${point.score}. Open route.`,
+      );
+      markerNode.addEventListener('click', () => {
+        window.location.assign(`/rivers/${encodeURIComponent(point.id)}/`);
+      });
+
+      const marker = new maplibregl.Marker({
+        element: markerNode,
+        anchor: 'center',
+      })
+        .setLngLat([point.longitude, point.latitude])
+        .addTo(weekendMapRuntime);
+      weekendMapMarkers.push(marker);
+
+      if (point.span.length >= 2) {
+        for (const coordinate of point.span) {
+          bounds.extend([coordinate.longitude, coordinate.latitude]);
+        }
+      } else {
+        bounds.extend([point.longitude, point.latitude]);
+      }
+    }
+
+    fitMapBounds(weekendMapRuntime, bounds, {
+      padding: window.matchMedia('(max-width: 720px)').matches
+        ? { top: 28, right: 28, bottom: 28, left: 28 }
+        : { top: 52, right: 52, bottom: 52, left: 52 },
+      maxZoom: 8.4,
+      duration: 0,
+    });
+    weekendMapRuntime.resize();
+
+    if (weekendMapStatus instanceof HTMLElement) {
+      const label = weekendFilterLabel(selectedWeekendFilter);
+      weekendMapStatus.textContent =
+        `${points.length} ${label} ${points.length === 1 ? 'route' : 'routes'} shown. Select a score to open the route.`;
+    }
+  } catch (error) {
+    console.error('Failed to load the weekend route map.', error);
+    if (weekendMapStatus instanceof HTMLElement) {
+      weekendMapStatus.textContent = 'Map unavailable right now. Use the route lists below.';
+    }
+  }
 }
 
 function renderWeekend(payload) {
   const items = Array.isArray(payload?.rivers) ? payload.rivers : [];
-  const { bestBets, worthWatching } = splitWeekendItems(items);
+  const plan = buildWeekendPlan(items, {
+    location: userLocation,
+    distanceLimit: selectedWeekendDistance,
+    filter: selectedWeekendFilter,
+  });
   latestWeekendItems = items;
+  latestWeekendPayload = payload;
   lastGeneratedAt = typeof payload?.generatedAt === 'string' ? payload.generatedAt : null;
   setText(weekendDates, weekendDateRangeText(payload?.label));
   updateFreshness({ generatedAt: lastGeneratedAt });
   updateSnapshotLine(payload);
-  updateOverviewCounts(payload);
-  renderFeatured(bestBets[0] ?? null, worthWatching.length);
-  renderGrid(bestBets);
-  renderWatchGrid(worthWatching);
+  updateOverviewCounts(payload, plan.inRangeRoutes);
+  updateWeekendControls(plan);
+  renderFeatured(plan.featured, {
+    worthWatchingCount: plan.rechecks.length,
+    hasWeekendPlan: plan.hasWeekendPlan,
+    hasExpandedPicks: plan.expandedPicks.length > 0,
+  });
+
+  const showPrimary = selectedWeekendFilter === 'all' || selectedWeekendFilter === 'day-trips';
+  if (weekendPrimarySection instanceof HTMLElement) {
+    weekendPrimarySection.hidden = !showPrimary;
+  }
+  if (weekendPrimaryTitle instanceof HTMLElement) {
+    weekendPrimaryTitle.textContent = plan.expandedPicks.length > 0
+      ? 'Expand the drive'
+      : userLocation
+        ? 'Best near you'
+        : 'Top weekend picks';
+  }
+  if (weekendPrimaryNote instanceof HTMLElement) {
+    weekendPrimaryNote.textContent = plan.expandedPicks.length > 0
+      ? `No Good routes are inside ${weekendDistanceLabel()}. These are the closest farther options.`
+      : userLocation
+        ? 'Good weekend calls with drive time included.'
+        : 'Use this as a planning read for Saturday and Sunday, then check again before you drive.';
+  }
+  renderGrid(plan.dayTrips);
 
   if (weekendEmpty instanceof HTMLElement) {
-    if (bestBets.length > 0) {
+    if (plan.dayTrips.length > 0 || !showPrimary) {
       weekendEmpty.hidden = true;
     } else {
       updateWeekendEmptyState({
-        worthWatchingCount: worthWatching.length,
+        worthWatchingCount: plan.rechecks.length,
         hasWithheld: (payload?.withheldCount ?? 0) > 0,
       });
     }
   }
+
+  if (selectedWeekendFilter === 'all' || selectedWeekendFilter === 'camping') {
+    renderCampingGrid(
+      selectedWeekendFilter === 'camping'
+        ? plan.campingRoutes
+        : plan.campingSectionRoutes,
+      { forceVisible: selectedWeekendFilter === 'camping' },
+    );
+  } else if (weekendCampingSection instanceof HTMLElement) {
+    weekendCampingSection.hidden = true;
+  }
+
+  if (selectedWeekendFilter === 'all' || selectedWeekendFilter === 'rechecks') {
+    renderWatchGrid(plan.rechecks, {
+      forceVisible: selectedWeekendFilter === 'rechecks',
+    });
+  } else if (weekendWatchSection instanceof HTMLElement) {
+    weekendWatchSection.hidden = true;
+  }
+
+  void renderWeekendMap(plan.mapRoutes);
 }
 
 function hydrateFromCache() {
@@ -848,17 +1311,10 @@ async function loadWeekend({ silent = false } = {}) {
       updateFreshness({ generatedAt: lastGeneratedAt, refreshing: true });
     }
 
-    const response = await fetch('/api/weekend/summary.json', {
-      headers: { accept: 'application/json' },
+    const payload = await getBrowserApiClient().getWeekendSummary({
       cache: 'no-store',
       signal: controller.signal,
     });
-
-    if (!response.ok) {
-      throw new Error(`API request failed for /api/weekend/summary.json: HTTP ${response.status}`);
-    }
-
-    const payload = await response.json();
     if (!weekendRequestGuard.isCurrent(requestId)) {
       return;
     }
@@ -895,7 +1351,117 @@ if (featuredToggle instanceof HTMLButtonElement && featuredExplanation instanceo
   });
 }
 
+for (const button of weekendFilterButtons) {
+  if (!(button instanceof HTMLButtonElement)) {
+    continue;
+  }
+  button.addEventListener('click', () => {
+    const nextFilter = button.dataset.weekendFilter;
+    if (!['all', 'day-trips', 'camping', 'rechecks'].includes(nextFilter)) {
+      return;
+    }
+    selectedWeekendFilter = nextFilter;
+    if (latestWeekendPayload) {
+      renderWeekend(latestWeekendPayload);
+    }
+  });
+}
+
+for (const button of weekendDistanceButtons) {
+  if (!(button instanceof HTMLButtonElement)) {
+    continue;
+  }
+  button.addEventListener('click', () => {
+    selectedWeekendDistance = button.dataset.weekendDistanceOption === 'any'
+      ? null
+      : Number(button.dataset.weekendDistanceOption);
+    saveWeekendDistance(selectedWeekendDistance);
+    if (latestWeekendPayload) {
+      renderWeekend(latestWeekendPayload);
+    }
+  });
+}
+
+if (weekendLocationUse instanceof HTMLButtonElement) {
+  weekendLocationUse.addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      setText(weekendLocationHint, 'Location is not available in this browser.');
+      return;
+    }
+
+    weekendLocationUse.disabled = true;
+    weekendLocationUse.textContent = 'Finding...';
+    setText(weekendLocationHint, 'Finding your location...');
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        let label = 'Current location';
+        try {
+          label = await weekendLocationService.reverseGeocodeLocation(latitude, longitude)
+            || label;
+        } catch (error) {
+          console.warn('Reverse geocoding the weekend location failed.', error);
+        }
+
+        userLocation = {
+          latitude,
+          longitude,
+          label,
+          source: 'device',
+        };
+        saveWeekendLocation(userLocation);
+        if (latestWeekendPayload) {
+          renderWeekend(latestWeekendPayload);
+        }
+      },
+      (error) => {
+        weekendLocationUse.disabled = false;
+        weekendLocationUse.textContent = 'Use my location';
+        setText(
+          weekendLocationHint,
+          error.code === error.PERMISSION_DENIED
+            ? 'Location access was blocked. You can set a city or ZIP on the Today page.'
+            : 'Your location could not be found. Try again or set it on the Today page.',
+        );
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 10000,
+        maximumAge: 5 * 60 * 1000,
+      },
+    );
+  });
+}
+
+if (weekendLocationClear instanceof HTMLButtonElement) {
+  weekendLocationClear.addEventListener('click', () => {
+    userLocation = null;
+    saveWeekendLocation(null);
+    if (latestWeekendPayload) {
+      renderWeekend(latestWeekendPayload);
+    }
+  });
+}
+
+if (weekendMapEmptyReset instanceof HTMLButtonElement) {
+  weekendMapEmptyReset.addEventListener('click', () => {
+    selectedWeekendFilter = 'all';
+    selectedWeekendDistance = null;
+    saveWeekendDistance(selectedWeekendDistance);
+    if (latestWeekendPayload) {
+      renderWeekend(latestWeekendPayload);
+    }
+  });
+}
+
 bindFavoriteButtons(document);
+updateWeekendControls(buildWeekendPlan([], {
+  location: userLocation,
+  distanceLimit: selectedWeekendDistance,
+  filter: selectedWeekendFilter,
+}));
 const hydrated = hydrateFromCache();
 loadWeekend({ silent: hydrated });
 window.setInterval(() => {

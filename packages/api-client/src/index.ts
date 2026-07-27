@@ -34,6 +34,7 @@ export class PaddleTodayApiError extends Error {
 }
 
 export interface RequestOptions {
+  cache?: RequestCache;
   signal?: AbortSignal;
 }
 
@@ -92,6 +93,7 @@ export function createPaddleTodayApiClient(args: {
           ...args.headers,
           ...options?.headers,
         },
+        cache: options?.cache,
         signal: timeout.signal,
         body: hasBody ? JSON.stringify(options.body) : undefined,
       });

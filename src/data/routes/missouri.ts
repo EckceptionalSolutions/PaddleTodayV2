@@ -9537,6 +9537,19 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Big Piney River near Big Piney gauge as a same-river level check. Below about 310 cfs, MoHERP rates the Big Piney poor and shallow riffles can mean dragging. No ideal range or high-water cutoff is claimed, so treat rising water and storms cautiously.",
     "latitude": 37.327222,
     "longitude": -92.001944,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "The Forest Service describes the spring-fed Big Piney as cold water and warns that the river can rise rapidly. Wear a PFD, dress for immersion, and do not launch on high or rising water after storms.",
+        "MoHERP records this exact Dogs Bluff-to-Mineral Springs trip as High at 1,840 cfs / 5.23 ft. A route-specific report from that trip describes strong current, gusty wind, and a capsize, so do not treat that observation as a safe cutoff or recommendation.",
+        "The 309 cfs value is a low-water floor only. No ideal range or upper ceiling is defended; verify the live gauge trend, weather, both MDC ramps, and posted area rules before committing to the shuttle."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06930000",
       "provider": "usgs",
@@ -9570,8 +9583,8 @@ export const missouriRoutes: River[] = [
       ],
       "seasonNotes": "The spring-fed Big Piney is usually a spring-through-fall float, but dry spells can expose riffles and post-rain rises can quickly make landings and bends less forgiving. Use this as a same-day low-water check, not a full preferred-range forecast.",
       "difficulty": "easy",
-      "difficultyNotes": "This is a short Ozark day float with public ramps at both ends. Keep the easy rating conditional on ordinary stable water; high or rising flows, wood, rural access limits, and private-bank discipline can raise the consequence quickly.",
-      "confidenceNotes": "Confidence is good for a conservative Big Piney follow-on: MDC confirms Dogs Bluff and Mineral Springs as public Big Piney River accesses with boat ramps, Big Piney River Stream Team Watershed Association lists Dogs Bluff to Mineral Springs as mile 10.7 to 15.6, Rivers.MOHERP includes an exact Dogs Bluff-to-Mineral Springs row on USGS 06930000, and official USGS 06930000 exposed recent May 31, 2026 discharge and gage-height observations during review. The app reuses the established 309 cfs Big Piney low-water floor from adjacent V2 routes and does not claim an ideal range or high-water cutoff."
+      "difficultyNotes": "This is a short Ozark day float with public ramps at both ends. Keep the easy rating conditional on ordinary stable water; high or rising flows, strong wind, cold water, rural access limits, and private-bank discipline can raise the consequence quickly.",
+      "confidenceNotes": "Confidence is good for a conservative Big Piney follow-on: MDC confirms Dogs Bluff and Mineral Springs as public Big Piney River accesses with boat ramps, Big Piney River Stream Team Watershed Association lists Dogs Bluff to Mineral Springs as mile 10.7 to 15.6, Rivers.MOHERP includes an exact Dogs Bluff-to-Mineral Springs row on USGS 06930000, and official USGS 06930000 exposed recent discharge and gage-height observations during review. The Forest Service warns that the spring-fed Big Piney is cold and can rise rapidly, while a route-specific report at MoHERP's 1,840 cfs / 5.23 ft High observation describes strong current, gusty wind, and a capsize. The app reuses the established 309 cfs Big Piney low-water floor from adjacent V2 routes and does not claim an ideal range or high-water cutoff."
     },
     "evidenceNotes": [
       {
@@ -9611,9 +9624,15 @@ export const missouriRoutes: River[] = [
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=06930000&hours=72"
       },
       {
+        "label": "High-water route report",
+        "value": "Strong current, gusty wind, and a capsize",
+        "note": "A Houston Herald report describes the exact Dogs Bluff-to-Mineral Springs trip after prolonged wet weather, when high, strong water and gusty wind contributed to demanding boat control and an overturned kayak.",
+        "sourceUrl": "https://houstonherald.com/2022/05/a-big-day-on-the-big-piney-3/"
+      },
+      {
         "label": "River character",
-        "value": "Spring-fed Ozark float",
-        "note": "The Forest Service describes the Big Piney as a family-friendly, spring-fed river with limestone bluffs, and says it is usually floatable year-round unless it has been particularly dry.",
+        "value": "Spring-fed, cold, and fast-rising",
+        "note": "The Forest Service describes the Big Piney as a family-friendly, spring-fed river with cold water and limestone bluffs, says it is usually floatable year-round unless it has been particularly dry, and warns that it can rise rapidly.",
         "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/groups/big-piney-river"
       }
     ],
@@ -9646,6 +9665,11 @@ export const missouriRoutes: River[] = [
       {
         "label": "Forest Service Big Piney River",
         "url": "https://www.fs.usda.gov/r09/marktwain/recreation/groups/big-piney-river",
+        "provider": "local"
+      },
+      {
+        "label": "Houston Herald Dogs Bluff to Mineral Springs report",
+        "url": "https://houstonherald.com/2022/05/a-big-day-on-the-big-piney-3/",
         "provider": "local"
       },
       {

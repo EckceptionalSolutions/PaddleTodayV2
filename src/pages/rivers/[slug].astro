@@ -6,7 +6,11 @@ import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers, listRiverStateGroups } from '../../lib/rivers';
 import { gaugeDisplayForSource } from '../../lib/source-adapters';
-import { routeHazardLabels, routeSafetyLevelLabels, routeSafetySummary } from '@paddletoday/api-contract';
+import {
+  buildRiverDetailLogisticsViewModel,
+  buildRouteSafetyViewModel,
+  buildSourceStrengthViewModel,
+} from '@paddletoday/api-contract';
 
 export function getStaticPaths() {
   return listRivers().map((river) => ({
@@ -17,14 +21,9 @@ export function getStaticPaths() {
 
 const { river } = Astro.props;
 const gaugeDisplay = gaugeDisplayForSource(river.gaugeSource);
-const thresholdConfidenceLabel =
-  river.profile.thresholdSourceStrength === 'official'
-    ? 'Official data source'
-    : river.profile.thresholdSourceStrength === 'mixed'
-      ? 'Official and local sources'
-      : river.profile.thresholdSourceStrength === 'community'
-        ? 'Local route guidance'
-        : 'Partial source data';
+const thresholdConfidenceLabel = buildSourceStrengthViewModel(
+  river.profile.thresholdSourceStrength,
+).confidenceLabel;
 const formatThresholdValue = (value: number | undefined) => {
   if (typeof value !== 'number') {
     return 'Not calibrated yet';
@@ -49,15 +48,14 @@ const highThresholdValue = formatThresholdValue(river.profile.tooHigh);
 const putIn = river.putIn;
 const takeOut = river.takeOut;
 const logistics = river.logistics;
+const logisticsModel = buildRiverDetailLogisticsViewModel(logistics);
 const safetyProfile = river.safetyProfile;
-const safetyLevel = safetyProfile?.riskLevel ?? 'standard';
-const safetyHeading = routeSafetyLevelLabels[safetyLevel];
-const safetySummary = routeSafetySummary(safetyProfile);
-const safetyNotes =
-  safetyProfile?.safetyNotes && safetyProfile.safetyNotes.length > 0
-    ? safetyProfile.safetyNotes.filter((note) => note !== safetySummary)
-    : [];
-const safetyHazards = safetyProfile?.hazards ?? [];
+const safetyModel = buildRouteSafetyViewModel(safetyProfile);
+const safetyLevel = safetyModel.riskLevel;
+const safetyHeading = safetyModel.title;
+const safetySummary = safetyModel.summary;
+const safetyNotes = safetyModel.notes;
+const safetyHazards = safetyModel.hazards;
 const putInMapsUrl =
   typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number'
     ? `https://www.google.com/maps?q=${putIn.latitude},${putIn.longitude}`
@@ -81,17 +79,9 @@ const directionsAppleUrl =
     ? `https://maps.apple.com/?saddr=${encodeURIComponent(`${putIn.latitude},${putIn.longitude}`)}&daddr=${encodeURIComponent(`${takeOut.latitude},${takeOut.longitude}`)}&dirflg=d`
     : undefined;
 const openStreetMapUrl = `https://www.openstreetmap.org/?mlat=${river.latitude}&mlon=${river.longitude}#map=11/${river.latitude}/${river.longitude}`;
-const shuttleHeadline = logistics?.shuttle.toLowerCase().includes('bike') ? 'Car or bike' : 'Car shuttle';
-const permitsHeadline =
-  logistics?.permits.startsWith('No') || logistics?.permits.startsWith('N/A')
-    ? 'None noted'
-    : 'Check posted rules';
-const campingHeadline =
-  logistics?.camping.startsWith('No') ||
-  logistics?.camping.startsWith('N/A') ||
-  logistics?.camping.toLowerCase().includes('day trip')
-    ? 'Day trip'
-    : 'Options nearby';
+const shuttleHeadline = logisticsModel.shuttleHeadline;
+const permitsHeadline = logisticsModel.permitsHeadline;
+const campingHeadline = logisticsModel.campingHeadline;
 const seasonMonthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const seasonMonths = river.profile.seasonMonths ?? [];
 const firstSeasonMonth = seasonMonths.length > 0 ? seasonMonthLabels[seasonMonths[0] - 1] : null;
@@ -102,8 +92,8 @@ const seasonHeadline =
       ? firstSeasonMonth
       : `${firstSeasonMonth}-${lastSeasonMonth}`
     : 'Check seasonal notes';
-const primaryAccessCaveat = logistics?.accessCaveats?.[0] ?? 'Check parking, launch, and access rules on the ground.';
-const secondaryAccessCaveat = logistics?.accessCaveats?.[1] ?? primaryAccessCaveat;
+const primaryAccessCaveat = logisticsModel.primaryAccessCaveat;
+const secondaryAccessCaveat = logisticsModel.secondaryAccessCaveat;
 const reportChangeHref =
   `/request-river/?mode=update&routeName=${encodeURIComponent(`${river.name} - ${river.reach}`)}&state=${encodeURIComponent(river.state)}` +
   `${putIn?.name ? `&putIn=${encodeURIComponent(putIn.name)}` : ''}` +
@@ -360,7 +350,7 @@ const routeFaqStructuredData = {
           {safetyHazards.length > 0 ? (
             <div class="route-safety-card__chips" aria-label="Known safety considerations">
               {safetyHazards.map((hazard) => (
-                <span class="route-safety-card__chip">{routeHazardLabels[hazard]}</span>
+                <span class="route-safety-card__chip">{hazard.label}</span>
               ))}
             </div>
           ) : null}

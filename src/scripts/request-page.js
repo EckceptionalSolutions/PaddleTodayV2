@@ -1,4 +1,5 @@
 import { trackEvent } from './analytics.js';
+import { getBrowserApiClient } from './browser-api-client.js';
 
 const form = document.querySelector('[data-request-form]');
 const status = document.querySelector('[data-request-status]');
@@ -59,24 +60,9 @@ if (form instanceof HTMLFormElement) {
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/route-request', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          accept: 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      let data = null;
-      try {
-        data = await response.json();
-      } catch {
-        data = null;
-      }
-
-      if (!response.ok || !data?.ok || data?.stored !== true) {
-        throw new Error(`HTTP ${response.status}`);
+      const data = await getBrowserApiClient().createRiverRequest(payload);
+      if (data.stored !== true) {
+        throw new Error('Route request was not stored.');
       }
 
       window.localStorage.setItem(COOLDOWN_KEY, String(nowTs));

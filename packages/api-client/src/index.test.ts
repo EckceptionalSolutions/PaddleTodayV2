@@ -7,6 +7,7 @@ describe('@paddletoday/api-client', () => {
       expect(String(_input)).toBe('https://api.example.com/api/rivers/summary.json');
       expect(init?.method).toBe('GET');
       expect(init?.signal).toBeUndefined();
+      expect(init?.cache).toBe('no-store');
       expect(init?.headers).toEqual({
         accept: 'application/json',
         'x-client': 'test',
@@ -36,7 +37,7 @@ describe('@paddletoday/api-client', () => {
       },
     });
 
-    await expect(client.getSummary()).resolves.toEqual({
+    await expect(client.getSummary({ cache: 'no-store' })).resolves.toEqual({
       requestId: 'req-1',
       generatedAt: '2026-04-17T12:00:00Z',
       riverCount: 1,

@@ -1,4 +1,4 @@
-import type { ScoreRating } from '@paddletoday/api-contract';
+import { signedPoints, type ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { router } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -577,10 +577,6 @@ function scoreTone(rating?: ScoreRating) {
     return { background: '#F2DDD6', text: colors.noGo };
   }
   return { background: colors.accentSoft, text: colors.accent };
-}
-
-function signedPoints(value: number) {
-  return value > 0 ? `+${value}` : String(value);
 }
 
 function scorePointTone(value: number) {

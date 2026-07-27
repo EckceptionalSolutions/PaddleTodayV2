@@ -1,10 +1,23 @@
-import { MAP_STYLE_URL, ensureMapLibre, escapeHtml, markerClassForRating, riverNameVariants, scoreZoneRouteLabel, syncActualRiverLayer } from './map-runtime.js';
+import {
+  clearMapMarkers,
+  createPaddleMap,
+  ensureMapLibre,
+  escapeHtml,
+  fitMapBounds,
+  markerClassForRating,
+  riverNameVariants,
+  scoreZoneRouteLabel,
+  syncActualRiverLayer,
+  waitForMapReady,
+} from './map-runtime.js';
 import { ratingDisplayLabel } from './ui-taxonomy.js';
+import { ratingToneKey, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { canonicalRiverRouteLineFromFeature, loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
 import {
   coverageCenterForRoutes,
   groupRoutesByConditionScore,
 } from '../lib/river-coverage.js';
+import { getBrowserApiClient } from './browser-api-client.js';
 
 const root = document.querySelector('[data-state-page]')?.closest('.state-page');
 
@@ -40,12 +53,6 @@ const emptyFeatureCollection = {
   features: [],
 };
 
-const confidenceWeight = {
-  High: 3,
-  Medium: 2,
-  Low: 1,
-};
-
 function setText(node, value) {
   if (node instanceof HTMLElement) {
     node.textContent = value;
@@ -54,12 +61,6 @@ function setText(node, value) {
 
 function stateName() {
   return statePageElement instanceof HTMLElement ? statePageElement.dataset.stateName || '' : '';
-}
-
-function ratingToneKey(rating) {
-  if (rating === 'Strong') return 'great';
-  if (rating === 'Fair') return 'marginal';
-  return String(rating || 'pending').toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
 function difficultyLabel(value) {
@@ -80,8 +81,8 @@ function compareLiveRoutes(left, right) {
     return (right?.score ?? 0) - (left?.score ?? 0);
   }
 
-  const leftConfidence = confidenceWeight[left?.confidence?.label] ?? 0;
-  const rightConfidence = confidenceWeight[right?.confidence?.label] ?? 0;
+  const leftConfidence = todayBoardConfidenceWeight[left?.confidence?.label] ?? 0;
+  const rightConfidence = todayBoardConfidenceWeight[right?.confidence?.label] ?? 0;
   if (leftConfidence !== rightConfidence) {
     return rightConfidence - leftConfidence;
   }
@@ -165,8 +166,7 @@ function syncStateScoreMarkers() {
   const results = stateLiveResults.filter((item) => visible.size === 0 || visible.has(item?.river?.slug));
   const riverGroups = stateRiverGroups(results);
 
-  for (const marker of markers) marker.remove();
-  markers = [];
+  markers = clearMapMarkers(markers);
 
   const selectedGroup = riverGroups.find((group) => group.key === selectedRiverKey);
   let zoneCount = 0;
@@ -228,16 +228,9 @@ async function hydrateLivePicks() {
   }
 
   try {
-    const response = await fetch('/api/rivers/summary.json', {
-      headers: { accept: 'application/json' },
+    const payload = await getBrowserApiClient().getSummary({
       cache: 'no-store',
     });
-
-    if (!response.ok) {
-      throw new Error(`API request failed for /api/rivers/summary.json: HTTP ${response.status}`);
-    }
-
-    const payload = await response.json();
     stateLiveResults = (Array.isArray(payload?.rivers) ? payload.rivers : [])
       .filter((item) => item?.river?.state === state)
       .sort(compareLiveRoutes);
@@ -855,7 +848,7 @@ function selectRiverCoverage(key) {
 
   const bounds = routeFeaturesBounds(collection.features);
   if (bounds) {
-    stateMap.fitBounds(bounds, {
+    fitMapBounds(stateMap, bounds, {
       padding: window.matchMedia('(max-width: 760px)').matches ? 42 : 70,
       maxZoom: 9.4,
       duration: 520,
@@ -884,7 +877,7 @@ function selectRoute(slug, options = {}) {
   if (options.flyTo !== false) {
     const bounds = routeFeatureBounds(feature);
     if (bounds) {
-      stateMap.fitBounds(bounds, {
+      fitMapBounds(stateMap, bounds, {
         padding: window.matchMedia('(max-width: 760px)').matches ? 52 : 82,
         maxZoom: 10.5,
         duration: 520,
@@ -916,24 +909,15 @@ async function renderMap(routes) {
     if (!maplibregl) return;
     maplibreRuntime = maplibregl;
 
-    stateMap = new maplibregl.Map({
+    stateMap = createPaddleMap(maplibregl, {
       container: mapElement,
-      style: MAP_STYLE_URL,
       center: [-93.6, 45.2],
       zoom: 5.2,
       minZoom: 4,
       maxZoom: 11.5,
-      attributionControl: true,
     });
-    stateMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-    await new Promise((resolve) => {
-      if (stateMap.loaded()) {
-        resolve();
-        return;
-      }
-      stateMap.once('load', resolve);
-    });
+    await waitForMapReady(stateMap);
 
     mapRoutes = routes;
     const bounds = new maplibregl.LngLatBounds();
@@ -1051,7 +1035,7 @@ async function renderMap(routes) {
     }
 
     if (hasBounds) {
-      stateMap.fitBounds(bounds, {
+      fitMapBounds(stateMap, bounds, {
         padding: window.matchMedia('(max-width: 760px)').matches ? 28 : 54,
         maxZoom: 8.7,
         duration: 500,

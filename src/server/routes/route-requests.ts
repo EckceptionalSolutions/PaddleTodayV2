@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import type { ServerResponse } from 'node:http';
+import { parseContainerSas, putJsonBlob } from '../../lib/blob-storage';
 import type { ApiRequest } from '../http';
 import { clean, readJsonBody, sendBodyLimitResponse, sendJson } from '../http';
 import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
@@ -79,7 +80,10 @@ export async function handleRiverRequest(
       },
     };
 
-    const containerSas = parseContainerSas(process.env.ROUTE_REQUESTS_CONTAINER_SAS_URL || '');
+    const containerSas = parseContainerSas(
+      clean(process.env.ROUTE_REQUESTS_CONTAINER_SAS_URL, 4000),
+      { throwOnInvalid: true },
+    );
     const prefix = clean(process.env.ROUTE_REQUESTS_BLOB_PREFIX || 'route-requests', 120).replace(/^\/+|\/+$/g, '');
     const stamp = Date.now();
     const rand = Math.random().toString(16).slice(2, 10);
@@ -99,17 +103,7 @@ export async function handleRiverRequest(
     }
 
     const blobName = `${prefix}/${stamp}-${rand}.json`;
-    const blobUrl = putBlobUrl(containerSas, blobName);
-    const payloadText = JSON.stringify(payload, null, 2);
-
-    const upstream = await fetch(blobUrl, {
-      method: 'PUT',
-      headers: {
-        'x-ms-blob-type': 'BlockBlob',
-        'content-type': 'application/json; charset=utf-8',
-      },
-      body: payloadText,
-    });
+    const upstream = await putJsonBlob(containerSas, blobName, payload);
 
     if (!upstream.ok) {
       console.error('[river-request] blob upload failed', { status: upstream.status, requestId });
@@ -145,22 +139,3 @@ export async function handleRiverRequest(
 }
 
 
-function parseContainerSas(urlRaw: string) {
-  const raw = clean(urlRaw, 4000);
-  if (!raw) {
-    return null;
-  }
-
-  const parsed = new URL(raw);
-  const query = parsed.search || '';
-  parsed.search = '';
-
-  return {
-    base: parsed.toString().replace(/\/$/, ''),
-    query,
-  };
-}
-
-function putBlobUrl(container: { base: string; query: string }, blobName: string) {
-  return `${container.base}/${blobName}${container.query}`;
-}

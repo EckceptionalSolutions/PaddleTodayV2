@@ -1981,11 +1981,11 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "About 4.9 to 6 mi",
-      "estimatedPaddleTime": "About 2 hr to 3.5 hr depending on level, stops, and wood",
+      "estimatedPaddleTime": "About 2 hr to 3.5 hr depending on level, stops, and wind",
       "shuttle": "Use a short Houston-area two-car shuttle between MDC Dogs Bluff Access off Highway 17 and MDC Mineral Springs Access off Mineral Drive. Stage Mineral Springs first, then inspect Dogs Bluff before leaving a vehicle because both landings are small river-access areas.",
       "permits": "No route-specific paddling permit is known. Follow MDC area rules, posted signs, Missouri boating laws, day-use restrictions, and boat-use rules at Dogs Bluff and Mineral Springs.",
       "camping": "Treat this as a short day float. Do not plan to camp at either MDC access unless current area rules and posted signs specifically allow your use.",
-      "summary": "Launch at MDC Dogs Bluff Access and take out at MDC Mineral Springs Access for a short upper Big Piney day near Houston. Use the Big Piney USGS gauge as a conservative low-water check, then make a same-day call for shallow riffles, wood, and rising water.",
+      "summary": "Launch at MDC Dogs Bluff Access and take out at MDC Mineral Springs Access for a short upper Big Piney day near Houston. Use the Big Piney USGS gauge as a conservative low-water check, then make a same-day call for shallow riffles, cold water, wind, and rising water.",
       "accessCaveats": [
         "Dogs Bluff is an MDC public access with a boat ramp, picnic area, privy, and directions from Houston, but posted signs and area maps control exact use.",
         "Mineral Springs is an MDC public access with a boat ramp and parking, but same-day ramp, road, and crowding conditions still matter.",
@@ -1995,7 +1995,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Dragging, shallow riffles, and slower pools when the Big Piney gauge is near or below the 309 cfs floor.",
         "High or rising water after rain. MoHERP has an exact Dogs Bluff-to-Mineral Springs row marked High at 1,840 cfs, but Paddle Today does not claim a defended high-water cutoff.",
-        "Fresh wood, strainers, root wads, gravel-bar turns, rural shuttle roads, anglers, and limited services at the accesses.",
+        "Cold spring-fed water and gusty wind. A route-specific report at the MoHERP High observation describes demanding boat control and a capsize, so wear a PFD and secure loose gear.",
         "Private banks away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas."
       ]
     }

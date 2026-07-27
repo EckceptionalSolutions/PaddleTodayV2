@@ -1,14 +1,13 @@
 import { randomUUID } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import { normalizeEmailAddress } from '@paddletoday/api-contract';
+import {
+  cleanBlobPath as cleanPathSegment,
+  createJsonStorage,
+  type JsonStorage,
+} from './blob-storage';
 import { isArrayOf, isBoolean, isNullableString, isNumber, isOneOf, isRecord, isString } from './json-guards';
 
 const DEFAULT_ALERTS_DIR = '.local';
-
-type BlobContainer = {
-  base: string;
-  query: string;
-};
 
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertType = 'river_threshold';
@@ -146,7 +145,7 @@ export async function createRiverThresholdAlert(args: {
   now?: string;
 }): Promise<{ alert: RiverThresholdAlert; duplicate: boolean; reactivated: boolean }> {
   const deliveryMethod = args.deliveryMethod ?? 'email';
-  const email = normalizeEmail(args.email ?? '');
+  const email = normalizeEmailAddress(args.email ?? '');
   const expoPushToken = normalizeExpoPushToken(args.expoPushToken);
   const now = args.now ?? new Date().toISOString();
   const storage = alertsStorage();
@@ -334,118 +333,13 @@ function alertsPrefix() {
   return cleanPathSegment(process.env.RIVER_ALERTS_BLOB_PREFIX || 'river-alerts');
 }
 
-function alertsStorage():
-  | {
-      kind: 'local';
-      readJson<T>(blobName: string): Promise<T | null>;
-      writeJson(blobName: string, value: unknown): Promise<void>;
-    }
-  | {
-      kind: 'blob';
-      readJson<T>(blobName: string): Promise<T | null>;
-      writeJson(blobName: string, value: unknown): Promise<void>;
-    } {
-  const container = parseContainerSas(process.env.RIVER_ALERTS_CONTAINER_SAS_URL ?? '');
-  if (container) {
-    return {
-      kind: 'blob',
-      async readJson<T>(blobName: string) {
-        const response = await fetch(blobUrl(container, blobName), {
-          method: 'GET',
-          headers: { accept: 'application/json' },
-        });
-
-        if (response.status === 404) {
-          return null;
-        }
-
-        if (!response.ok) {
-          throw new Error(`Failed to read alerts blob ${blobName}: HTTP ${response.status}`);
-        }
-
-        const payload: unknown = await response.json();
-        if (!isAlertsStore(payload) && !isAlertEventsStore(payload)) {
-          throw new Error(`Invalid alerts blob ${blobName}`);
-        }
-        return payload as T;
-      },
-      async writeJson(blobName: string, value: unknown) {
-        const payload = JSON.stringify(value, null, 2);
-        const response = await fetch(blobUrl(container, blobName), {
-          method: 'PUT',
-          headers: {
-            'x-ms-blob-type': 'BlockBlob',
-            'content-type': 'application/json; charset=utf-8',
-          },
-          body: payload,
-        });
-
-        if (!response.ok) {
-          throw new Error(`Failed to write alerts blob ${blobName}: HTTP ${response.status}`);
-        }
-      },
-    };
-  }
-
-  return {
-    kind: 'local',
-    async readJson<T>(blobName: string) {
-      const filePath = localPathFor(blobName);
-      try {
-        const payload = await readFile(filePath, 'utf8');
-        const parsed: unknown = JSON.parse(payload);
-        if (!isAlertsStore(parsed) && !isAlertEventsStore(parsed)) {
-          throw new Error(`Invalid alerts JSON in ${blobName}`);
-        }
-        return parsed as T;
-      } catch (error) {
-        if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-          return null;
-        }
-        throw error;
-      }
-    },
-    async writeJson(blobName: string, value: unknown) {
-      const filePath = localPathFor(blobName);
-      await mkdir(dirname(filePath), { recursive: true });
-      await writeFile(filePath, JSON.stringify(value, null, 2), 'utf8');
-    },
-  };
-}
-
-function localPathFor(blobName: string) {
-  return resolve(process.cwd(), process.env.RIVER_ALERTS_DIR || DEFAULT_ALERTS_DIR, blobName);
-}
-
-function parseContainerSas(value: string): BlobContainer | null {
-  if (!value) {
-    return null;
-  }
-
-  try {
-    const url = new URL(value);
-    return {
-      base: url.origin + url.pathname.replace(/\/$/, ''),
-      query: url.search,
-    };
-  } catch {
-    return null;
-  }
-}
-
-function blobUrl(container: BlobContainer, blobName: string) {
-  return `${container.base}/${blobName}${container.query}`;
-}
-
-function cleanPathSegment(value: string) {
-  return value
-    .trim()
-    .replace(/^\/+|\/+$/g, '')
-    .replace(/[^a-zA-Z0-9/_-]+/g, '-');
-}
-
-function normalizeEmail(value: string) {
-  return value.trim().toLowerCase();
+function alertsStorage(): JsonStorage {
+  return createJsonStorage({
+    containerSasUrl: process.env.RIVER_ALERTS_CONTAINER_SAS_URL,
+    localDirectory: process.env.RIVER_ALERTS_DIR || DEFAULT_ALERTS_DIR,
+    validate: (value) => isAlertsStore(value) || isAlertEventsStore(value),
+    label: 'alerts',
+  });
 }
 
 function normalizeExpoPushToken(value: string | null | undefined) {

@@ -1,5 +1,11 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import {
+  cleanBlobPath as cleanPathSegment,
+  createJsonStorage,
+  parseContainerSas,
+  type JsonStorage,
+} from './blob-storage';
 import {
   isArrayOf,
   isNumber,
@@ -18,6 +24,7 @@ import {
   type RiverSummaryApiItem,
   type WeekendSummaryApiItem,
 } from './api-contract';
+import { todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { getRiverGroupHeroPhoto } from '../data/river-group-hero';
 import { getRiverBySlug, listRiverGroups } from './rivers';
 import { gaugeDisplayForSource } from './source-adapters';
@@ -33,11 +40,6 @@ const DEFAULT_SNAPSHOT_DIR = '.local';
 const MAX_STORED_SNAPSHOT_AGE_MS = 2 * 60 * 60 * 1000;
 const MAX_STORED_SNAPSHOT_CLOCK_SKEW_MS = 5 * 60 * 1000;
 const MAX_SUMMARY_SNAPSHOT_BYTES = 4 * 1024 * 1024;
-
-type BlobContainer = {
-  base: string;
-  query: string;
-};
 
 function isRiverSummaryApiItem(value: unknown): value is RiverSummaryApiItem {
   if (!isRecord(value) || !isRecord(value.river)) {
@@ -605,9 +607,8 @@ function buildWeekendSummarySnapshot(results: RiverScoreResult[], generatedAt: s
         return right.weekend.score - left.weekend.score;
       }
 
-      const confidenceWeight = { High: 3, Medium: 2, Low: 1 };
-      const leftConfidence = confidenceWeight[left.weekend.confidence] ?? 0;
-      const rightConfidence = confidenceWeight[right.weekend.confidence] ?? 0;
+      const leftConfidence = todayBoardConfidenceWeight[left.weekend.confidence] ?? 0;
+      const rightConfidence = todayBoardConfidenceWeight[right.weekend.confidence] ?? 0;
       if (leftConfidence !== rightConfidence) {
         return rightConfidence - leftConfidence;
       }
@@ -653,98 +654,24 @@ function snapshotPrefix() {
   return cleanPathSegment(process.env.RIVER_SNAPSHOT_BLOB_PREFIX || 'river-snapshots');
 }
 
-function snapshotStorage():
-  | {
-      kind: 'local';
-      readJson<T>(blobName: string): Promise<T | null>;
-      writeJson(blobName: string, value: unknown): Promise<void>;
-    }
-  | {
-      kind: 'blob';
-      readJson<T>(blobName: string): Promise<T | null>;
-      writeJson(blobName: string, value: unknown): Promise<void>;
-    } {
+function snapshotStorage(): JsonStorage {
   const configuredContainerSasUrl = process.env.RIVER_SNAPSHOT_CONTAINER_SAS_URL?.trim() ?? '';
-  const container = parseContainerSas(configuredContainerSasUrl);
-  if (configuredContainerSasUrl && !container) {
+  if (configuredContainerSasUrl && !parseContainerSas(configuredContainerSasUrl)) {
     throw new Error('RIVER_SNAPSHOT_CONTAINER_SAS_URL must be a valid container SAS URL.');
   }
 
-  if (container) {
-    return {
-      kind: 'blob',
-      async readJson<T>(blobName: string) {
-        const response = await fetch(blobUrl(container, blobName), {
-          method: 'GET',
-          headers: { accept: 'application/json' },
-        });
-
-        if (response.status === 404) {
-          return null;
-        }
-
-      if (!response.ok) {
-          throw new Error(`Failed to read snapshot blob ${blobName}: HTTP ${response.status}`);
-        }
-
-        const payload: unknown = await response.json();
-        if (
-          !isRiverSummarySnapshot(payload) &&
-          !isRiverDetailSnapshot(payload) &&
-          !isWeekendSummarySnapshot(payload) &&
-          !isRiverGroupSnapshot(payload)
-        ) {
-          throw new Error(`Invalid snapshot blob ${blobName}`);
-        }
-        return payload as T;
-      },
-      async writeJson(blobName: string, value: unknown) {
-        const payload = JSON.stringify(value);
-        const response = await fetch(blobUrl(container, blobName), {
-          method: 'PUT',
-          headers: {
-            'x-ms-blob-type': 'BlockBlob',
-            'content-type': 'application/json; charset=utf-8',
-          },
-          body: payload,
-        });
-
-        if (!response.ok) {
-          throw new Error(`Failed to write snapshot blob ${blobName}: HTTP ${response.status}`);
-        }
-      },
-    };
-  }
-
-  return {
-    kind: 'local',
-    async readJson<T>(blobName: string) {
-      const filePath = localPathFor(blobName);
-      try {
-        const payload = await readFile(filePath, 'utf8');
-        const parsed: unknown = JSON.parse(payload);
-        if (
-          !isRiverSummarySnapshot(parsed) &&
-          !isRiverDetailSnapshot(parsed) &&
-          !isWeekendSummarySnapshot(parsed) &&
-          !isRiverGroupSnapshot(parsed)
-        ) {
-          throw new Error(`Invalid snapshot JSON in ${blobName}`);
-        }
-        return parsed as T;
-      } catch (error) {
-        if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-          return null;
-        }
-        throw error;
-      }
-    },
-    async writeJson(blobName: string, value: unknown) {
-      const filePath = localPathFor(blobName);
-      await mkdir(dirname(filePath), { recursive: true });
-      await writeFile(filePath, JSON.stringify(value), 'utf8');
-    },
-  };
+  return createJsonStorage({
+    containerSasUrl: configuredContainerSasUrl,
+    localDirectory: process.env.RIVER_SNAPSHOT_DIR || DEFAULT_SNAPSHOT_DIR,
+    validate: (value) => (
+      isRiverSummarySnapshot(value)
+      || isRiverDetailSnapshot(value)
+      || isWeekendSummarySnapshot(value)
+      || isRiverGroupSnapshot(value)
+    ),
+    label: 'snapshot',
+    space: 0,
+  });
 }
 
 function assertSnapshotSize(blobName: string, value: unknown, maxBytes: number) {
@@ -757,33 +684,3 @@ function assertSnapshotSize(blobName: string, value: unknown, maxBytes: number) 
   }
 }
 
-function localPathFor(blobName: string) {
-  return resolve(process.cwd(), process.env.RIVER_SNAPSHOT_DIR || DEFAULT_SNAPSHOT_DIR, blobName);
-}
-
-function parseContainerSas(value: string): BlobContainer | null {
-  if (!value) {
-    return null;
-  }
-
-  try {
-    const url = new URL(value);
-    return {
-      base: url.origin + url.pathname.replace(/\/$/, ''),
-      query: url.search,
-    };
-  } catch {
-    return null;
-  }
-}
-
-function blobUrl(container: BlobContainer, blobName: string) {
-  return `${container.base}/${blobName}${container.query}`;
-}
-
-function cleanPathSegment(value: string) {
-  return value
-    .trim()
-    .replace(/^\/+|\/+$/g, '')
-    .replace(/[^a-zA-Z0-9/_-]+/g, '-');
-}

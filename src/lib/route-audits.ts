@@ -1,6 +1,9 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
-import { isBoolean, isRecord, isString, safeParseJson } from './json-guards';
+import {
+  cleanBlobPath as cleanPathSegment,
+  createJsonStorage,
+  type JsonStorage,
+} from './blob-storage';
+import { isBoolean, isRecord, isString } from './json-guards';
 
 const DEFAULT_AUDITS_DIR = '.local';
 const ROUTE_AUDITS_PREFIX = cleanPathSegment(process.env.ROUTE_AUDITS_BLOB_PREFIX || 'route-audits');
@@ -17,17 +20,6 @@ export interface RouteAuditRecord {
 interface RouteAuditIndex {
   audits: Record<string, RouteAuditRecord>;
 }
-
-type BlobContainer = {
-  base: string;
-  query: string;
-};
-
-type JsonStorage = {
-  kind: 'blob' | 'local';
-  readJson<T>(blobName: string): Promise<T | null>;
-  writeJson(blobName: string, value: unknown): Promise<void>;
-};
 
 function isRouteAuditRecord(value: unknown): value is RouteAuditRecord {
   return (
@@ -92,76 +84,10 @@ function recordBlobName(routeSlug: string) {
 }
 
 function routeAuditStorage(): JsonStorage {
-  const container = parseContainerSas(process.env.ROUTE_AUDITS_CONTAINER_SAS_URL || '');
-  if (container) {
-    return {
-      kind: 'blob',
-      async readJson<T>(blobName: string) {
-        const response = await fetch(blobUrl(container, blobName), { method: 'GET', headers: { accept: 'application/json' } });
-        if (response.status === 404) return null;
-        if (!response.ok) throw new Error(`Failed to read route audit blob ${blobName}: HTTP ${response.status}`);
-        const payload: unknown = await response.json();
-        if (!isRouteAuditStorageValue(payload)) {
-          throw new Error(`Invalid route audit blob ${blobName}`);
-        }
-        return payload as T;
-      },
-      async writeJson(blobName: string, value: unknown) {
-        const response = await fetch(blobUrl(container, blobName), {
-          method: 'PUT',
-          headers: {
-            'x-ms-blob-type': 'BlockBlob',
-            'content-type': 'application/json; charset=utf-8',
-          },
-          body: JSON.stringify(value, null, 2),
-        });
-        if (!response.ok) throw new Error(`Failed to write route audit blob ${blobName}: HTTP ${response.status}`);
-      },
-    };
-  }
-
-  return {
-    kind: 'local',
-    async readJson<T>(blobName: string) {
-      const filePath = localPathFor(blobName);
-      try {
-        return safeParseJson(await readFile(filePath, 'utf8'), isRouteAuditStorageValue) as T | null;
-      } catch (error) {
-        if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-          return null;
-        }
-        throw error;
-      }
-    },
-    async writeJson(blobName: string, value: unknown) {
-      const filePath = localPathFor(blobName);
-      await mkdir(dirname(filePath), { recursive: true });
-      await writeFile(filePath, JSON.stringify(value, null, 2), 'utf8');
-    },
-  };
-}
-
-function localPathFor(blobName: string) {
-  return resolve(process.cwd(), process.env.ROUTE_AUDITS_DIR || DEFAULT_AUDITS_DIR, blobName);
-}
-
-function parseContainerSas(value: string): BlobContainer | null {
-  if (!value) return null;
-  try {
-    const url = new URL(value);
-    return {
-      base: url.origin + url.pathname.replace(/\/$/, ''),
-      query: url.search,
-    };
-  } catch {
-    return null;
-  }
-}
-
-function blobUrl(container: BlobContainer, blobName: string) {
-  return `${container.base}/${blobName}${container.query}`;
-}
-
-function cleanPathSegment(value: string) {
-  return value.trim().replace(/^\/+|\/+$/g, '').replace(/[^a-zA-Z0-9/_-]+/g, '-');
+  return createJsonStorage({
+    containerSasUrl: process.env.ROUTE_AUDITS_CONTAINER_SAS_URL,
+    localDirectory: process.env.ROUTE_AUDITS_DIR || DEFAULT_AUDITS_DIR,
+    validate: isRouteAuditStorageValue,
+    label: 'route audit',
+  });
 }

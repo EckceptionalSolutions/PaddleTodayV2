@@ -1,3 +1,5 @@
+import { getBrowserApiClient } from './browser-api-client.js';
+
 const CONTRIBUTE_MAX_FILES = 12;
 const CONTRIBUTE_MAX_BYTES = 4 * 1024 * 1024;
 const CONTRIBUTE_ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
@@ -268,31 +270,19 @@ if (
         }))
       );
 
-      const response = await fetch('/api/route-contributions', {
-        method: 'POST',
-        headers: {
-          accept: 'application/json',
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          riverSlug,
-          contributorName,
-          contributorEmail,
-          tripDate,
-          tripSentiment: '',
-          tripReport: '',
-          notes,
-          rightsConfirmed: rightsInput.checked,
-          reviewConsent: consentInput.checked,
-          company: companyInput instanceof HTMLInputElement ? companyInput.value.trim() : '',
-          files,
-        }),
+      await getBrowserApiClient().createRouteContribution({
+        riverSlug,
+        contributorName,
+        contributorEmail,
+        tripDate,
+        tripSentiment: '',
+        tripReport: '',
+        notes,
+        rightsConfirmed: rightsInput.checked,
+        reviewConsent: consentInput.checked,
+        company: companyInput instanceof HTMLInputElement ? companyInput.value.trim() : '',
+        files,
       });
-
-      const payload = await response.json().catch(() => ({}));
-      if (!response.ok || payload?.ok !== true) {
-        throw new Error(payload?.message || 'Could not store this photo submission.');
-      }
 
       window.localStorage.setItem('contribute-photo-cooldown', String(nowTs));
       form.reset();

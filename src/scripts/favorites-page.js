@@ -1,10 +1,21 @@
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { decorateFavoriteButton, bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { readFavorites, subscribeFavorites } from './favorites-store.js';
-import { MAP_STYLE_URL, bindMarkerPopup, ensureMapLibre, escapeHtml, markerClassForRating } from './map-runtime.js';
+import {
+  bindMarkerPopup,
+  clearMapMarkers,
+  createPaddleMap,
+  ensureMapLibre,
+  escapeHtml,
+  fitMapBounds,
+  markerClassForRating,
+  waitForMapReady,
+} from './map-runtime.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
+import { ratingToneKey } from '@paddletoday/api-contract';
+import { getBrowserApiClient } from './browser-api-client.js';
 
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
 const root = document.querySelector('[data-favorites-page]');
@@ -30,12 +41,6 @@ function setText(scope, field, value) {
     element.textContent = value;
   }
   return element;
-}
-
-function ratingToneKey(rating) {
-  if (rating === 'Strong') return 'great';
-  if (rating === 'Fair') return 'marginal';
-  return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
 function difficultyLabel(item) {
@@ -231,10 +236,7 @@ async function renderFavoritesMap(results = latestResults) {
     favoritesMapShell.hidden = true;
     favoritesMapStatus.textContent = 'Save a route to see it here.';
     favoritesMapCopy.textContent = 'Your saved-route map appears once you save a route on this device.';
-    for (const marker of favoritesMapMarkers) {
-      marker.remove();
-    }
-    favoritesMapMarkers = [];
+    favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
     return;
   }
 
@@ -242,10 +244,7 @@ async function renderFavoritesMap(results = latestResults) {
     favoritesMapShell.hidden = true;
     favoritesMapStatus.textContent = 'Saved-route map unavailable right now.';
     favoritesMapCopy.textContent = 'Saved routes exist, but none are available in the latest board snapshot yet.';
-    for (const marker of favoritesMapMarkers) {
-      marker.remove();
-    }
-    favoritesMapMarkers = [];
+    favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
     return;
   }
 
@@ -264,30 +263,21 @@ async function renderFavoritesMap(results = latestResults) {
     }
 
     if (!favoritesMapRuntime) {
-      favoritesMapRuntime = new maplibregl.Map({
+      favoritesMapRuntime = createPaddleMap(maplibregl, {
         container: favoritesMap,
-        style: MAP_STYLE_URL,
         center: [-93.2, 45.1],
         zoom: 6.6,
         minZoom: 4.2,
         maxZoom: 12,
-        attributionControl: true,
       });
-
-      favoritesMapRuntime.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-      await new Promise((resolve) => {
-        if (favoritesMapRuntime.loaded()) {
-          resolve();
-          return;
-        }
-        favoritesMapRuntime.once('load', resolve);
+      await waitForMapReady(favoritesMapRuntime, {
+        timeoutMs: 7000,
+        rejectOnError: true,
+        rejectOnTimeout: true,
       });
     }
 
-    for (const marker of favoritesMapMarkers) {
-      marker.remove();
-    }
-    favoritesMapMarkers = [];
+    favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
 
     const bounds = new maplibregl.LngLatBounds();
     for (const entry of mappable) {
@@ -330,7 +320,7 @@ async function renderFavoritesMap(results = latestResults) {
       bounds.extend([location.longitude, location.latitude]);
     }
 
-    favoritesMapRuntime.fitBounds(bounds, {
+    fitMapBounds(favoritesMapRuntime, bounds, {
       padding: window.matchMedia('(max-width: 760px)').matches
         ? { top: 24, right: 24, bottom: 24, left: 24 }
         : { top: 42, right: 42, bottom: 42, left: 42 },
@@ -502,17 +492,10 @@ async function loadFavorites({ silent = false } = {}) {
   const { requestId, controller } = favoritesRequestGuard.begin();
 
   try {
-    const response = await fetch('/api/rivers/summary.json', {
-      headers: { accept: 'application/json' },
+    const payload = await getBrowserApiClient().getSummary({
       cache: 'no-store',
       signal: controller.signal,
     });
-
-    if (!response.ok) {
-      throw new Error(`API request failed for /api/rivers/summary.json: HTTP ${response.status}`);
-    }
-
-    const payload = await response.json();
     if (!favoritesRequestGuard.isCurrent(requestId)) {
       return;
     }

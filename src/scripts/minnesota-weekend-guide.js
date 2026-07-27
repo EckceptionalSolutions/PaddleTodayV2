@@ -2,6 +2,8 @@ import { escapeHtml } from './map-runtime.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
+import { ratingToneKey } from '@paddletoday/api-contract';
+import { getBrowserApiClient } from './browser-api-client.js';
 
 const statusLine = document.querySelector('[data-guide-weekend-status]');
 const noteLine = document.querySelector('[data-guide-weekend-note]');
@@ -26,12 +28,6 @@ function isMinnesotaWeekendPick(item) {
     isDecentScore(item?.weekend?.score, item?.weekend?.rating) &&
     isDecentScore(item?.current?.score, item?.current?.rating)
   );
-}
-
-function ratingToneKey(rating) {
-  if (rating === 'Strong') return 'great';
-  if (rating === 'Fair') return 'marginal';
-  return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
 function weekendVerdict(item) {
@@ -213,16 +209,10 @@ function renderGuide(payload) {
 
 async function loadGuide() {
   try {
-    const response = await fetch('/api/weekend/summary.json', {
-      headers: { accept: 'application/json' },
+    const payload = await getBrowserApiClient().getWeekendSummary({
       cache: 'no-store',
     });
-
-    if (!response.ok) {
-      throw new Error(`API request failed for /api/weekend/summary.json: HTTP ${response.status}`);
-    }
-
-    renderGuide(await response.json());
+    renderGuide(payload);
   } catch (error) {
     console.error('Failed to load Minnesota weekend guide.', error);
     setText(statusLine, 'Weekend recommendations are unavailable right now.');

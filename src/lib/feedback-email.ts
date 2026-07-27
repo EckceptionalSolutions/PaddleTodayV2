@@ -1,5 +1,5 @@
-import { EmailClient } from '@azure/communication-email';
 import type { AppFeedbackCategory } from '@paddletoday/api-contract';
+import { escapeEmailHtml as escapeHtml, isAzureEmailProvider, sendAzureEmail } from './email-transport';
 
 export interface FeedbackEmailPayload {
   submittedAt: string;
@@ -10,8 +10,6 @@ export interface FeedbackEmailPayload {
   appVersion: string;
   platform: string;
 }
-
-let azureEmailClient: EmailClient | null = null;
 
 export async function sendFeedbackNotificationEmail(feedback: FeedbackEmailPayload): Promise<{
   provider: 'azure' | 'log' | 'disabled';
@@ -50,37 +48,19 @@ export async function sendFeedbackNotificationEmail(feedback: FeedbackEmailPaylo
     throw new Error('Missing ACS email configuration for feedback notifications.');
   }
 
-  const client = getAzureEmailClient(connectionString);
-  const poller = await client.beginSend(
-    {
-      senderAddress: from,
-      content: {
-        subject,
-        plainText: text,
-        html: feedbackHtml(feedback),
-      },
-      recipients: {
-        to: [{ address: to }],
-      },
-      ...(feedback.replyEmail
-        ? {
-            replyTo: [{ address: feedback.replyEmail }],
-          }
-        : {}),
-    },
-    {
-      updateIntervalInMs: 1000,
-    }
-  );
-  const response = await poller.pollUntilDone();
-
-  if (!response.id) {
-    throw new Error('Azure Communication Services feedback email failed: missing operation id.');
-  }
+  const delivery = await sendAzureEmail({
+    connectionString,
+    senderAddress: from,
+    to: [to],
+    replyTo: feedback.replyEmail ? [feedback.replyEmail] : undefined,
+    subject,
+    plainText: text,
+    html: feedbackHtml(feedback),
+  });
 
   return {
     provider,
-    id: response.id,
+    id: delivery.id,
   };
 }
 
@@ -91,7 +71,7 @@ function configuredProvider(): 'azure' | 'log' | 'disabled' {
   if (explicit === 'disabled' || explicit === 'none' || explicit === 'off') {
     return 'disabled';
   }
-  if (explicit === 'azure' || explicit === 'acs' || explicit === 'azure-communication-services') {
+  if (isAzureEmailProvider(explicit)) {
     return 'azure';
   }
   if (explicit === 'log') {
@@ -104,13 +84,6 @@ function configuredProvider(): 'azure' | 'log' | 'disabled' {
       process.env.ALERTS_FROM_EMAIL
   );
   return process.env.ACS_EMAIL_CONNECTION_STRING && hasFrom ? 'azure' : 'disabled';
-}
-
-function getAzureEmailClient(connectionString: string) {
-  if (!azureEmailClient) {
-    azureEmailClient = new EmailClient(connectionString);
-  }
-  return azureEmailClient;
 }
 
 function feedbackText(feedback: FeedbackEmailPayload) {
@@ -163,13 +136,4 @@ function categoryLabel(category: AppFeedbackCategory) {
     other: 'Other',
   };
   return labels[category];
-}
-
-function escapeHtml(value: string) {
-  return String(value || '')
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
 }

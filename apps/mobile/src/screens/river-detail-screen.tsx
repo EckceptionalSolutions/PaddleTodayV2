@@ -1,12 +1,17 @@
 import {
-  routeHazardLabels,
-  routeSafetyLevelLabels,
-  routeSafetySummary,
+  buildHourlyWeatherTimingViewModel,
+  buildRiverDetailLogisticsViewModel,
+  buildRiverReadinessViewModel,
+  buildRouteSafetyViewModel,
+  buildScoreBreakdownViewModel,
+  campingClassificationLabel,
+  formatHourlyWeatherLabel,
+  signedPoints,
   type ApprovedCommunityPhoto,
-  type CampingClassification,
   type ApprovedTripReport,
   type DecisionChecklistItem,
-  type HourlyWeatherPoint,
+  type HourlyWeatherRisk,
+  type HourlyWeatherTimingViewModel,
   type RiverAccessPoint,
   type RiverRouteAccessPoint,
   type RiverAlertThreshold,
@@ -60,7 +65,6 @@ import {
   detailMessageForRating,
   formatGaugeValue,
   formatPercent,
-  formatRainInches,
   formatTemperature,
   formatTimestamp,
   normalizeApiText,
@@ -261,6 +265,8 @@ export default function RiverDetailScreen() {
     return null;
   }
 
+  const readiness = buildRiverReadinessViewModel(detail);
+  const effectiveLiveData = readiness.effectiveLiveData;
   const riverSlug = detail.river.slug;
   const riverId = detail.river.riverId;
   function updatePlannerParams(putInId: string | null, takeOutId: string | null, distanceMiles: number | null) {
@@ -607,7 +613,7 @@ export default function RiverDetailScreen() {
               <Text style={styles.routeMetaLine} numberOfLines={2}>{routeHeroLine(detail)}</Text>
               <View style={styles.heroMeta}>
                 <RatingPill rating={detail.rating} />
-                <StatusPill status={detail.liveData.overall} />
+                <StatusPill status={effectiveLiveData.overall} />
               </View>
               {shareStatus ? <Text style={styles.shareStatus}>{shareStatus}</Text> : null}
             </View>
@@ -620,9 +626,9 @@ export default function RiverDetailScreen() {
             onDirections={() => openPrimaryDirections(detail, selectedPutIn, selectedTakeOut)}
             onAccess={() => showSection('Access')}
           />
-          {detail.liveData.overall !== 'live' ? (
+          {effectiveLiveData.overall !== 'live' ? (
             <View style={styles.heroFooter}>
-              <Text style={styles.heroFooterWarning}>{normalizeApiText(detail.liveData.summary)}</Text>
+              <Text style={styles.heroFooterWarning}>{normalizeApiText(effectiveLiveData.summary)}</Text>
             </View>
           ) : null}
         </View>
@@ -651,14 +657,14 @@ export default function RiverDetailScreen() {
                 conditionsYRef.current = event.nativeEvent.layout.y;
               }}
             >
-              <SectionCard title="Gauge, trend, weather" subtitle={normalizeApiText(detail.liveData.summary)}>
+              <SectionCard title="Gauge, trend, weather" subtitle={normalizeApiText(effectiveLiveData.summary)}>
                 <View style={styles.conditionList}>
                   <ConditionRow
                     icon="waves"
                     label={detail.river.gaugeSource.display.primaryMetricLabel || 'Gauge'}
                     value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
                     subvalue={detail.gauge ? detail.gaugeBandLabel : 'No current reading'}
-                    detail={normalizeApiText(detail.liveData.gauge.detail)}
+                    detail={normalizeApiText(effectiveLiveData.gauge.detail)}
                     tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
                   />
                   <GaugeBandCard detail={detail} />
@@ -673,9 +679,9 @@ export default function RiverDetailScreen() {
                   <ConditionRow
                     icon="weather-partly-cloudy"
                     label="Weather"
-                    value={compactWeatherValue(detail)}
-                    subvalue={weatherSubvalue(detail)}
-                    detail={normalizeApiText(detail.liveData.weather.detail)}
+                    value={readiness.weather.compactValue}
+                    subvalue={readiness.weather.conditionLabel}
+                    detail={normalizeApiText(effectiveLiveData.weather.detail)}
                     tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
                   />
                   <WeatherDecisionCard detail={detail} />
@@ -1020,7 +1026,7 @@ function conditionQuickFactText(
   return normalizeApiText(
     checklistByLabel.get('Weather window')?.detail
       ?? checklistByLabel.get('Temperature')?.detail
-      ?? detail.liveData.summary
+      ?? buildRiverReadinessViewModel(detail).effectiveLiveData.summary
   );
 }
 
@@ -1151,10 +1157,15 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
 
 function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
   const [expanded, setExpanded] = useState(false);
-  const rows = scoreBreakdownRows(breakdown);
-  const capReasons = breakdown.capReasons
-    .map((reason) => friendlyCapReason(reason))
-    .filter(Boolean);
+  const model = buildScoreBreakdownViewModel(breakdown);
+  const labels = {
+    riverQuality: 'River',
+    wind: 'Wind',
+    temperature: 'Temp',
+    rain: 'Rain',
+    comfort: 'Other',
+    limit: 'Limit applied',
+  };
 
   return (
     <View style={styles.scoreWhyCard}>
@@ -1179,16 +1190,16 @@ function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
       {expanded ? (
         <>
           <View style={styles.scoreWhyRows}>
-            {rows.map((row) => (
-              <View key={row.label} style={styles.scoreWhyRow}>
-                <Text style={styles.scoreWhyLabel}>{row.label}</Text>
+            {model.rows.map((row) => (
+              <View key={row.key} style={styles.scoreWhyRow}>
+                <Text style={styles.scoreWhyLabel}>{labels[row.key]}</Text>
                 <Text style={[styles.scoreWhyValue, scoreBreakdownValueTone(row.value)]}>{signedPoints(row.value)}</Text>
               </View>
             ))}
           </View>
-          {capReasons.length > 0 ? (
+          {model.capReasons.length > 0 ? (
             <View style={styles.scoreCapList}>
-              {capReasons.slice(0, 2).map((reason) => (
+              {model.capReasons.slice(0, 2).map((reason) => (
                 <Text key={reason} style={styles.scoreCapText}>- {reason}</Text>
               ))}
             </View>
@@ -1197,25 +1208,6 @@ function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
       ) : null}
     </View>
   );
-}
-
-function scoreBreakdownRows(breakdown: ScoreBreakdown) {
-  const rows = [
-    { label: 'River', value: breakdown.riverQuality },
-    { label: 'Wind', value: breakdown.windAdjustment },
-    { label: 'Temp', value: breakdown.temperatureAdjustment },
-    { label: 'Rain', value: breakdown.rainAdjustment },
-  ];
-
-  if (breakdown.comfortAdjustment !== 0) {
-    rows.push({ label: 'Other', value: breakdown.comfortAdjustment });
-  }
-
-  if (breakdown.finalScore !== breakdown.rawTripScore) {
-    rows.push({ label: 'Limit applied', value: breakdown.finalScore - breakdown.rawTripScore });
-  }
-
-  return rows;
 }
 
 function dedupeSourceLabels(sources: RiverDetailApiResult['sources'] = []) {
@@ -1231,11 +1223,6 @@ function routeSourceLabels(detail: RiverDetailApiResult) {
   return [detail.river.gaugeSource.display.shortLabel || detail.river.gaugeSource.display.label];
 }
 
-function signedPoints(value: number) {
-  if (value > 0) return `+${value}`;
-  return String(value);
-}
-
 function scoreBreakdownValueTone(value: number) {
   if (value > 0) {
     return { color: colors.accentDeep };
@@ -1246,31 +1233,6 @@ function scoreBreakdownValueTone(value: number) {
   }
 
   return { color: colors.textMuted };
-}
-
-function friendlyCapReason(reason: string) {
-  const normalized = String(reason || '').trim();
-  if (!normalized) {
-    return '';
-  }
-
-  if (/Near-freezing air caps today at 70\.|Cold air limits today's score to 70 or lower\./i.test(normalized)) {
-    return 'Cold air lowered the score.';
-  }
-
-  if (/High wind caps today at 75\.|Strong wind limits today's score to 75 or lower\./i.test(normalized)) {
-    return 'Strong wind lowered the score.';
-  }
-
-  if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\.|Heavy rain or storms likely soon limit today's score to 65 or lower\./i.test(normalized)) {
-    return 'Heavy rain or storms likely within 3 hours limit the score to 65.';
-  }
-
-  if (/Minimum-only guidance caps the trip score at 74\.|This route has minimum-only gauge guidance, so today's score is limited to 74 or lower\./i.test(normalized)) {
-    return 'This route has minimum-only gauge guidance.';
-  }
-
-  return normalized;
 }
 
 function DecisionStrip({
@@ -1424,10 +1386,11 @@ function GaugeSourceActions({ detail }: { detail: RiverDetailApiResult }) {
 
 function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
   const profile = detail.river.safetyProfile;
-  const riskLevel = profile?.riskLevel ?? 'standard';
-  const summary = routeSafetySummary(profile);
-  const body = mobileSafetyBody(riskLevel, summary);
-  const notes = dedupeSafetyNotes(profile?.safetyNotes ?? [], summary);
+  const safetyModel = buildRouteSafetyViewModel(profile, {
+    standardTitle: 'Before you launch',
+    standardSummary: 'Confirm access, shuttle, source data, hazards, closures, and takeouts before launching.',
+  });
+  const riskLevel = safetyModel.riskLevel;
   const advanced = riskLevel === 'advanced';
   const caution = riskLevel === 'caution';
 
@@ -1441,64 +1404,31 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
         />
         <View style={styles.safetyHeaderText}>
           <Text style={styles.safetyKicker}>Safety</Text>
-          <Text style={styles.safetyTitle}>{mobileSafetyTitle(riskLevel)}</Text>
+          <Text style={styles.safetyTitle}>{safetyModel.title}</Text>
         </View>
       </View>
-      <Text style={styles.safetyBody}>{body}</Text>
-      {profile?.hazards && profile.hazards.length > 0 ? (
+      <Text style={styles.safetyBody}>{safetyModel.summary}</Text>
+      {safetyModel.hazards.length > 0 ? (
         <View style={styles.safetyChipRow}>
-          {profile.hazards.map((hazard) => (
-            <View key={hazard} style={[styles.safetyChip, caution ? styles.safetyChipCaution : null]}>
-              <Text style={[styles.safetyChipText, caution ? styles.safetyChipTextCaution : null]}>{routeHazardLabels[hazard]}</Text>
+          {safetyModel.hazards.map((hazard) => (
+            <View key={hazard.key} style={[styles.safetyChip, caution ? styles.safetyChipCaution : null]}>
+              <Text style={[styles.safetyChipText, caution ? styles.safetyChipTextCaution : null]}>{hazard.label}</Text>
             </View>
           ))}
         </View>
       ) : null}
-      {notes.map((note) => (
+      {safetyModel.notes.map((note) => (
         <Text key={note} style={styles.safetyNote}>{normalizeApiText(note)}</Text>
       ))}
     </View>
   );
 }
 
-function mobileSafetyTitle(riskLevel: NonNullable<RiverDetailApiResult['river']['safetyProfile']>['riskLevel'] | 'standard') {
-  if (riskLevel === 'standard') return 'Before you launch';
-  return routeSafetyLevelLabels[riskLevel];
-}
-
-function mobileSafetyBody(
-  riskLevel: NonNullable<RiverDetailApiResult['river']['safetyProfile']>['riskLevel'] | 'standard',
-  summary: string
-) {
-  if (riskLevel === 'standard') {
-    return 'Confirm access, shuttle, source data, hazards, closures, and takeouts before launching.';
-  }
-
-  return summary;
-}
-
-function dedupeSafetyNotes(notes: string[], summary: string) {
-  const summaryKey = normalizeSafetyText(summary);
-  const seen = new Set<string>();
-  return notes.filter((note) => {
-    const key = normalizeSafetyText(note);
-    if (!key || key === summaryKey || seen.has(key)) {
-      return false;
-    }
-    seen.add(key);
-    return true;
-  });
-}
-
-function normalizeSafetyText(value: string) {
-  return normalizeApiText(value).toLowerCase().replace(/\s+/g, ' ').trim();
-}
-
 function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
   const basics = [
     { label: 'Paddle time', value: compactPaddleTime(detail.river.estimatedPaddleTime) || 'Not tracked', icon: 'clock-outline' },
     { label: 'Difficulty', value: capitalize(detail.river.profile.difficulty), icon: 'waves' },
-    { label: 'Camping', value: campingFitLabel(detail.river.logistics?.campingClassification), icon: 'tent' },
+    { label: 'Camping', value: campingClassificationLabel(detail.river.logistics?.campingClassification), icon: 'tent' },
   ];
 
   const gaugeRange = thresholdRangeLabel(detail);
@@ -1524,14 +1454,6 @@ function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
       </View>
     </SectionCard>
   );
-}
-
-function campingFitLabel(classification: CampingClassification | null | undefined) {
-  if (classification === 'nearby_basecamp') return 'Camp nearby';
-  if (classification === 'endpoint_campground') return 'Campground access';
-  if (classification === 'sandbar_or_gravel_bar') return 'Sandbar camping';
-  if (classification === 'on_route_campsite' || classification === 'overnight_capable') return 'Overnight-friendly';
-  return 'No camping';
 }
 
 function AboutRouteCard({ detail }: { detail: RiverDetailApiResult }) {
@@ -1614,11 +1536,11 @@ function LogisticsIcon({ title, warning = false }: { title: string; warning?: bo
 }
 
 function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
-  const logistics = detail.river.logistics;
+  const logistics = buildRiverDetailLogisticsViewModel(detail.river.logistics);
   const rows = [
-    { label: 'Shuttle', value: shortLogisticsValue(logistics?.shuttle), icon: 'car' },
-    { label: 'Permits', value: shortLogisticsValue(logistics?.permits), icon: 'ticket-confirmation-outline' },
-    { label: 'Camping', value: shortLogisticsValue(logistics?.camping), icon: 'tent' },
+    { label: 'Shuttle', value: logistics.compactShuttle, icon: 'car' },
+    { label: 'Permits', value: logistics.compactPermits, icon: 'ticket-confirmation-outline' },
+    { label: 'Camping', value: logistics.compactCamping, icon: 'tent' },
   ];
 
   return (
@@ -1685,7 +1607,7 @@ function HourlyWeatherStrip({ detail }: { detail: RiverDetailApiResult }) {
             index === 0 ? styles.weatherCardCurrent : null,
           ]}
         >
-          <Text style={styles.weatherHour}>{formatHourLabel(point.time, point.label)}</Text>
+          <Text style={styles.weatherHour}>{formatHourlyWeatherLabel(point.time, point.label)}</Text>
           <Text style={styles.weatherTemp}>{formatTemperature(point.temperatureF, '--')}</Text>
           <Text style={styles.weatherCondition}>
             {normalizeApiText(point.conditionLabel || 'Mixed')}
@@ -1703,11 +1625,13 @@ function HourlyWeatherStrip({ detail }: { detail: RiverDetailApiResult }) {
 }
 
 function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
-  const model = weatherTimingModel(detail);
+  const model = buildHourlyWeatherTimingViewModel(detail.weather);
 
   if (!model) {
     return null;
   }
+
+  const badge = mobileWeatherDecisionBadge(model);
 
   return (
     <View style={styles.weatherDecisionPanel}>
@@ -1716,15 +1640,16 @@ function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
           <Text style={styles.weatherDecisionKicker}>Paddle window</Text>
           <Text style={styles.weatherDecisionTitle}>{model.title}</Text>
         </View>
-        <View style={[styles.weatherDecisionBadge, model.badgeStyle]}>
-          <MaterialCommunityIcons name={model.badgeIcon} color={colors.surfaceStrong} size={15} />
+        <View style={[styles.weatherDecisionBadge, badge.style]}>
+          <MaterialCommunityIcons name={badge.icon} color={colors.surfaceStrong} size={15} />
           <Text style={styles.weatherDecisionBadgeText}>{model.badgeLabel}</Text>
         </View>
       </View>
       <Text style={styles.weatherDecisionText}>{model.summary}</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.weatherTimeline}>
         {model.points.map((point, index) => {
-          const risk = hourlyWeatherRisk(point);
+          const risk = point.risk;
+          const riskVisual = mobileHourlyWeatherRiskVisual(risk);
           return (
             <View
               key={`${point.time}-${index}`}
@@ -1735,8 +1660,8 @@ function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
                 risk.level === 'skip' ? styles.weatherTimelineCellSkip : null,
               ]}
             >
-              <Text style={styles.weatherTimelineHour}>{index === 0 ? 'Now' : formatHourLabel(point.time, point.label)}</Text>
-              <MaterialCommunityIcons name={risk.icon} color={risk.color} size={18} />
+              <Text style={styles.weatherTimelineHour}>{index === 0 ? 'Now' : point.displayLabel}</Text>
+              <MaterialCommunityIcons name={riskVisual.icon} color={riskVisual.color} size={18} />
               <Text style={styles.weatherTimelineRain}>{formatPercent(point.precipProbability, '0%')}</Text>
               <Text style={styles.weatherTimelineWind}>{Math.round(point.windMph ?? 0)} mph</Text>
             </View>
@@ -2143,7 +2068,10 @@ function AccessMetrics({
       <MetricPill label="Distance" value={distanceLabel} />
       <MetricPill label="Paddle time" value={paddleTime || detail.river.estimatedPaddleTime || 'Not tracked'} />
       <MetricPill label="Difficulty" value={capitalize(detail.river.profile.difficulty)} />
-      <MetricPill label="Camping" value={shortLogisticsValue(detail.river.logistics?.camping)} />
+      <MetricPill
+        label="Camping"
+        value={buildRiverDetailLogisticsViewModel(detail.river.logistics).compactCamping}
+      />
     </View>
   );
 }
@@ -2423,34 +2351,6 @@ function CommunityReportCard({ report }: { report: ApprovedTripReport }) {
   );
 }
 
-function weatherValue(detail: RiverDetailApiResult) {
-  if (!detail.weather) {
-    return 'Weather unavailable';
-  }
-
-  return normalizeApiText(
-    [
-      formatTemperature(detail.weather.temperatureF, 'No air temp'),
-      `${formatPercent(detail.weather.next12hPrecipProbabilityMax, '0%')} rain`,
-      `${Math.round(detail.weather.next12hWindMphMax ?? detail.weather.windMph ?? 0)} mph wind`,
-      detail.weather.recentRain24hIn ? `${formatRainInches(detail.weather.recentRain24hIn)} recent rain` : null,
-    ]
-      .filter(Boolean)
-      .join(' - ')
-  );
-}
-
-function compactWeatherValue(detail: RiverDetailApiResult) {
-  if (!detail.weather) {
-    return 'Unknown';
-  }
-
-  const temp = formatTemperature(detail.weather.temperatureF, '--');
-  const wind = Math.round(detail.weather.next12hWindMphMax ?? detail.weather.windMph ?? 0);
-  const rain = formatPercent(detail.weather.next12hPrecipProbabilityMax, '0%');
-  return `${temp} / ${wind} mph / ${rain}`;
-}
-
 function trendSubvalue(detail: RiverDetailApiResult) {
   if (!detail.gauge) {
     return 'Recent samples unavailable';
@@ -2467,112 +2367,42 @@ function trendSubvalue(detail: RiverDetailApiResult) {
   return '24h change unavailable';
 }
 
-function weatherSubvalue(detail: RiverDetailApiResult) {
-  if (!detail.weather) {
-    return 'No forecast';
+function mobileWeatherDecisionBadge(model: HourlyWeatherTimingViewModel): {
+  icon: keyof typeof MaterialCommunityIcons.glyphMap;
+  style: ViewStyle;
+} {
+  if (model.tone === 'open') {
+    return { icon: 'check-circle', style: styles.weatherDecisionBadgeGood };
   }
-
-  return normalizeApiText(detail.weather.conditionLabel || detail.weather.rainTimingLabel || 'Today');
+  if (model.badgeKind === 'storm') {
+    return { icon: 'weather-lightning', style: model.tone === 'watch' ? styles.weatherDecisionBadgeWatch : styles.weatherDecisionBadgeSkip };
+  }
+  if (model.badgeKind === 'clock') {
+    return { icon: 'clock-outline', style: styles.weatherDecisionBadgeWatch };
+  }
+  return { icon: 'alert-circle', style: styles.weatherDecisionBadgeSkip };
 }
 
-function weatherTimingModel(detail: RiverDetailApiResult) {
-  const weather = detail.weather;
-  const points = (weather?.todayHourly ?? []).slice(0, 8);
-
-  if (!weather || points.length === 0) {
-    return null;
-  }
-
-  const firstRiskIndex = points.findIndex((point) => hourlyWeatherRisk(point).level !== 'clear');
-  const firstRiskPoint = firstRiskIndex >= 0 ? points[firstRiskIndex] : null;
-  const firstRisk = firstRiskPoint ? hourlyWeatherRisk(firstRiskPoint) : null;
-  const stormRisk = weather.next12hStormRisk || points.some((point) => hourlyWeatherRisk(point).kind === 'storm');
-  const riskStartsLater = firstRiskIndex >= 3;
-  const noEarlyRisk = firstRiskIndex === -1 || riskStartsLater;
-  const firstRiskTime = firstRiskPoint ? formatHourLabel(firstRiskPoint.time, firstRiskPoint.label) : null;
-  const riskLabel = firstRisk?.kind === 'storm' ? 'storm risk' : firstRisk?.kind === 'rain' ? 'rain risk' : 'wind';
-
-  if (firstRiskIndex === -1) {
-    return {
-      points,
-      title: 'Good weather window',
-      summary: 'No rain, storms, or strong wind are showing in the next few hours. Still re-check conditions before launch.',
-      badgeLabel: 'Open',
-      badgeIcon: 'check-circle' as const,
-      badgeStyle: styles.weatherDecisionBadgeGood,
-    };
-  }
-
-  if (noEarlyRisk && firstRiskTime) {
-    return {
-      points,
-      title: `Aim to be off before ${firstRiskTime}`,
-      summary: `${normalizeApiText(riskLabel)} starts later in the forecast. A short paddle may still fit if shuttle, pace, and exit timing are conservative.`,
-      badgeLabel: stormRisk ? 'Storm later' : 'Later risk',
-      badgeIcon: stormRisk ? 'weather-lightning' as const : 'clock-outline' as const,
-      badgeStyle: styles.weatherDecisionBadgeWatch,
-    };
-  }
-
-  return {
-    points,
-    title: firstRiskTime ? `Weather risk near ${firstRiskTime}` : 'Weather needs attention',
-    summary: stormRisk
-      ? 'Storm risk is close enough that this should be treated as a launch-time safety check, not just an afternoon forecast note.'
-      : 'Rain or wind risk is early in the forecast. Confirm the latest radar and be ready to shorten or skip.',
-    badgeLabel: stormRisk ? 'Storm watch' : 'Check now',
-    badgeIcon: stormRisk ? 'weather-lightning' as const : 'alert-circle' as const,
-    badgeStyle: styles.weatherDecisionBadgeSkip,
-  };
-}
-
-function hourlyWeatherRisk(point: HourlyWeatherPoint): {
-  level: 'clear' | 'watch' | 'skip';
-  kind: 'clear' | 'rain' | 'storm' | 'wind';
+function mobileHourlyWeatherRiskVisual(risk: HourlyWeatherRisk): {
   icon: keyof typeof MaterialCommunityIcons.glyphMap;
   color: string;
 } {
-  const condition = point.conditionLabel ?? '';
-  const rain = point.precipProbability ?? 0;
-  const sustainedWind = point.windMph ?? 0;
-  const gust = point.windGustMph ?? 0;
-
-  if (/(storm|thunder)/i.test(condition)) {
-    return { level: 'skip', kind: 'storm', icon: 'weather-lightning', color: colors.noGo };
+  if (risk.kind === 'storm') {
+    return { icon: 'weather-lightning', color: colors.noGo };
   }
-
-  if (rain >= 60 || (point.precipitationIn ?? 0) >= 0.08) {
-    return { level: 'skip', kind: 'rain', icon: 'weather-pouring', color: colors.noGo };
+  if (risk.kind === 'rain') {
+    return {
+      icon: risk.level === 'skip' ? 'weather-pouring' : 'weather-rainy',
+      color: risk.level === 'skip' ? colors.noGo : colors.fair,
+    };
   }
-
-  if (sustainedWind >= 22 || gust >= 30) {
-    return { level: 'skip', kind: 'wind', icon: 'weather-windy', color: colors.noGo };
+  if (risk.kind === 'wind') {
+    return {
+      icon: 'weather-windy',
+      color: risk.level === 'skip' ? colors.noGo : colors.fair,
+    };
   }
-
-  if (rain >= 35 || (point.precipitationIn ?? 0) >= 0.02 || /(rain|showers)/i.test(condition)) {
-    return { level: 'watch', kind: 'rain', icon: 'weather-rainy', color: colors.fair };
-  }
-
-  if (sustainedWind >= 16 || gust >= 24) {
-    return { level: 'watch', kind: 'wind', icon: 'weather-windy', color: colors.fair };
-  }
-
-  return { level: 'clear', kind: 'clear', icon: 'weather-partly-cloudy', color: colors.accent };
-}
-
-function formatHourLabel(value: string, defaultLabel: string | null | undefined) {
-  if (defaultLabel?.trim()) {
-    return normalizeApiText(defaultLabel);
-  }
-
-  const parsed = new Date(value);
-  if (Number.isFinite(parsed.getTime())) {
-    return parsed.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-    });
-  }
-
-  return 'Later';
+  return { icon: 'weather-partly-cloudy', color: colors.accent };
 }
 
 function formatShortTime(value: string) {
@@ -2708,27 +2538,6 @@ function gaugeBandMarkerTone(gaugeBand: RiverDetailApiResult['gaugeBand']) {
 
 function clampToRange(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
-}
-
-function shortLogisticsValue(value: string | null | undefined) {
-  const normalized = normalizeApiText(value);
-  if (!normalized) {
-    return 'Not tracked';
-  }
-
-  if (/^(none|no )/i.test(normalized)) {
-    return 'None noted';
-  }
-
-  if (/day trip|day route|day float|not (?:an? )?campground/i.test(normalized)) {
-    return 'Day trip';
-  }
-
-  if (normalized.length <= 34) {
-    return normalized;
-  }
-
-  return 'Details below';
 }
 
 function logisticsIconName(title: string) {

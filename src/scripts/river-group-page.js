@@ -1,8 +1,11 @@
 import {
-  MAP_STYLE_URL,
   bindMarkerPopup,
+  clearMapMarkers,
+  createPaddleMap,
   ensureMapLibre,
   escapeHtml,
+  fitMapBounds,
+  waitForMapReady,
   markerClassForRating,
   scoreZoneRouteLabel,
   syncActualRiverLayer,
@@ -11,9 +14,10 @@ import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-bu
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
-import { ratingVerdictLabel } from '@paddletoday/api-contract';
+import { ratingToneKey, ratingVerdictLabel, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { coverageAnchorForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
+import { getBrowserApiClient } from './browser-api-client.js';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -69,12 +73,6 @@ let pinSelectedRoute = Boolean(initialSelectedSlug);
 let routeGeometryLoadVersion = 0;
 const routeGeometryBySlug = new Map();
 const groupRequestGuard = createRequestGuard();
-const confidenceWeight = {
-  High: 3,
-  Medium: 2,
-  Low: 1,
-};
-
 document.body.classList.add('page-river-hub');
 
 function setText(field, value) {
@@ -93,12 +91,6 @@ function decisionLabel(rating, score = null) {
     fairLabel: 'Fair: tradeoffs',
     noGoLabel: 'No-go',
   });
-}
-
-function ratingToneKey(rating) {
-  if (rating === 'Strong') return 'great';
-  if (rating === 'Fair') return 'marginal';
-  return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
 function corridorKey(route) {
@@ -127,8 +119,8 @@ function compareRoutes(left, right) {
     return (right?.score ?? 0) - (left?.score ?? 0);
   }
 
-  const leftConfidence = confidenceWeight[left?.confidence?.label] ?? 0;
-  const rightConfidence = confidenceWeight[right?.confidence?.label] ?? 0;
+  const leftConfidence = todayBoardConfidenceWeight[left?.confidence?.label] ?? 0;
+  const rightConfidence = todayBoardConfidenceWeight[right?.confidence?.label] ?? 0;
   if (leftConfidence !== rightConfidence) {
     return rightConfidence - leftConfidence;
   }
@@ -953,8 +945,7 @@ function endpointMarkerNode(label, detail, kind) {
 }
 
 function syncSelectedRouteEndpoints(route, maplibregl) {
-  for (const marker of mapMarkers) marker.remove();
-  mapMarkers = [];
+  mapMarkers = clearMapMarkers(mapMarkers);
   if (!route) return;
 
   const endpoints = [
@@ -974,8 +965,7 @@ function syncSelectedRouteEndpoints(route, maplibregl) {
 }
 
 function clearConditionScoreMarkers() {
-  for (const marker of conditionScoreMarkers) marker.remove();
-  conditionScoreMarkers = [];
+  conditionScoreMarkers = clearMapMarkers(conditionScoreMarkers);
 }
 
 function conditionScorePopupMarkup(group) {
@@ -1085,24 +1075,14 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     }
 
     if (!mapRuntime) {
-      mapRuntime = new maplibregl.Map({
+      mapRuntime = createPaddleMap(maplibregl, {
         container: groupMap,
-        style: MAP_STYLE_URL,
         center: [-92.5, 44.2],
         zoom: 8,
         minZoom: 5,
         maxZoom: 12,
-        attributionControl: true,
       });
-
-      mapRuntime.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-      mapReadyPromise = new Promise((resolve) => {
-        if (mapRuntime.loaded()) {
-          resolve();
-          return;
-        }
-        mapRuntime.once('load', resolve);
-      });
+      mapReadyPromise = waitForMapReady(mapRuntime);
     }
     await mapReadyPromise;
 
@@ -1119,9 +1099,10 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
 
     const fitRoutes = focusSelected && selectedRoute ? [selectedRoute] : routes;
     const bounds = boundsForRouteFeatures(maplibregl, fitRoutes);
-    if (bounds && (!preserveViewport || focusSelected)) {
+    if (bounds) {
       const compact = window.matchMedia('(max-width: 720px)').matches;
-      mapRuntime.fitBounds(bounds, {
+      fitMapBounds(mapRuntime, bounds, {
+        preserveViewport: preserveViewport && !focusSelected,
         padding: compact
           ? { top: 42, right: 34, bottom: 42, left: 34 }
           : { top: 72, right: 72, bottom: 72, left: 72 },
@@ -1512,17 +1493,10 @@ async function loadGroup({ silent = false } = {}) {
   }
 
   try {
-    const response = await fetch(`/api/river-groups/${encodeURIComponent(riverId)}.json`, {
-      headers: { accept: 'application/json' },
+    const payload = await getBrowserApiClient().getRiverGroup(riverId, {
       cache: 'no-store',
       signal: controller.signal,
     });
-
-    if (!response.ok) {
-      throw new Error(`API request failed for river group ${riverId}: HTTP ${response.status}`);
-    }
-
-    const payload = await response.json();
     const result = payload?.result;
     const routes = Array.isArray(result?.routes) ? normalizeRoutes(result.routes).sort(compareRoutes) : [];
     if (!groupRequestGuard.isCurrent(requestId)) {

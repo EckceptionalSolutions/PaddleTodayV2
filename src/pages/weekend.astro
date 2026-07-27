@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RouteBoardCardTemplate from '../components/RouteBoardCardTemplate.astro';
+import SummaryMapPanel from '../components/SummaryMapPanel.astro';
 
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const weekendUrl = new URL('/weekend/', siteUrl).href;
@@ -126,10 +127,104 @@ const structuredData = [
       </ul>
       <p class="hero__project-label">Planning note</p>
       <p class="hero__note muted">
-        A route only makes the shortlist when the river read and forecast both leave room for a good day.
+        “Not enough data” means the weekend score was withheld because the forecast, live river read,
+        working-range calibration, or confidence was not strong enough.
       </p>
     </div>
   </section>
+
+  <section class="weekend-planner" aria-labelledby="weekend-planner-title">
+    <div class="weekend-planner__head">
+      <div>
+        <p class="eyebrow">Plan around the drive</p>
+        <h2 class="section-title" id="weekend-planner-title">Filter weekend routes</h2>
+      </div>
+      <p class="muted weekend-planner__summary" data-weekend-filter-summary>
+        Add your location to sort by drive time and set a weekend range.
+      </p>
+    </div>
+
+    <div class="weekend-location-strip" data-weekend-location-strip>
+      <div class="weekend-location-strip__copy">
+        <p class="weekend-location-strip__label" data-weekend-location-label>Plan from your location</p>
+        <p class="muted weekend-location-strip__hint" data-weekend-location-hint>
+          Use your location to include drive time in the weekend ranking.
+        </p>
+      </div>
+      <div class="weekend-location-strip__actions">
+        <button class="filter-chip filter-chip--primary" type="button" data-weekend-location-use>
+          Use my location
+        </button>
+        <button class="filter-chip filter-chip--quiet" type="button" data-weekend-location-clear hidden>
+          Clear
+        </button>
+      </div>
+    </div>
+
+    <div class="weekend-distance" data-weekend-distance hidden>
+      <p class="weekend-planner__control-label">Weekend range</p>
+      <div class="weekend-distance__options" role="group" aria-label="Weekend driving range">
+        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="100">100 mi</button>
+        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="200">200 mi</button>
+        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="300">300 mi</button>
+        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="500">500 mi</button>
+        <button class="filter-chip filter-chip--subtle" type="button" data-weekend-distance-option="any">Any</button>
+      </div>
+    </div>
+
+    <div class="weekend-plan-lanes-wrap">
+      <p class="weekend-planner__control-label">Route type</p>
+      <div class="weekend-plan-lanes" role="group" aria-label="Weekend route type">
+        <button class="weekend-plan-lane" type="button" data-weekend-filter="all" aria-pressed="true">
+          <strong data-weekend-filter-count="all">0</strong>
+          <span>All routes</span>
+          <small>Full weekend board</small>
+        </button>
+        <button class="weekend-plan-lane" type="button" data-weekend-filter="day-trips" aria-pressed="false">
+          <strong data-weekend-filter-count="day-trips">0</strong>
+          <span>Day trips</span>
+          <small>Good calls first</small>
+        </button>
+        <button class="weekend-plan-lane" type="button" data-weekend-filter="camping" aria-pressed="false">
+          <strong data-weekend-filter-count="camping">0</strong>
+          <span>Camping</span>
+          <small>Camp support noted</small>
+        </button>
+        <button class="weekend-plan-lane" type="button" data-weekend-filter="rechecks" aria-pressed="false">
+          <strong data-weekend-filter-count="rechecks">0</strong>
+          <span>Rechecks</span>
+          <small>Fair routes to watch</small>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="weekend-page__map-wrap" data-weekend-map-section hidden>
+    <SummaryMapPanel
+      id="weekend-routes-map"
+      className="weekend-page__map"
+      eyebrow="Weekend map"
+      title="Weekend routes on the map"
+      lede="The map follows your driving range and route type. Select a score to open that route."
+      showResults={false}
+      status="Loading weekend routes."
+      ariaLabel="Filtered weekend paddle routes"
+      showNoGoLegend={false}
+    >
+      <div class="weekend-map-empty" slot="map-overlay" data-weekend-map-empty role="status" hidden>
+        <div class="weekend-map-empty__card">
+          <p class="eyebrow">Nothing in this view</p>
+          <h3 data-weekend-map-empty-title>No routes match this filter</h3>
+          <p class="muted" data-weekend-map-empty-copy>
+            Try another route type or widen your weekend range.
+          </p>
+          <button class="river-link river-link--inline" type="button" data-weekend-map-empty-reset>
+            Show all routes
+          </button>
+        </div>
+      </div>
+    </SummaryMapPanel>
+  </div>
 
   <section class="home-board-inline home-board-inline--wide guide-link-strip" aria-label="Weekend paddling guide">
     <p class="home-board-inline__copy">Planning a Minnesota weekend paddle?</p>
@@ -138,13 +233,13 @@ const structuredData = [
     </a>
   </section>
 
-  <section class="decision-section decision-section--recommended weekend-page__section">
+  <section class="decision-section decision-section--recommended weekend-page__section" data-weekend-primary-section>
     <div class="section-head section-head--stacked">
       <div>
         <p class="eyebrow">Weekend shortlist</p>
-        <h2 class="section-title">Top weekend picks</h2>
+        <h2 class="section-title" data-weekend-primary-title>Top weekend picks</h2>
       </div>
-      <p class="muted section-head__note">
+      <p class="muted section-head__note" data-weekend-primary-note>
         Use this as a planning read for Saturday and Sunday, then check again before you drive.
       </p>
     </div>
@@ -154,6 +249,26 @@ const structuredData = [
       <p class="weekend-empty-state__title" data-weekend-empty-title>No reliable weekend picks yet</p>
       <p class="muted weekend-empty-state__copy" data-weekend-empty-copy>
         Forecast confidence is still too low to make weekend calls.
+      </p>
+    </div>
+  </section>
+
+  <section class="decision-section weekend-page__section" data-weekend-camping-section hidden>
+    <div class="section-head section-head--stacked">
+      <div>
+        <p class="eyebrow">Camping</p>
+        <h2 class="section-title">Camping-friendly</h2>
+      </div>
+      <p class="muted section-head__note">
+        Good weekend routes with camping nearby, at an access, or along the route.
+      </p>
+    </div>
+
+    <div class="recommendation-grid weekend-page__grid" data-weekend-camping-grid></div>
+    <div class="weekend-empty-state decision-section__empty" data-weekend-camping-empty hidden>
+      <p class="weekend-empty-state__title">No camping-friendly picks in this range</p>
+      <p class="muted weekend-empty-state__copy">
+        Try a wider driving range or check all weekend routes.
       </p>
     </div>
   </section>
@@ -170,6 +285,12 @@ const structuredData = [
     </div>
 
     <div class="recommendation-grid weekend-page__grid" data-weekend-watch-grid></div>
+    <div class="weekend-empty-state decision-section__empty" data-weekend-watch-empty hidden>
+      <p class="weekend-empty-state__title">No routes need a recheck right now</p>
+      <p class="muted weekend-empty-state__copy">
+        Fair routes will appear here when they are close enough to watch but not ready to recommend.
+      </p>
+    </div>
   </section>
 
   <RouteBoardCardTemplate />

@@ -305,5 +305,173 @@ export const indianaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Full downstream finish at the public east-end Hale Street access."
       }
     ]
+  },
+  "west-fork-white-river-barlow-mcculloch": {
+    "putIn": {
+      "id": "barlow-landing",
+      "name": "Barlow Landing",
+      "latitude": 40.190296,
+      "longitude": -85.360578
+    },
+    "takeOut": {
+      "id": "mcculloch-park-launch",
+      "name": "McCulloch Park launch",
+      "latitude": 40.19768,
+      "longitude": -85.37617
+    },
+    "logistics": {
+      "distanceLabel": "About 1.3 mi",
+      "estimatedPaddleTime": "About 45 min to 1 hr 30 min depending on stage, shallow riffles, wood, and time spent exploring the short city reach",
+      "shuttle": "Stage the take-out at McCulloch Park near the Martin Luther King Jr. Boulevard river crossing, then return to Barlow Landing in the 600 block of South Luick Avenue. Inspect both new city launches before leaving a vehicle.",
+      "permits": "No route-specific paddling permit is known. Use the designated public launches, follow Indiana boating and PFD rules, and obey current City of Muncie park and parking signs.",
+      "camping": "Treat this as a short daylight city float. Neither launch is presented as a route campground, and no riverside camping is assumed.",
+      "campingClassification": "none",
+      "summary": "Use Muncie's two current public launches for a short, gentle introduction to the West Fork White River. Take out at McCulloch and do not extend the itinerary toward the remaining west-side dam/fish-ladder structure.",
+      "accessCaveats": [
+        "Barlow Landing is a dedicated canoe/kayak launch with parking in the 600 block of South Luick Avenue.",
+        "McCulloch Park is a current public launch in Destination Muncie's June 2026 guidance; follow the park path and current signs to the river access near Martin Luther King Jr. Boulevard.",
+        "The approximately 1.3-mile distance is derived from mapped river geometry rather than a published city mileage table.",
+        "Take out at McCulloch. The remaining Muncie Sanitary District dam farther west was modified as a fish ladder, but no manager-backed through-route or portage is claimed here.",
+        "Banks outside public park and greenway property may be private; use the designated endpoints."
+      ],
+      "watchFor": [
+        "Stage below 4.00 ft, when shallow riffles and scraping become more likely, or 5.50 ft and higher, when Canoe Country closes its White River trips.",
+        "Fresh trees, strainers, bridge debris, submerged objects, and muddy or rapidly rising water after storms.",
+        "Urban runoff and water-quality concerns after heavy rain; avoid swallowing water and wash hands and gear after the trip.",
+        "Missing the short McCulloch finish and unintentionally continuing toward downstream city structures."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "barlow-landing",
+        "name": "Barlow Landing",
+        "latitude": 40.190296,
+        "longitude": -85.360578,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Dedicated public canoe/kayak launch and upstream route start."
+      },
+      {
+        "id": "mcculloch-park-launch",
+        "name": "McCulloch Park launch",
+        "latitude": 40.19768,
+        "longitude": -85.37617,
+        "mileFromStart": 1.3,
+        "segmentKind": "creek",
+        "note": "Public park take-out; end this route here."
+      }
+    ]
+  },
+  "west-fork-white-river-morrows-meadow-canoe-country": {
+    "putIn": {
+      "id": "morrows-meadow-canoe-launch",
+      "name": "Morrow's Meadow canoe launch",
+      "latitude": 40.178559,
+      "longitude": -85.49512
+    },
+    "takeOut": {
+      "id": "canoe-country-landing",
+      "name": "Canoe Country landing",
+      "latitude": 40.132438,
+      "longitude": -85.55517
+    },
+    "logistics": {
+      "distanceLabel": "About 7 mi",
+      "estimatedPaddleTime": "About 3 hr at ordinary levels, longer with low-water dragging, wood scouting, or a relaxed scenic pace",
+      "shuttle": "Arrange the private Canoe Country landing and shuttle first, then launch from the public canoe access at Morrow's Meadow Park in Yorktown. Do not leave a vehicle at or rely on the outfitter landing without current permission.",
+      "permits": "No public-river paddling permit is known, but Canoe Country is private property. Call ahead to confirm fees, hours, shuttle availability, and whether private boats may use the landing.",
+      "camping": "Treat this as a daylight day trip. Canoe Country advertises primitive camping only by special arrangement, so camping is a separate private reservation rather than part of the normal route.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Follow Canoe Country's published Trip #3 from public Morrow's Meadow Park to its private Daleville landing. The outfitter describes the seven-mile, three-hour reach as its most scenic trip.",
+      "accessCaveats": [
+        "Morrow's Meadow is the named public Yorktown start used by Canoe Country; use the designated canoe-launch area and current park signs.",
+        "Canoe Country is a private landing with seasonal hours. Confirm arrangements before launching even if you own the boat and handle your own shuttle.",
+        "The Muncie gauge is upstream of this route. Local thunderstorms can affect the Yorktown-to-Daleville reach before the gauge captures the change.",
+        "Banks between the named endpoints are commonly private. Do not plan casual stops or intermediate take-outs without clear permission.",
+        "The route and mileage are outfitter-published, but same-day obstructions and access conditions can change."
+      ],
+      "watchFor": [
+        "Stage below 4.00 ft, when shallow riffles and dragging become more likely, or 5.50 ft and higher, when Canoe Country closes.",
+        "Strainers, fresh log jams, bridge debris, shallow gravel, and sharper current on outside bends.",
+        "Thunderstorms or runoff downstream of the upstream proxy gauge.",
+        "Private banks and arriving outside the confirmed hours or terms for the Canoe Country take-out."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "morrows-meadow-canoe-launch",
+        "name": "Morrow's Meadow canoe launch",
+        "latitude": 40.178559,
+        "longitude": -85.49512,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Public Yorktown park launch used for Canoe Country Trip #3."
+      },
+      {
+        "id": "canoe-country-landing",
+        "name": "Canoe Country landing",
+        "latitude": 40.132438,
+        "longitude": -85.55517,
+        "mileFromStart": 7,
+        "segmentKind": "creek",
+        "note": "Private outfitter take-out; advance confirmation is required."
+      }
+    ]
+  },
+  "west-fork-white-river-canoe-country-edgewater": {
+    "putIn": {
+      "id": "canoe-country-launch",
+      "name": "Canoe Country launch",
+      "latitude": 40.132438,
+      "longitude": -85.55517
+    },
+    "takeOut": {
+      "id": "edgewater-park-boat-ramp",
+      "name": "Edgewater Park Boat Ramp",
+      "latitude": 40.1039725,
+      "longitude": -85.6683267
+    },
+    "logistics": {
+      "distanceLabel": "About 11 mi",
+      "estimatedPaddleTime": "About 4 hr at ordinary levels, longer with low water, scouting, headwind, or a slower group",
+      "shuttle": "Stage the take-out at Edgewater Park's public boat-ramp area in Anderson, then return to Canoe Country after confirming permission, hours, fees, and shuttle terms for the private launch.",
+      "permits": "No public-river paddling permit is known, but the put-in is private. Confirm Canoe Country arrangements and follow current City of Anderson park and parking rules at Edgewater.",
+      "camping": "Treat this as a committed daylight day trip. Timberline Ranch and Canoe Country offer nearby private camping context, but neither is assumed to be an on-route landing or included overnight stop without advance arrangements.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Take Canoe Country's published Trip #4 from its Daleville launch to Edgewater Park in Anderson. The 11-mile route passes the Timberline Ranch and Mounds State Park corridor and includes many small rapids.",
+      "accessCaveats": [
+        "Canoe Country is a private launch with seasonal hours. Confirm private-boat access, fees, parking, and shuttle details directly.",
+        "Edgewater Park is a city park with White River frontage, and Indiana STORET identifies the finish specifically as Edgewater Park Boat Ramp near the old waterworks dam site.",
+        "Do not assume Timberline Ranch, Mounds State Park banks, or other private/property-manager frontage is an ordinary bailout or rest stop.",
+        "The Muncie gauge is upstream of the full route. Check local radar and visually reassess at launch because downstream storms can alter conditions first.",
+        "The outing is long enough that food, water, daylight, and a reliable vehicle shuttle should be settled before launching."
+      ],
+      "watchFor": [
+        "The many small rapids noted by Canoe Country, especially where waves, rocks, and bridge current strengthen at higher stages.",
+        "Stage below 4.00 ft, when scraping and slow progress become more likely, or 5.50 ft and higher, when Canoe Country closes.",
+        "Fresh wood, strainers, bridge debris, outside-bend current, thunderstorms, and fast-rising muddy water.",
+        "Fatigue, private banks, limited confirmed bailout options, and missing the Edgewater Park boat-ramp finish."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "canoe-country-launch",
+        "name": "Canoe Country launch",
+        "latitude": 40.132438,
+        "longitude": -85.55517,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Private outfitter launch; advance confirmation is required."
+      },
+      {
+        "id": "edgewater-park-boat-ramp",
+        "name": "Edgewater Park Boat Ramp",
+        "latitude": 40.1039725,
+        "longitude": -85.6683267,
+        "mileFromStart": 11,
+        "segmentKind": "creek",
+        "note": "Public City of Anderson park finish at the named boat-ramp area."
+      }
+    ]
   }
 };

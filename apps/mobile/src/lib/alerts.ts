@@ -1,8 +1,10 @@
-import type { CreateRiverAlertResponse, RiverAlertThreshold } from '@paddletoday/api-contract';
+import {
+  isValidEmailAddress,
+  type CreateRiverAlertResponse,
+  type RiverAlertThreshold,
+} from '@paddletoday/api-contract';
 
-export function isValidEmailAddress(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
-}
+export { isValidEmailAddress };
 
 export function alertThresholdLabel(value: RiverAlertThreshold) {
   return value === 'strong' ? 'Strong' : 'Good';

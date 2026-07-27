@@ -1,4 +1,4 @@
-import { EmailClient } from '@azure/communication-email';
+import { escapeEmailHtml as escapeHtml, isAzureEmailProvider, sendAzureEmail } from './email-transport';
 import type { RouteRequestRecord } from './route-requests';
 
 export interface RouteRequestReplyEmailArgs {
@@ -6,8 +6,6 @@ export interface RouteRequestReplyEmailArgs {
   subject: string;
   message: string;
 }
-
-let azureEmailClient: EmailClient | null = null;
 
 export async function sendRouteRequestReplyEmail(args: RouteRequestReplyEmailArgs): Promise<{
   provider: 'azure' | 'log';
@@ -43,36 +41,19 @@ export async function sendRouteRequestReplyEmail(args: RouteRequestReplyEmailArg
     throw new Error('Missing ACS_EMAIL_CONNECTION_STRING or ROUTE_REPLIES_FROM_EMAIL for route request replies.');
   }
 
-  const payload = {
+  const delivery = await sendAzureEmail({
+    connectionString,
     senderAddress: from,
-    content: {
-      subject: args.subject,
-      plainText: text,
-      html,
-    },
-    recipients: {
-      to: [{ address: to }],
-    },
-    ...(replyTo
-      ? {
-          replyTo: [{ address: replyTo }],
-        }
-      : {}),
-  };
-
-  const client = getAzureEmailClient(connectionString);
-  const poller = await client.beginSend(payload, {
-    updateIntervalInMs: 1000,
+    to: [to],
+    replyTo: replyTo ? [replyTo] : undefined,
+    subject: args.subject,
+    plainText: text,
+    html,
   });
-  const response = await poller.pollUntilDone();
-
-  if (!response.id) {
-    throw new Error('Azure Communication Services email delivery failed: missing operation id.');
-  }
 
   return {
     provider: 'azure',
-    id: response.id,
+    id: delivery.id,
     from,
     replyTo,
   };
@@ -82,20 +63,13 @@ function configuredProvider(): 'azure' | 'log' {
   const explicit = String(process.env.ROUTE_REPLIES_EMAIL_PROVIDER || '')
     .trim()
     .toLowerCase();
-  if (explicit === 'azure' || explicit === 'acs' || explicit === 'azure-communication-services') {
+  if (isAzureEmailProvider(explicit)) {
     return 'azure';
   }
   if (explicit === 'log') {
     return 'log';
   }
   return process.env.ACS_EMAIL_CONNECTION_STRING ? 'azure' : 'log';
-}
-
-function getAzureEmailClient(connectionString: string) {
-  if (!azureEmailClient) {
-    azureEmailClient = new EmailClient(connectionString);
-  }
-  return azureEmailClient;
 }
 
 function textBody(routeRequest: RouteRequestRecord, message: string) {
@@ -138,13 +112,4 @@ function htmlBody(routeRequest: RouteRequestRecord, message: string) {
         .join('')}
     </div>
   `.trim();
-}
-
-function escapeHtml(value: string) {
-  return String(value || '')
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
 }

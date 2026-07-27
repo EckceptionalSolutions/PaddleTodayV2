@@ -12036,6 +12036,19 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Around 202 cfs at Northfield is the low-water marker. A report around 1,050 cfs described a strong day, but there is not enough guidance yet to name a tighter ideal range.",
     "latitude": 44.31067,
     "longitude": -93.27087,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR identifies Two Rivers to Dundas as a recommended 13.2-mile trip but still warns paddlers to watch for downed trees, snags, overhanging limbs, and other in-river obstacles. The route-specific report also documents common log piles and navigation that can change after heavy rain and high water.",
+        "The 202 cfs value is only a low-water floor. The app has no source-backed high-water cutoff for this reach, so a reading above the floor is not by itself a launch recommendation; check the current trend and turn back before launching if stronger current or fresh wood makes the line uncertain.",
+        "Use the named public carry-in accesses at Two Rivers and Dundas, plus the documented Cannon River Wilderness Area access if shortening the trip. MN DNR says much of the shoreland is private and directs paddlers to stop only at designated sites."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05355024",
       "provider": "usgs",

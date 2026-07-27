@@ -1,15 +1,29 @@
 ﻿import {
-  MAP_STYLE_URL,
   bindMarkerPopup,
+  clearMapMarkers,
+  createPaddleMap,
   ensureMapLibre,
   escapeHtml,
+  fitMapBounds,
+  waitForMapReady,
 } from './map-runtime.js';
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
 import { trackEvent } from './analytics.js';
 import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
+import {
+  buildRiverReadinessViewModel,
+  buildRiverWeatherViewModel,
+  buildScoreBreakdownViewModel,
+  findFirstHourlyRain,
+  hourlyWeatherConditionKind,
+  isColdWeatherDrivenCall,
+  ratingToneKey,
+  signedPoints,
+} from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
+import { getBrowserApiClient } from './browser-api-client.js';
 
 const root = document.querySelector('[data-river-detail]');
 if (!(root instanceof HTMLElement)) {
@@ -185,7 +199,6 @@ let activeAccessContext = {
 const bannerClasses = ['status-banner--live', 'status-banner--degraded', 'status-banner--offline', 'status-banner--loading'];
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const STALE_DETAIL_BANNER_MS = 15 * 60 * 1000;
-const MAP_LOAD_TIMEOUT_MS = 7000;
 const ROUTE_PHOTO_COOLDOWN_MS = 30 * 1000;
 const ROUTE_PHOTO_MAX_FILES = 4;
 const ROUTE_PHOTO_MAX_BYTES = 4 * 1024 * 1024;
@@ -283,99 +296,6 @@ function destroyMapRuntime(runtime) {
     runtime.remove();
   }
   return null;
-}
-
-function waitForMapLoad(runtime, timeoutMs = MAP_LOAD_TIMEOUT_MS) {
-  return new Promise((resolve, reject) => {
-    if (!runtime || typeof runtime.loaded !== 'function') {
-      reject(new Error('Map runtime missing.'));
-      return;
-    }
-
-    if (runtime.loaded()) {
-      resolve();
-      return;
-    }
-
-    let settled = false;
-    const cleanup = () => {
-      window.clearTimeout(timeoutId);
-      if (typeof runtime.off === 'function') {
-      runtime.off('load', handleLoad);
-      runtime.off('error', handleError);
-      runtime.off('styledata', handleLoad);
-      runtime.off('idle', handleLoad);
-        }
-      };
-    const finish = (callback) => (value) => {
-      if (settled) {
-        return;
-      }
-      settled = true;
-      cleanup();
-      callback(value);
-    };
-    const handleLoad = finish(resolve);
-    const handleError = finish((event) => {
-      reject(event?.error instanceof Error ? event.error : new Error('Map failed to load.'));
-    });
-    const timeoutId = window.setTimeout(
-      finish(() => reject(new Error(`Map load timed out after ${Math.round(timeoutMs / 1000)} seconds.`))),
-      timeoutMs
-    );
-
-      runtime.on('load', handleLoad);
-      runtime.on('styledata', handleLoad);
-      runtime.on('idle', handleLoad);
-      runtime.on('error', handleError);
-    });
-}
-
-function waitForMapStyle(runtime, timeoutMs = MAP_LOAD_TIMEOUT_MS) {
-  return new Promise((resolve, reject) => {
-    if (!runtime) {
-      reject(new Error('Map runtime missing.'));
-      return;
-    }
-
-    if (typeof runtime.isStyleLoaded === 'function' && runtime.isStyleLoaded()) {
-      resolve();
-      return;
-    }
-
-    let settled = false;
-    const cleanup = () => {
-      window.clearTimeout(timeoutId);
-      if (typeof runtime.off === 'function') {
-        runtime.off('styledata', handleStyleReady);
-        runtime.off('idle', handleStyleReady);
-        runtime.off('error', handleError);
-      }
-    };
-    const finish = (callback) => (value) => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      callback(value);
-    };
-    const handleStyleReady = finish(() => resolve());
-    const handleError = finish((event) => {
-      reject(event?.error instanceof Error ? event.error : new Error('Map style failed to load.'));
-    });
-    const timeoutId = window.setTimeout(
-      finish(() => reject(new Error(`Map style timed out after ${Math.round(timeoutMs / 1000)} seconds.`))),
-      timeoutMs
-    );
-
-    runtime.on('styledata', handleStyleReady);
-    runtime.on('idle', handleStyleReady);
-    runtime.on('error', handleError);
-  });
-}
-
-async function waitForMapReady(runtime, timeoutMs = MAP_LOAD_TIMEOUT_MS) {
-  await waitForMapLoad(runtime, timeoutMs);
-  await waitForMapStyle(runtime, timeoutMs);
 }
 
 function setFieldGroupHidden(field, hidden) {
@@ -723,18 +643,7 @@ function renderCommunityReports(reports) {
 
 async function loadApprovedCommunity() {
   try {
-    const response = await fetch(`/api/rivers/${encodeURIComponent(slug)}/community.json`, {
-      headers: {
-        accept: 'application/json',
-      },
-    });
-    if (!response.ok) {
-      return;
-    }
-    const payload = await response.json().catch(() => null);
-    if (!payload || typeof payload !== 'object') {
-      return;
-    }
+    const payload = await getBrowserApiClient().getRouteCommunity(slug);
     if (Array.isArray(payload.photos) && payload.photos.length > 0) {
       mergeApprovedRoutePhotos(payload.photos);
     }
@@ -1095,31 +1004,19 @@ function bindRoutePhotoForm() {
         }))
       );
 
-      const response = await fetch('/api/route-contributions', {
-        method: 'POST',
-        headers: {
-          accept: 'application/json',
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          riverSlug: slug,
-          contributorName,
-          contributorEmail,
-          tripDate,
-          tripSentiment: '',
-          tripReport: '',
-          notes,
-          rightsConfirmed: routePhotoRightsInput.checked,
-          reviewConsent: routePhotoConsentInput.checked,
-          company: routePhotoCompanyInput instanceof HTMLInputElement ? routePhotoCompanyInput.value.trim() : '',
-          files,
-        }),
+      await getBrowserApiClient().createRouteContribution({
+        riverSlug: slug,
+        contributorName,
+        contributorEmail,
+        tripDate,
+        tripSentiment: '',
+        tripReport: '',
+        notes,
+        rightsConfirmed: routePhotoRightsInput.checked,
+        reviewConsent: routePhotoConsentInput.checked,
+        company: routePhotoCompanyInput instanceof HTMLInputElement ? routePhotoCompanyInput.value.trim() : '',
+        files,
       });
-
-      const payload = await response.json().catch(() => ({}));
-      if (!response.ok || payload?.ok !== true) {
-        throw new Error(payload?.message || 'Could not store this photo submission.');
-      }
 
       const photoCount = selectedRoutePhotoFiles.length;
       window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
@@ -1250,31 +1147,19 @@ function bindRouteReportForm() {
         }))
       );
 
-      const response = await fetch('/api/route-contributions', {
-        method: 'POST',
-        headers: {
-          accept: 'application/json',
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          riverSlug: slug,
-          contributorName,
-          contributorEmail,
-          tripDate,
-          tripSentiment,
-          tripReport,
-          notes,
-          rightsConfirmed: routeReportRightsInput instanceof HTMLInputElement ? routeReportRightsInput.checked : false,
-          reviewConsent: routeReportConsentInput.checked,
-          company: routeReportCompanyInput instanceof HTMLInputElement ? routeReportCompanyInput.value.trim() : '',
-          files,
-        }),
+      await getBrowserApiClient().createRouteReport({
+        riverSlug: slug,
+        contributorName,
+        contributorEmail,
+        tripDate,
+        tripSentiment,
+        tripReport,
+        notes,
+        rightsConfirmed: routeReportRightsInput instanceof HTMLInputElement ? routeReportRightsInput.checked : false,
+        reviewConsent: routeReportConsentInput.checked,
+        company: routeReportCompanyInput instanceof HTMLInputElement ? routeReportCompanyInput.value.trim() : '',
+        files,
       });
-
-      const payload = await response.json().catch(() => ({}));
-      if (!response.ok || payload?.ok !== true) {
-        throw new Error(payload?.message || 'Could not store this condition report.');
-      }
 
       window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
       routeReportForm.reset();
@@ -1631,21 +1516,6 @@ function ratingLabel(resultOrRating) {
   return ratingDisplayLabel(rating, { liveData });
 }
 
-function coldWeatherDrivenResult(result) {
-  const weather = result?.weather;
-  const temp = weather?.temperatureF;
-  const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? 0;
-  const rainChance = weather?.next12hPrecipProbabilityMax ?? 0;
-
-  return (
-    typeof temp === 'number' &&
-    temp <= 40 &&
-    ['ideal', 'minimum-met', 'low-shoulder'].includes(result?.gaugeBand) &&
-    !weather?.next12hStormRisk &&
-    (rainChance < 70 || wind < 20)
-  );
-}
-
 function weatherSkipReason(result) {
   const weather = result?.weather;
   const cold = typeof weather?.temperatureF === 'number' && weather.temperatureF < 50;
@@ -1678,26 +1548,20 @@ function decisionStatement(result) {
     return 'A required trip check is failing, so treat today as a skip until you verify it directly.';
   }
   if (rating === 'Strong') return 'Conditions line up especially well right now.';
-  if (rating === 'Good' && coldWeatherDrivenResult(result)) {
+  if (rating === 'Good' && isColdWeatherDrivenCall(result?.weather, result?.gaugeBand)) {
     return 'River conditions are solid, but cold weather still matters today.';
   }
   if (rating === 'Good') return 'River and weather look workable right now.';
-  if (rating === 'Fair' && coldWeatherDrivenResult(result)) {
+  if (rating === 'Fair' && isColdWeatherDrivenCall(result?.weather, result?.gaugeBand)) {
     return 'Paddleable today, but cold weather raises the bar.';
   }
   if (rating === 'Fair') return 'Paddleable today, with tradeoffs worth checking before you drive.';
-  if (coldWeatherDrivenResult(result)) {
+  if (isColdWeatherDrivenCall(result?.weather, result?.gaugeBand)) {
     return 'River level looks usable, but weather makes it a skip for most paddlers today.';
   }
   return 'Today looks like a pass unless you have verified local information.';
 }
 
-
-function ratingToneKey(rating) {
-  if (rating === 'Strong') return 'great';
-  if (rating === 'Fair') return 'marginal';
-  return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
-}
 
 function formatHistoryDate(dateString) {
   const parsed = new Date(`${dateString}T12:00:00`);
@@ -2015,20 +1879,6 @@ function inputStateLabel(state, kind) {
   return `${kind} offline`;
 }
 
-function readinessVerdictFromResult(result) {
-  if (result.liveData.overall === 'offline') return 'skip';
-  if (result.checklist.some((item) => item.status === 'skip')) return 'skip';
-  if (result.liveData.overall === 'degraded') return 'watch';
-  if (result.checklist.some((item) => item.status === 'watch')) return 'watch';
-  return 'go';
-}
-
-function readinessVerdictLabel(verdict) {
-  if (verdict === 'go') return 'Go';
-  if (verdict === 'watch') return 'Watch';
-  return 'Skip';
-}
-
 function trendValue(result) {
   if (!result.gauge || result.gauge.delta24h === null) {
     return 'Trend unavailable';
@@ -2036,44 +1886,6 @@ function trendValue(result) {
 
   const delta = `${result.gauge.delta24h >= 0 ? '+' : ''}${formatGaugeValue(result.gauge.delta24h, result.gauge.unit)}`;
   return `${result.gauge.trend} ${delta}`;
-}
-
-function weatherValue(result) {
-  if (!result.weather) {
-    return 'Weather unavailable';
-  }
-
-  return `${Math.round(result.weather.next12hPrecipProbabilityMax ?? 0)}% rain • ${Math.round(result.weather.next12hWindMphMax ?? result.weather.windMph ?? 0)} mph wind`;
-}
-
-function scoreWeatherState(result) {
-  const weather = result?.weather;
-  if (!weather) return 'calm';
-
-  const rainChance = weather.next12hPrecipProbabilityMax;
-  const wind = weather.next12hWindMphMax ?? weather.windMph;
-  const temperature = weather.temperatureF;
-
-  if (weather.next12hStormRisk) return 'storm';
-  if (typeof temperature === 'number' && temperature <= 40) return 'cold';
-  if (typeof rainChance === 'number' && rainChance >= 45) return 'rain';
-  if (typeof wind === 'number' && wind >= 14) return 'wind';
-  return 'calm';
-}
-
-function scoreWeatherLabel(state) {
-  switch (state) {
-    case 'storm':
-      return 'Storm risk';
-    case 'rain':
-      return 'Rain possible';
-    case 'cold':
-      return 'Cold weather';
-    case 'wind':
-      return 'Wind watch';
-    default:
-      return 'Calm weather';
-  }
 }
 
 function scoreWeatherIconMarkup(state) {
@@ -2090,8 +1902,8 @@ function scoreWeatherIconMarkup(state) {
 }
 
 function scoreWeatherBadgeMarkup(result) {
-  const state = scoreWeatherState(result);
-  const label = scoreWeatherLabel(state);
+  const weather = buildRiverWeatherViewModel(result?.weather);
+  const { state, label } = weather;
 
   return `
     <span class="card-weather-badge card-weather-badge--${state}">
@@ -2105,7 +1917,7 @@ function scoreConditionSignalMarkup(result) {
   const gaugeText = result.gauge
     ? `${gaugePrimaryValue(result)} • ${trendSummaryValue(result.gauge).toLowerCase()}`
     : 'Gauge unavailable';
-  const weatherText = result.weather ? weatherValue(result) : 'Weather unavailable';
+  const weatherText = buildRiverWeatherViewModel(result.weather).summaryValue;
 
   return `
     <span class="river-card__signal-item">${escapeHtml(gaugeText)}</span>
@@ -2131,69 +1943,6 @@ function renderScoreConditions(result) {
   }
 }
 
-function ageHours(value) {
-  const timestamp = Date.parse(value || '');
-  if (!Number.isFinite(timestamp)) {
-    return null;
-  }
-
-  return Math.max(0, (Date.now() - timestamp) / (1000 * 60 * 60));
-}
-
-function effectiveLiveDataForResult(result) {
-  const observedAgeHours = ageHours(result.gauge?.observedAt);
-  const generatedAgeHours = ageHours(result.generatedAt);
-  const isGaugeStale = typeof observedAgeHours === 'number' && observedAgeHours > 6;
-  const isGeneratedStale = typeof generatedAgeHours === 'number' && generatedAgeHours > 6;
-
-  if (!isGaugeStale && !isGeneratedStale) {
-    return result.liveData;
-  }
-
-  const staleParts = [];
-  if (isGaugeStale) {
-    staleParts.push(`Gauge read is ${Math.round(observedAgeHours)}h old`);
-  }
-  if (isGeneratedStale) {
-    staleParts.push(`Paddle Today update is ${Math.round(generatedAgeHours)}h old`);
-  }
-
-  return {
-    ...result.liveData,
-    overall: result.liveData.overall === 'offline' ? 'offline' : 'degraded',
-    summary: `${staleParts.join('. ')}. Treat this route as stale until refresh succeeds.`,
-    gauge: {
-      ...result.liveData.gauge,
-      state: isGaugeStale && result.liveData.gauge.state === 'live' ? 'stale' : result.liveData.gauge.state,
-      detail: isGaugeStale
-        ? `Gauge read is ${Math.round(observedAgeHours)}h old. Recheck the source before you drive.`
-        : result.liveData.gauge.detail,
-    },
-    weather: {
-      ...result.liveData.weather,
-      state: isGeneratedStale && result.liveData.weather.state === 'live' ? 'stale' : result.liveData.weather.state,
-      detail: isGeneratedStale
-        ? `Weather and score update is ${Math.round(generatedAgeHours)}h old. Refresh before relying on the call.`
-        : result.liveData.weather.detail,
-    },
-  };
-}
-
-function accessValue(result) {
-  const hasPutIn = hasCoordinates(riverContext.putIn);
-  const hasTakeOut = hasCoordinates(riverContext.takeOut);
-
-  if (hasPutIn && hasTakeOut) {
-    return result.river.profile.difficulty === 'hard' ? 'Mapped, technical reach' : 'Mapped put-in and take-out';
-  }
-
-  if (hasPutIn || hasTakeOut) {
-    return 'Partial access map';
-  }
-
-  return 'Check access details';
-}
-
 function renderDetailBanner(result) {
   if (!(detailStatusBanner instanceof HTMLElement)) {
     return;
@@ -2203,7 +1952,7 @@ function renderDetailBanner(result) {
   const detailEl = root.querySelector('[data-detail-banner-detail]');
   const railReliability = setText('rail-reliability', 'Checking reads');
   const railNextStep = setText('rail-next-step', 'Checking freshness and source quality.');
-  const effectiveLiveData = effectiveLiveDataForResult(result);
+  const effectiveLiveData = buildRiverReadinessViewModel(result).effectiveLiveData;
   decorateBanner(detailStatusBanner, effectiveLiveData.overall);
   detailStatusBanner.classList.toggle('status-banner--compact', effectiveLiveData.overall === 'live');
 
@@ -2287,9 +2036,9 @@ function renderLaunchReadiness(result) {
     return;
   }
 
-  const verdict = readinessVerdictFromResult(result);
-  const verdictLabel = readinessVerdictLabel(verdict);
-  const verdictEl = setText('readiness-verdict', verdictLabel);
+  const readiness = buildRiverReadinessViewModel(result);
+  const { verdict } = readiness;
+  const verdictEl = setText('readiness-verdict', readiness.verdictLabel);
   if (verdictEl instanceof HTMLElement) {
     verdictEl.classList.remove(
       'launch-readiness__verdict--go',
@@ -2299,18 +2048,8 @@ function renderLaunchReadiness(result) {
     verdictEl.classList.add(`launch-readiness__verdict--${verdict}`);
   }
 
-  const summaryText =
-    verdict === 'go'
-      ? 'Conditions look good right now.'
-      : verdict === 'watch'
-        ? 'Conditions are workable, but something still needs a second look.'
-        : 'Today does not look like a clean go.';
-  const firstWarning =
-    result.checklist.find((item) => item.status !== 'go')?.detail ??
-    result.liveData.summary;
-
-  setText('readiness-summary', summaryText);
-  setText('readiness-note', firstWarning);
+  setText('readiness-summary', readiness.summary);
+  setText('readiness-note', readiness.note);
 
   const checklistByLabel = new Map(result.checklist.map((item) => [item.label, item]));
   const items = [
@@ -2334,13 +2073,13 @@ function renderLaunchReadiness(result) {
     },
     {
       label: 'Weather',
-      value: weatherValue(result),
+      value: readiness.weather.summaryValue,
       detail: checklistByLabel.get('Weather window')?.detail ?? 'Weather guidance is unavailable.',
       status: checklistByLabel.get('Weather window')?.status ?? 'watch',
     },
     {
       label: 'Access',
-      value: accessValue(result),
+      value: readiness.accessLabel,
       detail: checklistByLabel.get('Skill and access')?.detail ?? 'Confirm put-in, take-out, and access rules.',
       status: checklistByLabel.get('Skill and access')?.status ?? 'watch',
     },
@@ -2404,14 +2143,6 @@ function renderConfidenceDetail(confidence) {
   }
 }
 
-function signedPoints(value) {
-  if (typeof value !== 'number' || !Number.isFinite(value)) {
-    return 'Unavailable';
-  }
-
-  return value > 0 ? `+${value}` : `${value}`;
-}
-
 function applyBreakdownTone(field, value) {
   const element = setText(field, signedPoints(value));
   if (!(element instanceof HTMLElement)) {
@@ -2438,22 +2169,25 @@ function renderScoreBreakdown(result) {
     return;
   }
 
-  applyBreakdownTone('breakdown-river-quality', breakdown.riverQuality);
-  applyBreakdownTone('breakdown-wind-adjustment', breakdown.windAdjustment);
-  applyBreakdownTone('breakdown-temperature-adjustment', breakdown.temperatureAdjustment);
-  applyBreakdownTone('breakdown-rain-adjustment', breakdown.rainAdjustment);
-  applyBreakdownTone('breakdown-comfort-adjustment', breakdown.comfortAdjustment);
-  setText('breakdown-final-score', `${breakdown.finalScore}`);
+  const model = buildScoreBreakdownViewModel(breakdown, {
+    includeZeroComfort: true,
+    includeLimit: false,
+  });
+  const fields = {
+    riverQuality: ['breakdown-river-quality', 'breakdown-river-quality-detail'],
+    wind: ['breakdown-wind-adjustment', 'breakdown-wind-detail'],
+    temperature: ['breakdown-temperature-adjustment', 'breakdown-temperature-detail'],
+    rain: ['breakdown-rain-adjustment', 'breakdown-rain-detail'],
+    comfort: ['breakdown-comfort-adjustment', 'breakdown-comfort-detail'],
+  };
+  for (const row of model.rows) {
+    const [valueField, detailField] = fields[row.key] ?? [];
+    if (valueField) applyBreakdownTone(valueField, row.value);
+    if (detailField) setText(detailField, row.explanation);
+  }
+  setText('breakdown-final-score', `${model.finalScore}`);
   setText('breakdown-final-rating', result.rating);
-  setText('breakdown-river-quality-detail', breakdown.riverQualityExplanation);
-  setText('breakdown-wind-detail', breakdown.windExplanation);
-  setText('breakdown-temperature-detail', breakdown.temperatureExplanation);
-  setText('breakdown-rain-detail', breakdown.rainExplanation);
-  setText('breakdown-comfort-detail', breakdown.comfortExplanation);
-  setText(
-    'breakdown-summary',
-    `River quality starts at ${breakdown.riverQuality}. Weather shifts it to ${breakdown.finalScore} today.`
-  );
+  setText('breakdown-summary', model.summary);
 
   const otherGroup = root.querySelector('[data-breakdown-other-group]');
   if (otherGroup instanceof HTMLElement) {
@@ -2463,39 +2197,11 @@ function renderScoreBreakdown(result) {
   const capList = root.querySelector('[data-score-cap-reasons]');
   const capWrap = root.querySelector('[data-score-cap-wrap]');
   if (capList instanceof HTMLElement) {
-    const reasons = (Array.isArray(breakdown.capReasons) ? breakdown.capReasons : [])
-      .map((reason) => friendlyCapReason(reason))
-      .filter((reason) => reason.length > 0);
     if (capWrap instanceof HTMLElement) {
-      capWrap.hidden = reasons.length === 0;
+      capWrap.hidden = model.capReasons.length === 0;
     }
-    capList.innerHTML = reasons.map((reason) => `<li>${reason}</li>`).join('');
+    capList.innerHTML = model.capReasons.map((reason) => `<li>${reason}</li>`).join('');
   }
-}
-
-function friendlyCapReason(reason) {
-  const normalized = String(reason || '').trim();
-  if (!normalized) {
-    return '';
-  }
-
-  if (/Near-freezing air caps today at 70\.|Cold air limits today's score to 70 or lower\./i.test(normalized)) {
-    return 'Cold air keeps today from scoring higher, even if the river itself looks good.';
-  }
-
-  if (/High wind caps today at 75\.|Strong wind limits today's score to 75 or lower\./i.test(normalized)) {
-    return 'Strong wind puts a ceiling on today, even if the gauge is in range.';
-  }
-
-  if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\.|Heavy rain or storms likely soon limit today's score to 65 or lower\./i.test(normalized)) {
-    return 'Heavy rain or storms likely within 3 hours limit the score to 65.';
-  }
-
-  if (/Minimum-only guidance caps the trip score at 74\.|This route has minimum-only gauge guidance, so today's score is limited to 74 or lower\./i.test(normalized)) {
-    return 'This route only has a reliable low-water floor, so the score stops short of the top range.';
-  }
-
-  return normalized;
 }
 
 function renderChecklist(checklist) {
@@ -2824,24 +2530,12 @@ function gustSummary(weather) {
   return 'Gusts: No reading';
 }
 
-function findFirstRainHour(weather) {
-  if (!weather || !Array.isArray(weather.todayHourly)) {
-    return null;
-  }
-
-  return weather.todayHourly.find((point) => {
-    const chance = point.precipProbability ?? 0;
-    const accumulation = point.precipitationIn ?? 0;
-    return chance >= 40 || accumulation >= 0.01;
-  }) ?? null;
-}
-
 function rainTimingLabel(weather) {
   if (!weather) {
     return 'No reading';
   }
 
-  const firstRainHour = findFirstRainHour(weather);
+  const firstRainHour = findFirstHourlyRain(weather);
   const chance = weather.next12hPrecipProbabilityMax;
   const timing = weather.rainTimingLabel ?? 'None';
   const rainChanceText = typeof chance === 'number' ? `${Math.round(chance)}% rain next 12h` : null;
@@ -2922,7 +2616,7 @@ function weatherHourlyNote(weather) {
     return `The best stretch looks to be ${bestWindow.start.label} to ${bestWindow.end.label}.`;
   }
 
-  const firstRainHour = findFirstRainHour(weather);
+  const firstRainHour = findFirstHourlyRain(weather);
   if (firstRainHour) {
     return `If you are trying to sneak in a short route, conditions look steadier before ${firstRainHour.label}.`;
   }
@@ -2933,7 +2627,7 @@ function weatherHourlyNote(weather) {
 function scoreHourlyPoint(point) {
   let score = 5;
 
-  if (weatherConditionTone(point.conditionLabel ?? point.weatherCode) === 'storm') {
+  if (hourlyWeatherConditionKind(point) === 'storm') {
     score -= 6;
   }
 
@@ -3032,7 +2726,7 @@ function pickBestShortRouteWindow(weather) {
 
       for (const point of window) {
         score += scoreHourlyPoint(point);
-        hasStorm ||= weatherConditionTone(point.conditionLabel ?? point.weatherCode) === 'storm';
+        hasStorm ||= hourlyWeatherConditionKind(point) === 'storm';
         hasHeavyRain ||= (point.precipProbability ?? 0) >= 70 || (point.precipitationIn ?? 0) >= 0.05;
       }
 
@@ -3069,7 +2763,7 @@ function bestShortRouteWindow(weather) {
     return `Best short-route window: ${bestWindow.start.label} to ${bestWindow.end.label}`;
   }
 
-  const firstRainHour = findFirstRainHour(weather);
+  const firstRainHour = findFirstHourlyRain(weather);
   if (firstRainHour) {
     return `Weather gets less friendly around ${firstRainHour.label}.`;
   }
@@ -3090,7 +2784,7 @@ function weatherNowSummary(weather) {
     parts.push(`${Math.round(weather.temperatureF)}\u00B0F now`);
   }
 
-  const firstRainHour = findFirstRainHour(weather);
+  const firstRainHour = findFirstHourlyRain(weather);
   if (firstRainHour) {
     parts.push(`rain around ${firstRainHour.label}`);
   } else if ((weather.next12hPrecipProbabilityMax ?? 0) < 25) {
@@ -3240,13 +2934,6 @@ function syncAccessRouteLine(mapRuntime, sourceId, layerId, points, result, pain
     result,
     paint,
   );
-}
-
-function clearDetailMarkers(markers) {
-  for (const marker of markers) {
-    marker.remove();
-  }
-  return [];
 }
 
 function mapQueryUrl(point) {
@@ -3611,7 +3298,7 @@ async function renderDetailHeroMap(result = null) {
       detailHeroMapStatus.textContent = 'Route snapshot unavailable because endpoint coordinates are incomplete.';
     }
     detailHeroMapRuntime = destroyMapRuntime(detailHeroMapRuntime);
-    detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
+    detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
     return;
   }
 
@@ -3628,23 +3315,29 @@ async function renderDetailHeroMap(result = null) {
 
     if (!detailHeroMapRuntime) {
       const startingPoint = points[0];
-      detailHeroMapRuntime = new maplibregl.Map({
+      detailHeroMapRuntime = createPaddleMap(maplibregl, {
+        profile: 'staticPreview',
         container: detailHeroMap,
-        style: MAP_STYLE_URL,
         center: [startingPoint.longitude, startingPoint.latitude],
         zoom: 10.6,
         minZoom: 5,
         maxZoom: 13,
-        attributionControl: false,
-        interactive: false,
       });
 
-        await waitForMapReady(detailHeroMapRuntime);
+        await waitForMapReady(detailHeroMapRuntime, {
+          timeoutMs: 7000,
+          rejectOnError: true,
+          rejectOnTimeout: true,
+        });
       }
 
-      await waitForMapStyle(detailHeroMapRuntime);
+      await waitForMapReady(detailHeroMapRuntime, {
+        timeoutMs: 7000,
+        rejectOnError: true,
+        rejectOnTimeout: true,
+      });
 
-      detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
+      detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
       syncAccessRouteLine(
         detailHeroMapRuntime,
         'detail-hero-route-line',
@@ -3683,7 +3376,7 @@ async function renderDetailHeroMap(result = null) {
     }
 
     if (points.length > 1) {
-      detailHeroMapRuntime.fitBounds(bounds, {
+      fitMapBounds(detailHeroMapRuntime, bounds, {
         padding: { top: 34, right: 34, bottom: 34, left: 34 },
         maxZoom: 11.2,
         duration: 0,
@@ -3702,7 +3395,7 @@ async function renderDetailHeroMap(result = null) {
   } catch (error) {
     console.error('Failed to load hero detail map.', error);
     detailHeroMapRuntime = destroyMapRuntime(detailHeroMapRuntime);
-    detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
+    detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
     detailHeroMapShell.hidden = true;
     if (detailHeroMapStatus instanceof HTMLElement) {
       detailHeroMapStatus.textContent = 'Route snapshot unavailable right now. Use the endpoint links while the map reloads.';
@@ -3728,7 +3421,7 @@ async function renderDetailMap(result = null) {
           : 'Access map unavailable because endpoint coordinates are incomplete.';
     }
     detailMapRuntime = destroyMapRuntime(detailMapRuntime);
-    detailMapMarkers = clearDetailMarkers(detailMapMarkers);
+    detailMapMarkers = clearMapMarkers(detailMapMarkers);
     return;
   }
 
@@ -3747,23 +3440,27 @@ async function renderDetailMap(result = null) {
 
     if (!detailMapRuntime) {
       const startingPoint = points[0];
-      detailMapRuntime = new maplibregl.Map({
+      detailMapRuntime = createPaddleMap(maplibregl, {
         container: detailMap,
-        style: MAP_STYLE_URL,
         center: [startingPoint.longitude, startingPoint.latitude],
         zoom: 10.2,
         minZoom: 5,
         maxZoom: 14,
-        attributionControl: true,
       });
-
-      detailMapRuntime.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-        await waitForMapReady(detailMapRuntime);
+        await waitForMapReady(detailMapRuntime, {
+          timeoutMs: 7000,
+          rejectOnError: true,
+          rejectOnTimeout: true,
+        });
       }
 
-      await waitForMapStyle(detailMapRuntime);
+      await waitForMapReady(detailMapRuntime, {
+        timeoutMs: 7000,
+        rejectOnError: true,
+        rejectOnTimeout: true,
+      });
 
-      detailMapMarkers = clearDetailMarkers(detailMapMarkers);
+      detailMapMarkers = clearMapMarkers(detailMapMarkers);
       // The canonical route line is requested below. Keep the access-point
       // fallback only while that static geometry is loading.
       syncAccessRouteLine(detailMapRuntime, 'detail-route-full-line', 'detail-route-full-line', fullRoutePoints, result, {
@@ -3820,7 +3517,7 @@ async function renderDetailMap(result = null) {
     }
 
     if (points.length > 1 || fullRoutePoints.length > 1) {
-      detailMapRuntime.fitBounds(bounds, {
+      fitMapBounds(detailMapRuntime, bounds, {
         padding: { top: 44, right: 44, bottom: 44, left: 44 },
         maxZoom: 11.6,
         duration: 450,
@@ -3853,7 +3550,7 @@ async function renderDetailMap(result = null) {
   } catch (error) {
     console.error('Failed to load detail map.', error);
     detailMapRuntime = destroyMapRuntime(detailMapRuntime);
-    detailMapMarkers = clearDetailMarkers(detailMapMarkers);
+    detailMapMarkers = clearMapMarkers(detailMapMarkers);
     if (detailMapStatus instanceof HTMLElement) {
       detailMapStatus.textContent = 'Map unavailable right now. Use the access links above for location context.';
     }
@@ -4441,7 +4138,7 @@ function renderDetailResult(result) {
     confidence.classList.add(`confidence-pill--${result.confidence.label.toLowerCase()}`);
   }
 
-  const effectiveLiveData = effectiveLiveDataForResult(result);
+  const effectiveLiveData = buildRiverReadinessViewModel(result).effectiveLiveData;
   const sourceDisplay = gaugeSourceDisplay(result);
   const dataStatus = setText('data-status', `Reads ${effectiveLiveData.overall}`);
   if (dataStatus instanceof HTMLElement) {
@@ -4585,17 +4282,11 @@ async function loadHistory() {
   const { requestId, controller } = historyRequestGuard.begin();
 
   try {
-    const response = await fetch(`/api/rivers/${encodeURIComponent(slug)}/history.json?days=7`, {
-      headers: { accept: 'application/json' },
+    const payload = await getBrowserApiClient().getRiverHistory(slug, {
+      days: 7,
       cache: 'no-store',
       signal: controller.signal,
     });
-
-    if (!response.ok) {
-      throw new Error(`API request failed for /api/rivers/${slug}/history.json: HTTP ${response.status}`);
-    }
-
-    const payload = await response.json();
     if (!historyRequestGuard.isCurrent(requestId)) {
       return;
     }
@@ -4626,19 +4317,10 @@ async function loadDetail({ silent = false } = {}) {
   }
 
   try {
-    const response = await fetch(`/api/rivers/${encodeURIComponent(slug)}.json`, {
-      headers: {
-        accept: 'application/json',
-      },
+    const payload = await getBrowserApiClient().getRiverDetail(slug, {
       cache: 'no-store',
       signal: controller.signal,
     });
-
-    if (!response.ok) {
-      throw new Error(`API request failed for /api/rivers/${slug}.json: HTTP ${response.status}`);
-    }
-
-    const payload = await response.json();
     const result = payload?.result;
     if (!result) return;
     if (!detailRequestGuard.isCurrent(requestId)) {
@@ -4874,25 +4556,13 @@ function bindAlertForm() {
     setAlertStatus(`Saving your ${threshold === 'good' ? 'Good' : 'Strong'} alert...`);
 
     try {
-      const response = await fetch('/api/alerts', {
-        method: 'POST',
-        headers: {
-          accept: 'application/json',
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          riverSlug: slug,
-          threshold,
-          company:
-            alertCompanyInput instanceof HTMLInputElement ? alertCompanyInput.value.trim() : '',
-        }),
+      const payload = await getBrowserApiClient().createRiverAlert({
+        email,
+        riverSlug: slug,
+        threshold,
+        company:
+          alertCompanyInput instanceof HTMLInputElement ? alertCompanyInput.value.trim() : '',
       });
-
-      const payload = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        throw new Error(payload?.message || 'Could not save this alert.');
-      }
 
       setAlertStatus(
         payload?.duplicate

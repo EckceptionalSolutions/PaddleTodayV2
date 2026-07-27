@@ -1,3 +1,5 @@
+import type { CampingClassification } from './camping';
+
 export type ScoreRating = 'Strong' | 'Good' | 'Fair' | 'No-go';
 export type ConfidenceLabel = 'Low' | 'Medium' | 'High';
 export type LiveDataState = 'live' | 'stale' | 'unavailable';
@@ -17,14 +19,6 @@ export type SourceProvider =
   | 'manual';
 export type RouteType = 'recreational' | 'whitewater';
 export type RouteRiskLevel = 'standard' | 'caution' | 'advanced';
-export type CampingClassification =
-  | 'none'
-  | 'nearby_basecamp'
-  | 'endpoint_campground'
-  | 'on_route_campsite'
-  | 'sandbar_or_gravel_bar'
-  | 'overnight_capable'
-  | 'unknown';
 export type RouteHazard =
   | 'dam'
   | 'low_head_dam'
@@ -65,20 +59,99 @@ export type SourceTone =
   | 'minimum';
 
 export {
+  campingClassificationLabel,
+  classifyCamping,
+  hasCampingSupport,
+  hasOvernightCampingSupport,
+  type CampingClassification,
+} from './camping';
+
+export {
   buildTodayBoardSnapshot,
   compareTodayBoardQuality,
+  compareTodayAlphabetically,
   compareTodayCertainty,
+  compareTodayConfidenceStatusScore,
+  compareTodayLowestRisk,
   compareTodayScore,
   compareTodayScoreThenConfidence,
+  compareTodayStatusThenScore,
   ratingDetailMessage,
   ratingVerdictLabel,
   todayBoardConfidenceWeight,
   todayBoardRank,
+  todayBoardRatingRiskWeight,
   todayBoardStatusWeight,
   type RatingVerdictOptions,
   type TodayBoardItem,
   type TodayBoardSnapshot,
 } from './today-board';
+
+export {
+  distanceMiles,
+  distancePenalty,
+  estimateTravelMinutes,
+} from './location';
+
+export {
+  isValidEmailAddress,
+  normalizeEmailAddress,
+} from './validation';
+
+export {
+  friendlyCapReason,
+  isColdWeatherDrivenCall,
+  ratingToneKey,
+  signedPoints,
+  type ColdWeatherCallInput,
+} from './presentation';
+
+export {
+  buildScoreBreakdownViewModel,
+  type ScoreBreakdownRowKey,
+  type ScoreBreakdownViewModel,
+  type ScoreBreakdownViewModelRow,
+} from './river-detail-view-model';
+
+export {
+  buildRiverReadinessViewModel,
+  buildRiverWeatherViewModel,
+  effectiveRiverLiveData,
+  type RiverReadinessViewModel,
+  type RiverReadinessViewModelOptions,
+  type RiverWeatherRiskState,
+  type RiverWeatherViewModel,
+} from './river-detail-readiness-view-model';
+
+export {
+  buildHourlyWeatherTimingViewModel,
+  classifyHourlyWeatherRisk,
+  findFirstHourlyRain,
+  formatHourlyWeatherLabel,
+  hourlyWeatherConditionKind,
+  type HourlyWeatherConditionKind,
+  type HourlyWeatherPointViewModel,
+  type HourlyWeatherRisk,
+  type HourlyWeatherRiskKind,
+  type HourlyWeatherRiskLevel,
+  type HourlyWeatherTimingBadgeKind,
+  type HourlyWeatherTimingTone,
+  type HourlyWeatherTimingViewModel,
+} from './hourly-weather-view-model';
+
+export {
+  buildSourceStrengthViewModel,
+  type SourceStrengthViewModel,
+  type SourceStrengthViewModelOptions,
+  type ThresholdModel,
+  type ThresholdSourceStrength,
+} from './source-strength-view-model';
+
+export {
+  buildRiverDetailLogisticsViewModel,
+  compactLogisticsValue,
+  type RiverDetailLogisticsViewModel,
+} from './river-detail-logistics-view-model';
 
 export interface GaugeSourceDisplay {
   provider: GaugeProvider;
@@ -157,6 +230,68 @@ export function routeSafetySummary(profile?: RouteSafetyProfile) {
   }
 
   return 'Verify conditions, access, hazards, closures, and takeouts before launching.';
+}
+
+export interface RouteSafetyViewModelOptions {
+  standardTitle?: string;
+  standardSummary?: string;
+}
+
+export interface RouteSafetyViewModel {
+  riskLevel: RouteRiskLevel;
+  tone: RouteRiskLevel;
+  title: string;
+  summary: string;
+  hazards: Array<{
+    key: RouteHazard;
+    label: string;
+  }>;
+  notes: string[];
+  reviewStatus: RouteSafetyProfile['reviewStatus'] | 'needs_review';
+}
+
+function normalizeRouteSafetyText(value: string) {
+  return value.toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+export function buildRouteSafetyViewModel(
+  profile?: RouteSafetyProfile,
+  options: RouteSafetyViewModelOptions = {}
+): RouteSafetyViewModel {
+  const riskLevel = profile?.riskLevel ?? 'standard';
+  const canonicalSummary = routeSafetySummary(profile);
+  const summary = riskLevel === 'standard'
+    ? options.standardSummary ?? canonicalSummary
+    : canonicalSummary;
+  const title = riskLevel === 'standard'
+    ? options.standardTitle ?? routeSafetyLevelLabels.standard
+    : routeSafetyLevelLabels[riskLevel];
+  const excludedSummaries = new Set([
+    normalizeRouteSafetyText(canonicalSummary),
+    normalizeRouteSafetyText(summary),
+  ]);
+  const seenNotes = new Set<string>();
+  const notes = (profile?.safetyNotes ?? []).filter((note) => {
+    const key = normalizeRouteSafetyText(note);
+    if (!key || excludedSummaries.has(key) || seenNotes.has(key)) {
+      return false;
+    }
+    seenNotes.add(key);
+    return true;
+  });
+
+  return {
+    riskLevel,
+    tone: riskLevel,
+    title,
+    summary,
+    hazards: (profile?.hazards ?? []).map((hazard) => ({
+      key: hazard,
+      label: routeHazardLabels[hazard],
+    })),
+    notes,
+    reviewStatus: profile?.reviewStatus ?? 'needs_review',
+  };
 }
 
 export interface ApprovedCommunityPhoto {

@@ -1,15 +1,13 @@
-import { EmailClient } from '@azure/communication-email';
 import type { RiverAlertThreshold, RiverThresholdAlert } from './alerts';
 import { riverAlertManageUrl } from './alert-links';
 import { riverAlertDeliveryKey } from './alert-delivery';
+import { escapeEmailHtml as escapeHtml, isAzureEmailProvider, sendAzureEmail } from './email-transport';
 import type { RiverDetailSnapshot } from './river-snapshots';
 
 export interface AlertEmailPayload {
   alert: RiverThresholdAlert;
   snapshot: RiverDetailSnapshot;
 }
-
-let azureEmailClient: EmailClient | null = null;
 
 export async function sendRiverAlertEmail(args: AlertEmailPayload): Promise<{
   provider: 'azure' | 'log';
@@ -45,39 +43,20 @@ export async function sendRiverAlertEmail(args: AlertEmailPayload): Promise<{
     throw new Error('Missing ACS_EMAIL_CONNECTION_STRING or ALERTS_FROM_EMAIL for river alerts email delivery.');
   }
 
-  const payload = {
+  const delivery = await sendAzureEmail({
+    connectionString,
     senderAddress: from,
-    content: {
-      subject,
-      plainText: text,
-      html,
-    },
-    recipients: {
-      to: [{ address: args.alert.email }],
-    },
-    ...(process.env.ALERTS_REPLY_TO_EMAIL
-      ? {
-          replyTo: [{ address: process.env.ALERTS_REPLY_TO_EMAIL }],
-        }
-      : {}),
-  };
-
-  const client = getAzureEmailClient(connectionString);
-  const poller = await client.beginSend(payload, {
+    to: [args.alert.email],
+    replyTo: process.env.ALERTS_REPLY_TO_EMAIL ? [process.env.ALERTS_REPLY_TO_EMAIL] : undefined,
+    subject,
+    plainText: text,
+    html,
     operationId: deliveryKey,
-    updateIntervalInMs: 1000,
   });
-  const response = await poller.pollUntilDone();
-
-  if (!response.id || response.status !== 'Succeeded') {
-    throw new Error(
-      `Azure Communication Services email delivery failed: ${response.error?.message || response.status || 'missing operation id'}.`
-    );
-  }
 
   return {
     provider: 'azure',
-    id: response.id,
+    id: delivery.id,
     subject,
     deliveryKey,
     deliveryStatus: 'delivered',
@@ -88,20 +67,13 @@ function configuredProvider(): 'azure' | 'log' {
   const explicit = String(process.env.ALERTS_EMAIL_PROVIDER || '')
     .trim()
     .toLowerCase();
-  if (explicit === 'azure' || explicit === 'acs' || explicit === 'azure-communication-services') {
+  if (isAzureEmailProvider(explicit)) {
     return 'azure';
   }
   if (explicit === 'log') {
     return 'log';
   }
   return process.env.ACS_EMAIL_CONNECTION_STRING ? 'azure' : 'log';
-}
-
-function getAzureEmailClient(connectionString: string) {
-  if (!azureEmailClient) {
-    azureEmailClient = new EmailClient(connectionString);
-  }
-  return azureEmailClient;
 }
 
 function subjectForAlert(alert: RiverThresholdAlert, snapshot: RiverDetailSnapshot) {
@@ -186,13 +158,4 @@ function bestWindowText(snapshot: RiverDetailSnapshot) {
   }
 
   return `Rain timing: ${label}`;
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
 }

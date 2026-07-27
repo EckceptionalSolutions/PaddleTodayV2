@@ -6655,6 +6655,20 @@ export const wisconsinRoutes: River[] = [
     "statusText": "Use the La Valle stage gauge. Treat 5.6 to 6.2 ft as the best target, below 5.0 ft as too low for an app recommendation, and above 6.9 ft as too high and dirty for a broad recreational call.",
     "latitude": 43.6462,
     "longitude": -90.2223,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Wisconsin River Trips documented two logjams and downed-tree strainers in fast, deep, muddy water. Do not count on squeezing through; steep mud banks can make a forced portage difficult.",
+        "Use the direct La Valle gauge with its trend and recent rain. The source describes 6.4 to 6.9 ft as high and pushy and 6.9 ft or higher as very high, dirty, and difficult to maneuver.",
+        "At Kalepp Road, use the described side-creek exit by the 400 State Trail and DNR parking area. Land west of the trail includes a Voluntary Public Access easement that remains technically private, so follow postings and stay on the documented access path."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05404129",
       "provider": "usgs",
@@ -6728,6 +6742,11 @@ export const wisconsinRoutes: River[] = [
         "label": "USGS 05404129 monitoring location",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05404129/",
         "provider": "usgs"
+      },
+      {
+        "label": "Wisconsin DNR 400 State Trail recreation",
+        "url": "https://dnr.wisconsin.gov/topic/parks/400/recreation",
+        "provider": "local"
       }
     ]
   },
