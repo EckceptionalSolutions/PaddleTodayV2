@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T23:24:33.019Z",
+  "generatedAt": "2026-07-27T23:40:12.135Z",
   "routeCount": 936,
-  "issueCount": 233,
+  "issueCount": 231,
   "summary": {
     "Critical": 0,
-    "High": 102,
+    "High": 100,
     "Medium": 131,
     "Low": 0
   },
@@ -119,28 +119,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "onfidence is good because MN DNR names both endpoints and warns about the final rapid section, while Rockville and Stearns County both document the public access points. Current level 15.26 ft at 7:00 PM The official MN DNR St. Martin gauge reported 15.26 ft o"
-    },
-    {
-      "routeId": "sauk-river-eagle-knights-of-columbus",
-      "slug": "sauk-river-eagle-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Eagle Park to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "at starts with the cleaner Rockville city landing and finishes before the Heims rapid section. It is the simpler St. Cloud-area full-day card when you want more mileage than Eagle-to-Miller without the confluence runout. Treat 15 to 17 ft at St. Martin as the"
-    },
-    {
-      "routeId": "sauk-river-eagle-knights-of-columbus",
-      "slug": "sauk-river-eagle-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Eagle Park to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "still broad-audience lower-Sauk water at sane levels, but the full-day mileage, wood, and cold-water exposure make it more committing than the short Miller or Knights shuttles. Confidence is high because MN DNR names the lower-Sauk access ladder, Rockville doc"
     },
     {
       "routeId": "sauk-river-eagle-miller-landing",

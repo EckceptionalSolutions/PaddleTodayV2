@@ -5075,10 +5075,23 @@ export const minnesotaRoutes: River[] = [
     "reach": "Eagle Park to Knights of Columbus Park",
     "state": "Minnesota",
     "region": "St. Cloud Area",
-    "summary": "Medium-length lower Sauk day that starts with the cleaner Rockville city landing and finishes before the Heims rapid section. It is the simpler St. Cloud-area full-day card when you want more mileage than Eagle-to-Miller without the confluence runout.",
+    "summary": "Medium-length lower Sauk day that starts at the Rockville city landing and finishes at Knights of Columbus Park, about two river miles upstream of the mapped Class I-II mouth section. It is the simpler St. Cloud-area full-day card when you want more mileage than Eagle-to-Miller without the confluence runout.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the cleanest broad-audience range. Below 14 ft this stretch gets weedier and slower, while above 20 ft the extra current and longer mileage deserve a more cautious read.",
     "latitude": 45.4754595,
     "longitude": -94.3502588,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR maps Eagle Park at river mile 16.2 and Knights of Columbus Park at river mile 4.5. The boulder-filled Class I-II mouth section begins at river mile 2.5, about two river miles below this planned take-out.",
+        "Watch for snags, fallen trees, and fresh storm wood. Stop and reassess from a safe position rather than entering a blocked channel or passing close to overhanging and dead trees.",
+        "Use the named public accesses and stop only at designated sites. MN DNR says much of the Sauk shoreland is private and riverbed camping next to private property is not permitted."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -5129,8 +5142,8 @@ export const minnesotaRoutes: River[] = [
     "evidenceNotes": [
       {
         "label": "Current level",
-        "value": "15.26 ft at 7:00 PM",
-        "note": "The official MN DNR St. Martin gauge reported 15.26 ft on July 13, 2026, which sits in the Medium interpretation band.",
+        "value": "14.23 ft at 3:00 PM",
+        "note": "The official MN DNR St. Martin gauge reported 14.23 ft on July 27, 2026, which sits in the Low interpretation band.",
         "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
@@ -5142,7 +5155,7 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Route shape",
         "value": "11.7 river miles",
-        "note": "MN DNR Map 2 places Eagle Park at river mile 16.2 and Knights of Columbus Park at river mile 4.5.",
+        "note": "MN DNR Map 2 places Eagle Park at river mile 16.2 and Knights of Columbus Park at river mile 4.5; the mapped Class I-II mouth section begins at river mile 2.5.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
       },
       {

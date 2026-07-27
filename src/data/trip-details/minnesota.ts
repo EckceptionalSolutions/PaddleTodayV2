@@ -1284,11 +1284,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Eagle Park in Rockville and finish at Knights of Columbus Park in St. Cloud. This is the medium lower-Sauk card for paddlers who want a fuller day than Eagle-to-Miller without adding the Heims rapid finish.",
       "accessCaveats": [
         "Eagle Park is a popular local launch and fishing area, so scout the exact landing and parking flow before leaving vehicles.",
-        "Knights of Columbus Park is a defined city endpoint, but it is still worth identifying the exact carry-out path before launching if you have not used it before."
+        "Knights of Columbus Park is the mapped carry-in at river mile 4.5. Identify the carry-out before launching and use it as the planned finish."
       ],
       "watchFor": [
         "Vegetation and slower current when the St. Martin gauge slides toward 14 ft.",
         "Fresh wood and strainers after storms in this tree-lined lower corridor.",
+        "The mapped boulder-filled Class I-II mouth section begins at river mile 2.5, about two river miles below the Knights of Columbus Park take-out.",
+        "Much of the shoreline is private; stop only at designated public sites.",
         "Longer-day fatigue and changing weather on an otherwise easy river."
       ]
     }
