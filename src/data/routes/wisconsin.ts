@@ -9299,6 +9299,20 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Menominee River at Niagara, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04065106/"
     },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "dam_release",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "This is an expert-oriented Class IV gorge run, not a recreational float. Scout the gorge and use whitewater-specific equipment and rescue skills.",
+        "Little Quinnesec Falls Dam releases can raise the river rapidly. Check the Niagara gauge and current release information shortly before launching.",
+        "Missicot Falls, undercut Volkswagen Rock, the Sisters, and Terminal Surfer have powerful hydraulics and pinning consequences. Identify the river-left take-out immediately below Terminal Surfer before committing."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 600,
