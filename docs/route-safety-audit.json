@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T02:25:38.935Z",
+  "generatedAt": "2026-07-27T02:42:54.001Z",
   "routeCount": 937,
-  "issueCount": 323,
+  "issueCount": 317,
   "summary": {
     "Critical": 0,
-    "High": 164,
-    "Medium": 159,
+    "High": 161,
+    "Medium": 156,
     "Low": 0
   },
   "issues": [
@@ -1098,39 +1098,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "oat handling, training attainments, poor water quality, and changing post-storm wood keep this from being a simple beginner float. Confidence is acceptable for a guarded community-threshold add: AW documents the exact E. Ira Road to Route 303 reach, distance,"
-    },
-    {
-      "routeId": "conodoguinet-creek-good-hope-acri-meadow",
-      "slug": "conodoguinet-creek-good-hope-acri-meadow",
-      "name": "Conodoguinet Creek",
-      "reach": "Good Hope Access to Acri Meadow Park",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "is above the minimum, but the 7.8-mile length, mixed launch quality, and bridge/wood scouting still make it more committed than a park pond outing. Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Good Hope Access and Acri"
-    },
-    {
-      "routeId": "conodoguinet-creek-vincent-difilippo-good-hope",
-      "slug": "conodoguinet-creek-vincent-difilippo-good-hope",
-      "name": "Conodoguinet Creek",
-      "reach": "Vincent DiFilippo Nature Preserve to Good Hope Access",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "gestown is above the county floor, but it still needs a real same-day check for wood, shallow bridge approaches, and the PFBC launch conditions at Good Hope. Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilipp"
-    },
-    {
-      "routeId": "conodoguinet-creek-willow-mill-vincent-difilippo",
-      "slug": "conodoguinet-creek-willow-mill-vincent-difilippo",
-      "name": "Conodoguinet Creek",
-      "reach": "Willow Mill Park to Vincent DiFilippo Nature Preserve",
-      "state": "Pennsylvania",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "eek link with improved public launches, but it still needs a same-day check for wood, dragging, and stronger post-rain current. Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Willow Mill Park and Vincent DiFilippo Nat"
     },
     {
       "routeId": "split-rock-creek-split-rock-park-palisades",
@@ -3122,39 +3089,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "dow, 100 cfs as the bare runnable floor, and 1000 cfs as the upper app ceiling. Scout visually after rain or snowmelt. AW rates the reach Class I and describes only a few rapids between flatwater stretches, but strainers, long-boat handling, training attainmen"
-    },
-    {
-      "routeId": "conodoguinet-creek-good-hope-acri-meadow",
-      "slug": "conodoguinet-creek-good-hope-acri-meadow",
-      "name": "Conodoguinet Creek",
-      "reach": "Good Hope Access to Acri Meadow Park",
-      "state": "Pennsylvania",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Longer lower-central Conodoguinet day from the PFBC Good Hope Access to Acri Meadow Park. Cumberland County still publishes both launches, the official mile spacing, and the same d"
-    },
-    {
-      "routeId": "conodoguinet-creek-vincent-difilippo-good-hope",
-      "slug": "conodoguinet-creek-vincent-difilippo-good-hope",
-      "name": "Conodoguinet Creek",
-      "reach": "Vincent DiFilippo Nature Preserve to Good Hope Access",
-      "state": "Pennsylvania",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Mid-creek Cumberland County Conodoguinet day from Vincent DiFilippo Nature Preserve to the PFBC Good Hope Access. The current county access table still defines the pair cleanly, an"
-    },
-    {
-      "routeId": "conodoguinet-creek-willow-mill-vincent-difilippo",
-      "slug": "conodoguinet-creek-willow-mill-vincent-difilippo",
-      "name": "Conodoguinet Creek",
-      "reach": "Willow Mill Park to Vincent DiFilippo Nature Preserve",
-      "state": "Pennsylvania",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short Cumberland County Conodoguinet day from Willow Mill Park to Vincent DiFilippo Nature Preserve. The county water-trail materials publish both named public launches, official m"
     },
     {
       "routeId": "split-rock-creek-split-rock-park-palisades",

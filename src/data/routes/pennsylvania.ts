@@ -3711,6 +3711,19 @@ export const pennsylvaniaRoutes: River[] = [
       "siteName": "Conodoguinet Creek near Hogestown, PA",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-01570000/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Cumberland County water-trail guide identifies trees as strainers that can trap boats and pin paddlers; check this short reach for fresh wood and bridge-area obstructions before committing.",
+        "Check the direct Hogestown gauge before launching. The county recommends boating above 1.7 ft and identifies 6 ft as action stage and 8 ft as flood stage.",
+        "Use only the named Willow Mill and Vincent DiFilippo launches and respect private property along the creek; current county materials list both as improved concrete ramps."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 1.7,
@@ -3928,6 +3941,19 @@ export const pennsylvaniaRoutes: River[] = [
       "siteName": "Conodoguinet Creek near Hogestown, PA",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-01570000/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Cumberland County water-trail guide identifies trees as strainers that can trap boats and pin paddlers; make a same-day obstruction check through bends and bridge approaches.",
+        "Check the direct Hogestown gauge before launching. The county recommends boating above 1.7 ft and identifies 6 ft as action stage and 8 ft as flood stage.",
+        "Use only the named Vincent DiFilippo and Good Hope launches and respect private property along the creek. Good Hope is a PFBC access that requires the applicable registration or launch permit."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 1.7,
@@ -4144,6 +4170,19 @@ export const pennsylvaniaRoutes: River[] = [
       "kind": "direct",
       "siteName": "Conodoguinet Creek near Hogestown, PA",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-01570000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Cumberland County water-trail guide identifies trees as strainers that can trap boats and pin paddlers; inspect fresh wood, bridge approaches, and the longer downstream corridor before committing.",
+        "Check the direct Hogestown gauge before launching. The county recommends boating above 1.7 ft and identifies 6 ft as action stage and 8 ft as flood stage.",
+        "Use only the named Good Hope and Acri Meadow launches and respect private property along the creek. Good Hope requires the applicable PFBC permit or registration, and Acri Meadow has an unimproved launch with a short steep slope."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "minimum-only",
