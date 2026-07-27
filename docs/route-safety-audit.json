@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T23:10:09.244Z",
+  "generatedAt": "2026-07-27T23:24:33.019Z",
   "routeCount": 936,
-  "issueCount": 234,
+  "issueCount": 233,
   "summary": {
     "Critical": 0,
-    "High": 103,
+    "High": 102,
     "Medium": 131,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "mississippi-river-schoolcraft-number-10",
-      "slug": "mississippi-river-schoolcraft-number-10",
-      "name": "Mississippi River",
-      "reach": "Schoolcraft State Park to #10 Access",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "or as gentle enough for beginners, but paddlers still need moving-water basics, wood avoidance, and a real shuttle plan for the remote public access finish. Confidence is high: MN DNR lists Schoolcraft State Park to #10 Access as a 4.1-mile recommended one-way"
-    },
     {
       "routeId": "north-fork-crow-river-betty-mason-wildlife",
       "slug": "north-fork-crow-river-betty-mason-wildlife",

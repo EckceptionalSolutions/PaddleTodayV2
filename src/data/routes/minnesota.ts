@@ -17173,7 +17173,7 @@ export const minnesotaRoutes: River[] = [
       "confidenceNotes": "Confidence is high: MN DNR lists Schoolcraft State Park to #10 Access as a 4.1-mile recommended one-way, DNR Map 2 places both accesses and the Days High Landing gauge in the same short corridor, and public-water-access GIS resolves both endpoint coordinates. The route is intentionally distinct from the longer Schoolcraft-to-Sylvan card because #10 is the planned take-out, not just a bailout."
     },
     "safetyProfile": {
-      "riskLevel": "standard",
+      "riskLevel": "caution",
       "hazards": [
         "strainers",
         "remote",
@@ -17214,8 +17214,8 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Current gauge check",
-        "value": "1,273.57 ft at 2026-07-17 01:30 CDT",
-        "note": "The current MN DNR feed placed Days High Landing in the official low band during this run, below the medium target.",
+        "value": "1,273.53 ft at 2026-07-27 15:30 CDT",
+        "note": "The current MN DNR feed placed Days High Landing in the official low band during this review, below the medium target.",
         "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
