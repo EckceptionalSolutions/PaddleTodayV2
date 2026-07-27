@@ -1,5 +1,12 @@
 # Minnesota Route Memory
 
+## 2026-07-27 America/Chicago Cottonwood obstruction block
+
+- Removed `cottonwood-river-juenemann-springfield` from the live route inventory and trip-details surface, reducing Minnesota from 239 to 238 live routes.
+- The current 2026 MN DNR Minnesota River / Cottonwood Map 4 places Juenemann at river mile 62.8, Springfield at 56.4, and a major log jam at 57.0 that makes paddling impassable. The obstruction is therefore directly inside the former 6.4-mile route.
+- Preserved the source-backed direct Springfield gauge, official `12.5 / 13.0-17.0 / 19.0 ft` interpretation, and endpoint facts in the blocked ledger record, but did not use warning copy to override an active impassable obstruction.
+- Downgraded the ledger record from `added` to `blocked_until_date`; retry only after current manager-grade evidence explicitly confirms the river-mile 57.0 obstruction is cleared and the complete reach is passable.
+
 ## 2026-07-24 08:14 America/Chicago / 2026-07-24 13:14 UTC Minnesota Austin / New Ulm / Mankato gap pass
 
 - Treated the current dirty repo state as the run-start baseline and expanded Minnesota from `236` to `239` live route slugs by adding `cedar-river-austin-mill-pond-marcusen`, `cottonwood-river-flandrau-highway-15`, and `minnesota-river-land-of-memories-riverfront`.

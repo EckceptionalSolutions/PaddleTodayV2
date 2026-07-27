@@ -135,7 +135,6 @@ const routeOrder = [
   "sauk-river-knights-of-columbus-heims-mill",
   "snake-river-canary-cross-lake",
   "snake-river-county-road-9-snake-bit",
-  "cottonwood-river-juenemann-springfield",
   "cottonwood-river-springfield-highway-4",
   "pine-river-norway-pine-river-1",
   "pine-river-pine-river-1-cross-lake",

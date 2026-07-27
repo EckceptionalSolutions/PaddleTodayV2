@@ -2391,36 +2391,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "cottonwood-river-juenemann-springfield": {
-    "putIn": {
-      "name": "Juenemann Landing / County Road 2 public water access",
-      "latitude": 44.2034723,
-      "longitude": -95.0485134
-    },
-    "takeOut": {
-      "name": "Springfield Public Water Access / Riverside Park canoe landing",
-      "latitude": 44.2377827,
-      "longitude": -94.9740406
-    },
-    "logistics": {
-      "distanceLabel": "6.4 mi",
-      "estimatedPaddleTime": "About 2 hr 15 min to 3 hr 15 min",
-      "shuttle": "Plan a short two-car shuttle from County Road 2 / Juenemann Landing to Springfield Riverside Park. This is a compact route, but rural landing conditions can still slow loading and unloading.",
-      "permits": "No route-specific paddling permit is known. Brown County lists its Cottonwood canoe landings as day-use April 15 through October 15; follow posted county and city access rules.",
-      "camping": "No on-route camping is assumed for this short segment. Treat it as a day trip unless you separately confirm a legal overnight option.",
-      "summary": "Launch at Juenemann Landing on County Road 2 and take out at Springfield Riverside Park. This short Cottonwood reach has the gauge at the put-in, so the level call is unusually direct.",
-      "accessCaveats": [
-        "Juenemann is a Brown County canoe landing on County Road 2 with vehicle parking; the DNR access record does not list a restroom.",
-        "Springfield is a carry-in access in Riverside Park with restroom support in the public-access record.",
-        "DNR supports the access points and river-level ladder, but this exact short segment is not presented as a highlighted recommended day trip."
-      ],
-      "watchFor": [
-        "Scraping and slow travel when the County Road 2 gauge drops toward the scrapable band.",
-        "Deadfall, overhanging trees, and muddy banks after higher water.",
-        "Private shoreland; stop only at public accesses or clearly legal sites."
-      ]
-    }
-  },
   "cottonwood-river-springfield-highway-4": {
     "putIn": {
       "id": "cottonwood-springfield-pwa",

@@ -12649,15 +12649,15 @@
       "river": "Cottonwood River",
       "route": "Juenemann carry-in access to Springfield carry-in access",
       "state": "MN",
-      "status": "added",
-      "lastReviewed": "2026-05-22",
-      "reviewCount": 2,
-      "blocker": "Added to PaddleTodayV2 in the first coordinate-confirmed implementation batch.",
-      "retryCondition": "Already added; revisit only for corrections or source updates.",
+      "status": "blocked_until_date",
+      "lastReviewed": "2026-07-27",
+      "reviewCount": 3,
+      "blocker": "The current 2026 MN DNR Minnesota River / Cottonwood Map 4 marks a major log jam at Cottonwood river mile 57.0 and says it makes paddling impassable. That point lies directly between Juenemann carry-in at river mile 62.8 and Springfield carry-in at river mile 56.4, so the former live route is blocked rather than warning-only.",
+      "retryCondition": "Retry only after a current MN DNR map, route manager, or equally authoritative source explicitly confirms the river-mile 57.0 obstruction has been cleared and the full Juenemann-to-Springfield reach is passable.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Cottonwood River overview page",
-        "MN DNR Minnesota River map 4 / Cottonwood River PDF",
+        "MN DNR Minnesota River map 4 / Cottonwood River PDF, current 2026 edition rechecked 2026-07-27",
         "MN DNR river levels site for Cottonwood River nr Springfield, CR2",
         "MN DNR public-water-access records WAS01422 and WAS01421",
         "City of Springfield Riverside Park canoe landing page"
@@ -12665,7 +12665,7 @@
       "aliases": [
         "Cottonwood River - Juenemann carry-in access to Springfield carry-in access"
       ],
-      "v2Slug": "cottonwood-river-juenemann-springfield",
+      "v2Slug": null,
       "gauge": {
         "quality": "direct",
         "notes": "Official MN DNR Springfield gauge sits exactly at the upstream access cluster and carries a full five-band ladder."
@@ -12683,7 +12683,7 @@
         "takeOutLatitude": 44.237782688059475,
         "takeOutLongitude": -94.97404056446204
       },
-      "notes": "Fresh gauge-first Minnesota discovery. The Cottonwood corridor did not yield a longer recommended trip as cleanly as Long Prairie or Pomme de Terre, but this short official water-trail segment is a practical same-river day trip with direct gauge support and named public endpoints. Coordinate follow-up on 2026-05-22 found official MN DNR public-water-access records WAS01422 (river mile 62.8, Co Rd 2 Juenemann Landing) and WAS01421 (river mile 56.3, Springfield / Riverside Park); both were opened in Google Maps, and the Springfield take-out is corroborated by the City of Springfield's Riverside Park canoe landing description. Added to PaddleTodayV2 on 2026-05-22."
+      "notes": "Originally added to PaddleTodayV2 on 2026-05-22 as cottonwood-river-juenemann-springfield after coordinate confirmation. Removed from the live route inventory on 2026-07-27 because the current 2026 MN DNR map marks the exact in-route river-mile 57.0 log jam as impassable. The direct gauge, official thresholds, and public endpoints remain valid but do not override the active obstruction."
     },
     {
       "candidateId": "mn-des-moines-river-mayflower-park-christianna-bridge",

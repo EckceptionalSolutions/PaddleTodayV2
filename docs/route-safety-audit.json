@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T19:54:52.542Z",
-  "routeCount": 938,
-  "issueCount": 269,
+  "generatedAt": "2026-07-27T20:11:31.737Z",
+  "routeCount": 937,
+  "issueCount": 268,
   "summary": {
     "Critical": 0,
-    "High": 126,
+    "High": 125,
     "Medium": 143,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "cottonwood-river-juenemann-springfield",
-      "slug": "cottonwood-river-juenemann-springfield",
-      "name": "Cottonwood River",
-      "reach": "Juenemann Landing to Springfield",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ing a good river for beginning paddlers, but this short upper reach still needs wood, mud, and low-water judgment. Confidence is good for the gauge and access story because the DNR gauge is at the County Road 2 / Juenemann access and both endpoints resolve in"
-    },
     {
       "routeId": "little-fork-river-veterans-park-highway-73",
       "slug": "little-fork-river-veterans-park-highway-73",
