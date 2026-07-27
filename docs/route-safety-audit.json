@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T20:54:26.322Z",
+  "generatedAt": "2026-07-27T21:10:33.205Z",
   "routeCount": 936,
-  "issueCount": 259,
+  "issueCount": 255,
   "summary": {
     "Critical": 0,
-    "High": 118,
+    "High": 114,
     "Medium": 141,
     "Low": 0
   },
@@ -1054,50 +1054,6 @@
       "category": "Dam",
       "message": "Route text mentions dam, portage, hydro, or release hazards.",
       "evidence": "ical minimum; below that expect shallow riffles and more dragging, while higher dam-release flows can make the easy current quicker. This is mostly flatwater and riffles with one easy Class I pitch, but it is still a remote Wild River corridor with cold water,"
-    },
-    {
-      "routeId": "popple-river-morgan-lake-highway-101",
-      "slug": "popple-river-morgan-lake-highway-101",
-      "name": "Popple River",
-      "reach": "Morgan Lake Road Bridge to Highway 101 Wayside",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "popple-river-morgan-lake-highway-101",
-      "slug": "popple-river-morgan-lake-highway-101",
-      "name": "Popple River",
-      "reach": "Morgan Lake Road Bridge to Highway 101 Wayside",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "popple-river-morgan-lake-highway-101",
-      "slug": "popple-river-morgan-lake-highway-101",
-      "name": "Popple River",
-      "reach": "Morgan Lake Road Bridge to Highway 101 Wayside",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "orm an aggressive hole with a difficult rescue, and Big Bull Falls has a signed portage where swift current can carry paddlers past the intended landing. American Whitewater Popple River C https://www.americanwhitewater.org/content/River/view/river-detail/2312"
-    },
-    {
-      "routeId": "popple-river-morgan-lake-highway-101",
-      "slug": "popple-river-morgan-lake-highway-101",
-      "name": "Popple River",
-      "reach": "Morgan Lake Road Bridge to Highway 101 Wayside",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Short but serious Florence County Wild River whitewater run below Morgan Lake Road. The route packs Little Bull Falls, Big Bull Falls, boulder gardens, signed portages, and remote northwoods scenery into a 5.4-mile bridge-to-"
     },
     {
       "routeId": "red-cedar-river-menomonie-dunnville",

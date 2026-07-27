@@ -8545,6 +8545,22 @@ export const wisconsinRoutes: River[] = [
     "latitude": 45.763611,
     "longitude": -88.463611,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "remote",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Wisconsin DNR calls the Popple below Morgan Lake Road the watershed's most difficult whitewater and recommends it only for experts with suitable equipment and skills.",
+        "Scout or portage Little Bull Falls on river left. American Whitewater says the signed portage crosses private land with permitted use; stay on the route, respect the landowner, and do not run the aggressive hole without an experienced group and rescue setup.",
+        "Identify the signed river-right Big Bull Falls portage before entering its swift approach because the current can carry paddlers past the landing. Portage whenever the group, ice, wood, or water level makes the falls uncertain."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04063700",
       "provider": "usgs",
