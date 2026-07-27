@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T02:54:43.267Z",
+  "generatedAt": "2026-07-27T03:10:07.929Z",
   "routeCount": 937,
-  "issueCount": 313,
+  "issueCount": 311,
   "summary": {
     "Critical": 0,
-    "High": 158,
+    "High": 156,
     "Medium": 155,
     "Low": 0
   },
@@ -141,28 +141,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "shuttle with a much better trust story than the old draft. It is not technical whitewater, but mileage, wind, and big-river pacing matter enough that a clean gauge read alone does not make it automatic. The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0"
-    },
-    {
-      "routeId": "mississippi-river-babcock-peninsula-point",
-      "slug": "mississippi-river-babcock-peninsula-point",
-      "name": "Mississippi River",
-      "reach": "Babcock Public Water Access to Peninsula Point Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "e the gauge is several miles downstream of the finish and below the Coon Rapids Dam corridor, so it is treated as a downstream mainstem proxy rather than an exact-route gauge. DNR bands 3,060 / 8,670 / 28,300 / 33,000 cfs MN DNR interprets the Hwy 610 gauge as"
-    },
-    {
-      "routeId": "mississippi-river-babcock-peninsula-point",
-      "slug": "mississippi-river-babcock-peninsula-point",
-      "name": "Mississippi River",
-      "reach": "Babcock Public Water Access to Peninsula Point Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "cfs is scrapable, and above 33,000 cfs is very high. The route is not technical whitewater, but it is a 12-mile big-river day with current, islands, wind exposure, motorboat wakes, and a busy Anoka finish near the Rum River confluence. Confidence is good for a"
     },
     {
       "routeId": "mississippi-river-county-line-jacobson",

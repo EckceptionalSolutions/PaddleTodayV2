@@ -8526,6 +8526,18 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Use the Hwy 610 gauge conservatively: 8,670 to 28,300 cfs is the DNR medium band. Below 3,060 cfs is scrapable, and above 33,000 cfs is very high.",
     "latitude": 45.2897452,
     "longitude": -93.5580094,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers"
+      ],
+      "safetyNotes": [
+        "MN DNR Map 9 warns of snags, sweeps, boulders, small rapids, deceptively swift current, and large motorboat wakes on the Elk River-to-Minneapolis segment. Give obstructions room and approach shore under control.",
+        "Two Paddles places the Babcock-to-Anoka course in the free-flowing Mississippi reach below the St. Cloud dam and says that reach has no dams or portages. The Coon Rapids Dam is downstream of this route, not an on-course hazard.",
+        "The Hwy 610 gauge is downstream of the Anoka finish and below the Coon Rapids Dam, so use its DNR bands only as a mainstem proxy and confirm current, debris, wind, and landing conditions at Babcock before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-302",
       "provider": "mn_dnr",
