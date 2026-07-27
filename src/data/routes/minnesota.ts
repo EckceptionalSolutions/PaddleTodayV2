@@ -21190,7 +21190,7 @@ export const minnesotaRoutes: River[] = [
       "confidenceNotes": "Confidence is high: MN DNR recommends Steamboat Landing to Blackberry Bridge with exact river miles, Map 3 places the Grand Rapids gauge immediately upstream of Steamboat, public-water-access GIS resolves both endpoints, and DNR publishes official interpretation bands."
     },
     "safetyProfile": {
-      "riskLevel": "standard",
+      "riskLevel": "caution",
       "hazards": [
         "dam",
         "strainers",

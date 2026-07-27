@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T03:10:07.929Z",
+  "generatedAt": "2026-07-27T03:25:16.291Z",
   "routeCount": 937,
-  "issueCount": 311,
+  "issueCount": 308,
   "summary": {
     "Critical": 0,
-    "High": 156,
-    "Medium": 155,
+    "High": 154,
+    "Medium": 154,
     "Low": 0
   },
   "issues": [
@@ -185,28 +185,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "or as gentle enough for beginners, but paddlers still need moving-water basics, wood avoidance, and a real shuttle plan for the remote public access finish. Confidence is high: MN DNR lists Schoolcraft State Park to #10 Access as a 4.1-mile recommended one-way"
-    },
-    {
-      "routeId": "mississippi-river-steamboat-blackberry-bridge",
-      "slug": "mississippi-river-steamboat-blackberry-bridge",
-      "name": "Mississippi River",
-      "reach": "Steamboat Landing to Blackberry Bridge",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "ay trip from Steamboat Landing to Blackberry Bridge, starting below the Blandin dam/portage zone and using the nearby Grand Rapids interpreted gauge. Use the Grand Rapids DNR gauge just upstream of the put-in: 44 to 1,410 cfs is the official medium band. Below"
-    },
-    {
-      "routeId": "mississippi-river-steamboat-blackberry-bridge",
-      "slug": "mississippi-river-steamboat-blackberry-bridge",
-      "name": "Mississippi River",
-      "reach": "Steamboat Landing to Blackberry Bridge",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": ", but the route starts just below the Grand Rapids dam corridor and still needs wood, private-bank, and low-water checks. Confidence is high: MN DNR recommends Steamboat Landing to Blackberry Bridge with exact river miles, Map 3 places the Grand Rapids gauge i"
     },
     {
       "routeId": "north-fork-crow-river-betty-mason-wildlife",
@@ -1923,17 +1901,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "aul gauge is best from 6,000 to 30,000 cfs. Below 2,000 cfs is too low for this urban route, and above 40,000 cfs is too high for a general recommendation. This is urban big-river paddling rather than technical whitewater. Swift current, barge wakes, bridge pi"
-    },
-    {
-      "routeId": "mississippi-river-steamboat-blackberry-bridge",
-      "slug": "mississippi-river-steamboat-blackberry-bridge",
-      "name": "Mississippi River",
-      "reach": "Steamboat Landing to Blackberry Bridge",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ed placed Grand Rapids in the official medium band during this run. Camping and hazard context Sucher's campsite; Grand Rapids dam corridor upstream MN DNR Map 3 places Sucher's watercraft campsite between the endpoints and maps the Blandin dam/portage upstrea"
     },
     {
       "routeId": "north-fork-crow-river-riverside-dayton",
