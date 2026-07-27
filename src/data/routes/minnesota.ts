@@ -29409,7 +29409,7 @@ export const minnesotaRoutes: River[] = [
       "confidenceNotes": "Confidence is good with a proxy caveat: DNR Map 2 places Richmond City Park, Highway 23/Glacial Lakes bridges, Horseshoe Lake access, and downstream Lions Park in sequence; public-water-access GIS resolves both endpoints; and the St. Martin gauge has official bands on the same water trail."
     },
     "safetyProfile": {
-      "riskLevel": "standard",
+      "riskLevel": "caution",
       "hazards": [
         "strainers",
         "private_banks",
@@ -29418,7 +29418,7 @@ export const minnesotaRoutes: River[] = [
       "safetyNotes": [
         "Treat the St. Martin gauge as a broad same-water-trail check, not a perfect reading for the lake-chain channel at Richmond.",
         "Wind, boat traffic, weeds, low-water channels, and bridge approaches can matter more than current on this short Chain of Lakes connector.",
-        "Take out at Horseshoe Lake if that is the plan. The downstream Lions Park route ends above Cold Spring Dam and should be staged separately."
+        "Take out at Horseshoe Lake for this 1.6-mile route. DNR Map 2 places Cold Spring Dam 7.9 river miles farther downstream at river mile 22.0; any continuation requires a separately staged Lions Park take-out at river mile 22.3 above the dam."
       ],
       "reviewStatus": "reviewed"
     },

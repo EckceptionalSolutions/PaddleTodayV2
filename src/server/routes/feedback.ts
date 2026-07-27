@@ -5,7 +5,7 @@ import type { AppFeedbackCategory } from '@paddletoday/api-contract';
 import { sendFeedbackNotificationEmail } from '../../lib/feedback-email';
 import type { ApiRequest } from '../http';
 import { clean, readJsonBody, sendBodyLimitResponse, sendJson } from '../http';
-import { getIp, isRateLimited } from '../rate-limit';
+import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 
 const FEEDBACK_CATEGORIES = new Set<AppFeedbackCategory>([
   'route_coverage',
@@ -23,7 +23,8 @@ export async function handleAppFeedback(
   includeBody: boolean
 ) {
   const ip = getIp(request);
-  if (isRateLimited(ip)) {
+  const rateLimit = consumeRateLimit('feedback', ip);
+  if (rateLimit.limited) {
     return sendJson(
       response,
       429,
@@ -33,7 +34,8 @@ export async function handleAppFeedback(
         message: 'Too many requests. Please try again later.',
       },
       includeBody,
-      'no-store'
+      'no-store',
+      rateLimitHeaders(rateLimit)
     );
   }
 

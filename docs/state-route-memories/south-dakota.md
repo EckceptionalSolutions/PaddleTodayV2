@@ -1,12 +1,12 @@
 # South Dakota Route Memory
 
-Last summarized: 2026-06-08.
+Last summarized: 2026-07-27.
 
 ## Current Inventory
 
-- Live routes: 3.
-- Rivers represented: Big Sioux River, Skunk Creek, Split Rock Creek.
-- Ledger candidates: 13 total; 3 added, 5 `research_later`, 2 `threshold_weak`, 2 `no_live_gauge`, 1 `gauge_proxy_weak`.
+- Live routes: 2.
+- Rivers represented: Big Sioux River, Skunk Creek.
+- Ledger candidates: 13 total; 2 added, 1 `blocked_until_date`, 5 `research_later`, 2 `threshold_weak`, 2 `no_live_gauge`, 1 `gauge_proxy_weak`.
 
 ## Status
 
@@ -23,6 +23,13 @@ South Dakota has sparse coverage and a small candidate base. It is not exhausted
 - Use targeted research rather than cadence.
 - Prioritize corridors with official public access, direct USGS gauges, and manager/local level guidance.
 - Avoid shipping route records from access-map presence alone.
+
+## 2026-07-27 Split Rock Route-Safety Block
+
+- Removed `split-rock-creek-split-rock-park-palisades` from the canonical published route order; the dormant route and trip-detail objects remain for future source-backed re-verification.
+- Current Visit Garretson guidance still says the downstream launch south of the Split Rock Park dam travels to Palisades, but the shipped Palisades take-out anchor is north of the put-in. The current GFP park page supplies only a general park GPS farther south, not a precise manager-backed creek landing and parking point.
+- USGS `06482610` remains the correct same-creek station, but the modern monitoring page exposed no continuous data during review and the available legacy current-conditions result ended on 2026-07-08.
+- Keep the route blocked until a route manager publishes a precise public downstream landing/parking location and the direct gauge again supplies product-fetchable current observations. Do not replace these hard gates with warning copy.
 
 ## 2026-06-08 15:32 Targeted Blocker Refresh
 

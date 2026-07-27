@@ -1,5 +1,6 @@
 import type { RiverThresholdAlert } from './alerts';
 import type { RiverDetailSnapshot } from './river-snapshots';
+import { riverAlertDeliveryKey } from './alert-delivery';
 
 const EXPO_PUSH_SEND_URL = 'https://exp.host/--/api/v2/push/send';
 
@@ -19,12 +20,19 @@ interface ExpoPushResponse {
 export async function sendRiverAlertPush(args: {
   alert: RiverThresholdAlert;
   snapshot: RiverDetailSnapshot;
-}): Promise<{ provider: 'expo'; id: string | null; subject: string }> {
+}): Promise<{
+  provider: 'expo';
+  id: string;
+  subject: string;
+  deliveryKey: string;
+  deliveryStatus: 'accepted';
+}> {
   if (!args.alert.expoPushToken) {
     throw new Error('Missing Expo push token for push alert.');
   }
 
   const subject = subjectForAlert(args.alert, args.snapshot);
+  const deliveryKey = riverAlertDeliveryKey(args.alert, args.snapshot);
   const response = await fetch(EXPO_PUSH_SEND_URL, {
     method: 'POST',
     headers: {
@@ -40,6 +48,7 @@ export async function sendRiverAlertPush(args: {
         url: `/river/${args.alert.riverSlug}`,
         riverSlug: args.alert.riverSlug,
         alertId: args.alert.id,
+        deliveryKey,
       },
       sound: 'default',
       priority: 'high',
@@ -56,11 +65,16 @@ export async function sendRiverAlertPush(args: {
   if (ticket?.status === 'error') {
     throw new Error(ticket.message || ticket.details?.error || 'Expo push send failed.');
   }
+  if (ticket?.status !== 'ok' || !ticket.id) {
+    throw new Error('Expo push send failed: missing acceptance ticket id.');
+  }
 
   return {
     provider: 'expo',
-    id: ticket?.id ?? null,
+    id: ticket.id,
     subject,
+    deliveryKey,
+    deliveryStatus: 'accepted',
   };
 }
 

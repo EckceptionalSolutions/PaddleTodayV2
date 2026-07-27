@@ -230,7 +230,7 @@ async function renderFavoritesMap(results = latestResults) {
   if (totalFavorites === 0) {
     favoritesMapShell.hidden = true;
     favoritesMapStatus.textContent = 'Save a route to see it here.';
-    favoritesMapCopy.textContent = 'Your saved route map appears once you have favorites on this device.';
+    favoritesMapCopy.textContent = 'Your saved-route map appears once you save a route on this device.';
     for (const marker of favoritesMapMarkers) {
       marker.remove();
     }
@@ -240,8 +240,8 @@ async function renderFavoritesMap(results = latestResults) {
 
   if (mappable.length === 0) {
     favoritesMapShell.hidden = true;
-    favoritesMapStatus.textContent = 'Favorite map unavailable right now.';
-    favoritesMapCopy.textContent = 'Saved routes exist, but none of them are available in the latest board snapshot yet.';
+    favoritesMapStatus.textContent = 'Saved-route map unavailable right now.';
+    favoritesMapCopy.textContent = 'Saved routes exist, but none are available in the latest board snapshot yet.';
     for (const marker of favoritesMapMarkers) {
       marker.remove();
     }
@@ -259,7 +259,7 @@ async function renderFavoritesMap(results = latestResults) {
   try {
     const maplibregl = await ensureMapLibre();
     if (!maplibregl) {
-      favoritesMapStatus.textContent = 'Favorite map unavailable right now.';
+      favoritesMapStatus.textContent = 'Saved-route map unavailable right now.';
       return;
     }
 
@@ -340,7 +340,7 @@ async function renderFavoritesMap(results = latestResults) {
     favoritesMapRuntime.resize();
   } catch (error) {
     console.error('Failed to load favorites map.', error);
-    favoritesMapStatus.textContent = 'Favorite map unavailable right now.';
+    favoritesMapStatus.textContent = 'Saved-route map unavailable right now.';
   }
 }
 
@@ -455,7 +455,7 @@ function updateSummaryLine(favorites, { fallback = false } = {}) {
     return;
   }
 
-  const countLabel = favorites.length === 1 ? '1 route saved' : `${favorites.length} routes saved`;
+  const countLabel = favorites.length === 1 ? '1 saved route' : `${favorites.length} saved routes`;
   const freshness = lastFetchedAt ? freshnessLabel(lastFetchedAt) : 'Updated recently';
   summary.textContent = fallback ? `${countLabel} \u2022 ${freshness} \u2022 showing latest available data` : `${countLabel} \u2022 ${freshness}`;
 }
@@ -493,7 +493,7 @@ function renderFavorites(results = latestResults) {
     refreshFavoriteButtons(grid);
   } catch (error) {
     console.error('Failed to render favorites.', error);
-    summary.textContent = `${favorites.length === 1 ? '1 route saved' : `${favorites.length} routes saved`} • Reloading current cards failed.`;
+    summary.textContent = `${favorites.length === 1 ? '1 saved route' : `${favorites.length} saved routes`} • Current calls did not refresh.`;
   }
   renderFavoritesMap(results);
 }

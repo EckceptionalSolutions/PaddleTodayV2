@@ -28,6 +28,7 @@ export interface RiverThresholdAlert {
   threshold: RiverAlertThreshold;
   isActive: boolean;
   lastState: RiverAlertState;
+  belowSince?: string | null;
   lastTriggeredAt: string | null;
   lastEvaluatedAt: string | null;
   createdAt: string;
@@ -44,6 +45,13 @@ export interface RiverAlertEvent {
   threshold: RiverAlertThreshold;
   message: string;
   sentAt: string;
+  deliveryMethod?: RiverAlertDeliveryMethod;
+  provider?: 'azure' | 'expo' | 'log';
+  deliveryId?: string | null;
+  deliveryKey?: string;
+  deliveryStatus?: 'accepted' | 'delivered' | 'failed';
+  deliveryUpdatedAt?: string;
+  deliveryError?: string | null;
 }
 
 interface AlertsStore {
@@ -72,6 +80,7 @@ function isRiverThresholdAlert(value: unknown): value is RiverThresholdAlert {
     isOneOf(value.threshold, ['good', 'strong'] as const) &&
     isBoolean(value.isActive) &&
     isOneOf(value.lastState, ['below_threshold', 'at_or_above_threshold'] as const) &&
+    (value.belowSince === undefined || isNullableString(value.belowSince)) &&
     isNullableString(value.lastTriggeredAt) &&
     isNullableString(value.lastEvaluatedAt) &&
     isString(value.createdAt) &&
@@ -93,7 +102,14 @@ function isRiverAlertEvent(value: unknown): value is RiverAlertEvent {
     isString(value.triggeredLabel) &&
     isOneOf(value.threshold, ['good', 'strong'] as const) &&
     isString(value.message) &&
-    isString(value.sentAt)
+    isString(value.sentAt) &&
+    (value.deliveryMethod === undefined || isOneOf(value.deliveryMethod, ['email', 'push'] as const)) &&
+    (value.provider === undefined || isOneOf(value.provider, ['azure', 'expo', 'log'] as const)) &&
+    (value.deliveryId === undefined || isNullableString(value.deliveryId)) &&
+    (value.deliveryKey === undefined || isString(value.deliveryKey)) &&
+    (value.deliveryStatus === undefined || isOneOf(value.deliveryStatus, ['accepted', 'delivered', 'failed'] as const)) &&
+    (value.deliveryUpdatedAt === undefined || isString(value.deliveryUpdatedAt)) &&
+    (value.deliveryError === undefined || isNullableString(value.deliveryError))
   );
 }
 
@@ -155,6 +171,7 @@ export async function createRiverThresholdAlert(args: {
   if (existing) {
     existing.isActive = true;
     existing.lastState = args.initialState;
+    existing.belowSince = null;
     existing.updatedAt = now;
     existing.riverId = args.riverId ?? existing.riverId ?? null;
     existing.riverName = args.riverName;
@@ -183,6 +200,7 @@ export async function createRiverThresholdAlert(args: {
     threshold: args.threshold,
     isActive: true,
     lastState: args.initialState,
+    belowSince: null,
     lastTriggeredAt: null,
     lastEvaluatedAt: null,
     createdAt: now,
@@ -201,7 +219,7 @@ export async function createRiverThresholdAlert(args: {
 
 export async function updateRiverAlert(
   id: string,
-  patch: Partial<Pick<RiverThresholdAlert, 'isActive' | 'lastState' | 'lastTriggeredAt' | 'lastEvaluatedAt' | 'updatedAt'>>
+  patch: Partial<Pick<RiverThresholdAlert, 'isActive' | 'lastState' | 'belowSince' | 'lastTriggeredAt' | 'lastEvaluatedAt' | 'updatedAt'>>
 ): Promise<RiverThresholdAlert | null> {
   const storage = alertsStorage();
   const store = (await storage.readJson<AlertsStore>(alertsBlobName())) ?? { alerts: [] };
@@ -215,6 +233,9 @@ export async function updateRiverAlert(
   }
   if (patch.lastState) {
     alert.lastState = patch.lastState;
+  }
+  if (patch.belowSince !== undefined) {
+    alert.belowSince = patch.belowSince;
   }
   if (patch.lastTriggeredAt !== undefined) {
     alert.lastTriggeredAt = patch.lastTriggeredAt;
@@ -239,6 +260,11 @@ export async function appendRiverAlertEvent(args: {
   triggeredLabel: string;
   message: string;
   sentAt?: string;
+  deliveryMethod?: RiverAlertDeliveryMethod;
+  provider?: 'azure' | 'expo' | 'log';
+  deliveryId?: string | null;
+  deliveryKey?: string;
+  deliveryStatus?: 'accepted' | 'delivered' | 'failed';
 }): Promise<RiverAlertEvent> {
   const sentAt = args.sentAt ?? new Date().toISOString();
   const storage = alertsStorage();
@@ -253,8 +279,45 @@ export async function appendRiverAlertEvent(args: {
     triggeredLabel: args.triggeredLabel,
     message: args.message,
     sentAt,
+    deliveryMethod: args.deliveryMethod,
+    provider: args.provider,
+    deliveryId: args.deliveryId,
+    deliveryKey: args.deliveryKey,
+    deliveryStatus: args.deliveryStatus,
+    deliveryUpdatedAt: args.deliveryStatus ? sentAt : undefined,
+    deliveryError: null,
   };
   store.events.push(event);
+  await storage.writeJson(eventsBlobName(), store);
+  return event;
+}
+
+export async function listRiverAlertEvents(): Promise<RiverAlertEvent[]> {
+  const store = (await alertsStorage().readJson<AlertEventsStore>(eventsBlobName())) ?? { events: [] };
+  return [...store.events].sort((left, right) => left.sentAt.localeCompare(right.sentAt));
+}
+
+export async function updateRiverAlertEvent(
+  id: string,
+  patch: Partial<Pick<RiverAlertEvent, 'deliveryStatus' | 'deliveryUpdatedAt' | 'deliveryError'>>
+): Promise<RiverAlertEvent | null> {
+  const storage = alertsStorage();
+  const store = (await storage.readJson<AlertEventsStore>(eventsBlobName())) ?? { events: [] };
+  const event = store.events.find((candidate) => candidate.id === id);
+  if (!event) {
+    return null;
+  }
+
+  if (patch.deliveryStatus) {
+    event.deliveryStatus = patch.deliveryStatus;
+  }
+  if (patch.deliveryUpdatedAt) {
+    event.deliveryUpdatedAt = patch.deliveryUpdatedAt;
+  }
+  if (patch.deliveryError !== undefined) {
+    event.deliveryError = patch.deliveryError;
+  }
+
   await storage.writeJson(eventsBlobName(), store);
   return event;
 }

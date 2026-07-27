@@ -1,8 +1,9 @@
 import type { ServerResponse } from 'node:http';
-import type { RiverAlertThreshold, RiverAlertState } from '../../lib/alerts';
+import type { RiverAlertThreshold } from '../../lib/alerts';
+import { initialAlertStateForSnapshot } from '../../lib/alert-policy';
 import type { ApiRequest } from '../http';
 import { clean, readJsonBody, sendBodyLimitResponse, sendJson } from '../http';
-import { getIp, isRateLimited } from '../rate-limit';
+import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 import { parseRiverAlertThreshold } from '../request-parsers';
 import { verifyRiverAlertActionToken } from '../../lib/alert-links';
 import {
@@ -20,7 +21,8 @@ export async function handleRiverAlertCreate(
   includeBody: boolean
 ) {
   const ip = getIp(request);
-  if (isRateLimited(ip)) {
+  const rateLimit = consumeRateLimit('alerts', ip);
+  if (rateLimit.limited) {
     return sendJson(
       response,
       429,
@@ -30,7 +32,8 @@ export async function handleRiverAlertCreate(
         message: 'Too many requests. Please try again later.',
       },
       includeBody,
-      'no-store'
+      'no-store',
+      rateLimitHeaders(rateLimit)
     );
   }
 
@@ -79,9 +82,7 @@ export async function handleRiverAlertCreate(
     }
 
     const snapshot = await getStoredRiverDetailSnapshot(river.slug).catch(() => null);
-    const initialState = snapshot && meetsAlertThreshold(snapshot.result.rating, threshold)
-      ? 'at_or_above_threshold'
-      : 'below_threshold';
+    const initialState = initialAlertStateForSnapshot(snapshot, threshold);
 
     const created = await createRiverThresholdAlert({
       email,
@@ -241,19 +242,6 @@ export async function handleRiverAlertUnsubscribe(
     );
   }
 }
-
-
-function meetsAlertThreshold(rating: string, threshold: RiverAlertThreshold): RiverAlertState {
-  return ratingRank(rating) >= (threshold === 'strong' ? 3 : 2) ? 'at_or_above_threshold' : 'below_threshold';
-}
-
-function ratingRank(rating: string) {
-  if (rating === 'Strong') return 3;
-  if (rating === 'Good') return 2;
-  if (rating === 'Fair') return 1;
-  return 0;
-}
-
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }

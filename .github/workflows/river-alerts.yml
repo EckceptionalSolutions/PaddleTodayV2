@@ -65,3 +65,16 @@ jobs:
           fi
 
           npm run alerts:evaluate
+
+      - name: Reconcile Expo push receipts
+        if: ${{ always() }}
+        env:
+          RIVER_ALERTS_CONTAINER_SAS_URL: ${{ secrets.RIVER_ALERTS_CONTAINER_SAS_URL }}
+          RIVER_ALERTS_BLOB_PREFIX: ${{ vars.RIVER_ALERTS_BLOB_PREFIX || 'river-alerts' }}
+        run: |
+          if [ -z "$RIVER_ALERTS_CONTAINER_SAS_URL" ]; then
+            echo "RIVER_ALERTS_CONTAINER_SAS_URL is not configured."
+            exit 1
+          fi
+
+          npm run alerts:reconcile-push

@@ -70,9 +70,9 @@ export function updateFavoriteButton(button) {
   button.setAttribute('aria-pressed', saved ? 'true' : 'false');
   button.setAttribute(
     'aria-label',
-    `${saved ? 'Remove from favorites' : 'Save to favorites'}: ${favorite.name || 'Route'}${favorite.reach ? `, ${favorite.reach}` : ''}`
+    `${saved ? 'Remove saved route' : 'Save route'}: ${favorite.name || 'Route'}${favorite.reach ? `, ${favorite.reach}` : ''}`
   );
-  button.title = saved ? 'Remove from favorites' : 'Save to favorites';
+  button.title = saved ? 'Remove saved route' : 'Save route';
 }
 
 export function refreshFavoriteButtons(root = document) {

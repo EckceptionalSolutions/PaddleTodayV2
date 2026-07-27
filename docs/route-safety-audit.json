@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T03:39:40.362Z",
-  "routeCount": 937,
-  "issueCount": 307,
+  "generatedAt": "2026-07-27T12:52:58.677Z",
+  "routeCount": 935,
+  "issueCount": 288,
   "summary": {
     "Critical": 0,
-    "High": 153,
-    "Medium": 154,
+    "High": 140,
+    "Medium": 148,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "levisa-fork-prestonsburg-airport",
-      "slug": "levisa-fork-prestonsburg-airport",
-      "name": "Levisa Fork",
-      "reach": "Prestonsburg Ramp to Airport Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "shoals; above that is high and the larger mainstem current gets pushier around wood, bridge piers, and outside bends. At normal levels this is a straightforward warmwater mainstem float between developed ramps, but it is still a moving river with long pools,"
-    },
     {
       "routeId": "russell-creek-russell-creek-road-green-river-russell-creek-vpa",
       "slug": "russell-creek-russell-creek-road-green-river-russell-creek-vpa",
@@ -418,17 +407,6 @@
       "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
     },
     {
-      "routeId": "sauk-river-richmond-horseshoe-lake",
-      "slug": "sauk-river-richmond-horseshoe-lake",
-      "name": "Sauk River",
-      "reach": "Richmond City Park to Horseshoe Lake",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "boat traffic, bridge approaches, weeds, and the need to stay out of downstream dam plans still require normal judgment. Confidence is good with a proxy caveat: DNR Map 2 places Richmond City Park, Highway 23/Glacial Lakes bridges, Horseshoe Lake access, and d"
-    },
-    {
       "routeId": "sauk-river-rockville-heims-mill",
       "slug": "sauk-river-rockville-heims-mill",
       "name": "Sauk River",
@@ -614,28 +592,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "as the upper main stem. It can still work below that, but flash-rain spikes and wood should lower trust quickly. Mostly approachable moving water at normal levels, but isolation, mud, and storm-changed wood still matter. The same Zumbro Falls gauge context car"
-    },
-    {
-      "routeId": "big-piney-river-boiling-spring-mason-bridge",
-      "slug": "big-piney-river-boiling-spring-mason-bridge",
-      "name": "Big Piney River",
-      "reach": "Boiling Spring Access to Mason Bridge Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "gh water Missouri Float Trips describes the Big Piney as mostly Class I, seldom Class II except in high water, and marks Boiling Spring Access and Mason Bridge Access in the same mile-by-mile sequence. MDC Outdoor Recreation: Access to Access https://mdc.mo.go"
-    },
-    {
-      "routeId": "big-piney-river-boiling-spring-mason-bridge",
-      "slug": "big-piney-river-boiling-spring-mason-bridge",
-      "name": "Big Piney River",
-      "reach": "Boiling Spring Access to Mason Bridge Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ater. Expect Ozark riffles, pools, gravel bars, fishing traffic, and occasional wood; high or rising water should not be treated as beginner-friendly. Confidence is good for a conservative Missouri add: MDC specifically describes Boiling Spring Access to Mason"
     },
     {
       "routeId": "big-piney-river-dogs-bluff-mineral-springs",
@@ -1010,105 +966,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "g, tight riffles, and possible walking. High or rising water can make channels, wood, and bridge approaches dangerous. National Rivers Project lists Shoal Creek as Class I-II, and lower-Shoal trip notes mention log jams, brush piles, and a treacherous split ch"
-    },
-    {
-      "routeId": "cuyahoga-river-ira-lock-29",
-      "slug": "cuyahoga-river-ira-lock-29",
-      "name": "Cuyahoga River",
-      "reach": "Ira Road to Lock 29 / Route 303",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "flatwater stretches, strainers, and a few attainment/play features when the Old Portage gauge is in range. Use the Cuyahoga at Old Portage gauge. Treat roughly 250 to 700 cfs as the guarded training window, 100 cfs as the bare runnable floor, and 1000 cfs as t"
-    },
-    {
-      "routeId": "cuyahoga-river-ira-lock-29",
-      "slug": "cuyahoga-river-ira-lock-29",
-      "name": "Cuyahoga River",
-      "reach": "Ira Road to Lock 29 / Route 303",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "n should be verified on arrival. Route and distance 6.9 miles, Class I American Whitewater lists the Cuyahoga E. Ira Road to Route 303 reach as 6.9 miles with Class I difficulty. Published AW range 100 to 1000 cfs AW gauge information for reach 3355 ties the r"
-    },
-    {
-      "routeId": "cuyahoga-river-ira-lock-29",
-      "slug": "cuyahoga-river-ira-lock-29",
-      "name": "Cuyahoga River",
-      "reach": "Ira Road to Lock 29 / Route 303",
-      "state": "Ohio",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "oat handling, training attainments, poor water quality, and changing post-storm wood keep this from being a simple beginner float. Confidence is acceptable for a guarded community-threshold add: AW documents the exact E. Ira Road to Route 303 reach, distance,"
-    },
-    {
-      "routeId": "split-rock-creek-split-rock-park-palisades",
-      "slug": "split-rock-creek-split-rock-park-palisades",
-      "name": "Split Rock Creek",
-      "reach": "Split Rock Park to Palisades State Park",
-      "state": "South Dakota",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "split-rock-creek-split-rock-park-palisades",
-      "slug": "split-rock-creek-split-rock-park-palisades",
-      "name": "Split Rock Creek",
-      "reach": "Split Rock Park to Palisades State Park",
-      "state": "South Dakota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "and Visit Garretson confirms Split Rock Park has a canoe/kayak launch below the dam. The app uses minimum-only scoring because the numeric guidance is local-community support rather than an official manager-published paddling band. Route-specific guide 2.8 mi;"
-    },
-    {
-      "routeId": "split-rock-creek-split-rock-park-palisades",
-      "slug": "split-rock-creek-split-rock-park-palisades",
-      "name": "Split Rock Creek",
-      "reach": "Split Rock Park to Palisades State Park",
-      "state": "South Dakota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Sioux Empire Paddlers describes this 2.8-mile route as Class I to II, with some Class III features around 1,000 cfs. The short mileage does not make it beginner water; scout ledges and avoid the route if fences, strainers, or high water exceed the group. Confi"
-    },
-    {
-      "routeId": "split-rock-creek-split-rock-park-palisades",
-      "slug": "split-rock-creek-split-rock-park-palisades",
-      "name": "Split Rock Creek",
-      "reach": "Split Rock Park to Palisades State Park",
-      "state": "South Dakota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "plit Rock Creek as an activity at Palisades State Park. Hazards Ledges, fences, wood, high-water wave Local route guidance calls out ledges, possible fences across the creek, and stronger Class III behavior near 1,000 cfs; GFP also broadly warns that fences cr"
-    },
-    {
-      "routeId": "badfish-creek-old-stage-casey",
-      "slug": "badfish-creek-old-stage-casey",
-      "name": "Badfish Creek",
-      "reach": "Old Stage Road to North Casey Road",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "lazy beginner float; paddlers need confident maneuvering and should be ready to portage fresh wood. Confidence is good for a Wisconsin community-source add: Wisconsin River Trips and Miles Paddled both document the exact Old Stage-to-North Casey route, Wiscons"
-    },
-    {
-      "routeId": "badfish-creek-old-stage-casey",
-      "slug": "badfish-creek-old-stage-casey",
-      "name": "Badfish Creek",
-      "reach": "Old Stage Road to North Casey Road",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "eps the route more paddleable than most small creeks, but tight bends, riffles, wood, and post-storm debris still demand active boat control. Use the Badfish Creek near Cooksville gauge. Treat 51 to 150 cfs as the best broad-audience window, 151 to 200 cfs as"
     },
     {
       "routeId": "baraboo-river-haskins-glenville",
@@ -1694,17 +1551,6 @@
       "evidence": "ribal lands, with County M access, the Dalles Gorge, Big Smokey Falls, multiple Class III drops, a Class IV finish, and a full Langlade-gauge flow ladder. Use the Wolf River at Langlade gauge. Treat 400 to 700 cfs as the best broad target, 250 to 400 cfs as lo"
     },
     {
-      "routeId": "maquoketa-river-canton-royertown",
-      "slug": "maquoketa-river-canton-royertown",
-      "name": "Maquoketa River",
-      "reach": "Canton Bridge Access to Royertown Bridge Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "the named Canton County Park topo feature. Royertown coordinates come from the Water Quality Portal site named AWARE 13 Royerton Bridge Access Maquoketa River, matching the county-listed Royertown Bridge Access. Hazards Low spots, wind, high-water push WRT re"
-    },
-    {
       "routeId": "goose-creek-tobacco-road-dump-hollow",
       "slug": "goose-creek-tobacco-road-dump-hollow",
       "name": "Goose Creek",
@@ -2220,17 +2066,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "window, with 100 cfs as a low-water warning and about 727 cfs as the high-water caution line. Expect scraping below the floor and pushy, debris-prone water above the window. This is a narrow Ozark creek with riffles, gravel bars, tree strainers, possible porta"
-    },
-    {
-      "routeId": "big-piney-river-boiling-spring-mason-bridge",
-      "slug": "big-piney-river-boiling-spring-mason-bridge",
-      "name": "Big Piney River",
-      "reach": "Boiling Spring Access to Mason Bridge Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "MDC-described six-mile Big Piney day float from Boiling Spring Access to Mason Bridge Access. It uses the same direct Big Piney USGS gauge as the adjacent V2 Big Piney routes, with"
     },
     {
       "routeId": "big-piney-river-dogs-bluff-mineral-springs",
@@ -2968,50 +2803,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "uses a conservative 225 cfs floor and does not infer an ideal range. High-water caution High reports include capsizes A MoHERP Tipton-Ford-to-Wildcat trip at 1,370 cfs was marked high and noted a treacherous split channel with many capsizes after the Highway 1"
-    },
-    {
-      "routeId": "cuyahoga-river-ira-lock-29",
-      "slug": "cuyahoga-river-ira-lock-29",
-      "name": "Cuyahoga River",
-      "reach": "Ira Road to Lock 29 / Route 303",
-      "state": "Ohio",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "twater stretches, but strainers, long-boat handling, training attainments, poor water quality, and changing post-storm wood keep this from being a simple beginner float. Confidence is acceptable for a guarded community-threshold add: AW documents the exact E."
-    },
-    {
-      "routeId": "cuyahoga-river-ira-lock-29",
-      "slug": "cuyahoga-river-ira-lock-29",
-      "name": "Cuyahoga River",
-      "reach": "Ira Road to Lock 29 / Route 303",
-      "state": "Ohio",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "dow, 100 cfs as the bare runnable floor, and 1000 cfs as the upper app ceiling. Scout visually after rain or snowmelt. AW rates the reach Class I and describes only a few rapids between flatwater stretches, but strainers, long-boat handling, training attainmen"
-    },
-    {
-      "routeId": "split-rock-creek-split-rock-park-palisades",
-      "slug": "split-rock-creek-split-rock-park-palisades",
-      "name": "Split Rock Creek",
-      "reach": "Split Rock Park to Palisades State Park",
-      "state": "South Dakota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short, scenic Garretson run from Split Rock Park to Palisades State Park with quartzite walls, riffles, ledges, and a direct USGS Corson gauge. This is a moving-water creek route,"
-    },
-    {
-      "routeId": "split-rock-creek-split-rock-park-palisades",
-      "slug": "split-rock-creek-split-rock-park-palisades",
-      "name": "Split Rock Creek",
-      "reach": "Split Rock Park to Palisades State Park",
-      "state": "South Dakota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "I features around 1,000 cfs. The short mileage does not make it beginner water; scout ledges and avoid the route if fences, strainers, or high water exceed the group. Confidence is good for a conservative first South Dakota add: local route guidance names the"
     },
     {
       "routeId": "baraboo-river-haskins-glenville",

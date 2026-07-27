@@ -1,6 +1,7 @@
 import { EmailClient } from '@azure/communication-email';
 import type { RiverAlertThreshold, RiverThresholdAlert } from './alerts';
 import { riverAlertManageUrl } from './alert-links';
+import { riverAlertDeliveryKey } from './alert-delivery';
 import type { RiverDetailSnapshot } from './river-snapshots';
 
 export interface AlertEmailPayload {
@@ -14,7 +15,10 @@ export async function sendRiverAlertEmail(args: AlertEmailPayload): Promise<{
   provider: 'azure' | 'log';
   id: string;
   subject: string;
+  deliveryKey: string;
+  deliveryStatus: 'delivered';
 }> {
+  const deliveryKey = riverAlertDeliveryKey(args.alert, args.snapshot);
   const subject = subjectForAlert(args.alert, args.snapshot);
   const text = textBody(args.alert, args.snapshot);
   const html = htmlBody(args.alert, args.snapshot);
@@ -28,8 +32,10 @@ export async function sendRiverAlertEmail(args: AlertEmailPayload): Promise<{
     });
     return {
       provider: 'log',
-      id: `log_${Date.now()}`,
+      id: deliveryKey,
       subject,
+      deliveryKey,
+      deliveryStatus: 'delivered',
     };
   }
 
@@ -58,18 +64,23 @@ export async function sendRiverAlertEmail(args: AlertEmailPayload): Promise<{
 
   const client = getAzureEmailClient(connectionString);
   const poller = await client.beginSend(payload, {
+    operationId: deliveryKey,
     updateIntervalInMs: 1000,
   });
   const response = await poller.pollUntilDone();
 
-  if (!response.id) {
-    throw new Error('Azure Communication Services email delivery failed: missing operation id.');
+  if (!response.id || response.status !== 'Succeeded') {
+    throw new Error(
+      `Azure Communication Services email delivery failed: ${response.error?.message || response.status || 'missing operation id'}.`
+    );
   }
 
   return {
     provider: 'azure',
     id: response.id,
     subject,
+    deliveryKey,
+    deliveryStatus: 'delivered',
   };
 }
 

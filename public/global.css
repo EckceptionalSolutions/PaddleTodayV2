@@ -2876,6 +2876,109 @@ body.site-search-open {
   font-size: 0.9rem;
 }
 
+.summary-map-legend__toggle {
+  appearance: none;
+  padding: 0.18rem 0.3rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  transition: opacity 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+
+.summary-map-legend__toggle:hover:not(:disabled) {
+  border-color: rgba(30, 115, 151, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.summary-map-legend__toggle:focus-visible {
+  outline: 3px solid rgba(30, 115, 151, 0.24);
+  outline-offset: 2px;
+}
+
+.summary-map-legend__toggle[aria-pressed='false'] {
+  opacity: 0.42;
+}
+
+.summary-map-legend__toggle[aria-pressed='false'] .summary-map-legend__marker {
+  filter: grayscale(0.75);
+  box-shadow: none;
+}
+
+.summary-map-legend__toggle:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+@media (min-width: 761px) {
+  .page-home .summary-map-shell--home .summary-map-frame {
+    grid-template-rows: minmax(22.5rem, 1fr) auto;
+  }
+
+  .page-home .summary-map-shell--home .summary-map {
+    height: auto;
+    min-height: 22.5rem;
+  }
+
+  .page-home .summary-map-shell--home .summary-map-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    justify-items: start;
+    min-height: 5.4rem;
+  }
+
+  .page-home .summary-map-shell--home .summary-map__status {
+    width: 100%;
+    min-height: 1.45rem;
+    margin: 0;
+  }
+
+  .page-home .summary-map-shell--home .summary-map-legend {
+    width: 100%;
+  }
+}
+
+.page-home .summary-map-shell--home .summary-map-legend {
+  gap: 0.35rem;
+  padding: 0.3rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 18px;
+  background: rgba(247, 250, 250, 0.86);
+}
+
+.page-home .summary-map-shell--home .summary-map-legend__toggle {
+  min-height: 2.5rem;
+  padding: 0.26rem 0.58rem 0.26rem 0.3rem;
+  border: 1px solid rgba(16, 35, 45, 0.09);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  box-shadow: 0 4px 12px rgba(16, 35, 45, 0.06);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.page-home .summary-map-shell--home .summary-map-legend__toggle:hover:not(:disabled) {
+  border-color: rgba(30, 115, 151, 0.28);
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(16, 35, 45, 0.09);
+}
+
+.page-home .summary-map-shell--home .summary-map-legend__toggle[aria-pressed='false'] {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  opacity: 0.58;
+}
+
+.page-home .summary-map-shell--home .summary-map-legend__toggle .summary-map-legend__marker {
+  width: 1.9rem;
+  height: 1.9rem;
+  font-size: 0.68rem;
+}
+
 /* Route detail hierarchy: keep the current call visible and disclose supporting detail on demand. */
 .river-detail__route-context,
 .river-detail__conditions-details,

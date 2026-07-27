@@ -1,4 +1,11 @@
 import { fetchJson } from './http';
+import {
+  addDaysToDateKey,
+  forecastDateKey,
+  formatForecastDateKey,
+  formatForecastHourLabel,
+  upcomingWeekendDateKeys,
+} from './forecast-time';
 import type { ForecastWindow, HourlyWeatherPoint, WeatherSnapshot } from './types';
 
 const NWS_HEADERS = {
@@ -110,6 +117,8 @@ export async function fetchNwsWeatherSnapshot(
   }
 
   const nowPeriod = periods[0];
+  const forecastTimeZone = point.properties?.timeZone ?? null;
+  const forecastReferenceTime = nowPeriod.startTime ?? new Date().toISOString();
   const observationProps = latestObservation?.properties;
   const observedAt =
     typeof observationProps?.timestamp === 'string' ? observationProps.timestamp : nowPeriod.startTime ?? null;
@@ -131,6 +140,8 @@ export async function fetchNwsWeatherSnapshot(
 
   const hourlyPoints = buildHourlyForecastPoints({
     periods,
+    timeZone: forecastTimeZone,
+    referenceTime: forecastReferenceTime,
     precipitationValues: Array.isArray(gridData.properties?.probabilityOfPrecipitation?.values)
       ? gridData.properties?.probabilityOfPrecipitation?.values ?? []
       : [],
@@ -191,8 +202,8 @@ export async function fetchNwsWeatherSnapshot(
     weatherCode: null,
     conditionLabel: observationProps?.textDescription ?? nowPeriod.shortForecast ?? null,
     todayHourly: hourlyPoints.slice(0, 8),
-    tomorrow: buildTomorrowWindow(periods),
-    weekend: buildWeekendWindow(periods),
+    tomorrow: buildTomorrowWindow(periods, forecastReferenceTime, forecastTimeZone),
+    weekend: buildWeekendWindow(periods, forecastReferenceTime, forecastTimeZone),
     recentRain24hIn: null,
     recentRain72hIn: null,
     precipitationProbabilityNow: nowPrecipitationProbability,
@@ -230,6 +241,8 @@ async function fetchLatestObservation(observationStationsUrl: string | undefined
 
 function buildHourlyForecastPoints(args: {
   periods: NwsPeriod[];
+  timeZone: string | null;
+  referenceTime: string;
   precipitationValues: NwsGridValue[];
   precipitationAmounts: NwsGridValue[];
   gustValues: NwsGridValue[];
@@ -241,9 +254,9 @@ function buildHourlyForecastPoints(args: {
       const timestamp = period.startTime;
       return {
         time: timestamp,
-        label: new Date(timestamp).toLocaleTimeString([], {
-          hour: 'numeric',
-          minute: '2-digit',
+        label: formatForecastHourLabel(timestamp, {
+          timeZone: args.timeZone,
+          referenceTime: args.referenceTime,
         }),
         isDaytime: typeof period.isDaytime === 'boolean' ? period.isDaytime : null,
         temperatureF:
@@ -261,31 +274,43 @@ function buildHourlyForecastPoints(args: {
     });
 }
 
-function buildTomorrowWindow(periods: NwsPeriod[]): ForecastWindow | null {
-  const tomorrowDate = addDays(new Date(), 1);
+function buildTomorrowWindow(
+  periods: NwsPeriod[],
+  referenceTime: string,
+  timeZone: string | null,
+): ForecastWindow | null {
+  const referenceDateKey = forecastDateKey(referenceTime, timeZone);
+  if (!referenceDateKey) {
+    return null;
+  }
+  const tomorrowDateKey = addDaysToDateKey(referenceDateKey, 1);
   const tomorrowPeriods = periods.filter((period) => {
-    const start = typeof period.startTime === 'string' ? new Date(period.startTime) : null;
-    return start && sameDate(start, tomorrowDate);
+    return typeof period.startTime === 'string' &&
+      forecastDateKey(period.startTime, timeZone) === tomorrowDateKey;
   });
 
   return buildForecastWindow('Tomorrow', tomorrowPeriods);
 }
 
-function buildWeekendWindow(periods: NwsPeriod[]): ForecastWindow | null {
-  const now = new Date();
-  const saturday = nextWeekday(now, 6);
-  const sunday = new Date(saturday);
-  sunday.setDate(saturday.getDate() + 1);
+function buildWeekendWindow(
+  periods: NwsPeriod[],
+  referenceTime: string,
+  timeZone: string | null,
+): ForecastWindow | null {
+  const weekend = upcomingWeekendDateKeys(referenceTime, timeZone);
+  if (!weekend) {
+    return null;
+  }
   const weekendPeriods = periods.filter((period) => {
-    const start = typeof period.startTime === 'string' ? new Date(period.startTime) : null;
-    return start && (sameDate(start, saturday) || sameDate(start, sunday));
+    if (typeof period.startTime !== 'string') {
+      return false;
+    }
+    const dateKey = forecastDateKey(period.startTime, timeZone);
+    return dateKey === weekend.saturday || dateKey === weekend.sunday;
   });
 
   return buildForecastWindow(
-    `Weekend (${saturday.toLocaleDateString([], { month: 'short', day: 'numeric' })}-${sunday.toLocaleDateString([], {
-      month: 'short',
-      day: 'numeric',
-    })})`,
+    `Weekend (${formatForecastDateKey(weekend.saturday)}-${formatForecastDateKey(weekend.sunday)})`,
     weekendPeriods
   );
 }
@@ -435,24 +460,4 @@ function convertKmToMph(value: number): number {
 
 function sum(values: number[]) {
   return values.reduce((total, value) => total + value, 0);
-}
-
-function sameDate(left: Date, right: Date) {
-  return (
-    left.getFullYear() === right.getFullYear() &&
-    left.getMonth() === right.getMonth() &&
-    left.getDate() === right.getDate()
-  );
-}
-
-function addDays(date: Date, days: number) {
-  const next = new Date(date);
-  next.setDate(next.getDate() + days);
-  return next;
-}
-
-function nextWeekday(date: Date, weekday: number) {
-  const current = date.getDay();
-  const delta = ((weekday - current + 7) % 7) || 7;
-  return addDays(date, delta);
 }

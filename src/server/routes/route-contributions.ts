@@ -2,7 +2,7 @@ import type { ServerResponse } from 'node:http';
 import type { ApiRequest } from '../http';
 import { clean, readJsonBody, sendBinary, sendBodyLimitResponse, sendJson } from '../http';
 import { contentTypeFor } from '../static-route';
-import { getIp, isRateLimited } from '../rate-limit';
+import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 import { getRiverBySlug } from '../../lib/rivers';
 import {
   createRouteContributionSubmission,
@@ -21,7 +21,8 @@ export async function handleRoutePhotoSubmission(
   includeBody: boolean
 ) {
   const ip = getIp(request);
-  if (isRateLimited(ip)) {
+  const rateLimit = consumeRateLimit('route_contributions', ip);
+  if (rateLimit.limited) {
     return sendJson(
       response,
       429,
@@ -31,7 +32,8 @@ export async function handleRoutePhotoSubmission(
         message: 'Too many requests. Please try again later.',
       },
       includeBody,
-      'no-store'
+      'no-store',
+      rateLimitHeaders(rateLimit)
     );
   }
 

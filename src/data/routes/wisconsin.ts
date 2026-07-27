@@ -3385,6 +3385,18 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Badfish Creek Near Cooksville, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05430150/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers"
+      ],
+      "safetyNotes": [
+        "Fresh deadfall can block this narrow, winding reach even after volunteer clearing. Check current wood reports and stop or portage rather than entering a strainer.",
+        "Above 200 cfs at the direct Cooksville gauge, current becomes pushier and tight bends leave less time to react to wood; 301+ cfs remains outside the app's broad recommendation.",
+        "Finish in the small river-left channel before the North Casey Road bridge. Confirm the roadside shoulder and bank condition before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 51,
@@ -3412,7 +3424,7 @@ export const wisconsinRoutes: River[] = [
       "seasonNotes": "The creek often has enough water outside spring because wastewater effluent stabilizes baseflow. Warm-weather paddles are most common, but fresh storms can turn the same narrow bends and strainers into a much pushier trip.",
       "difficulty": "moderate",
       "difficultyNotes": "Mostly Class I moving water with many tight turns, riffles, low branches, and occasional deadfall. It is not a lazy beginner float; paddlers need confident maneuvering and should be ready to portage fresh wood.",
-      "confidenceNotes": "Confidence is good for a Wisconsin community-source add: Wisconsin River Trips and Miles Paddled both document the exact Old Stage-to-North Casey route, Wisconsin DNR confirms Badfish Creek Wildlife Area has maintained canoe/kayak launches and parking at the Old Stage corridor, the Cooksville USGS gauge sits on the route corridor, and 2024 Wisconsin River Trips comments report the corridor cleared from Old Stage to the Yahara. The main caveat is that wood can return quickly after storms."
+      "confidenceNotes": "Confidence is good for a Wisconsin community-source add: Wisconsin River Trips and Miles Paddled both document the exact Old Stage-to-North Casey route, Wisconsin DNR confirms Badfish Creek Wildlife Area has maintained canoe/kayak launches and parking at the Old Stage corridor, the Cooksville USGS gauge sits on the route corridor, and a November 2025 Miles Paddled comment reports the corridor clear from County A through Casey Road. The main caveat is that wood can return quickly after storms."
     },
     "evidenceNotes": [
       {
@@ -3447,9 +3459,9 @@ export const wisconsinRoutes: River[] = [
       },
       {
         "label": "Recent obstruction context",
-        "value": "Cleared September 2024",
-        "note": "Wisconsin River Trips comments report that Mad City Paddlers cleared Badfish Creek from Old Stage to the Yahara on September 16, 2024. Still treat fresh storms and wind events as a reason to re-check wood.",
-        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/badfish-creek/old-stage-rd-to-casey-rd"
+        "value": "Reported clear November 2025",
+        "note": "A November 2025 Miles Paddled comment reports Badfish Creek clear from County A through Casey Road after recent volunteer sawing. Still treat fresh storms and wind events as a reason to re-check wood.",
+        "sourceUrl": "https://milespaddled.com/badfish-creek-paddle-guide/"
       }
     ],
     "sourceLinks": [

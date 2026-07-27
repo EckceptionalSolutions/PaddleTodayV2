@@ -61,14 +61,14 @@ Purpose: early Ohio research queue only. These are not implementation-ready rout
 
 ### Cuyahoga River - Ira Road to Route 303 / Peninsula
 
-- Status: Added to V2 as `cuyahoga-river-ira-lock-29` on 2026-05-25.
+- Status: Removed from the canonical V2 route order and marked `blocked_until_date` on 2026-07-26.
 - Candidate route: Ira Road / Ira Trailhead corridor to Lock 29 / Route 303 in Peninsula, about 6.9 miles, Class I.
-- Endpoint confidence: Medium-high. AW names Ira Road and Route 303/Peninsula. NPS confirms Ira Trailhead public parking and Lock 29 river access, while the Cuyahoga River Water Trail map publishes Lock 29 access coordinates. The Ira riverbank put-in remains less polished than Lock 29 and should be verified on arrival.
+- Endpoint confidence: Blocked. AW names Ira Road and Route 303/Peninsula, but current NPS guidance identifies the shelf and low-head-dam remnants immediately before Lock 29 as a fixed hazard, says the upstream take-out/portage is not easy, and advises novices to start at Lock 29. NPS does not identify Ira Trailhead as one of its current river-access sites or publish a precise public Ira launch and upstream-of-hazard landing/portage pair.
 - Gauge notes: Direct USGS live gauge: Cuyahoga River at Old Portage, OH, USGS `04206000`. AW uses Old Portage for the exact Ira-to-303 route; USGS confirms the monitoring location.
 - Threshold support: Strong community support from AW for the exact reach. AW gauge information for reach 3355 publishes `100 - 1000 cfs` as barely runnable through high runnable, and route text gives feature notes at 250, 300, and 700 cfs. V2 uses a guarded 250-700 cfs app target inside the AW range.
 - Character/hazards: AW calls it a training reach with a few Class I rapids, flatwater sections, strainers, poor but improving water quality, and route-specific attainments. Cuyahoga River Water Trail describes the broader corridor as varied, with beginners better above Kent, intermediate paddlers between Kent and Cuyahoga Falls, and the Gorge for experienced paddlers only.
 - Source links: [American Whitewater Ira-to-303 reach](https://www.americanwhitewater.org/content/River/view/river-detail/3355/main), [AW Ira-to-303 gauge info](https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3355), [USGS Old Portage](https://waterdata.usgs.gov/monitoring-location/USGS-04206000/), [ODNR Cuyahoga River Water Trail PDF](https://dam.assets.ohio.gov/image/upload/odnr/watertrails/CuyahogaRiverWaterTrail.pdf), [NPS Ira Trailhead](https://home.nps.gov/places/000/ira-trailhead.htm), [NPS Lock 29 River Access](https://www.nps.gov/places/lock-29-river-access.htm).
-- Next action: Improve the Ira put-in coordinate/source if an official water-trail GIS point appears, and watch current NPS closures before extending downstream.
+- Next action: Keep blocked until NPS or the water-trail manager publishes a precise public Ira launch and pre-hazard take-out/portage alignment with current signage or equivalent on-site wayfinding.
 
 ### Cuyahoga River - Lock 29 Trailhead to Station Road Bridge Trailhead
 

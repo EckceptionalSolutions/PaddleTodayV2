@@ -18,7 +18,8 @@ export function sendJson(
   status: number,
   payload: unknown,
   includeBody = true,
-  cacheControl = 'public, max-age=30, stale-while-revalidate=120'
+  cacheControl = 'public, max-age=30, stale-while-revalidate=120',
+  extraHeaders: Record<string, string> = {}
 ) {
   const body = JSON.stringify(payload);
   const bodyBuffer = Buffer.from(body);
@@ -34,6 +35,7 @@ export function sendJson(
     ...(compressedBody ? { 'content-encoding': 'gzip', vary: 'Accept-Encoding' } : {}),
     'x-request-id': requestIdFromPayload(payload),
     'access-control-allow-origin': '*',
+    ...extraHeaders,
   });
   response.end(includeBody ? responseBody : undefined);
   return response;

@@ -24,8 +24,8 @@ The old PaddleToday deployment shape was:
 - `/api/river-groups/:riverId.json`
 - `/api/river-request`
 - `/api/route-request`
-- `/health`
-- `/health/ready`
+- `/api/health`
+- `/api/health/ready`
 
 Rewriting that backend into Azure Functions is possible later, but it is unnecessary work for the first production deployment.
 
@@ -83,8 +83,9 @@ This preserves the current same-origin client behavior, so frontend code does no
 - frontend builds cleanly with `npm run build`
 - backend starts cleanly with `npm run start`
 - health checks exist:
-  - `/health`
-  - `/health/ready`
+  - `/api/health`
+  - `/api/health/ready`
+  - `/health` and `/health/ready` aliases on the direct App Service origin
 - frontend already talks to app-owned `/api/*` paths
 
 ## Required app settings
@@ -149,14 +150,14 @@ Recommended order:
 3. Link the App Service backend inside the Static Web App.
 4. Verify `/api/*` works through the Static Web App domain.
 5. Add `paddletoday.com` and `www.paddletoday.com` to Static Web Apps.
-6. Cut DNS only after `/health/ready` and `/api/rivers/summary.json` are healthy through the production frontend domain.
+6. Cut DNS only after `/api/health/ready` and `/api/rivers/summary.json` are healthy through the production frontend domain.
 
 ## Release checklist
 
 1. Frontend workflow deploys `dist/`.
 2. App Service workflow deploys backend and starts successfully.
 3. Static Web App is linked to the App Service backend.
-4. `https://<swa-domain>/health/ready` returns `200`.
+4. `https://<swa-domain>/api/health/ready` returns `200`.
 5. `https://<swa-domain>/api/rivers/summary.json` returns live JSON.
 6. Homepage loads live calls.
 7. A river detail page loads score, map, gauge chart, and access planner.

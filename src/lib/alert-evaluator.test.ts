@@ -34,11 +34,13 @@ function buildSnapshot(args: {
 function buildAlert(args: {
   threshold?: 'good' | 'strong';
   lastState?: RiverThresholdAlert['lastState'];
+  belowSince?: string | null;
   lastTriggeredAt?: string | null;
-} = {}): Pick<RiverThresholdAlert, 'threshold' | 'lastState' | 'lastTriggeredAt'> {
+} = {}): Pick<RiverThresholdAlert, 'threshold' | 'lastState' | 'belowSince' | 'lastTriggeredAt'> {
   return {
     threshold: args.threshold ?? 'good',
     lastState: args.lastState ?? 'below_threshold',
+    belowSince: args.belowSince ?? null,
     lastTriggeredAt: args.lastTriggeredAt ?? null,
   };
 }
@@ -64,14 +66,46 @@ describe('evaluateAlertSnapshot', () => {
     expect(result.status).toBe('stay_above');
   });
 
-  it('resets to below when the river falls back under the threshold', () => {
+  it('waits for a sustained drop before re-arming', () => {
     const result = evaluateAlertSnapshot(
-      buildAlert({ threshold: 'good', lastState: 'at_or_above_threshold' }),
+      buildAlert({
+        threshold: 'good',
+        lastState: 'at_or_above_threshold',
+        belowSince: '2026-04-04T11:30:00.000Z',
+      }),
+      buildSnapshot({ rating: 'Fair' }),
+      new Date('2026-04-04T12:30:00.000Z')
+    );
+
+    expect(result.status).toBe('pending_rearm');
+  });
+
+  it('resets after the route stays below for the full re-arm window', () => {
+    const result = evaluateAlertSnapshot(
+      buildAlert({
+        threshold: 'good',
+        lastState: 'at_or_above_threshold',
+        belowSince: '2026-04-04T10:00:00.000Z',
+      }),
       buildSnapshot({ rating: 'Fair' }),
       new Date('2026-04-04T12:30:00.000Z')
     );
 
     expect(result.status).toBe('reset_below');
+  });
+
+  it('keeps an alert armed when below-threshold evidence is transient', () => {
+    const result = evaluateAlertSnapshot(
+      buildAlert({
+        threshold: 'good',
+        lastState: 'at_or_above_threshold',
+        belowSince: '2026-04-04T11:30:00.000Z',
+      }),
+      buildSnapshot({ rating: 'Good' }),
+      new Date('2026-04-04T12:30:00.000Z')
+    );
+
+    expect(result.status).toBe('stay_above');
   });
 
   it('skips low-confidence snapshots', () => {

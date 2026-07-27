@@ -16434,11 +16434,11 @@
       "river": "Cuyahoga River",
       "route": "Ira Road to Lock 29 / Route 303",
       "state": "OH",
-      "status": "added",
-      "lastReviewed": "2026-05-25",
-      "reviewCount": 1,
-      "blocker": null,
-      "retryCondition": "Already implemented as cuyahoga-river-ira-lock-29. Revisit if an official Ira river-access GIS point or stronger water-quality/closure source changes the access model.",
+      "status": "blocked_until_date",
+      "lastReviewed": "2026-07-26",
+      "reviewCount": 2,
+      "blocker": "Current NPS paddling guidance identifies a bedrock shelf and low-head-dam remnants immediately before the Lock 29 access, directs paddlers to take out upstream, says the take-out and portage are not easy and have multiple options, and advises novice paddlers to start at Lock 29 instead. NPS still does not identify Ira Trailhead as one of the park's seven river-access sites or publish a precise manager-backed Ira launch and upstream-of-hazard take-out/portage pair. The shipped Ira-to-Lock-29 card is therefore removed from the canonical route order rather than relying on warning copy for an imprecise dam-adjacent maneuver.",
+      "retryCondition": "Revisit only if NPS or the Cuyahoga River Water Trail publishes a manager-backed Ira launch plus a precise public upstream take-out/portage alignment for the Lock 29 shelf and dam remnants, including current signage or equivalent on-site wayfinding.",
       "retryDate": null,
       "sourcesChecked": [
         "American Whitewater Cuyahoga - E. Ira Rd. to Rte. 303 reach",
@@ -16453,7 +16453,7 @@
         "Cuyahoga River - Ira Road to Peninsula",
         "Cuyahoga River - Ira Trailhead to Lock 29"
       ],
-      "v2Slug": "cuyahoga-river-ira-lock-29",
+      "v2Slug": null,
       "gauge": {
         "quality": "direct",
         "notes": "American Whitewater ties the exact Ira-to-Route-303 reach to the Cuyahoga River at Old Portage USGS gauge, station 04206000."
@@ -16476,7 +16476,7 @@
         },
         "coordinateSource": "NPS Ira Trailhead coordinate/address context and ODNR/Cuyahoga River Water Trail Lock 29 access coordinates."
       },
-      "notes": "Implemented 2026-05-25 as a guarded Class I training route. AW provides the exact route, distance, Old Portage gauge, and 100-1000 cfs range. Lock 29 gives a clean official Route 303 take-out; the Ira put-in remains the weaker side because AW points to Ira Road and nearby Towpath Trail parking rather than a polished water-trail launch, so trip details explicitly require local access verification."
+      "notes": "Implemented 2026-05-25 as a guarded Class I training route, then removed from the canonical published route order on 2026-07-26 after current NPS guidance made the release blocker explicit. AW still supports the historic exact route, distance, Old Portage gauge, and 100-1000 cfs range, but NPS now identifies the shelf and low-head-dam remnants immediately before Lock 29 as a fixed hazard, says the upstream take-out/portage is not easy, and recommends that novices start at Lock 29. Keep blocked until both the Ira launch and the pre-hazard landing/portage are manager-backed and precise."
     },
     {
       "candidateId": "oh-vermilion-river-schoepfle-garden-mill-hollow",
@@ -19595,11 +19595,11 @@
       "river": "Split Rock Creek",
       "route": "Split Rock Park to Palisades State Park",
       "state": "SD",
-      "status": "added",
-      "lastReviewed": "2026-05-26",
-      "reviewCount": 1,
-      "blocker": null,
-      "retryCondition": "Already implemented as split-rock-creek-split-rock-park-palisades. Revisit only if SD GFP, City of Garretson, Sioux Empire Paddlers, USGS, or American Whitewater updates access, gauge thresholds, closures, fence/wood hazards, or a rights-clean exact-route photo appears.",
+      "status": "blocked_until_date",
+      "lastReviewed": "2026-07-27",
+      "reviewCount": 2,
+      "blocker": "The published route was removed from the canonical route order on 2026-07-27. The shipped Palisades take-out anchor (43.725833, -96.509167) is north of the Split Rock Park put-in (43.713056, -96.503056), while current Visit Garretson guidance says the downstream launch south of the dam travels to Palisades and the current GFP park page locates Palisades farther south at 43.68764, -96.51717. Neither source publishes a precise manager-backed creek landing/parking coordinate for the route. USGS 06482610 remains the correct same-creek station, but the modern monitoring page currently exposes no continuous data and the legacy current-conditions result available during review ended on 2026-07-08. The route therefore fails the source-backed endpoint and current supported-gauge gates; warning copy or a safetyProfile cannot cure those blockers.",
+      "retryCondition": "Revisit only when South Dakota GFP, the City of Garretson, or another route manager publishes a precise public Palisades creek landing and parking location for this downstream run, and USGS 06482610 again supplies product-fetchable current observations. Reconfirm the entire endpoint pair and route direction before republishing.",
       "retryDate": null,
       "sourcesChecked": [
         "Sioux Empire Paddlers Split Rock Creek route page",
@@ -19613,12 +19613,12 @@
         "Split Rock Creek Garretson to Palisades",
         "Garretson Split Rock Creek run"
       ],
-      "v2Slug": "split-rock-creek-split-rock-park-palisades",
+      "v2Slug": null,
       "gauge": {
-        "quality": "direct",
+        "quality": "stale_current_data",
         "id": "06482610",
         "provider": "USGS",
-        "notes": "USGS 06482610 Split Rock Creek at Corson, SD is the direct same-creek gauge named by Sioux Empire Paddlers for the Split Rock Park-to-Palisades route and is supported by the current product USGS path."
+        "notes": "USGS 06482610 is the correct same-creek station named by Sioux Empire Paddlers, but the modern monitoring page exposed no continuous data during the 2026-07-27 review and the available legacy current-conditions result ended on 2026-07-08. Keep blocked until the product can fetch current observations again."
       },
       "thresholdSupport": {
         "strength": "community_minimum_only",
@@ -19636,9 +19636,9 @@
           "latitude": 43.725833,
           "longitude": -96.509167
         },
-        "coordinateSource": "Named park/access map context from Visit Garretson Split Rock Park and South Dakota GFP Palisades State Park pages; coordinates are practical access anchors and route copy tells users to follow on-site signage."
+        "coordinateSource": "The stored coordinates are historical practical anchors, not manager-published launch and landing points. The take-out anchor is north of the put-in even though Visit Garretson describes the route as traveling south of the dam to Palisades; the current GFP general park GPS is farther south. Do not reuse these coordinates without manager-backed endpoint verification."
       },
-      "notes": "Implemented 2026-05-26 as the first South Dakota V2 route. It clears the conservative route bar with a direct live USGS gauge, route-specific numeric local threshold support, public park endpoints, short practical day-run shape, and explicit caveats for ledges, fences, strainers, high water, state-park fees, and scouting. No gallery asset was added."
+      "notes": "Implemented 2026-05-26 as the first South Dakota V2 route, then removed from publication on 2026-07-27 after route-safety review found that the take-out coordinate was not directionally consistent with the sourced downstream route and the direct USGS gauge was no longer product-current. The dormant route and trip-detail records remain for source-backed re-verification."
     },
     {
       "candidateId": "sd-big-sioux-jay-heath-canoe-kayak-trail",

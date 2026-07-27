@@ -25,7 +25,7 @@ export function SaveToggleButton({
         hitSlop={10}
         accessibilityRole="button"
         accessibilityLabel={saved ? 'Remove saved route' : 'Save route'}
-        accessibilityHint={saved ? 'Removes this route from Saved.' : 'Adds this route to Saved.'}
+        accessibilityHint={saved ? 'Removes this route from My Routes.' : 'Adds this route to My Routes.'}
         accessibilityState={{ selected: saved }}
         android_ripple={{ color: colors.canvasMuted, borderless: true }}
       >
@@ -44,7 +44,7 @@ export function SaveToggleButton({
       onPress={handlePress}
       accessibilityRole="button"
       accessibilityLabel={saved ? 'Remove saved route' : 'Save route'}
-      accessibilityHint={saved ? 'Removes this route from Saved.' : 'Adds this route to Saved.'}
+      accessibilityHint={saved ? 'Removes this route from My Routes.' : 'Adds this route to My Routes.'}
       accessibilityState={{ selected: saved }}
       android_ripple={{ color: colors.accentSoft }}
     >
@@ -55,7 +55,7 @@ export function SaveToggleButton({
           color={saved ? colors.surfaceStrong : colors.accent}
         />
         <Text style={[styles.label, saved ? styles.labelSaved : null]}>
-          {saved ? 'Saved' : 'Save river'}
+          {saved ? 'Saved' : 'Save'}
         </Text>
       </View>
     </Pressable>

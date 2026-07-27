@@ -78,7 +78,7 @@ export default function SavedScreen() {
 
   if (!isHydrated) {
     return (
-      <AppLoadingState title="Loading saved rivers" />
+      <AppLoadingState title="Loading saved routes" />
     );
   }
 
@@ -94,13 +94,13 @@ export default function SavedScreen() {
       ]}
     >
       <AppRefreshNotice
-        label="Your saved list is still available."
+        label="Your saved-route list is still available."
         isError={summaryQuery.isRefetchError}
         dataUpdatedAt={summaryQuery.dataUpdatedAt}
         onRetry={() => void summaryQuery.refetch()}
       />
-      <Text style={styles.kicker}>Saved</Text>
-      <Text style={styles.title}>Your saved routes</Text>
+      <Text style={styles.kicker}>My Routes</Text>
+      <Text style={styles.title}>Saved routes and alerts</Text>
       <Text style={styles.subtitle}>
         A status board for rivers you check often.
       </Text>
@@ -108,7 +108,7 @@ export default function SavedScreen() {
       {savedRivers.length > 0 ? (
         <View style={styles.savedOverview}>
           <OverviewTile icon="bookmark-check-outline" label="Saved" value={String(savedRivers.length)} />
-          <OverviewTile icon="bell-ring-outline" label="Watched" value={`${savedAlertCount}/${savedRivers.length}`} />
+          <OverviewTile icon="bell-ring-outline" label="Alerts" value={`${savedAlertCount}/${savedRivers.length}`} />
           <OverviewTile icon="waves" label="Calls" value={`${savedSummaries.length}/${savedRivers.length}`} />
         </View>
       ) : null}
@@ -118,9 +118,9 @@ export default function SavedScreen() {
           <View style={styles.emptyIcon}>
             <MaterialCommunityIcons name="bookmark-outline" color={colors.accent} size={26} />
           </View>
-          <Text style={styles.emptyTitle}>No saved rivers yet</Text>
+          <Text style={styles.emptyTitle}>No saved routes yet</Text>
           <Text style={styles.emptyBody}>
-            Save repeat trips and local favorites here.
+            Save repeat trips here, then turn on alerts for the conditions you care about.
           </Text>
           <View style={styles.emptyActions}>
             <Pressable style={styles.primaryButton} onPress={() => router.push('/')}>
@@ -200,7 +200,7 @@ export default function SavedScreen() {
 
       {activeTab === 'alerts' && savedSummaries.length > 0 ? (
         <SectionCard
-          title="Saved alerts"
+          title="Condition alerts"
           subtitle="Get notified when saved routes reach Good or Strong."
         >
           <View style={styles.alertRouteList}>
@@ -221,7 +221,7 @@ export default function SavedScreen() {
 
       {activeTab === 'alerts' && savedRivers.length > 0 && savedSummaries.length === 0 ? (
         <SectionCard
-          title="Saved alerts"
+          title="Condition alerts"
           subtitle="Alerts need a current route call before they can be configured."
         >
           <View style={styles.alertEmptyPanel}>
@@ -229,7 +229,7 @@ export default function SavedScreen() {
             <View style={styles.alertEmptyCopy}>
               <Text style={styles.alertEmptyTitle}>No current calls for saved routes</Text>
               <Text style={styles.alertEmptyBody}>
-                Your saved routes are still saved. Once route calls refresh for them, alert controls will appear here.
+                Your saved routes are still here. Once route calls refresh for them, alert controls will appear here.
               </Text>
             </View>
           </View>
@@ -240,7 +240,7 @@ export default function SavedScreen() {
         <View style={styles.offlineNote}>
           <MaterialCommunityIcons name="wifi-off" color={colors.noGo} size={18} />
           <Text style={styles.footnote}>
-            Saved calls did not refresh. Your list is still here.
+            Saved-route calls did not refresh. Your list is still here.
           </Text>
         </View>
       ) : null}
@@ -272,7 +272,7 @@ function SavedTabs({
     <View style={styles.tabs}>
       <SavedTabButton
         icon="bookmark-outline"
-        label="Routes"
+        label="Saved Routes"
         active={activeTab === 'routes'}
         onPress={() => onChange('routes')}
       />

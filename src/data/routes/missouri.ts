@@ -9067,6 +9067,20 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and you should expect shallow riffles, dragging, and slow pools. This route has no defended high-water cutoff, so treat rising water and recent storms cautiously.",
     "latitude": 37.4594894,
     "longitude": -91.9893237,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "MDC rates this exact six-mile float Category I / Easy only outside high-water periods. Because the route has no defended high-water cutoff, do not treat a high or rising gauge as beginner-friendly.",
+        "Snags, tangles, and fresh wood can demand active boat control. Keep scanning through riffles and bends, and stop or portage rather than entering an obstruction.",
+        "Use the direct Big Piney gauge and the existing 309 cfs low-water floor as a minimum-only check. The Forest Service warns that the Big Piney can rise rapidly, so also check recent rain and visible landing conditions."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06930000",
       "provider": "usgs",
@@ -9151,6 +9165,12 @@ export const missouriRoutes: River[] = [
         "value": "Class I, seldom II except high water",
         "note": "Missouri Float Trips describes the Big Piney as mostly Class I, seldom Class II except in high water, and marks Boiling Spring Access and Mason Bridge Access in the same mile-by-mile sequence.",
         "sourceUrl": "https://www.floatmissouri.com/plan/missouri-rivers/big-piney-river/"
+      },
+      {
+        "label": "Rapid-rise context",
+        "value": "Check changing conditions",
+        "note": "The Forest Service describes the Big Piney as family-friendly but warns in its Bookers Bend river-access guidance that the river can rise rapidly. Use recent rain and visible conditions alongside the direct gauge.",
+        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/bookers-bend"
       }
     ],
     "sourceLinks": [
@@ -9202,6 +9222,11 @@ export const missouriRoutes: River[] = [
       {
         "label": "Missouri Float Trips Big Piney River",
         "url": "https://www.floatmissouri.com/plan/missouri-rivers/big-piney-river/",
+        "provider": "local"
+      },
+      {
+        "label": "Forest Service Bookers Bend high-water guidance",
+        "url": "https://www.fs.usda.gov/r09/marktwain/recreation/bookers-bend",
         "provider": "local"
       }
     ]

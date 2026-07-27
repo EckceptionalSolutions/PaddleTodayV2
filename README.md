@@ -8,7 +8,7 @@ The product question is simple:
 
 This app is intentionally narrow. The MVP currently ships:
 
-- 178 tracked river routes across the Midwest
+- more than 900 tracked river routes across 18 states
 - a live summary page
 - a dedicated About page for methodology and trust notes
 - a dedicated Request a river page for new reach submissions
@@ -124,8 +124,9 @@ Use the frontend workflow to deploy `dist/` to Azure Static Web Apps, then link 
 
 Health and runtime notes:
 
-- `/health` returns uptime, river count, and in-memory cache stats
-- `/health/ready` is the deploy-time readiness check
+- `/api/health` returns uptime, river count, cache stats, and upstream telemetry through the public Static Web App origin
+- `/api/health/ready` is the public deploy-time readiness check
+- the App Service also accepts `/health` and `/health/ready` directly
 - `/api` responses carry a request ID in both the JSON body and the `x-request-id` response header
 - `/api/river-request` and `/api/route-request` both accept the request form payload and write JSON blobs when storage is configured
 - `/api/feedback` accepts mobile app feedback, stores it as JSON, and can send a best-effort inbox notification
@@ -187,5 +188,5 @@ Working threshold calibration notes for those seeded rivers live in [docs/seed-r
 
 1. Slim the detail payload further and make per-source degraded states more explicit when only gauge or only weather is stale.
 2. Expand only to additional direct-gauge rivers with defensible thresholds and logistics, including explicit `minimum-only` handling where upper guidance is incomplete.
-3. Replace the in-memory cache with a persistent snapshot/cache layer only when production traffic or upstream instability justifies it.
-4. Add basic telemetry around upstream failure rates before moving the repo into its own standalone deployment.
+3. Keep the scheduled persistent river snapshots healthy and verify production reads the latest successful capture.
+4. Review the scheduled snapshot workflow when its quality or upstream-health gate fails; the previous successful snapshot is preserved automatically.

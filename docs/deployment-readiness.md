@@ -3,7 +3,8 @@
 ## Runtime shape
 
 - Build the static app with `npm run build`.
-- Serve the built app and `/api` endpoints from one Node process with `npm run start`.
+- Azure Static Web Apps serves the public frontend and proxies `/api/*` to the linked App Service.
+- The App Service package also contains `dist/` and serves the built app plus `/api` from one Node process with `npm run start`. This makes the backend origin independently smoke-testable and provides a one-origin fallback without changing browser API paths.
 - The Node server reads:
   - `PORT` or `CANOE_API_PORT`
   - `CANOE_API_HOST`
@@ -11,12 +12,25 @@
 
 ## Health endpoints
 
-- `/health`
-- `/health/ready`
+- Public frontend origin: `/api/health` and `/api/health/ready`
+- Direct App Service origin: `/health` and `/health/ready` are aliases; the `/api/...` forms work there too
 
-Use `/health/ready` for deploy-time readiness checks because it verifies the static index is present when running in one-origin mode.
+The public Paddle Today origin is an Azure Static Web App linked to App Service, and that integration proxies `/api/*`. Use `/api/health/ready` for public deploy-time checks. It verifies the static index is present when the App Service is running in one-origin mode.
 
-Both endpoints now also expose in-memory cache stats so a deploy can distinguish "server is up" from "server is repeatedly missing cache and upstreams."
+Both endpoints expose:
+
+- in-memory cache stats, so a deploy can distinguish "server is up" from "server is repeatedly missing cache and upstreams"
+- privacy-safe upstream telemetry grouped by hostname, including request success/failure rate, retries, rate limits, 5xx responses, timeouts, latency, consecutive failures, and the most recent failure category
+
+The telemetry is process-local and resets on restart. It intentionally records hostnames rather than full URLs so gauge IDs, coordinates, and query parameters are not copied into health payloads. Readiness remains a process/static-asset check; a transient upstream failure is visible in telemetry but does not restart an otherwise healthy server.
+
+The scheduled river-snapshot job evaluates the same telemetry in the process that actually contacts gauge and weather providers. It preserves the previous production snapshot and fails the workflow when the aggregate failure rate reaches 35% after 50 requests, a provider reaches 75% after 10 requests, a provider reaches eight consecutive failures, or the scoring run produces no telemetry. These deliberately require meaningful samples so a brief upstream wobble does not create a noisy incident. Override them only when needed with:
+
+- `UPSTREAM_MONITOR_MIN_REQUESTS`
+- `UPSTREAM_MONITOR_MAX_FAILURE_RATE`
+- `UPSTREAM_MONITOR_MIN_PROVIDER_REQUESTS`
+- `UPSTREAM_MONITOR_MAX_PROVIDER_FAILURE_RATE`
+- `UPSTREAM_MONITOR_MAX_CONSECUTIVE_FAILURES`
 
 ## API runtime notes
 
@@ -24,30 +38,64 @@ Both endpoints now also expose in-memory cache stats so a deploy can distinguish
 - `/api/rivers/:slug.json` returns a slimmer detail envelope that keeps live scoring data but drops static editorial fields already baked into the HTML.
 - Every JSON response includes a `requestId`, and the same value is sent in the `x-request-id` response header.
 - Request logs now include the request ID so browser/API failures can be matched to server logs quickly.
+- Manual history and river-snapshot refresh endpoints fail closed in production unless `HISTORY_SNAPSHOT_TOKEN` or `SNAPSHOT_REFRESH_TOKEN` is configured.
+
+## Write-endpoint rate limits
+
+Alerts, feedback, route contributions, and route requests each have an independent per-client sliding-window quota. The default is five attempts per ten minutes. A rejected request returns `429` with `RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset`, and `Retry-After` headers. Rejected attempts do not extend the lockout.
+
+Optional runtime overrides:
+
+- `RATE_LIMIT_WINDOW_MS` and `RATE_LIMIT_MAX` set the shared defaults.
+- `RATE_LIMIT_ALERTS_WINDOW_MS` / `RATE_LIMIT_ALERTS_MAX`
+- `RATE_LIMIT_FEEDBACK_WINDOW_MS` / `RATE_LIMIT_FEEDBACK_MAX`
+- `RATE_LIMIT_ROUTE_CONTRIBUTIONS_WINDOW_MS` / `RATE_LIMIT_ROUTE_CONTRIBUTIONS_MAX`
+- `RATE_LIMIT_ROUTE_REQUESTS_WINDOW_MS` / `RATE_LIMIT_ROUTE_REQUESTS_MAX`
+
+The application limiter is a bounded, process-local abuse backstop. Multi-instance deployments must also configure and validate an edge limit at App Gateway, Front Door, Cloudflare, or an equivalent shared ingress layer.
+
+Exercise the complete HTTP contract against a local or staging API:
+
+```sh
+RATE_LIMIT_BASE_URL=https://staging.example.com npm run rate-limit:smoke
+```
+
+The command uses honeypot no-op alert submissions, confirms the configured number are accepted, and then validates the `429` payload and retry headers. It refuses to run against the public Paddle Today origin unless `RATE_LIMIT_ALLOW_PRODUCTION=true` is set intentionally. Set `RATE_LIMIT_EXPECTED_MAX` when the target uses a non-default alerts quota.
 
 ## Recommended deploy flow
 
 1. Install dependencies with `npm ci`.
 2. Build with `npm run build`.
 3. Start with `npm run start`.
-4. Probe `/health/ready`.
+4. Probe `/api/health/ready` through the public frontend origin.
 5. Probe `/api/rivers/summary.json`.
+
+Run the complete smoke suite against any deployed origin:
+
+```sh
+DEPLOYMENT_BASE_URL=https://paddletoday.com npm run deployment:smoke
+```
+
+The suite checks readiness, health/cache/upstream telemetry, the static homepage, summary and weekend boards, a real route detail, JSON request IDs, and the response-header/body request-ID match. It defaults to `/api/health` and `/api/health/ready`, which work through both the linked frontend origin and the App Service origin. `DEPLOYMENT_HEALTH_PATH` and `DEPLOYMENT_READINESS_PATH` can override those paths for a nonstandard ingress. The API deployment workflow runs the same suite after deployment when the `AZURE_WEBAPP_URL` repository secret is configured, with bounded retries for App Service startup.
 
 ## Pre-release checklist
 
 - `npm test` passes.
 - `npm run build` passes.
-- `/health/ready` returns `200`.
+- `/api/health/ready` returns `200` through the public origin.
 - `/api/rivers/summary.json` returns live river JSON.
-- `/health` shows sane cache counters and no runaway `loadErrors`.
+- `/api/health` shows sane cache counters and no runaway `loadErrors`.
+- `/api/health` shows upstream `failureRate`, `consecutiveFailures`, `rateLimitedResponses`, and `timeouts` within expected bounds for USGS, NWS, and NOAA hosts.
 - Logo and map assets load under the deploy origin.
 - At least one detail page loads score, checklist, outlooks, map, and gauge chart.
 - Umami is absent in local builds without analytics env vars, and present in production only when `PUBLIC_UMAMI_WEBSITE_ID` is configured.
-- Logs show normal request flow without repeated upstream failures.
+- Logs and `/api/health` show normal request flow without repeated upstream failures.
+- `npm run rate-limit:smoke` passes against staging, and any shared edge limiter has a separately recorded 429 test.
 
 ## Current constraints
 
-- Cache is in-memory only.
+- The hot response cache is in-memory; scheduled river and history snapshots are persisted separately when blob storage is configured.
+- Application rate-limit buckets are process-local; use an edge limit for a shared quota across scaled instances.
 - No persistent job runner yet.
 - No database yet.
-- Upstream USGS and Open-Meteo failures still degrade the app in real time rather than falling back to historical snapshots.
+- Summary, weekend, group, and detail endpoints use stored river snapshots when configured. A detail request can fall back to a stored snapshot after a live retry fails; without a usable stored snapshot, upstream failures still degrade the response in real time.

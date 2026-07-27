@@ -25,12 +25,14 @@ Every alert email includes a signed unsubscribe link, so users can turn off an e
   - live data is `live`
   - confidence is `Medium` or `High`
 
+New alerts use those same evidence checks when establishing their initial state. A stale, degraded, offline, or low-confidence snapshot never marks a new alert as already above threshold; the alert waits for the first eligible crossing instead.
+
 Alerts do not resend while the route stays above threshold. They can send again only after:
 
-1. the route drops back below threshold
+1. eligible snapshots keep the route below threshold for at least two hours
 2. then later crosses back above threshold
 
-An extra 12-hour cooldown is also applied as a guardrail.
+This sustained-below re-arm window prevents a brief gauge or forecast wobble from creating another notification. An extra 12-hour cooldown is also applied as a final guardrail.
 
 ## Storage
 
@@ -51,7 +53,16 @@ Stored files:
 
 ## Delivery
 
-The scheduled workflow sends email with Azure Communication Services Email and push notifications through Expo's push API.
+The scheduled workflow sends email with Azure Communication Services Email and push notifications through Expo's push API. Each crossing gets a stable delivery key. Azure receives that key as its operation ID, making a retry of the same crossing idempotent.
+
+Expo's initial response is only an acceptance ticket, not proof of delivery. Each scheduled run also reconciles tickets that are at least 15 minutes old:
+
+- successful receipts are marked `delivered`
+- provider errors are retained on the alert event for operations review
+- `DeviceNotRegistered` receipts deactivate the affected phone alert
+- tickets that cannot be reconciled within Expo's 24-hour receipt window are marked failed
+
+Receipt reconciliation is an `always()` workflow step. Pending tickets from earlier runs are still checked when the current evaluation step fails, so a transient scoring or email failure does not strand accepted push tickets.
 
 GitHub secrets and variables:
 

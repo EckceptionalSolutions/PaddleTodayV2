@@ -17,11 +17,19 @@ const {
   itemNounSingular = 'river',
   itemNounPlural = 'rivers',
   showRiverLegend = false,
+  interactiveScoreLegend = false,
 } = Astro.props;
 
 const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--nearby' : 'summary-map-shell', className]
   .filter(Boolean)
   .join(' ');
+
+const scoreLegendItems = [
+  { rating: 'Strong', score: '90', label: 'Strong', markerClass: 'summary-map-legend__marker--great', enabled: true },
+  { rating: 'Good', score: '70', label: 'Good', markerClass: 'summary-map-legend__marker--good', enabled: true },
+  { rating: 'Fair', score: '55', label: 'Fair: tradeoffs', markerClass: 'summary-map-legend__marker--marginal', enabled: true },
+  { rating: 'No-go', score: '15', label: 'No-go', markerClass: 'score-map-marker--no-go score-map-marker--confidence-low', enabled: false },
+];
 ---
 
 <section
@@ -98,9 +106,6 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
     <div class="summary-map-footer">
       <p class="summary-map__status muted" data-summary-map-status>{status}</p>
       <div class="summary-map-legend" aria-label="Map marker legend">
-        {mode === 'explore' && (
-          <span class="summary-map-legend__item">Overview: zone score · zoomed in: route score</span>
-        )}
         {showRiverLegend && (
           <>
             <span class="summary-map-legend__item">
@@ -113,22 +118,22 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
             </span>
           </>
         )}
-        <span class="summary-map-legend__item">
-          <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
-          Strong
-        </span>
-        <span class="summary-map-legend__item">
-          <span class="summary-map-legend__marker summary-map-legend__marker--good">70</span>
-          Good
-        </span>
-        <span class="summary-map-legend__item">
-          <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-          Fair: tradeoffs
-        </span>
-        <span class="summary-map-legend__item">
-          <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
-          No-go
-        </span>
+        {scoreLegendItems.map((item) => interactiveScoreLegend ? (
+          <button
+            class="summary-map-legend__item summary-map-legend__toggle"
+            type="button"
+            data-summary-score-toggle={item.rating}
+            aria-pressed={item.enabled ? 'true' : 'false'}
+          >
+            <span class={`summary-map-legend__marker ${item.markerClass}`}>{item.score}</span>
+            {item.label}
+          </button>
+        ) : (
+          <span class="summary-map-legend__item">
+            <span class={`summary-map-legend__marker ${item.markerClass}`}>{item.score}</span>
+            {item.label}
+          </span>
+        ))}
       </div>
     </div>
   </div>

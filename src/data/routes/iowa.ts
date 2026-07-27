@@ -5082,7 +5082,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Endpoint coordinates",
         "value": "Canton County Park 42.1627901, -90.8918068; Royertown 42.1198989, -90.8283040",
-        "note": "Canton coordinates come from the named Canton County Park topo feature. Royertown coordinates come from the Water Quality Portal site named AWARE 13 Royerton Bridge Access Maquoketa River, matching the county-listed Royertown Bridge Access.",
+        "note": "Canton coordinates come from the named Canton County Park topo feature. Royertown coordinates come from Iowa Volunteer Water Monitoring site IOWATER-949023, named AWARE 13 Royerton Bridge Access Maquoketa River, matching the county-listed Royertown Bridge Access.",
         "sourceUrl": "https://www.waterqualitydata.us/provider/STORET/IOWATER/IOWATER-949023/"
       },
       {
@@ -5114,7 +5114,7 @@ export const iowaRoutes: River[] = [
         "provider": "usgs"
       },
       {
-        "label": "Water Quality Portal Royerton Bridge Access",
+        "label": "IOWATER Royerton Bridge monitoring site",
         "url": "https://www.waterqualitydata.us/provider/STORET/IOWATER/IOWATER-949023/",
         "provider": "local"
       },

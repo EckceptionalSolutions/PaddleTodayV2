@@ -31,6 +31,7 @@ const DEFAULT_SNAPSHOT_DIR = '.local';
 // capture is more than two hours old, a stored "live" call is more misleading
 // than useful, so callers fall back to a fresh live read instead.
 const MAX_STORED_SNAPSHOT_AGE_MS = 2 * 60 * 60 * 1000;
+const MAX_STORED_SNAPSHOT_CLOCK_SKEW_MS = 5 * 60 * 1000;
 const MAX_SUMMARY_SNAPSHOT_BYTES = 4 * 1024 * 1024;
 
 type BlobContainer = {
@@ -149,10 +150,8 @@ export async function captureRiverSnapshots(args: {
   // traffic. Group responses are derived from the summary instead of writing a
   // duplicate collection for every river family. Publish summaries last.
   await mapWithConcurrency(routeBlobs, args.writeConcurrency ?? 12, ({ name, payload }) => storage.writeJson(name, payload));
-  await Promise.all([
-    storage.writeJson(summaryBlobName(), summary),
-    storage.writeJson(weekendSummaryBlobName(), weekendSummary),
-  ]);
+  await storage.writeJson(weekendSummaryBlobName(), weekendSummary);
+  await storage.writeJson(summaryBlobName(), summary);
 
   return {
     generatedAt,
@@ -528,9 +527,14 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
   };
 }
 
-function isStoredSnapshotFresh(snapshot: { generatedAt: string }) {
+export function isStoredSnapshotFresh(snapshot: { generatedAt: string }) {
   const generatedAt = Date.parse(snapshot.generatedAt);
-  return Number.isFinite(generatedAt) && Date.now() - generatedAt <= MAX_STORED_SNAPSHOT_AGE_MS;
+  if (!Number.isFinite(generatedAt)) {
+    return false;
+  }
+
+  const ageMs = Date.now() - generatedAt;
+  return ageMs >= -MAX_STORED_SNAPSHOT_CLOCK_SKEW_MS && ageMs <= MAX_STORED_SNAPSHOT_AGE_MS;
 }
 
 function normalizeWeekendSnapshotItem(item: WeekendSummaryApiItem): WeekendSummaryApiItem {

@@ -1,4 +1,5 @@
 import type { ServerResponse } from 'node:http';
+import { timingSafeEqual } from 'node:crypto';
 import type { ApiRequest } from '../http';
 import { clean, sendJson } from '../http';
 import { captureHistorySnapshotForResults } from '../../lib/history';
@@ -144,17 +145,24 @@ async function captureProductionRiverSnapshots(): Promise<RiverSnapshotCapture> 
   return captured;
 }
 
-function requestHasRefreshToken(
+export function requestHasRefreshToken(
   request: ApiRequest,
-  configuredToken: string
+  configuredToken: string | undefined,
+  production = process.env.NODE_ENV === 'production'
 ) {
   const providedToken =
     clean(request.headers['x-history-token'], 240) ||
     clean(request.headers.authorization?.replace(/^Bearer\s+/i, ''), 240);
 
   if (!configuredToken) {
-    return true;
+    return !production;
   }
 
-  return providedToken === configuredToken;
+  return secureTokenEquals(providedToken, configuredToken);
+}
+
+function secureTokenEquals(provided: string, expected: string) {
+  const providedBuffer = Buffer.from(provided);
+  const expectedBuffer = Buffer.from(expected);
+  return providedBuffer.length === expectedBuffer.length && timingSafeEqual(providedBuffer, expectedBuffer);
 }

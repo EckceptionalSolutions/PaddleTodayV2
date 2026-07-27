@@ -10910,12 +10910,12 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Richmond resolves as WAS00328 at river mile 31.5 and Horseshoe Lake resolves as WAS01770 at river mile 29.9 in Minnesota public-water-access GIS.",
         "The St. Martin gauge is upstream of the route, so make a local visual check for channel depth, weeds, and bridge clearance.",
-        "Do not drift into the downstream Lions Park / Cold Spring Dam plan unless that separate card and take-out are staged."
+        "This route ends at Horseshoe Lake. DNR Map 2 places Lions Park at river mile 22.3 and Cold Spring Dam at river mile 22.0, so stage the separate Lions Park take-out before any downstream continuation."
       ],
       "watchFor": [
         "Wind and boat traffic on the Chain of Lakes.",
         "Low-water channels, weeds, bridge approaches, cold water, and private shoreline.",
-        "Downstream dam and portage context if the group decides to continue beyond Horseshoe Lake."
+        "Cold Spring Dam 7.9 river miles below Horseshoe Lake if the group decides to continue beyond this route."
       ]
     },
     "accessPoints": [

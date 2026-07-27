@@ -5296,6 +5296,19 @@ export const kentuckyRoutes: River[] = [
       "difficultyNotes": "At normal levels this is a straightforward warmwater mainstem float between developed ramps, but it is still a moving river with long pools, bridge current, fishing traffic, and faster water once the Prestonsburg gauge climbs out of band.",
       "confidenceNotes": "Confidence is high for a conservative Kentucky add: KDFWR still lists Prestonsburg Ramp to Airport Ramp as an 8.2-mile public segment, still publishes a dedicated Prestonsburg gauge ladder, and still provides exact endpoint coordinates on the access-detail pages. USGS Water Services returned same-day values of 793 cfs and 2.80 ft at 2026-07-15 16:45 EDT for direct gauge 03209800, which keeps the route below the official good band for an explicit low-water framing."
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "dam_release"
+      ],
+      "safetyNotes": [
+        "KDFWR describes abundant woody debris throughout the Levisa Fork. Keep scanning through riffles, shoals, bridge current, and outside bends, and give fresh wood room.",
+        "Fishtrap Dam releases contribute to lower-river flow. Use the direct Prestonsburg gauge and stay within KDFWR's 800-1,500 cfs / 3.5-5.0 ft good band rather than assuming release-supported flow is automatically suitable.",
+        "Use only the documented Prestonsburg and Airport public ramps for the planned endpoints, and scout both landings before committing to the shuttle."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "evidenceNotes": [
       {
         "label": "Official level band",

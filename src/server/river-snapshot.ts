@@ -1,12 +1,18 @@
 import { appendFileSync } from 'node:fs';
+import { getUpstreamTelemetry } from '../lib/http';
 import { captureRiverSnapshots, getStoredRiverDetailSnapshot } from '../lib/river-snapshots';
 import { getAllRiverScores } from '../lib/rivers';
+import {
+  assessUpstreamHealth,
+  DEFAULT_UPSTREAM_HEALTH_THRESHOLDS,
+} from '../lib/upstream-health';
 
 async function main() {
   const scoreConcurrency = positiveInteger(process.env.RIVER_SCORE_CONCURRENCY, 24);
   const writeConcurrency = positiveInteger(process.env.RIVER_SNAPSHOT_WRITE_CONCURRENCY, 24);
   const results = await getAllRiverScores({ concurrency: scoreConcurrency });
   assertSnapshotQuality(results);
+  assertUpstreamHealth();
   const captured = await captureRiverSnapshots({ results, writeConcurrency });
 
   if (process.env.RIVER_SNAPSHOT_CONTAINER_SAS_URL?.trim() && captured.storage !== 'blob') {
@@ -26,6 +32,48 @@ async function main() {
     appendFileSync(
       process.env.GITHUB_OUTPUT,
       `generated_at=${captured.generatedAt}\nroute_count=${captured.routeCount}\n`,
+    );
+  }
+}
+
+function assertUpstreamHealth() {
+  const telemetry = getUpstreamTelemetry();
+  const thresholds = {
+    minimumOverallRequests: positiveInteger(
+      process.env.UPSTREAM_MONITOR_MIN_REQUESTS,
+      DEFAULT_UPSTREAM_HEALTH_THRESHOLDS.minimumOverallRequests,
+    ),
+    maximumOverallFailureRate: rate(
+      process.env.UPSTREAM_MONITOR_MAX_FAILURE_RATE,
+      DEFAULT_UPSTREAM_HEALTH_THRESHOLDS.maximumOverallFailureRate,
+    ),
+    minimumProviderRequests: positiveInteger(
+      process.env.UPSTREAM_MONITOR_MIN_PROVIDER_REQUESTS,
+      DEFAULT_UPSTREAM_HEALTH_THRESHOLDS.minimumProviderRequests,
+    ),
+    maximumProviderFailureRate: rate(
+      process.env.UPSTREAM_MONITOR_MAX_PROVIDER_FAILURE_RATE,
+      DEFAULT_UPSTREAM_HEALTH_THRESHOLDS.maximumProviderFailureRate,
+    ),
+    maximumProviderConsecutiveFailures: positiveInteger(
+      process.env.UPSTREAM_MONITOR_MAX_CONSECUTIVE_FAILURES,
+      DEFAULT_UPSTREAM_HEALTH_THRESHOLDS.maximumProviderConsecutiveFailures,
+    ),
+  };
+  const assessment = assessUpstreamHealth(telemetry, thresholds);
+
+  console.log(
+    `[snapshots] upstream requests=${telemetry.requests} failures=${telemetry.failures} (${percent(telemetry.failureRate)}) providers=${assessment.observedProviders}`,
+  );
+  for (const provider of telemetry.providers) {
+    console.log(
+      `[snapshots] upstream provider=${provider.provider} requests=${provider.requests} failures=${provider.failures} (${percent(provider.failureRate)}) consecutive=${provider.consecutiveFailures} retries=${provider.retries} rateLimited=${provider.rateLimitedResponses} timeouts=${provider.timeouts}`,
+    );
+  }
+
+  if (!assessment.ok) {
+    throw new Error(
+      `Upstream health gate failed: ${assessment.issues.join('; ')}. Existing production snapshots were preserved.`,
     );
   }
 }
@@ -54,6 +102,11 @@ function assertSnapshotQuality(results: Awaited<ReturnType<typeof getAllRiverSco
 function positiveInteger(value: string | undefined, fallback: number) {
   const parsed = Number(value);
   return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function rate(value: string | undefined, fallback: number) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed >= 0 && parsed <= 1 ? parsed : fallback;
 }
 
 function percent(value: number) {

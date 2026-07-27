@@ -44,6 +44,7 @@
     "history:snapshot": "tsx src/server/history-snapshot.ts",
     "snapshots:refresh": "tsx src/server/river-snapshot.ts",
     "alerts:evaluate": "tsx src/server/alerts-evaluate.ts",
+    "alerts:reconcile-push": "tsx src/server/alerts-reconcile-push.ts",
     "start": "tsx src/server/api-server.ts --static dist",
     "test": "npm run typecheck && vitest run",
     "mobile:start": "npm run start --workspace @paddletoday/mobile",
@@ -57,7 +58,9 @@
     "mobile:generate-icons": "node scripts/generate-mobile-icons.mjs",
     "mobile:release-check": "node scripts/mobile-release-check.mjs",
     "mobile:eas:whoami": "npm run eas --workspace @paddletoday/mobile -- whoami",
-    "mobile:ios:testflight": "npm run ios:testflight --workspace @paddletoday/mobile"
+    "mobile:ios:testflight": "npm run ios:testflight --workspace @paddletoday/mobile",
+    "deployment:smoke": "node scripts/deployment-smoke.mjs",
+    "rate-limit:smoke": "node scripts/rate-limit-smoke.mjs"
   },
   "dependencies": {
     "@azure/communication-email": "^1.1.0",

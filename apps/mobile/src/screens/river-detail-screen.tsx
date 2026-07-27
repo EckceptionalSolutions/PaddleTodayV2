@@ -235,7 +235,7 @@ export default function RiverDetailScreen() {
     return (
       <AppErrorState
         title="River route is missing"
-        body="Open this route again from Today, Explore, Weekend, or Saved."
+        body="Open this route again from Today, Explore, Weekend, or My Routes."
       />
     );
   }
@@ -2561,6 +2561,10 @@ function hourlyWeatherRisk(point: HourlyWeatherPoint): {
 }
 
 function formatHourLabel(value: string, defaultLabel: string | null | undefined) {
+  if (defaultLabel?.trim()) {
+    return normalizeApiText(defaultLabel);
+  }
+
   const parsed = new Date(value);
   if (Number.isFinite(parsed.getTime())) {
     return parsed.toLocaleTimeString('en-US', {
@@ -2568,7 +2572,7 @@ function formatHourLabel(value: string, defaultLabel: string | null | undefined)
     });
   }
 
-  return defaultLabel ? normalizeApiText(defaultLabel) : 'Later';
+  return 'Later';
 }
 
 function formatShortTime(value: string) {

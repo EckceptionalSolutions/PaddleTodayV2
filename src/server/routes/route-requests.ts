@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import type { ServerResponse } from 'node:http';
 import type { ApiRequest } from '../http';
 import { clean, readJsonBody, sendBodyLimitResponse, sendJson } from '../http';
-import { getIp, isRateLimited } from '../rate-limit';
+import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 
 export async function handleRiverRequest(
   request: ApiRequest,
@@ -12,7 +12,8 @@ export async function handleRiverRequest(
   includeBody: boolean
 ) {
   const ip = getIp(request);
-  if (isRateLimited(ip)) {
+  const rateLimit = consumeRateLimit('route_requests', ip);
+  if (rateLimit.limited) {
     return sendJson(
       response,
       429,
@@ -22,7 +23,8 @@ export async function handleRiverRequest(
         message: 'Too many requests. Please try again later.',
       },
       includeBody,
-      'no-store'
+      'no-store',
+      rateLimitHeaders(rateLimit)
     );
   }
 

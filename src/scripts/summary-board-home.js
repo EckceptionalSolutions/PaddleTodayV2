@@ -233,6 +233,7 @@ const summaryMapMobileBackButton = document.querySelector('[data-summary-map-mob
 const summaryMapResultsTitle = document.querySelector('[data-summary-map-results-title]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
+const summaryScoreFilterButtons = Array.from(document.querySelectorAll('[data-summary-score-toggle]'));
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMode || 'explore') : 'explore';
 const summaryMapMobileLayout =
@@ -260,6 +261,9 @@ const confidenceWeight = {
   Low: 1,
 };
 
+const DEFAULT_VISIBLE_RATINGS = ['Strong', 'Good', 'Fair'];
+let visibleRatings = new Set(DEFAULT_VISIBLE_RATINGS);
+
 const activeFilters = {
   paddleable: false,
   rating: '',
@@ -283,6 +287,7 @@ let summaryMapRenderVersion = 0;
 let selectedSummaryMapKey = null;
 let lastSummaryMapItems = [];
 let pendingSummaryMapItems = [];
+let pendingSummaryMapPreserveViewport = false;
 let summaryMapRequested = false;
 let featuredMapRuntime = null;
 let featuredMapMarkers = [];
@@ -1725,6 +1730,23 @@ function updateHomeSnapshot(overallItems) {
   homeSnapshot.textContent = joinWithBullet([countLabel, insight]);
 }
 
+function updateSummaryScoreFilterButtons(counts = {}) {
+  for (const button of summaryScoreFilterButtons) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const rating = button.dataset.summaryScoreToggle || '';
+    const count = Number(counts[rating] ?? 0);
+    const active = visibleRatings.has(rating);
+    const label = rating === 'Fair' ? 'Fair: tradeoffs' : rating;
+    button.disabled = false;
+    button.classList.toggle('summary-map-legend__toggle--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    button.setAttribute(
+      'aria-label',
+      `${active ? 'Hide' : 'Show'} ${count} ${label} ${count === 1 ? 'route' : 'routes'}`,
+    );
+  }
+}
+
 function updateHeroCallMix(results) {
   const totalCount = Array.isArray(results) ? results.length : 0;
   const strongCount = results.filter((result) => result.rating === 'Strong').length;
@@ -1747,6 +1769,13 @@ function updateHeroCallMix(results) {
   if (homeNoGoCount instanceof HTMLElement) {
     homeNoGoCount.textContent = String(noGoCount);
   }
+
+  updateSummaryScoreFilterButtons({
+    Strong: strongCount,
+    Good: goodCount,
+    Fair: mixedCount,
+    'No-go': noGoCount,
+  });
 
   for (const countNode of homeTrackedCounts) {
     if (!(countNode instanceof HTMLElement)) continue;
@@ -3296,6 +3325,10 @@ function renderRecommendationSection(nearbyItems, overallItems) {
 }
 
 function matchesRouteFilters(result) {
+  if (!visibleRatings.has(result.rating)) {
+    return false;
+  }
+
   if (activeFilters.paddleable && !['Strong', 'Good'].includes(result.rating)) {
     return false;
   }
@@ -3358,6 +3391,7 @@ function normalizeSortMode() {
 
 function resetExploreFilters({ rerender = true } = {}) {
   activeFilters.paddleable = false;
+  visibleRatings = new Set(DEFAULT_VISIBLE_RATINGS);
   activeFilters.rating = '';
   activeFilters.search = '';
   activeFilters.state = '';
@@ -4098,7 +4132,11 @@ function summaryMapResultsNoteText(items = lastSummaryMapItems) {
       : 'No results match these filters.';
   }
 
-  const countLabel = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
+  const routeCount = items.reduce((total, item) => total + (item.matchingRouteCount ?? 1), 0);
+  const riverCount = new Set(
+    items.map((item) => item.cardRoute.river.riverId || item.cardRoute.river.name),
+  ).size;
+  const countLabel = `${routeCount} matching ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} ${riverCount === 1 ? 'river' : 'rivers'}`;
   const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
   if (!mobileMapActive) {
     return countLabel;
@@ -4114,7 +4152,11 @@ function summaryMapResultsNoteText(items = lastSummaryMapItems) {
 
 function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
   const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
-  const countLabel = String(items.length);
+  const routeCount = items.reduce((total, item) => total + (item.matchingRouteCount ?? 1), 0);
+  const riverCount = new Set(
+    items.map((item) => item.cardRoute.river.riverId || item.cardRoute.river.name),
+  ).size;
+  const countLabel = String(routeCount);
 
   if (summaryMapShell instanceof HTMLElement) {
     summaryMapShell.dataset.summaryMapActiveMobile = mobileMapActive ? 'map' : 'list';
@@ -4146,7 +4188,10 @@ function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
 
     const view = button.dataset.summaryMapMobileView === 'map' ? 'map' : 'list';
     const label = view === 'map' ? 'map' : 'list';
-    button.setAttribute('aria-label', `Show ${label} view${items.length ? ` (${countLabel} available)` : ''}`);
+    button.setAttribute(
+      'aria-label',
+      `Show ${label} view${items.length ? ` (${routeCount} ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} ${riverCount === 1 ? 'river' : 'rivers'} available)` : ''}`,
+    );
   }
 }
 
@@ -4355,23 +4400,30 @@ function scrollToHomeTarget(targetId) {
   }, 45);
 }
 
-function renderSummaryMap(items) {
+function renderSummaryMap(items, { preserveViewport = false } = {}) {
   pendingSummaryMapItems = Array.isArray(items) ? items : [];
+  pendingSummaryMapPreserveViewport = preserveViewport;
   renderSummaryMapResults(pendingSummaryMapItems);
 
   if (summaryMapRequested) {
-    renderRequestedSummaryMap(pendingSummaryMapItems);
+    renderRequestedSummaryMap(pendingSummaryMapItems, {
+      preserveViewport: pendingSummaryMapPreserveViewport,
+    });
   }
 }
 
 function requestSummaryMapRender() {
   if (summaryMapRequested) {
-    renderRequestedSummaryMap(pendingSummaryMapItems);
+    renderRequestedSummaryMap(pendingSummaryMapItems, {
+      preserveViewport: pendingSummaryMapPreserveViewport,
+    });
     return;
   }
 
   summaryMapRequested = true;
-  renderRequestedSummaryMap(pendingSummaryMapItems);
+  renderRequestedSummaryMap(pendingSummaryMapItems, {
+    preserveViewport: pendingSummaryMapPreserveViewport,
+  });
 }
 
 function setupLazySummaryMap() {
@@ -4400,7 +4452,7 @@ function setupLazySummaryMap() {
   observer.observe(summaryMapShell);
 }
 
-async function renderRequestedSummaryMap(items) {
+async function renderRequestedSummaryMap(items, { preserveViewport = false } = {}) {
   if (!(summaryMap instanceof HTMLElement)) {
     return;
   }
@@ -4517,15 +4569,17 @@ async function renderRequestedSummaryMap(items) {
         return;
       }
       const compact = window.matchMedia('(max-width: 720px)').matches;
-      mapRuntime.fitBounds(bounds, {
-        padding: compact
-          ? { top: 22, right: 22, bottom: 22, left: 22 }
-          : { top: 52, right: 52, bottom: 52, left: 52 },
-        maxZoom: 8.2,
-        duration: 0,
-      });
+      if (!preserveViewport) {
+        mapRuntime.fitBounds(bounds, {
+          padding: compact
+            ? { top: 22, right: 22, bottom: 22, left: 22 }
+            : { top: 52, right: 52, bottom: 52, left: 52 },
+          maxZoom: 8.2,
+          duration: 0,
+        });
+      }
       mapRuntime.resize();
-      if (!selectedSummaryMapKey && items[0]) {
+      if (!items.some((item) => item.key === selectedSummaryMapKey) && items[0]) {
         updateSummaryMapSelection(items[0].key);
       }
       if (summaryMapStatus instanceof HTMLElement) {
@@ -4640,13 +4694,16 @@ function hydrateBoardFromCache() {
   return true;
 }
 
-function renderHomepage(results) {
+function renderHomepage(results, { preserveMapViewport = false, animateResults = true } = {}) {
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
   const overallItems = sortItems(buildDisplayItems(results, results, 'best-now'), 'best-now');
   const nearbyPreferenceResults = results.filter(matchesHomeNearbyFilters);
-  const summaryResults = locationReady
+  const matchingPreferenceResults = locationReady
     ? nearbyPreferenceResults.filter(resultWithinSelectedRadius)
     : nearbyPreferenceResults;
+  const summaryResults = matchingPreferenceResults.filter(
+    (result) => visibleRatings.has(result.rating),
+  );
   const homeSegmentFilters = {
     paddleTime: isChoiceSetAny(selectedHomePaddleTimes) ? '' : selectedHomePaddleTimes,
     paddleLength: isChoiceSetAny(selectedHomePaddleLengths) ? '' : selectedHomePaddleLengths[0],
@@ -4663,7 +4720,7 @@ function renderHomepage(results) {
   );
 
   updateHomeNearbyCounters(summaryResults);
-  updateHeroCallMix(summaryResults);
+  updateHeroCallMix(matchingPreferenceResults);
   updateFeaturedHero(nearbyItems, overallItems);
 
   if (recommendationTitle instanceof HTMLElement) {
@@ -4688,8 +4745,10 @@ function renderHomepage(results) {
   updateSummaryStatus(exploreItems, results);
   updateBoardStatusBanner(exploreItems);
   renderHomeSetupBar();
-  renderSummaryMap(summaryMapItems);
-  pulseHomeResultsSurface();
+  renderSummaryMap(summaryMapItems, { preserveViewport: preserveMapViewport });
+  if (animateResults) {
+    pulseHomeResultsSurface();
+  }
 
   if (homeResultsEmpty instanceof HTMLElement) {
     homeResultsEmpty.hidden = summaryItems.length > 0;
@@ -4903,6 +4962,7 @@ function setHomeCampingFilter(value, { persist = true, rerender = true } = {}) {
 }
 
 function resetHomeFilters({ includeRadius = true, rerender = true } = {}) {
+  visibleRatings = new Set(DEFAULT_VISIBLE_RATINGS);
   selectedHomeDifficulties = ['any'];
   selectedHomePaddleTimes = ['any'];
   selectedHomePaddleLengths = ['any'];
@@ -5215,6 +5275,33 @@ async function maybeUseGrantedLocation() {
 }
 
 function setupFilters() {
+  for (const button of summaryScoreFilterButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      const rating = button.dataset.summaryScoreToggle || '';
+      if (!rating) return;
+      const buttonTopBeforeRender = button.getBoundingClientRect().top;
+      if (visibleRatings.has(rating)) {
+        visibleRatings.delete(rating);
+      } else {
+        visibleRatings.add(rating);
+      }
+      currentExplorePage = 1;
+      renderHomepage(latestResults, {
+        preserveMapViewport: true,
+        animateResults: false,
+      });
+      window.requestAnimationFrame(() => {
+        const buttonTopAfterRender = button.getBoundingClientRect().top;
+        const offset = buttonTopAfterRender - buttonTopBeforeRender;
+        if (Math.abs(offset) > 0.5) {
+          window.scrollBy(0, offset);
+        }
+      });
+    });
+  }
+
   for (const button of glanceFilterButtons) {
     if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
     button.dataset.filterBound = 'true';

@@ -55,9 +55,11 @@ The snapshot endpoint is:
 
 - `POST /api/history/snapshot`
 
-When `HISTORY_SNAPSHOT_TOKEN` is set, the request must send the same token in:
+In production, `HISTORY_SNAPSHOT_TOKEN` is required and the request must send the same token in:
 
 - `x-history-token`
+
+The endpoint fails closed when `NODE_ENV=production` and no token is configured. Tokenless calls remain available only in local development; the scheduled production workflow uses the direct snapshot command instead of this endpoint.
 
 ## GitHub Actions automation
 

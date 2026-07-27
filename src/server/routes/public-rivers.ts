@@ -16,6 +16,7 @@ import {
   getStoredRiverSummarySnapshot,
   getStoredWeekendSummarySnapshot,
 } from '../../lib/river-snapshots';
+import { getUpstreamTelemetry } from '../../lib/http';
 import { getAllRiverScores, getRiverBySlug, getRiverGroupScores, getRiverScore, listRivers } from '../../lib/rivers';
 import { getCacheStats } from '../../lib/server-cache';
 import { parseQueryNumber } from '../request-parsers';
@@ -40,6 +41,7 @@ export function handleHealth(
     startedAt: new Date(args.startedAt).toISOString(),
     riverCount: listRivers().length,
     cache: getCacheStats(),
+    upstream: getUpstreamTelemetry(),
   }, includeBody, 'no-store');
 }
 
@@ -60,6 +62,7 @@ export function handleReady(
     staticIndexReady: staticDir ? ready : null,
     riverCount: listRivers().length,
     cache: getCacheStats(),
+    upstream: getUpstreamTelemetry(),
   }, includeBody, 'no-store');
 }
 

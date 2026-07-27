@@ -75,7 +75,7 @@ jobs:
           for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
             try {
               const cacheBuster = Date.now();
-              const [detailResponse, summaryResponse] = await Promise.all([
+              const [detailResponse, summaryResponse, weekendResponse] = await Promise.all([
                 fetch(`${apiOrigin}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${cacheBuster}`, {
                   headers,
                   signal: AbortSignal.timeout(30_000),
@@ -84,16 +84,25 @@ jobs:
                   headers,
                   signal: AbortSignal.timeout(30_000),
                 }),
+                fetch(`${apiOrigin}/api/weekend/summary.json?snapshot_check=${cacheBuster}`, {
+                  headers,
+                  signal: AbortSignal.timeout(30_000),
+                }),
               ]);
-              if (!detailResponse.ok || !summaryResponse.ok) {
-                throw new Error(`Production verification returned detail HTTP ${detailResponse.status}, summary HTTP ${summaryResponse.status}.`);
+              if (!detailResponse.ok || !summaryResponse.ok || !weekendResponse.ok) {
+                throw new Error(`Production verification returned detail HTTP ${detailResponse.status}, summary HTTP ${summaryResponse.status}, weekend HTTP ${weekendResponse.status}.`);
               }
 
-              const [detail, summary] = await Promise.all([detailResponse.json(), summaryResponse.json()]);
-              console.log(`Production detail generatedAt=${detail.generatedAt || 'unknown'}; summary generatedAt=${summary.generatedAt || 'unknown'} routeCount=${summary.riverCount ?? 'unknown'}`);
+              const [detail, summary, weekend] = await Promise.all([
+                detailResponse.json(),
+                summaryResponse.json(),
+                weekendResponse.json(),
+              ]);
+              console.log(`Production detail generatedAt=${detail.generatedAt || 'unknown'}; summary generatedAt=${summary.generatedAt || 'unknown'} routeCount=${summary.riverCount ?? 'unknown'}; weekend generatedAt=${weekend.generatedAt || 'unknown'}`);
               if (
                 detail.generatedAt !== capturedGeneratedAt ||
                 summary.generatedAt !== capturedGeneratedAt ||
+                weekend.generatedAt !== capturedGeneratedAt ||
                 summary.riverCount !== capturedRouteCount
               ) {
                 throw new Error('Production is not reading the exact snapshot written by this run. Check that the GitHub and App Service SAS URLs target the same container and prefix.');
