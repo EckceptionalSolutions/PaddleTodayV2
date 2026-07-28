@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:47:33.893Z",
+  "generatedAt": "2026-07-28T12:49:35.185Z",
   "routeCount": 927,
-  "issueCount": 118,
+  "issueCount": 115,
   "summary": {
     "Critical": 0,
-    "High": 37,
-    "Medium": 81,
+    "High": 36,
+    "Medium": 79,
     "Low": 0
   },
   "issues": [
@@ -240,17 +240,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "target or high-water cutoff for this reach. Short but not casual. Tight bends, wood, and roadside access friction matter almost as much as the gauge. The app only has a clear low-water floor here. That is enough to avoid obviously bad days, but not enough to"
-    },
-    {
-      "routeId": "jump-river-wayside-park-sheldon",
-      "slug": "jump-river-wayside-park-sheldon",
-      "name": "Jump River",
-      "reach": "Wayside Park / Highway 73 to Haley Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "nal recommendation. Mostly Class I riffles and boulder gardens, with occasional Class II-style push at high water. This is not a technical whitewater run, but low-water scraping, cold water, and faster race-level flows make boat control and scouting judgment u"
     },
     {
       "routeId": "menomonee-river-hoyt-park-bluemound",
@@ -1054,28 +1043,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Short upper Bark run where low water and grass-choked channels ruin the day quickly. This is mainly a low-water-floor decision rather than a broad sweet-spot river. Treat 55 cfs at"
-    },
-    {
-      "routeId": "jump-river-wayside-park-sheldon",
-      "slug": "jump-river-wayside-park-sheldon",
-      "name": "Jump River",
-      "reach": "Wayside Park / Highway 73 to Haley Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "at high water. This is not a technical whitewater run, but low-water scraping, cold water, and faster race-level flows make boat control and scouting judgment useful. Confidence is good but intentionally conservative: Rusk County publishes this Highway 73-to-"
-    },
-    {
-      "routeId": "jump-river-wayside-park-sheldon",
-      "slug": "jump-river-wayside-park-sheldon",
-      "name": "Jump River",
-      "reach": "Wayside Park / Highway 73 to Haley Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "le, 201-300 cfs as average, and 301-400 cfs as high but likely okay. High-water caution 1001+ cfs maybe too high The same Wisconsin River Trips ladder treats 501-1000 cfs as extremely high and 1001+ cfs as maybe too high for recreational paddling; the exact Wa"
     },
     {
       "routeId": "kickapoo-river-rockton-la-farge",

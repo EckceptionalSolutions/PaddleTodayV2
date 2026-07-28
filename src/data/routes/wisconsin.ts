@@ -9534,6 +9534,21 @@ export const wisconsinRoutes: River[] = [
     "statusText": "Use the Jump River at Sheldon gauge. Treat about 200 to 400 cfs as the best normal window, 101 to 200 cfs as low but likely navigable, 501 to 1000 cfs as very high and pushier, and 1001+ cfs as beyond the broad recreational recommendation.",
     "latitude": 45.354054,
     "longitude": -90.788597,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "fast_rise",
+        "cold_water",
+        "strainers"
+      ],
+      "safetyNotes": [
+        "This is an 11.1-mile, roughly three-hour moving-water day with frequent shallow Class I riffles and boulder gardens. Keep enough daylight and boat-control margin to walk or scout low-water sections.",
+        "Use the direct Sheldon gauge and recent weather together: about 200-400 cfs is the broad normal window, while 501-1,000 cfs is very high and 1,001+ cfs is beyond the broad recreational recommendation. Do not treat the 2,200 cfs race observation as ordinary paddle guidance.",
+        "High or rising water can create faster Class I-II wave trains and change wood or strainer exposure. Launch and land at the named Wayside Park and Haley Park accesses, and reassess before extending downstream from the Sheldon take-out."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05362000",
       "provider": "usgs",
