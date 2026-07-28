@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T06:25:19.476Z",
+  "generatedAt": "2026-07-28T06:41:27.907Z",
   "routeCount": 931,
-  "issueCount": 162,
+  "issueCount": 161,
   "summary": {
     "Critical": 0,
-    "High": 60,
+    "High": 59,
     "Medium": 102,
     "Low": 0
   },
@@ -42,17 +42,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "outing. The river character stays mostly easy, but 34.4 miles of moving water, wood management, and weather exposure make this a serious full-day or overnight-planned corridor rather than a casual float. Confidence is good because MN DNR names both endpoints"
-    },
-    {
-      "routeId": "sauk-river-spring-hill-st-martin",
-      "slug": "sauk-river-spring-hill-st-martin",
-      "name": "Sauk River",
-      "reach": "Spring Hill County Park to St. Martin",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "mmendation. Mostly an approachable upper-Sauk day when the level is normal, but wood, shallow riffles, and cold-water exposure still deserve normal river judgment. Confidence is high because MN DNR names both access points on the water-trail map and publishes"
     },
     {
       "routeId": "sauk-river-st-martin-eagle-park",

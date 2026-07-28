@@ -1601,8 +1601,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "Shallow riffles and vegetation as the St. Martin gauge falls toward 14 ft.",
-        "Fresh wood and strainers after storms.",
-        "Cold-water exposure in spring and fall."
+        "Fresh wood, snags, and strainers after storms. The St. Martin gauge does not certify that the upstream channel is clear.",
+        "Changing or rising water, especially when current narrows your options around wood.",
+        "Private shoreline outside designated public accesses and campsites."
       ]
     }
   },

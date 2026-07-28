@@ -5578,6 +5578,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best zone. Below 14 ft gets scrape-prone and weedy; above 20 ft is beyond a broad-audience Sauk day-trip recommendation.",
     "latitude": 45.529026,
     "longitude": -94.776531,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR warns that snags and fallen trees can tip an unwary paddler. The St. Martin gauge provides level context at the take-out, but it does not certify a clear channel upstream.",
+        "Recheck the gauge and local conditions before launching because river conditions can change; reassess rather than committing on a rising river.",
+        "Use Spring Hill County Park, St. Martin Canoe Access, and other designated sites because MN DNR says much of the Sauk shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -5622,10 +5636,16 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the practical window. Summer low water and vegetation can make this reach a poor choice even before it becomes fully impassable.",
       "difficulty": "easy",
-      "difficultyNotes": "Mostly an approachable upper-Sauk day when the level is normal, but wood, shallow riffles, and cold-water exposure still deserve normal river judgment.",
-      "confidenceNotes": "Confidence is high because MN DNR names both access points on the water-trail map and publishes official level bands for the St. Martin gauge at the lower end of this short reach. Same-day wood and vegetation remain the main non-gauge variables."
+      "difficultyNotes": "Mostly an approachable upper-Sauk day when the level is normal, but shallow riffles, snags, fallen trees, changing levels, and private shoreline still require same-day judgment.",
+      "confidenceNotes": "Confidence is high because MN DNR names both access points on the water-trail map and publishes official level bands for the St. Martin gauge at the lower end of this short reach. Same-day wood and vegetation remain the main non-gauge variables, and the gauge does not certify channel clearance."
     },
     "evidenceNotes": [
+      {
+        "label": "Current level",
+        "value": "14.28 ft at 11:00 PM",
+        "note": "The official MN DNR St. Martin gauge reported 14.28 ft on July 27, 2026, which sits in the Low interpretation band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
       {
         "label": "DNR bands",
         "value": "14 / 15 / 17 / 20 ft",
@@ -5636,6 +5656,12 @@ export const minnesotaRoutes: River[] = [
         "label": "Route shape",
         "value": "About 9.1 river miles",
         "note": "MN DNR Map 2 names Spring Hill County Park at river mile 56.2 and St. Martin carry-in at river mile 47.1, making this a cleaner day route than the longer Spring Hill to Rockville draft.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
+      },
+      {
+        "label": "Primary cautions",
+        "value": "Snags, changing levels, and private shore",
+        "note": "The 2026 DNR Map 2 warns about snags and fallen trees, says river conditions can change at any time, and limits stops and camping along private shoreline to designated sites.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
       },
       {
@@ -5652,11 +5678,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "MN DNR Sauk River Map 2 PDF",
@@ -5664,11 +5690,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Stearns County Spring Hill County Park",
-        "url": "https://www.stearnscountymn.gov/399/Spring-Hill-County-Park"
+        "url": "https://www.stearnscountymn.gov/spring-hill-county-park"
       },
       {
         "label": "Stearns County St. Martin Canoe Access",
-        "url": "https://www.stearnscountymn.gov/398/St-Martin-Canoe-Access"
+        "url": "https://www.stearnscountymn.gov/st-martin-canoe-access"
       },
       {
         "label": "USGS 05270500 monitoring location",
