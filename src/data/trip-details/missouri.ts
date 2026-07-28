@@ -85,7 +85,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Akers Ferry and take out at Pulltite for the NPS-listed 9.6-mile Upper Current River day float. Use the Akers USGS gauge as a direct same-day low-water check, with the app using only a conservative 230 cfs minimum floor.",
       "accessCaveats": [
         "Akers and Pulltite are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.",
-        "Recreation.gov currently describes Pulltite as year-round with flood-damaged facilities reduced after October 15, 2025. Inspect the take-out before launching and follow current NPS signs rather than assuming every facility is normal.",
+        "Recreation.gov currently describes Pulltite as year-round with flood-damaged facilities reduced after October 15, 2025, and NPS says the Pulltite Ranger Station is closed for the 2026 season. Inspect the take-out before launching and follow current NPS signs rather than assuming every landing, road, restroom, or ranger service is normal.",
         "The coordinates reuse practical access-area anchors from adjacent implemented Current River routes, not official ramp-coordinate tables. Current NPS signs and ramp layout should control on arrival."
       ],
       "watchFor": [

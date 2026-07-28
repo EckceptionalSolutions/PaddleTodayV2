@@ -753,6 +753,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River above Akers gauge. Around 230 cfs is the low-water marker for Akers to Pulltite; below that, expect shallow riffles and possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching.",
     "latitude": 37.37591,
     "longitude": -91.55148,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "This is the NPS-listed 9.6-mile Akers-to-Pulltite float, but check current NPS river closures and flood conditions before launching. The NPS closure stages are 4.00 ft at Akers and 4.20 ft at Pulltite; floodwater runs faster, carries debris, and is not casual paddling.",
+        "Expect rootwads, fallen trees, shallow riffles, cold spring water, and busy access areas. Leave room to stop upstream of fresh wood, wear a PFD, and plan for self-rescue because cell service and help can be limited in the riverway.",
+        "Pulltite remains a planned river landing/campground area, but the NPS Pulltite Ranger Station is closed for the 2026 season after flood damage and facilities are reduced. Confirm the current landing, parking, and pickup layout on arrival rather than relying on ranger-station services."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07064533",
       "provider": "usgs",
@@ -805,8 +821,14 @@ export const missouriRoutes: River[] = [
       {
         "label": "Pulltite status",
         "value": "Year-round campground with reduced facilities after October 15, 2025",
-        "note": "Recreation.gov describes Pulltite as year-round and says flood damage will reduce facilities to one vault toilet after October 15, 2025. Treat that as access-caveat support, not a promise that every ramp, road, or restroom is normal on arrival.",
+        "note": "Recreation.gov describes Pulltite as year-round and says flood damage reduced facilities after October 15, 2025; NPS now says the Pulltite Ranger Station remains closed for the 2026 season while the river landing/campground context remains in use. Treat this as access-caveat support, not a promise that every ramp, road, restroom, or ranger service is normal on arrival.",
         "sourceUrl": "https://www.recreation.gov/camping/campgrounds/234357"
+      },
+      {
+        "label": "2026 facility closure",
+        "value": "Pulltite Ranger Station closed for 2026 season",
+        "note": "NPS says the Pulltite Ranger Station is closed through the 2026 season because of flood damage; this is a facility closure, not a published closure of the Akers-to-Pulltite river float, so confirm the current landing and pickup layout before launch.",
+        "sourceUrl": "https://home.nps.gov/ozar/planyourvisit/basicinfo.htm"
       },
       {
         "label": "Live direct gauge",

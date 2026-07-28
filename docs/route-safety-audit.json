@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:05:26.190Z",
+  "generatedAt": "2026-07-28T13:07:16.126Z",
   "routeCount": 927,
-  "issueCount": 89,
+  "issueCount": 85,
   "summary": {
     "Critical": 0,
-    "High": 20,
-    "Medium": 69,
+    "High": 18,
+    "Medium": 67,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "current-river-akers-ferry-pulltite",
-      "slug": "current-river-akers-ferry-pulltite",
-      "name": "Current River",
-      "reach": "Akers Ferry to Pulltite",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "levels, but shallow riffles, cold spring water, busy warm-season access areas, wood, caves, and high-water closure thresholds still matter. Confidence is good for a conservative Missouri add: NPS lists Akers to Pulltite as a 9.6-mile / 4-hour Upper Current ro"
-    },
-    {
-      "routeId": "current-river-akers-ferry-pulltite",
-      "slug": "current-river-akers-ferry-pulltite",
-      "name": "Current River",
-      "reach": "Akers Ferry to Pulltite",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "d possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS treats Akers to Pulltite as a standard 4-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold"
-    },
     {
       "routeId": "current-river-cedar-grove-akers",
       "slug": "current-river-cedar-grove-akers",
@@ -416,28 +394,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "when the Richwoods gauge is high or rising, especially above the local 800 cfs caution band. Confidence is good for a conservative Missouri add: MDC confirms Mammoth Access is 5.40 river miles upstream from Merrill Horse Access and provides public department-"
-    },
-    {
-      "routeId": "current-river-akers-ferry-pulltite",
-      "slug": "current-river-akers-ferry-pulltite",
-      "name": "Current River",
-      "reach": "Akers Ferry to Pulltite",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Classic Upper Current River day float from Akers Ferry to Pulltite inside Ozark National Scenic Riverways. NPS lists the 9.6-mile route, the Akers gauge is in the put-in corridor,"
-    },
-    {
-      "routeId": "current-river-akers-ferry-pulltite",
-      "slug": "current-river-akers-ferry-pulltite",
-      "name": "Current River",
-      "reach": "Akers Ferry to Pulltite",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "conditions and lists Akers and Pulltite closure stages. Use this as high-water caution, not an ideal range. Endpoint coordinates 37.37591, -91.55148 to 37.33505, -91.47959 Coordinates reuse the already implemented Akers Lower and Pulltite access-area anchors"
     },
     {
       "routeId": "current-river-cedar-grove-akers",
