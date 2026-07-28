@@ -1375,16 +1375,17 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 2 hr to 3 hr 15 min",
       "shuttle": "Short Cold Spring to Rockville self-shuttle. Eagle Park is a straightforward lower-Sauk finish when you want to keep the day simple and avoid the Miller or St. Cloud retrievals.",
       "permits": "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city-park rules at Frogtown and Eagle Park.",
-      "camping": "Treat this as a day trip. Eagle Park is a launch/landing park, and any Rockville County Park camping nearby should be treated as separate staging rather than route-included overnight support.",
+      "camping": "Treat this as a day trip. Eagle Park is a launch/landing park, any Rockville County Park camping nearby is separate staging rather than route-included overnight support, and private shoreline is not an informal campsite.",
       "summary": "Launch at Frogtown Park in Cold Spring and take out at Eagle Park in Rockville. This is the short lower-Sauk extension that gives you more mileage than the Frogtown-to-Rockville split without committing to the full Miller day.",
       "accessCaveats": [
         "Frogtown Park launches just below the Cold Spring dam area, so make sure you are using the signed downstream canoe landing rather than any upstream water near the obstruction.",
         "Eagle Park is a popular local landing and fishing spot, so it is worth scouting the exact carry-out and parking flow before you launch."
       ],
       "watchFor": [
-        "Fresh wood and strainers after storms.",
+        "Snags, fallen trees, and overhanging or dead trees; the normal gauge band does not guarantee a clear channel.",
         "Scrapier water and thicker vegetation when the St. Martin gauge falls toward 14 ft.",
-        "Cold-water exposure outside midsummer, even on this shorter easy segment."
+        "Changing or rising river conditions; reassess rather than relying on an earlier gauge check.",
+        "Private shoreline; stop only at the named public accesses or other designated sites."
       ]
     }
   },

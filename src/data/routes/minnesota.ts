@@ -4218,6 +4218,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best lower-Sauk range. Below 14 ft the river trends scrape-prone and weedy, while caution rises above 20 ft.",
     "latitude": 45.45775,
     "longitude": -94.421,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This route starts at the mapped Frogtown Park carry-in below the Cold Spring Dam and finishes at Eagle Park. Do not improvise a launch upstream of the dam.",
+        "MN DNR warns that snags and fallen trees can tip an unwary paddler. Use the official 15 to 17 ft St. Martin band as level context, not a wood-clearance guarantee, and reassess when the river is rising.",
+        "Use the named public accesses and designated stops because MN DNR says much of the Sauk shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -4262,7 +4276,7 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the practical window. Summer low water and vegetation can knock quality down well before the route fully stops working.",
       "difficulty": "easy",
-      "difficultyNotes": "This is still a broad-audience lower-Sauk float at normal levels, but wood, strainers, and cold-water exposure remain real same-day concerns.",
+      "difficultyNotes": "This is still a broad-audience lower-Sauk float at normal levels, but snags, fallen trees, changing levels, and private shoreline remain real same-day concerns.",
       "confidenceNotes": "Confidence is good because MN DNR names the Frogtown and Eagle access ladder on Map 2, Cold Spring documents the Frogtown canoe landing, and Rockville documents Eagle Park as a routine canoe and kayak launch/landing."
     },
     "evidenceNotes": [
@@ -4298,11 +4312,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "MN DNR Sauk River Map 2 PDF",
