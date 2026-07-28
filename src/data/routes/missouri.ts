@@ -6365,6 +6365,21 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect shallow shoals and possible dragging. There is not enough official support to name an ideal range or high-water cutoff, so treat rising or storm-affected water as a caution flag.",
     "latitude": 36.79356389,
     "longitude": -91.32854167,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Forest Service identifies this as a 4.9-mile Greer-to-Turner float through Mary Decker Shoal and the Blue Ribbon Trout Area. Check the Bardley gauge and weather before launching; the 300 cfs floor is a low-water marker, not an upper-flow clearance.",
+        "Turner Mill South is a rustic river-right landing with limited day use, five dispersed campsites, one concrete launch, and no potable water. Stage water, parking, and the vehicle turnaround before launch, and do not count on services or a quick road exit downstream.",
+        "Use the named Greer Crossing put-in and Turner Mill South take-out. Do not confuse Turner Mill South with Turner Mill North on river left or cross private scenic-easement banks between them; the Forest Service warns that the river can rise rapidly and that motorized and non-motorized users share the corridor."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07071500",
       "provider": "usgs",
@@ -6437,6 +6452,12 @@ export const missouriRoutes: River[] = [
         "value": "Greer Spring, Mary Decker Shoal, day-use split take-out",
         "note": "The Forest Service says Greer Spring more than doubles the river volume, Greer to Turner passes Mary Decker Shoal, and Turner Mill South is the developed river-right landing rather than the smaller day-use north-side access.",
         "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+      },
+      {
+        "label": "Primary safety review",
+        "value": "Rustic right-bank landing, changing flow, and endpoint distinction",
+        "note": "The Forest Service documents Turner Mill South as a rustic right-bank access 4.9 miles below Greer with limited day use, five campsites, a single-lane launch, no potable water, and rapid-rise warnings. Its river-use notes distinguish the south landing from Turner Mill North and identify the shared 25 hp motorized corridor.",
+        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access"
       }
     ],
     "sourceLinks": [
