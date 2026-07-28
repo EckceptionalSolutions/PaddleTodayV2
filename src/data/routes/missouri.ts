@@ -7413,6 +7413,23 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect more dragging in shoals. There is not enough guidance yet to name a high-water cutoff, so rising water deserves extra caution.",
     "latitude": 36.732356,
     "longitude": -91.214837,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "The Forest Service describes Whitten to Riverton as an approximately 8-mile day float but warns that the Eleven Point can rise rapidly; recheck the river and access conditions before launching.",
+        "Expect mostly Class I water with shallow shoals, swift current, cold spring-fed water, and fresh wood after storms. At Halls Bay, do not commit to a channel you have not visually assessed for the current level.",
+        "Use Whitten and Riverton East only as the planned public accesses. Riverton East is a developed, day-use-only ramp just above Highway 160; do not substitute private banks, informal pull-offs, or the nearby Riverton West area without confirming the take-out plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07071500",
       "provider": "usgs",

@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:11:16.314Z",
+  "generatedAt": "2026-07-28T13:13:05.546Z",
   "routeCount": 927,
-  "issueCount": 77,
+  "issueCount": 73,
   "summary": {
     "Critical": 0,
-    "High": 15,
-    "Medium": 62,
+    "High": 14,
+    "Medium": 59,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "eleven-point-river-whitten-riverton",
-      "slug": "eleven-point-river-whitten-riverton",
-      "name": "Eleven Point River",
-      "reach": "Whitten Access to Riverton East River Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": ", so rising water deserves extra caution. Forest Service materials and American Whitewater describe this as mostly Class I water with shoals and fast-water spots. Halls Bay has a faster ledge/right-channel option at above-normal water, and motorized users are"
-    },
     {
       "routeId": "gasconade-river-pointers-creek-cooper-hill",
       "slug": "gasconade-river-pointers-creek-cooper-hill",
@@ -383,39 +372,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "y Class I spring-fed Ozark water with shoals, Mary Decker Shoal near the start, cold water, and a longer remote feel than the short split sections. Motorized users are also allowed under the 25 hp limit. Confidence is good for a conservative mid-river Eleven P"
-    },
-    {
-      "routeId": "eleven-point-river-whitten-riverton",
-      "slug": "eleven-point-river-whitten-riverton",
-      "name": "Eleven Point River",
-      "reach": "Whitten Access to Riverton East River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Classic lower Eleven Point day float from Whitten to Riverton on the National Wild and Scenic River, with Forest Service access at both ends, cold clear spring-fed water, shoals, H"
-    },
-    {
-      "routeId": "eleven-point-river-whitten-riverton",
-      "slug": "eleven-point-river-whitten-riverton",
-      "name": "Eleven Point River",
-      "reach": "Whitten Access to Riverton East River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "ugh to carry nearly every riffle without hitting rocks. Route character Shoals, cold water, Halls Bay Forest Service river-mile notes call out Conner Chute, Boze Mill Spring, and Halls Bay, where the river divides and the right channel is best above normal wat"
-    },
-    {
-      "routeId": "eleven-point-river-whitten-riverton",
-      "slug": "eleven-point-river-whitten-riverton",
-      "name": "Eleven Point River",
-      "reach": "Whitten Access to Riverton East River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "enough guidance yet to name a high-water cutoff, so rising water deserves extra caution. Forest Service materials and American Whitewater describe this as mostly Class I water with shoals and fast-water spots. Halls Bay has a faster ledge/right-channel option"
     },
     {
       "routeId": "gasconade-river-pointers-creek-cooper-hill",
