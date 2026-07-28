@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T05:09:49.010Z",
+  "generatedAt": "2026-07-28T05:26:22.141Z",
   "routeCount": 931,
-  "issueCount": 170,
+  "issueCount": 169,
   "summary": {
     "Critical": 0,
-    "High": 65,
+    "High": 64,
     "Medium": 105,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "sauk-river-frogtown-heims-mill",
-      "slug": "sauk-river-frogtown-heims-mill",
-      "name": "Sauk River",
-      "reach": "Frogtown Park to Heims Mill",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "t of the run is broad-audience lower-Sauk water at sane levels, but 21.8 miles, wood, weather exposure, and the final Class I-II mouth section at Heims make it more serious than the short Miller or Knights shuttles. Confidence is good because MN DNR names both"
-    },
     {
       "routeId": "sauk-river-frogtown-knights-of-columbus",
       "slug": "sauk-river-frogtown-knights-of-columbus",

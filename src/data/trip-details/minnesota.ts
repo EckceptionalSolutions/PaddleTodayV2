@@ -1651,13 +1651,15 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Frogtown Park and finish at Heims Mill for the full lower Sauk route into the Mississippi confluence corridor. This is the additive card to choose when you want to carry the lower river past Eagle and Miller all the way through the final mouth section.",
       "accessCaveats": [
         "Frogtown launches below the Cold Spring dam area, so make sure you are using the signed downstream canoe landing rather than any upstream obstruction-adjacent spot.",
-        "Heims Mill is the intended finish and the final 2.5 miles before it carry the DNR-signaled Class I-II mouth section, so identify the take-out before launching and do not drift toward the Mississippi confluence by accident.",
+        "Heims Mill is the mapped river-mile 0.0 finish, immediately before the Mississippi confluence. Identify this carry-in access as your take-out before launching and save time and energy for the final 2.5 miles of DNR-mapped Class I-II rapids.",
         "Rockville County Park is the cleanest intentional overnight split because it is the documented watercraft-campsite stop on this corridor."
       ],
       "watchFor": [
         "Longer-day fatigue and changing weather on an otherwise easy river.",
         "Vegetation, shallow riffles, and slower current when the St. Martin gauge slides toward 14 ft.",
-        "Fresh wood, strainers, and the boulder-filled Class I-II finish in the final miles before Heims Mill."
+        "Snags and fallen trees anywhere on the route; the St. Martin gauge does not certify a clear channel.",
+        "Nearly continuous boulder-filled Class I-II rapids and scattered surfing waves in the final 2.5 miles before Heims Mill.",
+        "Private shoreline outside designated public accesses and campsites."
       ]
     }
   },

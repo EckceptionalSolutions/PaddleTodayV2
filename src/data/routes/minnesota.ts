@@ -5731,6 +5731,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the cleanest broad-audience range. Below 14 ft the lower river gets weedier and the Heims finish turns bony, while above 20 ft the extra current and confluence-adjacent consequence deserve a more cautious read.",
     "latitude": 45.45775,
     "longitude": -94.421,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR maps nearly continuous boulder-filled Class I-II rapids and scattered surfing waves in the final 2.5 miles above Heims Mill; save enough time and boat control for this late moving-water section.",
+        "Use the official 15 to 17 ft St. Martin band as level context, not clearance to run the rapids or proof that the channel is free of wood. Low water may make the finish impassable, while very high water is dangerous and not recommended.",
+        "Watch for snags and fallen trees throughout the route. Use the mapped Frogtown and Heims Mill carry-ins and stop only at designated public sites because much of the shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -5807,7 +5822,7 @@ export const minnesotaRoutes: River[] = [
         "label": "Access support",
         "value": "Official city and county endpoints",
         "note": "Cold Spring says Frogtown Park has a canoe landing on the Sauk, and Stearns County documents Heims Mill as carry-in access to the Sauk and Mississippi rivers.",
-        "sourceUrl": "https://www.stearnscountymn.gov/heims-mill-canoe-access"
+        "sourceUrl": "https://www.stearnscountymn.gov/389/Heims-Mill-Canoe-Access"
       }
     ],
     "sourceLinks": [
@@ -5817,11 +5832,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "MN DNR Sauk River Map 2 PDF",
@@ -5833,11 +5848,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Stearns County Rockville County Park",
-        "url": "https://www.stearnscountymn.gov/397/Rockville-County-Park"
+        "url": "https://www.stearnscountymn.gov/rockville-county-park"
       },
       {
         "label": "Stearns County Heims Mill Canoe Access",
-        "url": "https://www.stearnscountymn.gov/heims-mill-canoe-access"
+        "url": "https://www.stearnscountymn.gov/389/Heims-Mill-Canoe-Access"
       },
       {
         "label": "USGS 05270500 monitoring location",
