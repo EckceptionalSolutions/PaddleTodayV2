@@ -8930,6 +8930,23 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Bryant Creek near Tecumseh gauge. Around 300 cfs is the low-water marker; below that, expect shallow shoals, dragging, and slower travel. Rising water deserves extra caution because Bryant is narrow, swift, and debris-prone after storms.",
     "latitude": 36.70778,
     "longitude": -92.26639,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Use only the named MDC Sycamore and Warren Bridge accesses. Both are currently listed as public access areas with posted 4 a.m. to 10 p.m. hours; the older flood-closure report is historical, so still obey any current signs or closure notice on arrival.",
+        "Keep the Tecumseh gauge at or above the 300 cfs route floor and recheck the trend after rain. Bryant is narrow and swift, and fresh wood, sweepers, low-water bridges, and tight bends can appear or become more consequential after storms.",
+        "Hodgson Water Mill is privately owned; use the adjacent Sycamore access rather than mill property. Treat private banks away from the two MDC endpoints as off-limits and plan the rural shuttle before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07058000",
       "provider": "usgs",
@@ -9000,8 +9017,14 @@ export const missouriRoutes: River[] = [
       {
         "label": "Access history",
         "value": "Flood-damage caution",
-        "note": "Older local reporting after the 2017 floods described Warren Bridge as officially closed and Sycamore as rough with loose gravel and deep sand. Current MDC pages list both areas as public access, but the route notes keep a same-day access/scouting caution.",
+        "note": "Older local reporting after the 2017 floods described Warren Bridge as officially closed and Sycamore as rough with loose gravel and deep sand. Current MDC pages now list Sycamore as a public canoe/kayak launch and Warren Bridge as public fishing/floating access, both with posted 4 a.m. to 10 p.m. hours; retain same-day signage and surface-condition checks rather than treating the old closure report as current.",
         "sourceUrl": "https://www.ozarkcountytimes.com/node/22441"
+      },
+      {
+        "label": "Current MDC hours",
+        "value": "4 a.m. to 10 p.m. daily at both endpoints",
+        "note": "MDC currently lists Sycamore Access as a popular canoe/kayak launch and Warren Bridge Access as fishing and floating access, with both areas open daily from 4 a.m. to 10 p.m.",
+        "sourceUrl": "https://mdc.mo.gov/discover-nature/places/warren-bridge-access"
       }
     ],
     "sourceLinks": [

@@ -1735,7 +1735,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at MDC Sycamore Access just downstream of the Highway 181 bridge by Hodgson Mill and take out at MDC Warren Bridge Access. This is the standard upper-to-middle Bryant Creek day float, with a direct Tecumseh gauge used as a conservative low-water check.",
       "accessCaveats": [
         "Sycamore Access is the public MDC launch; nearby Hodgson Water Mill is private, so use the access area and posted signs rather than mill property.",
-        "Warren Bridge Access is currently listed by MDC as fishing and floating access, but older flood-damage reporting described rough or closed conditions there. Scout the take-out before committing and obey any current closures or signs.",
+        "Warren Bridge Access is currently listed by MDC as fishing and floating access with posted 4 a.m. to 10 p.m. hours, but older flood-damage reporting described rough or closed conditions there. Scout the take-out before committing and obey any current closures, signs, and changed-bank conditions.",
         "Put-in coordinates are anchored to the adjacent Hodgson-Aid Mill / Highway 181 crossing context because MDC describes Sycamore Access by its position below that bridge; use on-site signage for the exact gravel launch."
       ],
       "watchFor": [

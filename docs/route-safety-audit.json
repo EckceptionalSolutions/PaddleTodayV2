@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:03:21.738Z",
+  "generatedAt": "2026-07-28T13:05:26.190Z",
   "routeCount": 927,
-  "issueCount": 93,
+  "issueCount": 89,
   "summary": {
     "Critical": 0,
-    "High": 22,
-    "Medium": 71,
+    "High": 20,
+    "Medium": 69,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "bryant-creek-sycamore-warren-bridge",
-      "slug": "bryant-creek-sycamore-warren-bridge",
-      "name": "Bryant Creek",
-      "reach": "Sycamore Access to Warren Bridge Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "an a lazy tube float, especially near low-water bridges, shoals, and post-storm wood. Confidence is good for a conservative Missouri add: MDC confirms Sycamore Access as a public Bryant Creek access and popular launch for upper-Bryant paddlers, MDC currently l"
-    },
-    {
-      "routeId": "bryant-creek-sycamore-warren-bridge",
-      "slug": "bryant-creek-sycamore-warren-bridge",
-      "name": "Bryant Creek",
-      "reach": "Sycamore Access to Warren Bridge Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "der local reporting after the 2017 floods described Warren Bridge as officially closed and Sycamore as rough with loose gravel and deep sand. Current MDC pages list both areas as public access, but the route notes keep a same-day access/scouting caution. MDC S"
-    },
     {
       "routeId": "current-river-akers-ferry-pulltite",
       "slug": "current-river-akers-ferry-pulltite",
@@ -438,28 +416,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "when the Richwoods gauge is high or rising, especially above the local 800 cfs caution band. Confidence is good for a conservative Missouri add: MDC confirms Mammoth Access is 5.40 river miles upstream from Merrill Horse Access and provides public department-"
-    },
-    {
-      "routeId": "bryant-creek-sycamore-warren-bridge",
-      "slug": "bryant-creek-sycamore-warren-bridge",
-      "name": "Bryant Creek",
-      "reach": "Sycamore Access to Warren Bridge Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Clear spring-fed Bryant Creek day float from MDC Sycamore Access below Hodgson Mill to MDC Warren Bridge Access, with a direct Tecumseh gauge and a conservative low-water floor fro"
-    },
-    {
-      "routeId": "bryant-creek-sycamore-warren-bridge",
-      "slug": "bryant-creek-sycamore-warren-bridge",
-      "name": "Bryant Creek",
-      "reach": "Sycamore Access to Warren Bridge Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "expect shallow shoals, dragging, and slower travel. Rising water deserves extra caution because Bryant is narrow, swift, and debris-prone after storms. Local Bryant Creek guidance describes a narrow, swift stream with limestone bluffs, occasional wider pools,"
     },
     {
       "routeId": "current-river-akers-ferry-pulltite",
