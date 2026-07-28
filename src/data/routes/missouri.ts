@@ -8373,6 +8373,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Meramec River near Steelville gauge. Below about 340 cfs, expect shallow riffles, dragging, and a slower trip. No ideal range or high-water cutoff is claimed, so treat rising water and storms cautiously.",
     "latitude": 37.9783,
     "longitude": -91.4563,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "MDC planning material identifies Scotts Ford to Riverview as a seven-mile canoe float. Scotts Ford has posted 4 a.m.–10 p.m. hours; Riverview's final road segment is beyond state maintenance, so inspect the take-out and road before leaving a vehicle.",
+        "Use only the signed MDC accesses and current ramp layouts. Do not substitute private banks or gravel bars when the Riverview road or landing is unsuitable.",
+        "Keep the 343 cfs Steelville floor as a conservative low-water check. Rising water can add fresh wood, pushy bends, cloudy current, and harder small-access landings; make a same-day visual call before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07013000",
       "provider": "usgs",

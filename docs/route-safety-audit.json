@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:25:44.940Z",
+  "generatedAt": "2026-07-28T13:27:21.641Z",
   "routeCount": 927,
-  "issueCount": 52,
+  "issueCount": 49,
   "summary": {
     "Critical": 0,
-    "High": 6,
-    "Medium": 46,
+    "High": 5,
+    "Medium": 44,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "meramec-river-scotts-ford-riverview",
-      "slug": "meramec-river-scotts-ford-riverview",
-      "name": "Meramec River",
-      "reach": "Scotts Ford Access to Riverview Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ark recreational float with pools, riffles, gravel bars, bluffs, and occasional wood. It is an easy route only at ordinary stable levels; high or rising water is not beginner water. Confidence is good for a conservative Missouri add: MDC confirms both Scotts F"
-    },
     {
       "routeId": "shoal-creek-tipton-ford-wildcat",
       "slug": "shoal-creek-tipton-ford-wildcat",
@@ -306,28 +295,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rounded 1,100 cfs low-water floor and does not infer an ideal range. High-water caution No numeric cutoff claimed MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat"
-    },
-    {
-      "routeId": "meramec-river-scotts-ford-riverview",
-      "slug": "meramec-river-scotts-ford-riverview",
-      "name": "Meramec River",
-      "reach": "Scotts Ford Access to Riverview Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Seven-mile upper Meramec day float between two MDC public accesses near Steelville. MDC names the exact canoe-float pair, and the Steelville USGS gauge gives a direct same-river le"
-    },
-    {
-      "routeId": "meramec-river-scotts-ford-riverview",
-      "slug": "meramec-river-scotts-ford-riverview",
-      "name": "Meramec River",
-      "reach": "Scotts Ford Access to Riverview Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "nship but are not used to claim an ideal range for this exact route. High-water caution No shipped upper cutoff Rivers.MOHERP describes high water as potentially dangerous for young or inexperienced paddlers and flood water as avoidable for casual trips. This"
     },
     {
       "routeId": "niangua-river-bennett-spring-barclay",
