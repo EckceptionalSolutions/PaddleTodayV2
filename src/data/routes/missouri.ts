@@ -3427,6 +3427,20 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is a conservative low-water floor from MoHERP and lower-Current trip evidence; below that, expect shallow shoals, slower travel, and possible dragging. No ideal range or high cutoff is claimed.",
     "latitude": 36.9939,
     "longitude": -91.014,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "NPS river-safety guidance warns that rootwads and strainers can pin a paddler. Wear a PFD, keep a self-rescue plan, and avoid floating wood rather than treating this easy-rated reach as hazard-free.",
+        "The NPS Superintendent's Compendium closes the Current to non-motorized vessels at the Van Buren Bridge when the river reaches 5.00 ft. Flood water runs faster and carries debris, so check the current closure notice and skip the route on rising water.",
+        "Use the signed Big Spring upper river landing. NPS lists Big Spring (upper) as a river landing but reserves Big Spring Boat Ramp (lower) for trailered boats with no floater access; the spring-fed Current is cold even when the lower-Current float is easy at normal levels."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
@@ -3505,6 +3519,12 @@ export const missouriRoutes: River[] = [
         "value": "Van Buren Bridge 5.00 ft closed level",
         "note": "The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.",
         "sourceUrl": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm"
+      },
+      {
+        "label": "Primary safety review",
+        "value": "Strainers, flood closures, cold water, and landing distinction",
+        "note": "NPS river-safety guidance covers rootwads and self-rescue, the current compendium publishes the Van Buren closure level and distinguishes the floater-usable Big Spring upper landing from the lower motorized-only ramp, and the park brochure describes the spring-fed Current as cold.",
+        "sourceUrl": "https://home.nps.gov/ozar/river-safety.htm"
       }
     ],
     "sourceLinks": [
@@ -3521,6 +3541,11 @@ export const missouriRoutes: River[] = [
       {
         "label": "NPS Ozark park brochure",
         "url": "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Ozark river safety",
+        "url": "https://home.nps.gov/ozar/river-safety.htm",
         "provider": "nps"
       },
       {
