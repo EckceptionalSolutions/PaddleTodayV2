@@ -1263,8 +1263,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "Shallow stretches and thick vegetation when the gauge slides toward 14 ft.",
-        "Storm debris and strainers after recent rain.",
-        "Cold-water risk outside midsummer, even on an otherwise easy route."
+        "Snags and fallen trees that can block the clean line even when the gauge is in its normal band.",
+        "Private shoreline; stop only at the named public accesses or other designated sites."
       ]
     }
   },
@@ -1325,7 +1325,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Boulder-filled Class I-II rapids in the final 2.5 miles, especially if the river is low.",
         "Shallow rock dodging or partial walk-downs if the St. Martin gauge falls toward or below 14 ft.",
-        "Wood, fatigue, and cold-water consequences near the Mississippi confluence."
+        "Snags and fallen trees where current narrows your options near the Mississippi confluence.",
+        "Private shoreline; stop only at designated public sites."
       ]
     }
   },

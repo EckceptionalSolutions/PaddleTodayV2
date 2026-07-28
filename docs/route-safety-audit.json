@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T04:40:40.537Z",
+  "generatedAt": "2026-07-28T04:55:21.840Z",
   "routeCount": 931,
-  "issueCount": 175,
+  "issueCount": 172,
   "summary": {
     "Critical": 0,
-    "High": 68,
-    "Medium": 107,
+    "High": 66,
+    "Medium": 106,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "sauk-river-eagle-heims-mill",
-      "slug": "sauk-river-eagle-heims-mill",
-      "name": "Sauk River",
-      "reach": "Eagle Park to Heims Mill",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "onfidence is good because MN DNR names both endpoints and warns about the final rapid section, while Rockville and Stearns County both document the public access points. Current level 15.26 ft at 7:00 PM The official MN DNR St. Martin gauge reported 15.26 ft o"
-    },
-    {
-      "routeId": "sauk-river-eagle-miller-landing",
-      "slug": "sauk-river-eagle-miller-landing",
-      "name": "Sauk River",
-      "reach": "Eagle Park to Miller Landing",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "cautious flood-style read. Approachable for newer paddlers at sane levels, but wood, strainers, and cold-water exposure still matter more than the easy label alone implies. MN DNR recommends this exact trip and publishes official level guidance for the matchi"
-    },
     {
       "routeId": "sauk-river-frogtown-eagle-park",
       "slug": "sauk-river-frogtown-eagle-park",
@@ -889,17 +867,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rth County Park are both documented public endpoints for this corridor. Primary caution Flood debris Rising post-rain water can add debris and make an easy scenic route feel less forgiving. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.htm"
-    },
-    {
-      "routeId": "sauk-river-eagle-miller-landing",
-      "slug": "sauk-river-eagle-miller-landing",
-      "name": "Sauk River",
-      "reach": "Eagle Park to Miller Landing",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "absolute because that guidance is broad and does not account for every same-day hazard on this route. DNR bands 14 / 15 / 17 / 20 ft MN DNR interprets this gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very Hi"
     },
     {
       "routeId": "sauk-river-frogtown-eagle-park",

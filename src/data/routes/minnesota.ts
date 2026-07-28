@@ -5095,6 +5095,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft as the best zone. Below 14 ft drifts toward scrapey late-summer conditions, and above 20 ft deserves a much more cautious flood-style read.",
     "latitude": 45.4754595,
     "longitude": -94.3502588,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR recommends Eagle Park to Miller Landing as an 8.6-mile day trip, but its current Map 2 still warns that snags and fallen trees can tip an unwary paddler.",
+        "Use the official 15 to 17 ft St. Martin band as level context, not a wood-clearance guarantee. DNR says river levels can change rapidly and considers very high water dangerous and not recommended.",
+        "Use the named Eagle Park and Miller Landing carry-ins. Stop only at designated public sites because MN DNR says much of the Sauk shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -5139,7 +5153,7 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the core window. By late summer, low water and vegetation can drag quality down before the route fully stops working.",
       "difficulty": "easy",
-      "difficultyNotes": "Approachable for newer paddlers at sane levels, but wood, strainers, and cold-water exposure still matter more than the easy label alone implies.",
+      "difficultyNotes": "Approachable for newer paddlers at normal levels, but the easy label does not guarantee a clear channel; the current DNR map still warns about snags and fallen trees.",
       "confidenceNotes": "MN DNR recommends this exact trip and publishes official level guidance for the matching Sauk gauge. Confidence stays a bit below absolute because that guidance is broad and does not account for every same-day hazard on this route."
     },
     "evidenceNotes": [
@@ -5153,13 +5167,13 @@ export const minnesotaRoutes: River[] = [
         "label": "Recommended trip",
         "value": "8.6 miles",
         "note": "MN DNR treats Eagle Park to Miller Landing as the recommended lower Sauk day trip.",
-        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "Low-water caution",
         "value": "Late summer can get scrapy",
         "note": "MN DNR explicitly says this segment is not recommended in late summer when the water is low and vegetation gets thick.",
-        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "Access confidence",
@@ -5174,11 +5188,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "USGS 05270500 monitoring location",
@@ -5186,11 +5200,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "City of Rockville Eagle Park",
-        "url": "https://www.rockvillecity.org/eaglepark"
+        "url": "https://rockvillemn.gov/eaglepark"
       },
       {
         "label": "Stearns County Miller Landing",
-        "url": "https://www.stearnscountymn.gov/393/Miller-Landing"
+        "url": "https://www.stearnscountymn.gov/miller-landing"
       }
     ]
   },
@@ -5333,6 +5347,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the mouth rapids get bony or partly impassable, while above 20 ft the current and late-route consequence rise together.",
     "latitude": 45.4754595,
     "longitude": -94.3502588,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR maps nearly continuous boulder-filled Class I-II rapids and scattered surfing waves in the final 2.5 miles above Heims Mill; this late section requires moving-water boat control.",
+        "Use the official 15 to 17 ft St. Martin band as level context, not clearance to run the rapids. Low water may make them impassable, while very high water is dangerous and not recommended.",
+        "Watch for snags and fallen trees, especially where current narrows your options. Use the named Eagle Park and Heims Mill carry-ins and stop only at designated public sites because much of the shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -5431,7 +5460,7 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "City of Rockville Eagle Park",
-        "url": "https://www.rockvillecity.org/eaglepark"
+        "url": "https://rockvillemn.gov/eaglepark"
       },
       {
         "label": "Stearns County Heims Mill Canoe Access",
