@@ -188,7 +188,6 @@ const routeOrder = [
   "crow-wing-river-stigmans-mound-little-white-dog",
   "crow-wing-river-stigmans-mound-cottingham",
   "whitewater-river-elba-highway-74",
-  "south-fork-zumbro-lake-zumbro",
   "shell-rock-river-renning-shell-rock",
   "shell-rock-river-heery-woods-renning",
   "upper-iowa-river-kendallville-bluffton",

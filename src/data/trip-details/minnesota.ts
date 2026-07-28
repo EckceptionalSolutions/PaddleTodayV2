@@ -983,16 +983,19 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Two-car shuttle is simplest. A bike shuttle is more realistic here than on the upper Chatfield reach because the Root River State Trail and local roads help, but it is still a real full-day setup.",
       "permits": "No route-specific paddling permit is known. Follow posted parking and access rules at Moen's Bridge and in Whalan.",
       "camping": "DNR-mapped campsites along the Root River corridor, including Power Plant on this reach, make this overnight-capable if you intentionally plan campsite availability and rules; otherwise treat it as a long day trip.",
-      "summary": "Put in at Moen's Bridge and take out at Whalan for one of the cleaner long Root River shuttles: scenic bluff country, approachable current, and enough mileage that low water or fresh debris can still change the day substantially.",
+      "summary": "Put in at Moen's Bridge and take out at Whalan for a long bluff-country day that includes a signed mandatory portage around unexpected rapids at the former Brightsdale Dam restoration area and an underwater bridge-debris caution near the finish.",
       "accessCaveats": [
         "Moen's Bridge is a carry-in access, not a drive-to-water ramp, so expect a short carry and verify parking before unloading.",
         "The DNR Root map says Whalan parking is 500 feet from the carry-in access, and state-trail guidance says town parking is on city streets, so settle the vehicle plan before you launch.",
-        "Look at the Whalan finish before launching if you have not used it before, because the take-out is easy to treat like a casual town stop when it is really a specific carry-in access."
+        "Look at the Whalan finish before launching if you have not used it before, because the take-out is easy to treat like a casual town stop when it is really a specific carry-in access.",
+        "The former Brightsdale Dam restoration area is not an optional scout-and-run feature. Follow the DNR's installed upstream signs and use the mapped 20-yard river-right portage at river mile 59.8."
       ],
       "watchFor": [
         "Shallow riffles and slower pace when Lanesboro is near the floor.",
-        "Old bridge debris near Whalan and fresh wood after storms.",
-        "Long-mileage fatigue on a route that stays easy but not short."
+        "The signed mandatory river-right portage around the constructed rock rapids at the former Brightsdale Dam restoration area near river mile 59.8.",
+        "DNR-marked underwater old bridge debris near river mile 49.9, shortly before the Whalan take-out.",
+        "Overhanging or dead trees and changing obstructions after rain.",
+        "Long-mileage fatigue on a full-day route even when the moving water outside the restoration area feels approachable."
       ]
     }
   },

@@ -1,5 +1,19 @@
 # Minnesota Route Memory
 
+## 2026-07-27 America/Chicago Root River Brightsdale portage review
+
+- Kept `root-river-moens-whalan` live but changed its safety posture from unreviewed easy-route copy to a reviewed `advanced` profile with `mandatory_takeout`, `whitewater`, `strainers`, and `private_banks` hazards.
+- The MN DNR Root River alert last updated June 26, 2026 says the former Brightsdale Dam channel-restoration area near river mile 60 has unexpected rapids that are difficult for paddlers to navigate, directs users to portage around the area, and says upstream signage is installed.
+- The current 2026 DNR Map 1 supplies the operational detail needed to keep the official Moen's Bridge-to-Whalan route usable: constructed rock rapids at river mile 59.8 and a 20-yard river-right portage. The same map marks underwater old bridge debris near river mile 49.9 before the Whalan carry-in at river mile 49.4 and limits shore use to designated sites because much of the shoreland is private.
+- The 300 cfs minimum-only Lanesboro model, direct USGS `05384000` gauge, endpoints, coordinates, and route visibility were unchanged. The gauge score must never be presented as clearance to run the restoration feature.
+
+## 2026-07-27 America/Chicago South Fork Zumbro access block
+
+- Removed `south-fork-zumbro-lake-zumbro` from the live route inventory, reducing Minnesota from 236 to 235 live routes.
+- The current 2026 MN DNR Zumbro Map 1 identifies County Road 121 / Frank's Ford only as a bridge, not a public carry-in. MnDOT confirms the historic bridge location but does not authorize paddling access or parking.
+- The only exact put-in guidance found remains a 2022 Miles Paddled report describing an informal east-bank footpath and warning paddlers not to block the adjacent private driveway. Lake Zumbro County Park remains a well-supported public take-out, and the direct USGS gauge plus route-specific numeric guidance remain useful, but they do not resolve launch legitimacy.
+- Preserved the inactive route and trip-detail records for a future access review. Reconsider the route only after the responsible road, land, or water-trail manager explicitly confirms public launch and parking rights at Frank's Ford or supplies a source-backed replacement put-in.
+
 ## 2026-07-27 America/Chicago Peterson access closure block
 
 - Removed `root-river-lanesboro-peterson` and `root-river-peterson-rushford` from the live route inventory, reducing Minnesota from 238 to 236 live routes.

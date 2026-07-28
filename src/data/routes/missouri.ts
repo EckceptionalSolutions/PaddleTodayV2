@@ -3846,6 +3846,23 @@ export const missouriRoutes: River[] = [
       "siteName": "Current River at Van Buren, MO",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-07067000/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "NPS lists Big Spring to Gooseneck as a roughly six-hour lower Current float. The current Superintendent's Compendium identifies Big Spring (upper) and Gooseneck (Hawes) as Current River landings, and the current concession operating plan includes Big Spring and Hawes among authorized Lower Current accesses. Use the signed landings and verify park alerts before leaving vehicles.",
+        "NPS warns that fallen trees and rootwad strainers can occur on any river section, streams can rise quickly after moderate to heavy rain, and phone help may be hours away. Wear a PFD, be ready to self-rescue, and do not launch on high or rising water.",
+        "The Current is spring-fed and cold. Below Big Spring, expect substantial motorboat traffic, wakes, and longer pools; use only NPS-owned land for gravel-bar camping and do not treat every reachable bank as a public stop.",
+        "The 700 cfs value is a conservative community-supported low-water floor, not an ideal band or high-water clearance. The NPS Van Buren 5.00 ft closure level remains a separate same-day closure check."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 700,
@@ -3870,7 +3887,7 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "NPS lists the Lower Current season as year-round, but this is a long downstream leg where low summer levels can make shoals and headwinds drag out the day. High or rising water can trigger closures, add debris, and make Gooseneck harder to land cleanly. Check NPS closure notices before leaving vehicles.",
       "difficulty": "moderate",
       "difficultyNotes": "NPS lists Big Spring to Gooseneck as a six-hour lower-Current section. The water is generally approachable at ordinary levels, but the mileage, lower-river motorboat traffic, limited bailouts, private-bank issues, and end-of-river logistics make it more committed than a short easy float.",
-      "confidenceNotes": "Confidence is good for a conservative minimum-only add: NPS lists Big Spring to Gooseneck as a lower Current float and the park brochure places Big Spring at lower-river mile 16 and Gooseneck / Hawes at river mile 0; Recreation.gov confirms Hawes / Gooseneck as an NPS lower-Current campground and access area; USGS 07067000 showed same-day May 31, 2026 discharge and gage-height observations during the cluster review; and Rivers.MOHERP ties the same Van Buren gauge to exact Big-Spring-to-Gooseneck Good trip evidence. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, and the Gooseneck coordinate is USGS-topo-derived rather than an NPS GIS point."
+      "confidenceNotes": "Confidence is good for a conservative minimum-only route: NPS lists Big Spring to Gooseneck as a lower Current float; the park brochure places Big Spring at lower-river mile 16 and Gooseneck / Hawes at river mile 0; the current Superintendent's Compendium identifies both as Current River landings; the current concession operating plan includes Big Spring and Hawes among authorized Lower Current accesses; USGS 07067000 showed same-day July 27, 2026 discharge and gage-height observations during safety review; and Rivers.MOHERP ties the same Van Buren gauge to exact Big-Spring-to-Gooseneck Good trip evidence. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, and the Gooseneck coordinate is USGS-topo-derived rather than an NPS GIS point."
     },
     "evidenceNotes": [
       {
@@ -3887,14 +3904,26 @@ export const missouriRoutes: River[] = [
       },
       {
         "label": "Gooseneck access context",
-        "value": "Hawes / Gooseneck NPS campground and river access",
-        "note": "Recreation.gov describes Hawes Campground as near the Current River on the lower Current, with access to the river and four primitive sites. This corroborates the NPS brochure and lower-Current route endpoint.",
-        "sourceUrl": "https://www.recreation.gov/camping/poi/258899"
+        "value": "NPS Gooseneck / Hawes campground and river landing",
+        "note": "The current NPS Gooseneck Campground page confirms the open park campground on the lower Current and publishes the signed road approach. The current Superintendent's Compendium identifies Gooseneck (Hawes) as both a backcountry campsite and a Current River landing.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/gooseneck-campground.htm"
+      },
+      {
+        "label": "Lower Current access authority",
+        "value": "Big Spring and Hawes authorized accesses",
+        "note": "The current NPS concession operating plan includes Big Spring and Hawes among the authorized Lower Current access points. The Superintendent's Compendium separately identifies Big Spring (upper) as the floater landing and the lower Big Spring ramp as trailered-boats-only.",
+        "sourceUrl": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf"
+      },
+      {
+        "label": "Route hazards",
+        "value": "Strainers, fast rises, remote self-rescue, and legal-bank checks",
+        "note": "NPS says fallen trees and rootwad strainers can occur on any section, storms and floods continually change the river, moderate to heavy rain can raise streams quickly, and help may be hours away. NPS also limits gravel-bar camping to NPS-owned land.",
+        "sourceUrl": "https://www.nps.gov/ozar/river-safety.htm"
       },
       {
         "label": "Live direct gauge",
         "value": "USGS 07067000",
-        "note": "USGS Current River at Van Buren showed same-day May 31, 2026 discharge and gage-height observations during review. The gauge is upstream of Big Spring but remains the same lower-Current gauge used by adjacent implemented routes.",
+        "note": "USGS Current River at Van Buren showed provisional same-day July 27, 2026 discharge and gage-height observations, with 924 cfs and 2.79 ft at 9:30 PM CDT during safety review. The gauge is upstream of Big Spring but remains the same lower-Current gauge used by adjacent implemented routes.",
         "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000"
       },
       {
@@ -3906,7 +3935,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Endpoint coordinates",
         "value": "36.9475519, -90.9901267 to 36.8194989, -90.9470707",
-        "note": "The Big Spring put-in uses the existing USGS-topo-derived Big Spring River Access point. The Gooseneck take-out uses the USGS-topo-derived Hawes Recreation Area point, corroborated by NPS Gooseneck / Hawes access naming and Recreation.gov campground context.",
+        "note": "The Big Spring put-in uses the existing USGS-topo-derived Big Spring River Access point. The Gooseneck take-out uses the USGS-topo-derived Hawes Recreation Area point, corroborated by current NPS Gooseneck / Hawes landing, campground, and access-road context.",
         "sourceUrl": "https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/"
       },
       {
@@ -3928,13 +3957,28 @@ export const missouriRoutes: River[] = [
         "provider": "nps"
       },
       {
-        "label": "Recreation.gov Hawes Campground",
-        "url": "https://www.recreation.gov/camping/poi/258899",
-        "provider": "local"
+        "label": "NPS Gooseneck Campground",
+        "url": "https://www.nps.gov/ozar/planyourvisit/gooseneck-campground.htm",
+        "provider": "nps"
       },
       {
         "label": "NPS Ozark Superintendent Compendium",
         "url": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Lower Current authorized-access operating plan",
+        "url": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Ozark river safety",
+        "url": "https://www.nps.gov/ozar/river-safety.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS gravel-bar camping rules",
+        "url": "https://www.nps.gov/ozar/planyourvisit/gravel-bar-camping.htm",
         "provider": "nps"
       },
       {

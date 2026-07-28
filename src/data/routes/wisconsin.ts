@@ -1170,7 +1170,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "West-Central Wisconsin",
     "summary": "Easy lower Red Cedar day with mild riffles, a strong access pair, and one of the better bike shuttles in the current seed set. It still needs enough water to keep the riffles fun instead of scratchy.",
-    "statusText": "Treat about 6.4 to 7.0 ft as the best same-route window we have today. Lower water gets slower and scrapier, while higher water starts to flatten the riffles into a faster wood-watch day.",
+    "statusText": "Treat about 6.4 to 7.0 ft as the best same-route window we have today. Lower water gets slower and scrapier, while higher water washes out the riffles and speeds up this long day.",
     "latitude": 44.87257917,
     "longitude": -91.94084048,
     "gaugeSource": {
@@ -1201,9 +1201,9 @@ export const wisconsinRoutes: River[] = [
         8,
         9
       ],
-      "seasonNotes": "Late spring through early fall is the core window. This is an easy river, but cold shoulder-season water and fresh post-storm wood still lower the quality fast.",
+      "seasonNotes": "Late spring through early fall is the core window. The exact-route report recommends waiting for about 6.4 to 7.0 ft so the riffles retain character without the route becoming unusually slow or fast.",
       "difficulty": "easy",
-      "difficultyNotes": "Beginner-friendly when the gauge is in range, with mild riffles early and mostly forgiving current. The main trip-day risks are low water, storm debris, and a longer full-day pace.",
+      "difficultyNotes": "Beginner-friendly when the gauge is in range, with mild riffles early and mostly forgiving current. The exact-route report observed clusters of deadfall in the narrower final meanders but says they did not require maneuvering; the nearly 15-mile distance remains the main commitment.",
       "confidenceNotes": "The direct Menomonie gauge and Wisconsin DNR access records make the route itself trustworthy. Confidence is still capped below the official tier because the preferred range comes mainly from a same-route trip report rather than a manager-published paddling band."
     },
     "evidenceNotes": [
@@ -1225,9 +1225,10 @@ export const wisconsinRoutes: River[] = [
         "note": "Both Riverside Park Canoe Launch and Dunnville Bottoms Boat Landing are backed by Wisconsin DNR boat-access records."
       },
       {
-        "label": "Primary caution",
-        "value": "Wood after storms",
-        "note": "Even an easy lower Red Cedar day can change fast after storms if strainers and fresh wood move into the current."
+        "label": "Lower-reach deadfall",
+        "value": "Observed but passable",
+        "note": "The 2018 exact-route report describes clusters of deadfall in the narrower final meanders but says none required maneuvering at the reported 6.6 ft level.",
+        "sourceUrl": "https://milespaddled.com/red-cedar-river-i/"
       }
     ],
     "sourceLinks": [
@@ -9880,6 +9881,18 @@ export const wisconsinRoutes: River[] = [
       "kind": "direct",
       "siteName": "Red Cedar River Near Colfax, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05367500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers"
+      ],
+      "safetyNotes": [
+        "Wisconsin River Trips reports fast current and frequent strainers on this exact reach. Stay in the main channel at island splits and leave enough room to avoid downed trees rather than entering narrower side channels.",
+        "Use the direct Colfax gauge and keep broad-audience trips in the 401-600 cfs target. The route source calls 601-800 cfs pushy, 801-1,200 cfs expert-only because of strainers, and 1,201+ cfs potentially too high.",
+        "Mark Russian Slough before launching. The take-out sits on the east end of an island-and-slough complex, and Dunn County says the park has no developed boat landing and closes during the spring walleye-spawning period."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",

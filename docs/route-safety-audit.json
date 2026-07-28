@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T02:25:41.824Z",
-  "routeCount": 932,
-  "issueCount": 198,
+  "generatedAt": "2026-07-28T03:25:38.749Z",
+  "routeCount": 931,
+  "issueCount": 186,
   "summary": {
     "Critical": 0,
-    "High": 79,
-    "Medium": 119,
+    "High": 73,
+    "Medium": 113,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "root-river-moens-whalan",
-      "slug": "root-river-moens-whalan",
-      "name": "Root River",
-      "reach": "Moen's Bridge to Whalan",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "finish, which is useful route-specific caution beyond the generic low-water and wood notes. Same-gauge low benchmark 300 cfs = recommended, but low MilesPaddled treats 300 cfs at the Lanesboro gauge as recommended but low on the nearby Lanesboro to Peterson ro"
-    },
     {
       "routeId": "root-river-parsley-moens",
       "slug": "root-river-parsley-moens",
@@ -253,28 +242,6 @@
       "evidence": "us a workable official ladder, but this upstream segment also depends on fresh wood and real local read-the-river judgment. Treat 3.3 to 5.0 ft as the best window. Below 2.3 ft gets too scrapy, and above 6.3 ft is no longer the mellow family-style day this ro"
     },
     {
-      "routeId": "south-fork-zumbro-lake-zumbro",
-      "slug": "south-fork-zumbro-lake-zumbro",
-      "name": "South Fork Zumbro",
-      "reach": "90th Street NW to Lake Zumbro",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "er window on the Rochester gauge for this exact South Fork reach. Flood caution Rapid rises after rain MN DNR repeatedly warns that the Zumbro system can rise dramatically and dangerously after rainstorms. Lake finish Wind matters at the take-out The route fin"
-    },
-    {
-      "routeId": "south-fork-zumbro-lake-zumbro",
-      "slug": "south-fork-zumbro-lake-zumbro",
-      "name": "South Fork Zumbro",
-      "reach": "90th Street NW to Lake Zumbro",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "wer paddlers. Generally beginner-friendly at the right level, but rising water, wood, and wind on Lake Zumbro can change the day quickly. The 3 to 4 ft band is still trip-report guidance. MN DNR and Olmsted County support the route and its flash-flood and wind"
-    },
-    {
       "routeId": "straight-river-faribault",
       "slug": "straight-river-faribault",
       "name": "Straight River",
@@ -372,17 +339,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "d possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS treats Akers to Pulltite as a standard 4-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold"
-    },
-    {
-      "routeId": "current-river-big-spring-gooseneck",
-      "slug": "current-river-big-spring-gooseneck",
-      "name": "Current River",
-      "reach": "Big Spring Upper River Landing to Gooseneck / Hawes Recreation Area",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "oseneck / Hawes access naming and Recreation.gov campground context. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
     },
     {
       "routeId": "current-river-cataract-gooseneck",
@@ -803,28 +759,6 @@
       "evidence": "ical minimum; below that expect shallow riffles and more dragging, while higher dam-release flows can make the easy current quicker. This is mostly flatwater and riffles with one easy Class I pitch, but it is still a remote Wild River corridor with cold water,"
     },
     {
-      "routeId": "red-cedar-river-menomonie-dunnville",
-      "slug": "red-cedar-river-menomonie-dunnville",
-      "name": "Red Cedar River",
-      "reach": "Menomonie to Dunnville",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "er and scrapier, while higher water starts to flatten the riffles into a faster wood-watch day. Beginner-friendly when the gauge is in range, with mild riffles early and mostly forgiving current. The main trip-day risks are low water, storm debris, and a longe"
-    },
-    {
-      "routeId": "red-cedar-river-tom-prince-russian-slough",
-      "slug": "red-cedar-river-tom-prince-russian-slough",
-      "name": "Red Cedar River",
-      "reach": "Tom Prince Memorial Park to Russian Slough County Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ars, tall sand banks, and a direct Colfax gauge ladder. The route is scenic but strainer-sensitive, so it is best treated as an intermediate moving-water run. Use the Red Cedar River near Colfax gauge. The best normal window is about 401 to 600 cfs. Below 400"
-    },
-    {
       "routeId": "wisconsin-river-spring-green-muscoda",
       "slug": "wisconsin-river-spring-green-muscoda",
       "name": "Wisconsin River",
@@ -1001,28 +935,6 @@
       "evidence": "pipe just past the take-out. Broader Otter Tail guidance also warns paddlers to scout culverts, bridges, dams, and obstructions. Frazee reach detail Riverside Park access/rest area Otter Tail County trail-planning materials identify Riverside Park as a boat ac"
     },
     {
-      "routeId": "root-river-moens-whalan",
-      "slug": "root-river-moens-whalan",
-      "name": "Root River",
-      "reach": "Moen's Bridge to Whalan",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Classic bluff-country Root day where the branches gather, the valley opens up, and the decision stays practical: is Lanesboro comfortably above late-low-water conditions without re"
-    },
-    {
-      "routeId": "root-river-moens-whalan",
-      "slug": "root-river-moens-whalan",
-      "name": "Root River",
-      "reach": "Moen's Bridge to Whalan",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "e flow with some riffles while varying substantially with rainfall. Known river hazard Old bridge debris near Whalan DNR Map 1 flags underwater old bridge debris near river mile 49.9 just above the Whalan finish, which is useful route-specific caution beyond t"
-    },
-    {
       "routeId": "root-river-parsley-moens",
       "slug": "root-river-parsley-moens",
       "name": "Root River",
@@ -1166,17 +1078,6 @@
       "evidence": "the same official DNR park-to-park pair used on the lower Snake route. Primary caution Storm debris After storms or high water, expect new strainers and obstructions that the gauge alone cannot fully price in. MN DNR river levels https://www.dnr.state.mn.us/r"
     },
     {
-      "routeId": "south-fork-zumbro-lake-zumbro",
-      "slug": "south-fork-zumbro-lake-zumbro",
-      "name": "South Fork Zumbro",
-      "reach": "90th Street NW to Lake Zumbro",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "d beginner window on the Rochester gauge for this exact South Fork reach. Flood caution Rapid rises after rain MN DNR repeatedly warns that the Zumbro system can rise dramatically and dangerously after rainstorms. Lake finish Wind matters at the take-out The r"
-    },
-    {
       "routeId": "st-croix-river-osceola-william-obrien",
       "slug": "st-croix-river-osceola-william-obrien",
       "name": "St. Croix River",
@@ -1318,28 +1219,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "conditions and lists Akers and Pulltite closure stages. Use this as high-water caution, not an ideal range. Endpoint coordinates 37.37591, -91.55148 to 37.33505, -91.47959 Coordinates reuse the already implemented Akers Lower and Pulltite access-area anchors"
-    },
-    {
-      "routeId": "current-river-big-spring-gooseneck",
-      "slug": "current-river-big-spring-gooseneck",
-      "name": "Current River",
-      "reach": "Big Spring Upper River Landing to Gooseneck / Hawes Recreation Area",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long lower Current River day from Big Spring to Gooseneck / Hawes, ending near the Current River mouth. NPS lists this as a standard six-hour lower-river section, and the Van Buren"
-    },
-    {
-      "routeId": "current-river-big-spring-gooseneck",
-      "slug": "current-river-big-spring-gooseneck",
-      "name": "Current River",
-      "reach": "Big Spring Upper River Landing to Gooseneck / Hawes Recreation Area",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. NPS Paddle the Lower Current River https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm NPS Ozark park brochure https://www.nps.gov"
     },
     {
       "routeId": "current-river-cataract-gooseneck",
@@ -2088,17 +1967,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ecause the strongest route-specific source only publishes a minimum and release caution. Route-specific guide 9.3 miles; 3 to 4 hours Wisconsin Trail Guide publishes Pine River PN1 from County N Bridge Landing to WEPCO Landing #5, with easy difficulty, riffles"
-    },
-    {
-      "routeId": "red-cedar-river-menomonie-dunnville",
-      "slug": "red-cedar-river-menomonie-dunnville",
-      "name": "Red Cedar River",
-      "reach": "Menomonie to Dunnville",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "e Bottoms Boat Landing are backed by Wisconsin DNR boat-access records. Primary caution Wood after storms Even an easy lower Red Cedar day can change fast after storms if strainers and fresh wood move into the current. MilesPaddled Red Cedar River I https://mi"
     },
     {
       "routeId": "st-croix-river-fox-highway-70",

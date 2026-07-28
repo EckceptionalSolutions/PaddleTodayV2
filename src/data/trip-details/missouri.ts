@@ -644,12 +644,12 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 16 mi",
       "estimatedPaddleTime": "About 6 hr, longer with low water, stops, wind, crowds, or motorboat traffic",
-      "shuttle": "Stage the take-out at Gooseneck / Hawes before driving back to the Big Spring river-access area. This is a long lower-river shuttle near the Current River mouth, so verify roads, parking, signed river access, and campground rules before launching.",
+      "shuttle": "Stage the take-out at the signed Gooseneck / Hawes river landing before driving back to the Big Spring upper river landing. This is a long lower-river shuttle near the Current River mouth, so verify current road conditions, parking, and campground rules before launching.",
       "permits": "No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, campground and day-use rules at Big Spring and Gooseneck / Hawes, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.",
-      "camping": "Treat this as a long day unless you have a separate legal camping plan. Gooseneck / Hawes has primitive NPS campground context, but campsite availability, closures, fees, and river conditions can change.",
+      "camping": "Treat this as a long day unless you have a separate legal camping plan. NPS lists Gooseneck / Hawes as a backcountry campground and allows gravel-bar camping only on NPS-owned land; availability, closures, fees, and river conditions can change.",
       "summary": "Launch at the Big Spring upper river landing and take out at Gooseneck / Hawes for the final long lower Current River section. Use the Van Buren gauge as a conservative low-water check and plan for motorboats, private banks, limited exits, and end-of-river logistics.",
       "accessCaveats": [
-        "NPS materials use both Gooseneck and Hawes naming for the lower-river endpoint. Confirm the signed Gooseneck / Hawes river access before leaving a vehicle.",
+        "The current NPS Superintendent's Compendium lists Gooseneck (Hawes) as a Current River landing, and the current concession operating plan includes Hawes among authorized Lower Current accesses. Use the signed landing and verify current park alerts before leaving a vehicle.",
         "The Gooseneck coordinate is a USGS-topo-derived Hawes Recreation Area point, not an NPS GIS landing table. Use current NPS signs and the actual river landing on arrival.",
         "NPS distinguishes Big Spring (upper) as a Current River landing from Big Spring Boat Ramp (lower), which is trailered boats only with no floater access. Start from the signed upper landing.",
         "This route ends near the Current River mouth. Do not continue onto the Black River or downstream big-river water without a separate plan."
@@ -657,8 +657,8 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Shallow shoals, scraping, and a slower six-hour day when the Van Buren gauge is near or below the 700 cfs conservative floor.",
         "Motorboat wakes, long pool sections, wind, summer crowds, tubes, slick landings, swimmers, fishing lines, and crowded access areas.",
-        "High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.",
-        "Private banks, limited cell service, few easy exits, and confusion between Gooseneck and Hawes naming at the take-out."
+        "High or rising water, fallen trees, rootwad strainers, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.",
+        "Cold spring-fed water, private banks, limited cell service, and few easy exits. Be ready to self-rescue and use only NPS-owned land for gravel-bar camping."
       ]
     }
   },

@@ -432,11 +432,11 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Use Riverside Park in Menomonie as the put-in and Dunnville Bottoms as the take-out. This is a long but friendly downstream Red Cedar day when the gauge keeps enough water in the riffles.",
       "accessCaveats": [
         "Both ends are backed by Wisconsin DNR access records, which is stronger than most community-seeded routes.",
-        "Do not let the easy character make you lazy about cold water, weather, or post-storm wood checks on a 15-mile day."
+        "Do not let the easy character obscure the nearly 15-mile commitment; the exact-route report logged 14.75 miles from Riverside Park to County Road Y."
       ],
       "watchFor": [
         "Low water that turns the riffly upper miles into a slower scrape-and-drag day.",
-        "Fresh strainers or wood after storms, even though the river is otherwise beginner-friendly.",
+        "Clusters of deadfall in the narrower final meanders. The 2018 exact-route report says they did not require maneuvering at 6.6 ft, so reassess the visible channel rather than assuming that observation is current.",
         "Fatigue, wind, and weather exposure over a nearly 15-mile outing if your pace slips."
       ]
     }

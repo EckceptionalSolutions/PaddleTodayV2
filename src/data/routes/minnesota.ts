@@ -2894,10 +2894,25 @@ export const minnesotaRoutes: River[] = [
     "reach": "Moen's Bridge to Whalan",
     "state": "Minnesota",
     "region": "Southeast Minnesota",
-    "summary": "Classic bluff-country Root day where the branches gather, the valley opens up, and the decision stays practical: is Lanesboro comfortably above late-low-water conditions without recent rain turning an easy family-style trip into a debris check?",
-    "statusText": "Around 300 cfs at Lanesboro is the low-water marker. This route is officially supported, but the available guidance is clearer about too-low water than about the upper end of the range.",
+    "summary": "Classic bluff-country Root day where the branches gather and the valley opens up. The route now includes a signed mandatory portage around unexpected rapids at the former Brightsdale Dam restoration area, followed by an underwater bridge-debris caution near Whalan.",
+    "statusText": "Around 300 cfs at Lanesboro is the low-water marker. Regardless of flow, use the signed river-right 20-yard portage at the constructed rock rapids near river mile 59.8; do not treat the gauge score as clearance to run that restoration feature.",
     "latitude": 43.782576,
     "longitude": -92.0317899,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "mandatory_takeout",
+        "whitewater",
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR's June 26, 2026 alert says unexpected rapids at the former Brightsdale Dam restoration area near river mile 60 have become difficult to navigate. Follow the installed signs and portage around the work area.",
+        "The current DNR map places the constructed rock rapids at river mile 59.8 and specifies a 20-yard river-right portage. Do not use the Lanesboro gauge score as permission to run the feature.",
+        "Approaching Whalan, stay alert for the DNR-marked underwater old bridge debris near river mile 49.9. Avoid overhanging or dead trees and use only designated sites because much of the shoreland is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05384000",
       "provider": "usgs",
@@ -2927,7 +2942,7 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the normal window. This is a friendlier Root day than many tiny creeks, but low water still slows the trip down and fresh rain still raises debris and current risk before the score fully captures it.",
       "difficulty": "easy",
-      "difficultyNotes": "Mostly approachable moving water with some riffles, but long mileage, shallow spots, and cold shoulder-season conditions keep it from being a blind yes.",
+      "difficultyNotes": "Mostly approachable moving water with some riffles, but the signed mandatory portage around the former Brightsdale Dam restoration area, underwater bridge debris near Whalan, long mileage, and shallow spots make this an advanced-planning route rather than a blind yes.",
       "confidenceNotes": "The route itself is very strong, and the gauge is on the route. Numeric confidence is lower because the best same-gauge benchmark comes from a nearby downstream trip report rather than a published paddling ladder for Moen's Bridge to Whalan itself."
     },
     "evidenceNotes": [
@@ -2954,6 +2969,12 @@ export const minnesotaRoutes: River[] = [
         "value": "Old bridge debris near Whalan",
         "note": "DNR Map 1 flags underwater old bridge debris near river mile 49.9 just above the Whalan finish, which is useful route-specific caution beyond the generic low-water and wood notes.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf"
+      },
+      {
+        "label": "Active restoration-area portage",
+        "value": "River-right, 20 yards at river mile 59.8",
+        "note": "The DNR alert last updated June 26, 2026 says unexpected rapids at the former Brightsdale Dam restoration area are difficult to navigate and paddlers should portage around the area using installed upstream signage. The current map identifies constructed rock rapids at river mile 59.8 and a 20-yard river-right portage.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/root-river/index.html"
       },
       {
         "label": "Same-gauge low benchmark",
@@ -2984,6 +3005,10 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR Root River Map 1 PDF",
         "url": "https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf"
+      },
+      {
+        "label": "MN DNR state water trail safety and rules",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/safety-rules.html"
       },
       {
         "label": "MN DNR Root River State Trail page",

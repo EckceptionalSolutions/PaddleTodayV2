@@ -814,7 +814,6 @@ const zumbro = rivers.find((river) => river.slug === 'zumbro-river-falls');
 const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson-waterloo');
   const riceCreek = rivers.find((river) => river.slug === 'rice-creek-peltier-to-long-lake');
   const kettle = rivers.find((river) => river.slug === 'kettle-river-lower-kettle-5-to-6');
-  const southForkZumbro = rivers.find((river) => river.slug === 'south-fork-zumbro-lake-zumbro');
   const upperIowa = rivers.find((river) => river.slug === 'upper-iowa-river-cattle-creek-malanaphy');
   const sugarRiver = rivers.find((river) => river.slug === 'sugar-river-belleville-county-x');
   const sugarRiverCountyEe = rivers.find((river) => river.slug === 'sugar-river-county-road-x-county-road-ee');
@@ -986,24 +985,6 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(result.gaugeBand).toBe('ideal');
     expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
     expect(thresholdFactor?.value).toBe('Mixed-source numeric guidance');
-  });
-
-  it('treats South Fork Zumbro at 3.4 ft as the intended narrow easy-window call', () => {
-    expect(southForkZumbro).toBeDefined();
-
-    const result = scoreRiverCondition({
-      river: southForkZumbro as River,
-      gauge: makeRiverGauge(southForkZumbro as River, 3.4, 'steady', 0),
-      weather: {
-        ...weather,
-        observedAt: '2026-05-10T11:15:00Z',
-      },
-      now,
-    });
-
-    expect(result.gaugeBand).toBe('ideal');
-    expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
-    expect(result.confidence.label).toBe('Medium');
   });
 
   it('treats the consolidated Upper Iowa family route around 290 cfs as an ideal-band call', () => {

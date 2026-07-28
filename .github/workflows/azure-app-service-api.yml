@@ -35,7 +35,7 @@ jobs:
           cp -R dist deploy-package/dist
           cp -R src deploy-package/src
           cp -R packages deploy-package/packages
-          node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, scripts: { start: 'tsx src/server/api-server.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@paddletoday/api-contract': 'file:packages/api-contract', '@paddletoday/geo': 'file:packages/geo', tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
+          node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, scripts: { start: 'npm install --omit=dev --ignore-scripts --no-package-lock --no-audit --no-fund && node_modules/.bin/tsx src/server/api-server.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@paddletoday/api-contract': 'file:packages/api-contract', '@paddletoday/geo': 'file:packages/geo', tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
           node -e "require('fs').writeFileSync('deploy-package/.deployment', '[config]\nSCM_DO_BUILD_DURING_DEPLOYMENT=true\n');"
           npm install --prefix deploy-package --omit=dev --ignore-scripts
 
