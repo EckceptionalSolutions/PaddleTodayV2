@@ -10242,6 +10242,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the James River near Springfield gauge. Around 40 cfs is the low-water marker for this route, but the app does not claim an ideal range or high-water cutoff. Recent rain can quickly turn this river-to-lake finish into a pushier, muddier trip.",
     "latitude": 37.1557274593,
     "longitude": -93.1993452603,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "MDC identifies Joe Crighton as the signed, day-use start of the James River Water Trail; use the stairs and posted access layout rather than an informal bank entry.",
+        "The Park Board trail map separates the Lake Springfield Boathouse from the separate boat launch. Confirm the boathouse shoreline finish, parking, and current park operations before launching, and do not substitute the downstream launch or a private shoreline.",
+        "This river-to-lake route can collect fresh wood, murky urban runoff, and stronger current after rain. Keep the 40 cfs floor as a low-water check only, inspect bends and bridge approaches, and allow extra margin for wind and open-water conditions at the lake finish."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07050700",
       "provider": "usgs",

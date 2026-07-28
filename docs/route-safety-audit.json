@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:17:45.926Z",
+  "generatedAt": "2026-07-28T13:19:21.721Z",
   "routeCount": 927,
-  "issueCount": 66,
+  "issueCount": 64,
   "summary": {
     "Critical": 0,
-    "High": 11,
-    "Medium": 55,
+    "High": 10,
+    "Medium": 54,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "james-river-joe-crighton-lake-springfield",
-      "slug": "james-river-joe-crighton-lake-springfield",
-      "name": "James River",
-      "reach": "Joe Crighton Access to Lake Springfield Boathouse",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "pen-water finish into the boathouse area. High or rising water, bridge current, wood, and afternoon lake wind make it less forgiving. Confidence is good enough for a conservative Missouri add. MDC confirms Joe Crighton as a public James River access and the st"
-    },
     {
       "routeId": "meramec-river-campbell-bridge-sappington-bridge",
       "slug": "meramec-river-campbell-bridge-sappington-bridge",
@@ -361,17 +350,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rounded 1,100 cfs low-water floor and does not infer an ideal range. High-water caution No numeric cutoff claimed MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat"
-    },
-    {
-      "routeId": "james-river-joe-crighton-lake-springfield",
-      "slug": "james-river-joe-crighton-lake-springfield",
-      "name": "James River",
-      "reach": "Joe Crighton Access to Lake Springfield Boathouse",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Springfield-area James River Water Trail from Joe Crighton Access to Lake Springfield Boathouse, using the direct Springfield gauge and conservative minimum-only MoHERP evidence. U"
     },
     {
       "routeId": "meramec-river-campbell-bridge-sappington-bridge",
