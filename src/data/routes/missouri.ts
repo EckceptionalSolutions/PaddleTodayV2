@@ -6568,6 +6568,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor; below that, expect shoals and occasional dragging even though Greer Spring makes this reach more dependable than the upper river. No exact high-water cutoff is claimed.",
     "latitude": 36.79356389,
     "longitude": -91.32854167,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the direct Bardley gauge as a conservative check, not a guarantee of local conditions. Keep the existing 300 cfs floor and recheck the trend and recent rain because the Forest Service warns that the Eleven Point can rise rapidly.",
+        "This 11-mile spring-fed day includes Mary Decker Shoal, shallow faster water, cold spring flow, fresh wood, and blind bends. Plan for a full-day shuttle and do not treat Greer-to-Whitten as a flat pool route simply because it is generally easy water.",
+        "Greer Crossing and Whitten are public Forest Service accesses, but road, parking, and site rules can change. The scenic-river corridor includes private lands and designated float camps; do not improvise a private-bank landing or overnight stop if fatigue, weather, or a missed take-out changes the plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07071500",
       "provider": "usgs",

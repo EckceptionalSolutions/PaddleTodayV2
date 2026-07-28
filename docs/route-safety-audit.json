@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:44:50.690Z",
+  "generatedAt": "2026-07-28T15:46:36.409Z",
   "routeCount": 927,
-  "issueCount": 19,
+  "issueCount": 17,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 19,
+    "Medium": 17,
     "Low": 0
   },
   "issues": [
@@ -31,28 +31,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "when the Richwoods gauge is high or rising, especially above the local 800 cfs caution band. Confidence is good for a conservative Missouri add: MDC confirms Mammoth Access is 5.40 river miles upstream from Merrill Horse Access and provides public department-"
-    },
-    {
-      "routeId": "eleven-point-river-greer-crossing-whitten",
-      "slug": "eleven-point-river-greer-crossing-whitten",
-      "name": "Eleven Point River",
-      "reach": "Greer Crossing Recreation Area to Whitten River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Spring-fed Eleven Point day from Greer Crossing to Whitten, with official Forest Service access at both ends, a direct Bardley gauge, and a practical one-day link through the Blue"
-    },
-    {
-      "routeId": "eleven-point-river-greer-crossing-whitten",
-      "slug": "eleven-point-river-greer-crossing-whitten",
-      "name": "Eleven Point River",
-      "reach": "Greer Crossing Recreation Area to Whitten River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "y Class I spring-fed Ozark water with shoals, Mary Decker Shoal near the start, cold water, and a longer remote feel than the short split sections. Motorized users are also allowed under the 25 hp limit. Confidence is good for a conservative mid-river Eleven P"
     },
     {
       "routeId": "gasconade-river-rollins-ferry-pointers-creek",
