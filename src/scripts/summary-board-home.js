@@ -9,11 +9,13 @@
   isMapReady,
   markerClassForRating,
   scoreZoneRouteLabel,
+  syncGeoJsonOverlay,
   waitForMapReady,
 } from './map-runtime.js';
 import { createBoardMapModel } from './board-map-model.js';
 import {
   boardMarkerClassFor as markerClassFor,
+  createBoardMapMarker,
   createBoardMapController,
   createBoardMapPopupRenderer,
 } from './board-map-controller.js';
@@ -50,18 +52,18 @@ import {
 import {
   buildBoardRecommendationItems,
   clampText,
+  createBoardDisplayItemBuilder,
+  createBoardResultFilter,
   DEFAULT_RADIUS_MILES,
   difficultyPreferenceLabel,
   estimatedPaddleMinutesForItem,
   formatHomeChoiceSummary,
-  groupResultsByRiverId,
   HOME_DIFFICULTY_OPTIONS,
   HOME_PADDLE_TIME_OPTIONS,
   isChoiceSetAny,
   isGroupedItem,
   isViableRecommendationItem,
   joinWithBullet,
-  matchesBoardRatingFilter,
   nextRadiusSuggestionMiles,
   normalizeBoardSortMode,
   normalizeChoiceSet,
@@ -134,10 +136,7 @@ import {
   routesForRiverItem,
 } from '../lib/river-coverage.js';
 import {
-  buildRoutePlannerHref,
   routeMatchesPaddleFilters,
-  routeSegmentSummary,
-  selectRouteSegment,
 } from '../lib/route-segments.ts';
 
 const {
@@ -1007,59 +1006,13 @@ function pickRepresentativeRoute(routes, mode) {
   return { route: copy[0] ?? null, mode: 'best' };
 }
 
-function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-now', options = {}) {
-  const allByRiver = groupResultsByRiverId(allResults);
-  const filteredByRiver = groupResultsByRiverId(filteredResults);
-  const items = [];
-
-  for (const [riverId, routes] of filteredByRiver.entries()) {
-    const representative = pickRepresentativeRoute(routes, selectionMode);
-    const cardRoute = representative.route;
-    if (!cardRoute) continue;
-
-    const segmentFilters = options.segmentFilters ?? null;
-    const selectedSegment = segmentFilters ? selectRouteSegment(cardRoute, segmentFilters) : null;
-    const segmentSummary = routeSegmentSummary(cardRoute.river);
-
-    const totalRouteCount = allByRiver.get(riverId)?.length ?? routes.length;
-    const distanceMilesValue = distanceForResult(cardRoute);
-    const travelMinutes = estimateTravelMinutes(distanceMilesValue);
-    const effectiveScore = cardRoute.score - distancePenalty(travelMinutes);
-    const paddleableRouteCount = routes.filter((result) => ['Strong', 'Good'].includes(result.rating)).length;
-
-    items.push({
-      key: cardRoute.river.riverId || cardRoute.river.slug,
-      kind: totalRouteCount > 1 ? 'group' : 'route',
-      link:
-        totalRouteCount > 1 && cardRoute.river.riverId
-          ? `/rivers/by-river/${cardRoute.river.riverId}/`
-          : `/rivers/${cardRoute.river.slug}/`,
-      cardRoute,
-      matchingRoutes: routes,
-      allRiverRoutes: allByRiver.get(riverId) ?? routes,
-      totalRouteCount,
-      matchingRouteCount: routes.length,
-      paddleableRouteCount,
-      representativeMode: representative.mode,
-      distanceMiles: distanceMilesValue,
-      travelMinutes,
-      effectiveScore,
-      distanceBucket: distanceBucketLabel(travelMinutes),
-      segmentSummary,
-      selectedSegment,
-    });
-  }
-
-  for (const item of items) {
-    item.link = item.selectedSegment
-      ? buildRoutePlannerHref(item.cardRoute.river.slug, item.selectedSegment)
-      : item.kind === 'group' && item.cardRoute.river.riverId
-        ? `/rivers/by-river/${item.cardRoute.river.riverId}/`
-        : `/rivers/${item.cardRoute.river.slug}/`;
-  }
-
-  return items;
-}
+const buildDisplayItems = createBoardDisplayItemBuilder({
+  selectRepresentative: (routes, selectionMode) =>
+    pickRepresentativeRoute(routes, selectionMode),
+  distanceForResult,
+  distanceBucketForMinutes: distanceBucketLabel,
+  buildGroupLink: (item) => `/rivers/by-river/${item.cardRoute.river.riverId}/`,
+});
 
 function campingClassificationForResult(result) {
   return result?.river?.logistics?.campingClassification ?? 'unknown';
@@ -1302,39 +1255,29 @@ function syncSummaryMapRouteLines(data) {
   const casingLayerId = 'home-summary-route-lines-casing';
   const layerId = 'home-summary-route-lines';
 
-  if (mapRuntime.getSource(sourceId)) {
-    mapRuntime.getSource(sourceId).setData(data);
-  } else {
-    mapRuntime.addSource(sourceId, { type: 'geojson', data });
-  }
-
-  if (!mapRuntime.getLayer(casingLayerId)) {
-    mapRuntime.addLayer({
+  syncGeoJsonOverlay(mapRuntime, {
+    sourceId,
+    data,
+    layers: [{
       id: casingLayerId,
       type: 'line',
-      source: sourceId,
       layout: { 'line-cap': 'round', 'line-join': 'round' },
       paint: {
         'line-color': '#ffffff',
         'line-width': ['interpolate', ['linear'], ['zoom'], 3, 3.8, 8, 6.2, 12, 8],
         'line-opacity': 0.72,
       },
-    });
-  }
-
-  if (!mapRuntime.getLayer(layerId)) {
-    mapRuntime.addLayer({
+    }, {
       id: layerId,
       type: 'line',
-      source: sourceId,
       layout: { 'line-cap': 'round', 'line-join': 'round' },
       paint: {
         'line-color': '#16758a',
         'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.8, 8, 3.4, 12, 4.8],
         'line-opacity': 0.72,
       },
-    });
-  }
+    }],
+  });
 }
 
 async function renderSummaryMapRouteLines(items, renderVersion) {
@@ -1800,49 +1743,16 @@ function renderRecommendationSection(nearbyItems, overallItems) {
   renderRecommendationGrid(recommendationItems, locationReady);
 }
 
-function matchesRouteFilters(result) {
-  if (!matchesBoardRatingFilter(result.rating, {
-    ...activeFilters,
-    visibleRatings,
-  })) {
-    return false;
-  }
-
-  if (activeFilters.state && result.river.state !== activeFilters.state) {
-    return false;
-  }
-
-  if (activeFilters.difficulty && result.river.difficulty !== activeFilters.difficulty) {
-    return false;
-  }
-
-  if (activeFilters.distance) {
-    if (!userLocation) {
-      return false;
-    }
-
-    const maxDistanceMiles = Number(activeFilters.distance);
-    if (!Number.isFinite(maxDistanceMiles) || distanceForResult(result) > maxDistanceMiles) {
-      return false;
-    }
-  }
-
-  if (activeFilters.paddleTime) {
-    const bucket = paddleTimeBucketForLabel(result?.river?.estimatedPaddleTime ?? '');
-    if (bucket !== activeFilters.paddleTime) {
-      return false;
-    }
-  }
-
-  if (activeFilters.search) {
-    const haystack = `${result.river.name} ${result.river.reach} ${result.river.state} ${result.river.region}`.toLowerCase();
-    if (!haystack.includes(activeFilters.search.toLowerCase())) {
-      return false;
-    }
-  }
-
-  return true;
-}
+const matchesRouteFilters = createBoardResultFilter({
+  getFilters: () => activeFilters,
+  getVisibleRatings: () => visibleRatings,
+  getUserLocation: () => userLocation,
+  distanceForResult,
+  includeAliases: false,
+  matchesPaddleFilters: (result, filters) =>
+    !filters.paddleTime
+    || paddleTimeBucketForLabel(result?.river?.estimatedPaddleTime ?? '') === filters.paddleTime,
+});
 
 function getFilteredResults(results) {
   return results.filter(matchesRouteFilters);
@@ -2345,11 +2255,8 @@ function focusHomeRiverCoverage(item) {
   }
   const compact = window.matchMedia('(max-width: 720px)').matches;
   fitMapBounds(mapRuntime, bounds, {
-    padding: compact
-      ? { top: 58, right: 46, bottom: 58, left: 46 }
-      : { top: 86, right: 86, bottom: 86, left: 86 },
-    maxZoom: 9.2,
-    duration: 520,
+    profile: 'selectedRiver',
+    compact,
   });
 }
 
@@ -2566,33 +2473,20 @@ async function renderRequestedSummaryMap(items, { preserveViewport = false } = {
       const markerPoint = coverageCenterForRoutes(routesForRiverItem(item)) ?? item.cardRoute.river;
       const coveragePoints = homeCoveragePoints(item);
       if (!isGroupedItem(item)) {
-        const markerNode = document.createElement('button');
-        markerNode.type = 'button';
-        markerNode.className = markerClassFor(item);
-        markerNode.innerHTML = `<span>${escapeHtml(visibleMapMarkerLabel(item))}</span>`;
-        markerNode.setAttribute(
-          'aria-label',
-          mapMarkerAriaLabel(item)
-        );
-
-        const marker = new maplibregl.Marker({
-          element: markerNode,
-          anchor: 'center',
-        })
-          .setLngLat([markerPoint.longitude, markerPoint.latitude])
-          .setPopup(
-            new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '248px' }).setHTML(popupMarkup(item))
-          )
-          .addTo(mapRuntime);
-
-        bindMarkerPopup(marker, markerNode, {
-          map: mapRuntime,
-          onSelectedChange(selected) {
-            if (selected) {
-              updateSummaryMapSelection(item.key);
-              focusHomeRiverCoverage(item);
-              scrollHomeResultsRailToKey(item.key);
-            }
+        const marker = createBoardMapMarker({
+          maplibregl,
+          mapRuntime,
+          item,
+          point: markerPoint,
+          markerClassFor,
+          markerLabel: visibleMapMarkerLabel,
+          markerAriaLabel: mapMarkerAriaLabel,
+          popupMarkup,
+          onSelectedChange(selected, selectedItem) {
+            if (!selected) return;
+            updateSummaryMapSelection(selectedItem.key);
+            focusHomeRiverCoverage(selectedItem);
+            scrollHomeResultsRailToKey(selectedItem.key);
           },
         });
         mapMarkers.push(marker);
@@ -2621,12 +2515,9 @@ async function renderRequestedSummaryMap(items, { preserveViewport = false } = {
       }
       const compact = window.matchMedia('(max-width: 720px)').matches;
       fitMapBounds(mapRuntime, bounds, {
+        profile: 'results',
+        compact,
         preserveViewport,
-        padding: compact
-          ? { top: 22, right: 22, bottom: 22, left: 22 }
-          : { top: 52, right: 52, bottom: 52, left: 52 },
-        maxZoom: 8.2,
-        duration: 0,
       });
       mapRuntime.resize();
       if (!items.some((item) => item.key === selectedSummaryMapKey) && items[0]) {

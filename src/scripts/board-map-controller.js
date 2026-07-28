@@ -7,10 +7,73 @@ import {
   recommendationSummaryText,
   shortRouteLengthLabel,
 } from './board-presenters.js';
-import { escapeHtml, markerClassForRating } from './map-runtime.js';
+import {
+  bindMarkerPopup,
+  escapeHtml,
+  markerClassForRating,
+} from './map-runtime.js';
 
 export function boardMarkerClassFor(item) {
   return markerClassForRating(item.cardRoute.rating, item.cardRoute.confidence.label);
+}
+
+export function createBoardMapMarker({
+  maplibregl,
+  mapRuntime,
+  item,
+  point,
+  markerClassFor,
+  markerLabel,
+  markerAriaLabel,
+  popupMarkup,
+  includeDataKey = false,
+  onSelectedChange,
+  onClick,
+  documentObject = document,
+  bindPopup = bindMarkerPopup,
+}) {
+  if (
+    !maplibregl
+    || typeof maplibregl.Marker !== 'function'
+    || typeof maplibregl.Popup !== 'function'
+    || !mapRuntime
+  ) {
+    throw new Error('Board map marker requires MapLibre and an active map.');
+  }
+
+  const markerNode = documentObject.createElement('button');
+  markerNode.type = 'button';
+  markerNode.className = markerClassFor(item);
+  markerNode.innerHTML = `<span>${escapeHtml(markerLabel(item))}</span>`;
+  markerNode.setAttribute('aria-label', markerAriaLabel(item));
+  if (includeDataKey) {
+    markerNode.dataset.summaryMapMarker = item.key;
+  }
+
+  const marker = new maplibregl.Marker({
+    element: markerNode,
+    anchor: 'center',
+  })
+    .setLngLat([point.longitude, point.latitude])
+    .setPopup(
+      new maplibregl.Popup({
+        offset: 18,
+        closeButton: true,
+        closeOnClick: true,
+        maxWidth: '248px',
+      }).setHTML(popupMarkup(item)),
+    )
+    .addTo(mapRuntime);
+
+  bindPopup(marker, markerNode, {
+    map: mapRuntime,
+    onSelectedChange: (selected) => onSelectedChange?.(selected, item, marker),
+  });
+  if (typeof onClick === 'function') {
+    markerNode.addEventListener('click', () => onClick(item, marker));
+  }
+
+  return marker;
 }
 
 export function createBoardMapPopupRenderer({

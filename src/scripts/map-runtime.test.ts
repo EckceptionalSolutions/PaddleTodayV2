@@ -7,6 +7,9 @@ import {
   createPaddleMap,
   fitMapBounds,
   isMapReady,
+  mapViewportOptions,
+  removeMapOverlay,
+  syncGeoJsonOverlay,
   syncActualRiverLayer,
   waitForMapReady,
 } from './map-runtime.js';
@@ -23,6 +26,7 @@ class FakeMap {
   layers = new Map<string, Record<string, unknown>>();
   addedLayers: Array<Record<string, unknown>> = [];
   removedLayers: string[] = [];
+  removedSources: string[] = [];
   filterCalls: Array<{ layerId: string; filter: unknown }> = [];
   paintCalls: Array<{ layerId: string; property: string; value: unknown }> = [];
 
@@ -38,6 +42,15 @@ class FakeMap {
 
   getSource(sourceId: string) {
     return this.sources.get(sourceId);
+  }
+
+  addSource(sourceId: string, source: unknown) {
+    this.sources.set(sourceId, source);
+  }
+
+  removeSource(sourceId: string) {
+    this.removedSources.push(sourceId);
+    this.sources.delete(sourceId);
   }
 
   getLayer(layerId: string) {
@@ -265,6 +278,52 @@ describe('map status', () => {
 });
 
 describe('map viewport and marker lifecycle', () => {
+  it('resolves named viewport profiles for compact and wide layouts', () => {
+    expect(mapViewportOptions('results')).toEqual({
+      padding: { top: 52, right: 52, bottom: 52, left: 52 },
+      maxZoom: 8.2,
+      duration: 0,
+    });
+    expect(mapViewportOptions('selectedRiver', { compact: true })).toEqual({
+      padding: { top: 58, right: 46, bottom: 58, left: 46 },
+      maxZoom: 9.2,
+      duration: 520,
+    });
+    expect(mapViewportOptions('selectedRoute', {
+      compact: true,
+      duration: 125,
+    })).toEqual({
+      padding: { top: 72, right: 72, bottom: 72, left: 72 },
+      maxZoom: 11.2,
+      duration: 125,
+    });
+    expect(() => mapViewportOptions('missing')).toThrow('Unknown map viewport profile');
+  });
+
+  it('fits with a named viewport profile and honors refresh preservation', () => {
+    const runtime = new FakeMap({});
+    const bounds = [[-94, 44], [-92, 46]];
+
+    expect(fitMapBounds(runtime, bounds, {
+      profile: 'results',
+      compact: true,
+    })).toBe(true);
+    expect(runtime.fitCalls[0]).toEqual({
+      bounds,
+      options: {
+        padding: { top: 22, right: 22, bottom: 22, left: 22 },
+        maxZoom: 8.2,
+        duration: 0,
+      },
+    });
+
+    expect(fitMapBounds(runtime, bounds, {
+      profile: 'results',
+      preserveViewport: true,
+    })).toBe(false);
+    expect(runtime.fitCalls).toHaveLength(1);
+  });
+
   it('fits with caller policy while honoring reduced motion and viewport preservation', () => {
     const runtime = new FakeMap({});
     const bounds = [[-94, 44], [-92, 46]];
@@ -301,6 +360,62 @@ describe('map viewport and marker lifecycle', () => {
     expect(clearMapMarkers(markers)).toEqual([]);
     expect(markers[0]?.remove).toHaveBeenCalledOnce();
     expect(markers[1]?.remove).toHaveBeenCalledOnce();
+  });
+});
+
+describe('GeoJSON overlay lifecycle', () => {
+  it('adds a source and its layers once, then updates source data', () => {
+    const runtime = new FakeMap({});
+    const initialData = { type: 'FeatureCollection', features: [] };
+    const updatedData = {
+      type: 'FeatureCollection',
+      features: [{ type: 'Feature', geometry: null, properties: {} }],
+    };
+    const layer = {
+      id: 'routes',
+      type: 'line',
+      paint: { 'line-color': '#16758a' },
+    };
+
+    expect(syncGeoJsonOverlay(runtime, {
+      sourceId: 'route-data',
+      data: initialData,
+      layers: [layer],
+    })).toBe(true);
+    expect(runtime.getSource('route-data')).toEqual({
+      type: 'geojson',
+      data: initialData,
+    });
+    expect(runtime.getLayer('routes')).toMatchObject({
+      ...layer,
+      source: 'route-data',
+    });
+
+    const setData = vi.fn();
+    runtime.sources.set('route-data', { setData });
+    syncGeoJsonOverlay(runtime, {
+      sourceId: 'route-data',
+      data: updatedData,
+      layers: [layer],
+    });
+
+    expect(setData).toHaveBeenCalledWith(updatedData);
+    expect(runtime.addedLayers).toHaveLength(1);
+  });
+
+  it('removes layers before their source and tolerates a missing map', () => {
+    const runtime = new FakeMap({});
+    runtime.sources.set('route-data', {});
+    runtime.layers.set('route-casing', {});
+    runtime.layers.set('routes', {});
+
+    expect(removeMapOverlay(runtime, {
+      layerIds: ['routes', 'route-casing'],
+      sourceIds: ['route-data'],
+    })).toBe(true);
+    expect(runtime.removedLayers).toEqual(['routes', 'route-casing']);
+    expect(runtime.removedSources).toEqual(['route-data']);
+    expect(removeMapOverlay(null)).toBe(false);
   });
 });
 

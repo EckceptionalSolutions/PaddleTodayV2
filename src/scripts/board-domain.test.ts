@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   buildBoardRecommendationItems,
   clampText,
+  createBoardDisplayItemBuilder,
+  createBoardResultFilter,
   DEFAULT_RADIUS_MILES,
   estimatedPaddleMinutesForItem,
   formatHomeChoiceSummary,
@@ -10,6 +12,7 @@ import {
   isChoiceSetAny,
   isViableRecommendationItem,
   matchesBoardRatingFilter,
+  matchesBoardRouteFilters,
   normalizeBoardSortMode,
   normalizeChoiceSet,
   normalizeHomeDifficultyFilters,
@@ -62,6 +65,79 @@ describe('board recommendation domain', () => {
   });
 });
 
+describe('board display item domain', () => {
+  const buildItems = createBoardDisplayItemBuilder({
+    selectRepresentative: (routes: any[], mode: string) => ({
+      route: routes[0],
+      mode,
+    }),
+    distanceForResult: (route: any) => route.distanceMiles,
+    distanceBucketForMinutes: (minutes: number) => `${minutes}-minute bucket`,
+    buildGroupLink: (boardItem: any) => `/rivers/by-river/${boardItem.key}/`,
+  });
+  const routes = [
+    {
+      rating: 'Strong',
+      score: 90,
+      distanceMiles: 30,
+      river: {
+        riverId: 'rum-river',
+        slug: 'rum-upper',
+        name: 'Rum River',
+        estimatedPaddleTime: '3 hours',
+      },
+    },
+    {
+      rating: 'Good',
+      score: 80,
+      distanceMiles: 35,
+      river: {
+        riverId: 'rum-river',
+        slug: 'rum-lower',
+        name: 'Rum River',
+        estimatedPaddleTime: '4 hours',
+      },
+    },
+  ];
+
+  it('groups routes and applies page selection, distance, and link policies', () => {
+    expect(buildItems(routes, routes, 'best-now')).toEqual([
+      expect.objectContaining({
+        key: 'rum-river',
+        kind: 'group',
+        cardRoute: routes[0],
+        matchingRouteCount: 2,
+        totalRouteCount: 2,
+        paddleableRouteCount: 2,
+        representativeMode: 'best-now',
+        distanceMiles: 30,
+        travelMinutes: 35,
+        effectiveScore: 84.16666666666667,
+        distanceBucket: '35-minute bucket',
+        link: '/rivers/by-river/rum-river/',
+      }),
+    ]);
+  });
+
+  it('keeps total river counts when filters leave one matching route', () => {
+    expect(buildItems(routes, [routes[1]], 'nearest')).toEqual([
+      expect.objectContaining({
+        kind: 'group',
+        cardRoute: routes[1],
+        matchingRouteCount: 1,
+        totalRouteCount: 2,
+        representativeMode: 'nearest',
+      }),
+    ]);
+  });
+
+  it('rejects an incomplete page adapter', () => {
+    expect(() => createBoardDisplayItemBuilder({
+      selectRepresentative: () => null,
+    } as any)).toThrow('requires selection, distance, bucket, and group-link policies');
+  });
+});
+
 describe('board filter domain', () => {
   const allowed = ['any', 'easy', 'moderate', 'hard'];
 
@@ -80,6 +156,72 @@ describe('board filter domain', () => {
       rating: 'all',
       visibleRatings: new Set(['Good', 'Fair']),
     })).toBe(false);
+  });
+
+  it('applies one route filter contract across rating, route, and trip facts', () => {
+    const result = {
+      rating: 'Good',
+      distanceMiles: 28,
+      river: {
+        name: 'Rum River',
+        aliases: ['Watonwan test alias'],
+        reach: 'Wayside to Milaca',
+        state: 'Minnesota',
+        region: 'Central Minnesota',
+        difficulty: 'easy',
+        routeType: 'recreational',
+        estimatedPaddleTime: '3 hours',
+        logistics: { campingClassification: 'nearby_basecamp' },
+      },
+    };
+    const context = {
+      userLocation: { latitude: 45, longitude: -93 },
+      distanceForResult: (route: any) => route.distanceMiles,
+    };
+
+    expect(matchesBoardRouteFilters(result, {
+      paddleable: true,
+      state: 'Minnesota',
+      difficulty: 'easy',
+      routeType: 'non-whitewater',
+      camping: 'nearby',
+      distance: '30',
+      search: 'watonwan',
+    }, context)).toBe(true);
+    expect(matchesBoardRouteFilters(result, {
+      rating: 'Strong',
+    }, context)).toBe(false);
+    expect(matchesBoardRouteFilters(result, {
+      routeType: 'whitewater',
+    }, context)).toBe(false);
+    expect(matchesBoardRouteFilters(result, {
+      camping: 'overnight',
+    }, context)).toBe(false);
+    expect(matchesBoardRouteFilters(result, {
+      distance: '20',
+    }, context)).toBe(false);
+  });
+
+  it('creates a live predicate from page-owned filter state', () => {
+    let filters = { state: 'Minnesota' };
+    let userLocation: { latitude: number; longitude: number } | null = null;
+    const predicate = createBoardResultFilter({
+      getFilters: () => filters,
+      getVisibleRatings: () => new Set(['Good']),
+      getUserLocation: () => userLocation,
+      distanceForResult: () => 10,
+      includeAliases: false,
+    });
+    const result = {
+      rating: 'Good',
+      river: { name: 'Rum River', state: 'Minnesota' },
+    };
+
+    expect(predicate(result)).toBe(true);
+    filters = { ...filters, distance: '25' };
+    expect(predicate(result)).toBe(false);
+    userLocation = { latitude: 45, longitude: -93 };
+    expect(predicate(result)).toBe(true);
   });
 
   it('toggles choices without combining any with explicit values', () => {

@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   boardMarkerClassFor,
+  createBoardMapMarker,
   createBoardMapController,
   createBoardMapPopupRenderer,
 } from './board-map-controller.js';
@@ -11,6 +12,104 @@ afterEach(() => {
 });
 
 describe('board map controller', () => {
+  it('creates and binds one shared board marker lifecycle', () => {
+    const listeners = new Map<string, () => void>();
+    const markerNode = {
+      dataset: {} as Record<string, string>,
+      type: '',
+      className: '',
+      innerHTML: '',
+      attributes: new Map<string, string>(),
+      setAttribute(name: string, value: string) {
+        this.attributes.set(name, value);
+      },
+      addEventListener(name: string, listener: () => void) {
+        listeners.set(name, listener);
+      },
+    };
+    const popup = {
+      html: '',
+      setHTML(html: string) {
+        this.html = html;
+        return this;
+      },
+    };
+    const marker = {
+      point: null as unknown,
+      popup: null as unknown,
+      map: null as unknown,
+      setLngLat(point: unknown) {
+        this.point = point;
+        return this;
+      },
+      setPopup(nextPopup: unknown) {
+        this.popup = nextPopup;
+        return this;
+      },
+      addTo(map: unknown) {
+        this.map = map;
+        return this;
+      },
+    };
+    const maplibregl = {
+      Marker: class {
+        constructor() {
+          return marker;
+        }
+      },
+      Popup: class {
+        constructor() {
+          return popup;
+        }
+      },
+    };
+    const mapRuntime = {};
+    const bindPopup = vi.fn();
+    const onSelectedChange = vi.fn();
+    const onClick = vi.fn();
+    const item = { key: 'rum', cardRoute: { river: { name: 'Rum River' } } };
+
+    expect(createBoardMapMarker({
+      maplibregl,
+      mapRuntime,
+      item,
+      point: { longitude: -93, latitude: 45 },
+      markerClassFor: () => 'score-marker',
+      markerLabel: () => '87 <',
+      markerAriaLabel: () => 'Rum River, score 87',
+      popupMarkup: () => '<article>Rum River</article>',
+      includeDataKey: true,
+      onSelectedChange,
+      onClick,
+      documentObject: { createElement: () => markerNode },
+      bindPopup,
+    })).toBe(marker);
+
+    expect(markerNode).toMatchObject({
+      type: 'button',
+      className: 'score-marker',
+      innerHTML: '<span>87 &lt;</span>',
+      dataset: { summaryMapMarker: 'rum' },
+    });
+    expect(markerNode.attributes.get('aria-label')).toBe('Rum River, score 87');
+    expect(marker).toMatchObject({
+      point: [-93, 45],
+      popup,
+      map: mapRuntime,
+    });
+    expect(popup.html).toBe('<article>Rum River</article>');
+    expect(bindPopup).toHaveBeenCalledWith(
+      marker,
+      markerNode,
+      expect.objectContaining({ map: mapRuntime }),
+    );
+
+    bindPopup.mock.calls[0][2].onSelectedChange(true);
+    expect(onSelectedChange).toHaveBeenCalledWith(true, item, marker);
+    listeners.get('click')?.();
+    expect(onClick).toHaveBeenCalledWith(item, marker);
+  });
+
   it('owns shared marker classes and popup markup', () => {
     const item = {
       key: 'rum',

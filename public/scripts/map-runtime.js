@@ -21,6 +21,33 @@ export const MAP_PROFILES = Object.freeze({
   }),
 });
 
+export const MAP_VIEWPORT_PROFILES = Object.freeze({
+  results: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 22, right: 22, bottom: 22, left: 22 }),
+      wide: Object.freeze({ top: 52, right: 52, bottom: 52, left: 52 }),
+    }),
+    maxZoom: 8.2,
+    duration: 0,
+  }),
+  selectedRiver: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 58, right: 46, bottom: 58, left: 46 }),
+      wide: Object.freeze({ top: 86, right: 86, bottom: 86, left: 86 }),
+    }),
+    maxZoom: 9.2,
+    duration: 520,
+  }),
+  selectedRoute: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 72, right: 72, bottom: 72, left: 72 }),
+      wide: Object.freeze({ top: 110, right: 110, bottom: 110, left: 110 }),
+    }),
+    maxZoom: 11.2,
+    duration: 550,
+  }),
+});
+
 function ensureAsset(tagName, attrs) {
   return new Promise((resolve, reject) => {
     const selector = Object.entries(attrs)
@@ -221,10 +248,26 @@ export function createMapStatusController(element, messages = {}) {
   });
 }
 
+export function mapViewportOptions(profileName, { compact = false, ...overrides } = {}) {
+  const profile = MAP_VIEWPORT_PROFILES[profileName];
+  if (!profile) {
+    throw new Error(`Unknown map viewport profile: ${profileName}`);
+  }
+
+  const { padding, ...profileOptions } = profile;
+  return {
+    ...profileOptions,
+    padding: compact ? padding.compact : padding.wide,
+    ...overrides,
+  };
+}
+
 export function fitMapBounds(
   runtime,
   bounds,
   {
+    profile,
+    compact = false,
     preserveViewport = false,
     reducedMotion = typeof globalThis.matchMedia === 'function'
       && globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -240,7 +283,9 @@ export function fitMapBounds(
     return false;
   }
 
-  const fitOptions = { ...options };
+  const fitOptions = profile
+    ? mapViewportOptions(profile, { compact, ...options })
+    : { ...options };
   if (reducedMotion) {
     fitOptions.duration = 0;
   }
@@ -255,6 +300,81 @@ export function clearMapMarkers(markers) {
     }
   }
   return [];
+}
+
+export function syncGeoJsonOverlay(
+  runtime,
+  {
+    sourceId,
+    data,
+    layers = [],
+    updateData = true,
+  },
+) {
+  if (
+    !runtime
+    || typeof runtime.getSource !== 'function'
+    || typeof runtime.addSource !== 'function'
+    || typeof runtime.getLayer !== 'function'
+    || typeof runtime.addLayer !== 'function'
+  ) {
+    throw new Error('GeoJSON overlay requires an active map with source and layer support.');
+  }
+  if (!sourceId) {
+    throw new Error('GeoJSON overlay requires a source id.');
+  }
+
+  const source = runtime.getSource(sourceId);
+  if (source && updateData && typeof source.setData === 'function') {
+    source.setData(data);
+  } else if (!source) {
+    runtime.addSource(sourceId, { type: 'geojson', data });
+  }
+
+  for (const layer of layers) {
+    if (!layer?.id || runtime.getLayer(layer.id)) {
+      continue;
+    }
+    runtime.addLayer({
+      ...layer,
+      source: layer.source ?? sourceId,
+    });
+  }
+
+  return true;
+}
+
+export function removeMapOverlay(
+  runtime,
+  {
+    layerIds = [],
+    sourceIds = [],
+  } = {},
+) {
+  if (!runtime) {
+    return false;
+  }
+
+  for (const layerId of layerIds) {
+    if (
+      typeof runtime.getLayer === 'function'
+      && runtime.getLayer(layerId)
+      && typeof runtime.removeLayer === 'function'
+    ) {
+      runtime.removeLayer(layerId);
+    }
+  }
+  for (const sourceId of sourceIds) {
+    if (
+      typeof runtime.getSource === 'function'
+      && runtime.getSource(sourceId)
+      && typeof runtime.removeSource === 'function'
+    ) {
+      runtime.removeSource(sourceId);
+    }
+  }
+
+  return true;
 }
 
 export function escapeHtml(value) {

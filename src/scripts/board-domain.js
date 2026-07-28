@@ -3,7 +3,20 @@ import {
   compareTodayConfidenceStatusScore,
   compareTodayLowestRisk,
   compareTodayStatusThenScore,
+  distancePenalty,
+  estimateTravelMinutes,
 } from '@paddletoday/api-contract';
+import {
+  buildRoutePlannerHref,
+  routeMatchesPaddleFilters,
+  routeSegmentSummary,
+  selectRouteSegment,
+} from '../lib/route-segments.ts';
+import {
+  classifyCamping,
+  hasCampingSupport,
+  hasOvernightCampingSupport,
+} from '../lib/camping-classification.ts';
 
 export const DEFAULT_RADIUS_MILES = 50;
 export const RADIUS_OPTIONS = Object.freeze([25, 50, 75, 100, 150, 200]);
@@ -115,6 +128,123 @@ export function matchesBoardRatingFilter(
   return true;
 }
 
+export function matchesBoardRouteFilters(
+  result,
+  filters,
+  {
+    visibleRatings = null,
+    userLocation = null,
+    distanceForResult = () => Number.POSITIVE_INFINITY,
+    includeAliases = true,
+    matchesPaddleFilters = routeMatchesPaddleFilters,
+  } = {},
+) {
+  if (!matchesBoardRatingFilter(result?.rating, {
+    ...filters,
+    visibleRatings,
+  })) {
+    return false;
+  }
+
+  const river = result?.river ?? {};
+  if (filters.state && river.state !== filters.state) {
+    return false;
+  }
+  if (filters.difficulty && river.difficulty !== filters.difficulty) {
+    return false;
+  }
+
+  const routeType = river.routeType === 'whitewater' ? 'whitewater' : 'recreational';
+  if (filters.routeType === 'non-whitewater' && routeType === 'whitewater') {
+    return false;
+  }
+  if (filters.routeType === 'whitewater' && routeType !== 'whitewater') {
+    return false;
+  }
+
+  if (filters.camping) {
+    const logistics = river.logistics;
+    const classification =
+      logistics?.campingClassification ?? classifyCamping(logistics?.camping);
+
+    if (filters.camping === 'any-support' && !hasCampingSupport(classification)) {
+      return false;
+    }
+    if (
+      filters.camping === 'overnight'
+      && !hasOvernightCampingSupport(classification)
+    ) {
+      return false;
+    }
+    if (
+      filters.camping === 'endpoint'
+      && classification !== 'endpoint_campground'
+    ) {
+      return false;
+    }
+    if (
+      filters.camping === 'nearby'
+      && classification !== 'nearby_basecamp'
+    ) {
+      return false;
+    }
+  }
+
+  if (filters.distance) {
+    const maxDistanceMiles = Number(filters.distance);
+    if (
+      !userLocation
+      || !Number.isFinite(maxDistanceMiles)
+      || distanceForResult(result) > maxDistanceMiles
+    ) {
+      return false;
+    }
+  }
+
+  if (
+    (filters.paddleTime || filters.paddleLength)
+    && !matchesPaddleFilters(result, {
+      paddleTime: filters.paddleTime,
+      paddleLength: filters.paddleLength,
+    })
+  ) {
+    return false;
+  }
+
+  if (filters.search) {
+    const aliases =
+      includeAliases && Array.isArray(river.aliases) ? river.aliases.join(' ') : '';
+    const haystack =
+      `${river.name ?? ''} ${river.reach ?? ''} ${aliases} ${river.state ?? ''} ${river.region ?? ''}`.toLowerCase();
+    if (!haystack.includes(String(filters.search).toLowerCase())) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+export function createBoardResultFilter({
+  getFilters,
+  getVisibleRatings = () => null,
+  getUserLocation = () => null,
+  distanceForResult,
+  includeAliases = true,
+  matchesPaddleFilters = routeMatchesPaddleFilters,
+}) {
+  if (typeof getFilters !== 'function' || typeof distanceForResult !== 'function') {
+    throw new Error('Board result filter requires filter state and distance policies.');
+  }
+
+  return (result) => matchesBoardRouteFilters(result, getFilters(), {
+    visibleRatings: getVisibleRatings(),
+    userLocation: getUserLocation(),
+    distanceForResult,
+    includeAliases,
+    matchesPaddleFilters,
+  });
+}
+
 export function groupResultsByRiverId(results) {
   const grouped = new Map();
 
@@ -126,6 +256,76 @@ export function groupResultsByRiverId(results) {
   }
 
   return grouped;
+}
+
+export function createBoardDisplayItemBuilder({
+  selectRepresentative,
+  distanceForResult,
+  distanceBucketForMinutes,
+  buildGroupLink,
+}) {
+  if (
+    typeof selectRepresentative !== 'function'
+    || typeof distanceForResult !== 'function'
+    || typeof distanceBucketForMinutes !== 'function'
+    || typeof buildGroupLink !== 'function'
+  ) {
+    throw new Error('Board display item builder requires selection, distance, bucket, and group-link policies.');
+  }
+
+  return function buildBoardDisplayItems(
+    allResults,
+    filteredResults,
+    selectionMode = 'best-now',
+    options = {},
+  ) {
+    const allByRiver = groupResultsByRiverId(allResults);
+    const filteredByRiver = groupResultsByRiverId(filteredResults);
+    const items = [];
+
+    for (const [riverId, routes] of filteredByRiver.entries()) {
+      const representative = selectRepresentative(routes, selectionMode, options);
+      const cardRoute = representative.route;
+      if (!cardRoute) {
+        continue;
+      }
+
+      const selectedSegment = options.segmentFilters
+        ? selectRouteSegment(cardRoute, options.segmentFilters)
+        : null;
+      const totalRouteCount = allByRiver.get(riverId)?.length ?? routes.length;
+      const distanceMilesValue = distanceForResult(cardRoute);
+      const travelMinutes = estimateTravelMinutes(distanceMilesValue);
+      const item = {
+        key: cardRoute.river.riverId || cardRoute.river.slug,
+        kind: totalRouteCount > 1 ? 'group' : 'route',
+        cardRoute,
+        matchingRoutes: routes,
+        allRiverRoutes: allByRiver.get(riverId) ?? routes,
+        totalRouteCount,
+        matchingRouteCount: routes.length,
+        paddleableRouteCount: routes.filter(
+          (result) => ['Strong', 'Good'].includes(result.rating),
+        ).length,
+        representativeMode: representative.mode,
+        distanceMiles: distanceMilesValue,
+        travelMinutes,
+        effectiveScore: cardRoute.score - distancePenalty(travelMinutes),
+        distanceBucket: distanceBucketForMinutes(travelMinutes),
+        segmentSummary: routeSegmentSummary(cardRoute.river),
+        selectedSegment,
+      };
+
+      item.link = selectedSegment
+        ? buildRoutePlannerHref(cardRoute.river.slug, selectedSegment)
+        : item.kind === 'group'
+          ? buildGroupLink(item)
+          : `/rivers/${cardRoute.river.slug}/`;
+      items.push(item);
+    }
+
+    return items;
+  };
 }
 
 export function hasStrongerBoardCall(item, candidates) {

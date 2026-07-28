@@ -219,6 +219,32 @@ test.describe('shared web map interaction contract', () => {
     }
   });
 
+  for (const surface of [
+    { name: 'Home', path: '/' },
+    { name: 'Explore', path: '/explore/' },
+  ]) {
+    test(`${surface.name} uses the shared results viewport policy`, async ({ page }) => {
+      await page.goto(surface.path, { waitUntil: 'domcontentloaded' });
+      const map = page.locator('[data-summary-map]');
+      await map.scrollIntoViewIfNeeded();
+      await expect(map).toHaveClass(/maplibregl-map/, {
+        timeout: 45_000,
+      });
+      const mapLabel = await map.getAttribute('aria-label');
+
+      await expect.poll(async () => {
+        const state = await mapHarnessState(page);
+        return state.fitCalls.findLast(
+          (call: { label: string }) => call.label === mapLabel
+        )?.options;
+      }, { timeout: 15_000 }).toMatchObject({
+        padding: { top: 52, right: 52, bottom: 52, left: 52 },
+        maxZoom: 8.2,
+        duration: 0,
+      });
+    });
+  }
+
   test('Explore reveals all scores and reset restores the default map set', async ({ page }) => {
     await page.goto('/explore/', { waitUntil: 'domcontentloaded' });
     const map = page.locator('[data-summary-map]');
