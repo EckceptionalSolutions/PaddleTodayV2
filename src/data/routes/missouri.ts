@@ -8798,6 +8798,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Meramec River near Sullivan gauge. Around 200 cfs is the low-water marker; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.",
     "latitude": 38.157948,
     "longitude": -91.109295,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "MDC identifies Sappington Bridge as public Meramec access, and the department plan describes the float to Meramec State Park as five miles. Verify the Sappington road, ramp, and posted access conditions before launching.",
+        "Missouri State Parks provides a concrete launch and a canoe launch near River Stop Store during park hours; the campground gravel launch is reserved for camping patrons. Use the signed public launch area and confirm the intended canoe landing at the finish.",
+        "Keep the 200 cfs floor as a conservative low-water check. Rising water can bring fresh wood, pushy bends, and harder landings; scout visible hazards and do not substitute private banks or campground-only launches."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07014500",
       "provider": "usgs",

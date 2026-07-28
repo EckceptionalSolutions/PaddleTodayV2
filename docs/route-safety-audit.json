@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:24:13.967Z",
+  "generatedAt": "2026-07-28T13:25:44.940Z",
   "routeCount": 927,
-  "issueCount": 55,
+  "issueCount": 52,
   "summary": {
     "Critical": 0,
-    "High": 7,
-    "Medium": 48,
+    "High": 6,
+    "Medium": 46,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "meramec-river-sappington-bridge-meramec-state-park",
-      "slug": "meramec-river-sappington-bridge-meramec-state-park",
-      "name": "Meramec River",
-      "reach": "Sappington Bridge Access to Meramec State Park",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "mainstream Ozark float with normal riffles, gravel bars, bends, and occasional wood. It is suitable for broad recreational planning at ordinary levels, but high water can make obstacles and landings much less forgiving. Confidence is good for a conservative M"
-    },
     {
       "routeId": "meramec-river-scotts-ford-riverview",
       "slug": "meramec-river-scotts-ford-riverview",
@@ -317,28 +306,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rounded 1,100 cfs low-water floor and does not infer an ideal range. High-water caution No numeric cutoff claimed MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat"
-    },
-    {
-      "routeId": "meramec-river-sappington-bridge-meramec-state-park",
-      "slug": "meramec-river-sappington-bridge-meramec-state-park",
-      "name": "Meramec River",
-      "reach": "Sappington Bridge Access to Meramec State Park",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short Meramec day float from MDC Sappington Bridge Access to the Meramec State Park river ramp, with bluffs, clear Ozark pools, state-managed endpoints, and the Sullivan gauge in t"
-    },
-    {
-      "routeId": "meramec-river-sappington-bridge-meramec-state-park",
-      "slug": "meramec-river-sappington-bridge-meramec-state-park",
-      "name": "Meramec River",
-      "reach": "Sappington Bridge Access to Meramec State Park",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "r; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips. This is a short mainstream Ozark float with normal riffles, gravel bars, bends, and occasional wood."
     },
     {
       "routeId": "meramec-river-scotts-ford-riverview",
