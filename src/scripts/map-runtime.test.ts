@@ -3,6 +3,7 @@ import {
   MAP_STYLE_URL,
   bindMarkerPopup,
   clearMapMarkers,
+  createMapStatusController,
   createPaddleMap,
   fitMapBounds,
   isMapReady,
@@ -214,6 +215,52 @@ describe('map readiness', () => {
     runtime.emit('error', { error: new Error('style failed') });
 
     await expect(ready).rejects.toThrow('style failed');
+  });
+});
+
+describe('map status', () => {
+  it('applies shared lifecycle state while allowing page-specific copy', () => {
+    const attributes = new Map<string, string>();
+    const element = {
+      dataset: {} as Record<string, string>,
+      textContent: '',
+      setAttribute(name: string, value: string) {
+        attributes.set(name, value);
+      },
+    };
+    const status = createMapStatusController(element, {
+      loading: ({ nearby }: { nearby?: boolean }) => nearby ? 'Loading nearby picks.' : 'Loading map.',
+      unavailable: 'Map unavailable.',
+    });
+
+    expect(status.loading({ nearby: true })).toBe(true);
+    expect(element).toMatchObject({
+      dataset: { mapState: 'loading' },
+      textContent: 'Loading nearby picks.',
+    });
+    expect(attributes.get('aria-busy')).toBe('true');
+
+    expect(status.ready({ message: 'Map is up to date.' })).toBe(true);
+    expect(element).toMatchObject({
+      dataset: { mapState: 'ready' },
+      textContent: 'Map is up to date.',
+    });
+    expect(attributes.get('aria-busy')).toBe('false');
+
+    expect(status.unavailable()).toBe(true);
+    expect(element).toMatchObject({
+      dataset: { mapState: 'unavailable' },
+      textContent: 'Map unavailable.',
+    });
+  });
+
+  it('is safe when a page has no map status element', () => {
+    const status = createMapStatusController(null);
+
+    expect(status.loading()).toBe(false);
+    expect(status.ready()).toBe(false);
+    expect(status.empty()).toBe(false);
+    expect(status.unavailable()).toBe(false);
   });
 });
 

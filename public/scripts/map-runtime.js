@@ -187,6 +187,40 @@ export function waitForMapReady(
   });
 }
 
+export function createMapStatusController(element, messages = {}) {
+  const update = (state, context = {}) => {
+    if (!element) {
+      return false;
+    }
+
+    const configuredMessage = messages[state];
+    const message = Object.prototype.hasOwnProperty.call(context, 'message')
+      ? context.message
+      : typeof configuredMessage === 'function'
+        ? configuredMessage(context)
+        : configuredMessage;
+
+    if (typeof message === 'string' && 'textContent' in element) {
+      element.textContent = message;
+    }
+    if (element.dataset) {
+      element.dataset.mapState = state;
+    }
+    if (typeof element.setAttribute === 'function') {
+      element.setAttribute('aria-busy', state === 'loading' ? 'true' : 'false');
+    }
+
+    return true;
+  };
+
+  return Object.freeze({
+    loading: (context) => update('loading', context),
+    ready: (context) => update('ready', context),
+    empty: (context) => update('empty', context),
+    unavailable: (context) => update('unavailable', context),
+  });
+}
+
 export function fitMapBounds(
   runtime,
   bounds,

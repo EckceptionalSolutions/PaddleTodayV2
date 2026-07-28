@@ -1,6 +1,7 @@
 ﻿import {
   bindMarkerPopup,
   clearMapMarkers,
+  createMapStatusController,
   createPaddleMap,
   ensureMapLibre,
   escapeHtml,
@@ -297,6 +298,15 @@ const locationStatus = null;
 
 const summaryMap = document.querySelector('[data-summary-map]');
 const summaryMapStatus = document.querySelector('[data-summary-map-status]');
+const summaryMapStatusController = createMapStatusController(summaryMapStatus, {
+  loading: ({ nearby }) => nearby ? 'Loading nearby picks.' : 'Loading map markers.',
+  empty: ({ nearby }) => nearby
+    ? 'No nearby results match the current preferences.'
+    : 'No results match the current filters.',
+  unavailable: ({ nearby }) => nearby
+    ? 'Map unavailable right now. Use the nearby route cards above.'
+    : 'Map unavailable right now. Use the route list below.',
+});
 const summaryMapShell = document.querySelector('[data-summary-map-shell]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
 const summaryMapMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
@@ -3218,9 +3228,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
 
   const renderVersion = ++summaryMapRenderVersion;
 
-  if (summaryMapStatus instanceof HTMLElement) {
-    summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Loading nearby picks.' : 'Loading map markers.';
-  }
+  summaryMapStatusController.loading({ nearby: isNearbySummaryMapMode() });
 
   try {
     const maplibregl = await ensureMapLibre();
@@ -3340,9 +3348,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
         updateSummaryMapSelection(null);
         summaryMapController.closePopups(mapMarkersByKey);
       }
-      if (summaryMapStatus instanceof HTMLElement) {
-        summaryMapStatus.textContent = summaryMapOverviewStatus(items);
-      }
+      summaryMapStatusController.ready({ message: summaryMapOverviewStatus(items) });
       return;
     }
 
@@ -3350,19 +3356,11 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       return;
     }
     summaryMapController.renderResults([]);
-    if (summaryMapStatus instanceof HTMLElement) {
-      summaryMapStatus.textContent = isNearbySummaryMapMode()
-        ? 'No nearby results match the current preferences.'
-        : 'No results match the current filters.';
-    }
+    summaryMapStatusController.empty({ nearby: isNearbySummaryMapMode() });
   } catch (error) {
     console.error('Failed to load summary map.', error);
     summaryMapController.renderResults([]);
-    if (summaryMapStatus instanceof HTMLElement) {
-      summaryMapStatus.textContent = isNearbySummaryMapMode()
-        ? 'Map unavailable right now. Use the nearby route cards above.'
-        : 'Map unavailable right now. Use the route list below.';
-    }
+    summaryMapStatusController.unavailable({ nearby: isNearbySummaryMapMode() });
   }
 }
 
