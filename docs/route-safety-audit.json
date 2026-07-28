@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:33:46.097Z",
+  "generatedAt": "2026-07-28T15:35:30.974Z",
   "routeCount": 927,
-  "issueCount": 29,
+  "issueCount": 28,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 29,
+    "Medium": 28,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "mississippi-river-hidden-falls-harriet-island",
-      "slug": "mississippi-river-hidden-falls-harriet-island",
-      "name": "Mississippi River",
-      "reach": "Hidden Falls to Harriet Island",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "aul gauge is best from 6,000 to 30,000 cfs. Below 2,000 cfs is too low for this urban route, and above 40,000 cfs is too high for a general recommendation. This is urban big-river paddling rather than technical whitewater. Swift current, barge wakes, bridge pi"
-    },
     {
       "routeId": "otter-tail-river-wannigan-riverside",
       "slug": "otter-tail-river-wannigan-riverside",

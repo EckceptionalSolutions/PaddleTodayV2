@@ -9144,6 +9144,22 @@ export const minnesotaRoutes: River[] = [
     "statusText": "The St. Paul gauge is best from 6,000 to 30,000 cfs. Below 2,000 cfs is too low for this urban route, and above 40,000 cfs is too high for a general recommendation.",
     "latitude": 44.904029,
     "longitude": -93.190748,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "urban_water_quality",
+        "access_uncertain",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Use the St. Paul gauge before launching: below 2,000 cfs the route is too low for the intended urban float, while above 40,000 cfs it is outside the general recommendation and current, wakes, and debris can become substantially less forgiving.",
+        "This is a commercial-traffic corridor. Keep clear of barges, turn the bow into boat wakes, stay outside the navigation channel where possible, and scan early for snags, bridge piers, and shoreline hazards.",
+        "Verify same-day Saint Paul park, flood, dock, and landing notices for Hidden Falls and Kelley's Landing; do not launch or land through barricades or at a closed facility. DNR also warns that this river water is undrinkable due to sewage and industrial pollution."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-133",
       "provider": "mn_dnr",
