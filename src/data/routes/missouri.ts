@@ -8003,6 +8003,22 @@ export const missouriRoutes: River[] = [
     "region": "Missouri Ozarks",
     "summary": "Short spring-fed Niangua day float from Bennett Spring Access to Barclay Conservation Area. Both ends are public, MoHERP has exact-trip gauge evidence, and the upstream Windyville USGS gauge gives a conservative level check.",
     "statusText": "Use the Niangua River at Windyville gauge as an upstream proxy. Around 40 cfs is the conservative low-water floor for this short Bennett Spring-to-Barclay run; below that, expect more scraping and slow riffles. No ideal range or upper cutoff is claimed, so treat high or rising water cautiously.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Keep the existing 40 cfs Windyville minimum-only floor. Below it, expect scraping, shallow riffles, and slower travel; no exact upper cutoff is claimed because this upstream proxy and the mixed trip logs do not support one.",
+        "The short Class I-II reach still has swift riffles, fresh wood, and stronger current after Ozark storms. Check the gauge trend and weather, and postpone if water is high or rising rather than treating the spring influence as a guarantee of safe conditions.",
+        "Use only the named Bennett Spring and Barclay public accesses. Bennett Spring is day-use only, and Barclay's concrete ramp/canoe launch and parking are public but subject to posted signs and same-day conditions; do not use private campgrounds or banks as alternate exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 37.733683,
     "longitude": -92.861233,
     "gaugeSource": {

@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:52:11.507Z",
+  "generatedAt": "2026-07-28T15:55:16.521Z",
   "routeCount": 927,
-  "issueCount": 13,
+  "issueCount": 11,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 13,
+    "Medium": 11,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "niangua-river-bennett-spring-barclay",
-      "slug": "niangua-river-bennett-spring-barclay",
-      "name": "Niangua River",
-      "reach": "Bennett Spring Access to Barclay Conservation Area",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short spring-fed Niangua day float from Bennett Spring Access to Barclay Conservation Area. Both ends are public, MoHERP has exact-trip gauge evidence, and the upstream Windyville"
-    },
-    {
-      "routeId": "niangua-river-bennett-spring-barclay",
-      "slug": "niangua-river-bennett-spring-barclay",
-      "name": "Niangua River",
-      "reach": "Bennett Spring Access to Barclay Conservation Area",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ivate-bank limits, crowding, and fast post-rain changes keep it from being a no-caution beginner listing. Confidence is good for a conservative Missouri add: MDC confirms Bennett Spring Access as public Niangua River float-fishing access with a large parking l"
-    },
     {
       "routeId": "kickapoo-river-rockton-la-farge",
       "slug": "kickapoo-river-rockton-la-farge",
