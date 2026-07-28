@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:40:29.008Z",
+  "generatedAt": "2026-07-28T15:42:02.014Z",
   "routeCount": 927,
-  "issueCount": 23,
+  "issueCount": 22,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 23,
+    "Medium": 22,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "zumbro-river-kruger-west-newton",
-      "slug": "zumbro-river-kruger-west-newton",
-      "name": "Zumbro River",
-      "reach": "Kruger Access to West Newton",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "s lower reach to the same 7 to 9 ft recommendation at Zumbro Falls. Lower-river caution Mississippi finish Wind chop and boat traffic near West Newton change the decision even when the Zumbro itself looks workable. Storm sensitivity High Treat fast-rising wate"
-    },
     {
       "routeId": "beaver-creek-brownbranch-bradleyville",
       "slug": "beaver-creek-brownbranch-bradleyville",

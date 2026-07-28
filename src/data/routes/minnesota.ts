@@ -12448,6 +12448,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Use the same 7 to 9 ft working band as the lower Zumbro. It can still be worthwhile below that, but the Mississippi finish and post-rain spikes make marginal calls less forgiving.",
     "latitude": 44.3372,
     "longitude": -92.07725,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "The Zumbro can rise dramatically after rain and has lively current and persistent snags even at moderate levels. Check the Zumbro Falls gauge trend and recent storms, not just one reading.",
+        "Treat the 7-9 ft working band as a planning aid; marginal water can slow the 12-mile day, while higher or rising water increases debris and recovery consequences before the Mississippi finish.",
+        "Verify Kruger and West Newton access, parking, and the Mississippi-side landing before launching. Plan the finish in sheltered conditions and do not improvise a private-bank landing if wind or boat traffic is active."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05374000",
       "provider": "usgs",
