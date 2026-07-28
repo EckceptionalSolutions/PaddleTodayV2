@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T05:26:22.141Z",
+  "generatedAt": "2026-07-28T05:40:55.206Z",
   "routeCount": 931,
-  "issueCount": 169,
+  "issueCount": 166,
   "summary": {
     "Critical": 0,
-    "High": 64,
-    "Medium": 105,
+    "High": 63,
+    "Medium": 103,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "sauk-river-frogtown-knights-of-columbus",
-      "slug": "sauk-river-frogtown-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Frogtown Park to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "Class I-II mouth section, but it is still a long lower-river day with the usual wood, strainers, and cold-water caveats. Confidence is good because MN DNR names the lower-Sauk access ladder, Cold Spring documents the Frogtown canoe landing, St. Cloud documents"
-    },
     {
       "routeId": "sauk-river-frogtown-rockville",
       "slug": "sauk-river-frogtown-rockville",
@@ -845,28 +834,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rth County Park are both documented public endpoints for this corridor. Primary caution Flood debris Rising post-rain water can add debris and make an easy scenic route feel less forgiving. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.htm"
-    },
-    {
-      "routeId": "sauk-river-frogtown-knights-of-columbus",
-      "slug": "sauk-river-frogtown-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Frogtown Park to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "one-card planner for paddlers who want the full Frogtown extension plus an easy urban finish instead of stopping at Miller Landing. Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long lower stretch gets shallow, weedy, and s"
-    },
-    {
-      "routeId": "sauk-river-frogtown-knights-of-columbus",
-      "slug": "sauk-river-frogtown-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Frogtown Park to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "4 ft this long lower stretch gets shallow, weedy, and slower, while flood-style caution matters more above 20 ft. The character stays broad-audience at sane levels because this route exits before the Class I-II mouth section, but it is still a long lower-river"
     },
     {
       "routeId": "sauk-river-frogtown-rockville",

@@ -1437,16 +1437,18 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 5 hr 15 min to 7 hr 15 min",
       "shuttle": "Full lower-Sauk self-shuttle from Cold Spring to St. Cloud. Leave the take-out vehicle at Knights of Columbus Park so the longest drive happens before the long paddling day, not after it.",
       "permits": "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city, county-park, and access rules along the corridor.",
-      "camping": "Rockville County Park sits mid-route with a watercraft campsite and is the cleanest bailout or intentional split. Otherwise treat this as a long day and do not assume informal shoreline camping is legal.",
-      "summary": "Launch at Frogtown Park in Cold Spring and finish at Knights of Columbus Park in St. Cloud for the full easy lower-Sauk day that still stops before the Heims rapid finish.",
+      "camping": "Rockville County Park sits mid-route with a watercraft campsite and is the cleanest bailout or intentional split. Otherwise treat this as a long day: MN DNR says much of the shoreland is private, riverbed camping next to private property is not permitted, and stops belong at designated sites.",
+      "summary": "Launch at Frogtown Park in Cold Spring and finish at Knights of Columbus Park in St. Cloud for the full easy lower-Sauk day that stops about two river miles before the mapped Class I-II mouth section.",
       "accessCaveats": [
-        "Frogtown Park is the downstream-of-dam start, so do not improvise a put-in above the Cold Spring obstruction.",
-        "Knights of Columbus Park is a defined city endpoint with parking and restrooms, but it is still worth scouting the exact carry-out before you launch if you have not used it before.",
+        "MN DNR maps the Cold Spring Dam at river mile 22.0 and the Frogtown Park carry-in just downstream at river mile 21.8. Launch from the named carry-in rather than improvising above the dam.",
+        "Knights of Columbus Park is the mapped carry-in at river mile 4.5, with the boulder-filled Class I-II mouth section starting at river mile 2.5. Identify the carry-out before launching and do not drift past the planned finish.",
         "Rockville County Park remains the cleanest mid-route bailout or deliberate overnight split because it is the documented watercraft-campsite stop on this corridor."
       ],
       "watchFor": [
         "Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.",
-        "Downed trees or fresh strainers after storms.",
+        "Snags, fallen trees, overhanging limbs, and fresh storm wood. Stop and reassess rather than entering a blocked channel.",
+        "Changing levels after precipitation or dam-flow changes. The St. Martin interpretation band does not certify local wood clearance.",
+        "Private shoreland and undesignated banks. Use the named public accesses and designated stops.",
         "Longer-day fatigue and weather exposure on a route that stays easy in character but covers over 17 river miles."
       ]
     }

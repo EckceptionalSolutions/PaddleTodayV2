@@ -4491,6 +4491,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long lower stretch gets shallow, weedy, and slower, while flood-style caution matters more above 20 ft.",
     "latitude": 45.45775,
     "longitude": -94.421,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the mapped Frogtown Park carry-in at river mile 21.8. The Cold Spring Dam is mapped just upstream at river mile 22.0, so do not improvise a launch above the dam.",
+        "MN DNR warns that snags and fallen trees can tip an unwary paddler and that river conditions can change at any time. Treat the official St. Martin level band as trip context, not a wood-clearance guarantee, and stop to reassess rather than entering a blocked channel.",
+        "Use the named public accesses and designated stops. MN DNR says much of the Sauk shoreland is private and riverbed camping next to private property is not permitted."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -4535,15 +4549,15 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the practical window. Low summer water and vegetation can make the long lower corridor draggy, while higher water makes the long day faster but less forgiving.",
       "difficulty": "easy",
-      "difficultyNotes": "The character stays broad-audience at sane levels because this route exits before the Class I-II mouth section, but it is still a long lower-river day with the usual wood, strainers, and cold-water caveats.",
+      "difficultyNotes": "The character stays broad-audience at normal levels because this route exits before the Class I-II mouth section, but snags, changing levels, private shoreline, and the 17.3-mile commitment still require active trip management.",
       "confidenceNotes": "Confidence is good because MN DNR names the lower-Sauk access ladder, Cold Spring documents the Frogtown canoe landing, St. Cloud documents Knights of Columbus Park on the Sauk, and Rockville County Park remains the clean midpoint bailout or overnight stop."
     },
     "evidenceNotes": [
       {
         "label": "Current level",
-        "value": "15.34 ft at 10:00 AM",
-        "note": "MN DNR listed the St. Martin gauge at 15.34 ft on July 13, 2026, which lands in the official Medium band.",
-        "sourceUrl": "https://www.dnr.state.mn.us/river_levels/index.html"
+        "value": "14.36 ft at 10:00 PM",
+        "note": "The official MN DNR St. Martin gauge reported 14.36 ft on July 27, 2026, which sits in the Low interpretation band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
         "label": "DNR bands",
@@ -4555,6 +4569,12 @@ export const minnesotaRoutes: River[] = [
         "label": "Route shape",
         "value": "17.3 river miles",
         "note": "MN DNR Map 2 places Frogtown Park at river mile 21.8 and Knights of Columbus Park at river mile 4.5.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
+      },
+      {
+        "label": "Downstream rapid boundary",
+        "value": "2.0 river miles below the take-out",
+        "note": "MN DNR Map 2 places the Class I-II mouth section at river miles 2.5 to 0, downstream of the planned Knights of Columbus Park finish at river mile 4.5.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
       },
       {
@@ -4571,11 +4591,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "MN DNR Sauk River Map 2 PDF",
@@ -4583,11 +4603,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Cold Spring Frogtown Park",
-        "url": "https://www.coldspringmn.com/parksrec/page/frogtown-park"
+        "url": "https://coldspringmn.gov/index.asp?SEC=70D61018-342B-4C4E-93F2-C0546E96A196"
       },
       {
         "label": "Stearns County Rockville County Park",
-        "url": "https://www.stearnscountymn.gov/397/Rockville-County-Park"
+        "url": "https://www.stearnscountymn.gov/rockville-county-park"
       },
       {
         "label": "St. Cloud Knights of Columbus Park",
