@@ -10578,6 +10578,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and scrape-prone; above that is high and especially awkward at the ford-style take-out.",
     "latitude": 37.2163,
     "longitude": -83.7175,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use KDFWR's Manchester bands the same day: below 175 cfs or 7.4 ft expect scraping, while above 514 cfs or 8.5 ft the narrow creek and ford-side finish get less forgiving.",
+        "Tobacco Road is a small carry-down access with limited unpaved parking and no amenities; stay at the named KDFWR access rather than using private creek banks.",
+        "Dump Hollow is a ford-style take-out that KDFWR warns can be difficult or dangerous at high water; inspect the landing, footing, and vehicle approach before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03281100",
       "provider": "usgs",

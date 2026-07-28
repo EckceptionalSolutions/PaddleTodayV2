@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:25:10.056Z",
+  "generatedAt": "2026-07-28T15:28:04.051Z",
   "routeCount": 927,
-  "issueCount": 34,
+  "issueCount": 33,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 34,
+    "Medium": 33,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "goose-creek-tobacco-road-dump-hollow",
-      "slug": "goose-creek-tobacco-road-dump-hollow",
-      "name": "Goose Creek",
-      "reach": "Tobacco Road Bridge Ramp to Dump Hollow Ford",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ols, and rock bars, while the Dump Hollow access note keeps the downstream ford caution explicit. KDFWR Goose Creek https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx KDFWR Tobacco Road Bridge Access https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196 K"
-    },
     {
       "routeId": "levisa-fork-jubilee-island-creek",
       "slug": "levisa-fork-jubilee-island-creek",
