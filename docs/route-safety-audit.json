@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:39:14.557Z",
+  "generatedAt": "2026-07-28T15:25:10.056Z",
   "routeCount": 927,
-  "issueCount": 37,
+  "issueCount": 34,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 37,
+    "Medium": 34,
     "Low": 0
   },
   "issues": [
@@ -20,39 +20,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ols, and rock bars, while the Dump Hollow access note keeps the downstream ford caution explicit. KDFWR Goose Creek https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx KDFWR Tobacco Road Bridge Access https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196 K"
-    },
-    {
-      "routeId": "green-river-american-legion-greensburg",
-      "slug": "green-river-american-legion-greensburg",
-      "name": "Green River",
-      "reach": "American Legion Park Ramp to Greensburg City Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "oals and muddier edges; above that the broad current through town deserves more caution at bends and landings. This is one of the easiest Upper Green splits, but it is still moving water with shoals, anglers, and city-ramp traffic rather than a flat pond lap."
-    },
-    {
-      "routeId": "green-river-roachville-american-legion",
-      "slug": "green-river-roachville-american-legion",
-      "name": "Green River",
-      "reach": "Roachville Ford to American Legion Park Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "and islands, while above that the chutes, bends, and park landing deserve more caution. This remains an approachable Green River float, but it is longer than the short split routes and still rewards active line choice around islands, shallow shoals, and the p"
-    },
-    {
-      "routeId": "green-river-roachville-russell-ford",
-      "slug": "green-river-roachville-russell-ford",
-      "name": "Green River",
-      "reach": "Roachville Ford to Russell Ford Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "uddier landings; above that the islands and chutes get pushier and deserve more caution. This is still a manageable Green River float, but the islands, chutes, shallow shoals, and easy-to-miss Russell Ford landing reward active line choice rather than sleepy d"
     },
     {
       "routeId": "levisa-fork-jubilee-island-creek",

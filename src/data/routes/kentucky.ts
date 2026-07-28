@@ -11655,6 +11655,20 @@ export const kentuckyRoutes: River[] = [
       "siteName": "Green River at Greensburg, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Roachville is a low-water gravel ford with limited roadside parking; expect shallow shoals and possible carry or drag moves below the 1.0 ft Greensburg stage.",
+        "Above the 1.75 ft high-water boundary, islands, chutes, bends, and bridge-adjacent current deserve a visual check and more conservative line choice.",
+        "Russell Ford is a left-side shoal take-out that is easy to miss from the main right channel. Identify the access before launch and do not use private banks as backup exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 1,
@@ -11780,6 +11794,20 @@ export const kentuckyRoutes: River[] = [
       "kind": "direct",
       "siteName": "Green River at Greensburg, KY",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This 8.9-mile combined route includes the Roachville-to-Russell islands and chutes plus the Greensburg approach; use the 1.0-1.75 ft Greensburg band as a planning screen, not a substitute for visual checks.",
+        "Russell Ford is the clearest public bailout and American Legion is a gravel/muddy carry-down finish. Reassess there if low water, rising current, weather, or group pace makes the full route questionable.",
+        "Fresh wood, bridge-adjacent current, and private banks can make informal exits unsafe. Stay with the named KDFWR access chain."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "two-sided",
@@ -12664,6 +12692,20 @@ export const kentuckyRoutes: River[] = [
   {
     "id": "green-river-american-legion-greensburg",
     "slug": "green-river-american-legion-greensburg",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the direct Greensburg stage: below 1.0 ft expect more scraping and muddy edges; above 1.75 ft the broad in-town current and landings become less forgiving.",
+        "American Legion is a gravel/muddy carry-down below the Highway 417 bridge, while Greensburg City Ramp is the named paved public finish. Keep both ramp areas clear for anglers and park users.",
+        "Stay in the public river corridor and use only the named ramps; bridge-adjacent current, fresh wood, and private banks are not reasons to improvise a shoreline exit."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "name": "Green River",
     "reach": "American Legion Park Ramp to Greensburg City Ramp",
     "aliases": [
