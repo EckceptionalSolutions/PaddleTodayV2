@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:55:16.521Z",
+  "generatedAt": "2026-07-28T15:57:14.529Z",
   "routeCount": 927,
-  "issueCount": 11,
+  "issueCount": 9,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 11,
+    "Medium": 9,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "kickapoo-river-rockton-la-farge",
-      "slug": "kickapoo-river-rockton-la-farge",
-      "name": "Kickapoo River",
-      "reach": "Rockton Landing to La Farge Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "ape risk below 60 cfs, and be cautious or skip the route around 200+ cfs or any fast rise after rain. Mostly approachable riffles and moving water, but the route is long, has strainers and shallow riffles, and becomes more consequential when the narrow valley"
-    },
-    {
-      "routeId": "kickapoo-river-rockton-la-farge",
-      "slug": "kickapoo-river-rockton-la-farge",
-      "name": "Kickapoo River",
-      "reach": "Rockton Landing to La Farge Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ut current, snags, and cold water; MilesPaddled also reports riffles and a tree hazard after Bridge 19. MilesPaddled Kickapoo River II https://milespaddled.com/kickapoo-river-ii/ Wisconsin River Trips Kickapoo River - Rockton to La Farge https://www.wisconsinr"
-    },
     {
       "routeId": "namekagon-river-big-bend-trego",
       "slug": "namekagon-river-big-bend-trego",

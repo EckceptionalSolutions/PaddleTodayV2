@@ -4129,6 +4129,21 @@ export const wisconsinRoutes: River[] = [
     "region": "Driftless Wisconsin",
     "summary": "Second classic upper-Kickapoo day through the Kickapoo Valley Reserve from Landing 12 at Rockton to Landing 20 at La Farge, with sandstone walls, riffles, bridge-number navigation, and a direct La Farge gauge near the take-out.",
     "statusText": "Use the Kickapoo River at La Farge gauge. Treat roughly 60 to 120 cfs as the best broad target, expect scrape risk below 60 cfs, and be cautious or skip the route around 200+ cfs or any fast rise after rain.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Use the direct La Farge gauge and preserve the existing two-sided model: 42 cfs is too low, roughly 60-120 cfs is the broad target, and 200 cfs is too high. Below the scrape-free range, expect dragging; at or above the high-water cutoff, or during a fast rise, postpone rather than relying on a single reading.",
+        "KVR warns that the Kickapoo can rise quickly, and the route evidence identifies strainers, snags, riffles, cold water, and a tree hazard below Bridge 19. Scout bridge-number landmarks and give fresh wood room; the narrow valley leaves less forgiving choices when current increases.",
+        "Launch only from the managed Landing 12 access and confirm the KVR permit/parking requirement before leaving a vehicle. Landing 20 can be less obvious from the road, so verify the take-out and any posted access rules before launch; do not substitute private banks or informal pull-offs."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 43.6371,
     "longitude": -90.60292,
     "gaugeSource": {
