@@ -18,6 +18,20 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River above Akers gauge. Around 230 cfs is the conservative low-water floor for Cedar Grove to Pulltite; below that, expect long shallow shoals and dragging. Do not treat high or rising water as casual, and respect NPS closure notices.",
     "latitude": 37.42238,
     "longitude": -91.6083,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This combines two NPS-listed sections into a 17.3-mile, roughly seven-hour canoe or kayak route. Stage the Pulltite take-out and an Akers bailout before launching because cell service is limited.",
+        "Use the designated Cedar Grove and Pulltite river landings and follow posted access signs. Pulltite's ranger station remains closed through the 2026 season after flood damage, so verify the landing and available facilities before committing to the full route.",
+        "Check the Akers gauge trend and current NPS closure status, not only the app score. NPS closes non-motorized use at unsafe flood levels, and flood conditions bring faster current and debris; postpone if the river is rising toward closure or the landing is restricted."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07064533",
       "provider": "usgs",
@@ -98,6 +112,12 @@ export const missouriRoutes: River[] = [
         "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/floating.htm"
       },
       {
+        "label": "Pulltite 2026 facility status",
+        "value": "Ranger station closed; river access remains listed",
+        "note": "NPS says the Pulltite Ranger Station remains closed through the 2026 season after flood damage. The current Superintendent's Compendium still designates Pulltite as a Current River landing, so paddlers should verify the landing and available facilities rather than assuming normal services.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/basicinfo.htm"
+      },
+      {
         "label": "Endpoint coordinates",
         "value": "37.42238, -91.6083 to 37.33505, -91.47959",
         "note": "Coordinates reuse the practical Cedar Grove and Pulltite access-area anchors already used on adjacent Current River routes. They are route-ready access anchors, not survey-grade ramp corners.",
@@ -133,6 +153,11 @@ export const missouriRoutes: River[] = [
       {
         "label": "NPS park brochure",
         "url": "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS basic information and seasonal facility status",
+        "url": "https://www.nps.gov/ozar/planyourvisit/basicinfo.htm",
         "provider": "nps"
       },
       {

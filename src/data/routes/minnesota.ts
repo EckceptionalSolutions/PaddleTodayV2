@@ -6732,6 +6732,19 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 3.3 to 5.0 ft as the best window. Below 2.3 ft gets too scrapy, and above 6.3 ft is no longer the mellow all-levels day this route wants to be.",
     "latitude": 45.7959352,
     "longitude": -93.0796766,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "MN DNR recommends this exact Canary Road-to-Cross Lake/Pine City trip for paddlers of all levels, but it also says Snake River levels fluctuate quickly with precipitation. Check the direct Pine City gauge and recent weather before launching.",
+        "Recommended status means fewer woody obstructions at typical levels, not an obstruction-free channel. Scan ahead for fallen, overhanging, or dead trees and do not force a blocked line.",
+        "Use the named Canary Road and Cross Lake public accesses. If the reading is rising quickly or trees are difficult to see and avoid, postpone the trip rather than relying on the route's easy rating."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-229",
       "provider": "mn_dnr",
@@ -6805,6 +6818,18 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://www.dnr.state.mn.us/watertrails/snakeriver/index.html"
       },
       {
+        "label": "State-water-trail obstruction guidance",
+        "value": "Fewer woody obstructions does not mean none",
+        "note": "MN DNR says recommended sections have fewer woody obstructions at typical levels and warns that river conditions can change even on recommended routes.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html"
+      },
+      {
+        "label": "Tree-hazard guidance",
+        "value": "Avoid overhanging and dead trees",
+        "note": "MN DNR directs state-water-trail paddlers to be cautious of river obstacles and avoid overhanging and dead trees.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/safety-rules.html"
+      },
+      {
         "label": "Take-out context",
         "value": "Pine City landing with trailer parking",
         "note": "Pine City recreation materials describe the Snake River landing across Highway 61 from Voyageur Park as a landscaped access with parking for vehicles and trailers.",
@@ -6827,6 +6852,14 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR Snake River map PDF",
         "url": "https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf"
+      },
+      {
+        "label": "MN DNR recommended paddling sections",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html"
+      },
+      {
+        "label": "MN DNR water-trail safety and rules",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/safety-rules.html"
       },
       {
         "label": "Minnesota public water access dataset (GeoPackage zip)",
@@ -9165,6 +9198,19 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 3.3 to 5.0 ft as the best window. Below 2.3 ft gets too scrapy, and above 6.3 ft is no longer the mellow family-style day this route wants to be.",
     "latitude": 46.0238677,
     "longitude": -93.2319185,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "This is the 15-mile County Road 3 race corridor, not the DNR's shorter named lower-river recommended trip. Confirm both access points, current conditions, and enough daylight for a slower recreational pace before launching.",
+        "The race organizer documented a rapid 2026 rise and says the river rises and falls quickly. Check the gauge trend and recent rain rather than relying on one reading.",
+        "MN DNR warns state-water-trail paddlers about overhanging, dead, and fallen trees, which can be hidden at high water. Scan bends early and postpone the trip if wood cannot be safely avoided."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-229",
       "provider": "mn_dnr",
@@ -9232,10 +9278,16 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://vasaloppet.us/snake-river-canoe-race/"
       },
       {
-        "label": "Primary caution",
-        "value": "Storm debris",
-        "note": "After storms or high water, expect new strainers and obstructions that the gauge alone cannot fully price in.",
-        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/snakeriver/index.html"
+        "label": "Rapid-rise context",
+        "value": "Gauge trend matters",
+        "note": "The race organizer says this reach rises and falls quickly and documented a rise from 2.94 ft on April 27, 2026 to 7.12 ft on April 29.",
+        "sourceUrl": "https://vasaloppet.us/snake-river-canoe-race/"
+      },
+      {
+        "label": "Tree-hazard guidance",
+        "value": "Visible channel conditions matter",
+        "note": "MN DNR warns that very high water can hide fallen trees and directs state-water-trail paddlers to avoid overhanging and dead trees.",
+        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/interactive_map/help.html"
       }
     ],
     "sourceLinks": [
@@ -9254,6 +9306,14 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR Snake River map PDF",
         "url": "https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf"
+      },
+      {
+        "label": "MN DNR water-trail safety and rules",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/safety-rules.html"
+      },
+      {
+        "label": "MN DNR state water-trail map help",
+        "url": "https://www.dnr.state.mn.us/watertrails/interactive_map/help.html"
       },
       {
         "label": "Vasaloppet Snake River Canoe Race",

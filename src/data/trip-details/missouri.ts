@@ -53,8 +53,8 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "overnight_capable",
       "summary": "Launch at Cedar Grove and take out at Pulltite for the combined NPS-listed 17.3-mile Upper Current continuation. Use the Akers USGS gauge as a same-day route check, with the app keeping the score conservative at a 230 cfs minimum-only floor.",
       "accessCaveats": [
-        "Cedar Grove, Akers, and Pulltite are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.",
-        "Pulltite remains the most flood-damaged Upper Current campground. Inspect the take-out before launching and follow current NPS signs rather than assuming every facility is fully normal.",
+        "The current NPS Superintendent's Compendium designates Cedar Grove, Akers, and Pulltite as Current River landings. Use those posted landings, park only in designated areas, and obey any temporary flood or maintenance restriction.",
+        "NPS says the Pulltite Ranger Station remains closed through the 2026 season after flood damage, while the campground and river landing remain listed. Inspect the take-out before launching and verify which facilities are available.",
         "This route is much longer than the individual Upper Current day floats. Daylight, weather, and a realistic bailout plan at Akers matter more than on a short scenic float."
       ],
       "watchFor": [

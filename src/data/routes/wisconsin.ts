@@ -5248,6 +5248,21 @@ export const wisconsinRoutes: River[] = [
     "statusText": "Use the Brule gauge as a direct same-segment screen. Below 125 cfs is not recommended; 200 to 350 cfs is the best novice-friendly medium band; above 600 cfs the current becomes an intermediate judgment call.",
     "latitude": 46.43415,
     "longitude": -91.67486,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Wisconsin DNR calls Stone's Bridge to Winneboujou an easygoing upper-river trip, but Wisconsin Trail Guide still identifies Class I-II rapids and directs paddlers to scout or portage features that exceed their limits.",
+        "Falls Rapids has a left-bank scout or portage, and Station Rapids combines quick current, bends, and strainer exposure. Scan ahead and leave the channel early if a rapid or obstruction is not clearly runnable.",
+        "Use only the two designated state-forest landings, respect private property, and dress for the Brule's cool spring water. Treat 600 cfs and above as an experienced-group decision rather than relying on the route's friendly reputation."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04025500",
       "provider": "usgs",
@@ -5320,12 +5335,23 @@ export const wisconsinRoutes: River[] = [
         "value": "Designated landings only",
         "note": "Wisconsin DNR requires paddlers to launch and land only at allowed designated canoe landings, prohibits glass bottles, requires wearable PFDs, and allows camping only at state-designated campgrounds.",
         "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle"
+      },
+      {
+        "label": "Cold-water character",
+        "value": "Cool spring-fed flow",
+        "note": "Wisconsin DNR describes the Bois Brule as sustained by a steady flow of cool spring water.",
+        "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/fishing"
       }
     ],
     "sourceLinks": [
       {
         "label": "Wisconsin DNR Brule River paddling",
         "url": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle",
+        "provider": "local"
+      },
+      {
+        "label": "Wisconsin DNR Brule River cold-water context",
+        "url": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/fishing",
         "provider": "local"
       },
       {
@@ -5503,6 +5529,21 @@ export const wisconsinRoutes: River[] = [
     "statusText": "Use the Bois Brule at Brule gauge. Below 125 cfs is not recommended; 200 to 350 cfs is the best novice-friendly medium band; 350 to 600 cfs is high but still runnable for prepared paddlers; above 600 cfs deserves more experienced judgment.",
     "latitude": 46.54042,
     "longitude": -91.59408,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This is a 10.3-mile Class I route with Doodlebug, Co-Op Park, and additional named rapid pitches. Scout unfamiliar lines and use the Highway 2 landing as the planned shorter exit if the group should not continue.",
+        "Wisconsin Trail Guide says deadfall and strainers can become hazardous and sometimes unavoidable at rare high flows. Novice paddlers should avoid 600 cfs and above, and all groups should postpone when wood cannot be seen and avoided early.",
+        "Use only designated state-forest landings, respect private property, and dress for the Brule's cool spring water. The route's moderate rating and direct gauge do not replace a same-day check of flow trend, weather, and landing conditions."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04025500",
       "provider": "usgs",
@@ -5575,6 +5616,12 @@ export const wisconsinRoutes: River[] = [
         "value": "Highway 2 to Pine Tree: four hours",
         "note": "Wisconsin DNR lists Highway 2 to Pine Tree as a four-hour Brule River State Forest landing-to-landing trip, supporting the public access corridor within this longer Bois Brule Landing-to-Pine Tree route.",
         "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle"
+      },
+      {
+        "label": "Cold-water character",
+        "value": "Cool spring-fed flow",
+        "note": "Wisconsin DNR describes the Bois Brule as sustained by a steady flow of cool spring water.",
+        "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/fishing"
       }
     ],
     "sourceLinks": [
@@ -5591,6 +5638,11 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Wisconsin DNR Brule River paddling",
         "url": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle",
+        "provider": "local"
+      },
+      {
+        "label": "Wisconsin DNR Brule River cold-water context",
+        "url": "https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/fishing",
         "provider": "local"
       },
       {
