@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:27:21.641Z",
+  "generatedAt": "2026-07-28T13:29:03.149Z",
   "routeCount": 927,
-  "issueCount": 49,
+  "issueCount": 46,
   "summary": {
     "Critical": 0,
-    "High": 5,
-    "Medium": 44,
+    "High": 4,
+    "Medium": 42,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "shoal-creek-tipton-ford-wildcat",
-      "slug": "shoal-creek-tipton-ford-wildcat",
-      "name": "Shoal Creek",
-      "reach": "Tipton Ford Access to Wildcat Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "g, tight riffles, and possible walking. High or rising water can make channels, wood, and bridge approaches dangerous. National Rivers Project lists Shoal Creek as Class I-II, and lower-Shoal trip notes mention log jams, brush piles, and a treacherous split ch"
-    },
     {
       "routeId": "bark-river-highway-164-to-merton-millpond",
       "slug": "bark-river-highway-164-to-merton-millpond",
@@ -350,28 +339,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "hat, expect more dragging and a slower day. Rising or high water deserves extra caution at The Falls, shoals, bends, and strainers. This is a popular Ozark float, but it is not a flat pool route. Expect swift riffles, cold spring water, shoals, and The Falls,"
-    },
-    {
-      "routeId": "shoal-creek-tipton-ford-wildcat",
-      "slug": "shoal-creek-tipton-ford-wildcat",
-      "name": "Shoal Creek",
-      "reach": "Tipton Ford Access to Wildcat Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Swift lower Shoal Creek day from MDC Tipton Ford Access to MDC Wildcat Access in the Joplin area. MDC documents both public accesses and the 6.9-mile spacing, while the direct Jopl"
-    },
-    {
-      "routeId": "shoal-creek-tipton-ford-wildcat",
-      "slug": "shoal-creek-tipton-ford-wildcat",
-      "name": "Shoal Creek",
-      "reach": "Tipton Ford Access to Wildcat Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "uses a conservative 225 cfs floor and does not infer an ideal range. High-water caution High reports include capsizes A MoHERP Tipton-Ford-to-Wildcat trip at 1,370 cfs was marked high and noted a treacherous split channel with many capsizes after the Highway 1"
     },
     {
       "routeId": "bark-river-highway-164-to-merton-millpond",

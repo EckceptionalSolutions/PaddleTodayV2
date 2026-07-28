@@ -11265,6 +11265,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Shoal Creek above Joplin gauge. Around 225 cfs is the conservative low-water floor; below that, expect dragging, tight riffles, and possible walking. High or rising water can make channels, wood, and bridge approaches dangerous.",
     "latitude": 36.98367,
     "longitude": -94.441028,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MDC confirms Tipton Ford is a public small-boat ramp with posted hours, and the Shoal Creek plan places Wildcat 6.9 river miles downstream. Verify both access layouts and the busy Wildcat take-out before launching.",
+        "This Class I-II creek has chert ledges, brush piles, log jams, and a documented treacherous split channel near Highway 171 at high water. Scout bridge approaches and split channels; walk or turn back when no clear line is available.",
+        "Keep the 225 cfs floor as a conservative low-water check. The high-water trip evidence includes capsizes, so skip rising or storm-swollen conditions and do not use private banks or informal pull-offs as substitute access."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07187000",
       "provider": "usgs",
