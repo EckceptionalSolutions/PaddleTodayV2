@@ -1134,18 +1134,18 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "9.4 mi",
       "estimatedPaddleTime": "About 3 hr to 4 hr 30 min",
-      "shuttle": "Standard two-car shuttle is simplest. Both ends are managed county parks, so confirm vehicle-entry and parking expectations before leaving cars.",
-      "permits": "No route-specific paddling permit is known. Follow posted county park, access, and boating rules at both landings.",
-      "camping": "Watercraft campsites exist at both North County Park and Central Regional Park, so this corridor can support a short overnight plan if you intentionally reserve around current rules; many paddlers will still treat it as a half-day or relaxed day trip.",
+      "shuttle": "Standard two-car shuttle is simplest. Both park pages currently list 5:00 a.m. to 10:00 p.m. hours, and Central Regional Park lists a vehicle-entry permit, so confirm current parking rules before staging cars.",
+      "permits": "No route-specific paddling permit is known. Central Regional Park currently lists a vehicle-entry permit; follow posted county park, access, and boating rules at both landings.",
+      "camping": "Both parks list free first-come, first-served canoe-in campsites. An overnight vehicle requires a special-use request submitted to Anoka County Parks 14 days in advance, so arrange parking separately from the normal day shuttle.",
       "summary": "Launch at Rum River North County Park and finish at Rum River Central Regional Park for a shorter lower-Rum county-corridor day. The official St. Francis gauge sits right on this corridor, so the level call is cleaner than on many metro-adjacent rivers.",
       "accessCaveats": [
-        "Both endpoints are managed county parks, so park hours, parking rules, and seasonal vehicle-permit expectations deserve a same-day check.",
-        "Do not assume low-hazard character means zero cleanup issues; flood debris and fresh wood can still change the route after storms."
+        "Use the named public launches at North County Park and Central Regional Park; much of the shoreland between them is private, and DNR directs paddlers to stop only at designated sites.",
+        "Park hours, vehicle-entry rules, and overnight-parking requirements can change; verify both county park pages before leaving shuttle vehicles."
       ],
       "watchFor": [
         "Low-water scraping when the gauge falls toward the 600 cfs floor.",
-        "Fresh strainers or snags after heavy rain or spring runoff.",
-        "Cold-water exposure outside midsummer even on an otherwise easy-feeling river day."
+        "Downed trees, snags, and overhanging or dead trees; DNR warns that river conditions can change at any time.",
+        "High or Very High water that increases speed and trip consequences even when the channel looks broad and flat."
       ]
     }
   },

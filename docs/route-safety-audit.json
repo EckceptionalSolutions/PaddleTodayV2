@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T03:54:51.115Z",
+  "generatedAt": "2026-07-28T04:10:13.151Z",
   "routeCount": 931,
-  "issueCount": 181,
+  "issueCount": 179,
   "summary": {
     "Critical": 0,
-    "High": 71,
-    "Medium": 110,
+    "High": 70,
+    "Medium": 109,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "rum-river-north-county-central",
-      "slug": "rum-river-north-county-central",
-      "name": "Rum River",
-      "reach": "North County Park to Central Regional Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "e territory and do not treat broad easy-river character as permission to ignore wood or fresh post-rain debris. Treat the official DNR medium band as the sweet spot here. Below about 600 cfs, expect too much dragging or shallow current; above 3,000 cfs, this e"
-    },
     {
       "routeId": "rum-river-north-county-germanium",
       "slug": "rum-river-north-county-germanium",
@@ -922,17 +911,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rth County Park are both documented public endpoints for this corridor. Primary caution Flood debris Rising post-rain water can add debris and make an easy scenic route feel less forgiving. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.htm"
-    },
-    {
-      "routeId": "rum-river-north-county-central",
-      "slug": "rum-river-north-county-central",
-      "name": "Rum River",
-      "reach": "North County Park to Central Regional Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": ", watercraft campsites, toilets, and drinking water at river mile 13.8. Primary caution Wood and flood debris The lower Rum is generally approachable, but DNR still flags downed trees and snags as the relevant hazard pattern on this corridor. MN DNR river leve"
     },
     {
       "routeId": "rum-river-north-county-germanium",

@@ -3551,10 +3551,23 @@ export const minnesotaRoutes: River[] = [
     "reach": "North County Park to Central Regional Park",
     "state": "Minnesota",
     "region": "Twin Cities North Metro",
-    "summary": "Shorter lower-Rum corridor day between the two main Anoka County canoe parks. The gauge question is straightforward: stay comfortably above scrape territory and do not treat broad easy-river character as permission to ignore wood or fresh post-rain debris.",
+    "summary": "Shorter lower-Rum corridor day between the two main Anoka County canoe parks. MN DNR describes this segment as broad, flat water with few rapids, but still lists downed trees and snags; easy character is not a clear-channel guarantee.",
     "statusText": "Treat the official DNR medium band as the sweet spot here. Below about 600 cfs, expect too much dragging or shallow current; above 3,000 cfs, this easier corridor becomes a high-water call instead of a casual yes.",
     "latitude": 45.394587,
     "longitude": -93.353557,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR Map 3 lists downed trees and snags on this segment and warns that river conditions can change at any time. Check same-day conditions and do not treat the recommended-section label as a clear-channel guarantee.",
+        "Use the named North County Park launch and Central Regional Park take-out. DNR says much of the shoreland is private and directs paddlers to stop only at designated sites.",
+        "The official gauge ladder describes water level, not wood clearance. At High or Very High levels, reassess current, debris, and recovery space at the public accesses before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-211",
       "provider": "mn_dnr",
@@ -3598,9 +3611,9 @@ export const minnesotaRoutes: River[] = [
         9,
         10
       ],
-      "seasonNotes": "Late spring through early fall is the main window. Summer remains viable on this park-to-park corridor, but low water slows the day down and post-rain debris still deserves a same-day check.",
+      "seasonNotes": "Late spring through early fall is the main window. Summer remains viable on this park-to-park corridor, but low water slows the day down and the DNR map still calls for a same-day obstruction check.",
       "difficulty": "easy",
-      "difficultyNotes": "This is a broad, beginner-friendly moving-water corridor with few technical features, but it still deserves respect for wood, cold shoulder-season water, and faster current when the river rises.",
+      "difficultyNotes": "This is broad, flat moving water with few rapids and is suitable for beginning and intermediate paddlers at moderate flows. Downed trees and snags remain the primary route-specific hazard.",
       "confidenceNotes": "Confidence is good for a conservative add: the St. Francis gauge is on the route corridor, MN DNR publishes the full paddling ladder for that gauge, and DNR plus Anoka County together document the exact North-to-Central canoe corridor and amenities."
     },
     "evidenceNotes": [
@@ -3630,8 +3643,8 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Primary caution",
-        "value": "Wood and flood debris",
-        "note": "The lower Rum is generally approachable, but DNR still flags downed trees and snags as the relevant hazard pattern on this corridor.",
+        "value": "Downed trees, snags, and changeable conditions",
+        "note": "DNR Map 3 says hazards on this segment include downed trees and snags, warns that river conditions can change at any time, and directs paddlers to avoid obstacles and overhanging or dead trees.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf"
       }
     ],
@@ -3655,6 +3668,10 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Anoka County Rum River North County Park",
         "url": "https://www.anokacountymn.gov/facilities/facility/details/Rum-River-North-County-Park-15"
+      },
+      {
+        "label": "Anoka County Parks Rum River North County Park",
+        "url": "https://www.anokacountyparks.com/parks/rum-river-north"
       },
       {
         "label": "Anoka County Rum River Central Regional Park",
