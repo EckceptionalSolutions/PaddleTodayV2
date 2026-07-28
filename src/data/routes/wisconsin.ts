@@ -1404,6 +1404,19 @@ export const wisconsinRoutes: River[] = [
     "region": "Northwest Wisconsin",
     "summary": "Broad northwoods border run with current, boulder gardens, and real wind exposure. This is more practical once the Danbury gauge gets above the scrape-and-walk low end.",
     "statusText": "Treat about 1,000 cfs as the low-water floor. Below that this route gets too scrapy to recommend widely, and above that wind and channel-reading still matter.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Keep the existing direct Danbury-gauge minimum-only floor of about 1,000 cfs. Below it, expect scraping and channel-picking; no preferred upper range is claimed, so make a same-day judgment from the gauge trend, weather, and visible river conditions.",
+        "A workable level does not remove the broad-channel wind problem. Headwind and crosswind can dominate this run, while boulder gardens and level-dependent rapids become more consequential as current increases; use a properly fitted PFD and leave margin for a slower or harder day.",
+        "Both endpoints are listed in Wisconsin DNR's access inventory, but the Fox Landing approach is rough and steep and the inventory is subject to change. Check the latest NPS section map and posted landing rules before staging a vehicle, and do not treat nearby shoreline as an alternate access."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 45.89030603,
     "longitude": -92.71283975,
     "gaugeSource": {

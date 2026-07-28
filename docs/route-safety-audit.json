@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:59:15.547Z",
+  "generatedAt": "2026-07-28T16:01:52.988Z",
   "routeCount": 927,
-  "issueCount": 7,
+  "issueCount": 5,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 7,
+    "Medium": 5,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "st-croix-river-fox-highway-70",
-      "slug": "st-croix-river-fox-highway-70",
-      "name": "St. Croix River",
-      "reach": "Fox Landing to Highway 70",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Broad northwoods border run with current, boulder gardens, and real wind exposure. This is more practical once the Danbury gauge gets above the scrape-and-walk low end. Treat about"
-    },
-    {
-      "routeId": "st-croix-river-fox-highway-70",
-      "slug": "st-croix-river-fox-highway-70",
-      "name": "St. Croix River",
-      "reach": "Fox Landing to Highway 70",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "landing are both backed by Wisconsin DNR boat-access inventory records. Primary caution Wind on a broad channel Even when the gauge is workable, headwind and crosswind can dominate the effort on this wide upper St. Croix reach. MilesPaddled St. Croix River III"
-    },
     {
       "routeId": "sugar-river-county-road-x-county-road-ee",
       "slug": "sugar-river-county-road-x-county-road-ee",
