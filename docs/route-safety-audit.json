@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:07:16.126Z",
+  "generatedAt": "2026-07-28T13:08:55.321Z",
   "routeCount": 927,
-  "issueCount": 85,
+  "issueCount": 81,
   "summary": {
     "Critical": 0,
-    "High": 18,
-    "Medium": 67,
+    "High": 16,
+    "Medium": 65,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "current-river-cedar-grove-akers",
-      "slug": "current-river-cedar-grove-akers",
-      "name": "Current River",
-      "reach": "Cedar Grove to Akers Ferry",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "els, but shallow riffles, cold spring water, motorized traffic rules, crowding, wood, and high-water closure thresholds still matter. Confidence is good for a conservative Missouri add: NPS lists Cedar Grove to Akers as a 7.7-mile / 3-hour Upper Current route,"
-    },
-    {
-      "routeId": "current-river-cedar-grove-akers",
-      "slug": "current-river-cedar-grove-akers",
-      "name": "Current River",
-      "reach": "Cedar Grove to Akers Ferry",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "dragging. Do not treat high or rising water as a casual float, and respect NPS closure notices. NPS treats Cedar Grove to Akers as a standard 3-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold spring water,"
-    },
     {
       "routeId": "eleven-point-river-turner-mill-south-whitten",
       "slug": "eleven-point-river-turner-mill-south-whitten",
@@ -394,28 +372,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "when the Richwoods gauge is high or rising, especially above the local 800 cfs caution band. Confidence is good for a conservative Missouri add: MDC confirms Mammoth Access is 5.40 river miles upstream from Merrill Horse Access and provides public department-"
-    },
-    {
-      "routeId": "current-river-cedar-grove-akers",
-      "slug": "current-river-cedar-grove-akers",
-      "name": "Current River",
-      "reach": "Cedar Grove to Akers Ferry",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Classic upper Current River day float from Cedar Grove to Akers Ferry inside Ozark National Scenic Riverways. NPS lists the 7.7-mile trip, the Akers gauge is live in the take-out c"
-    },
-    {
-      "routeId": "current-river-cedar-grove-akers",
-      "slug": "current-river-cedar-grove-akers",
-      "name": "Current River",
-      "reach": "Cedar Grove to Akers Ferry",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "lists Akers at 2.00 ft average and 4.00 ft closed level. Use this as high-water caution, not an ideal range. Access rules Designated access points NPS private-vessel guidance says there is no fee for private floating inside park boundaries, but paddlers should"
     },
     {
       "routeId": "eleven-point-river-greer-crossing-whitten",

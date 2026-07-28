@@ -21,7 +21,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "Treat this as a day float unless you have a separate legal camping plan. Cedar Grove has a small NPS campground, and gravel-bar camping has NPS rules and location limits; do not assume any bank is public just because it is reachable from the river.",
       "summary": "Launch at Cedar Grove and take out at Akers Ferry for the NPS-listed 7.7-mile Upper Current River day float. Use the Akers USGS gauge as a direct same-day low-water check, with the app using only a conservative 230 cfs minimum floor.",
       "accessCaveats": [
-        "Cedar Grove and Akers are standard Ozark National Scenic Riverways access points, but practical launch lanes, parking, outfitter traffic, and temporary flood or maintenance restrictions can change. Follow current NPS signs on arrival.",
+        "Cedar Grove and Akers are standard Ozark National Scenic Riverways access points, but practical launch lanes, parking, outfitter traffic, and temporary flood or maintenance restrictions can change. Follow current NPS signs on arrival and do not substitute an unmarked bank or shoulder for the designated access.",
         "Endpoint coordinates are practical access anchors from Mapcarta / OpenStreetMap slipway records paired with NPS route and access confirmation, not a substitute for on-site signs.",
         "NPS private-vessel guidance says to use designated river access points, unload promptly, and park only in designated areas; extended parking in loading zones can lead to towing or fines."
       ],

@@ -604,6 +604,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River above Akers gauge. Around 230 cfs is the low-water marker for Cedar Grove to Akers; below that, expect shallow riffles and possible dragging. Do not treat high or rising water as a casual float, and respect NPS closure notices.",
     "latitude": 37.42238,
     "longitude": -91.6083,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "This is the NPS-listed 7.7-mile Cedar Grove-to-Akers float. Check current NPS river closures and flood conditions before launching; the Akers closure stage is 4.00 ft, and floodwater runs faster and carries debris.",
+        "Expect rootwads, fallen trees, shallow riffles, cold spring water, motorized traffic, and busy seasonal access areas. Leave room to stop upstream of fresh wood, wear a PFD, and plan for self-rescue because cell service and help can be limited in the riverway.",
+        "Use only the designated Cedar Grove and Akers access layouts, unload promptly, and follow current NPS signs. Practical map coordinates are navigation anchors, not permission to use an unmarked bank or parking area."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07064533",
       "provider": "usgs",
