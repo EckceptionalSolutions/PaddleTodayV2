@@ -9027,6 +9027,20 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and you should expect shallow riffles, dragging, and a longer day. This route has no defended high-water cutoff, so treat rising water and recent storms cautiously.",
     "latitude": 37.764515,
     "longitude": -92.058539,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Forest Service lists East Gate to Bookers Bend as an 11-mile float and currently marks both gravel accesses open. Stage the shuttle before launching because each site has parking for only about three vehicles with trailers.",
+        "Bookers Bend warns that the river can rise rapidly. Check the USGS 06930000 trend and current Forest Service alerts before launching, and postpone on high or rising water because this minimum-only model has no defended high-water cutoff.",
+        "The Forest Service identifies the water as cold and says most land along the lower Big Piney stretch is private. Dress for immersion and use the named public accesses or another clearly legal stopping place."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06930000",
       "provider": "usgs",
@@ -9085,7 +9099,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Live direct gauge",
         "value": "USGS 06930000",
-        "note": "USGS Big Piney River near Big Piney showed same-day May 30, 2026 discharge and gage-height observations, with 251 cfs and 2.79 ft at 08:00 CDT during review.",
+        "note": "USGS Big Piney River near Big Piney reported 161 cfs and 2.37 ft at 06:00 CDT on July 28, 2026, below the route's conservative 309 cfs low-water floor.",
         "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000"
       },
       {

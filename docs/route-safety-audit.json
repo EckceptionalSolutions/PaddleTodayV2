@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T10:55:09.057Z",
+  "generatedAt": "2026-07-28T11:26:00.112Z",
   "routeCount": 927,
-  "issueCount": 149,
+  "issueCount": 146,
   "summary": {
     "Critical": 0,
-    "High": 50,
-    "Medium": 99,
+    "High": 48,
+    "Medium": 98,
     "Low": 0
   },
   "issues": [
@@ -33,17 +33,6 @@
       "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
     },
     {
-      "routeId": "straight-river-faribault",
-      "slug": "straight-river-faribault",
-      "name": "Straight River",
-      "reach": "Krogh's Landing to Faribault",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ll work, but upper 5s get pushy fast. Small-river current, shallow riffles, and wood make this more technical than the score alone suggests. The preferred band starts from community trip data, but MN DNR seasonality guidance plus DNR weekly stream-flow reports"
-    },
-    {
       "routeId": "zumbro-river-falls",
       "slug": "zumbro-river-falls",
       "name": "Zumbro River",
@@ -64,17 +53,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "as the upper main stem. It can still work below that, but flash-rain spikes and wood should lower trust quickly. Mostly approachable moving water at normal levels, but isolation, mud, and storm-changed wood still matter. The same Zumbro Falls gauge context car"
-    },
-    {
-      "routeId": "big-piney-river-east-gate-bookers-bend",
-      "slug": "big-piney-river-east-gate-bookers-bend",
-      "name": "Big Piney River",
-      "reach": "East Gate Access to Bookers Bend Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "luffs, and pine-topped scenery. Access and high-water cautions Private land and rapid rises The Forest Service warns that most land along the lower Bookers Bend stretch is private and says the river can rise rapidly; use public accesses and legal stops only. F"
     },
     {
       "routeId": "big-piney-river-sandy-shoals-boiling-spring",
@@ -779,17 +757,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "window, with 100 cfs as a low-water warning and about 727 cfs as the high-water caution line. Expect scraping below the floor and pushy, debris-prone water above the window. This is a narrow Ozark creek with riffles, gravel bars, tree strainers, possible porta"
-    },
-    {
-      "routeId": "big-piney-river-east-gate-bookers-bend",
-      "slug": "big-piney-river-east-gate-bookers-bend",
-      "name": "Big Piney River",
-      "reach": "East Gate Access to Bookers Bend Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Forest Service Big Piney day float from East Gate to Bookers Bend, using two Mark Twain National Forest gravel accesses and a direct downstream USGS Big Piney gauge. The scoring st"
     },
     {
       "routeId": "big-piney-river-sandy-shoals-boiling-spring",

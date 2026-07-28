@@ -834,15 +834,15 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Car shuttle is straightforward. A bike shuttle may be possible using the Straight River Trail for part of the route.",
       "permits": "No special paddling permit noted. Follow posted rules at each access.",
       "camping": "Treat this as a day trip unless you have independently confirmed legal camping.",
-      "summary": "Put in at Krogh's Landing and take out at Two Rivers Landing/Park in Faribault. Use the Faribault gauge as a starting point, but verify access and parking locally.",
+      "summary": "Put in at Krogh's Landing and take out at Two Rivers Landing/Park in Faribault. Check the official MN DNR Faribault gauge at river mile 8.8 and verify access and parking locally.",
       "accessCaveats": [
         "The DNR map does explicitly name Krogh's Landing as a carry-in access, but it still lacks a clean standalone parking page, so verify conditions locally.",
         "Two Rivers Park is city-managed and the official Faribault park amenities sheet marks it with public access and a canoe landing, but park rules and parking details should still be checked on arrival."
       ],
       "watchFor": [
         "Shallow riffles and scrape risk when the river is low.",
-        "Downed trees and snags on blind corners.",
-        "Cold-water risk outside midsummer."
+        "Downed trees, snags, and log jams on blind corners.",
+        "Much of the shoreline is private; stop only at the planned public endpoints or another clearly designated site."
       ]
     }
   },

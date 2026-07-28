@@ -1836,7 +1836,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Shallow riffles, dragging, and a slower 11-mile day when the Big Piney gauge is below the MoHERP low-water floor.",
         "Runs, riffles, pools, gravel-bottom shoals, and occasional murky water after rain.",
-        "Rapid rises after storms, fresh wood, harder landings, and no defended high-water cutoff in the current model.",
+        "Rapid rises after storms, cold spring-fed water, harder landings, and no defended high-water cutoff in the current model.",
         "Small gravel ramps, limited parking, motorized users, fishing traffic, and private shorelines between the accesses."
       ]
     }

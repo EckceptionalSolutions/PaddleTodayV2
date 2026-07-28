@@ -2308,29 +2308,31 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Southern Minnesota",
     "summary": "Quick, riffly run into Faribault. A little low gets scrapy, and a little high gets pushier fast.",
-    "statusText": "This reach is best when Faribault sits in a narrow middle band. Low 4s can still work, but upper 5s get pushy fast.",
+    "statusText": "Use the official MN DNR Faribault site at river mile 8.8. It is scrapable below 182 cfs, low from 182 to 220, medium from 220 to 1,370, high from 1,370 to 1,640, and very high above 1,640.",
     "latitude": 44.24285,
     "longitude": -93.24006,
     "gaugeSource": {
-      "id": "usgs-05353800",
-      "provider": "usgs",
-      "siteId": "05353800",
-      "metric": "gage_height_ft",
-      "unit": "ft",
+      "id": "mn-dnr-247",
+      "provider": "mn_dnr",
+      "siteId": "247",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
       "kind": "direct",
-      "siteName": "Straight River at Faribault, MN"
+      "siteName": "Straight River nr Faribault, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=39101001"
     },
     "profile": {
       "thresholdModel": "two-sided",
-      "idealMin": 4.4,
-      "idealMax": 5.6,
-      "tooLow": 3.8,
-      "tooHigh": 6,
+      "idealMin": 220,
+      "idealMax": 1370,
+      "tooLow": 182,
+      "tooHigh": 1640,
       "thresholdSource": {
-        "label": "MilesPaddled Straight River numeric range notes",
-        "url": "https://milespaddled.com/straight-river/"
+        "label": "MN DNR river-level interpretation bands for Straight River near Faribault",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
       },
-      "thresholdSourceStrength": "mixed",
+      "thresholdSourceStrength": "official",
       "rainfallSensitivity": "high",
       "seasonMonths": [
         4,
@@ -2339,21 +2341,34 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Spring and early summer are the core window. By midsummer, this river often trends too low for a clean run.",
       "difficulty": "moderate",
-      "difficultyNotes": "Small-river current, shallow riffles, and wood make this more technical than the score alone suggests.",
-      "confidenceNotes": "The preferred band starts from community trip data, but MN DNR seasonality guidance plus DNR weekly stream-flow reports help anchor the low and high shoulders. This is still a small, rain-sensitive river."
+      "difficultyNotes": "MN DNR describes this reach as narrow and fast, with light rapids plus maneuvering around snags and log jams; it is not for beginners.",
+      "confidenceNotes": "Confidence is good: MN DNR site 247 is inside this route at river mile 8.8, publishes a live discharge reading and official paddling bands, and the DNR map identifies both planned accesses and the route's wood hazards."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR warns paddlers to watch for downed trees, snags, and log jams on this narrow, fast reach. Leave room to stop before blind bends and do not enter a blocked channel.",
+        "Use Kroghs Landing and Two Rivers Park as the planned public endpoints. Much of the shoreline is private, so do not rely on informal bank exits.",
+        "Check MN DNR site 247 and its trend before launching. The official site says maneuvering experience is needed and rates the reach as not for beginners."
+      ],
+      "reviewStatus": "reviewed"
     },
     "evidenceNotes": [
       {
-        "label": "Preferred band",
-        "value": "4.4 to 5.6 ft",
-        "note": "The app narrows the original 4.6 to 6.0 ft trip-report band using MN DNR evidence that 5.71 ft already reads High while 3.76 ft still reads Normal.",
-        "sourceUrl": "https://milespaddled.com/straight-river/"
+        "label": "Official DNR bands",
+        "value": "182 / 220-1,370 / 1,640 cfs",
+        "note": "MN DNR interprets site 247 as Scrapable below 182 cfs, Low from 182 to 220, Medium from 220 to 1,370, High from 1,370 to 1,640, and Very High above 1,640.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
-        "label": "DNR level context",
-        "value": "3.76 ft = Normal; 5.71 ft = High",
-        "note": "MN DNR weekly stream-flow reports classified Faribault as Normal at 3.76 ft on October 18, 2021 and High at 5.71 ft on May 2, 2011.",
-        "sourceUrl": "https://files.dnr.state.mn.us/waters/surfacewater_section/stream_hydro/2021data/sfr101721table.pdf"
+        "label": "Current gauge check",
+        "value": "208 cfs at 2026-07-28 04:15 CDT",
+        "note": "The live MN DNR feed placed the in-route Faribault gauge in the official Low band during this review.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
         "label": "Access support",
@@ -2368,40 +2383,36 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://www.ci.faribault.mn.us/DocumentCenter/View/2494/Parks--Amenities"
       },
       {
-        "label": "Rain sensitivity",
-        "value": "High",
-        "note": "Fast-changing small river. Trend matters almost as much as the current reading."
-      },
-      {
-        "label": "Difficulty",
-        "value": "Moderate",
-        "note": "Expect riffles, steering, and downed tree risk."
+        "label": "DNR safety context",
+        "value": "Narrow and fast; snags and log jams; not for beginners",
+        "note": "The official site calls for paddling experience and maneuvering in light rapids around snags, while the DNR map warns about downed trees and private shoreline.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       }
     ],
     "sourceLinks": [
       {
         "label": "MN DNR Straight River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/straightriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/straight-river/index.html"
       },
       {
         "label": "MN DNR Straight River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/straightriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/straight-river/segments-maps.html"
       },
       {
         "label": "MN DNR Cannon and Straight Rivers map PDF",
         "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf"
       },
       {
-        "label": "MN DNR weekly stream-flow report 2021-10-18",
-        "url": "https://files.dnr.state.mn.us/waters/surfacewater_section/stream_hydro/2021data/sfr101721table.pdf"
+        "label": "MN DNR river-level interpretations",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
       },
       {
-        "label": "MN DNR weekly stream-flow report 2011-05-02",
-        "url": "https://files.dnr.state.mn.us/waters/surfacewater_section/stream_hydro/2011data/sfr050211table.pdf"
+        "label": "MN DNR live river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
-        "label": "USGS 05353800 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/05353800/"
+        "label": "MN DNR Straight River near Faribault station",
+        "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=39101001"
       },
       {
         "label": "City of Faribault parks and amenities PDF",
