@@ -2319,7 +2319,8 @@ export const minnesotaRoutes: River[] = [
       "unit": "cfs",
       "kind": "direct",
       "siteName": "Straight River nr Faribault, MN",
-      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=39101001"
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=39101001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39101001&var1=262&width=700&height=320"
     },
     "profile": {
       "thresholdModel": "two-sided",

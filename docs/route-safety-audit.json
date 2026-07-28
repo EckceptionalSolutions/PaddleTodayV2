@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T11:26:00.112Z",
+  "generatedAt": "2026-07-28T11:39:40.444Z",
   "routeCount": 927,
-  "issueCount": 146,
+  "issueCount": 144,
   "summary": {
     "Critical": 0,
-    "High": 48,
-    "Medium": 98,
+    "High": 47,
+    "Medium": 97,
     "Low": 0
   },
   "issues": [
@@ -53,17 +53,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "as the upper main stem. It can still work below that, but flash-rain spikes and wood should lower trust quickly. Mostly approachable moving water at normal levels, but isolation, mud, and storm-changed wood still matter. The same Zumbro Falls gauge context car"
-    },
-    {
-      "routeId": "big-piney-river-sandy-shoals-boiling-spring",
-      "slug": "big-piney-river-sandy-shoals-boiling-spring",
-      "name": "Big Piney River",
-      "reach": "Sandy Shoals Ford to Boiling Spring Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "water with riffles, gravel bars, pools, and bluff scenery. MDC notes occasional Class II sections on the Big Piney after a good rain, so high or rising water should not be treated as a casual float. Confidence is good for a conservative minimum-only add: MDC s"
     },
     {
       "routeId": "bryant-creek-sycamore-warren-bridge",
@@ -757,17 +746,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "window, with 100 cfs as a low-water warning and about 727 cfs as the high-water caution line. Expect scraping below the floor and pushy, debris-prone water above the window. This is a narrow Ozark creek with riffles, gravel bars, tree strainers, possible porta"
-    },
-    {
-      "routeId": "big-piney-river-sandy-shoals-boiling-spring",
-      "slug": "big-piney-river-sandy-shoals-boiling-spring",
-      "name": "Big Piney River",
-      "reach": "Sandy Shoals Ford to Boiling Spring Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short MDC-described Big Piney day float from Sandy Shoals Ford access to Boiling Spring Access. The same downstream Big Piney USGS gauge supports a conservative low-water check, bu"
     },
     {
       "routeId": "big-river-mammoth-merrill-horse",

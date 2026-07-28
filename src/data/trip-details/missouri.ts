@@ -1868,7 +1868,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Shallow riffles, dragging, and slower travel when the Big Piney gauge is below the MoHERP low-water floor.",
         "Mostly Class I Ozark floating water, with MDC noting occasional Class II sections on the Big Piney after a good rain.",
-        "Rapid rises after storms, murky water, fresh wood, and harder landings. The current model has no defended high-water cutoff.",
+        "Rapid rises after storms, cold spring-fed water, murky water, and harder landings. The current model has no defended high-water cutoff.",
         "Ford-area access judgment at the put-in, ramp traffic at Boiling Spring, fishing traffic, and limited cell service."
       ]
     }

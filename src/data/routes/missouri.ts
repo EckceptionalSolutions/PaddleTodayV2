@@ -9170,6 +9170,21 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and you should expect shallow riffles, dragging, and a slower day. This route has no defended high-water cutoff, so treat rising water and recent storms cautiously.",
     "latitude": 37.4108792,
     "longitude": -91.9501555,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MDC describes the Big Piney as predominantly Class I with occasional Class II sections after a good rain. Match the trip to your boat-control skill and do not treat recent-rain or rising conditions as a casual float.",
+        "MDC says river conditions can change rapidly, and the Forest Service warns that the Big Piney can rise rapidly. Check the direct USGS 06930000 trend before launch and postpone on high or rising water because this minimum-only model has no defended high-water cutoff.",
+        "The Forest Service identifies the water as cold, and MDC says the river crosses land managed by public agencies and private landowners. Dress for immersion and use the named public accesses or another clearly legal stopping place."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06930000",
       "provider": "usgs",
@@ -9234,7 +9249,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Live direct gauge",
         "value": "USGS 06930000",
-        "note": "USGS Big Piney River near Big Piney showed same-day May 30, 2026 discharge and gage-height observations, with 251 cfs and 2.79 ft at 08:00 CDT during review.",
+        "note": "USGS Big Piney River near Big Piney reported 161 cfs and 2.37 ft at 06:00 CDT on July 28, 2026, below the route's conservative 309 cfs low-water floor.",
         "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000"
       },
       {
@@ -9248,6 +9263,12 @@ export const missouriRoutes: River[] = [
         "value": "125 and 486 cfs rows",
         "note": "Rivers.MOHERP includes Sand/Sandy Shoals-to-Boiling Spring rows on USGS 06930000, including a 486 cfs report that described the level as nearly perfect with only a few drags. The app keeps the broader low-water floor until more calibration exists.",
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=06930000&hours=168"
+      },
+      {
+        "label": "Primary cautions",
+        "value": "Class II after rain, rapid changes, cold water, and private land",
+        "note": "MDC describes the Big Piney as predominantly Class I with occasional Class II sections after a good rain, says river conditions can change rapidly, and notes that private landowners manage part of the corridor. The Forest Service separately warns that the river can rise rapidly and identifies its water as cold.",
+        "sourceUrl": "https://mdc.mo.gov/magazines/missouri-conservationist/2024-07/path-less-paddled"
       }
     ],
     "sourceLinks": [
@@ -9280,6 +9301,11 @@ export const missouriRoutes: River[] = [
         "label": "USGS 06930000 legacy current conditions",
         "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000",
         "provider": "usgs"
+      },
+      {
+        "label": "Forest Service Big Piney River",
+        "url": "https://www.fs.usda.gov/r09/marktwain/recreation/big-piney-river",
+        "provider": "local"
       },
       {
         "label": "Sandy Shoals Ford topo map",

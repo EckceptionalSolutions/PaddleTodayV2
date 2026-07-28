@@ -840,12 +840,12 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
   });
 
-  it('treats Straight around 5.7 ft as a high-shoulder day instead of ideal', () => {
+  it('treats Straight around 1,500 cfs as a high-shoulder day instead of ideal', () => {
     expect(straight).toBeDefined();
 
     const result = scoreRiverCondition({
       river: straight as River,
-      gauge: makeRiverGauge(straight as River, 5.71, 'rising', 0.35),
+      gauge: makeRiverGauge(straight as River, 1500, 'rising', 125),
       weather: {
         ...weather,
         observedAt: '2026-05-10T11:15:00Z',
