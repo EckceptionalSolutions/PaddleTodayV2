@@ -3505,6 +3505,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat the DNR medium band as the best window here. Below about 600 cfs gets too scrapy, and above 3,000 cfs turns this into a high-water day rather than a casual yes.",
     "latitude": 45.488325,
     "longitude": -93.266746,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the St. Francis gauge before launching: below 600 cfs expect scraping and a slower day, while above 3,000 cfs this easy-looking route becomes a high-water call with more current and debris consequence.",
+        "Martin's Landing to North County Park is a long 11.5-mile recommended section. Check same-day river conditions and scan for downed trees or fresh flood debris rather than assuming a recommended route is clear.",
+        "Use the named public landings and county park rules, and stay off private shoreland between them. Carry cold-water and rescue contingencies outside midsummer."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-211",
       "provider": "mn_dnr",

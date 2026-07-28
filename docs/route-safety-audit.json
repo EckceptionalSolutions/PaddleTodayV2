@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:37:20.023Z",
+  "generatedAt": "2026-07-28T15:38:56.891Z",
   "routeCount": 927,
-  "issueCount": 26,
+  "issueCount": 25,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 26,
+    "Medium": 25,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "rum-river-martins-north-county-park",
-      "slug": "rum-river-martins-north-county-park",
-      "name": "Rum River",
-      "reach": "Martin's Landing to North County Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "rth County Park are both documented public endpoints for this corridor. Primary caution Flood debris Rising post-rain water can add debris and make an easy scenic route feel less forgiving. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.htm"
-    },
     {
       "routeId": "st-croix-river-osceola-william-obrien",
       "slug": "st-croix-river-osceola-william-obrien",
