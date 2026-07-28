@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:13:05.546Z",
+  "generatedAt": "2026-07-28T13:14:43.215Z",
   "routeCount": 927,
-  "issueCount": 73,
+  "issueCount": 70,
   "summary": {
     "Critical": 0,
-    "High": 14,
-    "Medium": 59,
+    "High": 13,
+    "Medium": 57,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "gasconade-river-pointers-creek-cooper-hill",
-      "slug": "gasconade-river-pointers-creek-cooper-hill",
-      "name": "Gasconade River",
-      "reach": "Pointers Creek Access to Cooper Hill Conservation Area",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "cess, MDC confirms Cooper Hill has hand-launch access to the Gasconade from the parking lot and CR 821, Missouri Float Trips / MDC-reprint mile notes place Pointers Creek and Cooper Hill about 5.8 river miles apart, and USGS 06934000 exposed same-day May 31, 2"
-    },
     {
       "routeId": "jacks-fork-river-alley-spring-chilton",
       "slug": "jacks-fork-river-alley-spring-chilton",
@@ -372,28 +361,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "y Class I spring-fed Ozark water with shoals, Mary Decker Shoal near the start, cold water, and a longer remote feel than the short split sections. Motorized users are also allowed under the 25 hp limit. Confidence is good for a conservative mid-river Eleven P"
-    },
-    {
-      "routeId": "gasconade-river-pointers-creek-cooper-hill",
-      "slug": "gasconade-river-pointers-creek-cooper-hill",
-      "name": "Gasconade River",
-      "reach": "Pointers Creek Access to Cooper Hill Conservation Area",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short lower Gasconade day from MDC Pointers Creek Access to the hand-launch river access at Cooper Hill Conservation Area. Public endpoints are clear, and the Rich Fountain USGS ga"
-    },
-    {
-      "routeId": "gasconade-river-pointers-creek-cooper-hill",
-      "slug": "gasconade-river-pointers-creek-cooper-hill",
-      "name": "Gasconade River",
-      "reach": "Pointers Creek Access to Cooper Hill Conservation Area",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "rounded 1,100 cfs low-water floor and does not infer an ideal range. High-water caution No numeric cutoff claimed MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat"
     },
     {
       "routeId": "gasconade-river-rollins-ferry-pointers-creek",

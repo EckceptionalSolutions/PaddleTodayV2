@@ -10867,6 +10867,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Gasconade River near Rich Fountain gauge. Around 1,100 cfs is the conservative low-water floor; below that, expect dragging, slow pools, and shortened float plans. High or rising water can make this broad river unsafe for casual trips.",
     "latitude": 38.424847,
     "longitude": -91.742545,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "access_uncertain",
+        "fast_rise",
+        "strainers",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Pointers Creek is an MDC public access, but the department warns that Route RA is impassable when Pointers Creek is at flood stage; verify the road, launch, and posted area rules before committing.",
+        "Cooper Hill is a hand-launch finish with a short carry from the parking area or County Road 821, not a trailer ramp. Inspect the landing and keep a shuttle plan that does not depend on carrying a loaded boat through an unconfirmed route.",
+        "The broad Gasconade can become pushy, muddy, and debris-filled when high or rising. Keep the 1,100 cfs floor as a conservative low-water check, scout bends and islands for wood, and do not treat private banks as emergency access without permission."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06934000",
       "provider": "usgs",
