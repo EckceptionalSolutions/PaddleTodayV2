@@ -1224,15 +1224,16 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 5 hr 15 min to 7 hr 15 min",
       "shuttle": "Standard two-car shuttle is simplest. The route can also be shortened at Highway 14 if your group wants a shorter day.",
       "permits": "No route-specific paddling permit is known. Follow posted access, park, and parking rules at Walbo and Cambridge West Park.",
-      "camping": "Watercraft campsites are listed along this reach, including Dayton, High Meadows, and Cambridge West Park. Treat overnight use as separate trip planning and confirm current rules before relying on it.",
-      "summary": "Put in at Walbo and take out at Cambridge West Park for a long but friendly middle-Rum day. This is one of the cleaner beginner/intermediate river shuttles in central Minnesota when the downstream proxy gauge is clearly above scrape territory.",
+      "camping": "DNR Map 2 lists watercraft campsites along this reach, including Dayton, High Meadows, and Cambridge West Park. Camp only at designated sites; DNR prohibits riverbed camping next to private property.",
+      "summary": "Put in at Walbo and take out at Cambridge West Park for the DNR-recommended middle-Rum day. Its beginning/intermediate character and downstream proxy gauge do not guarantee a clear channel; check current wood conditions before launching.",
       "accessCaveats": [
         "Cambridge West Park is a managed park endpoint, and the official Cambridge park map shows a 5 a.m. to 10 p.m. park-hours window, so plan vehicle timing accordingly.",
         "Becklin Homestead WMA / County Park can work as a mid-route stop or alternate logistics point, but seasonal managed-hunt restrictions still deserve a same-day check.",
-        "Do not over-read the St. Francis gauge. It is a useful same-river proxy, but it is still downstream of this reach rather than on it."
+        "Do not over-read the St. Francis gauge. It is a useful same-river proxy, but it is still downstream of this reach rather than on it.",
+        "Much of the shoreland is private. Use the named public accesses and designated stops rather than treating an unplanned bank landing as public."
       ],
       "watchFor": [
-        "Downed trees, snags, and occasional log jams after storms.",
+        "Downed trees, snags, and overhanging or dead trees; DNR warns that river conditions can change at any time.",
         "Low-water dragging or slower pace when the proxy gauge is near the floor.",
         "Long-day fatigue on a route that looks mellow on paper but still covers nearly 16 river miles."
       ]

@@ -3966,10 +3966,23 @@ export const minnesotaRoutes: River[] = [
     "reach": "Walbo Access to Cambridge West Park",
     "state": "Minnesota",
     "region": "East Central Minnesota",
-    "summary": "Wide, winding middle-Rum day with wooded banks, moderate current, and a cleaner beginner/intermediate feel than many smaller rivers. The product question is mostly whether the river is clearly above skinny conditions, not whether it has a narrow ideal band.",
-    "statusText": "There is not a gauge on this exact middle Rum reach, so Paddle Today uses the downstream St. Francis gauge as a rough level check. Below about 600 cfs, expect water too close to scrape territory for a confident easy-day recommendation.",
+    "summary": "Wide, winding middle-Rum day that MN DNR recommends for beginning and intermediate paddlers at typical levels. The same map lists downed trees and snags; recommended-section status means fewer woody obstructions, not a clear-channel guarantee.",
+    "statusText": "There is not a gauge on this exact middle Rum reach, so Paddle Today uses the downstream St. Francis gauge as a rough level check. Below about 600 cfs, expect water too close to scrape territory for a confident easy-day recommendation; no proxy reading confirms that the channel is clear of wood.",
     "latitude": 45.579123,
     "longitude": -93.322856,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR Map 2 lists downed trees and snags on this segment, warns that river conditions can change at any time, and describes recommended sections as having fewer woody obstructions at typical levels rather than none. Check same-day conditions and avoid overhanging or dead trees.",
+        "Use the named Walbo and Cambridge West public accesses. DNR says much of the shoreland is private, directs paddlers to stop only at designated sites, and prohibits riverbed camping next to private property.",
+        "The St. Francis gauge is downstream of this reach and is only a rough low-water proxy. Its reading does not establish local wood clearance or replace a visual check at the public accesses."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05286000",
       "provider": "usgs",
@@ -3997,9 +4010,9 @@ export const minnesotaRoutes: River[] = [
         9,
         10
       ],
-      "seasonNotes": "Late spring through early fall is the main window. Summer is still viable on this wider middle-river segment, but low water, log jams, and fresh debris still matter.",
+      "seasonNotes": "Late spring through early fall is the main window. Summer is still viable on this wider middle-river segment, but low water and DNR-listed downed trees and snags still require a same-day check.",
       "difficulty": "easy",
-      "difficultyNotes": "This is a friendly moving-water day for beginning or intermediate paddlers, but it is still long enough that low water, wood, and fatigue deserve respect.",
+      "difficultyNotes": "DNR recommends this moving-water day for beginning and intermediate paddlers at typical levels, but downed trees, snags, low water, and the 15.8-mile distance still require judgment.",
       "confidenceNotes": "The route itself is very well supported by MN DNR. Confidence is reduced because the live gauge is a downstream proxy at St. Francis rather than a current gauge on the Walbo-to-Cambridge reach."
     },
     "evidenceNotes": [
@@ -4012,8 +4025,14 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Segment character",
         "value": "Moderate flows, few rapids",
-        "note": "MN DNR describes Map 2 as wider, deeper, and slower than the upper Rum, suitable for beginning and intermediate canoeists when usual middle-river hazards are respected.",
+        "note": "MN DNR describes Map 2 as wider, deeper, and slower than the upper Rum, suitable for beginning and intermediate canoeists while still listing downed trees, snags, and dams as segment hazards.",
         "sourceUrl": "https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html"
+      },
+      {
+        "label": "Primary caution",
+        "value": "Downed trees, snags, and private shore",
+        "note": "The 2026 DNR Map 2 says river conditions can change at any time, directs paddlers to avoid obstacles and overhanging or dead trees, and limits stops and camping along private shore. Its recommended-section guidance promises fewer woody obstructions at typical levels, not an obstruction-free channel.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/rum2.pdf"
       },
       {
         "label": "Proxy low-water floor",
