@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:08:55.321Z",
+  "generatedAt": "2026-07-28T13:11:16.314Z",
   "routeCount": 927,
-  "issueCount": 81,
+  "issueCount": 77,
   "summary": {
     "Critical": 0,
-    "High": 16,
-    "Medium": 65,
+    "High": 15,
+    "Medium": 62,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "eleven-point-river-turner-mill-south-whitten",
-      "slug": "eleven-point-river-turner-mill-south-whitten",
-      "name": "Eleven Point River",
-      "reach": "Turner Mill South River Access to Whitten River Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "atural river: low water means dragging, high or rising water can make bends and wood consequential, and motorized users are allowed under the 25 hp limit. Confidence is good for a conservative adjacent Eleven Point add: the Forest Service lists Turner Mill Sou"
-    },
     {
       "routeId": "eleven-point-river-whitten-riverton",
       "slug": "eleven-point-river-whitten-riverton",
@@ -394,39 +383,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "y Class I spring-fed Ozark water with shoals, Mary Decker Shoal near the start, cold water, and a longer remote feel than the short split sections. Motorized users are also allowed under the 25 hp limit. Confidence is good for a conservative mid-river Eleven P"
-    },
-    {
-      "routeId": "eleven-point-river-turner-mill-south-whitten",
-      "slug": "eleven-point-river-turner-mill-south-whitten",
-      "name": "Eleven Point River",
-      "reach": "Turner Mill South River Access to Whitten River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Spring-fed Eleven Point day from Turner Mill South to Whitten, using Forest Service access points on the National Wild and Scenic River and the direct Bardley gauge as a conservati"
-    },
-    {
-      "routeId": "eleven-point-river-turner-mill-south-whitten",
-      "slug": "eleven-point-river-turner-mill-south-whitten",
-      "name": "Eleven Point River",
-      "reach": "Turner Mill South River Access to Whitten River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "s a caution flag. This is generally Class I spring-fed Ozark water with shoals, cold water, and a remote feel. It is still a natural river: low water means dragging, high or rising water can make bends and wood consequential, and motorized users are allowed un"
-    },
-    {
-      "routeId": "eleven-point-river-turner-mill-south-whitten",
-      "slug": "eleven-point-river-turner-mill-south-whitten",
-      "name": "Eleven Point River",
-      "reach": "Turner Mill South River Access to Whitten River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "support to name an ideal range or high-water cutoff, so treat rising water as a caution flag. This is generally Class I spring-fed Ozark water with shoals, cold water, and a remote feel. It is still a natural river: low water means dragging, high or rising wat"
     },
     {
       "routeId": "eleven-point-river-whitten-riverton",

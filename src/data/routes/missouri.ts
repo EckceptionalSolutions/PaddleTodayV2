@@ -6983,6 +6983,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect more dragging through shoals. There is not enough route-specific support to name an ideal range or high-water cutoff, so treat rising water as a caution flag.",
     "latitude": 36.76456,
     "longitude": -91.26653037,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "The Forest Service describes Turner Mill South as a rustic access and warns that the Eleven Point can rise rapidly; check the launch and river before committing.",
+        "This spring-fed White Ribbon trout reach has shallow shoals, cold water, blind bends, and fresh wood risk after rain. Scout or avoid any bend where wood blocks a clear passage.",
+        "Use only the named Forest Service launches. Turner Mill South and Whitten have concrete ramps but rural approaches, limited facilities, and posted day-use rules; do not substitute a private bank or informal pull-off."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07071500",
       "provider": "usgs",
