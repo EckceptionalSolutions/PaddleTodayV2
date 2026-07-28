@@ -6215,6 +6215,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect shallow shoals and possible dragging. There is not enough official support to name an ideal range or high-water cutoff, so treat rising water as a caution flag.",
     "latitude": 36.79356389,
     "longitude": -91.32854167,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Forest Service describes Greer to Turner Mill as a 4.9-mile float with Mary Decker Shoal, a shallow faster-moving section with large boulders. Treat this as moving water requiring boat control and scouting, not a flatwater guarantee.",
+        "The Forest Service warns that the Eleven Point can rise rapidly and that Greer Spring changes the river volume. Check the Bardley gauge and weather before launching; the 300 cfs floor is a low-water marker, not an upper-flow clearance.",
+        "Use the signed Forest Service Greer Crossing put-in and Turner Mill North take-out on river left. Turner Mill North is day-use only; do not drift to Turner Mill South, cross private scenic-easement banks, or substitute an informal landing without a separate plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07071500",
       "provider": "usgs",
@@ -6287,6 +6303,12 @@ export const missouriRoutes: River[] = [
         "value": "Greer Spring, shoals, rapid rises",
         "note": "The Forest Service says Greer Spring more than doubles the river volume, this reach includes the Blue Ribbon Trout Area to Turner Mill, and the river can rise rapidly after changing weather.",
         "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+      },
+      {
+        "label": "Primary safety review",
+        "value": "Mary Decker Shoal, changing flow, and river-left take-out",
+        "note": "Forest Service pages identify Mary Decker Shoal as shallow faster-moving water with large boulders, warn that the river can rise rapidly, and document Turner Mill North as a signed day-use access 4.9 miles below Greer. Existing route and trip evidence carries the cold-water, fresh-wood, remote, and private-bank cautions.",
+        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-north-river-access"
       }
     ],
     "sourceLinks": [
