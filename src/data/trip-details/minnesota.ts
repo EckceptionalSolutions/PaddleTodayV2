@@ -1163,18 +1163,18 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "14.2 mi",
       "estimatedPaddleTime": "About 4 hr 45 min to 6 hr 30 min",
-      "shuttle": "Standard two-car shuttle is the realistic plan. The route is long enough that daylight, pace, and wind deserve more thought than on the shorter county-park option.",
+      "shuttle": "Standard two-car shuttle is the realistic plan. Confirm the carry-in landing and parking layout at Brookview City Park before leaving a vehicle, and allow enough daylight for a 14.2-mile day.",
       "permits": "No route-specific paddling permit is known. Follow posted county-park and city-park access, parking, and boating rules at both endpoints.",
-      "camping": "This corridor passes official watercraft campsites at North County Park and Rum River Central Regional Park, but the Germanium finish is a simple city-park carry-in rather than an overnight endpoint. Treat camping as a separate plan, not as part of the normal day shuttle.",
+      "camping": "DNR Map 3 lists designated watercraft campsites at North County Park and Rum River Central Regional Park. The Germanium finish is a city-park carry-in rather than an overnight endpoint, and DNR prohibits riverbed camping next to private property.",
       "summary": "Put in at Rum River North County Park and take out at the Germanium / Brookview Park access in Ramsey for a fuller lower-Rum day. This keeps the official St. Francis gauge in the route story while extending the mileage well past the casual park-to-park float.",
       "accessCaveats": [
-        "The Ramsey finish is a city-park carry-in access, not a large trailer-ramp complex, so confirm the landing and parking layout before launching.",
-        "Because the route is longer than it first looks on the map, low water or debris can turn a casual plan into a slower all-day effort."
+        "Use the named North County Park launch and DNR-mapped Germanium carry-in at Brookview City Park; confirm current parking rules and the carry path before staging the shuttle.",
+        "Much of the shoreland is private. Stop only at designated sites and do not treat an unplanned bank landing as public access."
       ],
       "watchFor": [
         "Long-day fatigue on a route that remains easy but not short.",
-        "Downed trees, snags, or debris after storms.",
-        "Slow progress or occasional dragging when the gauge is near the low-water floor."
+        "Downed trees, snags, and overhanging or dead trees; DNR warns that river conditions can change at any time.",
+        "Slow progress or occasional dragging near the 600 cfs floor, and stronger current or debris at High or Very High levels."
       ]
     }
   },

@@ -3694,10 +3694,23 @@ export const minnesotaRoutes: River[] = [
     "reach": "North County Park to Germanium",
     "state": "Minnesota",
     "region": "Twin Cities North Metro",
-    "summary": "Longer lower-Rum continuation from the St. Francis county-park launch to Ramsey's Brookview / Germanium access. The main call still comes from the official St. Francis gauge, but the route is long enough that wood, pace, and shuttle logistics matter more than the easy rating first suggests.",
-    "statusText": "Treat the official DNR medium band as the best target. Below about 600 cfs, the route becomes too shallow for a confident long-day recommendation; above 3,000 cfs, the river shifts into a debris-and-current day rather than an easy cruise.",
+    "summary": "Longer lower-Rum continuation from the St. Francis county-park launch to Ramsey's Brookview / Germanium access. MN DNR describes this segment as broad, flat water with few rapids, but still lists downed trees and snags; easy character is not a clear-channel guarantee.",
+    "statusText": "Treat the official DNR medium band as the best target. Below about 600 cfs, the route becomes too shallow for a confident long-day recommendation; above 3,000 cfs, reassess current, debris, and recovery space before treating this as an easy cruise.",
     "latitude": 45.394587,
     "longitude": -93.353557,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR Map 3 lists downed trees and snags on this segment and warns that river conditions can change at any time. Check same-day conditions and do not treat the broad, flat character as a clear-channel guarantee.",
+        "Use the named North County Park launch and Germanium carry-in at Brookview City Park. DNR says much of the shoreland is private and directs paddlers to stop only at designated sites.",
+        "The official gauge ladder describes water level, not wood clearance. At High or Very High levels, reassess current, debris, and recovery space at the public accesses before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-211",
       "provider": "mn_dnr",
@@ -3741,9 +3754,9 @@ export const minnesotaRoutes: River[] = [
         9,
         10
       ],
-      "seasonNotes": "Late spring through early fall is the normal window. The corridor is usually friendly in summer, but low water slows a 14-mile day quickly and flood debris after storms can linger longer than casual paddlers expect.",
+      "seasonNotes": "Late spring through early fall is the normal window. Summer remains viable on this corridor, but low water slows a 14-mile day quickly and the DNR map still calls for a same-day obstruction check.",
       "difficulty": "easy",
-      "difficultyNotes": "The lower Rum remains approachable here, but the length and occasional wood or log-jam cleanup make this more of a real river day than a beginner novelty float.",
+      "difficultyNotes": "This is broad, flat moving water with few rapids and is suitable for beginning and intermediate paddlers at moderate flows. Downed trees and snags remain the primary route-specific hazard, and the 14.2-mile distance adds fatigue exposure.",
       "confidenceNotes": "Confidence is good for a conservative add: the route begins at the live St. Francis gauge corridor, DNR provides the full paddling ladder and lower-river access map, and Ramsey documents Brookview Park as the Germanium endpoint."
     },
     "evidenceNotes": [
@@ -3773,8 +3786,8 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Primary caution",
-        "value": "Snags and long-day pace",
-        "note": "DNR says lower-Rum hazards include downed trees and snags. On a 14-mile corridor, that matters more than on the shorter park-to-park option.",
+        "value": "Downed trees, snags, and changeable conditions",
+        "note": "DNR Map 3 says hazards on this segment include downed trees and snags, warns that river conditions can change at any time, and directs paddlers to avoid obstacles and overhanging or dead trees.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf"
       }
     ],
@@ -3801,7 +3814,7 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "City of Ramsey parks and trails amenities",
-        "url": "https://cityoframsey.com/1119"
+        "url": "https://www.cityoframseymn.gov/1119/Parks-and-Trails-Amenities"
       },
       {
         "label": "USGS 05286000 monitoring location",

@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T04:10:13.151Z",
+  "generatedAt": "2026-07-28T04:24:58.496Z",
   "routeCount": 931,
-  "issueCount": 179,
+  "issueCount": 177,
   "summary": {
     "Critical": 0,
-    "High": 70,
-    "Medium": 109,
+    "High": 69,
+    "Medium": 108,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "rum-river-north-county-germanium",
-      "slug": "rum-river-north-county-germanium",
-      "name": "Rum River",
-      "reach": "North County Park to Germanium",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ll comes from the official St. Francis gauge, but the route is long enough that wood, pace, and shuttle logistics matter more than the easy rating first suggests. Treat the official DNR medium band as the best target. Below about 600 cfs, the route becomes too"
-    },
     {
       "routeId": "rum-river-walbo-cambridge-west",
       "slug": "rum-river-walbo-cambridge-west",
@@ -911,17 +900,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rth County Park are both documented public endpoints for this corridor. Primary caution Flood debris Rising post-rain water can add debris and make an easy scenic route feel less forgiving. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.htm"
-    },
-    {
-      "routeId": "rum-river-north-county-germanium",
-      "slug": "rum-river-north-county-germanium",
-      "name": "Rum River",
-      "reach": "North County Park to Germanium",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "W and identifies it as a fishing park at the Germanium access corridor. Primary caution Snags and long-day pace DNR says lower-Rum hazards include downed trees and snags. On a 14-mile corridor, that matters more than on the shorter park-to-park option. MN DNR"
     },
     {
       "routeId": "rum-river-walbo-cambridge-west",
