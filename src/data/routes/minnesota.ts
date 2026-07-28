@@ -6355,6 +6355,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the cleanest range. Below 14 ft this short reach gets slower and weedier, while flood-style caution matters more once the Sauk climbs above 20 ft.",
     "latitude": 45.5504544,
     "longitude": -94.2641031,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "This short lower-Sauk split ends at Knights of Columbus Park (river mile 4.5), upstream of the Minnesota DNR's boulder-filled Class I-II rapids from roughly river mile 2.5 to the Mississippi. Do not continue downstream without a separate route plan and appropriate skills.",
+        "Use the St. Martin gauge's 15 to 17 ft Medium band as the cleanest window. Below 14 ft the corridor gets slower and weedier; rising water increases current and recovery consequence.",
+        "Check both carry-in endpoints before launch, and watch for fresh wood or strainers after storms. Cold-water exposure remains possible outside midsummer even on this short urban shuttle."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -6419,6 +6433,12 @@ export const minnesotaRoutes: River[] = [
         "label": "Route shape",
         "value": "3.1 river miles",
         "note": "MN DNR Map 2 places Miller Landing at river mile 7.6 and Knights of Columbus Park at river mile 4.5.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
+      },
+      {
+        "label": "Downstream rapid boundary",
+        "value": "Boulder-filled Class I-II rapids begin around river mile 2.5",
+        "note": "MN DNR Map 2 places the boulder-filled Class I-II rapids downstream of the planned Knights of Columbus Park finish, from roughly river mile 2.5 to the Mississippi confluence.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
       },
       {

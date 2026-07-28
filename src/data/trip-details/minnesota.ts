@@ -1779,7 +1779,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Short lower-Sauk self-shuttle between Miller Landing and Knights of Columbus Park. This is one of the easier St. Cloud-area setups when you want a quick route and simple retrieval.",
       "permits": "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted local rules at Miller Landing and Knights of Columbus Park.",
       "camping": "Treat this as a day trip. Both endpoints are managed access parks rather than overnight river camps.",
-      "summary": "Use Miller Landing as the put-in and Knights of Columbus Park as the take-out for a short urban lower-Sauk paddle that ends before the Heims rapid finish.",
+      "summary": "Use Miller Landing as the put-in and Knights of Columbus Park as the take-out for a short urban lower-Sauk paddle that ends upstream of the boulder-filled rapid finish.",
       "accessCaveats": [
         "Miller Landing is a managed county access with posted hours, so do not assume unlimited late retrieval.",
         "Knights of Columbus Park is a city park with parking and restrooms, but it is still smarter to scout the exact carry-out before launching if you have not used it before.",
@@ -1787,7 +1787,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "Vegetation and slower current when the St. Martin gauge slides toward 14 ft.",
-        "Fresh wood or strainers after storms in this tree-lined lower corridor.",
+        "Fresh wood or strainers after storms in this tree-lined lower corridor; the route ends before the DNR-mapped boulder-filled rapid section downstream.",
         "Cold-water exposure outside midsummer, even on a short easy shuttle."
       ]
     }

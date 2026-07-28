@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:57:54.821Z",
+  "generatedAt": "2026-07-28T13:00:32.648Z",
   "routeCount": 927,
-  "issueCount": 101,
+  "issueCount": 97,
   "summary": {
     "Critical": 0,
-    "High": 25,
-    "Medium": 76,
+    "High": 23,
+    "Medium": 74,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "sauk-river-miller-landing-knights-of-columbus",
-      "slug": "sauk-river-miller-landing-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Miller Landing to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County documents Miller Landing, and St. Cloud documents Knights of Co"
-    },
-    {
-      "routeId": "sauk-river-miller-landing-knights-of-columbus",
-      "slug": "sauk-river-miller-landing-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Miller Landing to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
-    },
     {
       "routeId": "bryant-creek-sycamore-warren-bridge",
       "slug": "bryant-creek-sycamore-warren-bridge",
@@ -416,28 +394,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rth County Park are both documented public endpoints for this corridor. Primary caution Flood debris Rising post-rain water can add debris and make an easy scenic route feel less forgiving. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.htm"
-    },
-    {
-      "routeId": "sauk-river-miller-landing-knights-of-columbus",
-      "slug": "sauk-river-miller-landing-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Miller Landing to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "Short urban lower-Sauk shuttle that keeps the logistics easy while avoiding the Class I-II mouth rapids. It is the simple St. Cloud-area pick when you want a quick gauge-backed paddle in"
-    },
-    {
-      "routeId": "sauk-river-miller-landing-knights-of-columbus",
-      "slug": "sauk-river-miller-landing-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Miller Landing to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "range. Below 14 ft this short reach gets slower and weedier, while flood-style caution matters more once the Sauk climbs above 20 ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR"
     },
     {
       "routeId": "st-croix-river-osceola-william-obrien",
