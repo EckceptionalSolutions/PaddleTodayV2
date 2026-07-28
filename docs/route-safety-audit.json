@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:42:02.014Z",
+  "generatedAt": "2026-07-28T15:44:50.690Z",
   "routeCount": 927,
-  "issueCount": 22,
+  "issueCount": 19,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 22,
+    "Medium": 19,
     "Low": 0
   },
   "issues": [
@@ -97,39 +97,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ivate-bank limits, crowding, and fast post-rain changes keep it from being a no-caution beginner listing. Confidence is good for a conservative Missouri add: MDC confirms Bennett Spring Access as public Niangua River float-fishing access with a large parking l"
-    },
-    {
-      "routeId": "north-fork-white-river-north-fork-blair",
-      "slug": "north-fork-white-river-north-fork-blair",
-      "name": "North Fork of the White River",
-      "reach": "North Fork Recreation Area to Blair Bridge Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Spring-fed North Fork day float from the Forest Service North Fork Recreation Area, also known as Hammond Camp, to MDC Blair Bridge Access, with bluffs, cold water, Blue Spring, Th"
-    },
-    {
-      "routeId": "north-fork-white-river-north-fork-blair",
-      "slug": "north-fork-white-river-north-fork-blair",
-      "name": "North Fork of the White River",
-      "reach": "North Fork Recreation Area to Blair Bridge Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "tion Area, also known as Hammond Camp, to MDC Blair Bridge Access, with bluffs, cold water, Blue Spring, The Falls, and a downstream Tecumseh gauge used conservatively. There is not a gauge on this exact North Fork reach, so Paddle Today uses the downstream Te"
-    },
-    {
-      "routeId": "north-fork-white-river-north-fork-blair",
-      "slug": "north-fork-white-river-north-fork-blair",
-      "name": "North Fork of the White River",
-      "reach": "North Fork Recreation Area to Blair Bridge Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "hat, expect more dragging and a slower day. Rising or high water deserves extra caution at The Falls, shoals, bends, and strainers. This is a popular Ozark float, but it is not a flat pool route. Expect swift riffles, cold spring water, shoals, and The Falls,"
     },
     {
       "routeId": "kickapoo-river-rockton-la-farge",

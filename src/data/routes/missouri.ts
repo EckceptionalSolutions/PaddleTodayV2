@@ -7861,6 +7861,21 @@ export const missouriRoutes: River[] = [
     "statusText": "There is not a gauge on this exact North Fork reach, so Paddle Today uses the downstream Tecumseh gauge as a rough level check. Around 300 cfs is the low-water marker; below that, expect more dragging and a slower day. Rising or high water deserves extra caution at The Falls, shoals, bends, and strainers.",
     "latitude": 36.758606,
     "longitude": -92.152801,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "whitewater",
+        "fast_rise",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "The Tecumseh gauge is downstream of the North Fork-to-Blair reach and is only a conservative proxy. Treat about 300 cfs as the existing low-water marker, but recheck the trend and recent rain because local shoals and The Falls can differ from the gauge.",
+        "This is moving spring-fed water, not a flat pool float. Expect swift riffles, shoals, cold water, fresh wood, and strainers; The Falls is an average two-foot drop about seven miles below North Fork Recreation Area and should be scouted when level, boat load, or group skill makes it questionable.",
+        "Confirm the Forest Service North Fork launch and MDC Blair Bridge take-out, allow for the carry-down launch transition, and plan a full-day shuttle. Do not improvise a private-bank landing if conditions, fatigue, or a missed access make the route harder than expected."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07057500",
       "provider": "usgs",
