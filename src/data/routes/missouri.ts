@@ -7630,6 +7630,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Eleven Point near Bardley gauge. Around 300 cfs is the conservative low-water floor; below that, expect shallow shoals and a slower trip. No ideal range or upper cutoff is claimed, so treat high or rising water as a caution flag.",
     "latitude": 36.649183,
     "longitude": -91.199614,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This is an 8 to 8.7-mile full-day float with cold spring-fed water, shoals, wood, and limited developed exits. Carry a repair kit, keep daylight margin, and plan the shuttle before launching.",
+        "The Forest Service warns that the Eleven Point can rise rapidly. Check the Bardley gauge trend and weather immediately before launch, and postpone for rising or storm-affected water rather than treating the 300 cfs floor as an all-clear.",
+        "Highway 142 / The Narrows is the last National Scenic River access before the river continues toward Arkansas. Confirm the left-bank take-out and do not drift past the bridge; use only named public accesses or legal float-camp and gravel-bar stops because other banks may be private under scenic easement."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07071500",
       "provider": "usgs",

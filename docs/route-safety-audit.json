@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:40:40.995Z",
+  "generatedAt": "2026-07-28T12:44:39.044Z",
   "routeCount": 927,
-  "issueCount": 123,
+  "issueCount": 120,
   "summary": {
     "Critical": 0,
-    "High": 39,
-    "Medium": 84,
+    "High": 38,
+    "Medium": 82,
     "Low": 0
   },
   "issues": [
@@ -97,17 +97,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "dragging. Do not treat high or rising water as a casual float, and respect NPS closure notices. NPS treats Cedar Grove to Akers as a standard 3-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold spring water,"
-    },
-    {
-      "routeId": "eleven-point-river-riverton-narrows",
-      "slug": "eleven-point-river-riverton-narrows",
-      "name": "Eleven Point River",
-      "reach": "Riverton East River Access to Highway 142 River Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "his lower reach has cold spring-fed water, a full-day distance, bluffs, shoals, wood, possible motor traffic under the 25 hp limit, and limited developed exits between public accesses. Confidence is good for a conservative adjacent Missouri add: Forest Service"
     },
     {
       "routeId": "eleven-point-river-turner-mill-south-whitten",
@@ -735,28 +724,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "y Class I spring-fed Ozark water with shoals, Mary Decker Shoal near the start, cold water, and a longer remote feel than the short split sections. Motorized users are also allowed under the 25 hp limit. Confidence is good for a conservative mid-river Eleven P"
-    },
-    {
-      "routeId": "eleven-point-river-riverton-narrows",
-      "slug": "eleven-point-river-riverton-narrows",
-      "name": "Eleven Point River",
-      "reach": "Riverton East River Access to Highway 142 River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Lower Eleven Point day float from Riverton East to the Highway 142 / Narrows access. Forest Service sources identify the exact 8-plus-mile route, both endpoints are developed publi"
-    },
-    {
-      "routeId": "eleven-point-river-riverton-narrows",
-      "slug": "eleven-point-river-riverton-narrows",
-      "name": "Eleven Point River",
-      "reach": "Riverton East River Access to Highway 142 River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": ". No ideal range or upper cutoff is claimed, so treat high or rising water as a caution flag. National Rivers Project describes the Eleven Point as relatively easy Class I-II water for experienced canoeists. This lower reach has cold spring-fed water, a full-d"
     },
     {
       "routeId": "eleven-point-river-turner-mill-south-whitten",
