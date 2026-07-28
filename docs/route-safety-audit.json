@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T05:40:55.206Z",
+  "generatedAt": "2026-07-28T05:55:18.812Z",
   "routeCount": 931,
-  "issueCount": 166,
+  "issueCount": 164,
   "summary": {
     "Critical": 0,
-    "High": 63,
-    "Medium": 103,
+    "High": 62,
+    "Medium": 102,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "sauk-river-frogtown-rockville",
-      "slug": "sauk-river-frogtown-rockville",
-      "name": "Sauk River",
-      "reach": "Frogtown Park to Rockville County Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "20 ft. This is one of the friendlier lower-Sauk segments at normal levels, but wood, strainers, and cold-water exposure still matter. Confidence is high because MN DNR names both access points on the water-trail map, Cold Spring documents the Frogtown canoe l"
-    },
     {
       "routeId": "sauk-river-miller-landing-knights-of-columbus",
       "slug": "sauk-river-miller-landing-knights-of-columbus",
@@ -834,17 +823,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rth County Park are both documented public endpoints for this corridor. Primary caution Flood debris Rising post-rain water can add debris and make an easy scenic route feel less forgiving. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.htm"
-    },
-    {
-      "routeId": "sauk-river-frogtown-rockville",
-      "slug": "sauk-river-frogtown-rockville",
-      "name": "Sauk River",
-      "reach": "Frogtown Park to Rockville County Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "uk zone. Below 14 ft the river trends scrape-prone and weedy, while flood-style caution starts to matter above 20 ft. This is one of the friendlier lower-Sauk segments at normal levels, but wood, strainers, and cold-water exposure still matter. Confidence is h"
     },
     {
       "routeId": "sauk-river-miller-landing-knights-of-columbus",

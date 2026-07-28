@@ -4109,6 +4109,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best lower-Sauk zone. Below 14 ft the river trends scrape-prone and weedy, while flood-style caution starts to matter above 20 ft.",
     "latitude": 45.45775,
     "longitude": -94.421,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Launch only at the mapped Frogtown Park carry-in below the Cold Spring Dam and finish at Rockville County Park. Do not improvise a put-in upstream of the dam.",
+        "MN DNR warns that snags and fallen trees can tip an unwary paddler. Use the official 15 to 17 ft St. Martin band as level context, not a wood-clearance guarantee, and reassess when the river is rising.",
+        "Use the named public accesses and designated stops because MN DNR says much of the Sauk shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -4153,7 +4167,7 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the practical window. Summer low water and vegetation can dull this short reach before it fully quits.",
       "difficulty": "easy",
-      "difficultyNotes": "This is one of the friendlier lower-Sauk segments at normal levels, but wood, strainers, and cold-water exposure still matter.",
+      "difficultyNotes": "This is one of the friendlier lower-Sauk segments at normal levels, but snags, fallen trees, changing levels, and private shoreline still require same-day judgment.",
       "confidenceNotes": "Confidence is high because MN DNR names both access points on the water-trail map, Cold Spring documents the Frogtown canoe landing, and Stearns County documents Rockville County Park plus its watercraft campsite."
     },
     "evidenceNotes": [
@@ -4170,6 +4184,12 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
       },
       {
+        "label": "Primary cautions",
+        "value": "Snags, changing levels, and private shore",
+        "note": "The 2026 DNR Map 2 warns about snags and fallen trees, says river conditions can change at any time, and limits stops and camping along private shoreline to designated sites. The same map places Frogtown 0.2 river mile below Cold Spring Dam.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
+      },
+      {
         "label": "Access support",
         "value": "Official city and county endpoints",
         "note": "Cold Spring confirms Frogtown Park has a canoe landing on the Sauk, and Stearns County confirms Rockville County Park has carry-in access, drinking water, and a watercraft campsite.",
@@ -4183,11 +4203,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "MN DNR Sauk River Map 2 PDF",
@@ -4199,7 +4219,7 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Stearns County Rockville County Park",
-        "url": "https://www.stearnscountymn.gov/397/Rockville-County-Park"
+        "url": "https://www.stearnscountymn.gov/rockville-county-park"
       },
       {
         "label": "USGS 05270500 monitoring location",

@@ -1346,16 +1346,17 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 1 hr 45 min to 2 hr 45 min",
       "shuttle": "Short Cold Spring to Rockville self-shuttle. Rockville County Park is the easier place to leave a vehicle for a quick out-and-back day.",
       "permits": "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city-park and county-park rules.",
-      "camping": "Rockville County Park has a watercraft campsite, but treat this route as a day trip unless you separately confirm current county camping rules and fees.",
+      "camping": "Rockville County Park has a mapped watercraft campsite, but treat this route as a day trip unless you separately confirm current county camping rules and fees. Do not use private shoreline as an informal stop or campsite.",
       "summary": "Use Frogtown Park in Cold Spring as the put-in and Rockville County Park as the take-out. This is the short lower-Sauk option when you want a quick trip without committing to Miller Landing or the St. Cloud finish.",
       "accessCaveats": [
-        "Frogtown Park launches just below the Cold Spring dam area, so make sure you are starting at the signed downstream canoe landing rather than anywhere above the obstruction.",
+        "Frogtown Park is the mapped carry-in 0.2 river mile below Cold Spring Dam. Start at that downstream landing and do not improvise a put-in upstream of the dam.",
         "Rockville County Park has posted hours and county rules that still deserve a same-day check before you leave a shuttle vehicle."
       ],
       "watchFor": [
-        "Fresh wood and strainers after storms.",
+        "Snags, fallen trees, and overhanging or dead trees; the normal gauge band does not guarantee a clear channel.",
         "Scrapier water and slower progress when the St. Martin gauge falls toward 14 ft.",
-        "Cold-water exposure outside midsummer, even on this shorter easy segment."
+        "Changing or rising river conditions; reassess rather than relying on an earlier gauge check.",
+        "Private shoreline; stop only at the named public accesses or other designated sites."
       ]
     }
   },
