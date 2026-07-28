@@ -8900,6 +8900,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Meramec River near Sullivan gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles, dragging, and a longer day. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.",
     "latitude": 38.20379,
     "longitude": -91.099735,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Missouri State Parks allows use of the concrete or canoe launch near River Stop Store during park hours; the separate gravel campground launch is for camping patrons only. Use the public launch area and verify current park operations before committing.",
+        "MDC lists Sand Ford as public Meramec boat and fishing access, but the approximate seven-mile continuation has no defended upper cutoff. Inspect both landings, the shuttle route, and visible bends before launching rather than treating the mileage as a guaranteed schedule.",
+        "Keep the 200 cfs floor as a conservative low-water check. Rising water can bring fresh wood, pushy bends, harder landings, and heavier traffic; do not use private banks or informal gravel bars as substitute access."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07014500",
       "provider": "usgs",

@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:20:54.570Z",
+  "generatedAt": "2026-07-28T13:22:35.706Z",
   "routeCount": 927,
-  "issueCount": 61,
+  "issueCount": 58,
   "summary": {
     "Critical": 0,
-    "High": 9,
-    "Medium": 52,
+    "High": 8,
+    "Medium": 50,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "meramec-river-state-park-sand-ford",
-      "slug": "meramec-river-state-park-sand-ford",
-      "name": "Meramec River",
-      "reach": "Meramec State Park to Sand Ford Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "oat with riffles, pools, gravel bars, bluffs, swimmers, anglers, and occasional wood. It is easy at ordinary stable levels, but high or rising water can make bends, obstacles, and landings much less forgiving. Confidence is good for a conservative adjacent Mer"
-    },
     {
       "routeId": "meramec-river-onondaga-campbell-bridge",
       "slug": "meramec-river-onondaga-campbell-bridge",
@@ -339,28 +328,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rounded 1,100 cfs low-water floor and does not infer an ideal range. High-water caution No numeric cutoff claimed MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat"
-    },
-    {
-      "routeId": "meramec-river-state-park-sand-ford",
-      "slug": "meramec-river-state-park-sand-ford",
-      "name": "Meramec River",
-      "reach": "Meramec State Park to Sand Ford Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Public Meramec day float from the Meramec State Park river launch to MDC Sand Ford Access near Stanton. This links two managed access areas in the Sullivan corridor, using the live"
-    },
-    {
-      "routeId": "meramec-river-state-park-sand-ford",
-      "slug": "meramec-river-state-park-sand-ford",
-      "name": "Meramec River",
-      "reach": "Meramec State Park to Sand Ford Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "expect shallow riffles, dragging, and a longer day. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips. This is a mainstream Ozark recreational float with riffles, pools, gravel bars, bluffs, swimmers, an"
     },
     {
       "routeId": "meramec-river-onondaga-campbell-bridge",
