@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:28:04.051Z",
+  "generatedAt": "2026-07-28T15:30:16.982Z",
   "routeCount": 927,
-  "issueCount": 33,
+  "issueCount": 32,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 33,
+    "Medium": 32,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "levisa-fork-jubilee-island-creek",
-      "slug": "levisa-fork-jubilee-island-creek",
-      "name": "Levisa Fork",
-      "reach": "Jubilee Christian Church Ramp to Island Creek Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "w the official good discharge band but right at the stage floor for a low-water caution framing. Official level band 800-1,400 cfs / 7.4-8.5 ft KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, an"
-    },
     {
       "routeId": "big-fork-river-highway-6-south-north",
       "slug": "big-fork-river-highway-6-south-north",

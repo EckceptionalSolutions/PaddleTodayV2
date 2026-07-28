@@ -4434,6 +4434,20 @@ export const kentuckyRoutes: River[] = [
     "statusText": "Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low; above that is high and swift current or woody debris can make the river inappropriate for casual paddling.",
     "latitude": 37.4445,
     "longitude": -82.5057,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use KDFWR's Pikeville bands the same day: below 800 cfs or 7.4 ft expect shallow shoals and dragging, while above 1,400 cfs or 8.5 ft swift current and woody debris make this family-oriented reach inappropriate for casual paddling.",
+        "Jubilee Christian Church is a limited carry-down access; ask the church before using its paved lot and keep the launch at the named access rather than assuming nearby property is public.",
+        "Island Creek is the documented carry-down finish behind the South Mayo Trail corridor. Walk the landing before launching and do not substitute commercial lots or private banks for the named take-out."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-03209500",
       "provider": "usgs",
