@@ -8139,6 +8139,21 @@ export const wisconsinRoutes: River[] = [
     "statusText": "Use the Brule River at US Highway 2 gauge. Treat about 220 cfs / 3.5 ft as the practical minimum from Wisconsin Trail Guide; below that expect bumpy boulder gardens and more scraping, while higher water makes the class I-II pitches pushier.",
     "latitude": 45.98767,
     "longitude": -88.65238,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This is a 16.2-mile, 6-to-8-hour border-river day with Class I-II rapids, boulder gardens, and sparse roads. Carry repair and rescue gear, keep a daylight margin, and confirm the long shuttle before launching.",
+        "Use the US Highway 2 gauge as a minimum-only check: Wisconsin Trail Guide suggests at least 220 cfs / 3.5 ft. Below that, expect bony rock gardens and scraping; higher flows make the named rapids and narrow channels pushier.",
+        "Scout or portage Two Foot Falls from the right bank and start looking early for the Forest Road 2150 take-out. The current can rip through the landing, and nearby shoreline or the private pier below it is not an assumed public exit."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04060993",
       "provider": "usgs",

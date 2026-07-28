@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:44:39.044Z",
+  "generatedAt": "2026-07-28T12:47:33.893Z",
   "routeCount": 927,
-  "issueCount": 120,
+  "issueCount": 118,
   "summary": {
     "Critical": 0,
-    "High": 38,
-    "Medium": 82,
+    "High": 37,
+    "Medium": 81,
     "Low": 0
   },
   "issues": [
@@ -240,17 +240,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "target or high-water cutoff for this reach. Short but not casual. Tight bends, wood, and roadside access friction matter almost as much as the gauge. The app only has a clear low-water floor here. That is enough to avoid obviously bad days, but not enough to"
-    },
-    {
-      "routeId": "brule-river-highway-139-fr-2150",
-      "slug": "brule-river-highway-139-fr-2150",
-      "name": "Brule River",
-      "reach": "Highway 139/189 Bridge Landing to Forest Road 2150 Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "the border Brule is available at county and forest-service roads, and American Whitewater separately lists the same Highway 189-to-FS2150 reach with the same USGS gauge. The app does not claim a preferred upper range because the strongest published route guid"
     },
     {
       "routeId": "jump-river-wayside-park-sheldon",
@@ -1065,17 +1054,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Short upper Bark run where low water and grass-choked channels ruin the day quickly. This is mainly a low-water-floor decision rather than a broad sweet-spot river. Treat 55 cfs at"
-    },
-    {
-      "routeId": "brule-river-highway-139-fr-2150",
-      "slug": "brule-river-highway-139-fr-2150",
-      "name": "Brule River",
-      "reach": "Highway 139/189 Bridge Landing to Forest Road 2150 Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Remote border-river day on the Wisconsin-Michigan Brule with narrow current, long quietwater stretches, class I-II riffles, primitive campsites, and a direct same-river USGS gauge"
     },
     {
       "routeId": "jump-river-wayside-park-sheldon",
