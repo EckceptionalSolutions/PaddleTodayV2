@@ -13145,7 +13145,7 @@ export const wisconsinRoutes: River[] = [
     },
     "routeType": "recreational",
     "safetyProfile": {
-      "riskLevel": "standard",
+      "riskLevel": "caution",
       "hazards": [
         "strainers",
         "fast_rise",
@@ -13155,8 +13155,9 @@ export const wisconsinRoutes: River[] = [
       ],
       "safetyNotes": [
         "Use the Kickapoo gauge only as a regional proxy and verify Pine River conditions visually at the put-in before launching.",
-        "Avoid fast-rising or recent-flood conditions. Richland Center has improved the corridor, but the Pine can still collect wood and push hard against banks and bridges.",
-        "This is not an overnight river. Stay with the official canoe-port chain and avoid private or unstable banks between ports."
+        "Avoid fast-rising or recent-flood conditions. The Port 2-to-Port 3 reach has swift current and submerged-log/strainer exposure even though local groups maintain the corridor.",
+        "Port 4 is above the former-dam rapids chute; use the marked floating pier and trail portage if the chute is not clearly within the group's ability, rather than drifting past the named take-out.",
+        "Stay with the official canoe-port chain and avoid private or unstable banks between ports."
       ],
       "reviewStatus": "reviewed"
     },
@@ -13228,6 +13229,12 @@ export const wisconsinRoutes: River[] = [
         "value": "City-maintained Pine River corridor",
         "note": "Richland Center describes Pine River canoeing/kayaking, local maintenance, and several canoe ports for paddling access through the city.",
         "sourceUrl": "https://www.richlandcenterwi.gov/parksrec/page/pine-river"
+      },
+      {
+        "label": "Segment hazards and Port 4 boundary",
+        "value": "Swift current and submerged logs between Ports 2-3; rapids chute below Port 4",
+        "note": "The route report identifies swift current and submerged logs between Ports 2 and 3, and places the Port 4 floating pier and trail portage above the former-dam rapids chute.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/pine-river-richland-county/richland-center"
       }
     ],
     "sourceLinks": [

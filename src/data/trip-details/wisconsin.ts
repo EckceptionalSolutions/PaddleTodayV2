@@ -4237,6 +4237,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Strainers, bridge debris, and fresh flood damage after storms.",
         "Faster pushy current and fewer beginner-friendly eddies when the proxy gauge rises above modest-flow conditions.",
+        "The former-dam rapids chute just below Port 4; use the Port 4 floating pier and trail portage instead of continuing into the chute when the line is not clearly within group ability.",
         "Urban water-quality context, cold water, muddy banks, and private-property edges."
       ]
     },

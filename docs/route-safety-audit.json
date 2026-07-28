@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:34:29.830Z",
+  "generatedAt": "2026-07-28T13:36:38.037Z",
   "routeCount": 927,
-  "issueCount": 41,
+  "issueCount": 38,
   "summary": {
     "Critical": 0,
-    "High": 2,
-    "Medium": 39,
+    "High": 1,
+    "Medium": 37,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
-      "slug": "pine-river-richland-center-canoe-port-1-port-4",
-      "name": "Pine River",
-      "reach": "Canoe Port 1 / Bowen's Mill to Canoe Port 4 / Seminary Street",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ly a short learning-friendly urban river trail, but the Pine still has riffles, wood, muddy banks, bridge corridors, and high-water speed that can surprise beginners. Confidence is moderate-good: Richland Center and Richland County publish the official canoe-p"
-    },
     {
       "routeId": "wisconsin-river-spring-green-muscoda",
       "slug": "wisconsin-river-spring-green-muscoda",
@@ -361,28 +350,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "quicker current appears as the river approaches Highway 63 in Trego. Low-water caution Scraping possible near the islands below Highway 63 NPS says this stretch is generally floatable throughout the season, but low-rainfall periods can require scraping or wal"
-    },
-    {
-      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
-      "slug": "pine-river-richland-center-canoe-port-1-port-4",
-      "name": "Pine River",
-      "reach": "Canoe Port 1 / Bowen's Mill to Canoe Port 4 / Seminary Street",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "target; treat 350+ cfs as high-water caution. Mostly a short learning-friendly urban river trail, but the Pine still has riffles, wood, muddy banks, bridge corridors, and high-water speed that can surprise beginners. Confidence is moderate-good: Richland Cent"
-    },
-    {
-      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
-      "slug": "pine-river-richland-center-canoe-port-1-port-4",
-      "name": "Pine River",
-      "reach": "Canoe Port 1 / Bowen's Mill to Canoe Port 4 / Seminary Street",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "r levels below about 180 cfs as the better target; treat 350+ cfs as high-water caution. Mostly a short learning-friendly urban river trail, but the Pine still has riffles, wood, muddy banks, bridge corridors, and high-water speed that can surprise beginners."
     },
     {
       "routeId": "st-croix-river-fox-highway-70",
