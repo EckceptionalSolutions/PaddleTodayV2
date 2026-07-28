@@ -1470,15 +1470,17 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 3 hr to 4 hr 30 min",
       "shuttle": "Standard Stearns County self-shuttle between Rockville County Park and Miller Landing. Confirm county-park hours before leaving vehicles overnight or late into the day.",
       "permits": "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and landing rules.",
-      "camping": "Rockville County Park has a watercraft campsite and is the cleaner overnight hook if you want to stage this route, but treat the paddle itself as a day trip unless you separately confirm current camping rules and fees.",
+      "camping": "Rockville County Park has a watercraft campsite and is the cleaner overnight hook if you want to stage this route, but treat the paddle itself as a day trip unless you separately confirm current camping rules and fees. Do not use private shoreline as an informal stop or campsite.",
       "summary": "Put in at Rockville County Park and take out at Miller Landing. This is the straightforward full lower-Sauk day when the river is in the DNR medium band and you want more mileage than the Frogtown split.",
       "accessCaveats": [
         "Rockville County Park has drinking water and a watercraft campsite, but local rules still win over any stale online assumptions.",
         "Miller Landing is a managed county access with posted hours rather than an always-open informal pull-off."
       ],
       "watchFor": [
+        "Snags, fallen trees, and overhanging or dead trees; the normal gauge band does not guarantee a clear channel.",
         "Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.",
-        "Downed trees or fresh strainers after summer storms.",
+        "Changing or rising river conditions; reassess rather than relying on an earlier gauge check.",
+        "Private shoreline; stop only at the named public accesses or other designated sites.",
         "Fatigue creep on a route that stays mostly easy but still covers a full lower-Sauk day."
       ]
     }

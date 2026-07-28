@@ -4650,6 +4650,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the sweet spot. Below 14 ft gets shallower and weedier, and above 20 ft is well past the broad-audience version of this paddle.",
     "latitude": 45.4755294,
     "longitude": -94.3507888,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR warns that snags and fallen trees can tip an unwary paddler. Use the official St. Martin level band as context, not a wood-clearance guarantee.",
+        "Recheck the gauge and local conditions before launching because river conditions can change; reassess rather than committing on a rising river.",
+        "Use Rockville County Park, Miller Landing, and other designated stops because MN DNR says much of the Sauk shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -4694,10 +4708,16 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the practical window. Expect summer low-water and vegetation slowdowns before the segment becomes a true no-go.",
       "difficulty": "easy",
-      "difficultyNotes": "This remains a broad-audience Sauk float at normal levels, but recent wood, strainers, and cold-water exposure still deserve routine river judgment.",
+      "difficultyNotes": "This remains a broad-audience Sauk float at normal levels, but snags, fallen trees, changing levels, and private shoreline still require same-day judgment.",
       "confidenceNotes": "Confidence is high because MN DNR names both access points and Rockville County Park plus Miller Landing each have official Stearns County facility pages."
     },
     "evidenceNotes": [
+      {
+        "label": "Current level",
+        "value": "14.28 ft at 11:00 PM",
+        "note": "The official MN DNR St. Martin gauge reported 14.28 ft on July 27, 2026, which sits in the Low interpretation band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
       {
         "label": "DNR bands",
         "value": "14 / 15 / 17 / 20 ft",
@@ -4708,6 +4728,12 @@ export const minnesotaRoutes: River[] = [
         "label": "Route shape",
         "value": "9.2 river miles",
         "note": "MN DNR Map 2 places Rockville County Park at river mile 16.8 and Miller Landing at river mile 7.6.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
+      },
+      {
+        "label": "Primary cautions",
+        "value": "Snags, changing levels, and private shore",
+        "note": "The 2026 DNR Map 2 warns about snags and fallen trees, says river conditions can change at any time, and limits stops and camping along private shoreline to designated sites.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
       },
       {
@@ -4724,11 +4750,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "MN DNR Sauk River Map 2 PDF",
@@ -4736,11 +4762,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Stearns County Rockville County Park",
-        "url": "https://www.stearnscountymn.gov/397/Rockville-County-Park"
+        "url": "https://www.stearnscountymn.gov/rockville-county-park"
       },
       {
         "label": "Stearns County Miller Landing",
-        "url": "https://www.stearnscountymn.gov/393/Miller-Landing"
+        "url": "https://www.stearnscountymn.gov/miller-landing"
       },
       {
         "label": "USGS 05270500 monitoring location",

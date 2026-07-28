@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T06:11:51.142Z",
+  "generatedAt": "2026-07-28T06:25:19.476Z",
   "routeCount": 931,
-  "issueCount": 163,
+  "issueCount": 162,
   "summary": {
     "Critical": 0,
-    "High": 61,
+    "High": 60,
     "Medium": 102,
     "Low": 0
   },
@@ -31,17 +31,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
-    },
-    {
-      "routeId": "sauk-river-rockville-miller-landing",
-      "slug": "sauk-river-rockville-miller-landing",
-      "name": "Sauk River",
-      "reach": "Rockville County Park to Miller Landing",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "s paddle. This remains a broad-audience Sauk float at normal levels, but recent wood, strainers, and cold-water exposure still deserve routine river judgment. Confidence is high because MN DNR names both access points and Rockville County Park plus Miller Land"
     },
     {
       "routeId": "sauk-river-spring-hill-frogtown",
