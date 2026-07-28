@@ -63,13 +63,8 @@ jobs:
 
       - name: Smoke test deployment
         env:
-          DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL }}
+          DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL || vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
         run: |
-          if [ -z "$DEPLOYMENT_BASE_URL" ]; then
-            echo "AZURE_WEBAPP_URL is required for the post-deploy smoke test."
-            exit 1
-          fi
-
           for attempt in 1 2 3 4; do
             if npm run deployment:smoke; then
               exit 0

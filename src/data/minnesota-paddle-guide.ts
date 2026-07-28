@@ -99,19 +99,6 @@ export const minnesotaPaddleGuideEntries: MinnesotaPaddleGuideEntry[] = [
     sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/audio-tales/crow-wing-transcript.pdf',
   },
   {
-    id: 'root-lanesboro-peterson',
-    title: 'Root River: Lanesboro to Peterson',
-    riverName: 'Root River',
-    routeName: 'Lanesboro to Peterson',
-    summary:
-      'A scenic Driftless weekend route with trail-town logistics, bluff country, and a strong bike-shuttle or town-base angle.',
-    fastFacts: ['Driftless scenery', 'Bike-shuttle friendly', 'Town-based weekend'],
-    categories: ['best-weekend', 'long-day', 'beginner'],
-    trackedSlug: 'root-river-lanesboro-peterson',
-    sourceLabel: 'MN DNR Tales of Water Trails: Root River',
-    sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/audio-tales/root-transcript.pdf',
-  },
-  {
     id: 'root-rushford-houston',
     title: 'Root River: Rushford to Houston',
     riverName: 'Root River',

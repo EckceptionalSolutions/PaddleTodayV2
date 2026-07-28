@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T00:37:50.237Z",
-  "routeCount": 935,
-  "issueCount": 221,
+  "generatedAt": "2026-07-28T00:44:28.474Z",
+  "routeCount": 933,
+  "issueCount": 219,
   "summary": {
     "Critical": 0,
-    "High": 92,
-    "Medium": 129,
+    "High": 91,
+    "Medium": 128,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "root-river-lanesboro-peterson",
-      "slug": "root-river-lanesboro-peterson",
-      "name": "Root River",
-      "reach": "Lanesboro to Peterson",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "in debris Low water means scraping and channel-picking. After rain, current and wood risk rise before a simple score fully captures it. Threshold confidence Mixed The route and gauge are direct, but the usable range is still an estimate rather than an official"
-    },
     {
       "routeId": "root-river-moens-whalan",
       "slug": "root-river-moens-whalan",
@@ -1142,17 +1131,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "pipe just past the take-out. Broader Otter Tail guidance also warns paddlers to scout culverts, bridges, dams, and obstructions. Frazee reach detail Riverside Park access/rest area Otter Tail County trail-planning materials identify Riverside Park as a boat ac"
-    },
-    {
-      "routeId": "root-river-lanesboro-peterson",
-      "slug": "root-river-lanesboro-peterson",
-      "name": "Root River",
-      "reach": "Lanesboro to Peterson",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "canoe launch plus public restrooms, parking, and a campground in town. Primary caution Low water and post-rain debris Low water means scraping and channel-picking. After rain, current and wood risk rise before a simple score fully captures it. Threshold confi"
     },
     {
       "routeId": "root-river-moens-whalan",

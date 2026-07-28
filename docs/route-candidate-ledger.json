@@ -52811,11 +52811,11 @@
       "river": "Root River",
       "route": "Peterson carry-in to Rushford carry-in",
       "state": "Minnesota",
-      "status": "added",
-      "lastReviewed": "2026-07-23",
-      "reviewCount": 1,
-      "blocker": null,
-      "retryCondition": "Already implemented as root-river-peterson-rushford. Revisit only if Peterson/Rushford access, bridge-work alerts, Houston DNR gauge bands, or image rights change.",
+      "status": "blocked_until_date",
+      "lastReviewed": "2026-07-27",
+      "reviewCount": 2,
+      "blocker": "Removed from the live inventory because the current MN DNR Root River alert, last updated June 26, 2026, says the Peterson carry-in is closed for Mill Street Bridge reconstruction and that trail users must portage around the worksite once overhead work begins. The route-safety policy does not allow an active endpoint closure or an evolving construction-portage requirement to be cured with warning copy.",
+      "retryCondition": "Reconsider only after Minnesota DNR or the responsible local manager explicitly confirms the Peterson carry-in is reopened for normal public paddling use and publishes any continuing worksite portage, signage, parking, and access instructions.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Root River segments/maps",
@@ -52852,7 +52852,7 @@
           "longitude": -91.7603553
         }
       },
-      "notes": "Added as a distinct lower Root day route absent from the 182-route Minnesota baseline. Copy emphasizes Peterson bridge construction/closure alert, submerged dam cautions, PWA/DNR river-mile mismatch, downstream proxy gauge, trail-town basecamp support, riffles, wood, fast rises, and private banks."
+      "notes": "Originally added as a distinct lower Root day route absent from the 182-route Minnesota baseline. Blocked from the live inventory on 2026-07-27 because the current DNR alert explicitly closes the Peterson carry-in during Mill Street Bridge reconstruction."
     },
     {
       "candidateId": "ia-des-moines-river-eldon-shidepoke-current-2026-07-23",

@@ -801,7 +801,6 @@ describe('scoreRiverCondition', () => {
 describe('seed river calibration', () => {
 const cannon = rivers.find((river) => river.slug === 'cannon-river-welch');
 const straight = rivers.find((river) => river.slug === 'straight-river-faribault');
-const rootRiver = rivers.find((river) => river.slug === 'root-river-lanesboro-peterson');
 const wolfRiver = rivers.find((river) => river.slug === 'wolf-river-lily-hollister');
 const redCedarRiver = rivers.find((river) => river.slug === 'red-cedar-river-menomonie-dunnville');
 const stCroixFox70 = rivers.find((river) => river.slug === 'st-croix-river-fox-highway-70');
@@ -1023,24 +1022,6 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(result.gaugeBand).toBe('ideal');
     expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
     expect(result.confidence.label).toBe('Medium');
-  });
-
-  it('treats Root River around 300 cfs as a low-shoulder day instead of a perfect sweet-spot call', () => {
-    expect(rootRiver).toBeDefined();
-
-    const result = scoreRiverCondition({
-      river: rootRiver as River,
-      gauge: makeRiverGauge(rootRiver as River, 300, 'steady', 5),
-      weather: {
-        ...weather,
-        observedAt: '2026-05-10T11:15:00Z',
-      },
-      now,
-    });
-
-    expect(result.gaugeBand).toBe('low-shoulder');
-  expect(result.rating).toBe('Fair');
-    expect(result.confidence.label === 'Medium' || result.confidence.label === 'High').toBe(true);
   });
 
   it('treats Wolf River around 500 cfs as the intended ideal-window call', () => {

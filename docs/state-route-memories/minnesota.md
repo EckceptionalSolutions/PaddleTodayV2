@@ -1,5 +1,12 @@
 # Minnesota Route Memory
 
+## 2026-07-27 America/Chicago Peterson access closure block
+
+- Removed `root-river-lanesboro-peterson` and `root-river-peterson-rushford` from the live route inventory, reducing Minnesota from 238 to 236 live routes.
+- The current MN DNR Root River alert, last updated June 26, 2026, says Mill Street Bridge reconstruction has closed the Peterson carry-in and that users must portage around the worksite once overhead work begins. The closure invalidates Peterson as both the Lanesboro route's take-out and the Rushford route's put-in.
+- Removed the Lanesboro-to-Peterson recommendation from the Minnesota paddle guide so the blocked route is not promoted through a separate casual-discovery surface. Preserved the inactive source records and geometry inputs for a future evidence-backed reopening review.
+- Downgraded the exact Peterson-to-Rushford ledger record from `added` to `blocked_until_date`. Reconsider either route only after Minnesota DNR or the responsible manager explicitly confirms normal public paddling access and publishes any continuing portage, signage, parking, and worksite instructions.
+
 ## 2026-07-27 America/Chicago Cottonwood obstruction block
 
 - Removed `cottonwood-river-juenemann-springfield` from the live route inventory and trip-details surface, reducing Minnesota from 239 to 238 live routes.
