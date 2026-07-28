@@ -10001,6 +10001,23 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Big Eau Pleine River at Stratford, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05399500/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "whitewater",
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Launch from the east end of Cherokee Park directly below the dam. Do not launch into the impoundment or attempt to run the dam.",
+        "This is an intermediate Class I-II route with repeated boulder gardens. Scout the Class II+ boulder garden about two miles above March Rapids and choose a current line rather than relying on the left-side line reported at one historical level.",
+        "Scout March Rapids during the shuttle and decide before launching whether to take out above the rapids or run them and use the path below.",
+        "The Stratford gauge is downstream and the watershed drains quickly. Check the reading, trend, recent rain, and local water at launch; 301 cfs and above is outside the broad recreational recommendation.",
+        "Low branches, strainers, and a route-report logjam can become more consequential in fast current. Leave room to stop and reassess rather than committing blindly around wooded bends."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 151,
@@ -10052,6 +10069,12 @@ export const wisconsinRoutes: River[] = [
         "value": "USGS 05399500",
         "note": "USGS operates the Big Eau Pleine River at Stratford gauge downstream on the same river, and Wisconsin River Trips uses this gauge for the Cherokee, Hazelnut, and March Rapids route family.",
         "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05399500/"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "5.35 cfs and 2.18 ft at 2026-07-27 20:00 CDT",
+        "note": "USGS Water Services returned provisional current values far below the selected 100 cfs too-low floor during this review.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05399500&parameterCd=00060,00065&siteStatus=all"
       },
       {
         "label": "Gauge ladder",

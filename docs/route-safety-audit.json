@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T01:10:25.100Z",
+  "generatedAt": "2026-07-28T01:26:25.508Z",
   "routeCount": 933,
-  "issueCount": 213,
+  "issueCount": 210,
   "summary": {
     "Critical": 0,
-    "High": 87,
-    "Medium": 126,
+    "High": 86,
+    "Medium": 124,
     "Low": 0
   },
   "issues": [
@@ -680,17 +680,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "target or high-water cutoff for this reach. Short but not casual. Tight bends, wood, and roadside access friction matter almost as much as the gauge. The app only has a clear low-water floor here. That is enough to avoid obviously bad days, but not enough to"
-    },
-    {
-      "routeId": "big-eau-pleine-river-cherokee-march-rapids",
-      "slug": "big-eau-pleine-river-cherokee-march-rapids",
-      "name": "Big Eau Pleine River",
-      "reach": "Cherokee Park to March Rapids Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ble but bumpy, 251 to 300 cfs as high for experienced paddlers, and 301+ cfs as whitewater-only or beyond the broad recommendation. Frequent Class I rapids, boulder gardens, and several Class II or Class II+ rapids make this an intermediate moving-water route."
     },
     {
       "routeId": "bois-brule-river-bois-brule-pine-tree",
@@ -2022,28 +2011,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Short upper Bark run where low water and grass-choked channels ruin the day quickly. This is mainly a low-water-floor decision rather than a broad sweet-spot river. Treat 55 cfs at"
-    },
-    {
-      "routeId": "big-eau-pleine-river-cherokee-march-rapids",
-      "slug": "big-eau-pleine-river-cherokee-march-rapids",
-      "name": "Big Eau Pleine River",
-      "reach": "Cherokee Park to March Rapids Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "uge. The main caveat is that the Stratford gauge is downstream and the river is flashy, so the app keeps the recommendation conservative and emphasizes same-day checks. Public put-in Cherokee Park Marathon County lists Cherokee Park at 108042 County Road N in"
-    },
-    {
-      "routeId": "big-eau-pleine-river-cherokee-march-rapids",
-      "slug": "big-eau-pleine-river-cherokee-march-rapids",
-      "name": "Big Eau Pleine River",
-      "reach": "Cherokee Park to March Rapids Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "d leg with multiple boulder gardens and significant Class II rapids. High-water caution 301+ cfs changes the audience Wisconsin River Trips says 301-400 cfs is high for recreational paddlers but good for whitewater paddlers, 401-500 cfs is likely only for whit"
     },
     {
       "routeId": "bois-brule-river-stones-winneboujou",

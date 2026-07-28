@@ -3372,15 +3372,15 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Use a two-car shuttle between Cherokee Park on County Road N and March Rapids Park on County Road P. The road shuttle is manageable, but this is a level-sensitive river, so check the Stratford gauge before leaving the take-out vehicle.",
       "permits": "No route-specific paddling permit is known. Follow posted Marathon County park rules at Cherokee Park and March Rapids Park, and avoid private banks along the rural middle corridor.",
       "camping": "No on-route camping is documented for this day section. Treat the trip as a day paddle unless separately planning a legal county-park or private campground stay.",
-      "summary": "Launch below the Cherokee Park dam and paddle the Big Eau Pleine through the Cherokee-to-Hazelnut boulder gardens and the wooded Hazelnut-to-March Rapids reach. Take out at March Rapids Park after scouting or running the park rapids.",
+      "summary": "Launch directly below the Cherokee Park dam for an intermediate Class I-II run through repeated boulder gardens. Scout March Rapids during the shuttle and choose the documented take-out above the rapids or the path below before launching.",
       "accessCaveats": [
-        "Cherokee Park is a Marathon County park with river access, vault restrooms, picnic facilities, and trails; use the river access below the dam rather than launching above the impoundment.",
+        "Cherokee Park is a Marathon County park with river access, vault restrooms, picnic facilities, and trails; use the east-end river access below the dam, do not launch above the impoundment, and do not attempt to run the dam.",
         "March Rapids Park has paths above and below the rapids, so scout during the shuttle and decide whether to take out above the rapids or finish by running them.",
         "Hazelnut Road is a possible bailout but is only a gravel-road bridge access with poison ivy and limited comfort; the cleaner planned take-out is March Rapids Park."
       ],
       "watchFor": [
         "Bumpy rapids, shallow boulder slots, and walking risk below about 150 cfs on the Stratford gauge.",
-        "Class II or Class II+ rapids two miles above March Rapids, with the best line reported along the left; scout before running.",
+        "Class II or Class II+ rapids two miles above March Rapids; scout current conditions rather than relying on the left-side line reported at one historical level.",
         "March Rapids at the take-out, which is scenic and scoutable but still deserves attention before tired paddlers commit.",
         "Fast current under low branches, strainers, and rapidly changing levels after rain on this flashy rocky watershed."
       ]
