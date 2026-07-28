@@ -4292,11 +4292,24 @@ export const minnesotaRoutes: River[] = [
       "difficultyNotes": "The river stays broadly approachable at sane levels, but this much mileage still deserves wood awareness, cold-water judgment, and honest energy management.",
       "confidenceNotes": "Confidence is high because DNR publishes the same lower-Sauk trip and explicitly says to extend it by starting at Frogtown Park, while Cold Spring and Stearns County both back the endpoints."
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR maps Miller Landing at river mile 7.6 and the boulder-filled Class I-II mouth section at river miles 2.5 to 0. Take out at Miller; the mapped rapids begin about 5.1 river miles downstream and are not part of this route.",
+        "Watch for snags, fallen trees, and fresh storm wood. Stop and reassess from a safe position rather than entering a blocked channel or passing close to overhanging and dead trees.",
+        "Use the named public accesses and stop only at designated sites. MN DNR says much of the Sauk shoreland is private and riverbed camping next to private property is not permitted."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "evidenceNotes": [
       {
         "label": "Current level",
-        "value": "15.34 ft at 10:00 AM",
-        "note": "MN DNR listed the St. Martin gauge at 15.34 ft on July 13, 2026, which lands in the official Medium band.",
+        "value": "14.21 ft at 6:00 PM",
+        "note": "MN DNR listed the St. Martin gauge at 14.21 ft on July 27, 2026, which lands in the official Low band.",
         "sourceUrl": "https://www.dnr.state.mn.us/river_levels/index.html"
       },
       {
@@ -4309,6 +4322,12 @@ export const minnesotaRoutes: River[] = [
         "label": "Route shape",
         "value": "14.2 river miles",
         "note": "MN DNR Map 2 places Frogtown Park at river mile 21.8 and Miller Landing at river mile 7.6.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
+      },
+      {
+        "label": "Downstream rapid boundary",
+        "value": "5.1 river miles below the take-out",
+        "note": "MN DNR Map 2 places the Class I-II mouth section at river miles 2.5 to 0, downstream of the planned Miller Landing finish at river mile 7.6.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
       },
       {

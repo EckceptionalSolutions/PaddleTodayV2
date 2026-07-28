@@ -1404,11 +1404,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Frogtown Park is the downstream-of-dam start; do not improvise a put-in above the Cold Spring obstruction.",
         "Miller Landing is a managed county access with posted hours, so do not assume unlimited late-night retrieval if the day runs long.",
-        "Rockville County Park is the cleanest mid-route bailout or split because it is the documented watercraft-campsite stop on this corridor."
+        "Rockville County Park is the cleanest mid-route bailout or split because it is the documented watercraft-campsite stop on this corridor.",
+        "Use named public accesses and designated stops; MN DNR says much of the Sauk shoreland is private and does not permit riverbed camping next to private property."
       ],
       "watchFor": [
         "Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.",
         "Downed trees or fresh strainers after storms.",
+        "The trip ends at Miller Landing. The mapped Class I-II mouth section begins about 5.1 river miles downstream and is not part of this route.",
         "Longer-day fatigue on a route that stays easy in character but still covers over 14 river miles."
       ]
     }
