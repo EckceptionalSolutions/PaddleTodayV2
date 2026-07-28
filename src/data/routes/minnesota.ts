@@ -12159,8 +12159,21 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the main window. Summer can still work well, but low water slows the day down fast and post-rain rises deserve extra caution.",
       "difficulty": "easy",
-      "difficultyNotes": "MN DNR presents this as a beginner-friendly route, but it is still a real river day where wood, wind, and changing levels can matter.",
+      "difficultyNotes": "MN DNR presents this as a beginner-friendly route, but fallen trees, farm fences, changing levels, and the constructed rapid immediately before the Appleton access still require attention.",
       "confidenceNotes": "This route qualifies because the endpoint names are official, the Appleton gauge is direct and live in-product through the MN DNR path, and MN DNR publishes a full route-usable level ladder for the exact gauge."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "MN DNR warns paddlers to watch for fallen trees and fences from nearby farms on the Pomme de Terre. The Appleton gauge also carries a current warning for snags and debris.",
+        "Scout the constructed rapid entering Appleton City Park immediately before the Appleton carry-in access. The route is beginner-friendly at ordinary levels, but the take-out approach still requires a clear line.",
+        "Use the direct Appleton gauge and check it again before launching. DNR says river levels can change rapidly after precipitation and treats readings above 7.5 ft as very high."
+      ],
+      "reviewStatus": "reviewed"
     },
     "evidenceNotes": [
       {
@@ -12173,7 +12186,13 @@ export const minnesotaRoutes: River[] = [
         "label": "Route character",
         "value": "Beginner-friendly short day trip",
         "note": "MN DNR recommends Larson Landing to Appleton as a 6-mile beginner trip on the Pomme de Terre River water trail.",
-        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/pommedeterre/segments-maps.html"
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/pomme-de-terre-river/segments-maps.html"
+      },
+      {
+        "label": "Route hazards",
+        "value": "Fallen trees, farm fences, and constructed rapid",
+        "note": "MN DNR warns about fallen trees and farm fences on the Pomme de Terre and places a constructed rapid immediately before the Appleton water access.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/pomme-de-terre-river/segments-maps.html"
       },
       {
         "label": "Access confidence",
@@ -12193,7 +12212,7 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Pomme de Terre River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/pommedeterre/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/pomme-de-terre-river/segments-maps.html"
       },
       {
         "label": "MN DNR interactive gauge detail for Appleton site 168",

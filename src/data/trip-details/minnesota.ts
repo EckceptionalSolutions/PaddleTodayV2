@@ -3798,14 +3798,15 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Short Appleton-area car shuttle. This is an easy logistics day, so most groups will just stage the take-out first and keep it simple.",
       "permits": "No special paddling permit is known. Follow posted public-water-access and local parking rules at both landings.",
       "camping": "Treat this as a day trip unless you separately confirm legal overnight options nearby.",
-      "summary": "Launch at Larson Landing and finish at Appleton for the clearest short beginner trip on the lower Pomme de Terre. The gauge decision is straightforward, but low water, wood, and wind can still change the feel of the day.",
+      "summary": "Launch at Larson Landing and finish at Appleton for the clearest short beginner trip on the lower Pomme de Terre. The gauge decision is straightforward, but low water, wood, farm fences, and the constructed rapid immediately before the take-out still require attention.",
       "accessCaveats": [
         "Both endpoints are backed by Minnesota public-water-access records, which is the main trust reason this route clears the bar cleanly.",
-        "Appleton is the stronger landmarked finish because the live gauge and route town line up there, but same-day landing and parking signage should still win over any saved note."
+        "Appleton is the stronger landmarked finish because the live gauge and route town line up there. Inspect the landing and constructed-rapid approach before launching, and let same-day signage win over any saved note."
       ],
       "watchFor": [
         "Dragging and scrape-heavy shallow spots when Appleton drops toward 3.5 ft.",
-        "Fresh wood or strainers after storms or fast rises.",
+        "Fallen trees, strainers, debris, or farm fences, especially after storms or rapid level changes.",
+        "The constructed rapid entering Appleton City Park immediately before the carry-in take-out.",
         "Wind exposure on the more open lower-river bends approaching Appleton."
       ]
     }

@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T00:10:07.799Z",
+  "generatedAt": "2026-07-28T00:25:51.719Z",
   "routeCount": 935,
-  "issueCount": 222,
+  "issueCount": 221,
   "summary": {
     "Critical": 0,
-    "High": 93,
+    "High": 92,
     "Medium": 129,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "pomme-de-terre-river-larson-appleton",
-      "slug": "pomme-de-terre-river-larson-appleton",
-      "name": "Pomme de Terre River",
-      "reach": "Larson Landing to Appleton",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "sents this as a beginner-friendly route, but it is still a real river day where wood, wind, and changing levels can matter. This route qualifies because the endpoint names are official, the Appleton gauge is direct and live in-product through the MN DNR path,"
-    },
     {
       "routeId": "root-river-lanesboro-peterson",
       "slug": "root-river-lanesboro-peterson",
