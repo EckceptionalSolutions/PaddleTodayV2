@@ -1,10 +1,13 @@
 ﻿import {
-  bindMarkerPopup,
   clearMapMarkers,
+  createMapMarker,
+  createMapStatusController,
   createPaddleMap,
   ensureMapLibre,
   escapeHtml,
   fitMapBounds,
+  removeMapOverlay,
+  syncGeoJsonOverlay,
   waitForMapReady,
 } from './map-runtime.js';
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
@@ -37,10 +40,18 @@ if (!slug) {
 
 const detailMap = root.querySelector('[data-detail-map]');
 const detailMapStatus = root.querySelector('[data-detail-map-status]');
+const detailMapStatusController = createMapStatusController(detailMapStatus, {
+  unavailable: 'Map unavailable right now. Use the access links above for location context.',
+});
 const detailMapShell = root.querySelector('[data-detail-map-shell]');
 const detailMapToggle = root.querySelector('[data-detail-map-toggle]');
 const detailHeroMap = root.querySelector('[data-detail-hero-map]');
 const detailHeroMapStatus = root.querySelector('[data-detail-hero-map-status]');
+const detailHeroMapStatusController = createMapStatusController(detailHeroMapStatus, {
+  empty: 'Route snapshot unavailable because endpoint coordinates are incomplete.',
+  loading: 'Loading the route snapshot. This usually takes a few seconds.',
+  unavailable: 'Route snapshot unavailable right now. Use the endpoint links while the map reloads.',
+});
 const detailHeroMapShell = root.querySelector('[data-detail-hero-map-shell]');
 const chartButtons = Array.from(root.querySelectorAll('[data-chart-window]'));
 const detailStatusBanner = root.querySelector('[data-detail-status-banner]');
@@ -2899,30 +2910,30 @@ function syncRouteGeoJsonLine(mapRuntime, sourceId, layerId, routeLine, result, 
   if (!mapRuntime) return;
 
   if (routeLine?.geometry?.coordinates?.length >= 2) {
-    if (mapRuntime.getSource(sourceId)) {
-      mapRuntime.getSource(sourceId).setData(routeLine);
-    } else {
-      mapRuntime.addSource(sourceId, { type: 'geojson', data: routeLine });
-      mapRuntime.addLayer({
+    syncGeoJsonOverlay(mapRuntime, {
+      sourceId,
+      data: routeLine,
+      layers: [{
         id: layerId,
         type: 'line',
-        source: sourceId,
         layout: { 'line-cap': 'round', 'line-join': 'round' },
         paint: {
           'line-color': routeLineColor(result),
           'line-width': paint.lineWidth ?? 4,
           'line-opacity': paint.lineOpacity ?? 0.88,
         },
-      });
-    }
+      }],
+    });
     mapRuntime.setPaintProperty(layerId, 'line-color', routeLineColor(result));
     if (typeof paint.lineWidth === 'number') mapRuntime.setPaintProperty(layerId, 'line-width', paint.lineWidth);
     if (typeof paint.lineOpacity === 'number') mapRuntime.setPaintProperty(layerId, 'line-opacity', paint.lineOpacity);
     return;
   }
 
-  if (mapRuntime.getLayer(layerId)) mapRuntime.removeLayer(layerId);
-  if (mapRuntime.getSource(sourceId)) mapRuntime.removeSource(sourceId);
+  removeMapOverlay(mapRuntime, {
+    layerIds: [layerId],
+    sourceIds: [sourceId],
+  });
 }
 
 function syncAccessRouteLine(mapRuntime, sourceId, layerId, points, result, paint = {}) {
@@ -3294,16 +3305,14 @@ async function renderDetailHeroMap(result = null) {
   detailHeroMapShell.hidden = points.length === 0;
 
   if (!points.length) {
-    if (detailHeroMapStatus instanceof HTMLElement) {
-      detailHeroMapStatus.textContent = 'Route snapshot unavailable because endpoint coordinates are incomplete.';
-    }
+    detailHeroMapStatusController.empty();
     detailHeroMapRuntime = destroyMapRuntime(detailHeroMapRuntime);
     detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
     return;
   }
 
-  if (detailHeroMapStatus instanceof HTMLElement && !detailHeroMapRuntime) {
-    detailHeroMapStatus.textContent = 'Loading the route snapshot. This usually takes a few seconds.';
+  if (!detailHeroMapRuntime) {
+    detailHeroMapStatusController.loading();
   }
 
   try {
@@ -3364,12 +3373,12 @@ async function renderDetailHeroMap(result = null) {
       markerNode.innerHTML = `<span>${point.kind === 'putIn' ? 'IN' : 'OUT'}</span>`;
       markerNode.setAttribute('aria-hidden', 'true');
 
-      const marker = new maplibregl.Marker({
+      const marker = createMapMarker({
+        maplibregl,
+        mapRuntime: detailHeroMapRuntime,
         element: markerNode,
-        anchor: 'center',
-      })
-        .setLngLat([point.longitude, point.latitude])
-        .addTo(detailHeroMapRuntime);
+        point,
+      });
 
       detailHeroMapMarkers.push(marker);
       bounds.extend([point.longitude, point.latitude]);
@@ -3377,9 +3386,7 @@ async function renderDetailHeroMap(result = null) {
 
     if (points.length > 1) {
       fitMapBounds(detailHeroMapRuntime, bounds, {
-        padding: { top: 34, right: 34, bottom: 34, left: 34 },
-        maxZoom: 11.2,
-        duration: 0,
+        profile: 'detailHero',
       });
     } else {
       detailHeroMapRuntime.jumpTo({
@@ -3389,17 +3396,13 @@ async function renderDetailHeroMap(result = null) {
     }
     detailHeroMapRuntime.resize();
 
-    if (detailHeroMapStatus instanceof HTMLElement) {
-      detailHeroMapStatus.textContent = heroMapStatusText(points);
-    }
+    detailHeroMapStatusController.ready({ message: heroMapStatusText(points) });
   } catch (error) {
     console.error('Failed to load hero detail map.', error);
     detailHeroMapRuntime = destroyMapRuntime(detailHeroMapRuntime);
     detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
     detailHeroMapShell.hidden = true;
-    if (detailHeroMapStatus instanceof HTMLElement) {
-      detailHeroMapStatus.textContent = 'Route snapshot unavailable right now. Use the endpoint links while the map reloads.';
-    }
+    detailHeroMapStatusController.unavailable();
   }
 }
 
@@ -3414,22 +3417,23 @@ async function renderDetailMap(result = null) {
   const fullRoutePoints = fullRouteAccessPoints();
 
   if (!points.length) {
-    if (detailMapStatus instanceof HTMLElement) {
-      detailMapStatus.textContent =
+    detailMapStatusController.empty({
+      message:
         accessContext.mapMode === 'Selected segment (partial map)'
           ? 'Selected segment map is limited because one or more intermediate landing coordinates still need confirmation.'
-          : 'Access map unavailable because endpoint coordinates are incomplete.';
-    }
+          : 'Access map unavailable because endpoint coordinates are incomplete.',
+    });
     detailMapRuntime = destroyMapRuntime(detailMapRuntime);
     detailMapMarkers = clearMapMarkers(detailMapMarkers);
     return;
   }
 
-  if (detailMapStatus instanceof HTMLElement && !detailMapRuntime) {
-    detailMapStatus.textContent =
-      accessContext.mapMode === 'Selected segment'
+  if (!detailMapRuntime) {
+    detailMapStatusController.loading({
+      message: accessContext.mapMode === 'Selected segment'
         ? 'Pulling access map tiles for the selected segment. Usually under 5 seconds.'
-        : 'Pulling access map tiles for the stored access points. Usually under 5 seconds.';
+        : 'Pulling access map tiles for the stored access points. Usually under 5 seconds.',
+    });
   }
 
   try {
@@ -3497,30 +3501,25 @@ async function renderDetailMap(result = null) {
       markerNode.innerHTML = `<span>${point.kind === 'putIn' ? 'IN' : 'OUT'}</span>`;
       markerNode.setAttribute('aria-label', `${point.kind === 'putIn' ? 'Put-in' : 'Take-out'}: ${point.name}`);
 
-      const marker = new maplibregl.Marker({
+      const marker = createMapMarker({
+        maplibregl,
+        mapRuntime: detailMapRuntime,
         element: markerNode,
-        anchor: 'center',
-      })
-        .setLngLat([point.longitude, point.latitude])
-        .setPopup(
-          new maplibregl.Popup({
-            offset: 18,
-            closeButton: true,
-            maxWidth: '280px',
-          }).setHTML(detailMapPopupMarkup(point.kind, point, result))
-        )
-        .addTo(detailMapRuntime);
-
-      bindMarkerPopup(marker, markerNode, { map: detailMapRuntime });
+        point,
+        popupHtml: detailMapPopupMarkup(point.kind, point, result),
+        popupOptions: {
+          offset: 18,
+          maxWidth: '280px',
+        },
+        bindPopup: true,
+      });
       detailMapMarkers.push(marker);
       bounds.extend([point.longitude, point.latitude]);
     }
 
     if (points.length > 1 || fullRoutePoints.length > 1) {
       fitMapBounds(detailMapRuntime, bounds, {
-        padding: { top: 44, right: 44, bottom: 44, left: 44 },
-        maxZoom: 11.6,
-        duration: 450,
+        profile: 'detailAccess',
       });
     } else {
       detailMapRuntime.easeTo({
@@ -3531,29 +3530,30 @@ async function renderDetailMap(result = null) {
     }
     detailMapRuntime.resize();
 
-    if (detailMapStatus instanceof HTMLElement) {
-      if (accessContext.mapMode === 'Selected segment') {
-        detailMapStatus.textContent =
-          'Selected segment map is using the chosen put-in and take-out. Confirm parking and launch rules on the ground.';
-      } else if (accessContext.mapMode === 'Selected segment (partial map)') {
-        detailMapStatus.textContent =
+    if (accessContext.mapMode === 'Selected segment') {
+      detailMapStatusController.ready({
+        message: 'Selected segment map is using the chosen put-in and take-out. Confirm parking and launch rules on the ground.',
+      });
+    } else if (accessContext.mapMode === 'Selected segment (partial map)') {
+      detailMapStatusController.ready({
+        message:
           points.length > 1
             ? 'Selected segment map is partial because some intermediate landings still need confirmed coordinates.'
-            : 'Selected segment map is limited because only one chosen landing has confirmed coordinates right now.';
-      } else {
-        detailMapStatus.textContent =
+            : 'Selected segment map is limited because only one chosen landing has confirmed coordinates right now.',
+      });
+    } else {
+      detailMapStatusController.ready({
+        message:
           points.length > 1
             ? 'Put-in and take-out markers come from carried-over route data. Confirm launch and parking rules on the ground.'
-            : 'Only one carried-over access point is available for this reach right now.';
-      }
+            : 'Only one carried-over access point is available for this reach right now.',
+      });
     }
   } catch (error) {
     console.error('Failed to load detail map.', error);
     detailMapRuntime = destroyMapRuntime(detailMapRuntime);
     detailMapMarkers = clearMapMarkers(detailMapMarkers);
-    if (detailMapStatus instanceof HTMLElement) {
-      detailMapStatus.textContent = 'Map unavailable right now. Use the access links above for location context.';
-    }
+    detailMapStatusController.unavailable();
   }
 }
 

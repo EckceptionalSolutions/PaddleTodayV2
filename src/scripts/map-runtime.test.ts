@@ -3,6 +3,7 @@ import {
   MAP_STYLE_URL,
   bindMarkerPopup,
   clearMapMarkers,
+  createMapMarker,
   createMapStatusController,
   createPaddleMap,
   fitMapBounds,
@@ -278,6 +279,60 @@ describe('map status', () => {
 });
 
 describe('map viewport and marker lifecycle', () => {
+  it('creates generic endpoint and popup markers through one lifecycle', () => {
+    const marker = {
+      point: null as unknown,
+      popup: null as unknown,
+      map: null as unknown,
+      setLngLat(point: unknown) {
+        this.point = point;
+        return this;
+      },
+      setPopup(popup: unknown) {
+        this.popup = popup;
+        return this;
+      },
+      addTo(map: unknown) {
+        this.map = map;
+        return this;
+      },
+    };
+    const popup = {
+      html: '',
+      setHTML(html: string) {
+        this.html = html;
+        return this;
+      },
+    };
+    const maplibregl = {
+      Marker: class {
+        constructor() {
+          return marker;
+        }
+      },
+      Popup: class {
+        constructor() {
+          return popup;
+        }
+      },
+    };
+    const mapRuntime = {};
+
+    expect(createMapMarker({
+      maplibregl,
+      mapRuntime,
+      element: {},
+      point: { longitude: -93, latitude: 45 },
+      popupHtml: '<p>Put-in</p>',
+    })).toBe(marker);
+    expect(marker).toMatchObject({
+      point: [-93, 45],
+      popup,
+      map: mapRuntime,
+    });
+    expect(popup.html).toBe('<p>Put-in</p>');
+  });
+
   it('resolves named viewport profiles for compact and wide layouts', () => {
     expect(mapViewportOptions('results')).toEqual({
       padding: { top: 52, right: 52, bottom: 52, left: 52 },
@@ -296,6 +351,16 @@ describe('map viewport and marker lifecycle', () => {
       padding: { top: 72, right: 72, bottom: 72, left: 72 },
       maxZoom: 11.2,
       duration: 125,
+    });
+    expect(mapViewportOptions('favorites', { compact: true })).toEqual({
+      padding: { top: 24, right: 24, bottom: 24, left: 24 },
+      maxZoom: 10.2,
+      duration: 650,
+    });
+    expect(mapViewportOptions('riverGroupSelected')).toEqual({
+      padding: { top: 72, right: 72, bottom: 72, left: 72 },
+      maxZoom: 11.2,
+      duration: 520,
     });
     expect(() => mapViewportOptions('missing')).toThrow('Unknown map viewport profile');
   });

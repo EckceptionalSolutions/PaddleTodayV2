@@ -9,6 +9,7 @@ import {
 } from './board-presenters.js';
 import {
   bindMarkerPopup,
+  createMapMarker,
   escapeHtml,
   markerClassForRating,
 } from './map-runtime.js';
@@ -26,7 +27,9 @@ export function createBoardMapMarker({
   markerLabel,
   markerAriaLabel,
   popupMarkup,
+  popupOptions = {},
   includeDataKey = false,
+  configureMarkerNode,
   onSelectedChange,
   onClick,
   documentObject = document,
@@ -49,22 +52,21 @@ export function createBoardMapMarker({
   if (includeDataKey) {
     markerNode.dataset.summaryMapMarker = item.key;
   }
+  configureMarkerNode?.(markerNode, item);
 
-  const marker = new maplibregl.Marker({
+  let marker = null;
+  marker = createMapMarker({
+    maplibregl,
+    mapRuntime,
     element: markerNode,
-    anchor: 'center',
-  })
-    .setLngLat([point.longitude, point.latitude])
-    .setPopup(
-      new maplibregl.Popup({
-        offset: 18,
-        closeButton: true,
-        closeOnClick: true,
-        maxWidth: '248px',
-      }).setHTML(popupMarkup(item)),
-    )
-    .addTo(mapRuntime);
-
+    point,
+    popupHtml: popupMarkup(item),
+    popupOptions: {
+      offset: 18,
+      maxWidth: '248px',
+      ...popupOptions,
+    },
+  });
   bindPopup(marker, markerNode, {
     map: mapRuntime,
     onSelectedChange: (selected) => onSelectedChange?.(selected, item, marker),

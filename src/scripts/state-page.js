@@ -1,5 +1,6 @@
 import {
   clearMapMarkers,
+  createMapStatusController,
   createPaddleMap,
   ensureMapLibre,
   escapeHtml,
@@ -8,8 +9,10 @@ import {
   riverNameVariants,
   scoreZoneRouteLabel,
   syncActualRiverLayer,
+  syncGeoJsonOverlay,
   waitForMapReady,
 } from './map-runtime.js';
+import { createBoardMapMarker } from './board-map-controller.js';
 import { ratingDisplayLabel } from './ui-taxonomy.js';
 import { ratingToneKey, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { canonicalRiverRouteLineFromFeature, loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
@@ -27,6 +30,11 @@ if (!(root instanceof HTMLElement)) {
 
 const mapElement = root.querySelector('[data-state-map]');
 const mapStatus = root.querySelector('[data-state-map-status]');
+const mapStatusController = createMapStatusController(mapStatus, {
+  loading: 'Loading supported river map.',
+  empty: 'No route coordinates available.',
+  unavailable: 'Static route starts shown. Interactive map unavailable right now.',
+});
 const routeDataElement = root.querySelector('[data-state-map-routes]');
 const statePageElement = root.querySelector('[data-state-page]');
 const liveList = root.querySelector('[data-state-live-list]');
@@ -178,41 +186,44 @@ function syncStateScoreMarkers() {
       if (!point || !river || zone.score === null) continue;
       zoneCount += 1;
 
-      const markerNode = document.createElement('button');
-      markerNode.type = 'button';
-      markerNode.className = `${markerClassForRating(zone.rating, zone.confidence?.label)} score-map-marker--condition-zone`;
-      markerNode.classList.toggle('score-map-marker--river-expanded', group.key === selectedRiverKey);
-      markerNode.classList.toggle('state-map-marker--muted', Boolean(selectedRiverKey) && group.key !== selectedRiverKey);
-      markerNode.dataset.routeSlug = river.slug;
-      markerNode.dataset.stateRiverKey = group.key;
-      markerNode.innerHTML = `<span>${escapeHtml(String(zone.score))}</span>`;
       const markerAriaLabel = `${river.name}, ${zone.regions.join(', ') || 'score zone'}: score ${zone.score}, ${zone.routes.length} ${zone.routes.length === 1 ? 'route' : 'routes'}`;
-      markerNode.setAttribute('aria-label', markerAriaLabel);
 
-      const marker = new maplibreRuntime.Marker({ element: markerNode, anchor: 'center' })
-        .setLngLat([point.longitude, point.latitude])
-        .setPopup(
-          new maplibreRuntime.Popup({ offset: 16, closeButton: true, closeOnClick: true, maxWidth: '280px' })
-            .setHTML(stateScoreZonePopupMarkup(zone))
-        )
-        .addTo(stateMap);
-      markerNode.setAttribute('aria-label', markerAriaLabel);
-      markerNode.addEventListener('click', () => {
-        selectRiverCoverage(group.key);
-        selectRoute(river.slug, { popup: false, preserveRiver: true });
+      const marker = createBoardMapMarker({
+        maplibregl: maplibreRuntime,
+        mapRuntime: stateMap,
+        item: zone,
+        point,
+        markerClassFor: (mapZone) =>
+          `${markerClassForRating(mapZone.rating, mapZone.confidence?.label)} score-map-marker--condition-zone`,
+        markerLabel: (mapZone) => String(mapZone.score),
+        markerAriaLabel: () => markerAriaLabel,
+        popupMarkup: stateScoreZonePopupMarkup,
+        popupOptions: { offset: 16, maxWidth: '280px' },
+        configureMarkerNode: (node) => {
+          node.classList.toggle('score-map-marker--river-expanded', group.key === selectedRiverKey);
+          node.classList.toggle('state-map-marker--muted', Boolean(selectedRiverKey) && group.key !== selectedRiverKey);
+          node.dataset.routeSlug = river.slug;
+          node.dataset.stateRiverKey = group.key;
+        },
+        onClick: () => {
+          selectRiverCoverage(group.key);
+          selectRoute(river.slug, { popup: false, preserveRiver: true });
+        },
       });
       markers.push(marker);
     }
   }
 
   updateMarkerZoomMode();
-  if (mapStatus instanceof HTMLElement) {
-    if (selectedGroup) {
-      const river = selectedGroup.representative?.river;
-      mapStatus.textContent = `Showing ${selectedGroup.routes.length} mapped ${river?.name || 'river'} routes across ${groupRoutesByConditionScore(selectedGroup.routes).length} score zones.`;
-    } else {
-      mapStatus.textContent = `Showing ${zoneCount} condition ${zoneCount === 1 ? 'zone' : 'zones'} across ${riverGroups.length} supported ${riverGroups.length === 1 ? 'river' : 'rivers'}. Select a zone to highlight its river coverage.`;
-    }
+  if (selectedGroup) {
+    const river = selectedGroup.representative?.river;
+    mapStatusController.ready({
+      message: `Showing ${selectedGroup.routes.length} mapped ${river?.name || 'river'} routes across ${groupRoutesByConditionScore(selectedGroup.routes).length} score zones.`,
+    });
+  } else {
+    mapStatusController.ready({
+      message: `Showing ${zoneCount} condition ${zoneCount === 1 ? 'zone' : 'zones'} across ${riverGroups.length} supported ${riverGroups.length === 1 ? 'river' : 'rivers'}. Select a zone to highlight its river coverage.`,
+    });
   }
 }
 
@@ -656,18 +667,12 @@ function syncCanonicalStateRiverLayer(routes) {
   if (!stateMap) return;
   const sourceId = 'state-supported-rivers-canonical';
   const data = canonicalStateRiverData(routes);
-  const source = stateMap.getSource(sourceId);
-  if (source && typeof source.setData === 'function') {
-    source.setData(data);
-  } else if (!source) {
-    stateMap.addSource(sourceId, { type: 'geojson', data });
-  }
-
-  if (!stateMap.getLayer('state-supported-rivers')) {
-    stateMap.addLayer({
+  syncGeoJsonOverlay(stateMap, {
+    sourceId,
+    data,
+    layers: [{
       id: 'state-supported-rivers',
       type: 'line',
-      source: sourceId,
       minzoom: 3.6,
       layout: { 'line-cap': 'round', 'line-join': 'round' },
       paint: {
@@ -675,8 +680,8 @@ function syncCanonicalStateRiverLayer(routes) {
         'line-width': ['interpolate', ['linear'], ['zoom'], 3.6, 2.8, 6, 4.2, 10, 5],
         'line-opacity': 0.62,
       },
-    });
-  }
+    }],
+  });
 }
 
 function updateMapVisibility() {
@@ -718,10 +723,10 @@ function updateMapVisibility() {
     labelSource.setData(riverLabelData(selectedRiverKey ? routesForSelectedRiver() : visibleRoutes));
   }
 
-  if (mapStatus instanceof HTMLElement) {
-    const riverCount = new Set(visibleRoutes.map((route) => route.riverId || route.name)).size;
-    mapStatus.textContent = `Showing ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'} and ${visibleRoutes.length} ${visibleRoutes.length === 1 ? 'route' : 'routes'}. Route dots are visible now; zoom in for labels or select a route to trace its reach.`;
-  }
+  const riverCount = new Set(visibleRoutes.map((route) => route.riverId || route.name)).size;
+  mapStatusController.ready({
+    message: `Showing ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'} and ${visibleRoutes.length} ${visibleRoutes.length === 1 ? 'route' : 'routes'}. Route dots are visible now; zoom in for labels or select a route to trace its reach.`,
+  });
 
   if (stateLiveResults.length > 0) {
     syncStateScoreMarkers();
@@ -778,10 +783,12 @@ function setRouteReachData(feature) {
 }
 
 function setSelectedRouteStatus(route, feature) {
-  if (!(mapStatus instanceof HTMLElement) || !route) return;
-  mapStatus.textContent = feature?.properties?.traced
-    ? `Tracing ${route.name}: ${route.reach} along the river line.`
-    : `Showing ${route.name}: ${route.reach}. Detailed river geometry was not available here, so this selected reach uses access coordinates.`;
+  if (!route) return;
+  mapStatusController.ready({
+    message: feature?.properties?.traced
+      ? `Tracing ${route.name}: ${route.reach} along the river line.`
+      : `Showing ${route.name}: ${route.reach}. Detailed river geometry was not available here, so this selected reach uses access coordinates.`,
+  });
 }
 
 function refreshSelectedRouteReach() {
@@ -878,9 +885,8 @@ function selectRoute(slug, options = {}) {
     const bounds = routeFeatureBounds(feature);
     if (bounds) {
       fitMapBounds(stateMap, bounds, {
-        padding: window.matchMedia('(max-width: 760px)').matches ? 52 : 82,
-        maxZoom: 10.5,
-        duration: 520,
+        profile: 'stateSelectedRoute',
+        compact: window.matchMedia('(max-width: 760px)').matches,
       });
     }
   }
@@ -903,6 +909,8 @@ async function renderMap(routes) {
   if (!(mapElement instanceof HTMLElement)) {
     return;
   }
+
+  mapStatusController.loading();
 
   try {
     const maplibregl = await ensureMapLibre();
@@ -928,47 +936,42 @@ async function renderMap(routes) {
       lineOpacity: 0.58,
     });
 
-    stateMap.addSource('state-route-lines', {
-      type: 'geojson',
+    syncGeoJsonOverlay(stateMap, {
+      sourceId: 'state-route-lines',
       data: emptyFeatureCollection,
-    });
-    stateMap.addLayer({
-      id: 'state-route-lines-halo',
-      type: 'line',
-      source: 'state-route-lines',
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round',
-      },
-      paint: {
-        'line-color': 'rgba(255, 255, 255, 0.94)',
-        'line-width': 8,
-        'line-opacity': 0.94,
-      },
-    });
-    stateMap.addLayer({
-      id: 'state-route-lines-highlight',
-      type: 'line',
-      source: 'state-route-lines',
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round',
-      },
-      paint: {
-        'line-color': ['match', ['get', 'difficulty'], 'easy', '#2f7185', 'moderate', '#6f7f3f', '#9d4e38'],
-        'line-width': 5,
-        'line-opacity': 0.96,
-      },
+      layers: [{
+        id: 'state-route-lines-halo',
+        type: 'line',
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-color': 'rgba(255, 255, 255, 0.94)',
+          'line-width': 8,
+          'line-opacity': 0.94,
+        },
+      }, {
+        id: 'state-route-lines-highlight',
+        type: 'line',
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-color': ['match', ['get', 'difficulty'], 'easy', '#2f7185', 'moderate', '#6f7f3f', '#9d4e38'],
+          'line-width': 5,
+          'line-opacity': 0.96,
+        },
+      }],
     });
 
-    stateMap.addSource('state-river-labels', {
-      type: 'geojson',
+    syncGeoJsonOverlay(stateMap, {
+      sourceId: 'state-river-labels',
       data: riverLabelData(routes),
-    });
-    stateMap.addLayer({
+      layers: [{
       id: 'state-river-labels',
       type: 'symbol',
-      source: 'state-river-labels',
       minzoom: 5.2,
       layout: {
         'text-field': ['concat', ['get', 'name'], ' · ', ['to-string', ['get', 'routeCount']]],
@@ -982,6 +985,7 @@ async function renderMap(routes) {
         'text-halo-color': 'rgba(255, 255, 255, 0.94)',
         'text-halo-width': 2,
       },
+      }],
     });
 
     stateMap.on('click', 'state-route-lines-highlight', (event) => {
@@ -1006,23 +1010,23 @@ async function renderMap(routes) {
       const point = routePoint(route);
       if (!point) continue;
 
-      const markerNode = document.createElement('button');
-      markerNode.type = 'button';
-      markerNode.className = `state-map-marker state-map-marker--${route.difficulty}`;
-      markerNode.dataset.routeSlug = route.slug;
-      markerNode.textContent = route.difficulty === 'easy' ? 'E' : route.difficulty === 'moderate' ? 'M' : 'D';
-      markerNode.setAttribute('aria-label', `${route.name}: ${route.reach}`);
-
-      const marker = new maplibregl.Marker({
-        element: markerNode,
-        anchor: 'center',
-      })
-        .setLngLat([point.longitude, point.latitude])
-        .setPopup(new maplibregl.Popup({ offset: 16, closeButton: true, closeOnClick: true, maxWidth: '280px' }).setHTML(routePopupMarkup(route)))
-        .addTo(stateMap);
-
-      markerNode.addEventListener('click', () => {
-        selectRoute(route.slug, { popup: false });
+      const marker = createBoardMapMarker({
+        maplibregl,
+        mapRuntime: stateMap,
+        item: route,
+        point,
+        markerClassFor: (mapRoute) => `state-map-marker state-map-marker--${mapRoute.difficulty}`,
+        markerLabel: (mapRoute) =>
+          mapRoute.difficulty === 'easy' ? 'E' : mapRoute.difficulty === 'moderate' ? 'M' : 'D',
+        markerAriaLabel: (mapRoute) => `${mapRoute.name}: ${mapRoute.reach}`,
+        popupMarkup: routePopupMarkup,
+        popupOptions: { offset: 16, maxWidth: '280px' },
+        configureMarkerNode: (node, mapRoute) => {
+          node.dataset.routeSlug = mapRoute.slug;
+        },
+        onClick: (mapRoute) => {
+          selectRoute(mapRoute.slug, { popup: false });
+        },
       });
 
       markers.push(marker);
@@ -1036,26 +1040,21 @@ async function renderMap(routes) {
 
     if (hasBounds) {
       fitMapBounds(stateMap, bounds, {
-        padding: window.matchMedia('(max-width: 760px)').matches ? 28 : 54,
-        maxZoom: 8.7,
-        duration: 500,
+        profile: 'stateResults',
+        compact: window.matchMedia('(max-width: 760px)').matches,
       });
       updateMarkerZoomMode();
-      if (mapStatus instanceof HTMLElement) {
-        const riverCount = new Set(routes.map((route) => route.riverId || route.name)).size;
-        mapStatus.textContent = `Showing ${riverCount} supported rivers and ${markers.length} condition zones. Select a zone to open a representative route.`;
-      }
+      const riverCount = new Set(routes.map((route) => route.riverId || route.name)).size;
+      mapStatusController.ready({
+        message: `Showing ${riverCount} supported rivers and ${markers.length} condition zones. Select a zone to open a representative route.`,
+      });
       return;
     }
 
-    if (mapStatus instanceof HTMLElement) {
-      mapStatus.textContent = 'No route coordinates available.';
-    }
+    mapStatusController.empty();
   } catch (error) {
     console.error('Failed to render state map.', error);
-    if (mapStatus instanceof HTMLElement) {
-      mapStatus.textContent = 'Static route starts shown. Interactive map unavailable right now.';
-    }
+    mapStatusController.unavailable();
   }
 }
 

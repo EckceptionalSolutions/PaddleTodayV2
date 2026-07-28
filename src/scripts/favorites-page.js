@@ -2,8 +2,8 @@ import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-
 import { decorateFavoriteButton, bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { readFavorites, subscribeFavorites } from './favorites-store.js';
 import {
-  bindMarkerPopup,
   clearMapMarkers,
+  createMapStatusController,
   createPaddleMap,
   ensureMapLibre,
   escapeHtml,
@@ -11,6 +11,7 @@ import {
   markerClassForRating,
   waitForMapReady,
 } from './map-runtime.js';
+import { createBoardMapMarker } from './board-map-controller.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
@@ -26,6 +27,10 @@ const template = document.querySelector('[data-favorites-card-template]');
 const favoritesMapShell = document.querySelector('[data-favorites-map-shell]');
 const favoritesMapCopy = document.querySelector('[data-favorites-map-copy]');
 const favoritesMapStatus = document.querySelector('[data-favorites-map-status]');
+const favoritesMapStatusController = createMapStatusController(favoritesMapStatus, {
+  empty: 'Save a route to see it here.',
+  unavailable: 'Saved-route map unavailable right now.',
+});
 const favoritesMap = document.querySelector('[data-favorites-map]');
 
 const favoritesRequestGuard = createRequestGuard();
@@ -234,7 +239,7 @@ async function renderFavoritesMap(results = latestResults) {
 
   if (totalFavorites === 0) {
     favoritesMapShell.hidden = true;
-    favoritesMapStatus.textContent = 'Save a route to see it here.';
+    favoritesMapStatusController.empty();
     favoritesMapCopy.textContent = 'Your saved-route map appears once you save a route on this device.';
     favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
     return;
@@ -242,14 +247,17 @@ async function renderFavoritesMap(results = latestResults) {
 
   if (mappable.length === 0) {
     favoritesMapShell.hidden = true;
-    favoritesMapStatus.textContent = 'Saved-route map unavailable right now.';
+    favoritesMapStatusController.unavailable();
     favoritesMapCopy.textContent = 'Saved routes exist, but none are available in the latest board snapshot yet.';
     favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
     return;
   }
 
   favoritesMapShell.hidden = false;
-  favoritesMapStatus.textContent = mappable.length === 1 ? 'Showing 1 saved route.' : `Showing ${mappable.length} saved routes.`;
+  const mapReadyMessage = mappable.length === 1
+    ? 'Showing 1 saved route.'
+    : `Showing ${mappable.length} saved routes.`;
+  favoritesMapStatusController.loading({ message: mapReadyMessage });
   favoritesMapCopy.textContent =
     hiddenCount > 0
       ? `${mappable.length} saved routes are on the current board. ${hiddenCount} saved ${hiddenCount === 1 ? 'route is' : 'routes are'} not in the latest snapshot.`
@@ -258,7 +266,7 @@ async function renderFavoritesMap(results = latestResults) {
   try {
     const maplibregl = await ensureMapLibre();
     if (!maplibregl) {
-      favoritesMapStatus.textContent = 'Saved-route map unavailable right now.';
+      favoritesMapStatusController.unavailable();
       return;
     }
 
@@ -282,37 +290,31 @@ async function renderFavoritesMap(results = latestResults) {
     const bounds = new maplibregl.LngLatBounds();
     for (const entry of mappable) {
       const { current, location } = entry;
-      const markerNode = document.createElement('button');
-      markerNode.type = 'button';
-      markerNode.className = markerClassForRating(current.rating, current.confidence?.label);
-      markerNode.innerHTML = `<span>${current.score}</span>`;
-      markerNode.setAttribute(
-        'aria-label',
-        `${current.river.reach}: score ${current.score}, ${confidenceDisplayLabel(current.confidence.label).toLowerCase()}`
-      );
-      if (current.river.slug === selectedFavoriteSlug) {
-        markerNode.classList.add('score-map-marker--selected');
-      }
-
-      const marker = new maplibregl.Marker({
-        element: markerNode,
-        anchor: 'center',
-      })
-        .setLngLat([location.longitude, location.latitude])
-        .setPopup(new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '288px' }).setHTML(favoriteMapPopupMarkup(current)))
-        .addTo(favoritesMapRuntime);
-
-      bindMarkerPopup(marker, markerNode, {
-        map: favoritesMapRuntime,
-        onSelectedChange(selected) {
+      const marker = createBoardMapMarker({
+        maplibregl,
+        mapRuntime: favoritesMapRuntime,
+        item: current,
+        point: location,
+        markerClassFor: (item) => markerClassForRating(item.rating, item.confidence?.label),
+        markerLabel: (item) => String(item.score),
+        markerAriaLabel: (item) =>
+          `${item.river.reach}: score ${item.score}, ${confidenceDisplayLabel(item.confidence.label).toLowerCase()}`,
+        popupMarkup: favoriteMapPopupMarkup,
+        popupOptions: { maxWidth: '288px' },
+        configureMarkerNode: (node, item) => {
+          if (item.river.slug === selectedFavoriteSlug) {
+            node.classList.add('score-map-marker--selected');
+          }
+        },
+        onSelectedChange(selected, item) {
           if (!selected) {
-            if (selectedFavoriteSlug === current.river.slug) {
+            if (selectedFavoriteSlug === item.river.slug) {
               setFavoriteCardSelection('');
             }
             return;
           }
 
-          setFavoriteCardSelection(current.river.slug);
+          setFavoriteCardSelection(item.river.slug);
         },
       });
 
@@ -321,16 +323,15 @@ async function renderFavoritesMap(results = latestResults) {
     }
 
     fitMapBounds(favoritesMapRuntime, bounds, {
-      padding: window.matchMedia('(max-width: 760px)').matches
-        ? { top: 24, right: 24, bottom: 24, left: 24 }
-        : { top: 42, right: 42, bottom: 42, left: 42 },
+      profile: 'favorites',
+      compact: window.matchMedia('(max-width: 760px)').matches,
       maxZoom: mappable.length === 1 ? 9.8 : 10.2,
-      duration: 650,
     });
     favoritesMapRuntime.resize();
+    favoritesMapStatusController.ready({ message: mapReadyMessage });
   } catch (error) {
     console.error('Failed to load favorites map.', error);
-    favoritesMapStatus.textContent = 'Saved-route map unavailable right now.';
+    favoritesMapStatusController.unavailable();
   }
 }
 

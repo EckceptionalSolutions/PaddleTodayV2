@@ -1,6 +1,7 @@
 import {
-  bindMarkerPopup,
   clearMapMarkers,
+  createMapMarker,
+  createMapStatusController,
   createPaddleMap,
   ensureMapLibre,
   escapeHtml,
@@ -9,7 +10,9 @@ import {
   markerClassForRating,
   scoreZoneRouteLabel,
   syncActualRiverLayer,
+  syncGeoJsonOverlay,
 } from './map-runtime.js';
+import { createBoardMapMarker } from './board-map-controller.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
@@ -44,6 +47,11 @@ const refreshNote = root.querySelector('[data-group-refresh-note]');
 const groupMap = root.querySelector('[data-group-map]');
 const groupMapShell = groupMap?.closest('.river-group-page__map-shell');
 const groupMapStatus = root.querySelector('[data-group-map-status]');
+const groupMapStatusController = createMapStatusController(groupMapStatus, {
+  loading: 'Loading route map.',
+  empty: 'No routes match these filters.',
+  unavailable: 'Route map unavailable right now.',
+});
 const groupMapToggle = root.querySelector('[data-group-map-toggle]');
 const resultsSummary = root.querySelector('[data-group-results-summary]');
 const distanceFilterButtons = Array.from(root.querySelectorAll('[data-group-distance-filter]'));
@@ -953,21 +961,13 @@ function syncRouteLayers(routes) {
   const labelSourceId = 'river-group-trip-labels';
   const data = routeLineCollection(routes);
   const labelData = routeLabelCollection(routes);
-  const source = mapRuntime.getSource(sourceId);
-  const labelSource = mapRuntime.getSource(labelSourceId);
-  if (labelSource && typeof labelSource.setData === 'function') {
-    labelSource.setData(labelData);
-  } else if (!labelSource) {
-    mapRuntime.addSource(labelSourceId, { type: 'geojson', data: labelData });
-  }
-  if (source && typeof source.setData === 'function') {
-    source.setData(data);
-  } else if (!source) {
-    mapRuntime.addSource(sourceId, { type: 'geojson', data });
-    mapRuntime.addLayer({
+  const hadSource = Boolean(mapRuntime.getSource(sourceId));
+  syncGeoJsonOverlay(mapRuntime, {
+    sourceId,
+    data,
+    layers: [{
       id: 'river-group-trip-lines-base',
       type: 'line',
-      source: sourceId,
       layout: {
         'line-cap': 'round',
         'line-join': 'round',
@@ -984,11 +984,9 @@ function syncRouteLayers(routes) {
         'line-width': 4,
         'line-opacity': 0.34,
       },
-    });
-    mapRuntime.addLayer({
+    }, {
       id: 'river-group-trip-line-halo',
       type: 'line',
-      source: sourceId,
       filter: ['==', ['get', 'slug'], selectedSlug || ''],
       layout: {
         'line-cap': 'round',
@@ -999,11 +997,9 @@ function syncRouteLayers(routes) {
         'line-width': 11,
         'line-opacity': 0.96,
       },
-    });
-    mapRuntime.addLayer({
+    }, {
       id: 'river-group-trip-line-selected',
       type: 'line',
-      source: sourceId,
       filter: ['==', ['get', 'slug'], selectedSlug || ''],
       layout: {
         'line-cap': 'round',
@@ -1014,11 +1010,14 @@ function syncRouteLayers(routes) {
         'line-width': 6,
         'line-opacity': 1,
       },
-    });
-    mapRuntime.addLayer({
+    }],
+  });
+  syncGeoJsonOverlay(mapRuntime, {
+    sourceId: labelSourceId,
+    data: labelData,
+    layers: [{
       id: 'river-group-trip-distance-labels',
       type: 'symbol',
-      source: labelSourceId,
       minzoom: 8.2,
       layout: {
         'text-field': ['get', 'distanceLabel'],
@@ -1032,11 +1031,9 @@ function syncRouteLayers(routes) {
         'text-halo-color': 'rgba(255, 255, 255, 0.97)',
         'text-halo-width': 3,
       },
-    });
-    mapRuntime.addLayer({
+    }, {
       id: 'river-group-trip-distance-selected',
       type: 'symbol',
-      source: labelSourceId,
       filter: ['==', ['get', 'slug'], selectedSlug || ''],
       layout: {
         'text-field': ['get', 'distanceLabel'],
@@ -1051,8 +1048,10 @@ function syncRouteLayers(routes) {
         'text-halo-color': 'rgba(255, 255, 255, 0.99)',
         'text-halo-width': 4,
       },
-    });
+    }],
+  });
 
+  if (!hadSource) {
     mapRuntime.on('click', 'river-group-trip-lines-base', (event) => {
       const slug = event.features?.[0]?.properties?.slug;
       if (!slug) return;
@@ -1097,12 +1096,12 @@ function syncSelectedRouteEndpoints(route, maplibregl) {
   ].filter((entry) => entry.point);
 
   for (const endpoint of endpoints) {
-    const marker = new maplibregl.Marker({
+    const marker = createMapMarker({
+      maplibregl,
+      mapRuntime,
       element: endpointMarkerNode(endpoint.label, endpoint.detail, endpoint.kind),
-      anchor: 'center',
-    })
-      .setLngLat([endpoint.point.longitude, endpoint.point.latitude])
-      .addTo(mapRuntime);
+      point: endpoint.point,
+    });
     mapMarkers.push(marker);
   }
 }
@@ -1146,26 +1145,23 @@ function syncConditionScoreMarkers(routes, maplibregl) {
         regions: [...new Set([route.river?.region || route.region].filter(Boolean))],
       };
 
-      const markerNode = document.createElement('button');
-      markerNode.type = 'button';
-      markerNode.className = `${markerClassForRating(routeGroup.rating, routeGroup.confidence?.label)} score-map-marker--condition-zone`;
-      markerNode.innerHTML = `<span>${escapeHtml(String(routeGroup.score))}</span>`;
       const markerAriaLabel = `${routeGroup.representative?.name || 'River'}, ${routeGroup.regions.join(', ') || 'score zone'}: score ${routeGroup.score}, 1 route`;
-      markerNode.setAttribute('aria-label', markerAriaLabel);
 
-      const marker = new maplibregl.Marker({ element: markerNode, anchor: 'center' })
-        .setLngLat([point.longitude, point.latitude])
-        .setPopup(
-          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '260px' })
-            .setHTML(conditionScorePopupMarkup(routeGroup))
-        )
-        .addTo(mapRuntime);
-      markerNode.setAttribute('aria-label', markerAriaLabel);
-
-      bindMarkerPopup(marker, markerNode, { map: mapRuntime });
-      markerNode.addEventListener('click', () => {
-        const slug = routeGroup.representative?.slug;
-        if (slug) selectPickerRoute(slug, { focusMap: false, reveal: 'list', scrollToSelection: true });
+      const marker = createBoardMapMarker({
+        maplibregl,
+        mapRuntime,
+        item: routeGroup,
+        point,
+        markerClassFor: (mapGroup) =>
+          `${markerClassForRating(mapGroup.rating, mapGroup.confidence?.label)} score-map-marker--condition-zone`,
+        markerLabel: (mapGroup) => String(mapGroup.score),
+        markerAriaLabel: () => markerAriaLabel,
+        popupMarkup: conditionScorePopupMarkup,
+        popupOptions: { maxWidth: '260px' },
+        onClick: (mapGroup) => {
+          const slug = mapGroup.representative?.slug;
+          if (slug) selectPickerRoute(slug, { focusMap: false, reveal: 'list', scrollToSelection: true });
+        },
       });
       marker.getPopup()?.on('open', () => {
         const button = marker.getPopup()?.getElement()?.querySelector('[data-score-zone-route]');
@@ -1243,15 +1239,11 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
         // The replacement panel remains useful even if the prior map failed.
       }
     }
-    if (groupMapStatus instanceof HTMLElement) {
-      groupMapStatus.textContent = 'No routes match these filters.';
-    }
+    groupMapStatusController.empty();
     return;
   }
 
-  if (groupMapStatus instanceof HTMLElement) {
-    groupMapStatus.textContent = 'Loading route map.';
-  }
+  groupMapStatusController.loading();
 
   try {
     const maplibregl = await ensureMapLibre();
@@ -1287,26 +1279,21 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     if (bounds) {
       const compact = window.matchMedia('(max-width: 720px)').matches;
       fitMapBounds(mapRuntime, bounds, {
+        profile: focusSelected ? 'riverGroupSelected' : 'riverGroupResults',
+        compact,
         preserveViewport: preserveViewport && !focusSelected,
-        padding: compact
-          ? { top: 42, right: 34, bottom: 42, left: 34 }
-          : { top: 72, right: 72, bottom: 72, left: 72 },
-        maxZoom: focusSelected ? 11.2 : 9.4,
-        duration: 520,
       });
     }
     mapRuntime.resize();
 
-    if (groupMapStatus instanceof HTMLElement) {
-      groupMapStatus.textContent = routes.length === 1
+    groupMapStatusController.ready({
+      message: routes.length === 1
         ? '1 route · mileage follows the mapped reach.'
-        : `${routes.length} routes · ${groupRoutesByConditionScore(routes).length} score zones · select one to zoom.`;
-    }
+        : `${routes.length} routes · ${groupRoutesByConditionScore(routes).length} score zones · select one to zoom.`,
+    });
   } catch (error) {
     console.error('Failed to load river group map.', error);
-    if (groupMapStatus instanceof HTMLElement) {
-      groupMapStatus.textContent = 'Route map unavailable right now.';
-    }
+    groupMapStatusController.unavailable();
   }
 }
 

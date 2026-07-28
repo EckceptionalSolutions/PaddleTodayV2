@@ -33,6 +33,32 @@ const rules = [
     allowed: new Set(['src/scripts/map-runtime.js']),
   },
   {
+    name: 'Migrated web maps must use shared source and layer lifecycle',
+    pattern: /\.(?:addSource|removeSource|addLayer|removeLayer)\s*\(/g,
+    files: new Set([
+      'src/scripts/summary-board.js',
+      'src/scripts/summary-board-home.js',
+      'src/scripts/state-page.js',
+      'src/scripts/favorites-page.js',
+      'src/scripts/river-group-page.js',
+      'src/scripts/river-detail-page.js',
+    ]),
+    allowed: new Set(),
+  },
+  {
+    name: 'Migrated web maps must use shared marker construction',
+    pattern: /new\s+(?:maplibregl|maplibreRuntime)\.Marker\s*\(/g,
+    files: new Set([
+      'src/scripts/summary-board.js',
+      'src/scripts/summary-board-home.js',
+      'src/scripts/state-page.js',
+      'src/scripts/favorites-page.js',
+      'src/scripts/river-group-page.js',
+      'src/scripts/river-detail-page.js',
+    ]),
+    allowed: new Set(),
+  },
+  {
     name: 'SAS parsing must go through blob-storage',
     pattern: /function\s+parseContainerSas\s*\(/g,
     allowed: new Set(['src/lib/blob-storage.ts']),

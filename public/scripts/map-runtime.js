@@ -46,6 +46,62 @@ export const MAP_VIEWPORT_PROFILES = Object.freeze({
     maxZoom: 11.2,
     duration: 550,
   }),
+  stateResults: Object.freeze({
+    padding: Object.freeze({
+      compact: 28,
+      wide: 54,
+    }),
+    maxZoom: 8.7,
+    duration: 500,
+  }),
+  stateSelectedRoute: Object.freeze({
+    padding: Object.freeze({
+      compact: 52,
+      wide: 82,
+    }),
+    maxZoom: 10.5,
+    duration: 520,
+  }),
+  favorites: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 24, right: 24, bottom: 24, left: 24 }),
+      wide: Object.freeze({ top: 42, right: 42, bottom: 42, left: 42 }),
+    }),
+    maxZoom: 10.2,
+    duration: 650,
+  }),
+  riverGroupResults: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 42, right: 34, bottom: 42, left: 34 }),
+      wide: Object.freeze({ top: 72, right: 72, bottom: 72, left: 72 }),
+    }),
+    maxZoom: 9.4,
+    duration: 520,
+  }),
+  riverGroupSelected: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 42, right: 34, bottom: 42, left: 34 }),
+      wide: Object.freeze({ top: 72, right: 72, bottom: 72, left: 72 }),
+    }),
+    maxZoom: 11.2,
+    duration: 520,
+  }),
+  detailHero: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 34, right: 34, bottom: 34, left: 34 }),
+      wide: Object.freeze({ top: 34, right: 34, bottom: 34, left: 34 }),
+    }),
+    maxZoom: 11.2,
+    duration: 0,
+  }),
+  detailAccess: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 44, right: 44, bottom: 44, left: 44 }),
+      wide: Object.freeze({ top: 44, right: 44, bottom: 44, left: 44 }),
+    }),
+    maxZoom: 11.6,
+    duration: 450,
+  }),
 });
 
 function ensureAsset(tagName, attrs) {
@@ -300,6 +356,48 @@ export function clearMapMarkers(markers) {
     }
   }
   return [];
+}
+
+export function createMapMarker({
+  maplibregl,
+  mapRuntime,
+  element,
+  point,
+  popupHtml = null,
+  popupOptions = {},
+  bindPopup = false,
+  onSelectedChange,
+}) {
+  if (!maplibregl || typeof maplibregl.Marker !== 'function' || !mapRuntime) {
+    throw new Error('Map marker requires MapLibre and an active map.');
+  }
+
+  let marker = new maplibregl.Marker({
+    element,
+    anchor: 'center',
+  }).setLngLat([point.longitude, point.latitude]);
+
+  if (popupHtml !== null) {
+    if (typeof maplibregl.Popup !== 'function') {
+      throw new Error('Map marker popup requires MapLibre Popup support.');
+    }
+    marker = marker.setPopup(
+      new maplibregl.Popup({
+        closeButton: true,
+        closeOnClick: true,
+        ...popupOptions,
+      }).setHTML(popupHtml),
+    );
+  }
+
+  marker = marker.addTo(mapRuntime);
+  if (bindPopup && popupHtml !== null) {
+    bindMarkerPopup(marker, element, {
+      map: mapRuntime,
+      onSelectedChange,
+    });
+  }
+  return marker;
 }
 
 export function syncGeoJsonOverlay(
