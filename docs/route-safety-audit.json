@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T11:54:46.998Z",
+  "generatedAt": "2026-07-28T12:12:30.578Z",
   "routeCount": 927,
-  "issueCount": 142,
+  "issueCount": 140,
   "summary": {
     "Critical": 0,
-    "High": 46,
-    "Medium": 96,
+    "High": 45,
+    "Medium": 95,
     "Low": 0
   },
   "issues": [
@@ -31,17 +31,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
-    },
-    {
-      "routeId": "zumbro-river-theilman-kruger",
-      "slug": "zumbro-river-theilman-kruger",
-      "name": "Zumbro River",
-      "reach": "Theilman Access to Kruger Access",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "as the upper main stem. It can still work below that, but flash-rain spikes and wood should lower trust quickly. Mostly approachable moving water at normal levels, but isolation, mud, and storm-changed wood still matter. The same Zumbro Falls gauge context car"
     },
     {
       "routeId": "bryant-creek-sycamore-warren-bridge",
@@ -702,17 +691,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "s lower reach to the same 7 to 9 ft recommendation at Zumbro Falls. Lower-river caution Mississippi finish Wind chop and boat traffic near West Newton change the decision even when the Zumbro itself looks workable. Storm sensitivity High Treat fast-rising wate"
-    },
-    {
-      "routeId": "zumbro-river-theilman-kruger",
-      "slug": "zumbro-river-theilman-kruger",
-      "name": "Zumbro River",
-      "reach": "Theilman Access to Kruger Access",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "man and Kruger as the relevant carry-in accesses on this stretch. Rain response Flashy after storms The Zumbro can rise fast after rain, so a stable trend matters almost as much as the current reading. Camping context Possible nearby, not assumed Kruger and ne"
     },
     {
       "routeId": "beaver-creek-brownbranch-bradleyville",

@@ -12212,6 +12212,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Use the same 7 to 9 ft working band as the upper main stem. It can still work below that, but flash-rain spikes and wood should lower trust quickly.",
     "latitude": 44.28675,
     "longitude": -92.1867,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR describes lively current even at moderate levels and warns about snags, logs, and dangerous flash rises after rain. Skip this reach when the stage is rising or storm-moved wood cannot be avoided cleanly.",
+        "The exact-route report describes a beginner riffle run through an isolated state-forest corridor, but the easy rating does not remove the need for a companion, a communicated trip plan, and a conservative bailout plan.",
+        "Use the DNR-administered Theilman and Kruger public accesses and mapped watercraft campsites. DNR says much of the Zumbro shoreland is private, so do not assume unmarked banks are available exits or stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05374000",
       "provider": "usgs",
@@ -12255,15 +12270,27 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Route context",
-        "value": "Map 2 main stem",
-        "note": "MN DNR Map 2 supports Theilman and Kruger as the relevant carry-in accesses on this stretch.",
+        "value": "Theilman RM 23.0 to Kruger RM 12.2",
+        "note": "MN DNR Map 2 places the Theilman and Kruger carry-in accesses in sequence, with Funk Ford as the mapped intermediate carry-in and designated watercraft campsites along the corridor.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro2.pdf"
       },
       {
         "label": "Rain response",
         "value": "Flashy after storms",
-        "note": "The Zumbro can rise fast after rain, so a stable trend matters almost as much as the current reading.",
-        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/zumbroriver/index.html"
+        "note": "MN DNR warns that the Zumbro can rise dramatically and dangerously after rainstorms, with flash flooding possible after a short lag.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/index.html"
+      },
+      {
+        "label": "Primary safety review",
+        "value": "Snags, logs, isolation, and designated-site rules",
+        "note": "The 2026 DNR map warns about lively current, snags, logs, flash floods, overhanging or dead trees, and private shoreland. The exact-route report corroborates the isolated corridor, beginner riffles, named endpoints, and rough intermediate Funk Ford access.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro2.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS02185 to WAS00256",
+        "note": "Minnesota public-water-access GIS identifies Theilman and Kruger as DNR-administered Zumbro River public access sites at river miles 23.0 and 12.2.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
       },
       {
         "label": "Camping context",
@@ -12275,7 +12302,7 @@ export const minnesotaRoutes: River[] = [
     "sourceLinks": [
       {
         "label": "MN DNR Zumbro River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/zumbroriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html"
       },
       {
         "label": "MN DNR Zumbro River Map 2 PDF",
@@ -12283,7 +12310,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Zumbro River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/zumbroriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/index.html"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
       },
       {
         "label": "USGS 05374000 monitoring location",

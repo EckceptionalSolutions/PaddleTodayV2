@@ -3732,13 +3732,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "Nearby Dorer and Kruger camping options exist, but confirm them separately. Treat this segment as a day trip by default.",
       "summary": "Put in at Theilman and take out at Kruger for a quieter lower-Zumbro day. The same Zumbro Falls gauge still matters here, but the route feels more remote and storm-changed wood matters more.",
       "accessCaveats": [
-        "Both accesses are supported by MN DNR route materials, but same-day parking and landing conditions should still be checked on arrival.",
-        "Kruger is the cleaner downstream landing, but this reach is still remote enough that shuttle timing and backup plans matter."
+        "MN DNR Map 2 and public-access GIS identify Theilman at river mile 23.0 and Kruger at river mile 12.2 as DNR-administered public water accesses; follow posted parking and launch rules.",
+        "Funk Ford at river mile 16.8 is the only DNR-mapped intermediate carry-in on this reach. The exact-route report describes it as steep and muddy, so verify it before relying on it and do not assume other banks are usable exits."
       ],
       "watchFor": [
-        "Fast rises after rain and fresh debris on blind bends.",
-        "Muddy or poor intermediate stopovers if you need to get off early.",
-        "Cold-water exposure and limited bailout options compared with the upper Zumbro reaches."
+        "Snags, logs, and storm-moved wood on bends; DNR says river conditions can change at any time.",
+        "Dangerous flash rises after rain; skip the route when the stage is rising or clear wood avoidance is doubtful.",
+        "Lively current, riffles, and limited practical bailout options through the isolated state-forest corridor."
       ]
     }
   },
