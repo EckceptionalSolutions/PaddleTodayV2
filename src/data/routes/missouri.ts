@@ -3278,6 +3278,21 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is a conservative low-water floor from MoHERP and exact-route trip evidence; below that, expect shallow shoals, slower travel, and possible dragging. No ideal range or high cutoff is claimed.",
     "latitude": 37.054302,
     "longitude": -91.055459,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "NPS lists Waymeyer to Van Buren as an approximately three-hour Lower Current float and warns that flow changes alter timing. Treat the 700 cfs floor as a low-water check only; inspect the forecast and current level before committing to the shuttle.",
+        "NPS's current Compendium closes the Current to non-motorized vessels at the Van Buren Bridge at 5.00 ft. Flood water runs faster and carries debris, so check the park's current closure notice and do not launch into rising or closed conditions.",
+        "Waymeyer remains a non-commercial floater access, but NPS has documented erosion and limited unloading room. Use the signed access, keep staging brief, and use the signed Van Buren Riverfront Park ramp; do not substitute a private bank or informal town shoreline for either endpoint."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
@@ -3687,6 +3702,12 @@ export const missouriRoutes: River[] = [
         "value": "Van Buren Bridge 5.00 ft closed level",
         "note": "The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.",
         "sourceUrl": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm"
+      },
+      {
+        "label": "Primary safety review",
+        "value": "Waymeyer erosion, flood closure, and signed endpoints",
+        "note": "NPS identifies Waymeyer to Van Buren as a three-hour lower-Current section, documents Waymeyer as a non-commercial floater access with erosion and unloading limits, and lists the Lower Current approved access corridor. The Van Buren closure level remains a same-day flood check rather than a high-water route score.",
+        "sourceUrl": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf"
       }
     ],
     "sourceLinks": [
@@ -3703,6 +3724,11 @@ export const missouriRoutes: River[] = [
       {
         "label": "NPS Ozark Superintendent Compendium",
         "url": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Lower Current operating plan",
+        "url": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf",
         "provider": "nps"
       },
       {

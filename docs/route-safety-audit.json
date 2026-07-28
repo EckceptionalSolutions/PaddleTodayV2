@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:28:09.797Z",
+  "generatedAt": "2026-07-28T12:32:49.912Z",
   "routeCount": 927,
-  "issueCount": 134,
+  "issueCount": 131,
   "summary": {
     "Critical": 0,
-    "High": 43,
-    "Medium": 91,
+    "High": 42,
+    "Medium": 89,
     "Low": 0
   },
   "issues": [
@@ -97,17 +97,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "dragging. Do not treat high or rising water as a casual float, and respect NPS closure notices. NPS treats Cedar Grove to Akers as a standard 3-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold spring water,"
-    },
-    {
-      "routeId": "current-river-waymeyer-van-buren",
-      "slug": "current-river-waymeyer-van-buren",
-      "name": "Current River",
-      "reach": "Waymeyer Access to Van Buren Riverfront Park",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "s 700 cfs as a conservative floor and does not infer an ideal range. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
     },
     {
       "routeId": "eleven-point-river-greer-crossing-riverton",
@@ -757,28 +746,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "lists Akers at 2.00 ft average and 4.00 ft closed level. Use this as high-water caution, not an ideal range. Access rules Designated access points NPS private-vessel guidance says there is no fee for private floating inside park boundaries, but paddlers should"
-    },
-    {
-      "routeId": "current-river-waymeyer-van-buren",
-      "slug": "current-river-waymeyer-van-buren",
-      "name": "Current River",
-      "reach": "Waymeyer Access to Van Buren Riverfront Park",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Lower Current River day float from Waymeyer into Van Buren. NPS lists Waymeyer to Van Buren as a standard lower-river section, MDC confirms the Van Buren Riverfront Park boat ramp,"
-    },
-    {
-      "routeId": "current-river-waymeyer-van-buren",
-      "slug": "current-river-waymeyer-van-buren",
-      "name": "Current River",
-      "reach": "Waymeyer Access to Van Buren Riverfront Park",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. Endpoint coordinates 37.054302, -91.055459 to 36.9939, -91.0140 Paddling.com publishes coordinates for Waymeyer Access. The Van Buren coordinate"
     },
     {
       "routeId": "eleven-point-river-greer-crossing-riverton",
