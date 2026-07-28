@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:49:35.185Z",
+  "generatedAt": "2026-07-28T12:52:11.085Z",
   "routeCount": 927,
-  "issueCount": 115,
+  "issueCount": 110,
   "summary": {
     "Critical": 0,
-    "High": 36,
-    "Medium": 79,
+    "High": 32,
+    "Medium": 78,
     "Low": 0
   },
   "issues": [
@@ -361,50 +361,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "The route is marked moderate because commitment and planning are the issue, not whitewater. Official route Spring Green to Muscoda, 22 miles Wisconsin DNR lists Spring Green to Muscoda as a 22-mile Lower Wisconsin State Riverway canoe route with an estimated 6"
-    },
-    {
-      "routeId": "wolf-river-markton-big-smokey-falls",
-      "slug": "wolf-river-markton-big-smokey-falls",
-      "name": "Wolf River",
-      "reach": "Markton County M Landing to Big Smokey Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "wolf-river-markton-big-smokey-falls",
-      "slug": "wolf-river-markton-big-smokey-falls",
-      "name": "Wolf River",
-      "reach": "Markton County M Landing to Big Smokey Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "wolf-river-markton-big-smokey-falls",
-      "slug": "wolf-river-markton-big-smokey-falls",
-      "name": "Wolf River",
-      "reach": "Markton County M Landing to Big Smokey Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "e Falls, Sullivan Falls, Duck's Nest, Lower Dells, and Big Smokey Falls. Scout, portage, or use a licensed local outfitter if you are not fully comfortable with Class III-IV whitewater. Confidence is high for a guarded expert-only add: Wisconsin Trail Guide do"
-    },
-    {
-      "routeId": "wolf-river-markton-big-smokey-falls",
-      "slug": "wolf-river-markton-big-smokey-falls",
-      "name": "Wolf River",
-      "reach": "Markton County M Landing to Big Smokey Falls Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ribal lands, with County M access, the Dalles Gorge, Big Smokey Falls, multiple Class III drops, a Class IV finish, and a full Langlade-gauge flow ladder. Use the Wolf River at Langlade gauge. Treat 400 to 700 cfs as the best broad target, 250 to 400 cfs as lo"
     },
     {
       "routeId": "goose-creek-tobacco-road-dump-hollow",
@@ -1263,17 +1219,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "varies by paddler and camping plan, so the app separates the 17,000 cfs camping caution from the 20,000 cfs no-go ceiling. Published level bands 4,000 to 10,000 cfs normal Wisconsin Trail Guide treats 4,000 to 10,000 cfs at Muscoda as normal summer conditions"
-    },
-    {
-      "routeId": "wolf-river-markton-big-smokey-falls",
-      "slug": "wolf-river-markton-big-smokey-falls",
-      "name": "Wolf River",
-      "reach": "Markton County M Landing to Big Smokey Falls Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "Pismire Falls, Sullivan Falls, Duck's Nest, Lower Dells, and Big Smokey Falls. Scout, portage, or use a licensed local outfitter if you are not fully comfortable with Class III-IV whitewater. Confidence is high for a guarded expert-only add: Wisconsin Trail G"
     }
   ]
 }

@@ -549,6 +549,25 @@ export const wisconsinRoutes: River[] = [
     "latitude": 45.12518,
     "longitude": -88.66322,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "mandatory_takeout",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "This 12.7-mile Section IV run is advanced Class III-IV whitewater with five Class III-IV rapids in the final four miles, including Big Smokey Falls. Wisconsin Trail Guide says only experienced whitewater paddlers should attempt it; use a licensed local outfitter if the group cannot self-rescue and scout each major feature.",
+        "Obtain the required Menominee Tribal Lands permit before launching and confirm the current shuttle and access rules. Do not treat reservation roads, shorelines, or outfitter landings as general public access.",
+        "Use the Langlade gauge and its full flow ladder: below 250 cfs is not recommended, 400-700 cfs is the broad target, and higher flows bring pushy waves, sticky holes, powerful hydraulics, and stronger Class IV consequences. Recheck rain and trend, not just a single reading.",
+        "Big Smokey Falls has a signed upper landing on river-left for a portage; the left-fork slide below the footbridge is closed to running. If you are not intentionally running the falls, take out at the upper landing and do not miss the sign or continue downstream."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04074950",
       "provider": "usgs",
