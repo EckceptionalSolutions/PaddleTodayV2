@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:50:20.135Z",
+  "generatedAt": "2026-07-28T15:52:11.507Z",
   "routeCount": 927,
-  "issueCount": 15,
+  "issueCount": 13,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 15,
+    "Medium": 13,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "gasconade-river-rollins-ferry-pointers-creek",
-      "slug": "gasconade-river-rollins-ferry-pointers-creek",
-      "name": "Gasconade River",
-      "reach": "Rollins Ferry Access to Pointers Creek Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Seven-mile lower Gasconade day from MDC Rollins Ferry Access to MDC Pointers Creek Access. MDC uses this exact route for a guided paddling program, and the Rich Fountain USGS gauge"
-    },
-    {
-      "routeId": "gasconade-river-rollins-ferry-pointers-creek",
-      "slug": "gasconade-river-rollins-ferry-pointers-creek",
-      "name": "Gasconade River",
-      "reach": "Rollins Ferry Access to Pointers Creek Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "rounded 1,100 cfs low-water floor and does not infer an ideal range. High-water caution No numeric cutoff claimed MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat"
-    },
     {
       "routeId": "niangua-river-bennett-spring-barclay",
       "slug": "niangua-river-bennett-spring-barclay",

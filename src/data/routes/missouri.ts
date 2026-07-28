@@ -10902,6 +10902,21 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Gasconade River near Rich Fountain gauge. Around 1,100 cfs is the conservative low-water floor; below that, expect dragging, slow pools, and reduced float length. High or rising water can make this broad river unsafe for casual trips.",
     "latitude": 38.393528,
     "longitude": -91.820729,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the direct Rich Fountain gauge and keep the existing 1,100 cfs conservative low-water floor. Below it, expect dragging, slow pools, and a reduced float; no exact upper cutoff is claimed because this route lacks exact-trip high-water calibration.",
+        "The broad lower Gasconade can become pushy, muddy, and debris-filled when high or rising. Expect floating wood, strainers on bends, island splits, motorboat traffic, wind-exposed pools, and harder landings; high or rising water is unsuitable for a casual trip even though the route is only about seven miles.",
+        "Rollins Ferry and Pointers Creek are public MDC access areas, but Route RA to Pointers Creek can be impassable at flood stage. Inspect the take-out road and landing before launch, follow posted signs, and do not use private banks or informal pull-offs as alternate access."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-06934000",
       "provider": "usgs",
