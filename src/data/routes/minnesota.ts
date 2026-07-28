@@ -2787,6 +2787,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Around 8.25 ft at Pilot Mound is the low-water marker. A report near 8.7 ft described a strong day, but the source guidance does not define a full low-to-high range.",
     "latitude": 43.81641,
     "longitude": -92.13924,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR recommends this as an easy section at typical levels, but its 2026 map says recommended sections have fewer woody obstructions, not none, and separately directs paddlers to avoid obstacles and overhanging or dead trees. Check the channel from shore where practical and do not treat the easy rating as a wood-clearance guarantee.",
+        "Pilot Mound's 8.25 ft threshold is only the lower edge of a community-published preferred band. It is not a manager-published upper cutoff, so recheck same-day rainfall, level, and current rather than treating a passing gauge score as a complete safety range.",
+        "Use the mapped carry-ins and designated campsites. The DNR map says much of the shoreland is private, prohibits riverbed camping next to private property, and directs paddlers to stay off private land."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05383950",
       "provider": "usgs",
@@ -2816,7 +2830,7 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the normal window. This upper North Branch reach gets shallow sooner than the bigger lower Root routes, and fresh rain can change wood and current faster than the easy rating suggests.",
       "difficulty": "easy",
-      "difficultyNotes": "Mostly beginner-friendly moving water with riffles and steering, but low-water scraping, sweepers, and cold shoulder-season water still matter.",
+      "difficultyNotes": "Mostly beginner-friendly moving water with riffles and steering, but low-water scraping, changeable woody obstructions, and private-bank limits still matter.",
       "confidenceNotes": "The route and gauge are both strong, but the numeric model is intentionally conservative. The best published benchmark is the lower edge of a preferred stage band from community guidance, not a manager-published paddling ladder."
     },
     "evidenceNotes": [
@@ -2841,8 +2855,8 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Route character",
         "value": "Gentle to moderate flow with riffles",
-        "note": "MN DNR describes the Root River as having a gentle to moderate flow with some riffles, while warning that levels vary substantially with rainfall.",
-        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/root.pdf"
+        "note": "MN DNR describes the Root River as having a gentle to moderate flow with some riffles, while warning that levels vary substantially with rainfall. Its 2026 Map 1 says recommended sections have fewer woody obstructions at typical levels, directs paddlers to avoid obstacles and overhanging or dead trees, and limits shore use to designated sites because much of the shoreland is private.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf"
       },
       {
         "label": "On-route campsite support",

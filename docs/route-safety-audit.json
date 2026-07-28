@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T03:40:38.977Z",
+  "generatedAt": "2026-07-28T03:54:51.115Z",
   "routeCount": 931,
-  "issueCount": 183,
+  "issueCount": 181,
   "summary": {
     "Critical": 0,
-    "High": 72,
-    "Medium": 111,
+    "High": 71,
+    "Medium": 110,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "root-river-parsley-moens",
-      "slug": "root-river-parsley-moens",
-      "name": "Root River",
-      "reach": "Parsley Bridge to Moen's Bridge",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "e published preferred band without recent rain turning a pretty easy run into a wood-and-current check? Around 8.25 ft at Pilot Mound is the low-water marker. A report near 8.7 ft described a strong day, but the source guidance does not define a full low-to-hi"
-    },
     {
       "routeId": "rum-river-north-county-central",
       "slug": "rum-river-north-county-central",
@@ -922,17 +911,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "pipe just past the take-out. Broader Otter Tail guidance also warns paddlers to scout culverts, bridges, dams, and obstructions. Frazee reach detail Riverside Park access/rest area Otter Tail County trail-planning materials identify Riverside Park as a boat ac"
-    },
-    {
-      "routeId": "root-river-parsley-moens",
-      "slug": "root-river-parsley-moens",
-      "name": "Root River",
-      "reach": "Parsley Bridge to Moen's Bridge",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Upper North Branch Driftless day with riffles, bluffs, and a cleaner gauge question than most small rivers: is Pilot Mound at or above the lower edge of the published preferred ban"
     },
     {
       "routeId": "rum-river-martins-north-county-park",

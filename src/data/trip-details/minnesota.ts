@@ -961,8 +961,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "Shallow riffles and scrape risk when Pilot Mound is near the floor.",
-        "Fresh wood or sweepers on blind bends after rain.",
-        "Longer shuttle friction and cold-water exposure outside midsummer."
+        "Woody obstructions and overhanging or dead trees; DNR describes the route as having fewer obstructions at typical levels, not as obstruction-free.",
+        "Rain-driven level changes, the longer shuttle, and private shoreland outside mapped accesses and campsites."
       ]
     }
   },
