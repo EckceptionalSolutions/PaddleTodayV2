@@ -817,14 +817,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Use a short Baraboo-area car shuttle between Haskins Park in West Baraboo and Glenville Landing on Highway 113. A bike shuttle is practical through town and along the riverwalk, but the final Highway 113 approach has traffic exposure.",
       "permits": "No route-specific paddling permit is known. Follow posted Haskins Park and Glenville Landing parking rules, and avoid blocking the landing or ADA kayak-launch approach.",
       "camping": "No on-route camping is expected. This is a short urban day route through Baraboo and past Circus World, not an overnight corridor.",
-      "summary": "Launch from Haskins Park and paddle the short Baraboo Rapids corridor through downtown Baraboo to Glenville Landing. The route is short and popular, but it has real current, riffles, and Class I ledges, so use the Baraboo gauge and scout if recent rain has changed wood or strainers.",
+      "summary": "Launch from Haskins Park and paddle the short Baraboo Rapids corridor through downtown Baraboo to Glenville Landing. The route is short and popular, but it is an intermediate moving-water run with real current, riffles, and Class I-II ledges, so use the Baraboo gauge and scout if recent rain has changed wood or strainers.",
       "accessCaveats": [
         "Haskins Park is the clean public start; the Baraboo River Corridor Plan documents a non-motorized boat launch, floating pier, and ADA-accessible kayak launch there.",
         "Glenville Landing is a public Highway 113 landing with parking, but muddy/silty conditions are common after rain or high water.",
         "The route runs through an urban corridor with bridges, public parks, museum property, and private edges. Stay in the river corridor and use only established landings."
       ],
       "watchFor": [
-        "Riffles and Class I ledges, especially around downtown Baraboo and the former dam/bridge corridors.",
+        "Riffles and Class I-II ledges, including the former-dam channel split above Walnut Street; scout when the line is unclear and do not rely on a historical channel recommendation.",
         "Strainers, bridge approaches, muddy banks, and higher-water push if the Baraboo gauge is rising.",
         "Low-water rock bumps below the 350 cfs same-route minimum, plus cold water in spring and fall."
       ]

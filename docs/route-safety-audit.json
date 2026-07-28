@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T00:44:28.474Z",
+  "generatedAt": "2026-07-28T00:55:11.295Z",
   "routeCount": 933,
-  "issueCount": 219,
+  "issueCount": 216,
   "summary": {
     "Critical": 0,
-    "High": 91,
-    "Medium": 128,
+    "High": 89,
+    "Medium": 127,
     "Low": 0
   },
   "issues": [
@@ -691,28 +691,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "g, tight riffles, and possible walking. High or rising water can make channels, wood, and bridge approaches dangerous. National Rivers Project lists Shoal Creek as Class I-II, and lower-Shoal trip notes mention log jams, brush piles, and a treacherous split ch"
-    },
-    {
-      "routeId": "baraboo-river-haskins-glenville",
-      "slug": "baraboo-river-haskins-glenville",
-      "name": "Baraboo River",
-      "reach": "Haskins Park to Glenville Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "S operates the Baraboo River Near Baraboo, WI monitoring location, and American Whitewater links the same station to the Baraboo Highway 12-to-Highway 113 reach. Public put-in Haskins Park ADA kayak launch The Baraboo River Corridor Plan says Haskins Park incl"
-    },
-    {
-      "routeId": "baraboo-river-haskins-glenville",
-      "slug": "baraboo-river-haskins-glenville",
-      "name": "Baraboo River",
-      "reach": "Haskins Park to Glenville Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "s, Class I ledges through downtown Baraboo, bridge approaches, muddy banks, and wood or strainers that matter more as the river rises. Confidence is good for a conservative Wisconsin add: Miles Paddled documents the exact Haskins Park-to-Highway-113 route with"
     },
     {
       "routeId": "bark-river-highway-164-to-merton-millpond",
@@ -2066,17 +2044,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "uses a conservative 225 cfs floor and does not infer an ideal range. High-water caution High reports include capsizes A MoHERP Tipton-Ford-to-Wildcat trip at 1,370 cfs was marked high and noted a treacherous split channel with many capsizes after the Highway 1"
-    },
-    {
-      "routeId": "baraboo-river-haskins-glenville",
-      "slug": "baraboo-river-haskins-glenville",
-      "name": "Baraboo River",
-      "reach": "Haskins Park to Glenville Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short Baraboo Rapids run from the Haskins Park ADA kayak launch through downtown Baraboo and Circus World to the Highway 113 Glenville Landing. It is one of the more useful short W"
     },
     {
       "routeId": "bark-river-highway-164-to-merton-millpond",

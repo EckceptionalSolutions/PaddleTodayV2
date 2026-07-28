@@ -2703,7 +2703,7 @@ export const wisconsinRoutes: River[] = [
     "state": "Wisconsin",
     "region": "South-Central Wisconsin",
     "summary": "Short Baraboo Rapids run from the Haskins Park ADA kayak launch through downtown Baraboo and Circus World to the Highway 113 Glenville Landing. It is one of the more useful short Wisconsin gauge-driven routes because the direct Baraboo gauge, public access points, and same-route community level notes all line up.",
-    "statusText": "Use the Baraboo River near Baraboo gauge. Treat about 350 cfs as the practical minimum for the Haskins-to-Glenville riffles; around 470 to 600 cfs has strong same-route community support, while higher water reduces eddy detail and makes strainers and Class I ledges more consequential.",
+    "statusText": "Use the Baraboo River near Baraboo gauge. Treat about 350 cfs as the practical minimum for the Haskins-to-Glenville riffles; around 470 to 600 cfs has strong same-route community support, while higher water reduces eddy detail and makes strainers and Class I-II ledges more consequential.",
     "latitude": 43.46997,
     "longitude": -89.76158,
     "gaugeSource": {
@@ -2715,6 +2715,19 @@ export const wisconsinRoutes: River[] = [
       "kind": "direct",
       "siteName": "Baraboo River Near Baraboo, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05405000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers"
+      ],
+      "safetyNotes": [
+        "Treat this as an intermediate moving-water run with brisk current, repeated riffles, and Class I-II ledges rather than a casual urban float.",
+        "Scout the former-dam channel split above Walnut Street when the line is not clear. Route-specific reporting documents stronger current and a strainer-prone channel there, so do not rely on a historical channel recommendation.",
+        "The 350 cfs value is a low-water floor, not an upper safe limit. Skip the route when rising or high water makes the ledges, bridge approaches, or wood avoidance exceed your skills."
+      ],
+      "reviewStatus": "reviewed"
     },
     "profile": {
       "thresholdModel": "minimum-only",
@@ -2737,7 +2750,7 @@ export const wisconsinRoutes: River[] = [
       ],
       "seasonNotes": "Spring through fall can work when the Baraboo gauge is above the same-route minimum. Summer drought can make the riffles bony, while rain can make the short urban rapids less playful and more pushy.",
       "difficulty": "moderate",
-      "difficultyNotes": "Short but not a beginner float. Expect brisk current, riffles, Class I ledges through downtown Baraboo, bridge approaches, muddy banks, and wood or strainers that matter more as the river rises.",
+      "difficultyNotes": "Short but not a beginner float. Expect brisk current, riffles, Class I-II ledges through downtown Baraboo, bridge approaches, muddy banks, and wood or strainers that matter more as the river rises.",
       "confidenceNotes": "Confidence is good for a conservative Wisconsin add: Miles Paddled documents the exact Haskins Park-to-Highway-113 route with endpoint GPS points and Baraboo-gauge flow guidance, Sauk County and the Baraboo River corridor plan support Haskins Park and Glenville Landing as public paddle accesses, Wisconsin River Trips calls Haskins-to-Glenville one of the best Baraboo sections, and USGS operates the direct Baraboo River near Baraboo live gauge."
     },
     "evidenceNotes": [
@@ -2773,9 +2786,21 @@ export const wisconsinRoutes: River[] = [
       },
       {
         "label": "Route character",
-        "value": "4.5 miles of riffles and Class I",
-        "note": "Miles Paddled rates Haskins Park to Highway 113 as a 4.5-mile intermediate route with riffles and Class I, while Wisconsin River Trips identifies Haskins-to-Glenville as one of the best Baraboo River sections.",
+        "value": "4.5 miles; intermediate; riffles and Class I",
+        "note": "Miles Paddled rates the exact Haskins Park-to-Highway-113 route as a 4.5-mile intermediate run with riffles and Class I.",
         "sourceUrl": "https://milespaddled.com/baraboo-river-ii/"
+      },
+      {
+        "label": "Strainer-sensitive rapid",
+        "value": "Former-dam split above Walnut Street",
+        "note": "Wisconsin River Trips describes stronger Class II current at the former-dam channel split above Walnut Street and reports a strainer at the top of one channel.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/baraboo-river/baraboo-rapids"
+      },
+      {
+        "label": "High-water rapid character",
+        "value": "Small Class II rapids",
+        "note": "The local Baraboo paddling map says the broader Giese-to-Glenville reach can have some small Class II rapids in high water.",
+        "sourceUrl": "https://www.baraboo.com/wp-content/uploads/2017/04/Baraboo_River_Map.pdf"
       }
     ],
     "sourceLinks": [
