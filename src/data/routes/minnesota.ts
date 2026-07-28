@@ -8985,6 +8985,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "The Cokato gauge is best from 300 to 600 cfs. Below 241 cfs gets too scrapey, and above 800 cfs is too high for this tight, obstruction-prone reach.",
     "latitude": 45.189062,
     "longitude": -94.1900403,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "DNR describes this upper reach as obstruction-prone. Slow down before sharp bends and leave room to avoid underwater branches, overhanging trees, and fresh wood.",
+        "Drainage ditches can make this part of the river rise quickly. Reassess after rain even when the Cokato gauge remains inside the published band.",
+        "DNR says unlawful fences sometimes cross the river. Do not attempt a blocked line; report encountered fences to DNR and use only the named public accesses or reserved campsite."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-308",
       "provider": "mn_dnr",
@@ -9611,6 +9625,19 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 500 to 1,500 cfs as the best zone on the lower North Fork Crow. Below 345 cfs gets too scrapy for a long day, and above 1,750 cfs is no longer a broad-audience same-day recommendation.",
     "latitude": 45.1644165,
     "longitude": -93.6413049,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The lower river is wider and has fewer woody obstructions than the upper North Fork, but DNR still warns about snags, underwater branches, and overhanging or dead trees. Check for storm-changed wood before launching.",
+        "Plan this as the official 15.3-mile, 6-8-hour trip and leave enough daylight for a slower low-water pace or an obstruction delay.",
+        "Much of the shoreland is private. Stop only at designated public sites and do not use riverbed next to private property for camping."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-310",
       "provider": "mn_dnr",

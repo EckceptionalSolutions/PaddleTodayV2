@@ -3006,12 +3006,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Betty T. Mason is an improved but steep carry-in access, so scout the carry before unloading.",
         "Both endpoints are Wright County public river accesses, but park hours and camping rules still apply.",
+        "Stay off private shoreland between the named accesses; Wildlife County Park camping requires a separate reservation.",
         "This upper reach is more obstruction-prone than the lower North Fork Crow route already in the app."
       ],
       "watchFor": [
         "Underwater snags, overhanging trees, and strainers on sharp bends.",
         "Possible unlawful fences across the river; DNR asks paddlers to report them.",
-        "Low-water scraping below the Cokato medium band and faster current above it."
+        "Low-water scraping below the Cokato medium band and quick level changes after rain."
       ]
     }
   },
@@ -3155,14 +3156,15 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "logistics": {
       "distanceLabel": "15.3 mi",
-      "estimatedPaddleTime": "About 5 hr to 7 hr",
+      "estimatedPaddleTime": "About 6 hr to 8 hr",
       "shuttle": "Standard two-car shuttle. Confirm any county-park or landing parking rules before leaving vehicles for a full day or overnight.",
       "permits": "No route-specific paddling permit is known. Follow posted park, landing, and boating rules at both ends.",
       "camping": "Riverside County Park has a reservable backcountry canoe campsite, but do not assume the trip needs or includes camping unless you book it separately.",
       "summary": "Launch at Riverside County Park near Hanover and take out at the Dayton-area Crow/Mississippi access. This is a long lower-river shuttle day where level still matters because low water drags the pace down quickly.",
       "accessCaveats": [
         "This route is long enough that shuttle timing, parking rules, and daylight matter more than on a quick half-day paddle.",
-        "Use posted rules at both landings rather than assuming old forum or trip-report parking details are still current."
+        "Use posted rules at both landings rather than assuming old forum or trip-report parking details are still current.",
+        "Much of the shoreland is private. Stop only at designated public sites, and do not camp on riverbed next to private property."
       ],
       "watchFor": [
         "Low-water dragging and a slower-than-expected pace when the river falls toward 345 cfs.",

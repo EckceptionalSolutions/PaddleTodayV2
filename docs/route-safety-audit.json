@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T23:56:49.447Z",
+  "generatedAt": "2026-07-28T00:10:07.799Z",
   "routeCount": 935,
-  "issueCount": 225,
+  "issueCount": 222,
   "summary": {
     "Critical": 0,
-    "High": 95,
-    "Medium": 130,
+    "High": 93,
+    "Medium": 129,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "north-fork-crow-river-betty-mason-wildlife",
-      "slug": "north-fork-crow-river-betty-mason-wildlife",
-      "name": "North Fork Crow River",
-      "reach": "Betty T. Mason River Access to Wildlife County Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ver-access sites on the North Fork Crow River. Route character Narrow bends and wood DNR describes this upper segment as shallow and obstruction-prone, with underwater branches, overhanging trees, and possible unlawful fences across the river. Supplemental flo"
-    },
-    {
-      "routeId": "north-fork-crow-river-riverside-dayton",
-      "slug": "north-fork-crow-river-riverside-dayton",
-      "name": "North Fork Crow River",
-      "reach": "Riverside County Park to Dayton",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "day recommendation. Not especially technical at sane levels, but 15-plus miles, wood, and a lower-river shuttle make this more of a committed river day than a casual park float. This route now has both official access support and official DNR level guidance fo"
-    },
     {
       "routeId": "pomme-de-terre-river-larson-appleton",
       "slug": "pomme-de-terre-river-larson-appleton",
@@ -1153,17 +1131,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "aul gauge is best from 6,000 to 30,000 cfs. Below 2,000 cfs is too low for this urban route, and above 40,000 cfs is too high for a general recommendation. This is urban big-river paddling rather than technical whitewater. Swift current, barge wakes, bridge pi"
-    },
-    {
-      "routeId": "north-fork-crow-river-riverside-dayton",
-      "slug": "north-fork-crow-river-riverside-dayton",
-      "name": "North Fork Crow River",
-      "reach": "Riverside County Park to Dayton",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "access are backed by DNR access-guide material and local manager pages. Primary caution Wood after rain Treat storms and recent high water as a stronger caution signal than the gauge alone, especially on a long route with fewer quick exit options. MN DNR river"
     },
     {
       "routeId": "otter-tail-river-wannigan-riverside",
