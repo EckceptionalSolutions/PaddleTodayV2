@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T16:01:52.988Z",
+  "generatedAt": "2026-07-28T16:04:01.742Z",
   "routeCount": 927,
-  "issueCount": 5,
+  "issueCount": 3,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 5,
+    "Medium": 3,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "sugar-river-county-road-x-county-road-ee",
-      "slug": "sugar-river-county-road-x-county-road-ee",
-      "name": "Sugar River",
-      "reach": "County Road X to County Road EE",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Longer mellow Sugar River day where the main question is still water level. Stay above the Verona low end, then treat the rest of the score with a little caution. Treat 60 cfs at V"
-    },
-    {
-      "routeId": "sugar-river-county-road-x-county-road-ee",
-      "slug": "sugar-river-county-road-x-county-road-ee",
-      "name": "Sugar River",
-      "reach": "County Road X to County Road EE",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": ". Stay above the Verona low end, then treat the rest of the score with a little caution. Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this Albany reach. Mostly mello"
-    },
     {
       "routeId": "wisconsin-river-blue-river-boscobel",
       "slug": "wisconsin-river-blue-river-boscobel",

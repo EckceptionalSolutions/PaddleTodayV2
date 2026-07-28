@@ -3127,6 +3127,19 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Longer mellow Sugar River day where the main question is still water level. Stay above the Verona low end, then treat the rest of the score with a little caution.",
     "statusText": "Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this Albany reach.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Keep the existing 60 cfs Verona minimum-only floor. Below it, expect shallow water, grounding, and a slower day; the upstream gauge and available route evidence do not support an exact upper cutoff for this lower reach, so check the trend and recent rain rather than relying on a single number.",
+        "This is an 11.5-mile commitment with mellow current but possible strainers or fresh deadfall on outer bends after storms. Build in daylight and fatigue margin, and be prepared to turn back or stop at a safe established landing if the channel is blocked.",
+        "The regional map supports both bridge accesses, but County Road EE remains a lighter-confidence landing and bridge approaches can be muddy or debris-prone. Verify parking etiquette, the exact take-out, and any posted restrictions before leaving a vehicle; use the named public access corridor rather than private banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 42.79994,
     "longitude": -89.48646,
     "gaugeSource": {
