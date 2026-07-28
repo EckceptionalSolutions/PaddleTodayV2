@@ -40,7 +40,7 @@ jobs:
           npm pack packages/geo --pack-destination deploy-package/vendor
           node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, scripts: { start: 'if [ ! -x node_modules/.bin/tsx ] || [ ! -f node_modules/@paddletoday/api-contract/package.json ]; then npm install --omit=dev --ignore-scripts --no-package-lock --no-audit --no-fund || exit 1; fi; node_modules/.bin/tsx src/server/api-server.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@paddletoday/api-contract': 'file:vendor/paddletoday-api-contract-0.1.0.tgz', '@paddletoday/geo': 'file:vendor/paddletoday-geo-0.1.0.tgz', tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
           node -e "require('fs').writeFileSync('deploy-package/.deployment', '[config]\nSCM_DO_BUILD_DURING_DEPLOYMENT=true\n');"
-          npm install --prefix deploy-package --omit=dev --ignore-scripts
+          (cd deploy-package && npm install --workspaces=false --omit=dev --ignore-scripts --no-package-lock --no-audit --no-fund)
           test -f deploy-package/node_modules/@paddletoday/api-contract/package.json
           test ! -L deploy-package/node_modules/@paddletoday/api-contract
 
