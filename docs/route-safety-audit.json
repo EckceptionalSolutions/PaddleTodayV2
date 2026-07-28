@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:57:14.529Z",
+  "generatedAt": "2026-07-28T15:59:15.547Z",
   "routeCount": 927,
-  "issueCount": 9,
+  "issueCount": 7,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 9,
+    "Medium": 7,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "namekagon-river-big-bend-trego",
-      "slug": "namekagon-river-big-bend-trego",
-      "name": "Namekagon River",
-      "reach": "Big Bend Landing to Trego Town Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Trusted Riverway day trip with a mellow wooded opening, a more scenic midsection near Earl Park, and a clear main decision first: is the official Leonards gauge comfortably above t"
-    },
-    {
-      "routeId": "namekagon-river-big-bend-trego",
-      "slug": "namekagon-river-big-bend-trego",
-      "name": "Namekagon River",
-      "reach": "Big Bend Landing to Trego Town Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "quicker current appears as the river approaches Highway 63 in Trego. Low-water caution Scraping possible near the islands below Highway 63 NPS says this stretch is generally floatable throughout the season, but low-rainfall periods can require scraping or wal"
-    },
     {
       "routeId": "st-croix-river-fox-highway-70",
       "slug": "st-croix-river-fox-highway-70",

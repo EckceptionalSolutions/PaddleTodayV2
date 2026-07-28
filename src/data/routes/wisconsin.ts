@@ -1282,6 +1282,18 @@ export const wisconsinRoutes: River[] = [
     "region": "Northwest Wisconsin",
     "summary": "Trusted Riverway day trip with a mellow wooded opening, a more scenic midsection near Earl Park, and a clear main decision first: is the official Leonards gauge comfortably above the scrape zone without current conditions hinting at a high-water day?",
     "statusText": "Around 150 cfs at Leonards is the practical low-water marker. NPS calls 150 to 230 cfs normal and 650+ cfs high, but this gauge is upstream of the route, so Paddle Today keeps the recommendation conservative.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Keep the existing 150 cfs Leonards minimum-only marker. NPS describes 150-230 cfs as normal and 650+ cfs as high, but the gauge is upstream of this reach; use the current trend and Riverway conditions page rather than treating those bands as a route-specific upper cutoff.",
+        "NPS reports occasional rock gardens, quicker current near Highway 63, and a braided island finish where low water can require scraping or walking. Stay in the main channel, reassess the island section if the gauge is low, and allow extra time for channel picking.",
+        "Confirm the exact landing before launching. NPS identifies Big Bend and Trego Town Park on the section map, while the Lakeside Road picnic area and parking lot in Trego are permanently closed; expect campground and tubing traffic around Earl Park and Trego and follow posted access rules."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 45.9320719,
     "longitude": -91.7516647,
     "gaugeSource": {
