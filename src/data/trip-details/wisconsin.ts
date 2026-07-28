@@ -1550,6 +1550,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Waubedonia is a clean county-park launch, and the county says the park is open to day visitors from 6 a.m. to 9 p.m., but campground activity and event use can still change how easy the parking feels.",
         "Veterans Memorial Park is a village launch with adjacent parking rather than a large isolated landing, so expect more neighborhood context and less room to spread out gear.",
+        "Veterans is the planned finish upstream of the Highway 60 bridge dam. Use the named canoe/kayak pier and do not continue downstream without a separate, source-backed dam-portage plan.",
         "This route is long enough that a slightly too-low river can quietly turn into a slow frustrating day, so do not treat the gauge as an afterthought."
       ],
       "watchFor": [

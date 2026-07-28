@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:31:42.602Z",
+  "generatedAt": "2026-07-28T13:34:29.830Z",
   "routeCount": 927,
-  "issueCount": 44,
+  "issueCount": 41,
   "summary": {
     "Critical": 0,
-    "High": 3,
-    "Medium": 41,
+    "High": 2,
+    "Medium": 39,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "milwaukee-river-waubedonia-veterans",
-      "slug": "milwaukee-river-waubedonia-veterans",
-      "name": "Milwaukee River",
-      "reach": "Waubedonia Park to Veterans Memorial Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ghtforward moving water, but one longer day, intermittent riffles, and an upper ledge-like feature keep it from being a pure flatwater float. The access points and direct gauge are solid. The weakest part is still the threshold model: the app can defend a same"
-    },
     {
       "routeId": "pine-river-richland-center-canoe-port-1-port-4",
       "slug": "pine-river-richland-center-canoe-port-1-port-4",
@@ -350,28 +339,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ut current, snags, and cold water; MilesPaddled also reports riffles and a tree hazard after Bridge 19. MilesPaddled Kickapoo River II https://milespaddled.com/kickapoo-river-ii/ Wisconsin River Trips Kickapoo River - Rockton to La Farge https://www.wisconsinr"
-    },
-    {
-      "routeId": "milwaukee-river-waubedonia-veterans",
-      "slug": "milwaukee-river-waubedonia-veterans",
-      "name": "Milwaukee River",
-      "reach": "Waubedonia Park to Veterans Memorial Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Longer lower-Milwaukee day with mostly easy current, a few livelier upper stretches, and a simple main question first: is Cedarburg comfortably above the skinny-water floor without"
-    },
-    {
-      "routeId": "milwaukee-river-waubedonia-veterans",
-      "slug": "milwaukee-river-waubedonia-veterans",
-      "name": "Milwaukee River",
-      "reach": "Waubedonia Park to Veterans Memorial Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "hold model: the app can defend a same-gauge low-water floor and some high-water caution, but not a clean ideal band for this exact reach yet. Route shape 13.25 river miles MilesPaddled documents Waubedonia Park to Veterans Memorial Park as a 13.25-mile downstr"
     },
     {
       "routeId": "namekagon-river-big-bend-trego",

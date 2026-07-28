@@ -4630,6 +4630,18 @@ export const wisconsinRoutes: River[] = [
       "kind": "direct",
       "siteName": "Milwaukee River near Cedarburg, WI"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater"
+      ],
+      "safetyNotes": [
+        "The 390 cfs Cedarburg value is a low-water floor, not a complete ideal range; use current flow, trend, and a visual check before committing to this 13.25-mile day.",
+        "Expect intermittent riffles and one Class I+ ledge-like feature in the upper Waubedonia-to-Saukville section. Scout the line if the level is higher than the familiar low-water range or your group is new to moving water.",
+        "Take out at the Veterans Memorial Park canoe/kayak pier upstream of the Highway 60 bridge dam. Do not continue downstream from the named take-out without a separate plan and confirmed dam portage information."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 390,
@@ -4688,6 +4700,12 @@ export const wisconsinRoutes: River[] = [
         "value": "County-park launch to village canoe/kayak park",
         "note": "Waubedonia Park has a public boat/canoe/kayak launch, and Veterans Memorial Park has a village canoe/kayak launch plus adjacent parking.",
         "sourceUrl": "https://www.villageofgraftonwi.gov/267/Veterans-Memorial-Park"
+      },
+      {
+        "label": "Dam boundary",
+        "value": "Veterans Memorial Park is upstream of the Highway 60 bridge dam",
+        "note": "The route-specific report places the Veterans take-out on river-right immediately upstream of the Highway 60 bridge dam and identifies the floating canoe/kayak pier as the intended finish.",
+        "sourceUrl": "https://milespaddled.com/milwaukee-river-vi/"
       },
       {
         "label": "Official park operations",
