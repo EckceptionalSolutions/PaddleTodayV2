@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:38:56.891Z",
+  "generatedAt": "2026-07-28T15:40:29.008Z",
   "routeCount": 927,
-  "issueCount": 25,
+  "issueCount": 23,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 25,
+    "Medium": 23,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "st-croix-river-osceola-william-obrien",
-      "slug": "st-croix-river-osceola-william-obrien",
-      "name": "St. Croix River",
-      "reach": "Osceola Landing to William O'Brien State Park Landing",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Popular lower St. Croix bluff run with a better public-access story than most broad-river routes. The water is usually straightforward, but wind, powerboat traffic, and William O'B"
-    },
-    {
-      "routeId": "st-croix-river-osceola-william-obrien",
-      "slug": "st-croix-river-osceola-william-obrien",
-      "name": "St. Croix River",
-      "reach": "Osceola Landing to William O'Brien State Park Landing",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "h, which is a defensible conservative floor for this upstream subset. Big-river caution Powerboats common; slow-no-wake above 683.0 ft at Stillwater NPS says powerboats are common on this part of the lower St. Croix and documents a slow-no-wake rule when the S"
-    },
     {
       "routeId": "zumbro-river-kruger-west-newton",
       "slug": "zumbro-river-kruger-west-newton",

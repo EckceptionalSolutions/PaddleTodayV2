@@ -3238,6 +3238,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat about 2,500 cfs at St. Croix Falls as a conservative floor for this lower-river run. Below that, expect more shallow bars and slower side-channel options, and always verify William O'Brien access before launching.",
     "latitude": 45.31996700000001,
     "longitude": -92.71514719999999,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "access_uncertain",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the 2,500 cfs St. Croix Falls floor as a conservative proxy, not a guarantee for this downstream reach. Below it expect shallow bars and slower side-channel options; reassess the trip rather than relying on one upstream number.",
+        "Powerboats are common on the lower St. Croix. Keep room for wakes and wind, and plan the William O'Brien side-channel landing before launching so fatigue or low water does not turn the take-out into an improvised bank stop.",
+        "Verify same-day William O'Brien river-access status, water level, sediment, and park-vehicle rules. Use only the named public landings and do not stop on private shoreline."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05340500",
       "provider": "usgs",
