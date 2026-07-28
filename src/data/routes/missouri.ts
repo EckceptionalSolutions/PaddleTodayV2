@@ -8523,6 +8523,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Meramec River near Sullivan gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.",
     "latitude": 38.059859,
     "longitude": -91.221584,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Missouri State Parks identifies separate signed canoe and boat launches around the Onondaga River bridge; use the launch that matches the craft and current park rules rather than an informal bank path.",
+        "MDC planning material identifies Onondaga Cave State Park to Campbell Bridge as a five-mile canoe float, and Campbell Bridge has a concrete ramp, canoe launch, restroom, and parking. Verify the Campbell landing from the road before launching.",
+        "Keep the 200 cfs floor as a conservative low-water check. High or rising water can add fresh wood, bridge current, faster bends, and harder landings; do not use private banks or gravel bars as substitute access."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07014500",
       "provider": "usgs",
