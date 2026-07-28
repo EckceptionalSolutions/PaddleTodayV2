@@ -9279,6 +9279,21 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Beaver Creek at Bradleyville gauge. MoHERP rates about 200 to 395 cfs as the best broad window, with 100 cfs as a low-water warning and about 727 cfs as the high-water caution line. Expect scraping below the floor and pushy, debris-prone water above the window.",
     "latitude": 36.79540057,
     "longitude": -92.83080082,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the direct Bradleyville gauge and keep the existing 100 cfs low-water warning, 200-395 cfs broad working window, and 727 cfs high-water caution line. Below the floor expect scraping; above the caution line expect pushy, muddy, debris-prone water, especially after rain.",
+        "This narrow Ozark creek has riffles, gravel bars, tree strainers, flood-deposited wood, possible portages, and a steeper final riffle into Bradleyville. Recheck the gauge trend and recent storms rather than relying on one reading, and postpone when water is high or rising.",
+        "Brownbranch is a private fee campground, while the Highway 76 landing is a bridge-area corridor that can degrade or become confusing after floods. Confirm current fee access, parking, shuttle terms, and a legal take-out before launch; do not assume private drives or banks provide an alternate finish."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07054080",
       "provider": "usgs",

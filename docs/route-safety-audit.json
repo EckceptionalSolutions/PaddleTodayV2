@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:46:36.409Z",
+  "generatedAt": "2026-07-28T15:48:18.413Z",
   "routeCount": 927,
-  "issueCount": 17,
+  "issueCount": 16,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 17,
+    "Medium": 16,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "beaver-creek-brownbranch-bradleyville",
-      "slug": "beaver-creek-brownbranch-bradleyville",
-      "name": "Beaver Creek",
-      "reach": "Beaver Creek Campground / Brownbranch to Highway 76 Bridge at Bradleyville",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "window, with 100 cfs as a low-water warning and about 727 cfs as the high-water caution line. Expect scraping below the floor and pushy, debris-prone water above the window. This is a narrow Ozark creek with riffles, gravel bars, tree strainers, possible porta"
-    },
     {
       "routeId": "big-river-mammoth-merrill-horse",
       "slug": "big-river-mammoth-merrill-horse",
