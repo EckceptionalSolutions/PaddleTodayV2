@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:14:43.215Z",
+  "generatedAt": "2026-07-28T13:16:17.345Z",
   "routeCount": 927,
-  "issueCount": 70,
+  "issueCount": 68,
   "summary": {
     "Critical": 0,
-    "High": 13,
-    "Medium": 57,
+    "High": 12,
+    "Medium": 56,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "jacks-fork-river-alley-spring-chilton",
-      "slug": "jacks-fork-river-alley-spring-chilton",
-      "name": "Jacks Fork River",
-      "reach": "Alley Spring Access to Joshua T. Chilton Memorial Landing",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ow Alley Spring. It is easier than the upper Jacks Fork, but low water, crowds, private banks near Eminence, and rising water still require judgment. Confidence is good for a conservative minimum-only add: NPS identifies Alley Spring to Eminence as the most po"
-    },
     {
       "routeId": "james-river-delaware-town-shelvin-rock",
       "slug": "james-river-delaware-town-shelvin-rock",
@@ -383,17 +372,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rounded 1,100 cfs low-water floor and does not infer an ideal range. High-water caution No numeric cutoff claimed MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat"
-    },
-    {
-      "routeId": "jacks-fork-river-alley-spring-chilton",
-      "slug": "jacks-fork-river-alley-spring-chilton",
-      "name": "Jacks Fork River",
-      "reach": "Alley Spring Access to Joshua T. Chilton Memorial Landing",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Popular lower Jacks Fork day float from Alley Spring into Eminence. NPS names Alley Spring to Eminence as the classic summer float, MDC confirms the Joshua T. Chilton public landin"
     },
     {
       "routeId": "james-river-delaware-town-shelvin-rock",

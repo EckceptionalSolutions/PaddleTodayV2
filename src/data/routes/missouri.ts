@@ -3182,6 +3182,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Jacks Fork at Eminence gauge. Around 200 cfs is a conservative low-water floor from MoHERP; below that, expect more shallow riffles and shorter-trip judgment. No ideal range or high cutoff is claimed, so treat high or rising water cautiously.",
     "latitude": 37.147975,
     "longitude": -91.444906,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "access_uncertain",
+        "fast_rise",
+        "strainers",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "NPS identifies Alley Spring to Eminence as the classic four-hour Jacks Fork float but says float times vary with flow and asks visitors to check current river levels or closures before departing.",
+        "Use the signed Alley Spring access and the MDC-listed Joshua T. Chilton landing in Eminence. Keep a shuttle and take-out plan for the cooperative landing; do not substitute a private bank or informal town shoreline near Eminence.",
+        "At or below the 200 cfs conservative floor expect shallow riffles and scraping. High or rising water, fresh wood, swimmers, boat traffic, and cold spring water can change the risk quickly; inspect the landing and bends before committing."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07066000",
       "provider": "usgs",
