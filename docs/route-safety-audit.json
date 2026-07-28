@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:48:18.413Z",
+  "generatedAt": "2026-07-28T15:50:20.135Z",
   "routeCount": 927,
-  "issueCount": 16,
+  "issueCount": 15,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 16,
+    "Medium": 15,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "big-river-mammoth-merrill-horse",
-      "slug": "big-river-mammoth-merrill-horse",
-      "name": "Big River",
-      "reach": "Mammoth Access to Merrill Horse Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "when the Richwoods gauge is high or rising, especially above the local 800 cfs caution band. Confidence is good for a conservative Missouri add: MDC confirms Mammoth Access is 5.40 river miles upstream from Merrill Horse Access and provides public department-"
-    },
     {
       "routeId": "gasconade-river-rollins-ferry-pointers-creek",
       "slug": "gasconade-river-rollins-ferry-pointers-creek",

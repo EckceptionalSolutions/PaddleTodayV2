@@ -11185,6 +11185,21 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Big River near Richwoods gauge. The practical float window is roughly 100 to 800 cfs; below 100 cfs, expect scraping, and above 1,200 cfs this section is too high for a general recommendation.",
     "latitude": 38.121076,
     "longitude": -90.676055,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the direct Richwoods gauge and preserve the existing community-calibrated bands: about 100-800 cfs for the ordinary float, scraping near or below 100 cfs, and no general recommendation above 1,200 cfs. Recheck the trend because high water can change this short reach quickly.",
+        "At higher or rising levels expect strong current, muddy water, floating wood, root wads, strainers, and harder gravel-bar landings. The 800-1,200 cfs range is already a caution zone for inexperienced paddlers; do not treat the short distance as a substitute for a same-day visual call.",
+        "Mammoth and Merrill Horse are public MDC access areas, but the Merrill Horse coordinate follows the Richwoods/Highway H corridor rather than a guaranteed ramp point. Stage and inspect the take-out, follow posted area rules, and do not use private banks or informal pull-offs as a substitute."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07018100",
       "provider": "usgs",
