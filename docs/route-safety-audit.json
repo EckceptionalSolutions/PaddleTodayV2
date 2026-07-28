@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:00:32.648Z",
+  "generatedAt": "2026-07-28T13:03:21.738Z",
   "routeCount": 927,
-  "issueCount": 97,
+  "issueCount": 93,
   "summary": {
     "Critical": 0,
-    "High": 23,
-    "Medium": 74,
+    "High": 22,
+    "Medium": 71,
     "Low": 0
   },
   "issues": [
@@ -240,17 +240,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ly a short learning-friendly urban river trail, but the Pine still has riffles, wood, muddy banks, bridge corridors, and high-water speed that can surprise beginners. Confidence is moderate-good: Richland Center and Richland County publish the official canoe-p"
-    },
-    {
-      "routeId": "pine-river-county-n-wepco-5",
-      "slug": "pine-river-county-n-wepco-5",
-      "name": "Pine River",
-      "reach": "County N Bridge Landing to WEPCO Landing #5",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "ical minimum; below that expect shallow riffles and more dragging, while higher dam-release flows can make the easy current quicker. This is mostly flatwater and riffles with one easy Class I pitch, but it is still a remote Wild River corridor with cold water,"
     },
     {
       "routeId": "wisconsin-river-spring-green-muscoda",
@@ -966,39 +955,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "r levels below about 180 cfs as the better target; treat 350+ cfs as high-water caution. Mostly a short learning-friendly urban river trail, but the Pine still has riffles, wood, muddy banks, bridge corridors, and high-water speed that can surprise beginners."
-    },
-    {
-      "routeId": "pine-river-county-n-wepco-5",
-      "slug": "pine-river-county-n-wepco-5",
-      "name": "Pine River",
-      "reach": "County N Bridge Landing to WEPCO Landing #5",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Easy Florence County Wild River day through mixed hardwood forest, quietwater, riffles, and one short Class I pitch. The direct USGS gauge sits at the put-in bridge, and Wisconsin"
-    },
-    {
-      "routeId": "pine-river-county-n-wepco-5",
-      "slug": "pine-river-county-n-wepco-5",
-      "name": "Pine River",
-      "reach": "County N Bridge Landing to WEPCO Landing #5",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "with one easy Class I pitch, but it is still a remote Wild River corridor with cold water, wooded banks, and shallow-drag risk below the suggested minimum. Confidence is good for a conservative minimum-only add. Wisconsin Trail Guide documents the exact PN1 C"
-    },
-    {
-      "routeId": "pine-river-county-n-wepco-5",
-      "slug": "pine-river-county-n-wepco-5",
-      "name": "Pine River",
-      "reach": "County N Bridge Landing to WEPCO Landing #5",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ecause the strongest route-specific source only publishes a minimum and release caution. Route-specific guide 9.3 miles; 3 to 4 hours Wisconsin Trail Guide publishes Pine River PN1 from County N Bridge Landing to WEPCO Landing #5, with easy difficulty, riffles"
     },
     {
       "routeId": "st-croix-river-fox-highway-70",

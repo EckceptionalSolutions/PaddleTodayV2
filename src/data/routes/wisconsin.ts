@@ -8980,6 +8980,22 @@ export const wisconsinRoutes: River[] = [
     "statusText": "Use the Pine River below Pine River Powerplant gauge at County N. Treat 1.75 ft / about 150 cfs as the practical minimum; below that expect shallow riffles and more dragging, while higher dam-release flows can make the easy current quicker.",
     "latitude": 45.83711,
     "longitude": -88.22522,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam_release",
+        "fast_rise",
+        "strainers",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Pine Dam and the Pine River Powerplant are upstream of the County N put-in; the dam is not an in-route portage or take-out on this PN1 segment. Do not continue beyond WEPCO Landing #5 without a separately verified route and downstream plan.",
+        "Use the direct County N gauge and treat 1.75 ft / about 150 cfs as the practical minimum. Recheck the reading and any release or rainfall trend the same day because regulated flow can make this otherwise easy reach move faster.",
+        "This is a remote Wild River corridor with cold water, wooded banks, shallow riffles, and occasional downed trees or sweepers. Keep the named public landings as the planned exits and do not improvise private-bank access."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04064500",
       "provider": "usgs",
@@ -9048,6 +9064,12 @@ export const wisconsinRoutes: River[] = [
         "value": "County N, Oxbow, Johnson Creek Road, WEPCO #5",
         "note": "The guide maps multiple named accesses along the PN1 corridor and notes that the shorter Oxbow shuttle is a common local option inside the full County N-to-WEPCO route.",
         "sourceUrl": "https://wisconsintrailguide.com/paddle/pdf/guide-pine.pdf"
+      },
+      {
+        "label": "Upstream release context",
+        "value": "Pine Dam about 2 miles above County N",
+        "note": "Wisconsin Trail Guide identifies Pine Dam as controlling flow upstream of the Highway N wayside landing; this is a release/flow-check issue, not an in-route dam portage on the County N-to-WEPCO segment.",
+        "sourceUrl": "https://wisconsintrailguide.com/2024/paddle/pine-river.html"
       }
     ],
     "sourceLinks": [

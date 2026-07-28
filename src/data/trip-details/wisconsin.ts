@@ -3006,7 +3006,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "County N Bridge Landing is the put-in and gauge corridor; check parking space and shoulder conditions before unloading.",
         "WEPCO Landing #5 is the planned take-out near the lower end of the PN1 guide. Identify the landing before launching because downstream continuation changes the trip and shuttle.",
-        "Pine Dam and the Pine River Powerplant influence flow upstream of the route, so same-day gauge and release checks matter even though this is an easy route."
+        "Pine Dam and the Pine River Powerplant influence flow upstream of the route, so same-day gauge and release checks matter even though this is an easy route. The dam is not an in-route portage or take-out; do not continue beyond WEPCO Landing #5 without a separate downstream plan."
       ],
       "watchFor": [
         "Shallow riffles, dragging, and slower travel below the 1.75 ft / 150 cfs suggested minimum.",
