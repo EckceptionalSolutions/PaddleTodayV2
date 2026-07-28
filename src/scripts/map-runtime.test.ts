@@ -362,6 +362,21 @@ describe('map viewport and marker lifecycle', () => {
       maxZoom: 11.2,
       duration: 520,
     });
+    expect(mapViewportOptions('weekendResults', { compact: true })).toEqual({
+      padding: { top: 28, right: 28, bottom: 28, left: 28 },
+      maxZoom: 8.4,
+      duration: 0,
+    });
+    expect(mapViewportOptions('featuredHome')).toEqual({
+      padding: { top: 26, right: 26, bottom: 26, left: 26 },
+      maxZoom: 10.9,
+      duration: 0,
+    });
+    expect(mapViewportOptions('featuredExplore')).toEqual({
+      padding: { top: 34, right: 30, bottom: 34, left: 30 },
+      maxZoom: 10.4,
+      duration: 0,
+    });
     expect(() => mapViewportOptions('missing')).toThrow('Unknown map viewport profile');
   });
 

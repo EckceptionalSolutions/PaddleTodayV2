@@ -1,10 +1,13 @@
 import {
   clearMapMarkers,
+  createMapMarker,
+  createMapStatusController,
   createPaddleMap,
   ensureMapLibre,
   escapeHtml,
   fitMapBounds,
   markerClassForRating,
+  syncGeoJsonOverlay,
   waitForMapReady,
 } from './map-runtime.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
@@ -80,6 +83,13 @@ const weekendMapEmpty = document.querySelector('[data-weekend-map-empty]');
 const weekendMapEmptyTitle = document.querySelector('[data-weekend-map-empty-title]');
 const weekendMapEmptyCopy = document.querySelector('[data-weekend-map-empty-copy]');
 const weekendMapEmptyReset = document.querySelector('[data-weekend-map-empty-reset]');
+const weekendMapStatusController = createMapStatusController(weekendMapStatus, {
+  loading: 'Loading filtered weekend routes.',
+  empty: 'No routes match the selected filters.',
+  unavailable: 'Map unavailable right now. Use the route lists below.',
+  ready: ({ count, label }) =>
+    `${count} ${label} ${count === 1 ? 'route' : 'routes'} shown. Select a score to open the route.`,
+});
 let weekendMobileView = 'list';
 let selectedWeekendMapKey = null;
 let weekendMapMarkersByKey = new Map();
@@ -1197,39 +1207,32 @@ function syncWeekendRouteLines(points) {
       })),
   };
 
-  const existingSource = weekendMapRuntime.getSource(sourceId);
-  if (existingSource) {
-    existingSource.setData(data);
-    return;
-  }
-
-  weekendMapRuntime.addSource(sourceId, {
-    type: 'geojson',
+  syncGeoJsonOverlay(weekendMapRuntime, {
+    sourceId,
     data,
-  });
-  weekendMapRuntime.addLayer({
-    id: layerId,
-    type: 'line',
-    source: sourceId,
-    layout: {
-      'line-cap': 'round',
-      'line-join': 'round',
-    },
-    paint: {
-      'line-color': [
-        'match',
-        ['get', 'rating'],
-        'Strong',
-        '#2c8a54',
-        'Good',
-        '#3e8f65',
-        'Fair',
-        '#ad752c',
-        '#1e7397',
-      ],
-      'line-width': 4,
-      'line-opacity': 0.72,
-    },
+    layers: [{
+      id: layerId,
+      type: 'line',
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': [
+          'match',
+          ['get', 'rating'],
+          'Strong',
+          '#2c8a54',
+          'Good',
+          '#3e8f65',
+          'Fair',
+          '#ad752c',
+          '#1e7397',
+        ],
+        'line-width': 4,
+        'line-opacity': 0.72,
+      },
+    }],
   });
 }
 
@@ -1253,15 +1256,10 @@ async function renderWeekendMap(routes) {
     weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
     weekendMapMarkersByKey = new Map();
     updateWeekendMapSelection(null);
-    if (weekendMapRuntime?.getSource('weekend-route-spans')) {
-      weekendMapRuntime.getSource('weekend-route-spans').setData({
-        type: 'FeatureCollection',
-        features: [],
-      });
+    if (weekendMapRuntime) {
+      syncWeekendRouteLines([]);
     }
-    if (weekendMapStatus instanceof HTMLElement) {
-      weekendMapStatus.textContent = 'No routes match the selected filters.';
-    }
+    weekendMapStatusController.empty();
     const emptyLabels = {
       all: 'No shortlist routes are available',
       'day-trips': 'No best bets match this range',
@@ -1287,9 +1285,7 @@ async function renderWeekendMap(routes) {
     return;
   }
 
-  if (weekendMapStatus instanceof HTMLElement) {
-    weekendMapStatus.textContent = 'Loading filtered weekend routes.';
-  }
+  weekendMapStatusController.loading();
 
   try {
     const maplibregl = await ensureMapLibre();
@@ -1331,12 +1327,12 @@ async function renderWeekendMap(routes) {
         window.location.assign(`/rivers/${encodeURIComponent(point.id)}/`);
       });
 
-      const marker = new maplibregl.Marker({
+      const marker = createMapMarker({
+        maplibregl,
+        mapRuntime: weekendMapRuntime,
         element: markerNode,
-        anchor: 'center',
-      })
-        .setLngLat([point.longitude, point.latitude])
-        .addTo(weekendMapRuntime);
+        point,
+      });
       weekendMapMarkers.push(marker);
       weekendMapMarkersByKey.set(point.id, marker);
 
@@ -1350,11 +1346,8 @@ async function renderWeekendMap(routes) {
     }
 
     fitMapBounds(weekendMapRuntime, bounds, {
-      padding: window.matchMedia('(max-width: 720px)').matches
-        ? { top: 28, right: 28, bottom: 28, left: 28 }
-        : { top: 52, right: 52, bottom: 52, left: 52 },
-      maxZoom: 8.4,
-      duration: 0,
+      profile: 'weekendResults',
+      compact: window.matchMedia('(max-width: 720px)').matches,
     });
     weekendMapRuntime.resize();
     updateWeekendMapSelection(
@@ -1363,16 +1356,13 @@ async function renderWeekendMap(routes) {
         : points[0]?.id,
     );
 
-    if (weekendMapStatus instanceof HTMLElement) {
-      const label = weekendFilterLabel(selectedWeekendFilter);
-      weekendMapStatus.textContent =
-        `${points.length} ${label} ${points.length === 1 ? 'route' : 'routes'} shown. Select a score to open the route.`;
-    }
+    weekendMapStatusController.ready({
+      count: points.length,
+      label: weekendFilterLabel(selectedWeekendFilter),
+    });
   } catch (error) {
     console.error('Failed to load the weekend route map.', error);
-    if (weekendMapStatus instanceof HTMLElement) {
-      weekendMapStatus.textContent = 'Map unavailable right now. Use the route lists below.';
-    }
+    weekendMapStatusController.unavailable();
   }
 }
 

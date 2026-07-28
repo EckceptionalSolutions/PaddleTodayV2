@@ -102,6 +102,30 @@ export const MAP_VIEWPORT_PROFILES = Object.freeze({
     maxZoom: 11.6,
     duration: 450,
   }),
+  weekendResults: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 28, right: 28, bottom: 28, left: 28 }),
+      wide: Object.freeze({ top: 52, right: 52, bottom: 52, left: 52 }),
+    }),
+    maxZoom: 8.4,
+    duration: 0,
+  }),
+  featuredHome: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 26, right: 26, bottom: 26, left: 26 }),
+      wide: Object.freeze({ top: 26, right: 26, bottom: 26, left: 26 }),
+    }),
+    maxZoom: 10.9,
+    duration: 0,
+  }),
+  featuredExplore: Object.freeze({
+    padding: Object.freeze({
+      compact: Object.freeze({ top: 34, right: 30, bottom: 34, left: 30 }),
+      wide: Object.freeze({ top: 34, right: 30, bottom: 34, left: 30 }),
+    }),
+    maxZoom: 10.4,
+    duration: 0,
+  }),
 });
 
 function ensureAsset(tagName, attrs) {

@@ -91,10 +91,7 @@ describe('board featured map controller', () => {
       markerClassFor: () => 'score-marker',
       markerLabel: () => '87',
       statusLabel: () => 'Minnesota',
-      fitOptions: {
-        padding: { top: 26, right: 26, bottom: 26, left: 26 },
-        maxZoom: 10.9,
-      },
+      viewportProfile: 'featuredHome',
       ensureMapLibreImpl: vi.fn().mockResolvedValue(maplibregl),
       createMap: vi.fn(() => runtime),
       clearMarkers: vi.fn(() => []),
@@ -125,9 +122,7 @@ describe('board featured map controller', () => {
       runtime,
       expect.any(FakeBounds),
       {
-        padding: { top: 26, right: 26, bottom: 26, left: 26 },
-        maxZoom: 10.9,
-        duration: 0,
+        profile: 'featuredHome',
       },
     );
     expect(runtime.resize).toHaveBeenCalledOnce();

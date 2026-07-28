@@ -417,10 +417,7 @@ const { renderFeaturedMap } = createBoardFeaturedMapController({
   markerClassFor,
   markerLabel: visibleMapMarkerLabel,
   statusLabel: regionStateText,
-  fitOptions: {
-    padding: { top: 26, right: 26, bottom: 26, left: 26 },
-    maxZoom: 10.9,
-  },
+  viewportProfile: 'featuredHome',
 });
 const popupMarkup = createBoardMapPopupRenderer({
   isNearbyReady: (item) =>

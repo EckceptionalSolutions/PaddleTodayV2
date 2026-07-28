@@ -38,6 +38,8 @@ const rules = [
     files: new Set([
       'src/scripts/summary-board.js',
       'src/scripts/summary-board-home.js',
+      'src/scripts/board-featured-map-controller.js',
+      'src/scripts/weekend-page.js',
       'src/scripts/state-page.js',
       'src/scripts/favorites-page.js',
       'src/scripts/river-group-page.js',
@@ -51,6 +53,8 @@ const rules = [
     files: new Set([
       'src/scripts/summary-board.js',
       'src/scripts/summary-board-home.js',
+      'src/scripts/board-featured-map-controller.js',
+      'src/scripts/weekend-page.js',
       'src/scripts/state-page.js',
       'src/scripts/favorites-page.js',
       'src/scripts/river-group-page.js',

@@ -1,10 +1,14 @@
 import {
   clearMapMarkers,
+  createMapMarker,
+  createMapStatusController,
   createPaddleMap,
   ensureMapLibre,
   escapeHtml,
   fitMapBounds,
   isMapReady,
+  removeMapOverlay,
+  syncGeoJsonOverlay,
   waitForMapReady,
 } from './map-runtime.js';
 
@@ -38,7 +42,7 @@ export function createBoardFeaturedMapController({
   markerClassFor,
   markerLabel,
   statusLabel,
-  fitOptions,
+  viewportProfile,
   resizeBeforeMarkers = false,
   ensureMapLibreImpl = ensureMapLibre,
   createMap = createPaddleMap,
@@ -52,6 +56,7 @@ export function createBoardFeaturedMapController({
   let runtime = null;
   let markers = [];
   let renderVersion = 0;
+  const statusController = createMapStatusController(elements.status);
 
   function clearFeaturedMapMarkers() {
     markers = clearMarkers(markers);
@@ -66,17 +71,12 @@ export function createBoardFeaturedMapController({
     const layerId = 'featured-route-line';
 
     if (routeLine) {
-      if (runtime.getSource(sourceId)) {
-        runtime.getSource(sourceId).setData(routeLine);
-      } else {
-        runtime.addSource(sourceId, {
-          type: 'geojson',
-          data: routeLine,
-        });
-        runtime.addLayer({
+      syncGeoJsonOverlay(runtime, {
+        sourceId,
+        data: routeLine,
+        layers: [{
           id: layerId,
           type: 'line',
-          source: sourceId,
           layout: {
             'line-cap': 'round',
             'line-join': 'round',
@@ -86,19 +86,17 @@ export function createBoardFeaturedMapController({
             'line-width': 3,
             'line-opacity': 0.82,
           },
-        });
-      }
+        }],
+      });
 
       runtime.setPaintProperty(layerId, 'line-color', featuredRouteLineColor(rating));
       return routeLine;
     }
 
-    if (runtime.getLayer(layerId)) {
-      runtime.removeLayer(layerId);
-    }
-    if (runtime.getSource(sourceId)) {
-      runtime.removeSource(sourceId);
-    }
+    removeMapOverlay(runtime, {
+      layerIds: [layerId],
+      sourceIds: [sourceId],
+    });
     return null;
   }
 
@@ -119,7 +117,7 @@ export function createBoardFeaturedMapController({
 
   function resetPresentation() {
     if (elements.status instanceof HTMLElement) {
-      elements.status.textContent = '';
+      statusController.ready({ message: '' });
       elements.status.hidden = true;
     }
     if (elements.caption instanceof HTMLElement) {
@@ -140,7 +138,11 @@ export function createBoardFeaturedMapController({
     elements.shell.hidden = !visible;
 
     if (elements.status instanceof HTMLElement) {
-      elements.status.textContent = status;
+      if (status) {
+        statusController.loading({ message: status });
+      } else {
+        statusController.ready({ message: '' });
+      }
       elements.status.hidden = !status;
     }
     if (elements.caption instanceof HTMLElement) {
@@ -212,12 +214,12 @@ export function createBoardFeaturedMapController({
           markerNode.innerHTML = `<span>${point.kind === 'putIn' ? 'IN' : 'OUT'}</span>`;
           markerNode.setAttribute('aria-hidden', 'true');
 
-          const marker = new maplibregl.Marker({
+          const marker = createMapMarker({
+            maplibregl,
+            mapRuntime: runtime,
             element: markerNode,
-            anchor: 'center',
-          })
-            .setLngLat([point.longitude, point.latitude])
-            .addTo(runtime);
+            point,
+          });
           markers.push(marker);
         }
 
@@ -228,8 +230,7 @@ export function createBoardFeaturedMapController({
 
         if (focusPoints.length > 1) {
           fitBounds(runtime, bounds, {
-            ...fitOptions,
-            duration: 0,
+            profile: viewportProfile,
           });
         } else {
           runtime.jumpTo({
@@ -243,12 +244,12 @@ export function createBoardFeaturedMapController({
         markerNode.innerHTML = `<span>${escapeHtml(markerLabel(item))}</span>`;
         markerNode.setAttribute('aria-hidden', 'true');
 
-        const marker = new maplibregl.Marker({
+        const marker = createMapMarker({
+          maplibregl,
+          mapRuntime: runtime,
           element: markerNode,
-          anchor: 'center',
-        })
-          .setLngLat([river.longitude, river.latitude])
-          .addTo(runtime);
+          point: river,
+        });
         markers.push(marker);
         runtime.jumpTo({
           center: [river.longitude, river.latitude],
@@ -260,7 +261,7 @@ export function createBoardFeaturedMapController({
         runtime.resize();
       }
       if (elements.status instanceof HTMLElement) {
-        elements.status.textContent = statusLabel(item);
+        statusController.ready({ message: statusLabel(item) });
         elements.status.hidden = false;
       }
       if (elements.caption instanceof HTMLElement) {
@@ -272,6 +273,7 @@ export function createBoardFeaturedMapController({
       clearFeaturedMapMarkers();
       syncFeaturedRouteLine(null, rating);
       elements.shell.hidden = true;
+      statusController.unavailable({ message: '' });
       resetPresentation();
     }
   }

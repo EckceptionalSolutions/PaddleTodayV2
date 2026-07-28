@@ -1,5 +1,9 @@
 import { expect, test } from '@playwright/test';
-import type { RiverSummaryApiItem, RiverSummaryResponse } from '@paddletoday/api-contract';
+import type {
+  RiverSummaryApiItem,
+  RiverSummaryResponse,
+  WeekendSummaryResponse,
+} from '@paddletoday/api-contract';
 import { installMapLibreHarness, mapHarnessState } from './maplibre-harness';
 
 function summaryItem({
@@ -102,6 +106,33 @@ const summaryFixture: RiverSummaryResponse = {
   ],
 };
 
+const weekendFixture: WeekendSummaryResponse = {
+  requestId: 'weekend-map-interaction-contract',
+  generatedAt: summaryFixture.generatedAt,
+  label: 'This weekend',
+  riverCount: summaryFixture.rivers.length,
+  withheldCount: 0,
+  rivers: summaryFixture.rivers.map((item) => ({
+    river: item.river,
+    current: {
+      score: item.score,
+      rating: item.rating,
+      gaugeBandLabel: item.gaugeBandLabel,
+    },
+    weekend: {
+      label: 'This weekend',
+      score: item.score,
+      rating: item.rating,
+      confidence: item.confidence.label,
+      explanation: item.explanation,
+      summary: item.summary.cardText,
+      signalLine: item.summary.rawSignalLine,
+    },
+    liveData: item.liveData,
+    generatedAt: item.generatedAt,
+  })),
+};
+
 const favoriteSeed = {
   version: 1,
   items: [
@@ -128,6 +159,7 @@ const mapSurfaces = [
     selector: '[data-detail-hero-map]',
   },
   { name: 'Favorites', path: '/favorites/', selector: '[data-favorites-map]' },
+  { name: 'Weekend', path: '/weekend/', selector: '[data-summary-map]' },
 ];
 
 test.describe('shared web map interaction contract', () => {
@@ -139,6 +171,9 @@ test.describe('shared web map interaction contract', () => {
     await installMapLibreHarness(page);
     await page.route('**/api/rivers/summary.json*', async (route) => {
       await route.fulfill({ json: summaryFixture });
+    });
+    await page.route('**/api/weekend/summary.json*', async (route) => {
+      await route.fulfill({ json: weekendFixture });
     });
     await page.addInitScript((seed) => {
       window.localStorage.setItem('paddletoday:favorites:v1', JSON.stringify(seed));
@@ -244,6 +279,27 @@ test.describe('shared web map interaction contract', () => {
       });
     });
   }
+
+  test('Weekend uses the shared weekend-results viewport policy', async ({ page }) => {
+    await page.goto('/weekend/', { waitUntil: 'domcontentloaded' });
+    const map = page.locator('[data-summary-map]');
+    await map.scrollIntoViewIfNeeded();
+    await expect(map).toHaveClass(/maplibregl-map/, {
+      timeout: 45_000,
+    });
+    const mapLabel = await map.getAttribute('aria-label');
+
+    await expect.poll(async () => {
+      const state = await mapHarnessState(page);
+      return state.fitCalls.findLast(
+        (call: { label: string }) => call.label === mapLabel
+      )?.options;
+    }, { timeout: 15_000 }).toMatchObject({
+      padding: { top: 52, right: 52, bottom: 52, left: 52 },
+      maxZoom: 8.4,
+      duration: 0,
+    });
+  });
 
   test('Explore reveals all scores and reset restores the default map set', async ({ page }) => {
     await page.goto('/explore/', { waitUntil: 'domcontentloaded' });
