@@ -10574,6 +10574,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Best in the 7 to 9 ft sweet spot. It can still work below that, but quality and margin drop quickly, and post-rain spikes matter more than the raw number.",
     "latitude": 44.2335481,
     "longitude": -92.4820266,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR describes lively current and frequent easy rapids on this recommended reach. Keep active boat control and do not treat the moderate rating as a passive float.",
+        "Give snags, logs, and overhanging or dead trees a wide berth. Storms can both move wood and produce a dangerous flash rise, so skip the route when rain or a rising stage makes clear avoidance uncertain.",
+        "Use the DNR-mapped Green Bridge and Zumbro Falls carry-in accesses. Much of the shoreline is private, so do not rely on informal banks or gravel bars for routine stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05374000",
       "provider": "usgs",
@@ -10633,6 +10648,12 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf"
       },
       {
+        "label": "Primary safety review",
+        "value": "Easy rapids, snags, flash rises, and private shoreland",
+        "note": "The current 2026 MN DNR map names both carry-in accesses, describes frequent easy rapids, warns about snags, logs, and dangerous post-rain flash floods, and directs paddlers to stay off private property and stop only at designated sites.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf"
+      },
+      {
         "label": "Difficulty",
         "value": "Moderate",
         "note": "Moderate only when wood and flood risk are under control."
@@ -10641,11 +10662,11 @@ export const minnesotaRoutes: River[] = [
     "sourceLinks": [
       {
         "label": "MN DNR Zumbro River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/zumbroriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html"
       },
       {
         "label": "MN DNR Zumbro River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/zumbroriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/index.html"
       },
       {
         "label": "MN DNR Zumbro map 1 PDF",

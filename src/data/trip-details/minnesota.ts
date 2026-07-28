@@ -3475,15 +3475,15 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Two-car shuttle works best. If you use a paid shuttle, confirm pickup and parking rules locally.",
       "permits": "No general paddling permit indicated. Follow posted access and parking rules.",
       "camping": "Treat this as a day trip unless you have explicit campsite confirmation or landowner permission.",
-      "summary": "Use Green Bridge as the put-in and Zumbro Falls as the take-out. Plan a two-car shuttle and verify access or parking rules locally before you commit.",
+      "summary": "Use the DNR-mapped Green Bridge carry-in as the put-in and the Zumbro Falls carry-in below Highway 63 as the take-out. Plan a two-car shuttle and check the direct Zumbro Falls gauge plus recent rainfall before you commit.",
       "accessCaveats": [
-        "Green Bridge is a simple carry-in access, so confirm where to park before staging vehicles.",
-        "Take-out details at Zumbro Falls are best confirmed on the ground before you leave a car."
+        "MN DNR places the Green Bridge / County Road 7 carry-in at river mile 55.8 and the Zumbro Falls carry-in below Highway 63 on river left at river mile 46.1.",
+        "Use the named public accesses and posted parking areas. Much of the shoreland is private, so do not plan routine stops on unmarked banks or gravel bars."
       ],
       "watchFor": [
-        "Flash flooding after heavy rain can turn this lively reach into a no-go quickly.",
-        "Logs, sweepers, and fresh strainers after storms.",
-        "Cold-water risk in shoulder seasons."
+        "Lively current and frequent easy rapids that still require active boat control.",
+        "Snags, logs, and overhanging or dead trees, especially after storms.",
+        "Dangerous flash rises after rain; skip the route when the stage is rising or clear wood avoidance is doubtful."
       ]
     }
   },
