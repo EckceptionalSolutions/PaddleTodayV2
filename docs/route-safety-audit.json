@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:36:38.037Z",
+  "generatedAt": "2026-07-28T13:39:14.557Z",
   "routeCount": 927,
-  "issueCount": 38,
+  "issueCount": 37,
   "summary": {
     "Critical": 0,
-    "High": 1,
+    "High": 0,
     "Medium": 37,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "wisconsin-river-spring-green-muscoda",
-      "slug": "wisconsin-river-spring-green-muscoda",
-      "name": "Wisconsin River",
-      "reach": "Peck’s Landing / Spring Green to Muscoda",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "The route is marked moderate because commitment and planning are the issue, not whitewater. Official route Spring Green to Muscoda, 22 miles Wisconsin DNR lists Spring Green to Muscoda as a 22-mile Lower Wisconsin State Riverway canoe route with an estimated 6"
-    },
     {
       "routeId": "goose-creek-tobacco-road-dump-hollow",
       "slug": "goose-creek-tobacco-road-dump-hollow",

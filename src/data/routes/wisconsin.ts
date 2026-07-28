@@ -7046,6 +7046,20 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Wisconsin River at Muscoda, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05407000/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "This is flatwater, not a whitewater run, but 22 miles creates a full-day commitment. Use the Muscoda gauge, weather, daylight, and a realistic turnaround or bailout plan before launching.",
+        "Below about 2,500 cfs the route becomes very shallow; 4,000-10,000 cfs is the published normal band. Above 14,000 cfs undercurrents strengthen, and above 20,000 cfs paddling is not recommended.",
+        "The Lower Wisconsin has shifting channels, sudden drop-offs, layered currents, and strainers in narrow high-water channels. Wear a properly fitted PFD, never wade in the lee of sandbars or islands, and do not force a side channel that is not clearly open.",
+        "Heavy upstream rain can raise the river unexpectedly even under local sunshine. Recheck the forecast, gauge trend, landing conditions, and overnight sandbar availability before committing."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 4000,
@@ -7090,6 +7104,12 @@ export const wisconsinRoutes: River[] = [
         "value": "Sandbar overnight possible at suitable levels",
         "note": "Wisconsin Trail Guide and Wisconsin DNR both describe sandbar/island camping as part of the Lower Wisconsin experience, but high water can erase safe camping options.",
         "sourceUrl": "https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/camping"
+      },
+      {
+        "label": "River hazards",
+        "value": "Shifting channels, drop-offs, layered currents, and high-water strainers",
+        "note": "Wisconsin Trail Guide warns that the Lower Wisconsin changes channel and speed, develops sudden drop-offs and layered currents, and can expose strainers in narrow channels at high flows; it also advises checking upstream rain-driven surges.",
+        "sourceUrl": "https://wisconsintrailguide.com/paddle/lower-wisconsin-river.html"
       }
     ],
     "sourceLinks": [

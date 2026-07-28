@@ -2141,12 +2141,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Peck’s Landing near Spring Green and finish at Muscoda. The river remains flatwater, but the 22-mile length makes this a full-day or overnight planning route rather than a casual short float.",
       "accessCaveats": [
         "Use this as a specific scored route even though many intermediate landings exist; combining it with shorter routes would hide the full-day commitment.",
-        "Confirm overnight rules, water levels, weather, and shuttle timing before launching late in the day."
+        "Confirm overnight rules, water levels, weather, and shuttle timing before launching late in the day.",
+        "Use the named public landings and follow Lower Wisconsin State Riverway rules. A wearable, correctly sized PFD is required to be readily accessible, and DNR recommends wearing it when swimming because of drop-offs and swift current."
       ],
       "watchFor": [
         "Fatigue, heat, wind, and storms over a long broad-river route.",
         "Unexpected upstream rain-driven rises during overnight plans.",
-        "Sandbar drop-offs, hidden current, and side-channel strainers."
+        "Sandbar drop-offs, hidden current, and side-channel strainers; do not wade in the lee of an island or sandbar."
       ]
     }
   },
