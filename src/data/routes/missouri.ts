@@ -3536,6 +3536,23 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor carried across this lower-Current family; below that, expect shallow shoals, slower travel, and possible scraping. No ideal range or high cutoff is claimed.",
     "latitude": 36.9475519,
     "longitude": -90.9901267,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "NPS lists Big Spring to Cataract as an 8.8-mile, roughly four-hour lower Current float and its current concession operating plan names both Big Spring and Cataract as authorized Lower Current access points. Use the signed accesses and verify current park alerts before leaving vehicles.",
+        "NPS warns that fallen trees and rootwad strainers can occur on any river section, streams can rise quickly after moderate to heavy rain, and phone help may be hours away. Wear a PFD, be ready to self-rescue, and do not launch on high or rising water.",
+        "The Current is spring-fed and cold. Below Big Spring, expect unrestricted motorboat horsepower, wakes, and longer pools; use only NPS-owned land for gravel-bar camping and do not treat every reachable bank as a public stop.",
+        "The 700 cfs value is a conservative community-supported low-water floor, not an ideal band or high-water clearance. The NPS Van Buren 5.00 ft closure level remains a separate same-day closure check."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
@@ -3588,7 +3605,7 @@ export const missouriRoutes: River[] = [
       {
         "label": "Live direct gauge",
         "value": "USGS 07067000",
-        "note": "USGS Current River at Van Buren showed same-day July 11, 2026 discharge and gage-height observations, with 1,080 cfs and 3.01 ft at 12:30 CDT during review.",
+        "note": "USGS Current River at Van Buren showed provisional same-day July 27, 2026 discharge and gage-height observations, with 924 cfs and 2.79 ft at 7:30 PM CDT during safety review.",
         "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000"
       },
       {
@@ -3598,10 +3615,22 @@ export const missouriRoutes: River[] = [
         "sourceUrl": "https://rivers.moherp.org/gauge/?gauge=07067000&hours=168"
       },
       {
+        "label": "Cataract access authority",
+        "value": "NPS-authorized Lower Current access",
+        "note": "The current NPS concession operating plan lists Big Spring and Cataract among the authorized Lower Current river access points. The Superintendent's Compendium separately identifies Big Spring (upper) as the floater landing and the lower Big Spring ramp as trailered-boats-only.",
+        "sourceUrl": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf"
+      },
+      {
         "label": "Endpoint coordinates",
         "value": "36.9475519, -90.9901267 to 36.8964418, -90.9073471",
         "note": "The put-in reuses the implemented Big Spring upper landing coordinate. The take-out uses the topo-derived Cataract Landing point published by AnyplaceAmerica for the named Ozark National Scenic Riverways landing.",
         "sourceUrl": "https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/"
+      },
+      {
+        "label": "Route hazards",
+        "value": "Strainers, fast rises, remote self-rescue, and legal-bank checks",
+        "note": "NPS says fallen trees and rootwad strainers can occur on any section, storms and floods continually change the river, moderate to heavy rain can raise streams quickly, and help may be hours away. NPS also limits gravel-bar camping to NPS-owned land.",
+        "sourceUrl": "https://www.nps.gov/ozar/river-safety.htm"
       },
       {
         "label": "High-water closure context",
@@ -3624,6 +3653,21 @@ export const missouriRoutes: River[] = [
       {
         "label": "NPS Ozark Superintendent Compendium",
         "url": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Lower Current authorized-access operating plan",
+        "url": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Ozark river safety",
+        "url": "https://www.nps.gov/ozar/river-safety.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS gravel-bar camping rules",
+        "url": "https://www.nps.gov/ozar/planyourvisit/gravel-bar-camping.htm",
         "provider": "nps"
       },
       {

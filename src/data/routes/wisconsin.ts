@@ -10149,6 +10149,19 @@ export const wisconsinRoutes: River[] = [
       "siteName": "Turtle Creek at Carvers Rock Road Near Clinton, WI",
       "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05431486/"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The only rapid on the exact route is the manageable Class I riffle just below South Carvers Rock Road. Wisconsin River Trips reported no logjams or fences on its 2020 trip, but paddlers should still verify the current channel before launching.",
+        "Use the direct Carvers Rock Road gauge as a planning screen. Wisconsin River Trips calls 101-250 cfs the best broad window, 351-500 cfs high and less clear, and 501+ cfs potentially too high for enjoyable paddling.",
+        "Use the named East Creek Road and Highway 140 accesses. Wisconsin DNR warns that some parts of the wildlife area are reachable only from the creek or across adjacent private land, which requires landowner permission."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 101,
@@ -10173,7 +10186,7 @@ export const wisconsinRoutes: River[] = [
       ],
       "seasonNotes": "Spring through fall is the practical window. Wisconsin DNR notes drought years can make Turtle Creek shallow and challenging, while Wisconsin River Trips says higher water starts to submerge the creek character and reduce clarity.",
       "difficulty": "easy",
-      "difficultyNotes": "Mostly easy swiftwater and quick current with one manageable Class I riffle below South Carvers Rock Road. The main risks are strainers after storms, aquatic weeds at low water, busy access areas, and cold water outside summer.",
+      "difficultyNotes": "Mostly easy moving water with one manageable Class I riffle below South Carvers Rock Road. Low water can increase weed congestion, and paddlers should use the named access points rather than crossing adjacent private land.",
       "confidenceNotes": "Confidence is good for a community-source Wisconsin add: Wisconsin River Trips documents the exact East Creek Road-to-Highway-140 trip, access notes, hazards, and a complete Carvers Rock Road gauge ladder; USGS operates that direct same-creek gauge within the route corridor; and Wisconsin DNR confirms Turtle Creek Wildlife Area has road crossings, parking, primitive canoe/kayak launches, and paddling use along Turtle Creek. Endpoint coordinates come from the route shuttle map and named access map context, so paddlers should still confirm parking signs at both bridge-area landings."
     },
     "evidenceNotes": [
@@ -10209,8 +10222,8 @@ export const wisconsinRoutes: River[] = [
       },
       {
         "label": "Hazards",
-        "value": "Class I riffle, strainers, weeds",
-        "note": "Wisconsin River Trips reports no logjams or fences during the route report and one manageable Class I riffle below South Carvers Rock Road, but storms can change wood and low water can increase weed congestion.",
+        "value": "Class I riffle, weeds, private-land boundaries",
+        "note": "Wisconsin River Trips reports one manageable Class I riffle below South Carvers Rock Road, no logjams or fences during its 2020 trip, and possible weed congestion at low water. Wisconsin DNR says some wildlife-area portions are accessible only from the creek or across adjacent private land.",
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/turtle-creek/east-creek-road"
       }
     ],

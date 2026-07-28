@@ -1498,7 +1498,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.",
-        "Storm debris and strainers after recent rain.",
+        "Snags, fallen trees, overhanging limbs, and fresh storm wood. Stop and reassess rather than entering a blocked channel.",
+        "The mapped Class I-II mouth section starts at river mile 2.5, about two miles below the Knights take-out. Do not drift past the planned carry-out.",
+        "Private shoreland and undesignated banks. Use the named public accesses and stop only at designated sites.",
         "Fatigue creep on a route that stays mostly easy but still covers a solid lower-Sauk day."
       ]
     }

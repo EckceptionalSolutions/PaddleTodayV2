@@ -270,7 +270,6 @@ const routeOrder = [
   "trempealeau-river-whitehall-independence",
   "la-crosse-river-veterans-holiday-heights",
   "black-river-melrose-north-bend",
-  "waupaca-river-county-q-brainards-bridge",
   "brule-river-highway-139-fr-2150",
   "pike-river-amberg-yellow-bridge",
   "pike-river-yellow-bridge-grogan-road",

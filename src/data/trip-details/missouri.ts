@@ -588,14 +588,14 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at the Big Spring upper river landing and take out at Cataract for a mid-length lower Current River day. Use the direct Van Buren gauge as a conservative low-water check and expect the lower-river mix of motorboats, crowds, and private-bank constraints.",
       "accessCaveats": [
         "NPS distinguishes Big Spring (upper) as a Current River landing from Big Spring Boat Ramp (lower), which is trailered boats only with no floater access. Start from the signed upper landing.",
-        "The Cataract coordinate is a topo-derived landing point, not an official NPS GIS table. Follow the signed landing, parking, and turnaround layout on arrival.",
+        "The current NPS concession operating plan lists Cataract as an authorized Lower Current access. Its stored coordinate is still topo-derived rather than an official NPS GIS point, so follow the signed landing, parking, and turnaround layout on arrival.",
         "Do not assume services, restrooms, or staffed oversight at Cataract comparable to the Big Spring area."
       ],
       "watchFor": [
         "Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.",
-        "Motorboat wakes, summer crowds, tubes, slick landings, swimmers, fishing lines, and wind on the lower-river pools.",
-        "High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.",
-        "Private banks, limited cell service outside Van Buren, and confusion between the signed Cataract landing and nearby private property."
+        "Motorboat wakes, unrestricted horsepower below Big Spring, summer crowds, tubes, slick landings, swimmers, fishing lines, and wind on the lower-river pools.",
+        "High or rising water, fallen trees, rootwad strainers, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.",
+        "Cold spring-fed water, limited cell service, and long waits for help. Be ready to self-rescue and use only NPS-owned land for gravel-bar camping."
       ]
     }
   },

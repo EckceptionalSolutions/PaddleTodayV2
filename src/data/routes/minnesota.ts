@@ -4617,6 +4617,19 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the cleanest range. Below 14 ft the lower river gets slower and weedier, while flood-style caution matters more above 20 ft.",
     "latitude": 45.4755294,
     "longitude": -94.3507888,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR maps Rockville County Park at river mile 16.8 and Knights of Columbus Park at river mile 4.5. The boulder-filled Class I-II mouth section begins at river mile 2.5, about two river miles below this planned take-out.",
+        "Watch for snags, fallen trees, and fresh storm wood. Stop and reassess from a safe position rather than entering a blocked channel or passing close to overhanging and dead trees.",
+        "Use the named public accesses and stop only at designated sites. MN DNR says much of the Sauk shoreland is private and riverbed camping next to private property is not permitted."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -4661,15 +4674,15 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the normal window. This lower corridor still gets weedy and slower near the floor, but it avoids the mouth rapids and stays friendlier than the Heims finish.",
       "difficulty": "easy",
-      "difficultyNotes": "This is still a broad-audience lower-Sauk route at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid finish.",
+      "difficultyNotes": "This is broad-audience lower-Sauk water at sane levels, but snags and fresh storm wood still require active avoidance. The DNR-mapped Class I-II mouth section starts about two river miles below the Knights take-out and is not part of this route.",
       "confidenceNotes": "Confidence is high because MN DNR names the lower-Sauk access ladder, Stearns County documents Rockville County Park and its watercraft campsite, and St. Cloud documents Knights of Columbus Park on the Sauk River."
     },
     "evidenceNotes": [
       {
         "label": "Current level",
-        "value": "15.34 ft at 10:00 AM",
-        "note": "MN DNR listed the St. Martin gauge at 15.34 ft on July 13, 2026, which lands in the official Medium band.",
-        "sourceUrl": "https://www.dnr.state.mn.us/river_levels/index.html"
+        "value": "14.21 ft at 6:00 PM",
+        "note": "The official MN DNR St. Martin gauge reported 14.21 ft on July 27, 2026, which sits in the Low interpretation band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
         "label": "DNR bands",
@@ -4681,6 +4694,12 @@ export const minnesotaRoutes: River[] = [
         "label": "Route shape",
         "value": "12.3 river miles",
         "note": "MN DNR Map 2 places Rockville County Park at river mile 16.8 and Knights of Columbus Park at river mile 4.5.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
+      },
+      {
+        "label": "Downstream rapid boundary",
+        "value": "2.0 river miles below the take-out",
+        "note": "MN DNR Map 2 places the Class I-II mouth section at river miles 2.5 to 0, downstream of the planned Knights of Columbus Park finish at river mile 4.5.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
       },
       {
@@ -4697,11 +4716,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "MN DNR Sauk River Map 2 PDF",

@@ -1,5 +1,12 @@
 # Wisconsin Route Memory
 
+## 2026-07-27 America/Chicago Waupaca stale-gauge block
+
+- Removed `waupaca-river-county-q-brainards-bridge` from the canonical live route inventory; retained the inactive route and trip-detail records for a future gauge-backed reopening review.
+- Visit Waupaca County still publishes the exact roughly 8-mile Cobbtown Road / Highway Q-to-Brainard's Bridge Park route, public launch parking, easy-to-moderate character, and fallen-tree, rock, and whitewater cautions. The City of Waupaca still confirms Brainard's Bridge Park as a public riverfront park.
+- Official USGS records say `04081000` was discontinued in June 2020, with discharge observations ending in May 2020. Because the route's numeric thresholds and live score depend on that gauge, the stale gauge fails the route-safety policy and cannot be cured with warning copy.
+- Downgraded the ledger record from `added` to `blocked_until_date`; reconsider only after a product-supported current gauge is available for the exact reach, thresholds are tied to it, and both public endpoints and current obstruction conditions are rechecked.
+
 ## 2026-07-27 America/Chicago Red River stale-gauge block
 
 - Removed `red-river-weed-dam-zeimers-falls` from the live route inventory and trip-details surface.

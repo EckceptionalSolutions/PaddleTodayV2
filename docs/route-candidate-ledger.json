@@ -11620,17 +11620,17 @@
       "river": "Waupaca River",
       "route": "County Highway Q to Brainard's Bridge Park",
       "state": "WI",
-      "status": "added",
-      "lastReviewed": "2026-05-25",
-      "reviewCount": 1,
-      "blocker": null,
-      "retryCondition": "Already implemented as waupaca-river-county-q-brainards-bridge. Revisit only if official manager threshold bands, stronger live-gauge metadata, or a rights-clean route photo appears.",
+      "status": "blocked_until_date",
+      "lastReviewed": "2026-07-27",
+      "reviewCount": 2,
+      "blocker": "Removed from the live inventory because official USGS records say gauge 04081000 was discontinued in June 2020 and has no current discharge observations. The route's numeric scoring ladder depends on that gauge, and the route-safety policy does not allow a stale or unsupported live gauge to be cured with warning copy.",
+      "retryCondition": "Reconsider only after a product-supported current gauge is available for this exact Waupaca River reach, route thresholds are tied to that gauge, and a fresh source review confirms both public endpoints and current obstruction conditions.",
       "retryDate": null,
       "sourcesChecked": [
         "Visit Waupaca County Waupaca River paddling route",
         "Miles Paddled Waupaca River III",
         "Wisconsin River Trips Waupaca River - Hwy Q",
-        "USGS 04081000 Waupaca River Near Waupaca, WI monitoring location",
+        "USGS 04081000 Waupaca River Near Waupaca, WI monitoring location and legacy current-conditions record, rechecked 2026-07-27",
         "City of Waupaca Brainard's Bridge Park",
         "Wikimedia Commons Waupaca / Waupaca River search"
       ],
@@ -11662,7 +11662,7 @@
         },
         "coordinateSource": "Miles Paddled publishes GPS coordinates for the County Highway Q put-in and Brainard's Bridge Park take-out. Visit Waupaca County corroborates the public parking/access at Cobbtown Road just off Hwy Q, and the City of Waupaca corroborates Brainard's Bridge Park as a public park along the Waupaca River."
       },
-      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek stayed blocked. This route clears the quality bar with named public endpoints, public/official access context, endpoint coordinates, a direct same-river USGS gauge story, and route-specific community level guidance. No approved reusable route photo was found during the targeted Commons/federal/local-government search."
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route, then removed from the canonical live inventory on 2026-07-27. Visit Waupaca County still publishes the exact roughly 8-mile Cobbtown Road / Highway Q-to-Brainard's Bridge Park route, public launch parking, easy-to-moderate character, and fallen-tree, rock, and whitewater cautions. The City of Waupaca still confirms Brainard's Bridge Park as a public riverfront park. Those access and hazard facts remain useful, but the stored scoring model depends on USGS 04081000, which USGS says was discontinued in June 2020."
     },
     {
       "candidateId": "ia-turkey-river-elkader-motor-mill",

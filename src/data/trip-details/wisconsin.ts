@@ -3411,9 +3411,9 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
       "watchFor": [
         "Aquatic weeds and possible shallow congestion in the low band below about 100 cfs.",
-        "One easy Class I riffle just downstream from South Carvers Rock Road.",
-        "Strainers or fresh wood after storms, despite the clean route report.",
-        "High water above about 350 cfs reducing clarity and making bends, low branches, and shoreline strainers less forgiving."
+        "One manageable Class I riffle just downstream from South Carvers Rock Road; Wisconsin River Trips calls it the only rapid on the exact route.",
+        "Wisconsin River Trips reported no logjams or fences on its 2020 trip, so verify that the channel remains clear before launching.",
+        "High water above about 350 cfs reducing clarity; Wisconsin River Trips says 501+ cfs may be too high for enjoyable paddling."
       ]
     }
   },

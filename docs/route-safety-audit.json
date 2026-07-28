@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T01:26:25.508Z",
-  "routeCount": 933,
-  "issueCount": 210,
+  "generatedAt": "2026-07-28T02:25:41.824Z",
+  "routeCount": 932,
+  "issueCount": 198,
   "summary": {
     "Critical": 0,
-    "High": 86,
-    "Medium": 124,
+    "High": 79,
+    "Medium": 119,
     "Low": 0
   },
   "issues": [
@@ -163,28 +163,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "ims Mill/Mississippi finish. Choose it when you want a full day plus the family rapid section in one route card. Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the lower river gets scrape-prone and the mouth rapids can turn bony, whi"
-    },
-    {
-      "routeId": "sauk-river-rockville-knights-of-columbus",
-      "slug": "sauk-river-rockville-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Rockville County Park to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid finish. Confidence is high because MN DNR names the lower-Sauk access ladder, Stearns County documents Rockville County Park and its watercraft campsite, and St. Cloud docume"
-    },
-    {
-      "routeId": "sauk-river-rockville-knights-of-columbus",
-      "slug": "sauk-river-rockville-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Rockville County Park to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "This is still a broad-audience lower-Sauk route at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid finish. Confidence is high because MN DNR names the lower-Sauk access ladder, Stearns County documents Rockville Coun"
     },
     {
       "routeId": "sauk-river-rockville-miller-landing",
@@ -394,17 +372,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "d possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS treats Akers to Pulltite as a standard 4-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold"
-    },
-    {
-      "routeId": "current-river-big-spring-cataract",
-      "slug": "current-river-big-spring-cataract",
-      "name": "Current River",
-      "reach": "Big Spring Upper River Landing to Cataract Landing",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "yplaceAmerica for the named Ozark National Scenic Riverways landing. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
     },
     {
       "routeId": "current-river-big-spring-gooseneck",
@@ -858,50 +825,6 @@
       "evidence": "ars, tall sand banks, and a direct Colfax gauge ladder. The route is scenic but strainer-sensitive, so it is best treated as an intermediate moving-water run. Use the Red Cedar River near Colfax gauge. The best normal window is about 401 to 600 cfs. Below 400"
     },
     {
-      "routeId": "turtle-creek-east-creek-road-highway-140",
-      "slug": "turtle-creek-east-creek-road-highway-140",
-      "name": "Turtle Creek",
-      "reach": "East Creek Road to Highway 140",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "igh but navigable, and 501+ cfs as too high for enjoyable paddling. Mostly easy swiftwater and quick current with one manageable Class I riffle below South Carvers Rock Road. The main risks are strainers after storms, aquatic weeds at low water, busy access ar"
-    },
-    {
-      "routeId": "turtle-creek-east-creek-road-highway-140",
-      "slug": "turtle-creek-east-creek-road-highway-140",
-      "name": "Turtle Creek",
-      "reach": "East Creek Road to Highway 140",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "manageable Class I riffle below South Carvers Rock Road, but storms can change wood and low water can increase weed congestion. Wisconsin River Trips Turtle Creek - East Creek Road https://www.wisconsinrivertrips.com/segments/turtle-creek/east-creek-road USGS"
-    },
-    {
-      "routeId": "waupaca-river-county-q-brainards-bridge",
-      "slug": "waupaca-river-county-q-brainards-bridge",
-      "name": "Waupaca River",
-      "reach": "County Highway Q to Brainard's Bridge Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "trails, and river/lake water access context. Hazards Wood, rocks, riffles, and whitewater Visit Waupaca County warns of fallen trees, rocks, and whitewater; Wisconsin River Trips adds duck-unders, hop-overs, shallow boulder gardens, and stronger current at hi"
-    },
-    {
-      "routeId": "waupaca-river-county-q-brainards-bridge",
-      "slug": "waupaca-river-county-q-brainards-bridge",
-      "name": "Waupaca River",
-      "reach": "County Highway Q to Brainard's Bridge Park",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "r with restrooms, shelter, trails, and river/lake water access context. Hazards Wood, rocks, riffles, and whitewater Visit Waupaca County warns of fallen trees, rocks, and whitewater; Wisconsin River Trips adds duck-unders, hop-overs, shallow boulder gardens,"
-    },
-    {
       "routeId": "wisconsin-river-spring-green-muscoda",
       "slug": "wisconsin-river-spring-green-muscoda",
       "name": "Wisconsin River",
@@ -1232,17 +1155,6 @@
       "evidence": "range. Below 14 ft this short reach gets slower and weedier, while flood-style caution matters more once the Sauk climbs above 20 ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR"
     },
     {
-      "routeId": "sauk-river-rockville-knights-of-columbus",
-      "slug": "sauk-river-rockville-knights-of-columbus",
-      "name": "Sauk River",
-      "reach": "Rockville County Park to Knights of Columbus Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "t range. Below 14 ft the lower river gets slower and weedier, while flood-style caution matters more above 20 ft. This is still a broad-audience lower-Sauk route at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid fini"
-    },
-    {
       "routeId": "snake-river-county-road-3-mora",
       "slug": "snake-river-county-road-3-mora",
       "name": "Snake River",
@@ -1406,28 +1318,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "conditions and lists Akers and Pulltite closure stages. Use this as high-water caution, not an ideal range. Endpoint coordinates 37.37591, -91.55148 to 37.33505, -91.47959 Coordinates reuse the already implemented Akers Lower and Pulltite access-area anchors"
-    },
-    {
-      "routeId": "current-river-big-spring-cataract",
-      "slug": "current-river-big-spring-cataract",
-      "name": "Current River",
-      "reach": "Big Spring Upper River Landing to Cataract Landing",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Mid-length lower Current day from Big Spring to Cataract Landing. NPS lists this section at 8.8 miles and about four hours, and the Van Buren USGS gauge remains the direct conserva"
-    },
-    {
-      "routeId": "current-river-big-spring-cataract",
-      "slug": "current-river-big-spring-cataract",
-      "name": "Current River",
-      "reach": "Big Spring Upper River Landing to Cataract Landing",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. NPS Estimated Float Times https://www.nps.gov/ozar/planyourvisit/floattimes.htm NPS Ozark park brochure https://www.nps.gov/ozar/planyourvisit/p"
     },
     {
       "routeId": "current-river-big-spring-gooseneck",
@@ -2253,28 +2143,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": ". Stay above the Verona low end, then treat the rest of the score with a little caution. Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this Albany reach. Mostly mello"
-    },
-    {
-      "routeId": "turtle-creek-east-creek-road-highway-140",
-      "slug": "turtle-creek-east-creek-road-highway-140",
-      "name": "Turtle Creek",
-      "reach": "East Creek Road to Highway 140",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "are strainers after storms, aquatic weeds at low water, busy access areas, and cold water outside summer. Confidence is good for a community-source Wisconsin add: Wisconsin River Trips documents the exact East Creek Road-to-Highway-140 trip, access notes, haz"
-    },
-    {
-      "routeId": "waupaca-river-county-q-brainards-bridge",
-      "slug": "waupaca-river-county-q-brainards-bridge",
-      "name": "Waupaca River",
-      "reach": "County Highway Q to Brainard's Bridge Park",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "tions; Wisconsin River Trips provides route-specific Waupaca gauge guidance and hazard context; and USGS operates the Waupaca River near Waupaca gauge downstream in the same river corridor. Official route Cobbtown Road / Hwy Q to Brainard's Bridge Park Visit W"
     },
     {
       "routeId": "wisconsin-river-blue-river-boscobel",
