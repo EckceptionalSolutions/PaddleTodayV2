@@ -5017,6 +5017,25 @@ export const wisconsinRoutes: River[] = [
     "latitude": 45.51799,
     "longitude": -88.33935,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "mandatory_takeout",
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This 9.8-mile, 4-to-5-hour route starts below Strong Falls and is mostly flatwater and riffles, but Skinners Elbow is Class I-II and Wilson Rapids is Class II with stronger waves as levels rise. Keep boat-control and self-rescue margin even when the route is described as novice-friendly.",
+        "Use the County C gauge as a same-day check: below 4.5 ft is not recommended, 5.0-5.8 ft is the broad excellent window, 6.5-7.5 ft is not for novices, and above 7.5 ft is unusually high. Higher water also increases strainer and deadfall consequence.",
+        "Farm Dam Public Landing is the planned finish. It is the northern public landing on Otter Creek, separate from the commercial outfitter landing; identify it before launching and do not continue downstream into the more serious Roaring Rapids section unless that is an intentional skilled-paddler plan.",
+        "The Peshtigo corridor contains multiple dams and marked portages. Strong Falls is upstream of this put-in, so do not approach it from the river; follow posted park and landing signs and use only the named public access."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04067958",
       "provider": "usgs",

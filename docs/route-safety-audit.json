@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:52:11.085Z",
+  "generatedAt": "2026-07-28T12:54:04.695Z",
   "routeCount": 927,
-  "issueCount": 110,
+  "issueCount": 106,
   "summary": {
     "Critical": 0,
-    "High": 32,
+    "High": 28,
     "Medium": 78,
     "Low": 0
   },
@@ -284,50 +284,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "ghtforward moving water, but one longer day, intermittent riffles, and an upper ledge-like feature keep it from being a pure flatwater float. The access points and direct gauge are solid. The weakest part is still the threshold model: the app can defend a same"
-    },
-    {
-      "routeId": "peshtigo-river-goodman-park-farm-dam",
-      "slug": "peshtigo-river-goodman-park-farm-dam",
-      "name": "Peshtigo River",
-      "reach": "Goodman Park Access to Farm Dam Public Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "peshtigo-river-goodman-park-farm-dam",
-      "slug": "peshtigo-river-goodman-park-farm-dam",
-      "name": "Peshtigo River",
-      "reach": "Goodman Park Access to Farm Dam Public Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Scenic upper-Peshtigo run from Goodman Park below Strong Falls to Farm Dam Public Landing. It is mostly wooded flatwater and riffles, but Skinners Elbow and Wilson Rapids make this a boat-control route rather than a casual lake float. Use the Wabeno /"
-    },
-    {
-      "routeId": "peshtigo-river-goodman-park-farm-dam",
-      "slug": "peshtigo-river-goodman-park-farm-dam",
-      "name": "Peshtigo River",
-      "reach": "Goodman Park Access to Farm Dam Public Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "5 ft is high but still novice-friendly with care; above 6.5 ft becomes stronger whitewater, and 7.5+ ft is unusually high. This is described as novice-friendly when levels are adequate, but it still includes Class I-II Skinners Elbow, Class II Wilson Rapids, p"
-    },
-    {
-      "routeId": "peshtigo-river-goodman-park-farm-dam",
-      "slug": "peshtigo-river-goodman-park-farm-dam",
-      "name": "Peshtigo River",
-      "reach": "Goodman Park Access to Farm Dam Public Landing",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "I Skinners Elbow, Class II Wilson Rapids, pushier current at higher levels, and strainer/deadfall consequences in wooded bends. Confidence is high for a guarded scenic-whitewater add: Wisconsin Trail Guide documents the exact P4 Goodman Park-to-Farm Dam route,"
     },
     {
       "routeId": "pine-river-richland-center-canoe-port-1-port-4",
