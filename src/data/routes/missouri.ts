@@ -8647,6 +8647,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Meramec River near Sullivan gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.",
     "latitude": 38.08113567,
     "longitude": -91.14989519,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MDC planning material describes Campbell Bridge to Blue Springs Creek and Blue Springs Creek to Sappington Bridge as two five-mile legs; treat this as a committed ten-mile day with limited margin for delays, weather, or high-water landings.",
+        "Campbell Bridge and Sappington Bridge are public MDC accesses with concrete ramps, canoe launches, parking, and restrooms, but verify the current road, ramp, and posted access conditions before leaving vehicles or launching.",
+        "At high or rising Sullivan-gauge levels, fresh wood, pushy bends, bridge current, and harder landings become more consequential. Keep the 200 cfs floor as a low-water check only, scout visible hazards, and do not use private banks or Blue Springs Creek as an improvised take-out."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07014500",
       "provider": "usgs",
