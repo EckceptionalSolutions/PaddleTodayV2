@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:16:17.345Z",
+  "generatedAt": "2026-07-28T13:17:45.926Z",
   "routeCount": 927,
-  "issueCount": 68,
+  "issueCount": 66,
   "summary": {
     "Critical": 0,
-    "High": 12,
-    "Medium": 56,
+    "High": 11,
+    "Medium": 55,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "james-river-delaware-town-shelvin-rock",
-      "slug": "james-river-delaware-town-shelvin-rock",
-      "name": "James River",
-      "reach": "Delaware Town Access to Shelvin Rock Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "recreational Ozark float with long pools, riffles, gravel bars, and a couple of ledge-rock drops noted in trip evidence. It is easy only at ordinary levels; high or rising water can make ledges, bends, and strainers less forgiving. Confidence is good for a con"
-    },
     {
       "routeId": "james-river-joe-crighton-lake-springfield",
       "slug": "james-river-joe-crighton-lake-springfield",
@@ -372,17 +361,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rounded 1,100 cfs low-water floor and does not infer an ideal range. High-water caution No numeric cutoff claimed MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat"
-    },
-    {
-      "routeId": "james-river-delaware-town-shelvin-rock",
-      "slug": "james-river-delaware-town-shelvin-rock",
-      "name": "James River",
-      "reach": "Delaware Town Access to Shelvin Rock Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Middle James River day float from MDC Delaware Town Access to MDC Shelvin Rock Access. It uses the direct Boaz USGS gauge and route-specific MoHERP evidence, with conservative low-"
     },
     {
       "routeId": "james-river-joe-crighton-lake-springfield",

@@ -10370,6 +10370,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the James River near Boaz gauge. Around 275 cfs is the low-water marker for this reach; below that, expect dragging through shallow riffles and slow pools. No ideal range or high-water cutoff is claimed, so treat recent rain and rising water cautiously.",
     "latitude": 37.0511,
     "longitude": -93.3914,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This is a mostly recreational James River reach, but route evidence identifies two ledge-rock drops. Scout or walk each drop when the level, boat, or group skill makes the line uncertain; do not infer a high-water cutoff from the 275 cfs minimum-only floor.",
+        "MDC lists Delaware Town and Shelvin Rock as public day-use accesses with ramps and parking. Follow the current signs and ramp layouts, and keep the take-out plan at Shelvin Rock rather than substituting a private bank or informal gravel bar.",
+        "Rain can quickly add pushy current, cloudy water, fresh wood, and harder landings. Make a same-day visual call at both endpoints and at ledges before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07052250",
       "provider": "usgs",
