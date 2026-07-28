@@ -1,5 +1,13 @@
 # Minnesota Route Memory
 
+## 2026-07-28 America/Chicago Cold Spring Dam through-route block
+
+- Removed `sauk-river-spring-hill-frogtown`, `sauk-river-st-martin-frogtown`, and `sauk-river-st-martin-eagle-park` from the live route inventory, reducing Minnesota from 235 to 232 live routes.
+- The current 2026 MN DNR Sauk Map 2 places Cold Spring Dam at river mile 22.0 and says `Portage right`. All three former live routes begin above the dam and end below it: Spring Hill is at river mile 56.2, St. Martin at 47.1, Frogtown at 21.8, and Eagle Park at 16.2.
+- The same official map supports the named public endpoints, but the reviewed DNR, county, and city sources do not document dam-portage signage, a maintained public portage path, or manager-approved operational instructions for these through-routes. Under the route-safety policy, warning metadata cannot cure that unresolved mandatory-portage infrastructure gap.
+- Preserved the inactive route and trip-detail records for a future source review. No exact candidate-ledger rows exist for these slugs. Reconsider only after MN DNR, Cold Spring, or another responsible manager publishes current paddling-specific confirmation of the approach signage, public portage path, dam-clearance behavior, and through-route public-use status.
+- `sauk-river-st-martin-rockville` crosses the same dam and remains the next manual block candidate; it was not changed because this run reached the three-issue cap.
+
 ## 2026-07-27 America/Chicago Root River Brightsdale portage review
 
 - Kept `root-river-moens-whalan` live but changed its safety posture from unreviewed easy-route copy to a reviewed `advanced` profile with `mandatory_takeout`, `whitewater`, `strainers`, and `private_banks` hazards.

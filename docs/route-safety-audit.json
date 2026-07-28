@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T06:41:27.907Z",
-  "routeCount": 931,
-  "issueCount": 161,
+  "generatedAt": "2026-07-28T06:56:17.528Z",
+  "routeCount": 928,
+  "issueCount": 158,
   "summary": {
     "Critical": 0,
-    "High": 59,
+    "High": 56,
     "Medium": 102,
     "Low": 0
   },
@@ -31,39 +31,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
-    },
-    {
-      "routeId": "sauk-river-spring-hill-frogtown",
-      "slug": "sauk-river-spring-hill-frogtown",
-      "name": "Sauk River",
-      "reach": "Spring Hill County Park to Frogtown Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "outing. The river character stays mostly easy, but 34.4 miles of moving water, wood management, and weather exposure make this a serious full-day or overnight-planned corridor rather than a casual float. Confidence is good because MN DNR names both endpoints"
-    },
-    {
-      "routeId": "sauk-river-st-martin-eagle-park",
-      "slug": "sauk-river-st-martin-eagle-park",
-      "name": "Sauk River",
-      "reach": "St. Martin Canoe Access to Eagle Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "outing. The river character stays mostly easy, but 30.9 miles of moving water, wood management, and weather exposure push this beyond a casual beginner float. Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Mart"
-    },
-    {
-      "routeId": "sauk-river-st-martin-frogtown",
-      "slug": "sauk-river-st-martin-frogtown",
-      "name": "Sauk River",
-      "reach": "St. Martin Canoe Access to Frogtown Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "outing. The river character stays mostly easy, but 25.3 miles of moving water, wood management, and weather exposure push this well beyond a casual beginner float. Confidence is good because MN DNR names both endpoints on the official water-trail map, the St."
     },
     {
       "routeId": "sauk-river-st-martin-rockville",
