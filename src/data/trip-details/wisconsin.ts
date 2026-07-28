@@ -1875,7 +1875,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Put in at Hoyt Park in Wauwatosa and take out near the Bluemound/Wisconsin Avenue access in the Menomonee Valley. The route is short but busy: shallow bedrock, class I-II rapids, one stronger ledge, strainers, walls, and urban water-quality cautions all matter.",
       "accessCaveats": [
         "Hoyt Park is a public park, but the exact river access is informal enough that parking, carry distance, and posted rules should be checked before unloading.",
-        "The downstream access is an urban bridge/valley access, not a polished rural landing. Wisconsin River Trips describes it as public space but not yet a completed ramp, so confirm the exit, parking legality, and construction closures before you launch.",
+        "The downstream access is an urban bridge/valley access, not a polished rural landing. Wisconsin River Trips describes it as public space but not yet a completed ramp, while American Whitewater's current reach note says parking there has become increasingly sketchy because of dumping and vandalism. Confirm same-day exit and parking legality, arrange a shuttle, and do not leave a vehicle there without rechecking current conditions.",
         "Do not extend downstream into industrial or harbor sections unless you have a separate route plan and confirmed take-out."
       ],
       "watchFor": [

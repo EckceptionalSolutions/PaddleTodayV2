@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:54:04.695Z",
+  "generatedAt": "2026-07-28T12:57:54.821Z",
   "routeCount": 927,
-  "issueCount": 106,
+  "issueCount": 101,
   "summary": {
     "Critical": 0,
-    "High": 28,
-    "Medium": 78,
+    "High": 25,
+    "Medium": 76,
     "Low": 0
   },
   "issues": [
@@ -240,39 +240,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "target or high-water cutoff for this reach. Short but not casual. Tight bends, wood, and roadside access friction matter almost as much as the gauge. The app only has a clear low-water floor here. That is enough to avoid obviously bad days, but not enough to"
-    },
-    {
-      "routeId": "menomonee-river-hoyt-park-bluemound",
-      "slug": "menomonee-river-hoyt-park-bluemound",
-      "name": "Menomonee River",
-      "reach": "Hoyt Park to Bluemound Road access",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "menomonee-river-hoyt-park-bluemound",
-      "slug": "menomonee-river-hoyt-park-bluemound",
-      "name": "Menomonee River",
-      "reach": "Hoyt Park to Bluemound Road access",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "menomonee-river-hoyt-park-bluemound",
-      "slug": "menomonee-river-hoyt-park-bluemound",
-      "name": "Menomonee River",
-      "reach": "Hoyt Park to Bluemound Road access",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "aukee run with bedrock riffles, remediation rapids, strainers, and one stronger ledge. This is a gauge-sensitive moving-water route for skilled paddlers, not a casual family float. Hard urban swiftwater only. Treat roughly 151 to 250 cfs at Wauwatosa as the be"
     },
     {
       "routeId": "milwaukee-river-waubedonia-veterans",
@@ -977,28 +944,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ut current, snags, and cold water; MilesPaddled also reports riffles and a tree hazard after Bridge 19. MilesPaddled Kickapoo River II https://milespaddled.com/kickapoo-river-ii/ Wisconsin River Trips Kickapoo River - Rockton to La Farge https://www.wisconsinr"
-    },
-    {
-      "routeId": "menomonee-river-hoyt-park-bluemound",
-      "slug": "menomonee-river-hoyt-park-bluemound",
-      "name": "Menomonee River",
-      "reach": "Hoyt Park to Bluemound Road access",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "Short urban Wauwatosa-to-Milwaukee run with bedrock riffles, remediation rapids, strainers, and one stronger ledge. This is a gauge-sensitive moving-water route for skilled paddlers, not"
-    },
-    {
-      "routeId": "menomonee-river-hoyt-park-bluemound",
-      "slug": "menomonee-river-hoyt-park-bluemound",
-      "name": "Menomonee River",
-      "reach": "Hoyt Park to Bluemound Road access",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "flow, while also warning the river rises and falls quickly. Urban water-quality caution Avoid after rain Wisconsin River Trips recommends staying off the Menomonee during or after big rain because of urban water-quality and sewer-overflow concerns. Overflow co"
     },
     {
       "routeId": "milwaukee-river-waubedonia-veterans",

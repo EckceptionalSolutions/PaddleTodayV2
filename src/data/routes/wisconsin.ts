@@ -5992,6 +5992,24 @@ export const wisconsinRoutes: River[] = [
     "latitude": 43.05436,
     "longitude": -88.02431,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "urban_water_quality",
+        "access_uncertain",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "This is a skilled-paddler urban swiftwater run. Keep the direct Wauwatosa gauge around 151 to 250 cfs as the normal target; below 100 cfs is too shallow and above 400 cfs is outside PaddleToday's normal recommendation.",
+        "Scout the stronger Class 3-style ledge near the railroad/Wisconsin Avenue corridor and portage if you cannot clearly run it. Strainers, walls, bridge remnants, shallow rock, and fast post-rain current leave little room for error.",
+        "Avoid the Menomonee during or shortly after heavy rain or any MMSD overflow alert. Urban water can carry sewage and other contamination; do not paddle with open sores and shower after contact.",
+        "The Bluemound/Wisconsin Avenue exit is a rocky, informal climb-out rather than a finished ramp. American Whitewater's current reach note says vehicle parking there has become sketchy; confirm same-day access and arrange a shuttle or separately verified alternate take-out instead of leaving a vehicle there."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04087120",
       "provider": "usgs",
@@ -6077,6 +6095,12 @@ export const wisconsinRoutes: River[] = [
         "value": "Public space, not a polished ramp",
         "note": "Wisconsin River Trips describes the Bluemound/Wisconsin Avenue exit as a public space where paddlers currently climb out on rocks rather than using a completed access ramp.",
         "sourceUrl": "https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park"
+      },
+      {
+        "label": "Current parking warning",
+        "value": "Do not leave a vehicle at Bluemound without rechecking",
+        "note": "American Whitewater's current Menomonee reach note says the Bluemound Road take-out has become increasingly sketchy because of dumping and vandalism and no longer recommends leaving a vehicle there.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2654/main"
       }
     ],
     "sourceLinks": [
