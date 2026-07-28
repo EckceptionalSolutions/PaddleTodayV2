@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T06:56:17.528Z",
-  "routeCount": 928,
-  "issueCount": 158,
+  "generatedAt": "2026-07-28T07:09:46.421Z",
+  "routeCount": 927,
+  "issueCount": 157,
   "summary": {
     "Critical": 0,
-    "High": 56,
+    "High": 55,
     "Medium": 102,
     "Low": 0
   },
@@ -31,17 +31,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
-    },
-    {
-      "routeId": "sauk-river-st-martin-rockville",
-      "slug": "sauk-river-st-martin-rockville",
-      "name": "Sauk River",
-      "reach": "St. Martin Canoe Access to Rockville County Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "outing. The river character stays mostly easy, but 30.3 miles of moving water, wood management, and weather exposure push this beyond a casual beginner float. Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Mart"
     },
     {
       "routeId": "snake-river-canary-cross-lake",

@@ -125,7 +125,6 @@ const routeOrder = [
   "sauk-river-eagle-heims-mill",
   "sauk-river-spring-hill-st-martin",
   "sauk-river-frogtown-heims-mill",
-  "sauk-river-st-martin-rockville",
   "sauk-river-miller-landing-knights-of-columbus",
   "sauk-river-miller-landing-heims-mill",
   "sauk-river-knights-of-columbus-heims-mill",
