@@ -6604,6 +6604,21 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor, but this is a long 19-mile cold-water route, so low water, wind, or wood can turn it into a very slow day. No exact high-water cutoff is claimed.",
     "latitude": 36.79356389,
     "longitude": -91.32854167,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "The Forest Service describes Greer to Riverton as a 19-mile float that is an excellent two-day trip and can sometimes be completed in one long day. Plan for a committed full-day effort, fatigue margin, and a staged shuttle rather than treating it as a short local float.",
+        "The Forest Service warns that the Eleven Point can rise rapidly and identifies Mary Decker Shoal, Halls Bay, changing channels, and shared motorized/non-motorized use. Check the Bardley gauge and weather before launching, keep room to scout, and do not assume the 300 cfs floor is a high-water clearance.",
+        "Use the named Forest Service Greer Crossing and Riverton East accesses. Riverton East is a day-use take-out with a canoe launch; do not substitute Riverton West, private scenic-easement banks, or an informal gravel bar for the planned finish."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07071500",
       "provider": "usgs",
@@ -6676,6 +6691,12 @@ export const missouriRoutes: River[] = [
         "value": "Long cold-water float with shoals and Halls Bay",
         "note": "Forest Service pages say Greer to Turner passes Mary Decker Shoal, Turner Mill downstream stays in cold White Ribbon Trout Area water, and the Whitten-to-Riverton section adds Halls Bay plus more shoals, motorized users, and long-distance exposure.",
         "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access"
+      },
+      {
+        "label": "Primary safety review",
+        "value": "Long commitment, changing flow, and named take-out",
+        "note": "The Forest Service identifies Greer to Riverton as a 19-mile float, warns that the river can rise rapidly, describes Mary Decker Shoal and Halls Bay channel choices, and documents Riverton East as a developed day-use canoe take-out. Existing route and trip evidence also carries fresh-wood, cold-water, and private-bank cautions.",
+        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
       }
     ],
     "sourceLinks": [

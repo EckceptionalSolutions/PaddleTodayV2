@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T12:32:49.912Z",
+  "generatedAt": "2026-07-28T12:35:53.390Z",
   "routeCount": 927,
-  "issueCount": 131,
+  "issueCount": 129,
   "summary": {
     "Critical": 0,
-    "High": 42,
-    "Medium": 89,
+    "High": 41,
+    "Medium": 88,
     "Low": 0
   },
   "issues": [
@@ -97,17 +97,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "dragging. Do not treat high or rising water as a casual float, and respect NPS closure notices. NPS treats Cedar Grove to Akers as a standard 3-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold spring water,"
-    },
-    {
-      "routeId": "eleven-point-river-greer-crossing-riverton",
-      "slug": "eleven-point-river-greer-crossing-riverton",
-      "name": "Eleven Point River",
-      "reach": "Greer Crossing Recreation Area to Riverton East River Access",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "the floor, but this is a long 19-mile cold-water route, so low water, wind, or wood can turn it into a very slow day. No exact high-water cutoff is claimed. This is mostly Class I spring-fed Ozark water, but the route is long and includes Mary Decker Shoal, m"
     },
     {
       "routeId": "eleven-point-river-greer-crossing-turner-mill",
@@ -746,17 +735,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "lists Akers at 2.00 ft average and 4.00 ft closed level. Use this as high-water caution, not an ideal range. Access rules Designated access points NPS private-vessel guidance says there is no fee for private floating inside park boundaries, but paddlers should"
-    },
-    {
-      "routeId": "eleven-point-river-greer-crossing-riverton",
-      "slug": "eleven-point-river-greer-crossing-riverton",
-      "name": "Eleven Point River",
-      "reach": "Greer Crossing Recreation Area to Riverton East River Access",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Longer lower Eleven Point day from Greer Crossing to Riverton East, using official Forest Service access pages, the direct Bardley gauge, and the Forest Service one-long-day or eas"
     },
     {
       "routeId": "eleven-point-river-greer-crossing-turner-mill",
