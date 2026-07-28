@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:35:30.974Z",
+  "generatedAt": "2026-07-28T15:37:20.023Z",
   "routeCount": 927,
-  "issueCount": 28,
+  "issueCount": 26,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 28,
+    "Medium": 26,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "otter-tail-river-wannigan-riverside",
-      "slug": "otter-tail-river-wannigan-riverside",
-      "name": "Otter Tail River",
-      "reach": "Wannigan Road to Riverside Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Official MN DNR day trip near Frazee with clear public access at both ends and a simple low-water decision. The gauge is a downstream proxy, so this route is best used as a conserv"
-    },
-    {
-      "routeId": "otter-tail-river-wannigan-riverside",
-      "slug": "otter-tail-river-wannigan-riverside",
-      "name": "Otter Tail River",
-      "reach": "Wannigan Road to Riverside Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "pipe just past the take-out. Broader Otter Tail guidance also warns paddlers to scout culverts, bridges, dams, and obstructions. Frazee reach detail Riverside Park access/rest area Otter Tail County trail-planning materials identify Riverside Park as a boat ac"
-    },
     {
       "routeId": "rum-river-martins-north-county-park",
       "slug": "rum-river-martins-north-county-park",

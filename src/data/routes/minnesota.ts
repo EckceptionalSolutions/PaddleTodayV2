@@ -2121,6 +2121,20 @@ export const minnesotaRoutes: River[] = [
     "statusText": "There is not a gauge on this exact stretch, so Paddle Today uses the downstream Battle Lake DNR reading as a rough level check. Below about 1320.5 ft of gauge elevation, expect shallow water and possible walking; late spring water is the safer bet.",
     "latitude": 46.7847573,
     "longitude": -95.6962111,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat the Battle Lake / CR72 reading as a conservative downstream proxy, not an exact reach gauge. Below 1320.5 ft expect shallow main-channel work or walking, and verify local water before committing to the full 8.4 miles.",
+        "DNR warns this river has rock weirs, culverts, bridge obstructions, and low-headroom hazards. Stop, get out, and survey any unfamiliar bridge or culvert; never enter a dark or obstructed opening on assumption.",
+        "Use only Wannigan Road and Riverside Park as the planned public endpoints, stay off private shoreland, and finish at Riverside Park before the low utility pipe immediately downstream."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-344",
       "provider": "mn_dnr",
