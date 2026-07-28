@@ -1540,7 +1540,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Vegetation, shallow stretches, and extra drag when the St. Martin gauge trends toward 14 ft.",
         "Boulder-filled Class I-II rapids in the final 2.5 miles, especially at lower water.",
-        "Fatigue, wood, and cold-water consequences near the Mississippi confluence finish."
+        "Snags and fallen trees where current narrows your options near the Mississippi confluence.",
+        "Private shoreline outside designated public accesses and campsites.",
+        "Fatigue on a 16.8-mile route whose technical section comes at the end."
       ]
     }
   },

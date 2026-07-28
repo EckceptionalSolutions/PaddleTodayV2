@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T05:55:18.812Z",
+  "generatedAt": "2026-07-28T06:11:51.142Z",
   "routeCount": 931,
-  "issueCount": 164,
+  "issueCount": 163,
   "summary": {
     "Critical": 0,
-    "High": 62,
+    "High": 61,
     "Medium": 102,
     "Low": 0
   },
@@ -31,17 +31,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
-    },
-    {
-      "routeId": "sauk-river-rockville-heims-mill",
-      "slug": "sauk-river-rockville-heims-mill",
-      "name": "Sauk River",
-      "reach": "Rockville County Park to Heims Mill",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ims Mill/Mississippi finish. Choose it when you want a full day plus the family rapid section in one route card. Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the lower river gets scrape-prone and the mouth rapids can turn bony, whi"
     },
     {
       "routeId": "sauk-river-rockville-miller-landing",

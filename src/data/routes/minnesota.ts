@@ -4302,8 +4302,8 @@ export const minnesotaRoutes: River[] = [
     "evidenceNotes": [
       {
         "label": "Current level",
-        "value": "15.34 ft at 10:00 AM",
-        "note": "MN DNR listed the St. Martin gauge at 15.34 ft on July 13, 2026, which lands in the official Medium band.",
+        "value": "14.28 ft at 11:00 PM",
+        "note": "The official MN DNR St. Martin gauge reported 14.28 ft on July 27, 2026, which sits in the Low interpretation band.",
         "sourceUrl": "https://www.dnr.state.mn.us/river_levels/index.html"
       },
       {
@@ -4472,11 +4472,11 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "MN DNR Sauk River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/index.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html"
       },
       {
         "label": "MN DNR Sauk River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html"
+        "url": "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html"
       },
       {
         "label": "MN DNR Sauk River Map 2 PDF",
@@ -4893,6 +4893,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the lower river gets scrape-prone and the mouth rapids can turn bony, while above 20 ft the finish becomes substantially more consequential.",
     "latitude": 45.4755294,
     "longitude": -94.3507888,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "MN DNR maps nearly continuous boulder-filled Class I-II rapids and scattered surfing waves in the final 2.5 miles above Heims Mill; this late section requires moving-water boat control after a long approach.",
+        "Use the official 15 to 17 ft St. Martin band as level context, not clearance to run the rapids. Low water may make them impassable, while very high water is dangerous and not recommended.",
+        "Watch for snags and fallen trees, especially where current narrows your options. Use the named Rockville County Park and Heims Mill carry-ins and stop only at designated public sites because much of the shoreline is private."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
