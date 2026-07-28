@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:32:03.944Z",
+  "generatedAt": "2026-07-28T15:33:46.097Z",
   "routeCount": 927,
-  "issueCount": 30,
+  "issueCount": 29,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 30,
+    "Medium": 29,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "cannon-river-welch",
-      "slug": "cannon-river-welch",
-      "name": "Cannon River",
-      "reach": "Cannon Falls to Welch",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ulty Easy Good first-pass river, but not a blind yes when levels spike. Primary caution Welch take-out logistics Private landing context reduces confidence outside well-known conditions. City of Cannon Falls Riverside Park https://www.cannonfallsmn.gov/1285/Ri"
-    },
     {
       "routeId": "mississippi-river-hidden-falls-harriet-island",
       "slug": "mississippi-river-hidden-falls-harriet-island",

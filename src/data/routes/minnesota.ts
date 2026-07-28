@@ -2226,6 +2226,22 @@ export const minnesotaRoutes: River[] = [
     "statusText": "Best in the 300 to 700 cfs sweet spot. Still workable through a broader medium band when the river is not spiking after rain.",
     "latitude": 44.5148835,
     "longitude": -92.8990298,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "access_uncertain",
+        "private_banks",
+        "strainers",
+        "fast_rise",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Welch has no developed public water access. Confirm permission and any fee with the private Welch Mill outfitter before staging a vehicle or using its landing; do not treat nearby private shoreline as an alternative take-out.",
+        "Check the Welch gauge and trend before launching. Higher flow can make the otherwise easy Cannon more challenging, while heavy rain can flood the corridor and collect woody debris.",
+        "Use Riverside Park's documented canoe launch at Cannon Falls and plan the full shuttle, landing, and cold-water contingency before committing to this 11.75-mile reach."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05355200",
       "provider": "usgs",
