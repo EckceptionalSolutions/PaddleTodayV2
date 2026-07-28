@@ -3758,6 +3758,22 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor carried across this lower-Current family; below that, expect shallow shoals, slower travel, and a longer scrape-prone day. No ideal range or high cutoff is claimed.",
     "latitude": 36.9939,
     "longitude": -91.014,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "NPS lists this as a roughly 13.1-mile, six-hour lower-Current day. Its river-safety guidance says obstacles are not fully manicured, rootwads can pin boats, and floaters must be able to self-rescue; plan for the longer commitment and limited exits.",
+        "NPS warns that streams can rise quickly after moderate or heavy rain, and the Superintendent's Compendium closes non-motorized vessels at the Van Buren Bridge at 5.00 ft. Check current levels and closures before launching, and do not treat the 700 cfs floor as high-water clearance.",
+        "Follow the signed Cataract landing and verify parking and turnaround conditions on arrival. The NPS operating plan names Cataract as an authorized Lower Current access, but the stored endpoint is a topo-derived point rather than an official NPS GIS coordinate; do not substitute a nearby private bank or another Big Spring-area ramp."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
@@ -3830,6 +3846,12 @@ export const missouriRoutes: River[] = [
         "value": "Van Buren Bridge 5.00 ft closed level",
         "note": "The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.",
         "sourceUrl": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm"
+      },
+      {
+        "label": "Primary safety review",
+        "value": "Strainers, fast rises, long commitment, and signed Cataract access",
+        "note": "NPS river-safety guidance documents self-rescue, rootwads, changing obstacles, and fast-rising streams. The current operating plan names Cataract among authorized Lower Current accesses, while the exact endpoint remains a topo-derived landing point that requires same-day sign and parking checks.",
+        "sourceUrl": "https://home.nps.gov/ozar/river-safety.htm"
       }
     ],
     "sourceLinks": [
@@ -3846,6 +3868,16 @@ export const missouriRoutes: River[] = [
       {
         "label": "NPS Ozark Superintendent Compendium",
         "url": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Lower Current operating plan",
+        "url": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Ozark river safety",
+        "url": "https://home.nps.gov/ozar/river-safety.htm",
         "provider": "nps"
       },
       {
