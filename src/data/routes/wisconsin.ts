@@ -3697,6 +3697,22 @@ export const wisconsinRoutes: River[] = [
       "kind": "direct",
       "siteName": "Bark River at Delafield, WI"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "access_uncertain",
+        "fast_rise",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Treat 55 cfs at the Delafield gauge as a low-water floor only; the route has no established upper target or high-water cutoff.",
+        "The Highway 164 culvert is an awkward roadside put-in. Confirm a safe, legal pull-off before launching, and use the named Merton Millpond launch for take-out.",
+        "Tight bends, grass-choked channels, overgrown banks, and downed trees can obstruct passage; scout and portage rather than forcing a blind channel.",
+        "Spring conditions can bring cold water and quick rain response on this short upper reach."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "minimum-only",
       "tooLow": 55,

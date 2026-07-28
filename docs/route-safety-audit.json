@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T13:29:03.149Z",
+  "generatedAt": "2026-07-28T13:31:42.602Z",
   "routeCount": 927,
-  "issueCount": 46,
+  "issueCount": 44,
   "summary": {
     "Critical": 0,
-    "High": 4,
-    "Medium": 42,
+    "High": 3,
+    "Medium": 41,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "bark-river-highway-164-to-merton-millpond",
-      "slug": "bark-river-highway-164-to-merton-millpond",
-      "name": "Bark River",
-      "reach": "Highway 164 to Merton Millpond",
-      "state": "Wisconsin",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "target or high-water cutoff for this reach. Short but not casual. Tight bends, wood, and roadside access friction matter almost as much as the gauge. The app only has a clear low-water floor here. That is enough to avoid obviously bad days, but not enough to"
-    },
     {
       "routeId": "milwaukee-river-waubedonia-veterans",
       "slug": "milwaukee-river-waubedonia-veterans",
@@ -339,17 +328,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "hat, expect more dragging and a slower day. Rising or high water deserves extra caution at The Falls, shoals, bends, and strainers. This is a popular Ozark float, but it is not a flat pool route. Expect swift riffles, cold spring water, shoals, and The Falls,"
-    },
-    {
-      "routeId": "bark-river-highway-164-to-merton-millpond",
-      "slug": "bark-river-highway-164-to-merton-millpond",
-      "name": "Bark River",
-      "reach": "Highway 164 to Merton Millpond",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short upper Bark run where low water and grass-choked channels ruin the day quickly. This is mainly a low-water-floor decision rather than a broad sweet-spot river. Treat 55 cfs at"
     },
     {
       "routeId": "kickapoo-river-rockton-la-farge",
