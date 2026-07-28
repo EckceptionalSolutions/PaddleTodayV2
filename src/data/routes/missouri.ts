@@ -4019,6 +4019,23 @@ export const missouriRoutes: River[] = [
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor carried across this lower-Current family; below that, expect shallow shoals, slower travel, and possible scraping. No ideal range or high cutoff is claimed.",
     "latitude": 36.8964418,
     "longitude": -90.9073471,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "NPS lists Cataract to Gooseneck as a 6.2-mile, roughly three-hour lower Current float. Its current concession operating plan names both Cataract and Hawes as authorized Lower Current access points, and the Superintendent's Compendium identifies Gooseneck (Hawes) as a Current River landing. Use the signed landings and verify park alerts before leaving vehicles.",
+        "NPS warns that fallen trees and rootwad strainers can occur on any river section, streams can rise quickly after moderate to heavy rain, and phone help may be hours away. Wear a PFD, be ready to self-rescue, and do not launch on high or rising water.",
+        "The Current is spring-fed and cold. Expect lower-river motorboat wakes and pools; use only NPS-owned land for gravel-bar camping and do not treat every reachable bank as a public stop.",
+        "The 700 cfs value is a conservative community-supported low-water floor, not an ideal band or high-water clearance. The NPS Van Buren 5.00 ft closure level remains a separate same-day closure check."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
@@ -4053,7 +4070,7 @@ export const missouriRoutes: River[] = [
       "seasonNotes": "NPS lists the Lower Current season as year-round, but low summer levels can still expose scrape-prone shoals. High or rising water can trigger closures, add debris, and make the final Gooseneck landing harder to judge. Check NPS closure notices before leaving vehicles.",
       "difficulty": "easy",
       "difficultyNotes": "The current NPS float-times page lists Cataract to Gooseneck at about three hours. It is generally approachable moving water at ordinary levels, but lower-river motorboats, summer crowds, private-bank limits, and the end-of-river setting still matter.",
-      "confidenceNotes": "Confidence is good for a conservative minimum-only add: the current NPS float-times page lists Cataract to Gooseneck at 6.2 miles / 3 hours; the current park brochure confirms Gooseneck at lower Current river mile 0 with primitive camping and picnic context; USGS 07067000 showed same-day July 11, 2026 discharge and gage-height observations at Van Buren; and AnyplaceAmerica publishes Cataract Landing coordinates for the named lower-Current landing inside Ozark National Scenic Riverways. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, the put-in coordinate remains topo-derived rather than an official NPS GIS point, and Gooseneck/Hawes naming should still be verified against signs on arrival."
+      "confidenceNotes": "Confidence is good for a conservative minimum-only route: the current NPS float-times page lists Cataract to Gooseneck at 6.2 miles / 3 hours; the current concession operating plan names Cataract and Hawes as authorized Lower Current access points; the current Superintendent's Compendium identifies Gooseneck (Hawes) as a Current River landing and backcountry campground; USGS 07067000 showed same-day July 27, 2026 discharge and gage-height observations at Van Buren; and AnyplaceAmerica publishes Cataract Landing coordinates for the named lower-Current landing inside Ozark National Scenic Riverways. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, the put-in coordinate remains topo-derived rather than an official NPS GIS point, and Gooseneck/Hawes naming should still be verified against signs on arrival."
     },
     "evidenceNotes": [
       {
@@ -4064,14 +4081,20 @@ export const missouriRoutes: River[] = [
       },
       {
         "label": "Gooseneck access context",
-        "value": "Lower Current river mile 0 with primitive camping",
-        "note": "The current NPS park brochure places Gooseneck at lower Current river mile 0 and lists a picnic area plus primitive camping area in the Lower Current District.",
-        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm"
+        "value": "NPS Gooseneck / Hawes landing and backcountry campground",
+        "note": "The current NPS Superintendent's Compendium identifies Gooseneck (Hawes) as both a Current River landing and a Lower Current backcountry campground.",
+        "sourceUrl": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm"
+      },
+      {
+        "label": "Lower Current access authority",
+        "value": "Cataract and Hawes authorized accesses",
+        "note": "The current NPS concession operating plan includes both Cataract and Hawes among the authorized Lower Current access points, while the NPS float-times page publishes the exact Cataract-to-Gooseneck trip.",
+        "sourceUrl": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf"
       },
       {
         "label": "Live direct gauge",
         "value": "USGS 07067000",
-        "note": "USGS Current River at Van Buren showed same-day July 11, 2026 discharge and gage-height observations, with 1,080 cfs and 3.01 ft at 12:30 CDT during review. The gauge is upstream but remains the same lower-Current gauge used by adjacent implemented routes.",
+        "note": "USGS Current River at Van Buren showed provisional same-day July 27, 2026 discharge and gage-height observations, with 924 cfs and 2.79 ft at 9:30 PM CDT during safety review. The gauge is upstream but remains the same lower-Current gauge used by adjacent implemented routes.",
         "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000"
       },
       {
@@ -4083,8 +4106,26 @@ export const missouriRoutes: River[] = [
       {
         "label": "Endpoint coordinates",
         "value": "36.8964418, -90.9073471 to 36.8194989, -90.9470707",
-        "note": "The put-in uses the topo-derived Cataract Landing point published by AnyplaceAmerica. The take-out reuses the implemented Gooseneck / Hawes point already used by adjacent lower-Current routes.",
+        "note": "The put-in uses the topo-derived Cataract Landing point published by AnyplaceAmerica. The take-out reuses the USGS-topo-derived Hawes Recreation Area point, corroborated by current NPS Gooseneck / Hawes landing and campground context.",
         "sourceUrl": "https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/"
+      },
+      {
+        "label": "Route hazards",
+        "value": "Strainers, fast rises, and remote self-rescue",
+        "note": "NPS says fallen trees and rootwad strainers can occur on any section, storms and floods continually change the river, moderate to heavy rain can raise streams quickly, and help may be hours away.",
+        "sourceUrl": "https://www.nps.gov/ozar/river-safety.htm"
+      },
+      {
+        "label": "Cold-water context",
+        "value": "Spring-fed, cold Current River",
+        "note": "NPS describes the Current and Jacks Fork as spring-fed, cold, clear rivers.",
+        "sourceUrl": "https://www.nps.gov/ozar/index.htm"
+      },
+      {
+        "label": "Legal-bank checks",
+        "value": "Gravel-bar camping only on NPS-owned land",
+        "note": "NPS allows gravel-bar camping only on National Park Service-owned land and requires campers to follow posted restrictions.",
+        "sourceUrl": "https://www.nps.gov/ozar/planyourvisit/gravel-bar-camping.htm"
       },
       {
         "label": "High-water closure context",
@@ -4110,6 +4151,31 @@ export const missouriRoutes: River[] = [
         "provider": "nps"
       },
       {
+        "label": "NPS Lower Current authorized-access operating plan",
+        "url": "https://www.nps.gov/subjects/concessions/upload/06-CC-OZAR012-27-Exhibit-A-Ops-Plan-with-Attachments.pdf",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Ozark river safety",
+        "url": "https://www.nps.gov/ozar/river-safety.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Gooseneck Campground",
+        "url": "https://www.nps.gov/ozar/planyourvisit/gooseneck-campground.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS Ozark National Scenic Riverways overview",
+        "url": "https://www.nps.gov/ozar/index.htm",
+        "provider": "nps"
+      },
+      {
+        "label": "NPS gravel-bar camping rules",
+        "url": "https://www.nps.gov/ozar/planyourvisit/gravel-bar-camping.htm",
+        "provider": "nps"
+      },
+      {
         "label": "Rivers.MOHERP Current River Van Buren gauge",
         "url": "https://rivers.moherp.org/gauge/?gauge=07067000&hours=168",
         "provider": "local"
@@ -4127,6 +4193,11 @@ export const missouriRoutes: River[] = [
       {
         "label": "Cataract Landing topo coordinate",
         "url": "https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/",
+        "provider": "local"
+      },
+      {
+        "label": "Hawes Recreation Area topo coordinate",
+        "url": "https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/",
         "provider": "local"
       }
     ]

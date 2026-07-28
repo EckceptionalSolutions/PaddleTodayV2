@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T03:25:38.749Z",
+  "generatedAt": "2026-07-28T03:40:38.977Z",
   "routeCount": 931,
-  "issueCount": 186,
+  "issueCount": 183,
   "summary": {
     "Critical": 0,
-    "High": 73,
-    "Medium": 113,
+    "High": 72,
+    "Medium": 111,
     "Low": 0
   },
   "issues": [
@@ -339,17 +339,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "d possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS treats Akers to Pulltite as a standard 4-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold"
-    },
-    {
-      "routeId": "current-river-cataract-gooseneck",
-      "slug": "current-river-cataract-gooseneck",
-      "name": "Current River",
-      "reach": "Cataract Landing to Gooseneck / Hawes Recreation Area",
-      "state": "Missouri",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "oseneck / Hawes point already used by adjacent lower-Current routes. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
     },
     {
       "routeId": "current-river-cedar-grove-akers",
@@ -1219,28 +1208,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "conditions and lists Akers and Pulltite closure stages. Use this as high-water caution, not an ideal range. Endpoint coordinates 37.37591, -91.55148 to 37.33505, -91.47959 Coordinates reuse the already implemented Akers Lower and Pulltite access-area anchors"
-    },
-    {
-      "routeId": "current-river-cataract-gooseneck",
-      "slug": "current-river-cataract-gooseneck",
-      "name": "Current River",
-      "reach": "Cataract Landing to Gooseneck / Hawes Recreation Area",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short final lower Current section from Cataract Landing to Gooseneck / Hawes. The current NPS float-times page lists this stretch at 6.2 miles and about three hours, and the Van Bu"
-    },
-    {
-      "routeId": "current-river-cataract-gooseneck",
-      "slug": "current-river-cataract-gooseneck",
-      "name": "Current River",
-      "reach": "Cataract Landing to Gooseneck / Hawes Recreation Area",
-      "state": "Missouri",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. NPS Estimated Float Times https://www.nps.gov/ozar/planyourvisit/floattimes.htm NPS Ozark park brochure https://www.nps.gov/ozar/planyourvisit/p"
     },
     {
       "routeId": "current-river-cedar-grove-akers",

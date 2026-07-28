@@ -678,18 +678,18 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 3 hr, longer with low water, stops, wind, crowds, or motorboat traffic",
       "shuttle": "Stage the take-out at Gooseneck / Hawes before driving back to Cataract Landing. Verify both signed landings before launch because this lower-river pair uses simpler downstream accesses and ends near the river mouth.",
       "permits": "No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, Gooseneck / Hawes day-use and campground rules, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.",
-      "camping": "This can work as a short day float, with the clearest formal overnight support at the primitive camping area near Gooseneck / Hawes after the take-out. Do not assume private banks or informal gravel bars are legal overnight stops upstream.",
+      "camping": "This can work as a short day float, with formal overnight support at the NPS-listed Gooseneck / Hawes backcountry campground after the take-out. NPS allows gravel-bar camping only on NPS-owned land; do not assume private banks or every informal gravel bar is a legal overnight stop.",
       "summary": "Launch at Cataract and finish at Gooseneck / Hawes for the last public lower Current section. Use the Van Buren gauge as a conservative low-water check and expect lower-river motorboats, private-bank constraints, and end-of-river logistics.",
       "accessCaveats": [
         "The Cataract coordinate is a topo-derived landing point, not an official NPS GIS table. Follow the signed landing, parking, and turnaround layout on arrival.",
-        "NPS materials use both Gooseneck and Hawes naming for the downstream endpoint. Confirm the signed river landing before leaving a vehicle.",
+        "The current NPS float-times page publishes the exact Cataract-to-Gooseneck trip, its concession operating plan names Cataract and Hawes as authorized Lower Current access points, and the Superintendent's Compendium identifies Gooseneck (Hawes) as a Current River landing. Confirm both signed landings before leaving a vehicle.",
         "This route ends near the Current River mouth. Do not continue onto the Black River or other downstream big-river water without a separate plan."
       ],
       "watchFor": [
         "Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.",
         "Motorboat wakes, summer crowds, tubes, slick landings, swimmers, fishing lines, and wind on the lower-river pools.",
-        "High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.",
-        "Private banks, limited cell service, and confusion between Gooseneck and Hawes naming at the take-out."
+        "High or rising water, fallen trees, rootwad strainers, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.",
+        "Cold spring-fed water, private banks, limited cell service, and confusion between Gooseneck and Hawes naming at the take-out. Be ready to self-rescue and use only NPS-owned land for gravel-bar camping."
       ]
     }
   },
