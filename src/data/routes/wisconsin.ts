@@ -6374,6 +6374,19 @@ export const wisconsinRoutes: River[] = [
     "region": "Lower Wisconsin Riverway",
     "summary": "Short Lower Wisconsin State Riverway day with broad sandbars, islands, and official public landing support. This is a good recreational add because the Muscoda gauge has clear Wisconsin Trail Guide level bands and the DNR lists the exact canoe route.",
     "statusText": "Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers"
+      ],
+      "safetyNotes": [
+        "Keep the existing Muscoda flow model: 2,500 cfs too low, 4,000-10,000 cfs normal, 17,000 cfs and up high-water day-trip only, and above 20,000 cfs not recommended. The Lower Wisconsin can rise quickly after weather or upstream changes, so verify the current trend before launching.",
+        "DNR warns that normal-looking water can still sweep a person off their feet, that downstream sandbar edges can collapse into deep holes, and that overhanging branches can pull a paddler out of a boat. Wear a PFD, keep clear of tree hazards, and walk only on the upstream side of sandbars if you must wade.",
+        "Muscoda/Riverside Park and Blue River are DNR-listed public landings, but sandbars and channels move. Use current landing signs and the intended access rather than old imagery, and do not assume every nearby bank is a legal stop."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 43.1962605,
     "longitude": -90.4357156,
     "gaugeSource": {
@@ -6475,6 +6488,20 @@ export const wisconsinRoutes: River[] = [
     "region": "Lower Wisconsin Riverway",
     "summary": "Easy Lower Wisconsin State Riverway day through a sandbar-and-island corridor between two DNR-listed public landings. It uses the same Muscoda gauge bands as the upstream Muscoda-to-Blue River route.",
     "statusText": "Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Use the existing direct Muscoda-gauge bands: 2,500 cfs too low, 4,000-10,000 cfs normal, 17,000 cfs and up high-water day-trip only, and above 20,000 cfs not recommended. High water removes sandbars and increases current; check recent rain and the trend before committing to the 10-mile run.",
+        "DNR warns that the Lower Wisconsin can look lazy while hidden current remains powerful, and that sandbar drop-offs, unstable edges, and overhanging trees can create sudden swims. Wear a PFD, stay out of narrow tree-lined cuts, and do not wade downstream of a sandbar edge.",
+        "Blue River and Boscobel are DNR-listed public access points, but Boscobel has multiple landing references. Confirm the intended river landing, parking, and current signs before staging the shuttle; do not substitute an unverified nearby ramp or private bank."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 43.2067548,
     "longitude": -90.5663182,
     "gaugeSource": {
@@ -7395,6 +7422,19 @@ export const wisconsinRoutes: River[] = [
     "region": "Lower Wisconsin Riverway",
     "summary": "Final Lower Wisconsin day from Millville through the river mouth and into the Mississippi at Wyalusing Beach. This is scenic and access-backed, but the confluence, big-water wind, and boat traffic make it a guarded route rather than a casual sandbar float.",
     "statusText": "Use the Muscoda gauge. Treat 3,001 to 7,500 cfs as the best practical window, 2,000 cfs as the low/scrape floor, and 20,000 cfs as too high for a broad recommendation. Above about 12,500 cfs, expect fewer sandbars and pushier, dirtier water.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Keep the existing guarded Muscoda-gauge model: 2,000 cfs is the low/scrape floor, 3,001-7,500 cfs is the best practical window, above about 12,500 cfs is pushier with fewer sandbars, and 20,000 cfs is too high for a broad recommendation. The riverway can rise rapidly, so confirm the trend and weather before the 10.8-mile commitment.",
+        "DNR warns that hidden current, unstable sandbar drop-offs, overhanging trees, and rapidly rising water can overwhelm a calm-looking river. Wear a PFD and treat the Mississippi finish as open, deeper water with wind, wakes, and navigation demands rather than as an ordinary Wisconsin River landing.",
+        "Millville is a developed public landing and Wyalusing has a public beach/boat landing, but the saved Wyalusing coordinate is not a DNR coordinate-table point. Confirm the intended Wyalusing Beach take-out and shuttle staging on arrival; do not confuse it with the separate Wyalusing State Park boat landing."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 43.03505,
     "longitude": -90.96091,
     "gaugeSource": {

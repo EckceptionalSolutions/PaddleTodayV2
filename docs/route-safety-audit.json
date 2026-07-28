@@ -1,47 +1,13 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T16:04:01.742Z",
+  "generatedAt": "2026-07-28T16:08:15.139Z",
   "routeCount": 927,
-  "issueCount": 3,
+  "issueCount": 0,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 3,
+    "Medium": 0,
     "Low": 0
   },
-  "issues": [
-    {
-      "routeId": "wisconsin-river-blue-river-boscobel",
-      "slug": "wisconsin-river-blue-river-boscobel",
-      "name": "Wisconsin River",
-      "reach": "Blue River Landing to Boscobel Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "evel product, and because 17,000 to 20,000 cfs is more of a high-water day-trip caution zone than a sandbar-camping recommendation. Published level bands 4,000 to 10,000 cfs normal Wisconsin Trail Guide treats 4,000 to 10,000 cfs at Muscoda as normal summer co"
-    },
-    {
-      "routeId": "wisconsin-river-millville-wyalusing-beach",
-      "slug": "wisconsin-river-millville-wyalusing-beach",
-      "name": "Wisconsin River",
-      "reach": "Millville Boat Landing to Wyalusing Beach",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "nt County corroborate Wyalusing-area public beach/boat-landing access. The main caution is route shape: the take-out is on the Mississippi, not the Wisconsin, so the app scores this more conservatively than upstream riverway day trips. Exact route report 10.8"
-    },
-    {
-      "routeId": "wisconsin-river-muscoda-blue-river",
-      "slug": "wisconsin-river-muscoda-blue-river",
-      "name": "Wisconsin River",
-      "reach": "Muscoda to Blue River Landing",
-      "state": "Wisconsin",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "varies by paddler and camping plan, so the app separates the 17,000 cfs camping caution from the 20,000 cfs no-go ceiling. Published level bands 4,000 to 10,000 cfs normal Wisconsin Trail Guide treats 4,000 to 10,000 cfs at Muscoda as normal summer conditions"
-    }
-  ]
+  "issues": []
 }
