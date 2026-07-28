@@ -35,8 +35,24 @@ jobs:
           cp -R dist deploy-package/dist
           cp -R src deploy-package/src
           cp -R packages deploy-package/packages
-          cp package-lock.json deploy-package/package-lock.json
-          node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, scripts: { start: 'tsx src/server/api-server.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@paddletoday/api-contract': 'file:packages/api-contract', tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
+          node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, scripts: { start: 'tsx src/server/api-server.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@paddletoday/api-contract': 'file:packages/api-contract', '@paddletoday/geo': 'file:packages/geo', tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
+          npm install --prefix deploy-package --omit=dev --ignore-scripts
+
+      - name: Verify packaged API starts
+        run: |
+          node deploy-package/node_modules/tsx/dist/cli.mjs deploy-package/src/server/api-server.ts --static deploy-package/dist --port 4322 > deploy-package-startup.log 2>&1 &
+          api_pid=$!
+          trap 'kill $api_pid 2>/dev/null || true' EXIT
+
+          for attempt in 1 2 3 4 5; do
+            if curl --fail --silent --show-error http://127.0.0.1:4322/api/health > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+
+          cat deploy-package-startup.log
+          exit 1
 
       - name: Deploy API to Azure App Service
         uses: azure/webapps-deploy@v3
@@ -50,8 +66,8 @@ jobs:
           DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL }}
         run: |
           if [ -z "$DEPLOYMENT_BASE_URL" ]; then
-            echo "::warning::AZURE_WEBAPP_URL is not configured; skipping the post-deploy smoke test."
-            exit 0
+            echo "AZURE_WEBAPP_URL is required for the post-deploy smoke test."
+            exit 1
           fi
 
           for attempt in 1 2 3 4; do
