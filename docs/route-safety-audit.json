@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-28T15:30:16.982Z",
+  "generatedAt": "2026-07-28T15:32:03.944Z",
   "routeCount": 927,
-  "issueCount": 32,
+  "issueCount": 30,
   "summary": {
     "Critical": 0,
     "High": 0,
-    "Medium": 32,
+    "Medium": 30,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "big-fork-river-highway-6-south-north",
-      "slug": "big-fork-river-highway-6-south-north",
-      "name": "Big Fork River",
-      "reach": "Highway 6 South to Highway 6 North",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "recommended reach is primarily a remote wooded river day. The 15.7-mile length, cold water, isolation, and possible rocky low-water rapids make it more committed than an easy metro float. Confidence is high: MN DNR recommends this exact Highway 6 South to High"
-    },
-    {
-      "routeId": "big-fork-river-highway-6-south-north",
-      "slug": "big-fork-river-highway-6-south-north",
-      "name": "Big Fork River",
-      "reach": "Highway 6 South to Highway 6 North",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ridge gauge in Bigfork is below four feet; use that as a supplemental low-water caution even though the route uses the closer Craigsville gauge for scoring. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.html MN DNR Big Fork River segments"
-    },
     {
       "routeId": "cannon-river-welch",
       "slug": "cannon-river-welch",

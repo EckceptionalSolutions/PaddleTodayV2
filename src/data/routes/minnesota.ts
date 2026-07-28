@@ -13,6 +13,21 @@ export const minnesotaRoutes: River[] = [
     "statusText": "The Craigsville / Highway 6 gauge is best from 4.5 to 8.5 ft. Below 4.0 ft, expect scraping; above 9.5 ft, this remote wooded reach is too high for a general recommendation.",
     "latitude": 47.953023,
     "longitude": -93.754988,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Use the Craigsville / Highway 6 gauge before launching: below 4.0 ft expect scraping and rocky rapids, while above 9.5 ft this remote reach is outside the general recommendation.",
+        "Treat the 15.7-mile DNR day trip as a full-day commitment with a realistic weather, daylight, shuttle, and bailout plan; public exits are sparse between the two Highway 6 carry-in accesses.",
+        "Expect Class I-II rapids, sweepers, beaver-dam potential, and cold water. Carry appropriate rescue and immersion gear, and do not continue into the separate Little American Falls or Big Falls sections without dedicated portage planning."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "mn-dnr-281",
       "provider": "mn_dnr",
