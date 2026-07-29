@@ -974,8 +974,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Whalan carry-in access",
-      "latitude": 43.7558,
-      "longitude": -91.9179
+      "latitude": 43.7345317,
+      "longitude": -91.9197025
     },
     "logistics": {
       "distanceLabel": "15.8 mi",
@@ -3141,8 +3141,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Riverside County Park / Riverside Park public water access",
-      "latitude": 45.1650523,
-      "longitude": -93.6400414
+      "latitude": 45.1650443,
+      "longitude": -93.6400335
     },
     "logistics": {
       "distanceLabel": "8.5 mi",
@@ -3166,13 +3166,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "north-fork-crow-river-riverside-dayton": {
     "putIn": {
       "name": "Riverside County Park carry-in access",
-      "latitude": 45.1644165,
-      "longitude": -93.6413049
+      "latitude": 45.1650443,
+      "longitude": -93.6400335
     },
     "takeOut": {
       "name": "Mississippi/Crow rivers trailer access",
-      "latitude": 45.2453021,
-      "longitude": -93.5212957
+      "latitude": 45.2456373,
+      "longitude": -93.5210761
     },
     "logistics": {
       "distanceLabel": "15.3 mi",

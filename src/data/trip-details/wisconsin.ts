@@ -803,8 +803,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "baraboo-river-haskins-glenville": {
     "putIn": {
       "name": "Haskins Park ADA kayak launch",
-      "latitude": 43.46997,
-      "longitude": -89.76158
+      "latitude": 43.47002,
+      "longitude": -89.761219
     },
     "takeOut": {
       "name": "Glenville Landing / Highway 113 boat landing",
@@ -840,8 +840,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "north-freedom-canoe-launch",
       "name": "North Freedom Canoe Launch / Firemen's Park",
-      "latitude": 43.4569,
-      "longitude": -89.86326
+      "latitude": 43.4567374,
+      "longitude": -89.8631649
     },
     "logistics": {
       "distanceLabel": "About 7 mi from Firemen's Park; 8.2 mi from the upstream Highway 136 gorge put-in",
@@ -875,8 +875,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "north-freedom-canoe-launch",
         "name": "North Freedom Canoe Launch / Firemen's Park",
-        "latitude": 43.4569,
-        "longitude": -89.86326,
+        "latitude": 43.4567374,
+        "longitude": -89.8631649,
         "mileFromStart": 7,
         "segmentKind": "creek",
         "note": "Default take-out in North Freedom; Wisconsin River Trips describes this as an excellent public launch with a kayak dock."
@@ -887,14 +887,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "north-freedom-canoe-launch",
       "name": "North Freedom Canoe Launch / Firemen's Park",
-      "latitude": 43.4569,
-      "longitude": -89.86326
+      "latitude": 43.4567374,
+      "longitude": -89.8631649
     },
     "takeOut": {
       "id": "giese-park-canoe-launch",
       "name": "Giese Park canoe launch",
-      "latitude": 43.4629,
-      "longitude": -89.8042
+      "latitude": 43.4681998,
+      "longitude": -89.8107236
     },
     "logistics": {
       "distanceLabel": "7.4 mi",
@@ -919,8 +919,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "north-freedom-canoe-launch",
         "name": "North Freedom Canoe Launch / Firemen's Park",
-        "latitude": 43.4569,
-        "longitude": -89.86326,
+        "latitude": 43.4567374,
+        "longitude": -89.8631649,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in in North Freedom."
@@ -937,8 +937,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "giese-park-canoe-launch",
         "name": "Giese Park canoe launch",
-        "latitude": 43.4629,
-        "longitude": -89.8042,
+        "latitude": 43.4681998,
+        "longitude": -89.8107236,
         "mileFromStart": 7.4,
         "segmentKind": "creek",
         "note": "Default take-out at the Town of Baraboo river-access park on Hatchery Road."
@@ -949,14 +949,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "giese-park-canoe-launch",
       "name": "Giese Park canoe launch",
-      "latitude": 43.4629,
-      "longitude": -89.8042
+      "latitude": 43.4681998,
+      "longitude": -89.8107236
     },
     "takeOut": {
       "id": "haskins-park-ada-kayak-launch",
       "name": "Haskins Park ADA kayak launch",
-      "latitude": 43.46997,
-      "longitude": -89.76158
+      "latitude": 43.47002,
+      "longitude": -89.761219
     },
     "logistics": {
       "distanceLabel": "About 3.5 mi",
@@ -981,8 +981,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "giese-park-canoe-launch",
         "name": "Giese Park canoe launch",
-        "latitude": 43.4629,
-        "longitude": -89.8042,
+        "latitude": 43.4681998,
+        "longitude": -89.8107236,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in at the Town of Baraboo river-access park."
@@ -990,8 +990,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "haskins-park-ada-kayak-launch",
         "name": "Haskins Park ADA kayak launch",
-        "latitude": 43.46997,
-        "longitude": -89.76158,
+        "latitude": 43.47002,
+        "longitude": -89.761219,
         "mileFromStart": 3.5,
         "segmentKind": "creek",
         "note": "Default take-out and the start of the separate downstream Baraboo Rapids route."
@@ -1923,8 +1923,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Blue River Landing",
-      "latitude": 43.2067548,
-      "longitude": -90.5663182
+      "latitude": 43.20100666,
+      "longitude": -90.57145464
     },
     "logistics": {
       "distanceLabel": "8 mi",
@@ -1947,8 +1947,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "wisconsin-river-blue-river-boscobel": {
     "putIn": {
       "name": "Blue River Landing",
-      "latitude": 43.2067548,
-      "longitude": -90.5663182
+      "latitude": 43.20100666,
+      "longitude": -90.57145464
     },
     "takeOut": {
       "name": "Boscobel Landing / Floyd Von Haden Boat Landing",
@@ -2012,8 +2012,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Dekorra Park landing",
-      "latitude": 43.457484,
-      "longitude": -89.46762
+      "latitude": 43.46021669,
+      "longitude": -89.46357252
     },
     "logistics": {
       "distanceLabel": "7.8 mi",
@@ -2036,13 +2036,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "baraboo-river-wayside-kalepp": {
     "putIn": {
       "name": "Wayside Park (Baraboo River / 400 State Trail)",
-      "latitude": 43.6462,
-      "longitude": -90.2223
+      "latitude": 43.6400644,
+      "longitude": -90.2107493
     },
     "takeOut": {
       "name": "Kalepp Road / 400 State Trail Baraboo River access",
-      "latitude": 43.6206,
-      "longitude": -90.1531
+      "latitude": 43.6238953,
+      "longitude": -90.1746189
     },
     "logistics": {
       "distanceLabel": "4.6 mi",
@@ -2219,8 +2219,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Wyalusing Beach / Wyalusing Boat Landing",
-      "latitude": 42.94815,
-      "longitude": -91.14397
+      "latitude": 42.94815732,
+      "longitude": -91.14368322
     },
     "logistics": {
       "distanceLabel": "10.8 mi",
@@ -2245,13 +2245,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "wisconsin-river-dekorra-camp-rest": {
     "putIn": {
       "name": "Dekorra Park / Main Street access",
-      "latitude": 43.3868,
-      "longitude": -89.5142
+      "latitude": 43.46021669,
+      "longitude": -89.46357252
     },
     "takeOut": {
       "name": "Camp Rest Park",
-      "latitude": 43.4158187,
-      "longitude": -89.5287319
+      "latitude": 43.41617041,
+      "longitude": -89.52852355
     },
     "logistics": {
       "distanceLabel": "5.1 mi",
@@ -2275,14 +2275,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "fishermans-park-sparta",
       "name": "Fisherman's Park / Sparta canoe landing",
-      "latitude": 43.94223,
-      "longitude": -90.80265
+      "latitude": 43.9421781,
+      "longitude": -90.8027101
     },
     "takeOut": {
       "id": "hammer-road-bridge",
       "name": "Hammer Road Bridge take-out",
-      "latitude": 43.9199,
-      "longitude": -90.8718
+      "latitude": 43.9300599,
+      "longitude": -90.8608389
     },
     "logistics": {
       "distanceLabel": "About 5.4 mi",
@@ -2307,8 +2307,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "fishermans-park-sparta",
         "name": "Fisherman's Park / Sparta canoe landing",
-        "latitude": 43.94223,
-        "longitude": -90.80265,
+        "latitude": 43.9421781,
+        "longitude": -90.8027101,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in for this route."
@@ -2316,8 +2316,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "hammer-road-bridge",
         "name": "Hammer Road Bridge take-out",
-        "latitude": 43.9199,
-        "longitude": -90.8718,
+        "latitude": 43.9300599,
+        "longitude": -90.8608389,
         "mileFromStart": 5.4,
         "segmentKind": "creek",
         "note": "Default take-out for this route; inspect parking and carry before launch."
@@ -3983,8 +3983,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "white-river-county-park-launch",
       "name": "White River County Park canoe/kayak launch",
-      "latitude": 42.6245,
-      "longitude": -88.3826
+      "latitude": 42.6333075,
+      "longitude": -88.379184
     },
     "takeOut": {
       "id": "riverview-park-mill-street-white-river",
@@ -4015,8 +4015,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "white-river-county-park-launch",
         "name": "White River County Park canoe/kayak launch",
-        "latitude": 42.6245,
-        "longitude": -88.3826,
+        "latitude": 42.6333075,
+        "longitude": -88.379184,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Walworth County lists a canoe/kayak launch at White River County Park, 6503 Sheridan Springs Road; coordinate is approximate to the named park access."
@@ -4661,14 +4661,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "little-platte-stumpton-road-access",
       "name": "Stumpton Road bridge access",
-      "latitude": 42.7181,
-      "longitude": -90.5205
+      "latitude": 42.7228983,
+      "longitude": -90.5280733
     },
     "takeOut": {
       "id": "little-platte-county-o-access",
       "name": "County Highway O bridge access",
-      "latitude": 42.6897,
-      "longitude": -90.56434
+      "latitude": 42.6896595,
+      "longitude": -90.5643797
     },
     "logistics": {
       "distanceLabel": "About 6.1 mi",
@@ -4695,8 +4695,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "little-platte-stumpton-road-access",
         "name": "Stumpton Road bridge access",
-        "latitude": 42.7181,
-        "longitude": -90.5205,
+        "latitude": 42.7228983,
+        "longitude": -90.5280733,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in at the practical Stumpton Road bridge access; confirm shoulder parking and bank condition."
@@ -4704,8 +4704,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "little-platte-county-o-access",
         "name": "County Highway O bridge access",
-        "latitude": 42.6897,
-        "longitude": -90.56434,
+        "latitude": 42.6896595,
+        "longitude": -90.5643797,
         "mileFromStart": 6.1,
         "segmentKind": "creek",
         "note": "Default take-out at the County O bridge area; use only legal parking and keep farm access clear."
@@ -4835,13 +4835,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "west-branch-white-river-cottonville-s-white-river": {
     "putIn": {
       "name": "Cottonville Avenue DNR parking lot",
-      "latitude": 44.0521929,
-      "longitude": -89.3184764
+      "latitude": 44.0522748,
+      "longitude": -89.3184713
     },
     "takeOut": {
       "name": "South White River Road DNR pull-off",
-      "latitude": 44.043544,
-      "longitude": -89.278796
+      "latitude": 44.0434401,
+      "longitude": -89.2779846
     },
     "logistics": {
       "distanceLabel": "4.8 mi",
@@ -4866,8 +4866,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "cottonville-avenue-dnr-lot",
         "name": "Cottonville Avenue DNR parking lot",
-        "latitude": 44.0521929,
-        "longitude": -89.3184764,
+        "latitude": 44.0522748,
+        "longitude": -89.3184713,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; WRT describes easy hand-carry access from the small DNR lot."
@@ -4884,8 +4884,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "south-white-river-road-dnr-pull-off",
         "name": "South White River Road DNR pull-off",
-        "latitude": 44.043544,
-        "longitude": -89.278796,
+        "latitude": 44.0434401,
+        "longitude": -89.2779846,
         "mileFromStart": 4.8,
         "segmentKind": "creek",
         "note": "Default take-out; WRT describes a DNR pull-off and short trail to the water."
@@ -5027,14 +5027,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "lemke-drive-big-rib-ford",
       "name": "Lemke Drive Big Rib ford/access",
-      "latitude": 45.1866,
-      "longitude": -90.1273
+      "latitude": 45.1845475,
+      "longitude": -90.0854874
     },
     "takeOut": {
       "id": "highway-64-big-rib-access",
       "name": "Highway 64 Big Rib access",
-      "latitude": 45.1493,
-      "longitude": -90.0591
+      "latitude": 45.14954,
+      "longitude": -90.0596094
     },
     "logistics": {
       "distanceLabel": "5.0 mi",
@@ -5059,8 +5059,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "lemke-drive-big-rib-ford",
         "name": "Lemke Drive Big Rib ford/access",
-        "latitude": 45.1866,
-        "longitude": -90.1273,
+        "latitude": 45.1845475,
+        "longitude": -90.0854874,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in at WRT-documented road/ford access."
@@ -5068,8 +5068,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "highway-64-big-rib-access",
         "name": "Highway 64 Big Rib access",
-        "latitude": 45.1493,
-        "longitude": -90.0591,
+        "latitude": 45.14954,
+        "longitude": -90.0596094,
         "mileFromStart": 5,
         "segmentKind": "creek",
         "note": "Default take-out at Highway 64, shared as the downstream Rib Dells put-in."
@@ -5080,8 +5080,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "highway-64-big-rib-access",
       "name": "Highway 64 Big Rib access",
-      "latitude": 45.1493,
-      "longitude": -90.0591
+      "latitude": 45.14954,
+      "longitude": -90.0596094
     },
     "takeOut": {
       "id": "greiner-road-big-rib-access",
@@ -5112,8 +5112,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "highway-64-big-rib-access",
         "name": "Highway 64 Big Rib access",
-        "latitude": 45.1493,
-        "longitude": -90.0591,
+        "latitude": 45.14954,
+        "longitude": -90.0596094,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "AW-listed put-in for the Rib Dells reach."
@@ -5133,8 +5133,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "amco-park-big-rib-access",
       "name": "Amco Park Big Rib River access",
-      "latitude": 45.0832,
-      "longitude": -90.0068
+      "latitude": 45.090007,
+      "longitude": -89.9943084
     },
     "takeOut": {
       "id": "county-highway-a-big-rib-access",
@@ -5165,8 +5165,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "amco-park-big-rib-access",
         "name": "Amco Park Big Rib River access",
-        "latitude": 45.0832,
-        "longitude": -90.0068,
+        "latitude": 45.090007,
+        "longitude": -89.9943084,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in at Marathon County Amco Park."
@@ -5319,14 +5319,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "duck-egg-park-bad-axe-north-fork-put-in",
       "name": "Duck Egg Park / Irish Ridge Road",
-      "latitude": 43.588,
-      "longitude": -91
+      "latitude": 43.5902878,
+      "longitude": -91.0224552
     },
     "takeOut": {
       "id": "highway-o-bad-axe-north-fork-takeout",
       "name": "Highway O bridge",
-      "latitude": 43.572,
-      "longitude": -91.051
+      "latitude": 43.5890728,
+      "longitude": -91.0628697
     },
     "logistics": {
       "distanceLabel": "About 3.7 mi",
@@ -5351,8 +5351,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "duck-egg-park-bad-axe-north-fork-put-in",
         "name": "Duck Egg Park / Irish Ridge Road",
-        "latitude": 43.588,
-        "longitude": -91,
+        "latitude": 43.5902878,
+        "longitude": -91.0224552,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "WRT-listed public launch at county-owned Duck Egg Park; approximate named-site coordinates."
@@ -5369,8 +5369,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "highway-o-bad-axe-north-fork-takeout",
         "name": "Highway O bridge",
-        "latitude": 43.572,
-        "longitude": -91.051,
+        "latitude": 43.5890728,
+        "longitude": -91.0628697,
         "mileFromStart": 3.7,
         "segmentKind": "creek",
         "note": "WRT-listed take-out; expect a weedy carry and confirm bridge/roadside parking."
@@ -5673,14 +5673,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "sumac-road-mullet-river",
       "name": "Sumac Road bridge access",
-      "latitude": 43.72148,
-      "longitude": -87.88006
+      "latitude": 43.7214399,
+      "longitude": -87.8801899
     },
     "takeOut": {
       "id": "river-park-sheboygan-falls",
       "name": "River Park canoe ramp",
-      "latitude": 43.72924,
-      "longitude": -87.81406
+      "latitude": 43.728306,
+      "longitude": -87.8142557
     },
     "logistics": {
       "distanceLabel": "About 7.6 mi",
@@ -5705,8 +5705,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "sumac-road-mullet-river",
         "name": "Sumac Road bridge access",
-        "latitude": 43.72148,
-        "longitude": -87.88006,
+        "latitude": 43.7214399,
+        "longitude": -87.8801899,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from WRT; launch west of the bridge to avoid the private residence east of the bridge."
@@ -5723,8 +5723,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "river-park-sheboygan-falls",
         "name": "River Park canoe ramp",
-        "latitude": 43.72924,
-        "longitude": -87.81406,
+        "latitude": 43.728306,
+        "longitude": -87.8142557,
         "mileFromStart": 7.6,
         "segmentKind": "creek",
         "note": "Default take-out at the public parking lot and canoe ramp east of River Park in Sheboygan Falls."
@@ -7290,8 +7290,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "aztalan-state-park-crawfish-launch",
       "name": "Aztalan State Park Crawfish River launch",
-      "latitude": 43.0736,
-      "longitude": -88.8647
+      "latitude": 43.0628719,
+      "longitude": -88.8603336
     },
     "takeOut": {
       "id": "riverfront-park-jefferson-carry-in",
@@ -7322,8 +7322,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "aztalan-state-park-crawfish-launch",
         "name": "Aztalan State Park Crawfish River launch",
-        "latitude": 43.0736,
-        "longitude": -88.8647,
+        "latitude": 43.0628719,
+        "longitude": -88.8603336,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in in DNR Aztalan State Park; use the signed parking and river-access trail."
@@ -7343,14 +7343,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "covered-bridge-park-cedar-creek",
       "name": "Covered Bridge Park Cedar Creek access",
-      "latitude": 43.3152,
-      "longitude": -88.0024
+      "latitude": 43.337544,
+      "longitude": -88.004846
     },
     "takeOut": {
       "id": "grafton-lions-park-cedar-creek",
       "name": "Grafton Lions Park Cedar Creek access",
-      "latitude": 43.3153,
-      "longitude": -87.9537
+      "latitude": 43.3210512,
+      "longitude": -87.9776777
     },
     "logistics": {
       "distanceLabel": "About 3.6 mi",
@@ -7375,8 +7375,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "covered-bridge-park-cedar-creek",
         "name": "Covered Bridge Park Cedar Creek access",
-        "latitude": 43.3152,
-        "longitude": -88.0024,
+        "latitude": 43.337544,
+        "longitude": -88.004846,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in at the county-listed park launch."
@@ -7393,8 +7393,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "grafton-lions-park-cedar-creek",
         "name": "Grafton Lions Park Cedar Creek access",
-        "latitude": 43.3153,
-        "longitude": -87.9537,
+        "latitude": 43.3210512,
+        "longitude": -87.9776777,
         "mileFromStart": 3.6,
         "segmentKind": "creek",
         "note": "Default take-out at the Village of Grafton kayak-access park."
@@ -7607,8 +7607,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "river-park-sheboygan-falls",
       "name": "River Park canoe ramp",
-      "latitude": 43.72924,
-      "longitude": -87.81406
+      "latitude": 43.728306,
+      "longitude": -87.8142557
     },
     "logistics": {
       "distanceLabel": "About 10 mi",
@@ -7660,8 +7660,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "river-park-sheboygan-falls",
         "name": "River Park canoe ramp",
-        "latitude": 43.72924,
-        "longitude": -87.81406,
+        "latitude": 43.728306,
+        "longitude": -87.8142557,
         "mileFromStart": 10,
         "segmentKind": "creek",
         "note": "Default public take-out with parking before the Sheboygan Falls / dam hazard sequence."
@@ -7979,8 +7979,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "manitowoc-north-union-road-access",
       "name": "North Union Road access",
-      "latitude": 44.1007,
-      "longitude": -87.7657
+      "latitude": 44.1118317,
+      "longitude": -87.7812552
     },
     "logistics": {
       "distanceLabel": "About 3.5 mi",
@@ -8014,8 +8014,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "manitowoc-north-union-road-access",
         "name": "North Union Road access",
-        "latitude": 44.1007,
-        "longitude": -87.7657,
+        "latitude": 44.1118317,
+        "longitude": -87.7812552,
         "mileFromStart": 3.5,
         "segmentKind": "creek",
         "note": "Default take-out; MRW lists North Union Road as a water-trail access with limited roadside parking."
@@ -8026,8 +8026,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "manitowoc-north-union-road-access",
       "name": "North Union Road access",
-      "latitude": 44.1007,
-      "longitude": -87.7657
+      "latitude": 44.1118317,
+      "longitude": -87.7812552
     },
     "takeOut": {
       "id": "manitowoc-river-public-access-mill-road",
@@ -8058,8 +8058,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "manitowoc-north-union-road-access",
         "name": "North Union Road access",
-        "latitude": 44.1007,
-        "longitude": -87.7657,
+        "latitude": 44.1118317,
+        "longitude": -87.7812552,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; MRW lists North Union Road as a water-trail access with limited roadside parking."
@@ -8247,8 +8247,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "druid-lake-boat-ramp",
       "name": "Druid Lake Boat Ramp / Clearwater Beach Road",
-      "latitude": 43.2811283,
-      "longitude": -88.4090687
+      "latitude": 43.2810478,
+      "longitude": -88.4090715
     },
     "takeOut": {
       "id": "highway-o-ashippun-bridge",
@@ -8279,8 +8279,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "druid-lake-boat-ramp",
         "name": "Druid Lake Boat Ramp / Clearwater Beach Road",
-        "latitude": 43.2811283,
-        "longitude": -88.4090687,
+        "latitude": 43.2810478,
+        "longitude": -88.4090715,
         "mileFromStart": 0,
         "segmentKind": "lake",
         "note": "Default put-in; Wisconsin DNR lists Druid Lake as having one public boat landing."
@@ -8353,14 +8353,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "tin-can-road-little-sugar",
       "name": "Tin Can Road bridge access",
-      "latitude": 42.7247902,
-      "longitude": -89.4670582
+      "latitude": 42.7252163,
+      "longitude": -89.4672485
     },
     "takeOut": {
       "id": "american-legion-park-albany",
       "name": "American Legion Park Landing",
-      "latitude": 42.710068,
-      "longitude": -89.4396594
+      "latitude": 42.7100667,
+      "longitude": -89.4397001
     },
     "logistics": {
       "distanceLabel": "About 3.2 mi",
@@ -8385,8 +8385,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "tin-can-road-little-sugar",
         "name": "Tin Can Road bridge access",
-        "latitude": 42.7247902,
-        "longitude": -89.4670582,
+        "latitude": 42.7252163,
+        "longitude": -89.4672485,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; WRT documents a small trail/launch northwest of the bridge and excludes upstream approaches for logjam reasons."
@@ -8394,8 +8394,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "american-legion-park-albany",
         "name": "American Legion Park Landing",
-        "latitude": 42.710068,
-        "longitude": -89.4396594,
+        "latitude": 42.7100667,
+        "longitude": -89.4397001,
         "mileFromStart": 3.2,
         "segmentKind": "creek",
         "note": "Default take-out; Village of Albany and WRT both support this as a public boat-launch area above Albany Dam."

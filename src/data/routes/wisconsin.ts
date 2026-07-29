@@ -2749,8 +2749,8 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Short Baraboo Rapids run from the Haskins Park ADA kayak launch through downtown Baraboo and Circus World to the Highway 113 Glenville Landing. It is one of the more useful short Wisconsin gauge-driven routes because the direct Baraboo gauge, public access points, and same-route community level notes all line up.",
     "statusText": "Use the Baraboo River near Baraboo gauge. Treat about 350 cfs as the practical minimum for the Haskins-to-Glenville riffles; around 470 to 600 cfs has strong same-route community support, while higher water reduces eddy detail and makes strainers and Class I-II ledges more consequential.",
-    "latitude": 43.46997,
-    "longitude": -89.76158,
+    "latitude": 43.4681941,
+    "longitude": -89.8106387,
     "gaugeSource": {
       "id": "usgs-05405000",
       "provider": "usgs",
@@ -6502,8 +6502,8 @@ export const wisconsinRoutes: River[] = [
       ],
       "reviewStatus": "reviewed"
     },
-    "latitude": 43.2067548,
-    "longitude": -90.5663182,
+    "latitude": 43.20100666,
+    "longitude": -90.57145464,
     "gaugeSource": {
       "id": "usgs-05407000",
       "provider": "usgs",
@@ -6812,8 +6812,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Driftless Wisconsin",
     "summary": "Short upper Baraboo day with sandstone outcrops, muddy banks, and a clear La Valle stage ladder from Wisconsin River Trips. It is scenic enough to add, but strainers and pushy high water keep the score conservative.",
     "statusText": "Use the La Valle stage gauge. Treat 5.6 to 6.2 ft as the best target, below 5.0 ft as too low for an app recommendation, and above 6.9 ft as too high and dirty for a broad recreational call.",
-    "latitude": 43.6462,
-    "longitude": -90.2223,
+    "latitude": 43.6400644,
+    "longitude": -90.2107493,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -7547,8 +7547,8 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Shorter lower-Portage Wisconsin River route that keeps the best back channels, sandstone outcrops, islands, and sandbars while avoiding the rough final open-water mile to James Whalen. This is the better scored variant of the Dekorra-to-Lake Wisconsin source route.",
     "statusText": "Use the Wisconsin Dells gauge. Treat 4,000 to 8,000 cfs as the best window, below about 2,500 cfs as too shallow for some back channels, and above 13,000 cfs as high-water only for very conservative paddlers.",
-    "latitude": 43.3868,
-    "longitude": -89.5142,
+    "latitude": 43.46021669,
+    "longitude": -89.46357252,
     "gaugeSource": {
       "id": "usgs-05404000",
       "provider": "usgs",
@@ -7642,8 +7642,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Western Wisconsin",
     "summary": "Clear, ledgy upper La Crosse River day through Sparta, with a direct Sparta USGS gauge, a normal Fisherman's Park launch, and a short Hammer Road take-out. It is a fun moving-water route only when recent wood and portage conditions are acceptable.",
     "statusText": "Use the La Crosse River at Sparta gauge. Treat about 150 cfs / 3.5 ft as the conservative floor from Miles Paddled; below that, expect scraping through downtown Sparta and on the ledges.",
-    "latitude": 43.94223,
-    "longitude": -90.80265,
+    "latitude": 43.9421781,
+    "longitude": -90.8027101,
     "routeType": "whitewater",
     "gaugeSource": {
       "id": "usgs-05382325",
@@ -11439,8 +11439,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Central Wisconsin",
     "summary": "Spring-fed Waushara County clearwater trip from the Cottonville Avenue DNR lot through the West Branch and lower main White River to the South White River Road DNR pull-off.",
     "statusText": "Use the Chaffee Creek at I-39 proxy gauge. Wisconsin River Trips calls 12.5 to 13.5 cfs the average good target, 11 to 12.5 cfs mostly navigable but low, and 15+ cfs maybe too high for good paddling; treat the proxy as approximate.",
-    "latitude": 44.0521929,
-    "longitude": -89.3184764,
+    "latitude": 44.0522748,
+    "longitude": -89.3184713,
     "gaugeSource": {
       "id": "usgs-04073240",
       "provider": "usgs",
@@ -12569,8 +12569,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Southeast Wisconsin",
     "summary": "Short Walworth County White River rapids run from White River County Park to the Riverview Park / Mill Street landing in Lyons, with Class I riffles, a Class II former-dam drop, and Nippersink proxy gauge guidance.",
     "statusText": "Use the Nippersink Creek near Spring Grove proxy gauge for the WRT depth ladder. The AW-linked Jackson Creek proxy is useful context but AW warns that local White River regulation makes proxy correlation imperfect, so same-day visual checks still control.",
-    "latitude": 42.6245,
-    "longitude": -88.3826,
+    "latitude": 42.6333075,
+    "longitude": -88.379184,
     "gaugeSource": {
       "id": "usgs-05548280",
       "provider": "usgs",
@@ -12650,8 +12650,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "white-river-county-park-launch",
         "name": "White River County Park canoe/kayak launch",
-        "latitude": 42.6245,
-        "longitude": -88.3826,
+        "latitude": 42.6333075,
+        "longitude": -88.379184,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Walworth County lists a canoe/kayak launch at White River County Park, 6503 Sheridan Springs Road. Coordinate is approximate to the named park access; verify the actual signed launch and carry before unloading."
@@ -14335,8 +14335,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Southwest Wisconsin",
     "summary": "Fast Driftless Little Platte run below Platteville, with riffles, limestone, farm-country banks, three fences, and a Platte/Rockville proxy gauge that WRT and Miles Paddled both use for this river family.",
     "statusText": "Use the Platte River near Rockville as a Little Platte proxy. WRT calls 201 to 300 cfs a good target, 161 to 200 cfs decent, 101 to 150 cfs scrapey, and 301 to 400 cfs possibly high for non-whitewater paddlers.",
-    "latitude": 42.7181,
-    "longitude": -90.5205,
+    "latitude": 42.7228983,
+    "longitude": -90.5280733,
     "routeType": "whitewater",
     "safetyProfile": {
       "riskLevel": "advanced",
@@ -14407,8 +14407,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "little-platte-stumpton-road-access",
         "name": "Stumpton Road bridge access",
-        "latitude": 42.7181,
-        "longitude": -90.5205,
+        "latitude": 42.7228983,
+        "longitude": -90.5280733,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; WRT describes northeast-of-bridge shoulder access with a small path."
@@ -14416,8 +14416,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "little-platte-county-o-access",
         "name": "County Highway O bridge access",
-        "latitude": 42.6897,
-        "longitude": -90.56434,
+        "latitude": 42.6896595,
+        "longitude": -90.5643797,
         "mileFromStart": 6.1,
         "segmentKind": "creek",
         "note": "Default take-out; WRT describes a mowed south-side path near a farm road and warns not to block tractors."
@@ -14639,8 +14639,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Wausau Area",
     "summary": "Far upper Big Rib River day from the Lemke Drive ford/access to Highway 64, with light riffles, gravel bars, low trees, occasional Class I-II current, and a direct Rib Falls gauge ladder.",
     "statusText": "Use the Big Rib River at Rib Falls gauge. Wisconsin River Trips calls 101 to 200 cfs a common average, 201 to 325 cfs above normal but plenty doable, 326 to 500 cfs high but still navigable, and 501+ cfs very high and not recommended for casual paddlers.",
-    "latitude": 45.1866,
-    "longitude": -90.1273,
+    "latitude": 45.1845475,
+    "longitude": -90.0854874,
     "gaugeSource": {
       "id": "usgs-05396000",
       "provider": "usgs",
@@ -14700,8 +14700,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "lemke-drive-big-rib-ford",
         "name": "Lemke Drive Big Rib ford/access",
-        "latitude": 45.1866,
-        "longitude": -90.1273,
+        "latitude": 45.1845475,
+        "longitude": -90.0854874,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "WRT-documented put-in at the Lemke Drive ford/road access; stay in the road corridor and avoid posted woods."
@@ -14709,8 +14709,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "highway-64-big-rib-access",
         "name": "Highway 64 Big Rib access",
-        "latitude": 45.1493,
-        "longitude": -90.0591,
+        "latitude": 45.14954,
+        "longitude": -90.0596094,
         "mileFromStart": 5,
         "segmentKind": "creek",
         "note": "Default take-out at Highway 64; WRT describes a 150-foot grass embankment drag."
@@ -14769,8 +14769,8 @@ export const wisconsinRoutes: River[] = [
     "routeType": "whitewater",
     "summary": "Compact Rib Dells whitewater run from the Highway 64 access to the Greiner Road / Silver Fox Road take-out, adding the upstream Class II bedrock-dells reach above the existing lower Big Rib touring cards.",
     "statusText": "Use American Whitewater guidance with the Prairie River near Merrill gauge as the primary proxy: 300 to 1,000 cfs is the recommended runnable range. The Big Rib at Rib Falls gauge is retained only as secondary context.",
-    "latitude": 45.1493,
-    "longitude": -90.0591,
+    "latitude": 45.14954,
+    "longitude": -90.0596094,
     "gaugeSource": {
       "id": "usgs-05394500",
       "provider": "usgs",
@@ -14841,8 +14841,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "highway-64-big-rib-access",
         "name": "Highway 64 Big Rib access",
-        "latitude": 45.1493,
-        "longitude": -90.0591,
+        "latitude": 45.14954,
+        "longitude": -90.0596094,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "AW-listed put-in for the Rib Dells reach."
@@ -14878,7 +14878,7 @@ export const wisconsinRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "45.14930, -90.05910 to 45.13290, -90.02620",
+        "value": "45.14954, -90.0596094 to 45.13290, -90.02620",
         "note": "American Whitewater access-point pages expose the put-in and take-out coordinates used for this card.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2863/main"
       }
@@ -14914,8 +14914,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Wausau Area",
     "summary": "Beginner-friendly upper-middle Big Rib River day from Marathon County Amco Park to the County Highway A bridge, with brisk current, light riffles, small outcrops, and direct Rib Falls gauge support.",
     "statusText": "Use the Big Rib River at Rib Falls gauge. Wisconsin River Trips calls 201 to 300 cfs a common average and good target range, 101 to 200 cfs doable but bumpy, 401 to 500 cfs pretty high, and 501+ cfs very high and not recommended for casual paddlers.",
-    "latitude": 45.0832,
-    "longitude": -90.0068,
+    "latitude": 45.090007,
+    "longitude": -89.9943084,
     "gaugeSource": {
       "id": "usgs-05396000",
       "provider": "usgs",
@@ -14975,11 +14975,11 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "amco-park-big-rib-access",
         "name": "Amco Park Big Rib River access",
-        "latitude": 45.0832,
-        "longitude": -90.0068,
+        "latitude": 45.090007,
+        "longitude": -89.9943084,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Marathon County public park with Big Rib River access, parking, picnic facilities, water, and vault toilets."
+        "note": "Amco Park access point from the Wisconsin River Trips route map; Marathon County public park with Big Rib River access, parking, picnic facilities, water, and vault toilets."
       },
       {
         "id": "county-highway-a-big-rib-access",
@@ -15362,8 +15362,8 @@ export const wisconsinRoutes: River[] = [
     "routeType": "whitewater",
     "summary": "Short Driftless creek run from county-owned Duck Egg Park / Irish Ridge Road to the Highway O bridge, with frequent riffles, easy rapids, fences, and open-ridge scenery.",
     "statusText": "There is no gauge on the Bad Axe North Fork. Wisconsin River Trips uses the Kickapoo River at Ontario as a rough analogue and calls 121 to 300 cfs the practical target, with 301 to 450 cfs reserved for experienced paddlers.",
-    "latitude": 43.588,
-    "longitude": -91,
+    "latitude": 43.5902878,
+    "longitude": -91.0224552,
     "gaugeSource": {
       "id": "usgs-05408000",
       "provider": "usgs",
@@ -15422,8 +15422,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "duck-egg-park-bad-axe-north-fork-put-in",
         "name": "Duck Egg Park / Irish Ridge Road",
-        "latitude": 43.588,
-        "longitude": -91,
+        "latitude": 43.5902878,
+        "longitude": -91.0224552,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "WRT-listed public launch at county-owned Duck Egg Park; coordinates are approximate for the named Irish Ridge Road park access."
@@ -15440,8 +15440,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "highway-o-bad-axe-north-fork-takeout",
         "name": "Highway O bridge",
-        "latitude": 43.572,
-        "longitude": -91.051,
+        "latitude": 43.5890728,
+        "longitude": -91.0628697,
         "mileFromStart": 3.7,
         "segmentKind": "creek",
         "note": "WRT-listed take-out; use the northwest corner under the bridge and expect a weedy carry. Coordinates are approximate for the named bridge crossing."
@@ -16247,8 +16247,8 @@ export const wisconsinRoutes: River[] = [
     "region": "East-Central Wisconsin",
     "summary": "Lower Mullet River day trip from Sumac Road to River Park in Sheboygan Falls, with riffles, boulder gardens, a dam portage, logjams, and a short Sheboygan River finish.",
     "statusText": "Use the Sheboygan River at Sheboygan gauge as a weak proxy only. Wisconsin River Trips ties this exact route to that gauge but warns the Mullet has no gauge and the larger downstream Sheboygan gauge can lag or misrepresent local conditions.",
-    "latitude": 43.72148,
-    "longitude": -87.88006,
+    "latitude": 43.7214399,
+    "longitude": -87.8801899,
     "routeType": "recreational",
     "gaugeSource": {
       "id": "usgs-04086000",
@@ -16320,8 +16320,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "sumac-road-mullet-river",
         "name": "Sumac Road bridge access",
-        "latitude": 43.72148,
-        "longitude": -87.88006,
+        "latitude": 43.7214399,
+        "longitude": -87.8801899,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from WRT; launch west of the bridge to avoid the private residence east of the bridge."
@@ -16338,8 +16338,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "river-park-sheboygan-falls",
         "name": "River Park canoe ramp",
-        "latitude": 43.72924,
-        "longitude": -87.81406,
+        "latitude": 43.728306,
+        "longitude": -87.8142557,
         "mileFromStart": 7.6,
         "segmentKind": "creek",
         "note": "Default take-out at the public parking lot and canoe ramp east of River Park in Sheboygan Falls."
@@ -19715,8 +19715,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "river-park-sheboygan-falls",
         "name": "River Park canoe ramp",
-        "latitude": 43.72924,
-        "longitude": -87.81406,
+        "latitude": 43.728306,
+        "longitude": -87.8142557,
         "mileFromStart": 10,
         "segmentKind": "creek",
         "note": "Default public take-out before the Sheboygan Falls / dam hazard sequence. This shared city-park access is already used by the Mullet River card."
@@ -20228,8 +20228,8 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Lower Crawfish trip from Aztalan State Park to Riverfront Park in Jefferson, with DNR park access, boulder gardens, drumlin springs, wind exposure, and a direct Milford gauge target.",
     "statusText": "Use the Crawfish River at Milford gauge. WRT lists 121 to 250 cfs as the good target for Aztalan-to-Riverfront, 0 to 60 cfs as exceptionally low, and 1401+ cfs as maybe too high and muddy.",
-    "latitude": 43.0736,
-    "longitude": -88.8647,
+    "latitude": 43.0628719,
+    "longitude": -88.8603336,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -20287,11 +20287,11 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "aztalan-state-park-crawfish-launch",
         "name": "Aztalan State Park Crawfish River launch",
-        "latitude": 43.0736,
-        "longitude": -88.8647,
+        "latitude": 43.0628719,
+        "longitude": -88.8603336,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in; DNR confirms canoeing and kayaking on the Crawfish River at Aztalan State Park."
+        "note": "Default put-in from the Wisconsin River Trips route map (Aztalan State Park access point); DNR confirms canoeing and kayaking on the Crawfish River at Aztalan State Park."
       },
       {
         "id": "riverfront-park-jefferson-carry-in",
@@ -20492,8 +20492,8 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Popular mid-Baraboo float from North Freedom to Giese Park, using two public launches, a route-specific Wisconsin River Trips level ladder, sandstone outcrop scenery, and a live Reedsburg gauge.",
     "statusText": "Use the Baraboo River at Reedsburg gauge. Wisconsin River Trips gives the same 151 to 250 cfs target, with 351+ cfs high/pushy and 551+ cfs likely too muddy, pushy, and strainer-prone.",
-    "latitude": 43.4599,
-    "longitude": -89.8328,
+    "latitude": 43.4567374,
+    "longitude": -89.8631649,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -21082,8 +21082,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Southeastern Wisconsin",
     "summary": "Short Ozaukee County Cedar Creek run from the historic Covered Bridge Park launch to Grafton Lions Park, with clear-water riffles, a direct Cedarburg gauge, and public park endpoints.",
     "statusText": "Use the Cedar Creek at Cedarburg stage gauge. Treat roughly 5.5 to 6.5 ft as the useful local window; below about 5.25 ft expect scraping, and above about 6.8 ft this becomes fast water for experienced paddlers only.",
-    "latitude": 43.3152,
-    "longitude": -88.0024,
+    "latitude": 43.337544,
+    "longitude": -88.004846,
     "gaugeSource": {
       "id": "usgs-04086500-stage",
       "provider": "usgs",
@@ -21153,8 +21153,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "covered-bridge-park-cedar-creek",
         "name": "Covered Bridge Park Cedar Creek access",
-        "latitude": 43.3152,
-        "longitude": -88.0024,
+        "latitude": 43.337544,
+        "longitude": -88.004846,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; Ozaukee County lists a kayak/canoe launch at Covered Bridge Park."
@@ -21171,8 +21171,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "grafton-lions-park-cedar-creek",
         "name": "Grafton Lions Park Cedar Creek access",
-        "latitude": 43.3153,
-        "longitude": -87.9537,
+        "latitude": 43.3210512,
+        "longitude": -87.9776777,
         "mileFromStart": 3.6,
         "segmentKind": "creek",
         "note": "Default take-out; Grafton lists kayak access, parking, and restrooms at Lions Park."
@@ -21798,8 +21798,8 @@ export const wisconsinRoutes: River[] = [
     "routeType": "whitewater",
     "summary": "Longer lower-Manitowoc water-trail day from North Union Road to the Mill Road public access, with direct-gauge minimum guidance and I-43 rapid caveats.",
     "statusText": "Use the direct Manitowoc gauge. Miles Paddled recommends roughly 250 to 500 cfs for ordinary paddlers on the lower Manitowoc family and says whitewater groups should wait for 500+ cfs; this card ships only a 250 cfs floor.",
-    "latitude": 44.1007,
-    "longitude": -87.7657,
+    "latitude": 44.1118317,
+    "longitude": -87.7812552,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -22243,8 +22243,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Southeast Wisconsin",
     "summary": "Short Druid Lake-to-Ashippun marsh route using the public Druid Lake landing, a Highway O bridge take-out, and a route-specific Bark River proxy ladder from Wisconsin River Trips.",
     "statusText": "Use the Bark River at Delafield gauge only as the WRT-selected proxy. WRT targets 31 to 55 cfs, calls under 15 cfs maybe too shallow, and warns 101+ cfs may be too high; scout Druid Lake wind, logjams, low bridges, and the steep Highway O exit.",
-    "latitude": 43.2811283,
-    "longitude": -88.4090687,
+    "latitude": 43.2810478,
+    "longitude": -88.4090715,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -22455,8 +22455,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Southern Wisconsin",
     "summary": "Short lower Little Sugar route from the Tin Can Road bridge to Albany American Legion Park, ending at the public boat launch above Albany Dam.",
     "statusText": "Use the Sugar River near Verona gauge only as WRT proxy context. WRT calls 41 to 70 cfs average, says 0 to 40 cfs is shallow but fine, and treats 96+ cfs as very high with poor-water-quality concerns rather than an automatic closure.",
-    "latitude": 42.7247902,
-    "longitude": -89.4670582,
+    "latitude": 42.7252163,
+    "longitude": -89.4672485,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [

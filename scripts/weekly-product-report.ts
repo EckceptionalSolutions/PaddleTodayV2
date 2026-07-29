@@ -242,7 +242,7 @@ async function loadFirebaseAnalytics(
   }
 
   try {
-    const [current, previous, productEvents, installs, acquisition, retention] =
+    const [current, previous, productEvents, installs, acquisition] =
       await Promise.all([
         runAnalyticsReport(token.value, propertyId, {
           dateRanges: [gaDateRange(windows.current)],
@@ -283,8 +283,12 @@ async function loadFirebaseAnalytics(
           orderBys: [{ metric: { metricName: "sessions" }, desc: true }],
           limit: "10",
         }),
-        runRetentionReport(token.value, propertyId, windows.previous),
       ]);
+    const retention = await runRetentionReport(
+      token.value,
+      propertyId,
+      windows.previous,
+    ).then(ready, failed);
 
     const events = Object.fromEntries(
       productEvents.rows.map((row) => [
@@ -355,7 +359,7 @@ async function runRetentionReport(
   cohortWindow: DateWindow,
 ) {
   const report = await runAnalyticsReport(token, propertyId, {
-    dimensions: gaDimensions("cohortNthWeek"),
+    dimensions: gaDimensions("cohort", "cohortNthWeek"),
     metrics: gaMetrics("cohortActiveUsers", "cohortTotalUsers"),
     cohortSpec: {
       cohorts: [
@@ -662,8 +666,12 @@ function renderMarkdown(report: {
 
   if (firebase.status === "ready") {
     const value = firebase.value;
+    const retentionSummary =
+      value.retention.status === "ready"
+        ? `${percent(value.retention.value.weekOneRate)} week-1 retention`
+        : `week-1 retention ${sourceMessage(value.retention)}`;
     lines.push(
-      `- Mobile: ${integer(value.summary.current.activeUsers)} active users (${signedPercent(value.summary.activeUsersChangePercent)} WoW), ${integer(value.installs.total)} first opens, ${percent(value.summary.engagementRate)} engagement rate, ${percent(value.retention.weekOneRate)} week-1 retention.`,
+      `- Mobile: ${integer(value.summary.current.activeUsers)} active users (${signedPercent(value.summary.activeUsersChangePercent)} WoW), ${integer(value.installs.total)} first opens, ${percent(value.summary.engagementRate)} engagement rate, ${retentionSummary}.`,
       `- Mobile corridor: ${integer(value.corridorFunnel.hubUsers)} hub users → ${integer(value.corridorFunnel.tripSelectionUsers)} trip selectors (${percent(value.corridorFunnel.hubToTripRate)}) → ${integer(value.corridorFunnel.routeOpenUsers)} route-detail users.`,
     );
   } else {
@@ -719,7 +727,15 @@ function renderMarkdown(report: {
     const value = firebase.value;
     lines.push(
       `- Installs proxy: **${integer(value.installs.total)}** first opens.`,
-      `- Week-1 retention: **${percent(value.retention.weekOneRate)}** (${integer(value.retention.retainedUsers)} of ${integer(value.retention.acquiredUsers)} acquired users active).`,
+    );
+    if (value.retention.status === "ready") {
+      lines.push(
+        `- Week-1 retention: **${percent(value.retention.value.weekOneRate)}** (${integer(value.retention.value.retainedUsers)} of ${integer(value.retention.value.acquiredUsers)} acquired users active).`,
+      );
+    } else {
+      lines.push(`- Week-1 retention: ${sourceMessage(value.retention)}.`);
+    }
+    lines.push(
       `- Corridor hub → trip selection: **${percent(value.corridorFunnel.hubToTripRate)}**.`,
       "",
       "| Mobile event | Events | Users |",
@@ -744,14 +760,18 @@ function renderMarkdown(report: {
         `- Cloudflare: ${integer(value.cloudflare.value.last7d.visits)} visits and ${integer(value.cloudflare.value.last7d.requests)} requests in the rolling last 7 days.`,
       );
     } else {
-      lines.push(`- Cloudflare: ${value.cloudflare?.error || "unavailable"}`);
+      lines.push(
+        `- Cloudflare: ${operationMetricMessage("Cloudflare", value.cloudflare?.error)}`,
+      );
     }
     if (value.azureCost?.ok) {
       lines.push(
         `- Azure: ${currency(value.azureCost.value.cost, value.azureCost.value.currency)} month-to-date.`,
       );
     } else {
-      lines.push(`- Azure cost: ${value.azureCost?.error || "unavailable"}`);
+      lines.push(
+        `- Azure cost: ${operationMetricMessage("Azure", value.azureCost?.error)}`,
+      );
     }
     if (value.paddleToday?.ok) {
       lines.push(
@@ -759,7 +779,7 @@ function renderMarkdown(report: {
       );
     } else {
       lines.push(
-        `- Alerts and requests: ${value.paddleToday?.error || "unavailable"}`,
+        `- Alerts and requests: ${operationMetricMessage("storage", value.paddleToday?.error)}`,
       );
     }
   } else {
@@ -774,9 +794,13 @@ function renderMarkdown(report: {
     "| --- | --- |",
   );
   for (const [name, source] of Object.entries(report.sources)) {
-    lines.push(
-      `| ${name} | ${escapeCell(source.status === "ready" ? "Ready" : sourceMessage(source))} |`,
-    );
+    const status =
+      name === "operations"
+        ? operationsReadiness(source)
+        : source.status === "ready"
+          ? "Ready"
+          : sourceMessage(source);
+    lines.push(`| ${name} | ${escapeCell(status)} |`);
   }
   lines.push("", `Generated ${report.generatedAt}.`, "");
   return lines.join("\n");
@@ -802,6 +826,53 @@ function sourceMessage(source: SourceResult<unknown>) {
   if (source.status === "pending") return `pending setup — ${source.reason}`;
   if (source.status === "error") return `unavailable — ${source.error}`;
   return "ready";
+}
+
+function operationMetricMessage(
+  kind: "Cloudflare" | "Azure" | "storage",
+  error?: string,
+) {
+  if (!error) return "unavailable";
+  if (
+    kind === "Cloudflare" &&
+    error.includes("CLOUDFLARE_API_TOKEN") &&
+    error.includes("CLOUDFLARE_ZONE_ID")
+  ) {
+    return "pending setup — add the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ZONE_ID GitHub secrets";
+  }
+  if (
+    kind === "Azure" &&
+    (error.includes("az login") ||
+      error.includes("AZURE_CREDENTIALS") ||
+      error.includes("ENOENT"))
+  ) {
+    return "pending setup — add the AZURE_CREDENTIALS GitHub secret";
+  }
+  if (
+    kind === "storage" &&
+    error.includes("Missing production storage settings")
+  ) {
+    const missing = error
+      .split("Missing production storage settings:")[1]
+      ?.trim();
+    return `pending setup — add the ${missing || "storage SAS URL"} GitHub secret${missing?.includes(",") ? "s" : ""}`;
+  }
+  return `unavailable — ${error}`;
+}
+
+function operationsReadiness(source: SourceResult<any>) {
+  if (source.status !== "ready") return sourceMessage(source);
+  const metrics = [
+    ["Cloudflare", source.value.cloudflare] as const,
+    ["Azure", source.value.azureCost] as const,
+    ["storage", source.value.paddleToday] as const,
+  ];
+  const readyCount = metrics.filter(([, metric]) => metric?.ok).length;
+  if (readyCount === metrics.length) return "Ready";
+  const unavailable = metrics
+    .filter(([, metric]) => !metric?.ok)
+    .map(([kind, metric]) => operationMetricMessage(kind, metric?.error));
+  return `${readyCount > 0 ? "Partial" : "Pending setup"} — ${unavailable.join("; ")}`;
 }
 
 function eventUsers(events: Record<string, { users?: number }>, name: string) {

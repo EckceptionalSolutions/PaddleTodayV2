@@ -10097,8 +10097,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Twin Cities Northwest Metro",
     "summary": "Long lower North Fork Crow run with enough mileage that level still matters even though the river is not especially technical. The Dayton end is well-supported, and the DNR ladder finally gives this corridor a real launchability band.",
     "statusText": "Treat 500 to 1,500 cfs as the best zone on the lower North Fork Crow. Below 345 cfs gets too scrapy for a long day, and above 1,750 cfs is no longer a broad-audience same-day recommendation.",
-    "latitude": 45.1644165,
-    "longitude": -93.6413049,
+    "latitude": 45.1650443,
+    "longitude": -93.6400335,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
