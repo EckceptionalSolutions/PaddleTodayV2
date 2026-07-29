@@ -8,7 +8,7 @@
 - The Node server reads:
   - `PORT` or `CANOE_API_PORT`
   - `CANOE_API_HOST`
-- Web analytics is optional at build/runtime. Umami Cloud loads only when `PUBLIC_UMAMI_WEBSITE_ID` is set; set `PUBLIC_UMAMI_SCRIPT_SRC` only for a custom or self-hosted Umami script. The Azure Static Web Apps workflow reads `PUBLIC_UMAMI_WEBSITE_ID` from the matching GitHub Actions secret.
+- Umami Cloud web analytics loads with PaddleToday's public website ID by default. `PUBLIC_UMAMI_WEBSITE_ID` can override the ID and `PUBLIC_UMAMI_SCRIPT_SRC` can select a custom or self-hosted script. The public website ID is not a credential.
 
 ## Health endpoints
 
@@ -88,7 +88,7 @@ The suite checks readiness, health/cache/upstream telemetry, the static homepage
 - `/api/health` shows upstream `failureRate`, `consecutiveFailures`, `rateLimitedResponses`, and `timeouts` within expected bounds for USGS, NWS, and NOAA hosts.
 - Logo and map assets load under the deploy origin.
 - At least one detail page loads score, checklist, outlooks, map, and gauge chart.
-- Umami is absent in local builds without analytics env vars, and present in production only when `PUBLIC_UMAMI_WEBSITE_ID` is configured.
+- The built frontend includes the deferred Umami script with website ID `ce97ebc3-44ba-4c12-898e-666c904bc6b6`.
 - Logs and `/api/health` show normal request flow without repeated upstream failures.
 - `npm run rate-limit:smoke` passes against staging, and any shared edge limiter has a separately recorded 429 test.
 

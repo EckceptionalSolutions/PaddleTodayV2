@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "defaults": {
+    "maxConsecutiveClaims": 1,
+    "minimumSourceFamilies": 3,
+    "minimumDiscoveryTouches": 6,
+    "maximumStaleCandidateRechecks": 2,
+    "claimLeaseMinutes": 180,
+    "difficultStateReservationEvery": 3,
+    "historyWindow": 24
+  },
+  "states": [
+    {
+      "state": "Arkansas",
+      "code": "AR",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/arkansas.md",
+      "primarySourceFamilies": ["NPS Buffalo National River", "Arkansas Game and Fish", "USFS and USGS"],
+      "fallbackSourceFamilies": ["American Whitewater", "USACE recreation maps", "county and city access managers"],
+      "mandatoryChecks": ["flash-flood and remoteness hazards", "public endpoint legitimacy", "direct live-gauge support"]
+    },
+    {
+      "state": "Illinois",
+      "code": "IL",
+      "enabled": true,
+      "weight": 1.35,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/illinois.md",
+      "primarySourceFamilies": ["IDNR river closures and public waters", "county forest preserve launch pages", "USGS current conditions"],
+      "fallbackSourceFamilies": ["American Whitewater", "city and park-district access pages", "official water-trail partners"],
+      "mandatoryChecks": ["current IDNR closure status", "public-water and parking legitimacy", "route-specific numeric thresholds"],
+      "sourceRecoveryTactics": ["Try the USGS Water Data for the Nation page when legacy Water Services fails.", "Search the responsible county or park manager for an alternate access document.", "Record provider failure separately from missing gauge data."]
+    },
+    {
+      "state": "Indiana",
+      "code": "IN",
+      "enabled": true,
+      "weight": 1.35,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/indiana.md",
+      "primarySourceFamilies": ["Indiana DNR public access", "city and county water trails", "USGS current conditions"],
+      "fallbackSourceFamilies": ["American Whitewater", "regional watershed groups", "park-manager maps"],
+      "mandatoryChecks": ["low-head dam exposure", "bridge-launch legitimacy", "numeric threshold support"]
+    },
+    {
+      "state": "Iowa",
+      "code": "IA",
+      "enabled": true,
+      "weight": 0.75,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/iowa.md",
+      "primarySourceFamilies": ["Iowa DNR water-trail maps", "county conservation access pages", "USGS current conditions"],
+      "fallbackSourceFamilies": ["city water-trail guides", "official river authorities", "route-specific community gauge guidance"],
+      "mandatoryChecks": ["dam and portage boundaries", "public access coordinates", "corridor overlap"]
+    },
+    {
+      "state": "Kansas",
+      "code": "KS",
+      "enabled": true,
+      "weight": 1.1,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/kansas.md",
+      "primarySourceFamilies": ["Kansas Department of Wildlife and Parks", "Kansas River Trail access managers", "USGS current conditions"],
+      "fallbackSourceFamilies": ["city and county launch pages", "National Water Trails partners", "American Whitewater"],
+      "mandatoryChecks": ["public access legitimacy", "low-flow practicality", "numeric threshold support"]
+    },
+    {
+      "state": "Kentucky",
+      "code": "KY",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/kentucky.md",
+      "primarySourceFamilies": ["KDFWR Blue Water Trails", "Kentucky State Parks", "USGS current conditions"],
+      "fallbackSourceFamilies": ["USFS and NPS river pages", "American Whitewater", "county and city blueways"],
+      "mandatoryChecks": ["dam-release dependence", "public endpoints", "route-specific thresholds"]
+    },
+    {
+      "state": "Michigan",
+      "code": "MI",
+      "enabled": true,
+      "weight": 0.85,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/michigan.md",
+      "primarySourceFamilies": ["Michigan DNR river access", "National Forest river pages", "USGS current conditions"],
+      "fallbackSourceFamilies": ["county and township launches", "National Park Service", "American Whitewater"],
+      "mandatoryChecks": ["seasonal and cold-water hazards", "public endpoints", "corridor duplication"]
+    },
+    {
+      "state": "Minnesota",
+      "code": "MN",
+      "enabled": true,
+      "weight": 0.65,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/minnesota.md",
+      "primarySourceFamilies": ["MN DNR water-trail maps", "MN DNR Public Water Access GIS", "MN DNR interpreted river levels"],
+      "fallbackSourceFamilies": ["USGS current conditions", "county and city access managers", "NPS and USFS river pages"],
+      "mandatoryChecks": ["current DNR alerts and closures", "mandatory portage infrastructure", "corridor overlap"]
+    },
+    {
+      "state": "Missouri",
+      "code": "MO",
+      "enabled": true,
+      "weight": 0.9,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/missouri.md",
+      "primarySourceFamilies": ["Missouri Department of Conservation", "Missouri State Parks", "USGS current conditions"],
+      "fallbackSourceFamilies": ["NPS and USFS river pages", "American Whitewater", "county access managers"],
+      "mandatoryChecks": ["access ownership", "flashy-water hazards", "numeric threshold support"]
+    },
+    {
+      "state": "Nebraska",
+      "code": "NE",
+      "enabled": true,
+      "weight": 1.3,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/nebraska.md",
+      "primarySourceFamilies": ["Nebraska Game and Parks", "Natural Resources District access pages", "USGS current conditions"],
+      "fallbackSourceFamilies": ["county and city river access", "National Water Trails partners", "NPS river pages"],
+      "mandatoryChecks": ["braided-channel route practicality", "public endpoints", "low-flow threshold support"]
+    },
+    {
+      "state": "North Dakota",
+      "code": "ND",
+      "enabled": true,
+      "weight": 1.25,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/north-dakota.md",
+      "primarySourceFamilies": ["North Dakota Parks and Recreation", "North Dakota Game and Fish", "USGS current conditions"],
+      "fallbackSourceFamilies": ["NPS and USFS river pages", "county access managers", "official tourism water-trail partners"],
+      "mandatoryChecks": ["seasonality and remoteness", "public endpoint coordinates", "numeric threshold support"]
+    },
+    {
+      "state": "Ohio",
+      "code": "OH",
+      "enabled": true,
+      "weight": 1.1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/ohio.md",
+      "primarySourceFamilies": ["Ohio DNR water trails", "county metropark launch pages", "USGS current conditions"],
+      "fallbackSourceFamilies": ["city blueways", "American Whitewater", "watershed-conservancy maps"],
+      "mandatoryChecks": ["low-head dams", "water-quality notices", "route-specific thresholds"]
+    },
+    {
+      "state": "Pennsylvania",
+      "code": "PA",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/pennsylvania.md",
+      "primarySourceFamilies": ["Pennsylvania DCNR river trails", "PFBC access sites", "USGS current conditions"],
+      "fallbackSourceFamilies": ["American Whitewater", "county heritage corridors", "NPS and USFS river pages"],
+      "mandatoryChecks": ["whitewater classification", "public endpoints", "route-specific thresholds"]
+    },
+    {
+      "state": "South Dakota",
+      "code": "SD",
+      "enabled": true,
+      "weight": 1.4,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/south-dakota.md",
+      "primarySourceFamilies": ["South Dakota Game Fish and Parks", "NPS and USFS river pages", "USGS current conditions"],
+      "fallbackSourceFamilies": ["county access managers", "official recreation maps", "American Whitewater"],
+      "mandatoryChecks": ["seasonality", "public access coordinates", "numeric threshold support"]
+    },
+    {
+      "state": "Tennessee",
+      "code": "TN",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/tennessee.md",
+      "primarySourceFamilies": ["Tennessee State Parks and TDEC", "TWRA access sites", "USGS current conditions"],
+      "fallbackSourceFamilies": ["TVA release context", "American Whitewater", "NPS and USFS river pages"],
+      "mandatoryChecks": ["dam-release dependence", "cold tailwater and commercial traffic", "public endpoints"]
+    },
+    {
+      "state": "Texas",
+      "code": "TX",
+      "enabled": true,
+      "weight": 0.9,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/texas.md",
+      "primarySourceFamilies": ["TPWD paddling trails", "NPS river access pages", "USGS current conditions"],
+      "fallbackSourceFamilies": ["river authorities", "county and city launch pages", "Texas paddling organizations"],
+      "mandatoryChecks": ["private-bank rules", "flash flooding", "corridor overlap"]
+    },
+    {
+      "state": "Utah",
+      "code": "UT",
+      "enabled": true,
+      "weight": 0.9,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/utah.md",
+      "primarySourceFamilies": ["BLM and USFS river recreation", "Utah DWR access guidance", "USGS current conditions"],
+      "fallbackSourceFamilies": ["American Whitewater", "NPS permit pages", "county recreation managers"],
+      "mandatoryChecks": ["current stream-access rules", "release and cold-tailwater hazards", "permit and multi-day fit"]
+    },
+    {
+      "state": "Wisconsin",
+      "code": "WI",
+      "enabled": true,
+      "weight": 0.65,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/wisconsin.md",
+      "primarySourceFamilies": ["Wisconsin DNR and county access maps", "USGS current conditions", "Wisconsin Trail Guide"],
+      "fallbackSourceFamilies": ["American Whitewater", "Wisconsin River Trips", "Miles Paddled"],
+      "mandatoryChecks": ["dam and portage boundaries", "public landing legitimacy", "corridor overlap"]
+    }
+  ]
+}

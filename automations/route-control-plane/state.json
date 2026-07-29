@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-29T12:03:28.827Z",
+  "claims": [
+    {
+      "id": "sd-20260729115958",
+      "state": "South Dakota",
+      "stateCode": "SD",
+      "mode": "research",
+      "claimedAt": "2026-07-29T11:59:58.110Z",
+      "leaseExpiresAt": "2026-07-29T14:59:58.110Z",
+      "status": "completed",
+      "candidateIds": [
+        "sd-big-sioux-jay-heath-canoe-kayak-trail",
+        "sd-missouri-national-recreational-river-day-trips"
+      ],
+      "completedAt": "2026-07-29T12:03:28.827Z",
+      "outcome": "progress",
+      "sourceAttempts": [
+        {
+          "family": "South Dakota Game Fish and Parks",
+          "method": "current paddling page and Jay Heath PDF extraction",
+          "result": "Confirmed the official trail, access-site chain, and the 8.8-mile Lien Park to Big Sioux Recreation Area North segment; the PDF did not provide endpoint coordinates or numeric thresholds."
+        },
+        {
+          "family": "USGS",
+          "method": "Water Services instantaneous-values API",
+          "result": "USGS 06482020 returned same-day Big Sioux discharge and stage (276 cfs / 5.67 ft at 06:30 CDT); USGS 06467500 returned same-day Missouri River stage (10.61 ft) but no discharge."
+        },
+        {
+          "family": "City of Sioux Falls",
+          "method": "park directory page and published map coordinate",
+          "result": "Confirmed Lien Park at 43.5687088,-96.7093183, but the city lists recreation-trail access rather than a canoe/kayak launch."
+        },
+        {
+          "family": "Sioux Falls paddling community",
+          "method": "route-specific paddling map and trip report review",
+          "result": "Found a 250 cfs minimum tied to the North Cliff gauge and Lien Park route context, but also found that Lien is an undeveloped, steep, muddy, difficult put-in rather than a normal public launch."
+        },
+        {
+          "family": "National Park Service",
+          "method": "59-mile paddler guide review",
+          "result": "Narrowed the broad MNRR lead to Myron Grove RM 787.1 to Clay County RM 781.0, a 6.1-mile official access-to-access segment with manager, facility, and hazard context."
+        },
+        {
+          "family": "National Park Service",
+          "method": "MNRR river-access inventory and waypoint extraction",
+          "result": "Confirmed public access and converted NPS waypoints for Myron Grove and Clay County to decimal coordinates."
+        },
+        {
+          "family": "National Park Service",
+          "method": "river-conditions and canoeing guidance review",
+          "result": "Confirmed official Gavins Point reach bounds of 16,000 cfs low and over 40,000 cfs very high, plus release-driven current, wind, snags, shifting-channel, private-bank, and cold-water hazards."
+        },
+        {
+          "family": "U.S. Army Corps of Engineers",
+          "method": "Gavins Point dam operations page review",
+          "result": "Confirmed that the reach is controlled by Gavins Point releases; PaddleToday has no adapter for the required USACE release source."
+        }
+      ],
+      "factsChanged": [
+        "Jay Heath gauge freshness restored with same-day USGS 06482020 observations.",
+        "Jay Heath threshold support strengthened to a conservative community 250 cfs minimum.",
+        "Jay Heath status changed to needs_manual_coordinates/access-legitimacy review because Lien Park is not manager-designated as a paddle launch and the take-out launch coordinate remains unresolved.",
+        "MNRR lead narrowed to Myron Grove to Clay County Park with official 6.1-mile route shape and endpoint coordinates.",
+        "MNRR threshold support strengthened to official two-sided reach guidance.",
+        "MNRR status changed to no_live_gauge with a precise USACE Gavins Point release-adapter requirement."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "No route was added. The pilot materially advanced two South Dakota candidates and converted vague research blockers into one endpoint-legitimacy task and one concrete engineering-adapter task without weakening product gates."
+    }
+  ]
+}

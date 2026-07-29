@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="route-control-token" content="__ACTION_TOKEN__" />
+    <title>Paddle Today Route Control</title>
+    <link rel="stylesheet" href="/ui.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="masthead">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="masthead-copy">
+          <p class="kicker">Paddle Today · Operations</p>
+          <h1>Route control</h1>
+          <p>Fair state rotation, specialist research, and a visible evidence trail.</p>
+        </div>
+        <div class="health" data-health>
+          <span class="health-dot"></span>
+          <span>Loading control plane</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-grid" aria-labelledby="next-title">
+          <article class="next-card">
+            <div class="section-label">
+              <span>Next assignment</span>
+              <span class="mode-pill" data-next-mode>—</span>
+            </div>
+            <div class="next-state">
+              <span class="state-code" data-next-code>—</span>
+              <div>
+                <h2 id="next-title" data-next-state>No preview yet</h2>
+                <p data-next-reason>Preview the queue to choose the next state fairly.</p>
+              </div>
+            </div>
+            <div class="next-metrics">
+              <div>
+                <strong data-next-leads>0</strong>
+                <span>open leads</span>
+              </div>
+              <div>
+                <strong data-next-ready>0</strong>
+                <span>ready now</span>
+              </div>
+              <div>
+                <strong data-next-difficulty>—</strong>
+                <span>state class</span>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="button button-primary" type="button" data-action="start-research">
+                Start research
+              </button>
+              <button class="button button-secondary" type="button" data-action="start-implementation">
+                Implement a ready route
+              </button>
+              <button class="button button-tertiary" type="button" data-action="plan">
+                Preview next state
+              </button>
+            </div>
+            <p class="action-help">Start adds real work to the Codex queue. The worker checks every five minutes. Implementation stays unavailable until a route passes the research gates.</p>
+            <p class="action-status" data-action-status aria-live="polite"></p>
+          </article>
+
+          <aside class="principles-card">
+            <p class="kicker">Guardrails</p>
+            <h2>Persistence without lowered standards</h2>
+            <ul>
+              <li><span>01</span>No state twice in a row</li>
+              <li><span>02</span>Difficult states stay in rotation</li>
+              <li><span>03</span>Six research touches per run</li>
+              <li><span>04</span>Exact blockers, not vague dead ends</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="metric-strip" aria-label="Queue summary">
+          <article>
+            <span>Open leads</span>
+            <strong data-total-leads>—</strong>
+            <small data-total-candidates>Across the candidate ledger</small>
+          </article>
+          <article>
+            <span>Implementation ready</span>
+            <strong data-ready-leads>—</strong>
+            <small>Can move directly into route work</small>
+          </article>
+          <article>
+            <span>Research queue</span>
+            <strong data-research-leads>—</strong>
+            <small>Needs evidence or source recovery</small>
+          </article>
+          <article>
+            <span>Execution queue</span>
+            <strong data-queued-jobs>—</strong>
+            <small data-queue-summary>No work queued</small>
+          </article>
+        </section>
+
+        <section class="workspace-grid">
+          <article class="panel state-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">Coverage</p>
+                <h2>State rotation</h2>
+              </div>
+              <div class="legend">
+                <span><i class="dot dot-standard"></i>Standard</span>
+                <span><i class="dot dot-difficult"></i>Difficult</span>
+              </div>
+            </div>
+            <div class="state-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>State</th>
+                    <th>Open</th>
+                    <th>Ready</th>
+                    <th>Last result</th>
+                    <th>Weight</th>
+                  </tr>
+                </thead>
+                <tbody data-state-table></tbody>
+              </table>
+            </div>
+          </article>
+
+          <aside class="panel lane-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">Work mix</p>
+                <h2>Queue lanes</h2>
+              </div>
+            </div>
+            <div class="lane-list" data-lane-list></div>
+          </aside>
+        </section>
+
+        <section class="workspace-grid lower-grid">
+          <article class="panel candidate-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">Assignment detail</p>
+                <h2>Candidate queue</h2>
+              </div>
+              <span class="timestamp" data-generated-at>—</span>
+            </div>
+            <div class="candidate-list" data-candidate-list>
+              <p class="empty-state">Preview the next state to load its candidate queue.</p>
+            </div>
+          </article>
+
+          <aside class="panel history-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="kicker">Evidence trail</p>
+                <h2>Recent runs</h2>
+              </div>
+            </div>
+            <div class="history-list" data-history-list>
+              <p class="empty-state">No completed runs yet.</p>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer>
+        <span>Local dashboard · Bound to this computer only</span>
+        <span data-refresh-time>Not refreshed</span>
+      </footer>
+    </div>
+    <script src="/ui.js" defer></script>
+  </body>
+</html>

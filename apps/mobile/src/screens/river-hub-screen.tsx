@@ -69,6 +69,7 @@ export default function RiverHubScreen() {
   const [mapZoomLevel, setMapZoomLevel] = useState(5);
   const listRef = useRef<FlatList<RiverDetailApiResult> | null>(null);
   const routeCardScrollRequestRef = useRef<{ index: number; retries: number } | null>(null);
+  const trackedHubIdRef = useRef<string | null>(null);
   const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
   const groupQuery = useRiverGroupQuery(riverId);
   const { isSaved, toggleSavedRiver } = useSavedRivers();
@@ -119,6 +120,21 @@ export default function RiverHubScreen() {
       return bestRoute?.river.slug ?? routes[0].river.slug;
     });
   }, [bestRoute?.river.slug, routes]);
+
+  useEffect(() => {
+    if (!result || trackedHubIdRef.current === riverId) {
+      return;
+    }
+
+    trackedHubIdRef.current = riverId;
+    trackAppEvent('river_hub_viewed', {
+      river_id: riverId,
+      river: result.group.name,
+      state: allRoutes[0]?.river.state,
+      region: allRoutes[0]?.river.region,
+      trip_option_count: allRoutes.length,
+    });
+  }, [allRoutes.length, result, riverId]);
 
   if (!riverId) {
     return (

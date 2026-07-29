@@ -14,7 +14,7 @@ Use this checklist for each MN/WI/IA rollout wave. A checked item must have a li
 
 ## Measurement window
 
-Run a two-week observation window after enabling a family. Export `corridor_selected`, `corridor_trip_selected`, and route-detail-open events from Umami/Firebase, then run:
+Run a two-week observation window after enabling a family. Use the automated weekly report, or export `river_hub_viewed`, `corridor_trip_selected`, and route-detail-open events from Umami/Firebase for a state-level breakdown, then run:
 
 ```text
 npm run routes:report:corridor-funnel -- path/to/export.json

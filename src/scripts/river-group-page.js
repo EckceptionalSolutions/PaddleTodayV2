@@ -26,6 +26,7 @@ import {
   riverHubFilterOptions,
 } from '../lib/river-hub-planning.js';
 import { getBrowserApiClient } from './browser-api-client.js';
+import { trackEvent } from './analytics.js';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -82,6 +83,7 @@ const sortModeValues = new Set(['recommended', 'shortest', 'longest', 'easiest',
 
 let lastSuccessAt = null;
 let currentResult = null;
+let riverHubViewTracked = false;
 let selectedSlug = initialSelectedSlug || null;
 let mapRuntime = null;
 let maplibreRuntime = null;
@@ -1768,6 +1770,14 @@ async function loadGroup({ silent = false } = {}) {
       group: result.group,
       routes,
     };
+
+    if (!riverHubViewTracked) {
+      riverHubViewTracked = true;
+      trackEvent('river_hub_viewed', {
+        river_id: riverId,
+        trip_option_count: routes.length,
+      });
+    }
 
     if (!selectedSlug || !routes.some((route) => route.slug === selectedSlug)) {
       selectedSlug = routes[0].slug;

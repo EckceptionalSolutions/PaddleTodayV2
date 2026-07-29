@@ -24,6 +24,20 @@ South Dakota has sparse coverage and a small candidate base. It is not exhausted
 - Prioritize corridors with official public access, direct USGS gauges, and manager/local level guidance.
 - Avoid shipping route records from access-map presence alone.
 
+## 2026-07-29 Control-Plane Pilot
+
+- The first route control-plane claim correctly assigned South Dakota despite having no implementation-ready leads. The run stayed within two candidate families and completed six-plus distinct official/community source touches rather than abandoning the state after a failed or incomplete source.
+- `sd-big-sioux-jay-heath-canoe-kayak-trail` moved from `threshold_weak` to `needs_manual_coordinates` / access-legitimacy review because the real blocker is now the endpoint package:
+  - Current GFP mapping identifies Lien Park to Big Sioux Recreation Area North as an 8.8-mile Jay Heath segment.
+  - Same-day USGS Water Services returned 276 cfs / 5.67 ft at North Cliff site `06482020`.
+  - Sioux Falls Paddlers provides a conservative 250 cfs community floor for the local Big Sioux / North Cliff gauge.
+  - The City of Sioux Falls Lien Park page lists recreation-trail access, not a canoe/kayak launch, and route-specific local evidence describes an undeveloped, steep, muddy, difficult put-in. Do not ship until a responsible manager designates a normal paddle launch or replacement put-in.
+- `sd-missouri-national-recreational-river-day-trips` narrowed to the 6.1-mile Myron Grove-to-Clay County Park lead and moved from `research_later` to `no_live_gauge`:
+  - NPS publishes both access sites, river miles, waypoint coordinates, facilities, manager context, and big-river hazards.
+  - NPS publishes official Gavins Point reach guidance: 16,000 cfs indicates low water and over 40,000 cfs indicates very high water.
+  - USGS `06467500` returned same-day Yankton stage (10.61 ft) but no discharge. The NPS thresholds are tied to USACE Gavins Point releases, which the product cannot currently fetch.
+  - The remaining research task is an engineering adapter decision. Do not substitute USGS stage for the USACE cfs release ladder.
+
 ## 2026-07-27 Split Rock Route-Safety Block
 
 - Removed `split-rock-creek-split-rock-park-palisades` from the canonical published route order; the dormant route and trip-detail objects remain for future source-backed re-verification.

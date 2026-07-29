@@ -22,3 +22,10 @@ codex_sandbox_test.txt
 Thumbs.db
 .DS_Store
 .local
+automations/route-control-plane/.lock
+automations/route-control-plane/current-work-order.json
+automations/route-control-plane/current-work-order.md
+automations/route-control-plane/next-work-order-preview.json
+automations/route-control-plane/next-work-order-preview.md
+automations/route-control-plane/reports/
+automations/route-control-plane/execution-queue.json

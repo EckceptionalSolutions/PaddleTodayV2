@@ -7308,7 +7308,7 @@
       "river": "East Fork Whitewater River",
       "route": "Brookville Dam tailwater to Whitewater River confluence",
       "state": "IN",
-      "status": "research_later",
+      "status": "needs_manual_coordinates",
       "lastReviewed": "2026-06-11",
       "reviewCount": 13,
       "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 04099750, 03363500, 03276500, 03361500, 04095300, 03276000, 03335500, 033356848, 03323000, 03339500, 03353000, 03349000, 03303000, 03334000, 03275600, 04093000, 03328000, and 03328500 returned same-day values; 04100000 returned zero time series. No route was added because the product-live improvement did not clear the independent route-addition gates: most candidates still lack a source-backed numeric paddling threshold model tied to the selected gauge, a current manager-grade public endpoint/access package, or explicit low-head-dam/tailwater/private-bank/urban-water-quality hazard handling.",
@@ -19648,11 +19648,11 @@
       "river": "Big Sioux River",
       "route": "Jay Heath Canoe and Kayak Trail day-trip segments",
       "state": "SD",
-      "status": "threshold_weak",
-      "lastReviewed": "2026-06-08",
-      "reviewCount": 23,
-      "blocker": "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC targeted refresh preserved threshold_weak. GFP still confirms Jay Heath Big Sioux water-trail corridor context, but no exact new day segment surfaced with source-backed endpoints and route-specific numeric threshold support. Local product-style USGS IV fetch for 06482020 failed unable to connect; official legacy 06482020 evidence was stale to 452 cfs / 6.23 ft on 2026-05-26 11:30 CDT, not same-day product-ready.",
-      "retryCondition": "Retry only if official site details or another strong public source provides exact endpoint coordinates for a selected Jay Heath day segment and a numeric threshold model tied cleanly to that segment. Do not split the corridor just from mileage on the PDF.",
+      "status": "research_later",
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 24,
+      "blocker": "The 2026-07-29 control-plane pilot cleared the stale-gauge and numeric-floor questions but not endpoint legitimacy. USGS 06482020 returned same-day North Cliff observations (276 cfs / 5.67 ft at 06:30 CDT), the current GFP Jay Heath map documents Lien Park to Big Sioux Recreation Area North as 8.8 river miles, and Sioux Falls Paddlers supplies a conservative 250 cfs community floor tied to the North Cliff gauge. However, the current City of Sioux Falls Lien Park page identifies only recreation-trail access, not a canoe/kayak launch, and route-specific local evidence describes a long carry, steep muddy bank, difficult put-in, and special vehicle access rather than a normal public launch. The route therefore fails access legitimacy even though its gauge and minimum-only threshold are now plausible.",
+      "retryCondition": "Retry only if the City of Sioux Falls, South Dakota GFP, or another responsible manager explicitly designates and locates a normal public canoe/kayak launch at Lien Park, or publishes a source-backed replacement put-in for the 8.8-mile Big Sioux Recreation Area North segment. Reverify the downstream launch coordinate and current gauge before promotion.",
       "retryDate": null,
       "sourcesChecked": [
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC recheck: GFP/Jay Heath corridor context remains useful, but product-style USGS IV fetch for 06482020 failed unable to connect; official legacy 06482020 was stale to 2026-05-26 11:30 CDT, and no stronger exact-segment threshold package surfaced.",
@@ -19684,7 +19684,8 @@
         "May 28 08:42 South Dakota recheck of GFP paddling/Jay Heath page, Jay Heath PDF access mileage, Sioux Empire Paddlers river flow rates, and Big Sioux current-condition search results",
         "May 28 09:12 South Dakota recheck of GFP Big Sioux Recreation Area page, Jay Heath PDF access spacing, Sioux Empire Paddlers River Flow Rates, and USGS 06482020 North Cliff Ave current-conditions page",
         "May 28 09:42 South Dakota recheck of GFP/Jay Heath search results, USGS 06482020 search-visible current-condition context, and duplicate inventory reconciliation",
-        "Fresh 2026-06-05 targeted refresh of GFP Jay Heath / Big Sioux Recreation Area sources, USGS 06482020 product-style IV fetch, and Jay Heath threshold searches"
+        "Fresh 2026-06-05 targeted refresh of GFP Jay Heath / Big Sioux Recreation Area sources, USGS 06482020 product-style IV fetch, and Jay Heath threshold searches",
+        "2026-07-29 control-plane pilot: current GFP Jay Heath map PDF confirms Lien Park to Big Sioux Recreation Area North is 8.8 river miles; GFP Big Sioux Recreation Area page and campground map confirm canoeing, kayaking, a kayak launch, and general park GPS; City of Sioux Falls Lien Park page confirms the park coordinate but lists only recreation-trail access; Sioux Falls Paddlers gives a 250 cfs North Cliff minimum for local Big Sioux paddling; same-day USGS Water Services IV returned 276 cfs / 5.67 ft at North Cliff; local route evidence describes Lien as an undeveloped difficult put-in."
       ],
       "aliases": [
         "Jay Heath Canoe and Kayak Trail",
@@ -19695,25 +19696,28 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "direct_or_corridor_uncertain",
-        "id": "06482000",
+        "quality": "direct_current_proxy_for_selected_corridor",
+        "id": "06482020",
         "provider": "USGS",
-        "notes": "USGS 06482020 remains the likely North Cliff proxy lead for upstream Jay Heath / Big Sioux Recreation Area segments, but this run did not establish same-day product-ready data or route-specific threshold support for another Jay Heath split."
+        "notes": "USGS 06482020 at North Cliff is the direct local Big Sioux gauge used by the community 250 cfs guidance. Same-day Water Services IV returned 276 cfs / 5.67 ft at 06:30 CDT on 2026-07-29. It is upstream of the Lien-to-Brandon segment, so retain explicit proxy wording."
       },
       "thresholdSupport": {
-        "strength": "weak",
-        "notes": "Sioux Empire Paddlers says 250 cfs and up is a good paddling level for the local Big Sioux flow link and favors the broader Lien Park-to-Newton Hills stretch, while GFP maps official access spacing. That is not enough to create another V2 route because the numeric guidance is not route-specific to a new segment and the corridor hazards require tighter endpoint/hazard validation."
+        "strength": "community_minimum_only",
+        "notes": "Sioux Falls Paddlers says 250 cfs and up at the Big Sioux / North Cliff gauge is a good paddling level and specifically names Lien Park as a popular start south of Sioux Falls. Use only a conservative 250 cfs minimum if access is later resolved; do not invent an ideal range or upper cutoff."
       },
       "endpoints": {
-        "putIn": "Jay Heath trail access sites vary by segment",
-        "takeOut": "Jay Heath trail access sites vary by segment",
+        "putIn": "Lien Park, 2000 N. Cliff Ave., Sioux Falls (not manager-designated as a paddle launch)",
+        "takeOut": "Big Sioux Recreation Area North access (exact launch coordinate not manager-published in reviewed sources)",
         "coordinatesPresent": false,
-        "putInCoordinates": null,
+        "putInCoordinates": {
+          "latitude": 43.5687088,
+          "longitude": -96.7093183
+        },
         "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because route segmentation and threshold support did not clear the bar."
+        "coordinateSource": "City of Sioux Falls publishes the Lien Park coordinate, but its page does not designate a canoe/kayak launch. GFP maps the northern recreation-area access but the reviewed park page supplies only a general park GPS. These facts are not sufficient for a shippable endpoint pair."
       },
-      "notes": "Rechecked during the 2026-06-08 15:32 South Dakota pass. Keep as threshold_weak; official corridor mapping and community circuit legs are not enough to add another day-trip split without cleaner access, hazard, same-day gauge, and threshold support.",
-      "updatedAt": "2026-06-08"
+      "notes": "The 2026-07-29 control-plane pilot materially advanced gauge and threshold evidence but found that Lien Park is not documented as a normal manager-approved paddle launch. Keep parked on access legitimacy; do not use a general park coordinate or difficult informal bank access to ship the route.",
+      "updatedAt": "2026-07-29"
     },
     {
       "candidateId": "sd-big-sioux-recreation-area-north-south",
@@ -19836,13 +19840,13 @@
     {
       "candidateId": "sd-missouri-national-recreational-river-day-trips",
       "river": "Missouri River",
-      "route": "Missouri National Recreational River day-trip segments",
+      "route": "Myron Grove to Clay County Park day-trip lead",
       "state": "SD",
-      "status": "research_later",
-      "lastReviewed": "2026-06-08",
-      "reviewCount": 20,
-      "blocker": "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC targeted refresh preserved research_later. NPS/MNRR and official corridor context still support legitimate big-river paddling leads, but no practical South Dakota access-to-access day trip with an honest release/gauge threshold model cleared. Local product-style USGS IV fetch for 06467500 failed unable to connect, and WDFN for Missouri River at Yankton reported no continuous, daily, field-measurement, or discrete sample data types available for current graphing.",
-      "retryCondition": "Retry after the NPS/SDCKA mapping effort publishes route-ready day-trip segments or if NPS/official partners publish gauge/release guidance for a specific access-to-access paddle. Any future add needs wind, dam-release, big-water, sparse-access, and channel-shift caveats.",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 21,
+      "blocker": "The 2026-07-29 control-plane pilot identified a concrete 6.1-mile access-to-access lead with strong NPS support: Myron Grove Boat Launch at river mile 787.1 to Clay County Boat Launch at river mile 781.0. NPS publishes both public access descriptions, manager ownership, waypoint coordinates, camping context, channel/snag/wind/private-bank hazards, and a Gavins Point release ladder (16,000 cfs indicates low water; over 40,000 cfs indicates very high water). The remaining hard blocker is product live data: that numeric ladder is tied to USACE Gavins Point dam releases, which PaddleToday cannot currently fetch or chart, while USGS 06467500 at Yankton returned current stage only (10.61 ft at 06:30 CDT) and no discharge value. Do not substitute stage for the release thresholds.",
+      "retryCondition": "Add and validate a stable USACE Gavins Point release adapter, or find an official product-fetchable discharge station explicitly tied to the NPS 16,000/40,000 cfs ladder. Then recheck current Myron Grove and Clay County access status and model this as an advanced big-water, dam-release route with wind, snags, shifting channel, sparse bailout, private-bank, and cold-water caveats.",
       "retryDate": null,
       "sourcesChecked": [
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC recheck: product-style USGS IV fetch for 06467500 failed unable to connect; WDFN 06467500 showed no current continuous/daily/field/discrete data package, and no NPS/official partner route-specific release/gauge threshold package surfaced.",
@@ -19870,7 +19874,8 @@
         "May 26 19:55 South Dakota no-add carry-forward after Big Sioux/Spearfish checks; no new NPS/official partner route-specific day-trip gauge/release package surfaced during the narrow pass",
         "May 28 08:42 South Dakota recheck of NPS MNRR access points, water trail/canoeing pages, current-condition context, 39-mile guide search result, and SDCKA NPS Missouri River Water Trail Project 2026-2027 page",
         "May 28 09:42 South Dakota recheck of NPS MNRR water-trail/access/release search results and current 2026 official context",
-        "Fresh 2026-06-05 targeted refresh of NPS MNRR planning/water-trail context and local USGS 06467500 product-style IV fetch"
+        "Fresh 2026-06-05 targeted refresh of NPS MNRR planning/water-trail context and local USGS 06467500 product-style IV fetch",
+        "2026-07-29 control-plane pilot: NPS 59-mile paddler guide and river-access inventory identify Myron Grove RM 787.1 to Clay County RM 781.0 as a 6.1-mile South Dakota access pair; NPS publishes both waypoints and operating context; NPS river conditions publishes 16,000 cfs as low and over 40,000 cfs as very high for the Gavins Point reach; NPS canoeing guidance documents 3-5 mph release-driven current, wind, snags, shifting channel, sparse public launches, private banks, and cold-water hazards; USGS 06467500 returned same-day stage only; USACE Gavins Point documentation confirms release-driven operations but no app adapter exists."
       ],
       "aliases": [
         "MNRR",
@@ -19879,25 +19884,31 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "corridor_not_route_ready",
-        "id": null,
-        "provider": "USGS/USACE context",
-        "notes": "No MNRR day-trip gauge is selected. USGS 06467500 at Yankton remains corridor context only for this South Dakota review because the current WDFN page exposes no continuous data types and no route-specific release/gauge model cleared."
+        "quality": "official_release_source_not_product_supported",
+        "id": "Gavins Point release / USGS 06467500 stage context",
+        "provider": "USACE required; USGS stage supplemental",
+        "notes": "The NPS numeric ladder is explicitly release-based for the Gavins Point reach. USGS 06467500 returned same-day 10.61 ft stage at Yankton on 2026-07-29 but no discharge, so it cannot be scored against the 16,000/40,000 cfs release thresholds. A USACE release adapter is the clean unlock."
       },
       "thresholdSupport": {
-        "strength": "weak",
-        "notes": "NPS says 16,000 cfs indicates low water and over 40,000 cfs indicates very high water for the Gavins Point reach, but this is reach-level release context rather than a complete route-specific PaddleToday threshold package with a current app-fetchable gauge."
+        "strength": "official_two_sided_reach_guidance",
+        "notes": "NPS says 16,000 cfs indicates low water and over 40,000 cfs indicates very high water for the Gavins Point-regulated 59-mile reach. This supports conservative two-sided bounds for Myron Grove to Clay County once the product can fetch the corresponding USACE release; no ideal band should be invented."
       },
       "endpoints": {
-        "putIn": "Not selected",
-        "takeOut": "Not selected",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because no exact day-trip route cleared the bar."
+        "putIn": "Myron Grove Boat Launch, river mile 787.1",
+        "takeOut": "Clay County Boat Launch, river mile 781.0",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.7719167,
+          "longitude": -97.1211667
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.7660833,
+          "longitude": -97.0032222
+        },
+        "coordinateSource": "NPS MNRR Water Trail River Access Points publishes DMS waypoints for Myron Grove (42 46 18.9N, 97 07 16.2W) and Clay County (42 45 57.9N, 97 00 11.6W); decimal values are direct conversions. The NPS 59-mile guide supplies river miles and a 6.1-mile difference."
       },
-      "notes": "Rechecked during the 2026-06-08 15:32 South Dakota pass. Keep as research_later until a specific NPS/official partner access-to-access day trip and release/gauge threshold model can be represented honestly.",
-      "updatedAt": "2026-06-08"
+      "notes": "The 2026-07-29 control-plane pilot converted the broad MNRR lead into a specific, official 6.1-mile South Dakota day-trip candidate with coordinates and official reach bounds. Keep blocked only on the missing USACE live-release adapter; this is now an adapter backlog item, not an open-ended route-research problem.",
+      "updatedAt": "2026-07-29"
     },
     {
       "candidateId": "mo-huzzah-creek-huzzah-ca-meramec",

@@ -1001,13 +1001,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "sugar-river-highway-x-attica": {
     "putIn": {
       "name": "Highway X public access",
-      "latitude": 42.754137,
-      "longitude": -89.429329
+      "latitude": 42.8000248,
+      "longitude": -89.4863567
     },
     "takeOut": {
       "name": "Attica Highway C Access",
-      "latitude": 42.733903,
-      "longitude": -89.406695
+      "latitude": 42.7701609,
+      "longitude": -89.4786942
     },
     "logistics": {
       "distanceLabel": "5.4 mi",
@@ -1235,13 +1235,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "badfish-creek-old-stage-casey": {
     "putIn": {
       "name": "Old Stage Road canoe/kayak landing",
-      "latitude": 42.8569,
-      "longitude": -89.2756
+      "latitude": 42.8532553,
+      "longitude": -89.2566016
     },
     "takeOut": {
       "name": "North Casey Road take-out",
-      "latitude": 42.8287,
-      "longitude": -89.1849
+      "latitude": 42.8334532,
+      "longitude": -89.1911235
     },
     "logistics": {
       "distanceLabel": "6.75 mi",
@@ -2190,8 +2190,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Bridgeport Landing / Highway 18 bridge access",
-      "latitude": 43.0239,
-      "longitude": -91.0877
+      "latitude": 43.00083128,
+      "longitude": -91.05165984
     },
     "logistics": {
       "distanceLabel": "23 mi",
@@ -2669,8 +2669,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "black-river-melrose-north-bend": {
     "putIn": {
       "name": "Melrose Public Landing",
-      "latitude": 44.1261,
-      "longitude": -91.0045
+      "latitude": 44.10863794,
+      "longitude": -90.99645709
     },
     "takeOut": {
       "name": "North Bend Landing",
@@ -3806,14 +3806,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "hay-river-county-ff",
       "name": "County Road FF Hay River access",
-      "latitude": 45.0972,
-      "longitude": -91.9743
+      "latitude": 45.1061611,
+      "longitude": -91.9257502
     },
     "takeOut": {
       "id": "hay-river-highway-25-wheeler",
       "name": "Highway 25 at Wheeler take-out",
-      "latitude": 45.0478,
-      "longitude": -91.9108
+      "latitude": 45.0487707,
+      "longitude": -91.9059379
     },
     "logistics": {
       "distanceLabel": "About 9.9 mi",
@@ -3838,8 +3838,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "hay-river-county-ff",
         "name": "County Road FF Hay River access",
-        "latitude": 45.0972,
-        "longitude": -91.9743,
+        "latitude": 45.1061611,
+        "longitude": -91.9257502,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from WRT; river-left downstream from the bridge with poison ivy warning."
@@ -3856,8 +3856,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "hay-river-highway-25-wheeler",
         "name": "Highway 25 at Wheeler take-out",
-        "latitude": 45.0478,
-        "longitude": -91.9108,
+        "latitude": 45.0487707,
+        "longitude": -91.9059379,
         "mileFromStart": 9.9,
         "segmentKind": "creek",
         "note": "Default WRT take-out at the Highway 25 bridge sandbar near the Wheeler gauge."
@@ -7530,14 +7530,14 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "johnsonville-fire-station-sheboygan",
       "name": "Johnsonville Fire Department / Highway JM access",
-      "latitude": 43.7847,
-      "longitude": -87.9578
+      "latitude": 43.7997988,
+      "longitude": -87.9122972
     },
     "takeOut": {
       "id": "dassow-park-sheboygan-river",
       "name": "Dassow Park river access",
-      "latitude": 43.76766,
-      "longitude": -87.89384
+      "latitude": 43.767834,
+      "longitude": -87.8938329
     },
     "logistics": {
       "distanceLabel": "6.4 mi",
@@ -7562,8 +7562,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "johnsonville-fire-station-sheboygan",
         "name": "Johnsonville Fire Department / Highway JM access",
-        "latitude": 43.7847,
-        "longitude": -87.9578,
+        "latitude": 43.7997988,
+        "longitude": -87.9122972,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default WRT put-in; carry below the Johnsonville low-head dam before launching."
@@ -7589,8 +7589,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "dassow-park-sheboygan-river",
         "name": "Dassow Park river access",
-        "latitude": 43.76766,
-        "longitude": -87.89384,
+        "latitude": 43.767834,
+        "longitude": -87.8938329,
         "mileFromStart": 6.4,
         "segmentKind": "creek",
         "note": "Default public take-out with parking."
@@ -7601,8 +7601,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "dassow-park-sheboygan-river",
       "name": "Dassow Park river access",
-      "latitude": 43.76766,
-      "longitude": -87.89384
+      "latitude": 43.767834,
+      "longitude": -87.8938329
     },
     "takeOut": {
       "id": "river-park-sheboygan-falls",
@@ -7633,8 +7633,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "dassow-park-sheboygan-river",
         "name": "Dassow Park river access",
-        "latitude": 43.76766,
-        "longitude": -87.89384,
+        "latitude": 43.767834,
+        "longitude": -87.8938329,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in and shared endpoint with the Johnsonville-to-Dassow card."

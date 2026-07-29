@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "workOrderId": "replace-with-work-order-id",
+  "outcome": "progress",
+  "candidateIds": [],
+  "sourceAttempts": [
+    {
+      "family": "official source family",
+      "method": "page, PDF, GIS, API, search, or alternate endpoint",
+      "result": "what changed or the exact failure encountered"
+    }
+  ],
+  "factsChanged": [],
+  "blocker": null,
+  "retryCondition": null,
+  "notes": "Concise evidence-backed result."
+}

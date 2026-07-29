@@ -3233,8 +3233,8 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Short lower-Sugar day from the public Highway X landing to the Attica Highway C access. It is not the most scenic Sugar River reach, but it has good public access, easy current, and a route-specific Verona gauge ladder.",
     "statusText": "Use the Sugar River near Verona gauge. Treat 21 to 130 cfs as the broad normal paddling window, 0 to 20 cfs as low but still navigable, 131 to 200 cfs as high and pushy but likely doable with care, and 201+ cfs as very high/adventurous.",
-    "latitude": 42.754137,
-    "longitude": -89.429329,
+    "latitude": 42.8000248,
+    "longitude": -89.4863567,
     "gaugeSource": {
       "id": "usgs-05435950",
       "provider": "usgs",
@@ -3299,9 +3299,9 @@ export const wisconsinRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "Highway X 42.754137, -89.429329; Attica 42.733903, -89.406695",
-        "note": "The route shuttle map linked from Wisconsin River Trips resolves to the Highway X and Attica access coordinates.",
-        "sourceUrl": "https://maps.app.goo.gl/uVq32Jdb22vuYBTm9"
+        "value": "Highway X 42.8000248, -89.4863567; Attica 42.7701609, -89.4786942",
+        "note": "The embedded Wisconsin River Trips trip map places the endpoints at the Highway X and Attica Highway C public accesses.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/sugar-river/hwy-x"
       }
     ],
     "sourceLinks": [
@@ -3456,8 +3456,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Southern Wisconsin",
     "summary": "Fast, intimate south-central Wisconsin creek run from the DNR-supported Old Stage Road landing to the North Casey Road take-out. Reliable effluent-fed baseflow keeps the route more paddleable than most small creeks, but tight bends, riffles, wood, and post-storm debris still demand active boat control.",
     "statusText": "Use the Badfish Creek near Cooksville gauge. Treat 51 to 150 cfs as the best broad-audience window, 151 to 200 cfs as normal-to-high but still reasonable, 201 to 300 cfs as pushy and experienced-only, and 301+ cfs as not recommended for a casual trip.",
-    "latitude": 42.8569,
-    "longitude": -89.2756,
+    "latitude": 42.8532553,
+    "longitude": -89.2566016,
     "gaugeSource": {
       "id": "usgs-05430150",
       "provider": "usgs",
@@ -8119,8 +8119,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Southwest Wisconsin",
     "summary": "Popular lower-Black River sandbar day from the public Melrose Landing to the public North Bend Landing, with easy current, sandstone outcrops, broad sandy beaches, and a route-specific Black River Falls gauge ladder.",
     "statusText": "Use the Black River at Black River Falls gauge. Treat 101 to 300 cfs as the best sandbar-and-padding window, 0 to 100 cfs as very low with some walking, 301 to 600 cfs as increasingly sandbar-covered, 601 to 800 cfs as high and less interesting, and 801+ cfs as probably too high.",
-    "latitude": 44.1261,
-    "longitude": -91.0045,
+    "latitude": 44.10863794,
+    "longitude": -90.99645709,
     "gaugeSource": {
       "id": "usgs-053813595",
       "provider": "usgs",
@@ -8184,9 +8184,9 @@ export const wisconsinRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "Put-in 44.12610, -91.00450; take-out 44.08951, -91.11544",
-        "note": "The put-in coordinate is resolved at the named Melrose public landing just southwest of the Highway 108 bridge; the take-out coordinate is the named North Bend public boat-ramp feature, corroborated by the public landing and livery context.",
-        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/black-river-melrose-to-north-bend"
+        "value": "Put-in 44.10863794, -90.99645709; take-out 44.08951, -91.11544",
+        "note": "Wisconsin DNR's boat-access layer places Melrose Boat Landing at 44.10863794, -90.99645709 on the Black River southwest of the Highway 108 bridge. The take-out coordinate matches the DNR-listed North Bend Access.",
+        "sourceUrl": "https://dnrmaps.wi.gov/arcgis2/rest/services/PR_Recreation/PR_Boat_Access_Shore_Fishing_WTM_Ext/MapServer/2"
       },
       {
         "label": "Hazards",
@@ -12118,8 +12118,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Northwest Wisconsin",
     "summary": "Clear Dunn County Hay River route from County Road FF to Highway 25 at Wheeler, with steady riffles, sandy footing, deadfall navigation, and direct Wheeler gauge support.",
     "statusText": "Use the Hay River at Wheeler direct gauge. Treat 250 cfs as a conservative minimum-only floor because WRT completed this exact route at 250 cfs, near 4 ft and a bit below median; expect more scraping or wood contact below that.",
-    "latitude": 45.0972,
-    "longitude": -91.9743,
+    "latitude": 45.1061611,
+    "longitude": -91.9257502,
     "gaugeSource": {
       "id": "usgs-05368000",
       "provider": "usgs",
@@ -12185,8 +12185,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "hay-river-county-ff",
         "name": "County Road FF Hay River access",
-        "latitude": 45.0972,
-        "longitude": -91.9743,
+        "latitude": 45.1061611,
+        "longitude": -91.9257502,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from WRT; river-left downstream of the bridge, with poison ivy and informal roadside access caveats."
@@ -12203,8 +12203,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "hay-river-highway-25-wheeler",
         "name": "Highway 25 at Wheeler take-out",
-        "latitude": 45.0478,
-        "longitude": -91.9108,
+        "latitude": 45.0487707,
+        "longitude": -91.9059379,
         "mileFromStart": 9.9,
         "segmentKind": "creek",
         "note": "Default take-out from WRT; sandbar and easy pull-up at the Highway 25 bridge near the Wheeler gauge."
@@ -19455,8 +19455,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Sheboygan County",
     "summary": "Clear upper-Sheboygan day from the Johnsonville fire-station access below the dam to Dassow Park, with swift riffles, shallow gravel, wooded banks, and a downstream Sheboygan gauge check.",
     "statusText": "Use the Sheboygan gauge downstream. WRT paddled this exact reach at 86 cfs / 1.97 ft and found it doable but bumpy; PaddleToday treats about 85 cfs as a guarded minimum-only floor.",
-    "latitude": 43.7847,
-    "longitude": -87.9578,
+    "latitude": 43.7997988,
+    "longitude": -87.9122972,
     "gaugeSource": {
       "id": "usgs-04086000",
       "provider": "usgs",
@@ -19524,8 +19524,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "johnsonville-fire-station-sheboygan",
         "name": "Johnsonville Fire Department / Highway JM access",
-        "latitude": 43.7847,
-        "longitude": -87.9578,
+        "latitude": 43.7997988,
+        "longitude": -87.9122972,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from the WRT route; carry below the Johnsonville low-head dam before launching."
@@ -19551,8 +19551,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "dassow-park-sheboygan-river",
         "name": "Dassow Park river access",
-        "latitude": 43.76766,
-        "longitude": -87.89384,
+        "latitude": 43.767834,
+        "longitude": -87.8938329,
         "mileFromStart": 6.4,
         "segmentKind": "creek",
         "note": "Default public take-out with parking, also used as the next downstream card put-in."
@@ -19615,8 +19615,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Sheboygan County",
     "summary": "Longer middle-Sheboygan continuation from Dassow Park toward Sheboygan Falls, using the public River Park exit before the falls and dam corridor.",
     "statusText": "Use the Sheboygan gauge downstream. Miles Paddled says 170 cfs was the lowest recommended level for Dassow-to-Falls, with about 200 to 300 cfs closer to ideal; take out at River Park before committing to the falls/dam area.",
-    "latitude": 43.76766,
-    "longitude": -87.89384,
+    "latitude": 43.767834,
+    "longitude": -87.8938329,
     "gaugeSource": {
       "id": "usgs-04086000",
       "provider": "usgs",
@@ -19688,8 +19688,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "dassow-park-sheboygan-river",
         "name": "Dassow Park river access",
-        "latitude": 43.76766,
-        "longitude": -87.89384,
+        "latitude": 43.767834,
+        "longitude": -87.8938329,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in; Miles Paddled publishes this GPS point and describes the access as low-key but workable."
