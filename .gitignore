@@ -29,3 +29,6 @@ automations/route-control-plane/next-work-order-preview.json
 automations/route-control-plane/next-work-order-preview.md
 automations/route-control-plane/reports/
 automations/route-control-plane/execution-queue.json
+automations/route-control-plane/runner/.venv/
+automations/route-control-plane/runner/node_modules/
+automations/route-control-plane/runs/

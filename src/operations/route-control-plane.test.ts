@@ -182,6 +182,20 @@ describe('route control-plane scheduling', () => {
       selectState(profiles, emptyInbox, state, new Date('2026-07-29T12:00:00.000Z'), 'implementation'),
     ).toThrow(/No route is implementation-ready/);
   });
+
+  it('lets a manual run target a specific state without changing the work mode', () => {
+    const state: ControlState = { version: 1, updatedAt: null, claims: [] };
+    const selected = selectState(
+      profiles,
+      inbox,
+      state,
+      new Date('2026-07-29T12:00:00.000Z'),
+      'research',
+      'EB',
+    );
+
+    expect(selected.profile.state).toBe('Easy B');
+  });
 });
 
 describe('route control-plane completion contract', () => {

@@ -3489,8 +3489,8 @@ export const iowaRoutes: River[] = [
     "region": "Southeast Iowa",
     "summary": "Ten-mile North Skunk River water-trail run from Delta toward the Sigourney access corridor, using the direct North Skunk gauge near Sigourney and Iowa DNR Skunk River map support.",
     "statusText": "Use the North Skunk near Sigourney gauge. CanWePaddle estimates 100 to 1,500 cfs as the runnable range; expect wood, private banks, and a same-day take-out check near Sigourney.",
-    "latitude": 41.323,
-    "longitude": -92.329,
+    "latitude": 41.3025710943056,
+    "longitude": -92.33075380325317,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [

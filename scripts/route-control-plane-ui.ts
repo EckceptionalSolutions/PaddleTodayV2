@@ -1,12 +1,12 @@
-import { execFile } from 'node:child_process';
+import { execFile, spawn } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { createReadStream } from 'node:fs';
-import { readFile, stat } from 'node:fs/promises';
+import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import path from 'node:path';
 import process from 'node:process';
 import { promisify } from 'node:util';
-import { enqueue, type RequestKind } from './route-control-plane-queue';
+import { rivers } from '../src/data/rivers';
 
 const execFileAsync = promisify(execFile);
 const root = process.cwd();
@@ -17,6 +17,10 @@ const host = '127.0.0.1';
 const origin = `http://${host}:${port}`;
 const actionToken = randomUUID();
 const tsxCli = path.join(root, 'node_modules', 'tsx', 'dist', 'cli.mjs');
+const runsDir = path.join(controlDir, 'runs');
+const runnerPath = path.join(controlDir, 'runner', 'runner.py');
+// pythonw keeps background Codex jobs from opening a Windows console window.
+const runnerPython = path.join(controlDir, 'runner', '.venv', 'Scripts', 'pythonw.exe');
 
 type JsonRecord = Record<string, unknown>;
 
@@ -26,6 +30,39 @@ async function readJson<T>(filePath: string, fallback: T): Promise<T> {
   } catch {
     return fallback;
   }
+}
+
+async function readRuns() {
+  try {
+    const files = (await readdir(runsDir)).filter((file) => file.endsWith('.json'));
+    const runs = await Promise.all(files.map((file) => readJson<JsonRecord | null>(path.join(runsDir, file), null)));
+    return runs
+      .filter((run): run is JsonRecord => Boolean(run))
+      .sort((left, right) => String(right.requestedAt).localeCompare(String(left.requestedAt)));
+  } catch {
+    return [];
+  }
+}
+
+async function runnerAvailable() {
+  try {
+    await Promise.all([stat(runnerPython), stat(runnerPath)]);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function readBody(request: IncomingMessage) {
+  const chunks: Buffer[] = [];
+  let size = 0;
+  for await (const chunk of request) {
+    const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+    size += buffer.length;
+    if (size > 16_384) throw new Error('Request body is too large.');
+    chunks.push(buffer);
+  }
+  return JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}') as JsonRecord;
 }
 
 function json(response: ServerResponse, status: number, value: unknown) {
@@ -55,14 +92,44 @@ async function runAction(action: 'plan' | 'claim') {
 }
 
 async function statusPayload() {
-  const [profiles, state, inbox, preview, current, queue] = await Promise.all([
+  const [profiles, state, inbox, preview, current, queue, runs, isRunnerAvailable] = await Promise.all([
     readJson<JsonRecord>(path.join(controlDir, 'state-profiles.json'), {}),
     readJson<JsonRecord>(path.join(controlDir, 'state.json'), { claims: [] }),
     readJson<JsonRecord>(path.join(root, 'docs', 'route-lead-inbox.json'), { summary: {}, leads: [] }),
     readJson<JsonRecord | null>(path.join(controlDir, 'next-work-order-preview.json'), null),
     readJson<JsonRecord | null>(path.join(controlDir, 'current-work-order.json'), null),
     readJson<JsonRecord>(path.join(controlDir, 'execution-queue.json'), { requests: [] }),
+    readRuns(),
+    runnerAvailable(),
   ]);
+
+  const profileStates = Array.isArray(profiles.states) ? profiles.states as JsonRecord[] : [];
+  const leads = Array.isArray(inbox.leads) ? inbox.leads as JsonRecord[] : [];
+  const claims = Array.isArray(state.claims) ? state.claims as JsonRecord[] : [];
+  const stateMetrics = profileStates.map((profile) => {
+    const stateName = String(profile.state);
+    const stateCode = String(profile.code);
+    const matchingLeads = leads.filter(
+      (lead) => lead.state === stateName || String(lead.state).toUpperCase() === stateCode.toUpperCase(),
+    );
+    const stateRuns = runs.filter((run) => run.state === stateName);
+    const activeRun = stateRuns.find((run) => ['queued', 'starting', 'running', 'cancelling'].includes(String(run.status)));
+    const latestRun = stateRuns[0] ?? null;
+    return {
+      state: stateName,
+      code: stateCode,
+      difficulty: profile.difficulty,
+      published: rivers.filter((route) => route.state === stateName).length,
+      leads: matchingLeads.length,
+      needsResearch: matchingLeads.filter((lead) => lead.lane !== 'implementation_ready').length,
+      researched: matchingLeads.filter((lead) => Boolean(lead.lastReviewed) || Number(lead.reviewCount ?? 0) > 0).length,
+      blocked: matchingLeads.filter((lead) => Boolean(lead.blocker)).length,
+      ready: matchingLeads.filter((lead) => lead.lane === 'implementation_ready').length,
+      activeClaim: claims.find((claim) => claim.state === stateName && claim.status === 'claimed') ?? null,
+      activeRun,
+      latestRun,
+    };
+  });
 
   return {
     generatedAt: new Date().toISOString(),
@@ -72,6 +139,12 @@ async function statusPayload() {
     preview,
     current,
     queue,
+    stateMetrics,
+    runs: runs.slice(0, 30),
+    runner: {
+      available: isRunnerAvailable,
+      activeRun: runs.find((run) => ['queued', 'starting', 'running', 'cancelling'].includes(String(run.status))) ?? null,
+    },
   };
 }
 
@@ -123,27 +196,80 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    if (request.method === 'POST' && url.pathname.startsWith('/api/start/')) {
+    if (request.method === 'POST' && url.pathname === '/api/run') {
       if (!validActionRequest(request)) {
         json(response, 403, { error: 'This action is not authorized for the current dashboard session.' });
         return;
       }
-      const kind = url.pathname.slice('/api/start/'.length) as RequestKind;
-      if (!['research', 'implementation'].includes(kind)) {
-        json(response, 400, { error: 'Unknown work type.' });
+      if (!(await runnerAvailable())) {
+        json(response, 503, { error: 'The local Codex runner is not available.' });
         return;
       }
-      if (kind === 'implementation') {
-        const status = await statusPayload();
-        const summary = status.inbox.summary as JsonRecord | undefined;
-        const byLane = summary?.byLane as JsonRecord | undefined;
-        if (Number(byLane?.implementation_ready ?? 0) === 0) {
-          json(response, 409, { error: 'No route is implementation-ready. Start research first.' });
-          return;
-        }
+      const body = await readBody(request);
+      const stateName = String(body.state ?? '');
+      const mode = String(body.mode ?? '');
+      if (!stateName || !['research', 'implementation'].includes(mode)) {
+        json(response, 400, { error: 'A valid state and work type are required.' });
+        return;
       }
-      const queued = await enqueue(kind);
-      json(response, 200, { ok: true, action: 'start', queued, status: await statusPayload() });
+      const status = await statusPayload();
+      const stateMetric = (status.stateMetrics as JsonRecord[]).find((metric) => metric.state === stateName);
+      if (!stateMetric) {
+        json(response, 404, { error: `Unknown state: ${stateName}` });
+        return;
+      }
+      if (status.runner.activeRun) {
+        json(response, 409, { error: 'Another route-control run is already active. Finish or cancel it first.' });
+        return;
+      }
+      if (mode === 'implementation' && Number(stateMetric.ready) === 0) {
+        json(response, 409, { error: `${stateName} has no implementation-ready routes.` });
+        return;
+      }
+
+      const requestedAt = new Date().toISOString();
+      const runId = `${String(stateMetric.code).toLowerCase()}-${mode}-${requestedAt.replace(/[-:.TZ]/g, '').slice(0, 14)}-${randomUUID().slice(0, 6)}`;
+      const run = {
+        version: 1,
+        id: runId,
+        state: stateName,
+        stateCode: stateMetric.code,
+        mode,
+        status: 'queued',
+        requestedAt,
+        message: `Waiting to start ${mode} for ${stateName}.`,
+      };
+      await mkdir(runsDir, { recursive: true });
+      await writeFile(path.join(runsDir, `${runId}.json`), `${JSON.stringify(run, null, 2)}\n`, 'utf8');
+      const child = spawn(runnerPython, [runnerPath, '--run-id', runId, '--state', stateName, '--mode', mode], {
+        cwd: root,
+        detached: true,
+        windowsHide: true,
+        stdio: 'ignore',
+      });
+      child.unref();
+      json(response, 202, { ok: true, run, status: await statusPayload() });
+      return;
+    }
+
+    const cancelMatch = url.pathname.match(/^\/api\/runs\/([^/]+)\/cancel$/);
+    if (request.method === 'POST' && cancelMatch) {
+      if (!validActionRequest(request)) {
+        json(response, 403, { error: 'This action is not authorized for the current dashboard session.' });
+        return;
+      }
+      const runId = decodeURIComponent(cancelMatch[1]);
+      const run = await readJson<JsonRecord | null>(path.join(runsDir, `${runId}.json`), null);
+      if (!run) {
+        json(response, 404, { error: 'Run not found.' });
+        return;
+      }
+      if (!['queued', 'starting', 'running', 'cancelling'].includes(String(run.status))) {
+        json(response, 409, { error: `Run is already ${run.status}.` });
+        return;
+      }
+      await writeFile(path.join(runsDir, `${runId}.cancel`), `${new Date().toISOString()}\n`, 'utf8');
+      json(response, 202, { ok: true, message: 'Cancellation requested.' });
       return;
     }
 

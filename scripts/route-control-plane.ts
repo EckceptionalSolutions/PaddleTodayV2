@@ -226,9 +226,17 @@ export function selectState(
   controlState: ControlState,
   now: Date,
   requestedMode?: WorkMode,
+  requestedState?: string,
 ): ScoredState {
   const enabled = profiles.states.filter((profile) => {
     if (!profile.enabled) return false;
+    if (
+      requestedState &&
+      profile.state.toLowerCase() !== requestedState.toLowerCase() &&
+      profile.code.toLowerCase() !== requestedState.toLowerCase()
+    ) {
+      return false;
+    }
     if (requestedMode !== 'implementation') return true;
     return inbox.leads.some(
       (lead) =>
@@ -238,6 +246,9 @@ export function selectState(
   });
   if (enabled.length === 0 && requestedMode === 'implementation') {
     throw new Error('No route is implementation-ready. Start research first.');
+  }
+  if (enabled.length === 0 && requestedState) {
+    throw new Error(`No enabled state matches ${requestedState}.`);
   }
   const activeStates = new Set(
     controlState.claims.filter((claim) => claim.status === 'claimed').map((claim) => claim.state),
@@ -476,11 +487,11 @@ async function loadInputs(now: Date) {
   return { profiles, inbox, controlState };
 }
 
-async function plan(claim: boolean, requestedMode?: WorkMode) {
+async function plan(claim: boolean, requestedMode?: WorkMode, requestedState?: string) {
   const execute = async () => {
     const now = new Date();
     const { profiles, inbox, controlState } = await loadInputs(now);
-    const selected = selectState(profiles, inbox, controlState, now, requestedMode);
+    const selected = selectState(profiles, inbox, controlState, now, requestedMode, requestedState);
     const order = buildWorkOrder(selected, profiles, controlState, now, requestedMode);
 
     if (claim) {
@@ -615,22 +626,24 @@ async function main() {
   const command = process.argv[2] ?? 'plan';
   const modeFlagIndex = process.argv.indexOf('--mode');
   const requestedMode = modeFlagIndex >= 0 ? process.argv[modeFlagIndex + 1] as WorkMode : undefined;
+  const stateFlagIndex = process.argv.indexOf('--state');
+  const requestedState = stateFlagIndex >= 0 ? process.argv[stateFlagIndex + 1] : undefined;
   if (requestedMode && !['research', 'implementation'].includes(requestedMode)) {
     throw new Error('--mode must be research or implementation.');
   }
   if (command === 'plan') {
-    await plan(false, requestedMode);
+    await plan(false, requestedMode, requestedState);
     return;
   }
   if (command === 'claim') {
-    await plan(true, requestedMode);
+    await plan(true, requestedMode, requestedState);
     return;
   }
   if (command === 'complete') {
     await complete(process.argv[3]);
     return;
   }
-  throw new Error('Usage: route-control-plane.ts [plan|claim [--mode research|implementation]|complete <report.json>]');
+  throw new Error('Usage: route-control-plane.ts [plan|claim [--mode research|implementation] [--state name-or-code]|complete <report.json>]');
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

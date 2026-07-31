@@ -39,13 +39,26 @@ npm.cmd run routes:control:ui
 
 Then open `http://127.0.0.1:4399`. The dashboard is bound to the local computer only.
 
-The controls have plain-language meanings:
+The dashboard is recommendation-first:
 
-- **Start research** adds one research job to the execution queue. The active `Paddle Today route worker` Codex automation checks the queue every five minutes.
-- **Implement a ready route** adds one implementation job. It remains disabled until at least one lead is in `implementation_ready`.
-- **Preview next state** shows which state the fairness scheduler would choose without starting work.
+- The main card says whether the next step is **research** or **implementation**, names the state, explains why, and defines success.
+- **Copy task for Codex** copies complete execution instructions. Paste them into a new Codex task to start work without background polling.
+- **Recalculate recommendation** refreshes the lead data and selects the next state without starting work.
+- The state pipeline shows published routes, leads, researched leads, blocked leads, and implementation-ready leads for every supported state.
+- **Research now** starts an isolated Codex run for that state.
+- **Implement** is enabled only when that state has at least one implementation-ready lead.
+- Only one run may be active. The active-run banner can request cancellation; edits already written before cancellation remain in the working tree.
 
-The dashboard shows whether work is waiting or running and refreshes automatically. It does not expose these controls on the production PaddleToday site.
+The dashboard refreshes automatically. It does not expose these controls on the production PaddleToday site.
+
+The runner uses the official Python Codex SDK in a local virtual environment:
+
+```powershell
+python -m venv automations/route-control-plane/runner/.venv
+automations/route-control-plane/runner/.venv/Scripts/python.exe -m pip install -r automations/route-control-plane/runner/requirements.txt
+```
+
+Scheduling is intentionally disabled until at least one manual run completes end to end. This prevents a scheduler from creating unattended work before state targeting, completion reporting, and cancellation have been proven on real route work.
 
 Preview the next assignment without consuming it:
 

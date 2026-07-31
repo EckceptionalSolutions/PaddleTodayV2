@@ -3105,8 +3105,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "delta-north-skunk-access",
       "name": "Delta / North Skunk River access",
-      "latitude": 41.323,
-      "longitude": -92.329
+      "latitude": 41.3025710943056,
+      "longitude": -92.33075380325317
     },
     "takeOut": {
       "id": "sigourney-skunk-river-access",
@@ -3138,8 +3138,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "delta-north-skunk-access",
         "name": "Delta / North Skunk River access",
-        "latitude": 41.323,
-        "longitude": -92.329,
+        "latitude": 41.3025710943056,
+        "longitude": -92.33075380325317,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Practical Delta access-corridor anchor; verify the signed launch before committing."

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-29T14:00:12.244Z",
+  "generatedAt": "2026-07-30T02:07:33.054Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 1066,
     "currentRouteCount": 927,
-    "leadCount": 266,
+    "leadCount": 265,
     "discoveryFocusStates": [
       "South Dakota",
       "Illinois",
@@ -204,11 +204,11 @@
     ],
     "byLane": {
       "implementation_ready": 0,
-      "fresh_source_discovery": 53,
+      "fresh_source_discovery": 51,
       "threshold_discovery": 99,
       "coordinate_cleanup": 0,
       "access_legitimacy": 1,
-      "live_provider_recheck": 97,
+      "live_provider_recheck": 98,
       "blocked_recheck": 16
     },
     "byStatus": {
@@ -217,9 +217,9 @@
       "threshold_weak": 99,
       "needs_manual_coordinates": 1,
       "blocked_until_date": 20,
-      "no_live_gauge": 87,
-      "research_later": 53,
-      "rejected": 15,
+      "no_live_gauge": 88,
+      "research_later": 51,
+      "rejected": 16,
       "gauge_proxy_weak": 10,
       "duplicate_corridor": 6
     }
@@ -295,28 +295,34 @@
         "river": "Apple River",
         "route": "Apple River Canyon State Park / Hanover gauge family",
         "currentStatus": "research_later",
-        "lastReviewed": "2026-05-30",
-        "reviewCount": 1,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 2,
         "duplicateRisk": false,
-        "blocker": "Fresh 2026-05-30 08:59 America/Chicago review. Apple River looked like a possible northwest Illinois whitewater/access lead because American Whitewater's Illinois gauge list includes USGS 05419000 Apple River near Hanover with current-looking flow/stage context, and IDNR confirms Apple River Canyon State Park is public state-park land along the river. The route was not added because no normal public put-in/take-out...",
-        "retryCondition": "Retry only if IDNR, a county/city/public water-trail manager, American Whitewater route page, or a strong local paddling authority publishes a specific Apple River paddling reach with public endpoints and numeric thresholds tied to USGS 05419000 or another product-fetchable gauge.",
+        "blocker": "2026-07-29 fresh-source review found a concrete lower-river lead but also confirmed that it cannot ship. IDNR's Apple River Canyon brochure explicitly says boating is not permitted on the Apple River through the state park. Miles Paddled documents a 9.5-mile Hanover-to-West-Whitton-Road trip tied to USGS 05419000, with observed 4.0 ft / 100 cfs scraping conditions and 4.4 ft / 360 cfs splashy Class I conditions, plu...",
+        "retryCondition": "Retry only if IDNR, Jo Daviess County, Hanover, or another responsible manager designates a legal public Apple River endpoint pair with ordinary paddler parking on the statutory public reach, or formally changes the state-park boating prohibition. Any future route must retain numeric guidance tied to USGS 05419000.",
         "gauge": {
-          "quality": "gauge_context_without_route_access_package",
+          "quality": "direct_live_verified_access_blocked",
           "id": "05419000",
           "provider": "USGS/American Whitewater",
-          "notes": "USGS 05419000 Apple River near Hanover is a real same-river gauge and AW exposes it in the Illinois gauge list, but no route-ready public endpoint pair or numeric paddling threshold model was found."
+          "notes": "USGS 05419000 Apple River near Hanover is direct for the newly documented Hanover-to-Whitton community route. Water Services returned same-day 78.8 cfs / 4.10 ft on 2026-07-29, but the route is blocked by public-water and access legitimacy."
         },
         "thresholdSupport": {
-          "strength": "missing_route_specific_thresholds",
-          "notes": "No official/AW route page, manager guidance, or strong route-specific low-water floor/range tied to the gauge surfaced. Gauge data alone is not enough for Illinois."
+          "strength": "community_observations_access_blocked",
+          "notes": "Miles Paddled ties the exact lower-river trip to the Hanover gauge and reports scraping at 4.0 ft / 100 cfs versus splashy Class I water at 4.4 ft / 360 cfs. This is useful calibration evidence, but it is not a manager-published full range and cannot overcome the legal-access blocker."
         },
         "endpoints": {
-          "putIn": "Not selected",
-          "takeOut": "Not selected",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because no public day-trip endpoint pair cleared the Illinois access gate."
+          "putIn": "Below the Hanover dam behind the Factory (community-described, not manager-approved)",
+          "takeOut": "West Whitton Road bridge (community-described, parking/access not manager-approved)",
+          "coordinatesPresent": true,
+          "putInCoordinates": {
+            "latitude": 42.25727,
+            "longitude": -90.28662
+          },
+          "takeOutCoordinates": {
+            "latitude": 42.20942,
+            "longitude": -90.25042
+          },
+          "coordinateSource": "Miles Paddled publishes both coordinates for its Hanover-to-West-Whitton trip, but explicitly describes access as poor/dodgy and the route as mostly non-public water. Coordinates are retained as research evidence only, not accepted public endpoints."
         },
         "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
         "discoveryTier": "undercovered_supported_midwest"
@@ -329,16 +335,16 @@
         "river": "Bailey Creek",
         "route": "N2300 Road to Vermilion River / Bailey Falls",
         "currentStatus": "research_later",
-        "lastReviewed": "2026-05-30",
-        "reviewCount": 1,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 2,
         "duplicateRisk": false,
-        "blocker": "Fresh 2026-05-30 08:28 America/Chicago review. American Whitewater documents Bailey Creek as a 0.5-to-1.5-mile I-II(IV) waterfall/runout route, ties it to the Vermilion River near Leonore gauge, and exposes current-looking Illinois index flow context. The route was not added because the public-access gate fails: AW says Bailey Creek is now part of IDNR properties but has not yet been officially cleared for public ac...",
+        "blocker": "2026-07-29 fresh-source review preserved and sharpened the hard blocker. American Whitewater's route page, updated March 2025, still states that Bailey Creek is part of IDNR properties but has not been officially cleared for public access. It also identifies a tree-blocked culvert with flow leading toward snags, a shallow waterfall landing, an old pickup-truck frame in the runout, and a confluence rather than an ord...",
         "retryCondition": "Retry only if IDNR, a site manager, or American Whitewater documents that Bailey Creek / Bailey Falls is officially open for public paddling access, with named legal access points and stable AW threshold guidance tied to the Leonore gauge.",
         "gauge": {
-          "quality": "aw_current_context_but_access_blocked",
+          "quality": "direct_live_verified_access_blocked",
           "id": "05555300 / AW Vermilion River Near Leonore",
           "provider": "USGS/American Whitewater",
-          "notes": "AW ties the reach to the Vermilion River near Leonore gauge and the Illinois index showed current-looking updates, but the route was not selected because official public access is not cleared."
+          "notes": "AW ties the reach to the Vermilion River near Leonore gauge, and Water Services returned same-day 92.7 cfs / 3.49 ft on 2026-07-29. The provider works; official public access does not."
         },
         "thresholdSupport": {
           "strength": "aw_route_context_but_not_ship_ready",
@@ -356,40 +362,6 @@
         "discoveryTier": "undercovered_supported_midwest"
       },
       {
-        "candidateId": "il-salt-creek-fullersburg-woods-family",
-        "lane": "fresh_source_discovery",
-        "priority": 100,
-        "state": "IL",
-        "river": "Salt Creek",
-        "route": "Fullersburg Woods / Graue Mill downstream canoe-launch family",
-        "currentStatus": "research_later",
-        "lastReviewed": "2026-05-30",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "Fresh 2026-05-30 00:58 America/Chicago review. Forest Preserve District of DuPage County confirms Salt Creek access via the Fullersburg Woods canoe launch downstream of the Graue Mill dam, and current preserve materials note dam-removal/restoration work that materially changes route hazards and hydraulics. USGS 05531500 Salt Creek at Western Springs is a same-corridor gauge lead, but visible USGS/search evidence is...",
-        "retryCondition": "Retry if DuPage County Forest Preserve District, DuPage River Salt Creek Workgroup, a water-trail manager, American Whitewater, or another strong source publishes a named public Salt Creek endpoint pair plus numeric paddling guidance tied to USGS 05531500 or a better product-fetchable gauge.",
-        "gauge": {
-          "quality": "same_corridor_lead_but_not_live_verified",
-          "id": "05531500",
-          "provider": "USGS",
-          "notes": "USGS 05531500 Salt Creek at Western Springs is the obvious same-corridor gauge lead, but this pass did not verify product-ready current observations or a route-specific threshold relationship."
-        },
-        "thresholdSupport": {
-          "strength": "not_found",
-          "notes": "No official, AW, or strong local numeric paddling floor/range/high cutoff tied to a selected Salt Creek route was found."
-        },
-        "endpoints": {
-          "putIn": "Fullersburg Woods canoe launch downstream of Graue Mill dam",
-          "takeOut": "Not selected",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because route shape and threshold support failed before endpoint selection."
-        },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
         "candidateId": "il-mackinaw-river-state-fwa-family",
         "lane": "fresh_source_discovery",
         "priority": 100,
@@ -397,20 +369,20 @@
         "river": "Mackinaw River",
         "route": "Mackinaw River State Fish and Wildlife Area / DNR canoe landing family",
         "currentStatus": "research_later",
-        "lastReviewed": "2026-05-30",
-        "reviewCount": 2,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 3,
         "duplicateRisk": false,
-        "blocker": "Fresh 2026-05-30 07:59 America/Chicago recheck preserved the blocker. IDNR confirms the Mackinaw River SFWA canoe launch and describes the site as a day-use canoeing destination on a scenic central Illinois river. USGS 05567500 near Congerville, AW gauge context, Snoflo current-looking values, and MoHERP condition context remain useful gauge leads. The route was not added because IDNR Public Waters does not list the...",
-        "retryCondition": "Retry if IDNR, a county/local water-trail manager, American Whitewater, or another strong source documents a specific public Mackinaw endpoint pair with numeric paddling guidance tied to a selected live USGS gauge.",
+        "blocker": "2026-07-29 fresh-source review improved gauge and numeric-condition evidence but preserved the public-route blocker. IDNR confirms a public day-use canoe landing and adjacent picnic area at Mackinaw River SFWA, but the Mackinaw River is still absent from IDNR's Public Waters list and no manager-backed upstream launch/parking point was found for the community-described US 150-to-DNR trip. USGS Water Services returned...",
+        "retryCondition": "Retry if IDNR, Woodford or Tazewell County, a local water-trail manager, or another responsible source designates an upstream Mackinaw launch with ordinary public parking that can pair with the SFWA landing. Revalidate whether MoHERP's 05567500 bands are acceptable for that exact reach before promotion.",
         "gauge": {
-          "quality": "same_river_gauge_context_but_route_unselected",
+          "quality": "same_river_live_verified_route_unselected",
           "id": "05567500",
           "provider": "USGS",
-          "notes": "Mackinaw River near Congerville is a same-river gauge lead with current-looking third-party snippets, but no selected official public route and threshold package cleared the bar."
+          "notes": "USGS 05567500 near Congerville is a same-river gauge and Water Services returned same-day 155 cfs / 1.30 ft on 2026-07-29. The provider works, but no fully legitimate public route pair is selected."
         },
         "thresholdSupport": {
-          "strength": "weak_without_official_route_model",
-          "notes": "MoHERP/local route context may be useful later, but this pass found no official or strong route-specific numeric threshold for a clean public endpoint pair."
+          "strength": "supplemental_numeric_bands_route_unselected",
+          "notes": "MoHERP publishes estimated condition transitions at 45, 409, 596, 1,096 and 2,189 cfs on direct gauge 05567500, plus one observed High trip at 3,940 cfs. This is meaningful numeric evidence but remains supplemental and cannot be applied until a legitimate exact route is selected."
         },
         "endpoints": {
           "putIn": "Unselected upstream public access / US 150 family",
@@ -594,40 +566,6 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "mi-maple-river-northern-lower-maple-road-family",
-        "lane": "fresh_source_discovery",
-        "priority": 100,
-        "state": "MI",
-        "river": "Maple River",
-        "route": "Northern Lower Michigan / Maple Road access family",
-        "currentStatus": "research_later",
-        "lastReviewed": "2026-05-29",
-        "reviewCount": 2,
-        "duplicateRisk": false,
-        "blocker": "Tip of the Mitt Watershed Council says sections of the northern Maple River can be a pleasant paddle, and Outdoor Michigan surfaces a Maple Road Boat Launch / Maple River access lead, but this pass did not identify an exact day-trip pair, distance, product-ready live gauge, or numeric paddling threshold. Multiple Michigan Maple Rivers also make route naming and gauge selection easy to confuse without stronger local...",
-        "retryCondition": "Retry only if Tip of the Mitt, Michigan DNR, Inland Waterway/Straits water-trail materials, county access pages, an outfitter, or another strong source identifies a specific northern-lower-Michigan Maple River day trip with public endpoints, coordinates, and numeric gauge guidance tied to a product-supported gauge.",
-        "gauge": {
-          "quality": "unselected_or_unverified",
-          "id": null,
-          "provider": "USGS",
-          "notes": "No product-ready direct gauge was selected for the northern Lower Peninsula Maple River. Avoid confusing this with the central Michigan Maple River at Maple Rapids gauge."
-        },
-        "thresholdSupport": {
-          "strength": "not_found",
-          "notes": "No numeric low-water floor, ideal range, or high-water cutoff surfaced for a specific Maple River day trip."
-        },
-        "endpoints": {
-          "putIn": "Maple Road Boat Launch or another unselected northern Maple access",
-          "takeOut": "Unselected downstream Maple River / Burt Lake access",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because no exact route and gauge package cleared the bar."
-        },
-        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
         "candidateId": "mi-clinton-river-eagles-landing-yates-dam",
         "lane": "fresh_source_discovery",
         "priority": 100,
@@ -635,16 +573,16 @@
         "river": "Clinton River",
         "route": "Eagle's Landing / W. Avon Road to E. Avon Road / Yates Dam",
         "currentStatus": "research_later",
-        "lastReviewed": "2026-05-29",
-        "reviewCount": 3,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 4,
         "duplicateRisk": false,
-        "blocker": "Fresh 2026-05-29 17:00 America/Chicago recheck preserved the blocker. Outdoor Michigan now directly lists Clinton River - Eagles Landing Boat Launch as a carry-in at 42.6645, -83.15393, and the 2024 CRWC map lists CRWC Office / Eagles Landing and Yates Cider Mill as Clinton River Water Trail launch assets. American Whitewater still gives the strongest threshold package for the 4.7-mile Class I(II) reach on USGS 0416...",
-        "retryCondition": "Retry only if City of Rochester Hills, Oakland County Parks, CRWC, or another official manager confirms current safe paddling/take-out/portage geometry at Yates and confirms restoration/bypass work does not create a closure or route-definition conflict.",
+        "blocker": "Fresh 2026-07-29 discovery preserved and strengthened the hard safety blocker. CRWC's current paddling page classifies the Heart of the Clinton as not for beginners, warns of fast/high post-rain flow, woody debris, cold water and hypothermia, and publishes 8-10 ft warnings only for the downstream Sterling Heights gauge—not the Auburn Hills/Yates reach. American Whitewater still calls Yates a killer low-head dam that...",
+        "retryCondition": "Retry only after Oakland County Parks, Rochester Hills, or CRWC publishes current Yates take-out/portage geometry and project status, and USGS 04161000 again exposes product-supported current data or an accepted replacement gauge is route-calibrated.",
         "gauge": {
-          "quality": "direct_promising_but_route_blocked",
+          "quality": "direct_but_current_product_data_unavailable",
           "id": "04161000",
           "provider": "USGS",
-          "notes": "USGS 04161000 Clinton River at Auburn Hills is the AW-linked direct gauge. Gauge/threshold evidence is promising, but the route fails the access and Yates take-out/portage certainty gate."
+          "notes": "USGS 04161000 is the AW-linked direct gauge, but its modern page reported no current data types and legacy evidence stopped at 2026-07-21 during this run. Even if data resumes, the Yates safety gate remains independently blocking."
         },
         "thresholdSupport": {
           "strength": "community_route_specific_if_access_resolves",
@@ -2036,16 +1974,16 @@
         "river": "Fox River",
         "route": "Duerr Forest Preserve to Fabyan Forest Preserve",
         "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-20",
-        "reviewCount": 2,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 3,
         "duplicateRisk": false,
-        "blocker": "2026-06-20 threshold refresh. Openlands still documents Duerr Forest Preserve to Fabyan West Forest Preserve as an about-10-mile Fox River Water Trail trip for intermediate paddlers or beginners with an experienced guide, with St. Charles and Geneva dam portages, shallow water below dams, wind/sun caveats, and a USGS-check instruction. Fabulous Fox Water Trail still lists Jon J. Duerr Forest Preserve and Fabyan Fore...",
+        "blocker": "2026-07-29 bounded stale-candidate threshold recheck preserved the hold. The current IDNR River Closures page lists the lower Fox River reach open effective 2026-05-07, and USGS Water Services returned same-day 05551000 values of 589 cfs and 12.30 ft at 15:45 CDT. Existing Openlands and Fabulous Fox Water Trail evidence still supports the about-10-mile Duerr-to-Fabyan public route, signed coordinate-backed endpoints...",
         "retryCondition": "Retry only if Fabulous Fox Water Trail, Openlands, Kane County, AW, or another strong route manager publishes numeric paddling thresholds for this exact Fox River reach tied to USGS 05551000 or another product-fetchable same-corridor gauge.",
         "gauge": {
           "quality": "direct_same_corridor_but_threshold_weak",
           "id": "05551000",
           "provider": "USGS",
-          "notes": "USGS 05551000 Fox River at South Elgin is in the route corridor near the upstream access sequence and is operated in cooperation with IDNR. A fresh 2026-06-20 Water Services IV fetch returned same-day discharge/stage values, confirming the live-provider path works, but the reviewed route-manager pages still do not provide numeric scoring thresholds."
+          "notes": "USGS 05551000 Fox River at South Elgin is in the route corridor near the upstream access sequence and is operated in cooperation with IDNR. Water Services again returned same-day discharge/stage values on 2026-07-29, confirming the live-provider path works; route-manager pages still do not provide numeric scoring thresholds."
         },
         "thresholdSupport": {
           "strength": "weak_generic_gauge_check_only",
@@ -2069,6 +2007,40 @@
         "discoveryTier": "undercovered_supported_midwest"
       },
       {
+        "candidateId": "il-salt-creek-fullersburg-woods-family",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "IL",
+        "river": "Salt Creek",
+        "route": "Fullersburg Woods to Salt Creek Greenway at Hunter Road",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 2,
+        "duplicateRisk": false,
+        "blocker": "2026-07-29 fresh-source review materially improved route shape, access, hazard, and live-gauge facts but did not clear thresholds. Current Forest Preserve District of DuPage County boating guidance explicitly allows Salt Creek boating without a district permit and identifies Fullersburg Woods near the Graue Mill parking lot as an access and Salt Creek Greenway at Hunter Road as take-out only. The district's restorat...",
+        "retryCondition": "Retry if DuPage County Forest Preserve District, the DuPage River Salt Creek Workgroup, a water-trail manager, American Whitewater, or another strong route source publishes numeric runnable guidance tied to USGS 05531500 for Fullersburg-to-Hunter Road. Before implementation, also capture manager-backed landing coordinates and confirm ordinary shuttle parking at Hunter Road.",
+        "gauge": {
+          "quality": "same_corridor_live_verified_threshold_missing",
+          "id": "05531500",
+          "provider": "USGS",
+          "notes": "USGS 05531500 Salt Creek at Western Springs is the same-corridor gauge for the Fullersburg-to-Hunter Road family. Water Services returned same-day 343 cfs / 3.36 ft on 2026-07-29, but no accepted numeric paddling relationship was found."
+        },
+        "thresholdSupport": {
+          "strength": "not_found",
+          "notes": "No official, AW, or strong local numeric paddling floor/range/high cutoff tied to a selected Salt Creek route was found."
+        },
+        "endpoints": {
+          "putIn": "Fullersburg Woods Salt Creek access near the Graue Mill parking lot",
+          "takeOut": "Salt Creek Greenway landing at Hunter Road (take-out only)",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Current Forest Preserve District boating and preserve pages explicitly name both functional endpoints, but exact landing coordinates and ordinary Hunter Road shuttle-parking details were not captured. Do not infer coordinates from river geometry or general preserve boundaries."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
         "candidateId": "il-rock-river-castle-rock-lowell-family",
         "lane": "threshold_discovery",
         "priority": 100,
@@ -2076,28 +2048,34 @@
         "river": "Rock River",
         "route": "Castle Rock State Park to Lowell Park / Dixon family",
         "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-21",
-        "reviewCount": 3,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 4,
         "duplicateRisk": false,
-        "blocker": "2026-06-21 exact-route tightening pass. IDNR still explicitly lists Castle Rock State Park as Rock River public canoe/kayak access and says a trip to Lowell Park or Dixon Dam is about 12 miles. Miles Paddled's Rock River I report makes the future implementation shape less vague by recommending the shorter Castle Rock boat landing to Lowell Park trip instead of the full Oregon-to-Dixon paddle, while recording the bro...",
-        "retryCondition": "Retry if Rock River Water Trail, IDNR, a county/city manager, Miles Paddled corroboration, American Whitewater, or another strong route-specific source publishes numeric runnable guidance tied to USGS 05443500 for the Castle Rock boat landing to Lowell Park subreach. Capture exact access coordinates from named access pages or a water-trail inventory if threshold support improves.",
+        "blocker": "2026-07-29 bounded stale-candidate recheck improved endpoint evidence but preserved the threshold hold. The Rock River Water Trail inventory identifies Castle Rock State Park Boat Ramp as a developed access with parking at 41°58'29\" N, 89°22'03\" W and Lowell Park as a developed access with parking at 41°53'24\" N, 89°28'59\" W; IDNR also confirms the Castle Rock public ramp and current site-closure guidance shows the...",
+        "retryCondition": "Retry if Rock River Water Trail, IDNR, a county/city manager, Miles Paddled corroboration, American Whitewater, or another strong route-specific source publishes numeric runnable guidance tied to USGS 05443500 for the Castle Rock boat ramp to Lowell Park subreach.",
         "gauge": {
           "quality": "same_river_live_verified_threshold_incomplete",
           "id": "05443500",
           "provider": "USGS",
-          "notes": "USGS 05443500 Rock River at Como is the route-family gauge surfaced by MoHERP and is a same-river downstream lead for the Castle Rock/Oregon/Dixon corridor. A fresh 2026-06-20 Water Services IV fetch returned same-day discharge/stage values, so the live-provider path now looks viable. Threshold evidence is still far too thin for scoring."
+          "notes": "USGS 05443500 Rock River at Como is the route-family gauge surfaced by MoHERP and is a same-river downstream lead for the Castle Rock/Oregon/Dixon corridor. Water Services again returned same-day discharge/stage values on 2026-07-29. Threshold evidence is still far too thin for scoring."
         },
         "thresholdSupport": {
           "strength": "weak_trip_rows_only",
           "notes": "MoHERP/legacy route rows show Good trips around 11,500-11,900 cfs, and Miles Paddled records one broader Oregon-to-Dixon day at 5,300 cfs with qualitative reliability language. That is still not enough to derive a low-water floor, preferred range, or high-water cutoff for V2 scoring. Do not add by extrapolating from those sparse observations."
         },
         "endpoints": {
-          "putIn": "Castle Rock State Park Rock River boat ramp / canoe access",
-          "takeOut": "Lowell Park / Dixon family",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "IDNR and Rock River Water Trail context still support the Castle Rock / Lowell corridor, and Miles Paddled now points to Castle Rock boat landing to Lowell Park as the best exact subreach, but this pass still did not capture accepted named-access coordinates for both ends."
+          "putIn": "Castle Rock State Park Boat Ramp",
+          "takeOut": "Lowell Park",
+          "coordinatesPresent": true,
+          "putInCoordinates": {
+            "latitude": 41.974722,
+            "longitude": -89.3675
+          },
+          "takeOutCoordinates": {
+            "latitude": 41.89,
+            "longitude": -89.483056
+          },
+          "coordinateSource": "Rock River Water Trail Inventory, Analysis and Plan lists both as developed access sites with parking and publishes DMS coordinates; values were converted directly to decimal degrees."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "undercovered_supported_midwest"
@@ -2607,20 +2585,20 @@
         "river": "Rifle River",
         "route": "Selkirk / middle Rifle to Sterling livery and public-access family",
         "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-05-29",
-        "reviewCount": 1,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 2,
         "duplicateRisk": false,
-        "blocker": "Fresh 2026-05-29 recheck found a strong gauge lead and broad corridor support, but not an implementation-ready threshold package. RiverScout reports live USGS 04142000 Rifle River near Sterling flow and a 200-800 cfs optimal range, and Michigan DNR / Michigan.org / local livery sources support the Rifle as a real canoe/kayak/tube corridor around the Rifle River Recreation Area, Selkirk, Moffatt, and Sterling. The ro...",
+        "blocker": "Fresh 2026-07-29 bounded recheck preserved the threshold blocker and weakened the earlier community-range lead. Michigan DNR still confirms paddling and seasonal rentals in the Rifle River Recreation Area, and USGS 04142000 remains the direct same-river station, but official search-visible data ended July 24 and the direct Water Services request failed during retrieval. RiverScout's current page no longer publishes...",
         "retryCondition": "Retry only if a manager, livery, county/state source, or stronger route guide publishes route-specific numeric guidance tied to USGS 04142000 and one exact public or clearly livery-supported endpoint pair with coordinates is selected. Do not ship solely from RiverScout community range text.",
         "gauge": {
           "quality": "direct_live_but_threshold_source_community_unverified",
           "id": "04142000",
           "provider": "USGS",
-          "notes": "USGS 04142000 Rifle River near Sterling is the direct same-river gauge surfaced by RiverScout and public USGS pages. Live gauge support appears promising, but the threshold source is not strong enough for V2 implementation."
+          "notes": "USGS 04142000 is direct and normally product-supported, but official search-visible data stopped at 2026-07-24 during this run and the direct Water Services recovery attempt failed. Recheck product freshness before any implementation."
         },
         "thresholdSupport": {
           "strength": "community_unverified_whole_corridor",
-          "notes": "RiverScout lists 200-800 cfs as optimal for the Rifle River, but the same page says CFS ranges need community verification. Treat as a lead, not as V2-ready scoring evidence."
+          "notes": "The prior RiverScout 200-800 cfs lead was not reproduced on 2026-07-29; the current page offers personal range settings and cautions that community data may not represent every flow. Treat the old range as stale and not V2-ready."
         },
         "endpoints": {
           "putIn": "Unselected: Selkirk, Moffatt Landing, Skidway, Greenwood Landing, Rifle River Recreation Area, or other public/livery access",
@@ -2634,40 +2612,6 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "mi-flint-river-national-water-trail-mott-holloway-family",
-        "lane": "threshold_discovery",
-        "priority": 100,
-        "state": "MI",
-        "river": "Flint River",
-        "route": "Flint River National Water Trail / Mott Lake to Holloway Reservoir or Lapeer County family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-05-29",
-        "reviewCount": 2,
-        "duplicateRisk": false,
-        "blocker": "FRWC supports a real 72-mile state and national water trail with 25 access sites, but current public guidance recommends avoiding contact with the Flint River downstream of Stepping Stone Falls through downtown Flint after the Lockhart spill investigation. The upstream Mott Lake-to-Holloway / Lapeer County portions remain plausible, but this pass did not identify one exact public day-trip pair with numeric paddling...",
-        "retryCondition": "Retry only if FRWC, Genesee County Parks, NPS, Michigan Water Trails, an outfitter, or another strong public source identifies an exact open Flint River day trip with public endpoints and numeric gauge guidance tied to a product-supported USGS gauge; avoid downtown/downstream Stepping Stone Falls routes unless the contact advisory is lifted or narrowed.",
-        "gauge": {
-          "quality": "direct_gauge_lead_but_no_route_threshold",
-          "id": "04148180",
-          "provider": "USGS",
-          "notes": "USGS 04148180 is a Flint River monitoring location in Flint, but this run did not tie it to a clean, open exact route with numeric paddling thresholds."
-        },
-        "thresholdSupport": {
-          "strength": "weak_without_numeric_route_model",
-          "notes": "FRWC and water-trail sources point paddlers to planning resources, but this pass found no low-water floor, preferred range, or high-water cutoff for a specific public day trip."
-        },
-        "endpoints": {
-          "putIn": "Unselected upstream Flint River Water Trail access above Stepping Stone Falls or Lapeer County",
-          "takeOut": "Unselected upstream Flint River Water Trail access / Holloway Reservoir family",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because route definition and threshold model failed first."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
         "candidateId": "mi-huron-river-lower-huron-willow-oakwoods-family",
         "lane": "threshold_discovery",
         "priority": 100,
@@ -2675,16 +2619,16 @@
         "river": "Huron River",
         "route": "Lower Huron Metropark to Willow / Oakwoods Metropark family",
         "currentStatus": "threshold_weak",
-        "lastReviewed": null,
-        "reviewCount": 1,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 2,
         "duplicateRisk": false,
-        "blocker": "Fresh 2026-05-29 18:09 America/Chicago review. Huron River Water Trail recommends Lower Huron Metropark as a 3.4-mile trip and Lower Huron-to-Willow as a 7.8-mile trip; Huron-Clinton Metroparks confirms river access at Lower Huron's North Fishing Site and East Bend / Group Camp, downstream access at Willow Big Bend and Oakwoods Cedar Knoll, and canoe-camping at Walnut Grove. Outdoor Michigan provides coordinates for...",
+        "blocker": "Fresh 2026-07-29 discovery strengthened the public route and safety boundary but did not clear scoring. HRWC's official trip sheet defines Lower Huron North Fishing Site to Oakwoods as 15 miles / 5-7 hours through exclusively publicly managed land with four recognized landings, and says Oakwoods is the last good access before Flat Rock Pond. The current Metroparks page says the Flat Rock Dam portage downstream of Oa...",
         "retryCondition": "Retry only if HRWC, Huron-Clinton Metroparks, USGS, a livery, or another credible source publishes numeric low-water or high-water guidance tied to a supported live gauge for a specific Lower Huron / Willow / Oakwoods endpoint pair.",
         "gauge": {
-          "quality": "possible_local_gauge_but_no_threshold_model",
+          "quality": "local_sensor_not_product_supported",
           "id": null,
           "provider": "HRWC/USGS lead",
-          "notes": "HRWC surfaces a Huron River at Lower Huron Metropark streamgage lead, but this pass did not find product-supported live-gauge mapping plus numeric paddling thresholds for a V2 route."
+          "notes": "HRWC identifies a Lower Huron Metropark low-cost sensor in the University of Michigan Digital Water Lab network, but PaddleToday does not support it and HRWC publishes no numeric paddling bands for this reach."
         },
         "thresholdSupport": {
           "strength": "weak",
@@ -2715,10 +2659,10 @@
         "river": "Pere Marquette River",
         "route": "Bowman Bridge to Upper Branch Bridge",
         "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-05-29",
-        "reviewCount": 1,
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 2,
         "duplicateRisk": false,
-        "blocker": "Fresh 2026-05-29 Michigan review. Rivers.gov and Recreation.gov strongly support the Pere Marquette National Scenic River corridor, Memorial-Day-to-Labor-Day watercraft permits, and the managed segment from Bowman Bridge to Upper Branch Bridge. USGS 04122500 at Scottville is a real lower-river gauge, but this pass found no credible route-specific numeric paddling floor, preferred range, or high-water cutoff tied to...",
+        "blocker": "Fresh 2026-07-29 bounded recheck confirmed an unusually strong official access/operations package but no numeric level calibration. Recreation.gov defines Segment 2 as Bowman Bridge to Upper Branch Bridge, requires Memorial-Day-to-Labor-Day permits and 9 a.m.-6 p.m. watercraft hours, charges day-use fees at both endpoints, and warns that much of the corridor is private. The Forest Service brochure gives a 4.5-hour m...",
         "retryCondition": "Retry only if Huron-Manistee National Forests, Michigan DNR, American Whitewater, a credible livery/outfitter, RiverScout with verified local calibration, or another strong route source publishes numeric Pere Marquette paddling guidance tied to USGS 04122500 or another product-supported live gauge for the Bowman-to-Upper-Branch segment.",
         "gauge": {
           "quality": "direct_lower_river_but_threshold_unproven_for_route",
@@ -6011,6 +5955,40 @@
         },
         "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
         "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
+        "candidateId": "mi-flint-river-national-water-trail-mott-holloway-family",
+        "lane": "live_provider_recheck",
+        "priority": 65,
+        "state": "MI",
+        "river": "Flint River",
+        "route": "Flint River National Water Trail / Mott Lake to Holloway Reservoir or Lapeer County family",
+        "currentStatus": "no_live_gauge",
+        "lastReviewed": "2026-07-29",
+        "reviewCount": 3,
+        "duplicateRisk": false,
+        "blocker": "Fresh 2026-07-29 discovery improved the route definition but exposed a harder live-provider blocker. The official Flint River Water Trail guide identifies Richfield County Park (mile 33) to Bluegill Boat Launch (mile 41.2) as an 8.2-mile public segment, states all included accesses have parking, and warns of possible logjams. FRWC says the Mott Lake-to-Holloway and Lapeer County zones remain outside the Lockhart con...",
+        "retryCondition": "Retry the Richfield County Park-to-Bluegill Boat Launch segment only if USGS 04148180 or another defensible direct/proxy station exposes product-supported current data and a credible source publishes numeric low/high guidance; also capture source-backed access coordinates and recheck the Lockhart advisory.",
+        "gauge": {
+          "quality": "direct_site_without_product_data",
+          "id": "04148180",
+          "provider": "USGS",
+          "notes": "USGS 04148180 is on the Flint River, but its modern monitoring-location page reported no continuous, daily, or field-measurement data types on 2026-07-29, so it cannot currently power PaddleToday."
+        },
+        "thresholdSupport": {
+          "strength": "weak_without_numeric_route_model",
+          "notes": "FRWC and water-trail sources point paddlers to planning resources, but this pass found no low-water floor, preferred range, or high-water cutoff for a specific public day trip."
+        },
+        "endpoints": {
+          "putIn": "Richfield County Park (official guide mile 33; launch north of rock bridge)",
+          "takeOut": "Bluegill Boat Launch (official guide mile 41.2)",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Official guide verifies the named public accesses and parking but did not expose machine-readable coordinates in this pass."
+        },
+        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mo-elk-river-pineville-noel-family",
@@ -9387,28 +9365,34 @@
       "river": "Apple River",
       "route": "Apple River Canyon State Park / Hanover gauge family",
       "currentStatus": "research_later",
-      "lastReviewed": "2026-05-30",
-      "reviewCount": 1,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 2,
       "duplicateRisk": false,
-      "blocker": "Fresh 2026-05-30 08:59 America/Chicago review. Apple River looked like a possible northwest Illinois whitewater/access lead because American Whitewater's Illinois gauge list includes USGS 05419000 Apple River near Hanover with current-looking flow/stage context, and IDNR confirms Apple River Canyon State Park is public state-park land along the river. The route was not added because no normal public put-in/take-out...",
-      "retryCondition": "Retry only if IDNR, a county/city/public water-trail manager, American Whitewater route page, or a strong local paddling authority publishes a specific Apple River paddling reach with public endpoints and numeric thresholds tied to USGS 05419000 or another product-fetchable gauge.",
+      "blocker": "2026-07-29 fresh-source review found a concrete lower-river lead but also confirmed that it cannot ship. IDNR's Apple River Canyon brochure explicitly says boating is not permitted on the Apple River through the state park. Miles Paddled documents a 9.5-mile Hanover-to-West-Whitton-Road trip tied to USGS 05419000, with observed 4.0 ft / 100 cfs scraping conditions and 4.4 ft / 360 cfs splashy Class I conditions, plu...",
+      "retryCondition": "Retry only if IDNR, Jo Daviess County, Hanover, or another responsible manager designates a legal public Apple River endpoint pair with ordinary paddler parking on the statutory public reach, or formally changes the state-park boating prohibition. Any future route must retain numeric guidance tied to USGS 05419000.",
       "gauge": {
-        "quality": "gauge_context_without_route_access_package",
+        "quality": "direct_live_verified_access_blocked",
         "id": "05419000",
         "provider": "USGS/American Whitewater",
-        "notes": "USGS 05419000 Apple River near Hanover is a real same-river gauge and AW exposes it in the Illinois gauge list, but no route-ready public endpoint pair or numeric paddling threshold model was found."
+        "notes": "USGS 05419000 Apple River near Hanover is direct for the newly documented Hanover-to-Whitton community route. Water Services returned same-day 78.8 cfs / 4.10 ft on 2026-07-29, but the route is blocked by public-water and access legitimacy."
       },
       "thresholdSupport": {
-        "strength": "missing_route_specific_thresholds",
-        "notes": "No official/AW route page, manager guidance, or strong route-specific low-water floor/range tied to the gauge surfaced. Gauge data alone is not enough for Illinois."
+        "strength": "community_observations_access_blocked",
+        "notes": "Miles Paddled ties the exact lower-river trip to the Hanover gauge and reports scraping at 4.0 ft / 100 cfs versus splashy Class I water at 4.4 ft / 360 cfs. This is useful calibration evidence, but it is not a manager-published full range and cannot overcome the legal-access blocker."
       },
       "endpoints": {
-        "putIn": "Not selected",
-        "takeOut": "Not selected",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because no public day-trip endpoint pair cleared the Illinois access gate."
+        "putIn": "Below the Hanover dam behind the Factory (community-described, not manager-approved)",
+        "takeOut": "West Whitton Road bridge (community-described, parking/access not manager-approved)",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.25727,
+          "longitude": -90.28662
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.20942,
+          "longitude": -90.25042
+        },
+        "coordinateSource": "Miles Paddled publishes both coordinates for its Hanover-to-West-Whitton trip, but explicitly describes access as poor/dodgy and the route as mostly non-public water. Coordinates are retained as research evidence only, not accepted public endpoints."
       },
       "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
       "discoveryTier": "undercovered_supported_midwest"
@@ -9421,16 +9405,16 @@
       "river": "Bailey Creek",
       "route": "N2300 Road to Vermilion River / Bailey Falls",
       "currentStatus": "research_later",
-      "lastReviewed": "2026-05-30",
-      "reviewCount": 1,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 2,
       "duplicateRisk": false,
-      "blocker": "Fresh 2026-05-30 08:28 America/Chicago review. American Whitewater documents Bailey Creek as a 0.5-to-1.5-mile I-II(IV) waterfall/runout route, ties it to the Vermilion River near Leonore gauge, and exposes current-looking Illinois index flow context. The route was not added because the public-access gate fails: AW says Bailey Creek is now part of IDNR properties but has not yet been officially cleared for public ac...",
+      "blocker": "2026-07-29 fresh-source review preserved and sharpened the hard blocker. American Whitewater's route page, updated March 2025, still states that Bailey Creek is part of IDNR properties but has not been officially cleared for public access. It also identifies a tree-blocked culvert with flow leading toward snags, a shallow waterfall landing, an old pickup-truck frame in the runout, and a confluence rather than an ord...",
       "retryCondition": "Retry only if IDNR, a site manager, or American Whitewater documents that Bailey Creek / Bailey Falls is officially open for public paddling access, with named legal access points and stable AW threshold guidance tied to the Leonore gauge.",
       "gauge": {
-        "quality": "aw_current_context_but_access_blocked",
+        "quality": "direct_live_verified_access_blocked",
         "id": "05555300 / AW Vermilion River Near Leonore",
         "provider": "USGS/American Whitewater",
-        "notes": "AW ties the reach to the Vermilion River near Leonore gauge and the Illinois index showed current-looking updates, but the route was not selected because official public access is not cleared."
+        "notes": "AW ties the reach to the Vermilion River near Leonore gauge, and Water Services returned same-day 92.7 cfs / 3.49 ft on 2026-07-29. The provider works; official public access does not."
       },
       "thresholdSupport": {
         "strength": "aw_route_context_but_not_ship_ready",
@@ -9455,16 +9439,16 @@
       "river": "Fox River",
       "route": "Duerr Forest Preserve to Fabyan Forest Preserve",
       "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-20",
-      "reviewCount": 2,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 3,
       "duplicateRisk": false,
-      "blocker": "2026-06-20 threshold refresh. Openlands still documents Duerr Forest Preserve to Fabyan West Forest Preserve as an about-10-mile Fox River Water Trail trip for intermediate paddlers or beginners with an experienced guide, with St. Charles and Geneva dam portages, shallow water below dams, wind/sun caveats, and a USGS-check instruction. Fabulous Fox Water Trail still lists Jon J. Duerr Forest Preserve and Fabyan Fore...",
+      "blocker": "2026-07-29 bounded stale-candidate threshold recheck preserved the hold. The current IDNR River Closures page lists the lower Fox River reach open effective 2026-05-07, and USGS Water Services returned same-day 05551000 values of 589 cfs and 12.30 ft at 15:45 CDT. Existing Openlands and Fabulous Fox Water Trail evidence still supports the about-10-mile Duerr-to-Fabyan public route, signed coordinate-backed endpoints...",
       "retryCondition": "Retry only if Fabulous Fox Water Trail, Openlands, Kane County, AW, or another strong route manager publishes numeric paddling thresholds for this exact Fox River reach tied to USGS 05551000 or another product-fetchable same-corridor gauge.",
       "gauge": {
         "quality": "direct_same_corridor_but_threshold_weak",
         "id": "05551000",
         "provider": "USGS",
-        "notes": "USGS 05551000 Fox River at South Elgin is in the route corridor near the upstream access sequence and is operated in cooperation with IDNR. A fresh 2026-06-20 Water Services IV fetch returned same-day discharge/stage values, confirming the live-provider path works, but the reviewed route-manager pages still do not provide numeric scoring thresholds."
+        "notes": "USGS 05551000 Fox River at South Elgin is in the route corridor near the upstream access sequence and is operated in cooperation with IDNR. Water Services again returned same-day discharge/stage values on 2026-07-29, confirming the live-provider path works; route-manager pages still do not provide numeric scoring thresholds."
       },
       "thresholdSupport": {
         "strength": "weak_generic_gauge_check_only",
@@ -9489,36 +9473,36 @@
     },
     {
       "candidateId": "il-salt-creek-fullersburg-woods-family",
-      "lane": "fresh_source_discovery",
+      "lane": "threshold_discovery",
       "priority": 100,
       "state": "IL",
       "river": "Salt Creek",
-      "route": "Fullersburg Woods / Graue Mill downstream canoe-launch family",
-      "currentStatus": "research_later",
-      "lastReviewed": "2026-05-30",
-      "reviewCount": 1,
+      "route": "Fullersburg Woods to Salt Creek Greenway at Hunter Road",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 2,
       "duplicateRisk": false,
-      "blocker": "Fresh 2026-05-30 00:58 America/Chicago review. Forest Preserve District of DuPage County confirms Salt Creek access via the Fullersburg Woods canoe launch downstream of the Graue Mill dam, and current preserve materials note dam-removal/restoration work that materially changes route hazards and hydraulics. USGS 05531500 Salt Creek at Western Springs is a same-corridor gauge lead, but visible USGS/search evidence is...",
-      "retryCondition": "Retry if DuPage County Forest Preserve District, DuPage River Salt Creek Workgroup, a water-trail manager, American Whitewater, or another strong source publishes a named public Salt Creek endpoint pair plus numeric paddling guidance tied to USGS 05531500 or a better product-fetchable gauge.",
+      "blocker": "2026-07-29 fresh-source review materially improved route shape, access, hazard, and live-gauge facts but did not clear thresholds. Current Forest Preserve District of DuPage County boating guidance explicitly allows Salt Creek boating without a district permit and identifies Fullersburg Woods near the Graue Mill parking lot as an access and Salt Creek Greenway at Hunter Road as take-out only. The district's restorat...",
+      "retryCondition": "Retry if DuPage County Forest Preserve District, the DuPage River Salt Creek Workgroup, a water-trail manager, American Whitewater, or another strong route source publishes numeric runnable guidance tied to USGS 05531500 for Fullersburg-to-Hunter Road. Before implementation, also capture manager-backed landing coordinates and confirm ordinary shuttle parking at Hunter Road.",
       "gauge": {
-        "quality": "same_corridor_lead_but_not_live_verified",
+        "quality": "same_corridor_live_verified_threshold_missing",
         "id": "05531500",
         "provider": "USGS",
-        "notes": "USGS 05531500 Salt Creek at Western Springs is the obvious same-corridor gauge lead, but this pass did not verify product-ready current observations or a route-specific threshold relationship."
+        "notes": "USGS 05531500 Salt Creek at Western Springs is the same-corridor gauge for the Fullersburg-to-Hunter Road family. Water Services returned same-day 343 cfs / 3.36 ft on 2026-07-29, but no accepted numeric paddling relationship was found."
       },
       "thresholdSupport": {
         "strength": "not_found",
         "notes": "No official, AW, or strong local numeric paddling floor/range/high cutoff tied to a selected Salt Creek route was found."
       },
       "endpoints": {
-        "putIn": "Fullersburg Woods canoe launch downstream of Graue Mill dam",
-        "takeOut": "Not selected",
+        "putIn": "Fullersburg Woods Salt Creek access near the Graue Mill parking lot",
+        "takeOut": "Salt Creek Greenway landing at Hunter Road (take-out only)",
         "coordinatesPresent": false,
         "putInCoordinates": null,
         "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because route shape and threshold support failed before endpoint selection."
+        "coordinateSource": "Current Forest Preserve District boating and preserve pages explicitly name both functional endpoints, but exact landing coordinates and ordinary Hunter Road shuttle-parking details were not captured. Do not infer coordinates from river geometry or general preserve boundaries."
       },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
@@ -9529,28 +9513,34 @@
       "river": "Rock River",
       "route": "Castle Rock State Park to Lowell Park / Dixon family",
       "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-21",
-      "reviewCount": 3,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 4,
       "duplicateRisk": false,
-      "blocker": "2026-06-21 exact-route tightening pass. IDNR still explicitly lists Castle Rock State Park as Rock River public canoe/kayak access and says a trip to Lowell Park or Dixon Dam is about 12 miles. Miles Paddled's Rock River I report makes the future implementation shape less vague by recommending the shorter Castle Rock boat landing to Lowell Park trip instead of the full Oregon-to-Dixon paddle, while recording the bro...",
-      "retryCondition": "Retry if Rock River Water Trail, IDNR, a county/city manager, Miles Paddled corroboration, American Whitewater, or another strong route-specific source publishes numeric runnable guidance tied to USGS 05443500 for the Castle Rock boat landing to Lowell Park subreach. Capture exact access coordinates from named access pages or a water-trail inventory if threshold support improves.",
+      "blocker": "2026-07-29 bounded stale-candidate recheck improved endpoint evidence but preserved the threshold hold. The Rock River Water Trail inventory identifies Castle Rock State Park Boat Ramp as a developed access with parking at 41°58'29\" N, 89°22'03\" W and Lowell Park as a developed access with parking at 41°53'24\" N, 89°28'59\" W; IDNR also confirms the Castle Rock public ramp and current site-closure guidance shows the...",
+      "retryCondition": "Retry if Rock River Water Trail, IDNR, a county/city manager, Miles Paddled corroboration, American Whitewater, or another strong route-specific source publishes numeric runnable guidance tied to USGS 05443500 for the Castle Rock boat ramp to Lowell Park subreach.",
       "gauge": {
         "quality": "same_river_live_verified_threshold_incomplete",
         "id": "05443500",
         "provider": "USGS",
-        "notes": "USGS 05443500 Rock River at Como is the route-family gauge surfaced by MoHERP and is a same-river downstream lead for the Castle Rock/Oregon/Dixon corridor. A fresh 2026-06-20 Water Services IV fetch returned same-day discharge/stage values, so the live-provider path now looks viable. Threshold evidence is still far too thin for scoring."
+        "notes": "USGS 05443500 Rock River at Como is the route-family gauge surfaced by MoHERP and is a same-river downstream lead for the Castle Rock/Oregon/Dixon corridor. Water Services again returned same-day discharge/stage values on 2026-07-29. Threshold evidence is still far too thin for scoring."
       },
       "thresholdSupport": {
         "strength": "weak_trip_rows_only",
         "notes": "MoHERP/legacy route rows show Good trips around 11,500-11,900 cfs, and Miles Paddled records one broader Oregon-to-Dixon day at 5,300 cfs with qualitative reliability language. That is still not enough to derive a low-water floor, preferred range, or high-water cutoff for V2 scoring. Do not add by extrapolating from those sparse observations."
       },
       "endpoints": {
-        "putIn": "Castle Rock State Park Rock River boat ramp / canoe access",
-        "takeOut": "Lowell Park / Dixon family",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "IDNR and Rock River Water Trail context still support the Castle Rock / Lowell corridor, and Miles Paddled now points to Castle Rock boat landing to Lowell Park as the best exact subreach, but this pass still did not capture accepted named-access coordinates for both ends."
+        "putIn": "Castle Rock State Park Boat Ramp",
+        "takeOut": "Lowell Park",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 41.974722,
+          "longitude": -89.3675
+        },
+        "takeOutCoordinates": {
+          "latitude": 41.89,
+          "longitude": -89.483056
+        },
+        "coordinateSource": "Rock River Water Trail Inventory, Analysis and Plan lists both as developed access sites with parking and publishes DMS coordinates; values were converted directly to decimal degrees."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "undercovered_supported_midwest"
@@ -9563,20 +9553,20 @@
       "river": "Mackinaw River",
       "route": "Mackinaw River State Fish and Wildlife Area / DNR canoe landing family",
       "currentStatus": "research_later",
-      "lastReviewed": "2026-05-30",
-      "reviewCount": 2,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 3,
       "duplicateRisk": false,
-      "blocker": "Fresh 2026-05-30 07:59 America/Chicago recheck preserved the blocker. IDNR confirms the Mackinaw River SFWA canoe launch and describes the site as a day-use canoeing destination on a scenic central Illinois river. USGS 05567500 near Congerville, AW gauge context, Snoflo current-looking values, and MoHERP condition context remain useful gauge leads. The route was not added because IDNR Public Waters does not list the...",
-      "retryCondition": "Retry if IDNR, a county/local water-trail manager, American Whitewater, or another strong source documents a specific public Mackinaw endpoint pair with numeric paddling guidance tied to a selected live USGS gauge.",
+      "blocker": "2026-07-29 fresh-source review improved gauge and numeric-condition evidence but preserved the public-route blocker. IDNR confirms a public day-use canoe landing and adjacent picnic area at Mackinaw River SFWA, but the Mackinaw River is still absent from IDNR's Public Waters list and no manager-backed upstream launch/parking point was found for the community-described US 150-to-DNR trip. USGS Water Services returned...",
+      "retryCondition": "Retry if IDNR, Woodford or Tazewell County, a local water-trail manager, or another responsible source designates an upstream Mackinaw launch with ordinary public parking that can pair with the SFWA landing. Revalidate whether MoHERP's 05567500 bands are acceptable for that exact reach before promotion.",
       "gauge": {
-        "quality": "same_river_gauge_context_but_route_unselected",
+        "quality": "same_river_live_verified_route_unselected",
         "id": "05567500",
         "provider": "USGS",
-        "notes": "Mackinaw River near Congerville is a same-river gauge lead with current-looking third-party snippets, but no selected official public route and threshold package cleared the bar."
+        "notes": "USGS 05567500 near Congerville is a same-river gauge and Water Services returned same-day 155 cfs / 1.30 ft on 2026-07-29. The provider works, but no fully legitimate public route pair is selected."
       },
       "thresholdSupport": {
-        "strength": "weak_without_official_route_model",
-        "notes": "MoHERP/local route context may be useful later, but this pass found no official or strong route-specific numeric threshold for a clean public endpoint pair."
+        "strength": "supplemental_numeric_bands_route_unselected",
+        "notes": "MoHERP publishes estimated condition transitions at 45, 409, 596, 1,096 and 2,189 cfs on direct gauge 05567500, plus one observed High trip at 3,940 cfs. This is meaningful numeric evidence but remains supplemental and cannot be applied until a legitimate exact route is selected."
       },
       "endpoints": {
         "putIn": "Unselected upstream public access / US 150 family",
@@ -10264,20 +10254,20 @@
       "river": "Rifle River",
       "route": "Selkirk / middle Rifle to Sterling livery and public-access family",
       "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-05-29",
-      "reviewCount": 1,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 2,
       "duplicateRisk": false,
-      "blocker": "Fresh 2026-05-29 recheck found a strong gauge lead and broad corridor support, but not an implementation-ready threshold package. RiverScout reports live USGS 04142000 Rifle River near Sterling flow and a 200-800 cfs optimal range, and Michigan DNR / Michigan.org / local livery sources support the Rifle as a real canoe/kayak/tube corridor around the Rifle River Recreation Area, Selkirk, Moffatt, and Sterling. The ro...",
+      "blocker": "Fresh 2026-07-29 bounded recheck preserved the threshold blocker and weakened the earlier community-range lead. Michigan DNR still confirms paddling and seasonal rentals in the Rifle River Recreation Area, and USGS 04142000 remains the direct same-river station, but official search-visible data ended July 24 and the direct Water Services request failed during retrieval. RiverScout's current page no longer publishes...",
       "retryCondition": "Retry only if a manager, livery, county/state source, or stronger route guide publishes route-specific numeric guidance tied to USGS 04142000 and one exact public or clearly livery-supported endpoint pair with coordinates is selected. Do not ship solely from RiverScout community range text.",
       "gauge": {
         "quality": "direct_live_but_threshold_source_community_unverified",
         "id": "04142000",
         "provider": "USGS",
-        "notes": "USGS 04142000 Rifle River near Sterling is the direct same-river gauge surfaced by RiverScout and public USGS pages. Live gauge support appears promising, but the threshold source is not strong enough for V2 implementation."
+        "notes": "USGS 04142000 is direct and normally product-supported, but official search-visible data stopped at 2026-07-24 during this run and the direct Water Services recovery attempt failed. Recheck product freshness before any implementation."
       },
       "thresholdSupport": {
         "strength": "community_unverified_whole_corridor",
-        "notes": "RiverScout lists 200-800 cfs as optimal for the Rifle River, but the same page says CFS ranges need community verification. Treat as a lead, not as V2-ready scoring evidence."
+        "notes": "The prior RiverScout 200-800 cfs lead was not reproduced on 2026-07-29; the current page offers personal range settings and cautions that community data may not represent every flow. Treat the old range as stale and not V2-ready."
       },
       "endpoints": {
         "putIn": "Unselected: Selkirk, Moffatt Landing, Skidway, Greenwood Landing, Rifle River Recreation Area, or other public/livery access",
@@ -10291,74 +10281,6 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "mi-maple-river-northern-lower-maple-road-family",
-      "lane": "fresh_source_discovery",
-      "priority": 100,
-      "state": "MI",
-      "river": "Maple River",
-      "route": "Northern Lower Michigan / Maple Road access family",
-      "currentStatus": "research_later",
-      "lastReviewed": "2026-05-29",
-      "reviewCount": 2,
-      "duplicateRisk": false,
-      "blocker": "Tip of the Mitt Watershed Council says sections of the northern Maple River can be a pleasant paddle, and Outdoor Michigan surfaces a Maple Road Boat Launch / Maple River access lead, but this pass did not identify an exact day-trip pair, distance, product-ready live gauge, or numeric paddling threshold. Multiple Michigan Maple Rivers also make route naming and gauge selection easy to confuse without stronger local...",
-      "retryCondition": "Retry only if Tip of the Mitt, Michigan DNR, Inland Waterway/Straits water-trail materials, county access pages, an outfitter, or another strong source identifies a specific northern-lower-Michigan Maple River day trip with public endpoints, coordinates, and numeric gauge guidance tied to a product-supported gauge.",
-      "gauge": {
-        "quality": "unselected_or_unverified",
-        "id": null,
-        "provider": "USGS",
-        "notes": "No product-ready direct gauge was selected for the northern Lower Peninsula Maple River. Avoid confusing this with the central Michigan Maple River at Maple Rapids gauge."
-      },
-      "thresholdSupport": {
-        "strength": "not_found",
-        "notes": "No numeric low-water floor, ideal range, or high-water cutoff surfaced for a specific Maple River day trip."
-      },
-      "endpoints": {
-        "putIn": "Maple Road Boat Launch or another unselected northern Maple access",
-        "takeOut": "Unselected downstream Maple River / Burt Lake access",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because no exact route and gauge package cleared the bar."
-      },
-      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "mi-flint-river-national-water-trail-mott-holloway-family",
-      "lane": "threshold_discovery",
-      "priority": 100,
-      "state": "MI",
-      "river": "Flint River",
-      "route": "Flint River National Water Trail / Mott Lake to Holloway Reservoir or Lapeer County family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-05-29",
-      "reviewCount": 2,
-      "duplicateRisk": false,
-      "blocker": "FRWC supports a real 72-mile state and national water trail with 25 access sites, but current public guidance recommends avoiding contact with the Flint River downstream of Stepping Stone Falls through downtown Flint after the Lockhart spill investigation. The upstream Mott Lake-to-Holloway / Lapeer County portions remain plausible, but this pass did not identify one exact public day-trip pair with numeric paddling...",
-      "retryCondition": "Retry only if FRWC, Genesee County Parks, NPS, Michigan Water Trails, an outfitter, or another strong public source identifies an exact open Flint River day trip with public endpoints and numeric gauge guidance tied to a product-supported USGS gauge; avoid downtown/downstream Stepping Stone Falls routes unless the contact advisory is lifted or narrowed.",
-      "gauge": {
-        "quality": "direct_gauge_lead_but_no_route_threshold",
-        "id": "04148180",
-        "provider": "USGS",
-        "notes": "USGS 04148180 is a Flint River monitoring location in Flint, but this run did not tie it to a clean, open exact route with numeric paddling thresholds."
-      },
-      "thresholdSupport": {
-        "strength": "weak_without_numeric_route_model",
-        "notes": "FRWC and water-trail sources point paddlers to planning resources, but this pass found no low-water floor, preferred range, or high-water cutoff for a specific public day trip."
-      },
-      "endpoints": {
-        "putIn": "Unselected upstream Flint River Water Trail access above Stepping Stone Falls or Lapeer County",
-        "takeOut": "Unselected upstream Flint River Water Trail access / Holloway Reservoir family",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because route definition and threshold model failed first."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
       "candidateId": "mi-huron-river-lower-huron-willow-oakwoods-family",
       "lane": "threshold_discovery",
       "priority": 100,
@@ -10366,16 +10288,16 @@
       "river": "Huron River",
       "route": "Lower Huron Metropark to Willow / Oakwoods Metropark family",
       "currentStatus": "threshold_weak",
-      "lastReviewed": null,
-      "reviewCount": 1,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 2,
       "duplicateRisk": false,
-      "blocker": "Fresh 2026-05-29 18:09 America/Chicago review. Huron River Water Trail recommends Lower Huron Metropark as a 3.4-mile trip and Lower Huron-to-Willow as a 7.8-mile trip; Huron-Clinton Metroparks confirms river access at Lower Huron's North Fishing Site and East Bend / Group Camp, downstream access at Willow Big Bend and Oakwoods Cedar Knoll, and canoe-camping at Walnut Grove. Outdoor Michigan provides coordinates for...",
+      "blocker": "Fresh 2026-07-29 discovery strengthened the public route and safety boundary but did not clear scoring. HRWC's official trip sheet defines Lower Huron North Fishing Site to Oakwoods as 15 miles / 5-7 hours through exclusively publicly managed land with four recognized landings, and says Oakwoods is the last good access before Flat Rock Pond. The current Metroparks page says the Flat Rock Dam portage downstream of Oa...",
       "retryCondition": "Retry only if HRWC, Huron-Clinton Metroparks, USGS, a livery, or another credible source publishes numeric low-water or high-water guidance tied to a supported live gauge for a specific Lower Huron / Willow / Oakwoods endpoint pair.",
       "gauge": {
-        "quality": "possible_local_gauge_but_no_threshold_model",
+        "quality": "local_sensor_not_product_supported",
         "id": null,
         "provider": "HRWC/USGS lead",
-        "notes": "HRWC surfaces a Huron River at Lower Huron Metropark streamgage lead, but this pass did not find product-supported live-gauge mapping plus numeric paddling thresholds for a V2 route."
+        "notes": "HRWC identifies a Lower Huron Metropark low-cost sensor in the University of Michigan Digital Water Lab network, but PaddleToday does not support it and HRWC publishes no numeric paddling bands for this reach."
       },
       "thresholdSupport": {
         "strength": "weak",
@@ -10406,10 +10328,10 @@
       "river": "Pere Marquette River",
       "route": "Bowman Bridge to Upper Branch Bridge",
       "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-05-29",
-      "reviewCount": 1,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 2,
       "duplicateRisk": false,
-      "blocker": "Fresh 2026-05-29 Michigan review. Rivers.gov and Recreation.gov strongly support the Pere Marquette National Scenic River corridor, Memorial-Day-to-Labor-Day watercraft permits, and the managed segment from Bowman Bridge to Upper Branch Bridge. USGS 04122500 at Scottville is a real lower-river gauge, but this pass found no credible route-specific numeric paddling floor, preferred range, or high-water cutoff tied to...",
+      "blocker": "Fresh 2026-07-29 bounded recheck confirmed an unusually strong official access/operations package but no numeric level calibration. Recreation.gov defines Segment 2 as Bowman Bridge to Upper Branch Bridge, requires Memorial-Day-to-Labor-Day permits and 9 a.m.-6 p.m. watercraft hours, charges day-use fees at both endpoints, and warns that much of the corridor is private. The Forest Service brochure gives a 4.5-hour m...",
       "retryCondition": "Retry only if Huron-Manistee National Forests, Michigan DNR, American Whitewater, a credible livery/outfitter, RiverScout with verified local calibration, or another strong route source publishes numeric Pere Marquette paddling guidance tied to USGS 04122500 or another product-supported live gauge for the Bowman-to-Upper-Branch segment.",
       "gauge": {
         "quality": "direct_lower_river_but_threshold_unproven_for_route",
@@ -10440,16 +10362,16 @@
       "river": "Clinton River",
       "route": "Eagle's Landing / W. Avon Road to E. Avon Road / Yates Dam",
       "currentStatus": "research_later",
-      "lastReviewed": "2026-05-29",
-      "reviewCount": 3,
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 4,
       "duplicateRisk": false,
-      "blocker": "Fresh 2026-05-29 17:00 America/Chicago recheck preserved the blocker. Outdoor Michigan now directly lists Clinton River - Eagles Landing Boat Launch as a carry-in at 42.6645, -83.15393, and the 2024 CRWC map lists CRWC Office / Eagles Landing and Yates Cider Mill as Clinton River Water Trail launch assets. American Whitewater still gives the strongest threshold package for the 4.7-mile Class I(II) reach on USGS 0416...",
-      "retryCondition": "Retry only if City of Rochester Hills, Oakland County Parks, CRWC, or another official manager confirms current safe paddling/take-out/portage geometry at Yates and confirms restoration/bypass work does not create a closure or route-definition conflict.",
+      "blocker": "Fresh 2026-07-29 discovery preserved and strengthened the hard safety blocker. CRWC's current paddling page classifies the Heart of the Clinton as not for beginners, warns of fast/high post-rain flow, woody debris, cold water and hypothermia, and publishes 8-10 ft warnings only for the downstream Sterling Heights gauge—not the Auburn Hills/Yates reach. American Whitewater still calls Yates a killer low-head dam that...",
+      "retryCondition": "Retry only after Oakland County Parks, Rochester Hills, or CRWC publishes current Yates take-out/portage geometry and project status, and USGS 04161000 again exposes product-supported current data or an accepted replacement gauge is route-calibrated.",
       "gauge": {
-        "quality": "direct_promising_but_route_blocked",
+        "quality": "direct_but_current_product_data_unavailable",
         "id": "04161000",
         "provider": "USGS",
-        "notes": "USGS 04161000 Clinton River at Auburn Hills is the AW-linked direct gauge. Gauge/threshold evidence is promising, but the route fails the access and Yates take-out/portage certainty gate."
+        "notes": "USGS 04161000 is the AW-linked direct gauge, but its modern page reported no current data types and legacy evidence stopped at 2026-07-21 during this run. Even if data resumes, the Yates safety gate remains independently blocking."
       },
       "thresholdSupport": {
         "strength": "community_route_specific_if_access_resolves",
@@ -15062,6 +14984,40 @@
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
       "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
+      "candidateId": "mi-flint-river-national-water-trail-mott-holloway-family",
+      "lane": "live_provider_recheck",
+      "priority": 65,
+      "state": "MI",
+      "river": "Flint River",
+      "route": "Flint River National Water Trail / Mott Lake to Holloway Reservoir or Lapeer County family",
+      "currentStatus": "no_live_gauge",
+      "lastReviewed": "2026-07-29",
+      "reviewCount": 3,
+      "duplicateRisk": false,
+      "blocker": "Fresh 2026-07-29 discovery improved the route definition but exposed a harder live-provider blocker. The official Flint River Water Trail guide identifies Richfield County Park (mile 33) to Bluegill Boat Launch (mile 41.2) as an 8.2-mile public segment, states all included accesses have parking, and warns of possible logjams. FRWC says the Mott Lake-to-Holloway and Lapeer County zones remain outside the Lockhart con...",
+      "retryCondition": "Retry the Richfield County Park-to-Bluegill Boat Launch segment only if USGS 04148180 or another defensible direct/proxy station exposes product-supported current data and a credible source publishes numeric low/high guidance; also capture source-backed access coordinates and recheck the Lockhart advisory.",
+      "gauge": {
+        "quality": "direct_site_without_product_data",
+        "id": "04148180",
+        "provider": "USGS",
+        "notes": "USGS 04148180 is on the Flint River, but its modern monitoring-location page reported no continuous, daily, or field-measurement data types on 2026-07-29, so it cannot currently power PaddleToday."
+      },
+      "thresholdSupport": {
+        "strength": "weak_without_numeric_route_model",
+        "notes": "FRWC and water-trail sources point paddlers to planning resources, but this pass found no low-water floor, preferred range, or high-water cutoff for a specific public day trip."
+      },
+      "endpoints": {
+        "putIn": "Richfield County Park (official guide mile 33; launch north of rock bridge)",
+        "takeOut": "Bluegill Boat Launch (official guide mile 41.2)",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Official guide verifies the named public accesses and parking but did not expose machine-readable coordinates in this pass."
+      },
+      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "mo-elk-river-pineville-noel-family",

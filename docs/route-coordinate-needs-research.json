@@ -1,0 +1,1327 @@
+{
+  "generatedAt": "2026-07-30T23:52:34.411Z",
+  "status": "needs-research",
+  "count": 165,
+  "items": [
+    {
+      "routeId": "shell-rock-river-heery-woods-renning",
+      "endpoint": "takeOut",
+      "endpointName": "Renning's Landing",
+      "latitude": 42.6996,
+      "longitude": -92.6487,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "shell-rock-river-renning-shell-rock",
+      "endpoint": "putIn",
+      "endpointName": "Renning's Landing",
+      "latitude": 42.6996,
+      "longitude": -92.6487,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "cumberland-river-redbird-cumberland-falls",
+      "endpoint": "accessPoint",
+      "endpointName": "Long Bottom Access",
+      "latitude": 36.7967,
+      "longitude": -84.2797,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "otter-tail-river-friberg-hwy-210",
+      "endpoint": "takeOut",
+      "endpointName": "Highway 210 public access",
+      "latitude": 46.2807577,
+      "longitude": -95.9809894,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-highway-30-sportsman",
+      "endpoint": "takeOut",
+      "endpointName": "Sportsman Ramp / Old Hubby Bridge Access",
+      "latitude": 41.962,
+      "longitude": -93.838,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "cedar-river-riverwood-state-line",
+      "endpoint": "takeOut",
+      "endpointName": "State Line Road carry-in access",
+      "latitude": 43.5002,
+      "longitude": -92.9424,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sheyenne-river-mirror-pool-east-river",
+      "endpoint": "takeOut",
+      "endpointName": "East River hand-launch",
+      "latitude": 46.50234,
+      "longitude": -97.23046,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sheyenne-river-brome-field-east-river",
+      "endpoint": "takeOut",
+      "endpointName": "East River hand-launch",
+      "latitude": 46.50234,
+      "longitude": -97.23046,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "cedar-river-riverwood-state-line",
+      "endpoint": "accessPoint",
+      "endpointName": "Orchard Creek trailer access",
+      "latitude": 43.578,
+      "longitude": -92.963,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "maquoketa-river-pictured-rocks-ebys-mill",
+      "endpoint": "putIn",
+      "endpointName": "Pictured Rocks Park Access",
+      "latitude": 42.17256,
+      "longitude": -91.10471,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-monroe-adm-access",
+      "endpoint": "takeOut",
+      "endpointName": "ADM access site south of Southeast 9th Street",
+      "latitude": 41.41603951,
+      "longitude": -97.2865376,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-columbus-adm-access",
+      "endpoint": "takeOut",
+      "endpointName": "ADM access site south of Southeast 9th Street",
+      "latitude": 41.41603951,
+      "longitude": -97.2865376,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-george-syas-adm-access",
+      "endpoint": "takeOut",
+      "endpointName": "ADM access site south of Southeast 9th Street",
+      "latitude": 41.41603951,
+      "longitude": -97.2865376,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-squirrel-hollow-adkins",
+      "endpoint": "takeOut",
+      "endpointName": "Adkins Bridge Access",
+      "latitude": 41.9596,
+      "longitude": -94.2676,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sheyenne-river-brome-field-mirror-pool",
+      "endpoint": "takeOut",
+      "endpointName": "Mirror Pool WMA hand-launch",
+      "latitude": 46.50498692183727,
+      "longitude": -97.29118124734387,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sheyenne-river-mirror-pool-east-river",
+      "endpoint": "putIn",
+      "endpointName": "Mirror Pool WMA hand-launch",
+      "latitude": 46.50498692183727,
+      "longitude": -97.29118124734387,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "platte-river-schramm-platte-river-state-park",
+      "endpoint": "takeOut",
+      "endpointName": "Platte River State Park Decker Creek canoe/kayak access",
+      "latitude": 41.0175,
+      "longitude": -96.2038,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "platte-river-platte-river-state-park-louisville",
+      "endpoint": "putIn",
+      "endpointName": "Platte River State Park Decker Creek canoe/kayak access",
+      "latitude": 41.0175,
+      "longitude": -96.2038,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-ulster-bridge-terrytown",
+      "endpoint": "takeOut",
+      "endpointName": "Terrytown PFBC ramp",
+      "latitude": 41.714167,
+      "longitude": -76.281667,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-hornbrook-terrytown",
+      "endpoint": "takeOut",
+      "endpointName": "Terrytown PFBC ramp",
+      "latitude": 41.714167,
+      "longitude": -76.281667,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-towanda-terrytown",
+      "endpoint": "takeOut",
+      "endpointName": "Terrytown PFBC ramp",
+      "latitude": 41.714167,
+      "longitude": -76.281667,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-wysox-township-park-terrytown",
+      "endpoint": "takeOut",
+      "endpointName": "Terrytown PFBC ramp",
+      "latitude": 41.714167,
+      "longitude": -76.281667,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-towanda-laceyville",
+      "endpoint": "accessPoint",
+      "endpointName": "Terrytown PFBC ramp",
+      "latitude": 41.714167,
+      "longitude": -76.281667,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "red-river-lincoln-drive-lafave",
+      "endpoint": "putIn",
+      "endpointName": "Lincoln Drive Park Landing",
+      "latitude": 47.9137,
+      "longitude": -97.0497,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "west-nishnabotna-river-avoca-hancock",
+      "endpoint": "putIn",
+      "endpointName": "Edgington Memorial Park / Avoca Water Trail Access",
+      "latitude": 41.4775,
+      "longitude": -95.3261,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "rice-creek-peltier-to-long-lake",
+      "endpoint": "accessPoint",
+      "endpointName": "George Watch Lake / Wargo Nature Center",
+      "latitude": 45.1820472,
+      "longitude": -93.0853333,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "east-nishnabotna-river-red-oak-essex",
+      "endpoint": "takeOut",
+      "endpointName": "Essex Bridge Access",
+      "latitude": 40.8288,
+      "longitude": -95.3047,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "turkey-river-garber-millville",
+      "endpoint": "accessPoint",
+      "endpointName": "Osterdock Access #12",
+      "latitude": 42.7489,
+      "longitude": -91.1564,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sheyenne-river-ylvisaker-bridge-brome-field",
+      "endpoint": "putIn",
+      "endpointName": "Ylvisaker Bridge hand-launch",
+      "latitude": 46.53246,
+      "longitude": -97.34256,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "badger-mill-creek-old-county-pb-highway-69",
+      "endpoint": "accessPoint",
+      "endpointName": "Riverside Road alternate exit",
+      "latitude": 42.9518,
+      "longitude": -89.5366,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-eureka-henderson",
+      "endpoint": "takeOut",
+      "endpointName": "Henderson Park Access",
+      "latitude": 41.9698,
+      "longitude": -94.3766,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-henderson-squirrel-hollow",
+      "endpoint": "putIn",
+      "endpointName": "Henderson Park Access",
+      "latitude": 41.9698,
+      "longitude": -94.3766,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-highway-30-sportsman",
+      "endpoint": "accessPoint",
+      "endpointName": "Dogwood Ramp / E-57 Access",
+      "latitude": 42.005,
+      "longitude": -93.878,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "cedar-river-chain-lakes-ellis-harbor",
+      "endpoint": "putIn",
+      "endpointName": "Chain Lakes / Palo boat landing",
+      "latitude": 42.074,
+      "longitude": -91.803,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "wapsipinicon-river-independence-quasqueton",
+      "endpoint": "accessPoint",
+      "endpointName": "Iron Bridge Access",
+      "latitude": 42.4238,
+      "longitude": -91.8162,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "turkey-river-clermont-gilbertson",
+      "endpoint": "accessPoint",
+      "endpointName": "Valley Access",
+      "latitude": 42.9866,
+      "longitude": -91.6368,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "maquoketa-river-ebys-mill-supples-bridge",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway 136 access",
+      "latitude": 42.1895,
+      "longitude": -91.0097,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "hay-river-county-ff-highway-25",
+      "endpoint": "accessPoint",
+      "endpointName": "County Road N bridge",
+      "latitude": 45.0698,
+      "longitude": -91.9262,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "upper-iowa-river-iverson-bridge-kumpf",
+      "endpoint": "takeOut",
+      "endpointName": "Kumpf Access",
+      "latitude": 43.41165,
+      "longitude": -91.45962,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "cedar-river-chain-lakes-ellis-harbor",
+      "endpoint": "takeOut",
+      "endpointName": "Ellis Harbor public boat launch",
+      "latitude": 41.9944,
+      "longitude": -91.7086,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "otter-tail-river-friberg-hwy-210",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway 1 public access",
+      "latitude": 46.3099103,
+      "longitude": -96.0096102,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-deer-creek-hydro-electric",
+      "endpoint": "accessPoint",
+      "endpointName": "Becker Access / Becker Wildlife Area",
+      "latitude": 42.531418,
+      "longitude": -94.225392,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "baraboo-river-north-freedom-giese",
+      "endpoint": "accessPoint",
+      "endpointName": "Kohlmeyer Road bridge",
+      "latitude": 43.4862,
+      "longitude": -89.8333,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sheboygan-river-johnsonville-dassow",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway J bridge access",
+      "latitude": 43.781,
+      "longitude": -87.9325,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "south-skunk-river-river-valley-cj-shreck",
+      "endpoint": "accessPoint",
+      "endpointName": "South 16th Street access",
+      "latitude": 42.0106,
+      "longitude": -93.5818,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "rice-creek-peltier-to-long-lake",
+      "endpoint": "accessPoint",
+      "endpointName": "Aqua Lane / Rice Lake carry-in",
+      "latitude": 45.1634530086,
+      "longitude": -93.1155071947,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "boone-river-albright-tunnel-mill",
+      "endpoint": "takeOut",
+      "endpointName": "Tunnel Mill Canoe Access",
+      "latitude": 42.3537,
+      "longitude": -93.8189,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "boone-river-tunnel-mill-bells-mill",
+      "endpoint": "putIn",
+      "endpointName": "Tunnel Mill Canoe Access",
+      "latitude": 42.3537,
+      "longitude": -93.8189,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "upper-iowa-river-lower-dam-iverson-bridge",
+      "endpoint": "accessPoint",
+      "endpointName": "Iverson Bottoms Access",
+      "latitude": 43.4038,
+      "longitude": -91.5884,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "cedar-creek-covered-bridge-lions",
+      "endpoint": "accessPoint",
+      "endpointName": "Robin Court Cedar Creek access",
+      "latitude": 43.3115,
+      "longitude": -87.9684,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-george-syas-monroe",
+      "endpoint": "takeOut",
+      "endpointName": "Monroe county access south of Monroe",
+      "latitude": 41.471508,
+      "longitude": -97.602729,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-monroe-columbus",
+      "endpoint": "putIn",
+      "endpointName": "Monroe county access south of Monroe",
+      "latitude": 41.471508,
+      "longitude": -97.602729,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-monroe-adm-access",
+      "endpoint": "putIn",
+      "endpointName": "Monroe county access south of Monroe",
+      "latitude": 41.471508,
+      "longitude": -97.602729,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-george-syas-columbus",
+      "endpoint": "accessPoint",
+      "endpointName": "Monroe county access south of Monroe",
+      "latitude": 41.471508,
+      "longitude": -97.602729,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-george-syas-adm-access",
+      "endpoint": "accessPoint",
+      "endpointName": "Monroe county access south of Monroe",
+      "latitude": 41.471508,
+      "longitude": -97.602729,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-douds-austin-park",
+      "endpoint": "takeOut",
+      "endpointName": "Austin Park boat access",
+      "latitude": 40.7715,
+      "longitude": -91.976,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-austin-park-keosauqua",
+      "endpoint": "putIn",
+      "endpointName": "Austin Park boat access",
+      "latitude": 40.7715,
+      "longitude": -91.976,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-laceyville-west-falls",
+      "endpoint": "putIn",
+      "endpointName": "Laceyville Borough access",
+      "latitude": 41.648889,
+      "longitude": -76.161111,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-towanda-laceyville",
+      "endpoint": "takeOut",
+      "endpointName": "Laceyville Borough access",
+      "latitude": 41.648889,
+      "longitude": -76.161111,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "beaver-dam-river-county-s-lowell",
+      "endpoint": "accessPoint",
+      "endpointName": "Meadow Road bridge access",
+      "latitude": 43.3755,
+      "longitude": -88.8492,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "south-skunk-river-river-valley-cj-shreck",
+      "endpoint": "takeOut",
+      "endpointName": "C.J. Shreck Access",
+      "latitude": 41.9053,
+      "longitude": -93.5314,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-south-fraser-waterworks-upstream",
+      "endpoint": "putIn",
+      "endpointName": "South Fraser Ramp",
+      "latitude": 42.154,
+      "longitude": -93.965,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "big-fork-river-highway-1-highway-6-south",
+      "endpoint": "accessPoint",
+      "endpointName": "Busticogan watercraft campsite",
+      "latitude": 47.8412,
+      "longitude": -93.5192,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "boone-river-tunnel-mill-bells-mill",
+      "endpoint": "takeOut",
+      "endpointName": "Bell's Mill Park",
+      "latitude": 42.3464,
+      "longitude": -93.8847,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "boone-river-bells-mill-boone-forks",
+      "endpoint": "putIn",
+      "endpointName": "Bell's Mill Park",
+      "latitude": 42.3464,
+      "longitude": -93.8847,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "red-river-north-dam-mb-johnson",
+      "endpoint": "putIn",
+      "endpointName": "North Dam carry-in access / re-entry",
+      "latitude": 46.8919,
+      "longitude": -96.785,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-george-syas-monroe",
+      "endpoint": "putIn",
+      "endpointName": "George D. Syas WMA fishing access",
+      "latitude": 41.43328221,
+      "longitude": -97.68464875,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-george-syas-columbus",
+      "endpoint": "putIn",
+      "endpointName": "George D. Syas WMA fishing access",
+      "latitude": 41.43328221,
+      "longitude": -97.68464875,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "loup-river-george-syas-adm-access",
+      "endpoint": "putIn",
+      "endpointName": "George D. Syas WMA fishing access",
+      "latitude": 41.43328221,
+      "longitude": -97.68464875,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "cumberland-river-redbird-cumberland-falls",
+      "endpoint": "accessPoint",
+      "endpointName": "Thunderstruck Ramp",
+      "latitude": 36.8207,
+      "longitude": -84.328,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "rum-river-wayside-milaca",
+      "endpoint": "accessPoint",
+      "endpointName": "Old Whitney Log Dam area",
+      "latitude": 45.842,
+      "longitude": -93.665,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "little-sioux-river-linn-grove-peterson",
+      "endpoint": "takeOut",
+      "endpointName": "Riverside Little Sioux Access",
+      "latitude": 42.9205,
+      "longitude": -95.343,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-test-track-danville",
+      "endpoint": "accessPoint",
+      "endpointName": "Indian Head Campground",
+      "latitude": 40.956944,
+      "longitude": -76.491389,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "mississippi-river-overlook-belle-prairie",
+      "endpoint": "putIn",
+      "endpointName": "Mississippi River Overlook Park Carry-in Access",
+      "latitude": 46.3178778,
+      "longitude": -94.2755325,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "mississippi-river-fletcher-creek-overlook",
+      "endpoint": "takeOut",
+      "endpointName": "Mississippi River Overlook Park Carry-in Access",
+      "latitude": 46.3178778,
+      "longitude": -94.2755325,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-vogel-riverview",
+      "endpoint": "accessPoint",
+      "endpointName": "McDonald Greenbelt / 230th Street Canoe Access",
+      "latitude": 42.458365580744,
+      "longitude": -95.020906802905,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "pine-river-norway-pine-river-1",
+      "endpoint": "putIn",
+      "endpointName": "Norway Lake Public Water Access Site",
+      "latitude": 46.730429,
+      "longitude": -94.408791,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "south-skunk-river-lekwa-sopers-mill",
+      "endpoint": "putIn",
+      "endpointName": "Lekwa Access #242",
+      "latitude": 42.1819,
+      "longitude": -93.5708,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-canal-park-wetlands",
+      "endpoint": "takeOut",
+      "endpointName": "Wetlands Nature Area access",
+      "latitude": 41.089444,
+      "longitude": -76.1225,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-canal-park-test-track",
+      "endpoint": "accessPoint",
+      "endpointName": "Wetlands Nature Area access",
+      "latitude": 41.089444,
+      "longitude": -76.1225,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-wetlands-bloomsburg",
+      "endpoint": "putIn",
+      "endpointName": "Wetlands Nature Area access",
+      "latitude": 41.089444,
+      "longitude": -76.1225,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "rum-river-north-county-central",
+      "endpoint": "takeOut",
+      "endpointName": "Rum River Central Regional Park access",
+      "latitude": 45.2961635,
+      "longitude": -93.3860982,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-vogel-riverview",
+      "endpoint": "putIn",
+      "endpointName": "Vogel Access",
+      "latitude": 42.515,
+      "longitude": -95.05,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-fork-maquoketa-river-d61-ozark",
+      "endpoint": "takeOut",
+      "endpointName": "Ozark Bridge / 21st Ave access area",
+      "latitude": 42.19,
+      "longitude": -90.87,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-fork-maquoketa-river-cascade-ozark",
+      "endpoint": "takeOut",
+      "endpointName": "Ozark Bridge / 21st Ave access area",
+      "latitude": 42.19,
+      "longitude": -90.87,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-fork-maquoketa-river-ozark-caven",
+      "endpoint": "putIn",
+      "endpointName": "Ozark Bridge / 21st Ave access area",
+      "latitude": 42.19,
+      "longitude": -90.87,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-fork-maquoketa-river-cascade-caven",
+      "endpoint": "accessPoint",
+      "endpointName": "Ozark Bridge / 21st Ave access area",
+      "latitude": 42.19,
+      "longitude": -90.87,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "boone-river-riverside-briggs-woods",
+      "endpoint": "takeOut",
+      "endpointName": "Briggs Woods Park canoe access",
+      "latitude": 42.4294,
+      "longitude": -93.8206,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "boone-river-briggs-woods-albright",
+      "endpoint": "putIn",
+      "endpointName": "Briggs Woods Park canoe access",
+      "latitude": 42.4294,
+      "longitude": -93.8206,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-eureka-henderson",
+      "endpoint": "putIn",
+      "endpointName": "Eureka Bridge Access",
+      "latitude": 42.0156,
+      "longitude": -94.4384,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "kings-river-rockhouse-trigger-gap",
+      "endpoint": "putIn",
+      "endpointName": "Rockhouse Access",
+      "latitude": 36.269833,
+      "longitude": -93.664,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "south-skunk-river-river-valley-cj-shreck",
+      "endpoint": "accessPoint",
+      "endpointName": "Askew Bridge / Cambridge Pond access",
+      "latitude": 41.9278,
+      "longitude": -93.5436,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sheboygan-river-dassow-river-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway TT bridge access",
+      "latitude": 43.7509,
+      "longitude": -87.8619,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-sac-city-hagge",
+      "endpoint": "takeOut",
+      "endpointName": "Hagge Park",
+      "latitude": 42.385453216741,
+      "longitude": -94.997965528911,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-hagge-white-horse",
+      "endpoint": "putIn",
+      "endpointName": "Hagge Park below-dam relaunch",
+      "latitude": 42.385453216741,
+      "longitude": -94.997965528911,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "turtle-creek-school-section-east-creek",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway 14 bridge access",
+      "latitude": 42.6515,
+      "longitude": -88.7169,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "maquoketa-river-monmouth-maquoketa",
+      "endpoint": "accessPoint",
+      "endpointName": "Joinerville Park",
+      "latitude": 42.078,
+      "longitude": -90.69,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "accessPoint",
+      "endpointName": "Canoe Port 2 / Lions Park",
+      "latitude": 43.3423,
+      "longitude": -90.3834,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "wapsipinicon-river-stone-city-anamosa",
+      "endpoint": "putIn",
+      "endpointName": "Stone City Access",
+      "latitude": 42.1082,
+      "longitude": -91.3568,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "rice-creek-peltier-to-long-lake",
+      "endpoint": "putIn",
+      "endpointName": "Peltier Lake public boat launch (Lino Lakes)",
+      "latitude": 45.175054,
+      "longitude": -93.0701588,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "wapsipinicon-river-sherman-allens-grove",
+      "endpoint": "accessPoint",
+      "endpointName": "Wapsi River Environmental Center access",
+      "latitude": 41.7753,
+      "longitude": -90.7812,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "turkey-river-clermont-gilbertson",
+      "endpoint": "putIn",
+      "endpointName": "Clermont Canoe Access #64B",
+      "latitude": 42.9969,
+      "longitude": -91.6487,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-highway-30-sportsman",
+      "endpoint": "putIn",
+      "endpointName": "Highway 30 Access",
+      "latitude": 42.047,
+      "longitude": -93.931,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "upper-illinois-river-siloam-kayak-park-woka",
+      "endpoint": "takeOut",
+      "endpointName": "WOKA Whitewater Park",
+      "latitude": 36.13388,
+      "longitude": -94.5661,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "upper-illinois-river-chamber-springs-woka",
+      "endpoint": "takeOut",
+      "endpointName": "WOKA Whitewater Park",
+      "latitude": 36.13388,
+      "longitude": -94.5661,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "mullet-river-sumac-river-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Lower Mullet River dam portage",
+      "latitude": 43.7262,
+      "longitude": -87.8314,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
+      "endpoint": "accessPoint",
+      "endpointName": "Jidana Park",
+      "latitude": 44.941860141,
+      "longitude": -93.477039156,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "accessPoint",
+      "endpointName": "Canoe Port 3 / North Park",
+      "latitude": 43.3498866,
+      "longitude": -90.3923001,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "rice-creek-peltier-to-long-lake",
+      "endpoint": "takeOut",
+      "endpointName": "Long Lake Regional Park / Long Lake (New Brighton)",
+      "latitude": 45.0805227,
+      "longitude": -93.1994956,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "takeOut",
+      "endpointName": "Canoe Port 4 / Seminary Street",
+      "latitude": 43.3362,
+      "longitude": -90.3864,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-pineview-heims-mill",
+      "endpoint": "putIn",
+      "endpointName": "Pineview Park carry-in access",
+      "latitude": 45.5600406,
+      "longitude": -94.2446825,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "trempealeau-river-whitehall-independence",
+      "endpoint": "takeOut",
+      "endpointName": "Schultz Park / Four Seasons Park",
+      "latitude": 44.35982,
+      "longitude": -91.4165,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
+      "endpoint": "accessPoint",
+      "endpointName": "Knollwood Target",
+      "latitude": 44.9473441,
+      "longitude": -93.389443823,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "buffalo-river-tyler-bend-gilbert",
+      "endpoint": "putIn",
+      "endpointName": "Tyler Bend river access",
+      "latitude": 35.986715,
+      "longitude": -92.763903,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
+      "endpoint": "putIn",
+      "endpointName": "Tyler Bend river access",
+      "latitude": 35.986715,
+      "longitude": -92.763903,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-sayre-towanda",
+      "endpoint": "accessPoint",
+      "endpointName": "Larnard Hornbrook Park ramp",
+      "latitude": 41.809444,
+      "longitude": -76.486111,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-hornbrook-wysox-township-park",
+      "endpoint": "putIn",
+      "endpointName": "Larnard Hornbrook Park ramp",
+      "latitude": 41.809444,
+      "longitude": -76.486111,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-hornbrook-terrytown",
+      "endpoint": "putIn",
+      "endpointName": "Larnard Hornbrook Park ramp",
+      "latitude": 41.809444,
+      "longitude": -76.486111,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-hornbrook-towanda",
+      "endpoint": "putIn",
+      "endpointName": "Larnard Hornbrook Park ramp",
+      "latitude": 41.809444,
+      "longitude": -76.486111,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "fox-river-princeton-white-river-locks",
+      "endpoint": "accessPoint",
+      "endpointName": "Old St. Marie Road Landing",
+      "latitude": 43.8629,
+      "longitude": -89.1129,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "juniata-river-lewistown-narrows-newport",
+      "endpoint": "putIn",
+      "endpointName": "Lewistown Narrows PFBC ramp",
+      "latitude": 40.603889,
+      "longitude": -77.487778,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "white-river-park-riverview-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Spring Valley Road / Lyons Wave scout point",
+      "latitude": 42.6417,
+      "longitude": -88.3637,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "mississippi-river-dayton-mississippi-gateway",
+      "endpoint": "takeOut",
+      "endpointName": "Mississippi Gateway Regional Park carry-in access",
+      "latitude": 45.1439,
+      "longitude": -93.3028,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "middle-raccoon-river-cowles-redfield-dam",
+      "endpoint": "accessPoint",
+      "endpointName": "Shearer Access",
+      "latitude": 41.602,
+      "longitude": -94.245,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "wapsipinicon-river-independence-quasqueton",
+      "endpoint": "takeOut",
+      "endpointName": "Quasqueton Campground / Wapsipinicon River access",
+      "latitude": 42.3956,
+      "longitude": -91.7587,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "maquoketa-river-quaker-mill-baileys-ford",
+      "endpoint": "accessPoint",
+      "endpointName": "Pin Oak Park Access",
+      "latitude": 42.4564,
+      "longitude": -91.4256,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-raccoon-river-rainbow-bend-richey",
+      "endpoint": "accessPoint",
+      "endpointName": "North Raccoon River Access",
+      "latitude": 42.159,
+      "longitude": -94.692,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "vermilion-river-schoepfle-mill-hollow",
+      "endpoint": "putIn",
+      "endpointName": "Birmingham Community Center / Schoepfle Garden river access",
+      "latitude": 41.326667,
+      "longitude": -82.357333,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "west-nishnabotna-river-oakland-macedonia",
+      "endpoint": "accessPoint",
+      "endpointName": "Millstone City Park / Carson access",
+      "latitude": 41.2379,
+      "longitude": -95.4219,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "black-hawk-creek-hudson-waterloo",
+      "endpoint": "takeOut",
+      "endpointName": "Ranchero Road / Katoski Greenbelt (Access 8), Waterloo",
+      "latitude": 42.45749,
+      "longitude": -92.41535,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "black-hawk-creek-ranchero-hope-martin",
+      "endpoint": "putIn",
+      "endpointName": "Ranchero Road / Katoski Greenbelt Area (Access 8)",
+      "latitude": 42.45749,
+      "longitude": -92.41535,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "maquoketa-river-dundee-manchester",
+      "endpoint": "putIn",
+      "endpointName": "Dundee Access / Dundee Wildlife Area",
+      "latitude": 42.5816,
+      "longitude": -91.5461,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "maquoketa-river-backbone-dundee",
+      "endpoint": "takeOut",
+      "endpointName": "Dundee Access / Dundee Wildlife Area",
+      "latitude": 42.5816,
+      "longitude": -91.5461,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-frogtown-rockville",
+      "endpoint": "takeOut",
+      "endpointName": "Rockville County Park carry-in access",
+      "latitude": 45.4755294,
+      "longitude": -94.3507888,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-rockville-miller-landing",
+      "endpoint": "putIn",
+      "endpointName": "Rockville County Park carry-in access",
+      "latitude": 45.4755294,
+      "longitude": -94.3507888,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-rockville-knights-of-columbus",
+      "endpoint": "putIn",
+      "endpointName": "Rockville County Park carry-in access",
+      "latitude": 45.4755294,
+      "longitude": -94.3507888,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-rockville-heims-mill",
+      "endpoint": "putIn",
+      "endpointName": "Rockville County Park carry-in access",
+      "latitude": 45.4755294,
+      "longitude": -94.3507888,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "gasconade-river-pointers-creek-cooper-hill",
+      "endpoint": "takeOut",
+      "endpointName": "Cooper Hill Conservation Area hand launch",
+      "latitude": 38.4325614,
+      "longitude": -91.6578519,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "zumbro-river-falls",
+      "endpoint": "takeOut",
+      "endpointName": "Zumbro Falls access",
+      "latitude": 44.2833001,
+      "longitude": -92.4221257,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "little-turkey-river-gouldsburg-eldorado",
+      "endpoint": "putIn",
+      "endpointName": "Gouldsburg Park Access #98",
+      "latitude": 43.012796,
+      "longitude": -91.958595,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-mill-pond-oak-township",
+      "endpoint": "takeOut",
+      "endpointName": "Oak Township County Park canoe access",
+      "latitude": 45.60927,
+      "longitude": -94.75344,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-oak-township-spring-hill",
+      "endpoint": "putIn",
+      "endpointName": "Oak Township County Park carry-in access",
+      "latitude": 45.60927,
+      "longitude": -94.75344,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-fork-maquoketa-river-ozark-caven",
+      "endpoint": "takeOut",
+      "endpointName": "Caven Bridge Access / 60th Ave",
+      "latitude": 42.18,
+      "longitude": -90.83,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-fork-maquoketa-river-d61-caven",
+      "endpoint": "takeOut",
+      "endpointName": "Caven Bridge Access / 60th Ave",
+      "latitude": 42.18,
+      "longitude": -90.83,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "north-fork-maquoketa-river-cascade-caven",
+      "endpoint": "takeOut",
+      "endpointName": "Caven Bridge Access / 60th Ave",
+      "latitude": 42.18,
+      "longitude": -90.83,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "menomonee-river-hoyt-park-bluemound",
+      "endpoint": "takeOut",
+      "endpointName": "Bluemound Road / Wisconsin Avenue Menomonee River access",
+      "latitude": 43.03572,
+      "longitude": -87.96231,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-sayre-wysox-township-park",
+      "endpoint": "takeOut",
+      "endpointName": "Wysox Township Park access",
+      "latitude": 41.770833,
+      "longitude": -76.397778,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-hornbrook-wysox-township-park",
+      "endpoint": "takeOut",
+      "endpointName": "Wysox Township Park access",
+      "latitude": 41.770833,
+      "longitude": -76.397778,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-ulster-bridge-wysox-township-park",
+      "endpoint": "takeOut",
+      "endpointName": "Wysox Township Park access",
+      "latitude": 41.770833,
+      "longitude": -76.397778,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-wysox-township-park-terrytown",
+      "endpoint": "putIn",
+      "endpointName": "Wysox Township Park access",
+      "latitude": 41.770833,
+      "longitude": -76.397778,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "susquehanna-river-towanda-laceyville",
+      "endpoint": "accessPoint",
+      "endpointName": "Wysox Township Park access",
+      "latitude": 41.770833,
+      "longitude": -76.397778,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-frogtown-eagle-park",
+      "endpoint": "takeOut",
+      "endpointName": "Eagle Park carry-in access",
+      "latitude": 45.4754595,
+      "longitude": -94.3502588,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-eagle-miller-landing",
+      "endpoint": "putIn",
+      "endpointName": "Eagle Park carry-in access",
+      "latitude": 45.4754595,
+      "longitude": -94.3502588,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-eagle-knights-of-columbus",
+      "endpoint": "putIn",
+      "endpointName": "Eagle Park carry-in access",
+      "latitude": 45.4754595,
+      "longitude": -94.3502588,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sauk-river-eagle-heims-mill",
+      "endpoint": "putIn",
+      "endpointName": "Eagle Park carry-in access",
+      "latitude": 45.4754595,
+      "longitude": -94.3502588,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "sheboygan-river-johnsonville-dassow",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway M bridge access",
+      "latitude": 43.7749,
+      "longitude": -87.9105,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "la-crosse-river-highway-108-veterans",
+      "endpoint": "accessPoint",
+      "endpointName": "County M former-dam ledge",
+      "latitude": 43.9047,
+      "longitude": -91.0982,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "plover-river-hwy-k-jordan-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Sharonwood Lane access option",
+      "latitude": 44.5947,
+      "longitude": -89.4942,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "lemonweir-river-mauston-dam-19th-ave",
+      "endpoint": "putIn",
+      "endpointName": "Mauston Dam downstream access",
+      "latitude": 43.7994,
+      "longitude": -90.0684,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "winnebago-river-fertile-mason-city",
+      "endpoint": "putIn",
+      "endpointName": "William Rhodes Island Park below-dam access",
+      "latitude": 43.266,
+      "longitude": -93.424,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "cedar-creek-cedarburg-mill-cth-t",
+      "endpoint": "putIn",
+      "endpointName": "Cedarburg Mill / Rebellion Brewing access",
+      "latitude": 43.2993,
+      "longitude": -87.9845,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "huron-river-argo-gallup",
+      "endpoint": "takeOut",
+      "endpointName": "Gallup Park Livery public launch",
+      "latitude": 42.277699,
+      "longitude": -83.699883,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-hydro-electric-south-river",
+      "endpoint": "takeOut",
+      "endpointName": "South River District Access",
+      "latitude": 42.4892,
+      "longitude": -94.1856,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "des-moines-river-fort-dodge-lehigh",
+      "endpoint": "putIn",
+      "endpointName": "South River District Access",
+      "latitude": 42.4892,
+      "longitude": -94.1856,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    },
+    {
+      "routeId": "bark-river-bark-river-park-delafield",
+      "endpoint": "accessPoint",
+      "endpointName": "Nixon Park / East Park Avenue",
+      "latitude": 43.1051,
+      "longitude": -88.3427,
+      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
+    }
+  ]
+}

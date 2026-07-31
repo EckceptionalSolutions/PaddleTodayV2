@@ -232,6 +232,11 @@ async function main() {
     const lines = dedupeLines(
       nhdFeatures
         .filter((feature) => namesMatch(route.name, feature.attributes?.gnis_name ?? feature.attributes?.GNIS_NAME))
+        // NHD FType 460 is an Artificial Path (canal/diversion conveyance),
+        // not the natural river channel. Do not draw it as the route's river
+        // highlight; otherwise diversion channels can visually replace the
+        // main stem at dams and bridge crossings.
+        .filter((feature) => Number(feature.attributes?.ftype ?? feature.attributes?.FTYPE) !== 460)
         .flatMap((feature) => (feature.geometry?.paths ?? []).map((pathPoints) => clipPath(pathPoints, bounds)))
         .filter((line): line is Point[] => Boolean(line)),
     );

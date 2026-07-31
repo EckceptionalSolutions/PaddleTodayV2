@@ -18,8 +18,8 @@
         </div>
         <div class="masthead-copy">
           <p class="kicker">Paddle Today · Operations</p>
-          <h1>Route control</h1>
-          <p>Fair state rotation, specialist research, and a visible evidence trail.</p>
+          <h1>What should happen next?</h1>
+          <p>One recommendation, the reason behind it, and clear instructions for Codex.</p>
         </div>
         <div class="health" data-health>
           <span class="health-dot"></span>
@@ -31,78 +31,88 @@
         <section class="hero-grid" aria-labelledby="next-title">
           <article class="next-card">
             <div class="section-label">
-              <span>Next assignment</span>
+              <span>Recommended next step</span>
               <span class="mode-pill" data-next-mode>—</span>
             </div>
             <div class="next-state">
               <span class="state-code" data-next-code>—</span>
               <div>
-                <h2 id="next-title" data-next-state>No preview yet</h2>
-                <p data-next-reason>Preview the queue to choose the next state fairly.</p>
+                <h2 id="next-title" data-next-state>Calculate a recommendation</h2>
+                <p data-next-reason>The controller will choose one state without starting any background work.</p>
               </div>
             </div>
             <div class="next-metrics">
               <div>
                 <strong data-next-leads>0</strong>
-                <span>open leads</span>
+                <span>routes to investigate</span>
               </div>
               <div>
                 <strong data-next-ready>0</strong>
-                <span>ready now</span>
+                <span>ready to add</span>
               </div>
               <div>
                 <strong data-next-difficulty>—</strong>
-                <span>state class</span>
+                <span>research difficulty</span>
               </div>
             </div>
+            <div class="decision-path">
+              <span>What success looks like</span>
+              <strong data-next-outcome>Choose the next state and work type.</strong>
+            </div>
             <div class="actions">
-              <button class="button button-primary" type="button" data-action="start-research">
-                Start research
+              <button class="button button-primary" type="button" data-action="copy-task">
+                Copy task for Codex
               </button>
-              <button class="button button-secondary" type="button" data-action="start-implementation">
-                Implement a ready route
-              </button>
-              <button class="button button-tertiary" type="button" data-action="plan">
-                Preview next state
+              <button class="button button-secondary" type="button" data-action="plan">
+                Recalculate recommendation
               </button>
             </div>
-            <p class="action-help">Start adds real work to the Codex queue. The worker checks every five minutes. Implementation stays unavailable until a route passes the research gates.</p>
+            <p class="action-help">Copy the task, open a new Codex task, and paste it. Nothing runs in the background and no empty tasks are created.</p>
             <p class="action-status" data-action-status aria-live="polite"></p>
           </article>
 
           <aside class="principles-card">
-            <p class="kicker">Guardrails</p>
-            <h2>Persistence without lowered standards</h2>
+            <p class="kicker">Simple workflow</p>
+            <h2>How a route moves forward</h2>
             <ul>
-              <li><span>01</span>No state twice in a row</li>
-              <li><span>02</span>Difficult states stay in rotation</li>
-              <li><span>03</span>Six research touches per run</li>
-              <li><span>04</span>Exact blockers, not vague dead ends</li>
+              <li><span>01</span><strong>Research</strong> verifies access, safety, and water data</li>
+              <li><span>02</span><strong>Ready</strong> means the evidence gates have passed</li>
+              <li><span>03</span><strong>Implement</strong> adds and tests the route</li>
+              <li><span>04</span><strong>Blocked</strong> records exactly what is missing</li>
             </ul>
           </aside>
         </section>
 
-        <section class="metric-strip" aria-label="Queue summary">
+        <section class="metric-strip" aria-label="Route pipeline summary">
+          <article>
+            <span>Published routes</span>
+            <strong data-published-routes>—</strong>
+            <small>Currently available in PaddleToday</small>
+          </article>
           <article>
             <span>Open leads</span>
             <strong data-total-leads>—</strong>
             <small data-total-candidates>Across the candidate ledger</small>
           </article>
           <article>
+            <span>Researched leads</span>
+            <strong data-researched-leads>—</strong>
+            <small>Have at least one completed review</small>
+          </article>
+          <article>
             <span>Implementation ready</span>
             <strong data-ready-leads>—</strong>
-            <small>Can move directly into route work</small>
+            <small>Passed every current evidence gate</small>
           </article>
-          <article>
-            <span>Research queue</span>
-            <strong data-research-leads>—</strong>
-            <small>Needs evidence or source recovery</small>
-          </article>
-          <article>
-            <span>Execution queue</span>
-            <strong data-queued-jobs>—</strong>
-            <small data-queue-summary>No work queued</small>
-          </article>
+        </section>
+
+        <section class="run-banner" data-run-banner hidden>
+          <div>
+            <p class="kicker">Codex is working</p>
+            <h2 data-run-title>Starting route work</h2>
+            <p data-run-message></p>
+          </div>
+          <button class="button button-danger" type="button" data-cancel-run>Cancel current run</button>
         </section>
 
         <section class="workspace-grid">
@@ -110,7 +120,7 @@
             <div class="panel-heading">
               <div>
                 <p class="kicker">Coverage</p>
-                <h2>State rotation</h2>
+                <h2>State route pipeline</h2>
               </div>
               <div class="legend">
                 <span><i class="dot dot-standard"></i>Standard</span>
@@ -122,10 +132,13 @@
                 <thead>
                   <tr>
                     <th>State</th>
-                    <th>Open</th>
+                    <th>Published</th>
+                    <th>Leads</th>
+                    <th>Researched</th>
+                    <th>Blocked</th>
                     <th>Ready</th>
-                    <th>Last result</th>
-                    <th>Weight</th>
+                    <th>Status</th>
+                    <th>Controls</th>
                   </tr>
                 </thead>
                 <tbody data-state-table></tbody>
@@ -136,11 +149,16 @@
           <aside class="panel lane-panel">
             <div class="panel-heading">
               <div>
-                <p class="kicker">Work mix</p>
-                <h2>Queue lanes</h2>
+                <p class="kicker">Definitions</p>
+                <h2>How to read the counts</h2>
               </div>
             </div>
-            <div class="lane-list" data-lane-list></div>
+            <div class="definition-list">
+              <p><strong>Lead</strong><span>A possible route not yet published.</span></p>
+              <p><strong>Researched</strong><span>Has at least one dated evidence review.</span></p>
+              <p><strong>Blocked</strong><span>Research found a specific missing requirement.</span></p>
+              <p><strong>Ready</strong><span>All current gates passed; implementation may start.</span></p>
+            </div>
           </aside>
         </section>
 
@@ -161,7 +179,7 @@
           <aside class="panel history-panel">
             <div class="panel-heading">
               <div>
-                <p class="kicker">Evidence trail</p>
+                <p class="kicker">Codex activity</p>
                 <h2>Recent runs</h2>
               </div>
             </div>

@@ -226,6 +226,32 @@ footer {
   background: var(--card);
 }
 
+.decision-path {
+  margin-top: 18px;
+  padding: 17px 20px;
+  border-left: 4px solid var(--sun);
+  border-radius: 0 14px 14px 0;
+  background: var(--sun-pale);
+}
+
+.decision-path span,
+.decision-path strong {
+  display: block;
+}
+
+.decision-path span {
+  color: #8a5c27;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.decision-path strong {
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
 .next-metrics strong,
 .next-metrics span {
   display: block;
@@ -276,6 +302,11 @@ footer {
   color: var(--muted);
   border-color: var(--line);
   background: transparent;
+}
+
+.button-danger {
+  color: #fff;
+  background: var(--red);
 }
 
 .action-help {
@@ -341,11 +372,49 @@ footer {
   font-weight: 900;
 }
 
+.principles-card li strong {
+  min-width: 74px;
+  color: #fff;
+}
+
 .metric-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   margin: 22px 0;
+}
+
+.run-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 22px 0;
+  padding: 22px 26px;
+  border: 1px solid #9bbdb4;
+  border-radius: 20px;
+  background: var(--river-pale);
+  box-shadow: var(--shadow);
+}
+
+.run-banner[hidden] {
+  display: none;
+}
+
+.run-banner h2,
+.run-banner p {
+  margin: 0;
+}
+
+.run-banner h2 {
+  margin-top: 4px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+}
+
+.run-banner p:last-child {
+  margin-top: 6px;
+  color: var(--muted);
 }
 
 .metric-strip article {
@@ -436,8 +505,38 @@ footer {
 }
 
 table {
+  min-width: 980px;
   width: 100%;
   border-collapse: collapse;
+}
+
+.row-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.mini-button {
+  min-height: 32px;
+  padding: 0 9px;
+  border: 1px solid #9bbdb4;
+  border-radius: 9px;
+  color: var(--river-deep);
+  background: #edf5f1;
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.mini-button-strong {
+  color: #fff;
+  border-color: var(--river-deep);
+  background: var(--river-deep);
+}
+
+.mini-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
 }
 
 th,
@@ -502,6 +601,31 @@ tbody tr.is-next {
   display: grid;
   gap: 10px;
   padding: 22px;
+}
+
+.definition-list {
+  display: grid;
+  gap: 2px;
+  padding: 20px 22px;
+}
+
+.definition-list p {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 12px;
+  margin: 0;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.definition-list p:last-child {
+  border-bottom: 0;
+}
+
+.definition-list span {
+  color: var(--muted);
 }
 
 .lane-row {
@@ -704,5 +828,10 @@ footer {
     align-items: flex-start;
     flex-direction: column;
     gap: 6px;
+  }
+
+  .run-banner {
+    align-items: stretch;
+    flex-direction: column;
   }
 }

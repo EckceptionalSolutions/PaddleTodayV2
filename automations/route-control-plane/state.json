@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-29T12:03:28.827Z",
+  "updatedAt": "2026-07-30T02:08:52.401Z",
   "claims": [
     {
       "id": "sd-20260729115958",
@@ -69,6 +69,157 @@
       "blocker": null,
       "retryCondition": null,
       "notes": "No route was added. The pilot materially advanced two South Dakota candidates and converted vague research blockers into one endpoint-legitimacy task and one concrete engineering-adapter task without weakening product gates."
+    },
+    {
+      "id": "il-20260729220128",
+      "state": "Illinois",
+      "stateCode": "IL",
+      "mode": "research",
+      "claimedAt": "2026-07-29T22:01:28.407Z",
+      "leaseExpiresAt": "2026-07-30T01:01:28.407Z",
+      "status": "completed",
+      "candidateIds": [
+        "il-apple-river-canyon-state-park-family",
+        "il-bailey-creek-bailey-falls",
+        "il-fox-river-duerr-fabyan",
+        "il-salt-creek-fullersburg-woods-family",
+        "il-rock-river-castle-rock-lowell-family",
+        "il-mackinaw-river-state-fwa-family"
+      ],
+      "completedAt": "2026-07-29T22:08:39.805Z",
+      "outcome": "progress",
+      "sourceAttempts": [
+        {
+          "family": "IDNR river closures and site closures",
+          "method": "Current official web pages and closure notices",
+          "result": "Checked 2026-07-29. Lower Fox remains open effective 2026-05-07; no current notice reopened Apple River Canyon boating or cleared Bailey Creek access; Castle Rock is open subject to river conditions and seasonal restrictions."
+        },
+        {
+          "family": "IDNR public waters and state-park rules",
+          "method": "Official Public Waters page, park pages, and Apple River Canyon brochure PDF",
+          "result": "Confirmed Rock and Fox public-water status, lower Apple statutory limit, Mackinaw absence from the list, public Castle Rock and Mackinaw SFWA ramps, and the explicit Apple River Canyon no-boating rule."
+        },
+        {
+          "family": "USGS current conditions",
+          "method": "Browser URL attempt, sandboxed PowerShell Water Services IV request, then approved direct PowerShell Water Services IV recovery request",
+          "result": "Browser attempt failed before provider retrieval as unsafe URL; sandboxed request failed with an unexpected receive closure; recovered with a direct batch request. Same-day 2026-07-29 discharge/stage returned for 05419000 (78.8 cfs/4.10 ft), 05555300 (92.7/3.49), 05531500 (343/3.36), 05567500 (155/1.30), 05551000 (589/12.30), and 05443500 (3,220/3.28). Provider failures were recorded separately from gauge-data availability."
+        },
+        {
+          "family": "Miles Paddled",
+          "method": "Exact-route page and targeted search",
+          "result": "Apple River II supplied a 9.5-mile Hanover-to-West-Whitton route, both coordinates, and observed 4.0 ft/100 cfs scraping versus 4.4 ft/360 cfs splashy conditions, but also documented dodgy access and that nearly the entire reach is non-public water. Rock River I still supplied only one broader 5,300-cfs observation, not a complete threshold model."
+        },
+        {
+          "family": "American Whitewater",
+          "method": "Illinois river index, Bailey Creek route page, and flow-tab recovery attempt",
+          "result": "Bailey Creek remains officially uncleared for public access. The route page additionally documents the tree-blocked culvert/snags, shallow waterfall landing, pickup-truck debris, and confluence-only take-out. The flow tab remained JavaScript-loading, but USGS independently verified current gauge data."
+        },
+        {
+          "family": "Forest Preserve District of DuPage County",
+          "method": "Current boating, Fullersburg Woods, Salt Creek Greenway, restoration, and 2026 history pages plus targeted threshold search",
+          "result": "Confirmed Fullersburg access near Graue Mill parking, Hunter Road as take-out only, no district river permit, and late-2023 dam removal restoring continuous navigation. No numeric paddling threshold tied to 05531500 surfaced; exact landings and Hunter Road shuttle parking remain unresolved."
+        },
+        {
+          "family": "Rock River Water Trail",
+          "method": "Official trail inventory PDF text extraction and exact-site table",
+          "result": "Confirmed Castle Rock State Park Boat Ramp and Lowell Park as developed access sites with parking and published DMS coordinates; converted them directly to 41.974722/-89.3675 and 41.89/-89.483056."
+        },
+        {
+          "family": "MoHERP",
+          "method": "Direct 05567500 gauge page",
+          "result": "Captured supplemental estimated Mackinaw bands of Poor 45, Low 409, Good 596, High 1,096, and Flood 2,189 cfs plus one observed High trip at 3,940 cfs. These improve threshold research but are not sufficient without a legitimate exact route."
+        },
+        {
+          "family": "Fox and Rock route-manager threshold discovery",
+          "method": "Bounded searches across Fabulous Fox Water Trail, Kane County/Openlands, Rock River Water Trail, IDNR, American Whitewater, Miles Paddled, and exact gauge/reach terms",
+          "result": "No accepted numeric low/ideal/high or minimum-only guidance surfaced for Duerr-to-Fabyan on 05551000 or Castle-Rock-to-Lowell on 05443500. These were the only two stale-candidate rechecks."
+        }
+      ],
+      "factsChanged": [
+        "All six selected gauges now have product-style same-day USGS Water Services verification.",
+        "Apple River Canyon is explicitly no-boating; the newly documented Hanover-to-West-Whitton alternative has coordinates and community gauge observations but fails public-water, launch-rights, and parking gates.",
+        "Bailey Creek remains officially uncleared and now has explicit advanced hazard details recorded.",
+        "Salt Creek was narrowed to Fullersburg Woods-to-Hunter Road and moved from research_later to threshold_weak after official endpoint, dam-removal, and live-gauge facts improved.",
+        "Rock River Castle Rock-to-Lowell gained manager-grade endpoint coordinates and parking confirmation.",
+        "Mackinaw gained explicit supplemental numeric condition bands but remains blocked by the missing manager-backed upstream endpoint and parking.",
+        "Fox River remains open and live-gauge-ready but still lacks route-specific numeric thresholds."
+      ],
+      "blocker": "No reviewed candidate clears every gate. Fox, Salt Creek, and Rock lack accepted route-specific numeric thresholds; Apple and Mackinaw lack legal manager-backed endpoint/parking packages; Bailey lacks official public-access clearance and has advanced hazards.",
+      "retryCondition": "Retry only when a responsible Illinois route manager or accepted route source publishes the missing exact-reach numeric guidance, public endpoint/parking designation, or Bailey access clearance described in each updated candidate record.",
+      "notes": "Completed six Illinois candidate touches across nine recorded source families, with exactly two stale threshold rechecks. Updated the ledger and regenerated the lead inbox; no app route was implemented and no quality gate was weakened."
+    },
+    {
+      "id": "mi-20260730020112",
+      "state": "Michigan",
+      "stateCode": "MI",
+      "mode": "research",
+      "claimedAt": "2026-07-30T02:01:12.492Z",
+      "leaseExpiresAt": "2026-07-30T05:01:12.492Z",
+      "status": "completed",
+      "candidateIds": [
+        "mi-rifle-river-selkirk-sterling-family",
+        "mi-maple-river-northern-lower-maple-road-family",
+        "mi-flint-river-national-water-trail-mott-holloway-family",
+        "mi-huron-river-lower-huron-willow-oakwoods-family",
+        "mi-pere-marquette-bowman-upper-branch",
+        "mi-clinton-river-eagles-landing-yates-dam"
+      ],
+      "completedAt": "2026-07-30T02:08:52.401Z",
+      "outcome": "progress",
+      "sourceAttempts": [
+        {
+          "family": "Michigan DNR and Rifle River local operators",
+          "method": "Official DNR park page plus bounded search across livery pages, RiverScout, and official USGS station results",
+          "result": "DNR confirmed paddling and May-to-October rentals but no numeric gauge model. The former RiverScout 200-800 cfs text could not be reproduced; the page now exposes personal range settings with a community-data warning. USGS 04142000 search-visible data ended 2026-07-24."
+        },
+        {
+          "family": "Tip of the Mitt watershed and Michigan access managers",
+          "method": "Watershed HTML/PDF discovery plus Michigan Water Trails, Michigan DNR, and Outdoor Michigan access-page cross-check",
+          "result": "Invalidated the combined northern Maple/Maple Road candidate. Outdoor Michigan places Maple Road Boat Launch in Fulton Township, Gratiot County on the central Maple River. The northern watershed plan instead documents canoe/kayak use between Woodland Road and Brutus Road and downed-tree blockage elsewhere; Maple Bay is a DNR Burt Lake access."
+        },
+        {
+          "family": "Flint River Watershed Coalition and Genesee County Parks",
+          "method": "Official HTML advisory and 16-page Water Trail Paddlers' Guide PDF extraction",
+          "result": "Selected a defensible 8.2-mile public route shape from Richfield County Park at mile 33 to Bluegill Boat Launch at mile 41.2. The guide says all included accesses have parking and warns of possible logjams. FRWC still encourages paddling in Mott-to-Holloway/Lapeer zones while preserving the downtown contact advisory."
+        },
+        {
+          "family": "Huron River Watershed Council and Huron-Clinton Metroparks",
+          "method": "Official trip PDF, streamgage inventory HTML, park page, and current closure page",
+          "result": "Confirmed Lower Huron North Fishing Site to Oakwoods as a 15-mile, 5-7-hour trip through exclusively public land with four recognized landings. Oakwoods is the last good access before Flat Rock Pond, and the downstream Flat Rock Dam portage is currently closed. The Lower Huron sensor is not a supported USGS product gauge and no numeric bands surfaced."
+        },
+        {
+          "family": "Huron-Manistee National Forests and Recreation.gov",
+          "method": "Official permit page, Forest Service brochure/PDF text extraction, access-page search, and USGS legacy result",
+          "result": "Confirmed Pere Marquette Segment 2 operations: Bowman to Rainbow 2.5 hours, Rainbow to Sulak 1 hour, Sulak to Upper Branch 1 hour; seasonal permits, 9 a.m.-6 p.m. hours, private-bank limits, and fees at both endpoints. USGS 04122500 showed 501 cfs/1.12 ft on 2026-07-28 but no source tied numeric route thresholds to this downstream gauge."
+        },
+        {
+          "family": "Clinton River Watershed Council, Oakland County, and American Whitewater",
+          "method": "Current manager HTML pages, official project page, American Whitewater reach page, and failed linked-plan PDF retrieval with HTML recovery",
+          "result": "CRWC classifies the Heart reach as challenging/not for beginners and warns of post-rain fast flow, woody debris, cold water, and hypothermia. Its 8-10 ft warnings apply to the downstream Sterling Heights gauge, not Auburn Hills. AW preserves the lethal Yates low-head-dam warning, while Oakland County confirms active 2026 Yates-area restoration. The linked 2026 plan PDF returned an HTTP 400 despite nominal OK, so accessible manager HTML was used as recovery evidence."
+        },
+        {
+          "family": "USGS current conditions",
+          "method": "Direct Water Services IV batch API followed by official legacy/WDFN page and search-index recovery",
+          "result": "The direct batch request for 04142000, 04148180, 04122500, and 04161000 failed with an unexpected receive/connection closure. Recovery found 04148180 with no continuous/daily/field data, 04161000 modern data unavailable with legacy evidence ending 2026-07-21, 04142000 evidence ending 2026-07-24, and 04122500 at 501 cfs/1.12 ft on 2026-07-28."
+        },
+        {
+          "family": "PaddleToday live route inventory",
+          "method": "Bounded repository search across rivers.ts and river-trip-details.ts",
+          "result": "No live Rifle, Maple, Flint, Lower Huron/Oakwoods, Pere Marquette, or Eagle's Landing/Yates route record exists, so the researched candidates do not duplicate a published corridor."
+        }
+      ],
+      "factsChanged": [
+        "Rejected the conflated northern Maple/Maple Road candidate and documented the distinct Woodland-to-Brutus northern lead.",
+        "Moved the Flint family from threshold_weak to no_live_gauge and selected the official Richfield County Park-to-Bluegill 8.2-mile segment.",
+        "Added Lower Huron's official 15-mile public route shape and the current Flat Rock portage closure boundary.",
+        "Added Pere Marquette Segment 2's official 4.5-hour itinerary, permit hours, fees, and private-bank constraints.",
+        "Marked Rifle's former 200-800 cfs community range as not reproducible and recorded stale official gauge evidence.",
+        "Strengthened Clinton's Yates safety/restoration blocker, cold-water hazards, and current gauge-unavailability finding.",
+        "Recorded that none of the six candidate corridors duplicates a live PaddleToday route."
+      ],
+      "blocker": "No candidate clears every gate: Rifle, Lower Huron, and Pere Marquette lack accepted numeric thresholds; Flint lacks a product-live gauge and coordinates; the corrected northern Maple lead lacks gauge, thresholds, legal endpoint confirmation, and coordinates; Clinton lacks current gauge data and official safe Yates take-out/portage geometry during active restoration.",
+      "retryCondition": "Retry only when a responsible manager or accepted route source publishes the missing gauge-calibrated numeric guidance, the selected USGS site resumes product-current data, source-backed public endpoint coordinates/parking become available, or Oakland County/CRWC formally documents current safe Yates geometry and restoration status.",
+      "notes": "Completed six Michigan candidate touches using eight attempts across seven external source families plus the local inventory. Used API-to-page/search recovery for USGS and PDF-to-HTML/alternate-manager recovery for the inaccessible Clinton plan. Exactly two touches (Rifle and Pere Marquette) were treated as stale-candidate rechecks; the other four were new source/fact discovery. No app route was implemented because no candidate met all access, coordinate, gauge, threshold, safety, and duplication gates."
     }
   ]
 }

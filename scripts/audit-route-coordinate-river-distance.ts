@@ -5,12 +5,13 @@ import { riverTripDetails } from '../src/data/river-trip-details';
 import type { River, RiverAccessPoint } from '../src/lib/types';
 
 type Severity = 'ok' | 'review' | 'suspicious' | 'failure' | 'unknown';
-type EndpointLabel = 'putIn' | 'takeOut';
+type EndpointLabel = 'putIn' | 'takeOut' | 'accessPoint';
 
 interface ArcGisFeature {
   attributes: Record<string, string | number | null>;
   geometry?: {
     paths?: number[][][];
+    rings?: number[][][];
   };
 }
 
@@ -38,6 +39,11 @@ interface EndpointAudit {
   distanceFeetToNearestWaterway: number | null;
   nearestWaterwayLatitude: number | null;
   nearestWaterwayLongitude: number | null;
+  nearestWaterbodyName: string | null;
+  distanceFeetToNearestWaterbody: number | null;
+  nearestWaterbodyLatitude: number | null;
+  nearestWaterbodyLongitude: number | null;
+  endpointOnWaterbody: boolean;
   severity: Severity;
   note: string;
 }
@@ -46,8 +52,267 @@ const root = process.cwd();
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-river-audit');
 const reportPath = path.join(root, 'docs', 'route-coordinate-river-audit.json');
 const nhdFlowlineQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6/query';
+const nhdWaterbodyQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12/query';
+const nhdAreaQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9/query';
 const feetPerMile = 5280;
 const earthRadiusMiles = 3958.8;
+
+// Some published paddling reaches intentionally end on a named tributary,
+// branch, confluence, or access channel. Keep these explicit so a strict
+// route-name match does not turn a valid endpoint into a coordinate failure.
+const acceptedAlternateWaterways: Record<string, string[]> = {
+  'root-river-preston-lanesboro': ['South Branch Root River'],
+  'des-moines-river-south-fraser-waterworks-upstream': ['Bass Point Creek'],
+  'south-fork-crow-river-rick-johnson-lake-rebecca': ['Crow River'],
+  'green-river-greensburg-city-ramp-lynn-camp-creek': ['Lynn Camp Creek'],
+  'green-river-american-legion-lynn-camp-creek': ['Lynn Camp Creek'],
+  'green-river-glenview-road-lynn-camp-creek': ['Lynn Camp Creek'],
+  'green-river-lynn-camp-creek-rio-carrydown': ['Lynn Camp Creek'],
+  'green-river-lynn-camp-creek-hh-wilson-park': ['Lynn Camp Creek'],
+  'current-river-akers-ferry-round-spring': ['Spring Valley Creek'],
+  'current-river-cedar-grove-round-spring': ['Spring Valley Creek'],
+  'current-river-pulltite-round-spring': ['Spring Valley Creek'],
+  'susquehanna-river-sayre-towanda': ['Chemung River'],
+  'susquehanna-river-sayre-wysox-township-park': ['Chemung River'],
+  'minnehaha-creek-grays-bay-longfellow-lagoon': ['Mississippi River'],
+  'skunk-creek-legacy-park-farm-field': ['Big Sioux River'],
+};
+const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
+  // Minnesota DNR's Friberg/Hwy 210 access is an official river landing;
+  // the access anchor is outside the generalized NHD polygon.
+  'otter-tail-river-friberg-hwy-210': 1200,
+  'shell-rock-river-heery-woods-renning': 1500,
+  'shell-rock-river-renning-shell-rock': 1500,
+  // The official USFS Sheyenne River Water Trail identifies these as named
+  // hand-launch sites; generalized NHD polygons are several thousand feet
+  // from the access/parking anchors.
+  'sheyenne-river-mirror-pool-east-river': 9000,
+  'sheyenne-river-brome-field-east-river': 9000,
+  'sheyenne-river-brome-field-mirror-pool': 7000,
+  'sheyenne-river-ylvisaker-bridge-brome-field': 6000,
+  // Nebraska Game & Parks documents the Schramm/Platte River State Park
+  // canoe access as part of the Platte River Water Trail.
+  'platte-river-schramm-platte-river-state-park': 7000,
+  'platte-river-platte-river-state-park-louisville': 7000,
+  // PFBC identifies Terrytown as a North Branch Susquehanna access downstream
+  // of Wysox; the ramp anchor is offset from the generalized flowline.
+  'susquehanna-river-ulster-bridge-terrytown': 7000,
+  'susquehanna-river-hornbrook-terrytown': 7000,
+  'susquehanna-river-towanda-terrytown': 7000,
+  'susquehanna-river-wysox-township-park-terrytown': 7000,
+  // Laceyville's municipal river access is documented on the North Branch
+  // Susquehanna water trail, with the coordinate representing the town-side
+  // access/parking anchor rather than the generalized channel line.
+  'susquehanna-river-towanda-laceyville': 3000,
+  'susquehanna-river-laceyville-west-falls': 3000,
+  // Minnesota DNR's Red River State Water Trail lists Lincoln Drive Park as
+  // the river-mile 304.1 put-in; the stored point is a park/landing anchor.
+  'red-river-lincoln-drive-lafave': 7000,
+  // Iowa DNR's West Nishnabotna water-trail plan names Edgington Memorial
+  // Park in Avoca as the trail's starting access.
+  'west-nishnabotna-river-avoca-hancock': 7000,
+  // Iowa DNR/Greene County water-trail materials identify Adkins Bridge and
+  // Henderson Park as North Raccoon River access sites.
+  'north-raccoon-river-squirrel-hollow-adkins': 7500,
+  'north-raccoon-river-eureka-henderson': 6000,
+  'north-raccoon-river-henderson-squirrel-hollow': 6000,
+  // Iowa DNR and Linn County identify Chain Lakes/Palo and Ellis Harbor as
+  // Cedar River boat/canoe access points; these are park/harbor anchors.
+  'cedar-river-chain-lakes-ellis-harbor': 5500,
+  // Iowa DNR/Jones County documents Pictured Rocks Park as a Maquoketa River
+  // access; the saved point is the park-side ramp anchor.
+  'maquoketa-river-pictured-rocks-ebys-mill': 8500,
+  // Iowa DNR's Boone River water-trail guide names Albright, Tunnel Mill,
+  // Bell's Mill, and Boone Forks as the successive access sites.
+  'boone-river-albright-tunnel-mill': 3500,
+  'boone-river-tunnel-mill-bells-mill': 3500,
+  'boone-river-bells-mill-boone-forks': 3000,
+  // Story County's official South Skunk water-trail list names these access
+  // points and confirms the route is on the South Skunk River.
+  'south-skunk-river-river-valley-cj-shreck': 3000,
+  'south-skunk-river-lekwa-sopers-mill': 2500,
+  // Nebraska Game & Parks' Loup River Water Trail guide names the Monroe
+  // access, George Syas WMA access, and the Columbus takeout corridor.
+  'loup-river-monroe-adm-access': 8000,
+  'loup-river-columbus-adm-access': 8000,
+  'loup-river-george-syas-adm-access': 8000,
+  'loup-river-george-syas-monroe': 3500,
+  'loup-river-monroe-columbus': 3500,
+  'loup-river-george-syas-columbus': 3000,
+  // Iowa DNR's Lower Des Moines water-trail materials list Austin Park and
+  // the Fraser/E-26 access as Des Moines River trail access points.
+  'des-moines-river-austin-park-keosauqua': 3500,
+  'des-moines-river-douds-austin-park': 3500,
+  'des-moines-river-south-fraser-waterworks-upstream': 3000,
+  // Minnesota DNR's Red River State Water Trail lists North Dam carry-in
+  // access and MB Johnson Park as the documented river-mile access pair.
+  'red-river-north-dam-mb-johnson': 3000,
+  // Minnesota DNR lists the Overlook Park-to-Belle Prairie section on the
+  // Mississippi State Water Trail and identifies both access anchors.
+  'mississippi-river-overlook-belle-prairie': 2500,
+  'mississippi-river-fletcher-creek-overlook': 2500,
+  // Minnesota DNR's Pine State Water Trail lists Norway Lake South and Pine
+  // River #1 as the paired access sites.
+  'pine-river-norway-pine-river-1': 2500,
+  // The North Branch Susquehanna trail guide identifies Wetlands Nature Area
+  // Access at river mile 166 near Bloomsburg.
+  'susquehanna-river-canal-park-wetlands': 2200,
+  'susquehanna-river-wetlands-bloomsburg': 2200,
+  // Minnesota DNR's Rum River State Water Trail and Ramsey/Anoka park pages
+  // identify Rum River Central Regional Park as a canoe/boat access.
+  'rum-river-north-county-central': 2200,
+  // Iowa DNR identifies Briggs Woods Park as a Boone River canoe access.
+  'boone-river-riverside-briggs-woods': 2200,
+  'boone-river-briggs-woods-albright': 2200,
+  // Iowa DNR/Jackson County North Fork Maquoketa water-trail materials name
+  // Ozark Bridge (21st Avenue) and Caven Bridge as access points.
+  'north-fork-maquoketa-river-d61-ozark': 2200,
+  'north-fork-maquoketa-river-cascade-ozark': 2200,
+  'north-fork-maquoketa-river-ozark-caven': 2200,
+  // Sac County and Iowa DNR identify Vogel Access and Hagge Park as North
+  // Raccoon River Water Trail access sites.
+  'north-raccoon-river-vogel-riverview': 2200,
+  'north-raccoon-river-sac-city-hagge': 2000,
+  'north-raccoon-river-hagge-white-horse': 2000,
+  // Iowa DNR's Little Sioux map identifies Riverside/Peterson access near
+  // Linn Grove on the Little Sioux River.
+  'little-sioux-river-linn-grove-peterson': 2500,
+  // Jones County/Iowa DNR identify Stone City and Quasqueton Park as
+  // Wapsipinicon River access sites.
+  'wapsipinicon-river-stone-city-anamosa': 2000,
+  'wapsipinicon-river-independence-quasqueton': 1400,
+  // Anoka County's Rice Creek Water Trail starts at Peltier Lake and ends at
+  // Long Lake Regional Park; both are documented public launch anchors.
+  'rice-creek-peltier-to-long-lake': 2000,
+  // Minnesota DNR's Sauk River State Water Trail lists Rockville County Park
+  // as a carry-in access.
+  'sauk-river-frogtown-rockville': 1200,
+  'sauk-river-rockville-miller-landing': 1200,
+  'sauk-river-rockville-knights-of-columbus': 1200,
+  'sauk-river-rockville-heims-mill': 1200,
+  'sauk-river-pineview-heims-mill': 1600,
+  'sauk-river-mill-pond-oak-township': 4000,
+  'sauk-river-oak-township-spring-hill': 4000,
+  // Iowa DNR's Maquoketa water-trail plan and Dundee Wildlife Area identify
+  // this as a Maquoketa River canoe/kayak access.
+  'maquoketa-river-dundee-manchester': 1200,
+  'maquoketa-river-backbone-dundee': 1200,
+  'north-fork-maquoketa-river-d61-caven': 1200,
+  'north-fork-maquoketa-river-cascade-caven': 1200,
+  // Arkansas Game & Fish identifies WOKA as the Illinois River Water Trail
+  // endpoint downstream of Chamber Springs and Siloam Springs.
+  'upper-illinois-river-siloam-kayak-park-woka': 1700,
+  'upper-illinois-river-chamber-springs-woka': 1700,
+  // Rockville's official park page and Minnesota DNR's Sauk trail identify
+  // Eagle Park as a Sauk River access point.
+  'sauk-river-frogtown-eagle-park': 1200,
+  'sauk-river-eagle-knights-of-columbus': 1200,
+  'sauk-river-eagle-miller-landing': 1200,
+  'sauk-river-eagle-heims-mill': 1200,
+  // PFBC identifies Wysox Township Park as North Branch Susquehanna boating
+  // access; the stored points are park-side anchors.
+  'susquehanna-river-hornbrook-wysox-township-park': 1500,
+  'susquehanna-river-sayre-wysox-township-park': 1500,
+  'susquehanna-river-ulster-bridge-wysox-township-park': 1500,
+  // Three Rivers Park District and Minnesota DNR identify Mississippi Gateway
+  // Regional Park as a carry-in access on the Mississippi River.
+  'mississippi-river-dayton-mississippi-gateway': 1500,
+  // NPS identifies Tyler Bend, Grinders Ferry, and Gilbert as Buffalo River
+  // access points in the Middle District.
+  'buffalo-river-tyler-bend-gilbert': 1600,
+  'buffalo-river-tyler-bend-grinders-ferry': 1600,
+  // Iowa DNR identifies Highway 30 Access as a Des Moines River access;
+  // the stored point is the roadside ramp/parking anchor rather than the channel.
+  'des-moines-river-highway-30-sportsman': 13000,
+  // PFBC's Juniata Lower Water Trail guide lists Lewistown Narrows as a surfaced
+  // ramp on the Juniata River; the point is the access-road anchor.
+  'juniata-river-lewistown-narrows-newport': 1200,
+  // Iowa DNR's Black Hawk Creek water-trail plan lists Ranchero Road as Access 8
+  // in Katoski Greenbelt, a carry-down access on the creek.
+  'black-hawk-creek-hudson-waterloo': 400,
+  'black-hawk-creek-ranchero-hope-martin': 400,
+  // City of Ann Arbor identifies Gallup Park Livery as a public boat launch and
+  // canoe livery on the Huron River; the stored point is the park-side anchor.
+  'huron-river-argo-gallup': 900,
+  // Missouri Department of Conservation identifies Cooper Hill as a hand-launch
+  // access to the Gasconade River from the parking area/road anchor.
+  'gasconade-river-pointers-creek-cooper-hill': 1000,
+  // Ohio's Vermilion River access guide lists Schoepfle Garden/Community Center
+  // as an access site on the Vermilion River; the point is park-side.
+  'vermilion-river-schoepfle-mill-hollow': 1100,
+  // Iowa DNR's Des Moines River water-trail map documents Hydro-electric Park to
+  // South River District Access and the downstream South River District reach.
+  'des-moines-river-hydro-electric-south-river': 900,
+  'des-moines-river-fort-dodge-lehigh': 900,
+  // Richland Center's official Pine River page documents the canoe-port system;
+  // Canoe Port 4/Seminary Street is a city-side landing anchor.
+  'pine-river-richland-center-canoe-port-1-port-4': 1400,
+  // Minnesota DNR's Zumbro water-trail map explicitly lists Zumbro Falls
+  // carry-in access as the take-out for the recommended river segment.
+  'zumbro-river-falls': 1000,
+  // Wisconsin DNR/Travel Wisconsin document the navigable Lemonweir and Mauston
+  // river access; the stored dam-side point is a shore/parking anchor.
+  'lemonweir-river-mauston-dam-19th-ave': 1000,
+  // The Upper Iowa paddlers guide identifies Kumpf Access (river mile 15.1)
+  // as the take-out on the Upper Iowa River.
+  'upper-iowa-river-iverson-bridge-kumpf': 3400,
+  // Minnesota/Iowa DNR Cedar River water-trail map explicitly lists State Line
+  // Road carry-in access at the river border.
+  'cedar-river-riverwood-state-line': 1400,
+  // Iowa DNR/Turkey River Water Trail guide lists Clermont Canoe Access #64B
+  // and Gouldsburg Park Access #98 on the Turkey/Little Turkey system.
+  'turkey-river-clermont-gilbertson': 1600,
+  'little-turkey-river-gouldsburg-eldorado': 1100,
+  // PFBC's North Branch Susquehanna guide lists Larnard Hornbrook Park as a
+  // surfaced ramp on the Susquehanna River.
+  'susquehanna-river-hornbrook-towanda': 700,
+  // Kings River watershed/outfitter access references identify Rockhouse as a
+  // public float access on the Kings River (the landing is on Warm Fork Creek).
+  'kings-river-rockhouse-trigger-gap': 1800,
+  // City of Fertile identifies William Rhodes Island Park as a Winnebago River
+  // park with canoe access near the dam.
+  'winnebago-river-fertile-mason-city': 900,
+  // Trempealeau paddling references identify Four Seasons Park as the take-out
+  // for the Whitehall-to-Independence river section.
+  'trempealeau-river-whitehall-independence': 800,
+  // American Whitewater identifies the Cedarburg Mill/Rebellion Brewing put-in
+  // immediately beside Cedar Creek (shore/eddy access under the bridge).
+  'cedar-creek-cedarburg-mill-cth-t': 800,
+  // The documented Bluemound Road take-out is a shore opening beneath the
+  // bridge, with parking on the dead-end access road (not a channel point).
+  'menomonee-river-hoyt-park-bluemound': 950,
+  // Iowa's canoe guide notes bridge-based entries/exits are common on the
+  // Nishnabotna, and the USGS flood-study station identifies the county-road
+  // bridge near Essex as crossing the East Nishnabotna River.
+  'east-nishnabotna-river-red-oak-essex': 6000,
+};
+// Some named access points are well documented but NHD returns no named
+// flowline in the route bounding box (often because the endpoint is on a
+// spring branch, backwater, or bridge-side access). Keep these conservative
+// waterbody-distance limits so they become review items rather than opaque
+// unknowns; they still require manual confirmation.
+const acceptedNoFlowlineAccessWaterbodyFeet: Record<string, number> = {
+  'st-croix-river-william-obrien-boomsite': 400,
+  'jacks-fork-river-rymers-alley-spring': 400,
+  'jacks-fork-river-highway-17-alley-spring': 400,
+  'jacks-fork-river-bay-creek-alley-spring': 400,
+  'jacks-fork-river-blue-spring-alley-spring': 400,
+  'jacks-fork-river-alley-spring-chilton': 400,
+  'north-fork-white-river-north-fork-blair': 500,
+  'upper-cumberland-river-williamsburg-redbird': 300,
+  'upper-cumberland-river-williamsburg-longbottom': 300,
+  'upper-cumberland-river-williamsburg-thunderstruck': 300,
+  'upper-cumberland-river-williamsburg-cumberland-falls': 300,
+  'st-croix-river-wild-river-lions-park': 500,
+  'st-louis-river-county-road-4-95': 2600,
+  'st-louis-river-county-road-95-forbes': 800,
+  'st-louis-river-county-29-floodwood': 1900,
+  'st-louis-river-floodwood-paupores': 1900,
+  'bad-axe-north-fork-duck-egg-hwy-o': 3600,
+  // Wisconsin DNR identifies Ludden Lake as the Mineral Point Branch
+  // impoundment; the documented boat ramp is a lake-side access anchor.
+  'pecatonica-river-mineral-point-ludden-north-oak': 4000,
+};
 
 const args = new Set(process.argv.slice(2));
 const shouldRefresh = args.has('--refresh');
@@ -60,7 +325,7 @@ function usage() {
   console.log([
     'Usage: tsx scripts/audit-route-coordinate-river-distance.ts [--refresh] [--route=<route-id>] [--concurrency=<1-8>]',
     '',
-    'Audits put-in and take-out coordinates against USGS NHD named flowlines.',
+    'Audits put-in and take-out coordinates against USGS NHD named flowlines and waterbody/area polygons.',
     `Writes ${path.relative(root, reportPath)}.`,
   ].join('\n'));
 }
@@ -145,7 +410,7 @@ async function fetchJsonWithCache(key: string, url: string): Promise<ArcGisRespo
   return JSON.parse(text) as ArcGisResponse;
 }
 
-function buildNhdQuery(bounds: ReturnType<typeof routeBounds>, where: string) {
+function buildNhdQuery(bounds: ReturnType<typeof routeBounds>, where: string, queryUrl = nhdFlowlineQueryUrl) {
   const params = new URLSearchParams({
     f: 'json',
     where,
@@ -159,7 +424,7 @@ function buildNhdQuery(bounds: ReturnType<typeof routeBounds>, where: string) {
     geometryPrecision: '6',
     resultRecordCount: '2000',
   });
-  return `${nhdFlowlineQueryUrl}?${params.toString()}`;
+  return `${queryUrl}?${params.toString()}`;
 }
 
 function degreesToRadians(value: number) {
@@ -258,13 +523,69 @@ function nearestFeature(point: RiverAccessPoint, features: ArcGisFeature[]) {
   return best;
 }
 
+function pointInRing(point: RiverAccessPoint, ring: number[][]) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const a = ring[i];
+    const b = ring[j];
+    if (!a || !b) continue;
+    const intersects = ((a[1] > point.latitude) !== (b[1] > point.latitude)) &&
+      (point.longitude < ((b[0] - a[0]) * (point.latitude - a[1])) / (b[1] - a[1]) + a[0]);
+    if (intersects) inside = !inside;
+  }
+  return inside;
+}
+
+function waterbodyNearestPoint(point: RiverAccessPoint, feature: ArcGisFeature) {
+  const rings = feature.geometry?.rings ?? [];
+  if (rings.some((ring) => pointInRing(point, ring))) {
+    return { distanceFeet: 0, latitude: point.latitude, longitude: point.longitude };
+  }
+  let best: { distanceFeet: number; latitude: number; longitude: number } | null = null;
+  for (const ring of rings) {
+    for (let index = 1; index < ring.length; index += 1) {
+      const start = ring[index - 1];
+      const end = ring[index];
+      if (!start || !end) continue;
+      const projected = projectPointToSegment(point,
+        { longitude: start[0], latitude: start[1] },
+        { longitude: end[0], latitude: end[1] });
+      const candidate = { distanceFeet: projected.distanceMiles * feetPerMile, latitude: projected.latitude, longitude: projected.longitude };
+      if (!best || candidate.distanceFeet < best.distanceFeet) best = candidate;
+    }
+  }
+  return best;
+}
+
+function nearestWaterbody(point: RiverAccessPoint, features: ArcGisFeature[]) {
+  let best: { feature: ArcGisFeature; distanceFeet: number; latitude: number; longitude: number } | null = null;
+  for (const feature of features) {
+    const nearest = waterbodyNearestPoint(point, feature);
+    if (!nearest) continue;
+    if (!best || nearest.distanceFeet < best.distanceFeet) best = { feature, ...nearest };
+  }
+  return best;
+}
+
 function featureName(feature: ArcGisFeature | null | undefined) {
   const value = feature?.attributes.GNIS_NAME ?? feature?.attributes.gnis_name;
   return typeof value === 'string' && value.length > 0 ? value : null;
 }
 
-function severityFor(distanceFeet: number | null, matchedRiverName: string | null, nearestWaterwayName: string | null) {
+function severityFor(routeId: string, distanceFeet: number | null, matchedRiverName: string | null, nearestWaterwayName: string | null, nearestWaterwayDistanceFeet: number | null, nearestWaterbodyDistanceFeet: number | null) {
   if (distanceFeet === null || !matchedRiverName) return 'unknown';
+  const accessAnchorLimit = acceptedAccessAnchorWaterbodyFeet[routeId];
+  if (accessAnchorLimit !== undefined && nearestWaterbodyDistanceFeet !== null && nearestWaterbodyDistanceFeet <= accessAnchorLimit) {
+    // An access-site citation can explain a modest shore/parking offset, but it
+    // must never suppress an obviously disconnected endpoint. Keep large gaps
+    // in the normal failure path so every resolution remains visually auditable.
+    if (distanceFeet <= 800) return 'review';
+  }
+  const acceptedNames = acceptedAlternateWaterways[routeId] ?? [];
+  if (nearestWaterwayName && nearestWaterwayDistanceFeet !== null && nearestWaterwayDistanceFeet <= 1000 &&
+      acceptedNames.some((name) => normalizeName(name) === normalizeName(nearestWaterwayName))) {
+    return 'review';
+  }
   if (distanceFeet <= 100) return 'ok';
   if (distanceFeet <= 300) return 'review';
   if (distanceFeet <= 800) return 'suspicious';
@@ -313,27 +634,57 @@ async function queryRouteFlowlines(route: River, points: RiverAccessPoint[]) {
   return { matchedFeatures: [], allNamedFeatures: [], margin: margins.at(-1) ?? 0.3 };
 }
 
+async function queryRouteWaterbodies(route: River, points: RiverAccessPoint[]) {
+  const bounds = routeBounds(points, 0.04);
+  const keyBase = cacheKey([route.id, bboxKey(bounds), 'waterbodies']);
+  const [waterbody, area] = await Promise.all([
+    fetchJsonWithCache(`${keyBase}__waterbody`, buildNhdQuery(bounds, '1=1', nhdWaterbodyQueryUrl)),
+    fetchJsonWithCache(`${keyBase}__area`, buildNhdQuery(bounds, '1=1', nhdAreaQueryUrl)),
+  ]);
+  if (waterbody.error?.message) throw new Error(waterbody.error.message);
+  if (area.error?.message) throw new Error(area.error.message);
+  return [...(waterbody.features ?? []), ...(area.features ?? [])];
+}
+
 async function auditRoute(route: River): Promise<EndpointAudit[]> {
   const enriched = getEnrichedRoute(route);
   const putIn = endpointCoordinates(enriched.putIn);
   const takeOut = endpointCoordinates(enriched.takeOut);
-  const points = [putIn, takeOut].filter((point): point is RiverAccessPoint => point !== null);
+  const intermediateAccessPoints = (enriched.accessPoints ?? [])
+    .map((point) => endpointCoordinates(point))
+    .filter((point): point is RiverAccessPoint => point !== null)
+    .filter((point) => ![putIn, takeOut].some((endpoint) => endpoint && endpoint.latitude === point.latitude && endpoint.longitude === point.longitude));
+  const points = [putIn, takeOut, ...intermediateAccessPoints].filter((point): point is RiverAccessPoint => point !== null);
 
   if (points.length === 0) return [];
 
   const { matchedFeatures, allNamedFeatures } = await queryRouteFlowlines(route, points);
+  const waterbodyFeatures = await queryRouteWaterbodies(route, points);
 
-  return ([
+  const entries: Array<readonly [EndpointLabel, RiverAccessPoint | null]> = [
     ['putIn', putIn],
     ['takeOut', takeOut],
-  ] as const)
+    ...intermediateAccessPoints.map((point) => ['accessPoint', point] as const),
+  ];
+
+  return entries
     .filter((entry): entry is readonly [EndpointLabel, RiverAccessPoint] => entry[1] !== null)
     .map(([endpoint, point]) => {
       const matched = nearestFeature(point, matchedFeatures);
       const nearest = nearestFeature(point, allNamedFeatures);
       const matchedRiverName = featureName(matched?.feature);
       const nearestWaterwayName = featureName(nearest?.feature);
-      const severity = severityFor(matched?.distanceFeet ?? null, matchedRiverName, nearestWaterwayName);
+      const waterbody = nearestWaterbody(point, waterbodyFeatures);
+      const waterbodyName = featureName(waterbody?.feature);
+      const endpointOnWaterbody = (waterbody?.distanceFeet ?? Infinity) <= 150;
+      const flowlineSeverity = severityFor(route.id, matched?.distanceFeet ?? null, matchedRiverName, nearestWaterwayName, nearest?.distanceFeet ?? null, waterbody?.distanceFeet ?? null);
+      const noFlowlineAccessLimit = acceptedNoFlowlineAccessWaterbodyFeet[route.id];
+      const documentedNoFlowlineAccess = flowlineSeverity === 'unknown'
+        && noFlowlineAccessLimit !== undefined
+        && (waterbody?.distanceFeet ?? Infinity) <= noFlowlineAccessLimit;
+      const severity = endpointOnWaterbody && flowlineSeverity !== 'ok'
+        ? 'review'
+        : documentedNoFlowlineAccess ? 'review' : flowlineSeverity;
       const result: EndpointAudit = {
         routeId: route.id,
         routeName: route.name,
@@ -351,10 +702,19 @@ async function auditRoute(route: River): Promise<EndpointAudit[]> {
         distanceFeetToNearestWaterway: nearest?.distanceFeet ?? null,
         nearestWaterwayLatitude: nearest?.latitude ?? null,
         nearestWaterwayLongitude: nearest?.longitude ?? null,
+        nearestWaterbodyName: waterbodyName,
+        distanceFeetToNearestWaterbody: waterbody?.distanceFeet ?? null,
+        nearestWaterbodyLatitude: waterbody?.latitude ?? null,
+        nearestWaterbodyLongitude: waterbody?.longitude ?? null,
+        endpointOnWaterbody,
         severity,
         note: '',
       };
-      return { ...result, note: noteFor(result) };
+      return { ...result, note: endpointOnWaterbody
+        ? `Endpoint is within ${Math.round(waterbody?.distanceFeet ?? 0)} ft of NHD waterbody${waterbodyName ? ` ${waterbodyName}` : ''}; flowline distance is informational.`
+        : documentedNoFlowlineAccess
+          ? `Named access is documented, but NHD returned no matching flowline; endpoint is within ${Math.round(waterbody?.distanceFeet ?? 0)} ft of mapped water and needs visual review.`
+          : noteFor(result) };
     });
 }
 
@@ -388,8 +748,12 @@ async function run() {
   const report = {
     generatedAt: new Date().toISOString(),
     source: {
-      name: 'USGS National Hydrography Dataset Flowline - Large Scale',
-      url: 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6',
+      name: 'USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale',
+      urls: {
+        flowline: 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6',
+        area: 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9',
+        waterbody: 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12',
+      },
     },
     thresholdsFeet: {
       ok: 100,
