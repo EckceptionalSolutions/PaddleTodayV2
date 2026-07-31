@@ -1,0 +1,37 @@
+[
+  {
+    "routeId": "shell-rock-river-heery-woods-renning",
+    "endpoint": "takeOut",
+    "endpointName": "Renning's Landing",
+    "latitude": 42.710246649139194,
+    "longitude": -92.57827877998353
+  },
+  {
+    "routeId": "shell-rock-river-renning-shell-rock",
+    "endpoint": "putIn",
+    "endpointName": "Renning's Landing",
+    "latitude": 42.751928352903406,
+    "longitude": -92.62538909912111
+  },
+  {
+    "routeId": "otter-tail-river-friberg-hwy-210",
+    "endpoint": "takeOut",
+    "endpointName": "Highway 210 public access",
+    "latitude": 46.2807577,
+    "longitude": -95.9809894
+  },
+  {
+    "routeId": "des-moines-river-highway-30-sportsman",
+    "endpoint": "takeOut",
+    "endpointName": "Sportsman Ramp / Old Hubby Bridge Access",
+    "latitude": 41.933296431373584,
+    "longitude": -93.88649404048921
+  },
+  {
+    "routeId": "cedar-river-riverwood-state-line",
+    "endpoint": "takeOut",
+    "endpointName": "State Line Road carry-in access",
+    "latitude": 43.49979131081386,
+    "longitude": -93.00158500671388
+  }
+]

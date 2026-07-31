@@ -1348,8 +1348,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "rennings-landing",
       "name": "Renning's Landing",
-      "latitude": 42.6996,
-      "longitude": -92.6487
+      "latitude": 42.75192835290341,
+      "longitude": -92.62538909912111
     },
     "takeOut": {
       "id": "shell-rock-recreation-area",
@@ -1381,8 +1381,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "rennings-landing",
         "name": "Renning's Landing",
-        "latitude": 42.6996,
-        "longitude": -92.6487,
+        "latitude": 42.75192835290341,
+        "longitude": -92.62538909912111,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Butler County put-in for the five-mile float to Shell Rock Recreation Area."
@@ -1408,8 +1408,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "rennings-landing",
       "name": "Renning's Landing",
-      "latitude": 42.6996,
-      "longitude": -92.6487
+      "latitude": 42.71024664913919,
+      "longitude": -92.57827877998353
     },
     "logistics": {
       "distanceLabel": "About 6 mi",
@@ -1444,8 +1444,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "rennings-landing",
         "name": "Renning's Landing",
-        "latitude": 42.6996,
-        "longitude": -92.6487,
+        "latitude": 42.71024664913919,
+        "longitude": -92.57827877998353,
         "mileFromStart": 6,
         "segmentKind": "creek",
         "note": "Butler County boat ramp and canoe access; downstream continuation starts here."
@@ -4638,8 +4638,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "sportsman-ramp-old-hubby",
       "name": "Sportsman Ramp / Old Hubby Bridge Access",
-      "latitude": 41.962,
-      "longitude": -93.838
+      "latitude": 41.93329643137358,
+      "longitude": -93.88649404048921
     },
     "logistics": {
       "distanceLabel": "About 11 mi",
@@ -4683,8 +4683,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "sportsman-ramp-old-hubby",
         "name": "Sportsman Ramp / Old Hubby Bridge Access",
-        "latitude": 41.962,
-        "longitude": -93.838,
+        "latitude": 41.93329643137358,
+        "longitude": -93.88649404048921,
         "mileFromStart": 11,
         "segmentKind": "creek",
         "note": "Default take-out for the full route; DNR says Sportsman is locally known as Old Hubby Bridge Access."

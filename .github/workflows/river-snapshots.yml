@@ -57,12 +57,18 @@ jobs:
           API_ORIGIN: ${{ vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
           CAPTURED_GENERATED_AT: ${{ steps.capture.outputs.generated_at }}
           CAPTURED_ROUTE_COUNT: ${{ steps.capture.outputs.route_count }}
+          CAPTURED_PROBE_SLUG: ${{ steps.capture.outputs.probe_slug }}
         run: |
           node --input-type=module <<'NODE'
           const apiOrigin = process.env.API_ORIGIN.replace(/\/$/, '');
           const capturedGeneratedAt = process.env.CAPTURED_GENERATED_AT || '';
           const capturedRouteCount = Number(process.env.CAPTURED_ROUTE_COUNT);
-          if (!Number.isFinite(Date.parse(capturedGeneratedAt)) || !Number.isInteger(capturedRouteCount)) {
+          const capturedProbeSlug = process.env.CAPTURED_PROBE_SLUG || '';
+          if (
+            !Number.isFinite(Date.parse(capturedGeneratedAt))
+            || !Number.isInteger(capturedRouteCount)
+            || !/^[a-z0-9-]+$/.test(capturedProbeSlug)
+          ) {
             throw new Error('Snapshot capture did not provide valid verification outputs.');
           }
           const headers = {
@@ -76,7 +82,7 @@ jobs:
             try {
               const cacheBuster = Date.now();
               const [detailResponse, summaryResponse, weekendResponse] = await Promise.all([
-                fetch(`${apiOrigin}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${cacheBuster}`, {
+                fetch(`${apiOrigin}/api/rivers/${capturedProbeSlug}.json?snapshot_check=${cacheBuster}`, {
                   headers,
                   signal: AbortSignal.timeout(30_000),
                 }),

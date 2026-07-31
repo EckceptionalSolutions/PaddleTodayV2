@@ -3687,8 +3687,8 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Short Butler County Shell Rock River float from Renning's Landing to Shell Rock Recreation Area, with county-managed boat/canoe access at both ends, a direct Shell Rock gauge, and a dam-aware take-out boundary.",
     "statusText": "Use the Shell Rock River at Shell Rock gauge. Treat 150 to 2,000 cfs as the guarded broader-corridor runnable range; below 150 cfs expect bony shallows, and above 2,000 cfs this short wooded reach is too pushy for a broad recommendation.",
-    "latitude": 42.6996,
-    "longitude": -92.6487,
+    "latitude": 42.75192835290341,
+    "longitude": -92.62538909912111,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -3818,7 +3818,7 @@ export const iowaRoutes: River[] = [
     "summary": "Missing Butler County Shell Rock connector from Heery Woods below the Clarksville dam corridor to Renning's Landing, using county access pages and the direct Shell Rock gauge.",
     "statusText": "Use the Shell Rock River at Shell Rock gauge. Treat 150 to 2,000 cfs as the guarded corridor range; launch only from a confirmed below-dam line at Heery Woods and avoid high or rising water.",
     "latitude": 42.7718,
-    "longitude": -92.6732,
+    "longitude": -92.67323,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [

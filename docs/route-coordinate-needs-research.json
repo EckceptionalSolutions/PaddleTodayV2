@@ -1,24 +1,8 @@
 {
-  "generatedAt": "2026-07-30T23:52:34.411Z",
+  "generatedAt": "2026-07-31T03:44:13.017Z",
   "status": "needs-research",
-  "count": 165,
+  "count": 161,
   "items": [
-    {
-      "routeId": "shell-rock-river-heery-woods-renning",
-      "endpoint": "takeOut",
-      "endpointName": "Renning's Landing",
-      "latitude": 42.6996,
-      "longitude": -92.6487,
-      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
-    },
-    {
-      "routeId": "shell-rock-river-renning-shell-rock",
-      "endpoint": "putIn",
-      "endpointName": "Renning's Landing",
-      "latitude": 42.6996,
-      "longitude": -92.6487,
-      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
-    },
     {
       "routeId": "cumberland-river-redbird-cumberland-falls",
       "endpoint": "accessPoint",
@@ -33,22 +17,6 @@
       "endpointName": "Highway 210 public access",
       "latitude": 46.2807577,
       "longitude": -95.9809894,
-      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
-    },
-    {
-      "routeId": "des-moines-river-highway-30-sportsman",
-      "endpoint": "takeOut",
-      "endpointName": "Sportsman Ramp / Old Hubby Bridge Access",
-      "latitude": 41.962,
-      "longitude": -93.838,
-      "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
-    },
-    {
-      "routeId": "cedar-river-riverwood-state-line",
-      "endpoint": "takeOut",
-      "endpointName": "State Line Road carry-in access",
-      "latitude": 43.5002,
-      "longitude": -92.9424,
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
@@ -372,16 +340,16 @@
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "boone-river-albright-tunnel-mill",
-      "endpoint": "takeOut",
+      "routeId": "boone-river-tunnel-mill-bells-mill",
+      "endpoint": "putIn",
       "endpointName": "Tunnel Mill Canoe Access",
       "latitude": 42.3537,
       "longitude": -93.8189,
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "boone-river-tunnel-mill-bells-mill",
-      "endpoint": "putIn",
+      "routeId": "boone-river-albright-tunnel-mill",
+      "endpoint": "takeOut",
       "endpointName": "Tunnel Mill Canoe Access",
       "latitude": 42.3537,
       "longitude": -93.8189,
@@ -420,16 +388,16 @@
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "loup-river-monroe-adm-access",
-      "endpoint": "putIn",
+      "routeId": "loup-river-george-syas-columbus",
+      "endpoint": "accessPoint",
       "endpointName": "Monroe county access south of Monroe",
       "latitude": 41.471508,
       "longitude": -97.602729,
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "loup-river-george-syas-columbus",
-      "endpoint": "accessPoint",
+      "routeId": "loup-river-monroe-adm-access",
+      "endpoint": "putIn",
       "endpointName": "Monroe county access south of Monroe",
       "latitude": 41.471508,
       "longitude": -97.602729,
@@ -460,16 +428,16 @@
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "susquehanna-river-laceyville-west-falls",
-      "endpoint": "putIn",
+      "routeId": "susquehanna-river-towanda-laceyville",
+      "endpoint": "takeOut",
       "endpointName": "Laceyville Borough access",
       "latitude": 41.648889,
       "longitude": -76.161111,
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "susquehanna-river-towanda-laceyville",
-      "endpoint": "takeOut",
+      "routeId": "susquehanna-river-laceyville-west-falls",
+      "endpoint": "putIn",
       "endpointName": "Laceyville Borough access",
       "latitude": 41.648889,
       "longitude": -76.161111,
@@ -924,16 +892,16 @@
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "susquehanna-river-sayre-towanda",
-      "endpoint": "accessPoint",
+      "routeId": "susquehanna-river-hornbrook-wysox-township-park",
+      "endpoint": "putIn",
       "endpointName": "Larnard Hornbrook Park ramp",
       "latitude": 41.809444,
       "longitude": -76.486111,
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "susquehanna-river-hornbrook-wysox-township-park",
-      "endpoint": "putIn",
+      "routeId": "susquehanna-river-sayre-towanda",
+      "endpoint": "accessPoint",
       "endpointName": "Larnard Hornbrook Park ramp",
       "latitude": 41.809444,
       "longitude": -76.486111,
@@ -1172,7 +1140,7 @@
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "susquehanna-river-sayre-wysox-township-park",
+      "routeId": "susquehanna-river-hornbrook-wysox-township-park",
       "endpoint": "takeOut",
       "endpointName": "Wysox Township Park access",
       "latitude": 41.770833,
@@ -1180,7 +1148,7 @@
       "reason": "Coordinate remains unresolved after automated waterway and polygon checks; verify visually and against an authoritative access source before changing it."
     },
     {
-      "routeId": "susquehanna-river-hornbrook-wysox-township-park",
+      "routeId": "susquehanna-river-sayre-wysox-township-park",
       "endpoint": "takeOut",
       "endpointName": "Wysox Township Park access",
       "latitude": 41.770833,

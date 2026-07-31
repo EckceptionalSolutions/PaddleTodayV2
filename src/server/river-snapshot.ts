@@ -14,14 +14,17 @@ async function main() {
   assertSnapshotQuality(results);
   assertUpstreamHealth();
   const captured = await captureRiverSnapshots({ results, writeConcurrency });
+  const probeSlug = results[0].river.slug;
 
   if (process.env.RIVER_SNAPSHOT_CONTAINER_SAS_URL?.trim() && captured.storage !== 'blob') {
     throw new Error('RIVER_SNAPSHOT_CONTAINER_SAS_URL is configured, but snapshots were not written to Blob Storage.');
   }
 
-  const probe = await getStoredRiverDetailSnapshot('rice-creek-peltier-to-long-lake');
+  const probe = await getStoredRiverDetailSnapshot(probeSlug);
   if (!probe || probe.generatedAt !== captured.generatedAt) {
-    throw new Error('Snapshot write verification failed: the Rice Creek detail blob was not readable from the configured storage target.');
+    throw new Error(
+      `Snapshot write verification failed: the ${probeSlug} detail blob did not match the snapshot written by this run.`,
+    );
   }
 
   console.log(
@@ -31,7 +34,7 @@ async function main() {
   if (process.env.GITHUB_OUTPUT) {
     appendFileSync(
       process.env.GITHUB_OUTPUT,
-      `generated_at=${captured.generatedAt}\nroute_count=${captured.routeCount}\n`,
+      `generated_at=${captured.generatedAt}\nroute_count=${captured.routeCount}\nprobe_slug=${probeSlug}\n`,
     );
   }
 }

@@ -9866,8 +9866,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "cedar-river-state-line-road",
       "name": "State Line Road carry-in access",
-      "latitude": 43.5002,
-      "longitude": -92.9424
+      "latitude": 43.49979131081386,
+      "longitude": -93.00158500671388
     },
     "logistics": {
       "distanceLabel": "11.8 mi",
@@ -9910,8 +9910,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "cedar-river-state-line-road",
         "name": "State Line Road carry-in access",
-        "latitude": 43.5002,
-        "longitude": -92.9424,
+        "latitude": 43.49979131081386,
+        "longitude": -93.00158500671388,
         "mileFromStart": 11.8,
         "segmentKind": "creek",
         "note": "Official DNR take-out at river mile 0, river right, with no parking at the access."
