@@ -1,9 +1,9 @@
 # Route corridor migration inventory
 
-Generated 2026-08-01T18:11:14.655Z.
+Generated 2026-08-01T19:31:47.616Z.
 
-- Defined corridors: 19
-- Routes covered by a corridor definition: 119
+- Defined corridors: 20
+- Routes covered by a corridor definition: 122
 - Remaining multi-route families: 107
 
 ## Defined corridors
@@ -15,7 +15,8 @@ Generated 2026-08-01T18:11:14.655Z.
 | mn-pomme-de-terre-lower | Lower Pomme de Terre access corridor | verified | 2 | 2 |
 | mn-mississippi-royalton-sartell | Mississippi Royalton-to-Sartell access corridor | verified | 2 | 3 |
 | mn-big-fork-lower | Lower Big Fork River condition family | condition-family | 3 | 0 |
-| mn-vermilion-condition-family | Vermilion River condition family | condition-family | 2 | 0 |
+| mn-vermilion-condition-family | Vermilion River condition family | condition-family | 3 | 0 |
+| mn-devil-track-upper-lower | Devil Track upper-to-lower corridor | verified | 2 | 0 |
 | wi-chippewa-upper | Upper Chippewa County D-to-Highway 8 corridor | verified | 3 | 2 |
 | ia-turkey-elkader-garber | Turkey River Elkader-to-Garber corridor | verified | 3 | 2 |
 | ia-north-fork-maquoketa-cascade-caven | North Fork Maquoketa Cascade-to-Caven corridor | verified | 1 | 3 |

@@ -32613,5 +32613,153 @@ export const minnesotaRoutes: River[] = [
       { "label": "Minnesota DNR Judge C. R. Magney park map", "url": "https://files.dnr.state.mn.us/maps/state_parks/spk00193.pdf", "provider": "mn_dnr" },
       { "label": "Minnesota DNR Judge C. R. Magney virtual tour", "url": "https://www.dnr.state.mn.us/state_parks/virtual_tour/judge_cr_magney/dialup.html", "provider": "mn_dnr" }
     ]
+  },
+  {
+    "id": "devil-track-river-lake-maple-hill",
+    "slug": "devil-track-river-lake-maple-hill",
+    "name": "Devil Track River",
+    "reach": "Devil Track Lake Outlet to Maple Hill / County Road 60",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Short upper Devil Track run from the lake outlet to Maple Hill, with swift opening water, nearly continuous Class II and occasional Class III character, red-rock walls, and a mandatory take-out before the lower gorge.",
+    "statusText": "No live gauge exists on this reach. Use the Brule near Hovland station only as a regional North Shore runoff trigger, then confirm actual flow and wood at both Devil Track road crossings. Missing the County Road 60 exit leads directly toward Class IV-V canyon water.",
+    "latitude": 47.8161,
+    "longitude": -90.3568,
+    "gaugeSource": { "id": "mn-dnr-01022001-devil-track-regional", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland, MN 61 (regional runoff trigger only)", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 350,
+      "thresholdSource": { "label": "Derived regional runoff trigger from the AW Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "derived", "rainfallSensitivity": "high", "windSensitivity": 1, "rainSensitivity": 3, "tempSensitivity": 3,
+      "seasonMonths": [4,5,6,9,10],
+      "seasonNotes": "This flashy 31-square-mile headwater is normally a snowmelt or rain-event run. A regional Brule rise is only a cue to inspect Devil Track; localized rain and lake-outlet behavior can differ sharply.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the 3.1-mile upper reach Class II-III. Continuous current, strainers, cold water, and the non-negotiable exit before the lower gorge require competent moving-water paddlers.",
+      "confidenceNotes": "Reach geometry, endpoints, length, gradient, and difficulty come from American Whitewater. The hydrologic signal is deliberately low-confidence: USGS 04011500 is historical and currently has no instantaneous flow, while the live Brule reading is only a regional trigger. Never infer Devil Track flow from it without a visual check."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["whitewater","strainers","mandatory_takeout","fast_rise","cold_water","access_uncertain"], "safetyNotes": ["Verify the County Road 60 exit from land and set an unmistakable marker before launching. Continuing downstream enters the separate Class IV-V lower gorge.", "Expect new strainers and short-notice eddy or portage decisions throughout the continuous-gradient section.", "The Brule gauge is not a Devil Track gauge. Launch only after a same-day visual flow and access inspection."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Reach inventory", "value": "3.1 miles; Class II-III; 53 fpm", "note": "American Whitewater maps both road-crossing endpoints and warns that missing the finish leads into Class IV-V water.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2880/main" },
+      { "label": "Historical direct station", "value": "USGS 04011500; no current instantaneous series", "note": "USGS maintains the monitoring-location record, but its lack of a live discharge series prevents direct scoring.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04011500/" },
+      { "label": "Regional trigger limitation", "value": "Brule 500 cfs research cue only", "note": "The threshold is not transferred as a runnable Devil Track flow; it only identifies a regional runoff window requiring local verification.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Devil Track", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2880/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR regional Brule gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "USGS historical Devil Track station", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04011500/", "provider": "usgs" },
+      { "label": "Minnesota DNR Cook County access map", "url": "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "devil-track-river-maple-hill-lake-superior",
+    "slug": "devil-track-river-maple-hill-lake-superior",
+    "name": "Devil Track River",
+    "reach": "Maple Hill to Lake Superior / East Beach",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Expert lower Devil Track canyon expedition with steep slides, waterfalls, mandatory carries, committing walls, and a short Lake Superior paddle east to the mapped beach finish.",
+    "statusText": "Expert-only and ungauged. Treat a regional Brule rise as an inspection trigger, not a runnable signal. This route requires local knowledge, pre-walked exits, climbing/rope competence, and a safe Lake Superior landing forecast.",
+    "latitude": 47.8053,
+    "longitude": -90.3038,
+    "gaugeSource": { "id": "mn-dnr-01022001-devil-track-lower-regional", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland, MN 61 (regional runoff trigger only)", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 350,
+      "thresholdSource": { "label": "Derived regional runoff trigger from the AW Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "derived", "rainfallSensitivity": "high", "windSensitivity": 3, "rainSensitivity": 3, "tempSensitivity": 3,
+      "seasonMonths": [4,5,6,9,10],
+      "seasonNotes": "Flashy snowmelt and rain-event water only. Local rainfall, canyon flow, exit condition, and Lake Superior wind can invalidate the regional signal immediately.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates this Class II-V and describes vertical falls, steep slides, multiple mandatory portages, near-vertical canyon walls, and a Pitchfork Falls carry that may require ropes and rappelling knowledge.",
+      "confidenceNotes": "Route line, endpoints, major hazards, and difficulty are well documented by American Whitewater. Flow confidence is low because the direct Devil Track station is historical and the Brule is merely a regional index; access and the final beach landing require same-day confirmation."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["whitewater","mandatory_takeout","strainers","fast_rise","cold_water","remote","access_uncertain"], "safetyNotes": ["This is a Class V canyon expedition for expert creek boaters with local knowledge, rescue equipment, and climbing/rope competence—not a general whitewater outing.", "Identify the Pitchfork Falls exit approximately one-half mile upstream and pre-walk every mandatory carry. Continuing too far can make escape or portage extremely difficult.", "The finish requires roughly one-half mile on Lake Superior. Cancel for unsafe surf, fog, offshore wind, cold-water exposure, or an uncertain beach landing."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Reach and consequences", "value": "4.5 river miles; Class II-V", "note": "American Whitewater documents Triple Drop, Serpent's Slide, Boulder Falls, Pitchfork Falls, Ski Jump, Up Against the Wall, difficult carries, and the coastal finish.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2529/main" },
+      { "label": "Historical direct station", "value": "USGS 04011500 near the lower reach", "note": "The station record exists but does not currently return instantaneous discharge or stage, so it cannot support a live go/no-go call.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04011500/" },
+      { "label": "Marine finish", "value": "Short Lake Superior paddle to mapped beach", "note": "Use the NWS Duluth nearshore forecast and inspect the landing before committing to the canyon.", "sourceUrl": "https://www.weather.gov/dlh/marine" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater lower Devil Track", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2529/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR regional Brule gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "USGS historical Devil Track station", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04011500/", "provider": "usgs" },
+      { "label": "NWS Duluth marine forecasts", "url": "https://www.weather.gov/dlh/marine", "provider": "manual" },
+      { "label": "Minnesota Lake Superior Water Trail", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "cascade-river-grade-cascade-road",
+    "slug": "cascade-river-grade-cascade-road",
+    "name": "Cascade River",
+    "reach": "The Grade / Forest Road 153 to Cascade River Road / Forest Road 157",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Remote upper Cascade route with ponded headwater sections, a major early slide, gentler forest mileage, and an optional midpoint exit near Cascade River Campground.",
+    "statusText": "Ungauged and lightly documented. The Brule station is only a regional runoff trigger. Inspect the first major drop, both road accesses, wood, and actual flow before treating this Class II-IV route as runnable.",
+    "latitude": 47.862,
+    "longitude": -90.5578,
+    "gaugeSource": { "id": "mn-dnr-01022001-cascade-regional", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland, MN 61 (regional runoff trigger only)", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 350,
+      "thresholdSource": { "label": "Derived regional runoff trigger from the AW Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "derived", "rainfallSensitivity": "high", "windSensitivity": 1, "rainSensitivity": 3, "tempSensitivity": 3,
+      "seasonMonths": [4,5,6,9,10],
+      "seasonNotes": "Snowmelt and rain-event route. USGS 04011990 records peaks and field measurements but no continuous current flow; the live Brule reading can only trigger a local inspection.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater lists Class II-IV but explicitly calls some ratings conjectural. A dog-legged drop of roughly 20 feet appears within the first mile and may be Class IV+; scout or portage from shore.",
+      "confidenceNotes": "Endpoint coordinates and mapped geometry are strong, and USGS confirms an 87.6-square-mile station at the finish. Actual difficulty and flow thresholds have lower confidence because American Whitewater reports no trip reports and labels feature ratings conjectural."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["whitewater","strainers","fast_rise","cold_water","remote","access_uncertain"], "safetyNotes": ["Scout the first downstream gradient from land. Its mapped 20-foot dog-leg may be Class IV+ and the published rating remains provisional.", "Treat all feature ratings as preliminary, expect wood and pond-to-drop transitions, and use the Cascade River Campground vicinity only after confirming legal river access.", "The Brule gauge does not measure Cascade flow. A same-day inspection at Forest Roads 153 and 157 is mandatory."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Reach inventory", "value": "6.4 miles; provisional Class II-IV", "note": "American Whitewater maps the road endpoints, major first drop, campground midpoint, and route geometry while clearly flagging uncertain ratings.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10767/main" },
+      { "label": "Historical station", "value": "USGS 04011990 at Forest Road 45 / route finish", "note": "The station has peak-flow and field-measurement records but no continuous live series; drainage area is 87.6 square miles.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04011990/" },
+      { "label": "Public-land context", "value": "Superior National Forest road corridor", "note": "Road, parking, fire, and closure conditions must be checked with the Forest Service before staging the shuttle.", "sourceUrl": "https://www.fs.usda.gov/r09/superior" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Cascade", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10767/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR regional Brule gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "USGS Cascade River station 04011990", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04011990/", "provider": "usgs" },
+      { "label": "Superior National Forest", "url": "https://www.fs.usda.gov/r09/superior", "provider": "manual" }
+    ]
+  },
+  {
+    "id": "lake-superior-cascade-grand-marais",
+    "slug": "lake-superior-cascade-grand-marais",
+    "name": "Lake Superior",
+    "reach": "Cascade River State Park to Grand Marais Harbor",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "recreational",
+    "summary": "Official 9.6-mile Lake Superior State Water Trail trip from Cascade River State Park past a reservable kayak campsite, Butterwort Cliffs, Cut Face Creek, and Fall River to protected Grand Marais Harbor.",
+    "statusText": "This is a sea-kayaking route, not a river-score route. The historical Cascade mouth station supplies no live paddling signal. Use the NWS LSZ141 nearshore forecast, current water temperature, fog, surf, and landing conditions; calm water can become life-threatening within minutes.",
+    "latitude": 47.7066667,
+    "longitude": -90.52375,
+    "gaugeSource": { "id": "usgs-04012000-historical-coastal", "provider": "usgs", "siteId": "04012000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Cascade River at mouth (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04012000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04012000/" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
+      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
+      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
+      "seasonMonths": [6,7,8,9],
+      "seasonNotes": "Cold-water sea-kayaking season only. Terrestrial forecast data cannot replace the LSZ141 nearshore forecast, observed surf, water temperature, fog, and a conservative turnaround plan.",
+      "difficulty": "hard",
+      "difficultyNotes": "The shoreline mileage is nontechnical in calm weather, but 9.6 miles of 40-50F water, cliff-backed shore, fog, surf landings, limited exits, and rapidly building waves require equipped sea kayakers and practiced rescue skills.",
+      "confidenceNotes": "Route distance, public stops, coordinates, camping, and access limitations come directly from Minnesota DNR Lake Superior Water Trail Map 4. Live score confidence is intentionally low because the current product does not ingest NWS nearshore wave forecasts."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Use a seaworthy kayak with flotation, spray skirt, immersion protection, signaling and navigation gear, and practiced self- and assisted-rescue skills.", "Check NWS marine zone LSZ141 immediately before launch. Do not launch in a Small Craft Advisory, unsafe surf, dense fog, thunderstorms, or winds that can prevent landing.", "There are no established public landings for six miles before Cascade River, and several route stops prohibit overnight parking or landing. Use only the DNR-mapped sites and respect Butterwort Cliffs SNA."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Official route", "value": "Water trail miles 115.4 to 125.0", "note": "DNR Map 4 identifies Cascade River, kayak campsite #1, Butterwort Cliffs SNA, Cut Face Creek, Fall River campsite, and Grand Marais in sequence.", "sourceUrl": "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/LSWT%204%20GEO.pdf" },
+      { "label": "Protected finish", "value": "Grand Marais public safe-harbor access", "note": "Minnesota DNR documents two ramps, docks, paved parking, restrooms, and the harbor's public-access coordinates.", "sourceUrl": "https://www.dnr.state.mn.us/water_access/harbors/grand_marais.html" },
+      { "label": "Marine forecast", "value": "NWS Duluth LSZ141", "note": "The official nearshore product covers Grand Marais to Taconite Harbor and reports winds, waves, fog, storms, and advisories.", "sourceUrl": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH" }
+    ],
+    "sourceLinks": [
+      { "label": "Minnesota DNR Lake Superior Map 4", "url": "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/LSWT%204%20GEO.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Lake Superior segments", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Grand Marais harbor access", "url": "https://www.dnr.state.mn.us/water_access/harbors/grand_marais.html", "provider": "mn_dnr" },
+      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" }
+    ]
   }
 ];

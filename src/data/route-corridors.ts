@@ -71,6 +71,12 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     slugs: ['vermilion-river-dam-twomile', 'vermilion-river-shively-eightmile', 'vermilion-river-twomile-eightmile'],
   },
   {
+    corridorId: 'mn-devil-track-upper-lower',
+    label: 'Devil Track upper-to-lower corridor',
+    continuityStatus: 'verified',
+    slugs: ['devil-track-river-lake-maple-hill', 'devil-track-river-maple-hill-lake-superior'],
+  },
+  {
     corridorId: 'wi-chippewa-upper',
     label: 'Upper Chippewa County D-to-Highway 8 corridor',
     continuityStatus: 'verified',
