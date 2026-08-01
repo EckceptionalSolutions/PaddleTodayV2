@@ -72,13 +72,22 @@ const pigeonRiverMinnesotaPhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: public domain',
 };
 
+const upperPigeonRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  ...pigeonRiverMinnesotaPhoto,
+  id: 'upper-pigeon-river-downstream-high-falls-usfws-commons',
+  alt: 'High Falls pours through the Pigeon River gorge farther downstream at Grand Portage State Park.',
+  caption: 'Pigeon River landmark farther downstream from the upper reach',
+};
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
   'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
   'brule-river-lima-grade-northern-light': [bruleRiverMinnesotaPhoto],
+  'brule-river-sauna-bath-highway-61': [bruleRiverMinnesotaPhoto],
   'knife-river-county-102-knife-river-beach': [knifeRiverMinnesotaPhoto],
   'big-sucker-creek-county-33-lake-superior': [bigSuckerCreekMinnesotaPhoto],
   'pigeon-river-old-highway-61-highway-61': [pigeonRiverMinnesotaPhoto],
+  'pigeon-river-partridge-falls-old-highway-61': [upperPigeonRiverMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {
       id: 'west-washington-street-bridge-muncie-commons',

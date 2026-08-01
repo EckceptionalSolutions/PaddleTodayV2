@@ -32206,5 +32206,91 @@ export const minnesotaRoutes: River[] = [
       { "label": "Minnesota DNR Lake Superior Water Trail Map 5 guidance", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" },
       { "label": "Minnesota DNR Grand Portage State Park", "url": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00173", "provider": "mn_dnr" }
     ]
+  },
+  {
+    "id": "pigeon-river-partridge-falls-old-highway-61",
+    "slug": "pigeon-river-partridge-falls-old-highway-61",
+    "name": "Pigeon River",
+    "reach": "Partridge Falls to Old Highway 61 / MN 89",
+    "state": "Minnesota",
+    "region": "Grand Portage",
+    "routeType": "whitewater",
+    "summary": "Remote international-border reach beginning beside Partridge Falls, with a mandatory Cascades portage, long wilderness mileage, and a conditional finish at the former Old Highway 61 crossing.",
+    "statusText": "Use USGS 04010500 downstream only as a scaled proxy: American Whitewater lists 600-900 cfs as low runnable, 900-1,200 cfs as medium, 1,200-2,000 cfs as high, and above 2,000 cfs as above recommended.",
+    "latitude": 47.9922981262207,
+    "longitude": -89.8470993041992,
+    "gaugeSource": { "id": "usgs-04010500-pigeon-upper-proxy", "provider": "usgs", "siteId": "04010500", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Pigeon River at Middle Falls near Grand Portage, MN (downstream proxy)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D" },
+    "profile": {
+      "thresholdModel": "two-sided", "idealMin": 900, "idealMax": 1200, "tooLow": 600, "tooHigh": 2000,
+      "thresholdSource": { "label": "American Whitewater upper Pigeon proxy-flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/flow", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "medium", "seasonMonths": [5, 6, 7, 8, 9],
+      "seasonNotes": "The Middle Falls gauge is well downstream and receives a major tributary near the end of this reach. American Whitewater estimates upper flow may be roughly three-eighths of the gauge reading, so local inspection and a stable trend are required.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class II-III with a standout Class V+. Partridge Falls is immediately below the start and the Cascades require a roughly one-third-mile mandatory portage; later rapids are remote and incompletely documented.",
+      "confidenceNotes": "Confidence is good for the mapped reach, geometry, drainage relationship, provisional proxy bands, and major feature locations. Access and rapid confidence are limited: American Whitewater lacks first-hand detail for several features, while both endpoints lie on or beside Grand Portage Reservation land and require authorization."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced", "hazards": ["whitewater", "mandatory_takeout", "fast_rise", "cold_water", "remote", "access_uncertain", "private_banks"],
+      "safetyNotes": [
+        "Obtain Grand Portage Trust Lands and Natural Resources authorization for the exact start, finish, parking, and shuttle. A map pin or historical road crossing is not permission.",
+        "Inspect Partridge Falls and the Cascades portage from land before launch. The Cascades are a mandatory carry; do not enter blind water if the exit, trail, or downstream re-entry has not been verified.",
+        "The gauge is a downstream proxy and the river is the international boundary. Confirm local flow and wood, stay on the authorized side, and follow customs requirements before any Canadian landing."
+      ], "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      { "label": "Reach and difficulty", "value": "11.1 miles; Class II-III(V+)", "note": "American Whitewater maps the Partridge Falls start, Cascades portage, later rapids, Arrow River confluence, Tunnel, and Old Highway 61 finish.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/main" },
+      { "label": "Proxy flow model", "value": "600 / 900 / 1,200 / 2,000 cfs", "note": "American Whitewater publishes scaled bands against downstream USGS 04010500 and notes that flow in the upper reach may be roughly three-eighths of the gauge reading.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/flow" },
+      { "label": "Reservation authorization", "value": "Required before land use", "note": "Minnesota DNR says use of all Grand Portage Reservation land needs prior authorization from the Trust Lands and Natural Resources Office.", "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html" },
+      { "label": "Current gauge check", "value": "155 cfs at 2026-08-01 11:00 CDT", "note": "USGS and American Whitewater reported the downstream proxy far below the 600 cfs floor during qualification.", "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04010500&parameterCd=00060&siteStatus=all" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Pigeon", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater upper Pigeon flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/flow", "provider": "american_whitewater" },
+      { "label": "USGS Pigeon River downstream gauge", "url": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D", "provider": "usgs" },
+      { "label": "Minnesota DNR Grand Portage authorization guidance", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "brule-river-sauna-bath-highway-61",
+    "slug": "brule-river-sauna-bath-highway-61",
+    "name": "Brule River",
+    "reach": "Sauna Bath Rapid to Highway 61",
+    "state": "Minnesota",
+    "region": "Grand Marais",
+    "routeType": "whitewater",
+    "summary": "Extreme lower Brule expedition through the Judge C. R. Magney corridor, with linked Class IV-V rapids, multiple waterfalls, eddyless portage approaches, Devil's Kettle, and a Highway 61 finish.",
+    "statusText": "Use direct lower-river DNR station 01022001 at Highway 61. American Whitewater recommends more than 500 cfs for the upper Brule; treat that only as a minimum reference here, never as a go signal for the lower waterfall corridor.",
+    "latitude": 47.8822,
+    "longitude": -90.0747,
+    "gaugeSource": { "id": "mn-dnr-01022001-lower-brule", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Brule River near Hovland, MN 61", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 500,
+      "thresholdSource": { "label": "American Whitewater Brule minimum-flow guidance", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "high", "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "Spring snowmelt and major rain events create the practical window. The direct gauge is at the finish, but no supported upper cutoff exists; rapidly rising water, flooded portage exits, or pushy bridge current are automatic no-go conditions.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class II-IV+ with a standout Class V and warns that some portages are preceded by eddyless water. Sauna Bath, Second Island, Canyon Falls, Two Island, Devil's Kettle, Upper Falls, and Lower Falls demand expert reconnaissance and multiple carries.",
+      "confidenceNotes": "Confidence is strong for the same-reach DNR gauge, American Whitewater geometry, named waterfall sequence, mileage, and the official Judge C. R. Magney Highway 61 trail/parking corridor. Confidence is limited for standalone access at Sauna Bath and for safe high-water limits, so this card remains access-uncertain and minimum-only."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced", "hazards": ["whitewater", "mandatory_takeout", "fast_rise", "cold_water", "remote", "access_uncertain"],
+      "safetyNotes": [
+        "This is an expert expedition route, not a continuous runnable section. Pre-walk every mandatory exit and carry—especially Devil's Kettle—and run only with someone who knows the current portage sequence.",
+        "Never enter eddyless water above an unverified waterfall or portage. Sauna Bath, Canyon Falls, Devil's Kettle, Upper Falls, and any blind horizon require conservative shore-based inspection and carrying when uncertain.",
+        "The 500 cfs figure is minimum guidance for the upper river, not a lower-route safety band. Cancel on a rising hydrograph, unsafe trail or stair conditions, blocked exits, floodwater, or any level the team cannot confidently rescue in."
+      ], "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      { "label": "Reach and difficulty", "value": "5.8 miles; Class II-IV+(V)", "note": "American Whitewater maps the Sauna Bath start, lower waterfall and rapid sequence, Devil's Kettle, and Highway 61 finish while warning about eddyless portage approaches.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main" },
+      { "label": "Direct telemetry", "value": "DNR 01022001 at Highway 61", "note": "The Minnesota DNR cooperative station is at the downstream end of this reach and reports live discharge.", "sourceUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001" },
+      { "label": "Official park corridor", "value": "Judge C. R. Magney State Park", "note": "Minnesota DNR documents Highway 61 parking, the Brule River trail system, Upper Falls, Devil's Kettle, and steep trail and stair conditions.", "sourceUrl": "https://files.dnr.state.mn.us/maps/state_parks/spk00193.pdf" },
+      { "label": "Current gauge check", "value": "59.5 cfs at 2026-08-01 09:45 CDT", "note": "The live DNR reading was far below the 500 cfs minimum reference during qualification.", "sourceUrl": "https://webapps.dnr.state.mn.us/csg/api/v1/sites/01022001" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater lower Brule", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Brule CSG station", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Judge C. R. Magney park map", "url": "https://files.dnr.state.mn.us/maps/state_parks/spk00193.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Judge C. R. Magney virtual tour", "url": "https://www.dnr.state.mn.us/state_parks/virtual_tour/judge_cr_magney/dialup.html", "provider": "mn_dnr" }
+    ]
   }
 ];
