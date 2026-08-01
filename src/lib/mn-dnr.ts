@@ -3,6 +3,7 @@ import { readingSourceLabelForProvider } from './source-adapters';
 import type { GaugeReading, GaugeSample, GaugeUnit, RiverGaugeSource } from './types';
 
 const DNR_RIVER_LEVELS_URL = 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json';
+const DNR_CSG_SITE_URL = 'https://webapps.dnr.state.mn.us/csg/api/v1/sites';
 const DNR_RATING_LABELS: Record<number, string> = {
   0: 'Not interpreted',
   1: 'Very High',
@@ -35,6 +36,22 @@ type MnDnrSite = {
   rating?: number;
 };
 
+type MnDnrCsgSiteResponse = {
+  status?: string;
+  result?: {
+    id?: string;
+    data?: {
+      provisional?: {
+        latest_observations?: Array<{
+          variable?: number;
+          value?: number | string;
+          timestamp?: number;
+        }>;
+      };
+    };
+  };
+};
+
 export async function fetchMnDnrGaugeReading(source: RiverGaugeSource): Promise<GaugeReading | null> {
   const data = await fetchJson<MnDnrRiverLevelsResponse>(DNR_RIVER_LEVELS_URL, {
     timeoutMs: 10_000,
@@ -43,7 +60,7 @@ export async function fetchMnDnrGaugeReading(source: RiverGaugeSource): Promise<
 
   const site = findSite(data.sites ?? [], source);
   if (!site) {
-    return null;
+    return fetchMnDnrCsgGaugeReading(source);
   }
 
   const current = Number(site.reading);
@@ -80,6 +97,54 @@ export async function fetchMnDnrGaugeReading(source: RiverGaugeSource): Promise<
     waterTempSource: null,
     gaugeInterpretation: dnrRatingLabel(site.rating),
     gaugeInterpretationRanges: interpretationRanges,
+  };
+}
+
+async function fetchMnDnrCsgGaugeReading(source: RiverGaugeSource): Promise<GaugeReading | null> {
+  if (!/^\d{8}$/.test(source.siteId)) {
+    return null;
+  }
+
+  const data = await fetchJson<MnDnrCsgSiteResponse>(`${DNR_CSG_SITE_URL}/${source.siteId}`, {
+    timeoutMs: 10_000,
+    retries: 2,
+  });
+  if (data.status !== 'SUCCESS' || data.result?.id !== source.siteId) {
+    return null;
+  }
+
+  const wantedVariable = variableFromMetric(source.metric);
+  const observation = data.result.data?.provisional?.latest_observations?.find(
+    (candidate) => candidate.variable === wantedVariable,
+  );
+  const current = Number(observation?.value);
+  const timestamp = Number(observation?.timestamp);
+  if (!Number.isFinite(current) || !Number.isFinite(timestamp) || timestamp <= 0) {
+    return null;
+  }
+
+  const unit = unitFromVariable(wantedVariable);
+  if (!unit || unit !== source.unit) {
+    return null;
+  }
+
+  return {
+    sourceId: source.id,
+    observedAt: new Date(timestamp * 1000).toISOString(),
+    current,
+    unit,
+    trend: 'unknown',
+    delta24h: null,
+    changePercent24h: null,
+    recentSamples: [] satisfies GaugeSample[],
+    gaugeHeightNow: unit === 'ft' ? current : null,
+    dischargeNow: unit === 'cfs' ? current : null,
+    waterTempF: null,
+    waterTempObservedAt: null,
+    gaugeSource: readingSourceLabelForProvider(source.provider),
+    waterTempSource: null,
+    gaugeInterpretation: null,
+    gaugeInterpretationRanges: [],
   };
 }
 
