@@ -112,6 +112,30 @@ const grandMaraisHarborMinnesotaPhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: public domain',
 };
 
+const grandMaraisDepartureMinnesotaPhoto: RouteGalleryPhoto = {
+  ...grandMaraisHarborMinnesotaPhoto,
+  id: 'grand-marais-harbor-route-start-usfs-commons',
+  caption: 'Grand Marais harbor at the route start',
+};
+
+const northShoreCoastalMinnesotaPhoto: RouteGalleryPhoto = {
+  ...bigSuckerCreekMinnesotaPhoto,
+  id: 'north-shore-lake-superior-coastal-context-nara',
+  caption: 'Minnesota North Shore sea-kayaking context',
+};
+
+const bruleCoastalStartMinnesotaPhoto: RouteGalleryPhoto = {
+  ...bruleRiverMinnesotaPhoto,
+  id: 'brule-river-magney-coastal-start-commons',
+  caption: 'Brule River landmark at the Judge C. R. Magney route start',
+};
+
+const kadunceRegionalMinnesotaPhoto: RouteGalleryPhoto = {
+  ...bruleRiverMinnesotaPhoto,
+  id: 'kadunce-regional-north-shore-river-context-commons',
+  caption: 'Regional North Shore river character at Judge C. R. Magney State Park, east of Kadunce',
+};
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
   'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
@@ -125,6 +149,10 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'devil-track-river-maple-hill-lake-superior': [lowerDevilTrackMinnesotaPhoto],
   'cascade-river-grade-cascade-road': [cascadeRiverMinnesotaPhoto],
   'lake-superior-cascade-grand-marais': [grandMaraisHarborMinnesotaPhoto],
+  'lake-superior-grand-marais-kadunce': [grandMaraisDepartureMinnesotaPhoto],
+  'lake-superior-kadunce-judge-magney': [northShoreCoastalMinnesotaPhoto],
+  'lake-superior-judge-magney-hovland': [bruleCoastalStartMinnesotaPhoto],
+  'kadunce-river-sht-highway-61': [kadunceRegionalMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {
       id: 'west-washington-street-bridge-muncie-commons',

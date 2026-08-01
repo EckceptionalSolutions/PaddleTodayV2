@@ -9,10 +9,28 @@ const routeIds = [
   'devil-track-river-maple-hill-lake-superior',
   'cascade-river-grade-cascade-road',
   'lake-superior-cascade-grand-marais',
+  'lake-superior-grand-marais-kadunce',
+  'lake-superior-kadunce-judge-magney',
+  'lake-superior-judge-magney-hovland',
+  'kadunce-river-sht-highway-61',
+] as const;
+
+const whitewaterIds = [
+  'devil-track-river-lake-maple-hill',
+  'devil-track-river-maple-hill-lake-superior',
+  'cascade-river-grade-cascade-road',
+  'kadunce-river-sht-highway-61',
+] as const;
+
+const coastalIds = [
+  'lake-superior-cascade-grand-marais',
+  'lake-superior-grand-marais-kadunce',
+  'lake-superior-kadunce-judge-magney',
+  'lake-superior-judge-magney-hovland',
 ] as const;
 
 describe('Grand Marais route expansion', () => {
-  it('publishes all four routes with reviewed safety and logistics', () => {
+  it('publishes all eight routes with reviewed safety and logistics', () => {
     const routes = new Map(listRivers().map((route) => [route.slug, route]));
 
     for (const routeId of routeIds) {
@@ -31,8 +49,6 @@ describe('Grand Marais route expansion', () => {
 
   it('keeps the whitewater runs guarded and labels proxy flow honestly', () => {
     const routes = new Map(listRivers().map((route) => [route.slug, route]));
-    const whitewaterIds = routeIds.slice(0, 3);
-
     for (const routeId of whitewaterIds) {
       const route = routes.get(routeId);
       expect(route?.routeType).toBe('whitewater');
@@ -47,12 +63,14 @@ describe('Grand Marais route expansion', () => {
     expect(lowerDevilTrack?.profile.difficultyNotes).toMatch(/Class II-V/i);
   });
 
-  it('does not present the coastal route as river-gauge guidance', () => {
-    const route = listRivers().find((item) => item.slug === 'lake-superior-cascade-grand-marais');
-    expect(route?.routeType).toBe('recreational');
-    expect(route?.statusText).toMatch(/sea-kayaking route, not a river-score route/i);
-    expect(route?.gaugeSource.siteName).toMatch(/historical only; not a marine conditions source/i);
-    expect(route?.profile.thresholdSource.url).toContain('product.php?issuedby=DLH&product=NSH');
+  it('does not present coastal routes as river-gauge guidance', () => {
+    const routes = new Map(listRivers().map((route) => [route.slug, route]));
+    for (const routeId of coastalIds) {
+      const route = routes.get(routeId);
+      expect(route?.routeType).toBe('recreational');
+      expect(route?.gaugeSource.siteName).toMatch(/historical only; not a marine conditions source/i);
+      expect(route?.profile.thresholdSource.url).toContain('product.php?issuedby=DLH&product=NSH');
+    }
   });
 
   it('ships licensed photos and route-scoped canonical geometry', () => {

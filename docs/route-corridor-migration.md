@@ -1,9 +1,9 @@
 # Route corridor migration inventory
 
-Generated 2026-08-01T19:31:47.616Z.
+Generated 2026-08-01T19:53:18.675Z.
 
-- Defined corridors: 20
-- Routes covered by a corridor definition: 122
+- Defined corridors: 21
+- Routes covered by a corridor definition: 126
 - Remaining multi-route families: 107
 
 ## Defined corridors
@@ -17,6 +17,7 @@ Generated 2026-08-01T19:31:47.616Z.
 | mn-big-fork-lower | Lower Big Fork River condition family | condition-family | 3 | 0 |
 | mn-vermilion-condition-family | Vermilion River condition family | condition-family | 3 | 0 |
 | mn-devil-track-upper-lower | Devil Track upper-to-lower corridor | verified | 2 | 0 |
+| mn-lake-superior-cascade-hovland | Lake Superior Cascade-to-Hovland water-trail corridor | verified | 4 | 0 |
 | wi-chippewa-upper | Upper Chippewa County D-to-Highway 8 corridor | verified | 3 | 2 |
 | ia-turkey-elkader-garber | Turkey River Elkader-to-Garber corridor | verified | 3 | 2 |
 | ia-north-fork-maquoketa-cascade-caven | North Fork Maquoketa Cascade-to-Caven corridor | verified | 1 | 3 |
