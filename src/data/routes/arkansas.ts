@@ -2846,8 +2846,8 @@ export const arkansasRoutes: River[] = [
     "region": "Ozark Highlands",
     "summary": "Clear Ozark day float from AGFC-owned Rockhouse Access through the Kings River Preserve corridor to the private fee access at Trigger Gap. Use this as a conservative stage check, not a full ideal-range recommendation.",
     "statusText": "Use the Kings River near Berryville gauge. Around 3.2 ft is the local minimum float stage for Rockhouse to Trigger Gap; below that, expect shallow riffles and dragging. Rising or storm-fed water can change this private-bank reach quickly.",
-    "latitude": 36.269833,
-    "longitude": -93.664,
+    "latitude": 36.28193372205891,
+    "longitude": -93.6639968409015,
     "gaugeSource": {
       "id": "usgs-07050500",
       "provider": "usgs",
@@ -2928,9 +2928,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Coordinate anchors",
-        "value": "Rockhouse 36.269833, -93.664; Trigger Gap 36.314833, -93.6635",
-        "note": "Kings River Arkansas publishes degree-minute coordinates for the Rockhouse-to-Trigger-Gap route and the downstream Trigger-Gap-to-Hwy-62 route. Trigger Gap Outfitters corroborates the Trigger Gap access via CR 509 off Highway 221.",
-        "sourceUrl": "https://kingsriverarkansas.com/access-points/"
+        "value": "Rockhouse water entry 36.281934, -93.663997; Trigger Gap 36.314833, -93.6635",
+        "note": "AGFC and The Nature Conservancy establish the identity and public ownership of Rockhouse Access. A specialized launch inventory maps the gravel Rockhouse Boat Launch at the road-to-water terminus, which agrees with current aerial imagery and candidate-specific NHD hydrography. The older route-guide degree-minute Rockhouse coordinate lands in forest about 0.8 mile south and is not used for navigation.",
+        "sourceUrl": "https://naturalatlas.com/boat-launches/rockhouse-2143285"
       },
       {
         "label": "River character",
@@ -4539,8 +4539,8 @@ export const arkansasRoutes: River[] = [
     "routeType": "whitewater",
     "summary": "Popular middle Buffalo National River day from Tyler Bend to Gilbert, with Grinder's Ferry as an optional short take-out. NPS supports the route and the direct St. Joe gauge is live, but this is still rain-sensitive Ozark moving water with swift I-II current, wood, and high-water judgment.",
     "statusText": "Use the Buffalo River near St. Joe gauge. Around 120 cfs is the conservative low-water floor; below that, expect dragging and shortened float plans. Treat 2,000 cfs and higher as high or flood-stage water for casual paddlers.",
-    "latitude": 35.986715,
-    "longitude": -92.763903,
+    "latitude": 35.9894782,
+    "longitude": -92.766846,
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [
@@ -4690,10 +4690,10 @@ export const arkansasRoutes: River[] = [
     "state": "Arkansas",
     "region": "Ozark Highlands",
     "routeType": "whitewater",
-    "summary": "Short middle Buffalo National River float from Tyler Bend to Grinder's Ferry. NPS documents the exact 1.1-mile route and the direct St. Joe gauge is live, but even this mostly flat reach stays rain-sensitive Ozark moving water with swift current when levels come up.",
+    "summary": "Short middle Buffalo National River float from the currently available Upper Tyler Bend launch to Grinder's Ferry, about 1.7 river miles along the mapped channel. The direct St. Joe gauge is live, but even this mostly flat reach stays rain-sensitive Ozark moving water with swift current when levels come up.",
     "statusText": "Use the Buffalo River near St. Joe gauge. Around 120 cfs is the conservative low-water floor; below that, expect dragging and shortened plans. NPS says levels above 8,000 cfs at Grinder's Ferry are unsafe.",
-    "latitude": 35.986715,
-    "longitude": -92.763903,
+    "latitude": 35.9894782,
+    "longitude": -92.766846,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -4740,13 +4740,13 @@ export const arkansasRoutes: River[] = [
       "seasonNotes": "NPS says the middle Buffalo usually holds water longer than the upper river but still rises and falls with rainfall. This remains a same-day level-and-trend decision, not a guaranteed summer float.",
       "difficulty": "moderate",
       "difficultyNotes": "NPS calls this a mostly flat reach often used for tubing because of the short access spacing, but it is still free-flowing Buffalo current that can change quickly with rain. The route stays in the guarded Buffalo whitewater family so rising water, wood, and poor judgment are not hidden.",
-      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes the exact Tyler-Bend-to-Grinder's-Ferry route page, the access mileage chart, official Tyler Bend and Grinder's Ferry coordinate anchors, and the current Buffalo paddling safety page; direct USGS 07056000 near St. Joe exposed same-day values during review; and the adjoining Tyler-Bend-to-Gilbert route already uses a conservative 120 cfs minimum-only St. Joe model. Paddle Today keeps that same floor here and treats the NPS 8,000 cfs Grinder's Ferry unsafe level as a route caveat rather than a full ideal band."
+      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes the Tyler-Bend-to-Grinder's-Ferry route page, identifies the Upper Tyler Bend launch on its official area map, and currently says only that upper access is available; direct USGS 07056000 near St. Joe exposed same-day values during review; and the adjoining Tyler-Bend-to-Gilbert route already uses a conservative 120 cfs minimum-only St. Joe model. The current upper-launch route measures about 1.7 miles along the canonical Buffalo River trace, so Paddle Today does not reuse the older 1.1-mile access-chart value associated with the lower launch spacing."
     },
     "evidenceNotes": [
       {
         "label": "Official route shape",
-        "value": "Tyler Bend to Grinder's Ferry, about 1.1 miles",
-        "note": "NPS publishes Tyler Bend to Grinder's Ferry as a 1-mile float, and the Buffalo River mileage chart lists 1.1 miles between those access points. Paddle Today uses the 1.1-mile chart value so the route length stays consistent with the mapped access spacing.",
+        "value": "Upper Tyler Bend to Grinder's Ferry, about 1.7 mapped river miles",
+        "note": "NPS publishes the short Tyler Bend to Grinder's Ferry trip and its older access chart lists 1.1 miles. Because the current NPS operating plan says only the upstream Upper Tyler Bend launch is available, Paddle Today measures the present route along the corrected canonical river trace instead of applying the shorter lower-launch spacing.",
         "sourceUrl": "https://www.nps.gov/thingstodo/paddling-tyler-bend-to-grinder-s-ferry.htm"
       },
       {
@@ -4769,9 +4769,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Tyler Bend 35.986715, -92.763903; Grinder's Ferry 35.986017, -92.743686",
-        "note": "NPS publishes Tyler Bend Campground and Grinders Ferry primitive camping GPS coordinates, which serve as practical launch and take-out anchors.",
-        "sourceUrl": "https://www.nps.gov/buff/planyourvisit/camping.htm"
+        "value": "Upper Tyler Bend water entry 35.9894782, -92.766846; Grinder's Ferry 35.986017, -92.743686",
+        "note": "The Upper Tyler Bend water entry is aligned from the official NPS area-map launch symbol to the uniquely shaped upstream gravel slipway and independently checked against current imagery and fresh NHD hydrography. The separate NPS parking/facility anchor remains in the canonical access registry.",
+        "sourceUrl": "https://www.nps.gov/buff/learn/management/appendix.htm"
       },
       {
         "label": "Route character",

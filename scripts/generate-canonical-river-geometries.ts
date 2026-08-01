@@ -1,7 +1,8 @@
 import { mkdir, readFile, readdir, rename, unlink, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
-import { listRivers } from '../src/lib/rivers';
+import { endpointSnappedRiverGeometry, endpointSnappedRiverNetwork, stitchRiverLines } from '@paddletoday/geo';
+import { listAllRiversForAudit, listRivers } from '../src/lib/rivers';
 import type { River } from '../src/lib/types';
 
 type Point = [number, number];
@@ -10,6 +11,8 @@ interface NhdFeature {
   attributes?: {
     gnis_name?: string | null;
     GNIS_NAME?: string | null;
+    ftype?: number | null;
+    FTYPE?: number | null;
   };
   geometry?: { paths?: number[][][] };
 }
@@ -26,6 +29,8 @@ interface CanonicalFeature {
     name: string;
     state: string;
     source: 'USGS NHD Flowline';
+    traceMode: 'network-traced' | 'named-fallback';
+    endpointSnapMaxFeet: number | null;
   };
   geometry: {
     type: 'MultiLineString';
@@ -34,10 +39,16 @@ interface CanonicalFeature {
 }
 
 const root = process.cwd();
+const reviewMode = process.argv.includes('--review-all');
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-river-audit');
-const outputPath = path.join(root, 'public', 'data', 'canonical-river-geometries.json');
-const stateOutputDir = path.join(root, 'public', 'data', 'canonical-river-geometries', 'states');
-const routeOutputDir = path.join(root, 'public', 'data', 'canonical-river-geometries', 'routes');
+const geometryOutputRoot = reviewMode
+  ? path.join(root, 'node_modules', '.cache', 'route-coordinate-review-geometries')
+  : path.join(root, 'public', 'data', 'canonical-river-geometries');
+const outputPath = reviewMode
+  ? path.join(geometryOutputRoot, 'manifest.json')
+  : path.join(root, 'public', 'data', 'canonical-river-geometries.json');
+const stateOutputDir = path.join(geometryOutputRoot, 'states');
+const routeOutputDir = path.join(geometryOutputRoot, 'routes');
 
 function stateSlug(value: string) {
   return value
@@ -181,21 +192,23 @@ function queryBounds(route: River) {
   };
 }
 
-async function loadNhdFeatures(route: River) {
-  const files = (await readdir(cacheDir)).filter(
-    (file) => file.startsWith(`${route.id}__`) && file.endsWith('__all-named.json'),
-  );
-  const file = files[0];
-  if (file) {
-    const response = JSON.parse(await readFile(path.join(cacheDir, file), 'utf8')) as NhdResponse;
+function featureType(feature: NhdFeature) {
+  return Number(feature.attributes?.ftype ?? feature.attributes?.FTYPE);
+}
+
+async function fetchNhdFeatures(route: River, bounds: NonNullable<ReturnType<typeof routeBounds>>, where: string, cacheSuffix: string) {
+  const bbox = `${bounds.minLon.toFixed(4)}-${bounds.minLat.toFixed(4)}-${bounds.maxLon.toFixed(4)}-${bounds.maxLat.toFixed(4)}`;
+  const cachePath = path.join(cacheDir, `${route.id}__${bbox}__${cacheSuffix}.json`);
+  try {
+    const response = JSON.parse(await readFile(cachePath, 'utf8')) as NhdResponse;
     return response.features ?? [];
+  } catch {
+    // Cache miss.
   }
 
-  const bounds = queryBounds(route);
-  if (!bounds) return [];
   const params = new URLSearchParams({
     f: 'json',
-    where: 'GNIS_NAME IS NOT NULL',
+    where,
     geometry: `${bounds.minLon},${bounds.minLat},${bounds.maxLon},${bounds.maxLat}`,
     geometryType: 'esriGeometryEnvelope',
     inSR: '4326',
@@ -210,13 +223,78 @@ async function loadNhdFeatures(route: River) {
   if (!response.ok) return [];
   const text = await response.text();
   await mkdir(cacheDir, { recursive: true });
-  await writeFile(path.join(cacheDir, `${route.id}__generated__all-named.json`), text, 'utf8');
+  await writeFile(cachePath, text, 'utf8');
   const parsed = JSON.parse(text) as NhdResponse;
   return parsed.features ?? [];
 }
 
+async function loadNhdFeatures(route: River) {
+  const files = (await readdir(cacheDir)).filter(
+    (file) => file.startsWith(`${route.id}__`) && file.endsWith('__all-named.json'),
+  );
+  const file = files[0];
+  let namedFeatures: NhdFeature[] = [];
+  if (file) {
+    const response = JSON.parse(await readFile(path.join(cacheDir, file), 'utf8')) as NhdResponse;
+    namedFeatures = response.features ?? [];
+  }
+
+  const broadBounds = queryBounds(route);
+  if (!broadBounds) return namedFeatures;
+  if (namedFeatures.length === 0) {
+    namedFeatures = await fetchNhdFeatures(route, broadBounds, 'GNIS_NAME IS NOT NULL', 'generated-all-named');
+  }
+  return namedFeatures;
+}
+
+async function loadNhdNetworkFeatures(route: River) {
+  const corridorBounds = routeBounds(route);
+  if (!corridorBounds) return [];
+  // Fetch the connected hydrography network in the tight route corridor.
+  // StreamRiver is preferred by edge cost; ArtificialPath is retained because
+  // NHD uses it to carry flow through wide river/waterbody polygons.
+  return fetchNhdFeatures(
+    route,
+    corridorBounds,
+    'FTYPE IN (334,336,460,558)',
+    'route-network-v1',
+  );
+}
+
+function pointDistanceMiles(left: Point, right: Point) {
+  const latitudeScale = Math.cos(((left[1] + right[1]) * Math.PI) / 360);
+  return Math.hypot((left[0] - right[0]) * latitudeScale, left[1] - right[1]) * 69;
+}
+
+function networkCostMultiplier(type: number) {
+  if (type === 460) return 1;
+  if (type === 334) return 1.05;
+  if (type === 558) return 1.35;
+  if (type === 336) return 4;
+  return 10;
+}
+
+function traceEndpointErrors(coordinates: Point[], route: River) {
+  if (!route.putIn || !route.takeOut || coordinates.length < 2) {
+    return { startFeet: Infinity, endFeet: Infinity };
+  }
+  const first = coordinates[0];
+  const last = coordinates.at(-1)!;
+  const putIn: Point = [route.putIn.longitude, route.putIn.latitude];
+  const takeOut: Point = [route.takeOut.longitude, route.takeOut.latitude];
+  const direct = {
+    startFeet: pointDistanceMiles(first, putIn) * 5280,
+    endFeet: pointDistanceMiles(last, takeOut) * 5280,
+  };
+  const reversed = {
+    startFeet: pointDistanceMiles(last, putIn) * 5280,
+    endFeet: pointDistanceMiles(first, takeOut) * 5280,
+  };
+  return direct.startFeet + direct.endFeet <= reversed.startFeet + reversed.endFeet ? direct : reversed;
+}
+
 async function main() {
-  const routes = listRivers();
+  const routes = reviewMode ? listAllRiversForAudit() : listRivers();
   const sourceFingerprint = routeDataFingerprint(routes);
   const features: CanonicalFeature[] = [];
   let matchedRoutes = 0;
@@ -228,19 +306,51 @@ async function main() {
       nextRouteIndex += 1;
     const bounds = routeBounds(route);
     if (!bounds || !route.riverId) continue;
-    const nhdFeatures = await loadNhdFeatures(route);
-    const lines = dedupeLines(
-      nhdFeatures
+    const namedFeatures = await loadNhdFeatures(route);
+    const namedLines = dedupeLines(
+      namedFeatures
         .filter((feature) => namesMatch(route.name, feature.attributes?.gnis_name ?? feature.attributes?.GNIS_NAME))
-        // NHD FType 460 is an Artificial Path (canal/diversion conveyance),
-        // not the natural river channel. Do not draw it as the route's river
-        // highlight; otherwise diversion channels can visually replace the
-        // main stem at dams and bridge crossings.
-        .filter((feature) => Number(feature.attributes?.ftype ?? feature.attributes?.FTYPE) !== 460)
+        // USGS defines FType 558 as ArtificialPath and FType 460 as the actual
+        // StreamRiver. Prefer a connected natural route when it reaches both
+        // endpoints; named artificial paths remain available only in this
+        // fallback for wide areal rivers and lakes without a visible channel.
         .flatMap((feature) => (feature.geometry?.paths ?? []).map((pathPoints) => clipPath(pathPoints, bounds)))
         .filter((line): line is Point[] => Boolean(line)),
     );
+    const namedTrace = route.putIn && route.takeOut
+      ? endpointSnappedRiverGeometry(stitchRiverLines(namedLines), [route.putIn, route.takeOut])
+      : null;
+    const namedErrors = traceEndpointErrors(namedTrace?.coordinates ?? [], route);
+    let trustedNetworkTrace: ReturnType<typeof endpointSnappedRiverNetwork> = null;
+    if (namedErrors.startFeet > 500 || namedErrors.endFeet > 500) {
+      const networkFeatures = await loadNhdNetworkFeatures(route);
+      const networkLines = networkFeatures.flatMap((feature) =>
+        (feature.geometry?.paths ?? [])
+          .map((pathPoints) => clipPath(pathPoints, bounds))
+          .filter((line): line is Point[] => Boolean(line))
+          .map((coordinates) => ({
+            coordinates,
+            costMultiplier: networkCostMultiplier(featureType(feature)),
+            name: feature.attributes?.gnis_name ?? feature.attributes?.GNIS_NAME ?? null,
+          })),
+      );
+      const networkTrace = route.putIn && route.takeOut
+        ? endpointSnappedRiverNetwork(
+            networkLines,
+            [route.putIn, route.takeOut],
+            { maxSnapDistanceMiles: 500 / 5280 },
+          )
+        : null;
+      const networkIncludesNamedRoute = networkTrace?.sourceLineIndexes.some((lineIndex) =>
+        namesMatch(route.name, networkLines[lineIndex]?.name),
+      ) ?? false;
+      trustedNetworkTrace = networkTrace && networkIncludesNamedRoute ? networkTrace : null;
+    }
+    const lines = trustedNetworkTrace ? [trustedNetworkTrace.coordinates] : namedLines;
     if (lines.length === 0) continue;
+    const publishedErrors = trustedNetworkTrace
+      ? traceEndpointErrors(trustedNetworkTrace.coordinates, route)
+      : namedErrors;
     matchedRoutes += 1;
     features.push({
       type: 'Feature',
@@ -250,6 +360,10 @@ async function main() {
         name: route.name,
         state: route.state,
         source: 'USGS NHD Flowline',
+        traceMode: trustedNetworkTrace ? 'network-traced' : 'named-fallback',
+        endpointSnapMaxFeet: Number.isFinite(Math.max(publishedErrors.startFeet, publishedErrors.endFeet))
+          ? Math.round(Math.max(publishedErrors.startFeet, publishedErrors.endFeet))
+          : null,
       },
       geometry: { type: 'MultiLineString', coordinates: lines },
     });
@@ -263,6 +377,8 @@ async function main() {
   const metadata = {
     routeCount: routes.length,
     matchedRouteCount: features.length,
+    networkTracedRouteCount: features.filter((feature) => feature.properties.traceMode === 'network-traced').length,
+    namedFallbackRouteCount: features.filter((feature) => feature.properties.traceMode === 'named-fallback').length,
     unmatchedRouteIds,
     routeDataFingerprint: sourceFingerprint,
   };

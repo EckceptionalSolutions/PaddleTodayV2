@@ -1127,9 +1127,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -93.353557
     },
     "takeOut": {
-      "name": "Rum River Central Regional Park access",
-      "latitude": 45.2961635,
-      "longitude": -93.3860982
+      "name": "Rum River Central Regional Park north boat launch",
+      "latitude": 45.2965261,
+      "longitude": -93.3770154
     },
     "logistics": {
       "distanceLabel": "9.4 mi",
@@ -1137,9 +1137,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Standard two-car shuttle is simplest. Both park pages currently list 5:00 a.m. to 10:00 p.m. hours, and Central Regional Park lists a vehicle-entry permit, so confirm current parking rules before staging cars.",
       "permits": "No route-specific paddling permit is known. Central Regional Park currently lists a vehicle-entry permit; follow posted county park, access, and boating rules at both landings.",
       "camping": "Both parks list free first-come, first-served canoe-in campsites. An overnight vehicle requires a special-use request submitted to Anoka County Parks 14 days in advance, so arrange parking separately from the normal day shuttle.",
-      "summary": "Launch at Rum River North County Park and finish at Rum River Central Regional Park for a shorter lower-Rum county-corridor day. The official St. Francis gauge sits right on this corridor, so the level call is cleaner than on many metro-adjacent rivers.",
+      "summary": "Launch at Rum River North County Park and finish at the north boat launch in Rum River Central Regional Park for a shorter lower-Rum county-corridor day. The official St. Francis gauge sits right on this corridor, so the level call is cleaner than on many metro-adjacent rivers.",
       "accessCaveats": [
-        "Use the named public launches at North County Park and Central Regional Park; much of the shoreland between them is private, and DNR directs paddlers to stop only at designated sites.",
+        "Use the named public launches at North County Park and the Central Regional Park north boat launch at river mile 13.8; the separate south access is about three river miles farther downstream.",
         "Park hours, vehicle-entry rules, and overnight-parking requirements can change; verify both county park pages before leaving shuttle vehicles."
       ],
       "watchFor": [
@@ -1242,8 +1242,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-eagle-miller-landing": {
     "putIn": {
       "name": "Eagle Park carry-in access",
-      "latitude": 45.4754595,
-      "longitude": -94.3502588
+      "latitude": 45.47450114427178,
+      "longitude": -94.34028821222527
     },
     "takeOut": {
       "name": "Miller Landing carry-in access",
@@ -1271,8 +1271,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-eagle-knights-of-columbus": {
     "putIn": {
       "name": "Eagle Park carry-in access",
-      "latitude": 45.4754595,
-      "longitude": -94.3502588
+      "latitude": 45.47450114427178,
+      "longitude": -94.34028821222527
     },
     "takeOut": {
       "name": "Knights of Columbus Park carry-in access",
@@ -1302,8 +1302,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-eagle-heims-mill": {
     "putIn": {
       "name": "Eagle Park carry-in access",
-      "latitude": 45.4754595,
-      "longitude": -94.3502588
+      "latitude": 45.47450114427178,
+      "longitude": -94.34028821222527
     },
     "takeOut": {
       "name": "Heims Mill Canoe Access",
@@ -1338,8 +1338,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Rockville County Park carry-in access",
-      "latitude": 45.4755294,
-      "longitude": -94.3507888
+      "latitude": 45.47296191567727,
+      "longitude": -94.34969582622075
     },
     "logistics": {
       "distanceLabel": "5.0 mi",
@@ -1368,8 +1368,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Eagle Park carry-in access",
-      "latitude": 45.4754595,
-      "longitude": -94.3502588
+      "latitude": 45.47450114427178,
+      "longitude": -94.34028821222527
     },
     "logistics": {
       "distanceLabel": "5.6 mi",
@@ -1457,8 +1457,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-rockville-miller-landing": {
     "putIn": {
       "name": "Rockville County Park carry-in access",
-      "latitude": 45.4755294,
-      "longitude": -94.3507888
+      "latitude": 45.47296191567727,
+      "longitude": -94.34969582622075
     },
     "takeOut": {
       "name": "Miller Landing carry-in access",
@@ -1488,8 +1488,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-rockville-knights-of-columbus": {
     "putIn": {
       "name": "Rockville County Park carry-in access",
-      "latitude": 45.4755294,
-      "longitude": -94.3507888
+      "latitude": 45.47296191567727,
+      "longitude": -94.34969582622075
     },
     "takeOut": {
       "name": "Knights of Columbus Park carry-in access",
@@ -1519,8 +1519,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-rockville-heims-mill": {
     "putIn": {
       "name": "Rockville County Park carry-in access",
-      "latitude": 45.4755294,
-      "longitude": -94.3507888
+      "latitude": 45.47296191567727,
+      "longitude": -94.34969582622075
     },
     "takeOut": {
       "name": "Heims Mill Canoe Access",
@@ -1551,8 +1551,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-pineview-heims-mill": {
     "putIn": {
       "name": "Pineview Park carry-in access",
-      "latitude": 45.5600406,
-      "longitude": -94.2446825
+      "latitude": 45.55614017599083,
+      "longitude": -94.24254431242838
     },
     "takeOut": {
       "name": "Heims Mill Canoe Access",
@@ -2500,8 +2500,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "pine-river-norway-pine-river-1": {
     "putIn": {
       "name": "Norway Lake Public Water Access Site",
-      "latitude": 46.730429,
-      "longitude": -94.408791
+      "latitude": 46.7306513,
+      "longitude": -94.4090503
     },
     "takeOut": {
       "name": "Pine River #1 Public Water Access Site",
@@ -3544,14 +3544,14 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "peltier-lake",
       "name": "Peltier Lake public boat launch (Lino Lakes)",
-      "latitude": 45.175054,
-      "longitude": -93.0701588
+      "latitude": 45.17511691636344,
+      "longitude": -93.06912355748237
     },
     "takeOut": {
       "id": "long-lake",
-      "name": "Long Lake Regional Park / Long Lake (New Brighton)",
-      "latitude": 45.0805227,
-      "longitude": -93.1994956
+      "name": "Long Lake Boat Landing / Long Lake Regional Park",
+      "latitude": 45.067051559502666,
+      "longitude": -93.19737064139412
     },
     "logistics": {
       "distanceLabel": "15.2 mi",
@@ -3562,7 +3562,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "The upper miles are mostly lake crossings before the creek narrows. Fish-barrier status, lake wind, and intermediate exits matter almost as much as the gauge.",
       "accessCaveats": [
         "Multiple intermediate landings make it easy to shorten the route if wind or time becomes a problem.",
-        "Reshanau Lake is not modeled as a public access point; use the documented George Watch/Wargo or Aqua Lane options instead.",
+        "Wargo Nature Center on George Watch Lake is rentals/boat return only on the official map and is intentionally not modeled as a public self-launch. Use Aqua Lane for the first documented intermediate public access.",
         "The electric fish barrier upstream of Long Lake is a mandatory marked portage when operational. Obey all signs and buoys; RCWD says paddlers may pass without portaging only when neither is present."
       ],
       "watchFor": [
@@ -3575,29 +3575,20 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "peltier-lake",
         "name": "Peltier Lake boat launch",
-        "latitude": 45.175054,
-        "longitude": -93.0701588,
+        "latitude": 45.17511691636344,
+        "longitude": -93.06912355748237,
         "mileFromStart": 0,
         "segmentKind": "lake",
         "note": "Full trail start just below the Peltier Lake dam."
       },
       {
-        "id": "george-watch-lake",
-        "name": "George Watch Lake / Wargo Nature Center",
-        "latitude": 45.1820472,
-        "longitude": -93.0853333,
-        "mileFromStart": 1.4,
-        "segmentKind": "lake",
-        "note": "Wargo Nature Center is on the north end of George Watch Lake; its official map designation is rentals/boat return only, so confirm current launch rules before treating it as a self-launch."
-      },
-      {
         "id": "aqua-lane",
         "name": "Aqua Lane / Rice Lake carry-in",
-        "latitude": 45.1634530086,
-        "longitude": -93.1155071947,
+        "latitude": 45.1637486,
+        "longitude": -93.1154357,
         "mileFromStart": 3.6,
         "segmentKind": "transition",
-        "note": "Official carry-in access off Aqua Lane at the Rice Creek channel between Marshan and Rice Lakes; useful for a shorter route or as the upper-chain transition."
+        "note": "Official carry-in access on the downstream-left/east bank immediately upstream of the Aqua Lane bridge, with limited five-car parking east of the channel. The coordinate marks the shoreline entry rather than the DNR facility anchor."
       },
       {
         "id": "baldwin-lake",
@@ -3646,12 +3637,12 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "long-lake",
-        "name": "Long Lake Regional Park",
-        "latitude": 45.0805227,
-        "longitude": -93.1994956,
+        "name": "Long Lake Boat Landing / Long Lake Regional Park",
+        "latitude": 45.067051559502666,
+        "longitude": -93.19737064139412,
         "mileFromStart": 15.2,
-        "segmentKind": "creek",
-        "note": "Full downstream finish. Watch fish-barrier status near Long Lake."
+        "segmentKind": "lake",
+        "note": "Official full-route finish at the GPS-mapped south-shore trailer landing. The separate beach canoe access farther north requires a portage and is not this endpoint."
       }
     ]
   },
@@ -9462,8 +9453,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "red-river-lincoln-drive-park-landing",
       "name": "Lincoln Drive Park Landing",
-      "latitude": 47.9137,
-      "longitude": -97.0497
+      "latitude": 47.9086867,
+      "longitude": -97.0228156
     },
     "takeOut": {
       "id": "red-river-lafave-park",
@@ -9480,7 +9471,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "nearby_basecamp",
       "summary": "Launch at Lincoln Drive Park Landing and take out at LaFave Park for the official DNR Map 4 Grand Forks / East Grand Forks connector. The direct Grand Forks DNR gauge was in the official medium band during this run.",
       "accessCaveats": [
-        "Lincoln Drive Park Landing is DNR-mapped and corroborated by Grand Forks park/visitor sources, but it is on the North Dakota bank and not represented in Minnesota public-water-access GIS.",
+        "Lincoln Drive Park Landing is DNR-mapped and independently resolved in the North Dakota Game and Fish fishing-facilities layer as an active Grand Forks Park District concrete ramp; its route coordinate marks the water-side end of that ramp.",
         "LaFave Park resolves in Minnesota public-water-access GIS as WAS00545 and is the selected downstream finish.",
         "Do not substitute steep Greenway banks or private edges for the planned take-out, especially when the Red is high, muddy, or recently flooded."
       ],
@@ -9494,11 +9485,11 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "red-river-lincoln-drive-park-landing",
         "name": "Lincoln Drive Park Landing",
-        "latitude": 47.9137,
-        "longitude": -97.0497,
+        "latitude": 47.9086867,
+        "longitude": -97.0228156,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "DNR Map 4 names the trailer access at river mile 304.1; local park/visitor sources corroborate the boat-ramp context."
+        "note": "DNR Map 4 names the trailer access at river mile 304.1; North Dakota Game and Fish resolves the active concrete-ramp facility, and current aerial imagery resolves its water-side end."
       },
       {
         "id": "red-river-lafave-park",
@@ -11729,6 +11720,66 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 14.8,
         "segmentKind": "creek",
         "note": "Official DNR-administered WAS01134 at river mile 20.8."
+      }
+    ]
+  },
+  "knife-river-county-102-knife-river-beach": {
+    "putIn": {
+      "name": "County Road 102 Knife River bridge",
+      "latitude": 46.9841003417969,
+      "longitude": -91.7836990356445
+    },
+    "takeOut": {
+      "name": "Knife River Beach carry-in access",
+      "latitude": 46.949248,
+      "longitude": -91.779457
+    },
+    "logistics": {
+      "distanceLabel": "About 6.2 mi",
+      "estimatedPaddleTime": "About 3 hr to 6 hr depending on flow, scouting, portages, wood, and the Lake Superior landing",
+      "shuttle": "Stage the take-out at the public Knife River Beach carry-in access on river right, then inspect the County Road 102 bridge put-in. Keep vehicles at lawful public parking and do not use private river-left property near the mouth.",
+      "permits": "No route-specific paddling permit is known. Minnesota watercraft-registration rules apply, and posted road, beach, marina, and Lake Superior Water Trail rules control parking and access.",
+      "camping": "No on-route campsite is verified. Treat this as a day run and use a separately confirmed campground or lodging base; do not camp at the beach, marina, roadside start, or private banks.",
+      "campingClassification": "none",
+      "summary": "Launch at the County Road 102 bridge, paddle the full American Whitewater Knife River reach, and finish on river right at Minnesota DNR's public Knife River Beach carry-in access.",
+      "accessCaveats": [
+        "County Road 102 is a bridge put-in rather than a developed launch. Inspect the bank, parking, and any posted restrictions before unloading.",
+        "At the mouth, land on river right at Knife River Beach. Do not use private river-left property or substitute the marina basin unless current local rules explicitly allow it.",
+        "The USGS gauge is direct and near the route finish, but flow bands remain community guidance; verify the hydrograph trend and visible bridge conditions."
+      ],
+      "watchFor": [
+        "Cables, sweepers, fresh wood, and a 6- to 7-foot ledge after the easier opening miles.",
+        "The major Highway 61 drop sequence, possible low-head structures, difficult hydraulics, and changing portage lines.",
+        "Lake Superior surf, wind, fog, cold water, and the ability to reach the public beach safely at the finish."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "knife-river-county-102",
+        "name": "County Road 102 Knife River bridge",
+        "latitude": 46.9841003417969,
+        "longitude": -91.7836990356445,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "American Whitewater-mapped bridge put-in; verify lawful parking and a safe bank carry."
+      },
+      {
+        "id": "knife-river-highway-61",
+        "name": "Highway 61 drop and USGS gauge corridor",
+        "latitude": 46.94694,
+        "longitude": -91.795577,
+        "mileFromStart": 5.3,
+        "segmentKind": "creek",
+        "note": "Direct gauge corridor and major drop sequence; scout and portage as conditions require."
+      },
+      {
+        "id": "knife-river-beach",
+        "name": "Knife River Beach carry-in access",
+        "latitude": 46.949248,
+        "longitude": -91.779457,
+        "mileFromStart": 6.2,
+        "segmentKind": "lake",
+        "note": "Minnesota DNR Lake Superior Water Trail public carry-in access on river right at the mouth."
       }
     ]
   }

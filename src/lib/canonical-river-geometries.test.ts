@@ -9,7 +9,7 @@ const routeAssetDir = path.join(process.cwd(), 'public', 'data', 'canonical-rive
 
 function routeFeature(routeId: string) {
   return JSON.parse(readFileSync(path.join(routeAssetDir, `${routeId}.json`), 'utf8')) as {
-    properties?: { routeId?: string };
+    properties?: { routeId?: string; traceMode?: string; endpointSnapMaxFeet?: number | null };
     geometry?: { type?: string; coordinates?: unknown[] };
   };
 }
@@ -24,7 +24,7 @@ describe('canonical river geometry asset', () => {
     for (const routeId of [
       'minnesota-river-judson-land-of-memories',
       'st-croix-river-interstate-osceola',
-      'st-croix-river-osceola-william-obrien',
+      'st-croix-river-fox-highway-70',
     ]) {
       const feature = routeFeature(routeId);
       expect(feature.properties?.routeId).toBe(routeId);
@@ -44,6 +44,8 @@ describe('canonical river geometry asset', () => {
       type?: string;
       routeCount?: number;
       matchedRouteCount?: number;
+      networkTracedRouteCount?: number;
+      namedFallbackRouteCount?: number;
       unmatchedRouteIds?: string[];
       routeDataFingerprint?: string;
     };
@@ -54,6 +56,8 @@ describe('canonical river geometry asset', () => {
     expect(asset.type).toBe('CanonicalGeometryManifest');
     expect(asset.routeCount).toBe(listRivers().length);
     expect(asset.matchedRouteCount).toBe((asset.routeCount ?? 0) - (asset.unmatchedRouteIds?.length ?? 0));
+    expect((asset.networkTracedRouteCount ?? 0) + (asset.namedFallbackRouteCount ?? 0)).toBe(asset.matchedRouteCount);
+    expect(asset.networkTracedRouteCount).toBeGreaterThan(100);
     expect(asset.routeDataFingerprint).toMatch(/^[a-f0-9]{64}$/);
     expect(minnesota.scope).toBe('state');
     expect(minnesota.state).toBe('Minnesota');
@@ -72,5 +76,24 @@ describe('canonical river geometry asset', () => {
     expect(coordinates?.length).toBeGreaterThan(100);
     expect(distanceMiles(coordinates?.[0] ?? [0, 0], [-84.215533, 39.3676])).toBeLessThan(0.05);
     expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], [-84.2526, 39.3182])).toBeLessThan(0.1);
+  });
+
+  it('uses the connected natural Otter Tail channel instead of the artificial-path-only fallback', () => {
+    const feature = routeFeature('otter-tail-river-friberg-hwy-210');
+    expect(feature.properties?.traceMode).toBe('network-traced');
+    expect(feature.properties?.endpointSnapMaxFeet).toBeLessThanOrEqual(100);
+
+    const routeLine = canonicalRiverRouteLineFromFeature(feature, [
+      { longitude: -96.0206276, latitude: 46.3826273 },
+      { longitude: -95.9809894, latitude: 46.2807577 },
+    ]);
+    const coordinates = routeLine?.geometry.coordinates as [number, number][] | undefined;
+    const lengthMiles = (coordinates ?? []).slice(1).reduce((sum, coordinate, index) =>
+      sum + distanceMiles(coordinates?.[index] ?? coordinate, coordinate), 0);
+
+    expect(lengthMiles).toBeGreaterThan(14);
+    expect(lengthMiles).toBeLessThan(16);
+    expect(distanceMiles(coordinates?.[0] ?? [0, 0], [-96.0206276, 46.3826273])).toBeLessThan(0.03);
+    expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], [-95.9809894, 46.2807577])).toBeLessThan(0.03);
   });
 });

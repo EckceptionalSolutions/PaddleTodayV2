@@ -8,6 +8,7 @@ import { fetchWeatherSnapshot } from './weather';
 import { mapWithConcurrency } from './async-concurrency';
 import type { River, RiverAccessPoint, RiverScoreResult } from './types';
 import { corridorForSlug } from '../data/route-corridors';
+import { coordinateWithheldRouteSlugs } from '../data/generated/withheld-route-slugs';
 
 const GAUGE_CACHE_TTL_MS = 5 * 60 * 1000;
 const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
@@ -15,143 +16,9 @@ const STALE_WHILE_ERROR_MS = 30 * 60 * 1000;
 const INFERRED_RIVER_SPLIT_DISTANCE_MILES = 150;
 const ALL_RIVER_SCORE_CONCURRENCY = 12;
 
-// Temporarily withheld while coordinate-audit failures are triaged. These
-// routes remain in source data and the audit queue, but are excluded from
-// public listings and generated route pages until their endpoints are verified.
-export const WITHHELD_ROUTE_SLUGS = new Set([
-  'shell-rock-river-heery-woods-renning',
-  'shell-rock-river-renning-shell-rock',
-  'cumberland-river-redbird-cumberland-falls',
-  'otter-tail-river-friberg-hwy-210',
-  'des-moines-river-highway-30-sportsman',
-  'cedar-river-riverwood-state-line',
-  'sheyenne-river-mirror-pool-east-river',
-  'sheyenne-river-brome-field-east-river',
-  'maquoketa-river-pictured-rocks-ebys-mill',
-  'loup-river-monroe-adm-access',
-  'loup-river-columbus-adm-access',
-  'loup-river-george-syas-adm-access',
-  'north-raccoon-river-squirrel-hollow-adkins',
-  'sheyenne-river-brome-field-mirror-pool',
-  'platte-river-schramm-platte-river-state-park',
-  'platte-river-platte-river-state-park-louisville',
-  'susquehanna-river-ulster-bridge-terrytown',
-  'susquehanna-river-hornbrook-terrytown',
-  'susquehanna-river-towanda-terrytown',
-  'susquehanna-river-wysox-township-park-terrytown',
-  'susquehanna-river-towanda-laceyville',
-  'red-river-lincoln-drive-lafave',
-  'west-nishnabotna-river-avoca-hancock',
-  'rice-creek-peltier-to-long-lake',
-  'east-nishnabotna-river-red-oak-essex',
-  'turkey-river-garber-millville',
-  'sheyenne-river-ylvisaker-bridge-brome-field',
-  'badger-mill-creek-old-county-pb-highway-69',
-  'north-raccoon-river-eureka-henderson',
-  'north-raccoon-river-henderson-squirrel-hollow',
-  'cedar-river-chain-lakes-ellis-harbor',
-  'wapsipinicon-river-independence-quasqueton',
-  'turkey-river-clermont-gilbertson',
-  'maquoketa-river-ebys-mill-supples-bridge',
-  'hay-river-county-ff-highway-25',
-  'upper-iowa-river-iverson-bridge-kumpf',
-  'des-moines-river-deer-creek-hydro-electric',
-  'baraboo-river-north-freedom-giese',
-  'sheboygan-river-johnsonville-dassow',
-  'south-skunk-river-river-valley-cj-shreck',
-  'boone-river-albright-tunnel-mill',
-  'boone-river-tunnel-mill-bells-mill',
-  'upper-iowa-river-lower-dam-iverson-bridge',
-  'cedar-creek-covered-bridge-lions',
-  'loup-river-george-syas-monroe',
-  'loup-river-monroe-columbus',
-  'loup-river-george-syas-columbus',
-  'des-moines-river-douds-austin-park',
-  'des-moines-river-austin-park-keosauqua',
-  'susquehanna-river-laceyville-west-falls',
-  'beaver-dam-river-county-s-lowell',
-  'des-moines-river-south-fraser-waterworks-upstream',
-  'big-fork-river-highway-1-highway-6-south',
-  'boone-river-bells-mill-boone-forks',
-  'red-river-north-dam-mb-johnson',
-  'rum-river-wayside-milaca',
-  'little-sioux-river-linn-grove-peterson',
-  'susquehanna-river-test-track-danville',
-  'mississippi-river-overlook-belle-prairie',
-  'mississippi-river-fletcher-creek-overlook',
-  'north-raccoon-river-vogel-riverview',
-  'pine-river-norway-pine-river-1',
-  'south-skunk-river-lekwa-sopers-mill',
-  'susquehanna-river-canal-park-wetlands',
-  'susquehanna-river-canal-park-test-track',
-  'susquehanna-river-wetlands-bloomsburg',
-  'rum-river-north-county-central',
-  'north-fork-maquoketa-river-d61-ozark',
-  'north-fork-maquoketa-river-cascade-ozark',
-  'north-fork-maquoketa-river-ozark-caven',
-  'north-fork-maquoketa-river-cascade-caven',
-  'boone-river-riverside-briggs-woods',
-  'boone-river-briggs-woods-albright',
-  'kings-river-rockhouse-trigger-gap',
-  'sheboygan-river-dassow-river-park',
-  'north-raccoon-river-sac-city-hagge',
-  'north-raccoon-river-hagge-white-horse',
-  'turtle-creek-school-section-east-creek',
-  'maquoketa-river-monmouth-maquoketa',
-  'pine-river-richland-center-canoe-port-1-port-4',
-  'wapsipinicon-river-stone-city-anamosa',
-  'wapsipinicon-river-sherman-allens-grove',
-  'upper-illinois-river-siloam-kayak-park-woka',
-  'upper-illinois-river-chamber-springs-woka',
-  'mullet-river-sumac-river-park',
-  'minnehaha-creek-grays-bay-longfellow-lagoon',
-  'sauk-river-pineview-heims-mill',
-  'trempealeau-river-whitehall-independence',
-  'buffalo-river-tyler-bend-gilbert',
-  'buffalo-river-tyler-bend-grinders-ferry',
-  'susquehanna-river-sayre-towanda',
-  'susquehanna-river-hornbrook-wysox-township-park',
-  'susquehanna-river-hornbrook-towanda',
-  'fox-river-princeton-white-river-locks',
-  'juniata-river-lewistown-narrows-newport',
-  'white-river-park-riverview-park',
-  'mississippi-river-dayton-mississippi-gateway',
-  'middle-raccoon-river-cowles-redfield-dam',
-  'maquoketa-river-quaker-mill-baileys-ford',
-  'north-raccoon-river-rainbow-bend-richey',
-  'vermilion-river-schoepfle-mill-hollow',
-  'west-nishnabotna-river-oakland-macedonia',
-  'black-hawk-creek-hudson-waterloo',
-  'black-hawk-creek-ranchero-hope-martin',
-  'maquoketa-river-dundee-manchester',
-  'maquoketa-river-backbone-dundee',
-  'sauk-river-frogtown-rockville',
-  'sauk-river-rockville-miller-landing',
-  'sauk-river-rockville-knights-of-columbus',
-  'sauk-river-rockville-heims-mill',
-  'gasconade-river-pointers-creek-cooper-hill',
-  'zumbro-river-falls',
-  'little-turkey-river-gouldsburg-eldorado',
-  'sauk-river-mill-pond-oak-township',
-  'sauk-river-oak-township-spring-hill',
-  'north-fork-maquoketa-river-d61-caven',
-  'menomonee-river-hoyt-park-bluemound',
-  'susquehanna-river-sayre-wysox-township-park',
-  'susquehanna-river-ulster-bridge-wysox-township-park',
-  'sauk-river-frogtown-eagle-park',
-  'sauk-river-eagle-miller-landing',
-  'sauk-river-eagle-knights-of-columbus',
-  'sauk-river-eagle-heims-mill',
-  'la-crosse-river-highway-108-veterans',
-  'plover-river-hwy-k-jordan-park',
-  'lemonweir-river-mauston-dam-19th-ave',
-  'winnebago-river-fertile-mason-city',
-  'cedar-creek-cedarburg-mill-cth-t',
-  'huron-river-argo-gallup',
-  'des-moines-river-hydro-electric-south-river',
-  'des-moines-river-fort-dodge-lehigh',
-  'bark-river-bark-river-park-delafield',
-]);
+// Generated from the current coordinate verification queue. Routes stay
+// private until every failed or cross-route-conflicting access is resolved.
+export const WITHHELD_ROUTE_SLUGS = new Set<string>(coordinateWithheldRouteSlugs);
 
 const inferredRiverIdsBySlug = buildInferredRiverIds();
 let routeIndexes: RouteIndexes | null = null;
@@ -186,6 +53,12 @@ interface RouteIndexes {
 
 export function listRivers(): River[] {
   return [...getRouteIndexes().routes];
+}
+
+// Internal audit tooling needs every source route, including routes withheld
+// from public pages while coordinate verification is incomplete.
+export function listAllRiversForAudit(): River[] {
+  return rivers.map(enrichRiver);
 }
 
 export function getRiverBySlug(slug: string): River | undefined {

@@ -293,8 +293,8 @@ export const iowaRoutes: River[] = [
     "region": "Northwest Iowa",
     "summary": "Consolidated upper Sac County North Raccoon route from Vogel to Riverview, with McDonald Greenbelt retained as an intermediate campground, public access, and shorter take-out.",
     "statusText": "Use the North Raccoon near Lanesboro stage as the primary upper-corridor signal. The DNR says this water trail is more pleasant at 11 ft or below at Lanesboro and around 1,000 cfs at Jefferson; low Sac City flow means local depth checks are required.",
-    "latitude": 42.515,
-    "longitude": -95.05,
+    "latitude": 42.54718795307961,
+    "longitude": -95.04320056511739,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -562,8 +562,8 @@ export const iowaRoutes: River[] = [
     "region": "Northwest Iowa",
     "summary": "Wild Sac County North Raccoon continuation below Hagge Park, with a mandatory below-dam launch plan, long wooded corridor, rock-dam exposure, and official DNR water-trail guidance.",
     "statusText": "Use the North Raccoon near Lanesboro stage as the official upper-corridor signal, then verify local depth at Sac City and Hagge. This route begins only after the Hagge rock-dam portage; low local flow can make the boulder relaunch and riffles impractical.",
-    "latitude": 42.38545,
-    "longitude": -94.99797,
+    "latitude": 42.38135658056886,
+    "longitude": -94.99126647507232,
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [
@@ -2287,8 +2287,8 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Upper Story County water-trail leg from Lekwa Access near the E-18 bridge to Soper's Mill, with wooded greenbelt banks, rock riffles, recurring wood hazards, and a direct South Skunk gauge downstream in Ames.",
     "statusText": "Treat roughly 125 cfs at the South Skunk near Ames gauge as the practical low-water floor for the above-Ames reach. This upper greenbelt segment is logjam-prone, so avoid high or rising water unless you know the corridor well.",
-    "latitude": 42.1819,
-    "longitude": -93.5708,
+    "latitude": 42.16589098352227,
+    "longitude": -93.57800678866874,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -2907,8 +2907,8 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Short Greene County North Raccoon water-trail run from Squirrel Hollow to Adkins Bridge, with public county access, bluff-country scenery, and the direct Jefferson gauge.",
     "statusText": "Use the North Raccoon near Jefferson gauge. CanWePaddle estimates 150 to 2,000 cfs for the Jefferson-to-Cooper corridor; wood, rock dams, and private banks still require a same-day visual call.",
-    "latitude": 41.9822,
-    "longitude": -94.3192,
+    "latitude": 41.95019920963978,
+    "longitude": -94.29097621877891,
     "gaugeSource": {
       "id": "usgs-05482500",
       "provider": "usgs",
@@ -4189,8 +4189,8 @@ export const iowaRoutes: River[] = [
     "region": "Cedar Valley",
     "summary": "Shorter Waterloo greenbelt reach with the same official Hudson gauge band as the upstream segment. Good flow is necessary, but wood and portages still decide the day.",
     "statusText": "Only consider this when Hudson is inside the official 100 to 500 cfs band. Even in range, expect deadfalls, scoutable bends, and possible portages.",
-    "latitude": 42.45749,
-    "longitude": -92.41535,
+    "latitude": 42.45688561292181,
+    "longitude": -92.422972497038,
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [
@@ -5778,8 +5778,8 @@ export const iowaRoutes: River[] = [
     "region": "Eastern Iowa",
     "summary": "Short Stone City-to-Anamosa Wapsi run through the Grant Wood limestone corridor, ending at the above-dam Anamosa ramp with a firm no-continuation dam boundary.",
     "statusText": "Use the Wapsipinicon River near Anamosa gauge as a guarded route-corridor proxy. CanWePaddle's lower Wapsi guidance uses 200 to 2,800 cfs, but this upstream dam-boundary card requires a same-day visual check at Stone City and an above-dam take-out.",
-    "latitude": 42.1082,
-    "longitude": -91.3568,
+    "latitude": 42.11047631195115,
+    "longitude": -91.34940744932308,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -6122,8 +6122,8 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Upper Maquoketa water-trail day from the unimproved Dundee access to downtown Manchester, with riffles, downed-tree exposure, a Quaker Mill dam-breach/portage decision, and a direct Manchester gauge range.",
     "statusText": "Use the Maquoketa River at Manchester gauge. Treat 120 to 1,500 cfs as the guarded runnable range; below 120 cfs expect bony shallows, and above 1,500 cfs the narrow wooded corridor and Manchester finish become too pushy for a broad recommendation.",
-    "latitude": 42.5816,
-    "longitude": -91.5461,
+    "latitude": 42.579746,
+    "longitude": -91.548738,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -7453,8 +7453,8 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Official upper Turkey River Water Trail starter section from Gouldsburg Park down the Little Turkey to Eldorado. This is a pretty Driftless riffle run, but seasonal fences, wires, and shallow water keep it guarded.",
     "statusText": "Use USGS 05411850 Turkey River near Eldorado as the best live corridor gauge. Treat 6.0 ft as the conservative scrape-prone floor; around 6.6 ft / 680 cfs was a strong same-route report, but no trusted upper ceiling is published.",
-    "latitude": 43.012796,
-    "longitude": -91.958595,
+    "latitude": 43.007945,
+    "longitude": -91.955974,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -7988,8 +7988,8 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Short Ozark Wildlife Area run on the North Fork Maquoketa, with steep Driftless bluffs, boulders, easy riffles, and a direct Fulton gauge ladder.",
     "statusText": "Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the best broad target, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.",
-    "latitude": 42.19,
-    "longitude": -90.87,
+    "latitude": 42.19452517752233,
+    "longitude": -90.87580561082818,
     "gaugeSource": {
       "id": "usgs-05418400",
       "provider": "usgs",
@@ -8645,8 +8645,8 @@ export const iowaRoutes: River[] = [
     "region": "North Central Iowa",
     "summary": "Short remote Boone River section from the Iowa DNR-owned Tunnel Mill access to Bell's Mill Park, with dense hardwood banks, limited exits, campground-backed take-out logistics, and a direct Webster City gauge.",
     "statusText": "Use the Boone River near Webster City gauge. Treat 120 cfs as the route-specific low floor, 120 to 1,100 cfs as the guarded recreational window, and 1,500+ cfs as advanced-only high water.",
-    "latitude": 42.3537,
-    "longitude": -93.8189,
+    "latitude": 42.35031682247519,
+    "longitude": -93.84469408621065,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -8773,8 +8773,8 @@ export const iowaRoutes: River[] = [
     "region": "North Central Iowa",
     "summary": "Final Boone River water-trail leg from Bell's Mill Park to the Boone Forks canoe ramp above the Des Moines River confluence, with sandy bottom, strainers, a hidden walk-down take-out, and no downstream bailout.",
     "statusText": "Use the Boone River near Webster City gauge. Treat 120 cfs as the route-specific low floor, 120 to 1,100 cfs as the guarded recreational window, and 1,500+ cfs as advanced-only high water.",
-    "latitude": 42.3464,
-    "longitude": -93.8847,
+    "latitude": 42.34040214385297,
+    "longitude": -93.89199553223628,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -10591,8 +10591,8 @@ export const iowaRoutes: River[] = [
     "region": "North-Central Iowa",
     "summary": "Webster County Des Moines River water-trail day from Fort Dodge toward Lehigh, with sandstone bluffs, rocky riffles, Dolliver State Park context, and a direct Fort Dodge USGS gauge.",
     "statusText": "Use the Fort Dodge gauge. CanWePaddle estimates 400 to 8,000 cfs as the runnable window; below 400 cfs expect scraping, and above 8,000 cfs the river is too pushy for a general recommendation.",
-    "latitude": 42.4892,
-    "longitude": -94.1856,
+    "latitude": 42.490617,
+    "longitude": -94.18325299999999,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -10832,8 +10832,8 @@ export const iowaRoutes: River[] = [
     "region": "Cedar Rapids Area",
     "summary": "Lower Cedar River day from the Chain Lakes / Palo access corridor into Cedar Rapids, with a direct Cedar Rapids gauge and a mandatory urban take-out before downstream dams.",
     "statusText": "Use the Cedar Rapids gauge. CanWePaddle estimates 500 to 8,000 cfs as the runnable window; current water above that range is high-caution, with pushy current and fewer stopping options.",
-    "latitude": 42.074,
-    "longitude": -91.803,
+    "latitude": 42.04980231366407,
+    "longitude": -91.77528474862063,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -10956,8 +10956,8 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Official Turkey River Water Trail segment from the below-dam Clermont canoe access to the Gilbertson Park / Elgin access corridor, using the direct Eldorado gauge.",
     "statusText": "Use the Turkey River near Eldorado gauge. CanWePaddle estimates 120 to 1,500 cfs as the runnable window; avoid fast-rising water and never run the Clermont dam.",
-    "latitude": 42.9969,
-    "longitude": -91.6487,
+    "latitude": 42.996961,
+    "longitude": -91.65584200000001,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -11624,8 +11624,8 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Six-plus-mile Jones County Maquoketa section from Pictured Rocks to the improved Eby's Mill ramp, preserving the scenic public-land reach without using the weaker Supples Bridge take-out.",
     "statusText": "Use the Manchester gauge as the upstream same-river check. Miles Paddled found 155 cfs minimally runnable and 200 to 250 cfs better; higher water requires wood and bridge-current judgment.",
-    "latitude": 42.17256,
-    "longitude": -91.10471,
+    "latitude": 42.20569962,
+    "longitude": -91.10253824999999,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -12898,8 +12898,8 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Official Boone County Des Moines River water-trail float below the Fraser dam portage to the upstream Waterworks/E-26 access, with meandered-stream camping context and a firm stop above the Boone Waterworks rapids.",
     "statusText": "Use the Des Moines River near Stratford gauge as the upstream corridor signal. Treat the established 400 to 8,000 cfs upper-Des-Moines range conservatively here, and do not launch until the Fraser dam portage/relaunch and Waterworks take-out are confirmed from land.",
-    "latitude": 42.154,
-    "longitude": -93.965,
+    "latitude": 42.12192805701144,
+    "longitude": -93.97000884977254,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -13015,8 +13015,8 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Combined 11-mile Boone County Des Moines River water-trail route from Highway 30 through the Ledges State Park corridor to Sportsman Ramp, with Dogwood/E-57 retained as a public intermediate access and short-trip option.",
     "statusText": "Use the Des Moines River near Stratford gauge as the upstream corridor signal and compare it with Saylorville conditions. Treat 400 to 8,000 cfs as a guarded Boone County range, then verify all three ramps because silt, wind, and releases can change the day.",
-    "latitude": 42.047,
-    "longitude": -93.931,
+    "latitude": 42.03695854773216,
+    "longitude": -93.92761555573368,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -13501,8 +13501,8 @@ export const iowaRoutes: River[] = [
     "region": "Southeast Iowa",
     "summary": "Official Lower Des Moines River water-trail reach from Austin Park around the Lacey-Keosauqua bend to Keosauqua, with state-park bluff scenery, endpoint camping support, and a direct Keosauqua gauge.",
     "statusText": "Use the Des Moines River at Keosauqua gauge. Treat the accepted lower-river 800 to 6,000 cfs model conservatively; the DNR says this reach is beginner-appropriate only when water levels are normal.",
-    "latitude": 40.7715,
-    "longitude": -91.976,
+    "latitude": 40.7674276,
+    "longitude": -91.9682591,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -14494,8 +14494,8 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Wild Greene County North Raccoon connector from Henderson Park to Squirrel Hollow, filling the access gap before the existing Squirrel-to-Adkins card with DNR portage and wood caveats.",
     "statusText": "Use the North Raccoon near Jefferson gauge. CanWePaddle estimates 150 to 2,000 cfs for Jefferson-to-Cooper; DNR warns accesses are unsigned from the river and a rock dam above Squirrel Hollow has a signed river-left portage.",
-    "latitude": 41.9698,
-    "longitude": -94.3766,
+    "latitude": 41.98815286189902,
+    "longitude": -94.37393104079106,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [

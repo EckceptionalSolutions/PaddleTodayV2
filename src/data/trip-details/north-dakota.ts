@@ -42,14 +42,14 @@ export const northDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "brome-field-hand-launch",
       "name": "Brome Field hand-launch",
-      "latitude": 46.53087339415233,
-      "longitude": -97.31706518572886
+      "latitude": 46.52099384,
+      "longitude": -97.31298815
     },
     "takeOut": {
       "id": "mirror-pool-wma-hand-launch",
       "name": "Mirror Pool WMA hand-launch",
-      "latitude": 46.50498692183727,
-      "longitude": -97.29118124734387
+      "latitude": 46.53755783,
+      "longitude": -97.27415339
     },
     "logistics": {
       "distanceLabel": "About 4 mi",
@@ -78,14 +78,14 @@ export const northDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "ylvisaker-bridge-hand-launch",
       "name": "Ylvisaker Bridge hand-launch",
-      "latitude": 46.53246,
-      "longitude": -97.34256
+      "latitude": 46.51170838,
+      "longitude": -97.3282952
     },
     "takeOut": {
       "id": "brome-field-hand-launch",
       "name": "Brome Field hand-launch",
-      "latitude": 46.53087339415233,
-      "longitude": -97.31706518572886
+      "latitude": 46.52099384,
+      "longitude": -97.31298815
     },
     "logistics": {
       "distanceLabel": "About 3 mi",
@@ -115,14 +115,14 @@ export const northDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "mirror-pool-wma-hand-launch",
       "name": "Mirror Pool WMA hand-launch",
-      "latitude": 46.50498692183727,
-      "longitude": -97.29118124734387
+      "latitude": 46.53755783,
+      "longitude": -97.27415339
     },
     "takeOut": {
       "id": "east-river-hand-launch",
       "name": "East River hand-launch",
-      "latitude": 46.50234,
-      "longitude": -97.23046
+      "latitude": 46.53966608,
+      "longitude": -97.22034838
     },
     "logistics": {
       "distanceLabel": "About 8 mi",
@@ -153,14 +153,14 @@ export const northDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "brome-field-hand-launch",
       "name": "Brome Field hand-launch",
-      "latitude": 46.53087339415233,
-      "longitude": -97.31706518572886
+      "latitude": 46.52099384,
+      "longitude": -97.31298815
     },
     "takeOut": {
       "id": "east-river-hand-launch",
       "name": "East River hand-launch",
-      "latitude": 46.50234,
-      "longitude": -97.23046
+      "latitude": 46.53966608,
+      "longitude": -97.22034838
     },
     "logistics": {
       "distanceLabel": "About 13 mi",

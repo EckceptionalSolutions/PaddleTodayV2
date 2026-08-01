@@ -147,8 +147,8 @@ export const northDakotaRoutes: River[] = [
     "region": "Sheyenne National Grassland",
     "summary": "Short grassland Sheyenne River Water Trail segment from the Brome Field hand-launch to the Mirror Pool WMA hand-launch. USFS names both semi-primitive access points and uses the Baldhill Dam USGS gauge as the corridor-wide condition check.",
     "statusText": "Use the Sheyenne River below Baldhill Dam gauge as a corridor-wide proxy. The official water-trail guidance calls 300 to 1,000 cfs optimal, 100 to 300 cfs navigable with exposed obstacles, 1,000 to 2,000 cfs caution water, and over 2,000 cfs avoid.",
-    "latitude": 46.53087339415233,
-    "longitude": -97.31706518572886,
+    "latitude": 46.52099384,
+    "longitude": -97.31298815,
     "gaugeSource": {
       "id": "usgs-05058000",
       "provider": "usgs",
@@ -277,8 +277,8 @@ export const northDakotaRoutes: River[] = [
     "region": "Sheyenne National Grassland",
     "summary": "Short upstream grassland Sheyenne River Water Trail split from Ylvisaker Bridge down to Brome Field. USFS names both semi-primitive access points and uses the Baldhill Dam USGS gauge as the corridor-wide condition check.",
     "statusText": "Use the Sheyenne River below Baldhill Dam gauge as a corridor-wide proxy. The official water-trail guidance calls 300 to 1,000 cfs optimal, 100 to 300 cfs navigable with exposed obstacles, 1,000 to 2,000 cfs caution water, and over 2,000 cfs avoid.",
-    "latitude": 46.53246,
-    "longitude": -97.34256,
+    "latitude": 46.51170838,
+    "longitude": -97.3282952,
     "gaugeSource": {
       "id": "usgs-05058000",
       "provider": "usgs",
@@ -402,8 +402,8 @@ export const northDakotaRoutes: River[] = [
     "region": "Sheyenne National Grassland",
     "summary": "Longer downstream grassland Sheyenne River Water Trail split from Mirror Pool WMA to East River. USFS names both semi-primitive access points, and the Baldhill Dam gauge remains the official corridor-wide condition check.",
     "statusText": "Use the Sheyenne River below Baldhill Dam gauge as a corridor-wide proxy. The official water-trail guidance calls 300 to 1,000 cfs optimal, 100 to 300 cfs navigable with exposed obstacles, 1,000 to 2,000 cfs caution water, and over 2,000 cfs avoid.",
-    "latitude": 46.50498692183727,
-    "longitude": -97.29118124734387,
+    "latitude": 46.53755783,
+    "longitude": -97.27415339,
     "gaugeSource": {
       "id": "usgs-05058000",
       "provider": "usgs",
@@ -537,8 +537,8 @@ export const northDakotaRoutes: River[] = [
     "region": "Sheyenne National Grassland",
     "summary": "Longer Sheyenne National Grassland continuation from Brome Field to East River. USFS names both semi-primitive access points, and the official river-mile map shows overnight-camping context if the group wants to treat this as more than a simple day float.",
     "statusText": "Use the Sheyenne River below Baldhill Dam gauge as a corridor-wide proxy. The official water-trail guidance calls 300 to 1,000 cfs optimal, 100 to 300 cfs navigable with exposed obstacles, 1,000 to 2,000 cfs caution water, and over 2,000 cfs avoid.",
-    "latitude": 46.53087339415233,
-    "longitude": -97.31706518572886,
+    "latitude": 46.52099384,
+    "longitude": -97.31298815,
     "gaugeSource": {
       "id": "usgs-05058000",
       "provider": "usgs",

@@ -3701,8 +3701,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "kickapoo-river-plum-creek-highway-60": {
     "putIn": {
       "name": "Plum Creek Landing",
-      "latitude": 43.08471,
-      "longitude": -90.87906
+      "latitude": 43.11447615973171,
+      "longitude": -90.91265705884042
     },
     "takeOut": {
       "name": "Highway 60 Landing",
@@ -3732,8 +3732,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "plum-creek-canoe-landing",
         "name": "Plum Creek Landing",
-        "latitude": 43.08471,
-        "longitude": -90.87906,
+        "latitude": 43.11447615973171,
+        "longitude": -90.91265705884042,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in and public access."

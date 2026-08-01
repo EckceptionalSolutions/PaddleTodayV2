@@ -10,6 +10,16 @@ export interface SnappedLine {
   errorSquared: number;
 }
 
+export interface WeightedNetworkLine {
+  coordinates: readonly (readonly number[])[];
+  costMultiplier?: number;
+}
+
+export interface SnappedNetworkLine extends SnappedLine {
+  sourceLineIndexes: number[];
+  snapDistancesSquared: number[];
+}
+
 function projectedPoint(coordinate: Coordinate, referenceLatitude: number) {
   const latitudeScale = Math.cos((referenceLatitude * Math.PI) / 180);
   return { x: coordinate[0] * latitudeScale, y: coordinate[1] };
@@ -175,6 +185,275 @@ export function endpointSnappedRiverGeometry(
     if (candidate && (!best || candidate.errorSquared < best.errorSquared)) best = candidate;
   }
   return best;
+}
+
+type NetworkNode = {
+  coordinate: Coordinate;
+  edges: number[];
+};
+
+type NetworkEdge = {
+  a: number;
+  b: number;
+  length: number;
+  cost: number;
+  lineIndex: number;
+};
+
+type NetworkProjection = {
+  coordinate: Coordinate;
+  component: number;
+  distanceSquared: number;
+  edgeIndex: number;
+  t: number;
+};
+
+function networkCoordinateKey(coordinate: Coordinate) {
+  return `${coordinate[0].toFixed(6)},${coordinate[1].toFixed(6)}`;
+}
+
+function buildNetwork(lines: readonly WeightedNetworkLine[]) {
+  const nodes: NetworkNode[] = [];
+  const edges: NetworkEdge[] = [];
+  const nodeByKey = new Map<string, number>();
+  const parent: number[] = [];
+
+  const nodeIndex = (coordinate: Coordinate) => {
+    const key = networkCoordinateKey(coordinate);
+    const existing = nodeByKey.get(key);
+    if (existing !== undefined) return existing;
+    const index = nodes.length;
+    nodes.push({ coordinate, edges: [] });
+    parent.push(index);
+    nodeByKey.set(key, index);
+    return index;
+  };
+  const find = (index: number): number => {
+    let current = index;
+    while (parent[current] !== current) current = parent[current];
+    while (parent[index] !== index) {
+      const next = parent[index];
+      parent[index] = current;
+      index = next;
+    }
+    return current;
+  };
+  const union = (left: number, right: number) => {
+    const leftRoot = find(left);
+    const rightRoot = find(right);
+    if (leftRoot !== rightRoot) parent[rightRoot] = leftRoot;
+  };
+
+  lines.forEach((lineInput, lineIndex) => {
+    const line = dedupeLine(lineInput.coordinates);
+    if (!line) return;
+    const multiplier = Number.isFinite(lineInput.costMultiplier)
+      ? Math.max(0.01, Number(lineInput.costMultiplier))
+      : 1;
+    for (let index = 1; index < line.length; index += 1) {
+      const start = line[index - 1];
+      const end = line[index];
+      const a = nodeIndex(start);
+      const b = nodeIndex(end);
+      if (a === b) continue;
+      const referenceLatitude = (start[1] + end[1]) / 2;
+      const projectedStart = projectedPoint(start, referenceLatitude);
+      const projectedEnd = projectedPoint(end, referenceLatitude);
+      const length = Math.hypot(projectedEnd.x - projectedStart.x, projectedEnd.y - projectedStart.y);
+      if (!Number.isFinite(length) || length <= 0) continue;
+      const edgeIndex = edges.length;
+      edges.push({ a, b, length, cost: length * multiplier, lineIndex });
+      nodes[a].edges.push(edgeIndex);
+      nodes[b].edges.push(edgeIndex);
+      union(a, b);
+    }
+  });
+
+  const components = nodes.map((_, index) => find(index));
+  return { nodes, edges, components };
+}
+
+function networkProjections(
+  point: GeoPoint,
+  network: ReturnType<typeof buildNetwork>,
+) {
+  const bestByComponent = new Map<number, NetworkProjection>();
+  const pointCoordinate = coordinateForPoint(point);
+  network.edges.forEach((edge, edgeIndex) => {
+    const start = network.nodes[edge.a].coordinate;
+    const end = network.nodes[edge.b].coordinate;
+    const referenceLatitude = (start[1] + end[1] + point.latitude) / 3;
+    const projection = distanceToSegmentSquared(
+      projectedPoint(pointCoordinate, referenceLatitude),
+      projectedPoint(start, referenceLatitude),
+      projectedPoint(end, referenceLatitude),
+    );
+    const coordinate: Coordinate = [
+      start[0] + (end[0] - start[0]) * projection.t,
+      start[1] + (end[1] - start[1]) * projection.t,
+    ];
+    const component = network.components[edge.a];
+    const candidate: NetworkProjection = {
+      coordinate,
+      component,
+      distanceSquared: projection.distanceSquared,
+      edgeIndex,
+      t: projection.t,
+    };
+    const existing = bestByComponent.get(component);
+    if (!existing || candidate.distanceSquared < existing.distanceSquared) {
+      bestByComponent.set(component, candidate);
+    }
+  });
+  return bestByComponent;
+}
+
+function shortestNetworkSection(
+  network: ReturnType<typeof buildNetwork>,
+  start: NetworkProjection,
+  end: NetworkProjection,
+) {
+  const startEdge = network.edges[start.edgeIndex];
+  const endEdge = network.edges[end.edgeIndex];
+  if (!startEdge || !endEdge || start.component !== end.component) return null;
+
+  const distances = new Array<number>(network.nodes.length).fill(Infinity);
+  const previousNode = new Array<number>(network.nodes.length).fill(-1);
+  const previousEdge = new Array<number>(network.nodes.length).fill(-1);
+  const queue: Array<{ node: number; distance: number }> = [];
+  const queuePush = (entry: { node: number; distance: number }) => {
+    queue.push(entry);
+    let index = queue.length - 1;
+    while (index > 0) {
+      const parent = Math.floor((index - 1) / 2);
+      if (queue[parent].distance <= queue[index].distance) break;
+      [queue[parent], queue[index]] = [queue[index], queue[parent]];
+      index = parent;
+    }
+  };
+  const queuePop = () => {
+    const first = queue[0];
+    const last = queue.pop();
+    if (!first || !last || queue.length === 0) return first;
+    queue[0] = last;
+    let index = 0;
+    while (true) {
+      const left = index * 2 + 1;
+      const right = left + 1;
+      let smallest = index;
+      if (left < queue.length && queue[left].distance < queue[smallest].distance) smallest = left;
+      if (right < queue.length && queue[right].distance < queue[smallest].distance) smallest = right;
+      if (smallest === index) break;
+      [queue[index], queue[smallest]] = [queue[smallest], queue[index]];
+      index = smallest;
+    }
+    return first;
+  };
+  distances[startEdge.a] = startEdge.cost * start.t;
+  distances[startEdge.b] = startEdge.cost * (1 - start.t);
+  queuePush({ node: startEdge.a, distance: distances[startEdge.a] });
+  queuePush({ node: startEdge.b, distance: distances[startEdge.b] });
+
+  while (queue.length > 0) {
+    const currentEntry = queuePop();
+    if (!currentEntry || currentEntry.distance !== distances[currentEntry.node]) continue;
+    const current = currentEntry.node;
+    const currentDistance = currentEntry.distance;
+    for (const edgeIndex of network.nodes[current].edges) {
+      const edge = network.edges[edgeIndex];
+      const next = edge.a === current ? edge.b : edge.a;
+      const candidate = currentDistance + edge.cost;
+      if (candidate < distances[next]) {
+        distances[next] = candidate;
+        previousNode[next] = current;
+        previousEdge[next] = edgeIndex;
+        queuePush({ node: next, distance: candidate });
+      }
+    }
+  }
+
+  const targets = [
+    { node: endEdge.a, cost: distances[endEdge.a] + endEdge.cost * end.t },
+    { node: endEdge.b, cost: distances[endEdge.b] + endEdge.cost * (1 - end.t) },
+  ];
+  let selected = targets[0].cost <= targets[1].cost ? targets[0] : targets[1];
+  const directCost = start.edgeIndex === end.edgeIndex
+    ? Math.abs(start.t - end.t) * startEdge.cost
+    : Infinity;
+  if (directCost <= selected.cost) {
+    return {
+      coordinates: dedupeLine([start.coordinate, end.coordinate]) ?? [],
+      sourceLineIndexes: [startEdge.lineIndex],
+    };
+  }
+
+  const nodeIndexes: number[] = [];
+  const sourceLineIndexes = new Set<number>([startEdge.lineIndex, endEdge.lineIndex]);
+  let current = selected.node;
+  while (current >= 0) {
+    nodeIndexes.push(current);
+    const edgeIndex = previousEdge[current];
+    if (edgeIndex >= 0) sourceLineIndexes.add(network.edges[edgeIndex].lineIndex);
+    current = previousNode[current];
+  }
+  nodeIndexes.reverse();
+  const coordinates = dedupeLine([
+    start.coordinate,
+    ...nodeIndexes.map((nodeIndex) => network.nodes[nodeIndex].coordinate),
+    end.coordinate,
+  ]) ?? [];
+  return { coordinates, sourceLineIndexes: [...sourceLineIndexes] };
+}
+
+/**
+ * Trace an ordered set of access points over a connected hydrography network.
+ * Edge cost multipliers allow callers to prefer visible stream channels over
+ * artificial centerlines while retaining those centerlines through water areas.
+ */
+export function endpointSnappedRiverNetwork(
+  lines: readonly WeightedNetworkLine[],
+  routePoints: readonly GeoPoint[],
+  options: { maxSnapDistanceMiles?: number } = {},
+): SnappedNetworkLine | null {
+  if (!Array.isArray(lines) || lines.length === 0 || !Array.isArray(routePoints) || routePoints.length < 2) return null;
+  if (!routePoints.every(isGeoPoint)) return null;
+  const network = buildNetwork(lines);
+  if (network.edges.length === 0) return null;
+  const projections = routePoints.map((point) => networkProjections(point, network));
+  const maxSnapDistanceSquared = Number.isFinite(options.maxSnapDistanceMiles)
+    ? (Math.max(0, Number(options.maxSnapDistanceMiles)) / 69) ** 2
+    : Infinity;
+  const commonComponents = [...projections[0].keys()].filter((component) =>
+    projections.every((byComponent) => {
+      const projection = byComponent.get(component);
+      return projection && projection.distanceSquared <= maxSnapDistanceSquared;
+    }),
+  );
+  if (commonComponents.length === 0) return null;
+  const component = commonComponents.reduce((best, candidate) => {
+    const score = projections.reduce((sum, byComponent) => sum + byComponent.get(candidate)!.distanceSquared, 0);
+    const bestScore = projections.reduce((sum, byComponent) => sum + byComponent.get(best)!.distanceSquared, 0);
+    return score < bestScore ? candidate : best;
+  });
+  const selectedProjections = projections.map((byComponent) => byComponent.get(component)!);
+  const coordinates: Coordinate[] = [];
+  const sourceLineIndexes = new Set<number>();
+  for (let index = 1; index < selectedProjections.length; index += 1) {
+    const section = shortestNetworkSection(network, selectedProjections[index - 1], selectedProjections[index]);
+    if (!section || section.coordinates.length < 2) return null;
+    const sectionCoordinates = index === 1 ? section.coordinates : section.coordinates.slice(1);
+    coordinates.push(...sectionCoordinates);
+    section.sourceLineIndexes.forEach((lineIndex) => sourceLineIndexes.add(lineIndex));
+  }
+  const deduped = dedupeLine(coordinates);
+  if (!deduped) return null;
+  const snapDistancesSquared = selectedProjections.map((projection) => projection.distanceSquared);
+  return {
+    coordinates: deduped,
+    errorSquared: snapDistancesSquared.reduce((sum, distance) => sum + distance, 0) / snapDistancesSquared.length,
+    sourceLineIndexes: [...sourceLineIndexes],
+    snapDistancesSquared,
+  };
 }
 
 function coordinateDistanceSquared(left: Coordinate, right: Coordinate) {

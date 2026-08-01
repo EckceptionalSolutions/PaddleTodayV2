@@ -6,8 +6,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "vogel-access",
       "name": "Vogel Access",
-      "latitude": 42.515,
-      "longitude": -95.05
+      "latitude": 42.54718795307961,
+      "longitude": -95.04320056511739
     },
     "takeOut": {
       "id": "riverview-lions-park-sac-city",
@@ -44,8 +44,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "vogel-access",
         "name": "Vogel Access",
-        "latitude": 42.515,
-        "longitude": -95.05,
+        "latitude": 42.54718795307961,
+        "longitude": -95.04320056511739,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; Sac County places Vogel Access northeast of Nemaha on the North Raccoon."
@@ -53,8 +53,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "mcdonald-greenbelt-230th-street",
         "name": "McDonald Greenbelt / 230th Street Canoe Access",
-        "latitude": 42.458365580744,
-        "longitude": -95.020906802905,
+        "latitude": 42.457701,
+        "longitude": -95.01317,
         "mileFromStart": 11,
         "segmentKind": "creek",
         "note": "Default take-out; Sac County lists McDonald Greenbelt and the 230th Street Canoe Access near the bridge."
@@ -80,8 +80,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "hagge-park",
       "name": "Hagge Park",
-      "latitude": 42.385453216741,
-      "longitude": -94.997965528911
+      "latitude": 42.38135658056886,
+      "longitude": -94.99126647507232
     },
     "logistics": {
       "distanceLabel": "About 4 mi",
@@ -115,8 +115,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "hagge-park",
         "name": "Hagge Park",
-        "latitude": 42.385453216741,
-        "longitude": -94.997965528911,
+        "latitude": 42.38135658056886,
+        "longitude": -94.99126647507232,
         "mileFromStart": 4,
         "segmentKind": "creek",
         "note": "Default take-out and mandatory rock-dam portage boundary; scout from land before launching."
@@ -127,8 +127,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "hagge-park-below-dam",
       "name": "Hagge Park below-dam relaunch",
-      "latitude": 42.385453216741,
-      "longitude": -94.997965528911
+      "latitude": 42.38135658056886,
+      "longitude": -94.99126647507232
     },
     "takeOut": {
       "id": "white-horse-access",
@@ -159,8 +159,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "hagge-park-below-dam",
         "name": "Hagge Park below-dam relaunch",
-        "latitude": 42.385453216741,
-        "longitude": -94.997965528911,
+        "latitude": 42.38135658056886,
+        "longitude": -94.99126647507232,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in only after the mandatory Hagge Park rock-dam portage and below-dam relaunch check."
@@ -186,8 +186,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "grant-park",
       "name": "Grant Park",
-      "latitude": 42.273,
-      "longitude": -94.872
+      "latitude": 42.26488872243218,
+      "longitude": -94.89407327659016
     },
     "logistics": {
       "distanceLabel": "4.5 mi",
@@ -221,8 +221,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "grant-park",
         "name": "Grant Park",
-        "latitude": 42.273,
-        "longitude": -94.872,
+        "latitude": 42.26488872243218,
+        "longitude": -94.89407327659016,
         "mileFromStart": 4.5,
         "segmentKind": "creek",
         "note": "Default take-out and campground-supported park; scout the rock-dam boundary from land."
@@ -400,14 +400,14 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "henderson-park-access",
       "name": "Henderson Park Access",
-      "latitude": 41.9698,
-      "longitude": -94.3766
+      "latitude": 41.98815286189902,
+      "longitude": -94.37393104079106
     },
     "takeOut": {
       "id": "squirrel-hollow-park",
       "name": "Squirrel Hollow Park",
-      "latitude": 41.9822,
-      "longitude": -94.3192
+      "latitude": 41.95019920963978,
+      "longitude": -94.29097621877891
     },
     "logistics": {
       "distanceLabel": "About 8.2 mi",
@@ -432,8 +432,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "henderson-park-access",
         "name": "Henderson Park Access",
-        "latitude": 41.9698,
-        "longitude": -94.3766,
+        "latitude": 41.98815286189902,
+        "longitude": -94.37393104079106,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; DNR describes Henderson as a maintained public access with a cement ramp and large parking area."
@@ -441,8 +441,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "squirrel-hollow-park",
         "name": "Squirrel Hollow Park",
-        "latitude": 41.9822,
-        "longitude": -94.3192,
+        "latitude": 41.95019920963978,
+        "longitude": -94.29097621877891,
         "mileFromStart": 8.2,
         "segmentKind": "creek",
         "note": "Default take-out; DNR says a rock dam above the park has a signed portage trail on river left."
@@ -494,8 +494,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "north-raccoon-river-access-carroll",
         "name": "North Raccoon River Access",
-        "latitude": 42.159,
-        "longitude": -94.692,
+        "latitude": 42.15303992661487,
+        "longitude": -94.69138108232994,
         "mileFromStart": 9,
         "segmentKind": "creek",
         "note": "Intermediate access named by DNR as excellent, with a protected eddy to the cement ramp; mileage is approximate within the 18.1-mile section."
@@ -894,8 +894,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "south-skunk-river-lekwa-sopers-mill": {
     "putIn": {
       "name": "Lekwa Access #242",
-      "latitude": 42.1819,
-      "longitude": -93.5708
+      "latitude": 42.16589098352227,
+      "longitude": -93.57800678866874
     },
     "takeOut": {
       "name": "Soper's Mill Access #235",
@@ -1021,8 +1021,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "C.J. Shreck Access",
-      "latitude": 41.9053,
-      "longitude": -93.5314
+      "latitude": 41.878623,
+      "longitude": -93.508509
     },
     "logistics": {
       "distanceLabel": "About 13 mi",
@@ -1057,8 +1057,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "south-16th-street",
         "name": "South 16th Street access",
-        "latitude": 42.0106,
-        "longitude": -93.5818,
+        "latitude": 42.009974,
+        "longitude": -93.59501099999999,
         "mileFromStart": 3,
         "segmentKind": "creek",
         "note": "Intermediate Story County water-trail access; verify same-day signage and parking."
@@ -1066,8 +1066,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "askew-bridge-cambridge-pond",
         "name": "Askew Bridge / Cambridge Pond access",
-        "latitude": 41.9278,
-        "longitude": -93.5436,
+        "latitude": 41.93587797632769,
+        "longitude": -93.5418995339535,
         "mileFromStart": 9,
         "segmentKind": "creek",
         "note": "Intermediate public access near Cambridge Pond."
@@ -1075,8 +1075,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "cj-shreck-access",
         "name": "C.J. Shreck Access",
-        "latitude": 41.9053,
-        "longitude": -93.5314,
+        "latitude": 41.878623,
+        "longitude": -93.508509,
         "mileFromStart": 13,
         "segmentKind": "creek",
         "note": "Default take-out on Highway 210 south of Cambridge."
@@ -1086,13 +1086,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "north-raccoon-river-squirrel-hollow-adkins": {
     "putIn": {
       "name": "Squirrel Hollow Park boat ramp",
-      "latitude": 41.9822,
-      "longitude": -94.3192
+      "latitude": 41.95019920963978,
+      "longitude": -94.29097621877891
     },
     "takeOut": {
       "name": "Adkins Bridge Access",
-      "latitude": 41.9596,
-      "longitude": -94.2676
+      "latitude": 41.91055690276827,
+      "longitude": -94.27398896185606
     },
     "logistics": {
       "distanceLabel": "About 3.8 mi",
@@ -1117,8 +1117,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "squirrel-hollow-park",
         "name": "Squirrel Hollow Park boat ramp",
-        "latitude": 41.9822,
-        "longitude": -94.3192,
+        "latitude": 41.95019920963978,
+        "longitude": -94.29097621877891,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in with county park camping and public river access."
@@ -1126,8 +1126,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "adkins-bridge-access",
         "name": "Adkins Bridge Access",
-        "latitude": 41.9596,
-        "longitude": -94.2676,
+        "latitude": 41.91055690276827,
+        "longitude": -94.27398896185606,
         "mileFromStart": 3.8,
         "segmentKind": "creek",
         "note": "Default take-out 3.8 miles downstream of Squirrel Hollow."
@@ -1323,8 +1323,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Ranchero Road / Katoski Greenbelt (Access 8), Waterloo",
-      "latitude": 42.45749,
-      "longitude": -92.41535
+      "latitude": 42.45688561292181,
+      "longitude": -92.422972497038
     },
     "logistics": {
       "distanceLabel": "7.5 mi",
@@ -1535,8 +1535,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "black-hawk-creek-ranchero-hope-martin": {
     "putIn": {
       "name": "Ranchero Road / Katoski Greenbelt Area (Access 8)",
-      "latitude": 42.45749,
-      "longitude": -92.41535
+      "latitude": 42.45688561292181,
+      "longitude": -92.422972497038
     },
     "takeOut": {
       "name": "Hope Martin Park (Access 2)",
@@ -1654,8 +1654,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "stone-city-access",
       "name": "Stone City Access",
-      "latitude": 42.1082,
-      "longitude": -91.3568
+      "latitude": 42.11047631195115,
+      "longitude": -91.34940744932308
     },
     "takeOut": {
       "id": "anamosa-boat-ramp-above-dam",
@@ -1686,8 +1686,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "stone-city-access",
         "name": "Stone City Access",
-        "latitude": 42.1082,
-        "longitude": -91.3568,
+        "latitude": 42.11047631195115,
+        "longitude": -91.34940744932308,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in at the county's one-acre Stone City Wapsipinicon River access."
@@ -1895,8 +1895,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "dundee-access",
       "name": "Dundee Access / Dundee Wildlife Area",
-      "latitude": 42.5816,
-      "longitude": -91.5461
+      "latitude": 42.579746,
+      "longitude": -91.548738
     },
     "takeOut": {
       "id": "manchester-whitewater-park",
@@ -1928,8 +1928,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "dundee-access",
         "name": "Dundee Access / Dundee Wildlife Area",
-        "latitude": 42.5816,
-        "longitude": -91.5461,
+        "latitude": 42.579746,
+        "longitude": -91.548738,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Upper Delaware County public access for the Dundee-to-Manchester day section."
@@ -2270,8 +2270,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "osterdock-access-12",
         "name": "Osterdock Access #12",
-        "latitude": 42.7489,
-        "longitude": -91.1564,
+        "latitude": 42.7331551,
+        "longitude": -91.15900139999999,
         "mileFromStart": 7.5,
         "segmentKind": "creek",
         "note": "Default take-out."
@@ -2383,8 +2383,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "little-turkey-river-gouldsburg-eldorado": {
     "putIn": {
       "name": "Gouldsburg Park Access #98",
-      "latitude": 43.012796,
-      "longitude": -91.958595
+      "latitude": 43.007945,
+      "longitude": -91.955974
     },
     "takeOut": {
       "name": "Eldorado Bridge Access #86 / Highway 150",
@@ -2413,13 +2413,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "north-fork-maquoketa-river-ozark-caven": {
     "putIn": {
       "name": "Ozark Bridge / 21st Ave access area",
-      "latitude": 42.19,
-      "longitude": -90.87
+      "latitude": 42.19452517752233,
+      "longitude": -90.87580561082818
     },
     "takeOut": {
       "name": "Caven Bridge Access / 60th Ave",
-      "latitude": 42.18,
-      "longitude": -90.83
+      "latitude": 42.182844,
+      "longitude": -90.83832700000001
     },
     "logistics": {
       "distanceLabel": "4.4 mi",
@@ -2478,8 +2478,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Ozark Bridge / 21st Ave access area",
-      "latitude": 42.19,
-      "longitude": -90.87
+      "latitude": 42.19452517752233,
+      "longitude": -90.87580561082817
     },
     "logistics": {
       "distanceLabel": "About 12.1 mi",
@@ -2508,8 +2508,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Ozark Bridge / 21st Ave access area",
-      "latitude": 42.19,
-      "longitude": -90.87
+      "latitude": 42.19452517752233,
+      "longitude": -90.87580561082817
     },
     "logistics": {
       "distanceLabel": "About 18 to 20 mi",
@@ -2538,8 +2538,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Caven Bridge Access / 60th Ave",
-      "latitude": 42.18,
-      "longitude": -90.83
+      "latitude": 42.182844,
+      "longitude": -90.83832700000001
     },
     "logistics": {
       "distanceLabel": "About 16.5 mi",
@@ -2570,8 +2570,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "north-fork-caven",
       "name": "Caven Bridge Access / 60th Ave",
-      "latitude": 42.18,
-      "longitude": -90.83
+      "latitude": 42.182844,
+      "longitude": -90.83832700000001
     },
     "logistics": {
       "distanceLabel": "About 24.3 mi",
@@ -2613,8 +2613,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "north-fork-ozark",
         "name": "Ozark Bridge / 21st Ave access area",
-        "latitude": 42.19,
-        "longitude": -90.87,
+        "latitude": 42.19452517752233,
+        "longitude": -90.87580561082817,
         "mileFromStart": 19.9,
         "segmentKind": "creek",
         "note": "Intermediate undeveloped access before the final Ozark-to-Caven section."
@@ -2622,8 +2622,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "north-fork-caven",
         "name": "Caven Bridge Access / 60th Ave",
-        "latitude": 42.18,
-        "longitude": -90.83,
+        "latitude": 42.182844,
+        "longitude": -90.83832700000001,
         "mileFromStart": 24.3,
         "segmentKind": "creek",
         "note": "Default east-bank take-out; scout the undeveloped bridge corridor before launch."
@@ -2670,8 +2670,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "tunnel-mill-canoe-access",
       "name": "Tunnel Mill Canoe Access",
-      "latitude": 42.3537,
-      "longitude": -93.8189
+      "latitude": 42.35031682247519,
+      "longitude": -93.84469408621065
     },
     "logistics": {
       "distanceLabel": "About 7.5 mi",
@@ -2708,8 +2708,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "tunnel-mill-canoe-access",
         "name": "Tunnel Mill Canoe Access",
-        "latitude": 42.3537,
-        "longitude": -93.8189,
+        "latitude": 42.35031682247519,
+        "longitude": -93.84469408621065,
         "mileFromStart": 7.5,
         "segmentKind": "creek",
         "note": "Default take-out at the Iowa DNR-owned Tunnel Mill wildlife-management access."
@@ -2720,14 +2720,14 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "tunnel-mill-canoe-access",
       "name": "Tunnel Mill Canoe Access",
-      "latitude": 42.3537,
-      "longitude": -93.8189
+      "latitude": 42.35031682247519,
+      "longitude": -93.84469408621065
     },
     "takeOut": {
       "id": "bells-mill-park",
       "name": "Bell's Mill Park",
-      "latitude": 42.3464,
-      "longitude": -93.8847
+      "latitude": 42.34040214385297,
+      "longitude": -93.89199553223628
     },
     "logistics": {
       "distanceLabel": "About 5.1 mi",
@@ -2754,8 +2754,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "tunnel-mill-canoe-access",
         "name": "Tunnel Mill Canoe Access",
-        "latitude": 42.3537,
-        "longitude": -93.8189,
+        "latitude": 42.35031682247519,
+        "longitude": -93.84469408621065,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in at the Iowa DNR-owned Tunnel Mill access."
@@ -2763,8 +2763,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "bells-mill-park",
         "name": "Bell's Mill Park",
-        "latitude": 42.3464,
-        "longitude": -93.8847,
+        "latitude": 42.34040214385297,
+        "longitude": -93.89199553223628,
         "mileFromStart": 5.1,
         "segmentKind": "creek",
         "note": "Default take-out with county park ramp, restroom, and campground context."
@@ -2775,8 +2775,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "bells-mill-park",
       "name": "Bell's Mill Park",
-      "latitude": 42.3464,
-      "longitude": -93.8847
+      "latitude": 42.34040214385297,
+      "longitude": -93.89199553223628
     },
     "takeOut": {
       "id": "boone-forks-canoe-ramp",
@@ -2810,8 +2810,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "bells-mill-park",
         "name": "Bell's Mill Park",
-        "latitude": 42.3464,
-        "longitude": -93.8847,
+        "latitude": 42.34040214385297,
+        "longitude": -93.89199553223628,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in with county park ramp, restroom, and campground context."
@@ -3573,8 +3573,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "quasqueton-campground-access",
       "name": "Quasqueton Campground / Wapsipinicon River access",
-      "latitude": 42.3956,
-      "longitude": -91.7587
+      "latitude": 42.39221062886891,
+      "longitude": -91.76221841104226
     },
     "logistics": {
       "distanceLabel": "About 9 mi",
@@ -3610,8 +3610,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "iron-bridge-access",
         "name": "Iron Bridge Access",
-        "latitude": 42.4238,
-        "longitude": -91.8162,
+        "latitude": 42.39957049442334,
+        "longitude": -91.81223155190587,
         "mileFromStart": 4.5,
         "segmentKind": "creek",
         "note": "Official shorter-trip split point with parking and a concrete ramp."
@@ -3619,8 +3619,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "quasqueton-campground-access",
         "name": "Quasqueton Campground / Wapsipinicon River access",
-        "latitude": 42.3956,
-        "longitude": -91.7587,
+        "latitude": 42.39221062886891,
+        "longitude": -91.76221841104226,
         "mileFromStart": 9,
         "segmentKind": "creek",
         "note": "Default take-out in the Quasqueton campground and city river-access corridor."
@@ -3746,8 +3746,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "henderson-park-access",
       "name": "Henderson Park Access",
-      "latitude": 41.9698,
-      "longitude": -94.3766
+      "latitude": 41.98815286189902,
+      "longitude": -94.37393104079106
     },
     "logistics": {
       "distanceLabel": "About 4.5 mi",
@@ -3783,8 +3783,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "henderson-park-access",
         "name": "Henderson Park Access",
-        "latitude": 41.9698,
-        "longitude": -94.3766,
+        "latitude": 41.98815286189902,
+        "longitude": -94.37393104079106,
         "mileFromStart": 4.5,
         "segmentKind": "creek",
         "note": "Default take-out at the county park ramp south of Jefferson."
@@ -3842,8 +3842,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "becker-access",
         "name": "Becker Access / Becker Wildlife Area",
-        "latitude": 42.531418,
-        "longitude": -94.225392,
+        "latitude": 42.54358931901484,
+        "longitude": -94.21639256707738,
         "mileFromStart": 5.5,
         "segmentKind": "creek",
         "note": "Default take-out at the DNR-listed Becker Access / Becker Wildlife Area corridor; confirm exact landing on arrival."
@@ -3869,8 +3869,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "south-river-district-access",
       "name": "South River District Access",
-      "latitude": 42.4892,
-      "longitude": -94.1856
+      "latitude": 42.490617,
+      "longitude": -94.18325299999999
     },
     "logistics": {
       "distanceLabel": "2.5 mi",
@@ -3904,8 +3904,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "south-river-district-access",
         "name": "South River District Access",
-        "latitude": 42.4892,
-        "longitude": -94.1856,
+        "latitude": 42.490617,
+        "longitude": -94.18325299999999,
         "mileFromStart": 2.5,
         "segmentKind": "creek",
         "note": "Default take-out and start of the existing South River District-to-Lehigh route."
@@ -3916,8 +3916,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "south-river-district-access",
       "name": "South River District Access",
-      "latitude": 42.4892,
-      "longitude": -94.1856
+      "latitude": 42.490617,
+      "longitude": -94.18325299999999
     },
     "takeOut": {
       "id": "lehigh-des-moines-river-access",
@@ -3948,8 +3948,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "south-river-district-access",
         "name": "South River District Access",
-        "latitude": 42.4892,
-        "longitude": -94.1856,
+        "latitude": 42.490617,
+        "longitude": -94.18325299999999,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default Fort Dodge put-in for the selected water-trail day; practical access-area coordinate."
@@ -4090,8 +4090,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "riverside-little-sioux-access",
       "name": "Riverside Little Sioux Access",
-      "latitude": 42.9205,
-      "longitude": -95.343
+      "latitude": 42.92118954771775,
+      "longitude": -95.35647920144906
     },
     "logistics": {
       "distanceLabel": "About 9 mi",
@@ -4125,8 +4125,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "riverside-little-sioux-access",
         "name": "Riverside Little Sioux Access",
-        "latitude": 42.9205,
-        "longitude": -95.343,
+        "latitude": 42.92118954771775,
+        "longitude": -95.35647920144906,
         "mileFromStart": 9,
         "segmentKind": "creek",
         "note": "Clay County documents canoe/kayak access and parking at Riverside Little Sioux Access near Peterson."
@@ -4190,8 +4190,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "chain-lakes-boat-landing",
       "name": "Chain Lakes / Palo boat landing",
-      "latitude": 42.074,
-      "longitude": -91.803
+      "latitude": 42.04980231366407,
+      "longitude": -91.77528474862063
     },
     "takeOut": {
       "id": "ellis-harbor-boat-launch",
@@ -4222,8 +4222,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "chain-lakes-boat-landing",
         "name": "Chain Lakes / Palo boat landing",
-        "latitude": 42.074,
-        "longitude": -91.803,
+        "latitude": 42.04980231366407,
+        "longitude": -91.77528474862063,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in near Palo; practical access-area coordinate for the Chain Lakes boat-landing corridor."
@@ -4399,8 +4399,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "shearer-access",
         "name": "Shearer Access",
-        "latitude": 41.602,
-        "longitude": -94.245,
+        "latitude": 41.61499148391066,
+        "longitude": -94.26251486715834,
         "mileFromStart": 4.3,
         "segmentKind": "creek",
         "note": "DNR-named intermediate cement-ramp access; coordinates are a practical corridor anchor and should be verified from land."
@@ -4532,8 +4532,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "north-fraser-ramp",
       "name": "North Fraser Ramp",
-      "latitude": 42.161,
-      "longitude": -93.968
+      "latitude": 42.12884528087987,
+      "longitude": -93.9816575422718
     },
     "logistics": {
       "distanceLabel": "About 11.4 mi",
@@ -4567,8 +4567,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "north-fraser-ramp",
         "name": "North Fraser Ramp",
-        "latitude": 42.161,
-        "longitude": -93.968,
+        "latitude": 42.12884528087987,
+        "longitude": -93.9816575422718,
         "mileFromStart": 11.4,
         "segmentKind": "creek",
         "note": "Default take-out; shown on the Boone County Des Moines River Water Trail map."
@@ -4579,8 +4579,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "south-fraser-ramp",
       "name": "South Fraser Ramp",
-      "latitude": 42.154,
-      "longitude": -93.965
+      "latitude": 42.12192805701144,
+      "longitude": -93.97000884977254
     },
     "takeOut": {
       "id": "waterworks-upstream-e26-access",
@@ -4611,8 +4611,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "south-fraser-ramp",
         "name": "South Fraser Ramp",
-        "latitude": 42.154,
-        "longitude": -93.965,
+        "latitude": 42.12192805701144,
+        "longitude": -93.97000884977254,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in below the Fraser dam portage; labeled by Iowa DNR and USACE Boone County maps."
@@ -4632,8 +4632,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "highway-30-access-boone",
       "name": "Highway 30 Access",
-      "latitude": 42.047,
-      "longitude": -93.931
+      "latitude": 42.03695854773216,
+      "longitude": -93.92761555573368
     },
     "takeOut": {
       "id": "sportsman-ramp-old-hubby",
@@ -4665,8 +4665,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "highway-30-access-boone",
         "name": "Highway 30 Access",
-        "latitude": 42.047,
-        "longitude": -93.931,
+        "latitude": 42.03695854773216,
+        "longitude": -93.92761555573368,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; labeled as Highway 30 Access by Iowa DNR and USACE Boone County maps."
@@ -4674,8 +4674,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "dogwood-ramp-e57",
         "name": "Dogwood Ramp / E-57 Access",
-        "latitude": 42.005,
-        "longitude": -93.878,
+        "latitude": 41.96653827038594,
+        "longitude": -93.8962580069613,
         "mileFromStart": 7,
         "segmentKind": "creek",
         "note": "Intermediate access at about mile 7; use it as an alternate take-out from Highway 30 or put-in for the final roughly 4 miles."
@@ -4695,8 +4695,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "clermont-canoe-access",
       "name": "Clermont Canoe Access #64B",
-      "latitude": 42.9969,
-      "longitude": -91.6487
+      "latitude": 42.996961,
+      "longitude": -91.65584200000001
     },
     "takeOut": {
       "id": "gilbertson-park-elgin",
@@ -4727,8 +4727,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "clermont-canoe-access",
         "name": "Clermont Canoe Access #64B",
-        "latitude": 42.9969,
-        "longitude": -91.6487,
+        "latitude": 42.996961,
+        "longitude": -91.65584200000001,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in below the Clermont dam; do not launch upstream of the dam for this card."
@@ -4736,8 +4736,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "valley-access",
         "name": "Valley Access",
-        "latitude": 42.9866,
-        "longitude": -91.6368,
+        "latitude": 42.9777922,
+        "longitude": -91.6516773,
         "mileFromStart": 2.5,
         "segmentKind": "creek",
         "note": "Official intermediate water-trail access between Clermont and Elgin; verify signs and parking before relying on it."
@@ -4798,8 +4798,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "joinerville-park",
         "name": "Joinerville Park",
-        "latitude": 42.078,
-        "longitude": -90.69,
+        "latitude": 42.08121883426826,
+        "longitude": -90.75169779176558,
         "mileFromStart": 6,
         "segmentKind": "creek",
         "note": "Named Jackson County access and practical bailout in the lower Maquoketa access chain."
@@ -4966,8 +4966,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "millstone-city-park-carson",
         "name": "Millstone City Park / Carson access",
-        "latitude": 41.2379,
-        "longitude": -95.4219,
+        "latitude": 41.2396901,
+        "longitude": -95.4251458,
         "mileFromStart": 8,
         "segmentKind": "creek",
         "note": "Intermediate water-trail town access; verify current signs and landing conditions before relying on it."
@@ -4993,8 +4993,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "essex-bridge-access",
       "name": "Essex Bridge Access",
-      "latitude": 40.8288,
-      "longitude": -95.3047
+      "latitude": 40.83632,
+      "longitude": -95.323504
     },
     "logistics": {
       "distanceLabel": "About 12 mi",
@@ -5028,8 +5028,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "essex-bridge-access",
         "name": "Essex Bridge Access",
-        "latitude": 40.8288,
-        "longitude": -95.3047,
+        "latitude": 40.83632,
+        "longitude": -95.323504,
         "mileFromStart": 12,
         "segmentKind": "creek",
         "note": "Default take-out corridor; confirm bank condition and legal parking before launching upstream."
@@ -5040,8 +5040,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "pictured-rocks-access",
       "name": "Pictured Rocks Park Access",
-      "latitude": 42.17256,
-      "longitude": -91.10471
+      "latitude": 42.20569962,
+      "longitude": -91.10253824999999
     },
     "takeOut": {
       "id": "ebys-mill-access",
@@ -5072,8 +5072,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "pictured-rocks-access",
         "name": "Pictured Rocks Park Access",
-        "latitude": 42.17256,
-        "longitude": -91.10471,
+        "latitude": 42.20569962,
+        "longitude": -91.10253824999999,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in at the county park ramp in the scenic public-land corridor."
@@ -5143,8 +5143,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "iverson-bottoms-access",
         "name": "Iverson Bottoms Access",
-        "latitude": 43.4038,
-        "longitude": -91.5884,
+        "latitude": 43.40647984844514,
+        "longitude": -91.55673230976639,
         "mileFromStart": 14.2,
         "segmentKind": "creek",
         "note": "Mapped late-route access/bailout before the Iverson Bridge finish."
@@ -5258,8 +5258,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "highway-136-access",
         "name": "Highway 136 access",
-        "latitude": 42.1895,
-        "longitude": -91.0097,
+        "latitude": 42.20340285673162,
+        "longitude": -91.00491685817094,
         "mileFromStart": 5.5,
         "segmentKind": "creek",
         "note": "Rougher intermediate access noted in lower-Maquoketa route descriptions; verify current bank and parking conditions before relying on it."
@@ -5285,8 +5285,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "dundee-access",
       "name": "Dundee Access / Dundee Wildlife Area",
-      "latitude": 42.5816,
-      "longitude": -91.5461
+      "latitude": 42.579746,
+      "longitude": -91.548738
     },
     "logistics": {
       "distanceLabel": "About 1.8 to 2.1 mi",
@@ -5320,8 +5320,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "dundee-access",
         "name": "Dundee Access / Dundee Wildlife Area",
-        "latitude": 42.5816,
-        "longitude": -91.5461,
+        "latitude": 42.579746,
+        "longitude": -91.548738,
         "mileFromStart": 1.8,
         "segmentKind": "creek",
         "note": "Default take-out for the Backbone-to-Dundee water-trail opener."
@@ -5391,8 +5391,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "pin-oak-park",
         "name": "Pin Oak Park Access",
-        "latitude": 42.4564,
-        "longitude": -91.4256,
+        "latitude": 42.45532054994545,
+        "longitude": -91.43225325165514,
         "mileFromStart": 5.5,
         "segmentKind": "creek",
         "note": "Official downstream access and practical bailout before the Bailey's Ford finish."
@@ -5524,8 +5524,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "austin-park-access",
       "name": "Austin Park boat access",
-      "latitude": 40.7715,
-      "longitude": -91.976
+      "latitude": 40.7674276,
+      "longitude": -91.9682591
     },
     "logistics": {
       "distanceLabel": "About 9.75 mi",
@@ -5559,8 +5559,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "austin-park-access",
         "name": "Austin Park boat access",
-        "latitude": 40.7715,
-        "longitude": -91.976,
+        "latitude": 40.7674276,
+        "longitude": -91.9682591,
         "mileFromStart": 9.75,
         "segmentKind": "creek",
         "note": "Default take-out; public river access and campground context in the Villages of Van Buren / Iowa DNR water-trail materials."
@@ -5571,8 +5571,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "austin-park-access",
       "name": "Austin Park boat access",
-      "latitude": 40.7715,
-      "longitude": -91.976
+      "latitude": 40.7674276,
+      "longitude": -91.9682591
     },
     "takeOut": {
       "id": "keosauqua-boat-ramp",
@@ -5603,8 +5603,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "austin-park-access",
         "name": "Austin Park boat access",
-        "latitude": 40.7715,
-        "longitude": -91.976,
+        "latitude": 40.7674276,
+        "longitude": -91.9682591,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; public river access and campground context in Iowa DNR / Villages of Van Buren water-trail materials."
@@ -6456,8 +6456,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "wapsi-river-environmental-center",
         "name": "Wapsi River Environmental Center access",
-        "latitude": 41.7753,
-        "longitude": -90.7812,
+        "latitude": 41.7745436,
+        "longitude": -90.787098,
         "mileFromStart": 0.5,
         "segmentKind": "creek",
         "note": "Reference-only restricted access across from Sherman; DNR says this access is only for facility renters."

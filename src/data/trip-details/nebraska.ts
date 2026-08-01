@@ -48,21 +48,21 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "platte-river-state-park-decker-creek-access",
       "name": "Platte River State Park Decker Creek canoe/kayak access",
-      "latitude": 41.0175,
-      "longitude": -96.2038
+      "latitude": 40.99302,
+      "longitude": -96.20843000000001
     },
     "logistics": {
       "distanceLabel": "About 2.9 mi",
       "estimatedPaddleTime": "About 1 hr to 2 hr at ordinary current, longer with low-water dragging, channel scouting, wind, or a slow group",
-      "shuttle": "Stage the Platte River State Park access first, then drive back to the Schramm Park canoe/kayak access off Highway 31. Inspect both access points before launching because flood repairs, mud, shifted sand, park rules, or local closures can change the practical ramp or graded-bank layout.",
+      "shuttle": "Confirm current Platte River State Park rules for wheeling a boat down the maintenance road to the Decker Creek stop; NGPC says the stop was not built as a normal vehicle put-in/take-out and has no adjacent public parking. Then stage the permitted carry or pickup and drive back to the Schramm Park canoe/kayak access off Highway 31.",
       "permits": "A valid Nebraska state park vehicle permit is required for state park and recreation area vehicle access. No separate private-paddling permit is known for this water-trail segment. Follow Nebraska boating and PFD rules, posted NGPC access rules, and current park closure notices.",
       "camping": "Treat this as a short day run. Platte River State Park has nearby cabins and campground options for a base-camp stay, but the Decker Creek access itself is a water-trail stop rather than a river campsite.",
       "campingClassification": "nearby_basecamp",
       "summary": "Launch from Schramm Park SRA and take out at the Decker Creek access at Platte River State Park for the upstream half of the improved lower-Platte water trail. Use USGS 06805500 at Louisville and Nebraska Game and Parks/Nebraskaland flow guidance for the same-day go/no-go call.",
       "accessCaveats": [
         "NGPC says Schramm has a canoe/kayak access point with graded bank and parking off Highway 31, but the launch was flood-damaged in 2019 and the bank drops off quickly. Make a same-day visual access check.",
-        "Outdoor Nebraska says Platte River State Park has a canoe and kayak access point a few yards from the mouth of Decker Creek. The access functions mainly as a stop on the water trail, so inspect the carry, bank, and current before committing.",
-        "The Platte River State Park coordinate is a practical park-access anchor for the named Decker Creek stop rather than a surveyed launch pin. Follow current on-site signs and obvious public access boundaries on arrival.",
+        "Outdoor Nebraska says Platte River State Park has a canoe and kayak stop a few yards from the mouth of Decker Creek. NGPC's water-trail article says it was not built as a normal put-in/take-out because it is distant from the nearest park road, though a canoe or kayak may be wheeled down a maintenance road. Confirm current park permission, route, and pickup logistics before relying on it.",
+        "The coordinate is the photo-matched water edge of the graded landing on Decker Creek, immediately south of the footbridge—not a parking pin. The route leaves the Platte, passes under the railroad bridge, and continues about 1,100 feet up Decker Creek to the stop.",
         "The Nebraska Game and Parks private-bed/sandbar rule is stricter than many paddlers expect: do not stop on banks, sandbars, or the stream bed without permission except when necessary for shallow-water walking or obstacle portage.",
         "The Platte is braided and sandy. The main channel can shift, and the best line can change after floods, summer low water, or wind-driven sand movement."
       ],
@@ -79,8 +79,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "platte-river-state-park-decker-creek-access",
       "name": "Platte River State Park Decker Creek canoe/kayak access",
-      "latitude": 41.0175,
-      "longitude": -96.2038
+      "latitude": 40.99302,
+      "longitude": -96.20843000000001
     },
     "takeOut": {
       "id": "louisville-sra-platte-river-boat-ramp",
@@ -91,15 +91,15 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 2.8 mi",
       "estimatedPaddleTime": "About 1 hr to 2 hr at ordinary current, longer with low-water dragging, braided-channel scouting, wind, or a slow group",
-      "shuttle": "Stage the take-out at Louisville State Recreation Area, then drive back to the Decker Creek access at Platte River State Park. Inspect both access points before launching because flood repairs, mud, shifted sand, park rules, or local closures can change the practical ramp, bank, or parking layout.",
+      "shuttle": "Stage the take-out at Louisville State Recreation Area, then confirm current Platte River State Park permission to wheel a boat down the maintenance road to the Decker Creek stop. NGPC says that stop was not built as a normal vehicle put-in/take-out and has no adjacent public parking, so do not assume a curbside launch or ordinary shuttle staging area.",
       "permits": "A valid Nebraska state park vehicle permit is required for state park and recreation area vehicle access. No separate private-paddling permit is known for this water-trail segment. Follow Nebraska boating and PFD rules, posted NGPC access rules, and current park closure notices.",
       "camping": "Louisville State Recreation Area has a special campsite on the river and nearby campground options, but same-day route access still depends on current bank, ramp, and reservation conditions rather than assuming a casual walk-up overnight.",
       "campingClassification": "endpoint_campground",
       "summary": "Launch from the Decker Creek access at Platte River State Park and take out at Louisville SRA for the downstream half of the improved lower-Platte water trail. Use USGS 06805500 at Louisville and Nebraska Game and Parks/Nebraskaland flow guidance for the same-day go/no-go call.",
       "accessCaveats": [
-        "Outdoor Nebraska says Platte River State Park has a canoe and kayak access point a few yards from the mouth of Decker Creek. The access functions mainly as a stop on the water trail, so inspect the carry, bank, and current before committing.",
+        "Outdoor Nebraska says Platte River State Park has a canoe and kayak stop a few yards from the mouth of Decker Creek. NGPC's water-trail article says it was not built as a normal put-in/take-out because it is distant from the nearest park road, though a canoe or kayak may be wheeled down a maintenance road. Confirm current park permission before using it as this route's start.",
         "Louisville SRA has canoe/kayak access to the Platte River and a boat-ramp/parking area at the end of the water trail. Use current park signs, parking rules, and ramp conditions on arrival.",
-        "The Platte River State Park coordinate is a practical park-access anchor for the named Decker Creek stop rather than a surveyed launch pin. Follow current on-site signs and obvious public access boundaries on arrival.",
+        "The coordinate is the photo-matched water edge of the graded landing on Decker Creek, immediately south of the footbridge—not a parking pin. Paddle about 1,100 feet down Decker Creek, pass under the railroad bridge, and join the Platte before continuing to Louisville.",
         "The Nebraska Game and Parks private-bed/sandbar rule is stricter than many paddlers expect: do not stop on banks, sandbars, or the stream bed without permission except when necessary for shallow-water walking or obstacle portage.",
         "The Platte is braided and sandy. The main channel can shift, and the best line can change after floods, summer low water, or wind-driven sand movement."
       ],
@@ -122,8 +122,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "monroe-county-access",
       "name": "Monroe county access south of Monroe",
-      "latitude": 41.471508,
-      "longitude": -97.602729
+      "latitude": 41.46117475580161,
+      "longitude": -97.59934674467611
     },
     "logistics": {
       "distanceLabel": "About 8 mi",
@@ -184,8 +184,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "monroe-county-access",
         "name": "Monroe county access south of Monroe",
-        "latitude": 41.471508,
-        "longitude": -97.602729,
+        "latitude": 41.46117475580161,
+        "longitude": -97.59934674467611,
         "mileFromStart": 8,
         "segmentKind": "creek",
         "note": "Best named bailout and midpoint checkpoint before committing to the final Columbus run."
@@ -196,8 +196,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "monroe-county-access",
       "name": "Monroe county access south of Monroe",
-      "latitude": 41.471508,
-      "longitude": -97.602729
+      "latitude": 41.46117475580161,
+      "longitude": -97.59934674467611
     },
     "takeOut": {
       "id": "columbus-hotel-side-finish",
@@ -235,8 +235,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "adm-access-site",
       "name": "ADM access site south of Southeast 9th Street",
-      "latitude": 41.41603951,
-      "longitude": -97.2865376
+      "latitude": 41.40165,
+      "longitude": -97.2893
     },
     "logistics": {
       "distanceLabel": "About 4.5 mi",
@@ -261,14 +261,14 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "monroe-county-access",
       "name": "Monroe county access south of Monroe",
-      "latitude": 41.471508,
-      "longitude": -97.602729
+      "latitude": 41.46117475580161,
+      "longitude": -97.59934674467611
     },
     "takeOut": {
       "id": "adm-access-site",
       "name": "ADM access site south of Southeast 9th Street",
-      "latitude": 41.41603951,
-      "longitude": -97.2865376
+      "latitude": 41.40165,
+      "longitude": -97.2893
     },
     "logistics": {
       "distanceLabel": "About 20.5 mi",
@@ -311,8 +311,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "adm-access-site",
       "name": "ADM access site south of Southeast 9th Street",
-      "latitude": 41.41603951,
-      "longitude": -97.2865376
+      "latitude": 41.40165,
+      "longitude": -97.2893
     },
     "logistics": {
       "distanceLabel": "About 28.5 mi",
@@ -337,8 +337,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "monroe-county-access",
         "name": "Monroe county access south of Monroe",
-        "latitude": 41.471508,
-        "longitude": -97.602729,
+        "latitude": 41.46117475580161,
+        "longitude": -97.59934674467611,
         "mileFromStart": 8,
         "segmentKind": "creek",
         "note": "Best first bailout and checkpoint before the longer Monroe-to-Columbus day begins."

@@ -3701,7 +3701,7 @@ export const minnesotaRoutes: River[] = [
       "seasonNotes": "Late spring through early fall is the main window. Summer remains viable on this park-to-park corridor, but low water slows the day down and the DNR map still calls for a same-day obstruction check.",
       "difficulty": "easy",
       "difficultyNotes": "This is broad, flat moving water with few rapids and is suitable for beginning and intermediate paddlers at moderate flows. Downed trees and snags remain the primary route-specific hazard.",
-      "confidenceNotes": "Confidence is good for a conservative add: the St. Francis gauge is on the route corridor, MN DNR publishes the full paddling ladder for that gauge, and DNR plus Anoka County together document the exact North-to-Central canoe corridor and amenities."
+      "confidenceNotes": "Confidence is high for the selected take-out: the St. Francis gauge is on the route corridor, MN DNR publishes the full paddling ladder for that gauge, and DNR Map 3 places the Central Regional Park north trailer access at river mile 13.8. Minnesota public-access record WAS02199 and Anoka County park mapping independently corroborate that north facility, distinct from the park's south access near river mile 10.7."
     },
     "evidenceNotes": [
       {
@@ -3724,8 +3724,8 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Central park amenities",
-        "value": "Watercraft campsites, toilets, drinking water",
-        "note": "DNR Map 3 lists Rum River Central Regional Park with trailer access, watercraft campsites, toilets, and drinking water at river mile 13.8.",
+        "value": "North boat launch at river mile 13.8",
+        "note": "DNR Map 3 lists the Central Regional Park trailer access, watercraft campsites, toilets, and drinking water at river mile 13.8; this is the north launch, not the distinct south access near river mile 10.7.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf"
       },
       {
@@ -4735,8 +4735,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Central Minnesota",
     "summary": "Clean lower-Sauk day trip linking a county-park put-in with the standard Miller take-out. It is a strong mainstream option when the St. Martin gauge sits in the DNR medium band.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the sweet spot. Below 14 ft gets shallower and weedier, and above 20 ft is well past the broad-audience version of this paddle.",
-    "latitude": 45.4755294,
-    "longitude": -94.3507888,
+    "latitude": 45.47296191567727,
+    "longitude": -94.34969582622075,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -4870,8 +4870,8 @@ export const minnesotaRoutes: River[] = [
     "region": "St. Cloud Area",
     "summary": "Medium-length lower-Sauk day that keeps Rockville County Park as the campsite-backed put-in and exits in St. Cloud before the mouth rapids. Choose it when you want more mileage than Miller Landing without committing to the Heims finish.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the cleanest range. Below 14 ft the lower river gets slower and weedier, while flood-style caution matters more above 20 ft.",
-    "latitude": 45.4755294,
-    "longitude": -94.3507888,
+    "latitude": 45.47296191567727,
+    "longitude": -94.34969582622075,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -5004,8 +5004,8 @@ export const minnesotaRoutes: River[] = [
     "region": "St. Cloud Area",
     "summary": "Longer lower-Sauk planner that links the Rockville campsite put-in with the Heims Mill/Mississippi finish. Choose it when you want a full day plus the family rapid section in one route card.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the lower river gets scrape-prone and the mouth rapids can turn bony, while above 20 ft the finish becomes substantially more consequential.",
-    "latitude": 45.4755294,
-    "longitude": -94.3507888,
+    "latitude": 45.47296191567727,
+    "longitude": -94.34969582622075,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -5140,8 +5140,8 @@ export const minnesotaRoutes: River[] = [
     "region": "St. Cloud Area",
     "summary": "Compact lower-Sauk run into the Mississippi confluence with a more serious finish than the mileage suggests. This is the lower family member to choose when you want the Class I-II mouth section, not the mellow upstream float.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft can make the rapids at the mouth bony or partially impassable, while above 20 ft pushes the finish well beyond a casual urban paddle.",
-    "latitude": 45.5600406,
-    "longitude": -94.2446825,
+    "latitude": 45.55614017599083,
+    "longitude": -94.24254431242838,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -5275,8 +5275,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Central Minnesota",
     "summary": "Friendly lower Sauk day with easy current, tree cover, and a cleaner decision than many borderline small rivers. Low water and vegetation are the main quality killers before it becomes a true no-go.",
     "statusText": "Treat 15 to 17 ft as the best zone. Below 14 ft drifts toward scrapey late-summer conditions, and above 20 ft deserves a much more cautious flood-style read.",
-    "latitude": 45.4754595,
-    "longitude": -94.3502588,
+    "latitude": 45.47450114427178,
+    "longitude": -94.34028821222527,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -5399,8 +5399,8 @@ export const minnesotaRoutes: River[] = [
     "region": "St. Cloud Area",
     "summary": "Medium-length lower Sauk day that starts at the Rockville city landing and finishes at Knights of Columbus Park, about two river miles upstream of the mapped Class I-II mouth section. It is the simpler St. Cloud-area full-day card when you want more mileage than Eagle-to-Miller without the confluence runout.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the cleanest broad-audience range. Below 14 ft this stretch gets weedier and slower, while above 20 ft the extra current and longer mileage deserve a more cautious read.",
-    "latitude": 45.4754595,
-    "longitude": -94.3502588,
+    "latitude": 45.47450114427178,
+    "longitude": -94.34028821222527,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -5527,8 +5527,8 @@ export const minnesotaRoutes: River[] = [
     "region": "St. Cloud Area",
     "summary": "Full lower-Sauk finish from Rockville into the Mississippi confluence corridor. It keeps the clean Eagle Park start but adds the final Class I-II section, so it is the stronger choice when you want the whole lower river in one card.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the mouth rapids get bony or partly impassable, while above 20 ft the current and late-route consequence rise together.",
-    "latitude": 45.4754595,
-    "longitude": -94.3502588,
+    "latitude": 45.47450114427178,
+    "longitude": -94.34028821222527,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -7396,8 +7396,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Brainerd Lakes Area",
     "summary": "Short upper Pine River connector from Norway Lake's DNR landing to the city Pine River #1 access. It fills the public-access gap upstream of the longer Pine River #1-to-Cross-Lake run, but low water and the downstream Jenkins gauge mean this is a visual-check route.",
     "statusText": "Use the Jenkins DNR gauge as a downstream Pine River proxy: 50 to 200 cfs is the medium band, below 35 cfs is scrapable, and above 500 cfs is very high. Below-scrapable readings should keep this short upper segment off the go list.",
-    "latitude": 46.730429,
-    "longitude": -94.408791,
+    "latitude": 46.7306513,
+    "longitude": -94.4090503,
     "gaugeSource": {
       "id": "mn-dnr-316",
       "provider": "mn_dnr",
@@ -10954,8 +10954,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Twin Cities North Metro",
     "summary": "Lake-and-creek water trail where the official water-level band and wind across the lake chain matter more than raw mileage.",
     "statusText": "Treat this as in play only when Rice Creek is inside the official 6.30 to 7.90 ft passable band and wind on the lake section looks manageable.",
-    "latitude": 45.175054,
-    "longitude": -93.0701588,
+    "latitude": 45.17511691636344,
+    "longitude": -93.06912355748237,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -11014,6 +11014,12 @@ export const minnesotaRoutes: River[] = [
         "label": "Route shape",
         "value": "Five lakes before the creek narrows",
         "note": "The upstream miles are lake crossings, so wind can matter more than the gauge suggests.",
+        "sourceUrl": "https://www.anokacountymn.gov/DocumentCenter/View/10433/Rice-Creek-Water-Trail"
+      },
+      {
+        "label": "Verified public access sequence",
+        "value": "Aqua Lane to Long Lake Boat Landing",
+        "note": "The official trail map marks Aqua Lane as a limited-parking public access and the south-shore Long Lake Boat Landing as the 15.2-mile finish. It labels Wargo Nature Center rentals/boat return only and identifies the farther-north beach as a separate limited canoe access requiring a portage.",
         "sourceUrl": "https://www.anokacountymn.gov/DocumentCenter/View/10433/Rice-Creek-Water-Trail"
       },
       {
@@ -24692,8 +24698,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Red River Valley",
     "summary": "Short Grand Forks / East Grand Forks Red River water-trail connector from Lincoln Drive Park Landing to LaFave Park, using the direct Grand Forks DNR interpreted gauge and explicit muddy-bank, snag, and border-river caveats.",
     "statusText": "Use the Grand Forks DNR gauge: 881 to 12,000 cfs is the official medium band. Below 320 cfs is scrapable, and above 16,200 cfs is very high.",
-    "latitude": 47.9137,
-    "longitude": -97.0497,
+    "latitude": 47.9086867,
+    "longitude": -97.0228156,
     "gaugeSource": {
       "id": "mn-dnr-185",
       "provider": "mn_dnr",
@@ -24730,7 +24736,7 @@ export const minnesotaRoutes: River[] = [
       "seasonNotes": "Spring through fall is the practical season, with flood-stage and low-water checks controlling the go/no-go decision. DNR warns that low Red River levels may not be suitable for paddling and that floods can happen well outside spring.",
       "difficulty": "easy",
       "difficultyNotes": "DNR frames this as a quick two-mile trip between developed park landings, but muddy banks, snags, bridge approaches, urban water quality, and the border-river setting keep it in a caution posture.",
-      "confidenceNotes": "Confidence is good for route shape, take-out, and gauge: MN DNR Red River Map 4 and the segments page identify Lincoln Drive Park Landing to LaFave Park as a 2-mile trip; Minnesota public-water-access GIS resolves LaFave Park; and the Grand Forks DNR gauge is in the same route corridor with official interpretation bands. Coordinate confidence is lower at Lincoln Drive because the put-in is on the North Dakota bank and is DNR-mapped/local-park corroborated rather than present in Minnesota public-water-access GIS."
+      "confidenceNotes": "Confidence is high for the access pair and route identity: MN DNR Red River Map 4 identifies Lincoln Drive Park Landing to LaFave Park as a 2-mile trip; the current North Dakota Game and Fish fishing-facilities layer resolves the active Grand Forks Park District concrete ramp at Lincoln Park; Minnesota public-water-access GIS resolves LaFave Park; and the Grand Forks DNR gauge is in the same route corridor with official interpretation bands. The Lincoln water-entry coordinate was aligned to the water-side end of the mapped concrete ramp on current aerial imagery."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -24750,8 +24756,8 @@ export const minnesotaRoutes: River[] = [
     },
     "putIn": {
       "name": "Lincoln Drive Park Landing",
-      "latitude": 47.9137,
-      "longitude": -97.0497
+      "latitude": 47.9086867,
+      "longitude": -97.0228156
     },
     "takeOut": {
       "name": "Red River, LaFave Park Public Water Access Site",
@@ -24762,11 +24768,11 @@ export const minnesotaRoutes: River[] = [
       {
         "id": "red-river-lincoln-drive-park-landing",
         "name": "Lincoln Drive Park Landing",
-        "latitude": 47.9137,
-        "longitude": -97.0497,
+        "latitude": 47.9086867,
+        "longitude": -97.0228156,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "DNR Map 4 names the Lincoln Drive Park trailer access at river mile 304.1; Grand Forks Park District and Visit Grand Forks corroborate the park boat-ramp context."
+        "note": "DNR Map 4 names the Lincoln Drive Park trailer access at river mile 304.1; North Dakota Game and Fish resolves the active Grand Forks Park District concrete ramp, and the coordinate marks its water-side end."
       },
       {
         "id": "red-river-lafave-park",
@@ -24790,6 +24796,12 @@ export const minnesotaRoutes: River[] = [
         "value": "Lincoln Drive Park trailer access to LaFave Park trailer access",
         "note": "MN DNR Red River Map 4 identifies Lincoln Drive Park Landing amenities and the LaFave Park trailer access, parking, dock, restroom, picnic, and Sacred Heart Trailhead context.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/redriver4.pdf"
+      },
+      {
+        "label": "Official Lincoln ramp inventory",
+        "value": "NDGF Fishing Facilities ObjectID 1427",
+        "note": "North Dakota Game and Fish identifies an active, usable, Grand Forks Park District poured-concrete Red River ramp in the Lincoln Park/South Forks area; current aerial imagery resolves the water-side end of that same ramp.",
+        "sourceUrl": "https://ndgishub.nd.gov/ArcGIS/rest/services/Applications/GNF_FishingWaters/MapServer/4/query?where=ObjectID%3D1427&outFields=*&returnGeometry=true&outSR=4326&f=pjson"
       },
       {
         "label": "Public access record",
@@ -24834,6 +24846,11 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Visit Grand Forks Red River boat access",
         "url": "https://www.visitgrandforks.com/directory/red-river-boat-access/",
+        "provider": "local"
+      },
+      {
+        "label": "North Dakota Game and Fish Lincoln ramp record",
+        "url": "https://ndgishub.nd.gov/ArcGIS/rest/services/Applications/GNF_FishingWaters/MapServer/4/query?where=ObjectID%3D1427&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
         "provider": "local"
       },
       {
@@ -32075,6 +32092,92 @@ export const minnesotaRoutes: River[] = [
       { "label": "Minnesota DNR Brule CSG station", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
       { "label": "Minnesota public water access GIS", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" },
       { "label": "Cook County public water access map", "url": "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "knife-river-county-102-knife-river-beach",
+    "slug": "knife-river-county-102-knife-river-beach",
+    "name": "Knife River",
+    "reach": "County Road 102 to Knife River Beach",
+    "state": "Minnesota",
+    "region": "North Shore",
+    "routeType": "whitewater",
+    "summary": "North Shore intermediate run that builds from swift Class I water into ledges and sustained Class II-III, then continues through the Highway 61 drop sequence to the public beach at Lake Superior.",
+    "statusText": "Use USGS 04015330 at Highway 61: American Whitewater lists 200-400 cfs as low runnable, 400-700 cfs as medium, 700-1,000 cfs as high, and above 1,000 cfs as above recommended.",
+    "latitude": 46.9841003417969,
+    "longitude": -91.7836990356445,
+    "gaugeSource": {
+      "id": "usgs-04015330",
+      "provider": "usgs",
+      "siteId": "04015330",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Knife River near Two Harbors, MN",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D",
+      "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 700,
+      "tooLow": 200,
+      "tooHigh": 1000,
+      "thresholdSource": {
+        "label": "American Whitewater Knife River flow bands",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "This is primarily a snowmelt and rain-event river. The direct gauge is near the end of the reach, so check both its trend and visible conditions at the County Road 102 bridge before launching.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the run Class II-III with a standout Class IV. The route includes cables, wood, a 6- to 7-foot ledge, a larger multi-step drop around Highway 61, possible low-head structures, and a Lake Superior finish.",
+      "confidenceNotes": "Confidence is strong for the direct gauge, published flow bands, route geometry, start, mileage, and public finish. American Whitewater maps the County Road 102 put-in and full reach, while Minnesota DNR identifies Knife River Beach as public carry-in access. Hazard locations and wood can change, so this remains an experienced-paddler route rather than turn-by-turn rapid beta."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["whitewater", "strainers", "low_head_dam", "cold_water", "fast_rise", "access_uncertain"],
+      "safetyNotes": [
+        "Scout the first major ledge and the Highway 61 sequence. Portage whenever cables, wood, low-head structures, hydraulics, or the landing below the drop are not fully visible.",
+        "Use the river-right public beach at the mouth. American Whitewater reports private-property friction on river left, so do not land or stage a shuttle there.",
+        "The finish enters Lake Superior. Cancel when lake surf, wind, fog, cold-water exposure, or the beach landing is unsafe, even if the river gauge is runnable."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Reach and difficulty",
+        "value": "6.2 miles; Class II-III(IV)",
+        "note": "American Whitewater documents the County Road 102 start, progressive whitewater, ledges, Highway 61 sequence, and Lake Superior finish.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/main"
+      },
+      {
+        "label": "Direct flow model",
+        "value": "200 / 400 / 700 / 1,000 cfs",
+        "note": "American Whitewater ties low, medium, high, and above-recommended bands to USGS 04015330, located near the end of the run.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow"
+      },
+      {
+        "label": "Public finish",
+        "value": "Knife River Beach carry-in access",
+        "note": "Minnesota DNR Lake Superior Water Trail Map 1 identifies public carry-in access, parking, a toilet, and a sand-and-pebble beach at the Knife River mouth.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior1.pdf"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "4 cfs at 2026-08-01 10:00 CDT",
+        "note": "USGS instantaneous values and American Whitewater both reported the direct gauge far below the 200 cfs runnable floor during qualification.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04015330&parameterCd=00060&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater Knife River", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Knife River flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow", "provider": "american_whitewater" },
+      { "label": "USGS Knife River gauge", "url": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D", "provider": "usgs" },
+      { "label": "Minnesota DNR Lake Superior Water Trail Map 1", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior1.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Knife River Marina and Access", "url": "https://www.dnr.state.mn.us/water_access/harbors/knife_river.html", "provider": "mn_dnr" }
     ]
   }
 ];

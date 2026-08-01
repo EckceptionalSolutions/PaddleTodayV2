@@ -1,0 +1,16 @@
+[
+  {
+    "routeId": "des-moines-river-skillet-north-fraser",
+    "endpoint": "takeOut",
+    "endpointName": "North Fraser Ramp",
+    "latitude": 42.128845280879865,
+    "longitude": -93.9816575422718
+  },
+  {
+    "routeId": "des-moines-river-south-fraser-waterworks-upstream",
+    "endpoint": "putIn",
+    "endpointName": "South Fraser Ramp",
+    "latitude": 42.121928057011445,
+    "longitude": -93.97000884977254
+  }
+]
