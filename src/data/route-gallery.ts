@@ -45,10 +45,49 @@ const bruleRiverMinnesotaPhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
 };
 
+const knifeRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'knife-river-north-shore-scenic-drive-nara',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/North%20Shore%20Scenic%20Drive%20-%20Knife%20River%20-%20NARA%20-%207720698.jpg?width=1600',
+  alt: 'The Knife River reflects a bridge and winter trees along Minnesota’s North Shore.',
+  caption: 'Knife River along the North Shore Scenic Drive',
+  credit: 'Martin Schultz / U.S. Department of Transportation via NARA and Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
+const bigSuckerCreekMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'north-shore-lake-superior-kayaking-nara',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/North%20Shore%20Scenic%20Drive%20-%20Kayaking%20on%20Lake%20Superior%20-%20NARA%20-%207720688.jpg?width=1600',
+  alt: 'Kayakers paddle close to the rocky Minnesota North Shore on Lake Superior.',
+  caption: 'Lake Superior paddling context for Big Sucker Creek\'s coastal finish',
+  credit: 'Martin Schultz / U.S. Department of Transportation via NARA and Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
+const pigeonRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'pigeon-river-high-falls-usfws-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/High%20Falls%20on%20the%20Pigeon%20River%20%2853835729912%29.jpg?width=1600',
+  alt: 'High Falls pours through the forested Pigeon River gorge at Grand Portage State Park.',
+  caption: 'High Falls on the Pigeon River — a mandatory portage on this route',
+  credit: 'Courtney Celley / U.S. Fish and Wildlife Service via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
+const upperPigeonRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  ...pigeonRiverMinnesotaPhoto,
+  id: 'upper-pigeon-river-downstream-high-falls-usfws-commons',
+  alt: 'High Falls pours through the Pigeon River gorge farther downstream at Grand Portage State Park.',
+  caption: 'Pigeon River landmark farther downstream from the upper reach',
+};
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
   'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
   'brule-river-lima-grade-northern-light': [bruleRiverMinnesotaPhoto],
+  'brule-river-sauna-bath-highway-61': [bruleRiverMinnesotaPhoto],
+  'knife-river-county-102-knife-river-beach': [knifeRiverMinnesotaPhoto],
+  'big-sucker-creek-county-33-lake-superior': [bigSuckerCreekMinnesotaPhoto],
+  'pigeon-river-old-highway-61-highway-61': [pigeonRiverMinnesotaPhoto],
+  'pigeon-river-partridge-falls-old-highway-61': [upperPigeonRiverMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {
       id: 'west-washington-street-bridge-muncie-commons',

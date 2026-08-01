@@ -11731,5 +11731,152 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Official DNR-administered WAS01134 at river mile 20.8."
       }
     ]
+  },
+  "knife-river-county-102-knife-river-beach": {
+    "putIn": { "name": "County Road 102 Knife River bridge", "latitude": 46.9841003417969, "longitude": -91.7836990356445 },
+    "takeOut": { "name": "Knife River Beach carry-in access", "latitude": 46.949248, "longitude": -91.779457 },
+    "logistics": {
+      "distanceLabel": "About 6.2 mi",
+      "estimatedPaddleTime": "About 3 hr to 6 hr depending on flow, scouting, portages, wood, and the Lake Superior landing",
+      "shuttle": "Stage the take-out at the public Knife River Beach carry-in access on river right, then inspect the County Road 102 bridge put-in. Keep vehicles at lawful public parking and do not use private river-left property near the mouth.",
+      "permits": "No route-specific paddling permit is known. Minnesota watercraft-registration rules apply, and posted road, beach, marina, and Lake Superior Water Trail rules control parking and access.",
+      "camping": "No on-route campsite is verified. Treat this as a day run and use a separately confirmed campground or lodging base; do not camp at the beach, marina, roadside start, or private banks.",
+      "campingClassification": "none",
+      "summary": "Launch at the County Road 102 bridge, paddle the full American Whitewater Knife River reach, and finish on river right at Minnesota DNR's public Knife River Beach carry-in access.",
+      "accessCaveats": [
+        "County Road 102 is a bridge put-in rather than a developed launch. Inspect the bank, parking, and any posted restrictions before unloading.",
+        "At the mouth, land on river right at Knife River Beach. Do not use private river-left property or substitute the marina basin unless current local rules explicitly allow it.",
+        "The USGS gauge is direct and near the route finish, but flow bands remain community guidance; verify the hydrograph trend and visible bridge conditions."
+      ],
+      "watchFor": [
+        "Cables, sweepers, fresh wood, and a 6- to 7-foot ledge after the easier opening miles.",
+        "The major Highway 61 drop sequence, possible low-head structures, difficult hydraulics, and changing portage lines.",
+        "Lake Superior surf, wind, fog, cold water, and the ability to reach the public beach safely at the finish."
+      ]
+    },
+    "accessPoints": [
+      { "id": "knife-river-county-102", "name": "County Road 102 Knife River bridge", "latitude": 46.9841003417969, "longitude": -91.7836990356445, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped bridge put-in; verify lawful parking and a safe bank carry." },
+      { "id": "knife-river-highway-61", "name": "Highway 61 drop and USGS gauge corridor", "latitude": 46.94694, "longitude": -91.795577, "mileFromStart": 5.3, "segmentKind": "creek", "note": "Direct gauge corridor and major drop sequence; scout and portage as conditions require." },
+      { "id": "knife-river-beach", "name": "Knife River Beach carry-in access", "latitude": 46.949248, "longitude": -91.779457, "mileFromStart": 6.2, "segmentKind": "lake", "note": "Minnesota DNR Lake Superior Water Trail public carry-in access on river right at the mouth." }
+    ]
+  },
+  "big-sucker-creek-county-33-lake-superior": {
+    "putIn": { "name": "County Road 33 Big Sucker Creek bridge", "latitude": 46.9607, "longitude": -91.9209 },
+    "takeOut": { "name": "Lake Superior public beach / landing", "latitude": 46.91741943359375, "longitude": -91.85262298583984 },
+    "logistics": {
+      "distanceLabel": "About 5.8 mi on the creek plus a short Lake Superior paddle",
+      "estimatedPaddleTime": "About 4 hr to 7 hr depending on flow, scouting, portages, wood, and the lake finish",
+      "shuttle": "Stage the public-beach finish first, verify its current parking and landing rules, then inspect the County Road 33 bridge. Keep vehicles fully clear of travel lanes and private drives.",
+      "permits": "No route-specific paddling permit is known. Follow posted county-road and beach restrictions, Minnesota boating/PFD rules, and any current Lake Superior access rules.",
+      "camping": "No on-route campsite is verified. Treat this as a technical day run and use separately confirmed lodging or camping; do not camp at road crossings, the beach, or private banks.",
+      "campingClassification": "none",
+      "summary": "Launch at County Road 33, run the full American Whitewater Big Sucker reach, and turn right at the mouth for the short Lake Superior paddle to the mapped public beach.",
+      "accessCaveats": [
+        "The County Road 33 start is an undeveloped bridge access. Confirm legal parking, a safe carry, and the absence of posted restrictions before unloading.",
+        "American Whitewater maps a public beach/landing after the creek mouth, but this is not backed by a dedicated DNR public-water-access record in the route evidence. Verify the landing locally before launch.",
+        "The Knife River gauge is only a nearby proxy with roughly twice Big Sucker's drainage area. A same-day visual flow and wood check is required."
+      ],
+      "watchFor": [
+        "The early twisting drop and high-angle slide, followed later by the two slide sequences and the eddy-scarce entry to Energizer Bunny.",
+        "Violent slots, pin and piton rocks, sharp blast craters, Goosed, Two Step, Five Step, fresh wood, and difficult creek-side portages.",
+        "The Highway 61 culvert and railroad corridor, anglers near lower drops, and Lake Superior surf, wind, fog, and cold water at the finish."
+      ]
+    },
+    "accessPoints": [
+      { "id": "big-sucker-county-33", "name": "County Road 33 Big Sucker Creek bridge", "latitude": 46.9607, "longitude": -91.9209, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped bridge put-in; verify parking and bank access." },
+      { "id": "big-sucker-energizer-bunny", "name": "Energizer Bunny / main steep sequence", "latitude": 46.936, "longitude": -91.866, "mileFromStart": 4.4, "segmentKind": "creek", "note": "Approximate main Class V corridor; exit early to scout because eddies become scarce." },
+      { "id": "big-sucker-old-north-shore-road", "name": "Old North Shore Road crossing", "latitude": 46.93061828613281, "longitude": -91.85820770263672, "mileFromStart": 5.13, "segmentKind": "creek", "note": "Mapped crossing below Five Step; do not assume legal parking or bailout access without verification." },
+      { "id": "big-sucker-public-beach", "name": "Lake Superior public beach / landing", "latitude": 46.91741943359375, "longitude": -91.85262298583984, "mileFromStart": 6.5, "segmentKind": "lake", "note": "American Whitewater-mapped finish after a short Lake Superior paddle; verify locally before launch." }
+    ]
+  },
+  "pigeon-river-old-highway-61-highway-61": {
+    "putIn": { "name": "Old Highway 61 / former MN 89 Pigeon River access", "latitude": 48.0103988647461, "longitude": -89.7082977294922 },
+    "takeOut": { "name": "Highway 61 border-crossing corridor take-out", "latitude": 48.0015983581543, "longitude": -89.5867004394531 },
+    "logistics": {
+      "distanceLabel": "About 8.3 mi",
+      "estimatedPaddleTime": "Full technical day, roughly 6 hr to 10 hr including scouting and the mandatory High Falls portage",
+      "shuttle": "Do not stage this shuttle until Grand Portage authorization identifies the legal endpoints and parking. Walk the High Falls exit and full carry before launch, then confirm the Highway 61 finish near the customs corridor.",
+      "permits": "Prior authorization from the Grand Portage Trust Lands and Natural Resources Office is required for reservation-land use. Follow current U.S. and Canadian customs instructions for any border crossing or landing in Canada.",
+      "camping": "No legal on-route campsite is verified. Treat this as a day run and do not camp or land on reservation or Canadian property without explicit authorization.",
+      "campingClassification": "none",
+      "summary": "Conditional expert route on the international-border Pigeon River, starting near Old Highway 61 and ending near the current Highway 61 crossing only after Middle Falls decisions and a mandatory High Falls portage.",
+      "accessCaveats": [
+        "The historical put-in is on Grand Portage Reservation land and has documented access conflict. Authorization must identify the current legal put-in; the map pin is not permission.",
+        "The take-out is near an active international customs corridor. Confirm legal landing, parking, and shuttle movement with the relevant authorities before launch.",
+        "The river itself forms the international boundary. Landing on or traveling through Canada can trigger customs requirements even when the trip begins in Minnesota."
+      ],
+      "watchFor": [
+        "Horn Rapids around mile 3, tightening current, cold water, wood, and remote rescue exposure.",
+        "Middle Falls around mile 5.65, including the slot, ledges, strong hydraulics, and limited consequence margin above the falls.",
+        "The High Falls approach around mile 7.45. Missing the mandatory portage for the roughly 120-foot waterfall can be fatal; verify the exit from land before launching."
+      ]
+    },
+    "accessPoints": [
+      { "id": "pigeon-old-highway-61", "name": "Old Highway 61 / former MN 89 Pigeon River access", "latitude": 48.0103988647461, "longitude": -89.7082977294922, "mileFromStart": 0, "segmentKind": "creek", "note": "Historical American Whitewater start on reservation land; use only the location authorized by Grand Portage officials." },
+      { "id": "pigeon-horn-rapids", "name": "Horn Rapids", "latitude": 48.00619888305664, "longitude": -89.65470123291016, "mileFromStart": 3.05, "segmentKind": "creek", "note": "Mapped constricted rapid; scout for flow, wood, and line changes." },
+      { "id": "pigeon-middle-falls", "name": "Middle Falls and USGS gauge", "latitude": 48.01259994506836, "longitude": -89.61630249023438, "mileFromStart": 5.65, "segmentKind": "creek", "note": "Large Class IV feature and direct USGS 04010500 gauge corridor; scout and portage unless the expert team has a verified line." },
+      { "id": "pigeon-high-falls-portage", "name": "High Falls mandatory portage", "latitude": 48.00490188598633, "longitude": -89.59819793701172, "mileFromStart": 7.45, "segmentKind": "transition", "note": "Class VI, roughly 120-foot waterfall. Mandatory portage; inspect the exit and carry before launch." },
+      { "id": "pigeon-highway-61", "name": "Highway 61 border-crossing corridor take-out", "latitude": 48.0015983581543, "longitude": -89.5867004394531, "mileFromStart": 8.3, "segmentKind": "creek", "note": "American Whitewater-mapped finish near customs; obtain access and shuttle confirmation before use." }
+    ]
+  },
+  "pigeon-river-partridge-falls-old-highway-61": {
+    "putIn": { "name": "Partridge Falls upstream access", "latitude": 47.9922981262207, "longitude": -89.8470993041992 },
+    "takeOut": { "name": "Old Highway 61 / former MN 89 Pigeon River access", "latitude": 48.0103988647461, "longitude": -89.7082977294922 },
+    "logistics": {
+      "distanceLabel": "About 11.1 mi",
+      "estimatedPaddleTime": "Full remote day, roughly 7 hr to 11 hr including the mandatory Cascades portage",
+      "shuttle": "Obtain Grand Portage authorization for both exact endpoints before staging. Inspect Partridge Falls, the Cascades exit and carry, and the former Old Highway 61 finish from land before launch; remote roads may require high-clearance planning.",
+      "permits": "Prior authorization from the Grand Portage Trust Lands and Natural Resources Office is required for reservation-land use. Follow current U.S. and Canadian customs instructions for any border crossing or landing in Canada.",
+      "camping": "No legal on-route campsite is verified. Plan this as a self-contained day expedition and do not camp or land on reservation, private, or Canadian property without explicit authorization.",
+      "campingClassification": "none",
+      "summary": "Conditional expert route from above Partridge Falls to the former Old Highway 61 crossing, including an immediate falls decision and a mandatory one-third-mile carry around the Cascades.",
+      "accessCaveats": [
+        "Both endpoints are historical American Whitewater locations, not standing public-access grants. Written or current verbal authorization must identify legal parking and carries.",
+        "The downstream Old Highway 61 location has documented access conflict. Do not assume the former bridge or nearby land is open because it appears on a map.",
+        "USGS 04010500 is downstream after additional drainage joins; its American Whitewater bands are scaled proxy guidance and require local flow verification."
+      ],
+      "watchFor": [
+        "Partridge Falls immediately after launch and the need to confirm its line or portage before committing from the put-in.",
+        "The Cascades around mile 2.6, a mandatory roughly one-third-mile portage with remote entry and re-entry conditions.",
+        "Incompletely documented ledges, the Arrow River confluence, Tunnel narrowing, wood, cold water, international-border landings, and a long remote rescue response."
+      ]
+    },
+    "accessPoints": [
+      { "id": "pigeon-partridge-put-in", "name": "Partridge Falls upstream access", "latitude": 47.9922981262207, "longitude": -89.8470993041992, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped location on reservation land; use only the access authorized by Grand Portage officials." },
+      { "id": "pigeon-partridge-falls", "name": "Partridge Falls", "latitude": 47.99449920654297, "longitude": -89.84590148925781, "mileFromStart": 0.15, "segmentKind": "transition", "note": "Falls immediately downstream of the start; inspect from land and portage unless a qualified expert team has verified a safe line." },
+      { "id": "pigeon-cascades-portage", "name": "The Cascades mandatory portage", "latitude": 48.01319885253906, "longitude": -89.82080078125, "mileFromStart": 2.6, "segmentKind": "transition", "note": "American Whitewater reports a mandatory roughly one-third-mile portage; verify both landings and the entire carry before launch." },
+      { "id": "pigeon-arrow-confluence", "name": "Arrow River confluence", "latitude": 48.020599365234375, "longitude": -89.72419738769531, "mileFromStart": 8.9, "segmentKind": "creek", "note": "Major tributary enters from river left and materially increases flow below this point." },
+      { "id": "pigeon-old-highway-61-upper-finish", "name": "Old Highway 61 / former MN 89 Pigeon River access", "latitude": 48.0103988647461, "longitude": -89.7082977294922, "mileFromStart": 11.1, "segmentKind": "creek", "note": "Conditional historical finish; obtain exact access and parking authorization before use." }
+    ]
+  },
+  "brule-river-sauna-bath-highway-61": {
+    "putIn": { "name": "Sauna Bath Rapid upper corridor", "latitude": 47.8822, "longitude": -90.0747 },
+    "takeOut": { "name": "Judge C. R. Magney State Park / Highway 61 Brule River corridor", "latitude": 47.818, "longitude": -90.0514 },
+    "logistics": {
+      "distanceLabel": "About 5.8 mi",
+      "estimatedPaddleTime": "Full expert expedition day, roughly 6 hr to 12 hr depending on carries, scouting, flow, and access",
+      "shuttle": "Stage the Highway 61 finish at Judge C. R. Magney State Park, then use only a separately verified legal approach to Sauna Bath. Pre-walk the waterfall exits and portage corridors from the park and trail system before committing.",
+      "permits": "No route-specific paddling permit is known, but a Minnesota state-park vehicle permit is required where posted. Follow park hours and rules, Minnesota boating/PFD requirements, and all trail or access closures.",
+      "camping": "Judge C. R. Magney State Park has seasonal reservable drive-in campsites, but no on-route river campsite is verified. Treat the run as a day expedition and camp only in a reserved legal site.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Conditional lower-Brule expedition from the remote Sauna Bath corridor through multiple falls and mandatory carries to the official Highway 61 park corridor.",
+      "accessCaveats": [
+        "Sauna Bath is not a developed public launch and may not be practical as a standalone put-in. Confirm a legal land approach and safe bank entry; otherwise use this card only as planning context for a permitted linked expedition.",
+        "The Highway 61 end has official state-park parking and trails, but the exact whitewater take-out and carry from river to vehicle must be inspected under current conditions.",
+        "DNR 01022001 is direct at the finish, but American Whitewater's 500 cfs figure is upper-river minimum guidance and provides no safe upper limit for this waterfall corridor."
+      ],
+      "watchFor": [
+        "Sauna Bath Rapid, Second Island Falls, Canyon Falls, Two Island, and any eddyless approach where the next carry cannot be confirmed from shore.",
+        "Devil's Kettle, Upper Falls, Lower Falls, blind horizons, slick bedrock, steep trail terrain, stairs, changing wood, and high-consequence missed exits.",
+        "Rapidly rising water, cold-water exposure, blocked or flooded portages, difficult boat carries, state-park closures, and exhaustion late in a technical day."
+      ]
+    },
+    "accessPoints": [
+      { "id": "brule-sauna-bath", "name": "Sauna Bath Rapid upper corridor", "latitude": 47.8822, "longitude": -90.0747, "mileFromStart": 0, "segmentKind": "creek", "note": "Remote American Whitewater start near Sauna Bath; verify legal land access and inspect the rapid before use." },
+      { "id": "brule-canyon-falls", "name": "Canyon Falls corridor", "latitude": 47.86888596, "longitude": -90.0611945, "mileFromStart": 1.3, "segmentKind": "transition", "note": "Approximate mandatory scout-and-portage corridor based on American Whitewater's mapped sequence." },
+      { "id": "brule-devils-kettle", "name": "Devil's Kettle mandatory portage", "latitude": 47.8292768, "longitude": -90.0494209, "mileFromStart": 4.7, "segmentKind": "transition", "note": "High-consequence waterfall; identify the exit and full portage from land before launch." },
+      { "id": "brule-upper-falls", "name": "Upper Falls", "latitude": 47.82823944091797, "longitude": -90.04878997802734, "mileFromStart": 4.83, "segmentKind": "transition", "note": "Nearly 25 feet of total drop downstream of Devil's Kettle; carry as conditions and team judgment require." },
+      { "id": "brule-highway-61-magney", "name": "Judge C. R. Magney State Park / Highway 61 Brule River corridor", "latitude": 47.818, "longitude": -90.0514, "mileFromStart": 5.8, "segmentKind": "creek", "note": "Official park and trail corridor near the DNR gauge; pre-inspect the exact river exit and vehicle carry." }
+    ]
   }
 };

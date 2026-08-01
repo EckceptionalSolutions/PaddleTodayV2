@@ -32076,5 +32076,221 @@ export const minnesotaRoutes: River[] = [
       { "label": "Minnesota public water access GIS", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" },
       { "label": "Cook County public water access map", "url": "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf", "provider": "mn_dnr" }
     ]
+  },
+  {
+    "id": "knife-river-county-102-knife-river-beach",
+    "slug": "knife-river-county-102-knife-river-beach",
+    "name": "Knife River",
+    "reach": "County Road 102 to Knife River Beach",
+    "state": "Minnesota",
+    "region": "North Shore",
+    "routeType": "whitewater",
+    "summary": "North Shore intermediate run that builds from swift Class I water into ledges and sustained Class II-III, then continues through the Highway 61 drop sequence to the public beach at Lake Superior.",
+    "statusText": "Use USGS 04015330 at Highway 61: American Whitewater lists 200-400 cfs as low runnable, 400-700 cfs as medium, 700-1,000 cfs as high, and above 1,000 cfs as above recommended.",
+    "latitude": 46.9841003417969,
+    "longitude": -91.7836990356445,
+    "gaugeSource": { "id": "usgs-04015330", "provider": "usgs", "siteId": "04015330", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Knife River near Two Harbors, MN", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D" },
+    "profile": {
+      "thresholdModel": "two-sided", "idealMin": 400, "idealMax": 700, "tooLow": 200, "tooHigh": 1000,
+      "thresholdSource": { "label": "American Whitewater Knife River flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "high", "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "This is primarily a snowmelt and rain-event river. The direct gauge is near the end of the reach, so check both its trend and visible conditions at the County Road 102 bridge before launching.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the run Class II-III with a standout Class IV. The route includes cables, wood, a 6- to 7-foot ledge, a larger multi-step drop around Highway 61, possible low-head structures, and a Lake Superior finish.",
+      "confidenceNotes": "Confidence is strong for the direct gauge, published flow bands, route geometry, start, mileage, and public finish. American Whitewater maps the County Road 102 put-in and full reach, while Minnesota DNR identifies Knife River Beach as public carry-in access. Hazard locations and wood can change, so this remains an experienced-paddler route rather than turn-by-turn rapid beta."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced", "hazards": ["whitewater", "strainers", "low_head_dam", "cold_water", "fast_rise", "access_uncertain"],
+      "safetyNotes": [
+        "Scout the first major ledge and the Highway 61 sequence. Portage whenever cables, wood, low-head structures, hydraulics, or the landing below the drop are not fully visible.",
+        "Use the river-right public beach at the mouth. American Whitewater reports private-property friction on river left, so do not land or stage a shuttle there.",
+        "The finish enters Lake Superior. Cancel when lake surf, wind, fog, cold-water exposure, or the beach landing is unsafe, even if the river gauge is runnable."
+      ], "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      { "label": "Reach and difficulty", "value": "6.2 miles; Class II-III(IV)", "note": "American Whitewater documents the County Road 102 start, progressive whitewater, ledges, Highway 61 sequence, and Lake Superior finish.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/main" },
+      { "label": "Direct flow model", "value": "200 / 400 / 700 / 1,000 cfs", "note": "American Whitewater ties low, medium, high, and above-recommended bands to USGS 04015330, located near the end of the run.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow" },
+      { "label": "Public finish", "value": "Knife River Beach carry-in access", "note": "Minnesota DNR Lake Superior Water Trail Map 1 identifies public carry-in access, parking, a toilet, and a sand-and-pebble beach at the Knife River mouth.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior1.pdf" },
+      { "label": "Current gauge check", "value": "4 cfs at 2026-08-01 10:00 CDT", "note": "USGS instantaneous values and American Whitewater both reported the direct gauge far below the 200 cfs runnable floor during qualification.", "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04015330&parameterCd=00060&siteStatus=all" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater Knife River", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Knife River flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow", "provider": "american_whitewater" },
+      { "label": "USGS Knife River gauge", "url": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D", "provider": "usgs" },
+      { "label": "Minnesota DNR Lake Superior Water Trail Map 1", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior1.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Knife River Marina and Access", "url": "https://www.dnr.state.mn.us/water_access/harbors/knife_river.html", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "big-sucker-creek-county-33-lake-superior",
+    "slug": "big-sucker-creek-county-33-lake-superior",
+    "name": "Big Sucker Creek",
+    "reach": "County Road 33 to Lake Superior public beach",
+    "state": "Minnesota",
+    "region": "North Shore",
+    "routeType": "whitewater",
+    "summary": "Serious North Shore creek run with an easier opening, a concentrated Class IV-V middle sequence, sharp blasted rock, and a short Lake Superior paddle to the public-beach finish.",
+    "statusText": "Use USGS 04015330 on the nearby Knife River only as a proxy: American Whitewater lists 300-450 cfs as low runnable, 450-700 cfs as medium, 700-1,000 cfs as high, and warns that local visual inspection is required.",
+    "latitude": 46.9607,
+    "longitude": -91.9209,
+    "gaugeSource": { "id": "usgs-04015330-big-sucker-proxy", "provider": "usgs", "siteId": "04015330", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Knife River near Two Harbors, MN (Big Sucker proxy)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D" },
+    "profile": {
+      "thresholdModel": "two-sided", "idealMin": 450, "idealMax": 700, "tooLow": 300, "tooHigh": 1000,
+      "thresholdSource": { "label": "American Whitewater Big Sucker proxy-flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2513/flow", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "high", "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "This small creek responds quickly to snowmelt and rain. The Knife gauge is on a nearby river with roughly twice the drainage area, so a same-day bridge and bank inspection is mandatory and the proxy must never override visible conditions.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the run Class III-IV+ with a standout Class V. Energizer Bunny drops about 100 feet in 0.2 mile and includes violent slots, pin and piton hazards, pothole-like blast craters, scarce eddies, and linked drops.",
+      "confidenceNotes": "Confidence is good for the mapped reach, geometry, feature sequence, mileage, proxy bands, and public-beach finish. Confidence is intentionally limited for flow transfer and the complete rapid inventory: American Whitewater says the Knife correlation is uncertain and the narrow tree-lined channel prevents a fully accurate feature map."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced", "hazards": ["whitewater", "strainers", "fast_rise", "cold_water", "remote", "access_uncertain"],
+      "safetyNotes": [
+        "Expert creek-boating and rescue skills are required. Scout the early twisting slide, both slide sequences, Energizer Bunny, Goosed, Two Step, Five Step, and every blind horizon or wood-choked channel.",
+        "The gauge is a nearby-river proxy, not a Big Sucker measurement. Cancel if the creek inspection disagrees with the proxy, if the hydrograph is rising quickly, or if wood blocks a safe line or portage.",
+        "Sharp blasted rock can damage boats. The finish requires a short Lake Superior paddle; cancel for unsafe surf, wind, fog, cold-water exposure, or beach landing conditions."
+      ], "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      { "label": "Reach and difficulty", "value": "5.8 miles; Class III-IV+(V)", "note": "American Whitewater documents the County Road 33 start, named rapid sequence, lower bridges, creek mouth, and public-beach finish.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2513/main" },
+      { "label": "Proxy flow model", "value": "300 / 450 / 700 / 1,000 cfs", "note": "American Whitewater publishes these bands against USGS 04015330 while explicitly warning that the nearby-river correlation is uncertain and needs visual confirmation.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2513/flow" },
+      { "label": "Drainage caveat", "value": "39 sq mi versus 83.6 sq mi", "note": "American Whitewater identifies Big Sucker's lower drainage as roughly half the Knife gauge drainage, explaining why the reading is only a proxy.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2513/main" },
+      { "label": "Current gauge check", "value": "4 cfs at 2026-08-01 11:00 CDT", "note": "The Knife proxy was far below American Whitewater's 300 cfs floor during qualification.", "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04015330&parameterCd=00060&siteStatus=all" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater Big Sucker Creek", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2513/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Big Sucker flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2513/flow", "provider": "american_whitewater" },
+      { "label": "USGS Knife River proxy gauge", "url": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D", "provider": "usgs" }
+    ]
+  },
+  {
+    "id": "pigeon-river-old-highway-61-highway-61",
+    "slug": "pigeon-river-old-highway-61-highway-61",
+    "name": "Pigeon River",
+    "reach": "Old Highway 61 / MN 89 to Highway 61",
+    "state": "Minnesota",
+    "region": "Grand Portage",
+    "routeType": "whitewater",
+    "summary": "International-border whitewater reach near Grand Portage with Horn Rapids, Middle Falls, and a mandatory portage around the 120-foot High Falls before the Highway 61 finish.",
+    "statusText": "Use direct USGS 04010500 at Middle Falls: American Whitewater provisionally lists 1,000-1,200 cfs as low runnable, 1,200-1,400 cfs as medium, 1,400-1,500 cfs as high, and above 1,500 cfs as above recommended.",
+    "latitude": 48.0103988647461,
+    "longitude": -89.7082977294922,
+    "gaugeSource": { "id": "usgs-04010500", "provider": "usgs", "siteId": "04010500", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Pigeon River at Middle Falls near Grand Portage, MN", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D" },
+    "profile": {
+      "thresholdModel": "two-sided", "idealMin": 1200, "idealMax": 1400, "tooLow": 1000, "tooHigh": 1500,
+      "thresholdSource": { "label": "American Whitewater lower Pigeon provisional flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2533/flow", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "medium", "seasonMonths": [5, 6, 7, 8, 9],
+      "seasonNotes": "The direct gauge sits within the reach above Middle Falls, but American Whitewater calls the runnable bands uncertain. Pair the reading and trend with access confirmation and on-site scouting.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class II-III+ with a standout Class V. Middle Falls is a large Class IV feature and High Falls is a Class VI waterfall requiring an early, verified portage; missing the exit can be fatal.",
+      "confidenceNotes": "Confidence is strong for the direct gauge, mapped geometry, feature locations, mileage, and mandatory High Falls portage. Access confidence is intentionally low: the put-in is on Grand Portage Reservation land, authorization is required, the historical access is disputed, and border/customs rules may apply."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced", "hazards": ["whitewater", "mandatory_takeout", "fast_rise", "cold_water", "remote", "access_uncertain", "private_banks"],
+      "safetyNotes": [
+        "Obtain Grand Portage Trust Lands and Natural Resources authorization before using reservation land. Confirm the exact legal put-in, take-out, parking, and shuttle before arriving.",
+        "Treat Middle Falls as a scout-and-portage decision and High Falls as a mandatory portage. Identify and inspect the High Falls exit and carry before launch; never rely on locating it from the boat.",
+        "The river is the U.S.-Canada border. Stay on the authorized side and follow current customs instructions before any landing or travel that enters Canada."
+      ], "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      { "label": "Reach and difficulty", "value": "8.3 miles; Class II-III+(V)", "note": "American Whitewater maps the border reach, Horn Rapids, Middle Falls, High Falls mandatory portage, and Highway 61 finish.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2533/main" },
+      { "label": "Direct flow model", "value": "1,000 / 1,200 / 1,400 / 1,500 cfs", "note": "American Whitewater ties provisional bands to USGS 04010500, located inside this reach above Middle Falls.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2533/flow" },
+      { "label": "Reservation authorization", "value": "Required before land use", "note": "Minnesota DNR says use of all Grand Portage Reservation land needs prior authorization from the Trust Lands and Natural Resources Office.", "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html" },
+      { "label": "Current gauge check", "value": "155 cfs at 2026-08-01 11:00 CDT", "note": "USGS and American Whitewater reported the direct gauge far below the 1,000 cfs provisional floor during qualification.", "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04010500&parameterCd=00060&siteStatus=all" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater lower Pigeon", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2533/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater lower Pigeon flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2533/flow", "provider": "american_whitewater" },
+      { "label": "USGS Pigeon River gauge", "url": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D", "provider": "usgs" },
+      { "label": "Minnesota DNR Lake Superior Water Trail Map 5 guidance", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Grand Portage State Park", "url": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00173", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "pigeon-river-partridge-falls-old-highway-61",
+    "slug": "pigeon-river-partridge-falls-old-highway-61",
+    "name": "Pigeon River",
+    "reach": "Partridge Falls to Old Highway 61 / MN 89",
+    "state": "Minnesota",
+    "region": "Grand Portage",
+    "routeType": "whitewater",
+    "summary": "Remote international-border reach beginning beside Partridge Falls, with a mandatory Cascades portage, long wilderness mileage, and a conditional finish at the former Old Highway 61 crossing.",
+    "statusText": "Use USGS 04010500 downstream only as a scaled proxy: American Whitewater lists 600-900 cfs as low runnable, 900-1,200 cfs as medium, 1,200-2,000 cfs as high, and above 2,000 cfs as above recommended.",
+    "latitude": 47.9922981262207,
+    "longitude": -89.8470993041992,
+    "gaugeSource": { "id": "usgs-04010500-pigeon-upper-proxy", "provider": "usgs", "siteId": "04010500", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Pigeon River at Middle Falls near Grand Portage, MN (downstream proxy)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D" },
+    "profile": {
+      "thresholdModel": "two-sided", "idealMin": 900, "idealMax": 1200, "tooLow": 600, "tooHigh": 2000,
+      "thresholdSource": { "label": "American Whitewater upper Pigeon proxy-flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/flow", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "medium", "seasonMonths": [5, 6, 7, 8, 9],
+      "seasonNotes": "The Middle Falls gauge is well downstream and receives a major tributary near the end of this reach. American Whitewater estimates upper flow may be roughly three-eighths of the gauge reading, so local inspection and a stable trend are required.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class II-III with a standout Class V+. Partridge Falls is immediately below the start and the Cascades require a roughly one-third-mile mandatory portage; later rapids are remote and incompletely documented.",
+      "confidenceNotes": "Confidence is good for the mapped reach, geometry, drainage relationship, provisional proxy bands, and major feature locations. Access and rapid confidence are limited: American Whitewater lacks first-hand detail for several features, while both endpoints lie on or beside Grand Portage Reservation land and require authorization."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced", "hazards": ["whitewater", "mandatory_takeout", "fast_rise", "cold_water", "remote", "access_uncertain", "private_banks"],
+      "safetyNotes": [
+        "Obtain Grand Portage Trust Lands and Natural Resources authorization for the exact start, finish, parking, and shuttle. A map pin or historical road crossing is not permission.",
+        "Inspect Partridge Falls and the Cascades portage from land before launch. The Cascades are a mandatory carry; do not enter blind water if the exit, trail, or downstream re-entry has not been verified.",
+        "The gauge is a downstream proxy and the river is the international boundary. Confirm local flow and wood, stay on the authorized side, and follow customs requirements before any Canadian landing."
+      ], "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      { "label": "Reach and difficulty", "value": "11.1 miles; Class II-III(V+)", "note": "American Whitewater maps the Partridge Falls start, Cascades portage, later rapids, Arrow River confluence, Tunnel, and Old Highway 61 finish.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/main" },
+      { "label": "Proxy flow model", "value": "600 / 900 / 1,200 / 2,000 cfs", "note": "American Whitewater publishes scaled bands against downstream USGS 04010500 and notes that flow in the upper reach may be roughly three-eighths of the gauge reading.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/flow" },
+      { "label": "Reservation authorization", "value": "Required before land use", "note": "Minnesota DNR says use of all Grand Portage Reservation land needs prior authorization from the Trust Lands and Natural Resources Office.", "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html" },
+      { "label": "Current gauge check", "value": "155 cfs at 2026-08-01 11:00 CDT", "note": "USGS and American Whitewater reported the downstream proxy far below the 600 cfs floor during qualification.", "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04010500&parameterCd=00060&siteStatus=all" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Pigeon", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater upper Pigeon flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2532/flow", "provider": "american_whitewater" },
+      { "label": "USGS Pigeon River downstream gauge", "url": "https://waterdata.usgs.gov/monitoring-location/04010500/#parameterCode=00060&period=P7D", "provider": "usgs" },
+      { "label": "Minnesota DNR Grand Portage authorization guidance", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "brule-river-sauna-bath-highway-61",
+    "slug": "brule-river-sauna-bath-highway-61",
+    "name": "Brule River",
+    "reach": "Sauna Bath Rapid to Highway 61",
+    "state": "Minnesota",
+    "region": "Grand Marais",
+    "routeType": "whitewater",
+    "summary": "Extreme lower Brule expedition through the Judge C. R. Magney corridor, with linked Class IV-V rapids, multiple waterfalls, eddyless portage approaches, Devil's Kettle, and a Highway 61 finish.",
+    "statusText": "Use direct lower-river DNR station 01022001 at Highway 61. American Whitewater recommends more than 500 cfs for the upper Brule; treat that only as a minimum reference here, never as a go signal for the lower waterfall corridor.",
+    "latitude": 47.8822,
+    "longitude": -90.0747,
+    "gaugeSource": { "id": "mn-dnr-01022001-lower-brule", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Brule River near Hovland, MN 61", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 500,
+      "thresholdSource": { "label": "American Whitewater Brule minimum-flow guidance", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "high", "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "Spring snowmelt and major rain events create the practical window. The direct gauge is at the finish, but no supported upper cutoff exists; rapidly rising water, flooded portage exits, or pushy bridge current are automatic no-go conditions.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class II-IV+ with a standout Class V and warns that some portages are preceded by eddyless water. Sauna Bath, Second Island, Canyon Falls, Two Island, Devil's Kettle, Upper Falls, and Lower Falls demand expert reconnaissance and multiple carries.",
+      "confidenceNotes": "Confidence is strong for the same-reach DNR gauge, American Whitewater geometry, named waterfall sequence, mileage, and the official Judge C. R. Magney Highway 61 trail/parking corridor. Confidence is limited for standalone access at Sauna Bath and for safe high-water limits, so this card remains access-uncertain and minimum-only."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced", "hazards": ["whitewater", "mandatory_takeout", "fast_rise", "cold_water", "remote", "access_uncertain"],
+      "safetyNotes": [
+        "This is an expert expedition route, not a continuous runnable section. Pre-walk every mandatory exit and carry—especially Devil's Kettle—and run only with someone who knows the current portage sequence.",
+        "Never enter eddyless water above an unverified waterfall or portage. Sauna Bath, Canyon Falls, Devil's Kettle, Upper Falls, and any blind horizon require conservative shore-based inspection and carrying when uncertain.",
+        "The 500 cfs figure is minimum guidance for the upper river, not a lower-route safety band. Cancel on a rising hydrograph, unsafe trail or stair conditions, blocked exits, floodwater, or any level the team cannot confidently rescue in."
+      ], "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      { "label": "Reach and difficulty", "value": "5.8 miles; Class II-IV+(V)", "note": "American Whitewater maps the Sauna Bath start, lower waterfall and rapid sequence, Devil's Kettle, and Highway 61 finish while warning about eddyless portage approaches.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main" },
+      { "label": "Direct telemetry", "value": "DNR 01022001 at Highway 61", "note": "The Minnesota DNR cooperative station is at the downstream end of this reach and reports live discharge.", "sourceUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001" },
+      { "label": "Official park corridor", "value": "Judge C. R. Magney State Park", "note": "Minnesota DNR documents Highway 61 parking, the Brule River trail system, Upper Falls, Devil's Kettle, and steep trail and stair conditions.", "sourceUrl": "https://files.dnr.state.mn.us/maps/state_parks/spk00193.pdf" },
+      { "label": "Current gauge check", "value": "59.5 cfs at 2026-08-01 09:45 CDT", "note": "The live DNR reading was far below the 500 cfs minimum reference during qualification.", "sourceUrl": "https://webapps.dnr.state.mn.us/csg/api/v1/sites/01022001" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater lower Brule", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Brule CSG station", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Judge C. R. Magney park map", "url": "https://files.dnr.state.mn.us/maps/state_parks/spk00193.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Judge C. R. Magney virtual tour", "url": "https://www.dnr.state.mn.us/state_parks/virtual_tour/judge_cr_magney/dialup.html", "provider": "mn_dnr" }
+    ]
   }
 ];
