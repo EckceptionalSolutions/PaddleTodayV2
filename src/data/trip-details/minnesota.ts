@@ -11569,5 +11569,167 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out; resolves as WAS02579 at DNR river mile 35.0."
       }
     ]
+  },
+  "brule-river-lima-grade-gunflint-trail": {
+    "putIn": {
+      "name": "Lima Grade / Forest Road 315 Brule River crossing",
+      "latitude": 48.0077,
+      "longitude": -90.4169
+    },
+    "takeOut": {
+      "name": "Gunflint Trail / Cook County Road 12 Brule River crossing",
+      "latitude": 47.9879264831543,
+      "longitude": -90.34851837158203
+    },
+    "logistics": {
+      "distanceLabel": "About 4.8 mi",
+      "estimatedPaddleTime": "About 2 hr to 4 hr depending on flow, wood, scouting, and roadside carries",
+      "shuttle": "Inspect the Gunflint Trail exit and its legal pullout first, then inspect Lima Grade before leaving a vehicle. Both are undeveloped road crossings; do not block travel lanes, gates, or emergency access.",
+      "permits": "No route-specific paddling permit is known. The route lies in the Superior National Forest corridor, but road and parking rules still apply. Confirm current Gunflint Ranger District road, parking, fire, and closure notices.",
+      "camping": "No on-route campsite is verified for this short split. Use a separately confirmed public campground or lodging base near Grand Marais and do not assume riverbank camping.",
+      "campingClassification": "none",
+      "summary": "Run only the easier first 4.8 miles of American Whitewater's upper Brule reach, exiting at the Gunflint Trail crossing before the steeper middle section.",
+      "accessCaveats": [
+        "American Whitewater maps both road crossings as access points, but neither is a developed Minnesota public-water-access site.",
+        "Verify legal parking and a safe bank route from land before committing; if either endpoint is posted, blocked, eroded, or lacks a safe pullout, do not launch.",
+        "The DNR gauge is downstream at Highway 61 and must be paired with a same-day visual check at Lima Grade."
+      ],
+      "watchFor": [
+        "Cold snowmelt water, sweepers, beaver activity, shallow shoals, and fresh storm wood.",
+        "Fast changes after rain and unexpectedly pushy current despite the mostly Class I-II description.",
+        "A clean Gunflint Trail exit; do not drift into the separate steeper section if the shuttle or take-out is uncertain."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "brule-lima-grade",
+        "name": "Lima Grade / Forest Road 315 Brule River crossing",
+        "latitude": 48.0077,
+        "longitude": -90.4169,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Undeveloped forest-road crossing mapped by American Whitewater; confirm current access and parking in the field."
+      },
+      {
+        "id": "brule-gunflint-trail",
+        "name": "Gunflint Trail / Cook County Road 12 Brule River crossing",
+        "latitude": 47.9879264831543,
+        "longitude": -90.34851837158203,
+        "mileFromStart": 4.8,
+        "segmentKind": "creek",
+        "note": "Road-crossing egress mapped by American Whitewater; no developed launch amenities are claimed."
+      }
+    ]
+  },
+  "brule-river-gunflint-trail-northern-light": {
+    "putIn": {
+      "name": "Gunflint Trail / Cook County Road 12 Brule River crossing",
+      "latitude": 47.9879264831543,
+      "longitude": -90.34851837158203
+    },
+    "takeOut": {
+      "name": "Brule River/Northern Light Lake Public Water Access Site",
+      "latitude": 47.91073944363824,
+      "longitude": -90.26804217786294
+    },
+    "logistics": {
+      "distanceLabel": "About 10.0 mi",
+      "estimatedPaddleTime": "About 5 hr to 8 hr depending on flow, scouting, wood, and portage decisions",
+      "shuttle": "Stage the DNR Northern Light Lake access first, then inspect the Gunflint Trail bridge start. The take-out has a natural ramp and small parking area; the put-in remains an undeveloped road crossing.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating rules, Superior National Forest road and closure rules, and posted DNR public-access rules at WAS01134.",
+      "camping": "No on-route campsite is verified for this split. Camping, fires, equipment storage, and overnight mooring are prohibited at Minnesota public water access sites; arrange a separate legal basecamp.",
+      "campingClassification": "none",
+      "summary": "Start at the Gunflint Trail crossing and run the more consequential lower portion of the upper Brule, finishing at the official DNR launch immediately above Northern Light Lake.",
+      "accessCaveats": [
+        "The Gunflint Trail start is community-mapped road access, not a developed launch; inspect parking and the bank before unloading.",
+        "WAS01134 is the only manager-confirmed endpoint on this split and has limited parking. Do not leave equipment or camp at the access.",
+        "American Whitewater's feature inventory is partly based on mapping rather than a complete modern descent report."
+      ],
+      "watchFor": [
+        "The steeper gradient near the mapped rock-dike feature; scout and portage when uncertain.",
+        "Strainers, cold water, rising flow, sparse road access, shallow boulders near the 500 cfs floor, and long rescue spacing.",
+        "The named Northern Light Lake access on river right; do not continue downstream without separate route beta."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "brule-gunflint-trail",
+        "name": "Gunflint Trail / Cook County Road 12 Brule River crossing",
+        "latitude": 47.9879264831543,
+        "longitude": -90.34851837158203,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Undeveloped road-crossing start mapped by American Whitewater."
+      },
+      {
+        "id": "brule-northern-light-pwa",
+        "name": "Brule River/Northern Light Lake Public Water Access Site",
+        "latitude": 47.91073944363824,
+        "longitude": -90.26804217786294,
+        "mileFromStart": 10,
+        "segmentKind": "creek",
+        "note": "DNR-administered WAS01134 at mapped river mile 20.8, with natural launch surface and limited parking."
+      }
+    ]
+  },
+  "brule-river-lima-grade-northern-light": {
+    "putIn": {
+      "name": "Lima Grade / Forest Road 315 Brule River crossing",
+      "latitude": 48.0077,
+      "longitude": -90.4169
+    },
+    "takeOut": {
+      "name": "Brule River/Northern Light Lake Public Water Access Site",
+      "latitude": 47.91073944363824,
+      "longitude": -90.26804217786294
+    },
+    "logistics": {
+      "distanceLabel": "About 14.8 mi",
+      "estimatedPaddleTime": "Long day, about 7 hr to 10 hr depending on level, scouting, wood, and portages",
+      "shuttle": "Stage a vehicle at WAS01134, then drive to Lima Grade and verify the forest-road approach, parking, and entry. Do not start unless both endpoints and the full daylight window are secure.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating rules, Superior National Forest road and closure rules, and posted DNR public-water-access restrictions.",
+      "camping": "No reliable on-route campsite is established in the reviewed sources. Treat this as a long day and use a separately confirmed campground or lodging base; do not camp at WAS01134 or on unverified banks.",
+      "campingClassification": "none",
+      "summary": "Paddle the complete upper Brule reach from Lima Grade through the Gunflint Trail crossing and steeper middle gradient to Minnesota's Brule River/Northern Light Lake public access.",
+      "accessCaveats": [
+        "The Lima Grade start is an undeveloped forest-road crossing. Confirm legal parking, road condition, and a safe carry before committing.",
+        "The finish is official DNR access WAS01134, but its small parking capacity makes careful shuttle staging important.",
+        "The direct DNR telemetry is downstream at Highway 61 and the 500 cfs guidance is minimum-only community guidance, not a DNR paddling band."
+      ],
+      "watchFor": [
+        "The middle rock-dike feature and any horizon line or channel where scouting and portage options become unclear.",
+        "Cold water, blowdown, strainers, exposed rock near minimum flow, rapid rises, remote rescue, and early-season road damage.",
+        "Fatigue on a 14.8-mile whitewater day and the need to finish at the public access before dark."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "brule-lima-grade",
+        "name": "Lima Grade / Forest Road 315 Brule River crossing",
+        "latitude": 48.0077,
+        "longitude": -90.4169,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Undeveloped forest-road crossing mapped by American Whitewater."
+      },
+      {
+        "id": "brule-gunflint-trail",
+        "name": "Gunflint Trail / Cook County Road 12 Brule River crossing",
+        "latitude": 47.9879264831543,
+        "longitude": -90.34851837158203,
+        "mileFromStart": 4.8,
+        "segmentKind": "creek",
+        "note": "Intermediate bailout and split point; verify roadside access before relying on it."
+      },
+      {
+        "id": "brule-northern-light-pwa",
+        "name": "Brule River/Northern Light Lake Public Water Access Site",
+        "latitude": 47.91073944363824,
+        "longitude": -90.26804217786294,
+        "mileFromStart": 14.8,
+        "segmentKind": "creek",
+        "note": "Official DNR-administered WAS01134 at river mile 20.8."
+      }
+    ]
   }
 };

@@ -36,7 +36,19 @@ const placeholderRoutePhotos: RouteGalleryPhoto[] = [
   },
 ];
 
+const bruleRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'brule-river-fall-colors-judge-magney-commons',
+  src: '/gallery/brule-river-minnesota/brule-river-fall-colors.jpg',
+  alt: 'The Brule River runs over a rocky channel between autumn-colored forest in Judge C. R. Magney State Park.',
+  caption: 'Brule River character farther downstream at Judge C. R. Magney State Park',
+  credit: 'Tony Webster via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+};
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
+  'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
+  'brule-river-lima-grade-northern-light': [bruleRiverMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {
       id: 'west-washington-street-bridge-muncie-commons',

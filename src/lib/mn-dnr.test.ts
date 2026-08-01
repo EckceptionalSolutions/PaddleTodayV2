@@ -104,4 +104,64 @@ describe('fetchMnDnrGaugeReading', () => {
 
     await expect(fetchMnDnrGaugeReading(source)).resolves.toBeNull();
   });
+
+  it('falls back to the public CSG site API for telemetry stations outside the river-level summary', async () => {
+    const source: RiverGaugeSource = {
+      id: 'mn-dnr-01022001',
+      provider: 'mn_dnr',
+      siteId: '01022001',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Brule River nr Hovland, MN61',
+    };
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ sites: [], site_ratings: [] }), {
+          status: 200,
+          headers: { 'content-type': 'application/json; charset=utf-8' },
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(
+          JSON.stringify({
+            status: 'SUCCESS',
+            result: {
+              id: '01022001',
+              data: {
+                provisional: {
+                  latest_observations: [
+                    { variable: 232, value: 20.14, timestamp: 1785584700 },
+                    { variable: 262, value: 60.5, timestamp: 1785584700 },
+                  ],
+                },
+              },
+            },
+          }),
+          {
+            status: 200,
+            headers: { 'content-type': 'application/json; charset=utf-8' },
+          },
+        ),
+      );
+
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchMnDnrGaugeReading(source)).resolves.toMatchObject({
+      sourceId: 'mn-dnr-01022001',
+      observedAt: '2026-08-01T11:45:00.000Z',
+      current: 60.5,
+      unit: 'cfs',
+      gaugeHeightNow: null,
+      dischargeNow: 60.5,
+      gaugeInterpretation: null,
+      gaugeInterpretationRanges: [],
+    });
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      'https://webapps.dnr.state.mn.us/csg/api/v1/sites/01022001',
+      expect.any(Object),
+    );
+  });
 });

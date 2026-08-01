@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-08-01 America/Chicago Grand Marais upper Brule pass
+
+- Added `brule-river-lima-grade-gunflint-trail`, `brule-river-gunflint-trail-northern-light`, and `brule-river-lima-grade-northern-light` as two adjacent upper-Brule splits plus the complete 14.8-mile route near Grand Marais.
+- Qualification path: American Whitewater documents the exact Lima Grade-to-Northern-Light reach, intermediate Gunflint Trail access, mileage, gradient, hazards, and a community `>500 cfs` upper-river recommendation. Minnesota public-water-access GIS independently confirms the final landing as DNR-administered `WAS01134` at river mile 20.8 with a natural ramp and parking. The Lima Grade and Gunflint Trail endpoints remain undeveloped road crossings and are labeled `access_uncertain` with mandatory field verification.
+- Live gauge path: extended the existing Minnesota DNR adapter to fall back to the public CSG site API for eight-digit CSG station IDs not present in the state-water-trail summary feed. Station `01022001` returned `60.5 cfs` at `2026-08-01 06:45 CDT`, far below the selected floor; a focused adapter test covers timestamp, variable, unit, and reading normalization.
+- Threshold posture: all three cards use community-strength, minimum-only `500 cfs` guidance with the Highway 61 gauge explicitly marked as a downstream same-river proxy. No upper cutoff is invented; cards warn that rising or pushy water, unsafe road access, wood, and inability to scout override the score.
+- Safety posture: all three are whitewater-filtered and carry cold-water, wood, fast-rise, remote-rescue, and access-uncertainty warnings. The lower split and full route are advanced because the source describes a steeper middle gradient and possible Class III+ to IV rock-dike feature while acknowledging parts of the inventory are map-based.
+- Excluded after review: Devil Track upper remains blocked by no numeric live-gauge model; Poplar has live DNR monitoring but no defensible numeric paddling threshold and partly exploratory route beta; Pigeon has excellent direct USGS thresholds but American Whitewater describes the tribal-land access as disputed; Cascade lacks a continuous product-supported gauge and modern route verification.
+- Geometry and validation: all three new cards produced named-network Brule geometries with endpoint snap maxima of `41 ft` or `151 ft`. The overlap audit recognized the intended access chain and contained full-route pattern.
+
 ## 2026-07-28 America/Chicago Cold Spring Dam through-route block
 
 - Removed `sauk-river-spring-hill-frogtown`, `sauk-river-st-martin-frogtown`, `sauk-river-st-martin-rockville`, and `sauk-river-st-martin-eagle-park` from the live route inventory, reducing Minnesota from 235 to 231 live routes.

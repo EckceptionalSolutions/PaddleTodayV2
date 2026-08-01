@@ -31843,5 +31843,238 @@ export const minnesotaRoutes: River[] = [
         "provider": "mn_dnr"
       }
     ]
+  },
+  {
+    "id": "brule-river-lima-grade-gunflint-trail",
+    "slug": "brule-river-lima-grade-gunflint-trail",
+    "name": "Brule River",
+    "reach": "Lima Grade to Gunflint Trail",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Short upper-Brule forest run from Lima Grade to the Gunflint Trail crossing, with mostly low-grade Class I-II water, a downstream same-river DNR telemetry gauge, and a conservative spring-flow floor.",
+    "statusText": "Use the Brule River near Hovland DNR gauge as a downstream same-river proxy. American Whitewater recommends more than 500 cfs for the upper river; no published upper cutoff exists, so rising or pushy water still requires a local visual check.",
+    "latitude": 48.0077,
+    "longitude": -90.4169,
+    "gaugeSource": {
+      "id": "mn-dnr-01022001",
+      "provider": "mn_dnr",
+      "siteId": "01022001",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Brule River nr Hovland, MN61",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 500,
+      "tooLow": 500,
+      "thresholdSource": {
+        "label": "American Whitewater upper Brule recommended flow",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "This North Shore watershed is primarily a snowmelt or rain-event run. The Highway 61 gauge is far downstream, and forest-road conditions can be poor during early thaw.",
+      "difficulty": "moderate",
+      "difficultyNotes": "American Whitewater describes the first 4.8 miles as mostly low-grade shoals, riffles, and Class I-II water. Remoteness, cold water, wood, sparse rescue access, and roadside endpoints make it more committed than the rapid rating suggests.",
+      "confidenceNotes": "Confidence is mixed but sufficient for a guarded whitewater card: American Whitewater supplies the exact endpoint coordinates, mileage, gradient, and upper-river flow floor; Minnesota DNR operates the live same-river telemetry station; and the endpoint roads lie in the Superior National Forest corridor. Neither road crossing is a named DNR public-water-access site, so users must verify legal pullout parking and launch conditions in the field."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["whitewater", "strainers", "fast_rise", "cold_water", "remote", "access_uncertain"],
+      "safetyNotes": [
+        "Treat 500 cfs as a minimum-only community floor, not an all-clear. There is no published high-water cutoff for this reach.",
+        "Both endpoints are road-crossing access points rather than developed DNR launches. Confirm a legal pullout, avoid blocking roads, and cancel if safe entry or exit is not obvious.",
+        "Expect cold water, fresh wood, shallow rock at marginal flow, limited roadside rescue, and fast changes after rain or snowmelt."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Reach definition",
+        "value": "4.8 miles; mostly Class I-II",
+        "note": "American Whitewater maps Lima Grade as the put-in and the Gunflint Trail crossing as an alternate egress after 4.8 miles of the upper Brule.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main"
+      },
+      {
+        "label": "Flow floor",
+        "value": "Above 500 cfs",
+        "note": "American Whitewater points to the Minnesota DNR Brule gauge and recommends flows above 500 cfs for the upper section.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main"
+      },
+      {
+        "label": "Live telemetry",
+        "value": "60.5 cfs at 2026-08-01 06:45 CDT",
+        "note": "The Minnesota DNR CSG API returned current discharge from station 01022001 during qualification, well below the selected floor.",
+        "sourceUrl": "https://webapps.dnr.state.mn.us/csg/api/v1/sites/01022001"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Brule", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule gauge guidance", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Brule CSG station", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR North Shore stream map", "url": "https://files.dnr.state.mn.us/maps/trout_streams/northeast/maps1-8.pdf", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "brule-river-gunflint-trail-northern-light",
+    "slug": "brule-river-gunflint-trail-northern-light",
+    "name": "Brule River",
+    "reach": "Gunflint Trail to Northern Light Lake Access",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "More demanding lower half of the upper Brule route, ending at Minnesota's developed Brule River/Northern Light Lake public access after remote riffles and a steeper rock-dike reach.",
+    "statusText": "Use the downstream Brule River near Hovland DNR gauge and require at least 500 cfs. Because the source publishes no upper cutoff and this section contains steeper gradient, rising water or unfamiliar conditions are a no-go without experienced local judgment.",
+    "latitude": 47.9879264831543,
+    "longitude": -90.34851837158203,
+    "gaugeSource": {
+      "id": "mn-dnr-01022001",
+      "provider": "mn_dnr",
+      "siteId": "01022001",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Brule River nr Hovland, MN61",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 500,
+      "tooLow": 500,
+      "thresholdSource": {
+        "label": "American Whitewater upper Brule recommended flow",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "Expect a narrow snowmelt and rain-event window. The gauge is downstream at Highway 61, while actual conditions at the Gunflint Trail start and rock-dike feature can differ.",
+      "difficulty": "hard",
+      "difficultyNotes": "The route includes the upper Brule's steeper middle gradient and a rock-dike feature American Whitewater estimates around Class III+ to IV at good water. That rating is partly map-based, so scout conservatively and do not treat the card as beginner beta.",
+      "confidenceNotes": "The finish is strong: Minnesota public-access GIS identifies WAS01134 as a DNR-administered Brule River/Northern Light Lake launch with parking and a natural ramp. American Whitewater supplies the start, intermediate hazards, mileage, and flow floor, but describes some feature ratings as conjectural and the Gunflint Trail start is an undeveloped road crossing."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["whitewater", "strainers", "fast_rise", "cold_water", "remote", "access_uncertain"],
+      "safetyNotes": [
+        "Scout the steeper rock-dike sequence and portage whenever the line, wood, eddies, or shoreline exit is uncertain; its published difficulty is not based on a complete modern rapid inventory.",
+        "The Gunflint Trail start is a road-crossing access, not a developed launch. Confirm safe legal parking and entry before staging the shuttle.",
+        "Finish at WAS01134 before Northern Light Lake. Use the named public launch and do not continue into the separate downstream Brule reach without its own hazard and take-out plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route corridor",
+        "value": "About 10.0 miles",
+        "note": "American Whitewater maps Gunflint Trail at mile 4.8 and the public landing at mile 14.8 on its upper Brule reach.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main"
+      },
+      {
+        "label": "Official finish",
+        "value": "WAS01134",
+        "note": "Minnesota public-water-access GIS identifies a DNR-administered natural-surface launch with parking at the Brule River just northwest of Northern Light Lake.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Flow floor",
+        "value": "Above 500 cfs",
+        "note": "American Whitewater recommends more than 500 cfs for the upper Brule using the DNR Hovland gauge.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Brule", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule gauge guidance", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Brule CSG station", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "Minnesota public water access GIS", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" },
+      { "label": "Cook County public water access map", "url": "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "brule-river-lima-grade-northern-light",
+    "slug": "brule-river-lima-grade-northern-light",
+    "name": "Brule River",
+    "reach": "Lima Grade to Northern Light Lake Access",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Full 14.8-mile upper Brule day from the Lima Grade forest-road crossing to the official Northern Light Lake access, combining easier headwater current with the steeper rock-dike section.",
+    "statusText": "American Whitewater recommends more than 500 cfs on the downstream Brule River near Hovland DNR gauge. This is minimum-only guidance with no published high-water ceiling; cancel on a sharp rise or if either road access or the middle gradient cannot be inspected safely.",
+    "latitude": 48.0077,
+    "longitude": -90.4169,
+    "gaugeSource": {
+      "id": "mn-dnr-01022001",
+      "provider": "mn_dnr",
+      "siteId": "01022001",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Brule River nr Hovland, MN61",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 500,
+      "tooLow": 500,
+      "thresholdSource": {
+        "label": "American Whitewater upper Brule recommended flow",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "Plan for spring snowmelt or a substantial rain event, cold water, and potentially soft forest roads. The long route should not be started late in the day or on a rising hydrograph.",
+      "difficulty": "hard",
+      "difficultyNotes": "Most of the route is described as low-grade Class I-II, but the middle section includes steeper gradient and a possible Class III+ to IV rock-dike feature. The 14.8-mile length, sparse exits, cold water, and incomplete rapid inventory make this an advanced planning day.",
+      "confidenceNotes": "American Whitewater supplies the complete reach, endpoint and intermediate coordinates, mileage, gradient, and flow floor; Minnesota DNR supplies live same-river telemetry and confirms the developed WAS01134 finish. Confidence is lower at the Lima Grade start and in the middle rapid inventory, so the route deliberately carries access-uncertain and advanced safety posture."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["whitewater", "strainers", "fast_rise", "cold_water", "remote", "access_uncertain"],
+      "safetyNotes": [
+        "Do not infer safe high water from the absence of a published upper cutoff. A rapidly rising gauge, flooded banks, or pushy current at Lima Grade is a no-go.",
+        "Scout the middle rock-dike gradient and portage if necessary. Carry whitewater rescue and cold-water gear appropriate for a remote 14.8-mile run.",
+        "Confirm legal roadside parking at Lima Grade and finish at the DNR Brule River/Northern Light Lake public access; do not rely on informal banks for the shuttle."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Documented reach",
+        "value": "14.8 miles",
+        "note": "American Whitewater documents the full Lima Grade-to-Timber Creek/Northern Light landing reach and its intermediate road crossings and gradient features.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main"
+      },
+      {
+        "label": "Official take-out",
+        "value": "WAS01134 at river mile 20.8",
+        "note": "Minnesota public-access data places the DNR Brule River/Northern Light Lake launch at the same coordinates as American Whitewater's final landing.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "60.5 cfs at 2026-08-01 06:45 CDT",
+        "note": "The live CSG reading was far below American Whitewater's 500 cfs upper-river recommendation during qualification.",
+        "sourceUrl": "https://webapps.dnr.state.mn.us/csg/api/v1/sites/01022001"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Brule", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule gauge guidance", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Brule CSG station", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "Minnesota public water access GIS", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" },
+      { "label": "Cook County public water access map", "url": "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf", "provider": "mn_dnr" }
+    ]
   }
 ];

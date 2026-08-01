@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-30T02:07:10Z",
+  "updatedAt": "2026-08-01T14:40:00Z",
   "notes": [
     {
       "date": "2026-07-29",
@@ -56701,6 +56701,128 @@
         "Gambril has no bathrooms and must be confirmed from land before launch.",
         "Lower-river side channels, log tangles, and private cabin banks are the main safety controls.",
         "Do not continue to McCausland or the Mississippi-side section without a separate advanced plan."
+      ]
+    },
+    {
+      "candidateId": "mn-brule-river-lima-grade-gunflint-trail-2026-08-01",
+      "river": "Brule River",
+      "route": "Lima Grade to Gunflint Trail",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-08-01",
+      "v2Slug": "brule-river-lima-grade-gunflint-trail",
+      "sourceQuality": "American Whitewater exact reach/access/gradient and community flow floor / Minnesota DNR live CSG telemetry / official North Shore public-land map context",
+      "gauge": {
+        "provider": "MN DNR CSG",
+        "siteId": "01022001",
+        "siteName": "Brule River nr Hovland, MN61",
+        "kind": "downstream same-river proxy",
+        "latest": "60.5 cfs at 2026-08-01 06:45 CDT"
+      },
+      "threshold": {
+        "model": "minimum-only",
+        "range": "500 cfs minimum",
+        "source": "American Whitewater upper Brule recommendation",
+        "strength": "community",
+        "caveat": "No published upper cutoff; same-day visual and rising-water checks are mandatory."
+      },
+      "access": {
+        "putIn": "Lima Grade / Forest Road 315 crossing",
+        "takeOut": "Gunflint Trail / County Road 12 crossing",
+        "coordinateSource": "American Whitewater exact access coordinates on the documented upper Brule reach; both remain undeveloped road crossings requiring field parking and bank verification."
+      },
+      "caveats": [
+        "Road-crossing access is not a developed DNR launch.",
+        "Cold water, wood, remote rescue, and fast rain/snowmelt response override the mostly Class I-II rating.",
+        "No on-route camping is claimed."
+      ],
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/948/main",
+        "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001",
+        "https://files.dnr.state.mn.us/maps/trout_streams/northeast/maps1-8.pdf"
+      ]
+    },
+    {
+      "candidateId": "mn-brule-river-gunflint-trail-northern-light-2026-08-01",
+      "river": "Brule River",
+      "route": "Gunflint Trail to Northern Light Lake Access",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-08-01",
+      "v2Slug": "brule-river-gunflint-trail-northern-light",
+      "sourceQuality": "American Whitewater exact reach/access/feature/mileage and community flow floor / Minnesota DNR live CSG telemetry / official Minnesota public-water-access GIS and Cook County access map",
+      "gauge": {
+        "provider": "MN DNR CSG",
+        "siteId": "01022001",
+        "siteName": "Brule River nr Hovland, MN61",
+        "kind": "downstream same-river proxy",
+        "latest": "60.5 cfs at 2026-08-01 06:45 CDT"
+      },
+      "threshold": {
+        "model": "minimum-only",
+        "range": "500 cfs minimum",
+        "source": "American Whitewater upper Brule recommendation",
+        "strength": "community",
+        "caveat": "No high-water ceiling; the steeper rock-dike feature and partly conjectural rapid inventory require advanced local judgment."
+      },
+      "access": {
+        "putIn": "Gunflint Trail / County Road 12 crossing",
+        "takeOut": "Brule River/Northern Light Lake Public Water Access Site (WAS01134)",
+        "coordinateSource": "American Whitewater start coordinate; official DNR public-access GIS finish coordinate, natural ramp, parking, and river-mile record."
+      },
+      "caveats": [
+        "The start is undeveloped road access.",
+        "Scout or portage the steeper middle gradient and rock-dike feature.",
+        "Finish at WAS01134 and do not continue downstream on the separate Brule reach."
+      ],
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/948/main",
+        "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf"
+      ]
+    },
+    {
+      "candidateId": "mn-brule-river-lima-grade-northern-light-2026-08-01",
+      "river": "Brule River",
+      "route": "Lima Grade to Northern Light Lake Access",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-08-01",
+      "v2Slug": "brule-river-lima-grade-northern-light",
+      "sourceQuality": "American Whitewater complete upper reach/access/feature/mileage and community flow floor / Minnesota DNR live CSG telemetry / official Minnesota public-water-access GIS finish",
+      "gauge": {
+        "provider": "MN DNR CSG",
+        "siteId": "01022001",
+        "siteName": "Brule River nr Hovland, MN61",
+        "kind": "downstream same-river proxy",
+        "latest": "60.5 cfs at 2026-08-01 06:45 CDT"
+      },
+      "threshold": {
+        "model": "minimum-only",
+        "range": "500 cfs minimum",
+        "source": "American Whitewater upper Brule recommendation",
+        "strength": "community",
+        "caveat": "Minimum-only guidance for a long remote route; no safe high-water inference is allowed."
+      },
+      "access": {
+        "putIn": "Lima Grade / Forest Road 315 crossing",
+        "takeOut": "Brule River/Northern Light Lake Public Water Access Site (WAS01134)",
+        "coordinateSource": "American Whitewater start and complete reach geometry; official DNR public-access GIS finish coordinates and access record."
+      },
+      "caveats": [
+        "Long 14.8-mile advanced day with cold water, remote rescue, wood, and uncertain roadside parking at the start.",
+        "The middle rapid inventory is incomplete and includes a possible Class III+ to IV rock-dike feature.",
+        "No on-route campsite is claimed."
+      ],
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/10766/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/948/main",
+        "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf"
       ]
     }
   ]
