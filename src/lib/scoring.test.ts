@@ -809,7 +809,7 @@ const saukRiver = rivers.find((river) => river.slug === 'sauk-river-frogtown-mil
 const snakeRiver = rivers.find((river) => river.slug === 'snake-river-county-road-3-mora');
 const northForkCrow = rivers.find((river) => river.slug === 'north-fork-crow-river-riverside-dayton');
 const minnehahaCreek = rivers.find((river) => river.slug === 'minnehaha-creek-grays-bay-longfellow-lagoon');
-const cloquetRiver = rivers.find((river) => river.slug === 'cloquet-river-island-lake-bachelor-road');
+const cloquetRiver = rivers.find((river) => river.slug === 'cloquet-river-indian-lake-bear-lake-road');
 const zumbro = rivers.find((river) => river.slug === 'zumbro-river-falls');
 const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson-waterloo');
   const riceCreek = rivers.find((river) => river.slug === 'rice-creek-peltier-to-long-lake');
@@ -1180,12 +1180,12 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(thresholdFactor?.value).toBe('Official numeric guidance');
   });
 
-  it('treats Cloquet River above the official 175 cfs floor as a conservative minimum-met call', () => {
+  it('treats Cloquet River inside the current Brimson DNR stage band as ideal', () => {
     expect(cloquetRiver).toBeDefined();
 
     const result = scoreRiverCondition({
       river: cloquetRiver as River,
-      gauge: makeRiverGauge(cloquetRiver as River, 225, 'steady', 15),
+      gauge: makeRiverGauge(cloquetRiver as River, 1488, 'steady', 0.1),
       weather: {
         ...weather,
         observedAt: '2026-06-10T11:15:00Z',
@@ -1194,9 +1194,9 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     });
 
     const thresholdFactor = result.factors.find((factor) => factor.id === 'threshold-quality');
-    expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.rating === 'Fair' || result.rating === 'Good').toBe(true);
-    expect(result.confidence.label === 'Low' || result.confidence.label === 'Medium').toBe(true);
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
+    expect(result.confidence.label === 'Medium' || result.confidence.label === 'High').toBe(true);
     expect(thresholdFactor?.value).toBe('Official numeric guidance');
   });
 

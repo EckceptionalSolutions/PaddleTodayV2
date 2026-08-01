@@ -5,6 +5,14 @@ import { getApprovedRoutePhotos } from '../data/route-gallery.js';
 import { listRivers } from './rivers.js';
 
 const routeIds = [
+  'otter-tail-river-friberg-hwy-210',
+  'red-river-lindenwood-mb-johnson',
+  'red-river-lincoln-drive-downtown',
+  'vermilion-river-dam-county-road-24',
+] as const;
+
+const withheldRouteIds = ['big-fork-river-dora-lake-big-fork', 'vermilion-river-dam-twomile'] as const;
+const archivedAssetRouteIds = [
   'big-fork-river-dora-lake-big-fork',
   'otter-tail-river-friberg-hwy-210',
   'red-river-lindenwood-mb-johnson',
@@ -13,7 +21,7 @@ const routeIds = [
 ] as const;
 
 describe('Northern Minnesota Tier 1 routes', () => {
-  it('publishes all five researched routes with reviewed safety, trip, and gauge data', () => {
+  it('publishes only the qualifying direct-gauge routes with reviewed safety and trip data', () => {
     const routes = new Map(listRivers().map((route) => [route.slug, route]));
 
     for (const routeId of routeIds) {
@@ -30,12 +38,16 @@ describe('Northern Minnesota Tier 1 routes', () => {
       expect(route?.sourceLinks.length).toBeGreaterThan(2);
     }
 
+    for (const routeId of withheldRouteIds) {
+      expect(routes.has(routeId), routeId).toBe(false);
+    }
+
     expect(routes.has('red-river-north-dam-mb-johnson')).toBe(false);
     expect(routes.has('red-river-lincoln-drive-lafave')).toBe(false);
   });
 
   it('gives every route a licensed, honestly captioned photo', () => {
-    for (const routeId of routeIds) {
+    for (const routeId of archivedAssetRouteIds) {
       const photos = getApprovedRoutePhotos(routeId);
       expect(photos.length, routeId).toBeGreaterThan(0);
       expect(photos[0]?.credit, routeId).toBeTruthy();
@@ -68,15 +80,15 @@ describe('Northern Minnesota Tier 1 routes', () => {
 
   it('keeps the technical Vermilion and dam-portage Red routes conservative', () => {
     const routes = new Map(listRivers().map((route) => [route.slug, route]));
-    const vermilion = routes.get('vermilion-river-dam-twomile');
+    const vermilion = routes.get('vermilion-river-dam-county-road-24');
     const fargo = routes.get('red-river-lindenwood-mb-johnson');
 
     expect(vermilion?.routeType).toBe('whitewater');
     expect(vermilion?.corridorId).toBe('mn-vermilion-condition-family');
-    expect(vermilion?.continuityStatus).toBe('condition-family');
+    expect(vermilion?.continuityStatus).toBe('verified');
     expect(vermilion?.safetyProfile?.riskLevel).toBe('advanced');
     expect(vermilion?.safetyProfile?.hazards).toContain('dam');
-    expect(vermilion?.gaugeSource.kind).toBe('proxy');
+    expect(vermilion?.gaugeSource.kind).toBe('direct');
     expect(fargo?.safetyProfile?.hazards).toContain('dam');
     expect(fargo?.accessPoints?.some((point) => point.name.includes('Midtown Dam'))).toBe(true);
     expect(fargo?.accessPoints?.some((point) => point.name.includes('North Dam'))).toBe(true);

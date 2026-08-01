@@ -32962,3 +32962,151 @@ export const minnesotaRoutes: River[] = [
     ]
   }
 ];
+
+type GaugedExpansionSpec = {
+  slug: string;
+  templateSlug: string;
+  reach: string;
+  summary: string;
+  latitude: number;
+  longitude: number;
+  gaugeRelationship: string;
+};
+
+function gaugedExpansion(spec: GaugedExpansionSpec): River {
+  const template = minnesotaRoutes.find((route) => route.slug === spec.templateSlug);
+  if (!template) throw new Error(`Missing northern Minnesota route template ${spec.templateSlug}.`);
+
+  return {
+    ...template,
+    id: spec.slug,
+    slug: spec.slug,
+    reach: spec.reach,
+    summary: spec.summary,
+    statusText: `${template.statusText} This route contains the configured gauge at an endpoint or within the paddled corridor.`,
+    latitude: spec.latitude,
+    longitude: spec.longitude,
+    gaugeSource: { ...template.gaugeSource, kind: 'direct' },
+    profile: {
+      ...template.profile,
+      confidenceNotes: `${spec.gaugeRelationship} The endpoints are established public accesses already documented on adjacent official water-trail segments.`,
+    },
+    safetyProfile: template.safetyProfile
+      ? {
+          ...template.safetyProfile,
+          safetyNotes: [
+            ...template.safetyProfile.safetyNotes,
+            'This longer combined itinerary requires an early start, a staged shuttle, and a conservative turnaround decision even when the direct gauge is in range.',
+          ],
+        }
+      : undefined,
+    evidenceNotes: [
+      {
+        label: 'Qualifying gauge relationship',
+        value: template.gaugeSource.siteName,
+        note: spec.gaugeRelationship,
+        sourceUrl: template.gaugeSource.detailUrl,
+      },
+      {
+        label: 'Public-access continuity',
+        value: spec.reach,
+        note: 'The route joins adjacent researched segments whose shared endpoint coordinates and official public-access records match.',
+        sourceUrl: template.sourceLinks.find((source) => source.provider === 'mn_dnr')?.url,
+      },
+    ],
+    sourceLinks: template.sourceLinks.map((source) => ({ ...source })),
+  };
+}
+
+minnesotaRoutes.push(
+  gaugedExpansion({
+    slug: 'big-fork-river-highway-6-south-johnson',
+    templateSlug: 'big-fork-river-highway-6-south-north',
+    reach: 'Highway 6 South to Johnson Landing',
+    summary: 'Long Big Fork itinerary joining the two Highway 6 accesses to Johnson Landing, with the current Craigsville DNR gauge at the put-in.',
+    latitude: 47.953023,
+    longitude: -93.754988,
+    gaugeRelationship: 'DNR site 281 is located at the Highway 6 South put-in, so the route begins at its direct interpreted gauge.',
+  }),
+  gaugedExpansion({
+    slug: 'big-fork-river-highway-6-north-big-falls-east',
+    templateSlug: 'big-fork-river-johnson-big-falls-east',
+    reach: 'Highway 6 North to Big Falls East Landing',
+    summary: 'Full Big Fork continuation from Highway 6 North through Johnson Landing to Big Falls, ending beside the current Big Falls gauge.',
+    latitude: 48.034694214683626,
+    longitude: -93.74155634703675,
+    gaugeRelationship: 'DNR site 5 is at Big Falls at the downstream end of this route, providing direct interpreted conditions for the complete corridor.',
+  }),
+  gaugedExpansion({
+    slug: 'red-lake-river-huot-highway-75-bypass',
+    templateSlug: 'red-lake-river-crookston-highway-75-bypass',
+    reach: 'Huot Park to Highway 75 Bypass',
+    summary: 'Long lower Red Lake River trip from Huot Park through Crookston to the Highway 75 Bypass, passing the current Crookston gauge.',
+    latitude: 47.8610626,
+    longitude: -96.4249999,
+    gaugeRelationship: 'DNR site 172 lies in Crookston inside this route before the Highway 75 Bypass take-out.',
+  }),
+  gaugedExpansion({
+    slug: 'red-lake-river-crookston-fisher',
+    templateSlug: 'red-lake-river-crookston-highway-75-bypass',
+    reach: 'Crookston carry-in to Fisher Landing',
+    summary: 'Lower Red Lake River day joining the Crookston and Fisher corridors, with current interpreted gauges at both ends of the trip area.',
+    latitude: 47.7598975,
+    longitude: -96.5671255,
+    gaugeRelationship: 'DNR site 172 is in the Crookston start corridor and DNR site 175 is at Fisher Landing; site 172 remains the configured primary direct gauge.',
+  }),
+  gaugedExpansion({
+    slug: 'st-louis-river-county-road-95-zim',
+    templateSlug: 'st-louis-river-county-road-95-forbes',
+    reach: 'County Road 95 to Zim',
+    summary: 'Extended upper St. Louis River itinerary from County Road 95 through Forbes to Zim, passing the current Forbes DNR gauge.',
+    latitude: 47.4009308,
+    longitude: -92.3775989,
+    gaugeRelationship: 'DNR site 244 is at Forbes inside this combined route and carries official interpreted stage bands.',
+  }),
+  gaugedExpansion({
+    slug: 'st-louis-river-forbes-toivola',
+    templateSlug: 'st-louis-river-forbes-zim',
+    reach: 'Forbes to Toivola',
+    summary: 'Long St. Louis River continuation from Forbes through Zim to Toivola, beginning in the direct Forbes gauge corridor.',
+    latitude: 47.362165673829445,
+    longitude: -92.6007600922704,
+    gaugeRelationship: 'DNR site 244 is immediately upstream of the Forbes launch, making the gauge direct for the route start rather than a regional proxy.',
+  }),
+  gaugedExpansion({
+    slug: 'st-louis-river-toivola-floodwood',
+    templateSlug: 'st-louis-river-county-road-29-floodwood',
+    reach: 'Toivola to Floodwood',
+    summary: 'Middle St. Louis River trip from Toivola through the County Road 29 access to Floodwood, finishing at the current Floodwood gauge corridor.',
+    latitude: 47.1672586,
+    longitude: -92.7792689,
+    gaugeRelationship: 'DNR site 338 is at Floodwood at the downstream end of this combined route and supplies official interpreted stage bands.',
+  }),
+  gaugedExpansion({
+    slug: 'crow-wing-river-huntersville-stigmans-mound',
+    templateSlug: 'crow-wing-river-mary-brown-stigmans-mound',
+    reach: "Huntersville North to Stigman's Mound",
+    summary: "Extended Crow Wing River day from Huntersville through Mary Brown to Stigman's Mound, ending at the current Nimrod gauge corridor.",
+    latitude: 46.77839539490564,
+    longitude: -94.89298138194548,
+    gaugeRelationship: "DNR site 55 at Nimrod is beside the Stigman's Mound finish, placing the interpreted discharge gauge at the route endpoint.",
+  }),
+  gaugedExpansion({
+    slug: 'mississippi-river-steamboat-county-road-72',
+    templateSlug: 'mississippi-river-steamboat-blackberry-bridge',
+    reach: 'Steamboat Landing to County Road 72',
+    summary: 'Grand Rapids-area Mississippi River trip continuing from Steamboat Landing past Blackberry Bridge to County Road 72, beginning at the current Grand Rapids gauge.',
+    latitude: 47.2325351,
+    longitude: -93.522906,
+    gaugeRelationship: 'DNR site 124 is at Grand Rapids beside Steamboat Landing, so the route starts in the direct interpreted gauge corridor.',
+  }),
+  gaugedExpansion({
+    slug: 'vermilion-river-dam-county-road-24',
+    templateSlug: 'vermilion-river-dam-twomile',
+    reach: 'Vermilion Dam to County Road 24',
+    summary: 'Extended Vermilion River run from the dam through the Twomile and Eightmile access corridors to County Road 24, starting at the current Buyck gauge.',
+    latitude: 47.96108,
+    longitude: -92.47595,
+    gaugeRelationship: 'DNR site 342 at Buyck is colocated with the downstream-of-dam put-in, making its interpreted discharge reading direct for this route.',
+  }),
+);

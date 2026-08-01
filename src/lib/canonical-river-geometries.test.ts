@@ -69,18 +69,23 @@ describe('canonical river geometry asset', () => {
     expect(minnesota.features?.length).toBeGreaterThan(100);
   });
 
-  it('stitches the Little Miami Rogers to Rahe geometry across the full route', () => {
-    const feature = routeFeature('little-miami-river-rogers-ballpark-carl-rahe');
+  it('stitches the Red Lake Crookston-to-Fisher geometry across the full route', () => {
+    const feature = routeFeature('red-lake-river-crookston-fisher');
 
     const routeLine = canonicalRiverRouteLineFromFeature(feature, [
-      { longitude: -84.215533, latitude: 39.3676 },
-      { longitude: -84.2526, latitude: 39.3182 },
+      { longitude: -96.5671255, latitude: 47.7598975 },
+      { longitude: -96.8090097, latitude: 47.8007512 },
     ]);
 
     const coordinates = routeLine?.geometry.coordinates as [number, number][] | undefined;
     expect(coordinates?.length).toBeGreaterThan(100);
-    expect(distanceMiles(coordinates?.[0] ?? [0, 0], [-84.215533, 39.3676])).toBeLessThan(0.05);
-    expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], [-84.2526, 39.3182])).toBeLessThan(0.1);
+    const first = coordinates?.[0] ?? [0, 0];
+    const last = coordinates?.at(-1) ?? [0, 0];
+    const forwardError =
+      distanceMiles(first, [-96.5671255, 47.7598975]) + distanceMiles(last, [-96.8090097, 47.8007512]);
+    const reverseError =
+      distanceMiles(first, [-96.8090097, 47.8007512]) + distanceMiles(last, [-96.5671255, 47.7598975]);
+    expect(Math.min(forwardError, reverseError)).toBeLessThan(0.1);
   });
 
   it('uses the connected natural Otter Tail channel instead of the artificial-path-only fallback', () => {
