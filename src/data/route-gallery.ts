@@ -298,6 +298,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'big-fork-river-dora-lake-big-fork': [
+    {
+      id: 'big-fork-lime-street-boat-launch-commons',
+      src: '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
+      alt: 'The grassy public boat launch in Bigfork slopes to the Big Fork River under a bright summer sky.',
+      caption: "Big Fork River at the route's Bigfork / Lime Street finish",
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'little-fork-river-dentaybow-fiedler': [
     {
       id: 'little-fork-river-cook-rapids-dpla',
@@ -2824,6 +2834,46 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
       alt: 'The Otter Tail River flows past the historic Phelps Mill under fall trees.',
       caption: 'Otter Tail River at Phelps Mill',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'otter-tail-river-friberg-hwy-210': [
+    {
+      id: 'otter-tail-phelps-mill-upstream-context-commons',
+      src: '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
+      alt: 'The Otter Tail River flows past historic Phelps Mill beneath autumn trees.',
+      caption: 'Otter Tail River character upstream at Phelps Mill',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'red-river-lindenwood-mb-johnson': [
+    {
+      id: 'red-river-fargo-corridor-commons',
+      src: '/gallery/river-groups/red-river-of-the-north/red-river-fargo.webp',
+      alt: 'The Red River of the North bends through Fargo beneath a winter sky.',
+      caption: 'Red River of the North in the Fargo-Moorhead route corridor',
+      credit: 'Jpkotta via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'red-river-lincoln-drive-downtown': [
+    {
+      id: 'red-river-north-city-context-commons',
+      src: '/gallery/river-groups/red-river-of-the-north/red-river-fargo.webp',
+      alt: 'The Red River of the North curves through an urban winter landscape.',
+      caption: 'Red River of the North urban-river context; photographed in Fargo',
+      credit: 'Jpkotta via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'vermilion-river-dam-twomile': [
+    {
+      id: 'vermilion-river-gorge-downstream-context-commons',
+      src: '/gallery/river-groups/vermilion-river-minnesota/vermilion-river-gorge.webp',
+      alt: 'The Vermilion River runs through a rocky, forested gorge in northern Minnesota.',
+      caption: 'Vermilion River whitewater character farther downstream at Vermilion Gorge',
       credit: 'Tony Webster via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },

@@ -131,6 +131,150 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "big-fork-river-dora-lake-big-fork",
+    "slug": "big-fork-river-dora-lake-big-fork",
+    "name": "Big Fork River",
+    "reach": "Dora Lake to Big Fork / Lime Street",
+    "aliases": [
+      "Dora Lake to Bigfork",
+      "Dora Lake to Lime Street Landing"
+    ],
+    "state": "Minnesota",
+    "region": "Northern Minnesota",
+    "summary": "Long upper Big Fork water-trail trip from the Dora Lake headwaters access to the public Lime Street landing in Bigfork, with two Class I rapids, mapped campsites, and a direct in-route DNR gauge.",
+    "statusText": "Use the Big Fork DNR gauge near Highway 38: 250 to 400 cfs is the official medium band. Below 175 cfs is scrapable, and above 525 cfs is very high.",
+    "latitude": 47.7403721,
+    "longitude": -94.0514467,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This is a 33.3-mile remote route. Plan it as an overnight or an exceptionally long day with a conservative daylight, weather, shuttle, and bailout plan.",
+        "Robb's Rapids and Hauck Rapids are mapped Class I features. Scout when uncertain, and expect exposed rock, scraping, and slower travel when the Highway 38 gauge is below the official medium band.",
+        "Use the named public accesses and mapped watercraft campsites. Do not assume private banks or informal clearings are legal stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-280",
+      "provider": "mn_dnr",
+      "siteId": "280",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "direct",
+      "siteName": "Big Fork River nr Bigfork, MN6",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=77031001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77031001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 250,
+      "idealMax": 400,
+      "tooLow": 175,
+      "tooHigh": 525,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Big Fork River near Bigfork",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "The Big Fork typically peaks in late April and declines through summer. Rain-supported summer and fall windows can work, but same-day depth and weather checks are essential.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The named rapids are Class I, but 33.3 miles, remote shoreline, cold water, limited exits, and low-water rock make this a committed route rather than a beginner float.",
+      "confidenceNotes": "Confidence is high: MN DNR recommends the exact Dora Lake-to-Lime Street trip, Map 1 resolves the access/campsite/rapid sequence, public-water-access GIS resolves both endpoints, and DNR gauge 280 lies inside the route with official paddling bands."
+    },
+    "putIn": {
+      "name": "Dora Lake / Big Fork River Public Water Access Site",
+      "latitude": 47.74037209963832,
+      "longitude": -94.05144670997052
+    },
+    "takeOut": {
+      "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+      "latitude": 47.74557120608051,
+      "longitude": -93.65559724133418
+    },
+    "accessPoints": [
+      {
+        "id": "big-fork-dora-lake",
+        "name": "Dora Lake / Big Fork River Public Water Access Site",
+        "latitude": 47.74037209963832,
+        "longitude": -94.05144670997052,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "USFS-administered trailer access WAS01925 at DNR river mile 172.0."
+      },
+      {
+        "id": "big-fork-harrison-landing",
+        "name": "Harrison Landing watercraft campsite",
+        "latitude": 47.746,
+        "longitude": -93.892,
+        "mileFromStart": 13,
+        "segmentKind": "creek",
+        "note": "DNR Map 1 campsite near river mile 158.3; use the mapped site rather than private banks."
+      },
+      {
+        "id": "big-fork-little-minnow-camp",
+        "name": "Little Minnow watercraft campsite",
+        "latitude": 47.746,
+        "longitude": -93.778,
+        "mileFromStart": 22.5,
+        "segmentKind": "creek",
+        "note": "DNR Map 1 campsite near river mile 149.5; practical map anchor only."
+      },
+      {
+        "id": "big-fork-lime-street",
+        "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+        "latitude": 47.74557120608051,
+        "longitude": -93.65559724133418,
+        "mileFromStart": 33.3,
+        "segmentKind": "creek",
+        "note": "City-administered trailer access WAS01803 at DNR river mile 137.9."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official recommended trip",
+        "value": "Dora Lake to Big Fork / Lime Street, 33.3 mi",
+        "note": "MN DNR's recommended one-way list and Big Fork Map 1 define the exact upper-river trip.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Public access records",
+        "value": "Dora Lake WAS01925; Big Fork WAS01803",
+        "note": "Minnesota public-water-access GIS resolves the USFS Dora Lake launch and City of Big Fork Lime Street finish.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "175 / 250-400 / 525 cfs",
+        "note": "DNR interprets the in-route Bigfork gauge as Scrapable below 175 cfs, Low to 250, Medium to 400, High to 525, and Very High above 525.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Rapids and camping",
+        "value": "Robb's and Hauck Class I; two mapped campsites",
+        "note": "Big Fork Map 1 places Robb's Rapids, Hauck Rapids, Harrison Landing, and Little Minnow between the selected accesses.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/bigfork1.pdf"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "MN DNR Big Fork River Map 1", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/bigfork1.pdf", "provider": "mn_dnr" },
+      { "label": "MN DNR Big Fork segments and maps", "url": "https://www.dnr.state.mn.us/state-water-trails/big-fork-river/segments-maps.html", "provider": "mn_dnr" },
+      { "label": "MN DNR river-level site data", "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json", "provider": "mn_dnr" },
+      { "label": "Minnesota public water access feature service", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" }
+    ]
+  },
+  {
     "id": "little-fork-river-fiedler-devereaux",
     "slug": "little-fork-river-fiedler-devereaux",
     "name": "Little Fork River",
@@ -15645,6 +15789,150 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "vermilion-river-dam-twomile",
+    "slug": "vermilion-river-dam-twomile",
+    "name": "Vermilion River",
+    "reach": "Vermilion Dam to Twomile Creek",
+    "aliases": [
+      "Vermilion Dam to Two Mile Creek",
+      "Vermilion Dam whitewater section"
+    ],
+    "state": "Minnesota",
+    "region": "Northeastern Minnesota",
+    "routeType": "whitewater",
+    "summary": "Remote Class II-III Vermilion run from the downstream side of Vermilion Dam through Shively, Liftover, and Everett to the Twomile Creek access, with multiple mandatory scouting and portage decisions.",
+    "statusText": "Use the downstream Buyck DNR gauge as a conservative proxy: 200 to 1,300 cfs is the official medium band. Below 70 cfs is scrapable, and above 1,600 cfs is very high. Also check the DNR staff gauge below the dam; the map says most rapids are runnable above 4 ft.",
+    "latitude": 47.96108,
+    "longitude": -92.47595,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "dam",
+        "mandatory_takeout",
+        "whitewater",
+        "strainers",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Never run Vermilion Dam. Use the mapped 430-yard right-bank portage and launch only at the legal downstream access described by DNR/American Whitewater.",
+        "Shively Falls is Class III; Liftover Falls is Class II; Everett Rapids is Class I-II. Scout every horizon line and use the mapped portages whenever the line, wood, level, or group skill is uncertain.",
+        "The Buyck gauge is downstream and cannot replace the staff gauge below the dam or on-site scouting. This route is for experienced whitewater paddlers with cold-water gear, rescue skills, and a remote-emergency plan.",
+        "Take out at Twomile Creek. Continuing downstream changes the route into the Chain of Lakes reach and requires a separate shuttle and daylight plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-342",
+      "provider": "mn_dnr",
+      "siteId": "342",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "Vermilion River at Buyck, CSAH 24",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=73017001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=73017001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 1300,
+      "tooLow": 70,
+      "tooHigh": 1600,
+      "thresholdSource": {
+        "label": "MN DNR interpreted bands at Buyck, paired with the Map 1 below-dam staff-gauge rule",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "low",
+      "seasonMonths": [5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Lake Vermilion moderates flow, but the technical upper rapids still require same-day staff-gauge and visual checks. Cold water and remote access matter throughout the open-water season.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the run Class II-III. The dam portage, Shively Falls, Liftover Falls, Everett Rapids, long carries, remote setting, and lake/creek take-out make it an experienced-paddler route.",
+      "confidenceNotes": "Route and hazard confidence is high from MN DNR Map 1 and American Whitewater's exact reach/access listing. Gauge confidence is moderate because the app uses the downstream Buyck DNR station as a live proxy; paddlers must independently confirm the DNR staff gauge below Vermilion Dam and scout the rapids."
+    },
+    "putIn": {
+      "name": "Vermilion Dam downstream portage / whitewater put-in",
+      "latitude": 47.96108,
+      "longitude": -92.47595
+    },
+    "takeOut": {
+      "name": "Two Mile Creek Public Water Access Site",
+      "latitude": 47.9885552,
+      "longitude": -92.4675615
+    },
+    "accessPoints": [
+      {
+        "id": "vermilion-dam-downstream-put-in",
+        "name": "Vermilion Dam downstream portage / whitewater put-in",
+        "latitude": 47.96108,
+        "longitude": -92.47595,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "American Whitewater access coordinate below the dam; DNR Map 1 requires the 430-yard right-bank dam portage."
+      },
+      {
+        "id": "vermilion-shively-access",
+        "name": "Vermilion River, Shively Falls Public Water Access Site",
+        "latitude": 47.9698841,
+        "longitude": -92.4661064,
+        "mileFromStart": 0.7,
+        "segmentKind": "creek",
+        "note": "DNR-mapped access below the dam and near the Shively Falls scouting/portage sequence."
+      },
+      {
+        "id": "twomile-creek-access",
+        "name": "Two Mile Creek Public Water Access Site",
+        "latitude": 47.9885552,
+        "longitude": -92.4675615,
+        "mileFromStart": 5.5,
+        "segmentKind": "creek",
+        "note": "DNR-administered WAS02075; approach via the lake and paddle up Twomile Creek to the County Road 422 access."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official map sequence",
+        "value": "Vermilion Dam RM 42.3 to Twomile Creek RM 37.8",
+        "note": "DNR Map 1 places the dam portage, Shively/Liftover/Everett features, campsites, and Twomile Creek access in sequence.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/vermilion.pdf"
+      },
+      {
+        "label": "Whitewater classification",
+        "value": "Class II-III, about 5.5 mi",
+        "note": "American Whitewater documents the Vermilion Dam-to-Twomile reach, three named falls/rapids, access coordinates, and portage descriptions.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/966/main"
+      },
+      {
+        "label": "DNR staff-gauge rule",
+        "value": "Most rapids runnable above 4 ft below the dam",
+        "note": "DNR Map 1 identifies a staff gauge about 200 feet below Vermilion Dam and gives the 4-foot runnable guidance; this must be checked locally because it is not in the live DNR JSON feed.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/vermilion.pdf"
+      },
+      {
+        "label": "Live proxy bands",
+        "value": "70 / 200-1,300 / 1,600 cfs",
+        "note": "The downstream Buyck DNR gauge provides a current official corridor signal but does not replace the staff gauge or scouting.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Two Mile Creek WAS02075",
+        "note": "Minnesota public-water-access GIS resolves the DNR-administered Twomile Creek access and County Road 422 approach.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "MN DNR Vermilion River Map 1", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/vermilion.pdf", "provider": "mn_dnr" },
+      { "label": "MN DNR Vermilion River overview", "url": "https://www.dnr.state.mn.us/state-water-trails/vermilion-river/index.html", "provider": "mn_dnr" },
+      { "label": "American Whitewater Vermilion Dam to Twomile", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/966/main", "provider": "american_whitewater" },
+      { "label": "MN DNR river-level site data", "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json", "provider": "mn_dnr" },
+      { "label": "Minnesota public water access feature service", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" }
+    ]
+  },
+  {
     "id": "vermilion-river-twomile-eightmile",
     "slug": "vermilion-river-twomile-eightmile",
     "name": "Vermilion River",
@@ -24527,16 +24815,16 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "red-river-north-dam-mb-johnson",
-    "slug": "red-river-north-dam-mb-johnson",
+    "id": "red-river-lindenwood-mb-johnson",
+    "slug": "red-river-lindenwood-mb-johnson",
     "name": "Red River of the North",
-    "reach": "Fargo North Dam to M.B. Johnson Park",
+    "reach": "Lindenwood Park to M.B. Johnson Park",
     "state": "Minnesota",
     "region": "Red River Valley",
-    "summary": "Short Fargo-Moorhead Red River water-trail day from the North Dam carry-in/re-entry to M.B. Johnson Park, using the direct Fargo DNR interpreted gauge and explicit dam, rock-slopeway, snag, and border-river caveats.",
+    "summary": "Full Fargo-Moorhead urban Red River water-trail day from Lindenwood Park to M.B. Johnson Park, with two constructed-rock dam portages, multiple public bailout landings, and the direct Fargo DNR gauge.",
     "statusText": "Use the Fargo DNR gauge: 425 to 1,110 cfs is the official medium band. Below 364 cfs is scrapable, and above 3,240 cfs is very high.",
-    "latitude": 46.8919,
-    "longitude": -96.785,
+    "latitude": 46.85101967710684,
+    "longitude": -96.78178641991025,
     "gaugeSource": {
       "id": "mn-dnr-184",
       "provider": "mn_dnr",
@@ -24571,9 +24859,9 @@ export const minnesotaRoutes: River[] = [
         10
       ],
       "seasonNotes": "Spring through fall is the practical open-water season. The Red can flood in spring, summer, or fall, and DNR warns that low water can make paddling unsuitable, so pair the interpreted Fargo band with a same-day bank and current check.",
-      "difficulty": "easy",
-      "difficultyNotes": "DNR frames this as a short urban water-trail trip with no route-length commitment, but the launch is tied to a dam/constructed-rock-rapids area and the Red still carries muddy banks, snags, and swift current during high water.",
-      "confidenceNotes": "Confidence is good for a short official route: MN DNR Red River Map 2 and the segments page identify Fargo North Dam to M.B. Johnson Park as a 3.1-mile water-trail trip, the Fargo DNR gauge is just upstream in the same metro reach with official interpretation bands, RiverKeepers documents the local dam/rock-slopeway safety context, and M.B. Johnson is a named public park landing. Coordinate confidence is lower at the North Dam carry-in because it is DNR-mapped by name and river mile rather than resolved in Minnesota public-water-access GIS."
+      "difficulty": "moderate",
+      "difficultyNotes": "The current is normally approachable, but this 9.3-mile urban route requires mandatory portages at Midtown Dam and North Dam, plus careful handling around muddy banks, bridge current, snags, and high water.",
+      "confidenceNotes": "Confidence is high for the route and gauge: MN DNR Map 2 defines the entire Lindenwood-to-M.B. Johnson sequence and river miles, Fargo Parks confirms a public ADA kayak launch at Lindenwood, Minnesota access GIS resolves M.B. Johnson, and the Fargo DNR gauge is directly in the metro reach with official bands. The North Dakota-bank launch coordinate is the official Fargo Parks location anchor rather than a Minnesota GIS record."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -24587,38 +24875,65 @@ export const minnesotaRoutes: River[] = [
         "private_banks"
       ],
       "safetyNotes": [
-        "Launch only from the signed North Dam carry-in/re-entry area below the dam/rock-slopeway context. Do not run or drift into dam hydraulics unless specifically trained and choosing a legal whitewater line.",
+        "Portage Midtown Dam on river left and North Dam on river right using the DNR-mapped carry-in/re-entry paths. Do not run or drift into either constructed-rock rapid unless specifically trained and following current local guidance.",
         "DNR warns that Red River water levels fluctuate widely, flooding can occur in spring, summer, or fall, low water may not be suitable for paddling, and snags are common.",
         "This is a Minnesota/North Dakota border-river corridor. Use public accesses, follow posted local rules on both banks, and keep a conservative plan for cold water, muddy exits, and urban stormwater after rain."
       ],
       "reviewStatus": "reviewed"
     },
     "putIn": {
-      "name": "North Dam carry-in access / re-entry",
-      "latitude": 46.8919,
-      "longitude": -96.785
+      "name": "Lindenwood Park ADA kayak launch",
+      "latitude": 46.85101967710684,
+      "longitude": -96.78178641991025
     },
     "takeOut": {
       "name": "M.B. Johnson Park trailer access",
-      "latitude": 46.91389,
-      "longitude": -96.7577
+      "latitude": 46.91392358141415,
+      "longitude": -96.75768161442912
     },
     "accessPoints": [
       {
-        "id": "red-river-north-dam-carry-in",
-        "name": "North Dam carry-in access / re-entry",
-        "latitude": 46.8919,
-        "longitude": -96.785,
+        "id": "red-river-lindenwood-park",
+        "name": "Lindenwood Park ADA kayak launch",
+        "latitude": 46.85101967710684,
+        "longitude": -96.78178641991025,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "DNR Map 2 names the North Dam carry-in/re-entry at river mile 455.2; coordinate is a practical map anchor for the named access rather than a Minnesota GIS water-access record."
+        "note": "Fargo Parks confirms the public ADA kayak launch; this practical river-edge anchor is resolved from the official park location and DNR Map 2 river mile 461.4."
+      },
+      {
+        "id": "red-river-midtown-dam",
+        "name": "Midtown Dam left-bank portage / carry-in",
+        "latitude": 46.87644108128275,
+        "longitude": -96.7796531591513,
+        "mileFromStart": 3,
+        "segmentKind": "creek",
+        "note": "Practical DNR Map 2 anchor at river mile 458.4; mandatory left-bank portage around the constructed-rock rapid."
+      },
+      {
+        "id": "red-river-hjemkomst",
+        "name": "Hjemkomst Center carry-in access",
+        "latitude": 46.8778,
+        "longitude": -96.7782,
+        "mileFromStart": 3.6,
+        "segmentKind": "creek",
+        "note": "DNR Map 2 public carry-in / ADA access and bailout near river mile 457.8."
+      },
+      {
+        "id": "red-river-north-dam-carry-in",
+        "name": "North Dam right-bank portage / re-entry",
+        "latitude": 46.894871,
+        "longitude": -96.776264,
+        "mileFromStart": 6.2,
+        "segmentKind": "creek",
+        "note": "DNR Map 2 carry-in/re-entry at river mile 455.2; mandatory right-bank portage around the constructed-rock rapid."
       },
       {
         "id": "red-river-mb-johnson-park",
         "name": "M.B. Johnson Park trailer access",
-        "latitude": 46.91389,
-        "longitude": -96.7577,
-        "mileFromStart": 3.1,
+        "latitude": 46.91392358141415,
+        "longitude": -96.75768161442912,
+        "mileFromStart": 9.3,
         "segmentKind": "creek",
         "note": "Default take-out at DNR Map 2 river mile 452.1; local park and access directories corroborate the Moorhead public boat-ramp context."
       }
@@ -24626,15 +24941,21 @@ export const minnesotaRoutes: River[] = [
     "evidenceNotes": [
       {
         "label": "Official DNR route",
-        "value": "Fargo North Dam RM 455.2 to M.B. Johnson Park RM 452.1, 3.1 mi",
-        "note": "MN DNR lists Fargo North Dam to M.B. Johnson Park as a recommended short Red River trip and describes the wooded/residential Fargo-Moorhead corridor.",
+        "value": "Lindenwood Park RM 461.4 to M.B. Johnson Park RM 452.1, 9.3 mi",
+        "note": "MN DNR's statewide recommended one-way list and Map 2 define the full Fargo-Moorhead route.",
         "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html"
       },
       {
         "label": "Map 2 access and dam context",
-        "value": "North Dam constructed rock rapids; M.B. Johnson trailer accesses",
-        "note": "MN DNR Red River Map 2 marks the North Dam carry-in/re-entry and M.B. Johnson Park access amenities in sequence.",
+        "value": "Two constructed-rock dam portages; multiple urban accesses",
+        "note": "MN DNR Red River Map 2 marks Lindenwood, Midtown Dam, Hjemkomst, North Dam, and M.B. Johnson in sequence, including left/right portage instructions.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/redriver2.pdf"
+      },
+      {
+        "label": "Public launch and finish",
+        "value": "Fargo Parks ADA launch to M.B. Johnson WAS02269",
+        "note": "Fargo Parks confirms Lindenwood's public adaptive kayak launch; Minnesota public-water-access GIS resolves the Moorhead finish.",
+        "sourceUrl": "https://www.fargoparks.com/parks-and-facilities/lindenwood-park"
       },
       {
         "label": "Official DNR bands",
@@ -24684,16 +25005,16 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "red-river-lincoln-drive-lafave",
-    "slug": "red-river-lincoln-drive-lafave",
+    "id": "red-river-lincoln-drive-downtown",
+    "slug": "red-river-lincoln-drive-downtown",
     "name": "Red River of the North",
-    "reach": "Lincoln Drive Park Landing to LaFave Park",
+    "reach": "Lincoln Drive Park Landing to Downtown Landing",
     "state": "Minnesota",
     "region": "Red River Valley",
-    "summary": "Short Grand Forks / East Grand Forks Red River water-trail connector from Lincoln Drive Park Landing to LaFave Park, using the direct Grand Forks DNR interpreted gauge and explicit muddy-bank, snag, and border-river caveats.",
+    "summary": "Short Grand Forks Red River water-trail connector from Lincoln Drive Park's public boat ramp to Downtown Landing, passing the Red Lake River confluence and using the direct Grand Forks DNR gauge.",
     "statusText": "Use the Grand Forks DNR gauge: 881 to 12,000 cfs is the official medium band. Below 320 cfs is scrapable, and above 16,200 cfs is very high.",
-    "latitude": 47.9137,
-    "longitude": -97.0497,
+    "latitude": 47.90851,
+    "longitude": -97.024315,
     "gaugeSource": {
       "id": "mn-dnr-185",
       "provider": "mn_dnr",
@@ -24729,8 +25050,8 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Spring through fall is the practical season, with flood-stage and low-water checks controlling the go/no-go decision. DNR warns that low Red River levels may not be suitable for paddling and that floods can happen well outside spring.",
       "difficulty": "easy",
-      "difficultyNotes": "DNR frames this as a quick two-mile trip between developed park landings, but muddy banks, snags, bridge approaches, urban water quality, and the border-river setting keep it in a caution posture.",
-      "confidenceNotes": "Confidence is good for route shape, take-out, and gauge: MN DNR Red River Map 4 and the segments page identify Lincoln Drive Park Landing to LaFave Park as a 2-mile trip; Minnesota public-water-access GIS resolves LaFave Park; and the Grand Forks DNR gauge is in the same route corridor with official interpretation bands. Coordinate confidence is lower at Lincoln Drive because the put-in is on the North Dakota bank and is DNR-mapped/local-park corroborated rather than present in Minnesota public-water-access GIS."
+      "difficultyNotes": "DNR maps this as a quick 2.5-mile urban connector, but muddy banks, snags, bridge approaches, the Red Lake River confluence, urban water quality, and the border-river setting keep it in a caution posture.",
+      "confidenceNotes": "Confidence is good: MN DNR Map 4 places Lincoln Drive Park at river mile 304.1 and Downtown Landing at 301.6; Grand Forks Park District confirms the Lincoln boat ramp; city project records document the Downtown Landing canoe/kayak dock; and the Grand Forks DNR gauge is directly in the route corridor with official bands. Both endpoints are on the North Dakota bank, so coordinates are practical local-map anchors rather than Minnesota access-GIS records."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -24743,59 +25064,59 @@ export const minnesotaRoutes: River[] = [
       ],
       "safetyNotes": [
         "DNR warns that Red River water levels fluctuate widely, flooding can occur in spring, summer, or fall, low water may not be suitable for paddling, and snags are common.",
-        "Use Lincoln Drive Park Landing and LaFave Park only as the planned access pair. Do not substitute steep muddy banks or private Greenway edges for routine exits.",
+        "Use Lincoln Drive Park Landing and Downtown Landing as the planned access pair. Do not substitute steep muddy banks or private Greenway edges for routine exits.",
         "This is a Minnesota/North Dakota border-river trip. Follow posted park, launch, and boating rules on both sides and confirm landing condition before shuttling."
       ],
       "reviewStatus": "reviewed"
     },
     "putIn": {
       "name": "Lincoln Drive Park Landing",
-      "latitude": 47.9137,
-      "longitude": -97.0497
+      "latitude": 47.90851,
+      "longitude": -97.024315
     },
     "takeOut": {
-      "name": "Red River, LaFave Park Public Water Access Site",
-      "latitude": 47.92502184090726,
-      "longitude": -97.02456598825147
+      "name": "Downtown Landing / Boathouse on the Red",
+      "latitude": 47.92754045822572,
+      "longitude": -97.03042373433044
     },
     "accessPoints": [
       {
         "id": "red-river-lincoln-drive-park-landing",
         "name": "Lincoln Drive Park Landing",
-        "latitude": 47.9137,
-        "longitude": -97.0497,
+        "latitude": 47.90851,
+        "longitude": -97.024315,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "DNR Map 4 names the Lincoln Drive Park trailer access at river mile 304.1; Grand Forks Park District and Visit Grand Forks corroborate the park boat-ramp context."
+        "note": "DNR Map 4 names the Lincoln Drive Park trailer access at river mile 304.1; this practical river-edge anchor is corroborated by Grand Forks Park District and local boat-access mapping."
       },
       {
-        "id": "red-river-lafave-park",
-        "name": "Red River, LaFave Park Public Water Access Site",
-        "latitude": 47.92502184090726,
-        "longitude": -97.02456598825147,
-        "mileFromStart": 2,
+        "id": "red-river-downtown-landing",
+        "name": "Downtown Landing / Boathouse on the Red",
+        "latitude": 47.92754045822572,
+        "longitude": -97.03042373433044,
+        "mileFromStart": 2.5,
         "segmentKind": "creek",
-        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00545 at the East Grand Forks LaFave Park landing."
+        "note": "DNR Map 4 carry-in at river mile 301.6; this river-edge anchor is resolved beside the city-documented canoe/kayak dock and North Dakota Tourism's Boathouse location."
       }
     ],
     "evidenceNotes": [
       {
         "label": "Official DNR route",
-        "value": "Lincoln Drive Park RM 304.1 to LaFave Park RM 302.1, 2.0 mi",
-        "note": "MN DNR lists Lincoln Drive Park to LaFave Park as a quick Red River trip in the Grand Forks / East Grand Forks corridor.",
+        "value": "Lincoln Drive Park RM 304.1 to Downtown Landing RM 301.6, 2.5 mi",
+        "note": "MN DNR Map 4 defines the full Lincoln-to-Downtown connector through the Grand Forks / East Grand Forks corridor.",
         "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html"
       },
       {
         "label": "Map 4 access context",
-        "value": "Lincoln Drive Park trailer access to LaFave Park trailer access",
-        "note": "MN DNR Red River Map 4 identifies Lincoln Drive Park Landing amenities and the LaFave Park trailer access, parking, dock, restroom, picnic, and Sacred Heart Trailhead context.",
+        "value": "Lincoln Drive trailer access to Downtown carry-in",
+        "note": "MN DNR Red River Map 4 identifies both landings and places the Red Lake River confluence and LaFave Park between them.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/redriver4.pdf"
       },
       {
-        "label": "Public access record",
-        "value": "LaFave Park WAS00545",
-        "note": "Minnesota public-water-access GIS resolves LaFave Park with source-backed coordinates and public access attributes.",
-        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+        "label": "Local public access confirmation",
+        "value": "Public Lincoln ramp and Downtown canoe/kayak dock",
+        "note": "Grand Forks Park District confirms Lincoln's Red River boat ramp, while City project records document Downtown Landing's accessible canoe/kayak dock and trail connection.",
+        "sourceUrl": "https://www.grandforksgov.com/home/showpublisheddocument/11528/635930376838200000"
       },
       {
         "label": "Official DNR bands",
