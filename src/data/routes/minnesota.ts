@@ -32076,5 +32076,49 @@ export const minnesotaRoutes: River[] = [
       { "label": "Minnesota public water access GIS", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" },
       { "label": "Cook County public water access map", "url": "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf", "provider": "mn_dnr" }
     ]
+  },
+  {
+    "id": "knife-river-county-102-knife-river-beach",
+    "slug": "knife-river-county-102-knife-river-beach",
+    "name": "Knife River",
+    "reach": "County Road 102 to Knife River Beach",
+    "state": "Minnesota",
+    "region": "North Shore",
+    "routeType": "whitewater",
+    "summary": "North Shore intermediate run that builds from swift Class I water into ledges and sustained Class II-III, then continues through the Highway 61 drop sequence to the public beach at Lake Superior.",
+    "statusText": "Use USGS 04015330 at Highway 61: American Whitewater lists 200-400 cfs as low runnable, 400-700 cfs as medium, 700-1,000 cfs as high, and above 1,000 cfs as above recommended.",
+    "latitude": 46.9841003417969,
+    "longitude": -91.7836990356445,
+    "gaugeSource": { "id": "usgs-04015330", "provider": "usgs", "siteId": "04015330", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Knife River near Two Harbors, MN", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D" },
+    "profile": {
+      "thresholdModel": "two-sided", "idealMin": 400, "idealMax": 700, "tooLow": 200, "tooHigh": 1000,
+      "thresholdSource": { "label": "American Whitewater Knife River flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "high", "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "This is primarily a snowmelt and rain-event river. The direct gauge is near the end of the reach, so check both its trend and visible conditions at the County Road 102 bridge before launching.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the run Class II-III with a standout Class IV. The route includes cables, wood, a 6- to 7-foot ledge, a larger multi-step drop around Highway 61, possible low-head structures, and a Lake Superior finish.",
+      "confidenceNotes": "Confidence is strong for the direct gauge, published flow bands, route geometry, start, mileage, and public finish. American Whitewater maps the County Road 102 put-in and full reach, while Minnesota DNR identifies Knife River Beach as public carry-in access. Hazard locations and wood can change, so this remains an experienced-paddler route rather than turn-by-turn rapid beta."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced", "hazards": ["whitewater", "strainers", "low_head_dam", "cold_water", "fast_rise", "access_uncertain"],
+      "safetyNotes": [
+        "Scout the first major ledge and the Highway 61 sequence. Portage whenever cables, wood, low-head structures, hydraulics, or the landing below the drop are not fully visible.",
+        "Use the river-right public beach at the mouth. American Whitewater reports private-property friction on river left, so do not land or stage a shuttle there.",
+        "The finish enters Lake Superior. Cancel when lake surf, wind, fog, cold-water exposure, or the beach landing is unsafe, even if the river gauge is runnable."
+      ], "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      { "label": "Reach and difficulty", "value": "6.2 miles; Class II-III(IV)", "note": "American Whitewater documents the County Road 102 start, progressive whitewater, ledges, Highway 61 sequence, and Lake Superior finish.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/main" },
+      { "label": "Direct flow model", "value": "200 / 400 / 700 / 1,000 cfs", "note": "American Whitewater ties low, medium, high, and above-recommended bands to USGS 04015330, located near the end of the run.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow" },
+      { "label": "Public finish", "value": "Knife River Beach carry-in access", "note": "Minnesota DNR Lake Superior Water Trail Map 1 identifies public carry-in access, parking, a toilet, and a sand-and-pebble beach at the Knife River mouth.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior1.pdf" },
+      { "label": "Current gauge check", "value": "4 cfs at 2026-08-01 10:00 CDT", "note": "USGS instantaneous values and American Whitewater both reported the direct gauge far below the 200 cfs runnable floor during qualification.", "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04015330&parameterCd=00060&siteStatus=all" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater Knife River", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Knife River flow bands", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2514/flow", "provider": "american_whitewater" },
+      { "label": "USGS Knife River gauge", "url": "https://waterdata.usgs.gov/monitoring-location/04015330/#parameterCode=00060&period=P7D", "provider": "usgs" },
+      { "label": "Minnesota DNR Lake Superior Water Trail Map 1", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior1.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Knife River Marina and Access", "url": "https://www.dnr.state.mn.us/water_access/harbors/knife_river.html", "provider": "mn_dnr" }
+    ]
   }
 ];

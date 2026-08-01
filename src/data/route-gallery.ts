@@ -45,10 +45,20 @@ const bruleRiverMinnesotaPhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
 };
 
+const knifeRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'knife-river-north-shore-scenic-drive-nara',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/North%20Shore%20Scenic%20Drive%20-%20Knife%20River%20-%20NARA%20-%207720698.jpg?width=1600',
+  alt: 'The Knife River reflects a bridge and winter trees along Minnesota’s North Shore.',
+  caption: 'Knife River along the North Shore Scenic Drive',
+  credit: 'Martin Schultz / U.S. Department of Transportation via NARA and Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
   'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
   'brule-river-lima-grade-northern-light': [bruleRiverMinnesotaPhoto],
+  'knife-river-county-102-knife-river-beach': [knifeRiverMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {
       id: 'west-washington-street-bridge-muncie-commons',

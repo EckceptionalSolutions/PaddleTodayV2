@@ -958,6 +958,7 @@ const routeOrder = [
   "brule-river-lima-grade-gunflint-trail",
   "brule-river-gunflint-trail-northern-light",
   "brule-river-lima-grade-northern-light",
+  "knife-river-county-102-knife-river-beach",
   "iowa-river-hills-river-junction",
   "south-skunk-river-peterson-park-sleepy-hollow",
   "north-raccoon-river-richey-hyde-park",

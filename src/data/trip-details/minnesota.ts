@@ -11731,5 +11731,33 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Official DNR-administered WAS01134 at river mile 20.8."
       }
     ]
+  },
+  "knife-river-county-102-knife-river-beach": {
+    "putIn": { "name": "County Road 102 Knife River bridge", "latitude": 46.9841003417969, "longitude": -91.7836990356445 },
+    "takeOut": { "name": "Knife River Beach carry-in access", "latitude": 46.949248, "longitude": -91.779457 },
+    "logistics": {
+      "distanceLabel": "About 6.2 mi",
+      "estimatedPaddleTime": "About 3 hr to 6 hr depending on flow, scouting, portages, wood, and the Lake Superior landing",
+      "shuttle": "Stage the take-out at the public Knife River Beach carry-in access on river right, then inspect the County Road 102 bridge put-in. Keep vehicles at lawful public parking and do not use private river-left property near the mouth.",
+      "permits": "No route-specific paddling permit is known. Minnesota watercraft-registration rules apply, and posted road, beach, marina, and Lake Superior Water Trail rules control parking and access.",
+      "camping": "No on-route campsite is verified. Treat this as a day run and use a separately confirmed campground or lodging base; do not camp at the beach, marina, roadside start, or private banks.",
+      "campingClassification": "none",
+      "summary": "Launch at the County Road 102 bridge, paddle the full American Whitewater Knife River reach, and finish on river right at Minnesota DNR's public Knife River Beach carry-in access.",
+      "accessCaveats": [
+        "County Road 102 is a bridge put-in rather than a developed launch. Inspect the bank, parking, and any posted restrictions before unloading.",
+        "At the mouth, land on river right at Knife River Beach. Do not use private river-left property or substitute the marina basin unless current local rules explicitly allow it.",
+        "The USGS gauge is direct and near the route finish, but flow bands remain community guidance; verify the hydrograph trend and visible bridge conditions."
+      ],
+      "watchFor": [
+        "Cables, sweepers, fresh wood, and a 6- to 7-foot ledge after the easier opening miles.",
+        "The major Highway 61 drop sequence, possible low-head structures, difficult hydraulics, and changing portage lines.",
+        "Lake Superior surf, wind, fog, cold water, and the ability to reach the public beach safely at the finish."
+      ]
+    },
+    "accessPoints": [
+      { "id": "knife-river-county-102", "name": "County Road 102 Knife River bridge", "latitude": 46.9841003417969, "longitude": -91.7836990356445, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped bridge put-in; verify lawful parking and a safe bank carry." },
+      { "id": "knife-river-highway-61", "name": "Highway 61 drop and USGS gauge corridor", "latitude": 46.94694, "longitude": -91.795577, "mileFromStart": 5.3, "segmentKind": "creek", "note": "Direct gauge corridor and major drop sequence; scout and portage as conditions require." },
+      { "id": "knife-river-beach", "name": "Knife River Beach carry-in access", "latitude": 46.949248, "longitude": -91.779457, "mileFromStart": 6.2, "segmentKind": "lake", "note": "Minnesota DNR Lake Superior Water Trail public carry-in access on river right at the mouth." }
+    ]
   }
 };
