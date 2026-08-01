@@ -1,8 +1,10 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { endpointSnappedRiverNetwork } from '@paddletoday/geo';
 import { rivers } from '../src/data/rivers';
 import { riverTripDetails } from '../src/data/river-trip-details';
 import type { River, RiverAccessPoint } from '../src/lib/types';
+import { accessNamesAgree } from './lib/access-name-match';
 
 type Severity = 'ok' | 'review' | 'suspicious' | 'failure' | 'unknown';
 type EndpointLabel = 'putIn' | 'takeOut' | 'accessPoint';
@@ -44,13 +46,84 @@ interface EndpointAudit {
   nearestWaterbodyLatitude: number | null;
   nearestWaterbodyLongitude: number | null;
   endpointOnWaterbody: boolean;
+  matchedHydrographyMode: 'named-flowline' | 'connected-network' | null;
+  coordinateEvidenceRole: 'authoritative-area-anchor' | 'authoritative-water-entry' | null;
+  coordinateEvidenceSourceUrl: string | null;
+  coordinateEvidenceDetail: string | null;
   severity: Severity;
   note: string;
 }
 
+type AreaAnchorControl = {
+  state: string;
+  provider: string;
+  featureId: string;
+  name: string;
+  aliases: string[];
+  latitude: number;
+  longitude: number;
+  uncertaintyFeet: number;
+  sourceUrl: string;
+  method: string;
+};
+
+type OfficialAlternateWaterwayControl = {
+  state: string;
+  name: string;
+  aliases: string[];
+  waterbody: string;
+  routeWaterbody: string;
+  relationship: 'downstream-after-confluence' | 'tributary-before-confluence' | 'connected-water-trail-waterbody';
+  sourceUrl: string;
+};
+
+type OfficialWaterEntryControl = {
+  state: string;
+  provider: string;
+  featureId: string;
+  name: string;
+  aliases: string[];
+  waterbody: string;
+  latitude: number;
+  longitude: number;
+  uncertaintyFeet: number;
+  sourceUrl: string;
+  method: string;
+  terminalAlternateWaterbody?: {
+    routeWaterbody: string;
+    relationship: 'downstream-after-confluence' | 'tributary-before-confluence' | 'connected-water-trail-waterbody';
+    sourceUrl: string;
+  };
+};
+
+type OfficialMapControls = {
+  providers?: Array<{
+    id: string;
+    state: string;
+    sourceUrl: string;
+    coordinateRole: string;
+    method: string;
+    controls?: Array<{
+      featureId: string;
+      name: string;
+      aliases?: string[];
+      waterbody?: string;
+      latitude: number;
+      longitude: number;
+      uncertaintyFeet?: number | null;
+      terminalAlternateWaterbody?: {
+        routeWaterbody: string;
+        relationship: 'downstream-after-confluence' | 'tributary-before-confluence' | 'connected-water-trail-waterbody';
+        sourceUrl: string;
+      };
+    }>;
+  }>;
+};
+
 const root = process.cwd();
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-river-audit');
 const reportPath = path.join(root, 'docs', 'route-coordinate-river-audit.json');
+const officialMapControlsPath = path.join(root, 'src', 'data', 'route-access-official-map-controls.json');
 const nhdFlowlineQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6/query';
 const nhdWaterbodyQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12/query';
 const nhdAreaQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9/query';
@@ -357,6 +430,20 @@ function normalizeName(value: string | null | undefined) {
     .trim();
 }
 
+function waterwayNameMatchesRoute(routeId: string, routeName: string, candidateName: string | null, additionalAlternates: string[] = []) {
+  const route = normalizeName(routeName);
+  const candidate = normalizeName(candidateName);
+  if (!route || !candidate) return false;
+  if (candidate === route) return true;
+  if ([...(acceptedAlternateWaterways[routeId] ?? []), ...additionalAlternates]
+    .some((name) => normalizeName(name) === candidate)) return true;
+
+  // NHD commonly distinguishes a named branch/fork where the route catalog
+  // uses the parent waterway name (for example, South Branch Root River).
+  const branchPrefix = /^(?:north|south|east|west|middle|main) (?:branch|fork) /;
+  return branchPrefix.test(candidate) && candidate.replace(branchPrefix, '') === route;
+}
+
 function endpointCoordinates(point?: RiverAccessPoint) {
   if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
     return null;
@@ -580,10 +667,9 @@ function featureName(feature: ArcGisFeature | null | undefined) {
   return typeof value === 'string' && value.length > 0 ? value : null;
 }
 
-function severityFor(routeId: string, distanceFeet: number | null, matchedRiverName: string | null, nearestWaterwayName: string | null, nearestWaterwayDistanceFeet: number | null, nearestWaterbodyDistanceFeet: number | null) {
+function severityFor(routeId: string, distanceFeet: number | null, matchedRiverName: string | null, nearestWaterwayName: string | null, nearestWaterwayDistanceFeet: number | null, nearestWaterbodyDistanceFeet: number | null, additionalAlternates: string[] = []) {
   if (distanceFeet === null || !matchedRiverName) return 'unknown';
-  const officialAccessLimit = acceptedOfficialAccessFlowlineFeet[routeId];
-  if (officialAccessLimit !== undefined && distanceFeet <= officialAccessLimit) return 'review';
+  if (distanceFeet <= 100) return 'ok';
   const accessAnchorLimit = acceptedAccessAnchorWaterbodyFeet[routeId];
   if (accessAnchorLimit !== undefined && nearestWaterbodyDistanceFeet !== null && nearestWaterbodyDistanceFeet <= accessAnchorLimit) {
     // An access-site citation can explain a modest shore/parking offset, but it
@@ -591,12 +677,11 @@ function severityFor(routeId: string, distanceFeet: number | null, matchedRiverN
     // in the normal failure path so every resolution remains visually auditable.
     if (distanceFeet <= 800) return 'review';
   }
-  const acceptedNames = acceptedAlternateWaterways[routeId] ?? [];
+  const acceptedNames = [...(acceptedAlternateWaterways[routeId] ?? []), ...additionalAlternates];
   if (nearestWaterwayName && nearestWaterwayDistanceFeet !== null && nearestWaterwayDistanceFeet <= 1000 &&
       acceptedNames.some((name) => normalizeName(name) === normalizeName(nearestWaterwayName))) {
     return 'review';
   }
-  if (distanceFeet <= 100) return 'ok';
   if (distanceFeet <= 300) return 'review';
   if (distanceFeet <= 800) return 'suspicious';
   if (nearestWaterwayName && normalizeName(nearestWaterwayName) !== normalizeName(matchedRiverName)) return 'failure';
@@ -618,23 +703,50 @@ function noteFor(result: Pick<EndpointAudit, 'distanceFeetToMatchedRiver' | 'mat
   return `Endpoint is ${distance} from the matched NHD flowline.`;
 }
 
-async function queryRouteFlowlines(route: River, points: RiverAccessPoint[]) {
+function areaAnchorFor(point: RiverAccessPoint, state: string, controls: AreaAnchorControl[]) {
+  return controls.find((control) => control.state === state
+    && (accessNamesAgree(point.name, control.name)
+      || control.aliases.some((alias) => accessNamesAgree(point.name, alias)))
+    && distanceMiles(point, control) * feetPerMile <= Math.max(25, control.uncertaintyFeet));
+}
+
+function officialWaterEntryFor(point: RiverAccessPoint, route: River, controls: OfficialWaterEntryControl[]) {
+  return controls.find((control) => {
+    const routeWaterbodyAgrees = normalizeName(control.waterbody) === normalizeName(route.name);
+    const declaredRouteConnection = control.terminalAlternateWaterbody;
+    const connectedRouteWaterbodyAgrees = Boolean(declaredRouteConnection?.sourceUrl
+      && normalizeName(declaredRouteConnection.routeWaterbody) === normalizeName(route.name));
+    return control.state === route.state
+      && (routeWaterbodyAgrees || connectedRouteWaterbodyAgrees)
+      && (accessNamesAgree(point.name, control.name)
+        || control.aliases.some((alias) => accessNamesAgree(point.name, alias)))
+      && distanceMiles(point, control) * feetPerMile <= Math.max(25, control.uncertaintyFeet);
+  });
+}
+
+async function queryRouteFlowlines(route: River, points: RiverAccessPoint[], additionalAlternates: string[] = []) {
   const margins = [0.04, 0.12, 0.3];
   const routeName = escapeSqlLiteral(route.name);
+  const alternates = [...(acceptedAlternateWaterways[route.id] ?? []), ...additionalAlternates];
+  const where = [
+    `UPPER(GNIS_NAME) LIKE '%${routeName}%'`,
+    ...alternates.map((name) => `UPPER(GNIS_NAME) = '${escapeSqlLiteral(name)}'`),
+  ].join(' OR ');
 
   for (const margin of margins) {
     const bounds = routeBounds(points, margin);
     const keyBase = cacheKey([route.id, bboxKey(bounds)]);
-    const namedUrl = buildNhdQuery(bounds, `UPPER(GNIS_NAME) = '${routeName}'`);
-    const named = await fetchJsonWithCache(`${keyBase}__named`, namedUrl);
+    const namedUrl = buildNhdQuery(bounds, where);
+    const named = await fetchJsonWithCache(`${keyBase}__named-variants-v2`, namedUrl);
     if (named.error?.message) throw new Error(named.error.message);
+    const matchedFeatures = (named.features ?? []).filter((feature) => waterwayNameMatchesRoute(route.id, route.name, featureName(feature), additionalAlternates));
 
-    if ((named.features ?? []).length > 0 || margin === margins.at(-1)) {
+    if (matchedFeatures.length > 0 || margin === margins.at(-1)) {
       const allUrl = buildNhdQuery(bounds, "GNIS_NAME IS NOT NULL AND GNIS_NAME <> ''");
       const all = await fetchJsonWithCache(`${keyBase}__all-named`, allUrl);
       if (all.error?.message) throw new Error(all.error.message);
       return {
-        matchedFeatures: named.features ?? [],
+        matchedFeatures,
         allNamedFeatures: all.features ?? [],
         margin,
       };
@@ -656,7 +768,69 @@ async function queryRouteWaterbodies(route: River, points: RiverAccessPoint[]) {
   return [...(waterbody.features ?? []), ...(area.features ?? [])];
 }
 
-async function auditRoute(route: River): Promise<EndpointAudit[]> {
+function featureType(feature: ArcGisFeature) {
+  return Number(feature.attributes.FTYPE ?? feature.attributes.ftype);
+}
+
+function networkCostMultiplier(type: number) {
+  if (type === 460) return 1;
+  if (type === 334) return 1.05;
+  if (type === 558) return 1.35;
+  if (type === 336) return 4;
+  return 10;
+}
+
+async function queryRouteNetwork(route: River, putIn: RiverAccessPoint, takeOut: RiverAccessPoint) {
+  const bounds = routeBounds([putIn, takeOut], 0.025);
+  const bbox = `${bounds.minLon.toFixed(4)}-${bounds.minLat.toFixed(4)}-${bounds.maxLon.toFixed(4)}-${bounds.maxLat.toFixed(4)}`;
+  const key = `${route.id}__${bbox}__route-network-v1`;
+  const response = await fetchJsonWithCache(
+    key,
+    buildNhdQuery(bounds, 'FTYPE IN (334,336,460,558)'),
+  );
+  if (response.error?.message) throw new Error(response.error.message);
+  return response.features ?? [];
+}
+
+function connectedRouteTrace(route: River, putIn: RiverAccessPoint, takeOut: RiverAccessPoint, features: ArcGisFeature[], additionalAlternates: string[] = []) {
+  const lines = features.flatMap((feature) =>
+    (feature.geometry?.paths ?? []).map((coordinates) => ({
+      coordinates,
+      costMultiplier: networkCostMultiplier(featureType(feature)),
+      name: featureName(feature),
+    })),
+  );
+  const trace = endpointSnappedRiverNetwork(
+    lines,
+    [putIn, takeOut],
+    { maxSnapDistanceMiles: 500 / feetPerMile },
+  );
+  const includesNamedRoute = trace?.sourceLineIndexes.some((lineIndex) =>
+    waterwayNameMatchesRoute(route.id, route.name, lines[lineIndex]?.name ?? null, additionalAlternates),
+  ) ?? false;
+  return trace && includesNamedRoute ? trace : null;
+}
+
+function officialAlternateWaterwaysForRoute(
+  route: River,
+  terminalPoints: RiverAccessPoint[],
+  controls: OfficialAlternateWaterwayControl[],
+) {
+  return [...new Set(controls
+    .filter((control) => control.state === route.state
+      && normalizeName(control.routeWaterbody) === normalizeName(route.name)
+      && Boolean(control.sourceUrl)
+      && terminalPoints.some((point) => accessNamesAgree(point.name, control.name)
+        || control.aliases.some((alias) => accessNamesAgree(point.name, alias))))
+    .map((control) => control.waterbody))];
+}
+
+async function auditRoute(
+  route: River,
+  areaAnchorControls: AreaAnchorControl[],
+  officialWaterEntryControls: OfficialWaterEntryControl[],
+  officialAlternateControls: OfficialAlternateWaterwayControl[],
+): Promise<EndpointAudit[]> {
   const enriched = getEnrichedRoute(route);
   const putIn = endpointCoordinates(enriched.putIn);
   const takeOut = endpointCoordinates(enriched.takeOut);
@@ -668,7 +842,12 @@ async function auditRoute(route: River): Promise<EndpointAudit[]> {
 
   if (points.length === 0) return [];
 
-  const { matchedFeatures, allNamedFeatures } = await queryRouteFlowlines(route, points);
+  const officialAlternates = officialAlternateWaterwaysForRoute(
+    route,
+    [putIn, takeOut].filter((point): point is RiverAccessPoint => point !== null),
+    officialAlternateControls,
+  );
+  const { matchedFeatures, allNamedFeatures } = await queryRouteFlowlines(route, points, officialAlternates);
   const waterbodyFeatures = await queryRouteWaterbodies(route, points);
 
   const entries: Array<readonly [EndpointLabel, RiverAccessPoint | null]> = [
@@ -677,22 +856,54 @@ async function auditRoute(route: River): Promise<EndpointAudit[]> {
     ...intermediateAccessPoints.map((point) => ['accessPoint', point] as const),
   ];
 
-  return entries
-    .filter((entry): entry is readonly [EndpointLabel, RiverAccessPoint] => entry[1] !== null)
+  const endpointEntries = entries.filter((entry): entry is readonly [EndpointLabel, RiverAccessPoint] => entry[1] !== null);
+  const namedEndpointDistances = endpointEntries.map(([, point]) => nearestFeature(point, matchedFeatures)?.distanceFeet ?? Infinity);
+  const shouldTraceConnectedNetwork = Boolean(
+    putIn && takeOut && namedEndpointDistances.some((distanceFeet) => distanceFeet > 300),
+  );
+  const networkFeatures = shouldTraceConnectedNetwork && putIn && takeOut
+    ? await queryRouteNetwork(route, putIn, takeOut)
+    : [];
+  const networkTrace = putIn && takeOut && networkFeatures.length > 0
+    ? connectedRouteTrace(route, putIn, takeOut, networkFeatures, officialAlternates)
+    : null;
+  const networkTraceFeature: ArcGisFeature | null = networkTrace
+    ? { attributes: { GNIS_NAME: route.name }, geometry: { paths: [networkTrace.coordinates] } }
+    : null;
+
+  return endpointEntries
     .map(([endpoint, point]) => {
-      const matched = nearestFeature(point, matchedFeatures);
+      const namedMatched = nearestFeature(point, matchedFeatures);
+      const connectedMatched = networkTraceFeature ? featureNearestPoint(point, networkTraceFeature) : null;
+      const useConnectedNetwork = connectedMatched !== null
+        && connectedMatched.distanceFeet < (namedMatched?.distanceFeet ?? Infinity);
+      const matched = useConnectedNetwork
+        ? { feature: networkTraceFeature!, ...connectedMatched }
+        : namedMatched;
       const nearest = nearestFeature(point, allNamedFeatures);
       const matchedRiverName = featureName(matched?.feature);
       const nearestWaterwayName = featureName(nearest?.feature);
       const waterbody = nearestWaterbody(point, waterbodyFeatures);
       const waterbodyName = featureName(waterbody?.feature);
       const endpointOnWaterbody = (waterbody?.distanceFeet ?? Infinity) <= 150;
-      const flowlineSeverity = severityFor(route.id, matched?.distanceFeet ?? null, matchedRiverName, nearestWaterwayName, nearest?.distanceFeet ?? null, waterbody?.distanceFeet ?? null);
+      const areaAnchor = areaAnchorFor(point, route.state, areaAnchorControls);
+      const officialWaterEntry = officialWaterEntryFor(point, route, officialWaterEntryControls);
+      const flowlineSeverity = severityFor(route.id, matched?.distanceFeet ?? null, matchedRiverName, nearestWaterwayName, nearest?.distanceFeet ?? null, waterbody?.distanceFeet ?? null, officialAlternates);
+      const connectedNetworkNamedConflict = useConnectedNetwork
+        && nearestWaterwayName !== null
+        && (nearest?.distanceFeet ?? Infinity) <= 300
+        && !waterwayNameMatchesRoute(route.id, route.name, nearestWaterwayName, officialAlternates);
       const noFlowlineAccessLimit = acceptedNoFlowlineAccessWaterbodyFeet[route.id];
       const documentedNoFlowlineAccess = flowlineSeverity === 'unknown'
         && noFlowlineAccessLimit !== undefined
         && (waterbody?.distanceFeet ?? Infinity) <= noFlowlineAccessLimit;
-      const severity = endpointOnWaterbody && flowlineSeverity !== 'ok'
+      const severity = areaAnchor
+        ? 'failure'
+        : officialWaterEntry
+        ? flowlineSeverity === 'ok' ? 'ok' : 'review'
+        : connectedNetworkNamedConflict && flowlineSeverity === 'ok'
+        ? 'review'
+        : endpointOnWaterbody && flowlineSeverity !== 'ok'
         ? 'review'
         : documentedNoFlowlineAccess ? 'review' : flowlineSeverity;
       const result: EndpointAudit = {
@@ -717,11 +928,31 @@ async function auditRoute(route: River): Promise<EndpointAudit[]> {
         nearestWaterbodyLatitude: waterbody?.latitude ?? null,
         nearestWaterbodyLongitude: waterbody?.longitude ?? null,
         endpointOnWaterbody,
+        matchedHydrographyMode: matched
+          ? useConnectedNetwork ? 'connected-network' : 'named-flowline'
+          : null,
+        coordinateEvidenceRole: areaAnchor
+          ? 'authoritative-area-anchor'
+          : officialWaterEntry ? 'authoritative-water-entry' : null,
+        coordinateEvidenceSourceUrl: areaAnchor?.sourceUrl ?? officialWaterEntry?.sourceUrl ?? null,
+        coordinateEvidenceDetail: areaAnchor
+          ? `${areaAnchor.provider} ${areaAnchor.featureId}: ${areaAnchor.method}`
+          : officialWaterEntry
+            ? `${officialWaterEntry.provider} ${officialWaterEntry.featureId}: ${officialWaterEntry.method}`
+            : null,
         severity,
         note: '',
       };
-      return { ...result, note: endpointOnWaterbody
+      return { ...result, note: areaAnchor
+        ? `Stored coordinate matches an official WMA/property or fishing-area representative point (${areaAnchor.featureId}); it is not a verified access, parking, or water-entry coordinate.`
+        : officialWaterEntry
+        ? `Stored coordinate matches the exact named authoritative water-entry control (${officialWaterEntry.provider} ${officialWaterEntry.featureId}) on ${officialWaterEntry.waterbody}; the ${Math.round(matched?.distanceFeet ?? 0)} ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move.`
+        : endpointOnWaterbody
         ? `Endpoint is within ${Math.round(waterbody?.distanceFeet ?? 0)} ft of NHD waterbody${waterbodyName ? ` ${waterbodyName}` : ''}; flowline distance is informational.`
+        : connectedNetworkNamedConflict
+          ? `Endpoint is on the connected route network, but the nearest named waterway is ${nearestWaterwayName}; verify the confluence or tributary access before accepting it.`
+        : useConnectedNetwork
+          ? `Endpoint is within ${Math.round(connectedMatched?.distanceFeet ?? 0)} ft of a topology-connected NHD river trace that includes ${route.name}; unnamed downstream stream segments are accepted as part of the same network.`
         : documentedNoFlowlineAccess
           ? `Named access is documented, but NHD returned no matching flowline; endpoint is within ${Math.round(waterbody?.distanceFeet ?? 0)} ft of mapped water and needs visual review.`
           : noteFor(result) };
@@ -729,6 +960,55 @@ async function auditRoute(route: River): Promise<EndpointAudit[]> {
 }
 
 async function run() {
+  const officialMapControls = JSON.parse(await readFile(officialMapControlsPath, 'utf8')) as OfficialMapControls;
+  const areaAnchorControls: AreaAnchorControl[] = (officialMapControls.providers ?? [])
+    .filter((provider) => provider.coordinateRole === 'authoritative-area-anchor')
+    .flatMap((provider) => (provider.controls ?? []).map((control) => ({
+      state: provider.state,
+      provider: provider.id,
+      featureId: control.featureId,
+      name: control.name,
+      aliases: control.aliases ?? [],
+      latitude: control.latitude,
+      longitude: control.longitude,
+      uncertaintyFeet: control.uncertaintyFeet ?? 25,
+      sourceUrl: provider.sourceUrl,
+      method: provider.method,
+    })));
+  const officialAlternateControls: OfficialAlternateWaterwayControl[] = (officialMapControls.providers ?? [])
+    .filter((provider) => provider.coordinateRole === 'authoritative-water-entry')
+    .flatMap((provider) => (provider.controls ?? []).flatMap((control) => {
+      const alternate = control.terminalAlternateWaterbody;
+      if (!alternate || !control.waterbody) return [];
+      return [{
+        state: provider.state,
+        name: control.name,
+        aliases: control.aliases ?? [],
+        waterbody: control.waterbody,
+        routeWaterbody: alternate.routeWaterbody,
+        relationship: alternate.relationship,
+        sourceUrl: alternate.sourceUrl,
+      }];
+    }));
+  const officialWaterEntryControls: OfficialWaterEntryControl[] = (officialMapControls.providers ?? [])
+    .filter((provider) => provider.coordinateRole === 'authoritative-water-entry')
+    .flatMap((provider) => (provider.controls ?? []).flatMap((control) => {
+      if (!control.waterbody) return [];
+      return [{
+        state: provider.state,
+        provider: provider.id,
+        featureId: control.featureId,
+        name: control.name,
+        aliases: control.aliases ?? [],
+        waterbody: control.waterbody,
+        latitude: control.latitude,
+        longitude: control.longitude,
+        uncertaintyFeet: control.uncertaintyFeet ?? 25,
+        sourceUrl: provider.sourceUrl,
+        method: provider.method,
+        terminalAlternateWaterbody: control.terminalAlternateWaterbody,
+      }];
+    }));
   const routesToAudit = routeFilter ? rivers.filter((route) => route.id === routeFilter) : rivers;
   if (routeFilter && routesToAudit.length === 0) {
     throw new Error(`No route found for --route=${routeFilter}`);
@@ -743,7 +1023,7 @@ async function run() {
       cursor += 1;
       const route = routesToAudit[index];
       console.error(`[${index + 1}/${routesToAudit.length}] ${route.id}`);
-      endpointResults.push(...await auditRoute(route));
+      endpointResults.push(...await auditRoute(route, areaAnchorControls, officialWaterEntryControls, officialAlternateControls));
     }
   }));
 

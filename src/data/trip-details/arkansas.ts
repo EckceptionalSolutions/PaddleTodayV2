@@ -1413,8 +1413,8 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "rockhouse-access",
       "name": "Rockhouse Access",
-      "latitude": 36.269833,
-      "longitude": -93.664
+      "latitude": 36.28193372205891,
+      "longitude": -93.6639968409015
     },
     "takeOut": {
       "id": "trigger-gap-private-access",
@@ -1431,6 +1431,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at AGFC-owned Rockhouse Access and take out at the private Trigger Gap access for a 7.7-mile Kings River day through the preserve corridor. Use the Berryville USGS gauge as a conservative low-water stage check, then make a same-day visual call at Rockhouse.",
       "accessCaveats": [
         "Rockhouse is public AGFC access just upstream from the Kings River Preserve, but the road is mostly gravel and same-day parking or launch conditions can change.",
+        "The Rockhouse marker is the water edge where the gravel access road and turnaround meet the Kings River. The older published degree-minute coordinate lands about 0.8 mile south in forest and is retained only as historical source context, not as a navigation point.",
         "Trigger Gap is a private fee access associated with Kings River Outfitters / Trigger Gap-area outfitters. Do not assume unpaid parking, after-hours access, or public-bank use.",
         "Much of the Kings River flows through private property. Stay on the water, gravel bars, and arranged access corridors; avoid posted, fenced, purple-painted, or developed private banks.",
         "The 3.2 ft threshold is a local route-guide minimum, not an official AGFC paddling band. The app does not claim an ideal range or high-water cutoff."
@@ -1448,8 +1449,8 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "tyler-bend-river-access",
       "name": "Tyler Bend river access",
-      "latitude": 35.986715,
-      "longitude": -92.763903
+      "latitude": 35.9894782,
+      "longitude": -92.766846
     },
     "takeOut": {
       "id": "gilbert-access",
@@ -1460,12 +1461,12 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 5.4 to 5.5 mi",
       "estimatedPaddleTime": "About 3 hr to 4 hr at moderate water, longer with low water, crowds, or stops",
-      "shuttle": "Stage the take-out at Gilbert, then drive back to Tyler Bend. Grinder's Ferry is an optional short take-out about a mile downstream of Tyler Bend, but this route assumes the full middle-district day to Gilbert. Check NPS access status, parking, and posted launch restrictions before leaving vehicles.",
+      "shuttle": "Stage the take-out at Gilbert, then drive back to the Tyler Bend upper launch parking area. Grinder's Ferry is an optional short take-out about a mile downstream of Tyler Bend, but this route assumes the full middle-district day to Gilbert. Check current NPS alerts and posted launch restrictions before leaving vehicles.",
       "permits": "No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.",
       "camping": "Treat this as a day trip unless the group has a separate Buffalo backcountry plan. NPS allows sandbar or gravel-bar camping on the Buffalo under park rules, but this short middle-district reach is normally planned as a daylight float with vehicles staged at established accesses.",
       "summary": "Launch at Tyler Bend and take out at Gilbert for the popular 5.5-mile middle Buffalo float. Use the St. Joe USGS gauge as a conservative low-water check, and skip the route when water is rising fast or already in high/flood-stage bands for casual groups.",
       "accessCaveats": [
-        "NPS says Tyler Bend has two launch areas. The upper launch may be reserved for concession operations during busy-season hours, and the lower launch is loading/unloading only with parking up at the picnic area.",
+        "The current NPS concession operating plan says only the Upper Tyler Bend access is available until further notice. This route's marker is the upper gravel slipway; use its connected parking area and follow current signs rather than the separate downstream gravel-bar feature.",
         "Gilbert is a rural river access on a gravel bar. Inspect the take-out before launching and avoid blocking local traffic, outfitter operations, or posted areas.",
         "NPS says access roads may be unpaved, rocky, or unreliable for GPS navigation, and no road follows the river. Carry a real map and do not assume cell service.",
         "This route uses a community-calibrated minimum-only threshold from MOHERP, supported by NPS route/access evidence and AW reach matching. It is not a full ideal-range recommendation."
@@ -1483,8 +1484,8 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "tyler-bend-river-access",
       "name": "Tyler Bend river access",
-      "latitude": 35.986715,
-      "longitude": -92.763903
+      "latitude": 35.9894782,
+      "longitude": -92.766846
     },
     "takeOut": {
       "id": "grinders-ferry-access",
@@ -1493,15 +1494,15 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -92.743686
     },
     "logistics": {
-      "distanceLabel": "About 1.1 mi",
-      "estimatedPaddleTime": "About 1 hr at moderate water, longer if the group floats, swims, or hikes the shuttle",
-      "shuttle": "Stage the take-out at Grinder's Ferry, then drive back to Tyler Bend. NPS says the shuttle is about 10 minutes and roughly 3 miles, but confirm the exact launch and parking setup because Tyler Bend has separate upper and lower launch rules.",
+      "distanceLabel": "About 1.7 mi from the currently available upper launch",
+      "estimatedPaddleTime": "About 1 hr to 2 hr at moderate water, longer if the group floats, swims, or hikes the shuttle",
+      "shuttle": "Stage the take-out at Grinder's Ferry, then drive back to the Tyler Bend upper launch parking area. NPS says the shuttle is about 10 minutes and roughly 3 miles; confirm current access status and posted traffic flow before unloading.",
       "permits": "No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey posted launch and parking signs, and check current river level and weather before launching.",
       "camping": "Treat this as a short day float, but Tyler Bend Campground and Grinder's Ferry primitive camping both make it easy to stage an overnight before or after the run. Grinders is a gravel-bar primitive camping area with no potable water and periodic flood-softened vehicle access.",
       "campingClassification": "endpoint_campground",
       "summary": "Launch at Tyler Bend and take out at Grinder's Ferry for a short middle-Buffalo float often used for tubing. Use the direct St. Joe gauge as the decision point, and avoid the route when water is too low to carry or already pushing into unsafe flood conditions.",
       "accessCaveats": [
-        "NPS says Tyler Bend has two launches. The upper launch may be reserved for concession operations during busy hours, while the lower launch is loading/unloading only with parking up at the picnic area.",
+        "The current NPS concession operating plan says only the Upper Tyler Bend access is available until further notice. This route's marker is the upper gravel slipway; use its connected parking area and follow current signs rather than the separate downstream gravel-bar feature.",
         "Grinder's Ferry is a primitive gravel-bar access that can flood and soften. Confirm that the vehicle approach, turnaround, and take-out path are workable before launching.",
         "Even on this short reach, Buffalo access roads and GPS routing can be unreliable. Carry a real park map and do not assume cell service.",
         "This route uses a community-calibrated St. Joe minimum-only threshold paired with official NPS route and safety evidence. It is not a full ideal-range recommendation."
@@ -1700,8 +1701,8 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "woka-whitewater-park",
       "name": "WOKA Whitewater Park",
-      "latitude": 36.13388,
-      "longitude": -94.5661
+      "latitude": 36.12996,
+      "longitude": -94.56643
     },
     "logistics": {
       "distanceLabel": "About 7.4 mi",
@@ -1910,8 +1911,8 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "woka-whitewater-park",
       "name": "WOKA Whitewater Park",
-      "latitude": 36.13388,
-      "longitude": -94.5661
+      "latitude": 36.12996,
+      "longitude": -94.56643
     },
     "logistics": {
       "distanceLabel": "About 15.5 mi",

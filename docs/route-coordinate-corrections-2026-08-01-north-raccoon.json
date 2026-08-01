@@ -1,0 +1,23 @@
+[
+  {
+    "routeId": "north-raccoon-river-squirrel-hollow-adkins",
+    "endpoint": "putIn",
+    "endpointName": "Squirrel Hollow Park boat ramp",
+    "latitude": 41.950199209639784,
+    "longitude": -94.29097621877891
+  },
+  {
+    "routeId": "north-raccoon-river-squirrel-hollow-adkins",
+    "endpoint": "takeOut",
+    "endpointName": "Adkins Bridge Access",
+    "latitude": 41.91055690276827,
+    "longitude": -94.27398896185606
+  },
+  {
+    "routeId": "north-raccoon-river-henderson-squirrel-hollow",
+    "endpoint": "takeOut",
+    "endpointName": "Squirrel Hollow Park",
+    "latitude": 41.950199209639784,
+    "longitude": -94.29097621877891
+  }
+]

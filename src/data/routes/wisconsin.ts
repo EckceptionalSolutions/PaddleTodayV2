@@ -11818,8 +11818,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Driftless Wisconsin",
     "summary": "Lower Kickapoo day from Plum Creek Landing to the Highway 60 public landing, with fast current, wooded bluffs, deep water, and a route-specific Steuben stage ladder.",
     "statusText": "Use the Kickapoo River at Steuben stage. WRT says this lower leg is still plenty deep below 6.5 ft, 6.6 to 7.0 ft is average to above average, 7.1 to 7.4 ft is high, and 7.5+ ft is very high with dangerous fast-current strainer risk.",
-    "latitude": 43.08471,
-    "longitude": -90.87906,
+    "latitude": 43.11447615973171,
+    "longitude": -90.91265705884042,
     "gaugeSource": {
       "id": "usgs-05410490",
       "provider": "usgs",
@@ -11866,7 +11866,7 @@ export const wisconsinRoutes: River[] = [
       "seasonNotes": "This lower Kickapoo reach is drought-resistant, but rising or high water makes the fast current and deadfall more consequential. Check Steuben stage, trend, recent rain, and take-out visibility before launching.",
       "difficulty": "easy",
       "difficultyNotes": "No rapids are reported, but WRT describes surprisingly fast current, deep/turbid water, and many strainers that require alert paddling.",
-      "confidenceNotes": "Confidence is good: WRT documents the exact Plum-Creek-to-Highway-60 route, public access notes, mileage, hazards, and Steuben-stage ladder. Miles Paddled corroborates Plum Creek Landing GPS and lower-Kickapoo reliability on the immediately upstream Steuben-to-Plum Creek route. The Highway 60 take-out coordinate is anchored from WRT map/street-view context for the named public landing."
+      "confidenceNotes": "Confidence is good: Wisconsin DNR identifies the exact Plum Creek carry-in and Highway 60/Kickapoo paved ramp, Crawford County lists Plum Creek/Kickapoo Wild Woods Canoe Landing, and WRT documents the exact route, mileage, public access notes, hazards, and Steuben-stage ladder. Miles Paddled's Plum-Creek-to-Wauzeka report independently publishes the Plum Creek put-in at 43.11429, -90.91274 and the distinct Wauzeka take-out at 43.08471, -90.87906."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -11892,7 +11892,7 @@ export const wisconsinRoutes: River[] = [
         "longitude": -90.87906,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in; WRT calls this a very good public access and Miles Paddled publishes this GPS point for the same landing."
+        "note": "Default put-in; Wisconsin DNR identifies this as the state-owned Plum Creek carry-in, WRT calls it a very good public access, and Miles Paddled independently publishes a matching GPS point."
       },
       {
         "id": "highway-60-kickapoo-landing",
@@ -11932,8 +11932,8 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Upstream access corroboration",
         "value": "Plum Creek Landing GPS",
-        "note": "Miles Paddled documents Plum Creek Canoe Landing at 43.08471, -90.87906 on the immediately upstream Steuben-to-Plum Creek route and says lower Kickapoo levels are almost always reliable but flood-prone.",
-        "sourceUrl": "https://milespaddled.com/kickapoo-river-v/"
+        "note": "Miles Paddled's Plum-Creek-to-Wauzeka report publishes the Plum Creek put-in at 43.11429, -90.91274 and the distinct Wauzeka Boat Landing take-out at 43.08471, -90.87906; this prevents the downstream Wauzeka point from being mislabeled as Plum Creek.",
+        "sourceUrl": "https://milespaddled.com/kickapoo-river-iv/"
       }
     ],
     "sourceLinks": [
@@ -11943,8 +11943,8 @@ export const wisconsinRoutes: River[] = [
         "provider": "wisconsin_river_trips"
       },
       {
-        "label": "Miles Paddled Kickapoo River V",
-        "url": "https://milespaddled.com/kickapoo-river-v/",
+        "label": "Miles Paddled Kickapoo River IV",
+        "url": "https://milespaddled.com/kickapoo-river-iv/",
         "provider": "miles_paddled"
       },
       {
@@ -11953,8 +11953,8 @@ export const wisconsinRoutes: River[] = [
         "provider": "usgs"
       },
       {
-        "label": "Wisconsin DNR Wildcat Mountain water recreation",
-        "url": "https://dnr.wisconsin.gov/topic/parks/wildcat/recreation/water",
+        "label": "Wisconsin DNR Plum Creek Landing",
+        "url": "https://dnrmaps.wi.gov/arcgis2/rest/services/PR_Recreation/PR_Boat_Access_Shore_Fishing_WTM_Ext/MapServer/2/634",
         "provider": "local"
       }
     ]

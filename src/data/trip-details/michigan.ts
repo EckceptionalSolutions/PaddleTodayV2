@@ -78,8 +78,8 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "gallup-park-livery",
       "name": "Gallup Park Livery public launch",
-      "latitude": 42.277699,
-      "longitude": -83.699883
+      "latitude": 42.27662607766229,
+      "longitude": -83.69985349633218
     },
     "logistics": {
       "distanceLabel": "3.5 mi",
@@ -90,6 +90,7 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Argo Park Canoe Livery, run the Argo Cascades or use the appropriate city launch option for your craft, then continue through Ann Arbor parkland to Gallup Park Livery. Use the Ann Arbor USGS gauge plus same-day livery, signage, and visual checks because the Cascades are dam-adjacent and can be crowded.",
       "accessCaveats": [
         "Argo and Gallup are City of Ann Arbor facilities with seasonal livery operations, launches, parking, restrooms, and rentals; hours and shuttle availability change by season.",
+        "The Gallup marker is the City-mapped boat dock at the canoe livery. The livery parking area is northwest of the dock and is stored separately; do not confuse this endpoint with the separate trailer boat ramp farther east in Gallup Park.",
         "Canoes may be launched downstream of the Cascades under city livery operations, while kayaks, rafts, tubes, and properly skilled private paddlers use the Cascades according to current rules and signage.",
         "The Barton Dam / Barton Pond closure is upstream of this route, but it affects longer Huron River trip planning and should not be treated as a usable upstream portage."
       ],

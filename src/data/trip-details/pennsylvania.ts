@@ -58,8 +58,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "hornbrook-park",
         "name": "Larnard Hornbrook Park ramp",
-        "latitude": 41.809444,
-        "longitude": -76.486111,
+        "latitude": 41.80682166422598,
+        "longitude": -76.48648638158845,
         "mileFromStart": 15,
         "segmentKind": "creek",
         "note": "Park access for shorter trips around the Towanda corridor."
@@ -85,8 +85,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "laceyville-borough",
       "name": "Laceyville Borough access",
-      "latitude": 41.648889,
-      "longitude": -76.161111
+      "latitude": 41.64342347378319,
+      "longitude": -76.16322665126009
     },
     "logistics": {
       "distanceLabel": "About 29 mi for the full corridor; choose a shorter segment in the access planner",
@@ -122,8 +122,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "wysox-township-park",
         "name": "Wysox Township Park access",
-        "latitude": 41.770833,
-        "longitude": -76.397778,
+        "latitude": 41.7677028,
+        "longitude": -76.39760080000001,
         "mileFromStart": 3,
         "segmentKind": "creek",
         "note": "Downstream park access for Towanda-area variants."
@@ -131,8 +131,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "terrytown-pfbc",
         "name": "Terrytown PFBC ramp",
-        "latitude": 41.714167,
-        "longitude": -76.281667,
+        "latitude": 41.6944076,
+        "longitude": -76.28155099999999,
         "mileFromStart": 16,
         "segmentKind": "creek",
         "note": "PFBC landing for lower Section 1 trips."
@@ -140,8 +140,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "laceyville-borough",
         "name": "Laceyville Borough access",
-        "latitude": 41.648889,
-        "longitude": -76.161111,
+        "latitude": 41.64342347378319,
+        "longitude": -76.16322665126009,
         "mileFromStart": 29,
         "segmentKind": "creek",
         "note": "Default corridor finish and handoff to the Section 2 corridor."
@@ -152,8 +152,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "laceyville-borough",
       "name": "Laceyville Borough access",
-      "latitude": 41.648889,
-      "longitude": -76.161111
+      "latitude": 41.64342347378319,
+      "longitude": -76.16322665126009
     },
     "takeOut": {
       "id": "west-falls-pfbc",
@@ -186,8 +186,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "laceyville-borough",
         "name": "Laceyville Borough access",
-        "latitude": 41.648889,
-        "longitude": -76.161111,
+        "latitude": 41.64342347378319,
+        "longitude": -76.16322665126009,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default corridor put-in and Section 1 handoff point."
@@ -238,8 +238,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Wetlands Nature Area access",
-      "latitude": 41.089444,
-      "longitude": -76.1225
+      "latitude": 41.09095819224127,
+      "longitude": -76.1309336974967
     },
     "logistics": {
       "distanceLabel": "About 14 mi",
@@ -319,8 +319,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "wetlands-nature-area",
         "name": "Wetlands Nature Area access",
-        "latitude": 41.089444,
-        "longitude": -76.1225,
+        "latitude": 41.09095819224127,
+        "longitude": -76.1309336974967,
         "mileFromStart": 14,
         "segmentKind": "creek",
         "note": "Mid-corridor access for the lower Berwick/Test Track segment."
@@ -392,8 +392,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "indian-head-campground",
         "name": "Indian Head Campground",
-        "latitude": 40.956944,
-        "longitude": -76.491389,
+        "latitude": 40.975,
+        "longitude": -76.46944444444445,
         "mileFromStart": 12,
         "segmentKind": "creek",
         "note": "Managed campground access; confirm current launch and parking expectations."
@@ -941,8 +941,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Acri Meadow Park launch",
-      "latitude": 40.2754696,
-      "longitude": -76.9528854
+      "latitude": 40.27088953152063,
+      "longitude": -76.95155906549849
     },
     "logistics": {
       "distanceLabel": "About 13 mi",
@@ -973,8 +973,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Acri Meadow Park launch",
-      "latitude": 40.2754696,
-      "longitude": -76.9528854
+      "latitude": 40.27088953152063,
+      "longitude": -76.95155906549849
     },
     "logistics": {
       "distanceLabel": "About 17.4 mi",
@@ -1069,8 +1069,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Acri Meadow Park launch",
-      "latitude": 40.2754696,
-      "longitude": -76.9528854
+      "latitude": 40.27088953152063,
+      "longitude": -76.95155906549849
     },
     "logistics": {
       "distanceLabel": "About 7.8 mi",
@@ -1290,8 +1290,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Wysox Township Park access",
-      "latitude": 41.770833,
-      "longitude": -76.397778
+      "latitude": 41.7677028,
+      "longitude": -76.39760080000001
     },
     "logistics": {
       "distanceLabel": "About 23 mi",
@@ -1356,8 +1356,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Wysox Township Park access",
-      "latitude": 41.770833,
-      "longitude": -76.397778
+      "latitude": 41.7677028,
+      "longitude": -76.39760080000001
     },
     "logistics": {
       "distanceLabel": "About 11.3 mi",
@@ -1389,8 +1389,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Terrytown PFBC ramp",
-      "latitude": 41.714167,
-      "longitude": -76.281667
+      "latitude": 41.6944076,
+      "longitude": -76.28155099999999
     },
     "logistics": {
       "distanceLabel": "About 24.9 mi",
@@ -1417,13 +1417,13 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "susquehanna-river-hornbrook-wysox-township-park": {
     "putIn": {
       "name": "Larnard Hornbrook Park ramp",
-      "latitude": 41.809444,
-      "longitude": -76.486111
+      "latitude": 41.80682166422598,
+      "longitude": -76.48648638158845
     },
     "takeOut": {
       "name": "Wysox Township Park access",
-      "latitude": 41.770833,
-      "longitude": -76.397778
+      "latitude": 41.7677028,
+      "longitude": -76.39760080000001
     },
     "logistics": {
       "distanceLabel": "About 8 mi",
@@ -1450,13 +1450,13 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "susquehanna-river-hornbrook-terrytown": {
     "putIn": {
       "name": "Larnard Hornbrook Park ramp",
-      "latitude": 41.809444,
-      "longitude": -76.486111
+      "latitude": 41.80682166422598,
+      "longitude": -76.48648638158845
     },
     "takeOut": {
       "name": "Terrytown PFBC ramp",
-      "latitude": 41.714167,
-      "longitude": -76.281667
+      "latitude": 41.6944076,
+      "longitude": -76.28155099999999
     },
     "logistics": {
       "distanceLabel": "About 21.5 mi",
@@ -1483,8 +1483,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "susquehanna-river-hornbrook-towanda": {
     "putIn": {
       "name": "Larnard Hornbrook Park ramp",
-      "latitude": 41.809444,
-      "longitude": -76.486111
+      "latitude": 41.80682166422598,
+      "longitude": -76.48648638158845
     },
     "takeOut": {
       "name": "Towanda Riverfront Park ramp",
@@ -1521,8 +1521,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Terrytown PFBC ramp",
-      "latitude": 41.714167,
-      "longitude": -76.281667
+      "latitude": 41.6944076,
+      "longitude": -76.28155099999999
     },
     "logistics": {
       "distanceLabel": "About 16 mi",
@@ -1549,13 +1549,13 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "susquehanna-river-wysox-township-park-terrytown": {
     "putIn": {
       "name": "Wysox Township Park access",
-      "latitude": 41.770833,
-      "longitude": -76.397778
+      "latitude": 41.7677028,
+      "longitude": -76.39760080000001
     },
     "takeOut": {
       "name": "Terrytown PFBC ramp",
-      "latitude": 41.714167,
-      "longitude": -76.281667
+      "latitude": 41.6944076,
+      "longitude": -76.28155099999999
     },
     "logistics": {
       "distanceLabel": "About 13.6 mi",
@@ -1582,8 +1582,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "susquehanna-river-wetlands-bloomsburg": {
     "putIn": {
       "name": "Wetlands Nature Area access",
-      "latitude": 41.089444,
-      "longitude": -76.1225
+      "latitude": 41.09095819224127,
+      "longitude": -76.1309336974967
     },
     "takeOut": {
       "name": "PFBC Bloomsburg Access",
@@ -1748,8 +1748,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "lewistown-narrows-pfbc-ramp",
       "name": "Lewistown Narrows PFBC ramp",
-      "latitude": 40.603889,
-      "longitude": -77.487778
+      "latitude": 40.60404816274022,
+      "longitude": -77.47089851431481
     },
     "takeOut": {
       "id": "newport-primitive-access",
@@ -1782,8 +1782,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "lewistown-narrows-pfbc-ramp",
         "name": "Lewistown Narrows PFBC ramp",
-        "latitude": 40.603889,
-        "longitude": -77.487778,
+        "latitude": 40.60404816274022,
+        "longitude": -77.47089851431481,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default full-corridor put-in."

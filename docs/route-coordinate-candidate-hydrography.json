@@ -1,0 +1,342 @@
+{
+  "generatedAt": "2026-08-01T21:07:21.491Z",
+  "suggestionsGeneratedAt": "2026-08-01T21:07:00.243Z",
+  "source": "Fresh candidate-centered USGS National Hydrography Dataset queries with route-cache fallback",
+  "itemCount": 37,
+  "candidateCount": 4,
+  "items": [
+    {
+      "routeId": "big-fork-river-highway-1-highway-6-south",
+      "endpoint": "accessPoint",
+      "endpointName": "Busticogan watercraft campsite",
+      "candidates": [
+        {
+          "candidateId": "mapped:https://www.openstreetmap.org/node/13607564500",
+          "sourceType": "mapped-access",
+          "name": "State Hwy 1 Public Water Access Site",
+          "intendedWaterbody": "Big Fork River",
+          "latitude": 47.8410425,
+          "longitude": -93.5032854,
+          "directQueryVerified": true,
+          "directQueryError": null,
+          "flowlineEvidenceSource": "candidate-query",
+          "waterbodyEvidenceSource": "candidate-query",
+          "nearestIntendedFlowlineFeet": 87.99198061313578,
+          "nearestIntendedFlowlineName": "Big Fork River",
+          "nearestIntendedFlowlineCoordinate": {
+            "latitude": 47.84098472507179,
+            "longitude": -93.50363429243872
+          },
+          "candidateToRouteFlowlineFeet": 87.99198061313578,
+          "routeToIntendedFlowlineJunctionFeet": 0,
+          "nearestWaterbodyFeet": 2.7236793308102856,
+          "nearestWaterbodyName": null,
+          "nearestWaterbodyCoordinate": {
+            "latitude": 47.84104446412982,
+            "longitude": -93.50329613152198
+          },
+          "onNhdWaterbody": false
+        }
+      ]
+    },
+    {
+      "routeId": "badger-mill-creek-old-county-pb-highway-69",
+      "endpoint": "accessPoint",
+      "endpointName": "Riverside Road alternate exit",
+      "candidates": [
+        {
+          "candidateId": "mapped:https://www.openstreetmap.org/node/6601766708",
+          "sourceType": "mapped-access",
+          "name": null,
+          "intendedWaterbody": "Badger Mill Creek",
+          "latitude": 42.9487434,
+          "longitude": -89.5433925,
+          "directQueryVerified": true,
+          "directQueryError": null,
+          "flowlineEvidenceSource": "candidate-query",
+          "waterbodyEvidenceSource": "candidate-query",
+          "nearestIntendedFlowlineFeet": 5303.617597785354,
+          "nearestIntendedFlowlineName": "Badger Mill Creek",
+          "nearestIntendedFlowlineCoordinate": {
+            "latitude": 42.961138,
+            "longitude": -89.553773
+          },
+          "candidateToRouteFlowlineFeet": 5303.617597785354,
+          "routeToIntendedFlowlineJunctionFeet": 0,
+          "nearestWaterbodyFeet": 12.205947310760822,
+          "nearestWaterbodyName": null,
+          "nearestWaterbodyCoordinate": {
+            "latitude": 42.94876515179448,
+            "longitude": -89.54335776870356
+          },
+          "onNhdWaterbody": false
+        },
+        {
+          "candidateId": "mapped:https://www.openstreetmap.org/node/13062218779",
+          "sourceType": "mapped-access",
+          "name": null,
+          "intendedWaterbody": "Badger Mill Creek",
+          "latitude": 42.9490262,
+          "longitude": -89.5440468,
+          "directQueryVerified": true,
+          "directQueryError": null,
+          "flowlineEvidenceSource": "candidate-query",
+          "waterbodyEvidenceSource": "candidate-query",
+          "nearestIntendedFlowlineFeet": 5125.236222759492,
+          "nearestIntendedFlowlineName": "Badger Mill Creek",
+          "nearestIntendedFlowlineCoordinate": {
+            "latitude": 42.961138,
+            "longitude": -89.553773
+          },
+          "candidateToRouteFlowlineFeet": 5125.236222759492,
+          "routeToIntendedFlowlineJunctionFeet": 0,
+          "nearestWaterbodyFeet": 19.955817660445145,
+          "nearestWaterbodyName": null,
+          "nearestWaterbodyCoordinate": {
+            "latitude": 42.94908085518921,
+            "longitude": -89.54404374461915
+          },
+          "onNhdWaterbody": false
+        }
+      ]
+    },
+    {
+      "routeId": "lemonweir-river-mauston-dam-19th-ave",
+      "endpoint": "putIn",
+      "endpointName": "Mauston Dam downstream access",
+      "candidates": [
+        {
+          "candidateId": "mapped:https://www.openstreetmap.org/node/7560445034",
+          "sourceType": "mapped-access",
+          "name": null,
+          "intendedWaterbody": "Lemonweir River",
+          "latitude": 43.7991717,
+          "longitude": -90.0770069,
+          "directQueryVerified": true,
+          "directQueryError": null,
+          "flowlineEvidenceSource": "candidate-query",
+          "waterbodyEvidenceSource": "candidate-query",
+          "nearestIntendedFlowlineFeet": 206.1800755057768,
+          "nearestIntendedFlowlineName": "Lemonweir River",
+          "nearestIntendedFlowlineCoordinate": {
+            "latitude": 43.79970122948783,
+            "longitude": -90.07673327047725
+          },
+          "candidateToRouteFlowlineFeet": 206.1800755057768,
+          "routeToIntendedFlowlineJunctionFeet": 0,
+          "nearestWaterbodyFeet": 0,
+          "nearestWaterbodyName": "Decorah Lake",
+          "nearestWaterbodyCoordinate": {
+            "latitude": 43.7991717,
+            "longitude": -90.0770069
+          },
+          "onNhdWaterbody": true
+        }
+      ]
+    },
+    {
+      "routeId": "cedar-river-riverwood-state-line",
+      "endpoint": "accessPoint",
+      "endpointName": "Orchard Creek trailer access",
+      "candidates": []
+    },
+    {
+      "routeId": "hay-river-county-ff-highway-25",
+      "endpoint": "accessPoint",
+      "endpointName": "County Road N bridge",
+      "candidates": []
+    },
+    {
+      "routeId": "upper-iowa-river-iverson-bridge-kumpf",
+      "endpoint": "takeOut",
+      "endpointName": "Kumpf Access",
+      "candidates": []
+    },
+    {
+      "routeId": "cedar-river-chain-lakes-ellis-harbor",
+      "endpoint": "takeOut",
+      "endpointName": "Ellis Harbor public boat launch",
+      "candidates": []
+    },
+    {
+      "routeId": "baraboo-river-north-freedom-giese",
+      "endpoint": "accessPoint",
+      "endpointName": "Kohlmeyer Road bridge",
+      "candidates": []
+    },
+    {
+      "routeId": "sheboygan-river-johnsonville-dassow",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway J bridge access",
+      "candidates": []
+    },
+    {
+      "routeId": "cedar-creek-covered-bridge-lions",
+      "endpoint": "accessPoint",
+      "endpointName": "Robin Court Cedar Creek access",
+      "candidates": []
+    },
+    {
+      "routeId": "beaver-dam-river-county-s-lowell",
+      "endpoint": "accessPoint",
+      "endpointName": "Meadow Road bridge access",
+      "candidates": []
+    },
+    {
+      "routeId": "loup-river-george-syas-columbus",
+      "endpoint": "putIn",
+      "endpointName": "George D. Syas WMA fishing access",
+      "candidates": []
+    },
+    {
+      "routeId": "loup-river-george-syas-adm-access",
+      "endpoint": "putIn",
+      "endpointName": "George D. Syas WMA fishing access",
+      "candidates": []
+    },
+    {
+      "routeId": "rum-river-wayside-milaca",
+      "endpoint": "accessPoint",
+      "endpointName": "Old Whitney Log Dam area",
+      "candidates": []
+    },
+    {
+      "routeId": "mississippi-river-overlook-belle-prairie",
+      "endpoint": "putIn",
+      "endpointName": "Mississippi River Overlook Park Carry-in Access",
+      "candidates": []
+    },
+    {
+      "routeId": "mississippi-river-fletcher-creek-overlook",
+      "endpoint": "takeOut",
+      "endpointName": "Mississippi River Overlook Park Carry-in Access",
+      "candidates": []
+    },
+    {
+      "routeId": "sheboygan-river-dassow-river-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway TT bridge access",
+      "candidates": []
+    },
+    {
+      "routeId": "turtle-creek-school-section-east-creek",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway 14 bridge access",
+      "candidates": []
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "accessPoint",
+      "endpointName": "Canoe Port 2 / Lions Park",
+      "candidates": []
+    },
+    {
+      "routeId": "mullet-river-sumac-river-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Lower Mullet River dam portage",
+      "candidates": []
+    },
+    {
+      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
+      "endpoint": "accessPoint",
+      "endpointName": "Jidana Park",
+      "candidates": []
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "accessPoint",
+      "endpointName": "Canoe Port 3 / North Park",
+      "candidates": []
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "takeOut",
+      "endpointName": "Canoe Port 4 / Seminary Street",
+      "candidates": []
+    },
+    {
+      "routeId": "trempealeau-river-whitehall-independence",
+      "endpoint": "takeOut",
+      "endpointName": "Schultz Park / Four Seasons Park",
+      "candidates": []
+    },
+    {
+      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
+      "endpoint": "accessPoint",
+      "endpointName": "Knollwood Target",
+      "candidates": []
+    },
+    {
+      "routeId": "fox-river-princeton-white-river-locks",
+      "endpoint": "accessPoint",
+      "endpointName": "Old St. Marie Road Landing",
+      "candidates": []
+    },
+    {
+      "routeId": "white-river-park-riverview-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Spring Valley Road / Lyons Wave scout point",
+      "candidates": []
+    },
+    {
+      "routeId": "vermilion-river-schoepfle-mill-hollow",
+      "endpoint": "putIn",
+      "endpointName": "Birmingham Community Center / Schoepfle Garden river access",
+      "candidates": []
+    },
+    {
+      "routeId": "gasconade-river-pointers-creek-cooper-hill",
+      "endpoint": "takeOut",
+      "endpointName": "Cooper Hill Conservation Area hand launch",
+      "candidates": []
+    },
+    {
+      "routeId": "menomonee-river-hoyt-park-bluemound",
+      "endpoint": "takeOut",
+      "endpointName": "Bluemound Road / Wisconsin Avenue Menomonee River access",
+      "candidates": []
+    },
+    {
+      "routeId": "sheboygan-river-johnsonville-dassow",
+      "endpoint": "accessPoint",
+      "endpointName": "Highway M bridge access",
+      "candidates": []
+    },
+    {
+      "routeId": "la-crosse-river-highway-108-veterans",
+      "endpoint": "accessPoint",
+      "endpointName": "County M former-dam ledge",
+      "candidates": []
+    },
+    {
+      "routeId": "plover-river-hwy-k-jordan-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Sharonwood Lane access option",
+      "candidates": []
+    },
+    {
+      "routeId": "winnebago-river-fertile-mason-city",
+      "endpoint": "putIn",
+      "endpointName": "William Rhodes Island Park below-dam access",
+      "candidates": []
+    },
+    {
+      "routeId": "cedar-creek-cedarburg-mill-cth-t",
+      "endpoint": "putIn",
+      "endpointName": "Cedarburg Mill / Rebellion Brewing access",
+      "candidates": []
+    },
+    {
+      "routeId": "bark-river-bark-river-park-delafield",
+      "endpoint": "accessPoint",
+      "endpointName": "Nixon Park / East Park Avenue",
+      "candidates": []
+    },
+    {
+      "routeId": "loup-river-george-syas-monroe",
+      "endpoint": "putIn",
+      "endpointName": "George D. Syas WMA fishing access",
+      "candidates": []
+    }
+  ]
+}

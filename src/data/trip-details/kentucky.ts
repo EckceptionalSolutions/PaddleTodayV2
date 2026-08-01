@@ -4701,8 +4701,8 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "long-bottom-access",
         "name": "Long Bottom Access",
-        "latitude": 36.7967,
-        "longitude": -84.2797,
+        "latitude": 36.7772,
+        "longitude": -84.3455,
         "mileFromStart": 9,
         "segmentKind": "creek",
         "note": "Rugged intermediate public access and bailout, not a casual easy exit."
@@ -4710,8 +4710,8 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "thunderstruck-ramp",
         "name": "Thunderstruck Ramp",
-        "latitude": 36.8207,
-        "longitude": -84.328,
+        "latitude": 36.8077,
+        "longitude": -84.3546,
         "mileFromStart": 11.5,
         "segmentKind": "creek",
         "note": "Lower intermediate public access above the final falls approach."

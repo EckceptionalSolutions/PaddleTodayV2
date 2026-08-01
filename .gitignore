@@ -22,6 +22,7 @@ codex_sandbox_test.txt
 Thumbs.db
 .DS_Store
 .local
+docs/route-coordinate-review-geometries/
 automations/route-control-plane/.lock
 automations/route-control-plane/current-work-order.json
 automations/route-control-plane/current-work-order.md

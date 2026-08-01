@@ -200,7 +200,7 @@ export const nebraskaRoutes: River[] = [
       "seasonNotes": "Nebraska Game and Parks says this lower-Platte reach is often highest in May and June, can become dangerous after heavy rain in any month, and usually drops lower from July until irrigation season ends in September. Check same-day flow, channel shape, weather, wind, and park access status.",
       "difficulty": "easy",
       "difficultyNotes": "The route is a short designated water-trail day when flows are in range, but the Platte is a braided sandy river with shifting channels, debris at bridge pilings, private banks and sandbars, wind exposure, and low-water dragging risk.",
-      "confidenceNotes": "Confidence is good for a conservative Nebraska split: Nebraska Game and Parks/Nebraskaland documents Schramm as the launch, Platte River State Park as a water-trail stop 2.9 miles downstream, and numeric paddling bands tied to USGS 06805500 at Louisville. USGS Water Services returned same-day 2026-06-22 current values for 06805500. The Platte River State Park coordinate is a practical park-access anchor for the named Decker Creek / Owen Landing stop rather than a surveyed launch pin."
+      "confidenceNotes": "Confidence is high for the Decker Creek water-entry identity: Nebraska Game and Parks documents the stop, describes the Platte-to-Decker Creek connection, and publishes a photograph whose graded landing, riprap, curved path, and footbridge match current aerial imagery. The coordinate is the landing's water edge on Decker Creek. Access logistics remain conditional because NGPC says this is a water-trail stop, not a normal vehicle put-in/take-out; boats may be wheeled down a maintenance road only under current park rules."
     },
     "evidenceNotes": [
       {
@@ -277,8 +277,8 @@ export const nebraskaRoutes: River[] = [
     "region": "Lower Platte River",
     "summary": "Lower-Platte finish segment from the Decker Creek stop at Platte River State Park to the Louisville State Recreation Area boat ramp. Nebraska Game and Parks treats this as the downstream half of the improved Schramm-Louisville water trail and scores it from the same Louisville gauge.",
     "statusText": "Use the Platte River at Louisville gauge. Nebraska Game and Parks/Nebraskaland says 7,000 to 12,000 cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level.",
-    "latitude": 41.0175,
-    "longitude": -96.2038,
+    "latitude": 40.99302,
+    "longitude": -96.20843000000001,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -328,7 +328,7 @@ export const nebraskaRoutes: River[] = [
       "seasonNotes": "Nebraska Game and Parks says this lower-Platte reach is often highest in May and June, can become dangerous after heavy rain in any month, and usually drops lower from July until irrigation season ends in September. Check same-day flow, channel shape, weather, wind, and park access status.",
       "difficulty": "easy",
       "difficultyNotes": "The route is a short designated water-trail day when flows are in range, but the Platte is a braided sandy river with shifting channels, debris at bridge pilings, private banks and sandbars, wind exposure, and low-water dragging risk.",
-      "confidenceNotes": "Confidence is good for a conservative Nebraska split: Nebraska Game and Parks/Nebraskaland documents Platte River State Park as the midpoint stop and Louisville as the end of the improved lower-Platte water trail, with numeric paddling bands tied to USGS 06805500 at Louisville. USGS Water Services returned same-day 2026-06-22 current values for 06805500. The Platte River State Park coordinate is a practical park-access anchor for the named Decker Creek / Owen Landing stop rather than a surveyed launch pin."
+      "confidenceNotes": "Confidence is high for the Decker Creek water-entry identity: Nebraska Game and Parks documents the stop, describes the Decker Creek-to-Platte connection, and publishes a photograph whose graded landing, riprap, curved path, and footbridge match current aerial imagery. The coordinate is the landing's water edge on Decker Creek. Access logistics remain conditional because NGPC says this is a water-trail stop, not a normal vehicle put-in/take-out; boats may be wheeled down a maintenance road only under current park rules."
     },
     "evidenceNotes": [
       {
@@ -524,8 +524,8 @@ export const nebraskaRoutes: River[] = [
     "region": "Central Nebraska",
     "summary": "Managed middle Loup River Water Trail segment from the county access south of Monroe to the hotel-side finish in Columbus. City of Columbus materials describe this as the main 16-mile / 6-to-8-hour float in the public water-trail chain.",
     "statusText": "Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.",
-    "latitude": 41.471508,
-    "longitude": -97.602729,
+    "latitude": 41.46117475580161,
+    "longitude": -97.59934674467611,
     "gaugeSource": {
       "id": "usgs-06793000",
       "provider": "usgs",
@@ -750,8 +750,8 @@ export const nebraskaRoutes: River[] = [
     "region": "Central Nebraska",
     "summary": "Long lower Loup River Water Trail continuation from the county access south of Monroe to the newer ADM access site below Columbus. This combines the official 16-mile Monroe-to-Columbus float and the final 4.5-mile Columbus-to-ADM continuation into one same-gauge day.",
     "statusText": "Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.",
-    "latitude": 41.471508,
-    "longitude": -97.602729,
+    "latitude": 41.46117475580161,
+    "longitude": -97.59934674467611,
     "gaugeSource": {
       "id": "usgs-06793000",
       "provider": "usgs",
