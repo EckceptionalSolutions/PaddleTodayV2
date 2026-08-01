@@ -68,7 +68,7 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     corridorId: 'mn-vermilion-condition-family',
     label: 'Vermilion River condition family',
     continuityStatus: 'condition-family',
-    slugs: ['vermilion-river-shively-eightmile', 'vermilion-river-twomile-eightmile'],
+    slugs: ['vermilion-river-dam-twomile', 'vermilion-river-shively-eightmile', 'vermilion-river-twomile-eightmile'],
   },
   {
     corridorId: 'wi-chippewa-upper',

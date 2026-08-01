@@ -32,6 +32,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "big-fork-river-dora-lake-big-fork": {
+    "putIn": {
+      "id": "big-fork-dora-lake",
+      "name": "Dora Lake / Big Fork River Public Water Access Site",
+      "latitude": 47.74037209963832,
+      "longitude": -94.05144670997052
+    },
+    "takeOut": {
+      "id": "big-fork-lime-street",
+      "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+      "latitude": 47.74557120608051,
+      "longitude": -93.65559724133418
+    },
+    "logistics": {
+      "distanceLabel": "33.3 mi",
+      "estimatedPaddleTime": "Overnight recommended; roughly 11 hr to 15 hr of paddle time",
+      "shuttle": "Stage the Lime Street landing in Bigfork first, then drive to Dora Lake. Confirm both remote approaches, weather, daylight, water level, and a campsite fallback before launching.",
+      "permits": "No route-specific paddling permit is known. Follow USFS, MN DNR, City of Big Fork, watercraft-registration, invasive-species, and PFD rules at the accesses and campsites.",
+      "camping": "DNR Map 1 marks Harrison Landing and Little Minnow watercraft campsites on this reach. Use the mapped sites or separately verified legal public-land options; do not assume private-bank camping.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Follow the upper Big Fork from its Dora Lake headwaters access to Lime Street in Bigfork. The two mapped Class I rapids are approachable at normal levels, but the 33.3-mile distance makes this an overnight-quality route for most groups.",
+      "accessCaveats": [
+        "Dora Lake is a USFS-administered public trailer access and Lime Street is a City of Big Fork public trailer access; both resolve in Minnesota's access GIS.",
+        "Harrison Landing and Little Minnow are mapped watercraft campsites, not guaranteed vacancies or full-service campgrounds.",
+        "The Highway 38 / Bigfork gauge lies inside the reach. Still inspect local depth and wood because one reading cannot resolve every shallow riffle or obstruction."
+      ],
+      "watchFor": [
+        "Robb's Rapids and Hauck Rapids, both mapped Class I, plus exposed rock and slower travel below the medium gauge band.",
+        "Sweepers, beaver activity, cold water, thunderstorms, and long gaps between practical exits.",
+        "Fatigue and late-day errors on a 33.3-mile remote route; use an overnight plan unless the group has proven long-distance pace."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "big-fork-dora-lake",
+        "name": "Dora Lake / Big Fork River Public Water Access Site",
+        "latitude": 47.74037209963832,
+        "longitude": -94.05144670997052,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "USFS-administered trailer access WAS01925."
+      },
+      {
+        "id": "big-fork-lime-street",
+        "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+        "latitude": 47.74557120608051,
+        "longitude": -93.65559724133418,
+        "mileFromStart": 33.3,
+        "segmentKind": "creek",
+        "note": "City-administered trailer access WAS01803."
+      }
+    ]
+  },
   "big-fork-river-johnson-big-falls-east": {
     "putIn": {
       "name": "Johnson Landing carry-in access",
@@ -4943,6 +4996,68 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "vermilion-river-dam-twomile": {
+    "putIn": {
+      "id": "vermilion-dam-downstream-put-in",
+      "name": "Vermilion Dam downstream portage / whitewater put-in",
+      "latitude": 47.96108,
+      "longitude": -92.47595
+    },
+    "takeOut": {
+      "id": "twomile-creek-access",
+      "name": "Two Mile Creek Public Water Access Site",
+      "latitude": 47.9885552,
+      "longitude": -92.4675615
+    },
+    "logistics": {
+      "distanceLabel": "About 5.5 mi",
+      "estimatedPaddleTime": "About 4 hr to 7 hr including scouting and portages",
+      "shuttle": "Stage Twomile Creek at County Road 422 first, then return to the Vermilion Dam portage area. Confirm the legal downstream launch, below-dam staff gauge, rapid conditions, take-out approach, weather, and daylight before unloading.",
+      "permits": "No route-specific paddling permit is known. Follow DNR public-access and portage rules, applicable state/USFS land rules, Minnesota boating/PFD requirements, and all dam-area postings.",
+      "camping": "DNR Map 1 marks watercraft campsites in the upper corridor, but this card does not promise availability. Use only mapped/designated sites or separately verified public-land options.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Portage Vermilion Dam on river right, launch downstream, and work through Shively Falls, Liftover Falls, and Everett Rapids before crossing the final lake water and paddling up Twomile Creek to County Road 422.",
+      "accessCaveats": [
+        "The practical put-in is below Vermilion Dam after the mapped 430-yard right-bank portage. Never launch above the dam intending to run it.",
+        "Twomile Creek is a remote carry-in take-out. Learn the lake-to-creek turn before launching so the group does not miss it late in the day.",
+        "The app's Buyck gauge is downstream. A usable proxy reading does not override the DNR staff gauge below the dam, fresh wood, or an unfavorable scout."
+      ],
+      "watchFor": [
+        "Shively Falls Class III, Liftover Falls Class II, Everett Rapids Class I-II, and the mapped long portages.",
+        "Dam hydraulics, horizon lines, strainers, cold water, slippery carries, and remote rescue exposure.",
+        "Wind and route-finding on the final lake water plus the upstream paddle in Twomile Creek."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "vermilion-dam-downstream-put-in",
+        "name": "Vermilion Dam downstream portage / whitewater put-in",
+        "latitude": 47.96108,
+        "longitude": -92.47595,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "AW access coordinate below the DNR-mapped dam portage."
+      },
+      {
+        "id": "vermilion-shively-access",
+        "name": "Vermilion River, Shively Falls Public Water Access Site",
+        "latitude": 47.9698841,
+        "longitude": -92.4661064,
+        "mileFromStart": 0.7,
+        "segmentKind": "creek",
+        "note": "Intermediate DNR-mapped access near the Shively sequence."
+      },
+      {
+        "id": "twomile-creek-access",
+        "name": "Two Mile Creek Public Water Access Site",
+        "latitude": 47.9885552,
+        "longitude": -92.4675615,
+        "mileFromStart": 5.5,
+        "segmentKind": "creek",
+        "note": "Default take-out; paddle up Twomile Creek to the County Road 422 access."
+      }
+    ]
+  },
   "vermilion-river-twomile-eightmile": {
     "putIn": {
       "id": "twomile-creek-access",
@@ -9396,60 +9511,78 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "red-river-north-dam-mb-johnson": {
+  "red-river-lindenwood-mb-johnson": {
     "putIn": {
-      "id": "red-river-north-dam-carry-in",
-      "name": "North Dam carry-in access / re-entry",
-      "latitude": 46.8919,
-      "longitude": -96.785
+      "id": "red-river-lindenwood-park",
+      "name": "Lindenwood Park ADA kayak launch",
+      "latitude": 46.85101967710684,
+      "longitude": -96.78178641991025
     },
     "takeOut": {
       "id": "red-river-mb-johnson-park",
       "name": "M.B. Johnson Park trailer access",
-      "latitude": 46.91389,
-      "longitude": -96.7577
+      "latitude": 46.91392358141415,
+      "longitude": -96.75768161442912
     },
     "logistics": {
-      "distanceLabel": "3.1 mi",
-      "estimatedPaddleTime": "About 1.5 hr to 3 hr, depending on current, wind, and dam-area launch discipline",
-      "shuttle": "Stage M.B. Johnson Park first, then return to the North Dam carry-in/re-entry. Confirm the Fargo DNR gauge and walk the launch area before unloading because the route begins around a dam/constructed-rock-rapids context.",
+      "distanceLabel": "9.3 mi",
+      "estimatedPaddleTime": "About 4 hr to 6 hr including both mandatory dam portages",
+      "shuttle": "Stage M.B. Johnson Park first, then return to Lindenwood Park. Confirm the Fargo gauge and inspect the Midtown and North Dam portage status before launching.",
       "permits": "No route-specific paddling permit is known. Follow Minnesota and North Dakota boating/PFD rules, posted Fargo-Moorhead park and launch rules, and current border-river regulations.",
-      "camping": "Treat this as a day route. M.B. Johnson Park provides route support, but no on-route public overnight campsite is selected for this short Fargo-Moorhead segment.",
-      "campingClassification": "none",
-      "summary": "Launch below the Fargo North Dam carry-in/re-entry and take out at M.B. Johnson Park for the official short DNR Map 2 Red River trip. The direct Fargo DNR gauge was in the official medium band during this run.",
+      "camping": "Lindenwood Park has a public campground that can support a start-night basecamp. Treat the river trip itself as a day route and do not assume riverbank camping.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from Lindenwood's public ADA kayak dock, portage Midtown Dam left and North Dam right, and finish at M.B. Johnson for the complete 9.3-mile Fargo-Moorhead urban water trail.",
       "accessCaveats": [
-        "North Dam is a DNR-mapped carry-in/re-entry by river mile rather than a Minnesota public-water-access GIS record; use posted signs and the legal launch path on arrival.",
+        "Lindenwood's launch is confirmed by Fargo Parks on the North Dakota bank and is not represented in Minnesota public-water-access GIS.",
         "M.B. Johnson Park is the planned finish. Do not continue casually toward downstream dams or private banks without a separate route plan.",
         "The Fargo gauge is direct for the metro reach, but it cannot show same-day snags, muddy landing slope, urban stormwater, or dam-area turbulence."
       ],
       "watchFor": [
-        "The North Dam / constructed rock-slopeway context; portage or avoid dam hydraulics unless the group has appropriate whitewater skill and current local guidance.",
+        "Midtown Dam and North Dam constructed-rock rapids; use the DNR-mapped left/right portages and stay clear of hydraulics.",
         "Snags, muddy banks, poor underwater visibility, bridge current, and faster water after rain or flood releases.",
         "Border-river rules, private banks, cold water, and urban water quality after storms."
       ]
     },
     "accessPoints": [
       {
-        "id": "red-river-north-dam-carry-in",
-        "name": "North Dam carry-in access / re-entry",
-        "latitude": 46.8919,
-        "longitude": -96.785,
+        "id": "red-river-lindenwood-park",
+        "name": "Lindenwood Park ADA kayak launch",
+        "latitude": 46.85101967710684,
+        "longitude": -96.78178641991025,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "DNR Map 2 names the carry-in/re-entry at river mile 455.2; coordinate is a practical map anchor for the named access."
+        "note": "Fargo Parks public adaptive launch; DNR Map 2 river mile 461.4."
+      },
+      {
+        "id": "red-river-midtown-dam",
+        "name": "Midtown Dam left-bank portage / carry-in",
+        "latitude": 46.87644108128275,
+        "longitude": -96.7796531591513,
+        "mileFromStart": 3,
+        "segmentKind": "creek",
+        "note": "Mandatory left-bank portage around the DNR-mapped constructed-rock rapid."
+      },
+      {
+        "id": "red-river-north-dam-carry-in",
+        "name": "North Dam right-bank portage / re-entry",
+        "latitude": 46.894871,
+        "longitude": -96.776264,
+        "mileFromStart": 6.2,
+        "segmentKind": "creek",
+        "note": "Mandatory right-bank portage around the DNR-mapped constructed-rock rapid."
       },
       {
         "id": "red-river-mb-johnson-park",
         "name": "M.B. Johnson Park trailer access",
-        "latitude": 46.91389,
-        "longitude": -96.7577,
-        "mileFromStart": 3.1,
+        "latitude": 46.91392358141415,
+        "longitude": -96.75768161442912,
+        "mileFromStart": 9.3,
         "segmentKind": "creek",
         "note": "Default take-out at DNR Map 2 river mile 452.1 with public park boat-ramp context."
       }
     ]
   },
-  "red-river-lincoln-drive-lafave": {
+  "red-river-lincoln-drive-downtown": {
     "putIn": {
       "id": "red-river-lincoln-drive-park-landing",
       "name": "Lincoln Drive Park Landing",
@@ -9457,19 +9590,19 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -97.0228156
     },
     "takeOut": {
-      "id": "red-river-lafave-park",
-      "name": "Red River, LaFave Park Public Water Access Site",
-      "latitude": 47.92502184090726,
-      "longitude": -97.02456598825147
+      "id": "red-river-downtown-landing",
+      "name": "Downtown Landing / Boathouse on the Red",
+      "latitude": 47.92754045822572,
+      "longitude": -97.03042373433044
     },
     "logistics": {
-      "distanceLabel": "2.0 mi",
+      "distanceLabel": "2.5 mi",
       "estimatedPaddleTime": "About 45 min to 2 hr, depending on current, wind, and landing conditions",
-      "shuttle": "Stage LaFave Park in East Grand Forks first, then return to Lincoln Drive Park Landing. Because this is short, inspect both muddy-bank exits and the Grand Forks DNR gauge before putting on.",
+      "shuttle": "Stage Downtown Landing / Boathouse on the Red first, then return to Lincoln Drive Park Landing. Inspect both landings and the Grand Forks gauge before putting on.",
       "permits": "No route-specific paddling permit is known. Follow Minnesota and North Dakota boating/PFD rules plus posted Grand Forks, East Grand Forks, Greenway, and launch rules.",
       "camping": "Treat this as a day route. Red River State Recreation Area and nearby campgrounds can support a separate basecamp plan, but this two-mile card does not assume an on-route overnight.",
       "campingClassification": "nearby_basecamp",
-      "summary": "Launch at Lincoln Drive Park Landing and take out at LaFave Park for the official DNR Map 4 Grand Forks / East Grand Forks connector. The direct Grand Forks DNR gauge was in the official medium band during this run.",
+      "summary": "Launch at Lincoln Drive Park, pass the Red Lake River confluence and LaFave Park, and finish at Downtown Landing for the DNR Map 4 Grand Forks connector.",
       "accessCaveats": [
         "Lincoln Drive Park Landing is DNR-mapped and independently resolved in the North Dakota Game and Fish fishing-facilities layer as an active Grand Forks Park District concrete ramp; its route coordinate marks the water-side end of that ramp.",
         "LaFave Park resolves in Minnesota public-water-access GIS as WAS00545 and is the selected downstream finish.",
@@ -9492,13 +9625,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "DNR Map 4 names the trailer access at river mile 304.1; North Dakota Game and Fish resolves the active concrete-ramp facility, and current aerial imagery resolves its water-side end."
       },
       {
-        "id": "red-river-lafave-park",
-        "name": "Red River, LaFave Park Public Water Access Site",
-        "latitude": 47.92502184090726,
-        "longitude": -97.02456598825147,
-        "mileFromStart": 2,
+        "id": "red-river-downtown-landing",
+        "name": "Downtown Landing / Boathouse on the Red",
+        "latitude": 47.92754045822572,
+        "longitude": -97.03042373433044,
+        "mileFromStart": 2.5,
         "segmentKind": "creek",
-        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00545 at LaFave Park."
+        "note": "Default take-out at DNR Map 4 river mile 301.6; local city/tourism sources corroborate the public paddling landing."
       }
     ]
   },
@@ -11781,6 +11914,125 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "segmentKind": "lake",
         "note": "Minnesota DNR Lake Superior Water Trail public carry-in access on river right at the mouth."
       }
+    ]
+  },
+  "brule-river-sauna-bath-highway-61": {
+    "putIn": { "name": "Sauna Bath Rapid upper corridor", "latitude": 47.8822, "longitude": -90.0747 },
+    "takeOut": { "name": "Judge C. R. Magney State Park / Highway 61 Brule River corridor", "latitude": 47.818, "longitude": -90.0514 },
+    "logistics": {
+      "distanceLabel": "About 5.8 mi",
+      "estimatedPaddleTime": "Full expert expedition day, roughly 6 hr to 12 hr depending on carries, scouting, flow, and access",
+      "shuttle": "Stage the Highway 61 finish at Judge C. R. Magney State Park, then use only a separately verified legal approach to Sauna Bath. Pre-walk the waterfall exits and portage corridors from the park and trail system before committing.",
+      "permits": "No route-specific paddling permit is known, but a Minnesota state-park vehicle permit is required where posted. Follow park hours and rules, Minnesota boating/PFD requirements, and all trail or access closures.",
+      "camping": "Judge C. R. Magney State Park has seasonal reservable drive-in campsites, but no on-route river campsite is verified. Treat the run as a day expedition and camp only in a reserved legal site.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Conditional lower-Brule expedition from the remote Sauna Bath corridor through multiple falls and mandatory carries to the official Highway 61 park corridor.",
+      "accessCaveats": [
+        "Sauna Bath is not a developed public launch and may not be practical as a standalone put-in. Confirm a legal land approach and safe bank entry; otherwise use this card only as planning context for a permitted linked expedition.",
+        "The Highway 61 end has official state-park parking and trails, but the exact whitewater take-out and carry from river to vehicle must be inspected under current conditions.",
+        "DNR 01022001 is direct at the finish, but American Whitewater's 500 cfs figure is upper-river minimum guidance and provides no safe upper limit for this waterfall corridor."
+      ],
+      "watchFor": [
+        "Sauna Bath Rapid, Second Island Falls, Canyon Falls, Two Island, and any eddyless approach where the next carry cannot be confirmed from shore.",
+        "Devil's Kettle, Upper Falls, Lower Falls, blind horizons, slick bedrock, steep trail terrain, stairs, changing wood, and high-consequence missed exits.",
+        "Rapidly rising water, cold-water exposure, blocked or flooded portages, difficult boat carries, state-park closures, and exhaustion late in a technical day."
+      ]
+    },
+    "accessPoints": [
+      { "id": "brule-sauna-bath", "name": "Sauna Bath Rapid upper corridor", "latitude": 47.8822, "longitude": -90.0747, "mileFromStart": 0, "segmentKind": "creek", "note": "Remote American Whitewater start near Sauna Bath; verify legal land access and inspect the rapid before use." },
+      { "id": "brule-canyon-falls", "name": "Canyon Falls corridor", "latitude": 47.86888596, "longitude": -90.0611945, "mileFromStart": 1.3, "segmentKind": "transition", "note": "Approximate mandatory scout-and-portage corridor based on American Whitewater's mapped sequence." },
+      { "id": "brule-devils-kettle", "name": "Devil's Kettle mandatory portage", "latitude": 47.8292768, "longitude": -90.0494209, "mileFromStart": 4.7, "segmentKind": "transition", "note": "High-consequence waterfall; identify the exit and full portage from land before launch." },
+      { "id": "brule-upper-falls", "name": "Upper Falls", "latitude": 47.82823944091797, "longitude": -90.04878997802734, "mileFromStart": 4.83, "segmentKind": "transition", "note": "Nearly 25 feet of total drop downstream of Devil's Kettle; carry as conditions and team judgment require." },
+      { "id": "brule-highway-61-magney", "name": "Judge C. R. Magney State Park / Highway 61 Brule River corridor", "latitude": 47.818, "longitude": -90.0514, "mileFromStart": 5.8, "segmentKind": "creek", "note": "Official park and trail corridor near the DNR gauge; pre-inspect the exact river exit and vehicle carry." }
+    ]
+  },
+  "big-sucker-creek-county-33-lake-superior": {
+    "putIn": { "name": "County Road 33 Big Sucker Creek bridge", "latitude": 46.9607, "longitude": -91.9209 },
+    "takeOut": { "name": "Lake Superior public beach / landing", "latitude": 46.91741943359375, "longitude": -91.85262298583984 },
+    "logistics": {
+      "distanceLabel": "About 5.8 mi on the creek plus a short Lake Superior paddle",
+      "estimatedPaddleTime": "About 4 hr to 7 hr depending on flow, scouting, portages, wood, and the lake finish",
+      "shuttle": "Stage the public-beach finish first, verify its current parking and landing rules, then inspect the County Road 33 bridge. Keep vehicles fully clear of travel lanes and private drives.",
+      "permits": "No route-specific paddling permit is known. Follow posted county-road and beach restrictions, Minnesota boating/PFD rules, and any current Lake Superior access rules.",
+      "camping": "No on-route campsite is verified. Treat this as a technical day run and use separately confirmed lodging or camping; do not camp at road crossings, the beach, or private banks.",
+      "campingClassification": "none",
+      "summary": "Launch at County Road 33, run the full American Whitewater Big Sucker reach, and turn right at the mouth for the short Lake Superior paddle to the mapped public beach.",
+      "accessCaveats": [
+        "The County Road 33 start is an undeveloped bridge access. Confirm legal parking, a safe carry, and the absence of posted restrictions before unloading.",
+        "American Whitewater maps a public beach/landing after the creek mouth, but this is not backed by a dedicated DNR public-water-access record in the route evidence. Verify the landing locally before launch.",
+        "The Knife River gauge is only a nearby proxy with roughly twice Big Sucker's drainage area. A same-day visual flow and wood check is required."
+      ],
+      "watchFor": [
+        "The early twisting drop and high-angle slide, followed later by the two slide sequences and the eddy-scarce entry to Energizer Bunny.",
+        "Violent slots, pin and piton rocks, sharp blast craters, Goosed, Two Step, Five Step, fresh wood, and difficult creek-side portages.",
+        "The Highway 61 culvert and railroad corridor, anglers near lower drops, and Lake Superior surf, wind, fog, and cold water at the finish."
+      ]
+    },
+    "accessPoints": [
+      { "id": "big-sucker-county-33", "name": "County Road 33 Big Sucker Creek bridge", "latitude": 46.9607, "longitude": -91.9209, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped bridge put-in; verify parking and bank access." },
+      { "id": "big-sucker-energizer-bunny", "name": "Energizer Bunny / main steep sequence", "latitude": 46.936, "longitude": -91.866, "mileFromStart": 4.4, "segmentKind": "creek", "note": "Approximate main Class V corridor; exit early to scout because eddies become scarce." },
+      { "id": "big-sucker-old-north-shore-road", "name": "Old North Shore Road crossing", "latitude": 46.93061828613281, "longitude": -91.85820770263672, "mileFromStart": 5.13, "segmentKind": "creek", "note": "Mapped crossing below Five Step; do not assume legal parking or bailout access without verification." },
+      { "id": "big-sucker-public-beach", "name": "Lake Superior public beach / landing", "latitude": 46.91741943359375, "longitude": -91.85262298583984, "mileFromStart": 6.5, "segmentKind": "lake", "note": "American Whitewater-mapped finish after a short Lake Superior paddle; verify locally before launch." }
+    ]
+  },
+  "pigeon-river-partridge-falls-old-highway-61": {
+    "putIn": { "name": "Partridge Falls upstream access", "latitude": 47.9922981262207, "longitude": -89.8470993041992 },
+    "takeOut": { "name": "Old Highway 61 / former MN 89 Pigeon River access", "latitude": 48.0103988647461, "longitude": -89.7082977294922 },
+    "logistics": {
+      "distanceLabel": "About 11.1 mi",
+      "estimatedPaddleTime": "Full remote day, roughly 7 hr to 11 hr including the mandatory Cascades portage",
+      "shuttle": "Obtain Grand Portage authorization for both exact endpoints before staging. Inspect Partridge Falls, the Cascades exit and carry, and the former Old Highway 61 finish from land before launch; remote roads may require high-clearance planning.",
+      "permits": "Prior authorization from the Grand Portage Trust Lands and Natural Resources Office is required for reservation-land use. Follow current U.S. and Canadian customs instructions for any border crossing or landing in Canada.",
+      "camping": "No legal on-route campsite is verified. Plan this as a self-contained day expedition and do not camp or land on reservation, private, or Canadian property without explicit authorization.",
+      "campingClassification": "none",
+      "summary": "Conditional expert route from above Partridge Falls to the former Old Highway 61 crossing, including an immediate falls decision and a mandatory one-third-mile carry around the Cascades.",
+      "accessCaveats": [
+        "Both endpoints are historical American Whitewater locations, not standing public-access grants. Written or current verbal authorization must identify legal parking and carries.",
+        "The downstream Old Highway 61 location has documented access conflict. Do not assume the former bridge or nearby land is open because it appears on a map.",
+        "USGS 04010500 is downstream after additional drainage joins; its American Whitewater bands are scaled proxy guidance and require local flow verification."
+      ],
+      "watchFor": [
+        "Partridge Falls immediately after launch and the need to confirm its line or portage before committing from the put-in.",
+        "The Cascades around mile 2.6, a mandatory roughly one-third-mile portage with remote entry and re-entry conditions.",
+        "Incompletely documented ledges, the Arrow River confluence, Tunnel narrowing, wood, cold water, international-border landings, and a long remote rescue response."
+      ]
+    },
+    "accessPoints": [
+      { "id": "pigeon-partridge-put-in", "name": "Partridge Falls upstream access", "latitude": 47.9922981262207, "longitude": -89.8470993041992, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped location on reservation land; use only the access authorized by Grand Portage officials." },
+      { "id": "pigeon-partridge-falls", "name": "Partridge Falls", "latitude": 47.99449920654297, "longitude": -89.84590148925781, "mileFromStart": 0.15, "segmentKind": "transition", "note": "Falls immediately downstream of the start; inspect from land and portage unless a qualified expert team has verified a safe line." },
+      { "id": "pigeon-cascades-portage", "name": "The Cascades mandatory portage", "latitude": 48.01319885253906, "longitude": -89.82080078125, "mileFromStart": 2.6, "segmentKind": "transition", "note": "American Whitewater reports a mandatory roughly one-third-mile portage; verify both landings and the entire carry before launch." },
+      { "id": "pigeon-arrow-confluence", "name": "Arrow River confluence", "latitude": 48.020599365234375, "longitude": -89.72419738769531, "mileFromStart": 8.9, "segmentKind": "creek", "note": "Major tributary enters from river left and materially increases flow below this point." },
+      { "id": "pigeon-old-highway-61-upper-finish", "name": "Old Highway 61 / former MN 89 Pigeon River access", "latitude": 48.0103988647461, "longitude": -89.7082977294922, "mileFromStart": 11.1, "segmentKind": "creek", "note": "Conditional historical finish; obtain exact access and parking authorization before use." }
+    ]
+  },
+  "pigeon-river-old-highway-61-highway-61": {
+    "putIn": { "name": "Old Highway 61 / former MN 89 Pigeon River access", "latitude": 48.0103988647461, "longitude": -89.7082977294922 },
+    "takeOut": { "name": "Highway 61 border-crossing corridor take-out", "latitude": 48.0015983581543, "longitude": -89.5867004394531 },
+    "logistics": {
+      "distanceLabel": "About 8.3 mi",
+      "estimatedPaddleTime": "Full technical day, roughly 6 hr to 10 hr including scouting and the mandatory High Falls portage",
+      "shuttle": "Do not stage this shuttle until Grand Portage authorization identifies the legal endpoints and parking. Walk the High Falls exit and full carry before launch, then confirm the Highway 61 finish near the customs corridor.",
+      "permits": "Prior authorization from the Grand Portage Trust Lands and Natural Resources Office is required for reservation-land use. Follow current U.S. and Canadian customs instructions for any border crossing or landing in Canada.",
+      "camping": "No legal on-route campsite is verified. Treat this as a day run and do not camp or land on reservation or Canadian property without explicit authorization.",
+      "campingClassification": "none",
+      "summary": "Conditional expert route on the international-border Pigeon River, starting near Old Highway 61 and ending near the current Highway 61 crossing only after Middle Falls decisions and a mandatory High Falls portage.",
+      "accessCaveats": [
+        "The historical put-in is on Grand Portage Reservation land and has documented access conflict. Authorization must identify the current legal put-in; the map pin is not permission.",
+        "The take-out is near an active international customs corridor. Confirm legal landing, parking, and shuttle movement with the relevant authorities before launch.",
+        "The river itself forms the international boundary. Landing on or traveling through Canada can trigger customs requirements even when the trip begins in Minnesota."
+      ],
+      "watchFor": [
+        "Horn Rapids around mile 3, tightening current, cold water, wood, and remote rescue exposure.",
+        "Middle Falls around mile 5.65, including the slot, ledges, strong hydraulics, and limited consequence margin above the falls.",
+        "The High Falls approach around mile 7.45. Missing the mandatory portage for the roughly 120-foot waterfall can be fatal; verify the exit from land before launching."
+      ]
+    },
+    "accessPoints": [
+      { "id": "pigeon-old-highway-61", "name": "Old Highway 61 / former MN 89 Pigeon River access", "latitude": 48.0103988647461, "longitude": -89.7082977294922, "mileFromStart": 0, "segmentKind": "creek", "note": "Historical American Whitewater start on reservation land; use only the location authorized by Grand Portage officials." },
+      { "id": "pigeon-horn-rapids", "name": "Horn Rapids", "latitude": 48.00619888305664, "longitude": -89.65470123291016, "mileFromStart": 3.05, "segmentKind": "creek", "note": "Mapped constricted rapid; scout for flow, wood, and line changes." },
+      { "id": "pigeon-middle-falls", "name": "Middle Falls and USGS gauge", "latitude": 48.01259994506836, "longitude": -89.61630249023438, "mileFromStart": 5.65, "segmentKind": "creek", "note": "Large Class IV feature and direct USGS 04010500 gauge corridor; scout and portage unless the expert team has a verified line." },
+      { "id": "pigeon-high-falls-portage", "name": "High Falls mandatory portage", "latitude": 48.00490188598633, "longitude": -89.59819793701172, "mileFromStart": 7.45, "segmentKind": "transition", "note": "Class VI, roughly 120-foot waterfall. Mandatory portage; inspect the exit and carry before launch." },
+      { "id": "pigeon-highway-61", "name": "Highway 61 border-crossing corridor take-out", "latitude": 48.0015983581543, "longitude": -89.5867004394531, "mileFromStart": 8.3, "segmentKind": "creek", "note": "American Whitewater-mapped finish near customs; obtain access and shuttle confirmation before use." }
     ]
   }
 };

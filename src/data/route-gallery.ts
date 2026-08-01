@@ -54,11 +54,40 @@ const knifeRiverMinnesotaPhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: public domain',
 };
 
+const bigSuckerCreekMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'north-shore-lake-superior-kayaking-nara',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/North%20Shore%20Scenic%20Drive%20-%20Kayaking%20on%20Lake%20Superior%20-%20NARA%20-%207720688.jpg?width=1600',
+  alt: 'Kayakers paddle close to the rocky Minnesota North Shore on Lake Superior.',
+  caption: 'Lake Superior paddling context for Big Sucker Creek\'s coastal finish',
+  credit: 'Martin Schultz / U.S. Department of Transportation via NARA and Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
+const pigeonRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'pigeon-river-high-falls-usfws-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/High%20Falls%20on%20the%20Pigeon%20River%20%2853835729912%29.jpg?width=1600',
+  alt: 'High Falls pours through the forested Pigeon River gorge at Grand Portage State Park.',
+  caption: 'High Falls on the Pigeon River — a mandatory portage on this route',
+  credit: 'Courtney Celley / U.S. Fish and Wildlife Service via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
+const upperPigeonRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  ...pigeonRiverMinnesotaPhoto,
+  id: 'upper-pigeon-river-downstream-high-falls-usfws-commons',
+  alt: 'High Falls pours through the Pigeon River gorge farther downstream at Grand Portage State Park.',
+  caption: 'Pigeon River landmark farther downstream from the upper reach',
+};
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
   'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
   'brule-river-lima-grade-northern-light': [bruleRiverMinnesotaPhoto],
+  'brule-river-sauna-bath-highway-61': [bruleRiverMinnesotaPhoto],
   'knife-river-county-102-knife-river-beach': [knifeRiverMinnesotaPhoto],
+  'big-sucker-creek-county-33-lake-superior': [bigSuckerCreekMinnesotaPhoto],
+  'pigeon-river-old-highway-61-highway-61': [pigeonRiverMinnesotaPhoto],
+  'pigeon-river-partridge-falls-old-highway-61': [upperPigeonRiverMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {
       id: 'west-washington-street-bridge-muncie-commons',
@@ -265,6 +294,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
       alt: 'A grassy Big Fork River boat launch slopes down toward a narrow river channel under a bright summer sky.',
       caption: 'Big Fork River boat launch in Bigfork',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'big-fork-river-dora-lake-big-fork': [
+    {
+      id: 'big-fork-lime-street-boat-launch-commons',
+      src: '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
+      alt: 'The grassy public boat launch in Bigfork slopes to the Big Fork River under a bright summer sky.',
+      caption: "Big Fork River at the route's Bigfork / Lime Street finish",
       credit: 'Tony Webster via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
@@ -2795,6 +2834,46 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
       alt: 'The Otter Tail River flows past the historic Phelps Mill under fall trees.',
       caption: 'Otter Tail River at Phelps Mill',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'otter-tail-river-friberg-hwy-210': [
+    {
+      id: 'otter-tail-phelps-mill-upstream-context-commons',
+      src: '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
+      alt: 'The Otter Tail River flows past historic Phelps Mill beneath autumn trees.',
+      caption: 'Otter Tail River character upstream at Phelps Mill',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'red-river-lindenwood-mb-johnson': [
+    {
+      id: 'red-river-fargo-corridor-commons',
+      src: '/gallery/river-groups/red-river-of-the-north/red-river-fargo.webp',
+      alt: 'The Red River of the North bends through Fargo beneath a winter sky.',
+      caption: 'Red River of the North in the Fargo-Moorhead route corridor',
+      credit: 'Jpkotta via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'red-river-lincoln-drive-downtown': [
+    {
+      id: 'red-river-north-city-context-commons',
+      src: '/gallery/river-groups/red-river-of-the-north/red-river-fargo.webp',
+      alt: 'The Red River of the North curves through an urban winter landscape.',
+      caption: 'Red River of the North urban-river context; photographed in Fargo',
+      credit: 'Jpkotta via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'vermilion-river-dam-twomile': [
+    {
+      id: 'vermilion-river-gorge-downstream-context-commons',
+      src: '/gallery/river-groups/vermilion-river-minnesota/vermilion-river-gorge.webp',
+      alt: 'The Vermilion River runs through a rocky, forested gorge in northern Minnesota.',
+      caption: 'Vermilion River whitewater character farther downstream at Vermilion Gorge',
       credit: 'Tony Webster via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },

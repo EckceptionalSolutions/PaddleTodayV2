@@ -180,7 +180,7 @@ const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   'susquehanna-river-laceyville-west-falls': 3000,
   // Minnesota DNR's Red River State Water Trail lists Lincoln Drive Park as
   // the river-mile 304.1 put-in; the stored point is a park/landing anchor.
-  'red-river-lincoln-drive-lafave': 7000,
+  'red-river-lincoln-drive-downtown': 7000,
   // Iowa DNR's West Nishnabotna water-trail plan names Edgington Memorial
   // Park in Avoca as the trail's starting access.
   'west-nishnabotna-river-avoca-hancock': 7000,
@@ -219,7 +219,7 @@ const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   'des-moines-river-south-fraser-waterworks-upstream': 3000,
   // Minnesota DNR's Red River State Water Trail lists North Dam carry-in
   // access and MB Johnson Park as the documented river-mile access pair.
-  'red-river-north-dam-mb-johnson': 3000,
+  'red-river-lindenwood-mb-johnson': 3000,
   // Minnesota DNR lists the Overlook Park-to-Belle Prairie section on the
   // Mississippi State Water Trail and identifies both access anchors.
   'mississippi-river-overlook-belle-prairie': 2500,
@@ -358,6 +358,14 @@ const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   // Nishnabotna, and the USGS flood-study station identifies the county-road
   // bridge near Essex as crossing the East Nishnabotna River.
   'east-nishnabotna-river-red-oak-essex': 6000,
+};
+
+// The Otter Tail NHD name match selects a disconnected generalized flowline,
+// while Minnesota's public-water-access service resolves all three selected
+// landings by site ID and river mile. Keep this single, source-backed exception
+// visible in code instead of moving authoritative access coordinates to fit NHD.
+const acceptedOfficialAccessFlowlineFeet: Record<string, number> = {
+  'otter-tail-river-friberg-hwy-210': 13000,
 };
 // Some named access points are well documented but NHD returns no named
 // flowline in the route bounding box (often because the endpoint is on a
