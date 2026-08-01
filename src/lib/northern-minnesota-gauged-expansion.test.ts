@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { getRoutePreviewPhoto } from '../data/route-gallery.js';
 import { listRivers } from './rivers.js';
 
 const routeIds = [
@@ -30,6 +31,16 @@ describe('Northern Minnesota direct-gauge expansion', () => {
       expect(route?.takeOut).toBeDefined();
       expect(route?.logistics?.distanceLabel).toMatch(/mi/i);
       expect(route?.profile.thresholdSource.url).toBeTruthy();
+    }
+  });
+
+  it('does not use generic placeholder imagery for any expansion route', () => {
+    const routes = new Map(listRivers().map((route) => [route.slug, route]));
+
+    for (const routeId of routeIds) {
+      const route = routes.get(routeId);
+      expect(route).toBeDefined();
+      expect(getRoutePreviewPhoto(route!).sourceKind).not.toBe('placeholder');
     }
   });
 });
