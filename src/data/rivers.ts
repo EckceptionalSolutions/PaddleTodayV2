@@ -867,8 +867,8 @@ const routeOrder = [
   "maquoketa-river-quaker-mill-baileys-ford",
   "sheboygan-river-johnsonville-dassow",
   "sheboygan-river-dassow-river-park",
-  "red-river-north-dam-mb-johnson",
-  "red-river-lincoln-drive-lafave",
+  "red-river-lindenwood-mb-johnson",
+  "red-river-lincoln-drive-downtown",
   "minnesota-river-kinney-skalbekken",
   "minnesota-river-war-memorial-kinney",
   "kickapoo-river-highway-b-highway-s",
@@ -959,6 +959,8 @@ const routeOrder = [
   "brule-river-gunflint-trail-northern-light",
   "brule-river-lima-grade-northern-light",
   "brule-river-sauna-bath-highway-61",
+  "big-fork-river-dora-lake-big-fork",
+  "vermilion-river-dam-twomile",
   "knife-river-county-102-knife-river-beach",
   "big-sucker-creek-county-33-lake-superior",
   "pigeon-river-partridge-falls-old-highway-61",
@@ -974,7 +976,15 @@ const routeOrder = [
   "cedar-river-interstate-bennett",
   "cedar-river-bennett-highway-9",
   "cedar-river-highway-9-osage-spring",
-  "cedar-river-osage-spring-road-t38"
+  "cedar-river-osage-spring-road-t38",
+  "devil-track-river-lake-maple-hill",
+  "devil-track-river-maple-hill-lake-superior",
+  "cascade-river-grade-cascade-road",
+  "lake-superior-cascade-grand-marais",
+  "lake-superior-grand-marais-kadunce",
+  "lake-superior-kadunce-judge-magney",
+  "lake-superior-judge-magney-hovland",
+  "kadunce-river-sht-highway-61"
 ];
 
 export const rivers: River[] = routeOrder.map((slug) => {

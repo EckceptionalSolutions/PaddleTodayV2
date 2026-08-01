@@ -131,6 +131,150 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "big-fork-river-dora-lake-big-fork",
+    "slug": "big-fork-river-dora-lake-big-fork",
+    "name": "Big Fork River",
+    "reach": "Dora Lake to Big Fork / Lime Street",
+    "aliases": [
+      "Dora Lake to Bigfork",
+      "Dora Lake to Lime Street Landing"
+    ],
+    "state": "Minnesota",
+    "region": "Northern Minnesota",
+    "summary": "Long upper Big Fork water-trail trip from the Dora Lake headwaters access to the public Lime Street landing in Bigfork, with two Class I rapids, mapped campsites, and a direct in-route DNR gauge.",
+    "statusText": "Use the Big Fork DNR gauge near Highway 38: 250 to 400 cfs is the official medium band. Below 175 cfs is scrapable, and above 525 cfs is very high.",
+    "latitude": 47.7403721,
+    "longitude": -94.0514467,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This is a 33.3-mile remote route. Plan it as an overnight or an exceptionally long day with a conservative daylight, weather, shuttle, and bailout plan.",
+        "Robb's Rapids and Hauck Rapids are mapped Class I features. Scout when uncertain, and expect exposed rock, scraping, and slower travel when the Highway 38 gauge is below the official medium band.",
+        "Use the named public accesses and mapped watercraft campsites. Do not assume private banks or informal clearings are legal stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-280",
+      "provider": "mn_dnr",
+      "siteId": "280",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "direct",
+      "siteName": "Big Fork River nr Bigfork, MN6",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=77031001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77031001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 250,
+      "idealMax": 400,
+      "tooLow": 175,
+      "tooHigh": 525,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Big Fork River near Bigfork",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "The Big Fork typically peaks in late April and declines through summer. Rain-supported summer and fall windows can work, but same-day depth and weather checks are essential.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The named rapids are Class I, but 33.3 miles, remote shoreline, cold water, limited exits, and low-water rock make this a committed route rather than a beginner float.",
+      "confidenceNotes": "Confidence is high: MN DNR recommends the exact Dora Lake-to-Lime Street trip, Map 1 resolves the access/campsite/rapid sequence, public-water-access GIS resolves both endpoints, and DNR gauge 280 lies inside the route with official paddling bands."
+    },
+    "putIn": {
+      "name": "Dora Lake / Big Fork River Public Water Access Site",
+      "latitude": 47.74037209963832,
+      "longitude": -94.05144670997052
+    },
+    "takeOut": {
+      "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+      "latitude": 47.74557120608051,
+      "longitude": -93.65559724133418
+    },
+    "accessPoints": [
+      {
+        "id": "big-fork-dora-lake",
+        "name": "Dora Lake / Big Fork River Public Water Access Site",
+        "latitude": 47.74037209963832,
+        "longitude": -94.05144670997052,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "USFS-administered trailer access WAS01925 at DNR river mile 172.0."
+      },
+      {
+        "id": "big-fork-harrison-landing",
+        "name": "Harrison Landing watercraft campsite",
+        "latitude": 47.746,
+        "longitude": -93.892,
+        "mileFromStart": 13,
+        "segmentKind": "creek",
+        "note": "DNR Map 1 campsite near river mile 158.3; use the mapped site rather than private banks."
+      },
+      {
+        "id": "big-fork-little-minnow-camp",
+        "name": "Little Minnow watercraft campsite",
+        "latitude": 47.746,
+        "longitude": -93.778,
+        "mileFromStart": 22.5,
+        "segmentKind": "creek",
+        "note": "DNR Map 1 campsite near river mile 149.5; practical map anchor only."
+      },
+      {
+        "id": "big-fork-lime-street",
+        "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+        "latitude": 47.74557120608051,
+        "longitude": -93.65559724133418,
+        "mileFromStart": 33.3,
+        "segmentKind": "creek",
+        "note": "City-administered trailer access WAS01803 at DNR river mile 137.9."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official recommended trip",
+        "value": "Dora Lake to Big Fork / Lime Street, 33.3 mi",
+        "note": "MN DNR's recommended one-way list and Big Fork Map 1 define the exact upper-river trip.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Public access records",
+        "value": "Dora Lake WAS01925; Big Fork WAS01803",
+        "note": "Minnesota public-water-access GIS resolves the USFS Dora Lake launch and City of Big Fork Lime Street finish.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "175 / 250-400 / 525 cfs",
+        "note": "DNR interprets the in-route Bigfork gauge as Scrapable below 175 cfs, Low to 250, Medium to 400, High to 525, and Very High above 525.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Rapids and camping",
+        "value": "Robb's and Hauck Class I; two mapped campsites",
+        "note": "Big Fork Map 1 places Robb's Rapids, Hauck Rapids, Harrison Landing, and Little Minnow between the selected accesses.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/bigfork1.pdf"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "MN DNR Big Fork River Map 1", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/bigfork1.pdf", "provider": "mn_dnr" },
+      { "label": "MN DNR Big Fork segments and maps", "url": "https://www.dnr.state.mn.us/state-water-trails/big-fork-river/segments-maps.html", "provider": "mn_dnr" },
+      { "label": "MN DNR river-level site data", "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json", "provider": "mn_dnr" },
+      { "label": "Minnesota public water access feature service", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" }
+    ]
+  },
+  {
     "id": "little-fork-river-fiedler-devereaux",
     "slug": "little-fork-river-fiedler-devereaux",
     "name": "Little Fork River",
@@ -15645,6 +15789,150 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "vermilion-river-dam-twomile",
+    "slug": "vermilion-river-dam-twomile",
+    "name": "Vermilion River",
+    "reach": "Vermilion Dam to Twomile Creek",
+    "aliases": [
+      "Vermilion Dam to Two Mile Creek",
+      "Vermilion Dam whitewater section"
+    ],
+    "state": "Minnesota",
+    "region": "Northeastern Minnesota",
+    "routeType": "whitewater",
+    "summary": "Remote Class II-III Vermilion run from the downstream side of Vermilion Dam through Shively, Liftover, and Everett to the Twomile Creek access, with multiple mandatory scouting and portage decisions.",
+    "statusText": "Use the downstream Buyck DNR gauge as a conservative proxy: 200 to 1,300 cfs is the official medium band. Below 70 cfs is scrapable, and above 1,600 cfs is very high. Also check the DNR staff gauge below the dam; the map says most rapids are runnable above 4 ft.",
+    "latitude": 47.96108,
+    "longitude": -92.47595,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "dam",
+        "mandatory_takeout",
+        "whitewater",
+        "strainers",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Never run Vermilion Dam. Use the mapped 430-yard right-bank portage and launch only at the legal downstream access described by DNR/American Whitewater.",
+        "Shively Falls is Class III; Liftover Falls is Class II; Everett Rapids is Class I-II. Scout every horizon line and use the mapped portages whenever the line, wood, level, or group skill is uncertain.",
+        "The Buyck gauge is downstream and cannot replace the staff gauge below the dam or on-site scouting. This route is for experienced whitewater paddlers with cold-water gear, rescue skills, and a remote-emergency plan.",
+        "Take out at Twomile Creek. Continuing downstream changes the route into the Chain of Lakes reach and requires a separate shuttle and daylight plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-342",
+      "provider": "mn_dnr",
+      "siteId": "342",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "Vermilion River at Buyck, CSAH 24",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=73017001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=73017001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 1300,
+      "tooLow": 70,
+      "tooHigh": 1600,
+      "thresholdSource": {
+        "label": "MN DNR interpreted bands at Buyck, paired with the Map 1 below-dam staff-gauge rule",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "low",
+      "seasonMonths": [5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Lake Vermilion moderates flow, but the technical upper rapids still require same-day staff-gauge and visual checks. Cold water and remote access matter throughout the open-water season.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the run Class II-III. The dam portage, Shively Falls, Liftover Falls, Everett Rapids, long carries, remote setting, and lake/creek take-out make it an experienced-paddler route.",
+      "confidenceNotes": "Route and hazard confidence is high from MN DNR Map 1 and American Whitewater's exact reach/access listing. Gauge confidence is moderate because the app uses the downstream Buyck DNR station as a live proxy; paddlers must independently confirm the DNR staff gauge below Vermilion Dam and scout the rapids."
+    },
+    "putIn": {
+      "name": "Vermilion Dam downstream portage / whitewater put-in",
+      "latitude": 47.96108,
+      "longitude": -92.47595
+    },
+    "takeOut": {
+      "name": "Two Mile Creek Public Water Access Site",
+      "latitude": 47.9885552,
+      "longitude": -92.4675615
+    },
+    "accessPoints": [
+      {
+        "id": "vermilion-dam-downstream-put-in",
+        "name": "Vermilion Dam downstream portage / whitewater put-in",
+        "latitude": 47.96108,
+        "longitude": -92.47595,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "American Whitewater access coordinate below the dam; DNR Map 1 requires the 430-yard right-bank dam portage."
+      },
+      {
+        "id": "vermilion-shively-access",
+        "name": "Vermilion River, Shively Falls Public Water Access Site",
+        "latitude": 47.9698841,
+        "longitude": -92.4661064,
+        "mileFromStart": 0.7,
+        "segmentKind": "creek",
+        "note": "DNR-mapped access below the dam and near the Shively Falls scouting/portage sequence."
+      },
+      {
+        "id": "twomile-creek-access",
+        "name": "Two Mile Creek Public Water Access Site",
+        "latitude": 47.9885552,
+        "longitude": -92.4675615,
+        "mileFromStart": 5.5,
+        "segmentKind": "creek",
+        "note": "DNR-administered WAS02075; approach via the lake and paddle up Twomile Creek to the County Road 422 access."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official map sequence",
+        "value": "Vermilion Dam RM 42.3 to Twomile Creek RM 37.8",
+        "note": "DNR Map 1 places the dam portage, Shively/Liftover/Everett features, campsites, and Twomile Creek access in sequence.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/vermilion.pdf"
+      },
+      {
+        "label": "Whitewater classification",
+        "value": "Class II-III, about 5.5 mi",
+        "note": "American Whitewater documents the Vermilion Dam-to-Twomile reach, three named falls/rapids, access coordinates, and portage descriptions.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/966/main"
+      },
+      {
+        "label": "DNR staff-gauge rule",
+        "value": "Most rapids runnable above 4 ft below the dam",
+        "note": "DNR Map 1 identifies a staff gauge about 200 feet below Vermilion Dam and gives the 4-foot runnable guidance; this must be checked locally because it is not in the live DNR JSON feed.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/vermilion.pdf"
+      },
+      {
+        "label": "Live proxy bands",
+        "value": "70 / 200-1,300 / 1,600 cfs",
+        "note": "The downstream Buyck DNR gauge provides a current official corridor signal but does not replace the staff gauge or scouting.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Two Mile Creek WAS02075",
+        "note": "Minnesota public-water-access GIS resolves the DNR-administered Twomile Creek access and County Road 422 approach.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "MN DNR Vermilion River Map 1", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/vermilion.pdf", "provider": "mn_dnr" },
+      { "label": "MN DNR Vermilion River overview", "url": "https://www.dnr.state.mn.us/state-water-trails/vermilion-river/index.html", "provider": "mn_dnr" },
+      { "label": "American Whitewater Vermilion Dam to Twomile", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/966/main", "provider": "american_whitewater" },
+      { "label": "MN DNR river-level site data", "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json", "provider": "mn_dnr" },
+      { "label": "Minnesota public water access feature service", "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0", "provider": "mn_dnr" }
+    ]
+  },
+  {
     "id": "vermilion-river-twomile-eightmile",
     "slug": "vermilion-river-twomile-eightmile",
     "name": "Vermilion River",
@@ -24527,16 +24815,16 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "red-river-north-dam-mb-johnson",
-    "slug": "red-river-north-dam-mb-johnson",
+    "id": "red-river-lindenwood-mb-johnson",
+    "slug": "red-river-lindenwood-mb-johnson",
     "name": "Red River of the North",
-    "reach": "Fargo North Dam to M.B. Johnson Park",
+    "reach": "Lindenwood Park to M.B. Johnson Park",
     "state": "Minnesota",
     "region": "Red River Valley",
-    "summary": "Short Fargo-Moorhead Red River water-trail day from the North Dam carry-in/re-entry to M.B. Johnson Park, using the direct Fargo DNR interpreted gauge and explicit dam, rock-slopeway, snag, and border-river caveats.",
+    "summary": "Full Fargo-Moorhead urban Red River water-trail day from Lindenwood Park to M.B. Johnson Park, with two constructed-rock dam portages, multiple public bailout landings, and the direct Fargo DNR gauge.",
     "statusText": "Use the Fargo DNR gauge: 425 to 1,110 cfs is the official medium band. Below 364 cfs is scrapable, and above 3,240 cfs is very high.",
-    "latitude": 46.8919,
-    "longitude": -96.785,
+    "latitude": 46.85101967710684,
+    "longitude": -96.78178641991025,
     "gaugeSource": {
       "id": "mn-dnr-184",
       "provider": "mn_dnr",
@@ -24571,9 +24859,9 @@ export const minnesotaRoutes: River[] = [
         10
       ],
       "seasonNotes": "Spring through fall is the practical open-water season. The Red can flood in spring, summer, or fall, and DNR warns that low water can make paddling unsuitable, so pair the interpreted Fargo band with a same-day bank and current check.",
-      "difficulty": "easy",
-      "difficultyNotes": "DNR frames this as a short urban water-trail trip with no route-length commitment, but the launch is tied to a dam/constructed-rock-rapids area and the Red still carries muddy banks, snags, and swift current during high water.",
-      "confidenceNotes": "Confidence is good for a short official route: MN DNR Red River Map 2 and the segments page identify Fargo North Dam to M.B. Johnson Park as a 3.1-mile water-trail trip, the Fargo DNR gauge is just upstream in the same metro reach with official interpretation bands, RiverKeepers documents the local dam/rock-slopeway safety context, and M.B. Johnson is a named public park landing. Coordinate confidence is lower at the North Dam carry-in because it is DNR-mapped by name and river mile rather than resolved in Minnesota public-water-access GIS."
+      "difficulty": "moderate",
+      "difficultyNotes": "The current is normally approachable, but this 9.3-mile urban route requires mandatory portages at Midtown Dam and North Dam, plus careful handling around muddy banks, bridge current, snags, and high water.",
+      "confidenceNotes": "Confidence is high for the route and gauge: MN DNR Map 2 defines the entire Lindenwood-to-M.B. Johnson sequence and river miles, Fargo Parks confirms a public ADA kayak launch at Lindenwood, Minnesota access GIS resolves M.B. Johnson, and the Fargo DNR gauge is directly in the metro reach with official bands. The North Dakota-bank launch coordinate is the official Fargo Parks location anchor rather than a Minnesota GIS record."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -24587,38 +24875,65 @@ export const minnesotaRoutes: River[] = [
         "private_banks"
       ],
       "safetyNotes": [
-        "Launch only from the signed North Dam carry-in/re-entry area below the dam/rock-slopeway context. Do not run or drift into dam hydraulics unless specifically trained and choosing a legal whitewater line.",
+        "Portage Midtown Dam on river left and North Dam on river right using the DNR-mapped carry-in/re-entry paths. Do not run or drift into either constructed-rock rapid unless specifically trained and following current local guidance.",
         "DNR warns that Red River water levels fluctuate widely, flooding can occur in spring, summer, or fall, low water may not be suitable for paddling, and snags are common.",
         "This is a Minnesota/North Dakota border-river corridor. Use public accesses, follow posted local rules on both banks, and keep a conservative plan for cold water, muddy exits, and urban stormwater after rain."
       ],
       "reviewStatus": "reviewed"
     },
     "putIn": {
-      "name": "North Dam carry-in access / re-entry",
-      "latitude": 46.8919,
-      "longitude": -96.785
+      "name": "Lindenwood Park ADA kayak launch",
+      "latitude": 46.85101967710684,
+      "longitude": -96.78178641991025
     },
     "takeOut": {
       "name": "M.B. Johnson Park trailer access",
-      "latitude": 46.91389,
-      "longitude": -96.7577
+      "latitude": 46.91392358141415,
+      "longitude": -96.75768161442912
     },
     "accessPoints": [
       {
-        "id": "red-river-north-dam-carry-in",
-        "name": "North Dam carry-in access / re-entry",
-        "latitude": 46.8919,
-        "longitude": -96.785,
+        "id": "red-river-lindenwood-park",
+        "name": "Lindenwood Park ADA kayak launch",
+        "latitude": 46.85101967710684,
+        "longitude": -96.78178641991025,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "DNR Map 2 names the North Dam carry-in/re-entry at river mile 455.2; coordinate is a practical map anchor for the named access rather than a Minnesota GIS water-access record."
+        "note": "Fargo Parks confirms the public ADA kayak launch; this practical river-edge anchor is resolved from the official park location and DNR Map 2 river mile 461.4."
+      },
+      {
+        "id": "red-river-midtown-dam",
+        "name": "Midtown Dam left-bank portage / carry-in",
+        "latitude": 46.87644108128275,
+        "longitude": -96.7796531591513,
+        "mileFromStart": 3,
+        "segmentKind": "creek",
+        "note": "Practical DNR Map 2 anchor at river mile 458.4; mandatory left-bank portage around the constructed-rock rapid."
+      },
+      {
+        "id": "red-river-hjemkomst",
+        "name": "Hjemkomst Center carry-in access",
+        "latitude": 46.8778,
+        "longitude": -96.7782,
+        "mileFromStart": 3.6,
+        "segmentKind": "creek",
+        "note": "DNR Map 2 public carry-in / ADA access and bailout near river mile 457.8."
+      },
+      {
+        "id": "red-river-north-dam-carry-in",
+        "name": "North Dam right-bank portage / re-entry",
+        "latitude": 46.894871,
+        "longitude": -96.776264,
+        "mileFromStart": 6.2,
+        "segmentKind": "creek",
+        "note": "DNR Map 2 carry-in/re-entry at river mile 455.2; mandatory right-bank portage around the constructed-rock rapid."
       },
       {
         "id": "red-river-mb-johnson-park",
         "name": "M.B. Johnson Park trailer access",
-        "latitude": 46.91389,
-        "longitude": -96.7577,
-        "mileFromStart": 3.1,
+        "latitude": 46.91392358141415,
+        "longitude": -96.75768161442912,
+        "mileFromStart": 9.3,
         "segmentKind": "creek",
         "note": "Default take-out at DNR Map 2 river mile 452.1; local park and access directories corroborate the Moorhead public boat-ramp context."
       }
@@ -24626,15 +24941,21 @@ export const minnesotaRoutes: River[] = [
     "evidenceNotes": [
       {
         "label": "Official DNR route",
-        "value": "Fargo North Dam RM 455.2 to M.B. Johnson Park RM 452.1, 3.1 mi",
-        "note": "MN DNR lists Fargo North Dam to M.B. Johnson Park as a recommended short Red River trip and describes the wooded/residential Fargo-Moorhead corridor.",
+        "value": "Lindenwood Park RM 461.4 to M.B. Johnson Park RM 452.1, 9.3 mi",
+        "note": "MN DNR's statewide recommended one-way list and Map 2 define the full Fargo-Moorhead route.",
         "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html"
       },
       {
         "label": "Map 2 access and dam context",
-        "value": "North Dam constructed rock rapids; M.B. Johnson trailer accesses",
-        "note": "MN DNR Red River Map 2 marks the North Dam carry-in/re-entry and M.B. Johnson Park access amenities in sequence.",
+        "value": "Two constructed-rock dam portages; multiple urban accesses",
+        "note": "MN DNR Red River Map 2 marks Lindenwood, Midtown Dam, Hjemkomst, North Dam, and M.B. Johnson in sequence, including left/right portage instructions.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/redriver2.pdf"
+      },
+      {
+        "label": "Public launch and finish",
+        "value": "Fargo Parks ADA launch to M.B. Johnson WAS02269",
+        "note": "Fargo Parks confirms Lindenwood's public adaptive kayak launch; Minnesota public-water-access GIS resolves the Moorhead finish.",
+        "sourceUrl": "https://www.fargoparks.com/parks-and-facilities/lindenwood-park"
       },
       {
         "label": "Official DNR bands",
@@ -24684,16 +25005,16 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "red-river-lincoln-drive-lafave",
-    "slug": "red-river-lincoln-drive-lafave",
+    "id": "red-river-lincoln-drive-downtown",
+    "slug": "red-river-lincoln-drive-downtown",
     "name": "Red River of the North",
-    "reach": "Lincoln Drive Park Landing to LaFave Park",
+    "reach": "Lincoln Drive Park Landing to Downtown Landing",
     "state": "Minnesota",
     "region": "Red River Valley",
-    "summary": "Short Grand Forks / East Grand Forks Red River water-trail connector from Lincoln Drive Park Landing to LaFave Park, using the direct Grand Forks DNR interpreted gauge and explicit muddy-bank, snag, and border-river caveats.",
+    "summary": "Short Grand Forks Red River water-trail connector from Lincoln Drive Park's public boat ramp to Downtown Landing, passing the Red Lake River confluence and using the direct Grand Forks DNR gauge.",
     "statusText": "Use the Grand Forks DNR gauge: 881 to 12,000 cfs is the official medium band. Below 320 cfs is scrapable, and above 16,200 cfs is very high.",
-    "latitude": 47.9137,
-    "longitude": -97.0497,
+    "latitude": 47.90851,
+    "longitude": -97.024315,
     "gaugeSource": {
       "id": "mn-dnr-185",
       "provider": "mn_dnr",
@@ -24729,8 +25050,8 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Spring through fall is the practical season, with flood-stage and low-water checks controlling the go/no-go decision. DNR warns that low Red River levels may not be suitable for paddling and that floods can happen well outside spring.",
       "difficulty": "easy",
-      "difficultyNotes": "DNR frames this as a quick two-mile trip between developed park landings, but muddy banks, snags, bridge approaches, urban water quality, and the border-river setting keep it in a caution posture.",
-      "confidenceNotes": "Confidence is good for route shape, take-out, and gauge: MN DNR Red River Map 4 and the segments page identify Lincoln Drive Park Landing to LaFave Park as a 2-mile trip; Minnesota public-water-access GIS resolves LaFave Park; and the Grand Forks DNR gauge is in the same route corridor with official interpretation bands. Coordinate confidence is lower at Lincoln Drive because the put-in is on the North Dakota bank and is DNR-mapped/local-park corroborated rather than present in Minnesota public-water-access GIS."
+      "difficultyNotes": "DNR maps this as a quick 2.5-mile urban connector, but muddy banks, snags, bridge approaches, the Red Lake River confluence, urban water quality, and the border-river setting keep it in a caution posture.",
+      "confidenceNotes": "Confidence is good: MN DNR Map 4 places Lincoln Drive Park at river mile 304.1 and Downtown Landing at 301.6; Grand Forks Park District confirms the Lincoln boat ramp; city project records document the Downtown Landing canoe/kayak dock; and the Grand Forks DNR gauge is directly in the route corridor with official bands. Both endpoints are on the North Dakota bank, so coordinates are practical local-map anchors rather than Minnesota access-GIS records."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -24743,59 +25064,59 @@ export const minnesotaRoutes: River[] = [
       ],
       "safetyNotes": [
         "DNR warns that Red River water levels fluctuate widely, flooding can occur in spring, summer, or fall, low water may not be suitable for paddling, and snags are common.",
-        "Use Lincoln Drive Park Landing and LaFave Park only as the planned access pair. Do not substitute steep muddy banks or private Greenway edges for routine exits.",
+        "Use Lincoln Drive Park Landing and Downtown Landing as the planned access pair. Do not substitute steep muddy banks or private Greenway edges for routine exits.",
         "This is a Minnesota/North Dakota border-river trip. Follow posted park, launch, and boating rules on both sides and confirm landing condition before shuttling."
       ],
       "reviewStatus": "reviewed"
     },
     "putIn": {
       "name": "Lincoln Drive Park Landing",
-      "latitude": 47.9137,
-      "longitude": -97.0497
+      "latitude": 47.90851,
+      "longitude": -97.024315
     },
     "takeOut": {
-      "name": "Red River, LaFave Park Public Water Access Site",
-      "latitude": 47.92502184090726,
-      "longitude": -97.02456598825147
+      "name": "Downtown Landing / Boathouse on the Red",
+      "latitude": 47.92754045822572,
+      "longitude": -97.03042373433044
     },
     "accessPoints": [
       {
         "id": "red-river-lincoln-drive-park-landing",
         "name": "Lincoln Drive Park Landing",
-        "latitude": 47.9137,
-        "longitude": -97.0497,
+        "latitude": 47.90851,
+        "longitude": -97.024315,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "DNR Map 4 names the Lincoln Drive Park trailer access at river mile 304.1; Grand Forks Park District and Visit Grand Forks corroborate the park boat-ramp context."
+        "note": "DNR Map 4 names the Lincoln Drive Park trailer access at river mile 304.1; this practical river-edge anchor is corroborated by Grand Forks Park District and local boat-access mapping."
       },
       {
-        "id": "red-river-lafave-park",
-        "name": "Red River, LaFave Park Public Water Access Site",
-        "latitude": 47.92502184090726,
-        "longitude": -97.02456598825147,
-        "mileFromStart": 2,
+        "id": "red-river-downtown-landing",
+        "name": "Downtown Landing / Boathouse on the Red",
+        "latitude": 47.92754045822572,
+        "longitude": -97.03042373433044,
+        "mileFromStart": 2.5,
         "segmentKind": "creek",
-        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00545 at the East Grand Forks LaFave Park landing."
+        "note": "DNR Map 4 carry-in at river mile 301.6; this river-edge anchor is resolved beside the city-documented canoe/kayak dock and North Dakota Tourism's Boathouse location."
       }
     ],
     "evidenceNotes": [
       {
         "label": "Official DNR route",
-        "value": "Lincoln Drive Park RM 304.1 to LaFave Park RM 302.1, 2.0 mi",
-        "note": "MN DNR lists Lincoln Drive Park to LaFave Park as a quick Red River trip in the Grand Forks / East Grand Forks corridor.",
+        "value": "Lincoln Drive Park RM 304.1 to Downtown Landing RM 301.6, 2.5 mi",
+        "note": "MN DNR Map 4 defines the full Lincoln-to-Downtown connector through the Grand Forks / East Grand Forks corridor.",
         "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html"
       },
       {
         "label": "Map 4 access context",
-        "value": "Lincoln Drive Park trailer access to LaFave Park trailer access",
-        "note": "MN DNR Red River Map 4 identifies Lincoln Drive Park Landing amenities and the LaFave Park trailer access, parking, dock, restroom, picnic, and Sacred Heart Trailhead context.",
+        "value": "Lincoln Drive trailer access to Downtown carry-in",
+        "note": "MN DNR Red River Map 4 identifies both landings and places the Red Lake River confluence and LaFave Park between them.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/redriver4.pdf"
       },
       {
-        "label": "Public access record",
-        "value": "LaFave Park WAS00545",
-        "note": "Minnesota public-water-access GIS resolves LaFave Park with source-backed coordinates and public access attributes.",
-        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+        "label": "Local public access confirmation",
+        "value": "Public Lincoln ramp and Downtown canoe/kayak dock",
+        "note": "Grand Forks Park District confirms Lincoln's Red River boat ramp, while City project records document Downtown Landing's accessible canoe/kayak dock and trail connection.",
+        "sourceUrl": "https://www.grandforksgov.com/home/showpublisheddocument/11528/635930376838200000"
       },
       {
         "label": "Official DNR bands",
@@ -32291,6 +32612,294 @@ export const minnesotaRoutes: River[] = [
       { "label": "Minnesota DNR Brule CSG station", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
       { "label": "Minnesota DNR Judge C. R. Magney park map", "url": "https://files.dnr.state.mn.us/maps/state_parks/spk00193.pdf", "provider": "mn_dnr" },
       { "label": "Minnesota DNR Judge C. R. Magney virtual tour", "url": "https://www.dnr.state.mn.us/state_parks/virtual_tour/judge_cr_magney/dialup.html", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "devil-track-river-lake-maple-hill",
+    "slug": "devil-track-river-lake-maple-hill",
+    "name": "Devil Track River",
+    "reach": "Devil Track Lake Outlet to Maple Hill / County Road 60",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Short upper Devil Track run from the lake outlet to Maple Hill, with swift opening water, nearly continuous Class II and occasional Class III character, red-rock walls, and a mandatory take-out before the lower gorge.",
+    "statusText": "No live gauge exists on this reach. Use the Brule near Hovland station only as a regional North Shore runoff trigger, then confirm actual flow and wood at both Devil Track road crossings. Missing the County Road 60 exit leads directly toward Class IV-V canyon water.",
+    "latitude": 47.8161,
+    "longitude": -90.3568,
+    "gaugeSource": { "id": "mn-dnr-01022001-devil-track-regional", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland, MN 61 (regional runoff trigger only)", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 350,
+      "thresholdSource": { "label": "Derived regional runoff trigger from the AW Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "derived", "rainfallSensitivity": "high", "windSensitivity": 1, "rainSensitivity": 3, "tempSensitivity": 3,
+      "seasonMonths": [4,5,6,9,10],
+      "seasonNotes": "This flashy 31-square-mile headwater is normally a snowmelt or rain-event run. A regional Brule rise is only a cue to inspect Devil Track; localized rain and lake-outlet behavior can differ sharply.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the 3.1-mile upper reach Class II-III. Continuous current, strainers, cold water, and the non-negotiable exit before the lower gorge require competent moving-water paddlers.",
+      "confidenceNotes": "Reach geometry, endpoints, length, gradient, and difficulty come from American Whitewater. The hydrologic signal is deliberately low-confidence: USGS 04011500 is historical and currently has no instantaneous flow, while the live Brule reading is only a regional trigger. Never infer Devil Track flow from it without a visual check."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["whitewater","strainers","mandatory_takeout","fast_rise","cold_water","access_uncertain"], "safetyNotes": ["Verify the County Road 60 exit from land and set an unmistakable marker before launching. Continuing downstream enters the separate Class IV-V lower gorge.", "Expect new strainers and short-notice eddy or portage decisions throughout the continuous-gradient section.", "The Brule gauge is not a Devil Track gauge. Launch only after a same-day visual flow and access inspection."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Reach inventory", "value": "3.1 miles; Class II-III; 53 fpm", "note": "American Whitewater maps both road-crossing endpoints and warns that missing the finish leads into Class IV-V water.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2880/main" },
+      { "label": "Historical direct station", "value": "USGS 04011500; no current instantaneous series", "note": "USGS maintains the monitoring-location record, but its lack of a live discharge series prevents direct scoring.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04011500/" },
+      { "label": "Regional trigger limitation", "value": "Brule 500 cfs research cue only", "note": "The threshold is not transferred as a runnable Devil Track flow; it only identifies a regional runoff window requiring local verification.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Devil Track", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2880/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR regional Brule gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "USGS historical Devil Track station", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04011500/", "provider": "usgs" },
+      { "label": "Minnesota DNR Cook County access map", "url": "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "devil-track-river-maple-hill-lake-superior",
+    "slug": "devil-track-river-maple-hill-lake-superior",
+    "name": "Devil Track River",
+    "reach": "Maple Hill to Lake Superior / East Beach",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Expert lower Devil Track canyon expedition with steep slides, waterfalls, mandatory carries, committing walls, and a short Lake Superior paddle east to the mapped beach finish.",
+    "statusText": "Expert-only and ungauged. Treat a regional Brule rise as an inspection trigger, not a runnable signal. This route requires local knowledge, pre-walked exits, climbing/rope competence, and a safe Lake Superior landing forecast.",
+    "latitude": 47.8053,
+    "longitude": -90.3038,
+    "gaugeSource": { "id": "mn-dnr-01022001-devil-track-lower-regional", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland, MN 61 (regional runoff trigger only)", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 350,
+      "thresholdSource": { "label": "Derived regional runoff trigger from the AW Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "derived", "rainfallSensitivity": "high", "windSensitivity": 3, "rainSensitivity": 3, "tempSensitivity": 3,
+      "seasonMonths": [4,5,6,9,10],
+      "seasonNotes": "Flashy snowmelt and rain-event water only. Local rainfall, canyon flow, exit condition, and Lake Superior wind can invalidate the regional signal immediately.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates this Class II-V and describes vertical falls, steep slides, multiple mandatory portages, near-vertical canyon walls, and a Pitchfork Falls carry that may require ropes and rappelling knowledge.",
+      "confidenceNotes": "Route line, endpoints, major hazards, and difficulty are well documented by American Whitewater. Flow confidence is low because the direct Devil Track station is historical and the Brule is merely a regional index; access and the final beach landing require same-day confirmation."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["whitewater","mandatory_takeout","strainers","fast_rise","cold_water","remote","access_uncertain"], "safetyNotes": ["This is a Class V canyon expedition for expert creek boaters with local knowledge, rescue equipment, and climbing/rope competence—not a general whitewater outing.", "Identify the Pitchfork Falls exit approximately one-half mile upstream and pre-walk every mandatory carry. Continuing too far can make escape or portage extremely difficult.", "The finish requires roughly one-half mile on Lake Superior. Cancel for unsafe surf, fog, offshore wind, cold-water exposure, or an uncertain beach landing."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Reach and consequences", "value": "4.5 river miles; Class II-V", "note": "American Whitewater documents Triple Drop, Serpent's Slide, Boulder Falls, Pitchfork Falls, Ski Jump, Up Against the Wall, difficult carries, and the coastal finish.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2529/main" },
+      { "label": "Historical direct station", "value": "USGS 04011500 near the lower reach", "note": "The station record exists but does not currently return instantaneous discharge or stage, so it cannot support a live go/no-go call.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04011500/" },
+      { "label": "Marine finish", "value": "Short Lake Superior paddle to mapped beach", "note": "Use the NWS Duluth nearshore forecast and inspect the landing before committing to the canyon.", "sourceUrl": "https://www.weather.gov/dlh/marine" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater lower Devil Track", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2529/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR regional Brule gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "USGS historical Devil Track station", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04011500/", "provider": "usgs" },
+      { "label": "NWS Duluth marine forecasts", "url": "https://www.weather.gov/dlh/marine", "provider": "manual" },
+      { "label": "Minnesota Lake Superior Water Trail", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "cascade-river-grade-cascade-road",
+    "slug": "cascade-river-grade-cascade-road",
+    "name": "Cascade River",
+    "reach": "The Grade / Forest Road 153 to Cascade River Road / Forest Road 157",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Remote upper Cascade route with ponded headwater sections, a major early slide, gentler forest mileage, and an optional midpoint exit near Cascade River Campground.",
+    "statusText": "Ungauged and lightly documented. The Brule station is only a regional runoff trigger. Inspect the first major drop, both road accesses, wood, and actual flow before treating this Class II-IV route as runnable.",
+    "latitude": 47.862,
+    "longitude": -90.5578,
+    "gaugeSource": { "id": "mn-dnr-01022001-cascade-regional", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland, MN 61 (regional runoff trigger only)", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 350,
+      "thresholdSource": { "label": "Derived regional runoff trigger from the AW Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "derived", "rainfallSensitivity": "high", "windSensitivity": 1, "rainSensitivity": 3, "tempSensitivity": 3,
+      "seasonMonths": [4,5,6,9,10],
+      "seasonNotes": "Snowmelt and rain-event route. USGS 04011990 records peaks and field measurements but no continuous current flow; the live Brule reading can only trigger a local inspection.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater lists Class II-IV but explicitly calls some ratings conjectural. A dog-legged drop of roughly 20 feet appears within the first mile and may be Class IV+; scout or portage from shore.",
+      "confidenceNotes": "Endpoint coordinates and mapped geometry are strong, and USGS confirms an 87.6-square-mile station at the finish. Actual difficulty and flow thresholds have lower confidence because American Whitewater reports no trip reports and labels feature ratings conjectural."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["whitewater","strainers","fast_rise","cold_water","remote","access_uncertain"], "safetyNotes": ["Scout the first downstream gradient from land. Its mapped 20-foot dog-leg may be Class IV+ and the published rating remains provisional.", "Treat all feature ratings as preliminary, expect wood and pond-to-drop transitions, and use the Cascade River Campground vicinity only after confirming legal river access.", "The Brule gauge does not measure Cascade flow. A same-day inspection at Forest Roads 153 and 157 is mandatory."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Reach inventory", "value": "6.4 miles; provisional Class II-IV", "note": "American Whitewater maps the road endpoints, major first drop, campground midpoint, and route geometry while clearly flagging uncertain ratings.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10767/main" },
+      { "label": "Historical station", "value": "USGS 04011990 at Forest Road 45 / route finish", "note": "The station has peak-flow and field-measurement records but no continuous live series; drainage area is 87.6 square miles.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04011990/" },
+      { "label": "Public-land context", "value": "Superior National Forest road corridor", "note": "Road, parking, fire, and closure conditions must be checked with the Forest Service before staging the shuttle.", "sourceUrl": "https://www.fs.usda.gov/r09/superior" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater upper Cascade", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10767/main", "provider": "american_whitewater" },
+      { "label": "American Whitewater Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR regional Brule gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" },
+      { "label": "USGS Cascade River station 04011990", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04011990/", "provider": "usgs" },
+      { "label": "Superior National Forest", "url": "https://www.fs.usda.gov/r09/superior", "provider": "manual" }
+    ]
+  },
+  {
+    "id": "lake-superior-cascade-grand-marais",
+    "slug": "lake-superior-cascade-grand-marais",
+    "name": "Lake Superior",
+    "reach": "Cascade River State Park to Grand Marais Harbor",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "recreational",
+    "summary": "Official 9.6-mile Lake Superior State Water Trail trip from Cascade River State Park past a reservable kayak campsite, Butterwort Cliffs, Cut Face Creek, and Fall River to protected Grand Marais Harbor.",
+    "statusText": "This is a sea-kayaking route, not a river-score route. The historical Cascade mouth station supplies no live paddling signal. Use the NWS LSZ141 nearshore forecast, current water temperature, fog, surf, and landing conditions; calm water can become life-threatening within minutes.",
+    "latitude": 47.7066667,
+    "longitude": -90.52375,
+    "gaugeSource": { "id": "usgs-04012000-historical-coastal", "provider": "usgs", "siteId": "04012000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Cascade River at mouth (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04012000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04012000/" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
+      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
+      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
+      "seasonMonths": [6,7,8,9],
+      "seasonNotes": "Cold-water sea-kayaking season only. Terrestrial forecast data cannot replace the LSZ141 nearshore forecast, observed surf, water temperature, fog, and a conservative turnaround plan.",
+      "difficulty": "hard",
+      "difficultyNotes": "The shoreline mileage is nontechnical in calm weather, but 9.6 miles of 40-50F water, cliff-backed shore, fog, surf landings, limited exits, and rapidly building waves require equipped sea kayakers and practiced rescue skills.",
+      "confidenceNotes": "Route distance, public stops, coordinates, camping, and access limitations come directly from Minnesota DNR Lake Superior Water Trail Map 4. Live score confidence is intentionally low because the current product does not ingest NWS nearshore wave forecasts."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Use a seaworthy kayak with flotation, spray skirt, immersion protection, signaling and navigation gear, and practiced self- and assisted-rescue skills.", "Check NWS marine zone LSZ141 immediately before launch. Do not launch in a Small Craft Advisory, unsafe surf, dense fog, thunderstorms, or winds that can prevent landing.", "There are no established public landings for six miles before Cascade River, and several route stops prohibit overnight parking or landing. Use only the DNR-mapped sites and respect Butterwort Cliffs SNA."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Official route", "value": "Water trail miles 115.4 to 125.0", "note": "DNR Map 4 identifies Cascade River, kayak campsite #1, Butterwort Cliffs SNA, Cut Face Creek, Fall River campsite, and Grand Marais in sequence.", "sourceUrl": "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/LSWT%204%20GEO.pdf" },
+      { "label": "Protected finish", "value": "Grand Marais public safe-harbor access", "note": "Minnesota DNR documents two ramps, docks, paved parking, restrooms, and the harbor's public-access coordinates.", "sourceUrl": "https://www.dnr.state.mn.us/water_access/harbors/grand_marais.html" },
+      { "label": "Marine forecast", "value": "NWS Duluth LSZ141", "note": "The official nearshore product covers Grand Marais to Taconite Harbor and reports winds, waves, fog, storms, and advisories.", "sourceUrl": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH" }
+    ],
+    "sourceLinks": [
+      { "label": "Minnesota DNR Lake Superior Map 4", "url": "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/LSWT%204%20GEO.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Lake Superior segments", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Grand Marais harbor access", "url": "https://www.dnr.state.mn.us/water_access/harbors/grand_marais.html", "provider": "mn_dnr" },
+      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" }
+    ]
+  },
+  {
+    "id": "lake-superior-grand-marais-kadunce",
+    "slug": "lake-superior-grand-marais-kadunce",
+    "name": "Lake Superior",
+    "reach": "Grand Marais Harbor to Kadunce River Wayside",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "recreational",
+    "summary": "Official 9.8-mile Lake Superior Water Trail leg from protected Grand Marais Harbor past Anderson's Rest, County Road 67, Knapp's Shore, Olson Shore, and DOT Land to Kadunce River Wayside.",
+    "statusText": "Sea-kayaking route with no live marine score. Use NWS nearshore zone LSZ141, observed surf, fog, water temperature, thunderstorms, and every planned landing; the historical Brule station is not a marine conditions source.",
+    "latitude": 47.74675,
+    "longitude": -90.3336667,
+    "gaugeSource": { "id": "usgs-04011000-historical-coastal-gm-kadunce", "provider": "usgs", "siteId": "04011000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
+      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
+      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
+      "seasonMonths": [6,7,8,9],
+      "seasonNotes": "Cold-water sea-kayaking season only. Check LSZ141 and observed conditions immediately before launch and throughout the trip.",
+      "difficulty": "hard",
+      "difficultyNotes": "The route is straightforward only in settled conditions. Nearly ten miles of cold open water, surf landings, fog, offshore wind, private shoreline, and limited facilities require equipped sea kayakers with practiced rescues.",
+      "confidenceNotes": "DNR Map 5 supplies the official mileage, access sequence, coordinates, camping, and parking limits. Live score confidence is intentionally low because Paddle Today does not ingest the NWS nearshore wave forecast."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Use a seaworthy kayak with flotation, spray skirt, immersion protection, signaling and navigation gear, and practiced rescues.", "Do not launch in unsafe surf, dense fog, thunderstorms, offshore wind, or a Small Craft Advisory.", "Land only at DNR-mapped public sites; County Road 67 has limited space and Kadunce Wayside limits parking to six hours."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Official distance", "value": "Water trail miles 125.0 to 134.8", "note": "DNR Map 5 lists Grand Marais, five intermediate rest/camping points, and Kadunce Wayside in order with coordinates.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" },
+      { "label": "Marine forecast", "value": "NWS Duluth LSZ141", "note": "The nearshore forecast, not the historical river record, controls the launch decision.", "sourceUrl": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH" }
+    ],
+    "sourceLinks": [
+      { "label": "Minnesota DNR Lake Superior Map 5", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Lake Superior Water Trail", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/index.html", "provider": "mn_dnr" },
+      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
+      { "label": "USGS historical Brule station", "url": "https://waterdata.usgs.gov/monitoring-location/04011000/", "provider": "usgs" }
+    ]
+  },
+  {
+    "id": "lake-superior-kadunce-judge-magney",
+    "slug": "lake-superior-kadunce-judge-magney",
+    "name": "Lake Superior",
+    "reach": "Kadunce River Wayside to Judge C. R. Magney / Brule River",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "recreational",
+    "summary": "Official 5.6-mile Lake Superior Water Trail leg from Kadunce River Wayside past Lake Walk South, Mule-Kicker Beach, and Little Brule River to the Judge C. R. Magney State Park shore at the Brule River.",
+    "statusText": "Sea-kayaking route with no live marine score. Check NWS LSZ141 and actual wind, waves, fog, water temperature, and landing conditions. Brule river telemetry does not describe Lake Superior safety.",
+    "latitude": 47.7934667,
+    "longitude": -90.1546333,
+    "gaugeSource": { "id": "usgs-04011000-historical-coastal-kadunce-brule", "provider": "usgs", "siteId": "04011000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
+      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
+      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
+      "seasonMonths": [6,7,8,9],
+      "seasonNotes": "Cold-water sea-kayaking season only; shore access does not make unsafe wind or wave conditions acceptable.",
+      "difficulty": "hard",
+      "difficultyNotes": "The shorter mileage still includes exposed cold water, cobble landings, fog, surf, and stretches where immediate shore access may be impractical.",
+      "confidenceNotes": "DNR Map 5 directly documents the route, coordinates, campsites, and Magney landing. Live-condition confidence remains low until the product can ingest NWS marine data."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Carry full sea-kayaking safety, immersion, signaling, and navigation equipment.", "Mule-Kicker and Lake Walk South are primitive landings without facilities; confirm they remain usable before relying on them.", "At the Brule mouth, use the DNR-mapped shore and trail. Do not enter the river or approach waterfalls as part of this coastal card."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Official distance", "value": "Water trail miles 134.8 to 140.4", "note": "DNR Map 5 identifies every intermediate landing and the Magney trail connection.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" },
+      { "label": "State-park landing", "value": "Brule River shore at mile 140.4", "note": "The park trail and facilities are about one-quarter mile upstream from the DNR-mapped coastal landing.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" }
+    ],
+    "sourceLinks": [
+      { "label": "Minnesota DNR Lake Superior Map 5", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Lake Superior Water Trail", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/index.html", "provider": "mn_dnr" },
+      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
+      { "label": "Minnesota DNR Judge C. R. Magney State Park", "url": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00193", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "lake-superior-judge-magney-hovland",
+    "slug": "lake-superior-judge-magney-hovland",
+    "name": "Lake Superior",
+    "reach": "Judge C. R. Magney / Brule River to Hovland",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "recreational",
+    "summary": "Official 4.5-mile Lake Superior Water Trail leg from the Brule River shore at Judge C. R. Magney State Park past Alden's Beach to the public Hovland carry-in.",
+    "statusText": "Sea-kayaking route with no live marine score. Use NWS LSZ141 and observed waves, fog, water temperature, storms, and landing conditions; neither historical nor live Brule river flow makes this coastal trip safe.",
+    "latitude": 47.81555,
+    "longitude": -90.05115,
+    "gaugeSource": { "id": "usgs-04011000-historical-coastal-brule-hovland", "provider": "usgs", "siteId": "04011000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
+      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
+      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
+      "seasonMonths": [6,7,8,9],
+      "seasonNotes": "Short mileage does not reduce cold-water or rapidly changing weather consequences.",
+      "difficulty": "hard",
+      "difficultyNotes": "Alden's Beach is enclosed by rock cliffs and may be difficult in surf; the route still requires marine judgment, rescue skills, and a conservative turnaround plan.",
+      "confidenceNotes": "DNR Map 5 documents both endpoints, Alden's Beach, mileage, coordinates, and facilities. The app still lacks live marine-wave ingestion."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Check both the Brule shore and Hovland carry-in before staging the shuttle.", "Do not count on Alden's Beach when surf makes its cliff-backed cobble landing unsafe.", "The Horseshoe Bay campsite farther east is currently closed and is not part of this route's camping plan."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Official distance", "value": "Water trail miles 140.4 to 144.9", "note": "DNR Map 5 places Alden's Beach between the Brule and public Hovland carry-in.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" },
+      { "label": "Current trail alert", "value": "Horseshoe Bay campsite closed", "note": "The closure is east of this finish but prevents treating a continuation as supported overnight camping.", "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/index.html" }
+    ],
+    "sourceLinks": [
+      { "label": "Minnesota DNR Lake Superior Map 5", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Lake Superior Water Trail alerts", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/index.html", "provider": "mn_dnr" },
+      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
+      { "label": "Minnesota DNR Judge C. R. Magney State Park", "url": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00193", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "kadunce-river-sht-highway-61",
+    "slug": "kadunce-river-sht-highway-61",
+    "name": "Kadunce River",
+    "reach": "Superior Hiking Trail footbridge to Highway 61",
+    "state": "Minnesota",
+    "region": "Grand Marais Area",
+    "routeType": "whitewater",
+    "summary": "Expert-only micro-creek descent through a narrow, twisting North Shore canyon from the Superior Hiking Trail footbridge to the Highway 61 wayside.",
+    "statusText": "Expert-only and ungauged. The Brule station is only a regional runoff cue, never a Kadunce runnable signal. Walk the canyon, confirm every exit and wood obstruction, and keep the route off-limits when flow is high or visibility is incomplete.",
+    "latitude": 47.8060989,
+    "longitude": -90.155899,
+    "gaugeSource": { "id": "mn-dnr-01022001-kadunce-regional", "provider": "mn_dnr", "siteId": "01022001", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland, MN 61 (regional runoff trigger only)", "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01022001&var1=262&width=700&height=320" },
+    "profile": {
+      "thresholdModel": "minimum-only", "idealMin": 500, "tooLow": 350,
+      "thresholdSource": { "label": "Derived regional runoff trigger from the AW Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      "thresholdSourceStrength": "derived", "rainfallSensitivity": "high", "windSensitivity": 1, "rainSensitivity": 3, "tempSensitivity": 3,
+      "seasonMonths": [4,5,6,9,10],
+      "seasonNotes": "The 10.7-square-mile creek responds quickly to snowmelt and rain. Regional telemetry can only prompt an on-site inspection.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class IV-V with roughly 325 feet per mile. The bobsled-like canyon has blind turns, few scouting or safety positions, high-speed impact potential, and changing wood.",
+      "confidenceNotes": "American Whitewater provides exact endpoints, mapped geometry, drainage, gradient, and hazard character; DNR independently maps the Highway 61 wayside. Flow confidence is low because no direct live gauge or numeric Kadunce runnable band exists."
+    },
+    "safetyProfile": { "riskLevel": "advanced", "hazards": ["whitewater","strainers","fast_rise","cold_water","remote","access_uncertain"], "safetyNotes": ["Only expert creek boaters with rescue and canyon-extraction skills should consider this run.", "Walk the corridor without boats first, then inspect again for wood and flow. Much of the twisting canyon cannot be adequately scouted or protected from the rim.", "Avoid high water. American Whitewater specifically warns that excess flow increases consequences in the narrow channel."], "reviewStatus": "reviewed" },
+    "evidenceNotes": [
+      { "label": "Reach inventory", "value": "About 0.9 mi; Class IV-V; 325 fpm", "note": "American Whitewater's reach metadata lists 0.9 mile and maps endpoints about 0.8 mile apart, although its feature list labels the finish 0.5 mile from the start.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2530/main" },
+      { "label": "Official finish", "value": "Kadunce River Wayside", "note": "DNR Map 5 confirms the Highway 61 wayside and its six-hour parking limit.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater Kadunce River", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2530/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Lake Superior Map 5", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf", "provider": "mn_dnr" },
+      { "label": "American Whitewater Brule flow reference", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/948/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR regional Brule gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01022001", "provider": "mn_dnr" }
     ]
   }
 ];
