@@ -976,7 +976,15 @@ const routeOrder = [
   "cedar-river-interstate-bennett",
   "cedar-river-bennett-highway-9",
   "cedar-river-highway-9-osage-spring",
-  "cedar-river-osage-spring-road-t38"
+  "cedar-river-osage-spring-road-t38",
+  "devil-track-river-lake-maple-hill",
+  "devil-track-river-maple-hill-lake-superior",
+  "cascade-river-grade-cascade-road",
+  "lake-superior-cascade-grand-marais",
+  "lake-superior-grand-marais-kadunce",
+  "lake-superior-kadunce-judge-magney",
+  "lake-superior-judge-magney-hovland",
+  "kadunce-river-sht-highway-61"
 ];
 
 export const rivers: River[] = routeOrder.map((slug) => {

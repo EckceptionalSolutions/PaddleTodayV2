@@ -28,9 +28,9 @@ interface CanonicalFeature {
     riverId: string;
     name: string;
     state: string;
-    source: 'USGS NHD Flowline';
-    traceMode: 'network-traced' | 'named-fallback';
-    endpointSnapMaxFeet: number | null;
+    source: string;
+    traceMode?: 'network-traced' | 'named-fallback';
+    endpointSnapMaxFeet?: number | null;
   };
   geometry: {
     type: 'MultiLineString';
@@ -49,6 +49,40 @@ const outputPath = reviewMode
   : path.join(root, 'public', 'data', 'canonical-river-geometries.json');
 const stateOutputDir = path.join(geometryOutputRoot, 'states');
 const routeOutputDir = path.join(geometryOutputRoot, 'routes');
+
+async function loadCuratedRouteGeometries(routes: River[]) {
+  if (reviewMode) return [];
+
+  const currentRouteIds = new Set(routes.map((route) => route.id));
+  const features: CanonicalFeature[] = [];
+  let fileNames: string[] = [];
+  try {
+    fileNames = await readdir(routeOutputDir);
+  } catch {
+    return features;
+  }
+
+  for (const fileName of fileNames.filter((name) => name.endsWith('.json'))) {
+    try {
+      const feature = JSON.parse(
+        await readFile(path.join(routeOutputDir, fileName), 'utf8'),
+      ) as CanonicalFeature;
+      const routeId = feature.properties?.routeId;
+      if (
+        feature.type === 'Feature'
+        && currentRouteIds.has(routeId)
+        && feature.properties.source !== 'USGS NHD Flowline'
+        && feature.geometry?.type === 'MultiLineString'
+        && feature.geometry.coordinates.length > 0
+      ) {
+        features.push(feature);
+      }
+    } catch {
+      // Invalid generated artifacts are discarded by the normal rewrite below.
+    }
+  }
+  return features;
+}
 
 function stateSlug(value: string) {
   return value
@@ -297,6 +331,7 @@ async function main() {
   const routes = reviewMode ? listAllRiversForAudit() : listRivers();
   const sourceFingerprint = routeDataFingerprint(routes);
   const features: CanonicalFeature[] = [];
+  const curatedFeatures = await loadCuratedRouteGeometries(routes);
   let matchedRoutes = 0;
   let nextRouteIndex = 0;
 
@@ -371,6 +406,11 @@ async function main() {
   }
 
   await Promise.all(Array.from({ length: 6 }, () => processNextRoute()));
+  const curatedRouteIds = new Set(curatedFeatures.map((feature) => feature.properties.routeId));
+  for (let index = features.length - 1; index >= 0; index -= 1) {
+    if (curatedRouteIds.has(features[index].properties.routeId)) features.splice(index, 1);
+  }
+  features.push(...curatedFeatures);
   features.sort((left, right) => left.properties.routeId.localeCompare(right.properties.routeId));
   const matchedRouteIds = new Set(features.map((feature) => feature.properties.routeId));
   const unmatchedRouteIds = routes.map((route) => route.id).filter((routeId) => !matchedRouteIds.has(routeId));
@@ -379,6 +419,7 @@ async function main() {
     matchedRouteCount: features.length,
     networkTracedRouteCount: features.filter((feature) => feature.properties.traceMode === 'network-traced').length,
     namedFallbackRouteCount: features.filter((feature) => feature.properties.traceMode === 'named-fallback').length,
+    curatedRouteCount: features.filter((feature) => feature.properties.source !== 'USGS NHD Flowline').length,
     unmatchedRouteIds,
     routeDataFingerprint: sourceFingerprint,
   };

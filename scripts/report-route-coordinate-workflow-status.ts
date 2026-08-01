@@ -10,7 +10,7 @@ type AuthoritativeReport = { generatedAt: string; itemCount: number; providers: 
 type RegistryReport = { generatedAt: string; summary: Record<string, number> };
 type HistoryReport = { updatedAt: string; batchCount: number; totalCorrectionCount: number };
 type ValidationReport = { generatedAt: string; correctionCount: number; passedCount: number; failedCount: number };
-type GeometryManifest = { routeCount: number; matchedRouteCount: number; networkTracedRouteCount: number; namedFallbackRouteCount: number; unmatchedRouteIds: string[] };
+type GeometryManifest = { routeCount: number; matchedRouteCount: number; networkTracedRouteCount: number; namedFallbackRouteCount: number; curatedRouteCount?: number; unmatchedRouteIds: string[] };
 
 const root = process.cwd();
 async function readJson<T>(relativePath: string) {
@@ -70,6 +70,7 @@ async function main() {
       matchedRouteCount: geometry.matchedRouteCount,
       networkTracedRouteCount: geometry.networkTracedRouteCount,
       namedFallbackRouteCount: geometry.namedFallbackRouteCount,
+      curatedRouteCount: geometry.curatedRouteCount ?? 0,
       unmatchedRouteCount: geometry.unmatchedRouteIds.length,
     },
     automation: {

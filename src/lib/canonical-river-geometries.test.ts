@@ -46,6 +46,7 @@ describe('canonical river geometry asset', () => {
       matchedRouteCount?: number;
       networkTracedRouteCount?: number;
       namedFallbackRouteCount?: number;
+      curatedRouteCount?: number;
       unmatchedRouteIds?: string[];
       routeDataFingerprint?: string;
     };
@@ -56,7 +57,11 @@ describe('canonical river geometry asset', () => {
     expect(asset.type).toBe('CanonicalGeometryManifest');
     expect(asset.routeCount).toBe(listRivers().length);
     expect(asset.matchedRouteCount).toBe((asset.routeCount ?? 0) - (asset.unmatchedRouteIds?.length ?? 0));
-    expect((asset.networkTracedRouteCount ?? 0) + (asset.namedFallbackRouteCount ?? 0)).toBe(asset.matchedRouteCount);
+    expect(
+      (asset.networkTracedRouteCount ?? 0)
+      + (asset.namedFallbackRouteCount ?? 0)
+      + (asset.curatedRouteCount ?? 0),
+    ).toBe(asset.matchedRouteCount);
     expect(asset.networkTracedRouteCount).toBeGreaterThan(100);
     expect(asset.routeDataFingerprint).toMatch(/^[a-f0-9]{64}$/);
     expect(minnesota.scope).toBe('state');

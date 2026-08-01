@@ -1,38 +1,38 @@
 {
-  "generatedAt": "2026-08-01T18:41:56.717Z",
+  "generatedAt": "2026-08-01T21:12:34.008Z",
   "audit": {
-    "generatedAt": "2026-08-01T18:39:30.870Z",
-    "routeCount": 931,
-    "endpointCount": 2173,
+    "generatedAt": "2026-08-01T21:07:00.243Z",
+    "routeCount": 945,
+    "endpointCount": 2233,
     "bySeverity": {
-      "ok": 925,
-      "review": 1069,
+      "ok": 961,
+      "review": 1093,
       "suspicious": 138,
-      "failure": 38,
-      "unknown": 3
+      "failure": 37,
+      "unknown": 4
     }
   },
   "triage": {
-    "reviewItemCount": 38,
-    "unresolvedRouteCount": 34,
-    "withheldRouteCount": 34,
-    "publicRouteCount": 897,
+    "reviewItemCount": 37,
+    "unresolvedRouteCount": 33,
+    "withheldRouteCount": 33,
+    "publicRouteCount": 912,
     "holdCoveragePasses": true,
     "missingFromHold": [],
     "staleHolds": []
   },
   "evidence": {
     "osm": {
-      "generatedAt": "2026-08-01T18:38:45.577Z",
-      "itemCount": 38,
-      "queriedItemCount": 38,
+      "generatedAt": "2026-08-01T21:06:16.292Z",
+      "itemCount": 37,
+      "queriedItemCount": 37,
       "remainingItemCount": 0,
       "complete": true,
       "failedBatchCount": 0
     },
     "authoritative": {
-      "generatedAt": "2026-08-01T18:41:51.843Z",
-      "endpointCount": 8725,
+      "generatedAt": "2026-08-01T21:06:18.101Z",
+      "endpointCount": 9265,
       "providers": [
         {
           "id": "mn_dnr",
@@ -43,7 +43,7 @@
           "coordinateRole": "authoritative-access-anchor",
           "inventoryFetchedAt": "2026-07-31T18:10:00.581Z",
           "inventoryFeatureCount": 2993,
-          "matchedEndpointCount": 567
+          "matchedEndpointCount": 614
         },
         {
           "id": "ia_dnr",
@@ -496,29 +496,30 @@
     }
   },
   "canonicalRegistry": {
-    "generatedAt": "2026-08-01T18:41:53.171Z",
-    "entryCount": 1339,
-    "repeatedEntryCount": 467,
+    "generatedAt": "2026-08-01T21:07:01.335Z",
+    "entryCount": 1392,
+    "repeatedEntryCount": 473,
     "conflictCount": 0,
     "distinctLocationNameCount": 3,
-    "derivedWaterEntryCount": 827,
-    "authoritativeAccessCount": 344,
+    "derivedWaterEntryCount": 863,
+    "authoritativeAccessCount": 343,
     "authoritativeWaterEntryCount": 20,
     "areaAnchorOnlyCount": 1,
     "authoritativeAccessMismatchCount": 0
   },
   "routeGeometry": {
-    "routeCount": 897,
-    "matchedRouteCount": 894,
-    "networkTracedRouteCount": 189,
-    "namedFallbackRouteCount": 705,
+    "routeCount": 912,
+    "matchedRouteCount": 909,
+    "networkTracedRouteCount": 190,
+    "namedFallbackRouteCount": 715,
+    "curatedRouteCount": 4,
     "unmatchedRouteCount": 3
   },
   "automation": {
     "historyUpdatedAt": "2026-08-01T17:12:48.675Z",
     "batchCount": 32,
     "correctionCount": 111,
-    "validationGeneratedAt": "2026-08-01T18:39:53.502Z",
+    "validationGeneratedAt": "2026-08-01T21:07:18.750Z",
     "validatedCount": 111,
     "passedCount": 111,
     "failedCount": 0,

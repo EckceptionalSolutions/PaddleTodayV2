@@ -12034,5 +12034,181 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       { "id": "pigeon-high-falls-portage", "name": "High Falls mandatory portage", "latitude": 48.00490188598633, "longitude": -89.59819793701172, "mileFromStart": 7.45, "segmentKind": "transition", "note": "Class VI, roughly 120-foot waterfall. Mandatory portage; inspect the exit and carry before launch." },
       { "id": "pigeon-highway-61", "name": "Highway 61 border-crossing corridor take-out", "latitude": 48.0015983581543, "longitude": -89.5867004394531, "mileFromStart": 8.3, "segmentKind": "creek", "note": "American Whitewater-mapped finish near customs; obtain access and shuttle confirmation before use." }
     ]
+  },
+  "devil-track-river-lake-maple-hill": {
+    "putIn": { "name": "Devil Track Lake outlet / County Road 8 bridge", "latitude": 47.8161, "longitude": -90.3568 },
+    "takeOut": { "name": "Maple Hill / County Road 60 bridge", "latitude": 47.8055, "longitude": -90.3038 },
+    "logistics": {
+      "distanceLabel": "About 3.1 mi",
+      "estimatedPaddleTime": "About 2 hr to 4 hr depending on flow, wood, scouting, and portages",
+      "shuttle": "Inspect and mark the County Road 60 exit first, then return to the County Road 8 outlet bridge. Keep vehicles clear of travel lanes and obtain permission anywhere parking is not plainly public.",
+      "permits": "No route-specific paddling permit is known. Follow Cook County road rules, Minnesota boating requirements, and any posted Superior National Forest restrictions.",
+      "camping": "No on-route campsite is verified. Use a separately confirmed campground or lodging base and do not camp at either road crossing.",
+      "campingClassification": "none",
+      "summary": "Run the upper Devil Track from the lake outlet through continuous Class II water to the last practical exit before the lower Class IV-V canyon.",
+      "accessCaveats": ["Both endpoints are undeveloped road crossings rather than developed launches.", "The finish must be unmistakably identified from land; drifting below it materially changes the route and consequences.", "No live Devil Track gauge exists, so verify actual flow, wood, and bank access before unloading."],
+      "watchFor": ["Swift opening current, pond-to-gradient transitions, and repeated Class II wave trains.", "Strainers and short eddies that may require immediate shore exit or portage.", "The County Road 60 bridge and mandatory take-out before the lower canyon."]
+    },
+    "accessPoints": [
+      { "id": "devil-track-county-8", "name": "Devil Track Lake outlet / County Road 8 bridge", "latitude": 47.8161, "longitude": -90.3568, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped start below Devil Track Lake; verify parking and bank access." },
+      { "id": "devil-track-gunflint-crossing", "name": "Gunflint Trail / County Road 12 crossing", "latitude": 47.8068085, "longitude": -90.3062668, "mileFromStart": 3.06, "segmentKind": "creek", "note": "Progress marker shortly before the final Maple Hill exit." },
+      { "id": "devil-track-maple-hill", "name": "Maple Hill / County Road 60 bridge", "latitude": 47.8055, "longitude": -90.3038, "mileFromStart": 3.1, "segmentKind": "transition", "note": "Mandatory finish for the upper card and start of the separate expert lower route." }
+    ],
+    "corridorId": "mn-devil-track-upper-lower", "corridorLabel": "Devil Track upper-to-lower corridor", "continuityStatus": "verified"
+  },
+  "devil-track-river-maple-hill-lake-superior": {
+    "putIn": { "name": "Maple Hill / County Road 60 bridge", "latitude": 47.8053, "longitude": -90.3038 },
+    "takeOut": { "name": "Lake Superior east-beach landing", "latitude": 47.7674, "longitude": -90.2655 },
+    "logistics": {
+      "distanceLabel": "About 4.5 river mi plus about 0.5 mi on Lake Superior",
+      "estimatedPaddleTime": "Full expert day; timing depends on scouting, carries, rope work, and the coastal finish",
+      "shuttle": "Pre-walk the County Road 60 start, Pitchfork Falls escape and carry, and the east-beach landing. Stage the coastal vehicle only where public parking is verified, then confirm the NWS nearshore forecast immediately before launch.",
+      "permits": "No route-specific permit is known, but access crosses a mix of road, trail, and shoreline corridors. Follow posted land-manager rules and Minnesota boating requirements.",
+      "camping": "No legal on-route camping is verified. This is a self-contained expert day expedition.",
+      "campingClassification": "none",
+      "summary": "Commit to the lower Devil Track canyon only with expert local knowledge, pre-planned mandatory carries, and a safe Lake Superior exit window.",
+      "accessCaveats": ["County Road 60 and the mapped beach are not developed river launches; confirm legal parking and carries.", "Near-vertical canyon walls can eliminate ordinary scouting or portage options after commitment.", "The beach finish requires a Lake Superior paddle and may be unusable in surf or offshore wind."],
+      "watchFor": ["Triple Drop and The Admiral, Serpent's Slide, Boulder Falls, Ski Jump, and Up Against the Wall.", "The early exit for Pitchfork Falls; AW warns that waiting longer makes the carry substantially harder and may require rope skills.", "Cold water, rising flow, fresh wood, cliff-backed channels, fog, surf, and fatigue before the coastal finish."]
+    },
+    "accessPoints": [
+      { "id": "devil-track-maple-hill", "name": "Maple Hill / County Road 60 bridge", "latitude": 47.8053, "longitude": -90.3038, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped start; inspect legal parking and entry." },
+      { "id": "devil-track-triple-drop", "name": "Triple Drop / The Admiral", "latitude": 47.7890015, "longitude": -90.3050003, "mileFromStart": 1.42, "segmentKind": "transition", "note": "American Whitewater-mapped location; scout the entire series and portage the final pitch unless the expert team has a verified line." },
+      { "id": "devil-track-mouth", "name": "Devil Track River mouth", "latitude": 47.7688866, "longitude": -90.2610321, "mileFromStart": 5.14, "segmentKind": "lake", "note": "American Whitewater-mapped mouth; turn east only if Lake Superior conditions and the beach landing remain safe." },
+      { "id": "devil-track-east-beach", "name": "Lake Superior east-beach landing", "latitude": 47.7674, "longitude": -90.2655, "mileFromStart": 5, "segmentKind": "lake", "note": "American Whitewater-mapped finish after roughly one-half mile of coastal paddling; verify public use and surf before launch." }
+    ],
+    "corridorId": "mn-devil-track-upper-lower", "corridorLabel": "Devil Track upper-to-lower corridor", "continuityStatus": "verified"
+  },
+  "cascade-river-grade-cascade-road": {
+    "putIn": { "name": "The Grade / Forest Road 153 Cascade River crossing", "latitude": 47.862, "longitude": -90.5578 },
+    "takeOut": { "name": "Cascade River Road / Forest Road 157 crossing", "latitude": 47.79, "longitude": -90.5266 },
+    "logistics": {
+      "distanceLabel": "About 6.4 mi",
+      "estimatedPaddleTime": "About 4 hr to 7 hr depending on the early drop, ponded sections, wood, and scouting",
+      "shuttle": "Stage Forest Road 157 first, then inspect Forest Road 153 and the first major drop corridor. Confirm Forest Service road, fire, parking, and closure conditions before leaving either vehicle.",
+      "permits": "No route-specific paddling permit is known. Superior National Forest road, parking, fire, and closure rules apply.",
+      "camping": "Cascade River Rustic Campground is near the midpoint, but do not assume the bank is a legal launch or bailout. Confirm current campground status and use designated sites only.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Paddle the lightly documented upper Cascade from The Grade to Forest Road 157 only after inspecting its large early drop and confirming a regional runoff window locally.",
+      "accessCaveats": ["Both endpoints are forest-road crossings, not developed launches.", "The route inventory has no published trip reports and labels some feature ratings conjectural.", "The campground vicinity is a possible intermediate exit only after access is confirmed with the land manager."],
+      "watchFor": ["Flatwater and pond transitions followed by a dog-legged 20-foot drop within the first mile.", "Fresh wood, beaver activity, cold water, isolated rapids, and difficult shore access.", "The Forest Road 157 exit; do not continue toward the much steeper lower Cascade without separate expert plans."]
+    },
+    "accessPoints": [
+      { "id": "cascade-grade-153", "name": "The Grade / Forest Road 153 Cascade River crossing", "latitude": 47.862, "longitude": -90.5578, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped forest-road start; verify road and bank conditions." },
+      { "id": "cascade-first-gradient", "name": "First downstream gradient", "latitude": 47.8572998, "longitude": -90.5474014, "mileFromStart": 0.66, "segmentKind": "transition", "note": "American Whitewater-mapped 20-foot dog-legged slide; scout from land and portage when uncertain." },
+      { "id": "cascade-rustic-campground", "name": "Cascade River Rustic Campground vicinity", "latitude": 47.8321037, "longitude": -90.5299988, "mileFromStart": 3.12, "segmentKind": "creek", "note": "American Whitewater-mapped potential midpoint exit; confirm legal bank access before relying on it." },
+      { "id": "cascade-road-157", "name": "Cascade River Road / Forest Road 157 crossing", "latitude": 47.79, "longitude": -90.5266, "mileFromStart": 6.4, "segmentKind": "creek", "note": "American Whitewater-mapped finish beside historical USGS station 04011990." }
+    ]
+  },
+  "lake-superior-cascade-grand-marais": {
+    "putIn": { "name": "Cascade River State Park beach access", "latitude": 47.7066667, "longitude": -90.52375 },
+    "takeOut": { "name": "Grand Marais Harbor public access", "latitude": 47.74675, "longitude": -90.3336667 },
+    "logistics": {
+      "distanceLabel": "About 9.6 mi on Lake Superior",
+      "estimatedPaddleTime": "About 4 hr to 7 hr in calm water; substantially longer with landings or deteriorating conditions",
+      "shuttle": "Stage the protected Grand Marais harbor finish, then launch from the DNR-mapped beach west of the Cascade River mouth. Check NWS zone LSZ141, observed surf, fog, and every planned bailout before leaving the harbor vehicle.",
+      "permits": "No route-specific paddling permit is known. A state-park vehicle permit may be required for park parking. Follow DNR Water Trail, SNA, campsite, harbor, and Minnesota watercraft rules.",
+      "camping": "Cascade River kayak campsite #1 is reservable; Fall River kayak campsite is also mapped. Camping is allowed only in designated sites under current reservation and use rules.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Follow the official Lake Superior Water Trail northeast from Cascade River State Park to protected Grand Marais Harbor, with mapped rest and emergency landing options along the shore.",
+      "accessCaveats": ["Cascade River beach has no overnight parking or facilities; state-park parking lies inland across Highway 61.", "Butterwort Cliffs SNA is a no-landing area and several other shoreline parcels are private.", "The app does not ingest the NWS marine wave forecast, so its score cannot authorize launch."],
+      "watchFor": ["Cold-water immersion, rapidly building waves, fog, thunderstorms, reflected surf, and offshore winds.", "The difficult landing at kayak campsite #1 and the no-landing Butterwort Cliffs SNA shoreline.", "Cut Face Creek at mile 4.6, Fall River campsite at mile 7.1, and the protected Grand Marais harbor entrance at the finish."]
+    },
+    "accessPoints": [
+      { "id": "lake-superior-cascade-beach", "name": "Cascade River State Park beach access", "latitude": 47.7066667, "longitude": -90.52375, "mileFromStart": 0, "segmentKind": "lake", "note": "DNR Water Trail mile 115.4; beach west of the river mouth, with no overnight parking." },
+      { "id": "lake-superior-cascade-campsite", "name": "Cascade River kayak campsite #1", "latitude": 47.7130833, "longitude": -90.49325, "mileFromStart": 1.6, "segmentKind": "lake", "note": "Reservable DNR backpack/kayak campsite; landing may be difficult." },
+      { "id": "lake-superior-butterwort", "name": "Butterwort Cliffs SNA", "latitude": 47.71625, "longitude": -90.4850833, "mileFromStart": 2.4, "segmentKind": "lake", "note": "No landing; protect rare plants and give nesting gulls space." },
+      { "id": "lake-superior-cut-face", "name": "Cut Face Creek Wayside access", "latitude": 47.7303333, "longitude": -90.4396667, "mileFromStart": 4.6, "segmentKind": "lake", "note": "DNR-mapped rest area and access with toilets; no overnight parking." },
+      { "id": "lake-superior-fall-river", "name": "Fall River kayak campsite", "latitude": 47.7409167, "longitude": -90.38825, "mileFromStart": 7.1, "segmentKind": "lake", "note": "DNR-mapped rest area and campsite near the waterfall." },
+      { "id": "lake-superior-grand-marais", "name": "Grand Marais Harbor public access", "latitude": 47.74675, "longitude": -90.3336667, "mileFromStart": 9.6, "segmentKind": "lake", "note": "Protected public harbor with ramps, docks, parking, restrooms, and nearby services." }
+    ],
+    "corridorId": "mn-lake-superior-cascade-hovland", "corridorLabel": "Lake Superior Cascade-to-Hovland water-trail corridor", "continuityStatus": "verified"
+  },
+  "lake-superior-grand-marais-kadunce": {
+    "putIn": { "name": "Grand Marais Harbor public access", "latitude": 47.74675, "longitude": -90.3336667 },
+    "takeOut": { "name": "Kadunce River Wayside", "latitude": 47.7934667, "longitude": -90.1546333 },
+    "logistics": {
+      "distanceLabel": "About 9.8 mi on Lake Superior",
+      "estimatedPaddleTime": "About 4 hr to 7 hr in calm water; longer with landings or deteriorating conditions",
+      "shuttle": "Stage the Kadunce Wayside finish within its six-hour parking limit, then launch from Grand Marais Harbor. Check NWS LSZ141 and every intended landing before leaving the finish vehicle.",
+      "permits": "No route-specific permit is known. Follow harbor, DNR Water Trail, campsite, parking, and Minnesota watercraft rules.",
+      "camping": "County Road 67 is a DNR-mapped primitive campsite around mile 6.0. Camp only in the designated site and confirm current availability before relying on it.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Follow the official water trail northeast from protected Grand Marais Harbor to the Kadunce River Wayside, using only mapped public stops.",
+      "accessCaveats": ["Kadunce Wayside allows only six hours of parking and has no facilities.", "County Road 67 has limited space between Highway 61 and the lake.", "Several mapped stops are rest areas rather than dependable surf landings; inspect them before launch."],
+      "watchFor": ["Cold water, rapidly building waves, fog, thunderstorms, and offshore wind.", "Private shoreline between mapped public stops.", "Anderson's Rest, County Road 67, Knapp's Shore, Olson Shore, DOT Land, and the Kadunce Wayside finish."]
+    },
+    "accessPoints": [
+      { "id": "lake-superior-grand-marais", "name": "Grand Marais Harbor public access", "latitude": 47.74675, "longitude": -90.3336667, "mileFromStart": 0, "segmentKind": "lake", "note": "Protected public harbor with ramps, docks, parking, restrooms, and nearby services." },
+      { "id": "lake-superior-anderson-rest", "name": "Anderson's Rest", "latitude": 47.7717833, "longitude": -90.2540667, "mileFromStart": 4.5, "segmentKind": "lake", "note": "DNR-mapped rest area with no facilities." },
+      { "id": "lake-superior-county-67", "name": "County Road 67 primitive campsite", "latitude": 47.7768667, "longitude": -90.2220333, "mileFromStart": 6, "segmentKind": "lake", "note": "Limited shoreline space; primitive camping and no facilities." },
+      { "id": "lake-superior-knapps-shore", "name": "Knapp's Shore", "latitude": 47.7773167, "longitude": -90.2153167, "mileFromStart": 6.3, "segmentKind": "lake", "note": "DNR-mapped rest area with no facilities." },
+      { "id": "lake-superior-olson-shore", "name": "Olson Shore", "latitude": 47.77655, "longitude": -90.2087333, "mileFromStart": 6.6, "segmentKind": "lake", "note": "DNR-mapped rest area with no facilities." },
+      { "id": "lake-superior-dot-land", "name": "DOT Land rest area", "latitude": 47.7877667, "longitude": -90.1753167, "mileFromStart": 8.7, "segmentKind": "lake", "note": "DNR-mapped rest area with no facilities." },
+      { "id": "lake-superior-kadunce-wayside", "name": "Kadunce River Wayside", "latitude": 47.7934667, "longitude": -90.1546333, "mileFromStart": 9.8, "segmentKind": "lake", "note": "Highway 61 wayside and SHT access; six-hour parking limit and no facilities." }
+    ],
+    "corridorId": "mn-lake-superior-cascade-hovland", "corridorLabel": "Lake Superior Cascade-to-Hovland water-trail corridor", "continuityStatus": "verified"
+  },
+  "lake-superior-kadunce-judge-magney": {
+    "putIn": { "name": "Kadunce River Wayside", "latitude": 47.7934667, "longitude": -90.1546333 },
+    "takeOut": { "name": "Judge C. R. Magney / Brule River shore", "latitude": 47.81555, "longitude": -90.05115 },
+    "logistics": {
+      "distanceLabel": "About 5.6 mi on Lake Superior",
+      "estimatedPaddleTime": "About 2.5 hr to 5 hr in calm water",
+      "shuttle": "Stage at Judge C. R. Magney State Park and confirm the shore-to-trail carry, then launch from Kadunce within its six-hour parking window. Check LSZ141 immediately before launch.",
+      "permits": "No route-specific paddling permit is known. A state-park vehicle permit may be required at Magney. Follow campsite and Minnesota watercraft rules.",
+      "camping": "Lake Walk South and Mule-Kicker Beach are DNR-mapped primitive campsites. Confirm current availability and camp only in designated sites.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Link Kadunce Wayside to the Brule River shore using the official DNR landings and primitive campsites.",
+      "accessCaveats": ["Kadunce has a six-hour parking limit.", "Lake Walk South and Mule-Kicker have no facilities.", "The Magney park facilities are roughly one-quarter mile inland; inspect the boat carry before launch."],
+      "watchFor": ["Surf at primitive cobble landings, fog, cold water, and offshore wind.", "Lake Walk South, Mule-Kicker Beach, Little Brule River, and the Brule mouth.", "River current and debris at tributary mouths after rain; remain on the coastal route."]
+    },
+    "accessPoints": [
+      { "id": "lake-superior-kadunce-wayside", "name": "Kadunce River Wayside", "latitude": 47.7934667, "longitude": -90.1546333, "mileFromStart": 0, "segmentKind": "lake", "note": "DNR-mapped rest and SHT access; six-hour parking limit." },
+      { "id": "lake-superior-lake-walk-south", "name": "Lake Walk South", "latitude": 47.7956833, "longitude": -90.1242, "mileFromStart": 1.4, "segmentKind": "lake", "note": "Primitive campsite and rest area with no facilities." },
+      { "id": "lake-superior-mule-kicker", "name": "Mule-Kicker Beach", "latitude": 47.7961333, "longitude": -90.1162, "mileFromStart": 2.4, "segmentKind": "lake", "note": "Primitive campsite and rest area with no facilities." },
+      { "id": "lake-superior-little-brule", "name": "Little Brule River rest area", "latitude": 47.80685, "longitude": -90.07735, "mileFromStart": 4.2, "segmentKind": "lake", "note": "Public recreational-use land with no facilities or services." },
+      { "id": "lake-superior-brule-mouth", "name": "Judge C. R. Magney / Brule River shore", "latitude": 47.81555, "longitude": -90.05115, "mileFromStart": 5.6, "segmentKind": "lake", "note": "DNR-mapped shore; park trail and facilities are about one-quarter mile upstream." }
+    ],
+    "corridorId": "mn-lake-superior-cascade-hovland", "corridorLabel": "Lake Superior Cascade-to-Hovland water-trail corridor", "continuityStatus": "verified"
+  },
+  "lake-superior-judge-magney-hovland": {
+    "putIn": { "name": "Judge C. R. Magney / Brule River shore", "latitude": 47.81555, "longitude": -90.05115 },
+    "takeOut": { "name": "Hovland carry-in access", "latitude": 47.8389167, "longitude": -89.9699333 },
+    "logistics": {
+      "distanceLabel": "About 4.5 mi on Lake Superior",
+      "estimatedPaddleTime": "About 2 hr to 4 hr in calm water",
+      "shuttle": "Stage at the public Hovland carry-in, then return to Magney and inspect the shore carry. Check LSZ141, surf at Alden's Beach, and both endpoints before launch.",
+      "permits": "No route-specific paddling permit is known. A state-park vehicle permit may be required at Magney; follow DNR and Minnesota watercraft rules.",
+      "camping": "Judge C. R. Magney State Park is a nearby endpoint campground. No dependable on-route campsite is mapped between the Brule and Hovland.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Paddle the official short coastal leg from the Brule River shore to Hovland with Alden's Beach as the only mapped intermediate rest area.",
+      "accessCaveats": ["The Magney parking-to-shore carry is roughly one-quarter mile.", "Alden's Beach is enclosed by rock cliffs and may be unusable in surf.", "Hovland has parking but no facilities."],
+      "watchFor": ["Cold water, fog, sudden waves, and offshore wind.", "Cliff-backed cobble landing conditions at Alden's Beach.", "The Hovland cement-pier and carry-in corridor at the finish."]
+    },
+    "accessPoints": [
+      { "id": "lake-superior-brule-mouth", "name": "Judge C. R. Magney / Brule River shore", "latitude": 47.81555, "longitude": -90.05115, "mileFromStart": 0, "segmentKind": "lake", "note": "DNR-mapped shore with a trail to state-park facilities." },
+      { "id": "lake-superior-aldens-beach", "name": "Alden's Beach", "latitude": 47.8196833, "longitude": -90.0223667, "mileFromStart": 1.4, "segmentKind": "lake", "note": "Cobble-sand rest beach between rock cliffs; no facilities." },
+      { "id": "lake-superior-hovland", "name": "Hovland carry-in access", "latitude": 47.8389167, "longitude": -89.9699333, "mileFromStart": 4.5, "segmentKind": "lake", "note": "Public carry-in, rest area, parking, and cement pier; no facilities." }
+    ],
+    "corridorId": "mn-lake-superior-cascade-hovland", "corridorLabel": "Lake Superior Cascade-to-Hovland water-trail corridor", "continuityStatus": "verified"
+  },
+  "kadunce-river-sht-highway-61": {
+    "putIn": { "name": "Superior Hiking Trail footbridge", "latitude": 47.8060989, "longitude": -90.155899 },
+    "takeOut": { "name": "Highway 61 / Kadunce River Wayside", "latitude": 47.7939987, "longitude": -90.1551971 },
+    "logistics": {
+      "distanceLabel": "About 0.9 river mi plus a 0.6-0.8 mi carry-in",
+      "estimatedPaddleTime": "Several hours including two full inspections, carry-in, scouting, and extraction planning",
+      "shuttle": "Park legally at Kadunce Wayside within the six-hour limit. Walk the SHT to the footbridge without boats to inspect flow, wood, exits, and the takeout; return for equipment only if the entire plan remains safe.",
+      "permits": "No route-specific paddling permit is known. Follow wayside parking limits, SHT rules, Minnesota boating requirements, and any posted closure.",
+      "camping": "No camping is part of this route. Use a separately confirmed campground or lodging base.",
+      "campingClassification": "none",
+      "summary": "Treat Kadunce as an expert canyon mission requiring a complete pre-walk, short creek boat, and conservative flow and wood judgment.",
+      "accessCaveats": ["The put-in is reached on foot; there is no developed upstream launch or parking lot at the bridge.", "Much of the canyon cannot be fully seen or protected from the rim.", "The Highway 61 wayside has a six-hour parking limit and is also a public rest area."],
+      "watchFor": ["Blind twisting slides, high-speed rock impacts, shallow landings, and few recovery pools.", "Wood that may be hidden until commitment and rapidly rising rain-event flow.", "The Highway 61 exit; do not continue into the Lake Superior mouth without a separate marine plan."]
+    },
+    "accessPoints": [
+      { "id": "kadunce-sht-footbridge", "name": "Superior Hiking Trail footbridge", "latitude": 47.8060989, "longitude": -90.155899, "mileFromStart": 0, "segmentKind": "creek", "note": "American Whitewater-mapped carry-in start above the narrow canyon." },
+      { "id": "kadunce-highway-61", "name": "Highway 61 / Kadunce River Wayside", "latitude": 47.7939987, "longitude": -90.1551971, "mileFromStart": 0.9, "segmentKind": "transition", "note": "American Whitewater-mapped exit adjacent to the DNR wayside; finish before the coastal mouth." }
+    ]
   }
 };

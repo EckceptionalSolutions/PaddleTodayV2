@@ -79,6 +79,63 @@ const upperPigeonRiverMinnesotaPhoto: RouteGalleryPhoto = {
   caption: 'Pigeon River landmark farther downstream from the upper reach',
 };
 
+const devilTrackLakeMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'devil-track-lake-superior-national-forest-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/N192Z%20-%20U.S.%20Forest%20Service%20Seaplane%2C%20Superior%20National%20Forest.jpg?width=1600',
+  alt: 'A forested shoreline and floatplane on Devil Track Lake near Grand Marais, Minnesota.',
+  caption: 'Devil Track Lake at the head of the upper river route',
+  credit: 'Tony Webster via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 2.0',
+};
+
+const lowerDevilTrackMinnesotaPhoto: RouteGalleryPhoto = {
+  ...devilTrackLakeMinnesotaPhoto,
+  id: 'devil-track-lake-upstream-context-commons',
+  caption: 'Devil Track Lake upstream from the lower canyon',
+};
+
+const cascadeRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'cascade-river-state-park-cascades-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cascade%20River%20State%20Park%20Cascades.jpg?width=1600',
+  alt: 'The Cascade River tumbles over dark bedrock through forest in Cascade River State Park.',
+  caption: 'Cascade River character farther downstream in Cascade River State Park',
+  credit: 'James B. Bleeker via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+};
+
+const grandMaraisHarborMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'grand-marais-harbor-usfs-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/20180228-FS-LSC-0122%20%2827385869767%29.jpg?width=1600',
+  alt: 'Grand Marais harbor and the wooded point extend into Lake Superior.',
+  caption: 'Grand Marais harbor at the route finish',
+  credit: 'Lance Cheung / USDA Forest Service via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
+const grandMaraisDepartureMinnesotaPhoto: RouteGalleryPhoto = {
+  ...grandMaraisHarborMinnesotaPhoto,
+  id: 'grand-marais-harbor-route-start-usfs-commons',
+  caption: 'Grand Marais harbor at the route start',
+};
+
+const northShoreCoastalMinnesotaPhoto: RouteGalleryPhoto = {
+  ...bigSuckerCreekMinnesotaPhoto,
+  id: 'north-shore-lake-superior-coastal-context-nara',
+  caption: 'Minnesota North Shore sea-kayaking context',
+};
+
+const bruleCoastalStartMinnesotaPhoto: RouteGalleryPhoto = {
+  ...bruleRiverMinnesotaPhoto,
+  id: 'brule-river-magney-coastal-start-commons',
+  caption: 'Brule River landmark at the Judge C. R. Magney route start',
+};
+
+const kadunceRegionalMinnesotaPhoto: RouteGalleryPhoto = {
+  ...bruleRiverMinnesotaPhoto,
+  id: 'kadunce-regional-north-shore-river-context-commons',
+  caption: 'Regional North Shore river character at Judge C. R. Magney State Park, east of Kadunce',
+};
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
   'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
@@ -88,6 +145,14 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'big-sucker-creek-county-33-lake-superior': [bigSuckerCreekMinnesotaPhoto],
   'pigeon-river-old-highway-61-highway-61': [pigeonRiverMinnesotaPhoto],
   'pigeon-river-partridge-falls-old-highway-61': [upperPigeonRiverMinnesotaPhoto],
+  'devil-track-river-lake-maple-hill': [devilTrackLakeMinnesotaPhoto],
+  'devil-track-river-maple-hill-lake-superior': [lowerDevilTrackMinnesotaPhoto],
+  'cascade-river-grade-cascade-road': [cascadeRiverMinnesotaPhoto],
+  'lake-superior-cascade-grand-marais': [grandMaraisHarborMinnesotaPhoto],
+  'lake-superior-grand-marais-kadunce': [grandMaraisDepartureMinnesotaPhoto],
+  'lake-superior-kadunce-judge-magney': [northShoreCoastalMinnesotaPhoto],
+  'lake-superior-judge-magney-hovland': [bruleCoastalStartMinnesotaPhoto],
+  'kadunce-river-sht-highway-61': [kadunceRegionalMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {
       id: 'west-washington-street-bridge-muncie-commons',

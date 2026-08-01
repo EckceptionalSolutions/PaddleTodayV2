@@ -348,7 +348,7 @@ describe('generated route coordinate review dashboard', () => {
   });
 
   it('releases Lincoln Drive at the official concrete ramp while keeping facility and water-entry coordinates distinct', () => {
-    const routeId = 'red-river-lincoln-drive-lafave';
+    const routeId = 'red-river-lincoln-drive-downtown';
     const endpointName = 'Lincoln Drive Park Landing';
     const audited = audit.endpoints.find((endpoint) =>
       endpoint.routeId === routeId && endpoint.endpointName === endpointName);

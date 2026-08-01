@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-01T18:39:57.198Z",
-  "suggestionsGeneratedAt": "2026-08-01T18:39:30.870Z",
+  "generatedAt": "2026-08-01T21:07:21.491Z",
+  "suggestionsGeneratedAt": "2026-08-01T21:07:00.243Z",
   "source": "Fresh candidate-centered USGS National Hydrography Dataset queries with route-cache fallback",
-  "itemCount": 38,
-  "candidateCount": 8,
+  "itemCount": 37,
+  "candidateCount": 4,
   "items": [
     {
       "routeId": "big-fork-river-highway-1-highway-6-south",
@@ -97,121 +97,6 @@
             "longitude": -89.54404374461915
           },
           "onNhdWaterbody": false
-        }
-      ]
-    },
-    {
-      "routeId": "red-river-north-dam-mb-johnson",
-      "endpoint": "putIn",
-      "endpointName": "North Dam carry-in access / re-entry",
-      "candidates": [
-        {
-          "candidateId": "mapped:https://www.openstreetmap.org/node/7932886886",
-          "sourceType": "mapped-access",
-          "name": null,
-          "intendedWaterbody": "Red River of the North",
-          "latitude": 46.890519,
-          "longitude": -96.7716451,
-          "directQueryVerified": true,
-          "directQueryError": null,
-          "flowlineEvidenceSource": "candidate-query",
-          "waterbodyEvidenceSource": "candidate-query",
-          "nearestIntendedFlowlineFeet": 86.33683982987522,
-          "nearestIntendedFlowlineName": "Red River of the North",
-          "nearestIntendedFlowlineCoordinate": {
-            "latitude": 46.89074811904153,
-            "longitude": -96.77173181132173
-          },
-          "candidateToRouteFlowlineFeet": 86.33683982987522,
-          "routeToIntendedFlowlineJunctionFeet": 0,
-          "nearestWaterbodyFeet": 32.40145724529454,
-          "nearestWaterbodyName": null,
-          "nearestWaterbodyCoordinate": {
-            "latitude": 46.89060653765406,
-            "longitude": -96.77166706807988
-          },
-          "onNhdWaterbody": false
-        },
-        {
-          "candidateId": "mapped:https://www.openstreetmap.org/node/635601073",
-          "sourceType": "mapped-access",
-          "name": null,
-          "intendedWaterbody": "Red River of the North",
-          "latitude": 46.8912021,
-          "longitude": -96.7708255,
-          "directQueryVerified": true,
-          "directQueryError": null,
-          "flowlineEvidenceSource": "candidate-query",
-          "waterbodyEvidenceSource": "candidate-query",
-          "nearestIntendedFlowlineFeet": 92.74091506379037,
-          "nearestIntendedFlowlineName": "Red River of the North",
-          "nearestIntendedFlowlineCoordinate": {
-            "latitude": 46.890969229728256,
-            "longitude": -96.77067630578742
-          },
-          "candidateToRouteFlowlineFeet": 92.74091506379037,
-          "routeToIntendedFlowlineJunctionFeet": 0,
-          "nearestWaterbodyFeet": 29.716375004511228,
-          "nearestWaterbodyName": null,
-          "nearestWaterbodyCoordinate": {
-            "latitude": 46.891127269207786,
-            "longitude": -96.77077841515779
-          },
-          "onNhdWaterbody": false
-        },
-        {
-          "candidateId": "mapped:https://www.openstreetmap.org/way/942696254",
-          "sourceType": "mapped-access",
-          "name": null,
-          "intendedWaterbody": "Red River of the North",
-          "latitude": 46.8909091,
-          "longitude": -96.770235,
-          "directQueryVerified": true,
-          "directQueryError": null,
-          "flowlineEvidenceSource": "candidate-query",
-          "waterbodyEvidenceSource": "candidate-query",
-          "nearestIntendedFlowlineFeet": 64.68738935226384,
-          "nearestIntendedFlowlineName": "Red River of the North",
-          "nearestIntendedFlowlineCoordinate": {
-            "latitude": 46.891060823202075,
-            "longitude": -96.77036927747649
-          },
-          "candidateToRouteFlowlineFeet": 64.68738935226384,
-          "routeToIntendedFlowlineJunctionFeet": 0,
-          "nearestWaterbodyFeet": 0,
-          "nearestWaterbodyName": null,
-          "nearestWaterbodyCoordinate": {
-            "latitude": 46.8909091,
-            "longitude": -96.770235
-          },
-          "onNhdWaterbody": true
-        },
-        {
-          "candidateId": "mapped:https://www.openstreetmap.org/node/635593701",
-          "sourceType": "mapped-access",
-          "name": null,
-          "intendedWaterbody": "Red River of the North",
-          "latitude": 46.8912867,
-          "longitude": -96.7697402,
-          "directQueryVerified": true,
-          "directQueryError": null,
-          "flowlineEvidenceSource": "candidate-query",
-          "waterbodyEvidenceSource": "candidate-query",
-          "nearestIntendedFlowlineFeet": 40.223613071562795,
-          "nearestIntendedFlowlineName": "Red River of the North",
-          "nearestIntendedFlowlineCoordinate": {
-            "latitude": 46.89135872059777,
-            "longitude": -96.76986236315157
-          },
-          "candidateToRouteFlowlineFeet": 40.223613071562795,
-          "routeToIntendedFlowlineJunctionFeet": 0,
-          "nearestWaterbodyFeet": 0,
-          "nearestWaterbodyName": null,
-          "nearestWaterbodyCoordinate": {
-            "latitude": 46.8912867,
-            "longitude": -96.7697402
-          },
-          "onNhdWaterbody": true
         }
       ]
     },

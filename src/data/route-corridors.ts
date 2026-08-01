@@ -71,6 +71,23 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     slugs: ['vermilion-river-dam-twomile', 'vermilion-river-shively-eightmile', 'vermilion-river-twomile-eightmile'],
   },
   {
+    corridorId: 'mn-devil-track-upper-lower',
+    label: 'Devil Track upper-to-lower corridor',
+    continuityStatus: 'verified',
+    slugs: ['devil-track-river-lake-maple-hill', 'devil-track-river-maple-hill-lake-superior'],
+  },
+  {
+    corridorId: 'mn-lake-superior-cascade-hovland',
+    label: 'Lake Superior Cascade-to-Hovland water-trail corridor',
+    continuityStatus: 'verified',
+    slugs: [
+      'lake-superior-cascade-grand-marais',
+      'lake-superior-grand-marais-kadunce',
+      'lake-superior-kadunce-judge-magney',
+      'lake-superior-judge-magney-hovland',
+    ],
+  },
+  {
     corridorId: 'wi-chippewa-upper',
     label: 'Upper Chippewa County D-to-Highway 8 corridor',
     continuityStatus: 'verified',

@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-08-01T18:41:53.171Z",
-  "auditGeneratedAt": "2026-08-01T18:39:30.870Z",
+  "generatedAt": "2026-08-01T21:07:01.335Z",
+  "auditGeneratedAt": "2026-08-01T21:07:00.243Z",
   "summary": {
-    "entryCount": 1339,
-    "repeatedEntryCount": 467,
+    "entryCount": 1392,
+    "repeatedEntryCount": 473,
     "conflictCount": 0,
     "distinctLocationNameCount": 3,
-    "derivedWaterEntryCount": 827,
-    "authoritativeAccessCount": 344,
+    "derivedWaterEntryCount": 863,
+    "authoritativeAccessCount": 343,
     "authoritativeWaterEntryCount": 20,
     "areaAnchorOnlyCount": 1,
     "authoritativeAccessMismatchCount": 0
@@ -40276,6 +40276,72 @@
       ]
     },
     {
+      "id": "minnesota--alden-s-beach",
+      "state": "Minnesota",
+      "name": "Alden's Beach",
+      "aliases": [
+        "Alden's Beach"
+      ],
+      "sourceIds": [
+        "lake-superior-aldens-beach"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8196833,
+        "longitude": -90.0223667
+      },
+      "accessCoordinate": {
+        "latitude": 47.8196833,
+        "longitude": -90.0223667
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.81968,-90.02237",
+          "coordinate": {
+            "latitude": 47.8196833,
+            "longitude": -90.0223667
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-judge-magney-hovland"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-judge-magney-hovland",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-aldens-beach",
+          "name": "Alden's Beach",
+          "latitude": 47.8196833,
+          "longitude": -90.0223667,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--anderson-s-crossing-6-carry-in-access",
       "state": "Minnesota",
       "name": "Anderson's Crossing #6 carry-in access",
@@ -40398,6 +40464,72 @@
           "longitude": -94.88188569131617,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 166.4662751714128,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--anderson-s-rest",
+      "state": "Minnesota",
+      "name": "Anderson's Rest",
+      "aliases": [
+        "Anderson's Rest"
+      ],
+      "sourceIds": [
+        "lake-superior-anderson-rest"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7717833,
+        "longitude": -90.2540667
+      },
+      "accessCoordinate": {
+        "latitude": 47.7717833,
+        "longitude": -90.2540667
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.77178,-90.25407",
+          "coordinate": {
+            "latitude": 47.7717833,
+            "longitude": -90.2540667
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-grand-marais-kadunce"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-anderson-rest",
+          "name": "Anderson's Rest",
+          "latitude": 47.7717833,
+          "longitude": -90.2540667,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -40656,6 +40788,75 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 84.97735930144735,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--arrow-river-confluence",
+      "state": "Minnesota",
+      "name": "Arrow River confluence",
+      "aliases": [
+        "Arrow River confluence"
+      ],
+      "sourceIds": [
+        "pigeon-arrow-confluence"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 48.020599365234375,
+        "longitude": -89.72419738769531
+      },
+      "accessCoordinate": {
+        "latitude": 48.020599365234375,
+        "longitude": -89.72419738769531
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 48.020599365234375,
+        "longitude": -89.72419738769531
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "48.02060,-89.72420",
+          "coordinate": {
+            "latitude": 48.020599365234375,
+            "longitude": -89.72419738769531
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "pigeon-river-partridge-falls-old-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-partridge-falls-old-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-arrow-confluence",
+          "name": "Arrow River confluence",
+          "latitude": 48.020599365234375,
+          "longitude": -89.72419738769531,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 16.11601595059256,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -41336,6 +41537,89 @@
           "longitude": -93.804955,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 295.1985354486333,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--big-fork-river-big-fork-lime-street-public-water-access-site",
+      "state": "Minnesota",
+      "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+      "aliases": [
+        "Big Fork River, Big Fork / Lime Street Public Water Access Site"
+      ],
+      "sourceIds": [
+        "big-fork-lime-street"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.74557120608051,
+        "longitude": -93.65559724133418
+      },
+      "accessCoordinate": {
+        "latitude": 47.74557120608051,
+        "longitude": -93.65559724133418
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.74557120608051,
+        "longitude": -93.65559724133418
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.74557,-93.65560",
+          "coordinate": {
+            "latitude": 47.74557120608051,
+            "longitude": -93.65559724133418
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "big-fork-river-dora-lake-big-fork"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-fork-river-dora-lake-big-fork",
+          "routeName": "Big Fork River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "big-fork-lime-street",
+          "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+          "latitude": 47.74557120608051,
+          "longitude": -93.65559724133418,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 74.5340189174849,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "big-fork-river-dora-lake-big-fork",
+          "routeName": "Big Fork River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": "big-fork-lime-street",
+          "name": "Big Fork River, Big Fork / Lime Street Public Water Access Site",
+          "latitude": 47.74557120608051,
+          "longitude": -93.65559724133418,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 74.5340189174849,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -42139,6 +42423,72 @@
       ]
     },
     {
+      "id": "minnesota--butterwort-cliffs-sna",
+      "state": "Minnesota",
+      "name": "Butterwort Cliffs SNA",
+      "aliases": [
+        "Butterwort Cliffs SNA"
+      ],
+      "sourceIds": [
+        "lake-superior-butterwort"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.71625,
+        "longitude": -90.4850833
+      },
+      "accessCoordinate": {
+        "latitude": 47.71625,
+        "longitude": -90.4850833
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.71625,-90.48508",
+          "coordinate": {
+            "latitude": 47.71625,
+            "longitude": -90.4850833
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-cascade-grand-marais"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-cascade-grand-marais",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-butterwort",
+          "name": "Butterwort Cliffs SNA",
+          "latitude": 47.71625,
+          "longitude": -90.4850833,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--cambridge-west-park-carry-in-access",
       "state": "Minnesota",
       "name": "Cambridge West Park carry-in access",
@@ -42829,6 +43179,75 @@
       ]
     },
     {
+      "id": "minnesota--canyon-falls-corridor",
+      "state": "Minnesota",
+      "name": "Canyon Falls corridor",
+      "aliases": [
+        "Canyon Falls corridor"
+      ],
+      "sourceIds": [
+        "brule-canyon-falls"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.86888596,
+        "longitude": -90.0611945
+      },
+      "accessCoordinate": {
+        "latitude": 47.86888596,
+        "longitude": -90.0611945
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.86888596,
+        "longitude": -90.0611945
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.86889,-90.06119",
+          "coordinate": {
+            "latitude": 47.86888596,
+            "longitude": -90.0611945
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "brule-river-sauna-bath-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brule-river-sauna-bath-highway-61",
+          "routeName": "Brule River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "brule-canyon-falls",
+          "name": "Canyon Falls corridor",
+          "latitude": 47.86888596,
+          "longitude": -90.0611945,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 12.449592607974337,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--carver-riverfront-park-minnesota-river-public-water-access",
       "state": "Minnesota",
       "name": "Carver Riverfront Park / Minnesota River public water access",
@@ -42905,6 +43324,304 @@
           "longitude": -93.616717,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 246.19018724150547,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--cascade-river-kayak-campsite-1",
+      "state": "Minnesota",
+      "name": "Cascade River kayak campsite #1",
+      "aliases": [
+        "Cascade River kayak campsite #1"
+      ],
+      "sourceIds": [
+        "lake-superior-cascade-campsite"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7130833,
+        "longitude": -90.49325
+      },
+      "accessCoordinate": {
+        "latitude": 47.7130833,
+        "longitude": -90.49325
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.71308,-90.49325",
+          "coordinate": {
+            "latitude": 47.7130833,
+            "longitude": -90.49325
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-cascade-grand-marais"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-cascade-grand-marais",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-cascade-campsite",
+          "name": "Cascade River kayak campsite #1",
+          "latitude": 47.7130833,
+          "longitude": -90.49325,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--cascade-river-road-forest-road-157-crossing",
+      "state": "Minnesota",
+      "name": "Cascade River Road / Forest Road 157 crossing",
+      "aliases": [
+        "Cascade River Road / Forest Road 157 crossing"
+      ],
+      "sourceIds": [
+        "cascade-road-157"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.79,
+        "longitude": -90.5266
+      },
+      "accessCoordinate": {
+        "latitude": 47.79,
+        "longitude": -90.5266
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.79,
+        "longitude": -90.5266
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.79000,-90.52660",
+          "coordinate": {
+            "latitude": 47.79,
+            "longitude": -90.5266
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "cascade-river-grade-cascade-road"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "cascade-river-grade-cascade-road",
+          "routeName": "Cascade River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "cascade-road-157",
+          "name": "Cascade River Road / Forest Road 157 crossing",
+          "latitude": 47.79,
+          "longitude": -90.5266,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 45.662137197584855,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "cascade-river-grade-cascade-road",
+          "routeName": "Cascade River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Cascade River Road / Forest Road 157 crossing",
+          "latitude": 47.79,
+          "longitude": -90.5266,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 45.662137197584855,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--cascade-river-rustic-campground-vicinity",
+      "state": "Minnesota",
+      "name": "Cascade River Rustic Campground vicinity",
+      "aliases": [
+        "Cascade River Rustic Campground vicinity"
+      ],
+      "sourceIds": [
+        "cascade-rustic-campground"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8321037,
+        "longitude": -90.5299988
+      },
+      "accessCoordinate": {
+        "latitude": 47.8321037,
+        "longitude": -90.5299988
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.8321037,
+        "longitude": -90.5299988
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.83210,-90.53000",
+          "coordinate": {
+            "latitude": 47.8321037,
+            "longitude": -90.5299988
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "cascade-river-grade-cascade-road"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "cascade-river-grade-cascade-road",
+          "routeName": "Cascade River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "cascade-rustic-campground",
+          "name": "Cascade River Rustic Campground vicinity",
+          "latitude": 47.8321037,
+          "longitude": -90.5299988,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 88.47974139938569,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--cascade-river-state-park-beach-access",
+      "state": "Minnesota",
+      "name": "Cascade River State Park beach access",
+      "aliases": [
+        "Cascade River State Park beach access"
+      ],
+      "sourceIds": [
+        "lake-superior-cascade-beach"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7066667,
+        "longitude": -90.52375
+      },
+      "accessCoordinate": {
+        "latitude": 47.7066667,
+        "longitude": -90.52375
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.70667,-90.52375",
+          "coordinate": {
+            "latitude": 47.7066667,
+            "longitude": -90.52375
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-cascade-grand-marais"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-cascade-grand-marais",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-cascade-beach",
+          "name": "Cascade River State Park beach access",
+          "latitude": 47.7066667,
+          "longitude": -90.52375,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-cascade-grand-marais",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Cascade River State Park beach access",
+          "latitude": 47.7066667,
+          "longitude": -90.52375,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -44928,6 +45645,89 @@
       ]
     },
     {
+      "id": "minnesota--county-road-33-big-sucker-creek-bridge",
+      "state": "Minnesota",
+      "name": "County Road 33 Big Sucker Creek bridge",
+      "aliases": [
+        "County Road 33 Big Sucker Creek bridge"
+      ],
+      "sourceIds": [
+        "big-sucker-county-33"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 46.9607,
+        "longitude": -91.9209
+      },
+      "accessCoordinate": {
+        "latitude": 46.9607,
+        "longitude": -91.9209
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 46.9607,
+        "longitude": -91.9209
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "46.96070,-91.92090",
+          "coordinate": {
+            "latitude": 46.9607,
+            "longitude": -91.9209
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "big-sucker-creek-county-33-lake-superior"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sucker-creek-county-33-lake-superior",
+          "routeName": "Big Sucker Creek",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "big-sucker-county-33",
+          "name": "County Road 33 Big Sucker Creek bridge",
+          "latitude": 46.9607,
+          "longitude": -91.9209,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 41.86002404400675,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "big-sucker-creek-county-33-lake-superior",
+          "routeName": "Big Sucker Creek",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "County Road 33 Big Sucker Creek bridge",
+          "latitude": 46.9607,
+          "longitude": -91.9209,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 41.86002404400675,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--county-road-4-bridge-carry-in",
       "state": "Minnesota",
       "name": "County Road 4 bridge carry-in",
@@ -45003,6 +45803,72 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": null,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--county-road-67-primitive-campsite",
+      "state": "Minnesota",
+      "name": "County Road 67 primitive campsite",
+      "aliases": [
+        "County Road 67 primitive campsite"
+      ],
+      "sourceIds": [
+        "lake-superior-county-67"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7768667,
+        "longitude": -90.2220333
+      },
+      "accessCoordinate": {
+        "latitude": 47.7768667,
+        "longitude": -90.2220333
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.77687,-90.22203",
+          "coordinate": {
+            "latitude": 47.7768667,
+            "longitude": -90.2220333
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-grand-marais-kadunce"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-county-67",
+          "name": "County Road 67 primitive campsite",
+          "latitude": 47.7768667,
+          "longitude": -90.2220333,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -45656,6 +46522,72 @@
       ]
     },
     {
+      "id": "minnesota--cut-face-creek-wayside-access",
+      "state": "Minnesota",
+      "name": "Cut Face Creek Wayside access",
+      "aliases": [
+        "Cut Face Creek Wayside access"
+      ],
+      "sourceIds": [
+        "lake-superior-cut-face"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7303333,
+        "longitude": -90.4396667
+      },
+      "accessCoordinate": {
+        "latitude": 47.7303333,
+        "longitude": -90.4396667
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.73033,-90.43967",
+          "coordinate": {
+            "latitude": 47.7303333,
+            "longitude": -90.4396667
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-cascade-grand-marais"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-cascade-grand-marais",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-cut-face",
+          "name": "Cut Face Creek Wayside access",
+          "latitude": 47.7303333,
+          "longitude": -90.4396667,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--dentaybow-public-water-access-site",
       "state": "Minnesota",
       "name": "Dentaybow Public Water Access Site",
@@ -46161,6 +47093,456 @@
       ]
     },
     {
+      "id": "minnesota--devil-track-lake-outlet-county-road-8-bridge",
+      "state": "Minnesota",
+      "name": "Devil Track Lake outlet / County Road 8 bridge",
+      "aliases": [
+        "Devil Track Lake outlet / County Road 8 bridge"
+      ],
+      "sourceIds": [
+        "devil-track-county-8"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8161,
+        "longitude": -90.3568
+      },
+      "accessCoordinate": {
+        "latitude": 47.8161,
+        "longitude": -90.3568
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.8161,
+        "longitude": -90.3568
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.81610,-90.35680",
+          "coordinate": {
+            "latitude": 47.8161,
+            "longitude": -90.3568
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "devil-track-river-lake-maple-hill"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "devil-track-river-lake-maple-hill",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "devil-track-county-8",
+          "name": "Devil Track Lake outlet / County Road 8 bridge",
+          "latitude": 47.8161,
+          "longitude": -90.3568,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 16.974636949630792,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "devil-track-river-lake-maple-hill",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Devil Track Lake outlet / County Road 8 bridge",
+          "latitude": 47.8161,
+          "longitude": -90.3568,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 16.974636949630792,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--devil-track-river-mouth",
+      "state": "Minnesota",
+      "name": "Devil Track River mouth",
+      "aliases": [
+        "Devil Track River mouth"
+      ],
+      "sourceIds": [
+        "devil-track-mouth"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7688866,
+        "longitude": -90.2610321
+      },
+      "accessCoordinate": {
+        "latitude": 47.7688866,
+        "longitude": -90.2610321
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.7688866,
+        "longitude": -90.2610321
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.76889,-90.26103",
+          "coordinate": {
+            "latitude": 47.7688866,
+            "longitude": -90.2610321
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "devil-track-river-maple-hill-lake-superior"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "devil-track-river-maple-hill-lake-superior",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "devil-track-mouth",
+          "name": "Devil Track River mouth",
+          "latitude": 47.7688866,
+          "longitude": -90.2610321,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 44.03193006953905,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--devil-s-kettle-mandatory-portage",
+      "state": "Minnesota",
+      "name": "Devil's Kettle mandatory portage",
+      "aliases": [
+        "Devil's Kettle mandatory portage"
+      ],
+      "sourceIds": [
+        "brule-devils-kettle"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8292768,
+        "longitude": -90.0494209
+      },
+      "accessCoordinate": {
+        "latitude": 47.8292768,
+        "longitude": -90.0494209
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.8292768,
+        "longitude": -90.0494209
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.82928,-90.04942",
+          "coordinate": {
+            "latitude": 47.8292768,
+            "longitude": -90.0494209
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "brule-river-sauna-bath-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brule-river-sauna-bath-highway-61",
+          "routeName": "Brule River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "brule-devils-kettle",
+          "name": "Devil's Kettle mandatory portage",
+          "latitude": 47.8292768,
+          "longitude": -90.0494209,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 57.599006965593745,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--dora-lake-big-fork-river-public-water-access-site",
+      "state": "Minnesota",
+      "name": "Dora Lake / Big Fork River Public Water Access Site",
+      "aliases": [
+        "Dora Lake / Big Fork River Public Water Access Site"
+      ],
+      "sourceIds": [
+        "big-fork-dora-lake"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.74037209963832,
+        "longitude": -94.05144670997052
+      },
+      "accessCoordinate": {
+        "latitude": 47.74037209963832,
+        "longitude": -94.05144670997052
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.74037,-94.05145",
+          "coordinate": {
+            "latitude": 47.74037209963832,
+            "longitude": -94.05144670997052
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "big-fork-river-dora-lake-big-fork"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-fork-river-dora-lake-big-fork",
+          "routeName": "Big Fork River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "big-fork-dora-lake",
+          "name": "Dora Lake / Big Fork River Public Water Access Site",
+          "latitude": 47.74037209963832,
+          "longitude": -94.05144670997052,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 414.3397766139022,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "big-fork-river-dora-lake-big-fork",
+          "routeName": "Big Fork River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": "big-fork-dora-lake",
+          "name": "Dora Lake / Big Fork River Public Water Access Site",
+          "latitude": 47.74037209963832,
+          "longitude": -94.05144670997052,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 414.3397766139022,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--dot-land-rest-area",
+      "state": "Minnesota",
+      "name": "DOT Land rest area",
+      "aliases": [
+        "DOT Land rest area"
+      ],
+      "sourceIds": [
+        "lake-superior-dot-land"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7877667,
+        "longitude": -90.1753167
+      },
+      "accessCoordinate": {
+        "latitude": 47.7877667,
+        "longitude": -90.1753167
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.78777,-90.17532",
+          "coordinate": {
+            "latitude": 47.7877667,
+            "longitude": -90.1753167
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-grand-marais-kadunce"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-dot-land",
+          "name": "DOT Land rest area",
+          "latitude": 47.7877667,
+          "longitude": -90.1753167,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--downtown-landing-boathouse-on-the-red",
+      "state": "Minnesota",
+      "name": "Downtown Landing / Boathouse on the Red",
+      "aliases": [
+        "Downtown Landing / Boathouse on the Red"
+      ],
+      "sourceIds": [
+        "red-river-downtown-landing"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.92754045822572,
+        "longitude": -97.03042373433044
+      },
+      "accessCoordinate": {
+        "latitude": 47.92754045822572,
+        "longitude": -97.03042373433044
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.92754045822572,
+        "longitude": -97.03042373433044
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.92754,-97.03042",
+          "coordinate": {
+            "latitude": 47.92754045822572,
+            "longitude": -97.03042373433044
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "red-river-lincoln-drive-downtown"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "red-river-lincoln-drive-downtown",
+          "routeName": "Red River of the North",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "red-river-downtown-landing",
+          "name": "Downtown Landing / Boathouse on the Red",
+          "latitude": 47.92754045822572,
+          "longitude": -97.03042373433044,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 93.79316964791306,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "red-river-lincoln-drive-downtown",
+          "routeName": "Red River of the North",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": "red-river-downtown-landing",
+          "name": "Downtown Landing / Boathouse on the Red",
+          "latitude": 47.92754045822572,
+          "longitude": -97.03042373433044,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 93.79316964791306,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--eagle-park-carry-in-access",
       "state": "Minnesota",
       "name": "Eagle Park carry-in access",
@@ -46403,6 +47785,141 @@
       ]
     },
     {
+      "id": "minnesota--energizer-bunny-main-steep-sequence",
+      "state": "Minnesota",
+      "name": "Energizer Bunny / main steep sequence",
+      "aliases": [
+        "Energizer Bunny / main steep sequence"
+      ],
+      "sourceIds": [
+        "big-sucker-energizer-bunny"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 46.936,
+        "longitude": -91.866
+      },
+      "accessCoordinate": {
+        "latitude": 46.936,
+        "longitude": -91.866
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 46.936,
+        "longitude": -91.866
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "46.93600,-91.86600",
+          "coordinate": {
+            "latitude": 46.936,
+            "longitude": -91.866
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "big-sucker-creek-county-33-lake-superior"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sucker-creek-county-33-lake-superior",
+          "routeName": "Big Sucker Creek",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "big-sucker-energizer-bunny",
+          "name": "Energizer Bunny / main steep sequence",
+          "latitude": 46.936,
+          "longitude": -91.866,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 79.55182745529574,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--fall-river-kayak-campsite",
+      "state": "Minnesota",
+      "name": "Fall River kayak campsite",
+      "aliases": [
+        "Fall River kayak campsite"
+      ],
+      "sourceIds": [
+        "lake-superior-fall-river"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7409167,
+        "longitude": -90.38825
+      },
+      "accessCoordinate": {
+        "latitude": 47.7409167,
+        "longitude": -90.38825
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.74092,-90.38825",
+          "coordinate": {
+            "latitude": 47.7409167,
+            "longitude": -90.38825
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-cascade-grand-marais"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-cascade-grand-marais",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-fall-river",
+          "name": "Fall River kayak campsite",
+          "latitude": 47.7409167,
+          "longitude": -90.38825,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--fiedler-public-water-access-site",
       "state": "Minnesota",
       "name": "Fiedler Public Water Access Site",
@@ -46511,6 +48028,75 @@
           "longitude": -93.4416055,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 65.82004798416628,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--first-downstream-gradient",
+      "state": "Minnesota",
+      "name": "First downstream gradient",
+      "aliases": [
+        "First downstream gradient"
+      ],
+      "sourceIds": [
+        "cascade-first-gradient"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8572998,
+        "longitude": -90.5474014
+      },
+      "accessCoordinate": {
+        "latitude": 47.8572998,
+        "longitude": -90.5474014
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.8572998,
+        "longitude": -90.5474014
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.85730,-90.54740",
+          "coordinate": {
+            "latitude": 47.8572998,
+            "longitude": -90.5474014
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "cascade-river-grade-cascade-road"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "cascade-river-grade-cascade-road",
+          "routeName": "Cascade River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "cascade-first-gradient",
+          "name": "First downstream gradient",
+          "latitude": 47.8572998,
+          "longitude": -90.5474014,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 31.637617243269535,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -47346,6 +48932,118 @@
       ]
     },
     {
+      "id": "minnesota--grand-marais-harbor-public-access",
+      "state": "Minnesota",
+      "name": "Grand Marais Harbor public access",
+      "aliases": [
+        "Grand Marais Harbor public access"
+      ],
+      "sourceIds": [
+        "lake-superior-grand-marais"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.74675,
+        "longitude": -90.3336667
+      },
+      "accessCoordinate": {
+        "latitude": 47.74675,
+        "longitude": -90.3336667
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.74675,
+        "longitude": -90.3336667
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "47.74675,-90.33367",
+          "coordinate": {
+            "latitude": 47.74675,
+            "longitude": -90.3336667
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "lake-superior-cascade-grand-marais",
+            "lake-superior-grand-marais-kadunce"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-cascade-grand-marais",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-grand-marais",
+          "name": "Grand Marais Harbor public access",
+          "latitude": 47.74675,
+          "longitude": -90.3336667,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-cascade-grand-marais",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Grand Marais Harbor public access",
+          "latitude": 47.74675,
+          "longitude": -90.3336667,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-grand-marais",
+          "name": "Grand Marais Harbor public access",
+          "latitude": 47.74675,
+          "longitude": -90.3336667,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Grand Marais Harbor public access",
+          "latitude": 47.74675,
+          "longitude": -90.3336667,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--gray-s-bay-headwaters",
       "state": "Minnesota",
       "name": "Gray's Bay headwaters",
@@ -47793,6 +49491,75 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 4.760639732561494,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--gunflint-trail-county-road-12-crossing",
+      "state": "Minnesota",
+      "name": "Gunflint Trail / County Road 12 crossing",
+      "aliases": [
+        "Gunflint Trail / County Road 12 crossing"
+      ],
+      "sourceIds": [
+        "devil-track-gunflint-crossing"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8068085,
+        "longitude": -90.3062668
+      },
+      "accessCoordinate": {
+        "latitude": 47.8068085,
+        "longitude": -90.3062668
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.8068085,
+        "longitude": -90.3062668
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.80681,-90.30627",
+          "coordinate": {
+            "latitude": 47.8068085,
+            "longitude": -90.3062668
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "devil-track-river-lake-maple-hill"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "devil-track-river-lake-maple-hill",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "devil-track-gunflint-crossing",
+          "name": "Gunflint Trail / County Road 12 crossing",
+          "latitude": 47.8068085,
+          "longitude": -90.3062668,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 11.388304726589075,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -48363,6 +50130,75 @@
       ]
     },
     {
+      "id": "minnesota--high-falls-mandatory-portage",
+      "state": "Minnesota",
+      "name": "High Falls mandatory portage",
+      "aliases": [
+        "High Falls mandatory portage"
+      ],
+      "sourceIds": [
+        "pigeon-high-falls-portage"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 48.00490188598633,
+        "longitude": -89.59819793701172
+      },
+      "accessCoordinate": {
+        "latitude": 48.00490188598633,
+        "longitude": -89.59819793701172
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 48.00490188598633,
+        "longitude": -89.59819793701172
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "48.00490,-89.59820",
+          "coordinate": {
+            "latitude": 48.00490188598633,
+            "longitude": -89.59819793701172
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "pigeon-river-old-highway-61-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-old-highway-61-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-high-falls-portage",
+          "name": "High Falls mandatory portage",
+          "latitude": 48.00490188598633,
+          "longitude": -89.59819793701172,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 33.25225961289079,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--highway-1-canoe-landing-dundas",
       "state": "Minnesota",
       "name": "Highway 1 Canoe Landing (Dundas)",
@@ -48792,6 +50628,169 @@
       ]
     },
     {
+      "id": "minnesota--highway-61-kadunce-river-wayside",
+      "state": "Minnesota",
+      "name": "Highway 61 / Kadunce River Wayside",
+      "aliases": [
+        "Highway 61 / Kadunce River Wayside"
+      ],
+      "sourceIds": [
+        "kadunce-highway-61"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7939987,
+        "longitude": -90.1551971
+      },
+      "accessCoordinate": {
+        "latitude": 47.7939987,
+        "longitude": -90.1551971
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.7939987,
+        "longitude": -90.1551971
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.79400,-90.15520",
+          "coordinate": {
+            "latitude": 47.7939987,
+            "longitude": -90.1551971
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "kadunce-river-sht-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "kadunce-river-sht-highway-61",
+          "routeName": "Kadunce River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "kadunce-highway-61",
+          "name": "Highway 61 / Kadunce River Wayside",
+          "latitude": 47.7939987,
+          "longitude": -90.1551971,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 41.103863722200224,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "kadunce-river-sht-highway-61",
+          "routeName": "Kadunce River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Highway 61 / Kadunce River Wayside",
+          "latitude": 47.7939987,
+          "longitude": -90.1551971,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 41.103863722200224,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--highway-61-border-crossing-corridor-take-out",
+      "state": "Minnesota",
+      "name": "Highway 61 border-crossing corridor take-out",
+      "aliases": [
+        "Highway 61 border-crossing corridor take-out"
+      ],
+      "sourceIds": [
+        "pigeon-highway-61"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 48.0015983581543,
+        "longitude": -89.5867004394531
+      },
+      "accessCoordinate": {
+        "latitude": 48.0015983581543,
+        "longitude": -89.5867004394531
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "48.00160,-89.58670",
+          "coordinate": {
+            "latitude": 48.0015983581543,
+            "longitude": -89.5867004394531
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "pigeon-river-old-highway-61-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-old-highway-61-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-highway-61",
+          "name": "Highway 61 border-crossing corridor take-out",
+          "latitude": 48.0015983581543,
+          "longitude": -89.5867004394531,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 100.33118420927438,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "pigeon-river-old-highway-61-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Highway 61 border-crossing corridor take-out",
+          "latitude": 48.0015983581543,
+          "longitude": -89.5867004394531,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 100.33118420927438,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--highway-61-drop-and-usgs-gauge-corridor",
       "state": "Minnesota",
       "name": "Highway 61 drop and USGS gauge corridor",
@@ -49040,6 +51039,75 @@
       ]
     },
     {
+      "id": "minnesota--horn-rapids",
+      "state": "Minnesota",
+      "name": "Horn Rapids",
+      "aliases": [
+        "Horn Rapids"
+      ],
+      "sourceIds": [
+        "pigeon-horn-rapids"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 48.00619888305664,
+        "longitude": -89.65470123291016
+      },
+      "accessCoordinate": {
+        "latitude": 48.00619888305664,
+        "longitude": -89.65470123291016
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 48.00619888305664,
+        "longitude": -89.65470123291016
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "48.00620,-89.65470",
+          "coordinate": {
+            "latitude": 48.00619888305664,
+            "longitude": -89.65470123291016
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "pigeon-river-old-highway-61-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-old-highway-61-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-horn-rapids",
+          "name": "Horn Rapids",
+          "latitude": 48.00619888305664,
+          "longitude": -89.65470123291016,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 10.302685587547744,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--horseshoe-lake-public-water-access-site",
       "state": "Minnesota",
       "name": "Horseshoe Lake Public Water Access Site",
@@ -49164,6 +51232,86 @@
           "longitude": -94.5226614261946,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 106.22266689584461,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--hovland-carry-in-access",
+      "state": "Minnesota",
+      "name": "Hovland carry-in access",
+      "aliases": [
+        "Hovland carry-in access"
+      ],
+      "sourceIds": [
+        "lake-superior-hovland"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8389167,
+        "longitude": -89.9699333
+      },
+      "accessCoordinate": {
+        "latitude": 47.8389167,
+        "longitude": -89.9699333
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.83892,-89.96993",
+          "coordinate": {
+            "latitude": 47.8389167,
+            "longitude": -89.9699333
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-judge-magney-hovland"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-judge-magney-hovland",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-hovland",
+          "name": "Hovland carry-in access",
+          "latitude": 47.8389167,
+          "longitude": -89.9699333,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-judge-magney-hovland",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Hovland carry-in access",
+          "latitude": 47.8389167,
+          "longitude": -89.9699333,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -49781,6 +51929,201 @@
       ]
     },
     {
+      "id": "minnesota--judge-c-r-magney-brule-river-shore",
+      "state": "Minnesota",
+      "name": "Judge C. R. Magney / Brule River shore",
+      "aliases": [
+        "Judge C. R. Magney / Brule River shore"
+      ],
+      "sourceIds": [
+        "lake-superior-brule-mouth"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.81555,
+        "longitude": -90.05115
+      },
+      "accessCoordinate": {
+        "latitude": 47.81555,
+        "longitude": -90.05115
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.81555,
+        "longitude": -90.05115
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "47.81555,-90.05115",
+          "coordinate": {
+            "latitude": 47.81555,
+            "longitude": -90.05115
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "lake-superior-judge-magney-hovland",
+            "lake-superior-kadunce-judge-magney"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-judge-magney-hovland",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-brule-mouth",
+          "name": "Judge C. R. Magney / Brule River shore",
+          "latitude": 47.81555,
+          "longitude": -90.05115,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-judge-magney-hovland",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Judge C. R. Magney / Brule River shore",
+          "latitude": 47.81555,
+          "longitude": -90.05115,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-kadunce-judge-magney",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-brule-mouth",
+          "name": "Judge C. R. Magney / Brule River shore",
+          "latitude": 47.81555,
+          "longitude": -90.05115,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-kadunce-judge-magney",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Judge C. R. Magney / Brule River shore",
+          "latitude": 47.81555,
+          "longitude": -90.05115,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--judge-c-r-magney-state-park-highway-61-brule-river-corridor",
+      "state": "Minnesota",
+      "name": "Judge C. R. Magney State Park / Highway 61 Brule River corridor",
+      "aliases": [
+        "Judge C. R. Magney State Park / Highway 61 Brule River corridor"
+      ],
+      "sourceIds": [
+        "brule-highway-61-magney"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.818,
+        "longitude": -90.0514
+      },
+      "accessCoordinate": {
+        "latitude": 47.818,
+        "longitude": -90.0514
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.818,
+        "longitude": -90.0514
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.81800,-90.05140",
+          "coordinate": {
+            "latitude": 47.818,
+            "longitude": -90.0514
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brule-river-sauna-bath-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brule-river-sauna-bath-highway-61",
+          "routeName": "Brule River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "brule-highway-61-magney",
+          "name": "Judge C. R. Magney State Park / Highway 61 Brule River corridor",
+          "latitude": 47.818,
+          "longitude": -90.0514,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 58.68764263643497,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brule-river-sauna-bath-highway-61",
+          "routeName": "Brule River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Judge C. R. Magney State Park / Highway 61 Brule River corridor",
+          "latitude": 47.818,
+          "longitude": -90.0514,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 58.68764263643497,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--judson-public-water-access",
       "state": "Minnesota",
       "name": "Judson public water access",
@@ -49839,6 +52182,118 @@
           "longitude": -94.1947673,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 154.36059439113205,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--kadunce-river-wayside",
+      "state": "Minnesota",
+      "name": "Kadunce River Wayside",
+      "aliases": [
+        "Kadunce River Wayside"
+      ],
+      "sourceIds": [
+        "lake-superior-kadunce-wayside"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7934667,
+        "longitude": -90.1546333
+      },
+      "accessCoordinate": {
+        "latitude": 47.7934667,
+        "longitude": -90.1546333
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.7934667,
+        "longitude": -90.1546333
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "47.79347,-90.15463",
+          "coordinate": {
+            "latitude": 47.7934667,
+            "longitude": -90.1546333
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "lake-superior-grand-marais-kadunce",
+            "lake-superior-kadunce-judge-magney"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-kadunce-wayside",
+          "name": "Kadunce River Wayside",
+          "latitude": 47.7934667,
+          "longitude": -90.1546333,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Kadunce River Wayside",
+          "latitude": 47.7934667,
+          "longitude": -90.1546333,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-kadunce-judge-magney",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-kadunce-wayside",
+          "name": "Kadunce River Wayside",
+          "latitude": 47.7934667,
+          "longitude": -90.1546333,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lake-superior-kadunce-judge-magney",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Kadunce River Wayside",
+          "latitude": 47.7934667,
+          "longitude": -90.1546333,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -50589,6 +53044,72 @@
           "longitude": -95.0547436,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 8.059613242626439,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--knapp-s-shore",
+      "state": "Minnesota",
+      "name": "Knapp's Shore",
+      "aliases": [
+        "Knapp's Shore"
+      ],
+      "sourceIds": [
+        "lake-superior-knapps-shore"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7773167,
+        "longitude": -90.2153167
+      },
+      "accessCoordinate": {
+        "latitude": 47.7773167,
+        "longitude": -90.2153167
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.77732,-90.21532",
+          "coordinate": {
+            "latitude": 47.7773167,
+            "longitude": -90.2153167
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-grand-marais-kadunce"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-knapps-shore",
+          "name": "Knapp's Shore",
+          "latitude": 47.7773167,
+          "longitude": -90.2153167,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -51862,6 +54383,232 @@
       ]
     },
     {
+      "id": "minnesota--lake-superior-east-beach-landing",
+      "state": "Minnesota",
+      "name": "Lake Superior east-beach landing",
+      "aliases": [
+        "Lake Superior east-beach landing"
+      ],
+      "sourceIds": [
+        "devil-track-east-beach"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7674,
+        "longitude": -90.2655
+      },
+      "accessCoordinate": {
+        "latitude": 47.7674,
+        "longitude": -90.2655
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.76740,-90.26550",
+          "coordinate": {
+            "latitude": 47.7674,
+            "longitude": -90.2655
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "devil-track-river-maple-hill-lake-superior"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "devil-track-river-maple-hill-lake-superior",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "devil-track-east-beach",
+          "name": "Lake Superior east-beach landing",
+          "latitude": 47.7674,
+          "longitude": -90.2655,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 1221.3642904130268,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "devil-track-river-maple-hill-lake-superior",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Lake Superior east-beach landing",
+          "latitude": 47.7674,
+          "longitude": -90.2655,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 1221.3642904130268,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--lake-superior-public-beach-landing",
+      "state": "Minnesota",
+      "name": "Lake Superior public beach / landing",
+      "aliases": [
+        "Lake Superior public beach / landing"
+      ],
+      "sourceIds": [
+        "big-sucker-public-beach"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 46.91741943359375,
+        "longitude": -91.85262298583984
+      },
+      "accessCoordinate": {
+        "latitude": 46.91741943359375,
+        "longitude": -91.85262298583984
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "46.91742,-91.85262",
+          "coordinate": {
+            "latitude": 46.91741943359375,
+            "longitude": -91.85262298583984
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "big-sucker-creek-county-33-lake-superior"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sucker-creek-county-33-lake-superior",
+          "routeName": "Big Sucker Creek",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "big-sucker-public-beach",
+          "name": "Lake Superior public beach / landing",
+          "latitude": 46.91741943359375,
+          "longitude": -91.85262298583984,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 2051.095555940637,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "big-sucker-creek-county-33-lake-superior",
+          "routeName": "Big Sucker Creek",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Lake Superior public beach / landing",
+          "latitude": 46.91741943359375,
+          "longitude": -91.85262298583984,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 2051.095555940637,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--lake-walk-south",
+      "state": "Minnesota",
+      "name": "Lake Walk South",
+      "aliases": [
+        "Lake Walk South"
+      ],
+      "sourceIds": [
+        "lake-superior-lake-walk-south"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7956833,
+        "longitude": -90.1242
+      },
+      "accessCoordinate": {
+        "latitude": 47.7956833,
+        "longitude": -90.1242
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.79568,-90.12420",
+          "coordinate": {
+            "latitude": 47.7956833,
+            "longitude": -90.1242
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-kadunce-judge-magney"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-kadunce-judge-magney",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-lake-walk-south",
+          "name": "Lake Walk South",
+          "latitude": 47.7956833,
+          "longitude": -90.1242,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--lake-winnibigoshish-w-public-water-access-site-west-winnie-campground",
       "state": "Minnesota",
       "name": "Lake Winnibigoshish (W) Public Water Access Site / West Winnie Campground",
@@ -52647,13 +55394,13 @@
           "occurrenceCount": 2,
           "routeCount": 1,
           "routes": [
-            "red-river-lincoln-drive-lafave"
+            "red-river-lincoln-drive-downtown"
           ]
         }
       ],
       "occurrences": [
         {
-          "routeId": "red-river-lincoln-drive-lafave",
+          "routeId": "red-river-lincoln-drive-downtown",
           "routeName": "Red River of the North",
           "state": "Minnesota",
           "endpoint": "accessPoint",
@@ -52667,7 +55414,7 @@
           "coordinateEvidenceRole": "authoritative-water-entry"
         },
         {
-          "routeId": "red-river-lincoln-drive-lafave",
+          "routeId": "red-river-lincoln-drive-downtown",
           "routeName": "Red River of the North",
           "state": "Minnesota",
           "endpoint": "putIn",
@@ -52679,6 +55426,89 @@
           "distanceFeetToMatchedRiver": 137.17332416708493,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-water-entry"
+        }
+      ]
+    },
+    {
+      "id": "minnesota--lindenwood-park-ada-kayak-launch",
+      "state": "Minnesota",
+      "name": "Lindenwood Park ADA kayak launch",
+      "aliases": [
+        "Lindenwood Park ADA kayak launch"
+      ],
+      "sourceIds": [
+        "red-river-lindenwood-park"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 46.85101967710684,
+        "longitude": -96.78178641991025
+      },
+      "accessCoordinate": {
+        "latitude": 46.85101967710684,
+        "longitude": -96.78178641991025
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 46.85101967710684,
+        "longitude": -96.78178641991025
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "46.85102,-96.78179",
+          "coordinate": {
+            "latitude": 46.85101967710684,
+            "longitude": -96.78178641991025
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "red-river-lindenwood-mb-johnson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "red-river-lindenwood-mb-johnson",
+          "routeName": "Red River of the North",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "red-river-lindenwood-park",
+          "name": "Lindenwood Park ADA kayak launch",
+          "latitude": 46.85101967710684,
+          "longitude": -96.78178641991025,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 57.62063937100003,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "red-river-lindenwood-mb-johnson",
+          "routeName": "Red River of the North",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": "red-river-lindenwood-park",
+          "name": "Lindenwood Park ADA kayak launch",
+          "latitude": 46.85101967710684,
+          "longitude": -96.78178641991025,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 57.62063937100003,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -52744,6 +55574,72 @@
           "auditSeverity": "suspicious",
           "distanceFeetToMatchedRiver": 696.219565312089,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--little-brule-river-rest-area",
+      "state": "Minnesota",
+      "name": "Little Brule River rest area",
+      "aliases": [
+        "Little Brule River rest area"
+      ],
+      "sourceIds": [
+        "lake-superior-little-brule"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.80685,
+        "longitude": -90.07735
+      },
+      "accessCoordinate": {
+        "latitude": 47.80685,
+        "longitude": -90.07735
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.80685,-90.07735",
+          "coordinate": {
+            "latitude": 47.80685,
+            "longitude": -90.07735
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-kadunce-judge-magney"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-kadunce-judge-magney",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-little-brule",
+          "name": "Little Brule River rest area",
+          "latitude": 47.80685,
+          "longitude": -90.07735,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -53827,12 +56723,12 @@
         "red-river-mb-johnson-park"
       ],
       "storedAccessCoordinate": {
-        "latitude": 46.91389,
-        "longitude": -96.7577
+        "latitude": 46.91392358141415,
+        "longitude": -96.75768161442912
       },
       "accessCoordinate": {
-        "latitude": 46.91389,
-        "longitude": -96.7577
+        "latitude": 46.91392358141415,
+        "longitude": -96.75768161442912
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -53844,7 +56740,7 @@
       "waterEntryCoordinate": null,
       "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -53853,45 +56749,45 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "46.91389,-96.75770",
+          "key": "46.91392,-96.75768",
           "coordinate": {
-            "latitude": 46.91389,
-            "longitude": -96.7577
+            "latitude": 46.91392358141415,
+            "longitude": -96.75768161442912
           },
           "occurrenceCount": 2,
           "routeCount": 1,
           "routes": [
-            "red-river-north-dam-mb-johnson"
+            "red-river-lindenwood-mb-johnson"
           ]
         }
       ],
       "occurrences": [
         {
-          "routeId": "red-river-north-dam-mb-johnson",
+          "routeId": "red-river-lindenwood-mb-johnson",
           "routeName": "Red River of the North",
           "state": "Minnesota",
           "endpoint": "accessPoint",
           "sourceId": "red-river-mb-johnson-park",
           "name": "M.B. Johnson Park trailer access",
-          "latitude": 46.91389,
-          "longitude": -96.7577,
+          "latitude": 46.91392358141415,
+          "longitude": -96.75768161442912,
           "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 183.64446730580002,
-          "endpointOnWaterbody": false,
+          "distanceFeetToMatchedRiver": 172.06015852800255,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
-          "routeId": "red-river-north-dam-mb-johnson",
+          "routeId": "red-river-lindenwood-mb-johnson",
           "routeName": "Red River of the North",
           "state": "Minnesota",
           "endpoint": "takeOut",
           "sourceId": "red-river-mb-johnson-park",
           "name": "M.B. Johnson Park trailer access",
-          "latitude": 46.91389,
-          "longitude": -96.7577,
+          "latitude": 46.91392358141415,
+          "longitude": -96.75768161442912,
           "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 183.64446730580002,
-          "endpointOnWaterbody": false,
+          "distanceFeetToMatchedRiver": 172.06015852800255,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -53959,6 +56855,129 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 85.9404899790818,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--maple-hill-county-road-60-bridge",
+      "state": "Minnesota",
+      "name": "Maple Hill / County Road 60 bridge",
+      "aliases": [
+        "Maple Hill / County Road 60 bridge"
+      ],
+      "sourceIds": [
+        "devil-track-maple-hill"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8055,
+        "longitude": -90.3038
+      },
+      "accessCoordinate": {
+        "latitude": 47.8055,
+        "longitude": -90.3038
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.805400000000006,
+        "longitude": -90.3038
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "nearby-variants",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 73,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "47.80550,-90.30380",
+          "coordinate": {
+            "latitude": 47.8055,
+            "longitude": -90.3038
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "devil-track-river-lake-maple-hill"
+          ]
+        },
+        {
+          "key": "47.80530,-90.30380",
+          "coordinate": {
+            "latitude": 47.8053,
+            "longitude": -90.3038
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "devil-track-river-maple-hill-lake-superior"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "devil-track-river-lake-maple-hill",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "devil-track-maple-hill",
+          "name": "Maple Hill / County Road 60 bridge",
+          "latitude": 47.8055,
+          "longitude": -90.3038,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 37.19119978619308,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "devil-track-river-lake-maple-hill",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Maple Hill / County Road 60 bridge",
+          "latitude": 47.8055,
+          "longitude": -90.3038,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 37.19119978619308,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "devil-track-river-maple-hill-lake-superior",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "devil-track-maple-hill",
+          "name": "Maple Hill / County Road 60 bridge",
+          "latitude": 47.8053,
+          "longitude": -90.3038,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 48.49708151396778,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "devil-track-river-maple-hill-lake-superior",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Maple Hill / County Road 60 bridge",
+          "latitude": 47.8053,
+          "longitude": -90.3038,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 48.49708151396778,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -54450,6 +57469,144 @@
           "longitude": -94.80843,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 138.24570128596878,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--middle-falls-and-usgs-gauge",
+      "state": "Minnesota",
+      "name": "Middle Falls and USGS gauge",
+      "aliases": [
+        "Middle Falls and USGS gauge"
+      ],
+      "sourceIds": [
+        "pigeon-middle-falls"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 48.01259994506836,
+        "longitude": -89.61630249023438
+      },
+      "accessCoordinate": {
+        "latitude": 48.01259994506836,
+        "longitude": -89.61630249023438
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 48.01259994506836,
+        "longitude": -89.61630249023438
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "48.01260,-89.61630",
+          "coordinate": {
+            "latitude": 48.01259994506836,
+            "longitude": -89.61630249023438
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "pigeon-river-old-highway-61-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-old-highway-61-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-middle-falls",
+          "name": "Middle Falls and USGS gauge",
+          "latitude": 48.01259994506836,
+          "longitude": -89.61630249023438,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 64.20643129065914,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--midtown-dam-left-bank-portage-carry-in",
+      "state": "Minnesota",
+      "name": "Midtown Dam left-bank portage / carry-in",
+      "aliases": [
+        "Midtown Dam left-bank portage / carry-in"
+      ],
+      "sourceIds": [
+        "red-river-midtown-dam"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 46.87644108128275,
+        "longitude": -96.7796531591513
+      },
+      "accessCoordinate": {
+        "latitude": 46.87644108128275,
+        "longitude": -96.7796531591513
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 46.87644108128275,
+        "longitude": -96.7796531591513
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "46.87644,-96.77965",
+          "coordinate": {
+            "latitude": 46.87644108128275,
+            "longitude": -96.7796531591513
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "red-river-lindenwood-mb-johnson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "red-river-lindenwood-mb-johnson",
+          "routeName": "Red River of the North",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "red-river-midtown-dam",
+          "name": "Midtown Dam left-bank portage / carry-in",
+          "latitude": 46.87644108128275,
+          "longitude": -96.7796531591513,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 0,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -62534,6 +65691,72 @@
       ]
     },
     {
+      "id": "minnesota--mule-kicker-beach",
+      "state": "Minnesota",
+      "name": "Mule-Kicker Beach",
+      "aliases": [
+        "Mule-Kicker Beach"
+      ],
+      "sourceIds": [
+        "lake-superior-mule-kicker"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7961333,
+        "longitude": -90.1162
+      },
+      "accessCoordinate": {
+        "latitude": 47.7961333,
+        "longitude": -90.1162
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.79613,-90.11620",
+          "coordinate": {
+            "latitude": 47.7961333,
+            "longitude": -90.1162
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-kadunce-judge-magney"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-kadunce-judge-magney",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-mule-kicker",
+          "name": "Mule-Kicker Beach",
+          "latitude": 47.7961333,
+          "longitude": -90.1162,
+          "auditSeverity": "unknown",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--musclewood-lake-public-water-access-site",
       "state": "Minnesota",
       "name": "Musclewood Lake Public Water Access Site",
@@ -62631,22 +65854,22 @@
       ]
     },
     {
-      "id": "minnesota--north-dam-carry-in-access-re-entry",
+      "id": "minnesota--north-dam-right-bank-portage-re-entry",
       "state": "Minnesota",
-      "name": "North Dam carry-in access / re-entry",
+      "name": "North Dam right-bank portage / re-entry",
       "aliases": [
-        "North Dam carry-in access / re-entry"
+        "North Dam right-bank portage / re-entry"
       ],
       "sourceIds": [
         "red-river-north-dam-carry-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 46.8919,
-        "longitude": -96.785
+        "latitude": 46.894871,
+        "longitude": -96.776264
       },
       "accessCoordinate": {
-        "latitude": 46.8919,
-        "longitude": -96.785
+        "latitude": 46.894871,
+        "longitude": -96.776264
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -62655,57 +65878,46 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryCoordinate": {
+        "latitude": 46.894871,
+        "longitude": -96.776264
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
+      "occurrenceCount": 1,
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "46.89190,-96.78500",
+          "key": "46.89487,-96.77626",
           "coordinate": {
-            "latitude": 46.8919,
-            "longitude": -96.785
+            "latitude": 46.894871,
+            "longitude": -96.776264
           },
-          "occurrenceCount": 2,
+          "occurrenceCount": 1,
           "routeCount": 1,
           "routes": [
-            "red-river-north-dam-mb-johnson"
+            "red-river-lindenwood-mb-johnson"
           ]
         }
       ],
       "occurrences": [
         {
-          "routeId": "red-river-north-dam-mb-johnson",
+          "routeId": "red-river-lindenwood-mb-johnson",
           "routeName": "Red River of the North",
           "state": "Minnesota",
           "endpoint": "accessPoint",
           "sourceId": "red-river-north-dam-carry-in",
-          "name": "North Dam carry-in access / re-entry",
-          "latitude": 46.8919,
-          "longitude": -96.785,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 2432.689377162551,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "red-river-north-dam-mb-johnson",
-          "routeName": "Red River of the North",
-          "state": "Minnesota",
-          "endpoint": "putIn",
-          "sourceId": "red-river-north-dam-carry-in",
-          "name": "North Dam carry-in access / re-entry",
-          "latitude": 46.8919,
-          "longitude": -96.785,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 2432.689377162551,
-          "endpointOnWaterbody": false,
+          "name": "North Dam right-bank portage / re-entry",
+          "latitude": 46.894871,
+          "longitude": -96.776264,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 3.5426752549160243e-9,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -63415,6 +66627,119 @@
       ]
     },
     {
+      "id": "minnesota--old-highway-61-former-mn-89-pigeon-river-access",
+      "state": "Minnesota",
+      "name": "Old Highway 61 / former MN 89 Pigeon River access",
+      "aliases": [
+        "Old Highway 61 / former MN 89 Pigeon River access"
+      ],
+      "sourceIds": [
+        "pigeon-old-highway-61",
+        "pigeon-old-highway-61-upper-finish"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 48.0103988647461,
+        "longitude": -89.7082977294922
+      },
+      "accessCoordinate": {
+        "latitude": 48.0103988647461,
+        "longitude": -89.7082977294922
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 48.0103988647461,
+        "longitude": -89.7082977294922
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "48.01040,-89.70830",
+          "coordinate": {
+            "latitude": 48.0103988647461,
+            "longitude": -89.7082977294922
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "pigeon-river-old-highway-61-highway-61",
+            "pigeon-river-partridge-falls-old-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-old-highway-61-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-old-highway-61",
+          "name": "Old Highway 61 / former MN 89 Pigeon River access",
+          "latitude": 48.0103988647461,
+          "longitude": -89.7082977294922,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 19.980599238036437,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "pigeon-river-old-highway-61-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Old Highway 61 / former MN 89 Pigeon River access",
+          "latitude": 48.0103988647461,
+          "longitude": -89.7082977294922,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 19.980599238036437,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "pigeon-river-partridge-falls-old-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-old-highway-61-upper-finish",
+          "name": "Old Highway 61 / former MN 89 Pigeon River access",
+          "latitude": 48.0103988647461,
+          "longitude": -89.7082977294922,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 19.980599238036437,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "pigeon-river-partridge-falls-old-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Old Highway 61 / former MN 89 Pigeon River access",
+          "latitude": 48.0103988647461,
+          "longitude": -89.7082977294922,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 19.980599238036437,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--old-highway-8-access",
       "state": "Minnesota",
       "name": "Old Highway 8 access",
@@ -63478,6 +66803,75 @@
           "longitude": -93.1922582,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 89.37664645694096,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--old-north-shore-road-crossing",
+      "state": "Minnesota",
+      "name": "Old North Shore Road crossing",
+      "aliases": [
+        "Old North Shore Road crossing"
+      ],
+      "sourceIds": [
+        "big-sucker-old-north-shore-road"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 46.93061828613281,
+        "longitude": -91.85820770263672
+      },
+      "accessCoordinate": {
+        "latitude": 46.93061828613281,
+        "longitude": -91.85820770263672
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 46.93061828613281,
+        "longitude": -91.85820770263672
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "46.93062,-91.85821",
+          "coordinate": {
+            "latitude": 46.93061828613281,
+            "longitude": -91.85820770263672
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "big-sucker-creek-county-33-lake-superior"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sucker-creek-county-33-lake-superior",
+          "routeName": "Big Sucker Creek",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "big-sucker-old-north-shore-road",
+          "name": "Old North Shore Road crossing",
+          "latitude": 46.93061828613281,
+          "longitude": -91.85820770263672,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 20.719530648425238,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
@@ -63657,6 +67051,72 @@
           "auditSeverity": "failure",
           "distanceFeetToMatchedRiver": 2350.624899634239,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--olson-shore",
+      "state": "Minnesota",
+      "name": "Olson Shore",
+      "aliases": [
+        "Olson Shore"
+      ],
+      "sourceIds": [
+        "lake-superior-olson-shore"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.77655,
+        "longitude": -90.2087333
+      },
+      "accessCoordinate": {
+        "latitude": 47.77655,
+        "longitude": -90.2087333
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.77655,-90.20873",
+          "coordinate": {
+            "latitude": 47.77655,
+            "longitude": -90.2087333
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lake-superior-grand-marais-kadunce"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lake-superior-grand-marais-kadunce",
+          "routeName": "Lake Superior",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-superior-olson-shore",
+          "name": "Olson Shore",
+          "latitude": 47.77655,
+          "longitude": -90.2087333,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -64125,6 +67585,158 @@
           "longitude": -92.13924,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 86.26497328904631,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--partridge-falls",
+      "state": "Minnesota",
+      "name": "Partridge Falls",
+      "aliases": [
+        "Partridge Falls"
+      ],
+      "sourceIds": [
+        "pigeon-partridge-falls"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.99449920654297,
+        "longitude": -89.84590148925781
+      },
+      "accessCoordinate": {
+        "latitude": 47.99449920654297,
+        "longitude": -89.84590148925781
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.99449920654297,
+        "longitude": -89.84590148925781
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.99450,-89.84590",
+          "coordinate": {
+            "latitude": 47.99449920654297,
+            "longitude": -89.84590148925781
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "pigeon-river-partridge-falls-old-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-partridge-falls-old-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-partridge-falls",
+          "name": "Partridge Falls",
+          "latitude": 47.99449920654297,
+          "longitude": -89.84590148925781,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 30.211291625744995,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--partridge-falls-upstream-access",
+      "state": "Minnesota",
+      "name": "Partridge Falls upstream access",
+      "aliases": [
+        "Partridge Falls upstream access"
+      ],
+      "sourceIds": [
+        "pigeon-partridge-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.9922981262207,
+        "longitude": -89.8470993041992
+      },
+      "accessCoordinate": {
+        "latitude": 47.9922981262207,
+        "longitude": -89.8470993041992
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.9922981262207,
+        "longitude": -89.8470993041992
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.99230,-89.84710",
+          "coordinate": {
+            "latitude": 47.9922981262207,
+            "longitude": -89.8470993041992
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "pigeon-river-partridge-falls-old-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-partridge-falls-old-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-partridge-put-in",
+          "name": "Partridge Falls upstream access",
+          "latitude": 47.9922981262207,
+          "longitude": -89.8470993041992,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 60.2696731785579,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "pigeon-river-partridge-falls-old-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Partridge Falls upstream access",
+          "latitude": 47.9922981262207,
+          "longitude": -89.8470993041992,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 60.2696731785579,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -66664,103 +70276,6 @@
           "longitude": -97.1738549,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 133.2754307695203,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "minnesota--red-river-lafave-park-public-water-access-site",
-      "state": "Minnesota",
-      "name": "Red River, LaFave Park Public Water Access Site",
-      "aliases": [
-        "Red River, LaFave Park Public Water Access Site"
-      ],
-      "sourceIds": [
-        "red-river-lafave-park"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 47.92502184090726,
-        "longitude": -97.02456598825147
-      },
-      "accessCoordinate": {
-        "latitude": 47.92502184090726,
-        "longitude": -97.02456598825147
-      },
-      "accessCoordinateSource": "mn_dnr",
-      "authoritativeAccess": {
-        "provider": "mn_dnr",
-        "featureId": "WAS00545",
-        "name": "Red River, LaFave Public Water Access Site",
-        "latitude": 47.92502184090726,
-        "longitude": -97.02456598825147,
-        "distanceFromCurrentFeet": 0,
-        "distanceFromMatchedRiverPointFeet": 221.47952101315278,
-        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0/1251",
-        "administrator": "City of East Grand Forks",
-        "directions": "Located behind Cabela's Sports Store in East Grand Forks",
-        "launchMethod": 2,
-        "launchSurface": 7,
-        "parkingLotCount": 1,
-        "riverMile": 301.9,
-        "comments": null,
-        "distanceFromStoredFeet": 0
-      },
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": 0,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "47.92502,-97.02457",
-          "coordinate": {
-            "latitude": 47.92502184090726,
-            "longitude": -97.02456598825147
-          },
-          "occurrenceCount": 2,
-          "routeCount": 1,
-          "routes": [
-            "red-river-lincoln-drive-lafave"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "red-river-lincoln-drive-lafave",
-          "routeName": "Red River of the North",
-          "state": "Minnesota",
-          "endpoint": "accessPoint",
-          "sourceId": "red-river-lafave-park",
-          "name": "Red River, LaFave Park Public Water Access Site",
-          "latitude": 47.92502184090726,
-          "longitude": -97.02456598825147,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 221.47952101315278,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "red-river-lincoln-drive-lafave",
-          "routeName": "Red River of the North",
-          "state": "Minnesota",
-          "endpoint": "takeOut",
-          "sourceId": "red-river-lafave-park",
-          "name": "Red River, LaFave Park Public Water Access Site",
-          "latitude": 47.92502184090726,
-          "longitude": -97.02456598825147,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 221.47952101315278,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -70143,6 +73658,89 @@
       ]
     },
     {
+      "id": "minnesota--sauna-bath-rapid-upper-corridor",
+      "state": "Minnesota",
+      "name": "Sauna Bath Rapid upper corridor",
+      "aliases": [
+        "Sauna Bath Rapid upper corridor"
+      ],
+      "sourceIds": [
+        "brule-sauna-bath"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8822,
+        "longitude": -90.0747
+      },
+      "accessCoordinate": {
+        "latitude": 47.8822,
+        "longitude": -90.0747
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.8822,
+        "longitude": -90.0747
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.88220,-90.07470",
+          "coordinate": {
+            "latitude": 47.8822,
+            "longitude": -90.0747
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brule-river-sauna-bath-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brule-river-sauna-bath-highway-61",
+          "routeName": "Brule River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "brule-sauna-bath",
+          "name": "Sauna Bath Rapid upper corridor",
+          "latitude": 47.8822,
+          "longitude": -90.0747,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 69.37930582416959,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brule-river-sauna-bath-highway-61",
+          "routeName": "Brule River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Sauna Bath Rapid upper corridor",
+          "latitude": 47.8822,
+          "longitude": -90.0747,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 69.37930582416959,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--seven-mile-creek-county-park-public-water-access-site",
       "state": "Minnesota",
       "name": "Seven Mile Creek, County Park Public Water Access Site",
@@ -73315,6 +76913,89 @@
       ]
     },
     {
+      "id": "minnesota--superior-hiking-trail-footbridge",
+      "state": "Minnesota",
+      "name": "Superior Hiking Trail footbridge",
+      "aliases": [
+        "Superior Hiking Trail footbridge"
+      ],
+      "sourceIds": [
+        "kadunce-sht-footbridge"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.8060989,
+        "longitude": -90.155899
+      },
+      "accessCoordinate": {
+        "latitude": 47.8060989,
+        "longitude": -90.155899
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.8060989,
+        "longitude": -90.155899
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.80610,-90.15590",
+          "coordinate": {
+            "latitude": 47.8060989,
+            "longitude": -90.155899
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "kadunce-river-sht-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "kadunce-river-sht-highway-61",
+          "routeName": "Kadunce River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "kadunce-sht-footbridge",
+          "name": "Superior Hiking Trail footbridge",
+          "latitude": 47.8060989,
+          "longitude": -90.155899,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 86.10902717135218,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "kadunce-river-sht-highway-61",
+          "routeName": "Kadunce River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Superior Hiking Trail footbridge",
+          "latitude": 47.8060989,
+          "longitude": -90.155899,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 86.10902717135218,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--taplin-gorge-friberg-dam-public-access",
       "state": "Minnesota",
       "name": "Taplin Gorge / Friberg Dam public access",
@@ -73473,6 +77154,158 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": null,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--the-cascades-mandatory-portage",
+      "state": "Minnesota",
+      "name": "The Cascades mandatory portage",
+      "aliases": [
+        "The Cascades mandatory portage"
+      ],
+      "sourceIds": [
+        "pigeon-cascades-portage"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 48.01319885253906,
+        "longitude": -89.82080078125
+      },
+      "accessCoordinate": {
+        "latitude": 48.01319885253906,
+        "longitude": -89.82080078125
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 48.01319885253906,
+        "longitude": -89.82080078125
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "48.01320,-89.82080",
+          "coordinate": {
+            "latitude": 48.01319885253906,
+            "longitude": -89.82080078125
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "pigeon-river-partridge-falls-old-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigeon-river-partridge-falls-old-highway-61",
+          "routeName": "Pigeon River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "pigeon-cascades-portage",
+          "name": "The Cascades mandatory portage",
+          "latitude": 48.01319885253906,
+          "longitude": -89.82080078125,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 10.336890434603532,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--the-grade-forest-road-153-cascade-river-crossing",
+      "state": "Minnesota",
+      "name": "The Grade / Forest Road 153 Cascade River crossing",
+      "aliases": [
+        "The Grade / Forest Road 153 Cascade River crossing"
+      ],
+      "sourceIds": [
+        "cascade-grade-153"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.862,
+        "longitude": -90.5578
+      },
+      "accessCoordinate": {
+        "latitude": 47.862,
+        "longitude": -90.5578
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.862,
+        "longitude": -90.5578
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.86200,-90.55780",
+          "coordinate": {
+            "latitude": 47.862,
+            "longitude": -90.5578
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "cascade-river-grade-cascade-road"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "cascade-river-grade-cascade-road",
+          "routeName": "Cascade River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "cascade-grade-153",
+          "name": "The Grade / Forest Road 153 Cascade River crossing",
+          "latitude": 47.862,
+          "longitude": -90.5578,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 29.082435833636726,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "cascade-river-grade-cascade-road",
+          "routeName": "Cascade River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "The Grade / Forest Road 153 Cascade River crossing",
+          "latitude": 47.862,
+          "longitude": -90.5578,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 29.082435833636726,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -73711,6 +77544,75 @@
       ]
     },
     {
+      "id": "minnesota--triple-drop-the-admiral",
+      "state": "Minnesota",
+      "name": "Triple Drop / The Admiral",
+      "aliases": [
+        "Triple Drop / The Admiral"
+      ],
+      "sourceIds": [
+        "devil-track-triple-drop"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.7890015,
+        "longitude": -90.3050003
+      },
+      "accessCoordinate": {
+        "latitude": 47.7890015,
+        "longitude": -90.3050003
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.7890015,
+        "longitude": -90.3050003
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.78900,-90.30500",
+          "coordinate": {
+            "latitude": 47.7890015,
+            "longitude": -90.3050003
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "devil-track-river-maple-hill-lake-superior"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "devil-track-river-maple-hill-lake-superior",
+          "routeName": "Devil Track River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "devil-track-triple-drop",
+          "name": "Triple Drop / The Admiral",
+          "latitude": 47.7890015,
+          "longitude": -90.3050003,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 38.89388662130748,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "minnesota--truck-station-landing-carry-in-access",
       "state": "Minnesota",
       "name": "Truck Station Landing carry-in access",
@@ -73823,15 +77725,15 @@
         "latitude": 47.9885552,
         "longitude": -92.4675615
       },
-      "waterEntryConsensusRouteCount": 2,
+      "waterEntryConsensusRouteCount": 3,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 3,
-      "routeCount": 2,
+      "occurrenceCount": 5,
+      "routeCount": 3,
       "coordinateVariants": [
         {
           "key": "47.98856,-92.46756",
@@ -73839,15 +77741,44 @@
             "latitude": 47.9885552,
             "longitude": -92.4675615
           },
-          "occurrenceCount": 3,
-          "routeCount": 2,
+          "occurrenceCount": 5,
+          "routeCount": 3,
           "routes": [
+            "vermilion-river-dam-twomile",
             "vermilion-river-shively-eightmile",
             "vermilion-river-twomile-eightmile"
           ]
         }
       ],
       "occurrences": [
+        {
+          "routeId": "vermilion-river-dam-twomile",
+          "routeName": "Vermilion River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "twomile-creek-access",
+          "name": "Two Mile Creek Public Water Access Site",
+          "latitude": 47.9885552,
+          "longitude": -92.4675615,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 6238.494669378044,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "vermilion-river-dam-twomile",
+          "routeName": "Vermilion River",
+          "state": "Minnesota",
+          "endpoint": "takeOut",
+          "sourceId": "twomile-creek-access",
+          "name": "Two Mile Creek Public Water Access Site",
+          "latitude": 47.9885552,
+          "longitude": -92.4675615,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 6238.494669378044,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
         {
           "routeId": "vermilion-river-shively-eightmile",
           "routeName": "Vermilion River",
@@ -74018,6 +77949,158 @@
           "longitude": -93.27087,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 43.89419678589418,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--upper-falls",
+      "state": "Minnesota",
+      "name": "Upper Falls",
+      "aliases": [
+        "Upper Falls"
+      ],
+      "sourceIds": [
+        "brule-upper-falls"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.82823944091797,
+        "longitude": -90.04878997802734
+      },
+      "accessCoordinate": {
+        "latitude": 47.82823944091797,
+        "longitude": -90.04878997802734
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.82823944091797,
+        "longitude": -90.04878997802734
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.82824,-90.04879",
+          "coordinate": {
+            "latitude": 47.82823944091797,
+            "longitude": -90.04878997802734
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "brule-river-sauna-bath-highway-61"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brule-river-sauna-bath-highway-61",
+          "routeName": "Brule River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "brule-upper-falls",
+          "name": "Upper Falls",
+          "latitude": 47.82823944091797,
+          "longitude": -90.04878997802734,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 26.866643687348542,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "minnesota--vermilion-dam-downstream-portage-whitewater-put-in",
+      "state": "Minnesota",
+      "name": "Vermilion Dam downstream portage / whitewater put-in",
+      "aliases": [
+        "Vermilion Dam downstream portage / whitewater put-in"
+      ],
+      "sourceIds": [
+        "vermilion-dam-downstream-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 47.96108,
+        "longitude": -92.47595
+      },
+      "accessCoordinate": {
+        "latitude": 47.96108,
+        "longitude": -92.47595
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 47.96108,
+        "longitude": -92.47595
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "47.96108,-92.47595",
+          "coordinate": {
+            "latitude": 47.96108,
+            "longitude": -92.47595
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "vermilion-river-dam-twomile"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "vermilion-river-dam-twomile",
+          "routeName": "Vermilion River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "vermilion-dam-downstream-put-in",
+          "name": "Vermilion Dam downstream portage / whitewater put-in",
+          "latitude": 47.96108,
+          "longitude": -92.47595,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 68.87777357071477,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "vermilion-river-dam-twomile",
+          "routeName": "Vermilion River",
+          "state": "Minnesota",
+          "endpoint": "putIn",
+          "sourceId": "vermilion-dam-downstream-put-in",
+          "name": "Vermilion Dam downstream portage / whitewater put-in",
+          "latitude": 47.96108,
+          "longitude": -92.47595,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 68.87777357071477,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -74286,7 +78369,8 @@
         "Vermilion River, Shively Falls Public Water Access Site"
       ],
       "sourceIds": [
-        "shively-falls-access"
+        "shively-falls-access",
+        "vermilion-shively-access"
       ],
       "storedAccessCoordinate": {
         "latitude": 47.9698841,
@@ -74307,15 +78391,15 @@
         "latitude": 47.9698841,
         "longitude": -92.4661064
       },
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 2,
       "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
+      "occurrenceCount": 3,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "47.96988,-92.46611",
@@ -74323,14 +78407,29 @@
             "latitude": 47.9698841,
             "longitude": -92.4661064
           },
-          "occurrenceCount": 2,
-          "routeCount": 1,
+          "occurrenceCount": 3,
+          "routeCount": 2,
           "routes": [
+            "vermilion-river-dam-twomile",
             "vermilion-river-shively-eightmile"
           ]
         }
       ],
       "occurrences": [
+        {
+          "routeId": "vermilion-river-dam-twomile",
+          "routeName": "Vermilion River",
+          "state": "Minnesota",
+          "endpoint": "accessPoint",
+          "sourceId": "vermilion-shively-access",
+          "name": "Vermilion River, Shively Falls Public Water Access Site",
+          "latitude": 47.9698841,
+          "longitude": -92.4661064,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 71.3825964683226,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
         {
           "routeId": "vermilion-river-shively-eightmile",
           "routeName": "Vermilion River",
