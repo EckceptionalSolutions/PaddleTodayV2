@@ -959,6 +959,8 @@ const routeOrder = [
   "brule-river-gunflint-trail-northern-light",
   "brule-river-lima-grade-northern-light",
   "knife-river-county-102-knife-river-beach",
+  "big-sucker-creek-county-33-lake-superior",
+  "pigeon-river-old-highway-61-highway-61",
   "iowa-river-hills-river-junction",
   "south-skunk-river-peterson-park-sleepy-hollow",
   "north-raccoon-river-richey-hyde-park",
