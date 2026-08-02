@@ -109,6 +109,33 @@ const kadunceRegionalMinnesotaPhoto: RouteGalleryPhoto = {
   caption: 'Regional North Shore river character at Judge C. R. Magney State Park, east of Kadunce',
 };
 
+const poplarRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'poplar-river-tofte-usfs-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/SNF%20Tofte%20FC091713%20poplar%20river%20%289787304395%29.jpg?width=1600',
+  alt: 'The Poplar River rushes through a rocky forest channel near Tofte and Lutsen after autumn rain.',
+  caption: 'Poplar River during a rain-fed fall flow',
+  credit: 'U.S. Forest Service Eastern Region via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
+const baptismRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'baptism-river-flow-public-domain-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gfp-minnesota-superior-nationa-forest-baptism-river-flow.jpg?width=1600',
+  alt: 'The Baptism River flows over dark rock through dense green forest near a bridge in northeastern Minnesota.',
+  caption: 'Baptism River in northeastern Minnesota',
+  credit: 'Yinan Chen via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain dedication',
+};
+
+const beaverRiverMinnesotaPhoto: RouteGalleryPhoto = {
+  id: 'beaver-river-falls-beaver-bay-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Beaver%20River%20Falls%20Near%20Beaver%20Bay%2C%20Minnesota.jpg?width=1600',
+  alt: 'The Beaver River cascades over rugged bedrock near Beaver Bay, Minnesota.',
+  caption: 'Beaver River falls near Beaver Bay',
+  credit: 'Nsteffel via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC0',
+};
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
   'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
@@ -122,6 +149,9 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'devil-track-river-maple-hill-lake-superior': [lowerDevilTrackMinnesotaPhoto],
   'cascade-river-grade-cascade-road': [cascadeRiverMinnesotaPhoto],
   'kadunce-river-sht-highway-61': [kadunceRegionalMinnesotaPhoto],
+  'poplar-river-lutsen-seventh-bridge': [poplarRiverMinnesotaPhoto],
+  'baptism-river-eckbeck-river-mouth': [baptismRiverMinnesotaPhoto],
+  'beaver-river-lax-lake-highway-61': [beaverRiverMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {
       id: 'west-washington-street-bridge-muncie-commons',
