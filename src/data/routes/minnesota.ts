@@ -32186,6 +32186,7 @@ export const minnesotaRoutes: River[] = [
     "id": "brule-river-lima-grade-gunflint-trail",
     "slug": "brule-river-lima-grade-gunflint-trail",
     "name": "Brule River",
+    "riverId": "brule-river-minnesota",
     "reach": "Lima Grade to Gunflint Trail",
     "state": "Minnesota",
     "region": "Grand Marais Area",
@@ -32263,6 +32264,7 @@ export const minnesotaRoutes: River[] = [
     "id": "brule-river-gunflint-trail-northern-light",
     "slug": "brule-river-gunflint-trail-northern-light",
     "name": "Brule River",
+    "riverId": "brule-river-minnesota",
     "reach": "Gunflint Trail to Northern Light Lake Access",
     "state": "Minnesota",
     "region": "Grand Marais Area",
@@ -32341,6 +32343,7 @@ export const minnesotaRoutes: River[] = [
     "id": "brule-river-lima-grade-northern-light",
     "slug": "brule-river-lima-grade-northern-light",
     "name": "Brule River",
+    "riverId": "brule-river-minnesota",
     "reach": "Lima Grade to Northern Light Lake Access",
     "state": "Minnesota",
     "region": "Grand Marais Area",
@@ -32505,6 +32508,7 @@ export const minnesotaRoutes: River[] = [
     "id": "brule-river-sauna-bath-highway-61",
     "slug": "brule-river-sauna-bath-highway-61",
     "name": "Brule River",
+    "riverId": "brule-river-minnesota",
     "reach": "Sauna Bath Rapid to Highway 61",
     "state": "Minnesota",
     "region": "Grand Marais",
@@ -32786,147 +32790,6 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "lake-superior-cascade-grand-marais",
-    "slug": "lake-superior-cascade-grand-marais",
-    "name": "Lake Superior",
-    "reach": "Cascade River State Park to Grand Marais Harbor",
-    "state": "Minnesota",
-    "region": "Grand Marais Area",
-    "routeType": "recreational",
-    "summary": "Official 9.6-mile Lake Superior State Water Trail trip from Cascade River State Park past a reservable kayak campsite, Butterwort Cliffs, Cut Face Creek, and Fall River to protected Grand Marais Harbor.",
-    "statusText": "This is a sea-kayaking route, not a river-score route. The historical Cascade mouth station supplies no live paddling signal. Use the NWS LSZ141 nearshore forecast, current water temperature, fog, surf, and landing conditions; calm water can become life-threatening within minutes.",
-    "latitude": 47.7066667,
-    "longitude": -90.52375,
-    "gaugeSource": { "id": "usgs-04012000-historical-coastal", "provider": "usgs", "siteId": "04012000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Cascade River at mouth (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04012000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04012000/" },
-    "profile": {
-      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
-      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
-      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
-      "seasonMonths": [6,7,8,9],
-      "seasonNotes": "Cold-water sea-kayaking season only. Terrestrial forecast data cannot replace the LSZ141 nearshore forecast, observed surf, water temperature, fog, and a conservative turnaround plan.",
-      "difficulty": "hard",
-      "difficultyNotes": "The shoreline mileage is nontechnical in calm weather, but 9.6 miles of 40-50F water, cliff-backed shore, fog, surf landings, limited exits, and rapidly building waves require equipped sea kayakers and practiced rescue skills.",
-      "confidenceNotes": "Route distance, public stops, coordinates, camping, and access limitations come directly from Minnesota DNR Lake Superior Water Trail Map 4. Live score confidence is intentionally low because the current product does not ingest NWS nearshore wave forecasts."
-    },
-    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Use a seaworthy kayak with flotation, spray skirt, immersion protection, signaling and navigation gear, and practiced self- and assisted-rescue skills.", "Check NWS marine zone LSZ141 immediately before launch. Do not launch in a Small Craft Advisory, unsafe surf, dense fog, thunderstorms, or winds that can prevent landing.", "There are no established public landings for six miles before Cascade River, and several route stops prohibit overnight parking or landing. Use only the DNR-mapped sites and respect Butterwort Cliffs SNA."], "reviewStatus": "reviewed" },
-    "evidenceNotes": [
-      { "label": "Official route", "value": "Water trail miles 115.4 to 125.0", "note": "DNR Map 4 identifies Cascade River, kayak campsite #1, Butterwort Cliffs SNA, Cut Face Creek, Fall River campsite, and Grand Marais in sequence.", "sourceUrl": "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/LSWT%204%20GEO.pdf" },
-      { "label": "Protected finish", "value": "Grand Marais public safe-harbor access", "note": "Minnesota DNR documents two ramps, docks, paved parking, restrooms, and the harbor's public-access coordinates.", "sourceUrl": "https://www.dnr.state.mn.us/water_access/harbors/grand_marais.html" },
-      { "label": "Marine forecast", "value": "NWS Duluth LSZ141", "note": "The official nearshore product covers Grand Marais to Taconite Harbor and reports winds, waves, fog, storms, and advisories.", "sourceUrl": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH" }
-    ],
-    "sourceLinks": [
-      { "label": "Minnesota DNR Lake Superior Map 4", "url": "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/LSWT%204%20GEO.pdf", "provider": "mn_dnr" },
-      { "label": "Minnesota DNR Lake Superior segments", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/segments-maps.html", "provider": "mn_dnr" },
-      { "label": "Minnesota DNR Grand Marais harbor access", "url": "https://www.dnr.state.mn.us/water_access/harbors/grand_marais.html", "provider": "mn_dnr" },
-      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" }
-    ]
-  },
-  {
-    "id": "lake-superior-grand-marais-kadunce",
-    "slug": "lake-superior-grand-marais-kadunce",
-    "name": "Lake Superior",
-    "reach": "Grand Marais Harbor to Kadunce River Wayside",
-    "state": "Minnesota",
-    "region": "Grand Marais Area",
-    "routeType": "recreational",
-    "summary": "Official 9.8-mile Lake Superior Water Trail leg from protected Grand Marais Harbor past Anderson's Rest, County Road 67, Knapp's Shore, Olson Shore, and DOT Land to Kadunce River Wayside.",
-    "statusText": "Sea-kayaking route with no live marine score. Use NWS nearshore zone LSZ141, observed surf, fog, water temperature, thunderstorms, and every planned landing; the historical Brule station is not a marine conditions source.",
-    "latitude": 47.74675,
-    "longitude": -90.3336667,
-    "gaugeSource": { "id": "usgs-04011000-historical-coastal-gm-kadunce", "provider": "usgs", "siteId": "04011000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/" },
-    "profile": {
-      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
-      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
-      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
-      "seasonMonths": [6,7,8,9],
-      "seasonNotes": "Cold-water sea-kayaking season only. Check LSZ141 and observed conditions immediately before launch and throughout the trip.",
-      "difficulty": "hard",
-      "difficultyNotes": "The route is straightforward only in settled conditions. Nearly ten miles of cold open water, surf landings, fog, offshore wind, private shoreline, and limited facilities require equipped sea kayakers with practiced rescues.",
-      "confidenceNotes": "DNR Map 5 supplies the official mileage, access sequence, coordinates, camping, and parking limits. Live score confidence is intentionally low because Paddle Today does not ingest the NWS nearshore wave forecast."
-    },
-    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Use a seaworthy kayak with flotation, spray skirt, immersion protection, signaling and navigation gear, and practiced rescues.", "Do not launch in unsafe surf, dense fog, thunderstorms, offshore wind, or a Small Craft Advisory.", "Land only at DNR-mapped public sites; County Road 67 has limited space and Kadunce Wayside limits parking to six hours."], "reviewStatus": "reviewed" },
-    "evidenceNotes": [
-      { "label": "Official distance", "value": "Water trail miles 125.0 to 134.8", "note": "DNR Map 5 lists Grand Marais, five intermediate rest/camping points, and Kadunce Wayside in order with coordinates.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" },
-      { "label": "Marine forecast", "value": "NWS Duluth LSZ141", "note": "The nearshore forecast, not the historical river record, controls the launch decision.", "sourceUrl": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH" }
-    ],
-    "sourceLinks": [
-      { "label": "Minnesota DNR Lake Superior Map 5", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf", "provider": "mn_dnr" },
-      { "label": "Minnesota DNR Lake Superior Water Trail", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/index.html", "provider": "mn_dnr" },
-      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
-      { "label": "USGS historical Brule station", "url": "https://waterdata.usgs.gov/monitoring-location/04011000/", "provider": "usgs" }
-    ]
-  },
-  {
-    "id": "lake-superior-kadunce-judge-magney",
-    "slug": "lake-superior-kadunce-judge-magney",
-    "name": "Lake Superior",
-    "reach": "Kadunce River Wayside to Judge C. R. Magney / Brule River",
-    "state": "Minnesota",
-    "region": "Grand Marais Area",
-    "routeType": "recreational",
-    "summary": "Official 5.6-mile Lake Superior Water Trail leg from Kadunce River Wayside past Lake Walk South, Mule-Kicker Beach, and Little Brule River to the Judge C. R. Magney State Park shore at the Brule River.",
-    "statusText": "Sea-kayaking route with no live marine score. Check NWS LSZ141 and actual wind, waves, fog, water temperature, and landing conditions. Brule river telemetry does not describe Lake Superior safety.",
-    "latitude": 47.7934667,
-    "longitude": -90.1546333,
-    "gaugeSource": { "id": "usgs-04011000-historical-coastal-kadunce-brule", "provider": "usgs", "siteId": "04011000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/" },
-    "profile": {
-      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
-      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
-      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
-      "seasonMonths": [6,7,8,9],
-      "seasonNotes": "Cold-water sea-kayaking season only; shore access does not make unsafe wind or wave conditions acceptable.",
-      "difficulty": "hard",
-      "difficultyNotes": "The shorter mileage still includes exposed cold water, cobble landings, fog, surf, and stretches where immediate shore access may be impractical.",
-      "confidenceNotes": "DNR Map 5 directly documents the route, coordinates, campsites, and Magney landing. Live-condition confidence remains low until the product can ingest NWS marine data."
-    },
-    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Carry full sea-kayaking safety, immersion, signaling, and navigation equipment.", "Mule-Kicker and Lake Walk South are primitive landings without facilities; confirm they remain usable before relying on them.", "At the Brule mouth, use the DNR-mapped shore and trail. Do not enter the river or approach waterfalls as part of this coastal card."], "reviewStatus": "reviewed" },
-    "evidenceNotes": [
-      { "label": "Official distance", "value": "Water trail miles 134.8 to 140.4", "note": "DNR Map 5 identifies every intermediate landing and the Magney trail connection.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" },
-      { "label": "State-park landing", "value": "Brule River shore at mile 140.4", "note": "The park trail and facilities are about one-quarter mile upstream from the DNR-mapped coastal landing.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" }
-    ],
-    "sourceLinks": [
-      { "label": "Minnesota DNR Lake Superior Map 5", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf", "provider": "mn_dnr" },
-      { "label": "Minnesota DNR Lake Superior Water Trail", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/index.html", "provider": "mn_dnr" },
-      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
-      { "label": "Minnesota DNR Judge C. R. Magney State Park", "url": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00193", "provider": "mn_dnr" }
-    ]
-  },
-  {
-    "id": "lake-superior-judge-magney-hovland",
-    "slug": "lake-superior-judge-magney-hovland",
-    "name": "Lake Superior",
-    "reach": "Judge C. R. Magney / Brule River to Hovland",
-    "state": "Minnesota",
-    "region": "Grand Marais Area",
-    "routeType": "recreational",
-    "summary": "Official 4.5-mile Lake Superior Water Trail leg from the Brule River shore at Judge C. R. Magney State Park past Alden's Beach to the public Hovland carry-in.",
-    "statusText": "Sea-kayaking route with no live marine score. Use NWS LSZ141 and observed waves, fog, water temperature, storms, and landing conditions; neither historical nor live Brule river flow makes this coastal trip safe.",
-    "latitude": 47.81555,
-    "longitude": -90.05115,
-    "gaugeSource": { "id": "usgs-04011000-historical-coastal-brule-hovland", "provider": "usgs", "siteId": "04011000", "metric": "discharge_cfs", "unit": "cfs", "kind": "proxy", "siteName": "Brule River near Hovland (historical only; not a marine conditions source)", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/", "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/04011000/" },
-    "profile": {
-      "thresholdModel": "minimum-only", "idealMin": 1, "tooLow": 0,
-      "thresholdSource": { "label": "NWS Duluth nearshore forecast LSZ141; manual marine check required", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
-      "thresholdSourceStrength": "official", "rainfallSensitivity": "low", "windSensitivity": 3, "rainSensitivity": 1, "tempSensitivity": 3,
-      "seasonMonths": [6,7,8,9],
-      "seasonNotes": "Short mileage does not reduce cold-water or rapidly changing weather consequences.",
-      "difficulty": "hard",
-      "difficultyNotes": "Alden's Beach is enclosed by rock cliffs and may be difficult in surf; the route still requires marine judgment, rescue skills, and a conservative turnaround plan.",
-      "confidenceNotes": "DNR Map 5 documents both endpoints, Alden's Beach, mileage, coordinates, and facilities. The app still lacks live marine-wave ingestion."
-    },
-    "safetyProfile": { "riskLevel": "advanced", "hazards": ["cold_water","remote","access_uncertain"], "safetyNotes": ["Check both the Brule shore and Hovland carry-in before staging the shuttle.", "Do not count on Alden's Beach when surf makes its cliff-backed cobble landing unsafe.", "The Horseshoe Bay campsite farther east is currently closed and is not part of this route's camping plan."], "reviewStatus": "reviewed" },
-    "evidenceNotes": [
-      { "label": "Official distance", "value": "Water trail miles 140.4 to 144.9", "note": "DNR Map 5 places Alden's Beach between the Brule and public Hovland carry-in.", "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf" },
-      { "label": "Current trail alert", "value": "Horseshoe Bay campsite closed", "note": "The closure is east of this finish but prevents treating a continuation as supported overnight camping.", "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/index.html" }
-    ],
-    "sourceLinks": [
-      { "label": "Minnesota DNR Lake Superior Map 5", "url": "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf", "provider": "mn_dnr" },
-      { "label": "Minnesota DNR Lake Superior Water Trail alerts", "url": "https://www.dnr.state.mn.us/state-water-trails/lake-superior/index.html", "provider": "mn_dnr" },
-      { "label": "NWS Duluth nearshore forecast", "url": "https://marine.weather.gov/product.php?issuedby=DLH&product=NSH", "provider": "manual" },
-      { "label": "Minnesota DNR Judge C. R. Magney State Park", "url": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00193", "provider": "mn_dnr" }
-    ]
-  },
-  {
     "id": "kadunce-river-sht-highway-61",
     "slug": "kadunce-river-sht-highway-61",
     "name": "Kadunce River",
@@ -32966,11 +32829,16 @@ export const minnesotaRoutes: River[] = [
 type GaugedExpansionSpec = {
   slug: string;
   templateSlug: string;
+  routeType: NonNullable<River['routeType']>;
   reach: string;
   summary: string;
   latitude: number;
   longitude: number;
   gaugeRelationship: string;
+  safetyNoteReplacement?: {
+    startsWith: string;
+    replacement: string;
+  };
 };
 
 function gaugedExpansion(spec: GaugedExpansionSpec): River {
@@ -32981,6 +32849,7 @@ function gaugedExpansion(spec: GaugedExpansionSpec): River {
     ...template,
     id: spec.slug,
     slug: spec.slug,
+    routeType: spec.routeType,
     reach: spec.reach,
     summary: spec.summary,
     statusText: `${template.statusText} This route contains the configured gauge at an endpoint or within the paddled corridor.`,
@@ -32995,7 +32864,11 @@ function gaugedExpansion(spec: GaugedExpansionSpec): River {
       ? {
           ...template.safetyProfile,
           safetyNotes: [
-            ...template.safetyProfile.safetyNotes,
+            ...template.safetyProfile.safetyNotes.map((note) =>
+              spec.safetyNoteReplacement && note.startsWith(spec.safetyNoteReplacement.startsWith)
+                ? spec.safetyNoteReplacement.replacement
+                : note,
+            ),
             'This longer combined itinerary requires an early start, a staged shuttle, and a conservative turnaround decision even when the direct gauge is in range.',
           ],
         }
@@ -33022,6 +32895,7 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'big-fork-river-highway-6-south-johnson',
     templateSlug: 'big-fork-river-highway-6-south-north',
+    routeType: 'recreational',
     reach: 'Highway 6 South to Johnson Landing',
     summary: 'Long Big Fork itinerary joining the two Highway 6 accesses to Johnson Landing, with the current Craigsville DNR gauge at the put-in.',
     latitude: 47.953023,
@@ -33031,6 +32905,7 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'big-fork-river-highway-6-north-big-falls-east',
     templateSlug: 'big-fork-river-johnson-big-falls-east',
+    routeType: 'recreational',
     reach: 'Highway 6 North to Big Falls East Landing',
     summary: 'Full Big Fork continuation from Highway 6 North through Johnson Landing to Big Falls, ending beside the current Big Falls gauge.',
     latitude: 48.034694214683626,
@@ -33040,6 +32915,7 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'red-lake-river-huot-highway-75-bypass',
     templateSlug: 'red-lake-river-crookston-highway-75-bypass',
+    routeType: 'whitewater',
     reach: 'Huot Park to Highway 75 Bypass',
     summary: 'Long lower Red Lake River trip from Huot Park through Crookston to the Highway 75 Bypass, passing the current Crookston gauge.',
     latitude: 47.8610626,
@@ -33049,6 +32925,7 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'red-lake-river-crookston-fisher',
     templateSlug: 'red-lake-river-crookston-highway-75-bypass',
+    routeType: 'whitewater',
     reach: 'Crookston carry-in to Fisher Landing',
     summary: 'Lower Red Lake River day joining the Crookston and Fisher corridors, with current interpreted gauges at both ends of the trip area.',
     latitude: 47.7598975,
@@ -33058,15 +32935,21 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'st-louis-river-county-road-95-zim',
     templateSlug: 'st-louis-river-county-road-95-forbes',
+    routeType: 'recreational',
     reach: 'County Road 95 to Zim',
     summary: 'Extended upper St. Louis River itinerary from County Road 95 through Forbes to Zim, passing the current Forbes DNR gauge.',
     latitude: 47.4009308,
     longitude: -92.3775989,
     gaugeRelationship: 'DNR site 244 is at Forbes inside this combined route and carries official interpreted stage bands.',
+    safetyNoteReplacement: {
+      startsWith: 'Take out at Forbes',
+      replacement: 'Portage Forbes Dam on river right, then continue from Forbes Access toward Zim; do not drift into dam infrastructure or treat the intermediate Forbes landing as the final take-out.',
+    },
   }),
   gaugedExpansion({
     slug: 'st-louis-river-forbes-toivola',
     templateSlug: 'st-louis-river-forbes-zim',
+    routeType: 'recreational',
     reach: 'Forbes to Toivola',
     summary: 'Long St. Louis River continuation from Forbes through Zim to Toivola, beginning in the direct Forbes gauge corridor.',
     latitude: 47.362165673829445,
@@ -33076,6 +32959,7 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'st-louis-river-toivola-floodwood',
     templateSlug: 'st-louis-river-county-road-29-floodwood',
+    routeType: 'recreational',
     reach: 'Toivola to Floodwood',
     summary: 'Middle St. Louis River trip from Toivola through the County Road 29 access to Floodwood, finishing at the current Floodwood gauge corridor.',
     latitude: 47.1672586,
@@ -33085,6 +32969,7 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'crow-wing-river-huntersville-stigmans-mound',
     templateSlug: 'crow-wing-river-mary-brown-stigmans-mound',
+    routeType: 'recreational',
     reach: "Huntersville North to Stigman's Mound",
     summary: "Extended Crow Wing River day from Huntersville through Mary Brown to Stigman's Mound, ending at the current Nimrod gauge corridor.",
     latitude: 46.77839539490564,
@@ -33094,6 +32979,7 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'mississippi-river-steamboat-county-road-72',
     templateSlug: 'mississippi-river-steamboat-blackberry-bridge',
+    routeType: 'recreational',
     reach: 'Steamboat Landing to County Road 72',
     summary: 'Grand Rapids-area Mississippi River trip continuing from Steamboat Landing past Blackberry Bridge to County Road 72, beginning at the current Grand Rapids gauge.',
     latitude: 47.2325351,
@@ -33103,10 +32989,15 @@ minnesotaRoutes.push(
   gaugedExpansion({
     slug: 'vermilion-river-dam-county-road-24',
     templateSlug: 'vermilion-river-dam-twomile',
+    routeType: 'whitewater',
     reach: 'Vermilion Dam to County Road 24',
     summary: 'Extended Vermilion River run from the dam through the Twomile and Eightmile access corridors to County Road 24, starting at the current Buyck gauge.',
     latitude: 47.96108,
     longitude: -92.47595,
     gaugeRelationship: 'DNR site 342 at Buyck is colocated with the downstream-of-dam put-in, making its interpreted discharge reading direct for this route.',
+    safetyNoteReplacement: {
+      startsWith: 'Take out at Twomile Creek',
+      replacement: 'County Road 24 is the planned take-out. Twomile Creek and Eightmile Creek are intermediate checkpoints; continuing beyond County Road 24 changes the route and shuttle plan.',
+    },
   }),
 );

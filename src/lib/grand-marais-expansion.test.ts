@@ -52,8 +52,8 @@ describe('Grand Marais route expansion', () => {
     }
   });
 
-  it('retains licensed research photos but removes published geometry', () => {
-    for (const routeId of routeIds) {
+  it('retains licensed research photos for the remaining river research routes but removes published geometry', () => {
+    for (const routeId of whitewaterIds) {
       const photos = getApprovedRoutePhotos(routeId);
       expect(photos.length, routeId).toBeGreaterThan(0);
       expect(photos[0]?.credit, routeId).toBeTruthy();
