@@ -72,7 +72,7 @@
     "mobile:start": "npm run start --workspace @paddletoday/mobile",
     "mobile:android": "npm run android --workspace @paddletoday/mobile",
     "mobile:ios": "npm run ios --workspace @paddletoday/mobile",
-    "postinstall": "node scripts/apply-react-native-android-drawing-order-fix.mjs",
+    "postinstall": "node scripts/apply-react-native-android-drawing-order-fix.mjs && node scripts/apply-react-native-maps-ios-subview-fix.mjs",
     "mobile:typecheck": "npm run typecheck --workspace @paddletoday/mobile",
     "mobile:api-smoke": "node scripts/mobile-api-smoke.mjs",
     "cloudflare:traffic": "node scripts/cloudflare-traffic-summary.mjs",

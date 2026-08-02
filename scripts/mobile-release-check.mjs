@@ -49,10 +49,15 @@ checkFile(
   'React Native Android drawing-order fix installer',
   join(root, 'scripts/apply-react-native-android-drawing-order-fix.mjs')
 );
-check('EAS archive includes React Native Android drawing-order fix installer', () =>
+checkFile(
+  'React Native Maps iOS subview insertion fix installer',
+  join(root, 'scripts/apply-react-native-maps-ios-subview-fix.mjs')
+);
+check('EAS archive includes React Native native fix installers', () =>
   fileIncludes(join(root, '.easignore'), [
     '/scripts/*',
     '!/scripts/apply-react-native-android-drawing-order-fix.mjs',
+    '!/scripts/apply-react-native-maps-ios-subview-fix.mjs',
   ])
 );
 check('React Native Android drawing-order fix is installed', () =>
@@ -63,6 +68,12 @@ check('React Native Android drawing-order fix is installed', () =>
     ),
     ['update()\n      currentDrawingOrderIndices = null']
   )
+);
+check('React Native Maps iOS subview insertion fix is installed', () =>
+  fileIncludes(join(root, 'node_modules/react-native-maps/ios/AirMaps/AIRMap.m'), [
+    'NSUInteger safeIndex = atIndex < 0 ? 0 : MIN((NSUInteger)atIndex, _reactSubviews.count);',
+    'insertObject:(UIView *)subview atIndex:safeIndex',
+  ])
 );
 
 for (const profile of ['development', 'preview', 'production']) {
