@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { rivers } from '../src/data/rivers';
+import { routeInventory } from '../src/data/rivers';
 import { riverTripDetails } from '../src/data/river-trip-details';
 import type { RiverAccessPoint } from '../src/lib/types';
 import { accessFacilityIdentitiesAgree, accessNamesAgree } from './lib/access-name-match';
@@ -206,7 +206,7 @@ async function main() {
 
   const groups = new Map<string, Occurrence[]>();
   const sourceIdentityGroups = new Map<string, string[]>();
-  for (const route of rivers) {
+  for (const route of routeInventory) {
     const details = riverTripDetails[route.id];
     const points: Array<[EndpointKind, RiverAccessPoint | undefined]> = [
       ['putIn', details?.putIn ?? route.putIn],

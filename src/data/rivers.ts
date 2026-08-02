@@ -994,10 +994,10 @@ const routeOrder = [
   "vermilion-river-dam-county-road-24"
 ];
 
-export const rivers: River[] = routeOrder
-  .map((slug) => {
-    const route = routeBySlug.get(slug);
-    if (!route) throw new Error(`Missing state-scoped route data for ${slug}.`);
-    return route;
-  })
-  .filter(hasQualifyingGauge);
+export const routeInventory: River[] = routeOrder.map((slug) => {
+  const route = routeBySlug.get(slug);
+  if (!route) throw new Error(`Missing state-scoped route data for ${slug}.`);
+  return route;
+});
+
+export const rivers: River[] = routeInventory.filter(hasQualifyingGauge);

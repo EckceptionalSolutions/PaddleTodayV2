@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { endpointSnappedRiverNetwork } from '@paddletoday/geo';
-import { rivers } from '../src/data/rivers';
+import { routeInventory } from '../src/data/rivers';
 import { riverTripDetails } from '../src/data/river-trip-details';
 import type { River, RiverAccessPoint } from '../src/lib/types';
 import { accessNamesAgree } from './lib/access-name-match';
@@ -1009,7 +1009,9 @@ async function run() {
         terminalAlternateWaterbody: control.terminalAlternateWaterbody,
       }];
     }));
-  const routesToAudit = routeFilter ? rivers.filter((route) => route.id === routeFilter) : rivers;
+  const routesToAudit = routeFilter
+    ? routeInventory.filter((route) => route.id === routeFilter)
+    : routeInventory;
   if (routeFilter && routesToAudit.length === 0) {
     throw new Error(`No route found for --route=${routeFilter}`);
   }
