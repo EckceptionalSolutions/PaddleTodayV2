@@ -12237,4 +12237,82 @@ Object.assign(minnesotaRiverTripDetails, {
     corridorId: 'mn-vermilion-condition-family',
     corridorLabel: 'Vermilion River dam-to-County Road 24 corridor',
   }),
+  'poplar-river-lutsen-seventh-bridge': {
+    putIn: {
+      name: 'Lutsen Ski Area carry-in',
+      latitude: 47.664625340847806,
+      longitude: -90.71565087000029,
+    },
+    takeOut: {
+      name: 'Seventh Bridge take-out',
+      latitude: 47.640254974365234,
+      longitude: -90.71066284179688,
+    },
+    logistics: {
+      distanceLabel: 'About 2.2 mi',
+      estimatedPaddleTime: 'About 2-4 hr, including scouting',
+      shuttle: 'Confirm permission and parking at both Lutsen-area endpoints before staging a short road shuttle.',
+      permits: 'No route-wide paddling permit is documented; landowner or resort permission may still be required for parking and bank access.',
+      camping: 'No on-route camping; use separately arranged Lutsen-area lodging or camping.',
+      campingClassification: 'nearby_basecamp',
+      summary: 'A compact expert creek run whose short mileage does not reduce its scouting, rescue, or access demands.',
+      accessCaveats: [
+        'The common put-in is a carry from the Lutsen Ski Area corridor; confirm current permission and parking rules.',
+        'The take-out is above Seventh Bridge. Verify the exit from land before launching.',
+      ],
+      watchFor: ["Bielik's Surprise", 'linked boulder gardens', 'wood', 'the mandatory Seventh Bridge exit'],
+    },
+  },
+  'baptism-river-eckbeck-river-mouth': {
+    putIn: {
+      name: 'Eckbeck Campground river access',
+      latitude: 47.3728981018066,
+      longitude: -91.2286987304688,
+    },
+    takeOut: {
+      name: 'Tettegouche river-mouth take-out',
+      latitude: 47.3361015319824,
+      longitude: -91.1975021362305,
+    },
+    logistics: {
+      distanceLabel: 'About 3.8 mi',
+      estimatedPaddleTime: 'About 4-7 hr with portages',
+      shuttle: 'Stage the downstream vehicle in the Tettegouche/Highway 61 corridor, then return to Eckbeck Campground for the put-in.',
+      permits: 'Confirm current Superior National Forest campground and Minnesota state-park vehicle requirements before the trip.',
+      camping: 'Eckbeck Campground provides a put-in-area basecamp when open; this is not an on-river overnight route.',
+      campingClassification: 'endpoint_campground',
+      summary: 'A short-mileage but full-commitment waterfall run with multiple scouts and carries.',
+      accessCaveats: [
+        'Confirm campground access, parking, and seasonal road conditions before driving.',
+        'Exit from the river at the mapped mouth access; Lake Superior is not part of this route.',
+      ],
+      watchFor: ['Illgen Falls', 'mandatory High Falls portage', 'Two Step', 'Narrows/Cascades', 'cold-water exposure'],
+    },
+  },
+  'beaver-river-lax-lake-highway-61': {
+    putIn: {
+      name: 'Lax Lake Road / County Road 4 bridge carry-in',
+      latitude: 47.2733,
+      longitude: -91.3224,
+    },
+    takeOut: {
+      name: 'Highway 61 bridge take-out',
+      latitude: 47.2604,
+      longitude: -91.2966,
+    },
+    logistics: {
+      distanceLabel: 'About 1.8 mi',
+      estimatedPaddleTime: 'About 2-4 hr, including scouting',
+      shuttle: 'Verify safe legal parking at both road bridges before staging the short shuttle.',
+      permits: 'No route-wide paddling permit is documented; roadside parking and bank access still require current local confirmation.',
+      camping: 'No on-route camping; arrange a separate North Shore basecamp.',
+      campingClassification: 'nearby_basecamp',
+      summary: 'A very short but severe expert creek run where scouting and access verification dominate the day.',
+      accessCaveats: [
+        'Both endpoints are bridge carries rather than confirmed developed launches.',
+        'Do not block County Road 4 or Highway 61 shoulders, gates, or emergency access.',
+      ],
+      watchFor: ['large slides', 'powerful holes', 'potholes', 'new wood', 'the Highway 61 exit'],
+    },
+  },
 } satisfies Record<string, RiverTripDetails>);

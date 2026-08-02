@@ -45,6 +45,7 @@ apps/mobile/*.tsbuildinfo
 /public/
 /scripts/*
 !/scripts/apply-react-native-android-drawing-order-fix.mjs
+!/scripts/apply-react-native-maps-ios-subview-fix.mjs
 /src/
 /tests/
 /MOBILE_UI_TODO.md

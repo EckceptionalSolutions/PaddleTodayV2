@@ -33010,3 +33010,307 @@ minnesotaRoutes.push(
     },
   }),
 );
+
+const grandMaraisDirectGaugeRoutes: River[] = [
+  {
+    "id": "poplar-river-lutsen-seventh-bridge",
+    "slug": "poplar-river-lutsen-seventh-bridge",
+    "name": "Poplar River",
+    "riverId": "poplar-river-minnesota",
+    "reach": "Lutsen Ski Area to Seventh Bridge",
+    "state": "Minnesota",
+    "region": "Lutsen",
+    "routeType": "whitewater",
+    "summary": "Short, steep lower Poplar run with continuous Class III-IV boulder gardens, Bielik's Surprise, and a mandatory exit above the dangerous gorge below Seventh Bridge.",
+    "statusText": "DNR 01063003 reports direct discharge at the Seventh Bridge take-out. No defensible runnable flow band has been published for this station, so the live reading is context only and the route remains a conservative, locally verified expert decision.",
+    "latitude": 47.664625340847806,
+    "longitude": -90.71565087000029,
+    "gaugeSource": {
+      "id": "mn-dnr-01063003-poplar",
+      "provider": "mn_dnr",
+      "siteId": "01063003",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Poplar River near Lutsen, 0.2 mi upstream of MN 61",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01063003",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01063003&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "thresholdSource": {
+        "label": "Direct DNR telemetry; runnable band not yet published",
+        "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01063003",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "derived",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "The lower Poplar is a snowmelt and rain-event run. Use the direct gauge trend only to decide whether to inspect the river; the app cannot identify a runnable or safe band until source-backed thresholds are available.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class III-IV+(V). Bielik's Surprise is a multi-step cascade with Class V consequences except at the lowest flows, and the gradient remains technical through the golf-course corridor.",
+      "confidenceNotes": "Confidence is strong for the direct gauge relationship, mapped 2.2-mile reach, feature sequence, and Seventh Bridge exit. Confidence is deliberately low for flow interpretation and access: no published runnable band exists, and parking and bank use must be reconfirmed with Lutsen-area land managers."
+    },
+    "putIn": {
+      "name": "Lutsen Ski Area carry-in",
+      "latitude": 47.664625340847806,
+      "longitude": -90.71565087000029
+    },
+    "takeOut": {
+      "name": "Seventh Bridge take-out",
+      "latitude": 47.640254974365234,
+      "longitude": -90.71066284179688
+    },
+    "logistics": {
+      "distanceLabel": "About 2.2 mi",
+      "estimatedPaddleTime": "About 2-4 hr, including scouting",
+      "shuttle": "Confirm permission and parking at both Lutsen-area endpoints before staging a short road shuttle.",
+      "permits": "No route-wide paddling permit is documented; landowner or resort permission may still be required for parking and bank access.",
+      "camping": "No on-route camping; use separately arranged Lutsen-area lodging or camping.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A compact expert creek run whose short mileage does not reduce its scouting, rescue, or access demands.",
+      "accessCaveats": [
+        "The common put-in is a carry from the Lutsen Ski Area corridor; confirm current permission and parking rules.",
+        "The take-out is above Seventh Bridge. Verify the exit from land before launching."
+      ],
+      "watchFor": ["Bielik's Surprise", "linked boulder gardens", "wood", "the mandatory Seventh Bridge exit"]
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["whitewater", "mandatory_takeout", "strainers", "fast_rise", "cold_water", "access_uncertain"],
+      "safetyNotes": [
+        "Run only with expert North Shore creek-boating, scouting, and rescue skills; inspect Bielik's Surprise and every blind or wood-affected horizon.",
+        "Pre-walk and mark the Seventh Bridge exit. American Whitewater warns of serious whitewater below the bridge toward Lake Superior, which is outside this supported route.",
+        "The direct gauge has no validated runnable band. A fresh reading is not a go signal; confirm actual depth, wood, trend, and access at the river."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Reach and difficulty",
+        "value": "2.2 miles; Class III-IV+(V)",
+        "note": "American Whitewater documents the Lutsen carry-in, boulder gardens, Bielik's Surprise, and usual take-out above Seventh Bridge.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2528/main"
+      },
+      {
+        "label": "Direct telemetry",
+        "value": "DNR 01063003 at the take-out corridor",
+        "note": "The station coordinates nearly coincide with Seventh Bridge and report both stage and discharge.",
+        "sourceUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01063003"
+      },
+      {
+        "label": "Threshold limitation",
+        "value": "No published runnable band",
+        "note": "The route is intentionally scored with incomplete thresholds rather than transferring values from another river or inventing a flow range.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2528/flow"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater lower Poplar", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2528/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Poplar gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01063003", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "baptism-river-eckbeck-river-mouth",
+    "slug": "baptism-river-eckbeck-river-mouth",
+    "name": "Baptism River",
+    "riverId": "baptism-river-minnesota",
+    "reach": "Eckbeck Campground to Tettegouche river-mouth take-out",
+    "state": "Minnesota",
+    "region": "Tettegouche",
+    "routeType": "whitewater",
+    "summary": "Expert lower Baptism run through Illgen Falls, the mandatory High Falls portage, Two Step, and the Narrows before exiting at the river mouth without a Lake Superior paddling segment.",
+    "statusText": "Use direct DNR station 01092001 at Highway 61 near the finish. American Whitewater identifies about 200 cfs as a low runnable reference for Illgen Falls, 300-450 cfs as optimal, and above 500 cfs as carrying serious consequences.",
+    "latitude": 47.3728981018066,
+    "longitude": -91.2286987304688,
+    "gaugeSource": {
+      "id": "mn-dnr-01092001-baptism",
+      "provider": "mn_dnr",
+      "siteId": "01092001",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Baptism River near Beaver Bay, MN 61",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01092001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=01092001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 300,
+      "idealMax": 450,
+      "tooLow": 200,
+      "tooHigh": 500,
+      "thresholdSource": {
+        "label": "American Whitewater lower Baptism flow guidance",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/945/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "Spring snowmelt and substantial rain provide the usual window. The published flow values describe Illgen Falls and should be paired with a stable gauge trend, current portage conditions, and expert on-site scouting for the entire reach.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class II-V. Illgen Falls, the mandatory High Falls carry, Two Step, and the Narrows/Cascades create severe vertical-drop, hydraulic, and portage hazards.",
+      "confidenceNotes": "Confidence is strong for the direct lower-river gauge, mapped 3.8-mile reach, named hazard sequence, mandatory High Falls portage, and river-mouth finish. The flow model is community guidance centered on Illgen Falls rather than a guarantee that every feature or portage is safe."
+    },
+    "putIn": {
+      "name": "Eckbeck Campground river access",
+      "latitude": 47.3728981018066,
+      "longitude": -91.2286987304688
+    },
+    "takeOut": {
+      "name": "Tettegouche river-mouth take-out",
+      "latitude": 47.3361015319824,
+      "longitude": -91.1975021362305
+    },
+    "logistics": {
+      "distanceLabel": "About 3.8 mi",
+      "estimatedPaddleTime": "About 4-7 hr with portages",
+      "shuttle": "Stage the downstream vehicle in the Tettegouche/Highway 61 corridor, then return to Eckbeck Campground for the put-in.",
+      "permits": "Confirm current Superior National Forest campground and Minnesota state-park vehicle requirements before the trip.",
+      "camping": "Eckbeck Campground provides a put-in-area basecamp when open; this is not an on-river overnight route.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A short-mileage but full-commitment waterfall run with multiple scouts and carries.",
+      "accessCaveats": [
+        "Confirm campground access, parking, and seasonal road conditions before driving.",
+        "Exit from the river at the mapped mouth access; Lake Superior is not part of this route."
+      ],
+      "watchFor": ["Illgen Falls", "mandatory High Falls portage", "Two Step", "Narrows/Cascades", "cold-water exposure"]
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["whitewater", "mandatory_takeout", "fast_rise", "cold_water", "strainers", "remote"],
+      "safetyNotes": [
+        "This is expert waterfall paddling. Scout every major feature and establish rescue and portage plans before committing to each horizon line.",
+        "High Falls is a mandatory portage. Leave the river above the Superior Hiking Trail bridge and verify the complete carry and re-entry from land.",
+        "The 300-450 cfs guidance is not a blanket go signal. Cancel for a rising hydrograph, blocked portages, unsafe hydraulics, new wood, or any Lake Superior exposure at the finish."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Reach and difficulty",
+        "value": "3.8 miles; Class II-V",
+        "note": "American Whitewater documents the Eckbeck start, Illgen Falls, mandatory High Falls portage, Two Step, Narrows/Cascades, and mapped take-out.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/945/main"
+      },
+      {
+        "label": "Direct flow model",
+        "value": "200 / 300-450 / 500 cfs",
+        "note": "American Whitewater identifies 200 cfs as a low runnable Illgen reference, 300-450 cfs as optimal, and above 500 cfs as having serious consequences.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/945/main"
+      },
+      {
+        "label": "Direct telemetry",
+        "value": "DNR 01092001 near the finish",
+        "note": "The active station at Highway 61 reports current stage and discharge on the Baptism River.",
+        "sourceUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01092001"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater lower Baptism", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/945/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Baptism gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=01092001", "provider": "mn_dnr" },
+      { "label": "Minnesota DNR Tettegouche State Park", "url": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00269", "provider": "mn_dnr" }
+    ]
+  },
+  {
+    "id": "beaver-river-lax-lake-highway-61",
+    "slug": "beaver-river-lax-lake-highway-61",
+    "name": "Beaver River",
+    "riverId": "beaver-river-minnesota",
+    "reach": "Lax Lake Road / County Road 4 to Highway 61",
+    "state": "Minnesota",
+    "region": "Beaver Bay",
+    "routeType": "whitewater",
+    "summary": "Very steep lower Beaver run with large slides, boulders, holes, and a direct gauge inside the reach, ending at Highway 61 before the river reaches Lake Superior.",
+    "statusText": "DNR 02006003 reports direct discharge about 0.6 mile below the put-in. American Whitewater explicitly says reliable runnable levels are not yet known, so the gauge is context only and the app does not claim a safe or runnable band.",
+    "latitude": 47.2733,
+    "longitude": -91.3224,
+    "gaugeSource": {
+      "id": "mn-dnr-02006003-beaver",
+      "provider": "mn_dnr",
+      "siteId": "02006003",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Beaver River near Beaver Bay, 1.2 mi upstream of MN 61",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=02006003",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=02006003&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "thresholdSource": {
+        "label": "Direct DNR telemetry; runnable band not yet published",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2521/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "derived",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 9, 10],
+      "seasonNotes": "The lower Beaver is a flashy snowmelt and rain-event run. Treat a fresh gauge reading only as a reason to inspect; no source-backed paddling thresholds currently let the app convert discharge into a runnable recommendation.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the reach Class IV-V+. Large slides, boulders, holes, sparse recovery space, and a hazardous slide near Highway 61 require expert creek-boating and rescue skills.",
+      "confidenceNotes": "Confidence is strong for the direct in-reach gauge, mapped 1.8-mile geometry, endpoints, and advanced difficulty. Confidence is intentionally low for flow interpretation and legal roadside staging because the route source says runnable levels are unknown and access facilities are not established."
+    },
+    "putIn": {
+      "name": "Lax Lake Road / County Road 4 bridge carry-in",
+      "latitude": 47.2733,
+      "longitude": -91.3224
+    },
+    "takeOut": {
+      "name": "Highway 61 bridge take-out",
+      "latitude": 47.2604,
+      "longitude": -91.2966
+    },
+    "logistics": {
+      "distanceLabel": "About 1.8 mi",
+      "estimatedPaddleTime": "About 2-4 hr, including scouting",
+      "shuttle": "Verify safe legal parking at both road bridges before staging the short shuttle.",
+      "permits": "No route-wide paddling permit is documented; roadside parking and bank access still require current local confirmation.",
+      "camping": "No on-route camping; arrange a separate North Shore basecamp.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A very short but severe expert creek run where scouting and access verification dominate the day.",
+      "accessCaveats": [
+        "Both endpoints are bridge carries rather than confirmed developed launches.",
+        "Do not block County Road 4 or Highway 61 shoulders, gates, or emergency access."
+      ],
+      "watchFor": ["large slides", "powerful holes", "potholes", "new wood", "the Highway 61 exit"]
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["whitewater", "mandatory_takeout", "strainers", "fast_rise", "cold_water", "access_uncertain"],
+      "safetyNotes": [
+        "Expert creek-boating and rescue skills are required. Scout every major slide and hole and portage any feature without a clean line and recovery plan.",
+        "Take out at Highway 61 before the lower slide and Lake Superior. American Whitewater reports severe consequences from the slide visible near the highway.",
+        "No validated runnable band exists. Never interpret the direct gauge reading as a launch recommendation without same-day local inspection and experienced judgment."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Reach and difficulty",
+        "value": "1.8 miles; Class IV-V+",
+        "note": "American Whitewater documents the County Road 4 start, large slides and holes, in-reach gauge, and Highway 61 take-out.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2521/main"
+      },
+      {
+        "label": "Direct telemetry",
+        "value": "DNR 02006003 inside the reach",
+        "note": "The active DNR station is about 0.6 mile below the put-in and reports both stage and discharge.",
+        "sourceUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=02006003"
+      },
+      {
+        "label": "Threshold limitation",
+        "value": "Runnable levels unknown",
+        "note": "American Whitewater explicitly says it has no familiarity with runnable levels; this route therefore retains incomplete thresholds and conservative scoring.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2521/main"
+      }
+    ],
+    "sourceLinks": [
+      { "label": "American Whitewater lower Beaver", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2521/main", "provider": "american_whitewater" },
+      { "label": "Minnesota DNR Beaver gauge", "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=02006003", "provider": "mn_dnr" }
+    ]
+  }
+];
+
+minnesotaRoutes.push(...grandMaraisDirectGaugeRoutes);

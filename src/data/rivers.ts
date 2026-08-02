@@ -991,7 +991,10 @@ const routeOrder = [
   "st-louis-river-toivola-floodwood",
   "crow-wing-river-huntersville-stigmans-mound",
   "mississippi-river-steamboat-county-road-72",
-  "vermilion-river-dam-county-road-24"
+  "vermilion-river-dam-county-road-24",
+  "poplar-river-lutsen-seventh-bridge",
+  "baptism-river-eckbeck-river-mouth",
+  "beaver-river-lax-lake-highway-61"
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {
