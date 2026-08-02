@@ -76,6 +76,16 @@ describe('getAllRiverScores', () => {
     expect(stCroixGroup?.states).toEqual(['Minnesota', 'Wisconsin']);
   });
 
+  it('publishes only routes with a qualifying direct gauge', () => {
+    const published = listRivers();
+
+    expect(published.length).toBeGreaterThan(0);
+    expect(published.every((river) => river.gaugeSource.kind === 'direct')).toBe(true);
+    expect(published.some((river) => river.gaugeSource.siteId === '04021960')).toBe(false);
+    expect(published.some((river) => river.gaugeSource.provider === 'mn_dnr' && river.gaugeSource.siteId === '280')).toBe(false);
+    expect(published.some((river) => river.gaugeSource.provider === 'mn_dnr' && river.gaugeSource.siteId === '341')).toBe(false);
+  });
+
   it('points MN DNR gauge detail links at the configured CSG site', () => {
     const dnrRivers = listRivers().filter((river) => river.gaugeSource.provider === 'mn_dnr');
 

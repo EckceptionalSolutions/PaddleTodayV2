@@ -161,6 +161,7 @@ const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
 const STORAGE_HOME_DIFFICULTY_KEY = 'paddletoday:home-difficulty-filter';
 const STORAGE_HOME_PADDLE_TIME_KEY = 'paddletoday:home-paddle-time-filter';
+const STORAGE_EXPLORE_FILTERS_KEY = 'paddletoday:explore-filters:v1';
 const {
   loadStoredHomeDifficultyFilter,
   loadStoredHomePaddleTimeFilter,
@@ -341,6 +342,89 @@ const activeFilters = {
   paddleLength: '',
   sort: 'best-now',
 };
+
+const exploreFilterOptions = {
+  rating: ['', 'all', 'Strong', 'Good', 'Fair', 'No-go'],
+  difficulty: ['', 'easy', 'moderate', 'hard'],
+  routeType: ['non-whitewater', 'whitewater', 'all'],
+  camping: ['', 'any-support', 'overnight', 'endpoint', 'nearby'],
+  distance: ['', '25', '50', '75', '100', '150', '200'],
+  paddleTime: ['', 'up-to-3', '3-to-5', '5-to-7', '7-plus'],
+  paddleLength: ['', 'under-5', '5-to-10', '10-plus'],
+  sort: ['best-now', 'near-you', 'nearest', 'highest-confidence', 'lowest-risk', 'a-z'],
+};
+
+function storedSelectValue(value, options, fallback = '') {
+  return typeof value === 'string' && options.includes(value) ? value : fallback;
+}
+
+function loadStoredExploreFilters() {
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(STORAGE_EXPLORE_FILTERS_KEY) || 'null');
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return false;
+
+    activeFilters.paddleable = typeof parsed.paddleable === 'boolean' ? parsed.paddleable : true;
+    activeFilters.rating = storedSelectValue(parsed.rating, exploreFilterOptions.rating);
+    activeFilters.search = typeof parsed.search === 'string' ? parsed.search.slice(0, 200).trim() : '';
+    activeFilters.state = typeof parsed.state === 'string' ? parsed.state.slice(0, 100) : '';
+    activeFilters.difficulty = storedSelectValue(parsed.difficulty, exploreFilterOptions.difficulty);
+    activeFilters.routeType = storedSelectValue(parsed.routeType, exploreFilterOptions.routeType, 'non-whitewater');
+    activeFilters.camping = storedSelectValue(parsed.camping, exploreFilterOptions.camping);
+    activeFilters.distance = storedSelectValue(parsed.distance, exploreFilterOptions.distance);
+    activeFilters.paddleTime = storedSelectValue(parsed.paddleTime, exploreFilterOptions.paddleTime);
+    activeFilters.paddleLength = storedSelectValue(parsed.paddleLength, exploreFilterOptions.paddleLength);
+    activeFilters.sort = storedSelectValue(parsed.sort, exploreFilterOptions.sort, 'best-now');
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function saveStoredExploreFilters() {
+  try {
+    window.localStorage.setItem(STORAGE_EXPLORE_FILTERS_KEY, JSON.stringify(activeFilters));
+  } catch {
+    // Filtering should continue to work when storage is unavailable or full.
+  }
+}
+
+function removeStoredExploreFilters() {
+  try {
+    window.localStorage.removeItem(STORAGE_EXPLORE_FILTERS_KEY);
+  } catch {
+    // Reset still applies in memory when storage is unavailable.
+  }
+}
+
+function syncExploreFilterControls() {
+  if (filterSearch instanceof HTMLInputElement) filterSearch.value = activeFilters.search;
+  const selectValues = [
+    ['state', filterState, activeFilters.state],
+    ['rating', filterRating, activeFilters.rating],
+    ['difficulty', filterDifficulty, activeFilters.difficulty],
+    ['routeType', filterRouteType, activeFilters.routeType],
+    ['camping', filterCamping, activeFilters.camping],
+    ['distance', filterDistance, activeFilters.distance],
+    ['paddleTime', filterPaddleTime, activeFilters.paddleTime],
+    ['paddleLength', filterPaddleLength, activeFilters.paddleLength],
+    ['sort', sortSelect, activeFilters.sort],
+  ];
+  for (const [key, select, value] of selectValues) {
+    if (!(select instanceof HTMLSelectElement)) continue;
+    select.value = value;
+    if (select.value !== value) {
+      select.value = '';
+      activeFilters[key] = '';
+    }
+  }
+  updateRatingFilterButtons();
+}
+
+function commitExploreFilterChange() {
+  saveStoredExploreFilters();
+  currentExplorePage = 1;
+  renderHomepage(latestResults);
+}
 
 let latestResults = [];
 let hasLoadedBoardOnce = false;
@@ -1465,6 +1549,7 @@ function resetExploreFilters({ rerender = true } = {}) {
   activeFilters.paddleLength = '';
   activeFilters.sort = userLocationState === 'ready' && userLocation ? 'near-you' : 'best-now';
   currentExplorePage = 1;
+  removeStoredExploreFilters();
 
   if (filterSearch instanceof HTMLInputElement) {
     filterSearch.value = '';
@@ -3328,8 +3413,7 @@ function setupFilters() {
     button.addEventListener('click', () => {
       const rating = button.dataset.glanceFilter || '';
       activeFilters.rating = activeFilters.rating === rating ? '' : rating;
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3340,8 +3424,7 @@ function setupFilters() {
       const key = button.dataset.filterToggle;
       if (!key) return;
       activeFilters[key] = !activeFilters[key];
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3349,8 +3432,7 @@ function setupFilters() {
     filterSearch.dataset.filterBound = 'true';
     filterSearch.addEventListener('input', () => {
       activeFilters.search = filterSearch.value.trim();
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3358,8 +3440,7 @@ function setupFilters() {
     filterState.dataset.filterBound = 'true';
     filterState.addEventListener('change', () => {
       activeFilters.state = filterState.value;
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3367,8 +3448,7 @@ function setupFilters() {
     filterRating.dataset.filterBound = 'true';
     filterRating.addEventListener('change', () => {
       activeFilters.rating = filterRating.value;
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3376,8 +3456,7 @@ function setupFilters() {
     filterDifficulty.dataset.filterBound = 'true';
     filterDifficulty.addEventListener('change', () => {
       activeFilters.difficulty = filterDifficulty.value;
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3386,8 +3465,7 @@ function setupFilters() {
     filterRouteType.value = activeFilters.routeType;
     filterRouteType.addEventListener('change', () => {
       activeFilters.routeType = filterRouteType.value || 'non-whitewater';
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3395,8 +3473,7 @@ function setupFilters() {
     filterCamping.dataset.filterBound = 'true';
     filterCamping.addEventListener('change', () => {
       activeFilters.camping = filterCamping.value;
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3408,8 +3485,7 @@ function setupFilters() {
       if (filterRating instanceof HTMLSelectElement) {
         filterRating.value = activeFilters.rating;
       }
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3417,8 +3493,7 @@ function setupFilters() {
     filterDistance.dataset.filterBound = 'true';
     filterDistance.addEventListener('change', () => {
       activeFilters.distance = filterDistance.value;
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3426,8 +3501,7 @@ function setupFilters() {
     filterPaddleTime.dataset.filterBound = 'true';
     filterPaddleTime.addEventListener('change', () => {
       activeFilters.paddleTime = filterPaddleTime.value;
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3435,8 +3509,7 @@ function setupFilters() {
     filterPaddleLength.dataset.filterBound = 'true';
     filterPaddleLength.addEventListener('change', () => {
       activeFilters.paddleLength = filterPaddleLength.value;
-      currentExplorePage = 1;
-      renderHomepage(latestResults);
+      commitExploreFilterChange();
     });
   }
 
@@ -3445,6 +3518,7 @@ function setupFilters() {
     sortSelect.addEventListener('change', () => {
       activeFilters.sort = sortSelect.value;
       currentExplorePage = 1;
+      saveStoredExploreFilters();
       if ((activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest') && !userLocation) {
         requestUserLocation();
       } else {
@@ -3591,6 +3665,7 @@ export function initSummaryBoard() {
   }
   initialized = true;
 
+  const hasStoredExploreFilters = loadStoredExploreFilters();
   setupFilters();
   setupLocationControls();
 
@@ -3601,14 +3676,16 @@ export function initSummaryBoard() {
   if (storedLocation) {
     userLocation = storedLocation;
     userLocationState = 'ready';
-    activeFilters.sort = 'near-you';
+    if (!hasStoredExploreFilters) activeFilters.sort = 'near-you';
     if (locationInput instanceof HTMLInputElement) {
       locationInput.value = storedLocation.label;
     }
     if (sortSelect instanceof HTMLSelectElement) {
-      sortSelect.value = 'near-you';
+      sortSelect.value = activeFilters.sort;
     }
   }
+
+  syncExploreFilterControls();
 
   if (nearbySortSelect instanceof HTMLSelectElement) {
     nearbySortSelect.value = nearbySortMode;

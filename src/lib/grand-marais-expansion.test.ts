@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { getApprovedRoutePhotos } from '../data/route-gallery.js';
@@ -30,50 +30,29 @@ const coastalIds = [
 ] as const;
 
 describe('Grand Marais route expansion', () => {
-  it('publishes all eight routes with reviewed safety and logistics', () => {
+  it('withholds every ungauged and proxy-gauged Grand Marais route', () => {
     const routes = new Map(listRivers().map((route) => [route.slug, route]));
 
     for (const routeId of routeIds) {
-      const route = routes.get(routeId);
-      expect(route, routeId).toBeDefined();
-      expect(route?.state).toBe('Minnesota');
-      expect(route?.region).toBe('Grand Marais Area');
-      expect(route?.putIn).toBeDefined();
-      expect(route?.takeOut).toBeDefined();
-      expect(route?.logistics?.distanceLabel).toBeTruthy();
-      expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
-      expect(route?.safetyProfile?.hazards.length).toBeGreaterThan(0);
-      expect(route?.sourceLinks.length).toBeGreaterThan(2);
+      expect(routes.has(routeId), routeId).toBe(false);
     }
   });
 
-  it('keeps the whitewater runs guarded and labels proxy flow honestly', () => {
+  it('does not publish regional-proxy whitewater runs', () => {
     const routes = new Map(listRivers().map((route) => [route.slug, route]));
     for (const routeId of whitewaterIds) {
-      const route = routes.get(routeId);
-      expect(route?.routeType).toBe('whitewater');
-      expect(route?.safetyProfile?.riskLevel).toBe('advanced');
-      expect(route?.gaugeSource.kind).toBe('proxy');
-      expect(route?.gaugeSource.siteName).toMatch(/regional runoff trigger only/i);
-      expect(route?.profile.thresholdSourceStrength).toBe('derived');
+      expect(routes.has(routeId), routeId).toBe(false);
     }
-
-    const lowerDevilTrack = routes.get('devil-track-river-maple-hill-lake-superior');
-    expect(lowerDevilTrack?.statusText).toMatch(/expert-only/i);
-    expect(lowerDevilTrack?.profile.difficultyNotes).toMatch(/Class II-V/i);
   });
 
-  it('does not present coastal routes as river-gauge guidance', () => {
+  it('does not publish Lake Superior routes', () => {
     const routes = new Map(listRivers().map((route) => [route.slug, route]));
     for (const routeId of coastalIds) {
-      const route = routes.get(routeId);
-      expect(route?.routeType).toBe('recreational');
-      expect(route?.gaugeSource.siteName).toMatch(/historical only; not a marine conditions source/i);
-      expect(route?.profile.thresholdSource.url).toContain('product.php?issuedby=DLH&product=NSH');
+      expect(routes.has(routeId), routeId).toBe(false);
     }
   });
 
-  it('ships licensed photos and route-scoped canonical geometry', () => {
+  it('retains licensed research photos but removes published geometry', () => {
     for (const routeId of routeIds) {
       const photos = getApprovedRoutePhotos(routeId);
       expect(photos.length, routeId).toBeGreaterThan(0);
@@ -88,14 +67,7 @@ describe('Grand Marais route expansion', () => {
         'routes',
         `${routeId}.json`,
       );
-      expect(existsSync(geometryPath), routeId).toBe(true);
-      const feature = JSON.parse(readFileSync(geometryPath, 'utf8')) as {
-        properties?: { routeId?: string };
-        geometry?: { type?: string; coordinates?: unknown[] };
-      };
-      expect(feature.properties?.routeId).toBe(routeId);
-      expect(feature.geometry?.type).toBe('MultiLineString');
-      expect(feature.geometry?.coordinates?.length).toBeGreaterThan(0);
+      expect(existsSync(geometryPath), routeId).toBe(false);
     }
   });
 });

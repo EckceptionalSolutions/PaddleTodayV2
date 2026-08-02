@@ -1,4 +1,5 @@
 import type { River } from '../lib/types';
+import { hasQualifyingGauge } from './route-publication';
 import { arkansasRoutes } from './routes/arkansas';
 import { illinoisRoutes } from './routes/illinois';
 import { indianaRoutes } from './routes/indiana';
@@ -984,11 +985,23 @@ const routeOrder = [
   "lake-superior-grand-marais-kadunce",
   "lake-superior-kadunce-judge-magney",
   "lake-superior-judge-magney-hovland",
-  "kadunce-river-sht-highway-61"
+  "kadunce-river-sht-highway-61",
+  "big-fork-river-highway-6-south-johnson",
+  "big-fork-river-highway-6-north-big-falls-east",
+  "red-lake-river-huot-highway-75-bypass",
+  "red-lake-river-crookston-fisher",
+  "st-louis-river-county-road-95-zim",
+  "st-louis-river-forbes-toivola",
+  "st-louis-river-toivola-floodwood",
+  "crow-wing-river-huntersville-stigmans-mound",
+  "mississippi-river-steamboat-county-road-72",
+  "vermilion-river-dam-county-road-24"
 ];
 
-export const rivers: River[] = routeOrder.map((slug) => {
-  const route = routeBySlug.get(slug);
-  if (!route) throw new Error(`Missing state-scoped route data for ${slug}.`);
-  return route;
-});
+export const rivers: River[] = routeOrder
+  .map((slug) => {
+    const route = routeBySlug.get(slug);
+    if (!route) throw new Error(`Missing state-scoped route data for ${slug}.`);
+    return route;
+  })
+  .filter(hasQualifyingGauge);

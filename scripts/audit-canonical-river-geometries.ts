@@ -12,6 +12,11 @@ const MAX_STATE_BYTES = 8 * 1024 * 1024;
 const MAX_STATE_TOTAL_BYTES = 25 * 1024 * 1024;
 const MAX_ROUTE_BYTES = 512 * 1024;
 const MAX_ROUTE_TOTAL_BYTES = 25 * 1024 * 1024;
+const requiredRouteControlPoints: Record<string, Array<{ latitude: number; longitude: number; maxFeet: number; label: string }>> = {
+  'rice-creek-peltier-to-long-lake': [
+    { latitude: 45.1637486, longitude: -93.1154357, maxFeet: 500, label: 'Aqua Lane northern lake-chain exit' },
+  ],
+};
 
 function stateSlug(value: string) {
   return value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -35,6 +40,11 @@ function routeDataFingerprint(routes: ReturnType<typeof listRivers>) {
 
 function sorted(values: string[]) {
   return [...values].sort((left, right) => left.localeCompare(right));
+}
+
+function pointDistanceFeet(left: [number, number], right: [number, number]) {
+  const latitudeScale = Math.cos(((left[1] + right[1]) * Math.PI) / 360);
+  return Math.hypot((left[0] - right[0]) * latitudeScale, left[1] - right[1]) * 69 * 5280;
 }
 
 async function main() {
@@ -95,6 +105,24 @@ async function main() {
   if (new Set(actualIds).size !== actualIds.length) throw new Error('Canonical geometry asset contains duplicate route IDs.');
   if (actualIds.some((id) => !expectedIds.includes(id))) throw new Error('Canonical geometry asset contains an unknown route ID.');
   if (features.some((feature) => feature.geometry?.type !== 'MultiLineString')) throw new Error('Canonical geometry asset contains a non-MultiLineString feature.');
+  for (const [routeId, controlPoints] of Object.entries(requiredRouteControlPoints)) {
+    const feature = features.find((candidate) => candidate.properties?.routeId === routeId);
+    const coordinates = feature?.geometry?.coordinates;
+    if (!Array.isArray(coordinates)) throw new Error(`Required route geometry is missing: ${routeId}`);
+    const vertices = coordinates.flat().filter(
+      (point): point is [number, number] => Array.isArray(point) && Number.isFinite(point[0]) && Number.isFinite(point[1]),
+    );
+    for (const control of controlPoints) {
+      const distanceFeet = Math.min(
+        ...vertices.map((point) => pointDistanceFeet(point, [control.longitude, control.latitude])),
+      );
+      if (distanceFeet > control.maxFeet) {
+        throw new Error(
+          `${routeId} misses ${control.label} by ${Math.round(distanceFeet)} ft (maximum ${control.maxFeet} ft).`,
+        );
+      }
+    }
+  }
 
   const stateFileNames = (await readdir(stateAssetDir)).filter((fileName) => fileName.endsWith('.json'));
   const stateFiles = new Set(stateFileNames);

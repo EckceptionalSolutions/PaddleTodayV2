@@ -12212,3 +12212,122 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     ]
   }
 };
+
+type CombinedTripSpec = {
+  slug: string;
+  firstSegment: string;
+  lastSegment: string;
+  distanceLabel: string;
+  estimatedPaddleTime: string;
+  summary: string;
+  corridorId?: string;
+  corridorLabel?: string;
+};
+
+function combinedTrip(spec: CombinedTripSpec): RiverTripDetails {
+  const first = minnesotaRiverTripDetails[spec.firstSegment];
+  const last = minnesotaRiverTripDetails[spec.lastSegment];
+  if (!first || !last) throw new Error(`Missing trip-detail segment for ${spec.slug}.`);
+
+  return {
+    putIn: { ...first.putIn },
+    takeOut: { ...last.takeOut },
+    logistics: {
+      ...first.logistics,
+      distanceLabel: spec.distanceLabel,
+      estimatedPaddleTime: spec.estimatedPaddleTime,
+      shuttle: `Stage the take-out before launching. This combined route joins the researched ${spec.firstSegment} and ${spec.lastSegment} access corridors and requires a longer rural shuttle.`,
+      summary: spec.summary,
+      accessCaveats: Array.from(new Set([...first.logistics.accessCaveats, ...last.logistics.accessCaveats])),
+      watchFor: Array.from(new Set([...first.logistics.watchFor, ...last.logistics.watchFor])),
+    },
+    corridorId: spec.corridorId ?? first.corridorId ?? last.corridorId,
+    corridorLabel: spec.corridorLabel ?? first.corridorLabel ?? last.corridorLabel,
+    continuityStatus: 'verified',
+  };
+}
+
+Object.assign(minnesotaRiverTripDetails, {
+  'big-fork-river-highway-6-south-johnson': combinedTrip({
+    slug: 'big-fork-river-highway-6-south-johnson',
+    firstSegment: 'big-fork-river-highway-6-south-north',
+    lastSegment: 'big-fork-river-highway-6-north-johnson',
+    distanceLabel: 'About 24.0 mi',
+    estimatedPaddleTime: '9-12 hours; consider an overnight plan',
+    summary: 'Launch at Highway 6 South and continue through the Highway 6 North access to Johnson Landing on a gauge-at-put-in Big Fork itinerary.',
+  }),
+  'big-fork-river-highway-6-north-big-falls-east': combinedTrip({
+    slug: 'big-fork-river-highway-6-north-big-falls-east',
+    firstSegment: 'big-fork-river-highway-6-north-johnson',
+    lastSegment: 'big-fork-river-johnson-big-falls-east',
+    distanceLabel: 'About 22.8 mi',
+    estimatedPaddleTime: '8-11 hours',
+    summary: 'Launch at Highway 6 North, pass Johnson Landing, and finish at Big Falls East beside the direct Big Falls gauge corridor.',
+  }),
+  'red-lake-river-huot-highway-75-bypass': combinedTrip({
+    slug: 'red-lake-river-huot-highway-75-bypass',
+    firstSegment: 'red-lake-river-huot-crookston',
+    lastSegment: 'red-lake-river-crookston-highway-75-bypass',
+    distanceLabel: 'About 32.1 mi',
+    estimatedPaddleTime: '10-13 hours; overnight planning recommended',
+    summary: 'Launch at Huot Park, pass through the direct Crookston gauge corridor, and finish at the Highway 75 Bypass access.',
+  }),
+  'red-lake-river-crookston-fisher': combinedTrip({
+    slug: 'red-lake-river-crookston-fisher',
+    firstSegment: 'red-lake-river-crookston-highway-75-bypass',
+    lastSegment: 'red-lake-river-highway-75-bypass-fisher',
+    distanceLabel: 'About 31.2 mi',
+    estimatedPaddleTime: '10-13 hours; overnight planning recommended',
+    summary: 'Launch in Crookston and continue through the Highway 75 Bypass corridor to Fisher Landing between two current Red Lake River gauges.',
+  }),
+  'st-louis-river-county-road-95-zim': combinedTrip({
+    slug: 'st-louis-river-county-road-95-zim',
+    firstSegment: 'st-louis-river-county-road-95-forbes',
+    lastSegment: 'st-louis-river-forbes-zim',
+    distanceLabel: 'About 31.5 mi',
+    estimatedPaddleTime: '10-13 hours; overnight planning recommended',
+    summary: 'Launch at County Road 95, pass the Forbes direct gauge, and finish at Zim on a long upper St. Louis River itinerary.',
+  }),
+  'st-louis-river-forbes-toivola': combinedTrip({
+    slug: 'st-louis-river-forbes-toivola',
+    firstSegment: 'st-louis-river-forbes-zim',
+    lastSegment: 'st-louis-river-zim-toivola',
+    distanceLabel: 'About 31.7 mi',
+    estimatedPaddleTime: '10-13 hours; overnight planning recommended',
+    summary: 'Launch beside the Forbes gauge, pass Zim, and continue to Toivola on the upper-middle St. Louis River.',
+  }),
+  'st-louis-river-toivola-floodwood': combinedTrip({
+    slug: 'st-louis-river-toivola-floodwood',
+    firstSegment: 'st-louis-river-toivola-county-road-29',
+    lastSegment: 'st-louis-river-county-road-29-floodwood',
+    distanceLabel: 'About 22.1 mi',
+    estimatedPaddleTime: '8-10 hours',
+    summary: 'Launch at Toivola, pass County Road 29, and finish in the direct Floodwood gauge corridor.',
+  }),
+  'crow-wing-river-huntersville-stigmans-mound': combinedTrip({
+    slug: 'crow-wing-river-huntersville-stigmans-mound',
+    firstSegment: 'crow-wing-river-huntersville-north-mary-brown',
+    lastSegment: 'crow-wing-river-mary-brown-stigmans-mound',
+    distanceLabel: 'About 16.9 mi',
+    estimatedPaddleTime: '6-8 hours',
+    summary: "Launch at Huntersville North, pass Mary Brown, and finish at Stigman's Mound beside the direct Nimrod gauge corridor.",
+  }),
+  'mississippi-river-steamboat-county-road-72': combinedTrip({
+    slug: 'mississippi-river-steamboat-county-road-72',
+    firstSegment: 'mississippi-river-steamboat-blackberry-bridge',
+    lastSegment: 'mississippi-river-blackberry-bridge-county-road-72',
+    distanceLabel: 'About 17.5 mi',
+    estimatedPaddleTime: '6-8 hours',
+    summary: 'Launch beside the Grand Rapids gauge at Steamboat Landing, pass Blackberry Bridge, and finish at County Road 72.',
+  }),
+  'vermilion-river-dam-county-road-24': combinedTrip({
+    slug: 'vermilion-river-dam-county-road-24',
+    firstSegment: 'vermilion-river-dam-twomile',
+    lastSegment: 'vermilion-river-eightmile-county-road-24',
+    distanceLabel: 'About 13.8 mi',
+    estimatedPaddleTime: '6-9 hours depending on scouting and portages',
+    summary: 'Launch immediately below Vermilion Dam beside the Buyck gauge and continue through the Twomile and Eightmile corridors to County Road 24.',
+    corridorId: 'mn-vermilion-condition-family',
+    corridorLabel: 'Vermilion River dam-to-County Road 24 corridor',
+  }),
+} satisfies Record<string, RiverTripDetails>);

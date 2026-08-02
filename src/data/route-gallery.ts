@@ -363,6 +363,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'big-fork-river-highway-6-south-johnson': [
+    {
+      id: 'big-fork-boat-launch-same-river-commons',
+      src: '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
+      alt: 'A grassy Big Fork River boat launch slopes down toward a narrow river channel under a bright summer sky.',
+      caption: 'Big Fork River boat-launch context farther south in Bigfork',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'big-fork-river-highway-6-north-big-falls-east': [
+    {
+      id: 'big-fork-boat-launch-same-river-commons',
+      src: '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
+      alt: 'A grassy Big Fork River boat launch slopes down toward a narrow river channel under a bright summer sky.',
+      caption: 'Big Fork River boat-launch context farther south in Bigfork',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'big-fork-river-dora-lake-big-fork': [
     {
       id: 'big-fork-lime-street-boat-launch-commons',
@@ -471,6 +491,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Red Lake River at Red Lake Falls',
       credit: 'Chitrapa / Peter Rimar via Kiddle',
       takenLabel: 'Kiddle image: CC BY-SA 4.0',
+    },
+  ],
+  'red-lake-river-huot-highway-75-bypass': [
+    {
+      id: 'red-lake-river-crookston-usace-commons',
+      src: '/gallery/red-lake-river-crookston/red-lake-river-crookston.jpg',
+      alt: 'An aerial view shows the Red Lake River making several broad bends through Crookston, Minnesota.',
+      caption: 'Red Lake River winding through the Crookston portion of the route',
+      credit: 'Tom Crump / U.S. Army Corps of Engineers via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'red-lake-river-crookston-fisher': [
+    {
+      id: 'red-lake-river-crookston-usace-commons',
+      src: '/gallery/red-lake-river-crookston/red-lake-river-crookston.jpg',
+      alt: 'An aerial view shows the Red Lake River making several broad bends through Crookston, Minnesota.',
+      caption: 'Red Lake River at the Crookston start of the route',
+      credit: 'Tom Crump / U.S. Army Corps of Engineers via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
   'chippewa-river-lentz-watson-lions-park': [
@@ -2931,6 +2971,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Red River of the North urban-river context; photographed in Fargo',
       credit: 'Jpkotta via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'mississippi-river-steamboat-county-road-72': [
+    {
+      id: 'mississippi-river-grand-rapids-nara',
+      src: '/gallery/mississippi-river-steamboat-county-road-72/mississippi-river-grand-rapids.jpg',
+      alt: 'The Mississippi River flows between dense green banks near Grand Rapids, Minnesota, beneath a cloud-filled sky.',
+      caption: 'Mississippi River beside the Grand Rapids and Steamboat Landing route corridor',
+      credit: 'S. Clyde / U.S. Department of Transportation via NARA and Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
   'vermilion-river-dam-twomile': [

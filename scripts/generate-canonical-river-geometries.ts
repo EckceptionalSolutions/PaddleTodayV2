@@ -50,6 +50,15 @@ const outputPath = reviewMode
 const stateOutputDir = path.join(geometryOutputRoot, 'states');
 const routeOutputDir = path.join(geometryOutputRoot, 'routes');
 
+// Some official water trails cross lake chains where the shortest connected
+// NHD path is not the published paddling route. These authoritative access
+// points keep the network trace on the documented corridor.
+const officialNetworkWaypoints: Record<string, Array<{ latitude: number; longitude: number }>> = {
+  'rice-creek-peltier-to-long-lake': [
+    { latitude: 45.1637486, longitude: -93.1154357 }, // Aqua Lane, after the northern lake chain.
+  ],
+};
+
 async function loadCuratedRouteGeometries(routes: River[]) {
   if (reviewMode) return [];
 
@@ -369,10 +378,13 @@ async function main() {
             name: feature.attributes?.gnis_name ?? feature.attributes?.GNIS_NAME ?? null,
           })),
       );
-      const networkTrace = route.putIn && route.takeOut
+      const networkRoutePoints = route.putIn && route.takeOut
+        ? [route.putIn, ...(officialNetworkWaypoints[route.id] ?? []), route.takeOut]
+        : [];
+      const networkTrace = networkRoutePoints.length >= 2
         ? endpointSnappedRiverNetwork(
             networkLines,
-            [route.putIn, route.takeOut],
+            networkRoutePoints,
             { maxSnapDistanceMiles: 500 / 5280 },
           )
         : null;

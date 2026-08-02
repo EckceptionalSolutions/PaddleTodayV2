@@ -321,6 +321,31 @@ test.describe('shared web map interaction contract', () => {
     await expect(page.locator('[data-summary-map] button.score-map-marker')).toHaveCount(1);
   });
 
+  test('Explore restores saved filters after reload and reset clears them', async ({ page }) => {
+    await page.goto('/explore/', { waitUntil: 'domcontentloaded' });
+
+    await page.locator('[data-filter-search]').fill('Rice Creek');
+    await page.locator('[data-filter-state]').selectOption('Minnesota');
+    await page.locator('[data-filter-difficulty]').selectOption('easy');
+    await page.locator('[data-filter-camping]').selectOption('any-support');
+    await page.locator('[data-filter-paddle-time]').selectOption('up-to-3');
+    await page.reload({ waitUntil: 'domcontentloaded' });
+
+    await expect(page.locator('[data-filter-search]')).toHaveValue('Rice Creek');
+    await expect(page.locator('[data-filter-state]')).toHaveValue('Minnesota');
+    await expect(page.locator('[data-filter-difficulty]')).toHaveValue('easy');
+    await expect(page.locator('[data-filter-camping]')).toHaveValue('any-support');
+    await expect(page.locator('[data-filter-paddle-time]')).toHaveValue('up-to-3');
+
+    await page.locator('[data-explore-reset]').click();
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(page.locator('[data-filter-search]')).toHaveValue('');
+    await expect(page.locator('[data-filter-state]')).toHaveValue('');
+    await expect(page.locator('[data-filter-difficulty]')).toHaveValue('');
+    await expect(page.locator('[data-filter-camping]')).toHaveValue('');
+    await expect(page.locator('[data-filter-paddle-time]')).toHaveValue('');
+  });
+
   test('Explore refresh preserves the current map viewport', async ({ page }) => {
     await page.goto('/explore/', { waitUntil: 'domcontentloaded' });
     const map = page.locator('[data-summary-map]');
