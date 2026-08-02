@@ -4,6 +4,10 @@ const canonicalGeometryPromises = new Map();
 const canonicalRouteGeometryPromises = new Map();
 const routeStitchTolerances = new Map([
   ['little-miami-river-rogers-ballpark-carl-rahe', 0.0075],
+  // The NHD named-fallback for this reach is split by a ~1.55-mile source
+  // gap. Join the two same-channel pieces so endpoint snapping can retain
+  // the complete Highway 139-to-FR 2150 route.
+  ['brule-river-highway-139-fr-2150', 0.035],
 ]);
 
 function slugifyState(value) {

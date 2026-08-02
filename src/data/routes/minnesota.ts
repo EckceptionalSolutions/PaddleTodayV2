@@ -3375,11 +3375,11 @@ export const minnesotaRoutes: River[] = [
     "id": "st-croix-river-osceola-william-obrien",
     "slug": "st-croix-river-osceola-william-obrien",
     "name": "St. Croix River",
-    "reach": "Osceola Landing to William O'Brien State Park Landing",
+    "reach": "Osceola Landing to William O'Brien State Park hand-carry take-out",
     "state": "Minnesota",
     "region": "Lower St. Croix",
-    "summary": "Popular lower St. Croix bluff run with a better public-access story than most broad-river routes. The water is usually straightforward, but wind, powerboat traffic, and William O'Brien take-out status still matter enough that this should stay a decision route, not an automatic yes.",
-    "statusText": "Treat about 2,500 cfs at St. Croix Falls as a conservative floor for this lower-river run. Below that, expect more shallow bars and slower side-channel options, and always verify William O'Brien access before launching.",
+    "summary": "Popular lower St. Croix bluff run with straightforward water but a conditional finish. William O'Brien's main ramp is closed; paddlers must verify the provisional downstream shoreline hand-carry, along with wind and powerboat conditions, before leaving Osceola.",
+    "statusText": "William O'Brien's main public-water-access ramp is closed. Verify that the downstream shoreline hand-carry is open and clearly posted before launching; also treat about 2,500 cfs at St. Croix Falls as a conservative low-water floor.",
     "latitude": 45.31996700000001,
     "longitude": -92.71514719999999,
     "safetyProfile": {
@@ -3392,8 +3392,8 @@ export const minnesotaRoutes: River[] = [
       ],
       "safetyNotes": [
         "Treat the 2,500 cfs St. Croix Falls floor as a conservative proxy, not a guarantee for this downstream reach. Below it expect shallow bars and slower side-channel options; reassess the trip rather than relying on one upstream number.",
-        "Powerboats are common on the lower St. Croix. Keep room for wakes and wind, and plan the William O'Brien side-channel landing before launching so fatigue or low water does not turn the take-out into an improvised bank stop.",
-        "Verify same-day William O'Brien river-access status, water level, sediment, and park-vehicle rules. Use only the named public landings and do not stop on private shoreline."
+        "Powerboats are common on the lower St. Croix. Keep room for wakes and wind, and identify the William O'Brien downstream shoreline hand-carry before launching so fatigue or low water does not turn the take-out into an improvised bank stop.",
+        "The main William O'Brien ramp is closed because sediment has clogged its back channel. The provisional paddler take-out is farther downstream along the park shoreline near Riverside Trail and Shelter 1; follow posted signs and confirm the exact same-day location with park staff."
       ],
       "reviewStatus": "reviewed"
     },
@@ -3426,8 +3426,8 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through fall is the main window. Wind and summer boat traffic can matter more than raw flow on this lower-river reach, especially once the river opens into broader lake-like stretches.",
       "difficulty": "easy",
-      "difficultyNotes": "There are no rapids on this reach, but broad water, wakes, and a side-channel state-park take-out make it a bigger day than a tiny-flatwater beginner route.",
-      "confidenceNotes": "Osceola and William O'Brien are both real public landings on an official lower St. Croix corridor, and current NPS and DNR materials clearly place the route and the 2026 take-out status. Remaining uncertainty comes from the community-sourced low-water floor and the St. Croix Falls gauge sitting upstream of this lower-river reach."
+      "difficultyNotes": "There are no rapids on this reach, but broad water, wakes, and a provisional shoreline hand-carry at the state park make it a bigger day than a tiny-flatwater beginner route.",
+      "confidenceNotes": "Osceola and William O'Brien are on an official lower St. Croix corridor, but the main state-park ramp is closed. DNR allows canoe and kayak access farther down the shoreline without publishing a named point or coordinates, so the saved hand-carry coordinate is a map-derived planning anchor that requires same-day verification. Threshold uncertainty also remains because the low-water floor is community-sourced and the St. Croix Falls gauge is upstream."
     },
     "evidenceNotes": [
       {
@@ -3438,9 +3438,9 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Take-out status caveat",
-        "value": "Open as water levels allow through 2026",
-        "note": "Minnesota DNR said in February 2026 that the St. Croix public water access at William O'Brien State Park would remain open as water levels allow through 2026, with dredging planned in 2027.",
-        "sourceUrl": "https://www.dnr.state.mn.us/news/2026/02/17/minnesota-dnr-shares-reconstruction-plan-lake-alice-william-obrien-state-park"
+        "value": "Main ramp closed; provisional shoreline hand-carry",
+        "note": "Minnesota DNR's current construction page lists the St. Croix public-water-access ramp as closed, says it may reopen as levels allow, and directs canoes and kayaks farther down the shoreline. DNR does not publish a name or coordinate for that hand-carry location.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state_parks/lake-alice-construction.html"
       },
       {
         "label": "Official route character",
@@ -3491,6 +3491,10 @@ export const minnesotaRoutes: River[] = [
         "url": "https://www.dnr.state.mn.us/news/2026/02/17/minnesota-dnr-shares-reconstruction-plan-lake-alice-william-obrien-state-park"
       },
       {
+        "label": "MN DNR Lake Alice construction and current access status",
+        "url": "https://www.dnr.state.mn.us/state_parks/lake-alice-construction.html"
+      },
+      {
         "label": "NPS Saint Croix boating rules",
         "url": "https://www.nps.gov/sacn/planyourvisit/boating.htm"
       },
@@ -3512,13 +3516,13 @@ export const minnesotaRoutes: River[] = [
     "id": "st-croix-river-william-obrien-boomsite",
     "slug": "st-croix-river-william-obrien-boomsite",
     "name": "St. Croix River",
-    "reach": "William O'Brien State Park Landing to Boom Site Landing",
+    "reach": "William O'Brien State Park hand-carry launch to Boom Site Landing",
     "state": "Minnesota",
     "region": "Lower St. Croix",
-    "summary": "Lower St. Croix day from William O'Brien State Park to Boom Site, closing the public-landing gap between the existing Osceola-to-William-O'Brien route and Stillwater. It is not a rapids run, but wind, powerboats, private banks, shallow bars, and the 2026 William O'Brien access caveat make it a conditions-first route.",
-    "statusText": "Use the DNR St. Croix Falls gauge as an upstream official proxy: 3,000 to 8,000 cfs is the medium band, below 2,000 cfs is scrapable, and above 11,000 cfs is very high. Also check William O'Brien access and lower-river boating rules before launching.",
-    "latitude": 45.217338,
-    "longitude": -92.758926,
+    "summary": "Lower St. Croix day from William O'Brien State Park to Boom Site. The main state-park ramp is closed, so this route starts only when the provisional downstream shoreline hand-carry is open and confirmed; wind, powerboats, private banks, and shallow bars still matter.",
+    "statusText": "William O'Brien's main ramp is closed. Confirm the downstream shoreline hand-carry before arriving, then use the DNR St. Croix Falls gauge as an upstream proxy: 3,000 to 8,000 cfs is medium, below 2,000 cfs is scrapable, and above 11,000 cfs is very high.",
+    "latitude": 45.2169,
+    "longitude": -92.7574,
     "gaugeSource": {
       "id": "mn-dnr-236",
       "provider": "mn_dnr",
@@ -3545,12 +3549,13 @@ export const minnesotaRoutes: River[] = [
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
+        "access_uncertain",
         "strainers",
         "private_banks",
         "cold_water"
       ],
       "safetyNotes": [
-        "DNR says the William O'Brien St. Croix access remains open as water levels allow through 2026; check same-day park status before committing to this put-in.",
+        "William O'Brien's main St. Croix ramp is closed. DNR directs canoes and kayaks farther down the shoreline, but does not publish an exact point; confirm the provisional hand-carry near Riverside Trail and Shelter 1 before committing to this put-in.",
         "NPS lower-river materials call out powerboats, special camping rules, shallow bars near Arcola, and private shoreline between public landings.",
         "Do not plan upstream boat travel past the Soo Line High Bridge from downstream water because NPS restricts upstream movement there for zebra-mussel control."
       ],
@@ -3581,7 +3586,7 @@ export const minnesotaRoutes: River[] = [
       "seasonNotes": "Late spring through fall is the practical lower-St.-Croix window. Wind, wakes, and local access status can matter more than small changes in discharge on this broad reach.",
       "difficulty": "moderate",
       "difficultyNotes": "The reach has no rapids, but it is an 11-plus-mile lower-river shuttle with wind, boat traffic, private shoreline, and access-status checks.",
-      "confidenceNotes": "Endpoint confidence is high because Minnesota public-water-access GIS resolves William O'Brien and Boom Site with river-mile records. Threshold confidence is moderate: the DNR St. Croix Falls gauge has official bands for the same river corridor, but it is upstream of this lower-river segment, so same-day visual checks and NPS boating conditions still matter."
+      "confidenceNotes": "The official public-water-access record confirms the William O'Brien corridor, but the main ramp is closed and DNR has not published coordinates for the downstream shoreline hand-carry. The saved put-in is therefore a provisional map-derived planning anchor requiring same-day confirmation. Threshold confidence is moderate because the official DNR gauge is upstream of this lower-river segment."
     },
     "evidenceNotes": [
       {
@@ -3610,9 +3615,9 @@ export const minnesotaRoutes: River[] = [
       },
       {
         "label": "Put-in status",
-        "value": "Open as water levels allow through 2026",
-        "note": "Minnesota DNR says the William O'Brien St. Croix public water access is expected to remain open as water levels allow through 2026, with dredging work planned later.",
-        "sourceUrl": "https://www.dnr.state.mn.us/news/2026/02/17/minnesota-dnr-shares-reconstruction-plan-lake-alice-william-obrien-state-park"
+        "value": "Main ramp closed; provisional shoreline hand-carry",
+        "note": "Minnesota DNR's current construction page closes the main ramp while allowing canoes and kayaks farther down the shoreline. The provisional launch coordinate is map-derived and must be confirmed from posted signs or park staff.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state_parks/lake-alice-construction.html"
       }
     ],
     "sourceLinks": [
@@ -3627,6 +3632,10 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR February 17, 2026 William O'Brien access update",
         "url": "https://www.dnr.state.mn.us/news/2026/02/17/minnesota-dnr-shares-reconstruction-plan-lake-alice-william-obrien-state-park"
+      },
+      {
+        "label": "MN DNR Lake Alice construction and current access status",
+        "url": "https://www.dnr.state.mn.us/state_parks/lake-alice-construction.html"
       },
       {
         "label": "MN DNR William O'Brien State Park",

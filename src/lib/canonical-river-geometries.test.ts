@@ -88,6 +88,21 @@ describe('canonical river geometry asset', () => {
     expect(Math.min(forwardError, reverseError)).toBeLessThan(0.1);
   });
 
+  it('stitches the Brule Highway 139-to-FR 2150 geometry across its source gap', () => {
+    const feature = routeFeature('brule-river-highway-139-fr-2150');
+    const putIn: [number, number] = [-88.65238, 45.98767];
+    const takeOut: [number, number] = [-88.45013, 45.99013];
+    const routeLine = canonicalRiverRouteLineFromFeature(feature, [
+      { longitude: putIn[0], latitude: putIn[1] },
+      { longitude: takeOut[0], latitude: takeOut[1] },
+    ]);
+    const coordinates = routeLine?.geometry.coordinates as [number, number][] | undefined;
+
+    expect(coordinates?.length).toBeGreaterThan(400);
+    expect(distanceMiles(coordinates?.[0] ?? [0, 0], putIn)).toBeLessThan(0.03);
+    expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], takeOut)).toBeLessThan(0.03);
+  });
+
   it('uses the connected natural Otter Tail channel instead of the artificial-path-only fallback', () => {
     const feature = routeFeature('otter-tail-river-friberg-hwy-210');
     expect(feature.properties?.traceMode).toBe('network-traced');

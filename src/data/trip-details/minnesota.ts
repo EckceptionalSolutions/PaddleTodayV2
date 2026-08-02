@@ -1088,35 +1088,35 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -92.71514719999999
     },
     "takeOut": {
-      "name": "William O'Brien State Park landing",
-      "latitude": 45.2181259,
-      "longitude": -92.7806336
+      "name": "William O'Brien downstream shoreline hand-carry (provisional)",
+      "latitude": 45.2169,
+      "longitude": -92.7574
     },
     "logistics": {
       "distanceLabel": "8.8 mi",
       "estimatedPaddleTime": "About 3 hr to 4 hr 30 min",
-      "shuttle": "Standard lower-river car shuttle. Stage the take-out at William O'Brien before launching because the landing status can change with water and sediment conditions.",
+      "shuttle": "Stage the vehicle in the Walter F. Mondale Day-use Area, then verify the posted downstream shoreline hand-carry near Riverside Trail and Shelter 1 before driving to Osceola. Do not launch unless that take-out is open and identifiable.",
       "permits": "No special paddling permit is known for a day run, but Riverway rules still apply and a Minnesota state park vehicle permit can matter at William O'Brien.",
       "camping": "Treat this as a day trip unless you separately verify a legal Riverway or park camping plan. William O'Brien State Park is a nearby campground/base-camp option, but the lower St. Croix has real overnight rules that are not simple enough to infer from the landing names alone.",
-      "summary": "Put in at Osceola and finish at William O'Brien for a broad lower St. Croix float that feels simpler than the Dalles but still asks for wind and motorboat judgment. The big operational check is whether the William O'Brien take-out is usable that day.",
+      "summary": "Put in at Osceola and finish at William O'Brien for a broad lower St. Croix float that feels simpler than the Dalles but still asks for wind and motorboat judgment. The main state-park ramp is closed, so the trip depends on confirming the provisional downstream shoreline hand-carry before launch.",
       "accessCaveats": [
-        "William O'Brien's river landing is a legitimate public take-out, but DNR has said it is open as water levels allow through 2026. Check same-day park updates before you commit.",
-        "William O'Brien also rents canoes and kayaks and gives weekend shuttle information in season, which is useful backup logistics but also a sign that the landing area may be busier than a quiet roadside take-out.",
+        "William O'Brien's main public-water-access ramp is closed because sediment has clogged its back channel. DNR says canoes and kayaks may use the shoreline farther downstream, but it does not publish a named point or coordinates.",
+        "The saved hand-carry pin near Riverside Trail and Shelter 1 is a map-derived planning anchor, not an officially designated coordinate. Follow posted signs and confirm the exact same-day take-out with park staff at 651-539-4980.",
         "Osceola is better documented than many lower-river launches, but it is still a busy shared-use landing rather than a quiet paddle-only access."
       ],
       "watchFor": [
         "Wind and wake exposure on the wider lower-river stretches.",
         "Shallow bars and slower side-channel options if the upstream gauge slips toward the 2,500 cfs floor.",
-        "Finding the William O'Brien side-channel take-out cleanly if you have not used it before.",
-        "A changed or limited take-out setup at William O'Brien after low water, sediment movement, or maintenance."
+        "Finding the posted William O'Brien shoreline hand-carry cleanly if you have not used it before.",
+        "A closure or relocation of the provisional hand-carry after low water, sediment movement, or maintenance."
       ]
     }
   },
   "st-croix-river-william-obrien-boomsite": {
     "putIn": {
-      "name": "William O'Brien State Park landing",
-      "latitude": 45.217338,
-      "longitude": -92.758926
+      "name": "William O'Brien downstream shoreline hand-carry (provisional)",
+      "latitude": 45.2169,
+      "longitude": -92.7574
     },
     "takeOut": {
       "name": "Boom Site public water access",
@@ -1126,13 +1126,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "11.4 mi",
       "estimatedPaddleTime": "About 3 hr 45 min to 5 hr 30 min",
-      "shuttle": "Standard two-car lower St. Croix shuttle. Confirm William O'Brien landing status before launching, then stage the take-out at Boom Site north of Stillwater.",
+      "shuttle": "Stage the take-out at Boom Site, then confirm the posted downstream shoreline hand-carry in William O'Brien's Walter F. Mondale Day-use Area. The main ramp is closed; do not launch from an improvised bank if the hand-carry is not clearly open.",
       "permits": "No route-specific paddling permit is known for a day run, but Riverway rules and Minnesota boating law apply. A Minnesota state park vehicle permit can matter at William O'Brien.",
       "camping": "Treat this as a day trip unless you separately verify a legal lower-Riverway or state-park camping plan. William O'Brien State Park is a nearby base-camp option, but private shoreline and special Riverway rules make ad hoc shoreline camping inappropriate.",
       "campingClassification": "nearby_basecamp",
       "summary": "Launch from William O'Brien State Park and finish at Boom Site for the next lower St. Croix segment toward Stillwater. The water is generally nontechnical, but this route needs a lower-river conditions check for wind, wake, shallow bars, and landing status.",
       "accessCaveats": [
-        "DNR says the William O'Brien river access is open as water levels allow through 2026; same-day park updates and posted signs supersede this saved route note.",
+        "William O'Brien's main ramp is closed. DNR allows canoes and kayaks farther down the shoreline, but the saved pin near Riverside Trail and Shelter 1 is provisional and posted signs or park staff must confirm the exact launch.",
         "Boom Site is the downstream public-water-access take-out north of Stillwater and can be busy in summer.",
         "Do not use private banks as default stops; NPS lower-river materials emphasize private land and special camping rules."
       ],

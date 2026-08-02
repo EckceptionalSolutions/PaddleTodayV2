@@ -26,8 +26,8 @@ export const minnesotaPaddleGuideEntries: MinnesotaPaddleGuideEntry[] = [
     riverName: 'St. Croix River',
     routeName: "Osceola Landing to William O'Brien State Park",
     summary:
-      'A classic lower St. Croix weekend paddle with National Scenic Riverway scenery, established river access, and state-park support near the finish.',
-    fastFacts: ['Destination weekend route', 'State park finish', 'Good scenery-to-logistics ratio'],
+      'A classic lower St. Croix weekend paddle with National Scenic Riverway scenery and a conditional state-park finish: the main William O’Brien ramp is closed, so confirm the provisional downstream shoreline hand-carry before launching.',
+    fastFacts: ['Destination weekend route', 'Provisional hand-carry finish', 'Verify access same day'],
     categories: ['best-weekend', 'camping', 'near-twin-cities'],
     sourceLabel: 'National Park Service Riverway paddling and camping guidance',
     sourceUrl: 'https://www.nps.gov/thingstodo/paddlingtheriverway.htm',
