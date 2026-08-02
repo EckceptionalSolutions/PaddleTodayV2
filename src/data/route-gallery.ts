@@ -103,33 +103,6 @@ const cascadeRiverMinnesotaPhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
 };
 
-const grandMaraisHarborMinnesotaPhoto: RouteGalleryPhoto = {
-  id: 'grand-marais-harbor-usfs-commons',
-  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/20180228-FS-LSC-0122%20%2827385869767%29.jpg?width=1600',
-  alt: 'Grand Marais harbor and the wooded point extend into Lake Superior.',
-  caption: 'Grand Marais harbor at the route finish',
-  credit: 'Lance Cheung / USDA Forest Service via Wikimedia Commons',
-  takenLabel: 'Wikimedia Commons: public domain',
-};
-
-const grandMaraisDepartureMinnesotaPhoto: RouteGalleryPhoto = {
-  ...grandMaraisHarborMinnesotaPhoto,
-  id: 'grand-marais-harbor-route-start-usfs-commons',
-  caption: 'Grand Marais harbor at the route start',
-};
-
-const northShoreCoastalMinnesotaPhoto: RouteGalleryPhoto = {
-  ...bigSuckerCreekMinnesotaPhoto,
-  id: 'north-shore-lake-superior-coastal-context-nara',
-  caption: 'Minnesota North Shore sea-kayaking context',
-};
-
-const bruleCoastalStartMinnesotaPhoto: RouteGalleryPhoto = {
-  ...bruleRiverMinnesotaPhoto,
-  id: 'brule-river-magney-coastal-start-commons',
-  caption: 'Brule River landmark at the Judge C. R. Magney route start',
-};
-
 const kadunceRegionalMinnesotaPhoto: RouteGalleryPhoto = {
   ...bruleRiverMinnesotaPhoto,
   id: 'kadunce-regional-north-shore-river-context-commons',
@@ -148,10 +121,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'devil-track-river-lake-maple-hill': [devilTrackLakeMinnesotaPhoto],
   'devil-track-river-maple-hill-lake-superior': [lowerDevilTrackMinnesotaPhoto],
   'cascade-river-grade-cascade-road': [cascadeRiverMinnesotaPhoto],
-  'lake-superior-cascade-grand-marais': [grandMaraisHarborMinnesotaPhoto],
-  'lake-superior-grand-marais-kadunce': [grandMaraisDepartureMinnesotaPhoto],
-  'lake-superior-kadunce-judge-magney': [northShoreCoastalMinnesotaPhoto],
-  'lake-superior-judge-magney-hovland': [bruleCoastalStartMinnesotaPhoto],
   'kadunce-river-sht-highway-61': [kadunceRegionalMinnesotaPhoto],
   'west-fork-white-river-barlow-mcculloch': [
     {

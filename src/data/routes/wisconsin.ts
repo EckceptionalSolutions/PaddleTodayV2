@@ -8341,6 +8341,7 @@ export const wisconsinRoutes: River[] = [
     "id": "brule-river-highway-139-fr-2150",
     "slug": "brule-river-highway-139-fr-2150",
     "name": "Brule River",
+    "riverId": "brule-river-wisconsin-michigan",
     "reach": "Highway 139/189 Bridge Landing to Forest Road 2150 Landing",
     "state": "Wisconsin",
     "region": "Northeast Wisconsin",
@@ -16544,6 +16545,7 @@ export const wisconsinRoutes: River[] = [
     "id": "brule-river-campground-highway-139",
     "slug": "brule-river-campground-highway-139",
     "name": "Brule River",
+    "riverId": "brule-river-wisconsin-michigan",
     "reach": "Brule River Campground Landing to Highway 139/189 Landing",
     "aliases": [
       "Brule River B1",
@@ -16652,6 +16654,7 @@ export const wisconsinRoutes: River[] = [
     "id": "brule-river-forest-road-2150-flowage",
     "slug": "brule-river-forest-road-2150-flowage",
     "name": "Brule River",
+    "riverId": "brule-river-wisconsin-michigan",
     "reach": "Forest Road 2150 Landing to Brule River Flowage / WEPCO #28",
     "aliases": [
       "Brule River B3",

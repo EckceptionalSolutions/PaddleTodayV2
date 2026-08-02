@@ -100,7 +100,7 @@ export const dedicatedRiverGroupHeroPhotos: Record<string, RiverGroupHeroPhoto> 
     width: 1600,
     height: 1100,
   },
-  'brule-river': {
+  'brule-river-wisconsin-michigan': {
     src: '/gallery/river-groups/brule-river/brule-river-bridge.webp',
     alt: 'A highway bridge crosses the Brule River along the Wisconsin and Michigan border.',
     caption: 'Brule River bridge',

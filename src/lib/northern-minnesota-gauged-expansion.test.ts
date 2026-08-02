@@ -15,6 +15,12 @@ const routeIds = [
   'vermilion-river-dam-county-road-24',
 ] as const;
 
+const whitewaterRouteIds = new Set([
+  'red-lake-river-huot-highway-75-bypass',
+  'red-lake-river-crookston-fisher',
+  'vermilion-river-dam-county-road-24',
+]);
+
 describe('Northern Minnesota direct-gauge expansion', () => {
   it('publishes exactly ten new routes across multiple river systems', () => {
     const routes = new Map(listRivers().map((route) => [route.slug, route]));
@@ -42,5 +48,26 @@ describe('Northern Minnesota direct-gauge expansion', () => {
       expect(route).toBeDefined();
       expect(getRoutePreviewPhoto(route!).sourceKind).not.toBe('placeholder');
     }
+  });
+
+  it('reserves the whitewater filter for whitewater-focused expansion routes', () => {
+    const routes = new Map(listRivers().map((route) => [route.slug, route]));
+
+    for (const routeId of routeIds) {
+      expect(routes.get(routeId)?.routeType).toBe(
+        whitewaterRouteIds.has(routeId) ? 'whitewater' : 'recreational',
+      );
+    }
+  });
+
+  it('uses the combined-route take-outs in safety guidance', () => {
+    const routes = new Map(listRivers().map((route) => [route.slug, route]));
+    const countyRoad95ToZim = routes.get('st-louis-river-county-road-95-zim');
+    const vermilionToCountyRoad24 = routes.get('vermilion-river-dam-county-road-24');
+
+    expect(countyRoad95ToZim?.safetyProfile?.safetyNotes.join(' ')).toContain('continue from Forbes Access toward Zim');
+    expect(countyRoad95ToZim?.safetyProfile?.safetyNotes.join(' ')).not.toContain('Take out at Forbes');
+    expect(vermilionToCountyRoad24?.safetyProfile?.safetyNotes.join(' ')).toContain('County Road 24 is the planned take-out');
+    expect(vermilionToCountyRoad24?.safetyProfile?.safetyNotes.join(' ')).not.toContain('Take out at Twomile Creek');
   });
 });
