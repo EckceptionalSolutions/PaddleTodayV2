@@ -456,6 +456,8 @@ export interface LiveDataStatus {
 
 export interface RiverSummaryApiItem {
   river: {
+    scoreEligibility?: 'scored' | 'planning';
+    scoreEligibilityReason?: 'proxy_gauge';
     riverId?: string;
     conditionZoneId?: string;
     corridorId?: string;
@@ -515,6 +517,8 @@ export interface RiverSummaryApiItem {
 
 export interface WeekendSummaryApiItem {
   river: {
+    scoreEligibility?: 'scored' | 'planning';
+    scoreEligibilityReason?: 'proxy_gauge';
     riverId?: string;
     conditionZoneId?: string;
     corridorId?: string;
@@ -567,6 +571,8 @@ export * from './route-planning';
 
 export interface RiverDetailApiResult {
   river: {
+    scoreEligibility?: 'scored' | 'planning';
+    scoreEligibilityReason?: 'proxy_gauge';
     riverId?: string;
     conditionZoneId?: string;
     corridorId?: string;
@@ -640,6 +646,8 @@ export interface RiverGroupApiResult {
     riverId: string;
     name: string;
     routeCount: number;
+    scoredRouteCount?: number;
+    planningRouteCount?: number;
     stateSummary: string;
     regionSummary: string;
     regions?: string[];

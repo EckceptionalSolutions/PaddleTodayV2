@@ -28,6 +28,19 @@
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 
+/* Planning routes must never show the scored-route loading template while
+   their detail response is hydrating. The planning notice and route facts
+   remain visible; live score, gauge, weather, and score-explanation shells do
+   not apply to proxy-gauge routes. */
+.river-detail--planning .river-call-panel,
+.river-detail--planning [data-detail-section="river-conditions"],
+.river-detail--planning [data-detail-section="route-outlook"],
+.river-detail--planning [data-detail-section="why-this-call"],
+.river-detail--planning [data-detail-status-banner],
+.river-detail--planning [data-detail-fetch-banner] {
+  display: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -1047,53 +1060,6 @@ a {
   }
 }
 
-.site-header__app-promo {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.28rem 0.42rem;
-  min-height: 2.1rem;
-  padding: 0.24rem 0.34rem 0.24rem 0.58rem;
-  border: 1px solid rgba(30, 115, 151, 0.16);
-  border-radius: 999px;
-  background: rgba(233, 245, 250, 0.7);
-  color: var(--river-deep);
-  font-size: 0.72rem;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.site-header__app-promo[hidden],
-.site-header__app-promo-link[hidden] {
-  display: none;
-}
-
-.site-header__app-promo-badge {
-  color: var(--river);
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.site-header__app-promo-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.55rem;
-  padding: 0.18rem 0.54rem;
-  border: 1px solid rgba(16, 74, 104, 0.14);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.84);
-  color: var(--river-deep);
-  text-decoration: none;
-  font-size: 0.68rem;
-  font-weight: 800;
-}
-
-.site-header__app-promo-link:hover {
-  background: #fff;
-  border-color: rgba(30, 115, 151, 0.28);
-}
-
 .site-header__nav {
   display: inline-flex;
   flex-wrap: wrap;
@@ -1702,10 +1668,6 @@ body.site-search-open {
 }
 
 @media (max-width: 760px) {
-  .site-header__app-promo {
-    display: none !important;
-  }
-
   .page-home .home-location-bar {
     max-width: none;
     gap: 0.62rem;
@@ -2316,6 +2278,133 @@ body.site-search-open {
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.planning-status-card {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  padding: 1rem;
+  border: 1px solid rgba(30, 115, 151, 0.24);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(232, 246, 248, 0.96), rgba(255, 255, 255, 0.96));
+  box-shadow: 0 12px 28px rgba(16, 74, 104, 0.08);
+}
+
+.planning-status-card__eyebrow {
+  margin: 0;
+  color: var(--river);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.planning-status-card h2 {
+  margin: -0.25rem 0 0;
+  color: var(--ink);
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.planning-status-card__summary {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.planning-status-card__facts {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.planning-status-card__facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(30, 115, 151, 0.13);
+}
+
+.planning-status-card__facts dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.planning-status-card__facts dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: right;
+}
+
+.planning-status-card__actions {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.planning-status-card__weather {
+  display: grid;
+  gap: 0.28rem;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid rgba(30, 115, 151, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.planning-status-card__weather-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+
+.planning-status-card__weather-label {
+  color: var(--river-deep);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.planning-status-card__weather-note {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.planning-status-card__weather strong {
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.planning-status-card__weather > span:last-child {
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.planning-status-card__actions .river-link--primary {
+  min-height: 2.55rem;
+  border-radius: 999px;
+  box-shadow: 0 7px 14px rgba(16, 74, 104, 0.16);
+  font-weight: 900;
+}
+
+.planning-status-card__actions .river-link--inline {
+  justify-self: center;
+  padding: 0.15rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--river-deep);
+  font-size: 0.76rem;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 .route-safety-card {

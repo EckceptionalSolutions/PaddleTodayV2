@@ -82,6 +82,16 @@ export async function handleRiverAlertCreate(
       );
     }
 
+    if (river.scoreEligibility === 'planning') {
+      return sendJson(
+        response,
+        409,
+        { requestId, error: 'route_not_scored', message: 'Alerts are only available for scored routes.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
     const snapshot = await getStoredRiverDetailSnapshot(river.slug).catch(() => null);
     const initialState = initialAlertStateForSnapshot(snapshot, threshold);
 

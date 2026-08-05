@@ -293,6 +293,10 @@ function routeMatchesTypeFilter(route) {
   return routeTypeFilter === 'all' || route.routeType === routeTypeFilter;
 }
 
+function isPlanningRoute(route) {
+  return route?.scoreEligibility === 'planning';
+}
+
 function routeDifficultyRank(route) {
   const ranks = {
     easy: 0,
@@ -831,11 +835,9 @@ function routePopupMarkup(route) {
       <h3>${escapeHtml(route.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
       ${facts ? `<p class="score-map-popup__summary">${escapeHtml(facts)}</p>` : ''}
-      <div class="score-map-popup__scoreline">
-        <span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span>
-        <p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating, route.score))}</p>
-      </div>
-      <p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>
+      ${isPlanningRoute(route)
+        ? '<p class="score-map-popup__summary">Planning route · not scored because the available gauge is a proxy for this reach.</p>'
+        : `<div class="score-map-popup__scoreline"><span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span><p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating, route.score))}</p></div><p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>`}
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
   `;
@@ -1274,7 +1276,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     });
     syncRouteLayers(routes);
     syncSelectedRouteEndpoints(selectedRoute, maplibregl);
-    syncConditionScoreMarkers(routes, maplibregl);
+    syncConditionScoreMarkers(routes.filter((route) => !isPlanningRoute(route)), maplibregl);
 
     const fitRoutes = focusSelected && selectedRoute ? [selectedRoute] : routes;
     const bounds = boundsForRouteFeatures(maplibregl, fitRoutes);
@@ -1365,7 +1367,7 @@ function renderRouteList(routes) {
         .filter(Boolean)
         .map((fact, factIndex) => `<span class="route-choice__fact${factIndex === 0 ? ' route-choice__fact--distance' : ''}">${escapeHtml(fact)}</span>`)
         .join('');
-      const bestMatch = sortMode === 'recommended'
+      const bestMatch = !isPlanningRoute(route) && sortMode === 'recommended'
         && distanceFilter === 'all'
         && regionFilter === 'all'
         && difficultyFilter === 'all'
@@ -1401,10 +1403,9 @@ function renderRouteList(routes) {
               <strong class="route-choice__title">${escapeHtml(route.reach)}</strong>
               <span class="route-choice__facts">${facts}</span>
             </span>
-            <span class="route-choice__score-compact route-choice__score-compact--${ratingToneKey(route.rating)}">
-              <strong>${escapeHtml(String(route.score))}</strong>
-              <span>${escapeHtml(decisionLabel(route.rating, route.score))}</span>
-            </span>
+            ${isPlanningRoute(route)
+              ? '<span class="route-choice__score-compact route-choice__score-compact--planning"><strong>—</strong><span>Planning route</span></span>'
+              : `<span class="route-choice__score-compact route-choice__score-compact--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route.rating, route.score))}</span></span>`}
           </button>
           <a class="river-link river-link--inline route-choice__details-link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
         </article>
@@ -1477,13 +1478,12 @@ function renderSelectedSummary(route) {
       <span class="eyebrow">Your trip</span>
       <strong>${escapeHtml(route.reach)}</strong>
       <span>${escapeHtml(pickerFacts(route).join(BULLET))}</span>
-      <small>${escapeHtml(conditionsLine(route))}</small>
+    <small>${escapeHtml(isPlanningRoute(route) ? 'Planning route · verify local conditions before launching' : conditionsLine(route))}</small>
     </div>
     ${favoriteButtonMarkup(route).replace('favorite-toggle--inline', 'favorite-toggle--inline river-route-picker__selected-save')}
-    <div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}">
-      <strong>${escapeHtml(String(route.score))}</strong>
-      <span>${escapeHtml(decisionLabel(route.rating, route.score))}</span>
-    </div>
+    ${isPlanningRoute(route)
+      ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Planning route · not scored</span></div>'
+      : `<div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route.rating, route.score))}</span></div>`}
     <div class="river-route-picker__selected-actions">
       <a class="river-link river-link--inline" href="/rivers/${encodeURIComponent(route.slug)}/">View route details</a>
     </div>
@@ -1713,6 +1713,8 @@ function normalizeRoutes(routes) {
   return routes.map((route) => ({
     slug: route.river.slug,
     riverId: route.river.riverId,
+    scoreEligibility: route.river.scoreEligibility,
+    scoreEligibilityReason: route.river.scoreEligibilityReason,
     conditionZoneId: route.river.conditionZoneId,
     corridorId: route.river.corridorId,
     corridorLabel: route.river.corridorLabel,
@@ -1793,14 +1795,18 @@ async function loadGroup({ silent = false } = {}) {
     renderPicker({ fitMap: true, focusSelected: Boolean(initialSelectedSlug) });
     hydrateRouteGeometries(routes);
 
-    const liveCount = routes.filter((route) => route.liveData?.overall === 'live').length;
-    const readyCount = routes.filter((route) => route.rating === 'Strong' || route.rating === 'Good').length;
+    const scoredRoutes = routes.filter((route) => !isPlanningRoute(route));
+    const planningCount = routes.length - scoredRoutes.length;
+    const liveCount = scoredRoutes.filter((route) => route.liveData?.overall === 'live').length;
+    const readyCount = scoredRoutes.filter((route) => route.rating === 'Strong' || route.rating === 'Good').length;
     setBanner(
       liveCount === routes.length ? 'live' : 'degraded',
-      `${readyCount} of ${routes.length} routes look ready today.`,
-      liveCount === routes.length
-        ? 'Gauge and weather reads are current enough to compare.'
-        : 'At least one route is using stale or partial reads. Open the route page before you drive.'
+      planningCount > 0 ? `${readyCount} scored routes ready today · ${planningCount} planning routes` : `${readyCount} of ${routes.length} routes look ready today.`,
+      planningCount > 0
+        ? 'Planning routes have access details but are not included in same-day scoring.'
+        : liveCount === routes.length
+          ? 'Gauge and weather reads are current enough to compare.'
+          : 'At least one route is using stale or partial reads. Open the route page before you drive.'
     );
 
     lastSuccessAt = Date.now();

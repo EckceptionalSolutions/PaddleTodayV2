@@ -16,3 +16,9 @@ export function hasQualifyingGauge(route: River): boolean {
 
   return !unavailableGaugeKeys.has(`${route.gaugeSource.provider}:${route.gaugeSource.siteId}`);
 }
+
+export function isPublicPlanningRoute(route: River): boolean {
+  return route.gaugeSource.kind === 'proxy'
+    && route.routeType !== 'whitewater'
+    && route.safetyProfile?.reviewStatus === 'reviewed';
+}

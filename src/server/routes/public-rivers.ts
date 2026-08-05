@@ -5,6 +5,7 @@ import { withTimeout } from '../server-runtime';
 import {
   serializeDetailResult,
   serializeRiverGroupResult,
+  serializePlanningRoute,
   serializeRiverHistoryResult,
   serializeSummaryResult,
   serializeWeekendSummaryResult,
@@ -17,7 +18,7 @@ import {
   getStoredWeekendSummarySnapshot,
 } from '../../lib/river-snapshots';
 import { getUpstreamTelemetry } from '../../lib/http';
-import { getAllRiverScores, getRiverBySlug, getRiverGroupScores, getRiverScore, listRivers } from '../../lib/rivers';
+import { getAllRiverScores, getRiverBySlug, getRiverGroupById, getRiverGroupScores, getRiverScore, getRiverWeather, listRivers } from '../../lib/rivers';
 import { getCacheStats } from '../../lib/server-cache';
 import { parseQueryNumber } from '../request-parsers';
 import { resolveStaticFile } from '../static-route';
@@ -129,6 +130,16 @@ export async function handleRiverDetail(
   slug: string,
   snapshotOnly = false,
 ) {
+  const publicRiver = getRiverBySlug(slug);
+  if (publicRiver?.scoreEligibility === 'planning') {
+    const weather = await withTimeout(getRiverWeather(slug), LIVE_SCORE_TIMEOUT_MS, `planning route weather for ${slug}`).catch(() => null);
+    return sendJson(response, 200, {
+      requestId,
+      generatedAt: new Date().toISOString(),
+      result: serializePlanningRoute(publicRiver, weather),
+    }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
+  }
+
   let snapshot: Awaited<ReturnType<typeof getStoredRiverDetailSnapshot>> = null;
   try {
     snapshot = await getStoredRiverDetailSnapshot(slug);
@@ -225,7 +236,14 @@ export async function handleRiverHistory(
 }
 
 export async function handleRiverGroup(response: ServerResponse, requestId: string, includeBody: boolean, riverId: string) {
-  const snapshot = await getStoredRiverGroupSnapshot(riverId).catch(() => null);
+  const group = getRiverGroupById(riverId);
+  if (!group) {
+    return sendJson(response, 404, { requestId, error: 'not_found' }, includeBody);
+  }
+  const planningRoutes = group.routes.filter((route) => route.scoreEligibility === 'planning');
+  const snapshot = planningRoutes.length === 0
+    ? await getStoredRiverGroupSnapshot(riverId).catch(() => null)
+    : null;
   if (snapshot) {
     return sendJson(response, 200, {
       requestId,
@@ -235,7 +253,7 @@ export async function handleRiverGroup(response: ServerResponse, requestId: stri
   }
 
   const results = await withTimeout(getRiverGroupScores(riverId), LIVE_SCORE_TIMEOUT_MS, `river group scoring for ${riverId}`);
-  if (!results) {
+  if (!results && planningRoutes.length === 0) {
     return sendJson(response, 404, { requestId, error: 'not_found' }, includeBody);
   }
 
@@ -245,7 +263,8 @@ export async function handleRiverGroup(response: ServerResponse, requestId: stri
     generatedAt,
     result: serializeRiverGroupResult({
       riverId,
-      routes: results.map((route) => ({ ...route, generatedAt })),
+      routes: (results ?? []).map((route) => ({ ...route, generatedAt })),
+      planningRoutes,
     }),
   }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
 }

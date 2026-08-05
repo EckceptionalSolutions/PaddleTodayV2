@@ -11,8 +11,7 @@ const searchOpenButtons = Array.from(document.querySelectorAll('[data-site-searc
 const searchCloseButtons = Array.from(document.querySelectorAll('[data-site-search-close], [data-site-search-dismiss]'));
 const searchIndexNode = document.querySelector('[data-site-search-index]');
 const appDownloadPrompt = document.querySelector('[data-app-download-prompt]');
-const appDownloadLinks = Array.from(document.querySelectorAll('[data-app-download-link], [data-app-header-link]'));
-const appHeaderPromo = document.querySelector('[data-app-header-promo]');
+const appDownloadLinks = Array.from(document.querySelectorAll('[data-app-download-link]'));
 const appDownloadDismiss = document.querySelector('[data-app-download-dismiss]');
 const appDownloadConfigNode = document.querySelector('[data-app-download-config]');
 
@@ -397,10 +396,6 @@ function bindAppDownloadPrompt() {
 
   if (enabledPlatforms.length === 0) {
     return;
-  }
-
-  if (appHeaderPromo instanceof HTMLElement) {
-    appHeaderPromo.hidden = false;
   }
 
   appDownloadPrompt.dataset.platform = platform || 'desktop';

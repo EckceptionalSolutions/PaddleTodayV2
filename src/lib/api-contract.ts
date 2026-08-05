@@ -32,6 +32,8 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
   return {
     river: {
       riverId: result.river.riverId,
+      scoreEligibility: result.river.scoreEligibility,
+      scoreEligibilityReason: result.river.scoreEligibilityReason,
       conditionZoneId: conditionZoneIdForRiver(result.river),
       corridorId: result.river.corridorId,
       corridorLabel: result.river.corridorLabel,
@@ -97,6 +99,8 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
   return {
     river: {
       riverId: result.river.riverId,
+      scoreEligibility: result.river.scoreEligibility,
+      scoreEligibilityReason: result.river.scoreEligibilityReason,
       conditionZoneId: conditionZoneIdForRiver(result.river),
       corridorId: result.river.corridorId,
       corridorLabel: result.river.corridorLabel,
@@ -183,6 +187,8 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
   return {
     river: {
       riverId: result.river.riverId,
+      scoreEligibility: result.river.scoreEligibility,
+      scoreEligibilityReason: result.river.scoreEligibilityReason,
       conditionZoneId: conditionZoneIdForRiver(result.river),
       corridorId: result.river.corridorId,
       corridorLabel: result.river.corridorLabel,
@@ -253,26 +259,103 @@ function serializeLogistics(logistics: RiverScoreResult['river']['logistics']): 
 export function serializeRiverGroupResult(args: {
   riverId: string;
   routes: RiverScoreResult[];
+  planningRoutes?: River[];
 }): RiverGroupApiResult {
-  const first = args.routes[0]?.river;
-  const states = [...new Set(args.routes.map((result) => result.river.state))].sort();
-  const regions = [...new Set(args.routes.map((result) => result.river.region))].sort();
-  const difficultyOptions = difficultyOptionsForRoutes(args.routes.map((result) => result.river.profile.difficulty));
-  const distanceRange = distanceRangeForLabels(args.routes.map((result) => result.river.logistics?.distanceLabel));
+  const allRoutes = [...args.routes.map((result) => result.river), ...(args.planningRoutes ?? [])];
+  const first = allRoutes[0];
+  const states = [...new Set(allRoutes.map((route) => route.state))].sort();
+  const regions = [...new Set(allRoutes.map((route) => route.region))].sort();
+  const difficultyOptions = difficultyOptionsForRoutes(allRoutes.map((route) => route.profile.difficulty));
+  const distanceRange = distanceRangeForLabels(allRoutes.map((route) => route.logistics?.distanceLabel));
 
   return {
     group: {
       riverId: args.riverId,
       name: first?.name ?? args.riverId,
-      routeCount: args.routes.length,
+      routeCount: allRoutes.length,
+      scoredRouteCount: args.routes.length,
+      planningRouteCount: args.planningRoutes?.length ?? 0,
       stateSummary: states.join(', '),
       regionSummary: regions.join(', '),
       regions,
       difficultyOptions,
       distanceRange,
-      heroPhoto: getRiverGroupHeroPhoto(args.riverId, args.routes.map((result) => result.river)),
+      heroPhoto: getRiverGroupHeroPhoto(args.riverId, allRoutes),
     },
-    routes: args.routes.map(serializeDetailResult),
+    routes: [
+      ...args.routes.map(serializeDetailResult),
+      ...(args.planningRoutes ?? []).map(serializePlanningRoute),
+    ],
+  };
+}
+
+export function serializePlanningRoute(route: River, weather: RiverScoreResult['weather'] = null): RiverDetailApiResult {
+  return {
+    river: {
+      riverId: route.riverId,
+      scoreEligibility: 'planning',
+      scoreEligibilityReason: route.scoreEligibilityReason,
+      conditionZoneId: conditionZoneIdForRiver(route),
+      corridorId: route.corridorId,
+      corridorLabel: route.corridorLabel,
+      continuityStatus: route.continuityStatus,
+      slug: route.slug,
+      name: route.name,
+      reach: route.reach,
+      state: route.state,
+      region: route.region,
+      latitude: route.latitude,
+      longitude: route.longitude,
+      distanceLabel: route.logistics?.distanceLabel ?? '',
+      estimatedPaddleTime: route.logistics?.estimatedPaddleTime ?? '',
+      routeType: route.routeType ?? 'recreational',
+      safetyProfile: route.safetyProfile,
+      gaugeSource: {
+        provider: route.gaugeSource.provider,
+        metric: route.gaugeSource.metric,
+        unit: route.gaugeSource.unit,
+        detailUrl: route.gaugeSource.detailUrl,
+        hydrographUrl: route.gaugeSource.hydrographUrl,
+        display: gaugeDisplayForSource(route.gaugeSource),
+      },
+      profile: {
+        thresholdModel: route.profile.thresholdModel,
+        thresholdSourceStrength: route.profile.thresholdSourceStrength,
+        idealMin: route.profile.idealMin,
+        idealMax: route.profile.idealMax,
+        tooLow: route.profile.tooLow,
+        tooHigh: route.profile.tooHigh,
+        difficulty: route.profile.difficulty,
+      },
+      putIn: route.putIn,
+      takeOut: route.takeOut,
+      accessPoints: route.accessPoints,
+      segmentEdges: route.segmentEdges,
+      logistics: serializeLogistics(route.logistics),
+    },
+    sources: [],
+    score: 0,
+    rating: 'No-go',
+    gaugeBand: 'unknown',
+    gaugeBandLabel: 'Not scored',
+    explanation: 'This route is documented for planning, but Paddle Today does not issue a same-day score because its gauge is a proxy for this reach.',
+    scoreBreakdown: {
+      riverQuality: 0, windAdjustment: 0, temperatureAdjustment: 0, rainAdjustment: 0, comfortAdjustment: 0,
+      rawTripScore: 0, finalScore: 0, capReasons: [], riverQualityExplanation: '', windExplanation: '',
+      temperatureExplanation: '', rainExplanation: '', comfortExplanation: '',
+    },
+    confidence: { score: 0, label: 'Low', level: 'low', reasons: ['Proxy gauge route'], warnings: ['Not scored'], rationale: [] },
+    liveData: {
+      overall: 'offline', summary: 'This route is not scored.',
+      gauge: { state: 'unavailable', ageMinutes: null, detail: 'Proxy gauge routes are not used for same-day scoring.' },
+      weather: { state: weather ? 'live' : 'unavailable', ageMinutes: null, detail: weather ? 'Local weather context only; it is not included in a route score.' : 'Local weather is unavailable right now.' },
+    },
+    factors: [],
+    checklist: [{ status: 'watch', label: 'Planning route', detail: 'Verify local water, access, and hazards before launching.' }],
+    outlooks: [],
+    gauge: null,
+    weather,
+    generatedAt: new Date().toISOString(),
   };
 }
 

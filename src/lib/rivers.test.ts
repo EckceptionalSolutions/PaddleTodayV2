@@ -13,7 +13,7 @@ vi.mock('./weather', () => ({
 }));
 
 import { getAllRiverScores } from './rivers';
-import { getRiverScore, listRiverGroups, listRivers } from './rivers';
+import { getRiverScore, listRiverGroups, listRivers, listScoredRivers } from './rivers';
 import { fetchGaugeReading } from './gauges';
 import type { GaugeReading } from './types';
 
@@ -86,13 +86,28 @@ describe('getAllRiverScores', () => {
   });
 
   it('publishes only routes with a qualifying direct gauge', () => {
-    const published = listRivers();
+    const published = listScoredRivers();
 
     expect(published.length).toBeGreaterThan(0);
     expect(published.every((river) => river.gaugeSource.kind === 'direct')).toBe(true);
     expect(published.some((river) => river.gaugeSource.siteId === '04021960')).toBe(false);
     expect(published.some((river) => river.gaugeSource.provider === 'mn_dnr' && river.gaugeSource.siteId === '280')).toBe(false);
     expect(published.some((river) => river.gaugeSource.provider === 'mn_dnr' && river.gaugeSource.siteId === '341')).toBe(false);
+  });
+
+  it('keeps proxy routes discoverable as planning routes without making them scored', () => {
+    const publicRoutes = listRivers();
+    const scoredRoutes = listScoredRivers();
+    const wapsi = publicRoutes.filter((river) => /wapsipinicon/i.test(river.name));
+
+    expect(wapsi).toHaveLength(8);
+    expect(wapsi.filter((river) => river.scoreEligibility === 'scored')).toHaveLength(2);
+    expect(wapsi.filter((river) => river.scoreEligibility === 'planning')).toHaveLength(6);
+    expect(scoredRoutes.some((river) => /wapsipinicon/i.test(river.name) && river.scoreEligibility === 'planning')).toBe(false);
+  });
+
+  it('does not score a proxy route through the detail scorer', async () => {
+    await expect(getRiverScore('wapsipinicon-river-newport-mills-oxford-mills')).resolves.toBeNull();
   });
 
   it('points MN DNR gauge detail links at the configured CSG site', () => {

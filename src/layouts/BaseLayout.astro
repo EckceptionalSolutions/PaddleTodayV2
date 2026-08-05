@@ -157,17 +157,6 @@ const appDownloadConfigJson = JSON.stringify({
 
         <div class="site-header__meta">
           <div class="site-header__topline">
-            <nav class="site-header__nav" aria-label="Primary">
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/">Today</a>
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/weekend/">Weekend</a>
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/">
-                <span class="site-header__nav-label site-header__nav-label--full">Browse Routes</span>
-                <span class="site-header__nav-label site-header__nav-label--short">Browse</span>
-              </a>
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/favorites/" data-site-favorites-link hidden>
-                My Routes <span data-site-favorites-count></span>
-              </a>
-            </nav>
             <button
               class="site-header__search"
               type="button"
@@ -180,29 +169,21 @@ const appDownloadConfigJson = JSON.stringify({
               <span class="site-header__search-label site-header__search-label--full">Search Routes</span>
               <span class="site-header__search-label site-header__search-label--short">Search</span>
             </button>
+            <nav class="site-header__nav" aria-label="Primary">
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/">Today</a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/weekend/">Weekend</a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/">
+                <span class="site-header__nav-label site-header__nav-label--full">Explore</span>
+                <span class="site-header__nav-label site-header__nav-label--short">Explore</span>
+              </a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/favorites/" data-site-favorites-link hidden>
+                My Routes <span data-site-favorites-count></span>
+              </a>
+            </nav>
             <a class="site-header__action" href="/request-river/" data-analytics-event="Open route request">
               <span class="site-header__action-label site-header__action-label--full">Request</span>
               <span class="site-header__action-label site-header__action-label--short">Request</span>
             </a>
-            <div class="site-header__app-promo" data-app-header-promo hidden aria-label="Paddle Today mobile apps">
-              <span class="site-header__app-promo-badge">New app</span>
-              <a
-                class="site-header__app-promo-link"
-                href="#"
-                data-app-header-link="ios"
-                data-analytics-event="Open app download"
-                rel="noopener"
-                hidden
-              >iPhone</a>
-              <a
-                class="site-header__app-promo-link"
-                href="#"
-                data-app-header-link="android"
-                data-analytics-event="Open app download"
-                rel="noopener"
-                hidden
-              >Android</a>
-            </div>
           </div>
           <p class="site-header__blurb">
             Live score, water level, and weather.

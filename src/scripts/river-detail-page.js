@@ -236,6 +236,7 @@ function routeAnalyticsProperties(extra = {}) {
     ...extra,
   };
 }
+const isPlanningRoute = root.dataset.routeScoreEligibility === 'planning';
 
 function plannerAnalyticsProperties(extra = {}) {
   const distanceMatch = String(activeAccessContext.distanceLabel || '').match(/(\d+(?:\.\d+)?)/);
@@ -4110,6 +4111,11 @@ function renderDetailResult(result) {
   latestResult = result;
   setDetailLoadingState(false);
 
+  if (isPlanningRoute || result?.river?.scoreEligibility === 'planning') {
+    renderPlanningRoute(result);
+    return;
+  }
+
   const ratingKey = ratingToneKey(result.rating);
   const decision = decisionLabel(result);
 
@@ -4734,6 +4740,33 @@ if (detailMapToggle instanceof HTMLButtonElement) {
     }
     updateDetailMapToggle();
   });
+}
+
+function renderPlanningRoute(result) {
+  root.classList.add('river-detail--planning');
+  const scorePanel = root.querySelector('.river-call-panel');
+  if (scorePanel instanceof HTMLElement) scorePanel.hidden = true;
+  for (const selector of [
+    '[data-detail-section="river-conditions"]',
+    '[data-detail-section="route-outlook"]',
+    '[data-detail-section="why-this-call"]',
+  ]) {
+    const section = root.querySelector(selector);
+    if (section instanceof HTMLElement) section.hidden = true;
+  }
+  setText('explanation', result?.explanation || 'This route is documented for planning, but does not receive a Paddle Today score.');
+  if (result?.weather) {
+    setText('planning-weather-condition', weatherConditionLabel(result.weather.conditionLabel ?? result.weather.weatherCode));
+    setText('planning-weather-summary', [
+      temperatureSummary(result.weather),
+      windSummary(result.weather),
+      rainTimingLabel(result.weather),
+    ].filter(Boolean).join(' · '));
+  } else {
+    setText('planning-weather-condition', 'Forecast unavailable');
+    setText('planning-weather-summary', 'Check the local forecast before launching.');
+  }
+  renderAccessMaps(result);
 }
 
 window.addEventListener('resize', () => {

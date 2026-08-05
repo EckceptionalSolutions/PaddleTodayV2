@@ -61,7 +61,7 @@ import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
 import { alertMutationMessage, alertThresholdLabel, isValidEmailAddress } from '../lib/alerts';
-import { resolveApiUrl } from '../lib/api-base-url';
+import { resolveApiUrl, resolveWebUrl } from '../lib/api-base-url';
 import {
   detailMessageForRating,
   formatGaugeValue,
@@ -150,6 +150,7 @@ export default function RiverDetailScreen() {
   const [selectedTakeOutId, setSelectedTakeOutId] = useState<string | null>(null);
 
   const detail = detailQuery.data?.result ?? null;
+  const isPlanningRoute = detail?.river.scoreEligibility === 'planning';
   const groupQuery = useRiverGroupQuery(detail?.river.riverId ?? '');
   const history = historyQuery.data?.result ?? null;
   const community = communityQuery.data ?? null;
@@ -337,7 +338,7 @@ export default function RiverDetailScreen() {
     }
 
     const message = buildRouteShareMessage(detail, selectedPutIn, selectedTakeOut);
-    setShareStatus('Opening share sheet with score, reason, and access links.');
+    setShareStatus(isPlanningRoute ? 'Opening share sheet with planning details and access links.' : 'Opening share sheet with score, reason, and access links.');
     trackAppEvent('route_share_started', {
       slug: riverSlug,
       rating: detail.rating,
@@ -350,7 +351,7 @@ export default function RiverDetailScreen() {
         title: `${detail.river.name} - ${detail.river.reach}`,
         message,
       });
-      setShareStatus('Shared score, reason, access links, and safety reminder.');
+      setShareStatus(isPlanningRoute ? 'Shared planning details, access links, and safety reminder.' : 'Shared score, reason, access links, and safety reminder.');
     } catch {
       setShareStatus('Share sheet unavailable here. Route summary is ready from this screen.');
     }
@@ -572,9 +573,15 @@ export default function RiverDetailScreen() {
 
         <View style={styles.hero}>
           <View style={styles.heroHeader}>
-            <View style={[styles.heroScore, { backgroundColor: ratingColors(detail.rating).backgroundColor }]}>
-              <Text style={[styles.scoreValue, { color: ratingColors(detail.rating).textColor }]}>{detail.score}</Text>
-            </View>
+            {isPlanningRoute ? (
+              <View style={[styles.heroScore, styles.heroScorePlanning]}>
+                <Text style={styles.planningHeroMark}>—</Text>
+              </View>
+            ) : (
+              <View style={[styles.heroScore, { backgroundColor: ratingColors(detail.rating).backgroundColor }]}>
+                <Text style={[styles.scoreValue, { color: ratingColors(detail.rating).textColor }]}>{detail.score}</Text>
+              </View>
+            )}
             <View style={styles.heroCopy}>
               <View style={styles.heroTitleRow}>
                 <View style={styles.heroTitleCopy}>
@@ -582,15 +589,17 @@ export default function RiverDetailScreen() {
                   <Text style={styles.title}>{detail.river.reach}</Text>
                 </View>
                 <View style={styles.heroActions}>
-                  <HeroIconButton
-                    icon="bell-outline"
-                    selected={alertSheetVisible}
-                    accessibilityLabel="Set route alert"
-                    onPress={() => {
-                      trackAppEvent('route_alert_sheet_opened', { slug: riverSlug, source: 'hero' });
-                      setAlertSheetVisible(true);
-                    }}
-                  />
+                  {!isPlanningRoute ? (
+                    <HeroIconButton
+                      icon="bell-outline"
+                      selected={alertSheetVisible}
+                      accessibilityLabel="Set route alert"
+                      onPress={() => {
+                        trackAppEvent('route_alert_sheet_opened', { slug: riverSlug, source: 'hero' });
+                        setAlertSheetVisible(true);
+                      }}
+                    />
+                  ) : null}
                   <HeroIconButton
                     icon="share-variant-outline"
                     accessibilityLabel="Share route"
@@ -610,24 +619,27 @@ export default function RiverDetailScreen() {
                   />
                 </View>
               </View>
-              <Text style={styles.subtitle}>{detailMessageForRating(detail.rating)}</Text>
+              <Text style={styles.subtitle}>{isPlanningRoute ? 'Planning route · not scored today' : detailMessageForRating(detail.rating)}</Text>
               <Text style={styles.routeMetaLine} numberOfLines={2}>{routeHeroLine(detail)}</Text>
               <View style={styles.heroMeta}>
-                <RatingPill rating={detail.rating} />
-                <StatusPill status={effectiveLiveData.overall} />
+                {isPlanningRoute ? <Text style={styles.planningLabel}>Proxy gauge · verify local conditions</Text> : <RatingPill rating={detail.rating} />}
+                {!isPlanningRoute ? <StatusPill status={effectiveLiveData.overall} /> : null}
               </View>
               {shareStatus ? <Text style={styles.shareStatus}>{shareStatus}</Text> : null}
             </View>
           </View>
-          <DecisionSummary detail={detail} />
+          {isPlanningRoute ? (
+            <PlanningStatusCard detail={detail} />
+          ) : null}
+          {!isPlanningRoute ? <DecisionSummary detail={detail} /> : null}
           <RouteSafetyPanel detail={detail} />
-          <DecisionStrip
+          {!isPlanningRoute ? <DecisionStrip
             detail={detail}
             onConditions={showConditions}
             onDirections={() => openPrimaryDirections(detail, selectedPutIn, selectedTakeOut)}
             onAccess={() => showSection('Access')}
-          />
-          {effectiveLiveData.overall !== 'live' ? (
+          /> : null}
+          {!isPlanningRoute && effectiveLiveData.overall !== 'live' ? (
             <View style={styles.heroFooter}>
               <Text style={styles.heroFooterWarning}>{normalizeApiText(effectiveLiveData.summary)}</Text>
             </View>
@@ -653,12 +665,12 @@ export default function RiverDetailScreen() {
           >
             <RouteBasicsCard detail={detail} />
 
-            <View
+            {!isPlanningRoute ? <View
               onLayout={(event) => {
                 conditionsYRef.current = event.nativeEvent.layout.y;
               }}
             >
-              <SectionCard title="Gauge, trend, weather" subtitle={normalizeApiText(effectiveLiveData.summary)}>
+              <SectionCard title="Current conditions" subtitle={normalizeApiText(effectiveLiveData.summary)}>
                 <View style={styles.conditionList}>
                   <ConditionRow
                     icon="waves"
@@ -689,7 +701,7 @@ export default function RiverDetailScreen() {
                 </View>
                 <GaugeSourceActions detail={detail} />
               </SectionCard>
-            </View>
+            </View> : null}
 
             <AboutRouteCard detail={detail} />
           </View>
@@ -801,8 +813,8 @@ export default function RiverDetailScreen() {
             ) : null}
 
             <SectionCard
-              title="Sources"
-              subtitle="Sources for this route's score and trip details."
+              title={isPlanningRoute ? 'Data and sources' : 'Sources'}
+              subtitle={isPlanningRoute ? 'Sources for this route and trip details.' : "Sources for this route's score and trip details."}
             >
               <View style={styles.sourceList}>
                 {routeSourceLabels(detail).map((source) => (
@@ -818,7 +830,7 @@ export default function RiverDetailScreen() {
             </SectionCard>
 
             <SectionCard
-              title="Outlooks"
+              title="Upcoming outlook"
               subtitle="Weekend forecasts are more cautious."
             >
               <OutlookRows outlooks={detail.outlooks} />
@@ -862,7 +874,7 @@ export default function RiverDetailScreen() {
             }}
           >
             <SectionCard
-              title="Access & logistics"
+              title="Route logistics"
               subtitle="Access, shuttle, and route basics."
             >
               {routePlotPoints.length > 0 ? (
@@ -918,7 +930,7 @@ export default function RiverDetailScreen() {
               />
             </SectionCard>
 
-            <SectionCard
+            {!isPlanningRoute ? <SectionCard
               title="Route alerts"
               subtitle="Get a notification when this route improves."
             >
@@ -938,7 +950,7 @@ export default function RiverDetailScreen() {
                 <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
               </Pressable>
               {alertStatus ? <Text style={styles.alertStatus}>{alertStatus}</Text> : null}
-            </SectionCard>
+            </SectionCard> : null}
           </View>
         ) : null}
       </ScrollView>
@@ -978,7 +990,7 @@ export default function RiverDetailScreen() {
       />
 
       <AlertSetupSheet
-        visible={alertSheetVisible}
+        visible={alertSheetVisible && !isPlanningRoute}
         routeName={detail.river.name}
         routeReach={detail.river.reach}
         status={alertStatus}
@@ -1052,10 +1064,11 @@ function buildRouteShareMessage(
     routeUrl.searchParams.set('takeout', takeOut.id);
   }
   const appUrl = `paddletoday://river/${encodeURIComponent(detail.river.slug)}`;
+  const isPlanning = detail.river.scoreEligibility === 'planning';
   const lines = [
     `PaddleToday - ${detail.river.name}`,
     `${detail.river.reach}`,
-    `${detail.score} / ${detail.rating} - ${decisionStatement(detail)}`,
+    isPlanning ? 'Planning route - no same-day score' : `${detail.score} / ${detail.rating} - ${decisionStatement(detail)}`,
     routeHeroLine(detail),
     `Open in app: ${appUrl}`,
     `Web link: ${routeUrl.toString()}`,
@@ -1414,7 +1427,7 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
           {safetyModel.hazards.map((hazard) => (
             <View key={hazard.key} style={[styles.safetyChip, caution ? styles.safetyChipCaution : null]}>
               <Text style={[styles.safetyChipText, caution ? styles.safetyChipTextCaution : null]}>{hazard.label}</Text>
-            </View>
+              </View>
           ))}
         </View>
       ) : null}
@@ -1669,6 +1682,57 @@ function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
           );
         })}
       </ScrollView>
+    </View>
+  );
+}
+
+function PlanningStatusCard({ detail }: { detail: RiverDetailApiResult }) {
+  const weather = detail.weather;
+  const weatherSummary = weather
+    ? [
+        formatTemperature(weather.temperatureF),
+        weather.windMph !== null ? `${Math.round(weather.windMph)} mph wind` : null,
+        weather.rainTimingLabel,
+      ].filter(Boolean).join(' · ')
+    : 'Check the local forecast before launching.';
+
+  return (
+    <View style={styles.planningStatusCard}>
+      <Text style={styles.planningStatusEyebrow}>Planning route</Text>
+      <Text style={styles.planningStatusTitle}>No same-day score</Text>
+      <Text style={styles.planningStatusText}>
+        Use this route for access, safety, and logistics details. Its nearest gauge is a proxy for this reach, so Paddle Today does not issue a score or alert here.
+      </Text>
+      <View style={styles.planningStatusFacts}>
+        <View style={styles.planningStatusFact}>
+          <Text style={styles.planningStatusFactLabel}>Gauge context</Text>
+          <Text style={styles.planningStatusFactValue}>Proxy gauge</Text>
+        </View>
+        <View style={styles.planningStatusFact}>
+          <Text style={styles.planningStatusFactLabel}>Before launching</Text>
+          <Text style={styles.planningStatusFactValue}>Verify locally</Text>
+        </View>
+      </View>
+      <View style={styles.planningWeatherBox}>
+        <View style={styles.planningWeatherHeader}>
+          <Text style={styles.planningWeatherLabel}>Local weather context</Text>
+          <Text style={styles.planningWeatherNote}>Not used for a score</Text>
+        </View>
+        <Text style={styles.planningWeatherCondition}>{weather?.conditionLabel ?? 'Forecast unavailable'}</Text>
+        <Text style={styles.planningWeatherSummary}>{weatherSummary}</Text>
+      </View>
+      <Pressable
+        style={styles.planningPrimaryAction}
+        onPress={() => void openExternalUrl(detail.river.gaugeSource.detailUrl ?? resolveWebUrl('/about/#proxy-gauges'), 'Source gauge')}
+      >
+        <Text style={styles.planningPrimaryActionText}>Open source gauge</Text>
+      </Pressable>
+      <Pressable
+        style={styles.planningMethodologyAction}
+        onPress={() => void openExternalUrl(resolveWebUrl('/about/#proxy-gauges'), 'Gauge methodology')}
+      >
+        <Text style={styles.planningMethodologyActionText}>Why proxy routes are not scored</Text>
+      </Pressable>
     </View>
   );
 }
@@ -2647,6 +2711,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  heroScorePlanning: {
+    backgroundColor: colors.canvasMuted,
+  },
+  planningHeroMark: {
+    color: colors.textMuted,
+    fontSize: 24,
+    fontWeight: '800',
+  },
   scoreValue: {
     color: colors.accentDeep,
     fontSize: 24,
@@ -2711,6 +2783,138 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
     fontWeight: '600',
+  },
+  planningLabel: {
+    color: colors.textMuted,
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  planningBanner: {
+    marginTop: spacing.sm,
+    padding: spacing.sm,
+    borderRadius: radius.md,
+    backgroundColor: colors.canvasMuted,
+    borderWidth: 1,
+    borderColor: colors.border,
+    gap: 4,
+  },
+  planningBannerTitle: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  planningBannerText: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+  },
+  planningStatusCard: {
+    marginTop: spacing.sm,
+    padding: spacing.sm,
+    borderRadius: radius.lg,
+    backgroundColor: colors.accentSoft,
+    borderWidth: 1,
+    borderColor: colors.border,
+    gap: spacing.sm,
+  },
+  planningStatusEyebrow: {
+    color: colors.accentDeep,
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+  },
+  planningStatusTitle: {
+    color: colors.text,
+    fontSize: 20,
+    lineHeight: 23,
+    fontWeight: '900',
+  },
+  planningStatusText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  planningStatusFacts: {
+    gap: 6,
+  },
+  planningStatusFact: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+    paddingTop: 6,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+  },
+  planningStatusFactLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  planningStatusFactValue: {
+    color: colors.text,
+    fontSize: 11,
+    fontWeight: '800',
+    textAlign: 'right',
+  },
+  planningWeatherBox: {
+    padding: spacing.sm,
+    borderRadius: radius.md,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 1,
+    borderColor: colors.border,
+    gap: 4,
+  },
+  planningWeatherHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: spacing.xs,
+    alignItems: 'center',
+  },
+  planningWeatherLabel: {
+    color: colors.accentDeep,
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 0.7,
+    textTransform: 'uppercase',
+  },
+  planningWeatherNote: {
+    color: colors.textMuted,
+    fontSize: 10,
+    fontWeight: '700',
+    textAlign: 'right',
+  },
+  planningWeatherCondition: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  planningWeatherSummary: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+  },
+  planningPrimaryAction: {
+    minHeight: 42,
+    borderRadius: 21,
+    backgroundColor: colors.accentDeep,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  planningPrimaryActionText: {
+    color: colors.surfaceStrong,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  planningMethodologyAction: {
+    alignItems: 'center',
+    paddingVertical: 2,
+  },
+  planningMethodologyActionText: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '800',
+    textDecorationLine: 'underline',
   },
   routeMetaLine: {
     color: colors.text,
