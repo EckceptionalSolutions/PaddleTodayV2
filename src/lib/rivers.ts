@@ -1,4 +1,5 @@
-import { rivers } from '../data/rivers';
+import { publicRivers, routeInventory } from '../data/rivers';
+import { hasQualifyingGauge } from '../data/route-publication';
 import { riverTripDetails } from '../data/river-trip-details';
 import { classifyCamping } from './camping-classification';
 import { scoreRiverCondition } from './scoring';
@@ -55,10 +56,14 @@ export function listRivers(): River[] {
   return [...getRouteIndexes().routes];
 }
 
+export function listScoredRivers(): River[] {
+  return [...getRouteIndexes().routes].filter((river) => hasQualifyingGauge(river));
+}
+
 // Internal audit tooling needs every source route, including routes withheld
 // from public pages while coordinate verification is incomplete.
 export function listAllRiversForAudit(): River[] {
-  return rivers.map(enrichRiver);
+  return routeInventory.map(enrichRiver);
 }
 
 export function getRiverBySlug(slug: string): River | undefined {
@@ -67,15 +72,21 @@ export function getRiverBySlug(slug: string): River | undefined {
 
 export async function getRiverScore(slug: string): Promise<RiverScoreResult | null> {
   const river = getRiverBySlug(slug);
-  if (!river) {
+  if (!river || !hasQualifyingGauge(river)) {
     return null;
   }
 
   return scoreRiver(river);
 }
 
+export async function getRiverWeather(slug: string) {
+  const river = getRiverBySlug(slug);
+  if (!river) return null;
+  return getCachedWeatherSnapshot(river);
+}
+
 export async function getAllRiverScores(options?: { concurrency?: number }): Promise<RiverScoreResult[]> {
-  const routes = listRivers();
+  const routes = listScoredRivers();
   return mapWithConcurrency(
     routes,
     options?.concurrency ?? ALL_RIVER_SCORE_CONCURRENCY,
@@ -106,7 +117,7 @@ export function getRiverGroupById(riverId: string): RiverGroup | undefined {
 function getRouteIndexes(): RouteIndexes {
   if (routeIndexes) return routeIndexes;
 
-  const indexedRoutes = rivers.filter((river) => !WITHHELD_ROUTE_SLUGS.has(river.slug)).map(enrichRiver);
+  const indexedRoutes = publicRivers.filter((river) => !WITHHELD_ROUTE_SLUGS.has(river.slug)).map(enrichRiver);
   const bySlug = new Map(indexedRoutes.map((river) => [river.slug, river]));
   const routesByRiverId = new Map<string, River[]>();
   const routesByState = new Map<string, River[]>();
@@ -166,7 +177,7 @@ function getRouteIndexes(): RouteIndexes {
 }
 
 export async function getRiverGroupScores(riverId: string): Promise<RiverScoreResult[] | null> {
-  const routes = getRiversByRiverId(riverId);
+  const routes = getRiversByRiverId(riverId).filter((river) => hasQualifyingGauge(river));
   if (routes.length === 0) {
     return null;
   }
@@ -245,6 +256,8 @@ function enrichRiver(river: River): River {
     latitude: putInCoordinates?.latitude ?? enriched.latitude,
     longitude: putInCoordinates?.longitude ?? enriched.longitude,
     riverId: enriched.riverId || inferredRiverIdsBySlug.get(enriched.slug) || deriveRiverId(enriched.name),
+    scoreEligibility: hasQualifyingGauge(enriched) ? 'scored' as const : 'planning' as const,
+    ...(enriched.gaugeSource.kind === 'proxy' ? { scoreEligibilityReason: 'proxy_gauge' as const } : {}),
   };
   const corridor = corridorForSlug(base.slug);
   if (!corridor) return base;
@@ -287,7 +300,7 @@ function slugifyState(state: string) {
 function buildInferredRiverIds() {
   const byBaseId = new Map<string, River[]>();
 
-  for (const river of rivers) {
+  for (const river of routeInventory) {
     if (river.riverId) continue;
 
     const baseId = deriveRiverId(river.name);

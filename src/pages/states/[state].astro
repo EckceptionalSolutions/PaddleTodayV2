@@ -15,16 +15,19 @@ export function getStaticPaths() {
 }
 
 const { stateGroup } = Astro.props;
+const stateRoutes = stateGroup.routes.filter((route) => route.scoreEligibility === 'scored');
+const stateRouteCount = stateRoutes.length;
+const stateRiverCount = new Set(stateRoutes.map((route) => route.riverId ?? route.name)).size;
 const allRiverGroups = listRiverGroups();
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const stateUrl = new URL(`/states/${stateGroup.slug}/`, siteUrl).href;
-const routeLabel = stateGroup.routeCount === 1 ? 'route' : 'routes';
-const riverLabel = stateGroup.riverCount === 1 ? 'river' : 'rivers';
+const routeLabel = stateRouteCount === 1 ? 'route' : 'routes';
+const riverLabel = stateRiverCount === 1 ? 'river' : 'rivers';
 const regionLabel = stateGroup.regions.length === 1 ? 'region' : 'regions';
-const stateRouteNames = stateGroup.routes.map((route) => `${route.name}: ${route.reach}`);
+const stateRouteNames = stateRoutes.map((route) => `${route.name}: ${route.reach}`);
 const stateTitle = `Best ${stateGroup.name} Rivers to Paddle Today | Paddle Today`;
-const stateDescription = `Compare ${stateGroup.routeCount} ${stateGroup.name} paddle ${routeLabel} with live paddle conditions, water levels, weather, route scores, and coverage across ${stateGroup.regions.length} ${regionLabel}.`;
+const stateDescription = `Compare ${stateRouteCount} ${stateGroup.name} paddle ${routeLabel} with live paddle conditions, water levels, weather, route scores, and coverage across ${stateGroup.regions.length} ${regionLabel}.`;
 const requestStateHref = `/request-river/?state=${encodeURIComponent(stateGroup.name)}`;
 const formatDifficulty = (difficulty: River['profile']['difficulty']) =>
   difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
@@ -62,7 +65,7 @@ const routeMetadataScore = (route: River) =>
   (route.logistics ? 3 : 0) +
   (route.routeType === 'whitewater' ? 0 : 2) +
   Math.min(route.sourceLinks.length, 3);
-const bestRoutes = [...stateGroup.routes]
+const bestRoutes = [...stateRoutes]
   .sort((left, right) => {
     const scoreSort = routeMetadataScore(right) - routeMetadataScore(left);
     return scoreSort === 0 ? left.name.localeCompare(right.name) : scoreSort;
@@ -72,9 +75,9 @@ const bestRouteCards = bestRoutes.map((route) => ({
   route,
   photo: getRoutePreviewPhoto(route),
 }));
-const allBeginnerRoutes = stateGroup.routes.filter((route) => route.profile.difficulty === 'easy');
+const allBeginnerRoutes = stateRoutes.filter((route) => route.profile.difficulty === 'easy');
 const beginnerRoutes = allBeginnerRoutes.slice(0, 8);
-const planningRoutes = [...stateGroup.routes]
+const planningRoutes = [...stateRoutes]
   .filter((route) => route.logistics)
   .sort((left, right) => {
     const campingSort =
@@ -86,7 +89,7 @@ const planningRoutes = [...stateGroup.routes]
 const routeGroupsByRiver = allRiverGroups
   .map((group) => ({
     ...group,
-    routes: group.routes.filter((route) => route.state === stateGroup.name),
+    routes: group.routes.filter((route) => route.state === stateGroup.name && route.scoreEligibility === 'scored'),
   }))
   .filter((group) => group.routes.length > 0)
   .sort((left, right) => {
@@ -95,11 +98,12 @@ const routeGroupsByRiver = allRiverGroups
   });
 const routesByRegion = stateGroup.regions.map((region) => ({
   region,
-  routes: stateGroup.routes.filter((route) => route.region === region),
+  routes: stateRoutes.filter((route) => route.region === region),
 }));
 const featuredRegions = [...routesByRegion].sort((left, right) => right.routes.length - left.routes.length).slice(0, 8);
 const multiRouteRiverCount = routeGroupsByRiver.filter((group) => group.routes.length > 1).length;
-const stateMapRoutes = stateGroup.routes.map((route) => ({
+const stateMapRoutes = stateRoutes
+  .map((route) => ({
   slug: route.slug,
   riverId: route.riverId ?? route.slug,
   conditionZoneId: conditionZoneIdForRiver(route),
@@ -132,7 +136,7 @@ const stateMapRoutes = stateGroup.routes.map((route) => ({
     longitude: point.longitude,
     mileFromStart: point.mileFromStart,
   })),
-}));
+  }));
 const stateMapPoint = (route: (typeof stateMapRoutes)[number]) => route.putIn ?? { latitude: route.latitude, longitude: route.longitude };
 const stateMapPoints = stateMapRoutes
   .map((route) => ({ route, point: stateMapPoint(route) }))
@@ -172,7 +176,7 @@ const guideLinks =
 const faqItems = [
   {
     question: `How does Paddle Today choose ${stateGroup.name} paddle routes?`,
-    answer: `Paddle Today lists ${stateGroup.name} routes when the route has enough defensible gauge, threshold, source, and logistics support to make a live route score useful. The current ${stateGroup.name} page includes ${stateGroup.routeCount} tracked ${routeLabel} across ${stateGroup.riverCount} ${riverLabel}.`,
+    answer: `Paddle Today lists ${stateGroup.name} routes when the route has enough defensible gauge, threshold, source, and logistics support to make a live route score useful. The current ${stateGroup.name} page includes ${stateRouteCount} scored ${routeLabel} across ${stateRiverCount} ${riverLabel}.`,
   },
   {
     question: `Are these ${stateGroup.name} river conditions live?`,
@@ -193,8 +197,8 @@ const structuredData = [
     url: stateUrl,
     mainEntity: {
       '@type': 'ItemList',
-      numberOfItems: stateGroup.routeCount,
-      itemListElement: stateGroup.routes.map((route, index) => ({
+      numberOfItems: stateRouteCount,
+      itemListElement: stateRoutes.map((route, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         name: `${route.name}: ${route.reach}`,
@@ -244,7 +248,7 @@ const structuredData = [
         <p class="eyebrow">State routes</p>
         <h1 class="river-group-page__title">{stateGroup.name} Rivers</h1>
         <p class="river-group-page__lede">
-          Compare {stateGroup.routeCount} tracked {stateGroup.name} paddle {routeLabel} with route links, water-level context, difficulty, and access planning details.
+          Compare {stateRouteCount} tracked {stateGroup.name} paddle {routeLabel} with route links, water-level context, difficulty, and access planning details.
         </p>
         <p class="muted river-group-page__summary">
           Paddle Today only lists routes when the gauge, threshold, and source support are defensible enough for live route scoring.
@@ -254,8 +258,8 @@ const structuredData = [
           <a class="river-link river-link--inline river-link--ghost" href="/explore/">Browse all routes</a>
         </div>
         <div class="hero__meta river-group-page__meta">
-          <span class="stat-chip">{stateGroup.routeCount} {routeLabel}</span>
-          <span class="stat-chip">{stateGroup.riverCount} {riverLabel}</span>
+          <span class="stat-chip">{stateRouteCount} {routeLabel}</span>
+          <span class="stat-chip">{stateRiverCount} {riverLabel}</span>
           <span class="stat-chip">{stateGroup.regions.length} {regionLabel}</span>
           <span class="stat-chip">{allBeginnerRoutes.length} beginner routes</span>
         </div>
@@ -292,7 +296,7 @@ const structuredData = [
           Scan the highlighted river network from above, then use the route guides and access markers to find a supported reach.
         </p>
         <div class="state-coverage__stats">
-          <span class="stat-chip">{stateGroup.routeCount} route markers</span>
+          <span class="stat-chip">{stateRouteCount} route markers</span>
           <span class="stat-chip">{multiRouteRiverCount} multi-route rivers</span>
           <span class="stat-chip">{allBeginnerRoutes.length} beginner routes</span>
         </div>
@@ -572,10 +576,10 @@ const structuredData = [
         <button class="filter-chip filter-chip--quiet" type="reset" data-state-filter-reset>Reset</button>
       </form>
       <p class="muted state-route-filter-status" data-state-filter-status>
-        Showing all {stateGroup.routeCount} {routeLabel}.
+        Showing all {stateRouteCount} {routeLabel}.
       </p>
       <div class="state-route-list state-route-list--all" data-state-route-list>
-        {stateGroup.routes.map((route) => (
+        {stateRoutes.map((route) => (
           <a
             class="state-route-list__item"
             href={`/rivers/${route.slug}/`}

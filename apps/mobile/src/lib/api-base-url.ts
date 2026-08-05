@@ -2,7 +2,9 @@ import Constants from 'expo-constants';
 import * as ExpoLinking from 'expo-linking';
 
 const DEFAULT_API_PORT = 4322;
+const DEFAULT_WEB_PORT = 4324;
 const PRODUCTION_API_BASE_URL = 'https://paddletoday.com';
+const PRODUCTION_WEB_BASE_URL = 'https://paddletoday.com';
 
 export function resolveApiBaseUrl() {
   const configured = process.env.EXPO_PUBLIC_API_BASE_URL?.trim();
@@ -24,6 +26,21 @@ export function resolveApiBaseUrl() {
 
 export function resolveApiUrl(path: string) {
   return new URL(path, `${resolveApiBaseUrl()}/`).toString();
+}
+
+export function resolveWebUrl(path: string) {
+  const configured = process.env.EXPO_PUBLIC_WEB_BASE_URL?.trim();
+  if (configured) {
+    return new URL(path, `${trimTrailingSlash(configured)}/`).toString();
+  }
+
+  if (!isDevRuntime()) {
+    return new URL(path, `${PRODUCTION_WEB_BASE_URL}/`).toString();
+  }
+
+  const host = hostFromExpoDevServer() ?? hostFromExpoLink();
+  const baseUrl = host ? `http://${host}:${DEFAULT_WEB_PORT}` : `http://127.0.0.1:${DEFAULT_WEB_PORT}`;
+  return new URL(path, `${baseUrl}/`).toString();
 }
 
 function hostFromExpoLink() {

@@ -19,6 +19,8 @@ const stateSummary = group.states.join(', ');
 const stateDisplay = group.states.join(' and ');
 const regionSummary = group.regions.join(', ');
 const routeLabel = group.routeCount === 1 ? 'route' : 'routes';
+const scoredRouteCount = group.routes.filter((route) => route.scoreEligibility === 'scored').length;
+const planningRouteCount = group.routes.filter((route) => route.scoreEligibility === 'planning').length;
 const groupTitle = `${group.name} Water Levels, Paddle Conditions & Routes | Paddle Today`;
 const groupDescription = `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`;
 const gaugeNames = [...new Set(group.routes.map((route) => route.gaugeSource.siteName))];
@@ -124,6 +126,8 @@ const groupStructuredData = [
             <strong>{group.routeCount}</strong>
             <span>mapped trips</span>
           </div>
+          {scoredRouteCount > 0 ? <div class="river-group-page__hero-fact"><strong>{scoredRouteCount}</strong><span>scored today</span></div> : null}
+          {planningRouteCount > 0 ? <div class="river-group-page__hero-fact"><strong>{planningRouteCount}</strong><span>planning routes</span></div> : null}
           {distanceRangeLabel ? (
             <div class="river-group-page__hero-fact">
               <strong>{distanceRangeLabel}</strong>
@@ -168,9 +172,9 @@ const groupStructuredData = [
     <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
       <div class="status-banner__eyebrow">Route calls</div>
       <div class="status-banner__body">
-        <strong data-group-banner-title>Loading route scores.</strong>
+        <strong data-group-banner-title>Loading route coverage.</strong>
         <p class="muted" data-group-banner-detail>
-          Pulling the latest scores for this river.
+          Pulling scored routes and planning coverage for this river.
         </p>
       </div>
       <div class="river-group-page__status-actions">

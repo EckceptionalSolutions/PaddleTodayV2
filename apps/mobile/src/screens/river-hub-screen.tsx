@@ -474,9 +474,9 @@ function RouteChoiceCard({
             style={styles.routeThumbImage}
             imageStyle={styles.routeThumbRadius}
           >
-            <View style={[styles.routeThumbScore, toneScoreBox(route.rating)]}>
-              <Text style={styles.routeThumbScoreValue}>{route.score}</Text>
-              <Text style={styles.routeThumbScoreLabel}>{route.rating}</Text>
+            <View style={[styles.routeThumbScore, route.river.scoreEligibility === 'planning' ? styles.routeThumbScorePlanning : toneScoreBox(route.rating)]}>
+              <Text style={styles.routeThumbScoreValue}>{route.river.scoreEligibility === 'planning' ? '—' : route.score}</Text>
+              <Text style={styles.routeThumbScoreLabel}>{route.river.scoreEligibility === 'planning' ? 'Planning route' : route.rating}</Text>
             </View>
           </ImageBackground>
         </View>
@@ -488,7 +488,7 @@ function RouteChoiceCard({
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
           <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
-          <Text style={styles.routeVerdict}>{verdictForRating(route.rating)}</Text>
+          <Text style={styles.routeVerdict}>{route.river.scoreEligibility === 'planning' ? 'Not scored today' : verdictForRating(route.rating)}</Text>
           <Text style={styles.routeMeta} numberOfLines={2}>
             {groupedReachCount} {groupedReachCount === 1 ? 'reach uses' : 'reaches share'} these conditions · {routeMetaLine(route)}
           </Text>
@@ -496,18 +496,18 @@ function RouteChoiceCard({
       </Pressable>
 
       <View style={styles.reasonChips}>
-        <StatusPill status={route.liveData.overall} />
+        {route.river.scoreEligibility !== 'planning' ? <StatusPill status={route.liveData.overall} /> : null}
         <ReasonChip label={normalizeApiText(route.gaugeBandLabel)} />
-        <ReasonChip label={`${route.confidence.label} confidence`} />
+        {route.river.scoreEligibility !== 'planning' ? <ReasonChip label={`${route.confidence.label} confidence`} /> : null}
         <ReasonChip label={buildSourceStrengthViewModel(route.river.profile.thresholdSourceStrength).waterLevelLabel} />
         {route.weather?.windMph ? <ReasonChip label={`${Math.round(route.weather.windMph)} mph wind`} /> : null}
       </View>
 
-      {expanded ? <ScoreBreakdownPanel route={route} /> : null}
+      {expanded && route.river.scoreEligibility !== 'planning' ? <ScoreBreakdownPanel route={route} /> : null}
 
       <View style={styles.routeFooter}>
         <Pressable onPress={onToggleExpanded} hitSlop={8}>
-          <Text style={styles.whyButton}>{expanded ? 'Hide score details' : 'Why this score?'}</Text>
+          <Text style={styles.whyButton}>{route.river.scoreEligibility === 'planning' ? 'View planning details' : expanded ? 'Hide score details' : 'Why this score?'}</Text>
         </Pressable>
       </View>
     </View>
@@ -587,6 +587,7 @@ function FilterChip({
 }
 
 function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlotPoint[] {
+  routes = routes.filter((route) => route.river.scoreEligibility !== 'planning');
   if (zoomLevel >= 8.5) {
     return routes.map((route) => {
       const span = routeSpanCoordinates(route);
@@ -713,6 +714,10 @@ function hasMappedAccessCoordinate(
 function routeStatusSummary(routes: RiverDetailApiResult[]) {
   return routes.reduce(
     (summary, route) => {
+      if (route.river.scoreEligibility === 'planning') {
+        summary.planning += 1;
+        return summary;
+      }
       if (route.rating === 'Strong' || route.rating === 'Good') {
         summary.paddleable += 1;
       } else {
@@ -720,17 +725,21 @@ function routeStatusSummary(routes: RiverDetailApiResult[]) {
       }
       return summary;
     },
-    { paddleable: 0, skip: 0 }
+    { paddleable: 0, skip: 0, planning: 0 }
   );
 }
 
-function hubStatusLine(summary: { paddleable: number; skip: number }, total: number) {
-  const paddleable = `${summary.paddleable} of ${total} good for paddling today`;
+function hubStatusLine(summary: { paddleable: number; skip: number; planning: number }, total: number) {
+  const scored = total - summary.planning;
+  const paddleable = `${summary.paddleable} of ${scored} scored route${scored === 1 ? '' : 's'} good today`;
   const skips = `${summary.skip} skip${summary.skip === 1 ? '' : 's'}`;
-  return [paddleable, skips].join(' - ');
+  const planning = summary.planning > 0 ? `${summary.planning} planning route${summary.planning === 1 ? '' : 's'}` : null;
+  return [paddleable, skips, planning].filter(Boolean).join(' - ');
 }
 
 function compareBestRoute(left: RiverDetailApiResult, right: RiverDetailApiResult) {
+  if (left.river.scoreEligibility === 'planning') return 1;
+  if (right.river.scoreEligibility === 'planning') return -1;
   return right.score - left.score || right.confidence.score - left.confidence.score || comparableDistance(left) - comparableDistance(right);
 }
 
@@ -1157,6 +1166,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 6,
     paddingVertical: 4,
+  },
+  routeThumbScorePlanning: {
+    backgroundColor: colors.canvasMuted,
   },
   routeThumbScoreValue: {
     color: colors.accentDeep,

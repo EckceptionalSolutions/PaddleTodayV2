@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { scoreRiverCondition } from './scoring';
-import { serializeDetailResult, serializeSummaryResult } from './api-contract';
+import { serializeDetailResult, serializePlanningRoute, serializeSummaryResult } from './api-contract';
 import type { GaugeReading, River, WeatherSnapshot } from './types';
 
 const baseRiver: River = {
@@ -322,5 +322,19 @@ describe('api-contract serializers', () => {
       { label: 'USGS', tone: 'usgs' },
       { label: 'AW', tone: 'american_whitewater' },
     ]);
+  });
+
+  it('serializes proxy routes as planning routes without a score decision', () => {
+    const planning = serializePlanningRoute({
+      ...baseRiver,
+      scoreEligibility: 'planning',
+      scoreEligibilityReason: 'proxy_gauge',
+      gaugeSource: { ...baseRiver.gaugeSource, kind: 'proxy' },
+    });
+
+    expect(planning.river.scoreEligibility).toBe('planning');
+    expect(planning.river.scoreEligibilityReason).toBe('proxy_gauge');
+    expect(planning.gaugeBandLabel).toBe('Not scored');
+    expect(planning.explanation).toContain('does not issue a same-day score');
   });
 });
