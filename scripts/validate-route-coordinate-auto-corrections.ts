@@ -11,6 +11,7 @@ import {
   directNhdRouteGeometryLimitFeet,
 } from './lib/candidate-hydrography-policy';
 import { canRecoverSharedRouteGeometry, hasAuditConfirmedSharedWaterEntry } from './lib/shared-water-entry-policy';
+import { FEET_PER_MILE, distanceFeet, radians } from './lib/geo-distance';
 
 type Coordinate = { latitude: number; longitude: number };
 type Correction = Coordinate & {
@@ -93,8 +94,6 @@ const auditPath = path.join(root, 'docs', 'route-coordinate-river-audit.json');
 const registryPath = path.join(root, 'src', 'data', 'generated', 'route-access-registry.json');
 const geometryRoot = path.join(root, 'node_modules', '.cache', 'route-coordinate-review-geometries', 'routes');
 const outputPath = path.join(root, 'docs', 'route-coordinate-auto-validation.json');
-const feetPerMile = 5280;
-const earthRadiusMiles = 3958.8;
 
 function normalize(value: string | null | undefined) {
   return (value ?? '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
@@ -103,15 +102,6 @@ function namesAgree(left: string | null | undefined, right: string | null | unde
   const a = normalize(left);
   const b = normalize(right);
   return Boolean(a && b && (a === b || a.includes(b) || b.includes(a)));
-}
-function radians(value: number) { return value * Math.PI / 180; }
-function distanceFeet(left: Coordinate, right: Coordinate) {
-  const deltaLat = radians(right.latitude - left.latitude);
-  const deltaLon = radians(right.longitude - left.longitude);
-  const leftLat = radians(left.latitude);
-  const rightLat = radians(right.latitude);
-  const h = Math.sin(deltaLat / 2) ** 2 + Math.cos(leftLat) * Math.cos(rightLat) * Math.sin(deltaLon / 2) ** 2;
-  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(h)) * feetPerMile;
 }
 function matchAuditEndpoint(correction: Correction, endpoints: AuditEndpoint[]): AuditEndpointMatch {
   const endpointCandidates = endpoints.filter((endpoint) => (
@@ -151,7 +141,7 @@ function distanceToRouteGeometry(point: Coordinate, geometry: RouteGeometry | nu
       bestMiles = Math.min(bestMiles, Math.hypot(px - (sx + ratio * dx), py - (sy + ratio * dy)));
     }
   }
-  return Number.isFinite(bestMiles) ? bestMiles * feetPerMile : null;
+  return Number.isFinite(bestMiles) ? bestMiles * FEET_PER_MILE : null;
 }
 function routeAxisFraction(point: Coordinate, routeId: string) {
   const details = riverTripDetails[routeId];

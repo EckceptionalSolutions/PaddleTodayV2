@@ -1,5 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { distanceFeet, radians } from './lib/geo-distance';
 
 type Coordinate = { latitude: number; longitude: number };
 type ArcGisFeature = {
@@ -47,20 +48,6 @@ const nhdFlowlineQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/
 const nhdWaterbodyQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12/query';
 const nhdAreaQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9/query';
 const directQueryMarginDegrees = 0.03;
-const feetPerMile = 5280;
-const earthRadiusMiles = 3958.8;
-
-function radians(value: number) { return value * Math.PI / 180; }
-function distanceFeet(left: Coordinate, right: Coordinate) {
-  const deltaLat = radians(right.latitude - left.latitude);
-  const deltaLon = radians(right.longitude - left.longitude);
-  const leftLat = radians(left.latitude);
-  const rightLat = radians(right.latitude);
-  const h = Math.sin(deltaLat / 2) ** 2
-    + Math.cos(leftLat) * Math.cos(rightLat) * Math.sin(deltaLon / 2) ** 2;
-  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(h)) * feetPerMile;
-}
-
 function normalizeWaterwayName(value: string | null | undefined) {
   return (value ?? '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ')
     .replace(/\bthe\b/g, ' ').replace(/\s+/g, ' ').trim();

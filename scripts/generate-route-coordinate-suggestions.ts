@@ -9,6 +9,7 @@ import {
   preferExactAccessNameMatches,
 } from './lib/access-name-match';
 import { assessCandidateConfidence, type ConfidenceLevel } from './lib/candidate-confidence';
+import { FEET_PER_MILE, distanceFeet, radians } from './lib/geo-distance';
 import {
   canDirectNhdVerifyMappedLaunch,
   canOfficialWaterbodyRecoverUnreliableTerminalGeometry,
@@ -257,8 +258,6 @@ const candidateHydrographyPath = path.join(root, 'docs', 'route-coordinate-candi
 const autoValidationPath = path.join(root, 'docs', 'route-coordinate-auto-validation.json');
 const reviewGeometryRoot = path.join(root, 'node_modules', '.cache', 'route-coordinate-review-geometries', 'routes');
 const outputPath = path.join(root, 'docs', 'route-coordinate-suggestions.json');
-const feetPerMile = 5280;
-const earthRadiusMiles = 3958.8;
 const officialMatchedRiverProjectionMaxFeet = 350;
 const officialNamedWaterbodyProjectionMaxFeet = 500;
 const mappedLaunchKinds = new Set(['waterway-access-point', 'slipway', 'canoe-access', 'whitewater-put-in']);
@@ -273,19 +272,6 @@ function normalize(value: string | null | undefined) {
     .trim();
 }
 
-function radians(value: number) {
-  return value * Math.PI / 180;
-}
-
-function distanceFeet(left: Coordinate, right: Coordinate) {
-  const deltaLat = radians(right.latitude - left.latitude);
-  const deltaLon = radians(right.longitude - left.longitude);
-  const leftLat = radians(left.latitude);
-  const rightLat = radians(right.latitude);
-  const h = Math.sin(deltaLat / 2) ** 2
-    + Math.cos(leftLat) * Math.cos(rightLat) * Math.sin(deltaLon / 2) ** 2;
-  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(h)) * feetPerMile;
-}
 
 function namesAgree(left: string | null | undefined, right: string | null | undefined) {
   const a = normalize(left);
@@ -348,7 +334,7 @@ function projectToRouteGeometry(point: Coordinate, geometry: RouteGeometry | nul
     }
   }
   return Number.isFinite(bestMiles) && bestCoordinate
-    ? { coordinate: bestCoordinate, distanceFeet: bestMiles * feetPerMile }
+    ? { coordinate: bestCoordinate, distanceFeet: bestMiles * FEET_PER_MILE }
     : null;
 }
 

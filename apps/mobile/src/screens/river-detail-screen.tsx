@@ -6,6 +6,7 @@ import {
   buildScoreBreakdownViewModel,
   campingClassificationLabel,
   formatHourlyWeatherLabel,
+  routeAccessPoints,
   signedPoints,
   type ApprovedCommunityPhoto,
   type ApprovedTripReport,
@@ -153,7 +154,7 @@ export default function RiverDetailScreen() {
   const history = historyQuery.data?.result ?? null;
   const community = communityQuery.data ?? null;
   const checklist = useMemo(() => (detail ? detail.checklist.slice(0, 4) : []), [detail]);
-  const accessPoints = useMemo(() => (detail ? routeAccessPoints(detail) : []), [detail]);
+  const accessPoints = useMemo(() => (detail ? routeAccessPoints(detail.river) : []), [detail]);
   const selectedPutInAccess = selectedPutInId ? accessPoints.find((point) => point.id === selectedPutInId) : undefined;
   const selectedTakeOutAccess = selectedTakeOutId ? accessPoints.find((point) => point.id === selectedTakeOutId) : undefined;
   const selectedPutIn = selectedPutInAccess ?? detail?.river.putIn;
@@ -188,7 +189,7 @@ export default function RiverDetailScreen() {
       return;
     }
 
-    const points = routeAccessPoints(detail);
+    const points = routeAccessPoints(detail.river);
     const linkedPutIn = points.find((point) => point.id === deepLinkPutInId);
     const linkedTakeOut = points.find((point) => point.id === deepLinkTakeOutId);
     const validDeepLink = Boolean(
@@ -2125,7 +2126,7 @@ function buildDetailRoutePoints(
 }
 
 function fullRouteSpanCoordinates(detail: RiverDetailApiResult): RouteSpanCoordinate[] | null {
-  const accessCoordinates = routeAccessPoints(detail)
+  const accessCoordinates = routeAccessPoints(detail.river)
     .map(accessCoordinate)
     .filter(isRouteSpanCoordinate);
 
@@ -2169,10 +2170,6 @@ function isRouteSpanCoordinate(coordinate: RouteSpanCoordinate | null): coordina
   return coordinate !== null;
 }
 
-function routeAccessPoints(detail: RiverDetailApiResult): RiverRouteAccessPoint[] {
-  return (detail.river.accessPoints ?? []).slice().sort((left, right) => left.mileFromStart - right.mileFromStart);
-}
-
 function firstParamValue(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value;
 }
@@ -2196,7 +2193,7 @@ function formatSegmentMile(mile: number) {
 function estimateSegmentPaddleTime(detail: RiverDetailApiResult, distanceMiles: number) {
   const fullDistance =
     parseDistanceMiles(detail.river.distanceLabel) ??
-    routeAccessPoints(detail).at(-1)?.mileFromStart ??
+    routeAccessPoints(detail.river).at(-1)?.mileFromStart ??
     null;
   const fullTime = parsePaddleTimeHours(detail.river.estimatedPaddleTime);
 

@@ -589,6 +589,7 @@ const {
   distanceForResult,
   itemWithinSelectedRadius,
   resultWithinSelectedRadius,
+  clearUserLocation,
   setUserLocation,
   shortLocationLabel,
   submitManualLocation,
@@ -614,6 +615,11 @@ const {
     activeFilters.sort = mode;
   },
   saveLocation,
+  removeLocation: removeStoredLocation,
+  onLocationCleared: () => {
+    homeFilterSheetOpen = false;
+    document.body.classList.remove('home-filter-sheet-open');
+  },
   resetPagination: () => {
     currentExplorePage = 1;
   },
@@ -3379,30 +3385,6 @@ function applyHomePreset(preset) {
 
   if (latestResults.length > 0) {
     renderHomepage(latestResults);
-  }
-}
-
-function clearUserLocation() {
-  userLocation = null;
-  userLocationState = 'idle';
-  locationEditing = false;
-  homeFilterSheetOpen = false;
-  document.body.classList.remove('home-filter-sheet-open');
-  removeStoredLocation();
-  if (locationInput instanceof HTMLInputElement) {
-    locationInput.value = '';
-  }
-  if (activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest') {
-    activeFilters.sort = 'best-now';
-    if (sortSelect instanceof HTMLSelectElement) {
-      sortSelect.value = 'best-now';
-    }
-  }
-  currentExplorePage = 1;
-  if (latestResults.length > 0) {
-    renderHomepage(latestResults);
-  } else {
-    updateLocationStatus();
   }
 }
 

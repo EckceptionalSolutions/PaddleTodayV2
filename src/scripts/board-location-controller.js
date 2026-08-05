@@ -25,9 +25,11 @@ export function createBoardLocationController({
   setLocationState = () => {},
   setSortMode = () => {},
   saveLocation = () => {},
+  removeLocation = () => {},
   resetPagination = () => {},
   renderBoard = () => {},
   updateLocationStatus = () => {},
+  onLocationCleared = () => {},
   sortSelect,
   locationInput,
   logError = (error) => console.error('Manual location lookup failed.', error),
@@ -113,6 +115,29 @@ export function createBoardLocationController({
     indicator.dataset.state = 'idle';
   }
 
+  function clearUserLocation() {
+    setLocationState(null, 'idle');
+    onLocationCleared();
+    removeLocation();
+    if (locationInput) {
+      locationInput.value = '';
+    }
+    if (getSortMode() === 'near-you' || getSortMode() === 'nearest') {
+      setSortMode('best-now');
+      if (sortSelect) {
+        sortSelect.value = 'best-now';
+      }
+    }
+    resetPagination();
+
+    const results = getResults();
+    if (results.length > 0) {
+      renderBoard(results);
+    } else {
+      updateLocationStatus();
+    }
+  }
+
   async function submitManualLocation(
     query,
     statusTarget = getDefaultStatusTarget(),
@@ -143,6 +168,7 @@ export function createBoardLocationController({
     distanceForResult,
     itemWithinSelectedRadius,
     resultWithinSelectedRadius,
+    clearUserLocation,
     setUserLocation,
     shortLocationLabel,
     submitManualLocation,

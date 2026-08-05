@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { osmAccessFeatureKind } from './lib/osm-access-feature';
+import { distanceFeet } from './lib/geo-distance';
 
 type SuggestionItem = {
   routeId: string;
@@ -58,21 +59,10 @@ const overpassUrls = [
 ];
 const batchSize = Math.max(1, Math.min(5, Number(process.argv.find((argument) => argument.startsWith('--batch-size='))?.split('=')[1] ?? 3)));
 const searchRadiusMeters = 1200;
-const feetPerMile = 5280;
-const earthRadiusMiles = 3958.8;
 const wait = (milliseconds: number) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const maxRemoteBatches = Number(process.argv.find((argument) => argument.startsWith('--max-batches='))?.split('=')[1] ?? 4);
 const classifierVersion = 2;
 
-function radians(value: number) { return value * Math.PI / 180; }
-function distanceFeet(left: Coordinate, right: Coordinate) {
-  const deltaLat = radians(right.latitude - left.latitude);
-  const deltaLon = radians(right.longitude - left.longitude);
-  const leftLat = radians(left.latitude);
-  const rightLat = radians(right.latitude);
-  const h = Math.sin(deltaLat / 2) ** 2 + Math.cos(leftLat) * Math.cos(rightLat) * Math.sin(deltaLon / 2) ** 2;
-  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(h)) * feetPerMile;
-}
 function elementCoordinate(element: OsmElement): Coordinate | null {
   const latitude = element.lat ?? element.center?.lat;
   const longitude = element.lon ?? element.center?.lon;

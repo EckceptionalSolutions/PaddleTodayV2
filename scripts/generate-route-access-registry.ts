@@ -5,6 +5,7 @@ import { riverTripDetails } from '../src/data/river-trip-details';
 import type { RiverAccessPoint } from '../src/lib/types';
 import { accessFacilityIdentitiesAgree, accessNamesAgree } from './lib/access-name-match';
 import { authoritativeEvidenceResolvesDistinctLocation, classifyCoordinateStatus } from './lib/access-registry-status';
+import { distanceFeet } from './lib/geo-distance';
 
 type EndpointKind = 'putIn' | 'takeOut' | 'accessPoint';
 type AuditSeverity = 'ok' | 'review' | 'suspicious' | 'failure' | 'unknown';
@@ -75,8 +76,6 @@ const root = process.cwd();
 const auditPath = path.join(root, 'docs', 'route-coordinate-river-audit.json');
 const authoritativePath = path.join(root, 'docs', 'route-coordinate-authoritative-evidence.json');
 const outputPath = path.join(root, 'src', 'data', 'generated', 'route-access-registry.json');
-const feetPerMile = 5280;
-const earthRadiusMiles = 3958.8;
 
 function normalize(value: string) {
   return value
@@ -130,20 +129,6 @@ function authoritativeWaterbodyFitsOccurrence(
       || alternate?.relationship === 'connected-water-trail-waterbody')
     && Boolean(alternate.sourceUrl)
     && waterwayNamesAgree(occurrence.routeName, alternate.routeWaterbody);
-}
-
-function radians(value: number) {
-  return value * Math.PI / 180;
-}
-
-function distanceFeet(left: Coordinate, right: Coordinate) {
-  const deltaLat = radians(right.latitude - left.latitude);
-  const deltaLon = radians(right.longitude - left.longitude);
-  const leftLat = radians(left.latitude);
-  const rightLat = radians(right.latitude);
-  const h = Math.sin(deltaLat / 2) ** 2
-    + Math.cos(leftLat) * Math.cos(rightLat) * Math.sin(deltaLon / 2) ** 2;
-  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(h)) * feetPerMile;
 }
 
 function coordinateKey(point: Coordinate) {

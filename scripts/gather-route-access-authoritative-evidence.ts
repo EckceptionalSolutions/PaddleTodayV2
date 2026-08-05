@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { accessNamesAgree } from './lib/access-name-match';
+import { FEET_PER_MILE, distanceFeet } from './lib/geo-distance';
 
 type Coordinate = { latitude: number; longitude: number };
 type AuditEndpoint = Coordinate & {
@@ -75,9 +76,7 @@ const auditPath = path.join(root, 'docs', 'route-coordinate-river-audit.json');
 const outputPath = path.join(root, 'docs', 'route-coordinate-authoritative-evidence.json');
 const officialMapControlsPath = path.join(root, 'src', 'data', 'route-access-official-map-controls.json');
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-authoritative-evidence');
-const feetPerMile = 5280;
-const earthRadiusMiles = 3958.8;
-const candidateRadiusFeet = 5 * feetPerMile;
+const candidateRadiusFeet = 5 * FEET_PER_MILE;
 const pageSize = 2000;
 
 const providers: Provider[] = [
@@ -206,16 +205,6 @@ const providers: Provider[] = [
     }),
   },
 ];
-
-function radians(value: number) { return value * Math.PI / 180; }
-function distanceFeet(left: Coordinate, right: Coordinate) {
-  const deltaLat = radians(right.latitude - left.latitude);
-  const deltaLon = radians(right.longitude - left.longitude);
-  const leftLat = radians(left.latitude);
-  const rightLat = radians(right.latitude);
-  const h = Math.sin(deltaLat / 2) ** 2 + Math.cos(leftLat) * Math.cos(rightLat) * Math.sin(deltaLon / 2) ** 2;
-  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(h)) * feetPerMile;
-}
 
 function matchedCoordinate(endpoint: AuditEndpoint): Coordinate | null {
   return Number.isFinite(endpoint.nearestMatchedLatitude) && Number.isFinite(endpoint.nearestMatchedLongitude)
