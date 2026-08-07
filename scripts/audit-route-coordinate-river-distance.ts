@@ -209,6 +209,7 @@ const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   // the stored point is an access anchor next to the bridge, not the exact
   // water-entry pixel on the generalized Big Sioux flowline.
   'big-sioux-river-rec-area-south-highway-42': 500,
+  'big-sioux-river-highway-42-grandview': 500,
   // Nebraska Game & Parks' Loup River Water Trail guide names the Monroe
   // access, George Syas WMA access, and the Columbus takeout corridor.
   'loup-river-monroe-adm-access': 8000,

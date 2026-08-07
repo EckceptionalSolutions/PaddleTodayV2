@@ -959,6 +959,32 @@ a {
   background: #b45e2a;
 }
 
+.river-route-notice {
+  min-height: 1.7rem;
+  padding: 0.22rem 0.48rem;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(16, 35, 45, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.54rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.river-route-notice--portage,
+.river-route-notice--lock {
+  background: #6d4a88;
+}
+
+.river-route-notice--gap {
+  border-style: dashed;
+  background: #596a74;
+}
+
 @media (max-width: 980px) {
   .river-route-picker__layout {
     grid-template-columns: 1fr;
@@ -22378,7 +22404,8 @@ html body.page-river-hub .river-route-picker__layout--empty .river-route-picker_
 }
 
 html body.page-river-hub .river-group-page__map-shell--empty .river-group-page__map,
-html body.page-river-hub .river-group-page__map-shell--empty .river-group-page__map-status {
+html body.page-river-hub .river-group-page__map-shell--empty .river-group-page__map-status,
+html body.page-river-hub .river-group-page__map-shell--empty .river-hub-map-legend {
   display: none !important;
 }
 
@@ -22850,6 +22877,55 @@ html body.page-river-hub .river-group-page__map-status {
   padding-inline: 0.15rem;
   color: #647985;
   font-size: 0.76rem;
+}
+
+html body.page-river-hub .river-hub-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem 0.72rem;
+  padding: 0.58rem 0.68rem;
+  border: 1px solid rgba(20, 69, 83, 0.1);
+  border-radius: 12px;
+  background: rgba(247, 250, 250, 0.94);
+  color: #526873;
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+html body.page-river-hub .river-hub-map-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+html body.page-river-hub .river-hub-map-legend__line {
+  width: 1.35rem;
+  height: 0;
+  border-top: 4px solid;
+  border-radius: 999px;
+}
+
+html body.page-river-hub .river-hub-map-legend__line--strong { border-color: #267457; }
+html body.page-river-hub .river-hub-map-legend__line--good { border-color: #28798a; }
+html body.page-river-hub .river-hub-map-legend__line--fair { border-color: #a36b22; }
+html body.page-river-hub .river-hub-map-legend__line--no-go { border-color: #a84b3c; }
+html body.page-river-hub .river-hub-map-legend__line--planning {
+  border-color: #657782;
+  border-top-style: dashed;
+}
+
+html body.page-river-hub .river-hub-map-legend__notice {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6d4a88;
+  color: #fff;
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 900;
 }
 
 html body.page-river-hub .river-hub-context,

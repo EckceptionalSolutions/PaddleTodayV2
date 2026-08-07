@@ -117,6 +117,68 @@ export const southDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "big-sioux-river-highway-42-grandview": {
+    "putIn": {
+      "name": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+      "latitude": 43.524737736047783,
+      "longitude": -96.600618160195765
+    },
+    "takeOut": {
+      "name": "Grandview canoe site",
+      "latitude": 43.4484919862431,
+      "longitude": -96.6024966707481
+    },
+    "logistics": {
+      "distanceLabel": "About 8.7 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr depending on level, wind, scouting, and wood",
+      "shuttle": "Stage the take-out at the SD GFP-managed Grandview access, then drive to the SD Highway 42 / Mary Jo Wegner Arboretum access. Use signed parking and access areas; the Highway 42 coordinate is an access anchor and users should identify the actual water-entry point on arrival.",
+      "permits": "No route-specific paddling permit is known. Follow Mary Jo Wegner Arboretum posted hours and rules, South Dakota GFP Jay Heath access rules, Good Earth State Park reservation requirements if using the canoe-in campsite, and any temporary access or high-water guidance.",
+      "camping": "On-route canoe-in camping is reservation-limited, not informal river camping. GFP's Jay Heath access layer marks the Good Earth State Park canoe-in campsite as Camping Yes with no parking and reservation instructions, while the public Good Earth park page says the park is day-use with no regular campground. The SD Highway 42 and Grandview endpoints are Camping No.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch near the Highway 42 bridge / Mary Jo Wegner Arboretum access and paddle downstream past the Good Earth / Gitchie Manitou corridor to the SD GFP-managed Grandview canoe site. Use USGS 06482020 at North Cliff Avenue as the same-river corridor check and treat 300 cfs as the conservative low-water floor.",
+      "accessCaveats": [
+        "GFP's Jay Heath access layer marks SD Hwy 42 as a canoe-site parking anchor but Launch No; Mary Jo Wegner Arboretum separately documents practical canoe/kayak launch access next to the Highway 42 bridge. Treat the stored put-in coordinate as an access anchor, not a guarantee of the exact water-entry point.",
+        "GFP's layer marks Gitchie Manitou State Preserve as Parking Yes but Launch No. Do not use Gitchie Manitou as a substitute launch or landing for this route.",
+        "GFP's layer marks Grandview as Parking Yes, Launch Yes, Camping No, concrete launch surface, and SD GFP owned/managed.",
+        "Stay within legal public access and respect private banks; this route does not imply casual intermediate egress outside source-backed Jay Heath access points."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the North Cliff Avenue corridor gauge is below the 300 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, and fences or wire after rain or high water.",
+        "Limited-contact urban and agricultural water-quality concerns, especially after heavy rain or visible runoff.",
+        "Longer mileage and limited intermediate public egress. Scout the Highway 42 access, the Grandview landing, and any campsite logistics before committing."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "sd-highway-42-mary-jo-wegner",
+        "name": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+        "latitude": 43.524737736047783,
+        "longitude": -96.600618160195765,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 18 is a parking canoe-site anchor; Mary Jo Wegner Arboretum documents practical canoe/kayak launch access on the park edge next to the Highway 42 bridge."
+      },
+      {
+        "id": "good-earth-canoe-in-campsite",
+        "name": "Good Earth State Park canoe-in campsite",
+        "latitude": 43.484487,
+        "longitude": -96.586867,
+        "mileFromStart": 3.8,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 36; Canoe/Kayak Only Campsite, Camping Yes, no parking, reservation instructions through Good Earth State Park. Verify reservation and current park rules before planning overnight use."
+      },
+      {
+        "id": "grandview-canoe-site",
+        "name": "Grandview canoe site",
+        "latitude": 43.4484919862431,
+        "longitude": -96.6024966707481,
+        "mileFromStart": 8.7,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 16; Parking Yes, Launch Yes, Camping No, concrete launch surface, SD GFP owned/managed."
+      }
+    ]
+  },
   "big-sioux-river-grandview-klondike-south": {
     "putIn": {
       "name": "Grandview canoe site",
@@ -170,28 +232,188 @@ export const southDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "split-rock-creek-split-rock-park-palisades": {
+  "big-sioux-river-oak-ridge-oak-grove": {
     "putIn": {
-      "name": "Split Rock Park canoe/kayak launch",
-      "latitude": 43.713056,
-      "longitude": -96.503056
+      "name": "Oak Ridge Public Water Access concrete launch",
+      "latitude": 43.1706166664578,
+      "longitude": -96.4694000002021
     },
     "takeOut": {
-      "name": "Palisades State Park / Split Rock Creek access",
-      "latitude": 43.725833,
-      "longitude": -96.509167
+      "name": "Oak Grove County Park concrete launch",
+      "latitude": 43.0618556830408,
+      "longitude": -96.4709710186444
     },
     "logistics": {
-      "distanceLabel": "About 2.8 mi",
-      "estimatedPaddleTime": "Short moving-water run; time varies with level, scouting, and portages",
-      "shuttle": "Use a short Garretson-area two-car shuttle between Split Rock Park and Palisades State Park. Check Palisades State Park entry requirements and scout the take-out before launching because state-park traffic and creek levels can change the practical landing.",
-      "permits": "No route-specific paddling permit is known. Follow City of Garretson rules at Split Rock Park and pay any required South Dakota state park entrance fee at Palisades.",
-      "camping": "Palisades State Park has separate campground and lodging options, but this route should be treated as a short day run unless you have a state-park reservation or other legal overnight plan.",
-      "summary": "Launch from the city park access below the Split Rock Park dam and paddle the short quartzite creek corridor to Palisades State Park. Use the USGS Corson gauge as a direct same-creek low-water check, but make the final call by scouting ledges, fences, and wood.",
+      "distanceLabel": "About 11.1 mi",
+      "estimatedPaddleTime": "About 4 hr to 6 hr depending on level, wind, scouting, and stops",
+      "shuttle": "Stage the take-out at Oak Grove County Park / Big Sioux Park near Hawarden, then drive to Oak Ridge Public Water Access near Hudson. Use the signed public access and parking areas at both ends.",
+      "permits": "No route-specific paddling permit is known. Follow SD GFP access rules at Oak Ridge, Sioux County Conservation / Oak Grove park hours and campground rules, and any temporary closure or high-water guidance.",
+      "camping": "Endpoint campground only. GFP's Jay Heath access layer marks Oak Ridge Public Water Access as Camping No and Oak Grove County Park as Camping Yes; MyCountyParks documents fee camping at Oak Grove / Big Sioux Park. Do not infer informal river camping or private-bank camping from the water trail.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from Oak Ridge Public Water Access and take out at Oak Grove County Park for the 11.1-mile lower Jay Heath Trail segment named by Sioux Empire Paddlers and supported by GFP access records. Use USGS 06485500 at Akron as the lower-corridor gauge and treat 400 cfs as the conservative low-water floor.",
       "accessCaveats": [
-        "Split Rock Park is a city park with a canoe/kayak launch downstream from the dam; do not launch above or near dam hydraulics without separate local scouting.",
-        "Palisades State Park is a fee state park. Confirm the practical landing and parking location on arrival, especially during busy warm-weather weekends.",
-        "Coordinates are practical access anchors derived from named park/access map context, not a substitute for on-site signs and current park rules."
+        "GFP's Jay Heath access layer marks Oak Ridge Public Water Access as Parking Yes, Launch Yes, Camping No, and a concrete launch surface owned and managed by SD GFP.",
+        "GFP's layer marks Oak Grove County Park as Parking Yes, Launch Yes, Camping Yes, and a concrete launch surface managed by Sioux County Conservation.",
+        "MyCountyParks says Oak Grove / Big Sioux Park has boat-ramp access to the Big Sioux River, fee camping, and daily park hours; verify current rules before relying on campground or rental services.",
+        "The route follows the Big Sioux border corridor. Stay within legal public access, respect private banks, and do not treat nearby road crossings or private ramps as casual bailout points."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the Akron gauge is below the 400 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, fences, or wire after rain or high water.",
+        "Agricultural and urban water-quality concerns on the lower Big Sioux, especially after heavy rain or visible runoff.",
+        "An 11-mile open border-river day with wind exposure, limited intermediate public egress, and muddy landings."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "oak-ridge-public-water-access",
+        "name": "Oak Ridge Public Water Access concrete launch",
+        "latitude": 43.1706166664578,
+        "longitude": -96.4694000002021,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 8; Parking Yes, Launch Yes, Camping No, concrete launch surface, SD GFP-owned/managed."
+      },
+      {
+        "id": "oak-grove-county-park",
+        "name": "Oak Grove County Park concrete launch",
+        "latitude": 43.0618556830408,
+        "longitude": -96.4709710186444,
+        "mileFromStart": 11.1,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 7; Parking Yes, Launch Yes, Camping Yes, concrete launch surface, Sioux County Conservation-managed."
+      }
+    ]
+  },
+  "big-sioux-river-oak-grove-carrs-landing": {
+    "putIn": {
+      "name": "Oak Grove County Park concrete launch",
+      "latitude": 43.0618556830408,
+      "longitude": -96.4709710186444
+    },
+    "takeOut": {
+      "name": "Carr's Landing concrete launch",
+      "latitude": 43.0108833331488,
+      "longitude": -96.4913666666382
+    },
+    "logistics": {
+      "distanceLabel": "About 6.2 mi",
+      "estimatedPaddleTime": "About 2 hr to 3.5 hr depending on level, wind, and wood",
+      "shuttle": "Stage the take-out at Carr's Landing near Hawarden, then drive to Oak Grove County Park / Big Sioux Park. Use the signed county/city access and parking areas at both ends.",
+      "permits": "No route-specific paddling permit is known. Follow Sioux County Conservation / Oak Grove park hours and campground rules, City of Hawarden access rules at Carr's Landing, and any temporary closure or high-water guidance.",
+      "camping": "Endpoint campground only. GFP's Jay Heath access layer marks Oak Grove County Park as Camping Yes and Carr's Landing as Camping No; MyCountyParks documents fee camping at Oak Grove / Big Sioux Park. Do not infer informal river camping or private-bank camping from the water trail.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from Oak Grove County Park and take out at Carr's Landing for the 6.2-mile lower Jay Heath Trail segment named by Sioux Empire Paddlers and supported by GFP access records. Use USGS 06485500 at Akron as the lower-corridor gauge and treat 400 cfs as the conservative low-water floor.",
+      "accessCaveats": [
+        "GFP's Jay Heath access layer marks Oak Grove County Park as Parking Yes, Launch Yes, Camping Yes, and a concrete launch surface managed by Sioux County Conservation.",
+        "GFP's layer marks Carr's Landing as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by the City of Hawarden.",
+        "The route follows the Big Sioux border corridor. Stay within legal public access, respect private banks, and do not treat nearby road crossings or private ramps as casual bailout points.",
+        "Do not extend this card toward Big Sioux County Park, Akron, or Sioux City without fresh route-distance, access, camping, and hazard review."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the Akron gauge is below the 400 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, fences, or wire after rain or high water.",
+        "Agricultural and urban water-quality concerns on the lower Big Sioux, especially after heavy rain or visible runoff.",
+        "Open-border-river wind exposure, limited intermediate public egress, and muddy landings."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "oak-grove-county-park",
+        "name": "Oak Grove County Park concrete launch",
+        "latitude": 43.0618556830408,
+        "longitude": -96.4709710186444,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 7; Parking Yes, Launch Yes, Camping Yes, concrete launch surface, Sioux County Conservation-managed."
+      },
+      {
+        "id": "carrs-landing",
+        "name": "Carr's Landing concrete launch",
+        "latitude": 43.0108833331488,
+        "longitude": -96.4913666666382,
+        "mileFromStart": 6.2,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 6; Parking Yes, Launch Yes, Camping No, concrete launch surface, City of Hawarden-managed."
+      }
+    ]
+  },
+  "big-sioux-river-carrs-landing-big-sioux-county-park": {
+    "putIn": {
+      "name": "Carr's Landing concrete launch",
+      "latitude": 43.0108833331488,
+      "longitude": -96.4913666666382
+    },
+    "takeOut": {
+      "name": "Big Sioux County Park concrete launch",
+      "latitude": 42.8510666668239,
+      "longitude": -96.5436833336961
+    },
+    "logistics": {
+      "distanceLabel": "About 19 mi",
+      "estimatedPaddleTime": "Long day; about 6 hr to 9 hr depending on level, wind, scouting, and stops",
+      "shuttle": "Stage the take-out at Big Sioux County Park near Akron, then drive to Carr's Landing near Hawarden. Use signed county/city access and parking areas at both ends, and verify the Big Sioux Park road has not closed for flood or seasonal conditions before launching.",
+      "permits": "No route-specific paddling permit is known. Follow City of Hawarden access rules at Carr's Landing, Plymouth County Conservation rules at Big Sioux County Park, posted road or hunting-season closures, and any temporary flood or high-water guidance.",
+      "camping": "Nearby basecamp only. GFP's Jay Heath access layer marks Carr's Landing and Big Sioux County Park as Camping No. Nearby River's Bend Wildlife Area and Akron City Park have separate campground support, but do not infer informal river camping, private-bank camping, or endpoint camping for this route.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch from Carr's Landing and paddle the long lower Big Sioux border-river day segment to Big Sioux County Park near Akron. Use USGS 06485500 at Akron as the lower-corridor gauge and treat 400 cfs as the conservative low-water floor.",
+      "accessCaveats": [
+        "GFP's Jay Heath access layer marks Carr's Landing as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by the City of Hawarden.",
+        "GFP's layer marks Big Sioux County Park as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by Plymouth County Conservation Board.",
+        "MyCountyParks says Big Sioux Park's ramp is always open, but the road can close during some hunting seasons and during floods; verify the take-out road and ramp before committing to this long segment.",
+        "The route follows the Big Sioux border corridor. Stay within legal public access, respect private banks, and do not treat road crossings, private ramps, or informal banks as casual bailout points."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the Akron gauge is below the 400 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, fences, or wire after rain or high water.",
+        "Agricultural and urban water-quality concerns on the lower Big Sioux, especially after heavy rain or visible runoff.",
+        "A committed 19-mile day with open wind exposure, limited public egress, and muddy or flood-shifted landings."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "carrs-landing",
+        "name": "Carr's Landing concrete launch",
+        "latitude": 43.0108833331488,
+        "longitude": -96.4913666666382,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 6; Parking Yes, Launch Yes, Camping No, concrete launch surface, City of Hawarden-managed."
+      },
+      {
+        "id": "big-sioux-county-park",
+        "name": "Big Sioux County Park concrete launch",
+        "latitude": 42.8510666668239,
+        "longitude": -96.5436833336961,
+        "mileFromStart": 19,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 5; Parking Yes, Launch Yes, Camping No, concrete launch surface, Plymouth County Conservation Board-managed."
+      }
+    ]
+  },
+  "split-rock-creek-split-rock-park-palisades": {
+    "putIn": {
+      "name": "Garretson Dam-below / Split Rock Park downstream canoe site",
+      "latitude": 43.72150302399171,
+      "longitude": -96.50201018523772
+    },
+    "takeOut": {
+      "name": "Palisades-Cliffs canoe site",
+      "latitude": 43.68815948689258,
+      "longitude": -96.5202633017925
+    },
+    "logistics": {
+      "distanceLabel": "About 3 mi",
+      "estimatedPaddleTime": "Short moving-water run; time varies with level, scouting, and portages",
+      "shuttle": "Use a short Garretson-area two-car shuttle between the Garretson Dam-below access at Split Rock Park and the Palisades-Cliffs canoe site inside Palisades State Park. Check Palisades State Park entry requirements and scout the take-out before launching because state-park traffic and creek levels can change the practical landing.",
+      "permits": "No route-specific paddling permit is known. Follow City of Garretson rules at Split Rock Park and pay any required South Dakota state park entrance fee at Palisades.",
+      "camping": "Endpoint-basecamp only. GFP's access layer lists Split Rock Park Campground and Palisades Campground as campground records, but this route should be treated as a short day run unless you have a separate campground reservation or legal overnight plan.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from the Garretson Dam-below access at Split Rock Park and paddle the short quartzite creek corridor to the Palisades-Cliffs canoe site. Use the USGS Corson gauge as a direct same-creek low-water check, but make the final call by scouting ledges, fences, and wood.",
+      "accessCaveats": [
+        "South Dakota GFP's CanoeTrails FeatureServer marks Garretson Dam-below as Parking Yes, Launch Yes, and a rock launch surface; do not launch above or near dam hydraulics without separate local scouting.",
+        "South Dakota GFP's CanoeTrails FeatureServer marks Palisades-Cliffs as Parking Yes, Launch Yes, and a rock launch surface inside Palisades State Park. Confirm the practical landing and parking location on arrival, especially during busy warm-weather weekends.",
+        "The stored coordinates are manager-published access anchors, not a substitute for on-site signs, current park rules, and same-day water-entry choices."
       ],
       "watchFor": [
         "Shallow scraping below the 4.5 ft Corson-gauge floor used by the app.",
@@ -199,6 +421,26 @@ export const southDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "Fences, strainers, downed trees, tight banks, and fast rain-driven rises on a small creek.",
         "Cold water in spring and shoulder seasons, plus busy state-park users near the take-out."
       ]
-    }
+    },
+    "accessPoints": [
+      {
+        "id": "garretson-dam-below",
+        "name": "Garretson Dam-below / Split Rock Park downstream canoe site",
+        "latitude": 43.72150302399171,
+        "longitude": -96.50201018523772,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP CanoeTrails FeatureServer access record OID 56; Parking Yes, Launch Yes, rock launch surface."
+      },
+      {
+        "id": "palisades-cliffs-canoe-site",
+        "name": "Palisades-Cliffs canoe site",
+        "latitude": 43.68815948689258,
+        "longitude": -96.5202633017925,
+        "mileFromStart": 3,
+        "segmentKind": "creek",
+        "note": "GFP CanoeTrails FeatureServer access record OID 59; Parking Yes, Launch Yes, rock launch surface inside Palisades State Park."
+      }
+    ]
   }
 };

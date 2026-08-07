@@ -4,9 +4,9 @@ Last summarized: 2026-08-07.
 
 ## Current Inventory
 
-- Live routes: 4.
-- Rivers represented: Big Sioux River, Skunk Creek.
-- Ledger candidates: 22 total; 4 `added`, 2 `blocked_until_date`, 10 `access_legitimacy`, 2 `no_live_gauge`, 2 `threshold_weak`, 2 `research_later`.
+- Live routes: 9.
+- Rivers represented: Big Sioux River, Skunk Creek, Split Rock Creek.
+- Ledger candidates: 26 total; 9 `added`, 1 `blocked_until_date`, 10 `access_legitimacy`, 2 `no_live_gauge`, 2 `threshold_weak`, 2 `research_later`.
 
 ## Status
 
@@ -23,6 +23,56 @@ South Dakota has sparse coverage and a small candidate base. It is not exhausted
 - Use targeted research rather than cadence.
 - Prioritize corridors with official public access, direct USGS gauges, and manager/local level guidance.
 - Avoid shipping route records from access-map presence alone.
+
+## 2026-08-07 Big Sioux Oak Ridge-Oak Grove Add
+
+- Added `big-sioux-river-oak-ridge-oak-grove` as an 11.1-mile Jay Heath / Big Sioux Circuit route from Oak Ridge Public Water Access near Hudson to Oak Grove County Park near Hawarden.
+- Evidence package: SD GFP's CanoeTrails FeatureServer marks Oak Ridge Public Water Access and Oak Grove County Park as Parking Yes / Launch Yes concrete-launch access points, with Oak Ridge Camping No and Oak Grove Camping Yes; Sioux Empire Paddlers names Oak Ridge PWA to Oak Grove County Park as a Big Sioux Circuit route; MyCountyParks supports Oak Grove boat-ramp access and fee campground use.
+- Gauge/threshold: USGS `06485500` Big Sioux River at Akron returned product-ready lower-corridor values of 521 cfs / 4.99 ft at 2026-08-07 15:00 CDT. Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs, so the route uses a conservative minimum-only floor.
+- Camping: endpoint campground only. Oak Grove has fee campground support; Oak Ridge is Camping No, and no informal river camping is inferred.
+- Safety/access: route copy keeps fence, wood/strainer, water-quality, private-bank, wind, limited-egress, and no-extension caveats. Stored coordinates are public concrete-launch access anchors; coordinate audit measured Oak Ridge 189 ft from the named Big Sioux flowline / 135 ft from NHD waterbody and Oak Grove 215 ft from the named flowline / 131 ft from NHD waterbody, with 0 autonomous-safe coordinate corrections.
+- Gallery: bounded no-image result after GFP / Sioux Empire / Sioux County / USGS / Commons / same-route review found no clearly rights-clean exact Oak-Ridge-to-Oak-Grove paddling asset selected for local reuse.
+- Next South Dakota rotation should not repeat this shipped segment. Continue with distinct candidates beyond the shipped/reactivated and blocked lead list.
+
+## 2026-08-07 Big Sioux Carr's-Big Sioux County Park Add
+
+- Added `big-sioux-river-carrs-landing-big-sioux-county-park` as a 19-mile Jay Heath / Big Sioux Circuit route from Carr's Landing to Big Sioux County Park near Akron.
+- Evidence package: SD GFP CanoeTrails FeatureServer marks both endpoints Parking Yes / Launch Yes / Camping No with concrete launches; Sioux Empire Paddlers names the route; MyCountyParks supports Big Sioux Park ramp/parking and flood/seasonal road caveat.
+- Gauge/threshold: USGS `06485500` returned 524 cfs / 5.00 ft at 2026-08-07 14:00 CDT; Sioux Empire Paddlers Akron 400 cfs floor; minimum-only.
+- Camping: nearby-basecamp only; endpoints Camping No; River's Bend/Akron campground support is separate; no informal/private-bank camping.
+- Safety/access: long 19-mile day, limited egress, private banks, wind, water quality, fences/wood/strainers, flood/road closure checks, no downstream extension. Stored coordinates are public concrete-launch access anchors; coordinate audit measured Carr's Landing 235 ft from the named Big Sioux flowline and Big Sioux County Park 171 ft from the flowline / within 98 ft of a mapped waterbody.
+- Gallery: bounded no-image result after GFP / Sioux Empire / Plymouth County / USGS / Commons / same-route review.
+- Next rotation should not repeat this shipped segment. Continue with distinct candidates beyond shipped/reactivated/blocked leads; possible next lower Big Sioux candidates must still re-prove route-specific access, Akron threshold applicability, camping, safety, and image decisions.
+
+## 2026-08-07 Big Sioux Oak Grove-Carr's Landing Add
+
+- Added `big-sioux-river-oak-grove-carrs-landing` as a 6.2-mile Jay Heath Canoe and Kayak Trail route from Oak Grove County Park to Carr's Landing.
+- Evidence package: SD GFP's CanoeTrails FeatureServer marks Oak Grove as Parking Yes / Launch Yes / Camping Yes with a concrete launch and Carr's Landing as Parking Yes / Launch Yes / Camping No with a concrete launch; Sioux County/MyCountyParks supports Oak Grove canoe/kayak launching and fee campground use.
+- Gauge/threshold: USGS `06485500` Big Sioux River at Akron returned product-ready lower-corridor values of 521 cfs / 4.99 ft at 2026-08-07 13:00 CDT. Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs, so the route uses a conservative minimum-only floor.
+- Camping: endpoint campground only. Oak Grove has fee campground support; Carr's Landing is Camping No, and no informal river camping is inferred.
+- Safety/access: route copy keeps fence, wood/strainer, water-quality, private-bank, wind, and no-extension caveats. Stored coordinates are public concrete-launch access anchors, and users must follow current signs and landing conditions.
+- Gallery: bounded no-image result after GFP / Sioux Empire / Sioux County / USGS / Commons / same-route review found no clearly rights-clean exact Oak-Grove-to-Carr's-Landing paddling asset selected for local reuse.
+- Next South Dakota rotation should not repeat this shipped segment. Continue with distinct candidates beyond the shipped/reactivated and blocked lead list, especially lower Big Sioux leads only where route-specific public access, Akron-gauge threshold support, camping, and safety evidence remain clean.
+
+## 2026-08-07 Big Sioux Highway 42-Grandview Add
+
+- Added `big-sioux-river-highway-42-grandview` as an 8.7-mile Jay Heath Canoe and Kayak Trail route from the SD Highway 42 / Mary Jo Wegner Arboretum access to the SD GFP-managed Grandview canoe site.
+- Evidence package: Mary Jo Wegner documents canoe/kayak launch access next to the Highway 42 bridge; the SD GFP FeatureServer marks Grandview Parking Yes / Launch Yes / Camping No, SD Hwy 42 as a parking canoe-site anchor, and Good Earth State Park canoe-in campsite as Camping Yes with reservation instructions.
+- Gauge/threshold: USGS `06482020` returned product-ready same-river corridor data of 258 cfs / 5.62 ft at 2026-08-07 12:30 CDT. Sioux Empire Paddlers lists Big Sioux River Cliff Avenue south of Sioux Falls as ideal above 300 cfs, so the route uses the same conservative minimum-only floor.
+- Camping: on-route campsite only when separately reserved. Good Earth State Park is otherwise day-use/no-camping, and no informal river camping is inferred.
+- Safety/access: route copy keeps access-anchor handling at Highway 42, no-launch handling for Gitchie Manitou, private-bank limits, fences/wood, water quality, and no route-extension warnings.
+- Gallery: bounded no-image result after GFP / Mary Jo Wegner / Good Earth / Sioux Empire / USGS / Commons / same-route review found no clearly rights-clean exact-route reusable asset.
+- Next South Dakota rotation should not repeat this shipped segment. Continue with distinct candidates outside the shipped/reactivated and blocked lead list unless fresh source-backed evidence clears a blocker.
+
+## 2026-08-07 Split Rock Reactivation
+
+- Reactivated `split-rock-creek-split-rock-park-palisades` after the documented 2026-07-27 blockers cleared.
+- Evidence package: South Dakota GFP's CanoeTrails FeatureServer now gives directionally consistent, launch-supported access anchors for Garretson Dam-below / Split Rock Park downstream canoe site and Palisades-Cliffs canoe site. Both records have Parking Yes / Launch Yes and rock launch surfaces.
+- Gauge/threshold: USGS `06482610` Split Rock Creek at Corson returned product-ready Water Services values of 8.24 cfs / 1.72 ft at 2026-08-07 10:45 CDT. Sioux Empire Paddlers supports the conservative 4.5 ft minimum-only floor; current flow was below that floor, so the route should score low until water improves.
+- Camping: endpoint-basecamp only. GFP CanoeTrails records Split Rock Park Campground and Palisades Campground, but route copy treats overnight use as separate reserved campground use, not informal creekside camping.
+- Safety/access: route copy keeps dam-adjacent launch handling, ledges/whitewater, fence, wood/strainer, rain-sensitive high-water, whitewater-gear, and Palisades landing cautions. Stored coordinates are access anchors and users must follow current signs and on-site water-entry/landing conditions.
+- Gallery: existing approved Commons image remains rights-clean in `docs/river-image-source-audit.csv`.
+- Next South Dakota rotation should not repeat this reactivated route. Continue with distinct non-excluded candidates; do not reopen the old Split Rock downstream/ditch-entry extensions unless a separate manager-backed endpoint, gauge, safety, and camping package clears.
 
 ## 2026-08-07 Big Sioux Grandview-Klondike South Add
 

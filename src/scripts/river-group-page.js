@@ -27,6 +27,11 @@ import {
 } from '../lib/river-hub-planning.js';
 import { getBrowserApiClient } from './browser-api-client.js';
 import { trackEvent } from './analytics.js';
+import {
+  riverHubMapNotices,
+  riverHubRouteStatus,
+  routeGeometryMidpoint,
+} from './river-hub-map-model.js';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -789,10 +794,7 @@ function midpointForRoute(route) {
   }
 
   if (typeof route.longitude === 'number' && typeof route.latitude === 'number') {
-    return {
-      longitude: route.longitude,
-      latitude: route.latitude,
-    };
+    return { longitude: route.longitude, latitude: route.latitude };
   }
 
   return null;
@@ -903,6 +905,8 @@ function routeLineFeature(route) {
       reach: route.reach,
       distanceLabel: route.distanceLabel || '',
       rating: route.rating,
+      routeStatus: riverHubRouteStatus(route),
+      scoreEligibility: route.scoreEligibility,
       selected: route.slug === selectedSlug,
     },
   };
@@ -919,8 +923,10 @@ function routeLabelCollection(routes) {
   return {
     type: 'FeatureCollection',
     features: routes
+      .filter((route) => route.slug === selectedSlug)
       .map((route) => {
-        const point = midpointForRoute(route);
+        const feature = routeLineFeature(route);
+        const point = routeGeometryMidpoint(feature?.geometry);
         if (!point) return null;
         return {
           type: 'Feature',
@@ -930,7 +936,7 @@ function routeLabelCollection(routes) {
           },
           geometry: {
             type: 'Point',
-            coordinates: [point.longitude, point.latitude],
+            coordinates: point,
           },
         };
       })
@@ -979,14 +985,29 @@ function syncRouteLayers(routes) {
       paint: {
         'line-color': [
           'match',
-          ['get', 'rating'],
-          'Strong', '#267457',
-          'Good', '#28798a',
-          'Fair', '#a36b22',
+          ['get', 'routeStatus'],
+          'strong', '#267457',
+          'good', '#28798a',
+          'fair', '#a36b22',
           '#a84b3c',
         ],
         'line-width': 4,
         'line-opacity': 0.34,
+      },
+      filter: ['!=', ['get', 'routeStatus'], 'planning'],
+    }, {
+      id: 'river-group-trip-lines-planning',
+      type: 'line',
+      filter: ['==', ['get', 'routeStatus'], 'planning'],
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': '#657782',
+        'line-width': 4,
+        'line-opacity': 0.72,
+        'line-dasharray': [2, 1.5],
       },
     }, {
       id: 'river-group-trip-line-halo',
@@ -1004,7 +1025,7 @@ function syncRouteLayers(routes) {
     }, {
       id: 'river-group-trip-line-selected',
       type: 'line',
-      filter: ['==', ['get', 'slug'], selectedSlug || ''],
+      filter: ['all', ['==', ['get', 'slug'], selectedSlug || ''], ['!=', ['get', 'routeStatus'], 'planning']],
       layout: {
         'line-cap': 'round',
         'line-join': 'round',
@@ -1014,28 +1035,26 @@ function syncRouteLayers(routes) {
         'line-width': 6,
         'line-opacity': 1,
       },
+    }, {
+      id: 'river-group-trip-line-selected-planning',
+      type: 'line',
+      filter: ['all', ['==', ['get', 'slug'], selectedSlug || ''], ['==', ['get', 'routeStatus'], 'planning']],
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': '#657782',
+        'line-width': 6,
+        'line-opacity': 1,
+        'line-dasharray': [1.5, 1.2],
+      },
     }],
   });
   syncGeoJsonOverlay(mapRuntime, {
     sourceId: labelSourceId,
     data: labelData,
     layers: [{
-      id: 'river-group-trip-distance-labels',
-      type: 'symbol',
-      minzoom: 8.2,
-      layout: {
-        'text-field': ['get', 'distanceLabel'],
-        'text-font': ['Noto Sans Bold'],
-        'text-size': ['interpolate', ['linear'], ['zoom'], 5, 10, 8, 12, 11, 14],
-        'text-padding': 12,
-        'text-allow-overlap': false,
-      },
-      paint: {
-        'text-color': '#123f4c',
-        'text-halo-color': 'rgba(255, 255, 255, 0.97)',
-        'text-halo-width': 3,
-      },
-    }, {
       id: 'river-group-trip-distance-selected',
       type: 'symbol',
       filter: ['==', ['get', 'slug'], selectedSlug || ''],
@@ -1056,7 +1075,7 @@ function syncRouteLayers(routes) {
   });
 
   if (!hadSource) {
-    mapRuntime.on('click', 'river-group-trip-lines-base', (event) => {
+    const selectRouteAtEvent = (event) => {
       const slug = event.features?.[0]?.properties?.slug;
       if (!slug) return;
       selectPickerRoute(slug, { focusMap: false, reveal: 'list', scrollToSelection: true });
@@ -1067,17 +1086,21 @@ function syncRouteLayers(routes) {
           .setHTML(routePopupMarkup(route))
           .addTo(mapRuntime);
       }
-    });
-    mapRuntime.on('mouseenter', 'river-group-trip-lines-base', () => {
-      mapRuntime.getCanvas().style.cursor = 'pointer';
-    });
-    mapRuntime.on('mouseleave', 'river-group-trip-lines-base', () => {
-      mapRuntime.getCanvas().style.cursor = '';
-    });
+    };
+    for (const layerId of ['river-group-trip-lines-base', 'river-group-trip-lines-planning']) {
+      mapRuntime.on('click', layerId, selectRouteAtEvent);
+      mapRuntime.on('mouseenter', layerId, () => {
+        mapRuntime.getCanvas().style.cursor = 'pointer';
+      });
+      mapRuntime.on('mouseleave', layerId, () => {
+        mapRuntime.getCanvas().style.cursor = '';
+      });
+    }
   }
 
   mapRuntime.setFilter('river-group-trip-line-halo', ['==', ['get', 'slug'], selectedSlug || '']);
-  mapRuntime.setFilter('river-group-trip-line-selected', ['==', ['get', 'slug'], selectedSlug || '']);
+  mapRuntime.setFilter('river-group-trip-line-selected', ['all', ['==', ['get', 'slug'], selectedSlug || ''], ['!=', ['get', 'routeStatus'], 'planning']]);
+  mapRuntime.setFilter('river-group-trip-line-selected-planning', ['all', ['==', ['get', 'slug'], selectedSlug || ''], ['==', ['get', 'routeStatus'], 'planning']]);
   mapRuntime.setFilter('river-group-trip-distance-selected', ['==', ['get', 'slug'], selectedSlug || '']);
 }
 
@@ -1090,7 +1113,31 @@ function endpointMarkerNode(label, detail, kind) {
   return node;
 }
 
-function syncSelectedRouteEndpoints(route, maplibregl) {
+function mapNoticeMarkerNode(notice) {
+  const node = document.createElement('span');
+  node.className = `river-route-notice river-route-notice--${notice.kind}`;
+  node.textContent = notice.label;
+  node.title = notice.detail;
+  node.setAttribute('aria-label', notice.detail);
+  return node;
+}
+
+function mapNoticePopupMarkup(notice) {
+  const title = notice.kind === 'gap'
+    ? 'Route coverage gap'
+    : notice.kind === 'lock'
+      ? 'Lock and portage'
+      : 'Required portage';
+  return `
+    <article class="score-map-popup river-route-notice-popup">
+      <p class="score-map-popup__state">Mississippi River navigation</p>
+      <h3>${escapeHtml(title)}</h3>
+      <p class="score-map-popup__summary">${escapeHtml(notice.detail)}</p>
+    </article>
+  `;
+}
+
+function syncSelectedRouteEndpoints(route, routes, maplibregl) {
   mapMarkers = clearMapMarkers(mapMarkers);
   if (!route) return;
 
@@ -1106,6 +1153,21 @@ function syncSelectedRouteEndpoints(route, maplibregl) {
       element: endpointMarkerNode(endpoint.label, endpoint.detail, endpoint.kind),
       point: endpoint.point,
     });
+    mapMarkers.push(marker);
+  }
+
+  for (const notice of riverHubMapNotices(riverId, routes)) {
+    const markerNode = mapNoticeMarkerNode(notice);
+    const marker = createMapMarker({
+      maplibregl,
+      mapRuntime,
+      element: markerNode,
+      point: notice.point,
+      popupHtml: mapNoticePopupMarkup(notice),
+      popupOptions: { maxWidth: '286px' },
+      bindPopup: true,
+    });
+    markerNode.setAttribute('aria-label', notice.detail);
     mapMarkers.push(marker);
   }
 }
@@ -1275,7 +1337,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
       lineOpacity: 0.18,
     });
     syncRouteLayers(routes);
-    syncSelectedRouteEndpoints(selectedRoute, maplibregl);
+    syncSelectedRouteEndpoints(selectedRoute, routes, maplibregl);
     syncConditionScoreMarkers(routes.filter((route) => !isPlanningRoute(route)), maplibregl);
 
     const fitRoutes = focusSelected && selectedRoute ? [selectedRoute] : routes;

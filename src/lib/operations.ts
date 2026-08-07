@@ -45,7 +45,7 @@ const runHistory = JSON.parse(
 };
 
 const automationRegistry = [
-  { id: 'paddletoday-operations-orchestrator', name: 'PaddleToday Operations Orchestrator', schedule: 'Weekly Monday', status: 'enabled', owner: 'orchestrator' },
+  { id: 'paddletoday-operations-orchestrator', name: 'PaddleToday Operations Orchestrator', schedule: 'Every four hours', status: 'enabled', owner: 'orchestrator' },
   { id: 'paddletoday-hourly-route-worker', name: 'PaddleToday Hourly Route Worker', schedule: 'Every hour', status: 'enabled', owner: 'route-implementation' },
   { id: 'paddletoday-route-worker-supervisor', name: 'PaddleToday Route Worker Supervisor', schedule: 'Every two hours', status: 'enabled', owner: 'orchestrator' },
   { id: 'river-snapshots', name: 'River snapshots', schedule: 'Every 30 minutes', status: 'enabled', owner: 'operations' },
