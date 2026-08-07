@@ -2,6 +2,62 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const utahRiverTripDetails: Record<string, RiverTripDetails> = {
+  "colorado-river-hittle-bottom-takeout-beach": {
+    "putIn": {
+      "id": "hittle-bottom-recreation-site",
+      "name": "Hittle Bottom Recreation Site boat ramp",
+      "latitude": 38.7607,
+      "longitude": -109.326
+    },
+    "takeOut": {
+      "id": "takeout-beach-landing",
+      "name": "Takeout Beach Landing",
+      "latitude": 38.66174,
+      "longitude": -109.50074
+    },
+    "logistics": {
+      "distanceLabel": "About 13.0 mi",
+      "estimatedPaddleTime": "About 4 hr to 6 hr for a day run; longer with low water, wind, groups, or an overnight plan",
+      "shuttle": "Stage the take-out at Takeout Beach, then drive Highway 128 back to Hittle Bottom. The corridor is popular with outfitters and private boaters, but groups should verify BLM ramp conditions, parking, and river traffic before committing.",
+      "permits": "No normal day-use river permit is listed for the Moab Daily, but BLM fee sites, campground fees, group-site reservations, and downstream permit boundaries can apply. Confirm current Moab Field Office rules before any overnight or extended trip.",
+      "camping": "Camping is allowed only within the BLM rules shown on the Moab Daily map: on river right, use designated sites and sandbars; on river left, use developed campgrounds. Overnight trips need firepans and a washable reusable toilet system or approved disposable bags in a leakproof container.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch at Hittle Bottom and take out at Takeout Beach for the classic 13-mile Moab Daily / Fisher Towers section of the Colorado River. Expect scenic desert canyon paddling with named rapids that change from Class I to Class III as levels rise.",
+      "accessCaveats": [
+        "BLM maintains access facilities along the Daily stretch, including Hittle Bottom, Rocky Rapid / Ida Gulch, Sandy Beach, and Takeout Beach.",
+        "Hittle Bottom is also a campground and fee-area access; do not block the boat ramp or campground traffic while rigging.",
+        "Takeout Beach is the default finish before the slackwater toward Moab. The stored coordinate is an AW access-area/waterbody anchor that audited 111 ft from the matched flowline and within 50 ft of the NHD waterbody, so identify the actual landing/ramp on arrival.",
+        "Use legal public river stops and BLM-managed camps only. Private land on the corridor is marked no camping on the BLM map."
+      ],
+      "watchFor": [
+        "Rocky Rapid, Professor Creek Rapid, New Rapid, Onion Creek Rapid, White's Rapid, and Salt Wash Rapid.",
+        "Class I-III behavior depending on season and flow; low water exposes rocks and higher water makes wave trains and holes stronger.",
+        "PFD-wear requirement on the BLM map, spare propulsion, throwable PFD for boats over 16 feet, repair/bailing gear, and group first aid.",
+        "Commercial rafts, private groups, roadside users, wind, heat, thunderstorms, and sparse services between managed access points.",
+        "Overnight waste, firepan, trash pack-out, and 14-day river-trip limit rules."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "hittle-bottom-recreation-site",
+        "name": "Hittle Bottom Recreation Site boat ramp",
+        "latitude": 38.7607,
+        "longitude": -109.326,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; BLM identifies Hittle Bottom as a landing, fee area, campground, and maintained Daily access."
+      },
+      {
+        "id": "takeout-beach-landing",
+        "name": "Takeout Beach Landing",
+        "latitude": 38.66174,
+        "longitude": -109.50074,
+        "mileFromStart": 13,
+        "segmentKind": "creek",
+        "note": "Default take-out before the slackwater that continues toward Moab."
+      }
+    ]
+  },
   "green-river-flaming-gorge-dam-little-hole": {
     "putIn": {
       "id": "spillway-boat-launch-area",

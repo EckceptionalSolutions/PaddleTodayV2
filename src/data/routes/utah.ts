@@ -3,6 +3,139 @@ import type { River } from '../../lib/types';
 
 export const utahRoutes: River[] = [
   {
+    "id": "colorado-river-hittle-bottom-takeout-beach",
+    "slug": "colorado-river-hittle-bottom-takeout-beach",
+    "name": "Colorado River",
+    "reach": "Hittle Bottom to Takeout Beach",
+    "aliases": [
+      "Moab Daily",
+      "Fisher Towers section",
+      "Hittle Bottom to Take-Out Beach"
+    ],
+    "state": "Utah",
+    "region": "Moab / Professor Valley",
+    "routeType": "whitewater",
+    "summary": "Classic Moab Daily run through Professor Valley. BLM documents the 13-mile Hittle Bottom-to-Takeout Beach section, its Class I-III rapids, camping rules, and managed public access facilities; USGS 09180500 near Cisco is the product-supported upstream Colorado River gauge.",
+    "statusText": "Use Colorado River near Cisco as the upstream same-river flow check. Published Moab Daily guidance treats about 2,000 cfs as the recommended floor; Paddle Today uses that as a conservative minimum-only threshold and withholds ideal/high confidence.",
+    "latitude": 38.7607,
+    "longitude": -109.326,
+    "gaugeSource": {
+      "id": "usgs-09180500",
+      "provider": "usgs",
+      "siteId": "09180500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Colorado River near Cisco, UT",
+      "detailUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09180500"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "fast_rise",
+        "remote"
+      ],
+      "safetyNotes": [
+        "BLM says the Moab Daily can range from Class I to Class III depending on season and water level; treat it as a whitewater route even when flows are low.",
+        "Wear life jackets at all times, carry spare propulsion, repair/bailing gear, and a first-aid kit as listed on the BLM river-runner map.",
+        "The Cisco gauge is upstream of the route and the river can change with tributary inflow, wind, heat, storms, and commercial traffic. Make a same-day visual call at Hittle Bottom and confirm BLM access conditions."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 2000,
+      "thresholdSource": {
+        "label": "Published Moab Daily recommended-flow context paired with BLM route map",
+        "url": "https://www.whitewaterguidebook.com/utah/moab-daily/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "seasonNotes": "The Moab Daily is commonly run spring through fall, with snowmelt and storm pulses changing character. Low summer/fall water can expose rocks and sandbars; higher water makes the rapids faster and more consequential.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is a popular first-river-trip corridor, but BLM documents Class I-III rapids and whitewater safety gear. The card is marked whitewater so casual discovery does not flatten the route into a simple scenic float.",
+      "confidenceNotes": "Confidence is high for route shape, public access, camping rules, and live-gauge availability: BLM maps Hittle Bottom to Takeout Beach as the 13-mile Moab Daily and lists managed facilities along the entire stretch, American Whitewater provides endpoint coordinates and ties the Professor Valley corridor to USGS 09180500, and USGS Water Services returned same-day 2026-08-06 discharge/stage. Threshold confidence stays mixed because the numeric 2,000 cfs floor comes from published guide context rather than an official BLM flow ladder."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Live gauge",
+        "value": "USGS 09180500 at 1,140 cfs / 1.50 ft",
+        "note": "USGS Water Services returned Colorado River near Cisco values at 17:00 MDT on 2026-08-06. The gauge is upstream of the Hittle-to-Takeout split but inside the AW Professor Valley corridor that contains the Moab Daily.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09180500"
+      },
+      {
+        "label": "Route shape",
+        "value": "Moab Daily, 13 miles",
+        "note": "The BLM river-runner map says the Moab Daily, also called the Fisher Towers section, runs from Hittle Bottom to Takeout Beach and is Utah's most popular river trip.",
+        "sourceUrl": "https://www.blm.gov/sites/default/files/documents/files/MoabDailyMap.pdf"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "38.76070, -109.32600 to 38.66174, -109.50074",
+        "note": "American Whitewater publishes Hittle Bottoms access and Take-Out Beach access coordinates; BLM separately confirms both as maintained access facilities on the Moab Daily. Coordinate audit placed Hittle Bottom 23 ft from the matched Colorado River flowline and Takeout Beach 111 ft from the matched flowline but within 50 ft of the NHD waterbody.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1841/main"
+      },
+      {
+        "label": "Camping",
+        "value": "Designated river camps, sandbars, and developed campgrounds only",
+        "note": "BLM restricts river-right camping to designated sites and sandbars, river-left camping to developed campgrounds, requires firepans and toilet systems for overnight trips, and limits trips to 14 days.",
+        "sourceUrl": "https://www.blm.gov/sites/default/files/documents/files/MoabDailyMap.pdf"
+      },
+      {
+        "label": "Threshold posture",
+        "value": "Minimum-only at 2,000 cfs",
+        "note": "Published Moab Daily guide context gives 2,000 cfs as the recommended low end. The app uses that as a floor only because BLM does not publish a formal scoring ladder.",
+        "sourceUrl": "https://www.whitewaterguidebook.com/utah/moab-daily/"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded BLM, AW, Commons, and same-route web review found useful context photos but no clearly rights-clean exact Hittle-Bottom-to-Takeout-Beach paddling asset selected for local reuse.",
+        "sourceUrl": "https://www.blm.gov/sites/default/files/documents/files/MoabDailyMap.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "USGS 09180500 Colorado River near Cisco current conditions",
+        "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09180500",
+        "provider": "usgs"
+      },
+      {
+        "label": "BLM Moab Daily river-runner map",
+        "url": "https://www.blm.gov/sites/default/files/documents/files/MoabDailyMap.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "BLM Hittle Bottom Recreation Site",
+        "url": "https://www.blm.gov/visit/hittle-bottom-recreation-site",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater Professor Valley / Moab Daily corridor",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1841/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "Whitewater Guidebook Moab Daily level guidance",
+        "url": "https://www.whitewaterguidebook.com/utah/moab-daily/",
+        "provider": "local"
+      }
+    ]
+  },
+  {
     "id": "green-river-flaming-gorge-dam-little-hole",
     "slug": "green-river-flaming-gorge-dam-little-hole",
     "name": "Green River",

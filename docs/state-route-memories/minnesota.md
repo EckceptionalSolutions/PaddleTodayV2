@@ -1,5 +1,40 @@
 # Minnesota Route Memory
 
+## 2026-08-06 America/Chicago final bounded saturation sweep
+
+- No route was added or promoted. The final bounded review examined `otter-tail-river-wannigan-riverside`, the strongest remaining official-access candidate after the direct-gauge rechecks and Big Fork/North Fork Zumbro/Redwood reviews.
+- Minnesota DNR supports the exact Wannigan Road to Riverside Park segment, public access pair, river-mile shape, and route hazards. DNR's current Otter Tail State Water Trail materials identify Wannigan Road at river mile 152.1 and Riverside Park at 144.5.
+- The product-supported MN DNR Battle Lake gauge is downstream of the Frazee-area reach. Under the current direct-gauge scored publication gate, the route remains planning-only rather than being promoted on a proxy.
+- Decision: Minnesota is provisionally saturated at 145 scored routes. The remaining 113 planning entries are explicitly excluded from saturation; revisit only for new direct-gauge evidence or an explicit user-approved proxy policy decision.
+
+## 2026-08-06 America/Chicago Big Fork Highway-6-North-to-Johnson promotion review
+
+- No route was added or promoted. Reviewed `big-fork-river-highway-6-north-johnson` as the next bounded Minnesota planning-to-scored candidate after the North Fork Zumbro review.
+- Access and route evidence remain sound: MN DNR Big Fork Map 2 places Highway 6 North at river mile 75.8 and Johnson Landing at river mile 67.5, with Reilly Brook/Reilly Creek context plus Johnson watercraft-campsite support inside the 8.3-mile reach. Minnesota public-water-access GIS resolves Highway 6 North / State Hwy 6 (S) `WAS01792` at `48.034694214683626, -93.74155634703675` and Johnson `WAS02708` at `48.0886283542472, -93.68169266740433`.
+- Gauge blocker: no product-supported direct gauge lies inside the selected reach. MN DNR site `281` / CSG `77107001` is fresh at `4.85 ft` on `2026-08-06 15:00 CDT`, with official `4.0 / 4.5-8.5 / 9.5 ft` interpretation bands, but the feed places it at river mile 91.6 upstream of the Highway 6 North put-in. The implemented app record already marks the gauge as `proxy`, so route-publication correctly excludes it from scored Minnesota saturation.
+- Decision: keep the route planning-only for scored-route accounting under the current direct-gauge publication gate. Next candidate for the scored-route review is `otter-tail-river-wannigan-riverside` unless a direct Big Fork gauge or product-approved proxy-publication policy appears.
+
+## 2026-08-06 America/Chicago North Fork Zumbro Covered-Bridge-to-Walking-Bridge promotion review
+
+- No route was added or promoted. Reviewed `north-fork-zumbro-river-covered-bridge-walking-bridge` as the next bounded Minnesota planning-to-scored candidate.
+- Access and route evidence remain sound: MN DNR Zumbro Map 1 places Covered Bridge Park at North Fork Zumbro river mile 69.6 and Walking Bridge Park at river mile 60.1, with old bridge supports, Mazeppa Rapids Class I, and a 90-yard right-bank portage near the finish. Minnesota public-water-access GIS resolves Covered Bridge Park `WAS02181` at `44.296435629197084, -92.67021342459051` and Walking Bridge Park `WAS02184` at `44.27177130177235, -92.54884928986579`.
+- Gauge blocker: no product-supported direct gauge lies inside the selected reach. MN DNR site `311` / CSG `41006001` is fresh at `93.70 cfs` on `2026-08-06 14:30 CDT`, with official `50 / 63-724.7 / 1,435.7 cfs` interpretation bands, but the feed places it at river mile 54.7 downstream of the Walking Bridge take-out. USGS `05373850` returned no current Water Services time series, and downstream USGS `05374000` is also outside the selected reach.
+- Decision: keep the route planning-only under the current direct-gauge publication gate. Next candidate for the scored-route review is `big-fork-river-highway-6-north-johnson` unless a direct North Fork Zumbro gauge or product-approved proxy-publication policy appears.
+
+## 2026-08-06 America/Chicago Redwood Vesta-to-Wabasso promotion review
+
+- No route was added or promoted. Reviewed `redwood-river-vesta-wabasso` as the next bounded Minnesota planning-to-scored candidate.
+- Access and route evidence remain sound: MN DNR Redwood River water-trail material supports the Marshall-to-Lake-Redwood corridor, and Minnesota public-water-access GIS resolves Vesta `WAS02156` at river mile 28.9 plus Wabasso `WAS00004` at river mile 13.3.
+- Gauge blocker: no product-supported direct gauge lies inside the selected Vesta-to-Wabasso reach. MN DNR Redwood sites are Russell `194` at river mile 85.5, Marshall `195` at river mile 69.0, and Redwood Falls `196` at river mile 9.3. USGS Water Services returned current readings for Marshall `05315000` and Redwood Falls `05316500` at 2026-08-06 15:00 CDT, but those are upstream of Vesta and downstream of Wabasso respectively.
+- Decision: keep the route planning-only under the current direct-gauge publication gate. Next candidate for the scored-route review is `north-fork-zumbro-river-covered-bridge-walking-bridge` unless a direct Redwood gauge or product-approved proxy-publication policy appears.
+
+## 2026-08-06 America/Chicago direct-gauge provider recheck
+
+- No route was added. Rechecked the six Minnesota `unavailable_direct_gauge` planning candidates from `docs/operations/minnesota-saturation-audit.json` and kept the publication gate closed.
+- Provider status: MN DNR site `179` for `red-lake-river-smiley-bridge-centennial-park` is still stale to `2026-04-30 09:45 AM`; MN DNR site `280` for `big-fork-river-dora-lake-big-fork` is still stale to `2026-05-20 11:00 AM`; USGS `04021960` for `cloquet-river-island-lake-bachelor-road` returned zero current Water Services time series.
+- Stump Lake site `341` returned a fresh MN DNR reading of `3 ft` at `2026-08-06 12:30 PM`, but `src/data/route-publication.ts` currently blocks `mn_dnr:341` because it is treated as a Stump Lake stage reading rather than a qualifying river gauge for the configured Mississippi cards. Do not promote `mississippi-river-county-road-12-dam-county-road-25`, `mississippi-river-iron-bridge-county-road-12-dam`, or the proxy `mississippi-river-county-road-25-knutson-dam` without a deliberate gauge-applicability/product decision.
+- Next action: resolve the Stump Lake gauge-applicability question for the two direct Mississippi candidates, or wait for fresh provider data on sites `179`, `280`, and `04021960`. Minnesota remains in scored-route review; do not expand to another state from this task.
+
 ## 2026-08-01 America/Chicago Grand Marais upper Brule pass
 
 - Added `brule-river-lima-grade-gunflint-trail`, `brule-river-gunflint-trail-northern-light`, and `brule-river-lima-grade-northern-light` as two adjacent upper-Brule splits plus the complete 14.8-mile route near Grand Marais.

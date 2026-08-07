@@ -37,6 +37,7 @@ import {
   StyleProp,
   StyleSheet,
   Text,
+  useWindowDimensions,
   ViewStyle,
   View,
 } from 'react-native';
@@ -104,6 +105,8 @@ type GaugeBandVisualModel = {
 };
 
 export default function RiverDetailScreen() {
+  const { width: windowWidth } = useWindowDimensions();
+  const compactHeader = windowWidth < 360;
   const params = useLocalSearchParams<{
     slug?: string | string[];
     putin?: string | string[];
@@ -583,7 +586,7 @@ export default function RiverDetailScreen() {
               </View>
             )}
             <View style={styles.heroCopy}>
-              <View style={styles.heroTitleRow}>
+              <View style={[styles.heroTitleRow, compactHeader ? styles.heroTitleRowCompact : null]}>
                 <View style={styles.heroTitleCopy}>
                   <Text style={styles.kicker}>{detail.river.name}</Text>
                   <Text style={styles.title}>{detail.river.reach}</Text>
@@ -2739,6 +2742,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: spacing.sm,
     alignItems: 'flex-start',
+  },
+  heroTitleRowCompact: {
+    flexDirection: 'column',
+    gap: 6,
   },
   heroTitleCopy: {
     flex: 1,

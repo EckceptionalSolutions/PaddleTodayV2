@@ -5,7 +5,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useWeekendSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
@@ -48,6 +48,8 @@ const DEFAULT_WEEKEND_DISTANCE_LIMIT = 300;
 const WEEKEND_DISTANCE_STORAGE_KEY = 'paddletoday:weekend-distance-limit:v1';
 
 export default function WeekendScreen() {
+  const { width: windowWidth } = useWindowDimensions();
+  const compactHeader = windowWidth < 360;
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
@@ -181,8 +183,8 @@ export default function WeekendScreen() {
         ) : null}
 
         <View style={styles.heroPanel}>
-          <View style={styles.heroHeader}>
-            <Text style={styles.heroLabel} numberOfLines={1}>
+          <View style={[styles.heroHeader, compactHeader ? styles.heroHeaderCompact : null]}>
+            <Text style={styles.heroLabel} numberOfLines={compactHeader ? 2 : 1}>
               {location ? `Near ${location.label}` : hasWeekendPlan ? (weekendQuery.data?.label ?? 'Weekend outlook') : 'Across available routes'}
             </Text>
             <Text style={styles.heroFreshness}>{location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast included' : 'No clean plan'}</Text>
@@ -873,6 +875,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     gap: spacing.md,
+  },
+  heroHeaderCompact: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: 2,
   },
   heroLabel: {
     flex: 1,

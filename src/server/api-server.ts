@@ -24,6 +24,7 @@ import {
   handleAdminContributionList,
   handleAdminContributionReview,
   handleAdminLogout,
+  handleAdminOperationsSnapshot,
   handleAdminRouteAuditList,
   handleAdminRouteAuditUpdate,
   handleAdminRouteRequestList,
@@ -291,6 +292,10 @@ async function handleWriteRoutes(
 
   if (pathname === '/api/admin/stats' && request.method === 'GET') {
     return handleAdminStats(request, response, requestId, includeBody);
+  }
+
+  if (pathname === '/api/admin/operations' && request.method === 'GET') {
+    return handleAdminOperationsSnapshot(request, response, requestId, includeBody);
   }
 
   const adminContributionReviewMatch = pathname.match(/^\/api\/admin\/route-contributions\/([^/]+)\/review$/);

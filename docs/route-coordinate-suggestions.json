@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-01T21:07:00.243Z",
-  "registryGeneratedAt": "2026-08-01T21:07:01.335Z",
+  "generatedAt": "2026-08-07T15:53:54.687Z",
+  "registryGeneratedAt": "2026-08-02T00:50:43.957Z",
   "count": 37,
   "autoApplyEligibleCount": 0,
   "items": [
@@ -1741,33 +1741,7 @@
       "canonicalAccessId": "minnesota--orchard-creek-trailer-access",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "MN DNR Cedar River segments and maps",
-          "url": "https://www.dnr.state.mn.us/state-water-trails/cedar-river/segments-maps.html",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "MN DNR Cedar River map PDF",
-          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "MN DNR river levels",
-          "url": "https://www.dnr.state.mn.us/river_levels/index.html",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "MN DNR river-level site data",
-          "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "Minnesota public water access feature service",
-          "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
-          "provider": "mn_dnr"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -2789,23 +2763,7 @@
       "canonicalAccessId": "wisconsin--highway-j-bridge-access",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Wisconsin River Trips Sheboygan River - Johnsonville",
-          "url": "https://www.wisconsinrivertrips.com/segments/sheboygan-river/johnsonville",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "Sheboygan River Water Trail",
-          "url": "https://www.sheboyganrivers.org/sheboygan-river-water-trail",
-          "provider": "local"
-        },
-        {
-          "label": "USGS 04086000 monitoring location",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04086000/",
-          "provider": "usgs"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -4105,28 +4063,7 @@
       "canonicalAccessId": "minnesota--old-whitney-log-dam-area",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "MN DNR Rum River segments and maps",
-          "url": "https://www.dnr.state.mn.us/state-water-trails/rum-river/segments-maps.html",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "MN DNR river levels",
-          "url": "https://www.dnr.state.mn.us/river_levels/index.html",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "MN DNR river-level site data",
-          "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "Minnesota public water access feature service",
-          "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
-          "provider": "mn_dnr"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -4296,43 +4233,7 @@
       "canonicalAccessId": "minnesota--mississippi-river-overlook-park-carry-in-access",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 2,
-      "sourceLinks": [
-        {
-          "label": "MN DNR Mississippi River segments and maps",
-          "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "MN DNR recommended one-way routes",
-          "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "MN DNR Mississippi River Map 6 PDF",
-          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi6.pdf",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "Baxter Mississippi River Overlook Park",
-          "url": "https://www.baxtermn.gov/amenities/city-parks/mississippi-river-overlook-park",
-          "provider": "local"
-        },
-        {
-          "label": "US Census geocoder",
-          "url": "https://geocoding.geo.census.gov/geocoder/",
-          "provider": "local"
-        },
-        {
-          "label": "MN DNR river-level site data",
-          "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
-          "provider": "mn_dnr"
-        },
-        {
-          "label": "Minnesota public water access feature service",
-          "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
-          "provider": "mn_dnr"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [
         {
@@ -4651,32 +4552,7 @@
       "canonicalAccessId": "minnesota--mississippi-river-overlook-park-carry-in-access",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 2,
-      "sourceLinks": [
-        {
-          "label": "MN DNR Mississippi River Map 6 PDF",
-          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi6.pdf"
-        },
-        {
-          "label": "MN DNR Mississippi River segments and maps",
-          "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html"
-        },
-        {
-          "label": "MN DNR Morrison County public water accesses",
-          "url": "https://files.dnr.state.mn.us/maps/water_access/counties/morrison.pdf"
-        },
-        {
-          "label": "Baxter Mississippi River Overlook Park",
-          "url": "https://www.baxtermn.gov/amenities/city-parks/mississippi-river-overlook-park"
-        },
-        {
-          "label": "MN DNR river-level site data",
-          "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
-        },
-        {
-          "label": "USGS 05261000 monitoring location",
-          "url": "https://waterdata.usgs.gov/monitoring-location/05261000/"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [
         {
@@ -4995,28 +4871,7 @@
       "canonicalAccessId": "wisconsin--highway-tt-bridge-access",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Miles Paddled Sheboygan River II",
-          "url": "https://milespaddled.com/sheboygan-river-ii/",
-          "provider": "miles_paddled"
-        },
-        {
-          "label": "Wisconsin River Trips Sheboygan River - Johnsonville",
-          "url": "https://www.wisconsinrivertrips.com/segments/sheboygan-river/johnsonville",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "Sheboygan River Water Trail",
-          "url": "https://www.sheboyganrivers.org/sheboygan-river-water-trail",
-          "provider": "local"
-        },
-        {
-          "label": "USGS 04086000 monitoring location",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04086000/",
-          "provider": "usgs"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -5666,28 +5521,7 @@
       "canonicalAccessId": "wisconsin--canoe-port-2-lions-park",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Richland Center - The Pine River",
-          "url": "https://www.richlandcenterwi.gov/parksrec/page/pine-river",
-          "provider": "local"
-        },
-        {
-          "label": "Richland Center / Richland County Pine River canoe ports PDF",
-          "url": "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
-          "provider": "local"
-        },
-        {
-          "label": "Wisconsin River Trips - Pine River Richland Center",
-          "url": "https://www.wisconsinrivertrips.com/segments/pine-river-richland-county/richland-center",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "USGS 05408000 Kickapoo River at La Farge",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05408000/",
-          "provider": "usgs"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -6245,23 +6079,7 @@
       "canonicalAccessId": "wisconsin--lower-mullet-river-dam-portage",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Wisconsin River Trips Mullet River",
-          "url": "https://www.wisconsinrivertrips.com/segments/mullet-river",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "USGS 04086000 monitoring location",
-          "url": "https://waterdata.usgs.gov/monitoring-location/04086000/",
-          "provider": "usgs"
-        },
-        {
-          "label": "Sheboygan River Water Trail",
-          "url": "https://www.sheboyganrivers.org/sheboygan-river-water-trail",
-          "provider": "local"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -7018,28 +6836,7 @@
       "canonicalAccessId": "wisconsin--canoe-port-3-north-park",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Richland Center - The Pine River",
-          "url": "https://www.richlandcenterwi.gov/parksrec/page/pine-river",
-          "provider": "local"
-        },
-        {
-          "label": "Richland Center / Richland County Pine River canoe ports PDF",
-          "url": "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
-          "provider": "local"
-        },
-        {
-          "label": "Wisconsin River Trips - Pine River Richland Center",
-          "url": "https://www.wisconsinrivertrips.com/segments/pine-river-richland-county/richland-center",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "USGS 05408000 Kickapoo River at La Farge",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05408000/",
-          "provider": "usgs"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -7591,28 +7388,7 @@
       "canonicalAccessId": "wisconsin--canoe-port-4-seminary-street",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Richland Center - The Pine River",
-          "url": "https://www.richlandcenterwi.gov/parksrec/page/pine-river",
-          "provider": "local"
-        },
-        {
-          "label": "Richland Center / Richland County Pine River canoe ports PDF",
-          "url": "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
-          "provider": "local"
-        },
-        {
-          "label": "Wisconsin River Trips - Pine River Richland Center",
-          "url": "https://www.wisconsinrivertrips.com/segments/pine-river-richland-county/richland-center",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "USGS 05408000 Kickapoo River at La Farge",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05408000/",
-          "provider": "usgs"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -8104,23 +7880,7 @@
       "canonicalAccessId": "wisconsin--schultz-park-four-seasons-park",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Miles Paddled Trempealeau River I",
-          "url": "https://milespaddled.com/trempealeau-river-i/",
-          "provider": "miles_paddled"
-        },
-        {
-          "label": "USGS 05379500 Trempealeau River at Dodge",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05379500/",
-          "provider": "usgs"
-        },
-        {
-          "label": "Wisconsin DNR Perrot State Park water recreation",
-          "url": "https://dnr.wisconsin.gov/topic/parks/perrot/recreation/water",
-          "provider": "local"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -9129,33 +8889,7 @@
       "canonicalAccessId": "wisconsin--spring-valley-road-lyons-wave-scout-point",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Walworth County - White River Park",
-          "url": "https://www.co.walworth.wi.us/828/White-River-Park",
-          "provider": "local"
-        },
-        {
-          "label": "Wisconsin River Trips - White River Sheridan Springs Road",
-          "url": "https://www.wisconsinrivertrips.com/segments/white-river/sheridan-springs-road",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "American Whitewater - White River Walworth County",
-          "url": "https://www.americanwhitewater.org/content/River/view/river-detail/3596/main",
-          "provider": "american_whitewater"
-        },
-        {
-          "label": "Miles Paddled - White River I Walworth County",
-          "url": "https://milespaddled.com/white-river-i-walworth-county/",
-          "provider": "miles_paddled"
-        },
-        {
-          "label": "USGS 05548280 Nippersink Creek near Spring Grove",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05548280/",
-          "provider": "usgs"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -10544,23 +10278,7 @@
       "canonicalAccessId": "wisconsin--highway-m-bridge-access",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Wisconsin River Trips Sheboygan River - Johnsonville",
-          "url": "https://www.wisconsinrivertrips.com/segments/sheboygan-river/johnsonville",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "Sheboygan River Water Trail",
-          "url": "https://www.sheboyganrivers.org/sheboygan-river-water-trail",
-          "provider": "local"
-        },
-        {
-          "label": "USGS 04086000 monitoring location",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04086000/",
-          "provider": "usgs"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
@@ -11121,28 +10839,7 @@
       "canonicalAccessId": "wisconsin--sharonwood-lane-access-option",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Wisconsin River Trips - Plover River, Hwy K",
-          "url": "https://www.wisconsinrivertrips.com/segments/plover-river/hwy-k",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "Stevens Point Area Paddle Guide",
-          "url": "https://milespaddled.com/stevens-point-area-paddle-guide/",
-          "provider": "miles_paddled"
-        },
-        {
-          "label": "Portage County Jordan Park",
-          "url": "https://www.co.portage.wi.gov/317/Jordan-Park",
-          "provider": "local"
-        },
-        {
-          "label": "USGS 05397500 monitoring location",
-          "url": "https://waterdata.usgs.gov/monitoring-location/05397500/",
-          "provider": "usgs"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [
         {

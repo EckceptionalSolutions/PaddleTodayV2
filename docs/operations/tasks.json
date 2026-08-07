@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-07T15:49:18.112Z",
+  "tasks": [
+    {
+      "id": "ops-governance-state-normalization",
+      "title": "Normalize state identifiers and coverage accounting",
+      "lane": "completed",
+      "kind": "governance",
+      "owner": "orchestrator",
+      "priority": "critical",
+      "summary": "Use one canonical state registry so saturation and fairness metrics do not split MN/Minnesota or WI/Wisconsin.",
+      "evidence": [
+        "src/lib/operations.ts",
+        "docs/operations/state-registry.json"
+      ]
+    },
+    {
+      "id": "mn-planning-to-scored-audit",
+      "title": "Complete Minnesota planning-to-scored audit",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Completed the bounded Minnesota planning-to-scored review. Minnesota is provisionally saturated at 145 scored routes; 113 planning candidates remain excluded because no additional route cleared the direct-gauge scored publication gate.",
+      "evidence": [
+        "docs/state-route-memories/minnesota.md",
+        "src/data/route-publication.ts",
+        "docs/operations/minnesota-saturation-audit.json"
+      ]
+    },
+    {
+      "id": "mn-direct-gauge-provider-recheck",
+      "title": "Recheck Minnesota direct-gauge candidates",
+      "lane": "blocked",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Rechecked the six direct-gauge planning candidates; none can be promoted without fresh provider data or a Stump Lake gauge-applicability decision.",
+      "evidence": [
+        "docs/operations/minnesota-saturation-audit.json",
+        "docs/state-route-memories/minnesota.md",
+        "docs/route-candidate-ledger.json"
+      ]
+    },
+    {
+      "id": "operations-center-read-only",
+      "title": "Build the read-only Operations Center",
+      "lane": "in_progress",
+      "kind": "product",
+      "owner": "product-implementation",
+      "priority": "high",
+      "summary": "Expose coverage, work lanes, automation health, and recent control-plane activity in the protected admin surface.",
+      "evidence": [
+        "src/pages/admin/operations.astro",
+        "src/lib/operations.ts"
+      ]
+    },
+    {
+      "id": "independent-verification-and-merge-gates",
+      "title": "Define independent verification and merge gates",
+      "lane": "completed",
+      "kind": "governance",
+      "owner": "gatekeeper",
+      "priority": "high",
+      "summary": "Fail closed unless evidence, safety, independent verification, tests, and rollback evidence all pass.",
+      "evidence": [
+        "docs/operations/gate-policy.json",
+        "src/lib/operations-gates.ts"
+      ]
+    },
+    {
+      "id": "mn-final-bounded-discovery-sweep",
+      "title": "Run Minnesota final bounded discovery sweep",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Reviewed the strongest remaining official Otter Tail candidate; it remains planning-only because its product-supported gauge is a downstream proxy. Minnesota is provisionally saturated under the current policy.",
+      "evidence": [
+        "docs/operations/minnesota-saturation-audit.json",
+        "docs/state-route-memories/minnesota.md"
+      ]
+    },
+    {
+      "id": "github-hosted-runner-acquisition-failures",
+      "title": "Triage recurring GitHub hosted-runner failures",
+      "lane": "completed",
+      "kind": "governance",
+      "owner": "orchestrator",
+      "priority": "high",
+      "summary": "Five scheduled runs previously failed before job execution because GitHub could not acquire a hosted runner. Subsequent snapshot, alert, and history runs recovered successfully; continue monitoring for recurrence.",
+      "evidence": [
+        ".github/workflows/river-alerts.yml",
+        ".github/workflows/river-snapshots.yml",
+        ".github/workflows/history-snapshots.yml"
+      ]
+    },
+    {
+      "id": "utah-state-coverage-baseline",
+      "title": "Build the Utah scored-route coverage baseline",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Added a second Utah scored route for the Colorado River Moab Daily / Hittle Bottom to Takeout Beach, with BLM/AW/USGS evidence, camping classification, safety caveats, geometry/coordinate audit path, and a bounded no-image result.",
+      "evidence": [
+        "docs/state-route-memories/utah.md",
+        "src/data/routes/utah.ts",
+        "src/data/trip-details/utah.ts",
+        "docs/route-candidate-ledger.json",
+        "docs/river-image-source-audit.csv"
+      ]
+    },
+    {
+      "id": "south-dakota-state-coverage-baseline",
+      "title": "Build the South Dakota scored-route coverage baseline",
+      "lane": "ready",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue bounded scored-route expansion in South Dakota after adding Big Sioux Recreation Area South-to-SD Highway 42 and Grandview-to-Klondike South. Do not revisit those shipped segments, the Jay Heath / Big Sioux access-legitimacy leads, lower Big Sioux Klondike-to-Canton threshold/gauge lead, Big Sioux Dell Rapids-to-Baltic dam/channel safety lead, Battle Creek Harney-to-Hayward access/waterfall/threshold lead, Missouri National Recreational River Myron-Grove-to-Clay-County product-adapter lead, Spearfish town-section spillway-safety lead, Spearfish Upper Canyon discontinued-gauge/access lead, Rapid Creek Hisega/Dark Canyon access-egress lead, Rapid Creek Pactola/Johnson/Big-Bend/Hiesga upstream split access-threshold-private-portage leads, Whitewood Creek Tin Lizzies-to-Whitewood access/water-quality lead, French Creek Custer/SD79 threshold/endpoint/safety lead, Vermillion River Centerville/Wakonda-to-Missouri corridor threshold/endpoint lead, James River Highway 38-to-258th Street endpoint/threshold lead, Redwater River Old Belle/Helmer/Hwy 34 access-safety/threshold lead, Big Sioux in-town downtown extension dam/take-out leads, Split Rock downstream/Palisades extension ditch-entry leads, or upper Big Sioux Old-Hwy-77/Kamp/Egan/Flandreau/Trent leads until their documented blockers clear; choose a distinct candidate with public endpoints, gauge-tied thresholds, camping clarity, safety evidence, river geometry, and near-river coordinate validation.",
+      "evidence": [
+        "docs/state-route-memories/south-dakota.md",
+        "docs/route-candidate-ledger.json",
+        "src/data/route-publication.ts",
+        "src/data/routes/south-dakota.ts",
+        "src/data/trip-details/south-dakota.ts"
+      ]
+    },
+    {
+      "id": "sd-big-sioux-rec-south-highway-42-geometry-followup",
+      "title": "Repair Big Sioux route geometry package",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "critical",
+      "summary": "Supervisor validation initially detected a stale canonical geometry count for big-sioux-river-rec-area-south-highway-42, then focused verification found the route geometry asset present and routes:geometries:audit passed at 687/687. No further geometry follow-up is needed.",
+      "evidence": [
+        "public/data/canonical-river-geometries/routes/big-sioux-river-rec-area-south-highway-42.json",
+        "public/data/canonical-river-geometries.json",
+        "public/data/canonical-river-geometries/states/south-dakota.json",
+        "docs/route-coordinate-river-audit.json",
+        "docs/operations/runs.json"
+      ]
+    }
+  ]
+}

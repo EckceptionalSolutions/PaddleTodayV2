@@ -1,7 +1,62 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-01T14:40:00Z",
+  "updatedAt": "2026-08-07T15:49:18.112Z",
   "notes": [
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "Added South Dakota Big Sioux River / Grandview to Klondike South as a 7.8-mile Jay Heath Canoe and Kayak Trail route. Evidence package includes SD GFP Jay Heath segment and ArcGIS access records for launch-supported Grandview and Klondike South, USGS 06482020 product-ready same-river corridor data at 254 cfs / 5.61 ft on 2026-08-07 10:30 CDT, Sioux Empire Paddlers 300 cfs south-of-Sioux-Falls floor, no route camping from GFP Camping No endpoint records, safety caveats for fences/wood/water-quality/rock crossings, coordinate anchors, and a bounded no-image decision."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review screened five distinct non-duplicate leads after the Big Sioux Rec Area South-to-SD Hwy 42 route shipped: Rapid Creek Pactola-to-Johnson Siding, Rapid Creek Johnson-Siding-to-Big-Bend, Rapid Creek Big-Bend-to-Hiesga, French Creek Custer/SD79, and Spearfish Creek Upper Canyon. No route was added. Rapid Creek splits have product-live USGS gauges and AW route skeletons but lack manager-backed public endpoint, camping, threshold, egress, or private-portage safety packages; French Creek has product-live USGS 06403300 and official camping rules but lacks stable thresholds and coordinate-backed public paddle endpoints; Spearfish Upper Canyon is blocked by the discontinued/stale AW-linked gauge and unresolved access/camping/safety evidence."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline implementation added Big Sioux River / Big Sioux Recreation Area South to SD Highway 42 as a 4.8-mile Jay Heath Canoe and Kayak Trail card. SD GFP names the segment and provides ArcGIS endpoint/camping/access records, Mary Jo Wegner Arboretum documents Highway 42 canoe/kayak launch context, USGS 06482020 returned product-ready same-day Big Sioux data at 254 cfs / 5.61 ft, and Sioux Empire Paddlers gives the 300 cfs Cliff Avenue south-of-Sioux-Falls floor used as a conservative minimum-only direct same-river corridor threshold. The route carries access-anchor, upstream-gauge, private-bank, fence/wood, water-quality, and no-image caveats."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review checked Big Sioux River / Klondike South to Canton City Park as a distinct lower Jay Heath candidate. No route was added: SD GFP Jay Heath PDF and ArcGIS support an 11.9-mile Klondike South-to-US-Hwy-18-to-Canton access chain with Launch=Yes/Parking=Yes endpoints, endpoint coordinates, no endpoint camping, and rock-crossing hazards; USGS 06485500 at Akron returned product-ready current data. Publication remains blocked because no route-specific numeric paddling floor/range tied to Akron, North Cliff, or another product-fetchable Big Sioux gauge surfaced, and the downstream-gauge relationship would need explicit scoring support."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "Reviewed South Dakota Battle Creek / Harney to Hayward after the only non-excluded South Dakota ledger lead regained product-live USGS data. No route was added: USGS Water Services now returns same-day values for 06406000, 06404000, 06403810, and 06406500, and American Whitewater documents the Class III-IV(V) 5.5-mile Harney-to-Hayward run with generic access coordinates and Big Falls / Hippie Hole. Publication remains blocked because the AW endpoints are generic rather than manager-backed public launch/landing sites, the visible AW page did not expose a stable numeric runnable range beyond below-recommended status, official route camping/overnight legality was not tied to the reach, and the 17 ft waterfall / high-consequence whitewater package lacks route-manager access and safety support."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review rechecked Missouri National Recreational River / Myron Grove to Clay County Park. No route was added: NPS still strongly supports the 6.1-mile public access pair, camping limits, big-river hazards, and Gavins Point release thresholds, but USGS 06467500 returned product-ready stage only through 2026-08-07 04:30 CDT and no discharge. The NPS 16,000 cfs low / 40,000 cfs very-high ladder remains USACE-release based, so publication is blocked until a product-supported USACE Gavins Point release adapter or official equivalent discharge source exists."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review checked James River / Highway 38 east of Mitchell to 258th Street. No route was added: USGS 06478000 returned product-ready current values, Sioux Empire Paddlers supports only broad James River seasonal/highway-access context, and Jay Heath/SouthDakotaKayak documents a 12-mile community trip with informal bridge-access descriptions. Publication remains blocked because no manager-backed named public launch/landing pair, water-entry coordinates, numeric gauge-tied threshold model, official camping/overnight legality, or complete safety package surfaced."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review checked Whitewood Creek / Tin Lizzies-to-Whitewood. No route was added: USGS Water Services now returns product-ready same-day Whitewood Creek values for 06436180, 06436190, and 06436198, and American Whitewater documents the Class III+(V+) 11.4-mile reach with generic put-in/take-out coordinates. Publication remains blocked because AW also says the coordinates are approximate and supplies no route description, the access points are not named manager-backed public launch/landing sites, no stable numeric runnable range was captured, route camping/overnight legality is unsupported, and EPA/DANR Superfund context requires a stronger water-quality safety package before a high-consequence route can ship."
+    },
+    {
+      "date": "2026-08-06",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "Utah baseline route implementation added colorado-river-hittle-bottom-takeout-beach as a whitewater-hidden Moab Daily card. BLM documents the 13-mile Hittle Bottom-to-Takeout Beach section, Class I-III seasonal/water-level variability, maintained access facilities, camping restrictions, and required safety gear. American Whitewater provides Hittle Bottom and Take-Out Beach coordinates plus the Colorado River near Cisco gauge linkage; USGS Water Services returned 09180500 at 1,140 cfs / 1.50 ft on 2026-08-06 17:00 MDT. The route uses a conservative minimum-only 2,000 cfs threshold from published Moab Daily level guidance, classifies camping as sandbar_or_gravel_bar under BLM restrictions, and has a bounded no-image result after BLM/AW/Commons/same-route review."
+    },
+    {
+      "date": "2026-08-06",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "Minnesota planning-to-scored review checked big-fork-river-highway-6-north-johnson with no route added or promoted. MN DNR Map 2 and public-water-access GIS still support Highway 6 North WAS01792 at river mile 75.8 to Johnson WAS02708 at river mile 67.5, and MN DNR Craigsville site 281 was fresh at 4.85 ft on 2026-08-06 15:00 CDT with official 4.0 / 4.5-8.5 / 9.5 ft bands. The blocker is gauge placement: site 281 is at river mile 91.6 upstream of the put-in, and the app record already marks it as proxy, so route-publication correctly excludes it from scored Minnesota saturation. Next scored-route review candidate is otter-tail-river-wannigan-riverside unless a direct Big Fork gauge or approved proxy-publication policy appears."
+    },
+    {
+      "date": "2026-08-06",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "Minnesota direct-gauge provider recheck completed for six unavailable-direct planning candidates with no route added. MN DNR site 179 for Red Lake / Smiley Bridge to Centennial Park remains stale to 2026-04-30 09:45 AM; MN DNR site 280 for Big Fork / Dora Lake to Big Fork remains stale to 2026-05-20 11:00 AM; USGS 04021960 for Cloquet / Island Lake Dam to Bachelor Road returned zero current Water Services time series. MN DNR Stump Lake site 341 returned fresh telemetry, 3 ft at 2026-08-06 12:30 PM, but remains blocked by the current route-publication applicability rule that treats Stump Lake stage as not a qualifying river gauge for the configured Mississippi cards. Next action is a human/product decision on the Stump Lake gauge-applicability rule or a future provider-freshness recheck for 179, 280, and 04021960."
+    },
     {
       "date": "2026-07-29",
       "automation": "route-control-plane-mi-20260730020112",
@@ -2607,12 +2662,243 @@
   ],
   "candidates": [
     {
+      "candidateId": "sd-rapid-creek-pactola-johnson-siding",
+      "river": "Rapid Creek",
+      "route": "Pactola spillway to Johnson Siding",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "blocker": "2026-08-07 09:44 America/Chicago / 2026-08-07 14:44 UTC bounded South Dakota baseline review screened Rapid Creek Pactola spillway to Johnson Siding. No route was added: American Whitewater identifies a Class II 5.5-mile reach, AW access coordinates are 44.07620, -103.48410 to 44.08530, -103.43720, and USGS Water Services returned product-ready 06411500 Rapid Creek below Pactola Dam data at 83.0 cfs / 7.80 ft on 2026-08-07 08:15 MDT. Publication remains blocked because the AW page says coordinates are approximate and require user inspection, no manager-backed take-out/parking/egress package at Johnson Siding surfaced, the visible AW flow page did not expose a stable numeric runnable range beyond below-recommended status, and route-specific camping/overnight legality was not documented for this paddle reach.",
+      "retryCondition": "Retry only if Black Hills National Forest, Pennington County, South Dakota GFP, American Whitewater, or a strong local route manager publishes named public Pactola/Johnson Siding paddle endpoints with parking/egress, route-specific camping handling, and a stable numeric threshold model tied to USGS 06411500 or another product-supported gauge.",
+      "sourcesChecked": [
+        "American Whitewater Rapid Creek Pactola spillway to Johnson Siding route page: Class II, 5.5 miles, Rapid Creek below Pactola Dam gauge, below-recommended current status, and approximate-coordinate warning.",
+        "American Whitewater access point pages: put-in 44.07620, -103.48410 and take-out 44.08530, -103.43720, both generic Put In / Take Out records.",
+        "USGS Water Services IV for 06411500 returned 83.0 cfs / 7.80 ft at 2026-08-07 08:15 MDT.",
+        "Black Hills National Forest Rapid Creek Trailhead/fishing access page supports a public trailhead adjacent to Rapid Creek below Pactola but does not establish the full paddle endpoint pair or take-out package."
+      ],
+      "aliases": [
+        "Rapid Creek - Pactola spillway to Johnson Siding",
+        "Rapid Creek below Pactola Dam"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_current",
+        "id": "06411500",
+        "provider": "USGS",
+        "notes": "Product-live same-reach gauge for the AW Pactola-to-Johnson Siding route; current values were available during this run."
+      },
+      "thresholdSupport": {
+        "strength": "not_visible_for_publication",
+        "notes": "AW showed below-recommended status, but this run did not capture a stable numeric runnable range suitable for a PaddleToday scoring model."
+      },
+      "endpoints": {
+        "putIn": "AW Put In below Pactola / Rapid Creek Trailhead area",
+        "takeOut": "AW Take Out near Johnson Siding",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.0762,
+          "longitude": -103.4841
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.0853,
+          "longitude": -103.4372
+        },
+        "coordinateSource": "American Whitewater access-point coordinates; route page warns coordinates are approximate and require user inspection."
+      },
+      "notes": "Keep blocked on access legitimacy, threshold visibility, and camping/egress evidence. Do not implement from AW approximate points alone.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "retryDate": null,
+      "updatedAt": "2026-08-07T14:44:45.000Z"
+    },
+    {
+      "candidateId": "sd-rapid-creek-johnson-siding-big-bend",
+      "river": "Rapid Creek",
+      "route": "Johnson Siding to Big Bend",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "blocker": "2026-08-07 09:44 America/Chicago / 2026-08-07 14:44 UTC bounded South Dakota baseline review screened Rapid Creek Johnson Siding to Big Bend. No route was added: American Whitewater identifies a Class II+ 3.4-mile reach, AW access coordinates are 44.08530, -103.43700 to 44.06460, -103.41200, and USGS Water Services returned product-ready 06412500 Rapid Creek above Canyon Lake data at 71.4 cfs / 2.39 ft on 2026-08-07 08:25 MDT. Publication remains blocked because the AW page has no route description, labels endpoints generically rather than as manager-backed public launches, the visible flow page did not expose a stable numeric range beyond below-recommended status, and no official route-specific camping/egress or safety package surfaced.",
+      "retryCondition": "Retry only if a route manager or strong local source publishes named public Johnson Siding and Big Bend paddle endpoints, parking/egress expectations, camping handling, and a numeric threshold model tied to USGS 06412500 or another product-supported Rapid Creek gauge.",
+      "sourcesChecked": [
+        "American Whitewater Rapid Creek Johnson Siding to Big Bend route page: Class II+, 3.4 miles, Rapid Creek above Canyon Lake gauge, below-recommended current status, and no route description.",
+        "American Whitewater access point pages: put-in 44.08530, -103.43700 and take-out 44.06460, -103.41200, both generic records.",
+        "USGS Water Services IV for 06412500 returned 71.4 cfs / 2.39 ft at 2026-08-07 08:25 MDT.",
+        "Public web search for Johnson Siding/Big Bend Rapid Creek access did not surface manager-backed paddle access or camping/egress instructions."
+      ],
+      "aliases": [
+        "Rapid Creek - Johnson Siding to Big Bend",
+        "Rapid Creek above Canyon Lake upstream split"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_current",
+        "id": "06412500",
+        "provider": "USGS",
+        "notes": "Product-live same-river gauge used by AW for Johnson Siding-to-Big Bend and downstream Rapid Creek whitewater splits."
+      },
+      "thresholdSupport": {
+        "strength": "not_visible_for_publication",
+        "notes": "AW showed below-recommended status, but no stable numeric route range was captured for this specific split."
+      },
+      "endpoints": {
+        "putIn": "AW Put In near Johnson Siding",
+        "takeOut": "AW Take Out near Big Bend",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.0853,
+          "longitude": -103.437
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.0646,
+          "longitude": -103.412
+        },
+        "coordinateSource": "American Whitewater access-point coordinates only; no manager-backed public endpoint package found."
+      },
+      "notes": "Keep blocked on access legitimacy, threshold visibility, camping, and route-description gaps.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "retryDate": null,
+      "updatedAt": "2026-08-07T14:44:45.000Z"
+    },
+    {
+      "candidateId": "sd-rapid-creek-big-bend-hiesga",
+      "river": "Rapid Creek",
+      "route": "Thunderhead Falls / Big Bend to Hiesga",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "blocker": "2026-08-07 09:44 America/Chicago / 2026-08-07 14:44 UTC bounded South Dakota baseline review screened Rapid Creek Thunderhead Falls / Big Bend to Hiesga. No route was added: American Whitewater identifies a Class II(III) 3.6-mile reach with AW coordinates 44.06460, -103.41200 to 44.05320, -103.40200, and USGS Water Services returned product-ready 06412500 data at 71.4 cfs / 2.39 ft on 2026-08-07 08:25 MDT. Publication remains blocked by access and safety: the AW page lacks a route description, the access records are generic, the visible flow page did not expose a stable numeric range, and an AW trip report describes wood plus a mandatory portage that crosses private property with uncertain owner tolerance.",
+      "retryCondition": "Retry only if American Whitewater, Black Hills National Forest, Pennington County, or a strong local manager source publishes current route-specific public access, private-property/portage handling, wood/hazard status, camping handling, and numeric gauge thresholds for this exact Big Bend-to-Hiesga split.",
+      "sourcesChecked": [
+        "American Whitewater Rapid Creek Thunderhead Falls / Big Bend to Hiesga route page: Class II(III), 3.6 miles, Rapid Creek above Canyon Lake gauge, below-recommended current status.",
+        "American Whitewater access point pages: put-in 44.06460, -103.41200 and take-out 44.05320, -103.40200.",
+        "American Whitewater 2014 trip report notes wood and a mandatory portage with private-property uncertainty.",
+        "USGS Water Services IV for 06412500 returned 71.4 cfs / 2.39 ft at 2026-08-07 08:25 MDT."
+      ],
+      "aliases": [
+        "Rapid Creek - Big Bend to Hiesga",
+        "Thunderhead Falls Rapid Creek"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_current",
+        "id": "06412500",
+        "provider": "USGS",
+        "notes": "Product-live same-river gauge, but hydrology does not overcome private-portage and public-access blockers."
+      },
+      "thresholdSupport": {
+        "strength": "not_visible_for_publication",
+        "notes": "Below-recommended status was visible, but no stable numeric range for this split was captured in reviewable public text."
+      },
+      "endpoints": {
+        "putIn": "AW Put In near Big Bend",
+        "takeOut": "AW Take Out near Hiesga",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.0646,
+          "longitude": -103.412
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.0532,
+          "longitude": -103.402
+        },
+        "coordinateSource": "American Whitewater access-point coordinates; not sufficient public-access authority."
+      },
+      "notes": "Keep blocked on access legitimacy and high-consequence private-portage/wood safety handling.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "retryDate": null,
+      "updatedAt": "2026-08-07T14:44:45.000Z"
+    },
+    {
+      "candidateId": "sd-french-creek-custer-state-park-sd-79",
+      "river": "French Creek",
+      "route": "Custer State Park east boundary to SD 79 or Stockade Reservoir",
+      "state": "SD",
+      "status": "threshold_weak",
+      "blocker": "2026-08-07 09:44 America/Chicago / 2026-08-07 14:44 UTC bounded South Dakota baseline review screened French Creek / Custer State Park east boundary to SD 79 or Stockade Reservoir. No route was added: American Whitewater identifies a Class II-IV+(V) 23.2-mile reach with the French Creek above Fairburn gauge, and USGS Water Services returned product-ready 06403300 values of 0.35 cfs / 0.46 ft on 2026-08-07 08:15 MDT. South Dakota GFP documents French Creek Natural Area camping rules, including primitive self-registration and canyon-bottom restrictions, but publication remains blocked because no stable numeric runnable range was captured, endpoint coordinates/named paddle-access authority are incomplete for the long road/stockade choices, the route is very low and steep/high-consequence at current flow, and a 23-mile advanced canyon package needs stronger access/egress and safety detail than the available AW skeleton.",
+      "retryCondition": "Retry only if American Whitewater, Custer State Park/South Dakota GFP, Black Hills National Forest, or another manager/local source publishes a stable gauge range for USGS 06403300 plus named public put-in/take-out coordinates, access/egress instructions, and a route-specific safety package for a bounded day or overnight French Creek paddle.",
+      "sourcesChecked": [
+        "American Whitewater French Creek route page: Class II-IV+(V), 23.2 miles, French Creek above Fairburn gauge, shorter runs possible, steep canyon sections, route-feature skeleton.",
+        "USGS Water Services IV for 06403300 returned 0.35 cfs / 0.46 ft at 2026-08-07 08:15 MDT.",
+        "South Dakota GFP Custer State Park campgrounds page documents French Creek Natural Area primitive camping self-registration at east/west trailheads and carry-in sanitation/water limits.",
+        "South Dakota GFP Custer State Park trails page documents overnight camping only in canyon bottom, at least 50 feet from stream, no open fires, and self-registration/payment at trailheads.",
+        "Search review did not surface named public paddle endpoint coordinates or a stable numeric paddling threshold for this exact long French Creek reach."
+      ],
+      "aliases": [
+        "French Creek - East boundary Custer State Park to SD 79",
+        "French Creek Natural Area paddle lead"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_current",
+        "id": "06403300",
+        "provider": "USGS",
+        "notes": "Product-live official gauge returned current discharge and stage, but current flow is extremely low and no route-specific numeric paddling model was captured."
+      },
+      "thresholdSupport": {
+        "strength": "not_found_for_selected_reach",
+        "notes": "AW showed current flow and below/low context through the index, but no stable numeric runnable range was visible for PaddleToday scoring."
+      },
+      "endpoints": {
+        "putIn": "Custer State Park / French Creek Natural Area upstream access family",
+        "takeOut": "SD 79 or Stockade Reservoir access family",
+        "coordinatesPresent": false,
+        "coordinateSource": "AW route-feature skeleton and public manager camping/trail pages were not enough to select a coordinate-backed public paddle endpoint pair."
+      },
+      "notes": "Keep blocked on threshold, endpoint, and advanced-canyon safety/egress evidence despite useful official camping rules.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "retryDate": null,
+      "updatedAt": "2026-08-07T14:44:45.000Z"
+    },
+    {
+      "candidateId": "sd-spearfish-creek-upper-canyon",
+      "river": "Spearfish Creek",
+      "route": "Spearfish Canyon / Upper Canyon",
+      "state": "SD",
+      "status": "no_live_gauge",
+      "blocker": "2026-08-07 09:44 America/Chicago / 2026-08-07 14:44 UTC bounded South Dakota baseline review screened Spearfish Creek Upper Canyon as distinct from the town-section spillway blocker. No route was added: American Whitewater identifies a Class II-III 7.6-mile Spearfish Canyon reach, but the AW-linked Spearfish Creek above Spearfish gauge is stale/discontinued for modern current scoring, with USGS 06430900 continuous discharge ending in 2009. Nearby current-looking Spearfish gauges do not resolve the AW-linked reach without a source-backed gauge relationship. Additional blockers remain: no manager-backed public paddle endpoint pair, no official route camping/overnight package for a creek run, and USFS Spearfish Canyon guidance says dispersed camping is not allowed.",
+      "retryCondition": "Retry only if a product-supported live Spearfish Canyon gauge or an accepted source-backed gauge relationship is published for the AW Upper Canyon reach, and manager/local sources provide named public endpoints, camping handling, and route-specific safety information.",
+      "sourcesChecked": [
+        "American Whitewater Spearfish Creek Upper Canyon route page: Class II-III, 7.6 miles, Spearfish Creek above Spearfish gauge, stale AW flow status.",
+        "USGS/WDFN evidence for 06430900 shows historical continuous discharge ending in 2009, so the AW-linked gauge is not product-live for current scoring.",
+        "USGS 06431500 at Spearfish and 06430770 near Lead were reviewed as nearby gauges, but this run found no source-backed relationship that makes either the selected product gauge for the upper-canyon AW reach.",
+        "Black Hills National Forest Spearfish Canyon page says dispersed camping is not allowed.",
+        "South Dakota GFP Spearfish Canyon Nature Area page supports public canyon recreation context, not a route-ready public paddle access package."
+      ],
+      "aliases": [
+        "Spearfish Creek - Upper Canyon",
+        "Spearfish Canyon whitewater"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "no_product_live_selected",
+        "id": "06430900",
+        "provider": "USGS",
+        "notes": "AW-linked Spearfish Creek above Spearfish gauge is not product-live for current conditions; nearby gauges were not substituted without source-backed applicability."
+      },
+      "thresholdSupport": {
+        "strength": "blocked_by_gauge",
+        "notes": "Do not use AW stale flow context or nearby gauge guesses for scored publication."
+      },
+      "endpoints": {
+        "putIn": "AW Upper Canyon put-in family",
+        "takeOut": "AW Upper Canyon take-out family",
+        "coordinatesPresent": false,
+        "coordinateSource": "No manager-backed public endpoint coordinate pair was selected because the gauge gate failed first."
+      },
+      "notes": "Keep blocked as no_live_gauge plus unresolved public endpoint/camping/safety package.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "retryDate": null,
+      "updatedAt": "2026-08-07T14:44:45.000Z"
+    },
+    {
       "candidateId": "mn-north-fork-crow-river-wildlife-albrights-mill-2026-07-24",
       "river": "North Fork Crow River",
       "route": "Wildlife County Park to Albright's Mill County Park",
       "state": "MN",
-      "status": "added",
-      "decisionDate": "2026-07-24",
+      "status": "planning_only",
+      "decisionDate": "2026-08-06",
       "v2Slug": "north-fork-crow-river-wildlife-albrights-mill",
       "sourceQuality": "official MN DNR water-trail map / official interpreted DNR gauge / Minnesota public-water-access GIS",
       "gauge": {
@@ -8103,6 +8389,52 @@
         "coordinateSource": "BLM identifies both ramps, but exact coordinates were not captured because the route was not promoted for current app implementation."
       },
       "notes": "Important Utah route, but it belongs in a future permitted/multi-day product model rather than normal same-day PaddleToday scoring."
+    },
+    {
+      "candidateId": "ut-colorado-river-hittle-bottom-takeout-beach",
+      "river": "Colorado River",
+      "route": "Hittle Bottom to Takeout Beach",
+      "state": "UT",
+      "status": "added",
+      "lastReviewed": "2026-08-06",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as colorado-river-hittle-bottom-takeout-beach. Revisit only if BLM access/camping rules, USGS 09180500 availability, Moab Daily threshold guidance, or image rights change.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "BLM Moab Daily river-runner map, reviewed 2026-08-06",
+        "BLM Hittle Bottom Recreation Site, reviewed 2026-08-06",
+        "American Whitewater Professor Valley / Cisco-to-Moab corridor and access-point pages, reviewed 2026-08-06",
+        "USGS Water Services IV for 09180500 Colorado River near Cisco, UT, reviewed 2026-08-06",
+        "Whitewater Guidebook Moab Daily level guidance, reviewed 2026-08-06",
+        "National Rivers Project Moab Daily manager/camping/permit summary, reviewed 2026-08-06",
+        "Bounded BLM / AW / Commons / same-route image review, 2026-08-06"
+      ],
+      "aliases": [
+        "Moab Daily",
+        "Fisher Towers section",
+        "Colorado River - Hittle Bottom to Takeout Beach"
+      ],
+      "v2Slug": "colorado-river-hittle-bottom-takeout-beach",
+      "gauge": {
+        "quality": "direct_same_river_corridor_gauge_upstream_of_selected_split",
+        "id": "09180500",
+        "provider": "USGS/American Whitewater",
+        "notes": "USGS Water Services returned same-day Colorado River near Cisco values of 1,140 cfs / 1.50 ft at 2026-08-06 17:00 MDT. The gauge is upstream of the Hittle Bottom-to-Takeout Beach split but inside the American Whitewater Professor Valley corridor that contains the Moab Daily, so the route copy keeps same-day Hittle Bottom visual checks explicit."
+      },
+      "thresholdSupport": {
+        "strength": "mixed_minimum_only",
+        "notes": "BLM provides the official route/access/camping/safety map and tells boaters to check current streamflow, while published Moab Daily guide context gives a 2,000 cfs recommended low end. The app uses 2,000 cfs as a conservative floor only and does not infer ideal or high bands."
+      },
+      "endpoints": {
+        "putIn": "Hittle Bottom Recreation Site boat ramp",
+        "takeOut": "Takeout Beach Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": "38.76070, -109.32600",
+        "takeOutCoordinates": "38.66174, -109.50074",
+        "coordinateSource": "American Whitewater access-point coordinates, with BLM Moab Daily map confirming both maintained access facilities. Coordinate audit placed Hittle Bottom 23 ft from the matched Colorado River flowline and Takeout Beach 111 ft from the matched flowline but within 50 ft of the NHD waterbody; route copy records the Takeout Beach coordinate as an access-area/waterbody anchor requiring arrival identification."
+      },
+      "notes": "Implemented 2026-08-06 with whitewater routeType, minimum-only 2,000 cfs threshold, sandbar_or_gravel_bar camping classification under BLM restrictions, safety notes for Class I-III variability and required river-running gear, and no selected route-gallery asset."
     },
     {
       "candidateId": "il-apple-river-canyon-state-park-family",
@@ -19706,11 +20038,11 @@
       "river": "Big Sioux River",
       "route": "Jay Heath Canoe and Kayak Trail day-trip segments",
       "state": "SD",
-      "status": "research_later",
-      "lastReviewed": "2026-07-29",
-      "reviewCount": 24,
-      "blocker": "The 2026-07-29 control-plane pilot cleared the stale-gauge and numeric-floor questions but not endpoint legitimacy. USGS 06482020 returned same-day North Cliff observations (276 cfs / 5.67 ft at 06:30 CDT), the current GFP Jay Heath map documents Lien Park to Big Sioux Recreation Area North as 8.8 river miles, and Sioux Falls Paddlers supplies a conservative 250 cfs community floor tied to the North Cliff gauge. However, the current City of Sioux Falls Lien Park page identifies only recreation-trail access, not a canoe/kayak launch, and route-specific local evidence describes a long carry, steep muddy bank, difficult put-in, and special vehicle access rather than a normal public launch. The route therefore fails access legitimacy even though its gauge and minimum-only threshold are now plausible.",
-      "retryCondition": "Retry only if the City of Sioux Falls, South Dakota GFP, or another responsible manager explicitly designates and locates a normal public canoe/kayak launch at Lien Park, or publishes a source-backed replacement put-in for the 8.8-mile Big Sioux Recreation Area North segment. Reverify the downstream launch coordinate and current gauge before promotion.",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 25,
+      "blocker": "2026-08-06 21:35 America/Chicago / 2026-08-07 02:35 UTC bounded recheck preserved a hard access-legitimacy block. USGS Water Services IV for 06482020 returned same-day product-ready North Cliff data through 2026-08-06 20:30 CDT (269 cfs / 5.65 ft), and the GFP Jay Heath FeatureServer confirms the Lien Park-to-Big Sioux Recreation Area North spacing as 8.8 water miles. The same official feature layer marks Lien Park at 43.568657546414663, -96.710691849460559 with parking but Launch = No and comments 'No improved access'; it marks Big Sioux Rec Area (North) at 43.593707557839309, -96.5983584890456 with Parking = NO and Launch = NO. This is stronger than a missing-coordinate blocker: both endpoints are located, but they are not documented as normal manager-approved launch/landing points. Do not ship the segment unless a responsible manager publishes a replacement launch package or changes the official access status.",
+      "retryCondition": "Retry only if the City of Sioux Falls, South Dakota GFP, or another responsible manager explicitly designates and locates a normal public canoe/kayak launch at Lien Park, or publishes a source-backed replacement put-in and take-out package for the 8.8-mile Big Sioux Recreation Area North segment. Reverify the downstream access status, current USGS 06482020 data, and the 250 cfs minimum-only threshold before promotion.",
       "retryDate": null,
       "sourcesChecked": [
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC recheck: GFP/Jay Heath corridor context remains useful, but product-style USGS IV fetch for 06482020 failed unable to connect; official legacy 06482020 was stale to 2026-05-26 11:30 CDT, and no stronger exact-segment threshold package surfaced.",
@@ -19743,7 +20075,8 @@
         "May 28 09:12 South Dakota recheck of GFP Big Sioux Recreation Area page, Jay Heath PDF access spacing, Sioux Empire Paddlers River Flow Rates, and USGS 06482020 North Cliff Ave current-conditions page",
         "May 28 09:42 South Dakota recheck of GFP/Jay Heath search results, USGS 06482020 search-visible current-condition context, and duplicate inventory reconciliation",
         "Fresh 2026-06-05 targeted refresh of GFP Jay Heath / Big Sioux Recreation Area sources, USGS 06482020 product-style IV fetch, and Jay Heath threshold searches",
-        "2026-07-29 control-plane pilot: current GFP Jay Heath map PDF confirms Lien Park to Big Sioux Recreation Area North is 8.8 river miles; GFP Big Sioux Recreation Area page and campground map confirm canoeing, kayaking, a kayak launch, and general park GPS; City of Sioux Falls Lien Park page confirms the park coordinate but lists only recreation-trail access; Sioux Falls Paddlers gives a 250 cfs North Cliff minimum for local Big Sioux paddling; same-day USGS Water Services IV returned 276 cfs / 5.67 ft at North Cliff; local route evidence describes Lien as an undeveloped difficult put-in."
+        "2026-07-29 control-plane pilot: current GFP Jay Heath map PDF confirms Lien Park to Big Sioux Recreation Area North is 8.8 river miles; GFP Big Sioux Recreation Area page and campground map confirm canoeing, kayaking, a kayak launch, and general park GPS; City of Sioux Falls Lien Park page confirms the park coordinate but lists only recreation-trail access; Sioux Falls Paddlers gives a 250 cfs North Cliff minimum for local Big Sioux paddling; same-day USGS Water Services IV returned 276 cfs / 5.67 ft at North Cliff; local route evidence describes Lien as an undeveloped difficult put-in.",
+        "2026-08-06 21:35 America/Chicago / 2026-08-07 02:35 UTC recheck: official GFP ArcGIS FeatureServer for CanoeTrails confirms Lien Park segment 8.8, coordinates 43.568657546414663, -96.710691849460559, Parking Yes, Launch No, comments 'No improved access'; Big Sioux Rec Area (North) coordinates 43.593707557839309, -96.5983584890456, Parking NO, Launch NO; USGS 06482020 Water Services IV returned same-day product-ready discharge/stage through 2026-08-06 20:30 CDT."
       ],
       "aliases": [
         "Jay Heath Canoe and Kayak Trail",
@@ -19765,28 +20098,31 @@
       },
       "endpoints": {
         "putIn": "Lien Park, 2000 N. Cliff Ave., Sioux Falls (not manager-designated as a paddle launch)",
-        "takeOut": "Big Sioux Recreation Area North access (exact launch coordinate not manager-published in reviewed sources)",
-        "coordinatesPresent": false,
+        "takeOut": "Big Sioux Recreation Area North access (officially mapped, but not launch/parking supported)",
+        "coordinatesPresent": true,
         "putInCoordinates": {
           "latitude": 43.5687088,
           "longitude": -96.7093183
         },
-        "takeOutCoordinates": null,
-        "coordinateSource": "City of Sioux Falls publishes the Lien Park coordinate, but its page does not designate a canoe/kayak launch. GFP maps the northern recreation-area access but the reviewed park page supplies only a general park GPS. These facts are not sufficient for a shippable endpoint pair."
+        "takeOutCoordinates": {
+          "latitude": 43.59370755783931,
+          "longitude": -96.5983584890456
+        },
+        "coordinateSource": "South Dakota GFP CanoeTrails FeatureServer publishes both endpoint coordinates and the 8.8-mile segment, but it also marks Lien Park Launch = No / No improved access and Big Sioux Rec Area (North) Parking = NO / Launch = NO. Coordinates are access-status evidence, not a shippable launch package."
       },
-      "notes": "The 2026-07-29 control-plane pilot materially advanced gauge and threshold evidence but found that Lien Park is not documented as a normal manager-approved paddle launch. Keep parked on access legitimacy; do not use a general park coordinate or difficult informal bank access to ship the route.",
-      "updatedAt": "2026-07-29"
+      "notes": "The 2026-08-06 recheck materially advanced official coordinate evidence and confirmed product-live gauge data, but the official access layer marks the practical endpoints as not launch-supported. Keep parked on access legitimacy; do not use an official point with Launch = No to ship the route.",
+      "updatedAt": "2026-08-07T02:35:30.000Z"
     },
     {
       "candidateId": "sd-big-sioux-recreation-area-north-south",
       "river": "Big Sioux River",
       "route": "Big Sioux Recreation Area North access to South access",
       "state": "SD",
-      "status": "gauge_proxy_weak",
-      "lastReviewed": "2026-06-08",
-      "reviewCount": 21,
-      "blocker": "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC targeted refresh preserved gauge_proxy_weak. GFP/Big Sioux Recreation Area evidence still supports canoe/kayak context and prior Jay Heath North-to-South spacing, but exact official canoe-access coordinates and manager-published route thresholds remain unresolved. Local product-style USGS IV fetch for 06482020 failed unable to connect; official legacy 06482020 evidence was stale to 452 cfs / 6.23 ft on 2026-05-26 11:30 CDT, not same-day product-ready.",
-      "retryCondition": "Retry if official GFP site details, GIS data, park map coordinates, or another strong source resolves both Big Sioux Recreation Area canoe access coordinates. Keep the route gauge_proxy_weak unless threshold support improves beyond the local 300 cfs Cliff Ave floor.",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 22,
+      "blocker": "2026-08-06 21:35 America/Chicago / 2026-08-07 02:35 UTC bounded recheck moved the blocker from stale gauge/coordinates to access legitimacy. USGS 06482020 Water Services IV returned same-day product-ready North Cliff data through 2026-08-06 20:30 CDT (269 cfs / 5.65 ft), and the GFP CanoeTrails FeatureServer exposes exact Big Sioux Rec Area access points. Big Sioux Rec Area (North) is mapped at 43.593707557839309, -96.5983584890456 with Parking = NO and Launch = NO; Big Sioux Rec Area (South) is mapped at 43.573140888085128, -96.600475153291086 with Parking = Yes and Launch = Yes. A north-to-south route cannot ship from a put-in officially marked no parking/no launch, and the local 300 cfs Cliff Ave threshold remains community guidance rather than a route-specific manager band.",
+      "retryCondition": "Retry only if South Dakota GFP publishes a normal public north-access launch/parking status, identifies a replacement upstream put-in inside Big Sioux Recreation Area, or approves a south-access-only route package with source-backed direction, endpoint coordinates, and route-specific threshold support.",
       "retryDate": null,
       "sourcesChecked": [
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC recheck: GFP Big Sioux Recreation Area/Jay Heath context still did not add exact canoe-access coordinates or a route-specific threshold model; product-style USGS IV fetch for 06482020 failed unable to connect and official legacy 06482020 remained stale to 2026-05-26 11:30 CDT.",
@@ -19814,7 +20150,8 @@
         "May 28 08:42 South Dakota recheck of GFP paddling/Jay Heath page, Jay Heath PDF 2.4-mile spacing, GFP Big Sioux Recreation Area rules/map snippets confirming two canoe launches, Sioux Empire Paddlers flow-rate guidance, USGS 06481000 near Dell Rapids, and USGS 06482000 at Sioux Falls current-condition snippets",
         "May 28 09:12 South Dakota recheck of GFP Big Sioux Recreation Area page, Jay Heath PDF, GFP/SDCKA dedication search result, Sioux Empire Paddlers 300 cfs Cliff Ave guidance, and USGS 06482020 North Cliff Ave legacy current conditions",
         "May 28 09:42 South Dakota recheck of GFP Big Sioux Recreation Area/Jay Heath search results and USGS 06482020 search-visible current-condition context",
-        "Fresh 2026-06-05 targeted refresh of GFP Big Sioux Recreation Area page/PDF context and local USGS 06482020 product-style IV fetch"
+        "Fresh 2026-06-05 targeted refresh of GFP Big Sioux Recreation Area page/PDF context and local USGS 06482020 product-style IV fetch",
+        "2026-08-06 21:35 America/Chicago / 2026-08-07 02:35 UTC recheck: official GFP ArcGIS FeatureServer for CanoeTrails confirms Big Sioux Rec Area (North) coordinates 43.593707557839309, -96.5983584890456, Parking NO, Launch NO; Big Sioux Rec Area (South) coordinates 43.573140888085128, -96.600475153291086, Parking Yes, Launch Yes; USGS 06482020 Water Services IV returned same-day product-ready discharge/stage through 2026-08-06 20:30 CDT."
       ],
       "aliases": [
         "Big Sioux Recreation Area North to South",
@@ -19823,10 +20160,10 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "same_river_proxy",
+        "quality": "same_river_product_live_proxy",
         "id": "06482020",
         "provider": "USGS",
-        "notes": "USGS 06482020 is the likely same-river North Cliff Ave proxy, but the route remains gauge_proxy_weak because product-live freshness, exact access coordinates, and route-specific threshold support did not clear."
+        "notes": "USGS 06482020 is a same-river North Cliff Ave proxy and Water Services IV returned same-day product-ready values on 2026-08-06. The route still fails because the north access is officially marked no parking/no launch and threshold support remains community-only."
       },
       "thresholdSupport": {
         "strength": "community_gauge_floor_not_route_specific",
@@ -19835,13 +20172,72 @@
       "endpoints": {
         "putIn": "Big Sioux Recreation Area north canoe access site",
         "takeOut": "Big Sioux Recreation Area south canoe access site",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured. GFP page publishes a general park coordinate, and GFP/SDCKA news gives the north access address, but exact north and south canoe access coordinates were not resolved from an official map during this run."
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.59370755783931,
+          "longitude": -96.5983584890456
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.57314088808513,
+          "longitude": -96.60047515329109
+        },
+        "coordinateSource": "South Dakota GFP CanoeTrails FeatureServer publishes both access coordinates, but it marks the north access Parking = NO and Launch = NO while the south access is Parking = Yes and Launch = Yes. The coordinate package therefore confirms the access blocker rather than clearing it."
       },
-      "notes": "Rechecked during the 2026-06-08 15:32 South Dakota pass. Keep as gauge_proxy_weak until exact official canoe-access coordinates, route-specific threshold support, and a fresh product-ready gauge path are resolved.",
-      "updatedAt": "2026-06-08"
+      "notes": "Rechecked during the 2026-08-06 South Dakota pass. Keep blocked on access legitimacy until the north access has a manager-backed launch/parking package or a replacement route is selected.",
+      "updatedAt": "2026-08-07T02:35:30.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-klondike-south-canton-city-park",
+      "river": "Big Sioux River",
+      "route": "Klondike South to Canton City Park via US Hwy 18",
+      "state": "SD",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 07:52 America/Chicago / 2026-08-07T12:52:00 UTC bounded South Dakota baseline review found strong lower Jay Heath access evidence but did not clear publication. The SD GFP Jay Heath PDF lists Klondike to US Hwy 18 as 8 water miles and US Hwy 18 to Canton City Park as 3.9 water miles. The official ArcGIS Access Sites layer marks Klondike South, US Hwy 18, and Canton City Park as Canoe Site points with Parking=Yes and Launch=Yes, and Camping=No. The hazards layer marks rock crossings near Klondike and Canton. USGS Water Services returned product-ready Big Sioux data for 06485500 at Akron (521 cfs / 4.99 ft at 2026-08-07 05:00 CDT) and upstream Sioux Falls/North Cliff gauges, but no route-specific numeric paddling floor, ideal range, high-water cutoff, or accepted proxy relationship tied to the Klondike-to-Canton reach surfaced. Do not ship from access-chain evidence alone.",
+      "retryCondition": "Retry only if South Dakota GFP, SDCKA/Sioux Empire Paddlers, Friends of the Big Sioux, Iowa/SD managers, or another credible route source publishes numeric paddling guidance for Klondike-to-Canton or an adjacent lower Big Sioux segment tied to product-fetchable USGS 06485500, 06482020, or another supported gauge; then recheck launch status, rock-crossing hazards, camping limits, geometry, coordinate-near-river validation, and gallery image availability.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "SD GFP Jay Heath Canoe & Kayak Trail PDF: Klondike to US Hwy 18 = 8 water miles; US Hwy 18 to Canton City Park = 3.9 water miles; mapped access/campsite chain includes Klondike, US Hwy 18, Canton City Park, Newton Hills, Oak Ridge PWA, Oak Grove County Park, Carr's Landing, Big Sioux County Park, and Akron.",
+        "SD GFP Jay Heath ArcGIS Access Sites layer: Klondike South coordinates 43.38483453664835, -96.52215980390137, Parking Yes, Launch Yes, Camping No, concrete launch; US Hwy 18 coordinates 43.30699093368421, -96.52777952802252, Parking Yes, Launch Yes, Camping No, concrete launch; Canton City Park coordinates 43.29475751500917, -96.59004178035792, Parking Yes, Launch Yes, Camping No, gravel launch.",
+        "SD GFP Jay Heath ArcGIS Warnings layer: rock crossing near Klondike at 43.38625397871445, -96.52178751220755 and rock crossing near Canton at 43.29509823889777, -96.58932285299333.",
+        "USGS Water Services IV returned product-ready Big Sioux River at Akron 06485500 data: 521 cfs / 4.99 ft at 2026-08-07 05:00 CDT, with 94 one-day samples for both discharge and stage.",
+        "USGS Water Services IV also returned Big Sioux River at North Cliff 06482020 at 258 cfs / 5.62 ft at 2026-08-07 05:30 CDT and Big Sioux River at Sioux Falls 06482000 at 198 cfs / 1.91 ft at 2026-08-07 05:00 CDT, but no source tied these upstream gauges to the lower Klondike-to-Canton threshold model.",
+        "Sioux Empire Paddlers Rivers and Creeks supports broad Big Sioux south-of-Sioux-Falls use and says Lien Park to Newton Hills is favored, but its visible 250 cfs guidance is for in-town Sioux Falls access points rather than the lower Klondike-to-Canton reach.",
+        "Friends of the Big Sioux Maps & Resources links to the SD GFP Jay Heath app and says it includes launch sites, campgrounds, and site-specific information, plus low-impact guidance including camping at least 200 feet from water; it does not publish a route-specific gauge threshold."
+      ],
+      "aliases": [
+        "Big Sioux River - Klondike to Canton",
+        "Jay Heath Trail Klondike South to Canton City Park",
+        "Klondike South to US Hwy 18 to Canton City Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "product_live_but_threshold_unselected",
+        "id": "06485500",
+        "provider": "USGS",
+        "notes": "USGS 06485500 Big Sioux River at Akron is product-live and downstream on the same lower Big Sioux corridor, but this run found no source-backed numeric paddling model or accepted proxy relationship for the Klondike-to-Canton segment."
+      },
+      "thresholdSupport": {
+        "strength": "not_found_for_selected_reach",
+        "notes": "No numeric paddling floor, ideal range, or high-water cutoff tied to the selected Klondike-to-Canton route or the Akron/North Cliff gauges surfaced. Do not reuse Sioux Falls in-town 250 cfs guidance for this lower reach without source support."
+      },
+      "endpoints": {
+        "putIn": "Klondike South",
+        "takeOut": "Canton City Park",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.38483453664835,
+          "longitude": -96.52215980390137
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.29475751500917,
+          "longitude": -96.59004178035792
+        },
+        "coordinateSource": "SD GFP Jay Heath ArcGIS Access Sites layer; both selected endpoints are marked Parking=Yes and Launch=Yes. Coordinates were not added to route data because the threshold gate failed before coordinate-near-river validation."
+      },
+      "notes": "Rechecked as a distinct South Dakota lower Big Sioux candidate during the 2026-08-07 hourly route-worker run. Keep threshold_weak until a route-specific numeric lower Big Sioux gauge model is published; access-chain, hazard, camping, and live-gauge evidence alone are insufficient for scored publication.",
+      "updatedAt": "2026-08-07T12:52:00.000Z"
     },
     {
       "candidateId": "sd-big-sioux-farm-field-rotary",
@@ -19901,10 +20297,10 @@
       "route": "Myron Grove to Clay County Park day-trip lead",
       "state": "SD",
       "status": "no_live_gauge",
-      "lastReviewed": "2026-07-29",
-      "reviewCount": 21,
-      "blocker": "The 2026-07-29 control-plane pilot identified a concrete 6.1-mile access-to-access lead with strong NPS support: Myron Grove Boat Launch at river mile 787.1 to Clay County Boat Launch at river mile 781.0. NPS publishes both public access descriptions, manager ownership, waypoint coordinates, camping context, channel/snag/wind/private-bank hazards, and a Gavins Point release ladder (16,000 cfs indicates low water; over 40,000 cfs indicates very high water). The remaining hard blocker is product live data: that numeric ladder is tied to USACE Gavins Point dam releases, which PaddleToday cannot currently fetch or chart, while USGS 06467500 at Yankton returned current stage only (10.61 ft at 06:30 CDT) and no discharge value. Do not substitute stage for the release thresholds.",
-      "retryCondition": "Add and validate a stable USACE Gavins Point release adapter, or find an official product-fetchable discharge station explicitly tied to the NPS 16,000/40,000 cfs ladder. Then recheck current Myron Grove and Clay County access status and model this as an advanced big-water, dam-release route with wind, snags, shifting channel, sparse bailout, private-bank, and cold-water caveats.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 22,
+      "blocker": "The 2026-08-07 bounded route-worker recheck preserved the no-live-gauge blocker for the concrete 6.1-mile Myron Grove Boat Launch at river mile 787.1 to Clay County Boat Launch at river mile 781.0 lead. NPS support remains strong for public access descriptions, waypoint coordinates, camping limits, river-mile route shape, channel/snag/wind/private-bank hazards, and a Gavins Point release ladder where 16,000 cfs indicates low water and over 40,000 cfs indicates very high water. The hard blocker is still product live data: USGS Water Services for 06467500 returned current gage height only through 2026-08-07 04:30 CDT at 10.72 ft and no discharge time series, while the NPS thresholds are tied to USACE Gavins Point dam releases. Do not substitute Yankton stage for release-cfs thresholds.",
+      "retryCondition": "Add and validate a stable product-supported USACE Gavins Point release adapter, or find an official product-fetchable discharge station explicitly tied to the NPS 16,000/40,000 cfs ladder. Then recheck current Myron Grove and Clay County access status and model this as an advanced big-water, dam-release route with wind, snags, shifting channel, sparse bailout, private-bank, cold-water, and emergency-only / designated primitive-camping caveats.",
       "retryDate": null,
       "sourcesChecked": [
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC recheck: product-style USGS IV fetch for 06467500 failed unable to connect; WDFN 06467500 showed no current continuous/daily/field/discrete data package, and no NPS/official partner route-specific release/gauge threshold package surfaced.",
@@ -19933,7 +20329,8 @@
         "May 28 08:42 South Dakota recheck of NPS MNRR access points, water trail/canoeing pages, current-condition context, 39-mile guide search result, and SDCKA NPS Missouri River Water Trail Project 2026-2027 page",
         "May 28 09:42 South Dakota recheck of NPS MNRR water-trail/access/release search results and current 2026 official context",
         "Fresh 2026-06-05 targeted refresh of NPS MNRR planning/water-trail context and local USGS 06467500 product-style IV fetch",
-        "2026-07-29 control-plane pilot: NPS 59-mile paddler guide and river-access inventory identify Myron Grove RM 787.1 to Clay County RM 781.0 as a 6.1-mile South Dakota access pair; NPS publishes both waypoints and operating context; NPS river conditions publishes 16,000 cfs as low and over 40,000 cfs as very high for the Gavins Point reach; NPS canoeing guidance documents 3-5 mph release-driven current, wind, snags, shifting channel, sparse public launches, private banks, and cold-water hazards; USGS 06467500 returned same-day stage only; USACE Gavins Point documentation confirms release-driven operations but no app adapter exists."
+        "2026-07-29 control-plane pilot: NPS 59-mile paddler guide and river-access inventory identify Myron Grove RM 787.1 to Clay County RM 781.0 as a 6.1-mile South Dakota access pair; NPS publishes both waypoints and operating context; NPS river conditions publishes 16,000 cfs as low and over 40,000 cfs as very high for the Gavins Point reach; NPS canoeing guidance documents 3-5 mph release-driven current, wind, snags, shifting channel, sparse public launches, private banks, and cold-water hazards; USGS 06467500 returned same-day stage only; USACE Gavins Point documentation confirms release-driven operations but no app adapter exists.",
+        "2026-08-07 route-worker recheck: NPS Current Conditions / River Conditions still tie the 59-mile reach to Gavins Point releases and publish 16,000 cfs low / over 40,000 cfs very high; NPS 59-mile guide still supports Myron Grove RM 787.1 to Clay County RM 781.0, emergency primitive camping only at Myron Grove, nearby Clay County campground, and big-river route context; NPS canoeing/kayaking guidance still documents release-driven 3-5 mph current, wind, snags, shifting channel, few public camping possibilities, and private-bank limits; USGS Water Services IV for 06467500 with 00060/00065 returned only gage height through 2026-08-07 04:30 CDT at 10.72 ft and no discharge series."
       ],
       "aliases": [
         "MNRR",
@@ -19945,7 +20342,7 @@
         "quality": "official_release_source_not_product_supported",
         "id": "Gavins Point release / USGS 06467500 stage context",
         "provider": "USACE required; USGS stage supplemental",
-        "notes": "The NPS numeric ladder is explicitly release-based for the Gavins Point reach. USGS 06467500 returned same-day 10.61 ft stage at Yankton on 2026-07-29 but no discharge, so it cannot be scored against the 16,000/40,000 cfs release thresholds. A USACE release adapter is the clean unlock."
+        "notes": "The NPS numeric ladder is explicitly release-based for the Gavins Point reach. USGS 06467500 returned same-day 10.72 ft stage at Yankton on 2026-08-07 04:30 CDT but no discharge time series, so it cannot be scored against the 16,000/40,000 cfs release thresholds. A product-supported USACE Gavins Point release adapter remains the clean unlock."
       },
       "thresholdSupport": {
         "strength": "official_two_sided_reach_guidance",
@@ -19965,8 +20362,8 @@
         },
         "coordinateSource": "NPS MNRR Water Trail River Access Points publishes DMS waypoints for Myron Grove (42 46 18.9N, 97 07 16.2W) and Clay County (42 45 57.9N, 97 00 11.6W); decimal values are direct conversions. The NPS 59-mile guide supplies river miles and a 6.1-mile difference."
       },
-      "notes": "The 2026-07-29 control-plane pilot converted the broad MNRR lead into a specific, official 6.1-mile South Dakota day-trip candidate with coordinates and official reach bounds. Keep blocked only on the missing USACE live-release adapter; this is now an adapter backlog item, not an open-ended route-research problem.",
-      "updatedAt": "2026-07-29"
+      "notes": "The 2026-08-07 route-worker recheck confirms this is not an open-ended route-research problem: endpoints, coordinates, distance, camping limits, and safety context are strong, but the product cannot currently fetch the USACE release value required by the NPS threshold ladder.",
+      "updatedAt": "2026-08-07T09:45:00.000Z"
     },
     {
       "candidateId": "mo-huzzah-creek-huzzah-ca-meramec",
@@ -20339,12 +20736,13 @@
       "route": "City Park to Evans Park",
       "state": "SD",
       "status": "blocked_until_date",
-      "lastReviewed": "2026-06-21",
-      "reviewCount": 23,
-      "blocker": "2026-06-21 safety reclassification. The threshold story is no longer the blocker: same-day USGS Water Services IV returned 49.4 cfs and 4.97 ft at direct gauge 06431500 at 2026-06-21 04:00 MDT, and current American Whitewater page source for the town section exposes a 65-350 cfs runnable envelope with the river currently flagged below recommended. The route should still not move forward because the exact AW runnable section is City Campground / D.C. Booth Fish Hatchery to Old US 14, not a clean manager-backed City Park to Evans Park day-trip package, and AW warns the take-out is only about 50 yards upstream from a small concrete spillway that should not be run. Until a manager-grade source documents the exact public paddling route, take-out, signage, and spillway safety handling, treat this as a high-consequence blocked lead rather than a threshold hold.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 24,
+      "blocker": "2026-08-06 22:34 America/Chicago / 2026-08-07 03:34 UTC bounded South Dakota baseline recheck preserved the safety/access block. USGS Water Services IV returned product-live direct Spearfish Creek 06431500 data through 2026-08-06 21:00 MDT at 38.0 cfs / 4.80 ft, and American Whitewater still exposes the town-section 65-350 cfs runnable envelope while flagging the current reading below recommended. City of Spearfish sources support Spearfish City Park, Spearfish City Campground, and Evans Park as public creek/rec-path/campground context, and campground camping is source-backed as nearby basecamp/put-in-adjacent lodging. The route still cannot ship because the AW runnable section is Spearfish City Campground / D.C. Booth Fish Hatchery to Old US 14, not a manager-backed City Park-to-Evans Park day-trip package, and AW's take-out is only about 50 yards upstream from an 8 ft concrete spillway with a clear do-not-continue warning. No City of Spearfish, GFP, or other route manager source found in this run documents the exact public paddling take-out, signage, landing/parking handling, or spillway safety infrastructure needed for a high-consequence route.",
       "retryCondition": "Retry only if the City of Spearfish, another accepted manager, or a route-specific public source documents the exact public town-section paddling route and take-out above the spillway, with clear safety/signage support. Keep the current AW 65-350 cfs gauge envelope as threshold evidence unless a better manager-backed model appears.",
       "retryDate": null,
       "sourcesChecked": [
+        "2026-08-06 22:34 America/Chicago / 2026-08-07 03:34 UTC recheck: USGS Water Services IV returned 06431500 Spearfish Creek at Spearfish direct product-live data, latest 38.0 cfs / 4.80 ft at 2026-08-06 21:00 MDT. American Whitewater town-section page still identifies Spearfish City Campground to Old US 14, Class II, 3.3 miles, direct Spearfish gauge, current 38 cfs below recommended, 65-350 cfs runnable envelope, put-in 44.47910, -103.85600, take-out 44.51780, -103.86600, and a do-not-continue warning because the take-out is about 50 yards upstream from an 8 ft concrete spillway. City of Spearfish pages support Spearfish City Park creek access, Evans Park creek access, and Spearfish City Campground creek-side camping/reservation context, but no manager-backed paddling route, exact Old US 14 landing plan, signage, or spillway safety infrastructure surfaced.",
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC recheck: USGS legacy 06431500 showed 43.3 cfs / 4.92 ft at 2026-06-07 21:00 MDT; AW search-visible town-section context still ties Spearfish City Campground / City Park to Old US 14 to the direct gauge, but product-style IV fetch failed and route-specific numeric threshold support remains too weak.",
         "2026-06-05 09:43 America/Chicago / 2026-06-05 14:43 UTC recheck: USGS 06431500 search-visible legacy evidence still topped out at 44.3 cfs / 4.93 ft on 2026-05-28 18:00 MDT; product-style IV fetch failed unable to connect; no stronger AW/manager threshold package surfaced.",
         "2026-06-05 09:13 America/Chicago / 2026-06-05 14:13 UTC recheck: USGS 06431500 search-visible legacy evidence showed 44.3 cfs / 4.93 ft at 2026-05-28 18:00 MDT, WDFN showed no continuous data, and no stronger AW/manager threshold package surfaced.",
@@ -20390,11 +20788,11 @@
         "quality": "direct_product_live_verified",
         "id": "06431500",
         "provider": "USGS",
-        "notes": "USGS 06431500 is the direct Spearfish Creek gauge, and same-day Water Services IV returned 49.4 cfs and 4.97 ft at 2026-06-21 04:00 MDT. Live-gauge support is no longer the blocker."
+        "notes": "USGS 06431500 is the direct Spearfish Creek gauge, and same-day Water Services IV returned 38.0 cfs and 4.80 ft at 2026-08-06 21:00 MDT. Live-gauge support is not the blocker."
       },
       "thresholdSupport": {
         "strength": "american_whitewater",
-        "notes": "Current American Whitewater page source for the town section exposes a 65-350 cfs runnable envelope on the direct Spearfish gauge and currently flags 49 cfs as below recommended. The lead is blocked on route safety / exact-route authority, not on missing numeric thresholds."
+        "notes": "Current American Whitewater page source for the town section exposes a 65-350 cfs runnable envelope on the direct Spearfish gauge and currently flags 38 cfs as below recommended. The lead is blocked on route safety / exact-route authority, not on missing numeric thresholds."
       },
       "endpoints": {
         "putIn": "Spearfish City Campground / D.C. Booth Fish Hatchery / City Park area",
@@ -20410,26 +20808,27 @@
         },
         "coordinateSource": "Current American Whitewater town-section page source exposes exact put-in and take-out point-of-interest coordinates for the City Campground / Old US 14 run. Those coordinates were captured to replace the older provisional Riverfacts pins, but the route still fails the manager-backed safety/access bar."
       },
-      "notes": "Reclassified on 2026-06-21. The direct-gauge threshold package now exists, but the lead should stay blocked until the exact public route and take-out above the spillway are manager-backed rather than inferred from community whitewater guidance.",
-      "updatedAt": "2026-06-21T11:09:19.000Z"
+      "notes": "Rechecked on 2026-08-07. The direct-gauge threshold package still exists, and City of Spearfish camping/park context is useful, but the lead should stay blocked until the exact public route and take-out above the spillway are manager-backed rather than inferred from community whitewater guidance.",
+      "updatedAt": "2026-08-07T03:34:16.000Z"
     },
     {
       "candidateId": "sd-rapid-creek-heisga-dark-canyon",
       "river": "Rapid Creek",
       "route": "Heisga to Dark Canyon",
       "state": "SD",
-      "status": "research_later",
-      "lastReviewed": "2026-05-26",
-      "reviewCount": 3,
-      "blocker": "Fresh 2026-05-26 18:27 America/Chicago recheck preserved the blocker. American Whitewater ties Heisga-to-Dark-Canyon to the Rapid Creek above Canyon Lake gauge and trip-report text gives useful 100-250 cfs and higher-than-500-cfs context, but this remains advanced Class III/IV-style whitewater with private/remote access complications. That trip-report threshold context is not enough for a conservative public PaddleToday route package.",
-      "retryCondition": "Retry only if public access for both endpoints is confirmed by a manager or strong local source and AW or another strong source publishes a stable route-specific flow range tied to the selected Rapid Creek gauge.",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 4,
+      "blocker": "2026-08-06 23:36 America/Chicago / 2026-08-07 04:36 UTC bounded South Dakota baseline review improved hydrology and route-shape evidence but preserved a hard public-access blocker. USGS Water Services IV for 06412500 returned product-ready Rapid Creek above Canyon Lake data through 2026-08-06 22:25 MDT (71.4 cfs / 2.39 ft), and American Whitewater now exposes a route-specific 125-550 cfs runnable range, exact AW access-point coordinates (put-in 44.0532, -103.402; take-out 44.0465, -103.373), Class III difficulty, 4.1 mi line geometry, and route map. The same AW evidence does not name manager-backed public launch/landing sites beyond generic Put In / Take Out labels, and the AW trip-report evidence warns the run is along remote land and private property where getting out can create access conflict. No USFS, GFP, county, or local route-manager source surfaced that designates the Hisega/Dark Canyon endpoints as normal public paddle access points or resolves camping/egress rules for this advanced whitewater canyon. Do not ship this route from AW map coordinates alone.",
+      "retryCondition": "Retry only if Black Hills National Forest, Pennington County, South Dakota GFP, American Whitewater, Black Hills Paddlers, or another manager-grade/local source publishes named public Hisega/Dark Canyon put-in and take-out access details with parking/egress expectations, or otherwise resolves private-property and emergency-egress limitations for the AW route. Reverify USGS 06412500 live data and the AW 125-550 cfs range before promotion.",
       "retryDate": null,
       "sourcesChecked": [
         "American Whitewater Rapid Creek Heisga to Dark Canyon route page",
         "American Whitewater South Dakota gauge listing for Rapid Creek gauges",
         "USGS Rapid Creek above Canyon Lake / Rapid City gauge cluster context",
         "May 26 13:55 web search recheck for Rapid Creek AW/gauge threshold evidence",
-        "May 26 18:27 web recheck of American Whitewater Rapid Creek Heisga-to-Dark-Canyon route, AW gauge detail 2754, and USGS 06412500 context"
+        "May 26 18:27 web recheck of American Whitewater Rapid Creek Heisga-to-Dark-Canyon route, AW gauge detail 2754, and USGS 06412500 context",
+        "2026-08-06 23:36 America/Chicago / 2026-08-07 04:36 UTC recheck: USGS Water Services IV for 06412500 returned 71.4 cfs / 2.39 ft at 2026-08-06 22:25 MDT; American Whitewater exposes 125-550 cfs route range, put-in 44.0532, -103.402, take-out 44.0465, -103.373, route geometry, Class III difficulty, and private/remote-access cautions in trip reports; public manager searches did not surface named public endpoint access or legal camping/egress support."
       ],
       "aliases": [
         "Rapid Creek - Heisga to Dark Canyon",
@@ -20438,37 +20837,46 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "direct_or_corridor",
-        "id": "06414000/above-canyon-lake cluster",
-        "provider": "USGS/AW",
-        "notes": "AW ties the route to the Rapid Creek above Canyon Lake near Rapid City gauge context; this pass did not select a shipping gauge because access and threshold support remain unresolved."
+        "quality": "direct_current",
+        "id": "06412500",
+        "provider": "USGS",
+        "notes": "USGS 06412500 Rapid Creek above Canyon Lake near Rapid City is the AW-linked gauge for the Heisga-to-Dark-Canyon route. Water Services IV returned product-ready discharge and gage-height data through 2026-08-06 22:25 MDT during the 2026-08-07 review."
       },
       "thresholdSupport": {
-        "strength": "community_trip_report_not_ship_ready",
-        "notes": "AW trip-report text mentions 100-250 cfs as a standard Class III/IV window and higher-than-500-cfs as substantially more challenging, but this is not manager-published or clean enough for a broad public route implementation."
+        "strength": "american_whitewater_two_sided",
+        "notes": "American Whitewater correlation data exposes a 125-550 cfs runnable range for the Rapid Creek above Canyon Lake gauge; trip-report text also describes 100-250 cfs as standard Class III/IV and more than 500 cfs as substantially more challenging. This threshold package is now adequate for a whitewater-hidden route if access/camping/egress gates are later resolved."
       },
       "endpoints": {
-        "putIn": "Heisga / Hisega area",
-        "takeOut": "Dark Canyon area",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because public endpoint legitimacy and route threshold support did not clear the bar."
+        "putIn": "AW Put In near Hisega / Heisga area, not manager-confirmed as public paddle access",
+        "takeOut": "AW Take Out in Dark Canyon area, not manager-confirmed as public paddle access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.0532,
+          "longitude": -103.402
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.0465,
+          "longitude": -103.373
+        },
+        "coordinateSource": "American Whitewater route map points. These are route-shape evidence, not sufficient public-access authority; do not implement until named public endpoint access and private-property/egress constraints are manager-backed."
       },
-      "notes": "Rechecked during the 2026-05-26 18:27 South Dakota pass. Keep as research_later; access complexity and advanced whitewater consequence remain first-order blockers."
+      "notes": "Rechecked during the 2026-08-07 South Dakota baseline run. Keep blocked on access legitimacy rather than hydrology: the gauge, AW range, coordinates, and route line are promising, but public endpoint authority, private-property egress, camping/overnight status, and advanced whitewater safety packaging are unresolved."
     },
     {
       "candidateId": "sd-whitewood-creek-highway-14a-whitewood",
       "river": "Whitewood Creek",
       "route": "Highway 14A to Whitewood / Vale gauge family",
       "state": "SD",
-      "status": "research_later",
-      "lastReviewed": "2026-05-26",
-      "reviewCount": 2,
-      "blocker": "American Whitewater/gauge searches continue to show Whitewood Creek gauge context, but this pass still did not find a conservative public access package or route-specific numeric threshold model suitable for PaddleTodayV2. The corridor remains high-consequence whitewater with unresolved public endpoint and water-quality/Superfund caveats.",
-      "retryCondition": "Retry only if AW/local paddlers/land managers provide current public access details plus a stable route-specific runnable range tied to USGS 06436180, 06436190, or 06436198, and current water-quality/access caveats are resolved.",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 3,
+      "blocker": "2026-08-07 bounded review improved the gauge evidence but preserved a hard publication block. USGS Water Services returned product-ready same-day values for Whitewood Creek Above Whitewood 06436180 (4.06 cfs / 0.26 ft at 2026-08-06 22:50 MDT), Whitewood Creek Near Whitewood 06436190 (1.26 cfs / 5.34 ft at 2026-08-06 23:15 MDT), and Whitewood Creek Above Vale 06436198 (0.00 cfs / 0.46 ft at 2026-08-06 23:00 MDT). American Whitewater documents Whitewood Creek / Tin Lizzies to Whitewood as Class III+(V+), 11.4 miles, with the Above Whitewood gauge and generic put-in/take-out coordinates at 44.37910, -103.72600 and 44.46100, -103.62000, but AW also provides no route description and its general Rapid Creek pages demonstrate that AW coordinates may be approximate. This candidate still lacks named manager-backed public launch/landing sites, a stable visible numeric runnable range suitable for the app, route-line confidence beyond AW points, legal route camping/overnight support, and a current water-quality/safety package for the EPA/DANR Whitewood Creek Superfund context.",
+      "retryCondition": "Retry only if American Whitewater, local paddlers, Black Hills National Forest, Lawrence County, City of Deadwood/Whitewood, South Dakota GFP, or another responsible manager publishes named public endpoint access, parking/egress guidance, a stable route-specific runnable range tied to a product-fetchable Whitewood Creek gauge, and explicit current water-quality and camping/overnight guidance for the Tin Lizzies-to-Whitewood route.",
       "retryDate": null,
       "sourcesChecked": [
+        "2026-08-07 recheck: USGS Water Services IV for 06436180, 06436190, and 06436198 returned product-ready same-day discharge/stage values, but gauge freshness did not resolve endpoint, threshold, safety, camping, or route-manager evidence gates.",
+        "2026-08-07 recheck: American Whitewater South Dakota index and route page identify Whitewood Creek / Tin Lizzies to Whitewood as Class III+(V+), 11.4 miles, with Whitewood Creek Above Whitewood gauge context, below-recommended current flow, generic access coordinates, no river description, and named high-consequence features including Box of Rain, Franklin's Tower, Shakedown Street, and Cyanide.",
+        "2026-08-07 recheck: EPA and South Dakota DANR Superfund pages confirm the Whitewood Creek Superfund context, including historical mine-tailings contamination and deletion from the NPL after cleanup; no route-specific recreational water-quality clearance or paddling safety package was found.",
         "American Whitewater South Dakota gauge listing for Whitewood Creek gauges",
         "Riverfacts / whitewater index context for Whitewood Creek Highway 14A to Whitewood",
         "USGS Whitewood Creek gauge cluster context",
@@ -20482,24 +20890,30 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "corridor_not_selected",
+        "quality": "direct_current_but_route_not_publishable",
         "id": "06436180/06436190/06436198 cluster",
         "provider": "USGS/AW",
-        "notes": "Multiple USGS/AW Whitewood Creek gauges exist, but no single product-ready gauge/threshold/access package was selected."
+        "notes": "USGS Water Services returned same-day product-ready values for the Whitewood Creek cluster on 2026-08-07. AW names 06436180 Above Whitewood as the route gauge, but this live gauge improvement does not clear public access, threshold, safety, camping, or geometry gates."
       },
       "thresholdSupport": {
-        "strength": "weak",
-        "notes": "No route-specific numeric PaddleToday threshold model was found during this pass."
+        "strength": "weak_visible_aw_range_not_captured",
+        "notes": "AW reports the current flow as below recommended, but this bounded pass did not capture a stable visible numeric runnable floor/range suitable for PaddleToday thresholds. Do not infer thresholds from the below-recommended label or third-party snippets."
       },
       "endpoints": {
-        "putIn": "Highway 14A area",
-        "takeOut": "Whitewood / Vale-area endpoint not selected",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because route/access/threshold evidence did not clear the bar."
+        "putIn": "AW generic Put In near Tin Lizzies / Highway 14A corridor; not manager-backed as a public launch",
+        "takeOut": "AW generic Take Out near Whitewood; not manager-backed as a public landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.3791,
+          "longitude": -103.726
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.461,
+          "longitude": -103.62
+        },
+        "coordinateSource": "American Whitewater access-point pages. Treat as route-shape evidence only: they are generic Put In / Take Out coordinates, not named public water-entry points with manager-backed parking, launch, landing, or egress authority."
       },
-      "notes": "Rechecked during the 2026-05-26 13:55 South Dakota pass. Remains research_later; no public endpoint plus numeric threshold package appeared."
+      "notes": "Rechecked during the 2026-08-07 South Dakota baseline run. No route added. Keep blocked on access legitimacy and safety despite improved USGS freshness: a high-consequence Class III+(V+) route needs named public endpoints, explicit access/egress support, stable numeric thresholds, camping/overnight clarity, water-quality caveats, and a reviewable river line before implementation."
     },
     {
       "candidateId": "sd-vermillion-river-centerville-wakonda-missouri",
@@ -20507,17 +20921,18 @@
       "route": "Centerville / Wakonda to Missouri River family",
       "state": "SD",
       "status": "research_later",
-      "lastReviewed": "2026-05-26",
-      "reviewCount": 2,
-      "blocker": "Sioux Empire Paddlers describes the Vermillion River as a scenic South Dakota paddling corridor from Centerville south to the Missouri River, with better late-summer/fall canoeing from the road crossing east of Wakonda to the Missouri River. The route was not added because the evidence is corridor-level: access is described generally at township, county, state, and federal rights-of-way, no exact public endpoint pair was selected, and no route-specific numeric threshold support was found for USGS 06479010 or the broader Vermillion gauge family.",
-      "retryCondition": "Retry if a manager, SDCKA/Jay Heath source, Sioux Empire Paddlers, RiverScout with corroborating details, or another credible route source publishes a specific Vermillion River day-trip endpoint pair with public access details and a numeric paddling floor/range tied to USGS 06479010 or another product-fetchable Vermillion River gauge.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 3,
+      "blocker": "2026-08-07 01:40 America/Chicago / 2026-08-07 06:40 UTC bounded South Dakota baseline review preserved research_later. USGS Water Services IV for 06479010 returned product-ready current values of 17.9 cfs / 1.43 ft at 2026-08-07 01:30 CDT and a 24-hour discharge/stage series, so telemetry is not the blocker. Publication remains blocked because the paddling evidence is still corridor-level: Sioux Empire Paddlers describes Centerville south to the Missouri River and late-summer/fall use from the road crossing east of Wakonda, Southeast South Dakota tourism describes a broad Centerville-to-Missouri scenic run, and the Jay Heath blog documents an informal 309th-to-312th Street trip with muddy non-manager launch handling. No named manager-backed public put-in/take-out pair, defensible water-entry coordinates, route distance for a selected day reach, route-specific numeric threshold model, official camping/overnight legality, or route-safety package surfaced.",
+      "retryCondition": "Retry only if a manager, SDCKA/Jay Heath source, Sioux Empire Paddlers, RiverScout with corroborating details, or another credible route source publishes a specific Vermillion River day-trip endpoint pair with public launch/landing details, coordinates, route distance, camping/overnight guidance, safety caveats, and a numeric paddling floor/range tied to USGS 06479010 or another product-fetchable Vermillion River gauge.",
       "retryDate": null,
       "sourcesChecked": [
         "Sioux Empire Paddlers Rivers and Creeks Vermillion River section",
         "USGS 06479010 Vermillion River near Vermillion gauge search context",
         "South Dakota GFP paddling and stream-fence hazard context",
         "General Vermillion River South Dakota access/gauge searches",
-        "May 26 15:55 South Dakota paddling/gauge search pass; no exact Vermillion endpoint-plus-threshold package surfaced"
+        "May 26 15:55 South Dakota paddling/gauge search pass; no exact Vermillion endpoint-plus-threshold package surfaced",
+        "2026-08-07 01:40 America/Chicago bounded review: USGS Water Services IV for 06479010 returned 17.9 cfs / 1.43 ft at 2026-08-07 01:30 CDT plus a 24-hour series; Sioux Empire Paddlers, Southeast South Dakota tourism, Jay Heath/SouthDakotaKayak blog, USGS legacy current conditions, and South Dakota GFP paddling/fence guidance were checked; no selected public endpoint pair or numeric threshold model surfaced."
       ],
       "aliases": [
         "Vermillion River - Wakonda to Missouri River",
@@ -20526,10 +20941,10 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "corridor_not_selected",
+        "quality": "direct_current_but_corridor_not_selected",
         "id": "06479010",
         "provider": "USGS",
-        "notes": "USGS 06479010 Vermillion River near Vermillion is an obvious lower-corridor gauge candidate, but no exact day route or gauge threshold model was selected."
+        "notes": "USGS 06479010 Vermillion River near Vermillion returned product-ready current discharge/stage during the 2026-08-07 review, but no exact day route or gauge threshold model was selected."
       },
       "thresholdSupport": {
         "strength": "none_yet",
@@ -20543,7 +20958,7 @@
         "takeOutCoordinates": null,
         "coordinateSource": "Not captured because no exact public endpoint pair cleared the bar."
       },
-      "notes": "Rechecked during the 2026-05-26 15:55 South Dakota pass. Keep as research_later until exact public endpoints and route-specific numeric gauge support appear."
+      "notes": "Rechecked during the 2026-08-07 South Dakota baseline run. Keep as research_later until exact public endpoints, water-entry coordinates, route-specific numeric gauge support, camping legality, and safety evidence appear."
     },
     {
       "candidateId": "sd-james-river-highway-access-family",
@@ -20551,17 +20966,22 @@
       "route": "South Dakota highway-access family",
       "state": "SD",
       "status": "research_later",
-      "lastReviewed": "2026-05-26",
-      "reviewCount": 2,
-      "blocker": "Sioux Empire Paddlers notes that the South Dakota James River can be paddled in spring and early summer and has a number of access points near US and SD highways. The route was not added because that is broad corridor guidance rather than a route-ready day trip: no exact public endpoint pair, coordinates, or route-specific numeric threshold model was found, and USGS hydrology context for the James emphasizes very slow travel, flooding potential, and periods of no flow.",
-      "retryCondition": "Retry only if a credible source identifies a specific South Dakota James River day-trip segment with named public endpoints, coordinates or manager-backed access details, and a numeric paddling floor/range tied to a product-fetchable James River gauge such as USGS 06476000 or 06478513.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 3,
+      "blocker": "2026-08-07 02:43 America/Chicago / 2026-08-07 07:43 UTC bounded South Dakota baseline review preserved research_later. USGS Water Services IV for 06478000 James River near Mitchell returned product-ready current values of 436 cfs / 11.51 ft at 2026-08-07 01:45 CDT plus a 24-hour discharge/stage series. Sioux Empire Paddlers supports only broad James River spring/early-summer paddling and access near US/SD highways, while Jay Heath/SouthDakotaKayak documents a specific 12-mile Highway 38 east of Mitchell to 258th Street community trip with easy launching/parking at the put-in and a bridge take-out. Publication remains blocked because the endpoints are bridge/road-access descriptions rather than manager-backed named public launches, no defensible water-entry coordinates were captured, no numeric paddling floor/range tied to 06478000 surfaced, official route camping/overnight legality is unsupported, and the safety/access package is not strong enough for publication.",
+      "retryCondition": "Retry only if a manager, SDCKA/Jay Heath source, Sioux Empire Paddlers, RiverScout/onWater with corroboration, Davison/Hanson County, or another credible source publishes a specific James River day reach with named public endpoints, water-entry coordinates, route distance, camping/overnight guidance, safety caveats, and numeric gauge-tied thresholds for a product-fetchable James River gauge such as USGS 06478000.",
       "retryDate": null,
       "sourcesChecked": [
         "Sioux Empire Paddlers Rivers and Creeks James River section",
         "USGS James River South Dakota gauge cluster searches including Huron and Yankton",
         "USGS hydrologic characteristics summary for the James River in South Dakota",
         "South Dakota GFP paddling and stream-fence hazard context",
-        "May 26 15:55 South Dakota paddling/gauge search pass; no exact James River endpoint-plus-threshold package surfaced"
+        "May 26 15:55 South Dakota paddling/gauge search pass; no exact James River endpoint-plus-threshold package surfaced",
+        "2026-08-07 bounded review: USGS Water Services IV for 06478000 James River near Mitchell returned 436 cfs / 11.51 ft at 2026-08-07 01:45 CDT plus a 24-hour discharge/stage series.",
+        "2026-08-07 bounded review: Jay Heath/SouthDakotaKayak James River south from Mitchell blog documents a 12-mile Highway 38-to-258th Street community trip, public-access wording at the put-in, bridge take-out staging, four-hour timing, and no observed hazards on that 2008 outing.",
+        "2026-08-07 bounded review: Sioux Empire Paddlers Rivers and Creeks mentions James River spring/early-summer paddling and access near US/SD highways, but gives no selected endpoint pair or numeric gauge threshold.",
+        "2026-08-07 bounded review: South Dakota GFP Fisher Grove State Park and Redfield tourism pages support James River canoe/kayak access and campground context at Fisher Grove, but do not publish a route to/from the Mitchell Highway 38 reach or a numeric level model.",
+        "2026-08-07 bounded review: South Dakota GFP paddling/fence guidance remains relevant as a general stream-obstruction caveat."
       ],
       "aliases": [
         "James River - South Dakota paddling corridor",
@@ -20570,37 +20990,39 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "corridor_not_selected",
-        "id": "06476000/06478513 cluster",
+        "quality": "product_live_but_threshold_unselected",
+        "id": "06478000",
         "provider": "USGS",
-        "notes": "USGS gauges exist on the South Dakota James River, including Huron and Yankton-area gauges, but this pass did not select a route-specific gauge because endpoint and threshold evidence failed first."
+        "notes": "USGS 06478000 James River near Mitchell returned product-ready current discharge/stage during the 2026-08-07 review, but no numeric paddling threshold model tied to this route was found."
       },
       "thresholdSupport": {
         "strength": "none_yet",
-        "notes": "No numeric paddling floor or range tied to a specific South Dakota James River day trip was found."
+        "notes": "No numeric paddling floor, ideal range, or high-water cutoff tied to USGS 06478000 was found; 2008 trip-day depth observations are anecdotal and not a reusable threshold model."
       },
       "endpoints": {
-        "putIn": "Not selected",
-        "takeOut": "Not selected",
+        "putIn": "State Highway 38 bridge east of Mitchell / blog-described public access point, not manager-backed by name",
+        "takeOut": "258th Street bridge area, not manager-backed by name",
         "coordinatesPresent": false,
         "putInCoordinates": null,
         "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because no exact public endpoint pair cleared the bar."
+        "coordinateSource": "Not captured because the bridge endpoints are not yet supported by manager-backed public launch/landing coordinates."
       },
-      "notes": "Rechecked during the 2026-05-26 15:55 South Dakota pass. Logged to avoid repeating broad James River searches without endpoint and threshold evidence."
+      "notes": "Rechecked during the 2026-08-07 South Dakota baseline run. Keep as research_later until named public endpoints, water-entry coordinates, route-specific numeric gauge support, official camping legality, and safety evidence appear."
     },
     {
       "candidateId": "sd-battle-creek-hermosa-keystone-family",
       "river": "Battle Creek",
       "route": "Hermosa / Keystone gauge-supported family",
       "state": "SD",
-      "status": "no_live_gauge",
-      "lastReviewed": "2026-06-08",
-      "reviewCount": 6,
-      "blocker": "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC narrow product-live spot check preserved no_live_gauge. USGS/AW Battle Creek gauge context remains only a lead; local product-style USGS IV fetch for 06406000 failed unable to connect, official legacy 06406000 evidence remained stale to 4.86 cfs / 2.76 ft on 2026-04-10 13:00 MDT, and no selected legal public endpoint pair with numeric runnable guidance surfaced.",
-      "retryCondition": "Retry only if USGS 06406000, 06404000, 06403810, or 06406500 exposes same-day product-fetchable current data and American Whitewater, a land manager, local paddling group, or strong route guide identifies a specific public Battle Creek reach with legal endpoints and numeric runnable guidance.",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 7,
+      "blocker": "2026-08-07 06:45 America/Chicago / 2026-08-07 11:45 UTC bounded South Dakota baseline review moved Battle Creek out of no_live_gauge but kept it blocked. USGS Water Services IV now returns product-ready same-day values for the gauge cluster: 06406000 Battle Creek at Hermosa 1.71 cfs / 2.50 ft at 2026-08-07 05:00 MDT, 06404000 Battle Creek near Keystone 0.00 cfs / 3.09 ft at 2026-08-07 05:15 MDT, 06403810 Battle Creek above Keystone stage-only 3.69 ft at 2026-08-07 05:35 MDT, and 06406500 Battle Creek below Hermosa 0.00 cfs / 1.84 ft at 2026-08-07 04:30 MDT. American Whitewater documents Battle Creek Harney-to-Hayward as Class III-IV(V), 5.5 miles, with a 100 fpm average gradient, the Battle Creek near Keystone gauge, a below-recommended current status, generic put-in/take-out coordinates at 43.89200, -103.38600 and 43.87160, -103.33600, and a 17 ft Big Falls / Hippie Hole drop. Publication remains blocked because no Black Hills National Forest, South Dakota GFP, Pennington County, or other manager-backed source surfaced that names those points as normal public paddle launch/landing sites with parking/egress guidance; the visible AW page did not expose a stable numeric runnable floor/range; official camping evidence is only broad Black Hills National Forest occupancy/dispersed-camping context, not route-specific overnight legality; and the high-consequence waterfall/whitewater setting needs stronger access and safety support than generic AW coordinates.",
+      "retryCondition": "Retry only if American Whitewater, Black Hills National Forest, South Dakota GFP, Pennington County, Black Hills Paddlers, or another credible manager/local source publishes named legal public Harney/Hayward access points with parking and egress guidance, a stable numeric runnable floor/range tied to a product-fetchable Battle Creek gauge, route-specific camping/overnight handling, and safety guidance for Big Falls / Hippie Hole and other high-consequence drops.",
       "retryDate": null,
       "sourcesChecked": [
+        "2026-08-07 06:45 America/Chicago / 2026-08-07 11:45 UTC full Battle Creek check: USGS Water Services IV returned same-day values for 06406000, 06404000, 06403810, and 06406500, but AW Harney-to-Hayward access points remained generic and no manager-backed public endpoint, stable numeric threshold, route-specific camping, or complete safety package surfaced.",
+        "USGS Water Services IV for 06406000, 06404000, 06403810, and 06406500; USGS 06406000 monitoring page; American Whitewater Battle Creek Harney-to-Hayward route, flow, and access pages; Black Hills National Forest camping/occupancy pages; South Dakota DANR navigable-stream fencing guidance; targeted public endpoint searches for Battle Creek Harney/Hayward/Hippie Hole.",
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC narrow check: product-style USGS IV fetch for 06406000 failed unable to connect; official legacy 06406000 remained stale to 2026-04-10, so no broader Battle Creek discovery loop was run.",
         "2026-06-05 09:43 America/Chicago / 2026-06-05 14:43 UTC narrow check: product-style USGS IV fetch for 06406000 failed unable to connect; no broader Battle Creek discovery loop was run because live-gauge and route-threshold gates remained hard blockers.",
         "2026-06-05 09:13 America/Chicago / 2026-06-05 14:13 UTC narrow check: product-style USGS IV fetch for 06406000 failed unable to connect; USGS inventory/search-visible evidence still did not establish current product-ready data, and no broader Battle Creek discovery loop was run.",
@@ -20619,25 +21041,31 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "direct_but_no_current_product_data_visible",
+        "quality": "product_live_but_route_not_publishable",
         "id": "06406000/06404000/06403810/06406500 cluster",
         "provider": "USGS/AW",
-        "notes": "USGS 06406000 Battle Creek at Hermosa remains a gauge lead only; official legacy evidence did not establish same-day product-ready observations for an app route."
+        "notes": "USGS Water Services returned same-day product-ready values on 2026-08-07 for 06406000, 06404000, and 06406500, plus stage-only current data for 06403810. Live telemetry is no longer the primary blocker, but route-specific thresholds and public endpoint authority still fail."
       },
       "thresholdSupport": {
-        "strength": "not_found",
-        "notes": "No credible route-specific numeric low-water floor, ideal range, or high-water cutoff surfaced."
+        "strength": "american_whitewater_incomplete",
+        "notes": "American Whitewater ties Harney-to-Hayward to the Battle Creek near Keystone gauge and reports current flow as below recommended, but the visible page did not expose a stable numeric runnable floor, ideal range, or high-water cutoff suitable for PaddleToday scoring."
       },
       "endpoints": {
-        "putIn": "Not selected; Hermosa / Keystone / below-Hermosa access family",
-        "takeOut": "Not selected; Hermosa / Keystone / below-Hermosa access family",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because live data, public endpoint authority, and threshold support failed first."
+        "putIn": "AW generic Put In for Battle Creek Harney-to-Hayward",
+        "takeOut": "AW generic Take Out for Battle Creek Harney-to-Hayward",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.892,
+          "longitude": -103.386
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.8716,
+          "longitude": -103.336
+        },
+        "coordinateSource": "American Whitewater access point pages only; not manager-backed public launch/landing evidence."
       },
       "notes": "Logged during the 2026-05-28 09:12 South Dakota pass as a fresh Black Hills gauge cluster to avoid repeating broad Battle Creek searches until live gauge and route-threshold evidence improve.",
-      "updatedAt": "2026-06-08"
+      "updatedAt": "2026-08-07"
     },
     {
       "candidateId": "mo-big-river-washington-state-park-mammoth",
@@ -21641,6 +22069,72 @@
         "coordinateSource": "City of Sioux Falls park pages for Legacy Park and Farm Field Park."
       },
       "notes": "Added to V2 on 2026-05-26 as a conservative Sioux Falls urban-creek route after the USGS live-data blocker resolved. Route copy keeps minimum-only scoring and caveats for shallow scraping below 4.5 ft, storm debris, bridges, urban water quality, Big Sioux continuation hazards, and South Dakota fence/obstruction risks. No gallery asset was added."
+    },
+    {
+      "candidateId": "sd-big-sioux-rec-area-south-highway-42",
+      "river": "Big Sioux River",
+      "route": "Big Sioux Recreation Area South to SD Highway 42",
+      "state": "SD",
+      "status": "added",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already added as a guarded minimum-only Jay Heath / Big Sioux day route; revisit only for access-status changes, a stronger direct downstream gauge policy, official threshold bands, or a rights-clean exact-route gallery image.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP paddling page describing the Jay Heath Canoe and Kayak Trail map as a Big Sioux water-trail tool with launch sites, campgrounds, and site information.",
+        "South Dakota GFP Jay Heath Canoe and Kayak Trail PDF naming Big Sioux Rec. Area (South) to SD Hwy 42 as a 4.8-mile segment.",
+        "South Dakota GFP Jay Heath Canoe and Kayak Trail FeatureServer launch-site layer for Big Sioux Rec Area South, SD Hwy 42, corridor camping records, and access attributes.",
+        "South Dakota GFP Jay Heath Canoe and Kayak Trail FeatureServer Big Sioux River segment layer for Big Sioux Rec. Area (South) to SD Hwy 42 route shape and 4.8-mile distance.",
+        "Mary Jo Wegner Arboretum kayak and canoe launch page documenting launch access on the eastern edge of the park next to the Highway 42 bridge and dawn-to-dusk hours.",
+        "USGS Water Services IV for 06482020 Big Sioux River at North Cliff Avenue at Sioux Falls returned 254 cfs / 5.61 ft at 2026-08-07 08:30 CDT.",
+        "Sioux Empire Paddlers River Flow Rates page lists Big Sioux River Cliff Ave South of Sioux Falls as ideal above 300 cfs.",
+        "South Dakota DANR low-head dam safety page and South Dakota GFP paddling/fence hazard guidance.",
+        "Bounded image review of SD GFP, Mary Jo Wegner Arboretum, Wikimedia Commons, same-route search, and local route-context pages found no clearly rights-clean exact-route reusable gallery asset."
+      ],
+      "aliases": [
+        "Big Sioux River - Big Sioux Rec Area South to SD Hwy 42",
+        "Jay Heath Trail Big Sioux Rec Area South to Highway 42",
+        "Big Sioux Recreation Area to Mary Jo Wegner Arboretum"
+      ],
+      "v2Slug": "big-sioux-river-rec-area-south-highway-42",
+      "gauge": {
+        "quality": "direct_same_river_corridor_product_live",
+        "id": "06482020",
+        "provider": "USGS",
+        "notes": "USGS 06482020 Big Sioux River at North Cliff Avenue at Sioux Falls is the same Big Sioux river corridor named by the local Cliff Avenue south-of-Sioux-Falls flow guidance. Water Services returned product-ready same-day values during implementation review: 254 cfs and 5.61 ft at 2026-08-07 08:30 CDT."
+      },
+      "thresholdSupport": {
+        "strength": "community_minimum_only_direct_corridor",
+        "notes": "Sioux Empire Paddlers publishes Big Sioux River Cliff Ave South of Sioux Falls as ideal above 300 cfs. The route uses that direct same-river corridor guidance as a conservative minimum-only floor; no upper cutoff or ideal band was inferred."
+      },
+      "endpoints": {
+        "putIn": "Big Sioux Recreation Area South canoe site",
+        "takeOut": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.57314088808513,
+          "longitude": -96.60047515329109
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.52473773604778,
+          "longitude": -96.60061816019576
+        },
+        "coordinateSource": "South Dakota GFP Jay Heath Canoe and Kayak Trail FeatureServer access records. The SD Hwy 42 point is treated as a parking/access anchor because GFP marks Launch No there while Mary Jo Wegner Arboretum documents practical canoe/kayak launch context beside the bridge."
+      },
+      "camping": {
+        "status": "endpoint_campground",
+        "notes": "GFP's access layer marks Big Sioux Rec Area South as Camping Yes and SD Hwy 42 as Camping No. The route package treats this as a day paddle with Big Sioux Recreation Area endpoint-basecamp context only; Jay Heath canoe-in campsites elsewhere require separate reservations and are not inferred for the route."
+      },
+      "safety": {
+        "status": "reviewed",
+        "notes": "No mapped Jay Heath hazard point was found inside the selected Big Sioux Rec Area South-to-SD Hwy 42 segment, but route copy keeps South Dakota fence/obstruction guidance, wood/strainer checks, water-quality caution, private-bank limits, and a warning not to extend into other Big Sioux/Jay Heath low-head-dam or diversion areas without separate planning."
+      },
+      "image": {
+        "status": "no_image_bounded",
+        "notes": "No gallery image was added after bounded SD GFP / Mary Jo Wegner / Commons / same-route review found no clearly rights-clean exact-route reusable asset."
+      },
+      "notes": "Added to V2 on 2026-08-07 as a conservative South Dakota Jay Heath / Big Sioux route after the first screened candidate qualified. Current gauge review was below the 300 cfs floor, so the card can publish but should score low until flow improves. Route copy distinguishes access anchors from water-entry points and records the Highway 42 landing offset/caveat."
     },
     {
       "candidateId": "mo-beaver-creek-brownbranch-bradleyville",
@@ -24157,13 +24651,13 @@
     },
     {
       "candidateId": "sd-redwater-river-old-belle-helmer-highway-34",
-      "reviewCount": 6,
+      "reviewCount": 7,
       "river": "Redwater River",
       "route": "Old Belle Bridge / Helmer-Mountain View / Highway 34 family",
       "state": "SD",
-      "status": "no_live_gauge",
-      "blocker": "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC narrow product-live spot check preserved no_live_gauge. American Whitewater/USGS Redwater gauge context remains only a lead; local product-style USGS IV fetch for 06433000 failed unable to connect, official legacy 06433000 evidence was stale to 88.7 cfs / 2.70 ft on 2026-06-03 04:45 MDT rather than same-day product-ready, public endpoint authority remains weak, and no stable route-specific numeric threshold model surfaced.",
-      "retryCondition": "Retry only if USGS 06433000 exposes product-fetchable same-day instantaneous data and American Whitewater, a public manager, or a strong local source confirms legal public endpoints plus a route-specific runnable floor/range for one Redwater segment.",
+      "status": "access_legitimacy",
+      "blocker": "2026-08-07 03:45 America/Chicago / 2026-08-07 08:45 UTC bounded South Dakota baseline review moved Redwater out of no_live_gauge but kept it blocked. USGS Water Services returned product-ready current values for 06433000 Redwater River above Belle Fourche: 34.8 cfs / 2.47 ft at 2026-08-07 01:45 MDT plus a 24-hour discharge/stage series. American Whitewater identifies two short Redwater reaches and the direct gauge, but both are below recommended at 35-36 cfs; the lower Helmer/Mountain View-to-Hwy 34 page documents a 6 ft dam, a trip report says a dam with chains should not be run and portages are awkward, and AW warns the campground-side take-out has trespass concerns. No manager-backed public endpoint package, legal parking/egress confirmation, official camping/overnight handling, or stable numeric route threshold surfaced.",
+      "retryCondition": "Retry only if American Whitewater, Lawrence/Butte County, South Dakota GFP, a land manager, or a strong local source publishes named legal public endpoints with parking/egress, a stable 06433000 runnable floor/range, dam/portage safety guidance, and camping/overnight handling for one Redwater segment.",
       "retryDate": null,
       "sourcesChecked": [
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC narrow check: USGS 06433000 official legacy evidence showed 88.7 cfs / 2.70 ft on 2026-06-03 04:45 MDT, product-style IV fetch failed unable to connect, and no broader Redwater discovery loop was run.",
@@ -24175,7 +24669,8 @@
         "Snoflo Redwater River Above Belle Fourche stale March 2026 snippet",
         "NWS Missouri River Basin latest-conditions Redwater 06433000 stale May 10 snippet",
         "May 26 18:27 South Dakota Redwater River route/access/threshold searches",
-        "Fresh 2026-06-05 narrow local USGS 06433000 product-style IV fetch and source-visible Redwater gauge check"
+        "Fresh 2026-06-05 narrow local USGS 06433000 product-style IV fetch and source-visible Redwater gauge check",
+        "2026-08-07 03:45 America/Chicago bounded review: USGS Water Services IV returned 06433000 at 34.8 cfs / 2.47 ft on 2026-08-07 01:45 MDT; American Whitewater South Dakota index and Redwater route pages for Old Belle-to-Helmer/Mountain View and Helmer/Mountain View-to-Hwy 34 were checked; AW showed current flow below recommended, direct gauge linkage, bridge-style access points, a 6 ft dam, campground/trespass take-out caveat, and trip-report dam-chain/portage hazards."
       ],
       "aliases": [
         "Redwater River - Old Belle Bridge to Helmer Mountain View bridge",
@@ -24184,14 +24679,14 @@
       ],
       "v2Slug": null,
       "gauge": {
-        "quality": "direct_but_no_current_product_data_visible",
+        "quality": "direct_product_live",
         "id": "06433000",
         "provider": "USGS",
-        "notes": "USGS 06433000 is the direct Redwater River above Belle Fourche gauge used by AW, but this run found stale visible evidence rather than same-day product-ready current data."
+        "notes": "USGS 06433000 is the direct Redwater River above Belle Fourche gauge used by AW. Water Services returned same-day product-ready discharge and stage on 2026-08-07."
       },
       "thresholdSupport": {
         "strength": "weak_without_stable_route_range",
-        "notes": "AW exposes route/gauge linkage and class labels, but no stable numeric runnable floor/range was found for a V2 route."
+        "notes": "AW exposes route/gauge linkage and below-recommended status at 35-36 cfs; one trip report says just over 200 cfs was good on the lower reach, but no stable published floor/range or high-water bound was captured for V2 scoring."
       },
       "endpoints": {
         "putIn": "Old Belle Bridge or Helmer/Mountain View bridge, not selected",
@@ -24199,11 +24694,65 @@
         "coordinatesPresent": false,
         "putInCoordinates": null,
         "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because live-data freshness, public access authority, and threshold support failed first."
+        "coordinateSource": "Not captured because public access authority, dam/portage safety, camping legality, and threshold support failed before coordinate validation."
       },
-      "notes": "Rechecked during the 2026-06-08 15:32 South Dakota pass. Keep this Black Hills / Belle Fourche-area gauge cluster parked until live data and access/threshold support improve.",
-      "lastReviewed": "2026-06-08",
+      "notes": "Rechecked during the 2026-08-07 South Dakota baseline run. Keep blocked on access legitimacy and safety despite live USGS data: bridge-style endpoints, take-out/trespass concerns, dam-chain hazards, unstable threshold support, and camping legality remain unresolved.",
+      "lastReviewed": "2026-08-07",
       "updatedAt": "2026-06-08"
+    },
+    {
+      "candidateId": "sd-big-sioux-dell-rapids-baltic",
+      "reviewCount": 1,
+      "river": "Big Sioux River",
+      "route": "Dell Rapids City Park to Baltic City River Park",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "blocker": "2026-08-07 07:45 America/Chicago / 2026-08-07 12:45 UTC bounded South Dakota baseline review found strong endpoint, camping, gauge, and threshold evidence but did not clear the safety gate. South Dakota GFP's Jay Heath Canoe and Kayak Trail FeatureServer identifies Dell Rapids City Park as a launch-supported canoe site with parking/camping and an 8.3-mile segment, and Baltic City River Park as a launch-supported canoe site with parking/camping. USGS Water Services returned product-ready current data for 06481000 Big Sioux River near Dell Rapids at 259 cfs / 3.86 ft on 2026-08-07 07:30 CDT, while Sioux Empire Paddlers publishes a Dell Rapids Big Sioux threshold of ideal above 300 cfs. Camping evidence is strong at both endpoint communities. Publication remains blocked because local route evidence says the river shortly below Dell Rapids City Park splits and first-time paddlers must go left or face a low-head dam and portage, then rapids through the Dells; South Dakota DANR warns low-head dams on South Dakota rivers including the Big Sioux can be difficult to spot and can trap boats/people; and no route-manager source surfaced that documents the exact below-dam launch/water-entry point, channel/portage instructions, signage, or low-head-dam safety infrastructure for a Dell-Rapids-to-Baltic route.",
+      "retryCondition": "Retry only if South Dakota GFP, Dell Rapids, Baltic, SDCKA/Jay Heath, or another credible route manager publishes a route-specific Dell Rapids-to-Baltic safety package with exact below-dam launch/water-entry coordinates, mandatory channel or portage instructions, dam/rapids handling, and current access status. Reverify USGS 06481000 product data, the 300 cfs minimum, endpoint camping, gallery image status, geometry, and coordinate-near-river validation before promotion.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP paddling page describing the Jay Heath Canoe and Kayak Trail map as a Big Sioux water-trail tool with launch sites and campgrounds.",
+        "South Dakota GFP Jay Heath Canoe and Kayak Trail FeatureServer query for Dell Rapids City Park and Baltic City River Park access records, segment mileage, camping, parking, launch status, launch surfaces, coordinates, and comments.",
+        "USGS Water Services IV for 06481000 Big Sioux River near Dell Rapids returned 259 cfs / 3.86 ft at 2026-08-07 07:30 CDT.",
+        "Sioux Empire Paddlers River Flow Rates page lists Big Sioux River Dell Rapids SD as ideal above 300 cfs.",
+        "Baltic River Park official page documents river park location, campground, 21 electrical campsites, five-night maximum, and no showers or water hookups.",
+        "Dell Rapids Campground official page documents the campground on the south side of the Big Sioux River with 29 campsites, utilities, weekend minimum, and river-adjacent park context.",
+        "Kayaking the Lakes of South Dakota Big Sioux Trent-to-past-Dell-Rapids report documents the post-Dell-Rapids channel split, left-channel instruction, low-head dam/portage risk, and Dells rapids.",
+        "South Dakota DANR low-head dam safety page warns low-head dams occur on the Big Sioux and can trap boats, kayaks, canoes, and people."
+      ],
+      "aliases": [
+        "Big Sioux River - Dell Rapids to Baltic",
+        "Dell Rapids City Park to Baltic City River Park",
+        "Jay Heath Trail Dell Rapids Baltic segment"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_product_live",
+        "id": "06481000",
+        "provider": "USGS",
+        "notes": "USGS 06481000 Big Sioux River near Dell Rapids is inside the reviewed corridor and returned same-day discharge/stage through Water Services on 2026-08-07."
+      },
+      "thresholdSupport": {
+        "strength": "community_minimum_only",
+        "notes": "Sioux Empire Paddlers publishes Big Sioux River Dell Rapids SD as ideal above 300 cfs. Current flow during review was below that floor at 259 cfs; no upper cutoff or ideal range was inferred."
+      },
+      "endpoints": {
+        "putIn": "Dell Rapids City Park",
+        "takeOut": "Baltic City River Park",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.819707582774846,
+          "longitude": -96.70182521486504
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.7655072878699,
+          "longitude": -96.73911047413368
+        },
+        "coordinateSource": "South Dakota GFP Jay Heath Canoe and Kayak Trail FeatureServer access records. Coordinates are not yet implementation-ready water-entry points because the downstream Dell Rapids low-head-dam/channel safety package is unresolved."
+      },
+      "notes": "This is a promising official-access Big Sioux lead, but it is blocked rather than implemented because low-head-dam and Dells-rapids handling below Dell Rapids lacks route-manager-grade instructions.",
+      "lastReviewed": "2026-08-07",
+      "updatedAt": "2026-08-07"
     },
     {
       "candidateId": "mo-castor-river-maple-flats-zalma-family",
@@ -56189,8 +56738,8 @@
       "river": "Redwood River",
       "route": "Vesta Public Water Access Site to Wabasso Public Water Access Site",
       "state": "Minnesota",
-      "status": "added",
-      "decisionDate": "2026-07-24",
+      "status": "planning_only",
+      "decisionDate": "2026-08-06",
       "v2Slug": "redwood-river-vesta-wabasso",
       "sourceQuality": "MN DNR Redwood River state-water-trail map and page / MN DNR interpreted river-level gauge / Minnesota public-water-access GIS",
       "gauge": {
@@ -56223,7 +56772,19 @@
         "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota3.pdf",
         "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
         "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
-      ]
+      ],
+      "publicationReview": {
+        "reviewedAt": "2026-08-06T20:27:34.000Z",
+        "reviewer": "paddletoday-hourly-route-worker",
+        "decision": "do_not_promote",
+        "blocker": "No product-supported direct gauge inside the Vesta-to-Wabasso reach; the existing official threshold source is a downstream proxy.",
+        "evidence": [
+          "Vesta WAS02156 is at Redwood River mile 28.9 and Wabasso WAS00004 is at mile 13.3 in Minnesota public-water-access GIS.",
+          "MN DNR Redwood gauges: Russell site 194 at mile 85.5, Marshall site 195 at mile 69.0, Redwood Falls site 196 at mile 9.3.",
+          "USGS 05315000 near Marshall reported 12.0 cfs at 2026-08-06 15:00 CDT and USGS 05316500 near Redwood Falls reported 60.0 cfs at 2026-08-06 15:00 CDT; both are outside the route endpoints."
+        ],
+        "nextAction": "Keep planning-only; reconsider only if a direct in-reach gauge is added or the product explicitly allows proxy planning routes into scored inventory."
+      }
     },
     {
       "candidateId": "mn-redwood-river-wabasso-redwood-lake-2026-07-24",
@@ -56280,7 +56841,7 @@
         "siteId": "311",
         "siteName": "North Fork Zumbro River nr Mazeppa, CSAH7",
         "kind": "downstream same-fork proxy",
-        "latest": "101 cfs at 2026-07-24 02:30 CDT, official medium band"
+        "latest": "93.70 cfs at 2026-08-06 14:30 CDT, official medium band"
       },
       "threshold": {
         "model": "two-sided",
@@ -56305,7 +56866,20 @@
         "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf",
         "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
         "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
-      ]
+      ],
+      "publicationReview": {
+        "reviewedAt": "2026-08-06T21:29:16.000Z",
+        "reviewer": "paddletoday-hourly-route-worker",
+        "decision": "do_not_promote",
+        "blocker": "No product-supported direct gauge inside the Covered Bridge Park-to-Walking Bridge Park reach; the existing official threshold source is a downstream proxy.",
+        "evidence": [
+          "Covered Bridge Park WAS02181 is at North Fork Zumbro river mile 69.6 and Walking Bridge Park WAS02184 is at river mile 60.1 in Minnesota public-water-access GIS.",
+          "MN DNR Zumbro Map 1 places old bridge supports, Mazeppa Rapids, and the 90-yard right-bank portage before the Walking Bridge take-out.",
+          "MN DNR site 311 is fresh at 93.70 cfs on 2026-08-06 14:30 CDT, but the feed places it at river mile 54.7 downstream of the take-out.",
+          "USGS 05373850 returned no current Water Services time series during this review; downstream USGS 05374000 has current stage only and is also outside the route endpoints."
+        ],
+        "nextAction": "Keep planning-only; reconsider only if a direct in-reach gauge is added or the product explicitly allows proxy planning routes into scored inventory."
+      }
     },
     {
       "candidateId": "ia-south-raccoon-river-redfield-pleasant-valley-2026-07-24",
@@ -56824,6 +57398,71 @@
         "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
         "https://files.dnr.state.mn.us/maps/water_access/counties/cookwest.pdf"
       ]
+    },
+    {
+      "candidateId": "sd-big-sioux-grandview-klondike-south",
+      "river": "Big Sioux River",
+      "route": "Grandview to Klondike South",
+      "state": "SD",
+      "status": "added",
+      "blocker": null,
+      "retryCondition": null,
+      "sourcesChecked": [
+        "South Dakota GFP Jay Heath Canoe and Kayak Trail PDF names Grandview to Klondike as 7.8 water miles.",
+        "South Dakota GFP Jay Heath Canoe and Kayak Trail FeatureServer marks Grandview as Parking Yes / Launch Yes / Camping No and SD GFP owned/managed.",
+        "South Dakota GFP Jay Heath Canoe and Kayak Trail FeatureServer marks Klondike South as Parking Yes / Launch Yes / Camping No and SD GFP owned/managed.",
+        "USGS Water Services IV for 06482020 returned 254 cfs / 5.61 ft at 2026-08-07 10:30 CDT with a 24-hour series.",
+        "Sioux Empire Paddlers River Flow Rates lists Big Sioux River Cliff Ave South of Sioux Falls as ideal above 300 cfs.",
+        "South Dakota GFP paddling page warns that fences cross many navigable streams.",
+        "Bounded image review of SD GFP, Sioux Empire Paddlers, Wikimedia Commons, and same-route image search found no clearly rights-clean exact-route reusable gallery asset."
+      ],
+      "aliases": [
+        "Big Sioux River - Grandview to Klondike",
+        "Jay Heath Trail Grandview to Klondike South",
+        "Grandview to Klondike Big Sioux"
+      ],
+      "v2Slug": "big-sioux-river-grandview-klondike-south",
+      "gauge": {
+        "quality": "direct_same_river_corridor_product_live",
+        "id": "06482020",
+        "provider": "USGS",
+        "notes": "USGS 06482020 Big Sioux River at North Cliff Avenue at Sioux Falls is the same Big Sioux corridor named by the local Cliff Avenue south-of-Sioux-Falls flow guidance. Water Services returned product-ready same-day values during implementation review: 254 cfs and 5.61 ft at 2026-08-07 10:30 CDT."
+      },
+      "thresholdSupport": {
+        "strength": "community_minimum_only_direct_corridor",
+        "notes": "Sioux Empire Paddlers publishes Big Sioux River Cliff Ave South of Sioux Falls as ideal above 300 cfs. The route uses that same-river corridor guidance as a conservative minimum-only floor; no upper cutoff or ideal band was inferred."
+      },
+      "endpoints": {
+        "putIn": "Grandview canoe site",
+        "takeOut": "Klondike South canoe site",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.4484919862431,
+          "longitude": -96.6024966707481
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.3848345366483,
+          "longitude": -96.5221598039014
+        },
+        "coordinateSource": "South Dakota GFP Jay Heath Canoe and Kayak Trail FeatureServer access records; stored coordinates are access anchors and route copy instructs users to use signed water-entry/landing points on arrival."
+      },
+      "camping": {
+        "status": "none",
+        "notes": "GFP marks both Grandview and Klondike South as Camping No. Nearby/upstream canoe-in campsites and parks are not inferred for this day route."
+      },
+      "safety": {
+        "status": "reviewed",
+        "notes": "Route copy keeps South Dakota fence/obstruction guidance, wood/strainer checks, water-quality caution, private-bank limits, and Klondike rock-crossing/landing checks. No unresolved low-head-dam take-out blocker surfaced for the selected Grandview-to-Klondike South segment."
+      },
+      "image": {
+        "status": "no_image_bounded",
+        "notes": "No gallery image was added after bounded SD GFP / Sioux Empire / Commons / same-route review found no clearly rights-clean exact-route reusable asset."
+      },
+      "notes": "Added to V2 on 2026-08-07 as a conservative South Dakota Jay Heath / Big Sioux route after the first screened fresh candidate qualified. Current gauge review was below the 300 cfs floor, so the card can publish but should score low until flow improves.",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "retryDate": null,
+      "updatedAt": "2026-08-07T15:49:18.112Z"
     }
   ]
 }

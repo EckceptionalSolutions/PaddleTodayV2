@@ -1,5 +1,5 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { routePhotoForRiver } from '../lib/route-photos';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -23,6 +23,8 @@ export function RoutePhotoCard({
   showCaption = true,
   onContributePhotos,
 }: RoutePhotoCardProps) {
+  const { width: windowWidth } = useWindowDimensions();
+  const narrowLayout = windowWidth < 360;
   const photo = routePhotoForRiver(river);
 
   return (
@@ -45,9 +47,9 @@ export function RoutePhotoCard({
         </View>
       ) : null}
       {!compact && showCaption ? (
-        <View style={styles.caption}>
+        <View style={[styles.caption, narrowLayout ? styles.captionNarrow : null]}>
           <Text style={styles.captionKicker}>Route photos</Text>
-          <Text style={styles.captionTitle} numberOfLines={2}>
+          <Text style={styles.captionTitle} numberOfLines={narrowLayout ? 3 : 2}>
             {river.reach ?? river.name ?? 'Route photo'}
           </Text>
         </View>
@@ -87,6 +89,9 @@ const styles = StyleSheet.create({
   caption: {
     padding: spacing.md,
     paddingRight: 126,
+  },
+  captionNarrow: {
+    paddingRight: spacing.md,
   },
   captionKicker: {
     color: colors.surfaceStrong,

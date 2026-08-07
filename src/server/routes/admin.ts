@@ -19,6 +19,8 @@ import { appendRouteRequestReply, getRouteRequestByStorageKey, listRouteRequests
 import { listRouteAudits, updateRouteAudit } from '../../lib/route-audits';
 import { getRiverBySlug } from '../../lib/rivers';
 import { listRiverAlerts } from '../../lib/alerts';
+import { getOperationsSnapshot } from '../../lib/operations';
+import { getGitHubTelemetry } from '../../lib/github-telemetry';
 
 export async function handleAdminSessionStatus(
   request: ApiRequest,
@@ -470,6 +472,52 @@ export async function handleAdminContributionFile(
       502,
       { requestId, error: 'request_failed', message: 'Could not load file preview.' },
       true,
+      'no-store'
+    );
+  }
+}
+
+export async function handleAdminOperationsSnapshot(
+  request: ApiRequest,
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const [requests, submissions, github] = await Promise.all([
+      listRouteRequests(),
+      listRouteContributionSubmissions({ status: 'pending' }),
+      getGitHubTelemetry(),
+    ]);
+    return sendJson(
+      response,
+      200,
+      {
+        requestId,
+        snapshot: getOperationsSnapshot(),
+        github,
+        demand: {
+          routeRequests: requests.length,
+          unrepliedRouteRequests: requests.filter((item) => !item.replies || item.replies.length === 0).length,
+          pendingContributions: submissions.length,
+          latestRouteRequestAt: requests[0]?.submittedAt ?? null,
+          latestContributionAt: submissions[0]?.submittedAt ?? null,
+        },
+      },
+      includeBody,
+      'no-store'
+    );
+  } catch (error) {
+    console.error('[admin-operations] snapshot failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not load operations data.' },
+      includeBody,
       'no-store'
     );
   }

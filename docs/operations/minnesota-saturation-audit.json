@@ -1,0 +1,1419 @@
+{
+  "generatedAt": "2026-08-06T22:30:46.000Z",
+  "state": "Minnesota",
+  "decision": "provisionally_saturated",
+  "rule": "Only scored routes count toward saturation; planning routes are excluded.",
+  "totals": {
+    "inventory": 258,
+    "scored": 145,
+    "planning": 113,
+    "proxyPlanning": 107,
+    "unavailableDirect": 6
+  },
+  "directGaugeProviderRecheck": {
+    "checkedAt": "2026-08-06T19:27:34.000Z",
+    "status": "blocked",
+    "summary": "No unavailable-direct candidate cleared every promotion gate. MN DNR 179 last reported 2026-04-30 09:45 AM, MN DNR 280 last reported 2026-05-20 11:00 AM, USGS 04021960 returned zero current time series, and MN DNR 341 reported 3 ft at 2026-08-06 12:30 PM but remains blocked by the current Stump Lake gauge-applicability rule."
+  },
+  "finalBoundedSweep": {
+    "completedAt": "2026-08-06T22:34:00.000Z",
+    "reviewed": ["otter-tail-river-wannigan-riverside"],
+    "result": "no_scored_route_added",
+    "reason": "Minnesota DNR strongly supports the Wannigan Road to Riverside Park route and its public access chain, but the product-supported Battle Lake gauge is downstream of the Frazee-area reach and the current scored publication gate does not allow proxy promotion.",
+    "nextAction": "Keep Minnesota planning-only candidates bounded and move to the next supported state unless a direct-gauge evidence change or explicit proxy policy decision occurs."
+  },
+  "conclusion": "Minnesota is provisionally saturated for the current direct-gauge scored-route policy: 145 scored routes remain live, 113 planning candidates remain explicitly excluded, and the final bounded sweep found no additional route that clears the scored publication gate.",
+  "riverGroups": [
+    {
+      "river": "Mississippi River",
+      "planningRoutes": 26
+    },
+    {
+      "river": "Minnesota River",
+      "planningRoutes": 10
+    },
+    {
+      "river": "Rum River",
+      "planningRoutes": 7
+    },
+    {
+      "river": "Cottonwood River",
+      "planningRoutes": 6
+    },
+    {
+      "river": "St. Croix River",
+      "planningRoutes": 6
+    },
+    {
+      "river": "Crow Wing River",
+      "planningRoutes": 5
+    },
+    {
+      "river": "Sauk River",
+      "planningRoutes": 5
+    },
+    {
+      "river": "St. Louis River",
+      "planningRoutes": 4
+    },
+    {
+      "river": "Vermilion River",
+      "planningRoutes": 4
+    },
+    {
+      "river": "Brule River",
+      "planningRoutes": 3
+    },
+    {
+      "river": "Cedar River",
+      "planningRoutes": 3
+    },
+    {
+      "river": "Cloquet River",
+      "planningRoutes": 3
+    },
+    {
+      "river": "North Fork Crow River",
+      "planningRoutes": 3
+    },
+    {
+      "river": "Otter Tail River",
+      "planningRoutes": 3
+    },
+    {
+      "river": "Red Lake River",
+      "planningRoutes": 3
+    },
+    {
+      "river": "Big Fork River",
+      "planningRoutes": 2
+    },
+    {
+      "river": "Devil Track River",
+      "planningRoutes": 2
+    },
+    {
+      "river": "Pine River",
+      "planningRoutes": 2
+    },
+    {
+      "river": "Straight River",
+      "planningRoutes": 2
+    },
+    {
+      "river": "Big Sucker Creek",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Cannon River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Cascade River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Des Moines River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Kadunce River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Long Prairie River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "North Fork Zumbro River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Pigeon River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Pomme de Terre River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Red River of the North",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Redwood River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Shell Rock River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "South Fork Crow River",
+      "planningRoutes": 1
+    },
+    {
+      "river": "Watonwan River",
+      "planningRoutes": 1
+    }
+  ],
+  "routes": [
+    {
+      "slug": "redwood-river-vesta-wabasso",
+      "river": "Redwood River",
+      "reach": "Vesta to Wabasso",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "196",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Promotion reviewed 2026-08-06: preserve as planning-only because Redwood Falls site 196 / USGS 05316500 is downstream of Wabasso, Russell/Marshall sites 194/195 and USGS 05315000 are upstream of Vesta, and no product-supported direct gauge exists within the Vesta-to-Wabasso reach."
+    },
+    {
+      "slug": "north-fork-zumbro-river-covered-bridge-walking-bridge",
+      "river": "North Fork Zumbro River",
+      "reach": "Covered Bridge Park to Walking Bridge Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "311",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Promotion reviewed 2026-08-06: preserve as planning-only because MN DNR site 311 is fresh but located at river mile 54.7, downstream of Walking Bridge Park river mile 60.1; no product-supported direct gauge exists within the Covered Bridge Park-to-Walking Bridge Park reach."
+    },
+    {
+      "slug": "big-fork-river-highway-6-north-johnson",
+      "river": "Big Fork River",
+      "reach": "Highway 6 North to Johnson Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "281",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Promotion reviewed 2026-08-06: preserve as planning-only for scored-route accounting because Craigsville site 281 is fresh but at river mile 91.6, upstream of the Highway 6 North put-in at river mile 75.8; no product-supported direct gauge exists within the Highway-6-North-to-Johnson reach."
+    },
+    {
+      "slug": "red-lake-river-smiley-bridge-centennial-park",
+      "river": "Red Lake River",
+      "reach": "Smiley Bridge to Centennial Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "179",
+      "gaugeKind": "direct",
+      "thresholdModel": "two-sided",
+      "classification": "unavailable_direct_gauge",
+      "nextAction": "Provider rechecked 2026-08-06: site 179 remains stale to 2026-04-30 09:45 AM; keep planning-only until fresh product data returns."
+    },
+    {
+      "slug": "otter-tail-river-wannigan-riverside",
+      "river": "Otter Tail River",
+      "reach": "Wannigan Road to Riverside Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "344",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-croix-river-sand-creek-highway-70",
+      "river": "St. Croix River",
+      "reach": "Sand Creek Landing to Highway 70 Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "212",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-croix-river-highway-70-sunrise",
+      "river": "St. Croix River",
+      "reach": "Highway 70 Landing to Sunrise Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "236",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-croix-river-sunrise-wild-river",
+      "river": "St. Croix River",
+      "reach": "Sunrise Landing to Wild River State Park Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "236",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-croix-river-osceola-william-obrien",
+      "river": "St. Croix River",
+      "reach": "Osceola Landing to William O'Brien State Park hand-carry take-out",
+      "gaugeProvider": "usgs",
+      "gaugeSiteId": "05340500",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-croix-river-william-obrien-boomsite",
+      "river": "St. Croix River",
+      "reach": "William O'Brien State Park hand-carry launch to Boom Site Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "236",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "rum-river-germanium-south-county-park",
+      "river": "Rum River",
+      "reach": "Germanium to South County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "211",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "rum-river-walbo-cambridge-west",
+      "river": "Rum River",
+      "reach": "Walbo Access to Cambridge West Park",
+      "gaugeProvider": "usgs",
+      "gaugeSiteId": "05286000",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cottonwood-river-springfield-highway-4",
+      "river": "Cottonwood River",
+      "reach": "Springfield to Highway 4",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "42",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "pine-river-norway-pine-river-1",
+      "river": "Pine River",
+      "reach": "Norway Lake to Pine River #1",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "316",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "pine-river-cross-lake-rock-dam",
+      "river": "Pine River",
+      "reach": "Cross Lake to Rock Dam",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "316",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-franklin-mack-lake",
+      "river": "Minnesota River",
+      "reach": "Franklin City Park to Mack Lake Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "107",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-henderson-belle-plaine",
+      "river": "Minnesota River",
+      "reach": "Henderson Station to Belle Plaine",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "112",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-henderson-station-thompson-ferry",
+      "river": "Minnesota River",
+      "reach": "Henderson Station to Thompson Ferry",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "112",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-belle-plaine-thompson-ferry",
+      "river": "Minnesota River",
+      "reach": "Belle Plaine to Thompson Ferry",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "112",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-belle-plaine-carver",
+      "river": "Minnesota River",
+      "reach": "Belle Plaine to Carver Riverfront Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "112",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-dayton-mississippi-gateway",
+      "river": "Mississippi River",
+      "reach": "Dayton to Mississippi Gateway Regional Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "302",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-norin-babcock",
+      "river": "Mississippi River",
+      "reach": "Norin Landing to Babcock Public Water Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "302",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-babcock-peninsula-point",
+      "river": "Mississippi River",
+      "reach": "Babcock Public Water Access to Peninsula Point Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "302",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-east-river-flats-hidden-falls",
+      "river": "Mississippi River",
+      "reach": "East River Flats to Hidden Falls Regional Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "133",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "north-fork-crow-river-bill-anderson-humphrey-arends",
+      "river": "North Fork Crow River",
+      "reach": "Bill Anderson Memorial County Park to Humphrey-Arends Memorial County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "308",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "south-fork-crow-river-otter-lake-masonic",
+      "river": "South Fork Crow River",
+      "reach": "Otter Lake West to Western / Masonic City Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "52",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cloquet-river-island-lake-bachelor-road",
+      "river": "Cloquet River",
+      "reach": "Island Lake Dam to Bachelor Road",
+      "gaugeProvider": "usgs",
+      "gaugeSiteId": "04021960",
+      "gaugeKind": "direct",
+      "thresholdModel": "minimum-only",
+      "classification": "unavailable_direct_gauge",
+      "nextAction": "Provider rechecked 2026-08-06: USGS 04021960 returned zero current time series; keep planning-only until product-fetchable current observations return."
+    },
+    {
+      "slug": "crow-wing-river-huntersville-north-mary-brown",
+      "river": "Crow Wing River",
+      "reach": "Huntersville North to Mary Brown",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "55",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-croix-river-wild-river-lions-park",
+      "river": "St. Croix River",
+      "reach": "Wild River State Park Landing to Taylors Falls Lion's Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "236",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "rum-river-highway-7-walbo",
+      "river": "Rum River",
+      "reach": "Highway 7 Access to Walbo Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "211",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "rum-river-princeton-highway-7",
+      "river": "Rum River",
+      "reach": "Princeton City Park to Highway 7 Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "211",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "sauk-river-horseshoe-lions-park",
+      "river": "Sauk River",
+      "reach": "Horseshoe Lake Access to Lions Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "328",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "crow-wing-river-little-white-dog-cottingham",
+      "river": "Crow Wing River",
+      "reach": "Little White Dog County Park to Cottingham County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "55",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "crow-wing-river-cottingham-old-wadena",
+      "river": "Crow Wing River",
+      "reach": "Cottingham County Park to Old Wadena County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "55",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "crow-wing-river-old-wadena-green-oak",
+      "river": "Crow Wing River",
+      "reach": "Old Wadena County Park to Green Oak Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "58",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "crow-wing-river-green-oak-lake-placid",
+      "river": "Crow Wing River",
+      "reach": "Green Oak Landing to Lake Placid Reservoir Landing #3",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "58",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cottonwood-river-highway-15-courtland",
+      "river": "Cottonwood River",
+      "reach": "Highway 15 Access to Courtland Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "39",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-little-falls-pike-creek",
+      "river": "Mississippi River",
+      "reach": "Little Falls Dam to Pike Creek Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "149",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "vermilion-river-twomile-eightmile",
+      "river": "Vermilion River",
+      "reach": "Twomile Creek to Eightmile Creek",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "342",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "vermilion-river-shively-eightmile",
+      "river": "Vermilion River",
+      "reach": "Shively Falls to Eightmile Creek",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "342",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "vermilion-river-eightmile-county-road-24",
+      "river": "Vermilion River",
+      "reach": "Eightmile Creek to County Road 24",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "342",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-snuffies-montissippi",
+      "river": "Mississippi River",
+      "reach": "Snuffie's Landing to Montissippi County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "129",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-montissippi-norin",
+      "river": "Mississippi River",
+      "reach": "Montissippi County Park to Norin Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "129",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-louis-river-county-road-4-95",
+      "river": "St. Louis River",
+      "reach": "County Road 4 to County Road 95",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "244",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-louis-river-zim-toivola",
+      "river": "St. Louis River",
+      "reach": "Zim to Toivola",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "244",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-louis-river-toivola-county-road-29",
+      "river": "St. Louis River",
+      "reach": "Toivola to County Road 29",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "338",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-crow-wing-state-park-fort-ripley",
+      "river": "Mississippi River",
+      "reach": "Crow Wing State Park to Fort Ripley Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "121",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "sauk-river-mill-pond-oak-township",
+      "river": "Sauk River",
+      "reach": "Mill Pond to Oak Township County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "328",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-blackberry-bridge-county-road-72",
+      "river": "Mississippi River",
+      "reach": "Blackberry Bridge to County Road 72",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "124",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-county-road-72-county-line",
+      "river": "Mississippi River",
+      "reach": "County Road 72 to County Line Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "124",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-county-line-jacobson",
+      "river": "Mississippi River",
+      "reach": "County Line Access to Jacobson Campground",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "124",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "otter-tail-river-phelps-mill-west-lost-lake",
+      "river": "Otter Tail River",
+      "reach": "Phelps Mill County Park to West Lost Lake",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "159",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "sauk-river-sauk-centre-dam-mill-pond",
+      "river": "Sauk River",
+      "reach": "Sauk Centre Dam to Mill Pond",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "328",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-highway-4-harkin-store",
+      "river": "Minnesota River",
+      "reach": "Highway 4 Access to Harkin Store",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "107",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-harkin-store-buessman",
+      "river": "Minnesota River",
+      "reach": "Harkin Store to Buessman Bridge",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "96",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "north-fork-crow-river-highway-4-manannah",
+      "river": "North Fork Crow River",
+      "reach": "Highway 4 to Manannah",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "47",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "red-lake-river-highway-1-st-hilaire",
+      "river": "Red Lake River",
+      "reach": "Highway 1 / Centennial Park to St. Hilaire City Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "180",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-palisade-waldeck",
+      "river": "Mississippi River",
+      "reach": "Palisade to Waldeck Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "120",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-waldeck-kimball",
+      "river": "Mississippi River",
+      "reach": "Waldeck Landing to Kimball",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "120",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-highway-6-trommald",
+      "river": "Mississippi River",
+      "reach": "Highway 6 to Trommald",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "121",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-kiwanis-crow-wing-state-park",
+      "river": "Mississippi River",
+      "reach": "Kiwanis Park to Crow Wing State Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "121",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-overlook-belle-prairie",
+      "river": "Mississippi River",
+      "reach": "Overlook Park to Belle Prairie County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "121",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "red-lake-river-huot-crookston",
+      "river": "Red Lake River",
+      "reach": "Huot Park to Central Park Crookston",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "172",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "des-moines-river-christiania-ashley-park",
+      "river": "Des Moines River",
+      "reach": "Christiania Bridge to Ashley Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "259",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "otter-tail-river-phelps-mill-west-red-river-lake",
+      "river": "Otter Tail River",
+      "reach": "Phelps Mill County Park to West Red River Lake",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "159",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "st-louis-river-paupores-brookston",
+      "river": "St. Louis River",
+      "reach": "Paupores to Brookston",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "338",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cloquet-river-bear-lake-road-island-lake",
+      "river": "Cloquet River",
+      "reach": "Bear Lake Road to Island Lake",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "288",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "red-river-golden-grain-hilltop",
+      "river": "Red River of the North",
+      "reach": "Golden Grain to Hilltop",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "191",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-fort-ripley-fletcher-creek",
+      "river": "Mississippi River",
+      "reach": "Fort Ripley Landing to Fletcher Creek Trailer Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "121",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-fletcher-creek-overlook",
+      "river": "Mississippi River",
+      "reach": "Fletcher Creek to Overlook Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "121",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-sandy-lake-wolds-ferry",
+      "river": "Mississippi River",
+      "reach": "Sandy Lake Recreation Area to Wold's Ferry Crossing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "120",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-wolds-ferry-palisade",
+      "river": "Mississippi River",
+      "reach": "Wold's Ferry Crossing to Palisade",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "120",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-coffee-pot-bear-den",
+      "river": "Mississippi River",
+      "reach": "Coffee Pot Landing to Bear Den",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "155",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-county-road-12-dam-county-road-25",
+      "river": "Mississippi River",
+      "reach": "County Road 12 Dam to County Road 25",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "341",
+      "gaugeKind": "direct",
+      "thresholdModel": "two-sided",
+      "classification": "unavailable_direct_gauge",
+      "nextAction": "Provider rechecked 2026-08-06: site 341 is fresh, but the Stump Lake stage gauge remains blocked by the current route-applicability rule; needs human/product judgment before promotion."
+    },
+    {
+      "slug": "mississippi-river-county-road-25-knutson-dam",
+      "river": "Mississippi River",
+      "reach": "County Road 25 to Knutson Dam Recreation Area",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "341",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "unavailable_direct_gauge",
+      "nextAction": "Provider rechecked 2026-08-06: site 341 is fresh, but this route is still a proxy/lake-transition card and does not satisfy the direct-gauge promotion gate."
+    },
+    {
+      "slug": "mississippi-river-iron-bridge-county-road-12-dam",
+      "river": "Mississippi River",
+      "reach": "Iron Bridge to County Road 12 Dam",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "341",
+      "gaugeKind": "direct",
+      "thresholdModel": "two-sided",
+      "classification": "unavailable_direct_gauge",
+      "nextAction": "Provider rechecked 2026-08-06: site 341 is fresh, but the Stump Lake stage gauge remains blocked by the current route-applicability rule; needs human/product judgment before promotion."
+    },
+    {
+      "slug": "minnesota-river-kinney-skalbekken",
+      "river": "Minnesota River",
+      "reach": "Kinney Access to Skalbekken County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "107",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-war-memorial-kinney",
+      "river": "Minnesota River",
+      "reach": "War Memorial Park to Kinney Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "99",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cannon-river-riverside-miesville",
+      "river": "Cannon River",
+      "reach": "Riverside Park to Miesville Ravine County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "13",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cedar-river-ramsey-austin-mill-pond",
+      "river": "Cedar River",
+      "reach": "Ramsey Mill Pond to Austin Mill Pond",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "287",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cedar-river-austin-mill-pond-marcusen",
+      "river": "Cedar River",
+      "reach": "Austin Mill Pond to Marcusen Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "286",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-knutson-dam-west-winnie",
+      "river": "Mississippi River",
+      "reach": "Knutson Dam Recreation Area to West Winnie Campground",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "116",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "rum-river-wayside-milaca",
+      "river": "Rum River",
+      "reach": "Wayside Landing to Milaca Dam Site",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "207",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "rum-river-riverview-county-road-4",
+      "river": "Rum River",
+      "reach": "Riverview Park to County Road 4",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "207",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cedar-river-riverwood-state-line",
+      "river": "Cedar River",
+      "reach": "Riverwood Landing to State Line Road",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "286",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "straight-river-county-road-45-medford",
+      "river": "Straight River",
+      "reach": "County Road 45 to Medford City Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "247",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "watonwan-river-madelia-county-road-32",
+      "river": "Watonwan River",
+      "reach": "Madelia to County Road 32",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "254",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "pomme-de-terre-river-koosman-larson",
+      "river": "Pomme de Terre River",
+      "reach": "Koosman Access to Larson Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "168",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cottonwood-river-highway-4-county-road-10",
+      "river": "Cottonwood River",
+      "reach": "Highway 4 Access to County Road 10",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "289",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cottonwood-river-county-road-10-county-road-11",
+      "river": "Cottonwood River",
+      "reach": "County Road 10 to County Road 11",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "289",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cottonwood-river-county-road-11-flandrau",
+      "river": "Cottonwood River",
+      "reach": "County Road 11 to Flandrau State Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "39",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cottonwood-river-flandrau-highway-15",
+      "river": "Cottonwood River",
+      "reach": "Flandrau State Park to Highway 15 Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "39",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "straight-river-medford-kroghs",
+      "river": "Straight River",
+      "reach": "Medford City Park to Kroghs Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "247",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "minnesota-river-buessman-riverside",
+      "river": "Minnesota River",
+      "reach": "Buessman Bridge to Riverside Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "96",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "sauk-river-oak-township-spring-hill",
+      "river": "Sauk River",
+      "reach": "Oak Township County Park to Spring Hill County Park",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "328",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "shell-rock-river-frank-hall-st-nicholas",
+      "river": "Shell Rock River",
+      "reach": "Frank Hall Park to St. Nicholas Landing / Albert Lea Lake",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "329",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cloquet-river-bachelor-road-highway-53",
+      "river": "Cloquet River",
+      "reach": "Bachelor Road to Highway 53 Wayside",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "38",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "mississippi-river-clearwater-snuffies",
+      "river": "Mississippi River",
+      "reach": "Clearwater to Snuffie's Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "129",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "north-fork-crow-river-forest-city-kingston",
+      "river": "North Fork Crow River",
+      "reach": "Forest City to Kingston",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "47",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "rum-river-cambridge-martins",
+      "river": "Rum River",
+      "reach": "Cambridge West Park to Martin's Landing",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "211",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "sauk-river-richmond-horseshoe-lake",
+      "river": "Sauk River",
+      "reach": "Richmond City Park to Horseshoe Lake",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "328",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "long-prairie-river-lake-carlos-highway-29",
+      "river": "Long Prairie River",
+      "reach": "Lake Carlos State Park to Highway 29",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "89",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "brule-river-lima-grade-gunflint-trail",
+      "river": "Brule River",
+      "reach": "Lima Grade to Gunflint Trail",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "01022001",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "brule-river-gunflint-trail-northern-light",
+      "river": "Brule River",
+      "reach": "Gunflint Trail to Northern Light Lake Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "01022001",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "brule-river-lima-grade-northern-light",
+      "river": "Brule River",
+      "reach": "Lima Grade to Northern Light Lake Access",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "01022001",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "big-fork-river-dora-lake-big-fork",
+      "river": "Big Fork River",
+      "reach": "Dora Lake to Big Fork / Lime Street",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "280",
+      "gaugeKind": "direct",
+      "thresholdModel": "two-sided",
+      "classification": "unavailable_direct_gauge",
+      "nextAction": "Provider rechecked 2026-08-06: site 280 remains stale to 2026-05-20 11:00 AM; keep planning-only until fresh product data returns."
+    },
+    {
+      "slug": "vermilion-river-dam-twomile",
+      "river": "Vermilion River",
+      "reach": "Vermilion Dam to Twomile Creek",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "342",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "big-sucker-creek-county-33-lake-superior",
+      "river": "Big Sucker Creek",
+      "reach": "County Road 33 to Lake Superior public beach",
+      "gaugeProvider": "usgs",
+      "gaugeSiteId": "04015330",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "pigeon-river-partridge-falls-old-highway-61",
+      "river": "Pigeon River",
+      "reach": "Partridge Falls to Old Highway 61 / MN 89",
+      "gaugeProvider": "usgs",
+      "gaugeSiteId": "04010500",
+      "gaugeKind": "proxy",
+      "thresholdModel": "two-sided",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "devil-track-river-lake-maple-hill",
+      "river": "Devil Track River",
+      "reach": "Devil Track Lake Outlet to Maple Hill / County Road 60",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "01022001",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "devil-track-river-maple-hill-lake-superior",
+      "river": "Devil Track River",
+      "reach": "Maple Hill to Lake Superior / East Beach",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "01022001",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "cascade-river-grade-cascade-road",
+      "river": "Cascade River",
+      "reach": "The Grade / Forest Road 153 to Cascade River Road / Forest Road 157",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "01022001",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    },
+    {
+      "slug": "kadunce-river-sht-highway-61",
+      "river": "Kadunce River",
+      "reach": "Superior Hiking Trail footbridge to Highway 61",
+      "gaugeProvider": "mn_dnr",
+      "gaugeSiteId": "01022001",
+      "gaugeKind": "proxy",
+      "thresholdModel": "minimum-only",
+      "classification": "proxy_planning_route",
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
+    }
+  ],
+  "planningRouteReview": {
+    "checkedAt": "2026-08-06T22:30:46.000Z",
+    "status": "blocked",
+    "slug": "big-fork-river-highway-6-north-johnson",
+    "summary": "Reviewed Minnesota planning route big-fork-river-highway-6-north-johnson for direct-gauge promotion. No route was added or promoted: MN DNR/public-access evidence remains strong for Highway 6 North WAS01792 at river mile 75.8 to Johnson WAS02708 at river mile 67.5, and Craigsville site 281 is fresh with official bands, but the gauge is upstream at river mile 91.6 rather than inside the reviewed reach. Keep the card planning-only for scored-route accounting until a reach-direct gauge or deliberate proxy-publication policy exists.",
+    "evidence": [
+      "MN DNR Big Fork Map 2 places Highway 6 North at river mile 75.8 and Johnson Landing at river mile 67.5, with Reilly Brook/Reilly Creek context and Johnson watercraft-campsite support inside the reach.",
+      "Minnesota public-water-access GIS resolves Highway 6 North / State Hwy 6 (S) WAS01792 at 48.034694214683626, -93.74155634703675 and Johnson WAS02708 at 48.0886283542472, -93.68169266740433.",
+      "MN DNR river-level JSON lists Big Fork Craigsville site 281 at river mile 91.6, 47.953553, -93.754329, upstream of the Highway 6 North put-in.",
+      "MN DNR site 281 was fresh at 4.85 ft on 2026-08-06 15:00 CDT with official 4.0 / 4.5-8.5 / 9.5 ft interpretation bands, but freshness does not make the upstream gauge direct.",
+      "The implemented app record already marks site 281 as proxy for this route, and route-publication keeps proxy routes out of scored Minnesota saturation."
+    ],
+    "nextAction": "Continue the Minnesota planning-to-scored audit with otter-tail-river-wannigan-riverside unless a direct Big Fork gauge or approved proxy-publication policy is added."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "canonicalStates": [
+    { "id": "AR", "name": "Arkansas" },
+    { "id": "IL", "name": "Illinois" },
+    { "id": "IN", "name": "Indiana" },
+    { "id": "IA", "name": "Iowa" },
+    { "id": "KS", "name": "Kansas" },
+    { "id": "KY", "name": "Kentucky" },
+    { "id": "MI", "name": "Michigan" },
+    { "id": "MN", "name": "Minnesota" },
+    { "id": "MO", "name": "Missouri" },
+    { "id": "NE", "name": "Nebraska" },
+    { "id": "ND", "name": "North Dakota" },
+    { "id": "OH", "name": "Ohio" },
+    { "id": "PA", "name": "Pennsylvania" },
+    { "id": "SD", "name": "South Dakota" },
+    { "id": "TN", "name": "Tennessee" },
+    { "id": "TX", "name": "Texas" },
+    { "id": "UT", "name": "Utah" },
+    { "id": "WI", "name": "Wisconsin" }
+  ],
+  "aliases": {
+    "Arkansas": "AR",
+    "Illinois": "IL",
+    "Indiana": "IN",
+    "Iowa": "IA",
+    "Kansas": "KS",
+    "Kentucky": "KY",
+    "Michigan": "MI",
+    "Minnesota": "MN",
+    "Missouri": "MO",
+    "Nebraska": "NE",
+    "North Dakota": "ND",
+    "Ohio": "OH",
+    "Pennsylvania": "PA",
+    "South Dakota": "SD",
+    "Tennessee": "TN",
+    "Texas": "TX",
+    "Utah": "UT",
+    "Wisconsin": "WI"
+  }
+}

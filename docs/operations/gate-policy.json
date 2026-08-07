@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "mergeMode": "automatic_after_all_gates",
+  "gates": [
+    { "id": "evidence", "required": true, "description": "Every changed route or product behavior has linked, reviewable evidence." },
+    { "id": "safety", "required": true, "description": "No unresolved safety, access, gauge, privacy, or data-integrity blocker remains." },
+    { "id": "verification", "required": true, "description": "An independent verifier confirms the change and its evidence package." },
+    { "id": "tests", "required": true, "description": "Focused tests, typechecks, route audits, and production build/smoke checks pass." },
+    { "id": "rollback", "required": true, "description": "A bounded rollback or revert path is identified before merge." }
+  ],
+  "failureHandling": "keep_task_open_and_record_failure",
+  "workflow": ".github/workflows/operations-gates.yml",
+  "humanEscalation": "required_for_policy_change_or_safety_exception"
+}

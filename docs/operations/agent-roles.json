@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "roles": [
+    { "id": "orchestrator", "kind": "deterministic", "canWriteCode": false, "purpose": "Rank work, enforce WIP, assign leases, and record outcomes." },
+    { "id": "demand-triage", "kind": "agent", "canWriteCode": false, "purpose": "Classify requests and feedback, detect duplicates, and prepare acknowledgments." },
+    { "id": "state-coverage", "kind": "agent", "canWriteCode": false, "purpose": "Evaluate scored coverage and assign bounded state research or saturation audits." },
+    { "id": "route-research", "kind": "agent", "canWriteCode": false, "purpose": "Gather source-backed gauge, threshold, access, endpoint, and safety evidence." },
+    { "id": "route-implementation", "kind": "agent", "canWriteCode": true, "purpose": "Implement one evidence-ready scored route and open a focused change." },
+    { "id": "product-analysis", "kind": "agent", "canWriteCode": false, "purpose": "Turn weekly metrics and demand into measurable product tasks." },
+    { "id": "product-implementation", "kind": "agent", "canWriteCode": true, "purpose": "Implement scoped product, SEO, adoption, or instrumentation changes." },
+    { "id": "independent-verifier", "kind": "agent", "canWriteCode": false, "purpose": "Review evidence and diffs independently before deterministic gates run." },
+    { "id": "gatekeeper", "kind": "deterministic", "canWriteCode": false, "purpose": "Run policy, safety, test, build, deploy, and smoke checks." }
+  ]
+}

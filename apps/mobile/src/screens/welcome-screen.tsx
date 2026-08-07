@@ -63,6 +63,7 @@ export default function WelcomeScreen() {
   const compactLayout = windowHeight < 740;
   const shortLayout = windowHeight < 680;
   const veryShortLayout = windowHeight < 620;
+  const narrowLayout = windowWidth < 360;
   const compactExplainer = windowHeight < 860;
   const slideWidth = carouselWidth || Math.max(280, windowWidth - 36);
   const bestPicks = useMemo(
@@ -356,14 +357,18 @@ export default function WelcomeScreen() {
               {scoreSignals.map((signal) => (
                 <View
                   key={signal.title}
-                  style={[styles.signalTile, compactExplainer ? styles.signalTileCompact : null]}
+                  style={[
+                    styles.signalTile,
+                    compactExplainer ? styles.signalTileCompact : null,
+                    veryShortLayout ? styles.signalTileVeryShort : null,
+                  ]}
                 >
                   <View style={[styles.signalIcon, compactExplainer ? styles.signalIconShort : null]}>
                     <MaterialCommunityIcons name={signal.icon} size={compactExplainer ? 17 : 20} color={colors.accent} />
                   </View>
                   <View style={styles.signalCopy}>
                     <Text style={styles.signalTitle}>{signal.title}</Text>
-                    <Text style={styles.signalLabel} numberOfLines={2}>{signal.label}</Text>
+                    <Text style={styles.signalLabel} numberOfLines={veryShortLayout ? 1 : 2}>{signal.label}</Text>
                   </View>
                 </View>
               ))}
@@ -375,7 +380,13 @@ export default function WelcomeScreen() {
               <View style={styles.connectorLine} />
             </View>
 
-            <View style={[styles.scoreResult, compactExplainer ? styles.scoreResultShort : null]}>
+            <View
+              style={[
+                styles.scoreResult,
+                compactExplainer ? styles.scoreResultShort : null,
+                veryShortLayout ? styles.scoreResultVeryShort : null,
+              ]}
+            >
               <View
                 style={[
                   styles.scoreOrb,
@@ -481,9 +492,14 @@ export default function WelcomeScreen() {
       </View>
 
       <View style={styles.carouselFooter}>
-        <View style={styles.paginationRow}>
-          <Text style={styles.paginationLabel}>{carouselIndex + 1} of 3</Text>
-          <View style={styles.paginationDots}>
+        <View style={[styles.paginationRow, narrowLayout ? styles.paginationRowNarrow : null]}>
+          <Text
+            numberOfLines={1}
+            style={[styles.paginationLabel, narrowLayout ? styles.paginationLabelNarrow : null]}
+          >
+            {carouselIndex + 1} of 3
+          </Text>
+          <View style={[styles.paginationDots, narrowLayout ? styles.paginationDotsNarrow : null]}>
             {[0, 1, 2].map((index) => (
               <Pressable
                 key={index}
@@ -768,6 +784,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surfaceStrong,
   },
   signalTileCompact: { minHeight: 54, padding: 6, gap: 6 },
+  signalTileVeryShort: { minHeight: 46, paddingVertical: 4 },
   signalIcon: {
     width: 34,
     height: 34,
@@ -799,6 +816,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvasMuted,
   },
   scoreResultShort: { padding: spacing.sm, gap: spacing.sm },
+  scoreResultVeryShort: { padding: 6, gap: 6 },
   scoreResultOrb: { width: 58, height: 58 },
   scoreResultOrbShort: { width: 48, height: 48, borderRadius: 14 },
   scoreResultCopy: { flex: 1, minWidth: 0 },
@@ -879,8 +897,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: spacing.sm,
   },
+  paginationRowNarrow: { gap: 0 },
   paginationLabel: { width: 46, color: colors.textMuted, fontSize: 11, fontWeight: '800' },
+  paginationLabelNarrow: { width: 40, flexShrink: 0 },
   paginationDots: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  paginationDotsNarrow: { gap: 0, flexShrink: 0 },
   paginationDotButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   paginationDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.border },
   paginationDotActive: { width: 24, backgroundColor: colors.accent },

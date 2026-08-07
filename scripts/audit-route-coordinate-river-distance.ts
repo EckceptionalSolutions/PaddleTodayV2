@@ -204,6 +204,11 @@ const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   // points and confirms the route is on the South Skunk River.
   'south-skunk-river-river-valley-cj-shreck': 3000,
   'south-skunk-river-lekwa-sopers-mill': 2500,
+  // South Dakota GFP's Jay Heath access layer and Mary Jo Wegner Arboretum
+  // document the Highway 42 canoe access as an official parking/launch area;
+  // the stored point is an access anchor next to the bridge, not the exact
+  // water-entry pixel on the generalized Big Sioux flowline.
+  'big-sioux-river-rec-area-south-highway-42': 500,
   // Nebraska Game & Parks' Loup River Water Trail guide names the Monroe
   // access, George Syas WMA access, and the Columbus takeout corridor.
   'loup-river-monroe-adm-access': 8000,

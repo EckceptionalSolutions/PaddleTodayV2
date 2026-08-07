@@ -8,7 +8,7 @@ import {
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
@@ -56,6 +56,8 @@ type MapCoordinate = { latitude: number; longitude: number };
 type HubAccessPoint = NonNullable<RiverDetailApiResult['river']['accessPoints']>[number];
 
 export default function RiverHubScreen() {
+  const { width: windowWidth } = useWindowDimensions();
+  const compactFacts = windowWidth < 360;
   const params = useLocalSearchParams<{ riverId?: string | string[] }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -298,10 +300,10 @@ export default function RiverHubScreen() {
                 <Text style={styles.subtitle}>
                   Plan a paddle across {regions.length} {regions.length === 1 ? 'paddle area' : 'paddle areas'}. Compare distance, difficulty, and today’s conditions.
                 </Text>
-                <View style={styles.heroFacts}>
-                  <HeroFact label="Mapped trips" value={String(result.group.routeCount)} />
-                  <HeroFact label="Distance range" value={distanceRangeLabel ?? 'Varies'} />
-                  <HeroFact label="Difficulty" value={difficultyLabel} />
+                <View style={[styles.heroFacts, compactFacts ? styles.heroFactsCompact : null]}>
+                  <HeroFact compact={compactFacts} label="Mapped trips" value={String(result.group.routeCount)} />
+                  <HeroFact compact={compactFacts} label="Distance range" value={distanceRangeLabel ?? 'Varies'} />
+                  <HeroFact compact={compactFacts} label="Difficulty" value={difficultyLabel} />
                 </View>
                 <Text style={styles.routeCalls}>{hubStatusLine(summary, result.group.routeCount)}</Text>
               </View>
@@ -556,9 +558,9 @@ function ReasonChip({ label }: { label: string }) {
   );
 }
 
-function HeroFact({ label, value }: { label: string; value: string }) {
+function HeroFact({ compact, label, value }: { compact?: boolean; label: string; value: string }) {
   return (
-    <View style={styles.heroFact}>
+    <View style={[styles.heroFact, compact ? styles.heroFactCompact : null]}>
       <Text style={styles.heroFactValue} numberOfLines={2}>{value}</Text>
       <Text style={styles.heroFactLabel}>{label}</Text>
     </View>
@@ -939,12 +941,20 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     paddingVertical: spacing.sm,
   },
+  heroFactsCompact: {
+    flexWrap: 'wrap',
+    rowGap: spacing.sm,
+  },
   heroFact: {
     flex: 1,
     minHeight: 48,
     paddingHorizontal: 8,
     justifyContent: 'center',
     gap: 2,
+  },
+  heroFactCompact: {
+    flexBasis: '46%',
+    minWidth: '46%',
   },
   heroFactLabel: {
     color: colors.textMuted,

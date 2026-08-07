@@ -64,6 +64,112 @@ export const southDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "big-sioux-river-rec-area-south-highway-42": {
+    "putIn": {
+      "name": "Big Sioux Recreation Area South canoe site",
+      "latitude": 43.573140888085128,
+      "longitude": -96.600475153291086
+    },
+    "takeOut": {
+      "name": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+      "latitude": 43.524737736047783,
+      "longitude": -96.600618160195765
+    },
+    "logistics": {
+      "distanceLabel": "About 4.8 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 3 hr depending on level, wind, and wood",
+      "shuttle": "Stage the take-out near the Highway 42 / Mary Jo Wegner Arboretum access, then drive to the Big Sioux Recreation Area South canoe site near Brandon. Use signed parking and access areas; South Dakota state park entrance, vehicle, or posted access rules may apply at Big Sioux Recreation Area.",
+      "permits": "No route-specific paddling permit is known. Follow South Dakota GFP Big Sioux Recreation Area rules and fees, Mary Jo Wegner Arboretum posted hours and rules, and any temporary launch or parking restrictions.",
+      "camping": "Endpoint-basecamp only. Big Sioux Recreation Area supports camping, but SD Hwy 42 is not a camping access; Jay Heath canoe-in sites elsewhere in the corridor require separate reservations and should not be inferred for this short day route.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from the SD GFP-managed Big Sioux Recreation Area South canoe site and take out near the Highway 42 bridge / Mary Jo Wegner Arboretum access for the 4.8-mile Jay Heath Trail segment named by GFP. Use USGS 06482020 at North Cliff Avenue as the direct same-river corridor check and treat 300 cfs as the conservative low-water floor.",
+      "accessCaveats": [
+        "GFP's Jay Heath access layer marks Big Sioux Rec Area South as Parking Yes, Launch Yes, Camping Yes, and a rock launch surface managed by South Dakota GFP.",
+        "GFP's layer marks SD Hwy 42 as a canoe site with parking but Launch No, while Mary Jo Wegner Arboretum separately documents kayak/canoe launching next to the Highway 42 bridge. Treat the stored take-out coordinate as an access anchor and identify the signed water-entry or landing point on arrival.",
+        "Do not substitute Big Sioux Recreation Area North, Lien Park, downtown Sioux Falls, or a longer Jay Heath segment without fresh access, dam, and hazard review.",
+        "Stay within legal public access and respect private banks; this short route does not imply intermediate public egress."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the North Cliff Avenue corridor gauge is below the 300 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, and fences or wire after rain or high water.",
+        "Limited-contact urban and agricultural water-quality concerns, especially after heavy rain or visible runoff.",
+        "Low-head-dam and diversion hazards elsewhere on the Big Sioux/Jay Heath corridor; this card starts below the upstream Sioux Falls hazard cluster and should not be extended without separate planning."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "big-sioux-rec-area-south",
+        "name": "Big Sioux Recreation Area South canoe site",
+        "latitude": 43.573140888085128,
+        "longitude": -96.600475153291086,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 19; Parking Yes, Launch Yes, Camping Yes, rock launch surface, SD GFP owned/managed."
+      },
+      {
+        "id": "sd-highway-42-mary-jo-wegner",
+        "name": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+        "latitude": 43.524737736047783,
+        "longitude": -96.600618160195765,
+        "mileFromStart": 4.8,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 18 is a parking canoe-site anchor; Mary Jo Wegner Arboretum documents practical canoe/kayak launch access on the park edge next to the Highway 42 bridge."
+      }
+    ]
+  },
+  "big-sioux-river-grandview-klondike-south": {
+    "putIn": {
+      "name": "Grandview canoe site",
+      "latitude": 43.4484919862431,
+      "longitude": -96.6024966707481
+    },
+    "takeOut": {
+      "name": "Klondike South canoe site",
+      "latitude": 43.3848345366483,
+      "longitude": -96.5221598039014
+    },
+    "logistics": {
+      "distanceLabel": "About 7.8 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr depending on level, wind, and wood",
+      "shuttle": "Stage the take-out at Klondike South, then drive to the Grandview access. Use the signed GFP access and parking areas at both ends and do not substitute Klondike North or Klondike East without a separate access check.",
+      "permits": "No route-specific paddling permit is known. Follow South Dakota GFP access rules, posted parking limits, and any temporary closure or high-water guidance.",
+      "camping": "No route camping. GFP's Jay Heath access layer marks both Grandview and Klondike South as Camping No; do not infer upstream canoe-in campsites or nearby parks as part of this day route.",
+      "campingClassification": "none",
+      "summary": "Launch from the SD GFP-managed Grandview canoe site and take out at Klondike South for the 7.8-mile Jay Heath Trail segment named by GFP. Use USGS 06482020 at North Cliff Avenue as the same-river corridor check and treat 300 cfs as the conservative low-water floor.",
+      "accessCaveats": [
+        "GFP's Jay Heath access layer marks Grandview as Parking Yes, Launch Yes, Camping No, and SD GFP owned/managed.",
+        "GFP's layer marks Klondike South as Parking Yes, Launch Yes, Camping No, and SD GFP owned/managed. Treat the stored coordinate as the access anchor and choose the signed water-entry or landing point on arrival.",
+        "Do not substitute Gitchie Manitou, Good Earth canoe-in campsite, Klondike North, Klondike East, or a longer lower Big Sioux segment without fresh access, camping, and hazard review.",
+        "Stay within legal public access and respect private banks; this short route does not imply intermediate public egress."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the North Cliff Avenue corridor gauge is below the 300 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, and fences or wire after rain or high water.",
+        "Limited-contact urban and agricultural water-quality concerns, especially after heavy rain or visible runoff.",
+        "Rock-crossing and landing complexity in the broader Klondike corridor; identify Klondike South before launching and take out as planned."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "grandview-canoe-site",
+        "name": "Grandview canoe site",
+        "latitude": 43.4484919862431,
+        "longitude": -96.6024966707481,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 16; Parking Yes, Launch Yes, Camping No, SD GFP owned/managed."
+      },
+      {
+        "id": "klondike-south-canoe-site",
+        "name": "Klondike South canoe site",
+        "latitude": 43.3848345366483,
+        "longitude": -96.5221598039014,
+        "mileFromStart": 7.8,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 14; Parking Yes, Launch Yes, Camping No, SD GFP owned/managed."
+      }
+    ]
+  },
   "split-rock-creek-split-rock-park-palisades": {
     "putIn": {
       "name": "Split Rock Park canoe/kayak launch",
