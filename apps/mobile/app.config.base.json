@@ -17,7 +17,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.paddletoday.mobile",
       "appStoreUrl": "https://apps.apple.com/app/id6769542734",
-      "buildNumber": "26",
+      "buildNumber": "27",
       "infoPlist": {
         "NSUserNotificationsUsageDescription": "PaddleToday can send route alerts when a saved river reaches your chosen paddling threshold.",
         "NSPhotoLibraryUsageDescription": "PaddleToday lets you attach route photos when you choose to submit paddling reports.",
