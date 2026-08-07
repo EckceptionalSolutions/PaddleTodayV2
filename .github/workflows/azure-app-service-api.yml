@@ -35,6 +35,9 @@ jobs:
           cp -R dist deploy-package/dist
           cp -R src deploy-package/src
           cp -R packages deploy-package/packages
+          mkdir -p deploy-package/docs deploy-package/automations
+          cp -R docs/operations deploy-package/docs/operations
+          cp -R automations/route-control-plane deploy-package/automations/route-control-plane
           mkdir deploy-package/vendor
           npm pack ./packages/api-contract --pack-destination deploy-package/vendor
           npm pack ./packages/geo --pack-destination deploy-package/vendor
@@ -46,7 +49,10 @@ jobs:
 
       - name: Verify packaged API starts
         run: |
-          node deploy-package/node_modules/tsx/dist/cli.mjs deploy-package/src/server/api-server.ts --static deploy-package/dist --port 4322 > deploy-package-startup.log 2>&1 &
+          (
+            cd deploy-package
+            node node_modules/tsx/dist/cli.mjs src/server/api-server.ts --static dist --port 4322
+          ) > deploy-package-startup.log 2>&1 &
           api_pid=$!
           trap 'kill $api_pid 2>/dev/null || true' EXIT
 
