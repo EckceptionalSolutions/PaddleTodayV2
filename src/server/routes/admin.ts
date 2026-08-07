@@ -19,7 +19,6 @@ import { appendRouteRequestReply, getRouteRequestByStorageKey, listRouteRequests
 import { listRouteAudits, updateRouteAudit } from '../../lib/route-audits';
 import { getRiverBySlug } from '../../lib/rivers';
 import { listRiverAlerts } from '../../lib/alerts';
-import { getOperationsSnapshot } from '../../lib/operations';
 import { getGitHubTelemetry } from '../../lib/github-telemetry';
 
 export async function handleAdminSessionStatus(
@@ -488,7 +487,8 @@ export async function handleAdminOperationsSnapshot(
   }
 
   try {
-    const [requests, submissions, github] = await Promise.all([
+    const [{ getOperationsSnapshot }, requests, submissions, github] = await Promise.all([
+      import('../../lib/operations'),
       listRouteRequests(),
       listRouteContributionSubmissions({ status: 'pending' }),
       getGitHubTelemetry(),
