@@ -4,9 +4,9 @@ Last summarized: 2026-08-07.
 
 ## Current Inventory
 
-- Live routes: 9.
+- Live routes: 12.
 - Rivers represented: Big Sioux River, Skunk Creek, Split Rock Creek.
-- Ledger candidates: 26 total; 9 `added`, 1 `blocked_until_date`, 10 `access_legitimacy`, 2 `no_live_gauge`, 2 `threshold_weak`, 2 `research_later`.
+- Ledger candidates: 29 total; 12 `added`, 1 `blocked_until_date`, 10 `access_legitimacy`, 2 `no_live_gauge`, 2 `threshold_weak`, 2 `research_later`.
 
 ## Status
 
@@ -23,6 +23,45 @@ South Dakota has sparse coverage and a small candidate base. It is not exhausted
 - Use targeted research rather than cadence.
 - Prioritize corridors with official public access, direct USGS gauges, and manager/local level guidance.
 - Avoid shipping route records from access-map presence alone.
+
+## 2026-08-07 Five-Candidate No-Add Review
+
+- No route added. Screened five distinct South Dakota leads after the latest lower Big Sioux additions: `sd-big-sioux-canton-newton-hills`, `sd-big-sioux-newton-hills-fairview`, `sd-big-sioux-fairview-oak-ridge`, `sd-big-sioux-ia-3-sd-50-sioux-city`, and `sd-missouri-river-fort-randall-running-water`.
+- Canton-to-Newton-Hills has Sioux Empire Paddlers Big Sioux Circuit route context, Jay Heath/SouthDakotaKayak 9-mile trip context, and SD GFP launch-supported Canton/Newton Hills endpoint records, but remains blocked by missing route-specific numeric threshold/gauge guidance and current safety handling for the dismantled low-head-dam debris/rapids noted near the Canton put-in.
+- Newton-Hills-to-Fairview and Fairview-to-Oak-Ridge have SD GFP launch-supported endpoint records and Big Sioux Circuit route names, but no route-specific numeric floor/range or accepted proxy relationship surfaced for the product-live North Cliff/Akron gauges. Do not stretch the previously accepted downstream Akron or North Cliff packages upstream without source support.
+- IA-3 / SD Hwy 50-to-Sioux-City is blocked by access and safety: IA-12 is Parking No / Launch No, the next launch-supported layer endpoint is the private/fee Missouri River Boat Club, the route is 30.7 miles, and no public take-out/camping/threshold/safety package surfaced.
+- Missouri River Fort Randall/Randall Creek-to-Running-Water has strong NPS 39-mile route/access/camping/safety context, but remains blocked by product-supported live-gauge/threshold support. USGS `06467500` returned Yankton stage only at 10.70 ft on 2026-08-07 19:30 CDT and no discharge; do not substitute stage-only downstream data or event context for Fort Randall release thresholds.
+- Next rotation: continue South Dakota only with distinct leads outside shipped and newly blocked candidates, or move only if the task board changes. Retry these five only with fresh threshold/gauge, public access, camping, or safety evidence that clears the named blocker.
+
+## 2026-08-07 Big Sioux Ron Wilmot-IA-3 / SD Hwy 50 Add
+
+- Added `big-sioux-river-ron-wilmot-ia-3-sd-50` as a 5.4-mile lower Jay Heath / Big Sioux route from Ron Wilmot River Access to the IA-3 / SD Hwy 50 concrete launch near Westfield.
+- Evidence package: SD GFP's CanoeTrails FeatureServer marks Ron Wilmot and IA-3 / SD Hwy 50 as Parking Yes / Launch Yes concrete-launch access points, with both selected endpoint records Camping No. Plymouth County/MyCountyParks independently confirms Ron Wilmot has a boat ramp and parking for Big Sioux River access.
+- Gauge/threshold: USGS `06485500` Big Sioux River at Akron returned product-ready values of 521 cfs / 4.99 ft at 2026-08-07 18:00 CDT. Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs, so the route uses a conservative minimum-only floor.
+- Camping: nearby-basecamp only. River's Bend Wildlife Area and Lazy H Campground support separate nearby camping, but neither is treated as a route launch, endpoint campground, or informal river-camping permission.
+- Safety/access: route copy keeps no-extension handling at IA-3 / SD Hwy 50, limited public egress, private banks, wind, water quality, fences/wood/strainers, flood-shifted landing checks, and non-route-access distinctions for River's Bend, Lazy H, IA-12, Sioux City, the private Missouri River Boat Club, and the Missouri confluence.
+- Gallery: bounded no-image result after GFP / Sioux Empire / Plymouth County / USGS / Commons / same-route review found no clearly rights-clean exact Ron-Wilmot-to-IA-3 / SD-Hwy-50 paddling asset selected for local reuse.
+- Next rotation should not repeat this shipped segment. Continue with distinct candidates beyond the shipped/reactivated and blocked list; any downstream IA-3 / SD-Hwy-50-to-Sioux-City idea must still re-prove route-specific public endpoints, camping, safety, thresholds, and image decisions.
+
+## 2026-08-07 Big Sioux Akron-Ron Wilmot Add
+
+- Added `big-sioux-river-akron-ron-wilmot` as a 7.5-mile lower Jay Heath / Big Sioux route from the City of Akron concrete launch to Ron Wilmot River Access.
+- Evidence package: SD GFP's CanoeTrails FeatureServer marks Akron and Ron Wilmot as Parking Yes / Launch Yes concrete-launch access points, with both selected endpoint records Camping No. Plymouth County/MyCountyParks independently confirms Ron Wilmot has a boat ramp and parking for Big Sioux River access.
+- Gauge/threshold: USGS `06485500` Big Sioux River at Akron returned product-ready values of 521 cfs / 4.99 ft at 2026-08-07 17:00 CDT. Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs, so the route uses a conservative minimum-only floor.
+- Camping: nearby-basecamp only. River's Bend Wildlife Area and Akron City Park support separate nearby camping, but River's Bend is not treated as the river take-out and no informal/private-bank camping is inferred.
+- Safety/access: route copy keeps no-extension handling at Ron Wilmot, limited public egress, private banks, wind, water quality, fences/wood/strainers, flood-shifted landing checks, and non-route-access distinctions for SD Hwy 48, River's Bend, Lazy H, and IA-3/SD 50.
+- Gallery: bounded no-image result after GFP / Sioux Empire / Plymouth County / USGS / Commons / same-route review found no clearly rights-clean exact Akron-to-Ron-Wilmot paddling asset selected for local reuse.
+- Next rotation should not repeat this shipped segment. Continue with distinct candidates beyond the shipped/reactivated and blocked list; Ron-Wilmot-to-IA-3/SD-50 or downstream Sioux City ideas must still re-prove route-specific public endpoints, camping, safety, thresholds, and image decisions.
+
+## 2026-08-07 Big Sioux Big Sioux County Park-Akron Add
+
+- Added `big-sioux-river-big-sioux-county-park-akron` as a 3.2-mile Jay Heath / Big Sioux route from Big Sioux County Park to the City of Akron concrete launch.
+- Evidence package: SD GFP's CanoeTrails FeatureServer marks Big Sioux County Park and Akron as Parking Yes / Launch Yes concrete-launch access points, with both selected endpoint records Camping No; GFP stores the Big Sioux County Park downstream segment as 3.2 water miles.
+- Gauge/threshold: USGS `06485500` Big Sioux River at Akron returned product-ready reach values of 518 cfs / 4.98 ft at 2026-08-07 16:00 CDT. Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs, so the route uses a conservative minimum-only floor.
+- Camping: nearby-basecamp only. River's Bend Wildlife Area and Akron City Park campground records support separate nearby camping, but the selected launch records are Camping No and no informal/private-bank camping is inferred.
+- Safety/access: route copy keeps no-extension, flood/road-closure, fence, wood/strainer, water-quality, private-bank, wind, and limited-egress caveats. Stored coordinates are public concrete-launch access anchors, with users directed to follow current signs and landing conditions.
+- Gallery: bounded no-image result after GFP / Sioux Empire / Plymouth County / USGS / Commons / same-route review found no clearly rights-clean exact Big-Sioux-County-Park-to-Akron paddling asset selected for local reuse.
+- Next rotation should not repeat this shipped segment. Continue with distinct candidates beyond the shipped/reactivated and blocked lead list; downstream Akron/River's Bend/IA-3/Sioux City ideas must still re-prove public endpoints, camping, safety, thresholds, and image decisions.
 
 ## 2026-08-07 Big Sioux Oak Ridge-Oak Grove Add
 

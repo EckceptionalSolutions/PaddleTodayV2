@@ -1,7 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-07T20:55:27.030Z",
+  "updatedAt": "2026-08-08T00:52:00.000Z",
   "notes": [
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review screened five distinct non-duplicate leads after the latest lower Big Sioux additions: Big Sioux Canton-to-Newton-Hills, Newton-Hills-to-Fairview, Fairview-to-Oak-Ridge, IA-3/SD-Hwy-50-to-Sioux-City/Missouri-River-Boat-Club, and Missouri National Recreational River 39-mile Fort-Randall-to-Running-Water. No route was added. The three Canton/Newton/Fairview/Oak-Ridge leads have SD GFP launch-supported endpoints and Big Sioux Circuit route names, but no route-specific numeric threshold or accepted gauge relationship surfaced beyond already-used North Cliff/Akron guidance. The IA-3/SD-50 downstream extension is blocked by the private/fee Missouri River Boat Club take-out, IA-12 no-launch gap, long 30.7-mile shape, and no separate threshold/safety package. The MNRR 39-mile reach has strong NPS route/access/camping/safety context but remains blocked because product-supported USGS data exposed Yankton stage only and the route depends on dam-release conditions without a supported discharge adapter."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "Added South Dakota Big Sioux River / Ron Wilmot River Access to IA-3 / SD Hwy 50 as a 5.4-mile lower Jay Heath route. Evidence package includes SD GFP ArcGIS access records for launch-supported concrete endpoints, Plymouth County/MyCountyParks Ron Wilmot access support, Sioux Empire Paddlers Akron 400 cfs guidance, USGS 06485500 product-ready lower-corridor data at 521 cfs / 4.99 ft on 2026-08-07 18:00 CDT, nearby-basecamp-only camping evidence, safety caveats for no-extension / fences / wood / water quality / private banks / wind, generated geometry requirements, route coordinates, and a bounded no-image decision."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "Added South Dakota Big Sioux River / Big Sioux County Park to Akron as a 3.2-mile Jay Heath route. Evidence package includes SD GFP ArcGIS access records for Big Sioux County Park and Akron, GFP segment mileage, Sioux Empire Paddlers Akron 400 cfs guidance, MyCountyParks Big Sioux Park and River's Bend camping/access support, USGS 06485500 product-ready lower-corridor data at 518 cfs / 4.98 ft on 2026-08-07 16:00 CDT, safety caveats for fences/wood/water quality/private banks/no extension, generated geometry, route coordinates, and a bounded no-image decision."
+    },
     {
       "date": "2026-08-07",
       "automation": "paddletoday-hourly-route-worker",
@@ -57740,6 +57755,301 @@
       },
       "notes": "Added to V2 after the first screened fresh South Dakota candidate qualified; current gauge was above the 400 cfs Akron floor.",
       "updatedAt": "2026-08-07T19:57:57.345Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-big-sioux-county-park-akron",
+      "river": "Big Sioux River",
+      "route": "Big Sioux County Park to Akron",
+      "state": "SD",
+      "status": "added",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP Jay Heath Canoe & Kayak Trail map/PDF reviewed 2026-08-07",
+        "South Dakota GFP CanoeTrails FeatureServer access/camping records reviewed 2026-08-07",
+        "Sioux Empire Paddlers Big Sioux Circuit and flow-rates pages reviewed 2026-08-07",
+        "Plymouth County/MyCountyParks Big Sioux Park boating page reviewed 2026-08-07",
+        "Plymouth County/MyCountyParks River's Bend Wildlife Area page reviewed 2026-08-07",
+        "USGS 06485500 monitoring and Water Services reviewed 2026-08-07",
+        "South Dakota GFP paddling and Friends of the Big Sioux resources reviewed 2026-08-07",
+        "Commons and same-route web image search reviewed 2026-08-07"
+      ],
+      "v2Slug": "big-sioux-river-big-sioux-county-park-akron",
+      "gauge": {
+        "quality": "direct_reach_product_live",
+        "id": "06485500",
+        "provider": "USGS",
+        "notes": "USGS 06485500 Big Sioux River at Akron, IA sits inside the selected reach. Water Services returned 518 cfs / 4.98 ft at 2026-08-07 16:00 CDT with one-day discharge and stage series."
+      },
+      "thresholdSupport": {
+        "strength": "community_minimum_only_direct_reach",
+        "notes": "Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs. The implemented route uses a conservative minimum-only 400 cfs floor and does not infer ideal/high bands."
+      },
+      "endpoints": {
+        "putIn": "Big Sioux County Park concrete launch",
+        "takeOut": "Akron concrete launch",
+        "putInCoords": {
+          "lat": 42.85107412010523,
+          "lon": -96.54369171079088
+        },
+        "takeOutCoords": {
+          "lat": 42.829938010040166,
+          "lon": -96.56098008136513
+        },
+        "coordinateSource": "SD GFP ArcGIS access records; stored coordinates are concrete-launch access anchors. Big Sioux Park page independently supports a concrete boat ramp and gravel parking lot, with road closure caveats during flood/hunting conditions."
+      },
+      "camping": {
+        "status": "nearby_basecamp",
+        "notes": "SD GFP marks the selected Big Sioux County Park and Akron launch records Camping No. Nearby River's Bend Wildlife Area and Akron City Park campground records support separate basecamp options. No endpoint, informal river, or private-bank camping is inferred."
+      },
+      "safety": {
+        "status": "reviewed",
+        "notes": "Route copy keeps short-route/no-extension handling, limited public egress, flood/road closure, fences, wood/strainers, water-quality timing, private-bank limits, wind exposure, and current access checks. No hard dam/takeout blocker surfaced for the selected segment."
+      },
+      "image": {
+        "status": "no_image_bounded",
+        "notes": "Bounded GFP / Sioux Empire / Plymouth County / USGS / Commons / same-route review found no clearly rights-clean exact Big-Sioux-County-Park-to-Akron paddling asset selected for local reuse."
+      },
+      "notes": "Added to V2 after the first screened fresh South Dakota candidate qualified; current gauge was above the 400 cfs Akron floor.",
+      "updatedAt": "2026-08-07T21:51:18.642Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-akron-ron-wilmot",
+      "river": "Big Sioux River",
+      "route": "Akron to Ron Wilmot River Access",
+      "state": "SD",
+      "status": "added",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP Jay Heath Canoe & Kayak Trail map/PDF reviewed 2026-08-07",
+        "South Dakota GFP CanoeTrails FeatureServer access/camping records reviewed 2026-08-07",
+        "Sioux Empire Paddlers flow-rates page reviewed 2026-08-07",
+        "Plymouth County/MyCountyParks Ron Wilmot River Access and canoeing/kayaking pages reviewed 2026-08-07",
+        "Plymouth County/MyCountyParks River's Bend Wildlife Area page reviewed 2026-08-07",
+        "USGS 06485500 monitoring and Water Services reviewed 2026-08-07",
+        "South Dakota GFP paddling and Friends of the Big Sioux resources reviewed 2026-08-07",
+        "Commons and same-route web image search reviewed 2026-08-07"
+      ],
+      "v2Slug": "big-sioux-river-akron-ron-wilmot",
+      "gauge": {
+        "quality": "direct_put_in_product_live",
+        "id": "06485500",
+        "provider": "USGS",
+        "notes": "USGS 06485500 Big Sioux River at Akron, IA is near the selected put-in. Water Services returned 521 cfs / 4.99 ft at 2026-08-07 17:00 CDT with one-day discharge and stage series."
+      },
+      "thresholdSupport": {
+        "strength": "community_minimum_only_direct_corridor",
+        "notes": "Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs. The implemented route uses a conservative minimum-only 400 cfs floor and does not infer ideal/high bands."
+      },
+      "endpoints": {
+        "putIn": "Akron concrete launch",
+        "takeOut": "Ron Wilmot River Access concrete launch",
+        "putInCoords": {
+          "lat": 42.829938010040166,
+          "lon": -96.56098008136513
+        },
+        "takeOutCoords": {
+          "lat": 42.793412144267485,
+          "lon": -96.59396920107712
+        },
+        "coordinateSource": "SD GFP ArcGIS access records; stored coordinates are concrete-launch access anchors. MyCountyParks independently confirms Ron Wilmot has a boat ramp and parking for Big Sioux River access."
+      },
+      "camping": {
+        "status": "nearby_basecamp",
+        "notes": "SD GFP marks the selected Akron and Ron Wilmot launch records Camping No. Nearby River's Bend Wildlife Area and Akron City Park campground records support separate basecamp options. River's Bend is not treated as a river launch or endpoint campground; no informal river or private-bank camping is inferred."
+      },
+      "safety": {
+        "status": "reviewed",
+        "notes": "Route copy keeps no-extension handling at Ron Wilmot, limited public egress, fences, wood/strainers, water-quality timing, private-bank limits, wind exposure, flood-shifted landing checks, and distinctions for non-route accesses including SD Hwy 48, River's Bend, Lazy H, and IA-3/SD 50. No hard dam/takeout blocker surfaced for the selected segment."
+      },
+      "image": {
+        "status": "no_image_bounded",
+        "notes": "Bounded GFP / Sioux Empire / Plymouth County Ron Wilmot and River's Bend / USGS / Commons / same-route review found no clearly rights-clean exact Akron-to-Ron-Wilmot paddling asset selected for local reuse."
+      },
+      "notes": "Added to V2 after the first screened fresh South Dakota candidate qualified; current gauge was above the 400 cfs Akron floor.",
+      "updatedAt": "2026-08-07T22:51:03.770Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-ron-wilmot-ia-3-sd-50",
+      "river": "Big Sioux River",
+      "route": "Ron Wilmot River Access to IA-3 / SD Hwy 50",
+      "state": "SD",
+      "status": "added",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as big-sioux-river-ron-wilmot-ia-3-sd-50. Revisit only if SD GFP or Plymouth County changes launch/camping status, USGS 06485500 stops exposing product-ready current values, Sioux Empire Paddlers changes Akron threshold guidance, lower Big Sioux safety/access conditions change, or a rights-clean exact-route image appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP Jay Heath Canoe & Kayak Trail map/PDF reviewed 2026-08-07",
+        "South Dakota GFP CanoeTrails FeatureServer access/camping records for Ron Wilmot and IA-3 / SD Hwy 50 reviewed 2026-08-07",
+        "Sioux Empire Paddlers flow-rates page reviewed 2026-08-07",
+        "Plymouth County/MyCountyParks Ron Wilmot River Access and canoeing/kayaking pages reviewed 2026-08-07",
+        "Plymouth County/MyCountyParks River's Bend Wildlife Area page reviewed 2026-08-07",
+        "USGS 06485500 monitoring and Water Services reviewed 2026-08-07",
+        "South Dakota GFP paddling and Friends of the Big Sioux resources reviewed 2026-08-07",
+        "Commons and same-route web image search reviewed 2026-08-07"
+      ],
+      "v2Slug": "big-sioux-river-ron-wilmot-ia-3-sd-50",
+      "gauge": {
+        "quality": "direct_upstream_lower_corridor_product_live",
+        "id": "06485500",
+        "provider": "USGS",
+        "notes": "USGS 06485500 Big Sioux River at Akron, IA is just upstream of the selected lower Big Sioux segment. Water Services returned 521 cfs / 4.99 ft at 2026-08-07 18:00 CDT with a 24-hour discharge/stage series."
+      },
+      "threshold": {
+        "model": "minimum-only",
+        "value": "400 cfs floor",
+        "source": "Sioux Empire Paddlers Big Sioux River Akron Iowa ideal above 400 cfs",
+        "strength": "community"
+      },
+      "access": {
+        "putIn": "Ron Wilmot River Access concrete launch; GFP OID 52; Parking Yes / Launch Yes / Camping No; Plymouth CCB-managed",
+        "takeOut": "IA-3 / SD Hwy 50 concrete launch; GFP OID 3; Parking Yes / Launch Yes / Camping No; Plymouth CCB-managed",
+        "coordinates": "Ron Wilmot 42.793412144267485, -96.59396920107712; IA-3 / SD Hwy 50 42.7613907676865, -96.63169172215292"
+      },
+      "camping": "nearby_basecamp only; selected endpoints Camping No in GFP layer; River's Bend and Lazy H treated only as separate nearby campground/basecamp options, not route launches or informal river camping.",
+      "safety": "Bounded day segment only. No extension toward IA-12, Sioux City, the private Missouri River Boat Club, or the Missouri confluence without separate access and hazard planning; keep fence, wood/strainer, water-quality, private-bank, wind, mud/flood, and limited-egress caveats.",
+      "imageStatus": "No route-gallery image added; bounded SD GFP / Sioux Empire Paddlers / Plymouth County / USGS / Commons / same-route review did not find a clearly rights-clean exact-route reusable gallery asset."
+    },
+    {
+      "candidateId": "sd-big-sioux-canton-newton-hills",
+      "river": "Big Sioux River",
+      "route": "Canton City Park to Newton Hills State Park",
+      "state": "SD",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found useful route/access evidence but did not clear publication. Sioux Empire Paddlers lists Canton to Newton Hills as a Big Sioux Circuit route, Jay Heath/SouthDakotaKayak documents a 9-mile Canton-to-Newton-Hills paddle with a public access across from Newton Hills Trail Camp, and SD GFP CanoeTrails marks Canton City Park and Newton Hills State Park as Parking Yes / Launch Yes / Camping No with coordinates. USGS Water Services returned product-ready Big Sioux values for 06482020 North Cliff (244 cfs / 5.58 ft at 2026-08-07 19:30 CDT) and 06485500 Akron (524 cfs / 5.00 ft at 2026-08-07 19:00 CDT), but no source-backed numeric threshold tied to this Canton-to-Newton-Hills reach or accepted proxy relationship surfaced. The old trip report also notes rapids/debris from a dismantled low-head dam near the Canton put-in, so a route package would need stronger current safety guidance before publication.",
+      "retryCondition": "Retry only if SD GFP, Sioux Empire Paddlers, SDCKA/Jay Heath sources, a park manager, or another credible route source publishes Canton-to-Newton-Hills gauge guidance and current low-head-dam/debris safety handling tied to a product-supported gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer access records for Canton City Park and Newton Hills State Park reviewed 2026-08-07",
+        "Sioux Empire Paddlers Big Sioux Circuit and river-flow-rates pages reviewed 2026-08-07",
+        "Jay Heath / SouthDakotaKayak Canton-to-Newton-Hills trip report reviewed 2026-08-07",
+        "USGS Water Services IV for 06482020, 06485500, and 06481000 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "none_or_nearby_basecamp_unresolved",
+        "notes": "GFP access records for Canton City Park and Newton Hills State Park are Camping No. Newton Hills has separate park campground context nearby, but no route package was added and no informal river camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the threshold/safety gate failed first."
+      },
+      "updatedAt": "2026-08-08T00:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-newton-hills-fairview",
+      "river": "Big Sioux River",
+      "route": "Newton Hills State Park to Fairview",
+      "state": "SD",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official endpoints but not a scoreable threshold package. Sioux Empire Paddlers lists Newton Hills to Fairview as a Big Sioux Circuit route, and SD GFP CanoeTrails marks Newton Hills State Park and Fairview as Parking Yes / Launch Yes / Camping No with concrete/rock launch surfaces and coordinates. USGS 06485500 at Akron and 06482020 at North Cliff were product-live, but no route-specific numeric floor, ideal range, high-water cutoff, or accepted gauge relationship tied to Newton-Hills-to-Fairview surfaced. Do not publish from access-chain evidence alone.",
+      "retryCondition": "Retry only if a credible route source publishes Newton-Hills-to-Fairview threshold guidance tied to a product-supported Big Sioux gauge plus route-specific safety/camping handling.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer access records for Newton Hills State Park and Fairview reviewed 2026-08-07",
+        "Sioux Empire Paddlers Big Sioux Circuit and river-flow-rates pages reviewed 2026-08-07",
+        "USGS Water Services IV for 06482020 and 06485500 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "none_or_nearby_basecamp_unresolved",
+        "notes": "GFP access records for Newton Hills and Fairview are Camping No. Nearby park camping was not treated as route camping for an unqualified route."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the threshold gate failed first."
+      },
+      "updatedAt": "2026-08-08T00:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-fairview-oak-ridge",
+      "river": "Big Sioux River",
+      "route": "Fairview to Oak Ridge Public Water Access",
+      "state": "SD",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official launch-supported endpoints but no defensible scoring model. Sioux Empire Paddlers lists Fairview to Oak Ridge PWA as a Big Sioux Circuit route, and SD GFP CanoeTrails marks both Fairview and Oak Ridge Public Water Access as Parking Yes / Launch Yes / Camping No with rock/concrete launch surfaces and coordinates. USGS 06485500 at Akron was product-live at 524 cfs / 5.00 ft and the route would connect to an already shipped lower-corridor access at Oak Ridge, but no source-backed numeric threshold for Fairview-to-Oak-Ridge or accepted Akron/North-Cliff proxy relationship surfaced. Do not extend the lower Akron-gauge package upstream without route-specific evidence.",
+      "retryCondition": "Retry only if a credible route source publishes Fairview-to-Oak-Ridge gauge guidance tied to a product-supported Big Sioux gauge and clears camping/safety details.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer access records for Fairview and Oak Ridge Public Water Access reviewed 2026-08-07",
+        "Sioux Empire Paddlers Big Sioux Circuit and river-flow-rates pages reviewed 2026-08-07",
+        "USGS Water Services IV for 06485500 and 06482020 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "none",
+        "notes": "GFP marks both Fairview and Oak Ridge Public Water Access as Camping No; no informal or private-bank camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the threshold gate failed first."
+      },
+      "updatedAt": "2026-08-08T00:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-ia-3-sd-50-sioux-city",
+      "river": "Big Sioux River",
+      "route": "IA-3 / SD Hwy 50 to Sioux City / Missouri River Boat Club",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review rejected the downstream Jay Heath extension. SD GFP CanoeTrails marks IA-3 / SD Hwy 50 as Parking Yes / Launch Yes / Camping No and stores the downstream segment as 30.7 water miles, but IA-12 is Parking No / Launch No, and the next launch-supported endpoint in the layer is Missouri River Boat Club in Sioux City with comments 'private marina, fee to use ramp.' The route is a long lower-border day/overnight-scale segment with no manager-backed public take-out, no official route camping package, no separate downstream safety package, and no route-specific threshold support beyond the upstream Akron 400 cfs guidance already used for bounded lower segments. Do not ship a public route whose take-out depends on a private/fee marina.",
+      "retryCondition": "Retry only if a public manager publishes a normal public downstream take-out before Sioux City or the Missouri confluence, plus a route-specific threshold, camping, and big-river/downstream-hazard package.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer access records for IA-3 / SD Hwy 50, IA-12, and Missouri River Boat Club reviewed 2026-08-07",
+        "Sioux Empire Paddlers river-flow-rates page reviewed 2026-08-07",
+        "USGS Water Services IV for 06485500 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "unknown",
+        "notes": "Selected upstream access is Camping No; no official route camping or public overnight package surfaced for the 30.7-mile downstream extension."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the access and safety gates failed first."
+      },
+      "updatedAt": "2026-08-08T00:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-missouri-river-fort-randall-running-water",
+      "river": "Missouri River",
+      "route": "Fort Randall / Randall Creek to Running Water",
+      "state": "SD",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found strong official route/access/camping/safety context but no product-supported scoring package. NPS documents the 39-mile reach from immediately below Fort Randall Dam at Pickstown to Running Water, identifies dam-release influence, experienced-paddler safety requirements, wind/current/debris/sandbar hazards, and public access records including Randall Creek Recreation Area at river mile 879 with camping and Running Water at river mile 849 with primitive camping. SDCKA also describes Fort-to-Field as a 50-mile MNRR paddle from Fort Randall to Springfield. Publication remains blocked because the reach depends on Fort Randall controlled releases and no app-supported live discharge/threshold adapter was available; USGS Water Services for the checked Missouri station 06467500 returned Yankton stage only, not discharge, and it is downstream of the 39-mile reach. Do not substitute stage-only Yankton data or event/race context for a product-supported route threshold.",
+      "retryCondition": "Retry only if the product supports a Fort Randall release/discharge source or another official live discharge source with route-specific paddling thresholds for the 39-mile reach.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "NPS Missouri National Recreational River 39-Mile Reach Paddler's Guide reviewed 2026-08-07",
+        "NPS MNRR River Access Points for Randall Creek and Running Water reviewed 2026-08-07",
+        "SDCKA links page / Fort to Field 50 context reviewed 2026-08-07",
+        "USGS Water Services IV for 06467500 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "endpoint_campground_or_primitive_supported",
+        "notes": "NPS lists Randall Creek Recreation Area camping and Running Water primitive camping, but the route was not added because the product live-gauge/threshold gate failed."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the product gauge/threshold gate failed first."
+      },
+      "updatedAt": "2026-08-08T00:52:00.000Z"
     }
   ]
 }

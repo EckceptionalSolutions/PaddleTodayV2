@@ -111,6 +111,7 @@ export default function RiverDetailScreen() {
     slug?: string | string[];
     putin?: string | string[];
     takeout?: string | string[];
+    source?: string | string[];
   }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -118,6 +119,7 @@ export default function RiverDetailScreen() {
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const deepLinkPutInId = firstParamValue(params.putin);
   const deepLinkTakeOutId = firstParamValue(params.takeout);
+  const openedFromToday = firstParamValue(params.source) === 'today';
   const detailQuery = useRiverDetailQuery(slug);
   const geometryQuery = useRiverGeometryQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);
@@ -214,6 +216,7 @@ export default function RiverDetailScreen() {
       region: detail.river.region,
       rating: detail.rating,
       score: detail.score,
+      source: openedFromToday ? 'today' : 'other',
     });
     trackAppEvent('route_planner_viewed', {
       slug: detail.river.slug,
@@ -622,6 +625,7 @@ export default function RiverDetailScreen() {
                   />
                 </View>
               </View>
+              {openedFromToday ? <Text style={styles.todayRecommendationLabel}>Recommended from Today</Text> : null}
               <Text style={styles.subtitle}>{isPlanningRoute ? 'Planning route · not scored today' : detailMessageForRating(detail.rating)}</Text>
               <Text style={styles.routeMetaLine} numberOfLines={2}>{routeHeroLine(detail)}</Text>
               <View style={styles.heroMeta}>
@@ -648,6 +652,22 @@ export default function RiverDetailScreen() {
             </View>
           ) : null}
         </View>
+
+        {detail.river.riverId && siblingRouteCount > 1 ? (
+          <Pressable
+            style={styles.riverHubLink}
+            onPress={() => router.push({ pathname: '/river-hub/[riverId]', params: { riverId: detail.river.riverId ?? '' } })}
+          >
+            <View style={styles.riverHubLinkIcon}>
+              <MaterialCommunityIcons name="routes" color={colors.accent} size={20} />
+            </View>
+            <View style={styles.riverHubLinkCopy}>
+              <Text style={styles.riverHubLinkTitle}>See all {siblingRouteCount} routes on {detail.river.name}</Text>
+              <Text style={styles.riverHubLinkText}>Compare other routes by distance, difficulty, and today’s conditions.</Text>
+            </View>
+            <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
+          </Pressable>
+        ) : null}
 
         <View
           collapsable={false}
@@ -794,27 +814,6 @@ export default function RiverDetailScreen() {
               sectionContentYRef.current = event.nativeEvent.layout.y;
             }}
           >
-            {detail.river.riverId && siblingRouteCount > 1 ? (
-              <SectionCard
-                title="More routes on this river"
-                subtitle={`${detail.river.name} has ${siblingRouteCount} tracked route options with separate gauges, access, and scores.`}
-              >
-                <Pressable
-                  style={styles.riverHubLink}
-                  onPress={() => router.push({ pathname: '/river-hub/[riverId]', params: { riverId: detail.river.riverId ?? '' } })}
-                >
-                  <View style={styles.riverHubLinkIcon}>
-                    <MaterialCommunityIcons name="routes" color={colors.accent} size={20} />
-                  </View>
-                  <View style={styles.riverHubLinkCopy}>
-                    <Text style={styles.riverHubLinkTitle}>Compare route options</Text>
-                    <Text style={styles.riverHubLinkText}>Open the river hub before choosing a stretch.</Text>
-                  </View>
-                  <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
-                </Pressable>
-              </SectionCard>
-            ) : null}
-
             <SectionCard
               title={isPlanningRoute ? 'Data and sources' : 'Sources'}
               subtitle={isPlanningRoute ? 'Sources for this route and trip details.' : "Sources for this route's score and trip details."}
@@ -2736,6 +2735,18 @@ const styles = StyleSheet.create({
   heroCopy: {
     flex: 1,
     gap: 4,
+  },
+  todayRecommendationLabel: {
+    alignSelf: 'flex-start',
+    borderRadius: radius.pill,
+    backgroundColor: colors.accentSoft,
+    color: colors.accentDeep,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    fontSize: 10,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
   },
   heroTitleRow: {
     flexDirection: 'row',

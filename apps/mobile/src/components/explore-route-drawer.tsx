@@ -78,7 +78,7 @@ export function ExploreRouteDrawer({
           <View style={styles.mapPreviewCopy}>
             <Text style={styles.mapPreviewLabel} selectable={false}>
               {routeCount > 1 && !selectedRiver.selectedSegment
-                ? `Best matching stretch · ${selectedRiver.rating}`
+                ? `Best matching route · ${selectedRiver.rating}`
                 : selectedRiver.rating}
             </Text>
             <Text style={styles.mapPreviewTitle} numberOfLines={1} selectable={false}>

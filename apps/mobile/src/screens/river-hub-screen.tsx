@@ -298,10 +298,10 @@ export default function RiverHubScreen() {
                 <Text style={styles.kicker}>{result.group.stateSummary} · River guide</Text>
                 <Text style={styles.title}>{result.group.name}</Text>
                 <Text style={styles.subtitle}>
-                  Plan a paddle across {regions.length} {regions.length === 1 ? 'paddle area' : 'paddle areas'}. Compare distance, difficulty, and today’s conditions.
+                  {riverHubChoiceLine(result.group.routeCount, regions.length)} Compare distance, difficulty, and today’s conditions.
                 </Text>
                 <View style={[styles.heroFacts, compactFacts ? styles.heroFactsCompact : null]}>
-                  <HeroFact compact={compactFacts} label="Mapped trips" value={String(result.group.routeCount)} />
+                  <HeroFact compact={compactFacts} label="Routes" value={String(result.group.routeCount)} />
                   <HeroFact compact={compactFacts} label="Distance range" value={distanceRangeLabel ?? 'Varies'} />
                   <HeroFact compact={compactFacts} label="Difficulty" value={difficultyLabel} />
                 </View>
@@ -310,7 +310,7 @@ export default function RiverHubScreen() {
             </View>
 
             <View style={styles.listIntro}>
-              <Text style={styles.listIntroTitle}>Choose a stretch</Text>
+              <Text style={styles.listIntroTitle}>Choose a route</Text>
               <Text style={styles.listIntroSubtitle}>Start with distance, then narrow by difficulty or paddle area.</Text>
               <Text style={styles.filterLabel}>Distance</Text>
               <View style={styles.filterChips}>
@@ -419,6 +419,7 @@ export default function RiverHubScreen() {
                       canonicalSpans={canonicalSpans}
                       height={260}
                       fitToAllOnReady
+                      fitToAllEdgePadding={24}
                       focusOnSelect
                       showAllControl
                       fullBleed
@@ -634,6 +635,13 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
         .join(' - '),
     };
   });
+}
+
+function riverHubChoiceLine(routeCount: number, areaCount: number) {
+  const areaLabel = `${areaCount} ${areaCount === 1 ? 'paddle area' : 'paddle areas'}`;
+  return routeCount === 1
+    ? `Choose the route in ${areaLabel}.`
+    : `Choose one of ${routeCount} routes in ${areaLabel}.`;
 }
 
 function mapPointIdForRoute(

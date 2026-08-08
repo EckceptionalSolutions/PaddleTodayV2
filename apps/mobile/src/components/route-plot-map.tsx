@@ -49,6 +49,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
   fitToAllOnReady?: boolean;
+  fitToAllEdgePadding?: number;
   fitToSelectedOnReady?: boolean;
   focusOnSelect?: boolean;
   selectedFocusBottomInset?: number;
@@ -68,6 +69,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fullBleed = false,
   markerMode = 'score',
   fitToAllOnReady = false,
+  fitToAllEdgePadding,
   fitToSelectedOnReady = false,
   focusOnSelect = false,
   selectedFocusBottomInset = 0,
@@ -162,7 +164,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
     mapRef.current?.fitToCoordinates?.(coordinates, {
       animated: true,
-      edgePadding: mapEdgePadding(height, showFooter, 'all'),
+      edgePadding: mapEdgePadding(height, showFooter, 'all', 0, fitToAllEdgePadding),
     });
   }
 
@@ -209,7 +211,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     });
   }
 
-  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [canonicalSpans, height, selectedFocusBottomInset, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
+  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [canonicalSpans, fitToAllEdgePadding, height, selectedFocusBottomInset, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
 
   useEffect(() => {
     setRegionDelta({
@@ -626,7 +628,18 @@ function regionAroundPoint(point: RoutePlotPoint, bottomInset = 0, height = 0) {
   };
 }
 
-function mapEdgePadding(height: number, showFooter: boolean, mode: 'selected' | 'all' | 'user', selectedFocusBottomInset = 0) {
+function mapEdgePadding(
+  height: number,
+  showFooter: boolean,
+  mode: 'selected' | 'all' | 'user',
+  selectedFocusBottomInset = 0,
+  fitToAllEdgePadding?: number
+) {
+  if (mode === 'all' && fitToAllEdgePadding !== undefined) {
+    const padding = Math.max(0, fitToAllEdgePadding);
+    return { top: padding, right: padding, bottom: padding, left: padding };
+  }
+
   const compact = height <= 230;
 
   if (compact) {

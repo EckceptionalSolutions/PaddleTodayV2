@@ -212,7 +212,6 @@ export default function HomeScreen() {
           hasLocation={Boolean(location)}
           locationStatus={status}
           onUseLocation={() => void requestLocation()}
-          onOpenExplore={() => router.push('/explore')}
         />
         {locationOutOfRange ? (
           <OutOfRangeState
@@ -277,7 +276,7 @@ export default function HomeScreen() {
         onOpenRiver={(river) => {
           setSearchOpen(false);
           setRouteQuery('');
-          openBoardRoute(river);
+          openRiverGroup(river);
         }}
         onExplore={() => {
           setSearchOpen(false);
@@ -311,8 +310,11 @@ export default function HomeScreen() {
   }
 
   function openBoardRoute(river: BoardItem) {
-    const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
-    if (river.river.riverId && routeCount > 1) {
+    router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug, source: 'today' } });
+  }
+
+  function openRiverGroup(river: BoardItem) {
+    if (river.river.riverId && routeGroupMetaForRoute(river, routeCounts).routeCount > 1) {
       router.push({ pathname: '/river-hub/[riverId]', params: { riverId: river.river.riverId } });
       return;
     }
@@ -338,7 +340,6 @@ function BoardHero({
   hasLocation,
   locationStatus,
   onUseLocation,
-  onOpenExplore,
 }: {
   mode: BoardMode;
   headline: BoardItem | null;
@@ -352,7 +353,6 @@ function BoardHero({
   hasLocation: boolean;
   locationStatus: string;
   onUseLocation: () => void;
-  onOpenExplore: () => void;
 }) {
   const imageUri = headline ? photoForRiver(headline.river) : photoForRiver({ slug: 'fallback' });
   const requestingLocation = locationStatus === 'requesting';
@@ -371,60 +371,48 @@ function BoardHero({
             </View>
           </View>
 
-          {!hasLocation ? (
-            <View style={styles.heroContent}>
-              <View style={styles.headlineCopy}>
-                <Text style={styles.headlineKicker}>
-                  {locationStatus === 'denied' ? 'Location is off' : "Today's strongest routes"}
-                </Text>
-                <Text style={styles.headlineName}>
-                  {locationStatus === 'denied' ? 'Browse today, add nearby when ready' : 'Start with a strong route today'}
-                </Text>
-                <Text style={styles.headlineText} numberOfLines={3}>
-                  {locationStatus === 'denied'
-                    ? 'Today still works without location. Turn it on to see nearby routes first.'
-                    : 'Add your location to see nearby routes first.'}
-                </Text>
-              </View>
-              <View style={styles.heroActionRow}>
-                <Pressable
-                  style={[styles.heroPrimaryAction, requestingLocation ? styles.heroActionDisabled : null]}
-                  disabled={requestingLocation}
-                  onPress={onUseLocation}
-                  android_ripple={{ color: colors.accentSoft }}
-                >
-                  <MaterialCommunityIcons name="crosshairs-gps" color={colors.accentDeep} size={18} />
-                  <Text style={styles.heroPrimaryActionText}>{requestingLocation ? 'Finding' : 'Use location'}</Text>
-                </Pressable>
-                <Pressable style={styles.heroSecondaryAction} onPress={onOpenExplore} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
-                  <MaterialCommunityIcons name="map-search-outline" color={colors.surfaceStrong} size={18} />
-                  <Text style={styles.heroSecondaryActionText}>Explore all</Text>
-                </Pressable>
-              </View>
-            </View>
-          ) : headline ? (
+          {headline ? (
             <Pressable style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
               <View style={styles.heroScoreRow}>
                 <View style={[styles.scoreOrb, { backgroundColor: ratingColors(headline.rating).backgroundColor }]}>
                   <Text style={[styles.scoreValue, { color: ratingColors(headline.rating).textColor }]}>{headline.score}</Text>
                   <Text style={[styles.scoreLabel, { color: ratingColors(headline.rating).textColor }]}>
-                    {routeCount > 1 ? 'Top stretch' : headline.rating}
+                    Score
                   </Text>
                 </View>
                 {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
               <View style={styles.headlineCopy}>
-                <Text style={styles.headlineKicker}>{headlineLabelForMode(mode, headline)}</Text>
+                <Text style={styles.headlineKicker}>{hasLocation ? headlineLabelForMode(mode, headline) : 'Best across all routes'}</Text>
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
                 <Text style={styles.headlineReach} numberOfLines={1}>
                   {routeCount > 1
-                    ? `Best matching stretch: ${routeReachWithState(headline)} · ${headline.rating}`
+                    ? `${routeChoiceLabelForMode(mode)}: ${routeReachWithState(headline)} · ${headline.rating}`
                     : routeReachWithState(headline)}
                 </Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
                   {routeDecisionLine(verdictForRating(headline.rating), headline.summary.shortExplanation)}
                 </Text>
               </View>
+              {!hasLocation ? (
+                <View style={styles.heroLocationPrompt}>
+                  <Text style={styles.heroLocationPromptText}>
+                    {locationStatus === 'denied' ? 'Location is off — showing all routes.' : 'See the best routes near you.'}
+                  </Text>
+                  <Pressable
+                    style={[styles.heroPrimaryAction, requestingLocation ? styles.heroActionDisabled : null]}
+                    disabled={requestingLocation}
+                    onPress={(event) => {
+                      event.stopPropagation();
+                      onUseLocation();
+                    }}
+                    android_ripple={{ color: colors.accentSoft }}
+                  >
+                    <MaterialCommunityIcons name="crosshairs-gps" color={colors.accentDeep} size={18} />
+                    <Text style={styles.heroPrimaryActionText}>{requestingLocation ? 'Finding' : 'Use location'}</Text>
+                  </Pressable>
+                </View>
+              ) : null}
             </Pressable>
           ) : null}
         </View>
@@ -513,7 +501,7 @@ function RiverImageCard({
           <View style={styles.imageCardTop}>
             <View style={styles.imageScore}>
               <Text style={styles.imageScoreValue}>{river.score}</Text>
-              <Text style={styles.imageScoreLabel}>{routeCount > 1 ? 'Top stretch' : 'Score'}</Text>
+              <Text style={styles.imageScoreLabel}>Score</Text>
             </View>
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
@@ -612,7 +600,7 @@ function CompactRiverRow({
         <Text style={styles.quickName} numberOfLines={1}>{river.river.name}</Text>
         <Text style={styles.quickMeta} numberOfLines={1}>
           {[
-            routeCount > 1 ? `Top stretch score ${river.score}` : routeReachWithState(river),
+            routeCount > 1 ? `Score ${river.score}` : routeReachWithState(river),
             distanceLabelForRiver(river),
             routeCount > 1 ? `${routeCount} routes` : null,
           ].filter(Boolean).join(' - ')}
@@ -858,7 +846,7 @@ function RouteSearchModal({
                           {[
                             stateLabel(river.river.state),
                             river.river.region,
-                            routeCount > 1 ? `Top stretch score ${river.score} · ${routeCount} routes` : '1 route',
+                            routeCount > 1 ? `Score ${river.score} · ${routeCount} routes` : '1 route',
                           ].filter(Boolean).join(' - ')}
                         </Text>
                         <Text style={styles.knownSearchReach} numberOfLines={1}>{river.river.reach}</Text>
@@ -1193,6 +1181,13 @@ function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
   return isNearbyPick(headline) ? 'Best mix today' : 'Best conditions today';
 }
 
+function routeChoiceLabelForMode(mode: BoardMode) {
+  if (mode === 'closest') return 'Closest route on this river';
+  if (mode === 'score') return 'Highest-scoring route on this river';
+  if (mode === 'certain') return 'Most reliable route on this river';
+  return 'Best route on this river';
+}
+
 function quickScanSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Nearby routes with key trip facts.';
   if (mode === 'score') return 'Rivers ordered by score.';
@@ -1360,27 +1355,10 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     fontWeight: '700',
   },
-  heroActionRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-  },
   heroPrimaryAction: {
     minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.surfaceStrong,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 7,
-    paddingHorizontal: spacing.md,
-  },
-  heroSecondaryAction: {
-    minHeight: 44,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.7)',
-    backgroundColor: 'rgba(255, 255, 255, 0.14)',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -1392,11 +1370,6 @@ const styles = StyleSheet.create({
   },
   heroPrimaryActionText: {
     color: colors.accentDeep,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  heroSecondaryActionText: {
-    color: colors.surfaceStrong,
     fontSize: 13,
     fontWeight: '900',
   },
@@ -1948,6 +1921,23 @@ const styles = StyleSheet.create({
     color: colors.accentDeep,
     fontSize: 20,
     fontWeight: '900',
+  },
+  heroLocationPrompt: {
+    minHeight: 44,
+    borderRadius: radius.md,
+    backgroundColor: 'rgba(15, 25, 22, 0.58)',
+    paddingLeft: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  heroLocationPromptText: {
+    flex: 1,
+    color: colors.surfaceStrong,
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '800',
   },
   imageScoreLabel: {
     color: colors.accentDeep,

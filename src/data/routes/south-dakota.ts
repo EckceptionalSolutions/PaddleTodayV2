@@ -1217,6 +1217,494 @@ export const southDakotaRoutes: River[] = [
     ]
   },
   {
+    "id": "big-sioux-river-big-sioux-county-park-akron",
+    "slug": "big-sioux-river-big-sioux-county-park-akron",
+    "name": "Big Sioux River",
+    "reach": "Big Sioux County Park to Akron",
+    "aliases": [
+      "Jay Heath Canoe and Kayak Trail Big Sioux County Park to Akron",
+      "Big Sioux River Akron short segment"
+    ],
+    "state": "South Dakota",
+    "region": "Akron Border",
+    "summary": "Short lower Jay Heath Canoe and Kayak Trail segment from Big Sioux County Park to the City of Akron concrete launch. Use it as a compact Akron-area day paddle with a same-reach gauge check, private-bank awareness, and ordinary lower Big Sioux wood, fence, mud, and water-quality caveats.",
+    "statusText": "Use the Big Sioux River at Akron gauge, which sits inside this short reach. Around 400 cfs is the local Akron low-water marker; below that, expect shallow bars, scraping, slow current, and muddy landings.",
+    "latitude": 42.85107412010523,
+    "longitude": -96.54369171079088,
+    "gaugeSource": {
+      "id": "usgs-06485500",
+      "provider": "usgs",
+      "siteId": "06485500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Big Sioux River at Akron, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "Use the 400 cfs Akron community floor as a minimum-only screen, then make the final call from local visibility, wind, recent rain, and the actual water depth at both concrete ramps.",
+        "South Dakota GFP warns that fences cross many navigable streams. Scout any unexpected wire, wood, bridge debris, or bank obstruction rather than forcing it.",
+        "This card intentionally stops at the City of Akron launch. Do not extend toward River's Bend, IA-3, Sioux City, private banks, or fee/private accesses without separate access and hazard planning."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 400,
+      "thresholdSource": {
+        "label": "Sioux Empire Paddlers Big Sioux River Akron flow guidance",
+        "url": "https://siouxempirepaddlers.org/river-flow-rates/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The lower Big Sioux border corridor is most practical with spring water or recent rain, but rain can also worsen water quality, debris, bank mud, road access, and bridge approaches. Confirm county/city access status and flood closures before driving.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is a short lower Big Sioux segment with generally easy current at ordinary levels. Treat it as easy only after checking the Akron gauge and current conditions; low water can mean scraping and walking, while high or rising water can hide wood, fences, and muddy bank hazards.",
+      "confidenceNotes": "Confidence is good for a conservative South Dakota add: South Dakota GFP's Jay Heath access layer marks Big Sioux County Park and Akron as parking-supported concrete launches, stores the Big Sioux County Park downstream segment as 3.2 miles, and identifies both sites as Jay Heath Canoe and Kayak Trail access points. Sioux Empire Paddlers publishes Big Sioux River Akron as ideal above 400 cfs, and USGS 06485500 sits inside the selected reach with current discharge and stage observations. The app uses minimum-only scoring and route copy carries downstream-gauge, private-bank, fence, wood, water-quality, nearby-basecamp, flood-access, and no-image caveats."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official water-trail segment",
+        "value": "Big Sioux County Park to Akron; 3.2 mi",
+        "note": "South Dakota GFP's Jay Heath Canoe and Kayak Trail access layer marks Big Sioux County Park as the upstream concrete launch and stores the downstream segment to Akron as 3.2 water miles.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Public put-in",
+        "value": "Big Sioux County Park concrete launch",
+        "note": "The GFP Jay Heath access layer marks Big Sioux County Park as Parking Yes, Launch Yes, Camping No, concrete launch surface, and Plymouth County Conservation Board-managed. MyCountyParks separately says Big Sioux Park has a concrete boat ramp and gravel parking lot.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Akron concrete launch",
+        "note": "The GFP Jay Heath access layer marks Akron as Parking Yes, Launch Yes, Camping No, concrete launch surface, and City of Akron-managed.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Direct reach gauge",
+        "value": "USGS 06485500",
+        "note": "USGS operates the Big Sioux River at Akron, IA, inside the selected Big Sioux County Park-to-Akron reach. During implementation review, Water Services returned 518 cfs and 4.98 ft at 2026-08-07 16:00 CDT.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/"
+      },
+      {
+        "label": "Low-water floor",
+        "value": "400 cfs minimum-only",
+        "note": "Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs. The app uses that lower-corridor guidance as a minimum-only floor and does not infer an upper cutoff.",
+        "sourceUrl": "https://siouxempirepaddlers.org/river-flow-rates/"
+      },
+      {
+        "label": "Camping status",
+        "value": "Nearby basecamp only",
+        "note": "GFP's access layer marks the selected Big Sioux County Park and Akron launch records as Camping No. Nearby River's Bend Wildlife Area and Akron City Park campground records support separate basecamp options, but route copy does not infer endpoint, informal, or private-bank camping.",
+        "sourceUrl": "https://www.mycountyparks.com/county/plymouth/Park/Rivers-Bend-Wildlife-Area"
+      },
+      {
+        "label": "Access and flood caveat",
+        "value": "Big Sioux Park ramp open; road may close",
+        "note": "MyCountyParks says Big Sioux Park's ramp is always open but the road can close during some hunting seasons and floods. Check current county conditions before using this as the put-in.",
+        "sourceUrl": "https://www.mycountyparks.com/county/plymouth/Park/Big-Sioux-Park/Activity/Boating"
+      },
+      {
+        "label": "Safety context",
+        "value": "Fence, wood, water-quality, wind, private-bank, and non-extension context",
+        "note": "GFP warns that fences cross many navigable South Dakota streams, and Friends of the Big Sioux points paddlers toward current river access and water-quality resources. Treat this as a bounded Big-Sioux-County-Park-to-Akron day segment.",
+        "sourceUrl": "https://gfp.sd.gov/paddling/"
+      },
+      {
+        "label": "Gallery image",
+        "value": "No image selected",
+        "note": "Bounded review of SD GFP, Sioux Empire Paddlers, Plymouth County/MyCountyParks, Wikimedia Commons, and same-route image leads did not find a clearly rights-clean exact-route reusable gallery asset.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Big%20Sioux%20River%20Big%20Sioux%20County%20Park%20Akron%20canoe"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "South Dakota GFP Jay Heath Trail map PDF",
+        "url": "https://gfp.sd.gov/userdocs/JayHeathTrail_85x11.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "South Dakota GFP paddling",
+        "url": "https://gfp.sd.gov/paddling/",
+        "provider": "local"
+      },
+      {
+        "label": "Jay Heath canoe trail launch sites FeatureServer",
+        "url": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0",
+        "provider": "local"
+      },
+      {
+        "label": "Sioux Empire Paddlers Big Sioux Circuit",
+        "url": "https://siouxempirepaddlers.org/big-sioux-circuit/",
+        "provider": "local"
+      },
+      {
+        "label": "Sioux Empire Paddlers river flow rates",
+        "url": "https://siouxempirepaddlers.org/river-flow-rates/",
+        "provider": "local"
+      },
+      {
+        "label": "Big Sioux Park boating",
+        "url": "https://www.mycountyparks.com/county/plymouth/Park/Big-Sioux-Park/Activity/Boating",
+        "provider": "local"
+      },
+      {
+        "label": "River's Bend Wildlife Area",
+        "url": "https://www.mycountyparks.com/county/plymouth/Park/Rivers-Bend-Wildlife-Area",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 06485500 Big Sioux River at Akron",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Friends of the Big Sioux maps and resources",
+        "url": "https://www.friendsofthebigsiouxriver.org/maps-resources",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "big-sioux-river-akron-ron-wilmot",
+    "slug": "big-sioux-river-akron-ron-wilmot",
+    "name": "Big Sioux River",
+    "reach": "Akron to Ron Wilmot River Access",
+    "aliases": [
+      "Jay Heath Canoe and Kayak Trail Akron to Ron Wilmot",
+      "Big Sioux River Akron to Ron Wilmot"
+    ],
+    "state": "South Dakota",
+    "region": "Akron Border",
+    "summary": "Lower Jay Heath Canoe and Kayak Trail segment from the City of Akron concrete launch to Ron Wilmot River Access. Use it as a border-river day paddle with the Akron gauge, private-bank awareness, and ordinary lower Big Sioux wood, fence, mud, wind, and water-quality caveats.",
+    "statusText": "Use the Big Sioux River at Akron gauge near the put-in. Around 400 cfs is the local Akron low-water marker; below that, expect shallow bars, scraping, slow current, and muddy landings.",
+    "latitude": 42.829938010040166,
+    "longitude": -96.56098008136513,
+    "gaugeSource": {
+      "id": "usgs-06485500",
+      "provider": "usgs",
+      "siteId": "06485500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Big Sioux River at Akron, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "Use the 400 cfs Akron community floor as a minimum-only screen, then make the final call from local visibility, wind, recent rain, and the actual water depth at both concrete ramps.",
+        "South Dakota GFP warns that fences cross many navigable streams. Scout any unexpected wire, wood, bridge debris, or bank obstruction rather than forcing it.",
+        "This card intentionally stops at Ron Wilmot River Access. Do not substitute River's Bend, SD Highway 48, IA-3/SD 50, Sioux City, private banks, or fee/private accesses without separate access and hazard planning."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 400,
+      "thresholdSource": {
+        "label": "Sioux Empire Paddlers Big Sioux River Akron flow guidance",
+        "url": "https://siouxempirepaddlers.org/river-flow-rates/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The lower Big Sioux border corridor is most practical with spring water or recent rain, but rain can also worsen water quality, debris, bank mud, road access, and bridge approaches. Confirm county/city access status and flood closures before driving.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is a lower Big Sioux segment with generally easy current at ordinary levels. Treat it as easy only after checking the Akron gauge and current conditions; low water can mean scraping and walking, while high or rising water can hide wood, fences, and muddy bank hazards.",
+      "confidenceNotes": "Confidence is good for a conservative South Dakota add: South Dakota GFP's Jay Heath access layer marks Akron and Ron Wilmot as parking-supported concrete launches, stores the Akron downstream segment as 7.5 miles, and identifies both sites as Jay Heath Canoe and Kayak Trail access points. MyCountyParks independently confirms Ron Wilmot River Access has a boat ramp and parking for Big Sioux River access. Sioux Empire Paddlers publishes Big Sioux River Akron as ideal above 400 cfs, and USGS 06485500 returned current discharge and stage observations near the selected put-in. The app uses minimum-only scoring and route copy carries private-bank, fence, wood, water-quality, nearby-basecamp, no-extension, and no-image caveats."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official water-trail segment",
+        "value": "Akron to Ron Wilmot; 7.5 mi",
+        "note": "South Dakota GFP's Jay Heath Canoe and Kayak Trail access layer marks Akron as the upstream concrete launch and stores the downstream segment as 7.5 water miles toward the next launch-supported Ron Wilmot access.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Public put-in",
+        "value": "Akron concrete launch",
+        "note": "The GFP Jay Heath access layer marks Akron as Parking Yes, Launch Yes, Camping No, concrete launch surface, and City of Akron-managed.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Ron Wilmot River Access concrete launch",
+        "note": "The GFP Jay Heath access layer marks Ron Wilmot as Parking Yes, Launch Yes, Camping No, concrete launch surface, and Plymouth County Conservation Board-managed. MyCountyParks independently says Ron Wilmot River Access has a boat ramp and parking for Big Sioux River access.",
+        "sourceUrl": "https://www.mycountyparks.com/county/plymouth/Park/Ron-Wilmot-River-Access"
+      },
+      {
+        "label": "Direct put-in gauge",
+        "value": "USGS 06485500",
+        "note": "USGS operates the Big Sioux River at Akron, IA, near the selected put-in. During implementation review, Water Services returned 521 cfs and 4.99 ft at 2026-08-07 17:00 CDT.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/"
+      },
+      {
+        "label": "Low-water floor",
+        "value": "400 cfs minimum-only",
+        "note": "Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs. The app uses that lower-corridor guidance as a minimum-only floor and does not infer an upper cutoff.",
+        "sourceUrl": "https://siouxempirepaddlers.org/river-flow-rates/"
+      },
+      {
+        "label": "Camping status",
+        "value": "Nearby basecamp only",
+        "note": "GFP's access layer marks the selected Akron and Ron Wilmot launch records as Camping No. Nearby River's Bend Wildlife Area and Akron City Park campground records support separate basecamp options, but route copy does not infer endpoint, informal, or private-bank camping.",
+        "sourceUrl": "https://www.mycountyparks.com/county/plymouth/Park/Rivers-Bend-Wildlife-Area"
+      },
+      {
+        "label": "Access distinction",
+        "value": "River's Bend is not the route take-out",
+        "note": "GFP maps River's Bend Wildlife Area as a campground record rather than a launch-supported Big Sioux river access. Ron Wilmot is the selected downstream take-out, and River's Bend is treated only as separate nearby camping support.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Safety context",
+        "value": "Fence, wood, water-quality, wind, private-bank, and non-extension context",
+        "note": "GFP warns that fences cross many navigable South Dakota streams, and Friends of the Big Sioux points paddlers toward current river access and water-quality resources. Treat this as a bounded Akron-to-Ron-Wilmot day segment.",
+        "sourceUrl": "https://gfp.sd.gov/paddling/"
+      },
+      {
+        "label": "Gallery image",
+        "value": "No image selected",
+        "note": "Bounded review of SD GFP, Sioux Empire Paddlers, Plymouth County/MyCountyParks, Wikimedia Commons, and same-route image leads did not find a clearly rights-clean exact-route reusable gallery asset.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Big%20Sioux%20River%20Akron%20Ron%20Wilmot%20canoe"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "South Dakota GFP Jay Heath Trail map PDF",
+        "url": "https://gfp.sd.gov/userdocs/JayHeathTrail_85x11.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "South Dakota GFP paddling",
+        "url": "https://gfp.sd.gov/paddling/",
+        "provider": "local"
+      },
+      {
+        "label": "Jay Heath canoe trail launch sites FeatureServer",
+        "url": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0",
+        "provider": "local"
+      },
+      {
+        "label": "Sioux Empire Paddlers river flow rates",
+        "url": "https://siouxempirepaddlers.org/river-flow-rates/",
+        "provider": "local"
+      },
+      {
+        "label": "Ron Wilmot River Access",
+        "url": "https://www.mycountyparks.com/county/plymouth/Park/Ron-Wilmot-River-Access",
+        "provider": "local"
+      },
+      {
+        "label": "River's Bend Wildlife Area",
+        "url": "https://www.mycountyparks.com/county/plymouth/Park/Rivers-Bend-Wildlife-Area",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 06485500 Big Sioux River at Akron",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Friends of the Big Sioux maps and resources",
+        "url": "https://www.friendsofthebigsiouxriver.org/maps-resources",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "big-sioux-river-ron-wilmot-ia-3-sd-50",
+    "slug": "big-sioux-river-ron-wilmot-ia-3-sd-50",
+    "name": "Big Sioux River",
+    "reach": "Ron Wilmot River Access to IA-3 / SD Hwy 50",
+    "aliases": [
+      "Jay Heath Canoe and Kayak Trail Ron Wilmot to IA-3 SD Hwy 50",
+      "Big Sioux River Ron Wilmot to Westfield"
+    ],
+    "state": "South Dakota",
+    "region": "Akron / Westfield Border",
+    "summary": "Lower Jay Heath Canoe and Kayak Trail segment from Ron Wilmot River Access to the IA-3 / SD Hwy 50 concrete launch near Westfield. Use it as a short border-river day paddle with the upstream Akron gauge, private-bank awareness, and ordinary lower Big Sioux wood, fence, mud, wind, and water-quality caveats.",
+    "statusText": "Use the Big Sioux River at Akron gauge just upstream of this segment. Around 400 cfs is the local Akron low-water marker; below that, expect shallow bars, scraping, slow current, and muddy landings.",
+    "latitude": 42.793412144267485,
+    "longitude": -96.59396920107712,
+    "gaugeSource": {
+      "id": "usgs-06485500",
+      "provider": "usgs",
+      "siteId": "06485500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Big Sioux River at Akron, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "Use the 400 cfs Akron community floor as a minimum-only screen, then make the final call from local visibility, wind, recent rain, and the actual water depth at both concrete launches.",
+        "South Dakota GFP warns that fences cross many navigable streams. Scout any unexpected wire, wood, bridge debris, or bank obstruction rather than forcing it.",
+        "This card intentionally stops at IA-3 / SD Hwy 50. Do not continue toward IA-12, Sioux City, the private Missouri River Boat Club, the Missouri confluence, private banks, or fee/private accesses without separate access and hazard planning."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 400,
+      "thresholdSource": {
+        "label": "Sioux Empire Paddlers Big Sioux River Akron flow guidance",
+        "url": "https://siouxempirepaddlers.org/river-flow-rates/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The lower Big Sioux border corridor is most practical with spring water or recent rain, but rain can also worsen water quality, debris, bank mud, road access, and bridge approaches. Confirm county access status and flood closures before driving.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is a lower Big Sioux segment with generally easy current at ordinary levels. Treat it as easy only after checking the Akron gauge and current conditions; low water can mean scraping and walking, while high or rising water can hide wood, fences, and muddy bank hazards.",
+      "confidenceNotes": "Confidence is good for a conservative South Dakota add: South Dakota GFP's Jay Heath access layer marks Ron Wilmot and IA-3 / SD Hwy 50 as parking-supported concrete launches, stores the Ron Wilmot downstream segment as 5.4 miles, and identifies both sites as Jay Heath Canoe and Kayak Trail access points. MyCountyParks independently confirms Ron Wilmot River Access has a boat ramp and parking for Big Sioux River access. Sioux Empire Paddlers publishes Big Sioux River Akron as ideal above 400 cfs, and USGS 06485500 returned current discharge and stage observations just upstream of the selected segment. The app uses minimum-only scoring and route copy carries private-bank, fence, wood, water-quality, nearby-basecamp, no-extension, and no-image caveats."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official water-trail segment",
+        "value": "Ron Wilmot to IA-3 / SD Hwy 50; 5.4 mi",
+        "note": "South Dakota GFP's Jay Heath Canoe and Kayak Trail access layer marks Ron Wilmot as the upstream concrete launch and stores the downstream segment as 5.4 water miles toward the next launch-supported IA-3 / SD Hwy 50 access.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Public put-in",
+        "value": "Ron Wilmot River Access concrete launch",
+        "note": "The GFP Jay Heath access layer marks Ron Wilmot as Parking Yes, Launch Yes, Camping No, concrete launch surface, and Plymouth County Conservation Board-managed. MyCountyParks independently says Ron Wilmot River Access has a boat ramp and parking for Big Sioux River access.",
+        "sourceUrl": "https://www.mycountyparks.com/county/plymouth/Park/Ron-Wilmot-River-Access"
+      },
+      {
+        "label": "Public take-out",
+        "value": "IA-3 / SD Hwy 50 concrete launch",
+        "note": "The GFP Jay Heath access layer marks IA-3 / SD Hwy 50 as Parking Yes, Launch Yes, Camping No, concrete launch surface, and Plymouth County Conservation Board-managed.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Upstream corridor gauge",
+        "value": "USGS 06485500",
+        "note": "USGS operates the Big Sioux River at Akron, IA, just upstream of the selected segment. During implementation review, Water Services returned 521 cfs and 4.99 ft at 2026-08-07 18:00 CDT.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/"
+      },
+      {
+        "label": "Low-water floor",
+        "value": "400 cfs minimum-only",
+        "note": "Sioux Empire Paddlers lists Big Sioux River Akron Iowa as ideal above 400 cfs. The app uses that lower-corridor guidance as a minimum-only floor and does not infer an upper cutoff.",
+        "sourceUrl": "https://siouxempirepaddlers.org/river-flow-rates/"
+      },
+      {
+        "label": "Camping status",
+        "value": "Nearby basecamp only",
+        "note": "GFP's access layer marks the selected Ron Wilmot and IA-3 / SD Hwy 50 launch records as Camping No. Nearby River's Bend Wildlife Area and Lazy H Campground support separate basecamp options, but route copy does not infer endpoint, informal, or private-bank camping.",
+        "sourceUrl": "https://www.mycountyparks.com/county/plymouth/Park/Rivers-Bend-Wildlife-Area"
+      },
+      {
+        "label": "Access distinction",
+        "value": "River's Bend and Lazy H are not route launches",
+        "note": "GFP maps River's Bend Wildlife Area and Lazy H Campground as campground records rather than launch-supported Big Sioux river accesses. They are treated only as separate nearby camping support.",
+        "sourceUrl": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0"
+      },
+      {
+        "label": "Safety context",
+        "value": "Fence, wood, water-quality, wind, private-bank, and non-extension context",
+        "note": "GFP warns that fences cross many navigable South Dakota streams, and Friends of the Big Sioux points paddlers toward current river access and water-quality resources. Treat this as a bounded Ron-Wilmot-to-IA-3 / SD-Hwy-50 day segment.",
+        "sourceUrl": "https://gfp.sd.gov/paddling/"
+      },
+      {
+        "label": "Gallery image",
+        "value": "No image selected",
+        "note": "Bounded review of SD GFP, Sioux Empire Paddlers, Plymouth County/MyCountyParks, Wikimedia Commons, and same-route image leads did not find a clearly rights-clean exact-route reusable gallery asset.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Big%20Sioux%20River%20Ron%20Wilmot%20IA-3%20SD%2050%20canoe"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "South Dakota GFP Jay Heath Trail map PDF",
+        "url": "https://gfp.sd.gov/userdocs/JayHeathTrail_85x11.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "South Dakota GFP paddling",
+        "url": "https://gfp.sd.gov/paddling/",
+        "provider": "local"
+      },
+      {
+        "label": "Jay Heath canoe trail launch sites FeatureServer",
+        "url": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0",
+        "provider": "local"
+      },
+      {
+        "label": "Sioux Empire Paddlers river flow rates",
+        "url": "https://siouxempirepaddlers.org/river-flow-rates/",
+        "provider": "local"
+      },
+      {
+        "label": "Ron Wilmot River Access",
+        "url": "https://www.mycountyparks.com/county/plymouth/Park/Ron-Wilmot-River-Access",
+        "provider": "local"
+      },
+      {
+        "label": "River's Bend Wildlife Area",
+        "url": "https://www.mycountyparks.com/county/plymouth/Park/Rivers-Bend-Wildlife-Area",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 06485500 Big Sioux River at Akron",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06485500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Friends of the Big Sioux maps and resources",
+        "url": "https://www.friendsofthebigsiouxriver.org/maps-resources",
+        "provider": "local"
+      }
+    ]
+  },
+  {
     "id": "split-rock-creek-split-rock-park-palisades",
     "slug": "split-rock-creek-split-rock-park-palisades",
     "name": "Split Rock Creek",

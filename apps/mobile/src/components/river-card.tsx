@@ -41,7 +41,7 @@ export function RiverCard({
         <View style={styles.scoreBlock}>
           <Text style={styles.score}>{river.score}</Text>
           <Text style={[styles.scoreLabel, routeCount > 1 ? styles.scoreLabelCompact : null]} numberOfLines={1}>
-            {routeCount > 1 ? 'Top stretch' : 'Score'}
+            Score
           </Text>
         </View>
         <View style={styles.copy}>
@@ -53,7 +53,7 @@ export function RiverCard({
             </View>
           </View>
           <Text style={styles.reach}>
-            {routeCount > 1 ? `Best matching stretch: ${river.river.reach}` : river.river.reach}
+            {routeCount > 1 ? `Best matching route: ${river.river.reach}` : river.river.reach}
           </Text>
           {segmentLabel ? (
             <View style={styles.segmentContext}>

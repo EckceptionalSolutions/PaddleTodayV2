@@ -391,6 +391,165 @@ export const southDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "big-sioux-river-big-sioux-county-park-akron": {
+    "putIn": {
+      "name": "Big Sioux County Park concrete launch",
+      "latitude": 42.85107412010523,
+      "longitude": -96.54369171079088
+    },
+    "takeOut": {
+      "name": "Akron concrete launch",
+      "latitude": 42.829938010040166,
+      "longitude": -96.56098008136513
+    },
+    "logistics": {
+      "distanceLabel": "About 3.2 mi",
+      "estimatedPaddleTime": "About 1 hr to 2 hr depending on level, wind, and wood",
+      "shuttle": "Stage the take-out at the City of Akron concrete launch, then drive to Big Sioux County Park north of Akron. Use the signed county/city access and parking areas at both ends, and verify the Big Sioux Park road has not closed for flood or seasonal conditions before launching.",
+      "permits": "No route-specific paddling permit is known. Follow Plymouth County Conservation rules at Big Sioux County Park, City of Akron access rules at the Akron launch, posted road or hunting-season closures, and any temporary flood or high-water guidance.",
+      "camping": "Nearby basecamp only. GFP's Jay Heath access layer marks the selected Big Sioux County Park and Akron launch records as Camping No. Nearby River's Bend Wildlife Area and Akron City Park have separate campground support, but do not infer informal river camping, private-bank camping, or endpoint camping for this route.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch from Big Sioux County Park and paddle the short lower Big Sioux border-river segment to the City of Akron concrete launch. USGS 06485500 sits inside this reach, so use the Akron gauge as the direct same-day check and treat 400 cfs as the conservative low-water floor.",
+      "accessCaveats": [
+        "GFP's Jay Heath access layer marks Big Sioux County Park as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by Plymouth County Conservation Board.",
+        "GFP's layer marks Akron as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by the City of Akron.",
+        "MyCountyParks says Big Sioux Park's ramp is always open, but the road can close during some hunting seasons and during floods; verify the put-in road and ramp before committing.",
+        "The route follows the Big Sioux border corridor. Stay within legal public access, respect private banks, and do not treat nearby road crossings, fee/private facilities, or informal banks as casual bailout points."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the Akron gauge is below the 400 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, fences, or wire after rain or high water.",
+        "Agricultural and urban water-quality concerns on the lower Big Sioux, especially after heavy rain or visible runoff.",
+        "Short mileage but limited public egress, open wind exposure, muddy or flood-shifted landings, and a no-extension boundary at Akron."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "big-sioux-county-park",
+        "name": "Big Sioux County Park concrete launch",
+        "latitude": 42.85107412010523,
+        "longitude": -96.54369171079088,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 5; Parking Yes, Launch Yes, Camping No, concrete launch surface, Plymouth County Conservation Board-managed."
+      },
+      {
+        "id": "akron-concrete-launch",
+        "name": "Akron concrete launch",
+        "latitude": 42.829938010040166,
+        "longitude": -96.56098008136513,
+        "mileFromStart": 3.2,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 54; Parking Yes, Launch Yes, Camping No, concrete launch surface, City of Akron-managed."
+      }
+    ]
+  },
+  "big-sioux-river-akron-ron-wilmot": {
+    "putIn": {
+      "name": "Akron concrete launch",
+      "latitude": 42.829938010040166,
+      "longitude": -96.56098008136513
+    },
+    "takeOut": {
+      "name": "Ron Wilmot River Access concrete launch",
+      "latitude": 42.793412144267485,
+      "longitude": -96.59396920107712
+    },
+    "logistics": {
+      "distanceLabel": "About 7.5 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4.5 hr depending on level, wind, scouting, and wood",
+      "shuttle": "Stage the take-out at Ron Wilmot River Access, then drive to the City of Akron concrete launch. Use signed city/county parking and access areas at both ends, and verify local flood, road, or hunting-season conditions before committing.",
+      "permits": "No route-specific paddling permit is known. Follow City of Akron access rules, Plymouth County Conservation rules at Ron Wilmot River Access and nearby River's Bend Wildlife Area if camping, posted road or hunting-season closures, and any temporary flood or high-water guidance.",
+      "camping": "Nearby basecamp only. GFP's Jay Heath access layer marks the selected Akron and Ron Wilmot launch records as Camping No. Nearby River's Bend Wildlife Area and Akron City Park have separate campground support, but do not infer endpoint, informal river, or private-bank camping for this route.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch from the City of Akron concrete launch and paddle the lower Big Sioux border-river segment to Ron Wilmot River Access. USGS 06485500 is near the put-in, so use the Akron gauge as the same-day check and treat 400 cfs as the conservative low-water floor.",
+      "accessCaveats": [
+        "GFP's Jay Heath access layer marks Akron as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by the City of Akron.",
+        "GFP's layer marks Ron Wilmot as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by Plymouth County Conservation Board; MyCountyParks separately confirms a boat ramp and parking for Big Sioux River access.",
+        "GFP maps River's Bend Wildlife Area as a campground record rather than a launch-supported Big Sioux river access. Use Ron Wilmot as the take-out and treat River's Bend only as separate nearby camping support.",
+        "Do not substitute SD Highway 48, Lazy H Campground, River's Bend, IA-3/SD 50, private ramps, or informal banks as launch or take-out points without separate access and hazard review."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the Akron gauge is below the 400 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, fences, or wire after rain or high water.",
+        "Agricultural and urban water-quality concerns on the lower Big Sioux, especially after heavy rain or visible runoff.",
+        "Open border-river wind exposure, limited public egress, muddy or flood-shifted landings, and a no-extension boundary at Ron Wilmot."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "akron-concrete-launch",
+        "name": "Akron concrete launch",
+        "latitude": 42.829938010040166,
+        "longitude": -96.56098008136513,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 54; Parking Yes, Launch Yes, Camping No, concrete launch surface, City of Akron-managed."
+      },
+      {
+        "id": "ron-wilmot-river-access",
+        "name": "Ron Wilmot River Access concrete launch",
+        "latitude": 42.793412144267485,
+        "longitude": -96.59396920107712,
+        "mileFromStart": 7.5,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 52; Parking Yes, Launch Yes, Camping No, concrete launch surface, Plymouth County Conservation Board-managed. MyCountyParks independently confirms a boat ramp and parking for Big Sioux River access."
+      }
+    ]
+  },
+  "big-sioux-river-ron-wilmot-ia-3-sd-50": {
+    "putIn": {
+      "name": "Ron Wilmot River Access concrete launch",
+      "latitude": 42.793412144267485,
+      "longitude": -96.59396920107712
+    },
+    "takeOut": {
+      "name": "IA-3 / SD Hwy 50 concrete launch",
+      "latitude": 42.7613907676865,
+      "longitude": -96.63169172215292
+    },
+    "logistics": {
+      "distanceLabel": "About 5.4 mi",
+      "estimatedPaddleTime": "About 2 hr to 3.5 hr depending on level, wind, scouting, and wood",
+      "shuttle": "Stage the take-out at the IA-3 / SD Hwy 50 concrete launch near Westfield, then drive to Ron Wilmot River Access south of Akron. Use signed county parking and access areas at both ends, and verify local flood, road, or hunting-season conditions before committing.",
+      "permits": "No route-specific paddling permit is known. Follow Plymouth County Conservation rules at Ron Wilmot River Access, the IA-3 / SD Hwy 50 access, and nearby River's Bend Wildlife Area if camping, plus posted road or hunting-season closures and any temporary flood or high-water guidance.",
+      "camping": "Nearby basecamp only. GFP's Jay Heath access layer marks the selected Ron Wilmot and IA-3 / SD Hwy 50 launch records as Camping No. Nearby River's Bend Wildlife Area and Lazy H Campground have separate campground support, but do not infer endpoint, informal river, or private-bank camping for this route.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch from Ron Wilmot River Access and paddle the lower Big Sioux border-river segment to the IA-3 / SD Hwy 50 concrete launch. USGS 06485500 at Akron is just upstream, so use that gauge as the same-day check and treat 400 cfs as the conservative low-water floor.",
+      "accessCaveats": [
+        "GFP's Jay Heath access layer marks Ron Wilmot as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by Plymouth County Conservation Board; MyCountyParks separately confirms a boat ramp and parking for Big Sioux River access.",
+        "GFP's layer marks IA-3 / SD Hwy 50 as Parking Yes, Launch Yes, Camping No, and a concrete launch surface managed by Plymouth County Conservation Board.",
+        "GFP maps River's Bend Wildlife Area and Lazy H Campground as campground records rather than launch-supported Big Sioux river accesses. Treat them only as separate nearby camping support.",
+        "Do not substitute IA-12, Missouri River Boat Club, Sioux City, the Missouri confluence, private ramps, fee/private accesses, or informal banks as launch or take-out points without separate access and hazard review."
+      ],
+      "watchFor": [
+        "Shallow bars, scraping, and slow current when the Akron gauge is below the 400 cfs community floor.",
+        "Wood, strainers, bridge debris, bank mud, fences, or wire after rain or high water.",
+        "Agricultural and urban water-quality concerns on the lower Big Sioux, especially after heavy rain or visible runoff.",
+        "Open border-river wind exposure, limited public egress, muddy or flood-shifted landings, and a no-extension boundary at IA-3 / SD Hwy 50."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "ron-wilmot-river-access",
+        "name": "Ron Wilmot River Access concrete launch",
+        "latitude": 42.793412144267485,
+        "longitude": -96.59396920107712,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 52; Parking Yes, Launch Yes, Camping No, concrete launch surface, Plymouth County Conservation Board-managed. MyCountyParks independently confirms a boat ramp and parking for Big Sioux River access."
+      },
+      {
+        "id": "ia-3-sd-highway-50",
+        "name": "IA-3 / SD Hwy 50 concrete launch",
+        "latitude": 42.7613907676865,
+        "longitude": -96.63169172215292,
+        "mileFromStart": 5.4,
+        "segmentKind": "creek",
+        "note": "GFP ArcGIS access record OID 3; Parking Yes, Launch Yes, Camping No, concrete launch surface, Plymouth County Conservation Board-managed."
+      }
+    ]
+  },
   "split-rock-creek-split-rock-park-palisades": {
     "putIn": {
       "name": "Garretson Dam-below / Split Rock Park downstream canoe site",

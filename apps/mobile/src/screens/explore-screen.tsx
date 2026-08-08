@@ -492,10 +492,10 @@ function FullScreenExploreMap({
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [activeFilterCount, filterFocusSignature, points.length]);
+  }, [activeFilterCount, filterFocusSignature, points.length, selectedSlug]);
 
   useEffect(() => {
-    if (!userLocation || points.length === 0 || activeFilterCount > 0) {
+    if (!userLocation || points.length === 0 || activeFilterCount > 0 || selectedSlug) {
       return;
     }
 
@@ -504,7 +504,7 @@ function FullScreenExploreMap({
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [activeFilterCount, points.length, userLocation]);
+  }, [activeFilterCount, points.length, selectedSlug, userLocation]);
 
   useEffect(() => {
     if (!selectedSlug || !selectedRiver) {

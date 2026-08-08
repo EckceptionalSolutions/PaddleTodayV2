@@ -2066,7 +2066,343 @@
           "detail": "Git repository provides a bounded revert path."
         }
       ]
+    },
+    {
+      "id": "orchestrator-20260807214727",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-07T21:47:27.884Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260807215804",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-07T21:57:04.532Z",
+      "completedAt": "2026-08-07T21:58:04.643Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-20260807215817",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-07T21:47:27.884Z",
+      "completedAt": "2026-08-07T21:58:17.076Z",
+      "status": "completed",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "route-implementation",
+      "routeSlug": "big-sioux-river-big-sioux-county-park-akron",
+      "summary": "Added Big Sioux River Big Sioux County Park-to-Akron with SD GFP public concrete-launch endpoints, USGS 06485500 live reach gauge, Sioux Empire Paddlers 400 cfs Akron minimum, nearby-basecamp-only camping evidence, safety caveats, generated geometry/coordinate audit path, bounded no-image decision, and validation/gatekeeper pass."
+    },
+    {
+      "id": "orchestrator-20260807220045",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-07T22:00:45.921Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-supervisor-20260807220222",
+      "kind": "route_worker_supervisor",
+      "startedAt": "2026-08-07T22:00:45.921Z",
+      "completedAt": "2026-08-07T22:02:22.605Z",
+      "status": "completed",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "orchestrator",
+      "summary": "Classified hourly route-worker activity after the prior supervisor pass: big-sioux-river-oak-ridge-oak-grove and big-sioux-river-big-sioux-county-park-akron were completed route implementations. Package inspection found bounded no-image decisions, camping evidence, safety notes, route geometry assets, and coordinate audit entries for both; no gallery/camping/safety/geometry/coordinate follow-up was needed. No blocked candidate review, no no-work/WIP dead end, no stale route WIP, and no active route claim conflict were found. GitHub API and Frontend push checks at 2026-08-07T21:34Z reached npm test and failed src/lib/route-coordinate-review-artifact.test.ts on the earlier pushed state, so they are classified as failed validation rather than runner infrastructure or route-worker dead end; the current local unfiltered npm test passes after the latest worker package. operations:plan -- --record selected south-dakota-state-coverage-baseline."
+    },
+    {
+      "id": "orchestrator-20260807223133",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-07T22:31:33.318Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260807224730",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-07T22:47:30.817Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260807225705",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-07T22:55:57.865Z",
+      "completedAt": "2026-08-07T22:57:05.163Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-20260807225821",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-07T22:47:30.817Z",
+      "completedAt": "2026-08-07T22:58:21.056Z",
+      "status": "completed",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "route-implementation",
+      "routeSlug": "big-sioux-river-akron-ron-wilmot",
+      "summary": "Added Big Sioux River Akron-to-Ron-Wilmot with SD GFP public concrete-launch endpoints, USGS 06485500 live Akron gauge, Sioux Empire Paddlers 400 cfs Akron minimum, nearby-basecamp-only River's Bend/Akron camping evidence, safety caveats, generated geometry/coordinate audit path, bounded no-image decision, and validation/gatekeeper pass."
+    },
+    {
+      "id": "orchestrator-20260807234711",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-07T23:47:11.746Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-20260807235800",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-07T23:47:11.746Z",
+      "completedAt": "2026-08-07T23:58:00.000Z",
+      "status": "completed",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "route-implementation",
+      "routeSlug": "big-sioux-river-ron-wilmot-ia-3-sd-50",
+      "summary": "Added Big Sioux River Ron Wilmot-to-IA-3 / SD Hwy 50 with SD GFP public concrete-launch endpoints, USGS 06485500 live Akron gauge, Sioux Empire Paddlers 400 cfs Akron minimum, nearby-basecamp-only camping evidence, safety caveats, generated geometry/coordinate audit path, bounded no-image decision, and validation/gatekeeper pass."
+    },
+    {
+      "id": "gatekeeper-20260807235305",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-07T23:52:20.629Z",
+      "completedAt": "2026-08-07T23:53:05.460Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260807235350",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-07T23:53:14.259Z",
+      "completedAt": "2026-08-07T23:53:50.929Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-supervisor-20260808000238",
+      "kind": "route_worker_supervisor",
+      "startedAt": "2026-08-08T00:02:38.576Z",
+      "completedAt": "2026-08-08T00:02:38.576Z",
+      "status": "completed",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "orchestrator",
+      "summary": "Classified hourly route-worker activity after the prior supervisor pass: big-sioux-river-akron-ron-wilmot and big-sioux-river-ron-wilmot-ia-3-sd-50 were completed route implementations. Package inspection found bounded no-image decisions, camping evidence, safety notes, route geometry assets, and coordinate audit entries for both; no gallery/camping/safety/geometry/coordinate follow-up was needed. No blocked candidate review, no no-work/WIP dead end, no stale route WIP, and no active route claim conflict were found. GitHub scheduled Actions are currently succeeding; the transient local operations:verify failure was caused by a UTF-8 BOM in docs/operations/runs.json, which this supervisor normalized before rerunning validation and planning."
+    },
+    {
+      "id": "gatekeeper-20260808000322",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T00:02:47.934Z",
+      "completedAt": "2026-08-08T00:03:22.283Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260808000327",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T00:03:27.881Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260808004832",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T00:48:32.882Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-20260808005200",
+      "kind": "route_planning_review",
+      "startedAt": "2026-08-08T00:48:32.882Z",
+      "completedAt": "2026-08-08T00:52:00.000Z",
+      "status": "blocked",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "route-implementation",
+      "summary": "Screened five distinct South Dakota candidates in priority order: Big Sioux Canton-to-Newton-Hills, Newton-Hills-to-Fairview, Fairview-to-Oak-Ridge, IA-3/SD-50-to-Sioux-City/Missouri-River-Boat-Club, and Missouri River Fort-Randall-to-Running-Water. No route was added: the first three have launch-supported endpoints but lack route-specific numeric threshold/gauge support; the downstream Big Sioux extension depends on a private/fee marina take-out and lacks a public access/camping/safety package; the Missouri 39-mile reach has NPS route/access/camping/safety support but lacks product-supported discharge/threshold data."
+    },
+    {
+      "id": "gatekeeper-20260808005529",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T00:54:32.052Z",
+      "completedAt": "2026-08-08T00:55:29.699Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
     }
   ],
-  "updatedAt": "2026-08-07T20:56:53.093Z"
+  "updatedAt": "2026-08-08T00:55:29.699Z"
 }
