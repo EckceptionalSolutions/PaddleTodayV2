@@ -35,7 +35,7 @@ import { photoForRiver } from '../lib/route-photos';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
 import { isRecord, parseJson } from '../lib/storage';
-import { routeDecisionLine, routePreviewFactItems, routePreviewFactLine } from '../lib/route-facts';
+import { routePreviewFactItems, routePreviewFactLine } from '../lib/route-facts';
 import {
   buildBoardSnapshot,
   selectBestNowPicks,
@@ -82,11 +82,12 @@ export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const summaryQuery = useRiverSummaryQuery();
-  const { location, status, requestLocation } = useStoredLocation();
+  const { location, status, requestLocation, setLocationFromQuery } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [mode, setMode] = useState<BoardMode>('best');
   const [routeQuery, setRouteQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
+  const [locationSearchOpen, setLocationSearchOpen] = useState(false);
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
 
   const rivers = summaryQuery.data?.rivers ?? [];
@@ -212,6 +213,7 @@ export default function HomeScreen() {
           hasLocation={Boolean(location)}
           locationStatus={status}
           onUseLocation={() => void requestLocation()}
+          onSetLocation={() => setLocationSearchOpen(true)}
         />
         {locationOutOfRange ? (
           <OutOfRangeState
@@ -293,6 +295,18 @@ export default function HomeScreen() {
           router.push({ pathname: '/explore', params: { state, intentKey: Date.now().toString() } });
         }}
       />
+      <ManualLocationModal
+        visible={locationSearchOpen}
+        onDismiss={() => setLocationSearchOpen(false)}
+        onSubmit={async (query) => {
+          const nextLocation = await setLocationFromQuery(query);
+          if (nextLocation) {
+            setLocationSearchOpen(false);
+            return true;
+          }
+          return false;
+        }}
+      />
     </ScrollView>
   );
 
@@ -340,6 +354,7 @@ function BoardHero({
   hasLocation,
   locationStatus,
   onUseLocation,
+  onSetLocation,
 }: {
   mode: BoardMode;
   headline: BoardItem | null;
@@ -353,6 +368,7 @@ function BoardHero({
   hasLocation: boolean;
   locationStatus: string;
   onUseLocation: () => void;
+  onSetLocation: () => void;
 }) {
   const imageUri = headline ? photoForRiver(headline.river) : photoForRiver({ slug: 'fallback' });
   const requestingLocation = locationStatus === 'requesting';
@@ -375,10 +391,10 @@ function BoardHero({
             <Pressable style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
               <View style={styles.heroScoreRow}>
                 <View style={[styles.scoreOrb, { backgroundColor: ratingColors(headline.rating).backgroundColor }]}>
-                  <Text style={[styles.scoreValue, { color: ratingColors(headline.rating).textColor }]}>{headline.score}</Text>
-                  <Text style={[styles.scoreLabel, { color: ratingColors(headline.rating).textColor }]}>
-                    Score
+                  <Text style={[styles.heroVerdictText, { color: ratingColors(headline.rating).textColor }]}>
+                    {verdictForRating(headline.rating)}
                   </Text>
+                  <Text style={[styles.heroVerdictMeta, { color: ratingColors(headline.rating).textColor }]}>Score {headline.score}</Text>
                 </View>
                 {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
@@ -391,7 +407,7 @@ function BoardHero({
                     : routeReachWithState(headline)}
                 </Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
-                  {routeDecisionLine(verdictForRating(headline.rating), headline.summary.shortExplanation)}
+                  {normalizeApiText(headline.summary.shortExplanation)}
                 </Text>
               </View>
               {!hasLocation ? (
@@ -410,6 +426,17 @@ function BoardHero({
                   >
                     <MaterialCommunityIcons name="crosshairs-gps" color={colors.accentDeep} size={18} />
                     <Text style={styles.heroPrimaryActionText}>{requestingLocation ? 'Finding' : 'Use location'}</Text>
+                  </Pressable>
+                  <Pressable
+                    style={styles.heroLocationSearchAction}
+                    onPress={(event) => {
+                      event.stopPropagation();
+                      onSetLocation();
+                    }}
+                    accessibilityRole="button"
+                    accessibilityLabel="Set city or ZIP code"
+                  >
+                    <Text style={styles.heroLocationSearchActionText}>City or ZIP</Text>
                   </Pressable>
                 </View>
               ) : null}
@@ -500,13 +527,12 @@ function RiverImageCard({
         <View style={styles.imageCardOverlay}>
           <View style={styles.imageCardTop}>
             <View style={styles.imageScore}>
-              <Text style={styles.imageScoreValue}>{river.score}</Text>
-              <Text style={styles.imageScoreLabel}>Score</Text>
+              <Text style={styles.imageVerdictText}>{verdictForRating(river.rating)}</Text>
+              <Text style={styles.imageScoreLabel}>Score {river.score}</Text>
             </View>
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
           <View style={styles.imageCardCopy}>
-            <RatingPill rating={river.rating} />
             <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
             <Text style={styles.imageCardMeta} numberOfLines={1}>
               {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
@@ -718,9 +744,85 @@ function KnownRouteSearch({ onOpen }: { onOpen: () => void }) {
       <Text style={styles.knownSearchLabel}>Know where you want to go?</Text>
       <View style={styles.knownSearchInputRow}>
         <MaterialCommunityIcons name="magnify" color={colors.accent} size={18} />
-        <Text style={styles.knownSearchPlaceholder}>River, reach, region, or state</Text>
+        <Text style={styles.knownSearchPlaceholder}>River, route, region, or state</Text>
       </View>
     </Pressable>
+  );
+}
+
+function ManualLocationModal({
+  visible,
+  onDismiss,
+  onSubmit,
+}: {
+  visible: boolean;
+  onDismiss: () => void;
+  onSubmit: (query: string) => Promise<boolean>;
+}) {
+  const [query, setQuery] = useState('');
+  const [message, setMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (visible) {
+      setQuery('');
+      setMessage('');
+      setSubmitting(false);
+    }
+  }, [visible]);
+
+  async function submitLocation() {
+    if (!query.trim() || submitting) return;
+    setSubmitting(true);
+    setMessage('');
+    const found = await onSubmit(query);
+    if (!found) {
+      setMessage("We couldn't find that city or ZIP code.");
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={onDismiss}>
+      <KeyboardAvoidingView style={styles.locationModalScrim} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <Pressable style={StyleSheet.absoluteFill} onPress={onDismiss} accessibilityLabel="Close location search" />
+        <View style={styles.locationModalCard}>
+          <View style={styles.locationModalHeader}>
+            <View style={styles.locationModalHeaderCopy}>
+              <Text style={styles.locationModalTitle}>Set your planning location</Text>
+              <Text style={styles.locationModalSubtitle}>Enter a city or ZIP code to rank nearby routes.</Text>
+            </View>
+            <Pressable hitSlop={10} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Close location search">
+              <MaterialCommunityIcons name="close" color={colors.textMuted} size={22} />
+            </Pressable>
+          </View>
+          <View style={styles.locationModalInputRow}>
+            <MaterialCommunityIcons name="map-marker-outline" color={colors.accent} size={19} />
+            <TextInput
+              autoFocus
+              value={query}
+              onChangeText={setQuery}
+              placeholder="City, state, or ZIP code"
+              placeholderTextColor={colors.textMuted}
+              autoCapitalize="words"
+              autoCorrect={false}
+              returnKeyType="search"
+              onSubmitEditing={() => void submitLocation()}
+              style={styles.locationModalInput}
+            />
+          </View>
+          {message ? <Text style={styles.locationModalMessage}>{message}</Text> : null}
+          <Pressable
+            style={[styles.locationModalSubmit, (!query.trim() || submitting) ? styles.heroActionDisabled : null]}
+            disabled={!query.trim() || submitting}
+            onPress={() => void submitLocation()}
+            accessibilityRole="button"
+          >
+            <Text style={styles.locationModalSubmitText}>{submitting ? 'Finding location' : 'Use this location'}</Text>
+          </Pressable>
+        </View>
+      </KeyboardAvoidingView>
+    </Modal>
   );
 }
 
@@ -765,7 +867,7 @@ function RouteSearchModal({
           <View style={styles.searchModalHeader}>
             <View>
               <Text style={styles.searchModalTitle}>Find a route</Text>
-              <Text style={styles.searchModalSubtitle}>Search rivers, reaches, states, and access points.</Text>
+              <Text style={styles.searchModalSubtitle}>Search rivers, routes, states, and access points.</Text>
             </View>
             <Pressable style={styles.searchModalClose} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close route search">
               <MaterialCommunityIcons name="close" color={colors.accent} size={20} />
@@ -780,7 +882,7 @@ function RouteSearchModal({
               autoCorrect={false}
               value={query}
               onChangeText={onChange}
-              placeholder="River, reach, region, or state"
+              placeholder="River, route, region, or state"
               placeholderTextColor={colors.textMuted}
               returnKeyType="search"
               onSubmitEditing={() => {
@@ -1189,7 +1291,7 @@ function routeChoiceLabelForMode(mode: BoardMode) {
 }
 
 function quickScanSubtitleForMode(mode: BoardMode) {
-  if (mode === 'closest') return 'Nearby routes with key trip facts.';
+  if (mode === 'closest') return 'Nearby routes with key planning facts.';
   if (mode === 'score') return 'Rivers ordered by score.';
   if (mode === 'certain') return 'Most reliable routes first, then score.';
   return 'Today\'s routes, including ones to check again.';
@@ -1311,22 +1413,89 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   scoreOrb: {
-    width: 66,
-    height: 66,
+    minWidth: 132,
+    minHeight: 60,
     borderRadius: 19,
     backgroundColor: 'rgba(255, 255, 255, 0.92)',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
-  scoreValue: {
-    color: colors.accentDeep,
-    fontSize: 28,
+  locationModalScrim: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: spacing.lg,
+    backgroundColor: 'rgba(10, 24, 29, 0.52)',
+  },
+  locationModalCard: {
+    borderRadius: radius.lg,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.lg,
+    gap: spacing.md,
+  },
+  locationModalHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  locationModalHeaderCopy: {
+    flex: 1,
+    gap: 3,
+  },
+  locationModalTitle: {
+    color: colors.text,
+    fontSize: 19,
     fontWeight: '900',
   },
-  scoreLabel: {
-    color: colors.accentDeep,
+  locationModalSubtitle: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  locationModalInputRow: {
+    minHeight: 48,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
+  locationModalInput: {
+    flex: 1,
+    color: colors.text,
+    fontSize: 16,
+  },
+  locationModalMessage: {
+    color: colors.noGo,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  locationModalSubmit: {
+    minHeight: 46,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: spacing.md,
+  },
+  locationModalSubmitText: {
+    color: colors.surfaceStrong,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  heroVerdictText: {
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  heroVerdictMeta: {
     fontSize: 10,
     fontWeight: '800',
+    marginTop: 2,
   },
   headlineCopy: {
     gap: 4,
@@ -1909,17 +2078,17 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   imageScore: {
-    minWidth: 48,
-    height: 48,
+    minWidth: 112,
+    minHeight: 48,
     borderRadius: 15,
     backgroundColor: 'rgba(255, 255, 255, 0.92)',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: spacing.sm,
   },
-  imageScoreValue: {
+  imageVerdictText: {
     color: colors.accentDeep,
-    fontSize: 20,
+    fontSize: 13,
     fontWeight: '900',
   },
   heroLocationPrompt: {
@@ -1927,22 +2096,40 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     backgroundColor: 'rgba(15, 25, 22, 0.58)',
     paddingLeft: spacing.sm,
+    paddingRight: 6,
+    paddingVertical: 6,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: spacing.sm,
   },
   heroLocationPromptText: {
     flex: 1,
+    minWidth: 120,
     color: colors.surfaceStrong,
     fontSize: 12,
     lineHeight: 17,
     fontWeight: '800',
   },
+  heroLocationSearchAction: {
+    minHeight: 38,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.72)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 11,
+  },
+  heroLocationSearchActionText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
+    fontWeight: '900',
+  },
   imageScoreLabel: {
     color: colors.accentDeep,
-    fontSize: 7,
-    lineHeight: 8,
+    fontSize: 9,
+    lineHeight: 11,
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.1,

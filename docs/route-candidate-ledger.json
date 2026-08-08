@@ -1,7 +1,27 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T00:52:00.000Z",
+  "updatedAt": "2026-08-08T17:55:00.000Z",
   "notes": [
+    {
+      "date": "2026-08-08",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review screened five fresh/distinct leads after the prior Big Sioux/Skunk/Split Rock blocker batch: MNRR Clay County-to-Mulberry Bend, MNRR Mulberry Bend-to-Bolton, MNRR Bolton-to-Ponca canoe landing, James River Island / Riverside-to-St. Helena family, and upper Big Sioux Flandreau-to-Egan family. No route was added. MNRR 59-mile subsegments had NPS access/camping/safety and official Gavins Point cfs guidance but remain blocked by the missing supported USACE live-release/discharge adapter; James River Island is an island-access note without route/threshold/camping package; Flandreau-to-Egan has official access anchors and live USGS context but lacks route-specific thresholds and a dam/rock-crossing/search-and-rescue safety package."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review screened five fresh non-duplicate leads after the Cheyenne/James/Moreau/White River blocker batch: Big Sioux Dells of the Sioux, Skunk Creek Hartford-to-Legacy family, Big Sioux Baltic-to-I-90, Big Sioux Sioux Falls Park, and Split Rock Creek Palisades in-park/downstream family. No route was added. Dells has AW route-shape and a product-live Dell Rapids gauge plus Sioux Empire 300 cfs guidance, but no named public endpoint pair, take-out coordinates, camping package, or canyon-egress safety support. Skunk Hartford has a stage gauge and 4.5 ft local floor but no manager-backed north-Hartford public launch/route package. Baltic-to-I-90 has a GFP launch at Baltic but the I-90 record is Launch No. Sioux Falls Park is blocked by high-consequence falls/low-head-dam safety and no manager route package. Palisades in-park/downstream Split Rock leads are contained/extension shapes without a distinct route-manager package beyond the already reactivated Split Rock Park-to-Palisades card."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review screened five fresh non-duplicate leads after the Split Rock / US-18 / MNRR blocker batch: Cheyenne River Angostura canoe-access-to-lake, James River Fisher Grove / Redfield family, Moreau River Little Moreau Recreation Area family, Cheyenne River Wasta / I-90 family, and White River Interior / Badlands family. No route was added. Angostura has official state-park float language but USGS 06401500 returned unavailable discharge/stage sentinels and no numeric threshold or endpoint-to-lake route package cleared. Fisher Grove has public James River access and camping, plus live USGS 06475000 near Redfield, but lacks a selected downstream public take-out, distance, and gauge-tied paddling thresholds. Little Moreau has GFP canoe/kayak/camping/boat-ramp context and Moreau gauges, but no point-to-point route, public take-out, or numeric scoring model. Cheyenne near Wasta has a live USGS gauge and anecdotal trip evidence, but no manager-backed public access pair, camping legality, or threshold model. White River / Interior has live low-flow USGS data but no NPS/public route package, public endpoints, camping legality, or thresholds."
+    },
+    {
+      "date": "2026-08-07",
+      "automation": "paddletoday-hourly-route-worker",
+      "summary": "South Dakota baseline bounded review screened five distinct non-duplicate leads after the prior five-candidate blocker pass: Split Rock Creek McHardy Park-to-Garretson Dam-above, Split Rock Creek Sunken Bridge-to-Split Rock Park, Split Rock Creek Split Rock Park round-trip, Big Sioux River US Hwy 18-to-Canton City Park, and Missouri National Recreational River Riverside Park-to-Green Island/Clay County family. No route was added. The Split Rock McHardy/Garretson candidate has official GFP access records and a product-live Split Rock gauge but is dam-adjacent without route-manager safety/portage handling for a takeout immediately above or below the Garretson dam. The Sunken Bridge and Split Rock Park round-trip leads rely on Boundless route pages whose gauge link points to Skunk Creek instead of Split Rock Creek, and Sunken Bridge lacks manager-backed access evidence. The short US-18-to-Canton Big Sioux split has GFP access records, but its published gauge link also points to Skunk Creek and no product-supported Big Sioux threshold package cleared the prior Klondike/Canton blocker. The MNRR 59-mile-reach day-trip family has strong NPS route/access/camping/safety evidence but still lacks a product-supported Gavins Point release/discharge adapter or equivalent live threshold source."
+    },
     {
       "date": "2026-08-07",
       "automation": "paddletoday-hourly-route-worker",
@@ -58050,6 +58070,658 @@
         "notes": "No image search was selected because the product gauge/threshold gate failed first."
       },
       "updatedAt": "2026-08-08T00:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-split-rock-creek-mchardy-garretson-dam-above",
+      "river": "Split Rock Creek",
+      "route": "McHardy Park to Garretson Dam-above",
+      "state": "SD",
+      "status": "safety_blocked",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found official Split Rock Kayak Trail access anchors but did not clear the route-safety gate. SD GFP CanoeTrails marks McHardy Park canoe site and Garretson Dam-above as Parking Yes / Launch Yes, with the McHardy downstream segment recorded as 8.08 water miles and USGS 06482610 Split Rock Creek at Corson product-live. Publication is blocked because the takeout/route endpoint is immediately dam-adjacent and no route-manager source supplied a complete public portage, no-extension, landing, or hazard package for stopping above or moving around the Garretson dam. Do not publish from access-layer geometry alone.",
+      "retryCondition": "Retry only if a public manager or authoritative paddling source publishes dam-adjacent landing/portage safety handling plus route-specific threshold guidance tied to USGS 06482610 or another product-supported Split Rock gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer records for McHardy Park canoe site and Garretson Dam-above reviewed 2026-08-07",
+        "Sioux Empire Paddlers river-flow-rates and rivers-and-creeks pages reviewed 2026-08-07",
+        "USGS Water Services IV for 06482610 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "nearby_basecamp_only_unselected",
+        "notes": "GFP records McHardy Park campground separately from the canoe site and marks Garretson Dam-above Camping No. No informal creekside camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the dam-adjacent safety gate failed first."
+      },
+      "updatedAt": "2026-08-08T01:58:00.000Z"
+    },
+    {
+      "candidateId": "sd-split-rock-creek-sunken-bridge-split-rock-park",
+      "river": "Split Rock Creek",
+      "route": "Sunken Bridge to Split Rock Park",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found a named local route but not manager-backed access or gauge support. Boundless Adventures describes Sunken Bridge to Split Rock Park as a 3.1-mile intermediate Split Rock Creek paddle with rapids/rocks and a 4.5 ft recommendation, but the page's gauge link resolves to USGS 06481500 Skunk Creek, not Split Rock Creek. No SD GFP CanoeTrails record or equivalent public manager source was found for Sunken Bridge as a launch-supported public paddle access. Do not publish until both the access and direct-gauge threshold gates clear.",
+      "retryCondition": "Retry only if a public manager confirms Sunken Bridge launch/parking legality and a credible source ties the route threshold to USGS 06482610 or another product-supported Split Rock gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Boundless Adventures Sunken Bridge to Split Rock Park page reviewed 2026-08-07",
+        "South Dakota GFP CanoeTrails FeatureServer Split Rock records reviewed 2026-08-07",
+        "USGS Water Services IV for 06482610 and checked linked 06481500 context reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "endpoint_basecamp_only_unselected",
+        "notes": "Split Rock Park Campground is campground-supported, but no route was added and no camping is inferred from the Sunken Bridge access lead."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because access legitimacy and gauge-link gates failed first."
+      },
+      "updatedAt": "2026-08-08T01:58:00.000Z"
+    },
+    {
+      "candidateId": "sd-split-rock-creek-split-rock-park-round-trip",
+      "river": "Split Rock Creek",
+      "route": "Split Rock Park Campground round trip",
+      "state": "SD",
+      "status": "route_shape_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found a recreational local paddle but not a product route candidate. Boundless Adventures describes a 2.2-mile Split Rock Park Campground round trip beginning and ending at the campground, and SD GFP CanoeTrails supports nearby Garretson dam and campground access records. Publication is blocked because PaddleToday route records require a defensible downstream put-in/take-out route shape, while this is an out-and-back/round-trip park paddle adjacent to the already reactivated Split Rock Park-to-Palisades route. The Boundless gauge link also resolves to Skunk Creek rather than Split Rock Creek.",
+      "retryCondition": "Retry only if a distinct downstream point-to-point route with public endpoints, route-manager safety handling, and Split Rock gauge-tied thresholds is published.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Boundless Adventures Split Rock Creek round-trip page reviewed 2026-08-07",
+        "South Dakota GFP CanoeTrails FeatureServer Split Rock Park Campground and Garretson Dam records reviewed 2026-08-07",
+        "USGS Water Services IV for 06482610 and checked linked 06481500 context reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "Split Rock Park Campground is camping-supported, but the route shape failed and no informal creekside camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because route shape and gauge-link gates failed first."
+      },
+      "updatedAt": "2026-08-08T01:58:00.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-us-18-canton-city-park",
+      "river": "Big Sioux River",
+      "route": "US Hwy 18 to Canton City Park",
+      "state": "SD",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found a shorter public-access split inside the already blocked Klondike-to-Canton family, but the threshold/gauge gate remains unresolved. SD GFP CanoeTrails marks US Hwy 18 and Canton City Park as Parking Yes / Launch Yes / Camping No with coordinates, and Boundless Adventures describes a 4.7-mile Sunnyside / US Hwy 18-to-Canton City Park float. However, the Boundless gauge link resolves to USGS 06481500 Skunk Creek, not a Big Sioux gauge, and no route-specific numeric threshold tied to product-supported Big Sioux stations 06482020, 06485500, or 06481000 surfaced. Do not publish by borrowing the wrong creek gauge or by reopening the Klondike/Canton blocker without fresh threshold evidence.",
+      "retryCondition": "Retry only if a credible route source publishes US-Hwy-18-to-Canton threshold guidance tied to a product-supported Big Sioux gauge plus complete safety/camping treatment.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer records for US Hwy 18 and Canton City Park reviewed 2026-08-07",
+        "Boundless Adventures Sunnyside / US Hwy 18 to Canton City Park page reviewed 2026-08-07",
+        "USGS Water Services IV for Big Sioux stations 06482020, 06485500, and 06481000 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "none",
+        "notes": "GFP marks both US Hwy 18 and Canton City Park Camping No; no private-bank or informal camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the threshold/gauge gate failed first."
+      },
+      "updatedAt": "2026-08-08T01:58:00.000Z"
+    },
+    {
+      "candidateId": "sd-mnrr-riverside-green-island-clay-county",
+      "river": "Missouri River",
+      "route": "Riverside Park / Yankton to Green Island / Clay County family",
+      "state": "SD",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found strong Missouri National Recreational River route/access/camping/safety evidence but no product-supported live threshold source. NPS documents the 59-mile reach below Gavins Point Dam, Riverside Park Boat Launch, Green Island primitive camping, Bow Creek / Goat Island / Clay County / Ponca access context, private-bank limits, wind/current/debris/sandbar hazards, and dam-controlled flow dependence. USGS 06467500 at Yankton returned product-live stage only and no discharge, while the needed Gavins Point release/discharge source is not currently supported by the product. Do not substitute stage-only Yankton data, NPS general discharge warnings, or SDCKA event context for a scoreable live-gauge threshold package.",
+      "retryCondition": "Retry only if PaddleToday supports a Gavins Point release/discharge source or another official live discharge source with route-specific threshold guidance for the 59-mile reach.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "NPS Missouri National Recreational River canoeing/kayaking and camping pages reviewed 2026-08-07",
+        "NPS 59-Mile Reach Paddler Guide reviewed 2026-08-07",
+        "SDCKA links / Missouri Basin Daily River Bulletin context reviewed 2026-08-07",
+        "USGS Water Services IV for 06467500 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "primitive_or_endpoint_camping_supported",
+        "notes": "NPS supports primitive camping at Green Island, Bow Creek, Goat Island, and related 59-mile reach sites with restrictions, but the route was not added because product live-gauge/threshold support failed."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the product gauge/threshold gate failed first."
+      },
+      "updatedAt": "2026-08-08T01:58:00.000Z"
+    },
+    {
+      "candidateId": "sd-cheyenne-river-angostura-canoe-access-lake",
+      "river": "Cheyenne River",
+      "route": "Angostura canoe access point to Angostura Reservoir",
+      "state": "SD",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found official state-park float context but not a scoreable river route. South Dakota GFP's Adventure 250 page invites visitors at Angostura / Sheps Canyon to float the Cheyenne River from the canoe access point to the lake, and the Angostura Recreation Area page supports public reservoir recreation and camping. Publication is blocked because USGS Water Services IV for 06401500 Cheyenne River below Angostura Dam returned unavailable discharge and gage-height sentinel values at 2026-08-07 20:15 MDT, no numeric paddling threshold tied to a product-supported gauge surfaced, and the available source frames a park activity into a reservoir rather than a named point-to-point route with defensible take-out coordinates and safety/camping handling.",
+      "retryCondition": "Retry only if GFP or another public manager publishes the exact canoe-access and lake take-out package plus a product-supported live gauge and numeric threshold guidance for this Angostura Cheyenne float.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP Adventure 250 Angostura / Sheps Canyon float activity reviewed 2026-08-07",
+        "South Dakota GFP Angostura Recreation Area page reviewed 2026-08-07",
+        "USGS Water Services IV for 06401500 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "Angostura Recreation Area supports camping, but no route was added and no river-corridor or informal camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because live-gauge, threshold, and route-shape gates failed first."
+      },
+      "updatedAt": "2026-08-08T02:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-james-river-fisher-grove-redfield-family",
+      "river": "James River",
+      "route": "Fisher Grove / Redfield James River family",
+      "state": "SD",
+      "status": "research_later",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found useful public-access and camping context but not a route-ready package. South Dakota GFP confirms Fisher Grove State Park has James River access for canoeing and kayaking plus 22 electrical campsites, and USGS Water Services IV for 06475000 James River near Redfield returned product-live values of 616 cfs / 6.26 ft at 2026-08-07 20:45 CDT. Publication remains blocked because no selected named downstream public take-out, route distance, route-specific numeric threshold model, coordinate-backed access pair, or safety package surfaced. Fisher Grove alone is a park access, not a point-to-point PaddleToday route.",
+      "retryCondition": "Retry only if a public manager or credible route source publishes a Fisher Grove-area James River day reach with named public endpoints, distance, coordinates, camping treatment, safety caveats, and numeric thresholds tied to USGS 06475000 or another product-supported James gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP Fisher Grove State Park page reviewed 2026-08-07",
+        "Redfield tourism Fisher Grove page reviewed 2026-08-07",
+        "USGS Water Services IV for 06475000 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "Fisher Grove campground is source-backed, but no point-to-point route was added and camping is not enough to infer route legality or shape."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because route-shape, endpoint, and threshold gates failed first."
+      },
+      "updatedAt": "2026-08-08T02:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-moreau-river-little-moreau-rec-area-family",
+      "river": "Moreau River",
+      "route": "Little Moreau Recreation Area family",
+      "state": "SD",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found public recreation and gauge context but no route-ready scoring model. South Dakota GFP lists Little Moreau Recreation Area with canoeing, kayaking, boat ramps, vault toilets, and five first-come campsites. USGS Water Services IV returned 0.00 cfs / 1.33 ft for 06360500 Moreau River near Whitehorse at 2026-08-07 20:30 MDT, while 06361000 Moreau River at Promise returned stage only. Publication is blocked because no named point-to-point public put-in/take-out pair, distance, numeric paddling floor/range, accepted gauge relationship, or route safety/access package surfaced. A recreation-area boat ramp is not enough to create a river trip card.",
+      "retryCondition": "Retry only if GFP, a tribal/public manager, or a credible route source publishes a specific Moreau day reach with legal endpoints, route distance, camping handling, safety caveats, and numeric thresholds tied to a product-supported Moreau gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP Little Moreau Recreation Area page reviewed 2026-08-07",
+        "USGS Water Services IV for 06360500 reviewed 2026-08-07",
+        "USGS Water Services IV for 06361000 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "Little Moreau Recreation Area has five first-come campsites, but no point-to-point route was added and no informal river camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because endpoint, route-shape, and threshold gates failed first."
+      },
+      "updatedAt": "2026-08-08T02:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-cheyenne-river-wasta-i90-family",
+      "river": "Cheyenne River",
+      "route": "Wasta / I-90 family",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found live gauge data and anecdotal trip evidence but not a public route package. USGS Water Services IV for 06423500 Cheyenne River near Wasta returned 53.7 cfs / 0.29 ft at 2026-08-07 20:30 MDT, and search-visible trip reports describe Cheyenne River paddling near Wasta or Red Shirt. Publication remains blocked because the available route evidence is anecdotal bridge/bank access, not named manager-backed public launch and landing sites with parking, water-entry coordinates, legal camping/overnight treatment, distance, safety caveats, or numeric gauge-tied thresholds. Do not publish from road-bridge or private-bank assumptions.",
+      "retryCondition": "Retry only if Pennington County, GFP, tribal managers, AW/local paddlers with corroboration, or another credible source publishes a Wasta-area Cheyenne reach with legal endpoints, coordinates, camping handling, safety caveats, and numeric thresholds tied to USGS 06423500.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "USGS Water Services IV for 06423500 reviewed 2026-08-07",
+        "NRS Duct Tape Diaries Cheyenne River trip story reviewed 2026-08-07",
+        "The Outbound Cheyenne River trip story and Wasta-area search results reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "unknown",
+        "notes": "No official route camping or overnight legality surfaced for the reviewed Wasta-area Cheyenne lead; private-bank camping is not inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because access, camping, and threshold gates failed first."
+      },
+      "updatedAt": "2026-08-08T02:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-white-river-interior-badlands-family",
+      "river": "White River",
+      "route": "Interior / Badlands family",
+      "state": "SD",
+      "status": "research_later",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found product-live low-flow gauge data but no route-ready package. USGS Water Services IV for 06446500 White River near Interior returned 1.31 cfs / 3.30 ft at 2026-08-07 20:00 MDT, and downstream White River gauges also returned current values. Badlands National Park sources support the surrounding public-land context but did not surface a paddling route, public put-in/take-out pair, water-entry coordinates, route distance, camping/overnight legality, safety package, or numeric gauge-tied threshold. Publication remains blocked until a specific public route source exists.",
+      "retryCondition": "Retry only if NPS, tribal/public managers, AW/local paddlers with corroboration, or another credible source publishes a specific White River day or overnight reach with legal endpoints, coordinates, camping rules, safety caveats, and numeric thresholds tied to a product-supported White River gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Badlands National Park official pages reviewed 2026-08-07",
+        "USGS Water Services IV for 06446500 reviewed 2026-08-07",
+        "USGS Water Services IV for 06447450 and 06452000 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "unknown",
+        "notes": "No route-specific public camping or overnight legality surfaced for a White River paddle reach; nearby private campground context was not treated as route camping."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because endpoint, route-shape, camping, and threshold gates failed first."
+      },
+      "updatedAt": "2026-08-08T02:52:00.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-dells-of-sioux",
+      "river": "Big Sioux River",
+      "route": "Dells of the Sioux / Dell Rapids canyon family",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 22:54 America/Chicago / 2026-08-08 03:54 UTC bounded South Dakota baseline review found a new AW-listed Big Sioux reach but not a publication-grade endpoint or safety package. American Whitewater lists Dells of the Sioux as a 1.9-mile Class I-II reach in Dell Rapids, with the river splitting and the larger channel dropping into a steep-sided canyon; it warns early exit is hard and provides no river-feature access points. Sioux Empire Paddlers lists Big Sioux River Dell Rapids as ideal above 300 cfs, and USGS Water Services returned product-live 06481000 Big Sioux River near Dell Rapids values of 242 cfs / 3.80 ft at 2026-08-07 22:30 CDT. Publication is blocked because no named public put-in and take-out pair, defensible take-out coordinate, route camping legality, or route-manager canyon-egress/safety package surfaced. Dell Rapids City Park access alone is not enough to define the downstream bottom-of-canyon take-out.",
+      "retryCondition": "Retry only if Dell Rapids, GFP, AW/local paddlers with corroboration, or another credible source publishes named public Dells put-in/take-out points with coordinates, canyon safety/egress handling, camping treatment, and numeric threshold support tied to USGS 06481000 or another product-supported Big Sioux gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "American Whitewater Big Sioux Dells of the Sioux page reviewed 2026-08-07",
+        "Sioux Empire Paddlers river-flow-rates page reviewed 2026-08-07",
+        "South Dakota GFP CanoeTrails FeatureServer Dell Rapids / upper Big Sioux records reviewed 2026-08-07",
+        "USGS Water Services IV for 06481000 reviewed 2026-08-07",
+        "City of Dell Rapids Sioux River Red Rock Trail page reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "unknown",
+        "notes": "No route-specific camping or overnight legality surfaced for the Dells of the Sioux reach. Nearby city-park or campground context was not treated as route camping."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because endpoint, coordinate, camping, and canyon-safety gates failed first."
+      },
+      "updatedAt": "2026-08-08T03:54:00.000Z"
+    },
+    {
+      "candidateId": "sd-skunk-creek-hartford-legacy-family",
+      "river": "Skunk Creek",
+      "route": "Hartford / upstream Skunk Creek to Legacy Park family",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 22:54 America/Chicago / 2026-08-08 03:54 UTC bounded South Dakota baseline review found gauge and threshold context but not a route-ready access package. Sioux Empire Paddlers lists Skunk Creek Hartford as ideal above 4.5 ft, and USGS Water Services returned stage-only 06481493 Skunk Creek near Hartford data of 3.47 ft at 2026-08-07 22:15 CDT. Search-visible local discussion mentions Skunk Creek from north of Hartford to Sioux Falls, while the existing app route already covers the manager-backed Legacy Park-to-Farm Field city segment. Publication is blocked because no named manager-backed public north-Hartford put-in, take-out pair, distance, water-entry coordinates, camping legality, or route-specific safety package surfaced. Do not infer access from road crossings, private banks, or social discussion.",
+      "retryCondition": "Retry only if Hartford, Minnehaha County, Sioux Falls, GFP, or a credible local route source publishes a specific Skunk Creek upstream reach with public endpoints, coordinates, camping treatment, safety caveats, and the 06481493/06481500 gauge relationship.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Sioux Empire Paddlers river-flow-rates and rivers-and-creeks pages reviewed 2026-08-07",
+        "USGS Water Services IV for 06481493 and 06481500 reviewed 2026-08-07",
+        "Boundless Adventures Sioux Falls route page reviewed 2026-08-07",
+        "Search-visible Hartford-to-Sioux-Falls local discussion reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "unknown",
+        "notes": "No official route camping or overnight legality surfaced for the upstream Skunk Creek lead; private-bank camping is not inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because access, route-shape, and camping gates failed first."
+      },
+      "updatedAt": "2026-08-08T03:54:00.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-baltic-i90",
+      "river": "Big Sioux River",
+      "route": "Baltic City River Park to Interstate 90 family",
+      "state": "SD",
+      "status": "access_legitimacy",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 22:54 America/Chicago / 2026-08-08 03:54 UTC bounded South Dakota baseline review found official North-trail access records but a decisive take-out access blocker. South Dakota GFP CanoeTrails marks Baltic City River Park as Parking Yes / Launch Yes / Camping Yes with a rock launch and stores a 12.8-mile downstream segment, but the next Interstate 90 record is Parking Yes / Launch No. Sioux Empire Paddlers lists the Big Sioux River Dell Rapids gauge as ideal above 300 cfs, and USGS Water Services returned product-live 06481000 values of 242 cfs / 3.80 ft at 2026-08-07 22:30 CDT. Publication is blocked because the downstream endpoint is not launch-supported, the broader source stack warns of a dangerous low-head dam at Baltic, and no replacement public take-out, camping/overnight treatment, or current safety package surfaced.",
+      "retryCondition": "Retry only if GFP, Minnehaha County, Baltic, or another public manager publishes a launch-supported take-out below Baltic plus dam/channel safety handling and threshold support tied to a product-supported Big Sioux gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer records for Baltic City River Park and Interstate 90 reviewed 2026-08-07",
+        "Sioux Empire Paddlers rivers-and-creeks and river-flow-rates pages reviewed 2026-08-07",
+        "USGS Water Services IV for 06481000 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "Baltic City River Park is camping-supported in the GFP layer, but the route was not added because the downstream take-out is Launch No and dam/safety gates failed."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the take-out access and safety gates failed first."
+      },
+      "updatedAt": "2026-08-08T03:54:00.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-sioux-falls-park",
+      "river": "Big Sioux River",
+      "route": "Sioux Falls Park whitewater / falls reach",
+      "state": "SD",
+      "status": "safety_blocked",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 22:54 America/Chicago / 2026-08-08 03:54 UTC bounded South Dakota baseline review found AW route context but a hard high-consequence safety blocker. American Whitewater lists Big Sioux / Sioux Falls Park as a 1-mile Class V reach with serious rapids, the falls, access issues, and trip-report guidance to take out before a low-head dam downstream. USGS Water Services returned product-live 06482000 Big Sioux River at Sioux Falls values of 195 cfs / 1.90 ft at 2026-08-07 22:00 CDT, while Sioux Empire Paddlers lists the in-town Big Sioux floor as 250 cfs. Publication is blocked because no City/GFP route-manager source documents a normal public whitewater route, exact put-in/take-out plan, low-head-dam safety infrastructure, rescue/access handling, camping treatment, or numeric route thresholds suitable for PaddleToday. Do not ship a falls/low-head-dam route on warning copy.",
+      "retryCondition": "Retry only if a responsible public manager and credible whitewater source publish a formal Sioux Falls Park paddling route with exact access, low-head-dam take-out safety, rescue/closure guidance, camping treatment, and gauge-tied thresholds.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "American Whitewater Big Sioux Sioux Falls Park page reviewed 2026-08-07",
+        "Sioux Empire Paddlers rivers-and-creeks and river-flow-rates pages reviewed 2026-08-07",
+        "USGS Water Services IV for 06482000 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "none",
+        "notes": "No route camping applies to the reviewed urban falls lead; no nearby lodging or park context was treated as route camping."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the high-consequence safety and access gates failed first."
+      },
+      "updatedAt": "2026-08-08T03:54:00.000Z"
+    },
+    {
+      "candidateId": "sd-split-rock-palisades-cliffs-pasture-family",
+      "river": "Split Rock Creek",
+      "route": "Palisades-Cliffs / Balancing Rock / Palisades-Pasture family",
+      "state": "SD",
+      "status": "route_shape_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "blocker": "2026-08-07 22:54 America/Chicago / 2026-08-08 03:54 UTC bounded South Dakota baseline review found official in-park/downstream access anchors but not a distinct route-ready card. South Dakota GFP CanoeTrails lists Palisades-Cliffs, Palisades-Balancing Rock, and Palisades-Pasture as Split Rock Kayak Trail canoe sites with Parking Yes / Launch Yes, and USGS Water Services returned product-live 06482610 Split Rock Creek at Corson values of 7.44 cfs / 1.70 ft at 2026-08-07 21:45 CDT. Publication is blocked because these anchors appear to be contained in-park or downstream extension options from the already reactivated Split Rock Park-to-Palisades route; no separate manager route sheet, distance logic, camping/overnight handling, threshold calibration, or safety package surfaced for a distinct PaddleToday point-to-point route. Do not duplicate the existing Split Rock card or infer a downstream route from access-anchor names alone.",
+      "retryCondition": "Retry only if GFP, Palisades State Park, Sioux Empire Paddlers, or another credible source publishes a distinct Split Rock downstream or Palisades in-park point-to-point route with distance, endpoints, safety/camping handling, and gauge-tied thresholds.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer records for Palisades-Cliffs, Palisades-Balancing Rock, and Palisades-Pasture reviewed 2026-08-07",
+        "South Dakota GFP Palisades State Park page reviewed 2026-08-07",
+        "Sioux Empire Paddlers Split Rock Creek and river-flow-rates pages reviewed 2026-08-07",
+        "USGS Water Services IV for 06482610 reviewed 2026-08-07"
+      ],
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "Palisades campground support exists nearby, but no distinct route was added and no informal creekside camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because duplicate/route-shape and safety package gates failed first."
+      },
+      "updatedAt": "2026-08-08T03:54:00.000Z"
+    },
+    {
+      "candidateId": "sd-mnrr-clay-county-mulberry-bend",
+      "river": "Missouri River",
+      "route": "Clay County River Access to Mulberry Bend River Access",
+      "state": "SD",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-08-08",
+      "reviewCount": 1,
+      "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the NPS 59-mile-reach Clay County-to-Mulberry Bend subsegment. No route was added: NPS documents Clay County River Access at river mile 781 with South Dakota GFP ownership, boat landing, restrooms, water, and nearby campground support, and Mulberry Bend at river mile 775 with primitive camping on the Nebraska side. NPS also supplies 59-mile-reach safety and camping rules, including wind, storms, snags, sandbars, private-bank limits, and the 16,000 cfs low / over 40,000 cfs very-high Gavins Point guidance. Publication remains blocked because the route thresholds are USACE/Gavins Point release based, while the app currently supports only USGS and MN DNR gauge providers; USGS 06467500 near Yankton still exposes stage only for this purpose, not product-supported discharge.",
+      "retryCondition": "Retry only if PaddleToday adds a supported USACE Gavins Point release/discharge adapter or an official equivalent product-supported live discharge source, then reverify NPS access, camping, sandbar/island restrictions, big-river safety, image status, geometry, and coordinate validation.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "NPS MNRR river access points page: Clay County River Access and Mulberry Bend River Access records reviewed 2026-08-08.",
+        "NPS 59-Mile Reach Paddler's Guide: Clay County / Mulberry Bend access sequence and camping context reviewed 2026-08-08.",
+        "NPS MNRR conditions page: Gavins Point-regulated 59-mile reach with 16,000 cfs low and over 40,000 cfs very-high guidance reviewed 2026-08-08.",
+        "NPS MNRR canoeing/kayaking page: wind, storms, snags, sandbars, private-bank, and camping rules reviewed 2026-08-08.",
+        "USGS Water Services IV for 06467500 reviewed 2026-08-08; no discharge series returned for the needed scoring model."
+      ],
+      "gauge": {
+        "quality": "unsupported_provider_adapter",
+        "id": "Gavins Point releases / USGS 06467500 stage-only fallback rejected",
+        "provider": "USACE needed",
+        "notes": "NPS thresholds are cfs release based. Current PaddleToday gauge providers are usgs and mn_dnr, and the available USGS 06467500 path remains stage-only for this route family."
+      },
+      "thresholdSupport": {
+        "strength": "official_but_unsupported_product_source",
+        "notes": "NPS provides numeric 59-mile-reach low and very-high context, but not through an app-supported live gauge provider."
+      },
+      "endpoints": {
+        "putIn": "Clay County River Access",
+        "takeOut": "Mulberry Bend River Access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.766083333333,
+          "longitude": -97.003222222222
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.714777777778,
+          "longitude": -96.943194444444
+        },
+        "coordinateSource": "NPS MNRR river access point waypoints converted from DMS."
+      },
+      "camping": {
+        "status": "endpoint_and_primitive_supported_but_not_shippable",
+        "notes": "NPS notes a campground near Clay County and primitive camping at Mulberry Bend, with broader private-bank and sandbar/island restrictions."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the product-supported live-gauge gate failed first."
+      },
+      "updatedAt": "2026-08-08T17:55:00.000Z"
+    },
+    {
+      "candidateId": "sd-mnrr-mulberry-bend-bolton",
+      "river": "Missouri River",
+      "route": "Mulberry Bend River Access to Bolton River Access",
+      "state": "SD",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-08-08",
+      "reviewCount": 1,
+      "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the NPS 59-mile-reach Mulberry Bend-to-Bolton subsegment. No route was added: NPS documents Mulberry Bend at river mile 775 with primitive camping and Bolton at river mile 763 as a South Dakota-side primitive boat ramp owned and maintained by South Dakota GFP, and the NPS 59-mile guide describes the 11.5-mile spacing to Bolton. Publication remains blocked by the same product-supported gauge issue as other 59-mile-reach candidates: NPS flow guidance is tied to Gavins Point releases, but the app has no USACE live-release provider and USGS 06467500 remains stage-only for PaddleToday scoring.",
+      "retryCondition": "Retry only after a supported Gavins Point release/discharge adapter or equivalent official live discharge source exists; then recheck access, primitive camping legality, private-bank restrictions, safety, image status, geometry, and coordinates.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "NPS MNRR river access points page: Mulberry Bend and Bolton records reviewed 2026-08-08.",
+        "NPS 59-Mile Reach Paddler's Guide: 11.5-mile Mulberry Bend-to-Bolton spacing reviewed 2026-08-08.",
+        "NPS MNRR conditions and canoeing/kayaking pages reviewed for 59-mile-reach flows, wind, storms, sandbars, snags, and camping/private-bank rules.",
+        "USGS Water Services IV for 06467500 reviewed 2026-08-08; no discharge series returned for the needed scoring model."
+      ],
+      "gauge": {
+        "quality": "unsupported_provider_adapter",
+        "id": "Gavins Point releases / USGS 06467500 stage-only fallback rejected",
+        "provider": "USACE needed",
+        "notes": "Official threshold source is release based, not product-supported through current usgs/mn_dnr providers."
+      },
+      "thresholdSupport": {
+        "strength": "official_but_unsupported_product_source",
+        "notes": "NPS 16,000 cfs low / over 40,000 cfs very-high guidance cannot be scored without a supported live release value."
+      },
+      "endpoints": {
+        "putIn": "Mulberry Bend River Access",
+        "takeOut": "Bolton River Access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.714777777778,
+          "longitude": -96.943194444444
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.665861111111,
+          "longitude": -96.786638888889
+        },
+        "coordinateSource": "NPS MNRR river access point waypoints converted from DMS."
+      },
+      "camping": {
+        "status": "primitive_supported_but_not_shippable",
+        "notes": "NPS lists primitive camping at Mulberry Bend and no camping at Bolton; broader route camping depends on NPS/private-bank/sandbar rules."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the product-supported live-gauge gate failed first."
+      },
+      "updatedAt": "2026-08-08T17:55:00.000Z"
+    },
+    {
+      "candidateId": "sd-mnrr-bolton-ponca-canoe-landing",
+      "river": "Missouri River",
+      "route": "Bolton River Access to Ponca State Park Canoe Landing",
+      "state": "SD",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-08-08",
+      "reviewCount": 1,
+      "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the lower NPS 59-mile-reach Bolton-to-Ponca canoe-landing subsegment. No route was added: NPS documents Bolton as a South Dakota-side primitive boat ramp at river mile 763 and Ponca State Park Canoe Landing as a canoe/kayak landing at river mile 753 with camping and water on the Nebraska side. Publication remains blocked because the official flow guidance for the 59-mile reach is Gavins Point release based, not available through PaddleToday's current USGS/MN DNR gauge providers, and the route crosses into Nebraska with no separate South Dakota task-board authorization to add a cross-state MNRR card this run.",
+      "retryCondition": "Retry only if the task board authorizes cross-state MNRR expansion and the product supports a live Gavins Point release/discharge source; then recheck NPS access/camping/safety, Nebraska permit context, image status, geometry, and coordinates.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "NPS MNRR river access points page: Bolton, Ponca State Park North Unit, and Ponca State Park Canoe Landing records reviewed 2026-08-08.",
+        "NPS MNRR conditions page: 59-mile reach is regulated by Gavins Point and uses 16,000 cfs / 40,000 cfs guidance.",
+        "NPS MNRR canoeing/kayaking page reviewed for big-river safety and camping/private-bank rules.",
+        "USGS Water Services IV for 06467500 reviewed 2026-08-08; no discharge series returned for the needed scoring model."
+      ],
+      "gauge": {
+        "quality": "unsupported_provider_adapter",
+        "id": "Gavins Point releases / USGS 06467500 stage-only fallback rejected",
+        "provider": "USACE needed",
+        "notes": "The official MNRR threshold relationship is not usable by current app providers."
+      },
+      "thresholdSupport": {
+        "strength": "official_but_unsupported_product_source",
+        "notes": "NPS provides a numeric release ladder but not via an app-supported live gauge."
+      },
+      "endpoints": {
+        "putIn": "Bolton River Access",
+        "takeOut": "Ponca State Park Canoe Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.665861111111,
+          "longitude": -96.786638888889
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.613111111111,
+          "longitude": -96.71775
+        },
+        "coordinateSource": "NPS MNRR river access point waypoints converted from DMS."
+      },
+      "camping": {
+        "status": "endpoint_supported_but_not_shippable",
+        "notes": "Bolton has no camping; Ponca canoe landing has camping. No informal/private-bank camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because the live-gauge/provider and cross-state route gates failed first."
+      },
+      "updatedAt": "2026-08-08T17:55:00.000Z"
+    },
+    {
+      "candidateId": "sd-james-river-island-riverside-st-helena",
+      "river": "Missouri River",
+      "route": "Riverside Park to St. Helena / James River Island family",
+      "state": "SD",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-08-08",
+      "reviewCount": 1,
+      "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the NPS James River Island / Riverside-to-St. Helena family after NPS acquired James River Island and noted nearby public launches. No route was added: NPS access records support Riverside Park at river mile 805 and St. Helena at river mile 798, and NPS says James River Island is accessible by kayak/canoe with nearby public access from Riverside and St. Helena. Publication remains blocked because the source package is an island access/recreation note rather than a selected point-to-point PaddleToday route with route distance, camping classification from the compendium, a product-supported live discharge threshold, and a complete big-river safety package. USGS 06467500 remains stage-only near Yankton for this purpose.",
+      "retryCondition": "Retry only if NPS publishes route-specific James River Island paddling rules/compendium details plus a selected public endpoint pair, camping legality, safety package, and a supported live discharge/threshold source.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "NPS 2025 James River Island acquisition/news page reviewed 2026-08-08.",
+        "NPS MNRR river access points page records for Riverside Park and St. Helena reviewed 2026-08-08.",
+        "NPS MNRR canoeing/kayaking page reviewed for big-river safety and camping/private-bank rules.",
+        "USGS Water Services IV for 06467500 reviewed 2026-08-08; no discharge series returned for the needed scoring model."
+      ],
+      "gauge": {
+        "quality": "no_product_live_selected",
+        "id": "06467500 stage-only fallback rejected",
+        "provider": "USGS",
+        "notes": "No scoreable discharge threshold source was selected for this island-access family."
+      },
+      "thresholdSupport": {
+        "strength": "not_found_for_selected_reach",
+        "notes": "No route-specific numeric model tied to a supported live gauge surfaced."
+      },
+      "endpoints": {
+        "putIn": "Riverside Park",
+        "takeOut": "St. Helena River Access / James River Island access family",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.866055555556,
+          "longitude": -97.384527777778
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.850555555556,
+          "longitude": -97.269805555556
+        },
+        "coordinateSource": "NPS MNRR river access point waypoints converted from DMS."
+      },
+      "camping": {
+        "status": "unknown",
+        "notes": "NPS references James River Island compendium rules, but this run did not capture route-specific camping legality; no camping is inferred."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because route-shape, camping, and threshold gates failed first."
+      },
+      "updatedAt": "2026-08-08T17:55:00.000Z"
+    },
+    {
+      "candidateId": "sd-big-sioux-flandreau-egan-family",
+      "river": "Big Sioux River",
+      "route": "Flandreau Dam North / City Park to Egan City Park family",
+      "state": "SD",
+      "status": "safety_blocked",
+      "lastReviewed": "2026-08-08",
+      "reviewCount": 1,
+      "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the upper Big Sioux Flandreau-to-Egan family only after the current task summary left no stronger non-duplicate South Dakota leads. No route was added: South Dakota GFP's CanoeTrails layer has launch-supported Flandreau City Park, Flandreau Dam North/South, and Egan City Park records, and USGS Water Services returned product-live Big Sioux values for 06480000 near Brookings at 185 cfs / 2.79 ft and 06481000 near Dell Rapids at 234 cfs / 3.77 ft on 2026-08-08 midday CDT. Publication remains blocked because no source-backed numeric threshold model exists for the Flandreau/Egan reach, the official trail record includes dam-adjacent Flandreau access choices and Egan rock-crossing context, and public search results include recent search-and-rescue/fatality context between Flandreau and Egan without a route-manager safety package that makes a normal public paddle route defensible.",
+      "retryCondition": "Retry only if South Dakota GFP, Flandreau/Egan managers, SDCKA/Sioux Empire Paddlers, or another credible source publishes a specific Flandreau-to-Egan route with gauge-tied thresholds, exact below-dam/above-dam handling, rock-crossing safety, camping rules, and coordinate-backed public endpoints.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "South Dakota GFP CanoeTrails FeatureServer records for Flandreau City Park, Flandreau Dam South, Flandreau Dam North, and Egan City Park reviewed 2026-08-08.",
+        "South Dakota GFP paddling page reviewed for Jay Heath context, storm/wind safety, and fences across navigable streams.",
+        "USGS Water Services IV for 06480000 and 06481000 reviewed 2026-08-08.",
+        "Search-visible local news/social context for Flandreau-to-Egan rescue/fatality risk reviewed 2026-08-08.",
+        "Friends of the Big Sioux maps/resources and South Dakota Canoe/Kayak Association links reviewed 2026-08-08."
+      ],
+      "gauge": {
+        "quality": "product_live_but_threshold_unaccepted",
+        "id": "06480000 / 06481000",
+        "provider": "USGS",
+        "notes": "Official USGS data exists upstream/downstream, but no route-specific threshold or accepted proxy relationship surfaced for Flandreau-to-Egan."
+      },
+      "thresholdSupport": {
+        "strength": "not_found_for_selected_reach",
+        "notes": "Do not stretch Dell Rapids or downstream Big Sioux thresholds upstream without source-backed applicability."
+      },
+      "endpoints": {
+        "putIn": "Flandreau City Park / Flandreau Dam North-South access family",
+        "takeOut": "Egan City Park",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.053077153584496,
+          "longitude": -96.5917192084877
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.99730641588495,
+          "longitude": -96.63858707654786
+        },
+        "coordinateSource": "South Dakota GFP CanoeTrails FeatureServer access anchors."
+      },
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "GFP records Flandreau City Park, Egan City Park, and related campgrounds as camping-supported, but route safety and threshold blockers prevented publication."
+      },
+      "image": {
+        "status": "not_reached",
+        "notes": "No image search was selected because safety and threshold gates failed first."
+      },
+      "updatedAt": "2026-08-08T17:55:00.000Z"
     }
   ]
 }

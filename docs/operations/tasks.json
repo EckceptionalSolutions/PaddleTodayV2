@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T00:52:00.000Z",
+  "updatedAt": "2026-08-08T17:55:00.000Z",
   "tasks": [
     {
       "id": "ops-governance-state-normalization",
@@ -119,7 +119,7 @@
       "kind": "state_coverage",
       "owner": "state-coverage",
       "priority": "high",
-      "summary": "Continue bounded scored-route expansion in South Dakota after adding Big Sioux Recreation Area South-to-SD Highway 42, SD Highway 42-to-Grandview, Grandview-to-Klondike South, Oak Ridge Public Water Access-to-Oak Grove County Park, Oak Grove County Park-to-Carr's Landing, Carr's Landing-to-Big-Sioux-County-Park, Big Sioux County Park-to-Akron, Akron-to-Ron-Wilmot, Ron-Wilmot-to-IA-3/SD-50, and the reactivated Split Rock Park-to-Palisades State Park route. Do not revisit those shipped/reactivated segments, the Jay Heath / Big Sioux access-legitimacy leads, lower Big Sioux Klondike-to-Canton threshold/gauge lead, Big Sioux Canton-to-Newton-Hills/Newton-Hills-to-Fairview/Fairview-to-Oak-Ridge threshold-gauge leads, Big Sioux IA-3/SD-50-to-Sioux-City private-takeout lead, Big Sioux Dell Rapids-to-Baltic dam/channel safety lead, Battle Creek Harney-to-Hayward access/waterfall/threshold lead, Missouri National Recreational River Myron-Grove-to-Clay-County product-adapter lead, Missouri National Recreational River Fort-Randall-to-Running-Water product-gauge lead, Spearfish town-section spillway-safety lead, Spearfish Upper Canyon discontinued-gauge/access lead, Rapid Creek Hisega/Dark Canyon access-egress lead, Rapid Creek Pactola/Johnson/Big-Bend/Hiesga upstream split access-threshold-private-portage leads, Whitewood Creek Tin Lizzies-to-Whitewood access/water-quality lead, French Creek Custer/SD79 threshold/endpoint/safety lead, Vermillion River Centerville/Wakonda-to-Missouri corridor threshold/endpoint lead, James River Highway 38-to-258th Street endpoint/threshold lead, Redwater River Old Belle/Helmer/Hwy 34 access-safety/threshold lead, Big Sioux in-town downtown extension dam/take-out leads, Split Rock downstream/Palisades extension ditch-entry leads, or upper Big Sioux Old-Hwy-77/Kamp/Egan/Flandreau/Trent leads until their documented blockers clear; choose a distinct candidate with public endpoints, gauge-tied thresholds, camping clarity, safety evidence, river geometry, and near-river coordinate validation.",
+      "summary": "Continue bounded scored-route expansion in South Dakota after the latest no-add pass. Do not revisit shipped/reactivated Big Sioux or Split Rock routes, prior Big Sioux/Skunk/Split Rock/Rapid/Spearfish/French/Missouri/Vermillion/James/Battle/Whitewood/Redwater/Cheyenne/Moreau/White blockers, the MNRR 59-mile subsegments Clay-County-to-Mulberry, Mulberry-to-Bolton, or Bolton-to-Ponca until a supported Gavins Point live-release/discharge adapter exists, James River Island until NPS publishes route/camping/threshold details, or upper Big Sioux Flandreau-to-Egan until manager-backed threshold and dam/rock-crossing safety evidence exists; choose a distinct candidate with public endpoints, gauge-tied thresholds, camping clarity, safety evidence, river geometry, and near-river coordinate validation.",
       "evidence": [
         "docs/state-route-memories/south-dakota.md",
         "docs/route-candidate-ledger.json",

@@ -1,6 +1,6 @@
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
-import { normalizeApiText } from '../lib/format';
+import { normalizeApiText, verdictForRating } from '../lib/format';
 import { routePhotoForRiver } from '../lib/route-photos';
 import { routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -39,10 +39,8 @@ export function RiverCard({
 
       <View style={styles.header}>
         <View style={styles.scoreBlock}>
-          <Text style={styles.score}>{river.score}</Text>
-          <Text style={[styles.scoreLabel, routeCount > 1 ? styles.scoreLabelCompact : null]} numberOfLines={1}>
-            Score
-          </Text>
+          <Text style={styles.cardVerdict} numberOfLines={2}>{verdictForRating(river.rating)}</Text>
+          <Text style={styles.scoreLabel} numberOfLines={1}>Score {river.score}</Text>
         </View>
         <View style={styles.copy}>
           <View style={styles.topRow}>
@@ -157,17 +155,12 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   scoreBlock: {
-    width: 58,
-    height: 58,
+    width: 78,
+    minHeight: 58,
     borderRadius: 16,
     backgroundColor: colors.accentSoft,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  score: {
-    color: colors.accentDeep,
-    fontSize: 24,
-    fontWeight: '800',
   },
   scoreLabel: {
     color: colors.textMuted,
@@ -175,9 +168,12 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
-  scoreLabelCompact: {
-    fontSize: 8,
-    letterSpacing: 0.1,
+  cardVerdict: {
+    color: colors.accentDeep,
+    fontSize: 11,
+    lineHeight: 13,
+    fontWeight: '900',
+    textAlign: 'center',
   },
   copy: {
     flex: 1,

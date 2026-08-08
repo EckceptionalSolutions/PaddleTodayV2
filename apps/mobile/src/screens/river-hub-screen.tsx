@@ -40,7 +40,7 @@ import { colors, radius, shadow, spacing } from '../theme/tokens';
 
 const SORT_MODES = ['Best', 'Shortest', 'Easiest', 'Confidence'] as const;
 const DISTANCE_FILTERS: Array<{ value: HubDistanceFilter; label: string }> = [
-  { value: 'all', label: 'All trips' },
+  { value: 'all', label: 'All routes' },
   { value: 'under-5', label: 'Under 5 mi' },
   { value: '5-10', label: '5–10 mi' },
   { value: '10-plus', label: '10+ mi' },
@@ -83,6 +83,10 @@ export default function RiverHubScreen() {
     region: regionFilter,
   }), [difficultyFilter, distanceFilter, regionFilter]);
   const filteredRoutes = useMemo(() => filterRiverHubRoutes(allRoutes, filters), [allRoutes, filters]);
+  const recommendedRoute = useMemo(
+    () => [...allRoutes].filter((route) => route.river.scoreEligibility !== 'planning').sort(compareBestRoute)[0] ?? null,
+    [allRoutes]
+  );
   const bestRoute = useMemo(() => [...filteredRoutes].sort(compareBestRoute)[0] ?? null, [filteredRoutes]);
   const routes = useMemo(() => sortedRoutes(filteredRoutes, sortMode), [filteredRoutes, sortMode]);
   const routePoints = useMemo(() => routeMapPoints(routes, mapZoomLevel), [routes, mapZoomLevel]);
@@ -201,6 +205,19 @@ export default function RiverHubScreen() {
     }
   }
 
+  function openHubRoute(route: RiverDetailApiResult, source: 'river_hub_recommended' | 'river_hub_list') {
+    trackAppEvent('corridor_trip_selected', {
+      corridor_id: route.river.corridorId ?? route.river.conditionZoneId ?? route.river.riverId,
+      slug: route.river.slug,
+      grouped_reach_count: groupedReachCountForRoute(route, allRoutes),
+      river: route.river.name,
+      state: route.river.state,
+      region: route.river.region,
+      source,
+    });
+    router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug, source: source === 'river_hub_recommended' ? 'hub-recommended' : 'river-hub' } });
+  }
+
   function renderRoute({ item: route, index }: { item: RiverDetailApiResult; index: number }) {
     return (
       <RouteChoiceCard
@@ -221,16 +238,7 @@ export default function RiverHubScreen() {
           })
         }
         onOpen={() => {
-          trackAppEvent('corridor_trip_selected', {
-            corridor_id: route.river.corridorId ?? route.river.conditionZoneId ?? route.river.riverId,
-            slug: route.river.slug,
-            grouped_reach_count: groupedReachCountForRoute(route, allRoutes),
-            river: route.river.name,
-            state: route.river.state,
-            region: route.river.region,
-            source: 'river_hub',
-          });
-          router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } });
+          openHubRoute(route, 'river_hub_list');
         }}
       />
     );
@@ -308,6 +316,27 @@ export default function RiverHubScreen() {
                 <Text style={styles.routeCalls}>{hubStatusLine(summary, result.group.routeCount)}</Text>
               </View>
             </View>
+
+            {recommendedRoute ? (
+              <View style={recommendedRouteStyles.card}>
+                <View style={recommendedRouteStyles.header}>
+                  <Text style={recommendedRouteStyles.kicker}>Recommended today</Text>
+                  <Text style={recommendedRouteStyles.score}>Score {recommendedRoute.score}</Text>
+                </View>
+                <Text style={recommendedRouteStyles.verdict}>{verdictForRating(recommendedRoute.rating)}</Text>
+                <Text style={recommendedRouteStyles.name}>{recommendedRoute.river.reach}</Text>
+                <Text style={recommendedRouteStyles.meta}>{routeMetaLine(recommendedRoute)}</Text>
+                <Pressable
+                  style={recommendedRouteStyles.button}
+                  onPress={() => openHubRoute(recommendedRoute, 'river_hub_recommended')}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Open recommended route, ${recommendedRoute.river.reach}`}
+                >
+                  <Text style={recommendedRouteStyles.buttonText}>Open recommended route</Text>
+                  <MaterialCommunityIcons name="chevron-right" color={colors.surfaceStrong} size={20} />
+                </Pressable>
+              </View>
+            ) : null}
 
             <View style={styles.listIntro}>
               <Text style={styles.listIntroTitle}>Choose a route</Text>
@@ -389,7 +418,7 @@ export default function RiverHubScreen() {
                 </View>
               ) : null}
               <Text style={styles.resultCount}>
-                Showing {routes.length} of {allRoutes.length} stretches
+                Showing {routes.length} of {allRoutes.length} routes
                 {filterCount ? ` · ${filterCount} active ${filterCount === 1 ? 'filter' : 'filters'}` : ''}
               </Text>
               <View style={styles.sortTabs}>
@@ -410,7 +439,7 @@ export default function RiverHubScreen() {
 
             {routes.length > 0 ? (
               <View style={styles.mapSection}>
-                <SectionCard title="Compare on the map" subtitle="Tap a score to focus its stretch, then choose when to view the card.">
+                <SectionCard title="Compare on the map" subtitle="Tap a score to focus its route, then choose when to view the card.">
                   <View style={styles.mapFrame}>
                     <RoutePlotMap
                       points={routePoints}
@@ -436,7 +465,7 @@ export default function RiverHubScreen() {
         ListEmptyComponent={(
           <View style={styles.emptyResults}>
             <MaterialCommunityIcons name="filter-remove-outline" color={colors.textMuted} size={30} />
-            <Text style={styles.emptyResultsTitle}>No stretches match</Text>
+            <Text style={styles.emptyResultsTitle}>No routes match</Text>
             <Text style={styles.emptyResultsBody}>Clear a filter to see more of this river.</Text>
           </View>
         )}
@@ -479,7 +508,7 @@ function RouteChoiceCard({
           >
             <View style={[styles.routeThumbScore, route.river.scoreEligibility === 'planning' ? styles.routeThumbScorePlanning : toneScoreBox(route.rating)]}>
               <Text style={styles.routeThumbScoreValue}>{route.river.scoreEligibility === 'planning' ? '—' : route.score}</Text>
-              <Text style={styles.routeThumbScoreLabel}>{route.river.scoreEligibility === 'planning' ? 'Planning route' : route.rating}</Text>
+              <Text style={styles.routeThumbScoreLabel}>{route.river.scoreEligibility === 'planning' ? 'Planning' : 'Score'}</Text>
             </View>
           </ImageBackground>
         </View>
@@ -490,10 +519,10 @@ function RouteChoiceCard({
             {rank ? <Text style={styles.routeRank}>Rank #{rank}</Text> : null}
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
-          <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
           <Text style={styles.routeVerdict}>{route.river.scoreEligibility === 'planning' ? 'Not scored today' : verdictForRating(route.rating)}</Text>
+          <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
           <Text style={styles.routeMeta} numberOfLines={2}>
-            {groupedReachCount} {groupedReachCount === 1 ? 'reach uses' : 'reaches share'} these conditions · {routeMetaLine(route)}
+            {groupedReachCount} {groupedReachCount === 1 ? 'route uses' : 'routes share'} these conditions · {routeMetaLine(route)}
           </Text>
         </View>
       </Pressable>
@@ -627,7 +656,7 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
       routeCount: group.routes.length,
       spanSegments,
       meta: [
-        `${group.routes.length} ${group.routes.length === 1 ? 'stretch' : 'stretches'}`,
+        `${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`,
         accessPointCountLabel(route),
         `${route.score} ${route.rating}`,
       ]
@@ -1229,9 +1258,10 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   routeVerdict: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '800',
+    color: colors.accentDeep,
+    fontSize: 15,
+    lineHeight: 18,
+    fontWeight: '900',
   },
   routeMeta: {
     color: colors.textMuted,
@@ -1363,5 +1393,69 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     lineHeight: 22,
+  },
+});
+
+const recommendedRouteStyles = StyleSheet.create({
+  card: {
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    backgroundColor: colors.accentSoft,
+    padding: spacing.md,
+    gap: 5,
+    ...shadow,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  kicker: {
+    color: colors.accentDeep,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  score: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  verdict: {
+    color: colors.accentDeep,
+    fontSize: 20,
+    lineHeight: 24,
+    fontWeight: '900',
+  },
+  name: {
+    color: colors.text,
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: '900',
+  },
+  meta: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '700',
+  },
+  button: {
+    minHeight: 44,
+    marginTop: spacing.sm,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 4,
+    paddingHorizontal: spacing.md,
+  },
+  buttonText: {
+    color: colors.surfaceStrong,
+    fontSize: 13,
+    fontWeight: '900',
   },
 });

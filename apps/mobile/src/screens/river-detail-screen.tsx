@@ -119,7 +119,12 @@ export default function RiverDetailScreen() {
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const deepLinkPutInId = firstParamValue(params.putin);
   const deepLinkTakeOutId = firstParamValue(params.takeout);
-  const openedFromToday = firstParamValue(params.source) === 'today';
+  const routeSource = firstParamValue(params.source);
+  const recommendationSourceLabel = routeSource === 'today'
+    ? 'Recommended from Today'
+    : routeSource === 'hub-recommended'
+      ? 'Recommended from River Hub'
+      : null;
   const detailQuery = useRiverDetailQuery(slug);
   const geometryQuery = useRiverGeometryQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);
@@ -216,7 +221,7 @@ export default function RiverDetailScreen() {
       region: detail.river.region,
       rating: detail.rating,
       score: detail.score,
-      source: openedFromToday ? 'today' : 'other',
+      source: routeSource ?? 'other',
     });
     trackAppEvent('route_planner_viewed', {
       slug: detail.river.slug,
@@ -585,7 +590,11 @@ export default function RiverDetailScreen() {
               </View>
             ) : (
               <View style={[styles.heroScore, { backgroundColor: ratingColors(detail.rating).backgroundColor }]}>
-                <Text style={[styles.scoreValue, { color: ratingColors(detail.rating).textColor }]}>{detail.score}</Text>
+                <MaterialCommunityIcons
+                  name={verdictIconForRating(detail.rating)}
+                  color={ratingColors(detail.rating).textColor}
+                  size={28}
+                />
               </View>
             )}
             <View style={styles.heroCopy}>
@@ -625,8 +634,9 @@ export default function RiverDetailScreen() {
                   />
                 </View>
               </View>
-              {openedFromToday ? <Text style={styles.todayRecommendationLabel}>Recommended from Today</Text> : null}
-              <Text style={styles.subtitle}>{isPlanningRoute ? 'Planning route · not scored today' : detailMessageForRating(detail.rating)}</Text>
+              {recommendationSourceLabel ? <Text style={styles.todayRecommendationLabel}>{recommendationSourceLabel}</Text> : null}
+              <Text style={styles.heroVerdictTitle}>{isPlanningRoute ? 'Planning route' : decisionStatement(detail)}</Text>
+              <Text style={styles.subtitle}>{isPlanningRoute ? 'Not scored today' : `${detail.rating} · Score ${detail.score}`}</Text>
               <Text style={styles.routeMetaLine} numberOfLines={2}>{routeHeroLine(detail)}</Text>
               <View style={styles.heroMeta}>
                 {isPlanningRoute ? <Text style={styles.planningLabel}>Proxy gauge · verify local conditions</Text> : <RatingPill rating={detail.rating} />}
@@ -638,14 +648,14 @@ export default function RiverDetailScreen() {
           {isPlanningRoute ? (
             <PlanningStatusCard detail={detail} />
           ) : null}
-          {!isPlanningRoute ? <DecisionSummary detail={detail} /> : null}
-          <RouteSafetyPanel detail={detail} />
           {!isPlanningRoute ? <DecisionStrip
             detail={detail}
             onConditions={showConditions}
             onDirections={() => openPrimaryDirections(detail, selectedPutIn, selectedTakeOut)}
             onAccess={() => showSection('Access')}
           /> : null}
+          {!isPlanningRoute ? <DecisionSummary detail={detail} /> : null}
+          <RouteSafetyPanel detail={detail} />
           {!isPlanningRoute && effectiveLiveData.overall !== 'live' ? (
             <View style={styles.heroFooter}>
               <Text style={styles.heroFooterWarning}>{normalizeApiText(effectiveLiveData.summary)}</Text>
@@ -816,7 +826,7 @@ export default function RiverDetailScreen() {
           >
             <SectionCard
               title={isPlanningRoute ? 'Data and sources' : 'Sources'}
-              subtitle={isPlanningRoute ? 'Sources for this route and trip details.' : "Sources for this route's score and trip details."}
+              subtitle={isPlanningRoute ? 'Sources for this route and planning details.' : "Sources for this route's score and planning details."}
             >
               <View style={styles.sourceList}>
                 {routeSourceLabels(detail).map((source) => (
@@ -1112,6 +1122,12 @@ function decisionStatement(detail: RiverDetailApiResult) {
   return 'Skip today.';
 }
 
+function verdictIconForRating(rating: RiverDetailApiResult['rating']) {
+  if (rating === 'Strong' || rating === 'Good') return 'check-circle-outline';
+  if (rating === 'Fair') return 'alert-circle-outline';
+  return 'close-circle-outline';
+}
+
 function checklistStatusForLabel(checklist: DecisionChecklistItem[], label: string) {
   return checklist.find((item) => item.label === label)?.status ?? 'watch';
 }
@@ -1150,11 +1166,7 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
   const items = decisionSummaryItems(detail).slice(0, 2);
   return (
     <View style={styles.decisionSummary}>
-      <View style={styles.decisionSummaryHeader}>
-        <Text style={styles.decisionSummaryLabel}>Today's call</Text>
-        <Text style={[styles.decisionSummaryScore, { color: ratingColors(detail.rating).textColor }]}>{detail.score} / {detail.rating}</Text>
-      </View>
-      <Text style={styles.decisionSummaryTitle}>{decisionStatement(detail)}</Text>
+      <Text style={styles.decisionSummaryLabel}>Why this call</Text>
       <View style={styles.decisionBulletList}>
         {items.map((item) => (
           <View key={item.label} style={styles.decisionBullet}>
@@ -1450,7 +1462,7 @@ function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
   const gaugeRange = thresholdRangeLabel(detail);
 
   return (
-    <SectionCard title="Trip fit">
+    <SectionCard title="Route details">
       <View style={styles.routeBasicsGrid}>
         {basics.map((item) => (
           <View key={item.label} style={styles.routeBasicCell}>
@@ -1561,7 +1573,7 @@ function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
 
   return (
     <View style={styles.tripPlanningCard}>
-      <Text style={styles.tripPlanningTitle}>Trip planning</Text>
+      <Text style={styles.tripPlanningTitle}>Route planning</Text>
       <View style={styles.tripPlanningRows}>
         {rows.map((row) => (
           <View key={row.label} style={styles.tripPlanningRow}>
@@ -1703,7 +1715,7 @@ function PlanningStatusCard({ detail }: { detail: RiverDetailApiResult }) {
       <Text style={styles.planningStatusEyebrow}>Planning route</Text>
       <Text style={styles.planningStatusTitle}>No same-day score</Text>
       <Text style={styles.planningStatusText}>
-        Use this route for access, safety, and logistics details. Its nearest gauge is a proxy for this reach, so Paddle Today does not issue a score or alert here.
+        Use this route for access, safety, and logistics details. Its nearest gauge is a proxy for this route, so Paddle Today does not issue a score or alert here.
       </Text>
       <View style={styles.planningStatusFacts}>
         <View style={styles.planningStatusFact}>
@@ -2721,17 +2733,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '800',
   },
-  scoreValue: {
-    color: colors.accentDeep,
-    fontSize: 24,
-    fontWeight: '800',
-  },
-  scoreLabel: {
-    color: colors.textMuted,
-    fontSize: 10,
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
   heroCopy: {
     flex: 1,
     gap: 4,
@@ -2801,6 +2802,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
     fontWeight: '600',
+  },
+  heroVerdictTitle: {
+    color: colors.text,
+    fontSize: 17,
+    lineHeight: 21,
+    fontWeight: '900',
   },
   planningLabel: {
     color: colors.textMuted,
@@ -2958,29 +2965,12 @@ const styles = StyleSheet.create({
     padding: spacing.sm,
     gap: spacing.xs,
   },
-  decisionSummaryHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: spacing.md,
-  },
   decisionSummaryLabel: {
     color: colors.textMuted,
     fontSize: 11,
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.4,
-  },
-  decisionSummaryScore: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  decisionSummaryTitle: {
-    color: colors.text,
-    fontSize: 15,
-    lineHeight: 19,
-    fontWeight: '900',
   },
   scoreWhyCard: {
     borderRadius: radius.md,

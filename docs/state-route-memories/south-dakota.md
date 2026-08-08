@@ -6,7 +6,7 @@ Last summarized: 2026-08-07.
 
 - Live routes: 12.
 - Rivers represented: Big Sioux River, Skunk Creek, Split Rock Creek.
-- Ledger candidates: 29 total; 12 `added`, 1 `blocked_until_date`, 10 `access_legitimacy`, 2 `no_live_gauge`, 2 `threshold_weak`, 2 `research_later`.
+- Ledger candidates: 54 total; 12 `added`, 1 `blocked_until_date`, 16 `access_legitimacy`, 8 `no_live_gauge`, 8 `threshold_weak`, 4 `research_later`, 3 `safety_blocked`, 2 `route_shape_weak`.
 
 ## Status
 
@@ -23,6 +23,44 @@ South Dakota has sparse coverage and a small candidate base. It is not exhausted
 - Use targeted research rather than cadence.
 - Prioritize corridors with official public access, direct USGS gauges, and manager/local level guidance.
 - Avoid shipping route records from access-map presence alone.
+
+## 2026-08-08 Fifth Five-Candidate No-Add Review
+
+- No route added. Screened five fresh/distinct South Dakota leads after the prior Big Sioux/Skunk/Split Rock blocker batch: `sd-mnrr-clay-county-mulberry-bend`, `sd-mnrr-mulberry-bend-bolton`, `sd-mnrr-bolton-ponca-canoe-landing`, `sd-james-river-island-riverside-st-helena`, and `sd-big-sioux-flandreau-egan-family`.
+- Clay County-to-Mulberry Bend, Mulberry Bend-to-Bolton, and Bolton-to-Ponca have strong NPS MNRR access, route-mile, camping, and big-river safety evidence, plus official 59-mile-reach Gavins Point low/very-high cfs guidance, but no route was added because PaddleToday currently supports only USGS and MN DNR gauge providers and the required USACE Gavins Point live-release/discharge adapter is still missing. USGS `06467500` remains stage-only for this purpose.
+- James River Island / Riverside-to-St. Helena has NPS island-access and nearby public-launch context, but remains blocked because it is not a selected point-to-point route package and lacks route-specific camping legality, distance handling, a product-supported discharge/threshold model, and complete safety evidence.
+- Upper Big Sioux Flandreau-to-Egan has GFP launch-supported access anchors and product-live USGS `06480000` / `06481000` context, but remains safety/threshold blocked because no route-specific numeric threshold model, accepted gauge relationship, or manager-backed dam/rock-crossing/search-and-rescue safety package surfaced.
+- Next rotation: continue South Dakota only with distinct leads outside shipped routes and the documented Big Sioux, Skunk, Split Rock, Rapid Creek, Spearfish, French Creek, Missouri/MNRR, Vermillion, James, Battle Creek, Whitewood, Redwater, Cheyenne, Moreau, and White River blockers. Retry the MNRR 59-mile subsegments only after a supported Gavins Point live-release adapter or equivalent official live discharge source exists; retry Flandreau/Egan only with manager-backed thresholds and dam/safety handling.
+
+## 2026-08-07 Fourth Five-Candidate No-Add Review
+
+- No route added. Screened five distinct fresh South Dakota leads outside the shipped/reactivated and documented blocker list: `sd-big-sioux-dells-of-sioux`, `sd-skunk-creek-hartford-legacy-family`, `sd-big-sioux-baltic-i90`, `sd-big-sioux-sioux-falls-park`, and `sd-split-rock-palisades-cliffs-pasture-family`.
+- Dells of the Sioux has American Whitewater route-shape support, product-live USGS `06481000` at 242 cfs / 3.80 ft, and Sioux Empire Paddlers Dell Rapids 300 cfs guidance, but no named public endpoint pair, defensible take-out coordinate, route camping legality, or canyon-egress safety package surfaced.
+- Skunk Creek Hartford has Sioux Empire Paddlers 4.5 ft local guidance and product-live stage-only USGS `06481493` at 3.47 ft, but no manager-backed north-Hartford public put-in, selected take-out pair, distance, coordinates, camping legality, or route-specific safety package surfaced.
+- Baltic City River Park-to-I-90 has GFP North-trail access context and a launch/campground at Baltic, but the I-90 record is Parking Yes / Launch No and the source stack still warns about a dangerous Baltic low-head dam/channel context; no replacement public take-out or safety package surfaced.
+- Sioux Falls Park has American Whitewater Class V falls context and product-live USGS `06482000` at 195 cfs / 1.90 ft, but remains safety-blocked by high-consequence falls, a downstream low-head-dam take-out problem, park discouragement/access ambiguity, and no manager-backed whitewater route/safety package.
+- Split Rock Palisades in-park/downstream leads have GFP access anchors and product-live USGS `06482610` at 7.44 cfs / 1.70 ft, but they remain route-shape blocked because they are contained/extension ideas without a distinct route-manager route sheet, distance logic, camping handling, threshold calibration, or safety package beyond the already reactivated Split Rock Park-to-Palisades card.
+- Next rotation: continue South Dakota only with distinct leads outside shipped routes and the documented Big Sioux, Skunk, Split Rock, Rapid Creek, Spearfish, French Creek, Missouri, Vermillion, James, Battle Creek, Whitewood, Redwater, Cheyenne, Moreau, and White River blockers. Retry these five only with fresh manager-backed endpoints, live gauge/threshold support, camping legality, route-shape evidence, and safety/egress guidance.
+
+## 2026-08-07 Third Five-Candidate No-Add Review
+
+- No route added. Screened five distinct fresh South Dakota leads outside the shipped/reactivated and documented blocker list: `sd-cheyenne-river-angostura-canoe-access-lake`, `sd-james-river-fisher-grove-redfield-family`, `sd-moreau-river-little-moreau-rec-area-family`, `sd-cheyenne-river-wasta-i90-family`, and `sd-white-river-interior-badlands-family`.
+- Angostura has official GFP Adventure 250 float language from the Cheyenne River canoe access point to the lake and recreation-area camping context, but USGS `06401500` returned unavailable discharge/stage sentinel values, and no numeric threshold, public take-out coordinate, or point-to-point route package surfaced.
+- Fisher Grove has GFP-supported James River canoe/kayak access and campground support, plus product-live USGS `06475000` near Redfield at 616 cfs / 6.26 ft, but remains blocked because no downstream public take-out, distance, coordinate-backed access pair, route-specific thresholds, or full safety package surfaced.
+- Little Moreau Recreation Area has GFP boat-ramp, canoe/kayak, and first-come campsite support; USGS `06360500` returned product-live 0.00 cfs / 1.33 ft and `06361000` returned stage only, but no point-to-point Moreau River route, take-out, distance, or numeric scoring model surfaced.
+- Cheyenne River Wasta / I-90 has product-live USGS `06423500` at 53.7 cfs / 0.29 ft and anecdotal trip evidence, but remains blocked by bridge/bank access assumptions, no manager-backed public endpoint pair, no camping legality, and no threshold model.
+- White River Interior / Badlands family has product-live low-flow USGS `06446500` data at 1.31 cfs / 3.30 ft and downstream current data, but no NPS/public paddling route, endpoints, camping legality, safety package, or numeric thresholds surfaced.
+- Next rotation: continue South Dakota only with distinct leads outside shipped routes and the documented Big Sioux, Split Rock, Rapid Creek, Spearfish, French Creek, Missouri, Vermillion, James, Battle Creek, Skunk Creek, Whitewood, Redwater, Cheyenne, Moreau, and White River blockers. Retry these five only with fresh manager-backed endpoints, live gauge/threshold support, camping legality, and route-shape evidence.
+
+## 2026-08-07 Second Five-Candidate No-Add Review
+
+- No route added. Screened five distinct South Dakota leads after the prior lower-Big-Sioux and MNRR blockers: `sd-split-rock-creek-mchardy-garretson-dam-above`, `sd-split-rock-creek-sunken-bridge-split-rock-park`, `sd-split-rock-creek-split-rock-park-round-trip`, `sd-big-sioux-us-18-canton-city-park`, and `sd-mnrr-riverside-green-island-clay-county`.
+- McHardy-Park-to-Garretson-Dam-above has SD GFP CanoeTrails launch-supported anchors and product-live USGS `06482610`, but remains blocked by dam-adjacent safety: no route-manager source supplied complete public landing, portage, no-extension, or hazard handling for a route endpoint immediately above or around the Garretson dam.
+- Sunken-Bridge-to-Split-Rock-Park has a local route page, but no manager-backed Sunken Bridge launch record surfaced in the SD GFP CanoeTrails layer, and the route page's gauge link points to USGS `06481500` Skunk Creek instead of Split Rock Creek.
+- Split-Rock-Park-Campground round trip is a recreational out-and-back rather than a downstream put-in/take-out route shape, overlaps the already reactivated Split Rock Park-to-Palisades corridor, and has the same wrong Skunk Creek gauge-link problem.
+- US-Hwy-18-to-Canton-City-Park has SD GFP launch-supported endpoint records and a local 4.7-mile route page, but the route page's gauge link also points to Skunk Creek and no Big Sioux product-gauge threshold package cleared the already documented Klondike/Canton blocker.
+- MNRR Riverside-Park/Green-Island/Clay-County family has strong NPS 59-mile-reach access, camping, safety, and route-mile context, but remains blocked because product support still lacks a Gavins Point release/discharge adapter or equivalent scoreable live threshold source. USGS `06467500` remains stage-only for this purpose.
+- Next rotation: continue South Dakota only with distinct leads outside shipped routes and the documented Big Sioux, Split Rock, Rapid Creek, Spearfish, French Creek, Missouri, Vermillion, James, Battle Creek, Skunk Creek, Whitewood, and Redwater blockers. Retry these five only with fresh manager-backed access/safety, direct gauge-threshold, route-shape, or product-adapter evidence.
 
 ## 2026-08-07 Five-Candidate No-Add Review
 

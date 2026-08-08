@@ -2402,7 +2402,464 @@
           "detail": "Git repository provides a bounded revert path."
         }
       ]
+    },
+    {
+      "id": "route-worker-20260808015800",
+      "kind": "route_planning_review",
+      "startedAt": "2026-08-08T01:48:00.000Z",
+      "completedAt": "2026-08-08T01:58:00.000Z",
+      "status": "blocked",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "route-implementation",
+      "summary": "Screened five distinct South Dakota candidates in priority order: Split Rock Creek McHardy Park-to-Garretson Dam-above, Split Rock Creek Sunken Bridge-to-Split Rock Park, Split Rock Creek Split Rock Park round-trip, Big Sioux River US Hwy 18-to-Canton City Park, and Missouri National Recreational River Riverside Park-to-Green-Island/Clay-County family. No route was added: blockers were dam-adjacent safety/portage handling, missing manager-backed Sunken Bridge access plus wrong Skunk Creek gauge links, round-trip route shape, wrong-gauge/no Big Sioux threshold support, and missing product-supported Gavins Point discharge/threshold adapter."
+    },
+    {
+      "id": "gatekeeper-20260808015709",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T01:56:23.937Z",
+      "completedAt": "2026-08-08T01:57:09.418Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260808015805",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T01:56:24.000Z",
+      "completedAt": "2026-08-08T01:58:05.000Z",
+      "status": "passed",
+      "summary": "All required merge gates passed for the South Dakota no-add blocker documentation run. Focused audits, typecheck, operations:verify, and a serial production build completed; an earlier standalone build failure was caused by concurrent build output contention and passed on rerun.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Five candidates were documented with decisive access, safety, threshold, route-shape, or product-adapter blockers."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was used; dam-adjacent and MNRR big-river blockers stayed blocked."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Route data, overlap, geometry, gallery, coordinate audit, JSON parse, git diff check, and operations gatekeeper were run."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "typecheck and serial production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Changes are limited to operations/state memory and route-candidate ledger documentation."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260808020229",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T02:02:29.017Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-supervisor-20260808020236",
+      "kind": "route_worker_supervisor",
+      "startedAt": "2026-08-08T02:02:36.957Z",
+      "completedAt": "2026-08-08T02:02:36.957Z",
+      "status": "completed",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "orchestrator",
+      "summary": "Classified hourly route-worker activity after the prior supervisor pass: the 2026-08-08T00:48Z and 2026-08-08T01:48Z South Dakota runs were blocked candidate reviews, not completed routes, no-work/WIP dead ends, failed validation, or infrastructure failures. The ready South Dakota task already excludes both blocker batches, no stale route WIP or active route claim conflict was present, and no package follow-up was needed because no route was added. GitHub Actions latest scheduled and push runs are succeeding. No board repair or new task was created; operations:plan -- --record selected south-dakota-state-coverage-baseline."
+    },
+    {
+      "id": "gatekeeper-20260808020356",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T02:03:22.706Z",
+      "completedAt": "2026-08-08T02:03:56.616Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260808023314",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T02:33:14.268Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260808025336",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T02:53:36.299Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-20260808025200",
+      "kind": "route_planning_review",
+      "startedAt": "2026-08-08T02:33:14.268Z",
+      "completedAt": "2026-08-08T02:52:00.000Z",
+      "status": "blocked",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "route-implementation",
+      "summary": "Screened five distinct South Dakota candidates in priority order: Cheyenne River Angostura canoe-access-to-lake, James River Fisher Grove / Redfield family, Moreau River Little Moreau Recreation Area family, Cheyenne River Wasta / I-90 family, and White River Interior / Badlands family. No route was added: blockers were unavailable Angostura gauge data plus missing threshold/route shape, Fisher Grove missing downstream take-out and thresholds, Little Moreau missing point-to-point route and thresholds, Wasta bridge/bank access assumptions with no camping/threshold package, and White River missing public route/endpoints/camping/threshold evidence."
+    },
+    {
+      "id": "gatekeeper-20260808025631",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T02:55:56.229Z",
+      "completedAt": "2026-08-08T02:56:31.253Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260808035235",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T03:52:35.222Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-20260808035400",
+      "kind": "route_planning_review",
+      "startedAt": "2026-08-08T03:52:35.222Z",
+      "completedAt": "2026-08-08T03:54:00.000Z",
+      "status": "blocked",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "route-implementation",
+      "summary": "Screened five distinct South Dakota candidates in priority order: Big Sioux Dells of the Sioux, Skunk Creek Hartford-to-Legacy family, Big Sioux Baltic-to-I-90, Big Sioux Sioux Falls Park, and Split Rock Creek Palisades in-park/downstream family. No route was added: blockers were missing named endpoint/take-out and canyon safety package, missing manager-backed upstream Skunk access and route shape, I-90 Launch No plus Baltic dam/channel safety, high-consequence falls/low-head-dam route safety, and duplicate/contained Split Rock extension shape without a separate manager package."
+    },
+    {
+      "id": "gatekeeper-20260808035840",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T03:58:00.764Z",
+      "completedAt": "2026-08-08T03:58:40.867Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-supervisor-20260808040241",
+      "kind": "route_worker_supervisor",
+      "startedAt": "2026-08-08T04:02:41.510Z",
+      "completedAt": "2026-08-08T04:02:41.510Z",
+      "status": "completed",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "orchestrator",
+      "summary": "Classified hourly route-worker activity after the prior supervisor pass: the 2026-08-08T02:33Z and 2026-08-08T03:52Z South Dakota runs were blocked candidate reviews, not completed routes, no-work/WIP dead ends, failed validation, or infrastructure failures. The ready South Dakota task already excludes both blocker batches, no stale route WIP or active route claim conflict was present, and no package follow-up was needed because no route was added. GitHub Actions latest scheduled and push runs are succeeding. No board repair or new task was created; operations:plan -- --record remained eligible for south-dakota-state-coverage-baseline."
+    },
+    {
+      "id": "gatekeeper-20260808040344",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T04:03:10.972Z",
+      "completedAt": "2026-08-08T04:03:44.779Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260808040349",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T04:03:49.084Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260808175122",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T17:51:22.241Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260808175142",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T17:51:42.331Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-supervisor-20260808175239",
+      "kind": "route_worker_supervisor",
+      "startedAt": "2026-08-08T17:52:39.609Z",
+      "completedAt": "2026-08-08T17:52:39.609Z",
+      "status": "completed",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "orchestrator",
+      "summary": "Classified the latest hourly route-worker activity: no new route-worker run appears after route-supervisor-20260808040241; the latest route-worker runs at 2026-08-08T02:33Z and 2026-08-08T03:52Z remain blocked South Dakota candidate reviews, not completed routes, no-work/WIP dead ends, failed validation, or infrastructure failures. Newer orchestrator plans selected south-dakota-state-coverage-baseline rather than returning no work. The only in-progress task is a product task, not a route WIP; no stale route lane or active route claim conflict was found. GitHub scheduled Actions are succeeding. No board repair or new task was created; preserve the ready South Dakota baseline and avoid repeating documented blocker batches without fresh manager-grade evidence."
+    },
+    {
+      "id": "gatekeeper-20260808175351",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T17:52:44.018Z",
+      "completedAt": "2026-08-08T17:53:51.470Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260808175355",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-08T17:53:55.842Z",
+      "status": "planned",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "state-coverage",
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-20260808175500",
+      "kind": "route_planning_review",
+      "startedAt": "2026-08-08T17:51:42.331Z",
+      "completedAt": "2026-08-08T17:55:00.000Z",
+      "status": "blocked",
+      "taskId": "south-dakota-state-coverage-baseline",
+      "workerRole": "route-implementation",
+      "summary": "Screened five distinct South Dakota candidates in priority order: MNRR Clay County-to-Mulberry Bend, MNRR Mulberry Bend-to-Bolton, MNRR Bolton-to-Ponca canoe landing, James River Island / Riverside-to-St. Helena family, and upper Big Sioux Flandreau-to-Egan family. No route was added: the three MNRR 59-mile subsegments have NPS access/camping/safety and official Gavins Point cfs guidance but require an unsupported USACE live-release/discharge adapter; James River Island lacks a route/camping/threshold package; Flandreau-to-Egan lacks route-specific thresholds and manager-backed dam/rock-crossing/search-and-rescue safety handling."
+    },
+    {
+      "id": "gatekeeper-20260808180134",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T18:00:45.987Z",
+      "completedAt": "2026-08-08T18:01:34.371Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260808180640",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-08T18:05:37.025Z",
+      "completedAt": "2026-08-08T18:06:40.077Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Minnesota audit records 145 scored and 113 planning routes."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
     }
   ],
-  "updatedAt": "2026-08-08T00:55:29.699Z"
+  "updatedAt": "2026-08-08T17:55:00.000Z"
 }

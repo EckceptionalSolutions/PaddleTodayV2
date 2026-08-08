@@ -44,7 +44,7 @@ const appFeatures: Feature[] = [
   { icon: 'waves', title: 'Current conditions', label: 'See what the water is doing now' },
   { icon: 'map-marker-path', title: 'Route details', label: 'Review access, distance, and logistics' },
   { icon: 'calendar-weekend-outline', title: 'Weekend picks', label: 'Compare the best upcoming options' },
-  { icon: 'heart-outline', title: 'Save routes', label: 'Keep regular trips close in My Routes' },
+  { icon: 'heart-outline', title: 'Save routes', label: 'Keep regular routes close in My Routes' },
   { icon: 'bell-outline', title: 'Get alerts', label: 'Know when conditions improve' },
   { icon: 'chart-donut-variant', title: 'Understand scores', label: 'See why each route scored that way' },
 ];

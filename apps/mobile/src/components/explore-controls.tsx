@@ -31,7 +31,7 @@ export function ExploreSearchBar({
       <TextInput
         autoCapitalize="none"
         autoCorrect={false}
-        placeholder="Search river, reach, region"
+        placeholder="Search river, route, region"
         placeholderTextColor={colors.textMuted}
         value={query}
         onChangeText={onQueryChange}

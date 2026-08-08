@@ -122,7 +122,7 @@ export default function SupportScreen() {
         <View style={styles.list}>
           <SafetyRow icon="waves" title="Check official sources" body="Confirm gauges, weather, closures, and access status before launching." />
           <SafetyRow icon="weather-lightning" title="Conditions change fast" body="Strainers, storms, construction, and water levels can change after the app refreshes." />
-          <SafetyRow icon="shield-check-outline" title="Match the route to your group" body="Bring proper gear and skip trips that do not fit the paddlers, season, or current conditions." />
+          <SafetyRow icon="shield-check-outline" title="Match the route to your group" body="Bring proper gear and skip routes that do not fit the paddlers, season, or current conditions." />
         </View>
       </SectionCard>
 

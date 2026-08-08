@@ -120,7 +120,7 @@ export default function SavedScreen() {
           </View>
           <Text style={styles.emptyTitle}>No saved routes yet</Text>
           <Text style={styles.emptyBody}>
-            Save repeat trips here, then turn on alerts for the conditions you care about.
+            Save repeat routes here, then turn on alerts for the conditions you care about.
           </Text>
           <View style={styles.emptyActions}>
             <Pressable style={styles.primaryButton} onPress={() => router.push('/')}>
