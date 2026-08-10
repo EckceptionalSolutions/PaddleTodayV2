@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T17:55:00.000Z",
+  "updatedAt": "2026-08-10T12:38:37.992Z",
   "tasks": [
     {
       "id": "ops-governance-state-normalization",
@@ -115,18 +115,38 @@
     {
       "id": "south-dakota-state-coverage-baseline",
       "title": "Build the South Dakota scored-route coverage baseline",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "state_coverage",
       "owner": "state-coverage",
       "priority": "high",
-      "summary": "Continue bounded scored-route expansion in South Dakota after the latest no-add pass. Do not revisit shipped/reactivated Big Sioux or Split Rock routes, prior Big Sioux/Skunk/Split Rock/Rapid/Spearfish/French/Missouri/Vermillion/James/Battle/Whitewood/Redwater/Cheyenne/Moreau/White blockers, the MNRR 59-mile subsegments Clay-County-to-Mulberry, Mulberry-to-Bolton, or Bolton-to-Ponca until a supported Gavins Point live-release/discharge adapter exists, James River Island until NPS publishes route/camping/threshold details, or upper Big Sioux Flandreau-to-Egan until manager-backed threshold and dam/rock-crossing safety evidence exists; choose a distinct candidate with public endpoints, gauge-tied thresholds, camping clarity, safety evidence, river geometry, and near-river coordinate validation.",
+      "summary": "Paused the broad South Dakota scored-route baseline after fourteen five-candidate no-add reviews. South Dakota is not exhausted, but repeated cadence work is now blocked by documented source, threshold, access, safety, camping, route-shape, and provider-adapter gaps; resume only after a precise evidence task clears a blocker or a new manager-grade source appears.",
       "evidence": [
         "docs/state-route-memories/south-dakota.md",
         "docs/route-candidate-ledger.json",
         "src/data/route-publication.ts",
         "src/data/routes/south-dakota.ts",
         "src/data/trip-details/south-dakota.ts",
-        "docs/river-image-source-audit.csv"
+        "docs/river-image-source-audit.csv",
+        "docs/operations/runs.json"
+      ]
+    },
+    {
+      "id": "sd-mnrr-gavins-point-release-adapter-evidence",
+      "title": "Verify Gavins Point release adapter evidence",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "Completed narrow adapter/accessibility decision. Official USACE NWDM/CDA exposes machine-readable hourly Gavins Point Flow-Out cfs and Yankton Flow cfs, but PaddleToday currently supports only USGS and MN DNR gauge providers; MNRR 59-mile candidates remain blocked until a USACE/NWDM adapter is implemented and route gates are rerun. The 39-mile Fort Randall reach still needs a separate Fort Randall release-source decision.",
+      "evidence": [
+        "docs/state-route-memories/south-dakota.md",
+        "docs/route-candidate-ledger.json",
+        "src/data/route-publication.ts",
+        "src/lib/operations-orchestrator.ts",
+        "src/lib/gauges.ts",
+        "src/lib/types.ts",
+        "src/lib/usgs.ts",
+        "docs/operations/runs.json"
       ]
     },
     {
@@ -142,6 +162,127 @@
         "public/data/canonical-river-geometries.json",
         "public/data/canonical-river-geometries/states/south-dakota.json",
         "docs/route-coordinate-river-audit.json",
+        "docs/operations/runs.json"
+      ]
+    },
+    {
+      "id": "tx-coverage-complete-saturation-audit",
+      "title": "Audit Texas coverage-complete state for saturation",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Completed the Texas inventory-quality audit only. All 16 Texas inventory routes remain scored with direct USGS gauges and complete route packages; this does not satisfy the saturation policy until a bounded fresh discovery sweep finds no strong additional scored route.",
+      "evidence": [
+        "src/data/routes/texas.ts",
+        "src/data/route-publication.ts",
+        "docs/operations/state-registry.json",
+        "docs/operations/gate-policy.json",
+        "docs/operations/texas-saturation-audit.json",
+        "docs/state-route-memories/texas.md",
+        "docs/river-image-source-audit.csv",
+        "docs/route-coordinate-river-audit.json"
+      ]
+    },
+    {
+      "id": "utah-same-day-direct-gauge-expansion-review",
+      "title": "Review next Utah same-day direct-gauge route",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "Added Utah Ogden River Lorin Farr Park-to-Crystal Wave as a same-day public-access whitewater route with direct USGS 10140700 support, AW 150-650 cfs threshold evidence, city/AW access and no-camping evidence, safety caveats, geometry/coordinate audit path, and bounded no-image result.",
+      "evidence": [
+        "docs/state-route-memories/utah.md",
+        "src/data/routes/utah.ts",
+        "src/data/trip-details/utah.ts",
+        "docs/route-candidate-ledger.json",
+        "docs/river-image-source-audit.csv",
+        "docs/operations/runs.json"
+      ]
+    },
+    {
+      "id": "utah-coverage-complete-saturation-audit",
+      "title": "Audit Utah coverage-complete state for saturation",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Completed the Utah inventory-quality audit only. All 3 Utah inventory routes remain scored with direct USGS gauges and complete route packages; this does not satisfy the saturation policy until a bounded fresh discovery sweep finds no strong additional scored route.",
+      "evidence": [
+        "src/data/routes/utah.ts",
+        "src/data/route-publication.ts",
+        "docs/operations/state-registry.json",
+        "docs/operations/gate-policy.json",
+        "docs/operations/utah-saturation-audit.json",
+        "docs/state-route-memories/utah.md",
+        "docs/river-image-source-audit.csv",
+        "docs/route-coordinate-river-audit.json"
+      ]
+    },
+    {
+      "id": "nebraska-coverage-complete-saturation-audit",
+      "title": "Audit Nebraska coverage-complete state for saturation",
+      "lane": "blocked",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Completed the bounded Nebraska coverage-complete audit without adding a route. Nebraska has 9 scored direct-USGS routes and no planning routes, but saturation is blocked by unresolved George D. Syas WMA put-in coordinate failures and missing route-scoped geometries for three George D. Syas-starting Loup routes; bounded image and camping metadata gaps were fixed.",
+      "evidence": [
+        "src/data/routes/nebraska.ts",
+        "src/data/trip-details/nebraska.ts",
+        "src/data/route-publication.ts",
+        "docs/operations/state-registry.json",
+        "docs/operations/gate-policy.json",
+        "docs/state-route-memories/nebraska.md",
+        "docs/route-candidate-ledger.json",
+        "docs/river-image-source-audit.csv",
+        "docs/route-coordinate-river-audit.json",
+        "docs/operations/nebraska-saturation-audit.json",
+        "public/data/canonical-river-geometries.json"
+      ]
+    },
+    {
+      "id": "tx-bounded-discovery-sweep",
+      "title": "Run bounded Texas discovery sweep before saturation",
+      "lane": "ready",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Added Trinity River Trammell Crow / Sylvan Boat Ramp-to-Loop 12 as the latest bounded Texas route after the first screened Dallas Trinity candidate qualified. Keep Texas active until a later bounded no-add sweep supports saturation; preserve prior Waco, Bridgeport, Elm Fork, Buffalo Bayou, and West Fork blockers unless fresh evidence clears them.",
+      "evidence": [
+        "docs/operations/gate-policy.json",
+        "src/data/routes/texas.ts",
+        "src/data/trip-details/texas.ts",
+        "docs/route-candidate-ledger.json",
+        "docs/river-image-source-audit.csv",
+        "docs/state-route-memories/texas.md",
+        "docs/operations/runs.json",
+        "docs/operations/texas-saturation-audit.json",
+        "public/data/canonical-river-geometries/routes/brazos-river-fm2004-freeport-municipal-park.json",
+        "packages/api-contract/src/index.ts",
+        "public/data/canonical-river-geometries/routes/guadalupe-river-state-park-nichols-landing.json",
+        "public/data/canonical-river-geometries/routes/san-antonio-river-river-crossing-helton.json",
+        "public/data/canonical-river-geometries/routes/san-antonio-river-mission-reach.json",
+        "public/data/canonical-river-geometries/routes/buffalo-bayou-woodway-sabine-street.json",
+        "public/data/canonical-river-geometries/routes/west-fork-trinity-river-panther-island-handley-ederville.json",
+        "public/data/canonical-river-geometries/routes/trinity-river-trammell-crow-loop-12.json"
+      ]
+    },
+    {
+      "id": "utah-bounded-discovery-sweep",
+      "title": "Run bounded Utah discovery sweep before saturation",
+      "lane": "ready",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Ready under the stricter saturation policy. Screen a bounded set of Utah route families; the prior inventory audit is not sufficient to mark Utah saturated. Preserve known Weber endpoint/access, Provo live-source, and San Juan permitted multi-day blockers unless fresh evidence clears them.",
+      "evidence": [
+        "docs/operations/gate-policy.json",
+        "src/data/routes/utah.ts",
+        "docs/route-candidate-ledger.json",
+        "docs/operations/utah-saturation-audit.json",
+        "docs/state-route-memories/utah.md",
         "docs/operations/runs.json"
       ]
     }

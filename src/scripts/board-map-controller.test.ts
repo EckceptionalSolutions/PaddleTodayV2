@@ -119,7 +119,11 @@ describe('board map controller', () => {
         rating: 'Strong',
         score: 87,
         confidence: { label: 'High' },
-        river: { name: 'Rum <River>' },
+        river: {
+          name: 'Rum <River>',
+          distanceLabel: '11.75 mi',
+          difficulty: 'easy',
+        },
       },
     };
     const popupMarkup = createBoardMapPopupRenderer({
@@ -134,6 +138,8 @@ describe('board map controller', () => {
     expect(boardMarkerClassFor(item)).toContain('score-map-marker');
     expect(popupMarkup(item)).toContain('Rum &lt;River&gt;');
     expect(popupMarkup(item)).toContain('Wayside &lt;to&gt; Milaca');
+    expect(popupMarkup(item)).toContain('11.75 mi on-water');
+    expect(popupMarkup(item)).toContain('Easy difficulty');
     expect(popupMarkup(item)).toContain('Strong today');
     expect(popupMarkup(item)).toContain('/rivers/rum/');
   });

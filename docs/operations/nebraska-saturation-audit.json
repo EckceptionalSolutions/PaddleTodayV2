@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-08-09T12:08:30.000Z",
+  "state": "Nebraska",
+  "decision": "blocked_not_saturated",
+  "rule": "Nebraska can be marked saturated only after an explicit bounded audit confirms route quality, access, safety, gauge, geometry, coordinate, camping, and gallery-image evidence for the scored inventory.",
+  "totals": {
+    "inventory": 9,
+    "scored": 9,
+    "planning": 0
+  },
+  "auditScope": {
+    "screenedCandidates": [],
+    "reasonNoExpansionCandidatesWereScreened": "The task-board work order was a coverage-complete saturation audit and explicitly prohibited speculative expansion candidates or reopening Niobrara, Elkhorn, Calamus, Missouri, or Kearney blockers without fresh evidence.",
+    "routeFamiliesReviewed": [
+      "Platte River / Schramm Park SRA to Platte River State Park and Louisville SRA",
+      "Loup River / George D. Syas WMA, Monroe, Columbus, and ADM access chain"
+    ],
+    "knownExcludedBlockers": [
+      {
+        "candidateId": "ne-niobrara-cornell-smith-brewer-norden-family",
+        "reason": "Prior Nebraska memory keeps this family blocked on source-backed numeric paddling thresholds tied to a selected product-supported gauge."
+      },
+      {
+        "candidateId": "ne-elkhorn-public-access-gauge-family",
+        "reason": "Prior Nebraska memory keeps this family blocked on source-backed numeric paddling thresholds tied to a selected product-supported gauge."
+      },
+      {
+        "candidateId": "ne-calamus-highway-7-calamus-sra",
+        "reason": "Prior Nebraska memory keeps this family blocked by stale gauge data, missing selected public day reach, and missing numeric thresholds."
+      },
+      {
+        "candidateId": "ne-missouri-national-recreational-river-family",
+        "reason": "Prior Nebraska memory keeps this family blocked by missing Nebraska-side day reach selection and private-paddlecraft threshold model."
+      },
+      {
+        "candidateId": "ne-kearney-water-trail",
+        "reason": "Prior Nebraska memory keeps this route blocked because its direct local gauge is Nebraska DWEE 00145700, while PaddleToday currently supports USGS and MN DNR live providers."
+      }
+    ]
+  },
+  "liveGaugeCheck": {
+    "checkedAt": "2026-08-09T12:07:30.000Z",
+    "gauges": [
+      {
+        "siteId": "06805500",
+        "siteName": "Platte River at Louisville, Nebr.",
+        "provider": "usgs",
+        "status": "product_live",
+        "dischargeCfs": 3090,
+        "stageFt": 2.97,
+        "observedAt": "2026-08-09T06:15:00.000-05:00",
+        "supportsRoutes": [
+          "platte-river-schramm-louisville",
+          "platte-river-schramm-platte-river-state-park",
+          "platte-river-platte-river-state-park-louisville"
+        ],
+        "sameDayStatus": "Product-live but below the official 5000 cfs too-low threshold."
+      },
+      {
+        "siteId": "06793000",
+        "siteName": "Loup River near Genoa, Nebr.",
+        "provider": "usgs",
+        "status": "product_live",
+        "dischargeCfs": 315,
+        "stageFt": 4.13,
+        "observedAt": "2026-08-09T06:45:00.000-05:00",
+        "supportsRoutes": [
+          "loup-river-george-syas-monroe",
+          "loup-river-monroe-columbus",
+          "loup-river-george-syas-columbus",
+          "loup-river-monroe-adm-access",
+          "loup-river-columbus-adm-access",
+          "loup-river-george-syas-adm-access"
+        ],
+        "sameDayStatus": "Product-live but below the conservative 350 cfs minimum-only floor."
+      }
+    ]
+  },
+  "fixesApplied": [
+    "Added bounded no-image rows for platte-river-schramm-platte-river-state-park and platte-river-platte-river-state-park-louisville so every Nebraska slug has a gallery-image decision.",
+    "Added explicit camping classifications to Nebraska trip details: endpoint_campground for Schramm-to-Louisville and George D. Syas-starting Loup routes, nearby_basecamp for Schramm-to-Platte-River-State-Park, endpoint_campground for Platte-River-State-Park-to-Louisville, and none for non-George-Syas Loup day routes.",
+    "Regenerated canonical river geometries and restored current full coordinate-audit output."
+  ],
+  "blockers": [
+    {
+      "type": "coordinates",
+      "routes": [
+        "loup-river-george-syas-monroe",
+        "loup-river-george-syas-columbus",
+        "loup-river-george-syas-adm-access"
+      ],
+      "reason": "The coordinate audit says the George D. Syas WMA put-in matches official property/fishing-area representative point PHA-NGPC-0000104, not a verified access, parking, or water-entry coordinate. Coordinate suggestions produced no autonomous-safe correction."
+    },
+    {
+      "type": "geometry",
+      "routes": [
+        "loup-river-george-syas-monroe",
+        "loup-river-george-syas-columbus",
+        "loup-river-george-syas-adm-access"
+      ],
+      "reason": "After routes:geometries:generate, route-scoped canonical geometry files still exist for only six of the nine Nebraska slugs; the three George D. Syas-starting Loup routes remain without route-scoped geometry assets."
+    }
+  ],
+  "findings": [
+    "All 9 Nebraska inventory routes are direct-USGS scored routes; no proxy or planning Nebraska routes remain.",
+    "Route-data, safety, and gallery audits pass after the bounded no-image and camping-classification updates.",
+    "USGS Water Services returned same-day product-live observations for both Nebraska gauges during this audit.",
+    "Official sources still support the Platte and Loup route/access/threshold packages, but Nebraska cannot be marked saturated while the George D. Syas coordinate and related geometry blockers remain unresolved."
+  ],
+  "sourceLinks": [
+    {
+      "label": "Nebraskaland Platte River Water Trail",
+      "url": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/"
+    },
+    {
+      "label": "Nebraskaland Loup River Water Trail",
+      "url": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/"
+    },
+    {
+      "label": "Nebraska public fishing areas",
+      "url": "https://www.eregulations.com/nebraska/fishing/public-fishing-areas"
+    },
+    {
+      "label": "USGS 06805500 monitoring location",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06805500/"
+    },
+    {
+      "label": "USGS 06793000 monitoring location",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06793000/"
+    }
+  ],
+  "conclusion": "Nebraska is not ready for saturated status. Preserve the 9 scored routes but keep the audit blocked until a source-backed George D. Syas WMA launch or water-entry coordinate is found and the three George D. Syas Loup route geometries generate and audit cleanly."
+}

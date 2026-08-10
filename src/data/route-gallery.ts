@@ -934,6 +934,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'USFWS asset: public domain',
     },
   ],
+  'minnesota-river-le-sueur-henderson': [
+    {
+      id: 'minnesota-river-valley-refuge',
+      src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+      alt: 'Brown marsh grasses and calm water fill a broad river-edge wetland below a wooded bluff.',
+      caption: 'Lower Minnesota River valley wetland scene',
+      credit: 'Debbie Koenigs/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
   'minnesota-river-henderson-station-thompson-ferry': [
     {
       id: 'minnesota-river-valley-refuge',
@@ -3008,6 +3018,45 @@ export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
   return [...(approvedRoutePhotosBySlug[slug] ?? [])];
 }
 
+// Some river systems have approved photography on only one or two routes. Reuse
+// that same-river context before falling back to a generic river placeholder.
+const approvedRiverFallbackRouteById: Record<string, string> = {
+  'big-fork-river': 'big-fork-river-highway-6-north-big-falls-east',
+  'big-sioux-river': 'big-sioux-river-farm-field-rotary',
+  'boone-river': 'boone-river-albright-tunnel-mill',
+  'bryant-creek': 'bryant-creek-sycamore-warren-bridge',
+  'cannon-river': 'cannon-river-welch',
+  'chippewa-river-minnesota': 'chippewa-river-lentz-watson-lions-park',
+  'clinton-river': 'clinton-river-macarthur-harley-ensign',
+  'floyds-fork': 'floyds-fork-broad-run-valley-cliffside',
+  'guadalupe-river': 'guadalupe-river-fm766-sh72',
+  'james-river': 'james-river-delaware-town-shelvin-rock',
+  'kettle-river': 'kettle-river-lower-kettle-5-to-6',
+  'kickapoo-river': 'kickapoo-river-ontario-rockton',
+  'la-crosse-river': 'la-crosse-river-veterans-holiday-heights',
+  'levisa-fork': 'levisa-fork-airport-boat-ramp',
+  'little-fork-river': 'little-fork-river-dentaybow-devereaux',
+  'little-miami-river': 'little-miami-river-rogers-ballpark-carl-rahe',
+  'maquoketa-river': 'maquoketa-river-backbone-dundee',
+  'middle-river': 'middle-river-forest-park-schildberg',
+  'milwaukee-river': 'milwaukee-river-newburg-fredonia',
+  'minnesota-river': 'minnesota-river-henderson-belle-plaine',
+  'namekagon-river': 'namekagon-river-big-bend-trego',
+  'north-fork-crow-river': 'north-fork-crow-river-rockford-riverside',
+  'otter-tail-river': 'otter-tail-river-phelps-mill-west-lost-lake',
+  'ouachita-river': 'ouachita-river-remmel-whitewater-park',
+  'red-lake-river': 'red-lake-river-crookston-fisher',
+  'sauk-river': 'sauk-river-eagle-heims-mill',
+  'south-fork-crow-river': 'south-fork-crow-river-rick-johnson-lake-rebecca',
+  'south-skunk-river': 'south-skunk-river-ames-13th-street',
+  'susquehanna-river': 'susquehanna-river-laceyville-west-falls',
+  'turkey-river': 'turkey-river-big-spring-elkader',
+  'upper-iowa-river': 'upper-iowa-river-kendallville-bluffton',
+  'village-creek': 'village-creek-fm418-sh327',
+  'volga-river': 'volga-river-mederville-littleport',
+  'wisconsin-river': 'wisconsin-river-blue-river-boscobel',
+};
+
 function stablePhotoIndex(key: string, length: number): number {
   if (length <= 1) {
     return 0;
@@ -3042,6 +3091,22 @@ export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto
       caption: `${riverPhoto.caption} river-level photo`,
       credit: riverPhoto.credit,
       takenLabel: riverPhoto.licenseLabel,
+      isPlaceholder: false,
+      sourceKind: 'river',
+    };
+  }
+
+  const fallbackRouteSlug = route.riverId
+    ? approvedRiverFallbackRouteById[route.riverId]
+    : undefined;
+  const sameRiverPhoto = fallbackRouteSlug
+    ? getApprovedRoutePhotos(fallbackRouteSlug)[0]
+    : undefined;
+  if (sameRiverPhoto) {
+    return {
+      ...sameRiverPhoto,
+      id: `river-route-${route.riverId}-${sameRiverPhoto.id}`,
+      caption: `${sameRiverPhoto.caption} river-level photo`,
       isPlaceholder: false,
       sourceKind: 'river',
     };

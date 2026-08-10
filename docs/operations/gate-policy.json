@@ -9,6 +9,17 @@
     { "id": "rollback", "required": true, "description": "A bounded rollback or revert path is identified before merge." }
   ],
   "failureHandling": "keep_task_open_and_record_failure",
+  "saturationPolicy": {
+    "planningRoutesCountTowardSaturation": false,
+    "coverageCompleteIsNotSaturated": true,
+    "requiredBeforeDone": [
+      "inventory and scored-route quality audit",
+      "bounded fresh discovery sweep across distinct candidate families",
+      "no candidate clears the scored-route evidence, safety, gauge, access, camping, geometry, coordinate, and image gates"
+    ],
+    "discoveryBudget": "bounded by the active state task; stop after the documented candidate budget or when a strong scored route is found",
+    "reopenCondition": "fresh manager-grade access, gauge, threshold, safety, or route-shape evidence"
+  },
   "workflow": ".github/workflows/operations-gates.yml",
   "humanEscalation": "required_for_policy_change_or_safety_exception"
 }

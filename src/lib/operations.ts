@@ -14,6 +14,33 @@ type Task = {
   evidence: string[];
 };
 
+/**
+ * Ranks unsaturated states by how close their current inventory is to being
+ * fully scored. Planning routes remain excluded from the scored numerator;
+ * they are deliberately treated as remaining opportunity.
+ */
+export function rankStateCoverage(states: Array<{ id: string; scored: number; planning: number; saturation: string }>) {
+  return states
+    .map((state) => {
+      const total = state.scored + state.planning;
+      const coveragePercent = total === 0 ? 0 : Math.round((state.scored / total) * 100);
+      const done = state.saturation === 'provisionally_saturated' || state.saturation === 'saturated';
+      const researchStatus = done
+        ? 'done'
+        : state.scored > 0 && state.planning === 0
+          ? 'coverage_complete_review'
+          : 'researching';
+      return {
+        ...state,
+        coveragePercent,
+        done,
+        researchStatus,
+        researchPriorityScore: done ? -1 : coveragePercent * 1000 + state.scored,
+      };
+    })
+    .sort((left, right) => right.researchPriorityScore - left.researchPriorityScore || right.scored - left.scored || left.id.localeCompare(right.id));
+}
+
 const stateRegistry = JSON.parse(
   readFileSync(resolve(process.cwd(), 'docs/operations/state-registry.json'), 'utf8')
 ) as { canonicalStates: CanonicalState[]; aliases: Record<string, string> };
@@ -58,6 +85,23 @@ const automationRegistry = [
   { id: 'product-loop', name: 'Metrics-to-product loop', schedule: 'Planned weekly', status: 'planned', owner: 'product-analysis' },
 ];
 
+function stateSaturationStatus(stateId: string) {
+  if (stateId === 'MN') return 'provisionally_saturated';
+  if (
+    stateId === 'TX' &&
+    taskRegistry.tasks.some((task) => task.id === 'tx-bounded-discovery-sweep' && task.lane === 'completed')
+  ) {
+    return 'saturated';
+  }
+  if (
+    stateId === 'UT' &&
+    taskRegistry.tasks.some((task) => task.id === 'utah-bounded-discovery-sweep' && task.lane === 'completed')
+  ) {
+    return 'saturated';
+  }
+  return 'not_started';
+}
+
 function canonicalStateId(value: string) {
   const normalized = value.trim();
   if (stateRegistry.canonicalStates.some((state) => state.id === normalized)) return normalized;
@@ -74,9 +118,10 @@ export function getOperationsSnapshot() {
       inventory: inventory.length,
       scored: scored.length,
       planning: inventory.length - scored.length,
-      saturation: state.id === 'MN' ? 'provisionally_saturated' : 'not_started',
+      saturation: stateSaturationStatus(state.id),
     };
   });
+  const rankedStates = rankStateCoverage(stateRows);
 
   const claims = (controlState.claims ?? []).slice().sort((a, b) => {
     return Date.parse(b.completedAt ?? b.claimedAt ?? '') - Date.parse(a.completedAt ?? a.claimedAt ?? '');
@@ -99,6 +144,7 @@ export function getOperationsSnapshot() {
       readyTasks: taskRegistry.tasks.filter((task) => task.lane === 'ready').length,
     },
     states: stateRows,
+    stateResearchRanking: rankedStates,
     tasks: taskRegistry.tasks,
     automations: automationRegistry,
     controlPlane: {

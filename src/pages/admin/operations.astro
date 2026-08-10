@@ -95,8 +95,8 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
 
       <section class="operations-section">
         <div class="operations-section__head"><div><p class="eyebrow">Coverage</p><h2>State saturation</h2></div><p class="muted">Planning routes never count toward saturation.</p></div>
-        <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Scored</th><th>Planning</th><th>Total</th><th>Status</th></tr></thead><tbody>
-          {snapshot.states.map((state) => <tr class={state.id === 'MN' ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.scored}</td><td>{state.planning}</td><td>{state.inventory}</td><td><span class={`operations-pill operations-pill--${state.saturation}`}>{state.saturation.replaceAll('_', ' ')}</span></td></tr>)}
+        <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Scored</th><th>Planning</th><th>Coverage</th><th>Status</th><th>Research priority</th></tr></thead><tbody>
+          {snapshot.stateResearchRanking.map((state) => <tr class={state.id === 'MN' ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.scored}</td><td>{state.planning}</td><td>{state.coveragePercent}%</td><td><span class={`operations-pill operations-pill--${state.saturation}`}>{state.done ? 'saturated (audited)' : state.researchStatus.replaceAll('_', ' ')}</span></td><td>{state.done ? '—' : state.researchPriorityScore}</td></tr>)}
         </tbody></table></div>
       </section>
 

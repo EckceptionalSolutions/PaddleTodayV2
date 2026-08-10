@@ -2,6 +2,63 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const utahRiverTripDetails: Record<string, RiverTripDetails> = {
+  "ogden-river-lorin-farr-crystal-wave": {
+    "putIn": {
+      "id": "lorin-farr-park-ogden-river",
+      "name": "Lorin Farr Park / Ogden River put-in",
+      "latitude": 41.236,
+      "longitude": -111.96
+    },
+    "takeOut": {
+      "id": "crystal-wave-kayak-park",
+      "name": "Crystal Wave Kayak Park take-out",
+      "latitude": 41.233,
+      "longitude": -111.982
+    },
+    "logistics": {
+      "distanceLabel": "About 1.3 mi",
+      "estimatedPaddleTime": "About 30 min to 1 hr 15 min for a prepared group, longer with scouting, surf laps, or low-water scraping",
+      "shuttle": "Stage the take-out at Crystal Wave / the 20th Street pond area first, then drive back to Lorin Farr Park. Walk the take-out and any bridge/wood concerns before launching because this is a short urban run with limited margin for drifting past the planned finish.",
+      "permits": "No route-specific private paddling permit is known. Use the public parkway access points, obey Ogden City park/trail hours and signs, wear PFDs, and do not block park, trail, or business parking while staging.",
+      "camping": "No route camping. Ogden City code prohibits camping on public property outside approved campgrounds, and this short urban parkway section should be planned as a same-day lap only.",
+      "campingClassification": "none",
+      "summary": "Launch at Lorin Farr Park and take out at Crystal Wave for the short Ogden River town section. Use the Gibson Avenue gauge, favor 150-520 cfs, and scout bridges, wood, surf features, and the finish before committing.",
+      "accessCaveats": [
+        "American Whitewater provides the implementation coordinates for the put-in and take-out, while Ogden City and Weber State corroborate the public Lorin Farr-to-Crystal-Wave corridor.",
+        "The put-in coordinate is an AW river/access anchor for the Lorin Farr town-section start, not a surveyed ramp edge. Use the obvious legal parkway/river access path and current signs on arrival.",
+        "The take-out coordinate is an AW Crystal Wave access anchor near the 20th Street / Wall Avenue corridor. Identify the actual landing and carry path before launching so the group does not drift into the woodier downstream reach.",
+        "AW says driving is no longer allowed along the river near the area just below Crystal Wave. Plan the carry to the legal parking area instead of trying to drive to the water.",
+        "Private and business-adjacent land, parkway users, anglers, and city maintenance can all affect practical access on a given day."
+      ],
+      "watchFor": [
+        "Class II+ waves and ledges, including the Crystal Wave feature and other urban surf spots.",
+        "Lincoln Avenue bridge clearance. AW says levels over about 520 cfs make Lincoln a portage issue and notes about two feet of clearance around 550 cfs.",
+        "Fishhooks, bushes, bridge debris, strainers, and the riverwide wood AW reports a few hundred yards below Crystal Wave.",
+        "The normal route ends at Crystal Wave. Continuing downstream requires separate scouting for brushy meanders, sweepers, the Weber confluence, and a large diversion dam farther downstream.",
+        "Urban runoff/water-quality concerns, thunderstorms, fast changes after rain or dam/irrigation operations, and busy trail/park users around both endpoints."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "lorin-farr-park-ogden-river",
+        "name": "Lorin Farr Park / Ogden River put-in",
+        "latitude": 41.236,
+        "longitude": -111.96,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; AW coordinate is an access/river anchor, with the actual legal entry path verified on arrival."
+      },
+      {
+        "id": "crystal-wave-kayak-park",
+        "name": "Crystal Wave Kayak Park take-out",
+        "latitude": 41.233,
+        "longitude": -111.982,
+        "mileFromStart": 1.3,
+        "segmentKind": "creek",
+        "note": "Default take-out at the Crystal Wave finish; scout the carry path and avoid drifting into downstream wood."
+      }
+    ]
+  },
   "colorado-river-hittle-bottom-takeout-beach": {
     "putIn": {
       "id": "hittle-bottom-recreation-site",

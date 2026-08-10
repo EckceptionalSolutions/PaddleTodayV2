@@ -5,6 +5,8 @@ import {
   confidenceLabel,
   ratingToneKey,
   recommendationSummaryText,
+  routeDifficultyLabel,
+  routeLengthLabel,
   shortRouteLengthLabel,
 } from './board-presenters.js';
 import {
@@ -88,6 +90,10 @@ export function createBoardMapPopupRenderer({
 }) {
   return function popupMarkup(item) {
     const ratingKey = ratingToneKey(item.cardRoute.rating);
+    const stretchFacts = joinWithBullet([
+      routeLengthLabel(item),
+      routeDifficultyLabel(item),
+    ]);
     const reachMarkup = isGroupedItem(item)
       ? `<p class="score-map-popup__reach">${escapeHtml(representativeRouteLabel(item))}</p>`
       : `<p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>`;
@@ -96,6 +102,7 @@ export function createBoardMapPopupRenderer({
       <article class="score-map-popup">
         <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
         ${reachMarkup}
+        ${stretchFacts ? `<p class="score-map-popup__meta">${escapeHtml(stretchFacts)}</p>` : ''}
         <div class="score-map-popup__scoreline">
           <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingKey)}">${escapeHtml(mapMarkerLabel(item))}</span>
           <p class="score-map-popup__verdict">${escapeHtml(mapMarkerContext(item))}</p>

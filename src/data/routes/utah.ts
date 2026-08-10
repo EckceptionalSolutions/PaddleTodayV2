@@ -3,6 +3,148 @@ import type { River } from '../../lib/types';
 
 export const utahRoutes: River[] = [
   {
+    "id": "ogden-river-lorin-farr-crystal-wave",
+    "slug": "ogden-river-lorin-farr-crystal-wave",
+    "name": "Ogden River",
+    "reach": "Lorin Farr Park to Crystal Wave Kayak Park",
+    "aliases": [
+      "Ogden River town section",
+      "Lorin Farr to Crystal Wave",
+      "Ogden urban section"
+    ],
+    "state": "Utah",
+    "region": "Ogden / Wasatch Front",
+    "routeType": "whitewater",
+    "summary": "Short urban Class II+ Ogden River section from Lorin Farr Park to Crystal Wave. American Whitewater documents the 1.3-mile town reach, access coordinates, hazards, and a direct runnable band on USGS 10140700; Ogden City confirms Lorin Farr Park and the Crystal Wave Kayak Park corridor.",
+    "statusText": "Use the Ogden River near Gibson Avenue gauge as the direct town-section check. AW's embedded gauge band starts at 150 cfs and ends at 650 cfs; Paddle Today treats 150-520 cfs as the preferred window because AW calls out the Lincoln Avenue bridge/portage issue above 520 cfs.",
+    "latitude": 41.236,
+    "longitude": -111.96,
+    "gaugeSource": {
+      "id": "usgs-10140700",
+      "provider": "usgs",
+      "siteId": "10140700",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Ogden River NR Gibson Avenue at Ogden, UT",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-10140700/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "mandatory_takeout",
+        "strainers",
+        "dam",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "Treat this as an urban Class II+ whitewater run, not a casual flatwater float; scout the Crystal Wave finish and any bridges before launching.",
+        "American Whitewater warns that the Lincoln Avenue bridge becomes a portage issue above about 520 cfs and has limited clearance around 550 cfs.",
+        "Finish at Crystal Wave unless the group has already scouted downstream wood, brushy meanders, the Weber confluence, and the diversion dam farther downstream."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 150,
+      "idealMax": 520,
+      "tooLow": 150,
+      "tooHigh": 650,
+      "thresholdSource": {
+        "label": "American Whitewater Ogden River Lorin Farr-to-Crystal Wave gauge band",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10903/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The Ogden town section is most useful during irrigation/snowmelt-supported and storm-boosted periods. Because it is urban and bridge-constrained, check the latest gauge trend, weather, and visible wood before putting on.",
+      "difficulty": "moderate",
+      "difficultyNotes": "American Whitewater rates the section Class II+. It can be a learning run at low-to-medium flows, but the route is still filtered as whitewater because it has surf features, bridge-clearance concerns, fishhooks/wood, and a mandatory urban take-out.",
+      "confidenceNotes": "Confidence is high for a conservative whitewater add: American Whitewater names the Lorin Farr-to-Crystal Wave town section, embeds a 150-650 cfs runnable band tied to USGS 10140700, publishes put-in and take-out coordinates, and includes bridge/wood/downstream-dam warnings. Ogden City confirms Lorin Farr Park amenities and publishes a Crystal Wave Kayak Park map, while Weber State corroborates the 1.5-mile Lorin Farr-to-Crystal Wave paddling/tubing section. Camping confidence is high for none because Ogden public-property camping is prohibited outside approved campgrounds."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Live gauge",
+        "value": "USGS 10140700 at 326 cfs / 7.26 ft",
+        "note": "USGS Water Services returned Ogden River near Gibson Avenue discharge and gage height at 01:45 MDT on 2026-08-09.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-10140700/"
+      },
+      {
+        "label": "Route shape",
+        "value": "Lorin Farr to Crystal Wave, 1.3 miles",
+        "note": "American Whitewater names the town-section reach, rates it Class II+, and describes Crystal Wave as the normal end of the section.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10903/main"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "41.23600, -111.96000 to 41.23300, -111.98200",
+        "note": "American Whitewater publishes exact access-point coordinates for the put-in and take-out; Ogden City separately confirms Lorin Farr Park and the Crystal Wave Kayak Park corridor.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/111972"
+      },
+      {
+        "label": "Threshold posture",
+        "value": "150-520 cfs preferred; 650 cfs high cutoff",
+        "note": "AW embeds a 150-650 cfs runnable band for the direct Gibson Avenue gauge. Paddle Today caps the preferred range at 520 cfs because AW warns the Lincoln Avenue bridge becomes a portage issue above that level.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10903/main"
+      },
+      {
+        "label": "Camping",
+        "value": "No route camping",
+        "note": "Ogden City code prohibits camping on public property outside approved campgrounds, and this short urban route is framed as a same-day parkway run.",
+        "sourceUrl": "https://codelibrary.amlegal.com/codes/ogdencityut/latest/ogdencity_ut/0-0-0-11411"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded Ogden City, AW, Weber State, Commons, and same-route web review found route context but no clearly rights-clean exact Lorin-Farr-to-Crystal-Wave paddling asset selected for local reuse.",
+        "sourceUrl": "https://www.ogdencity.gov/DocumentCenter/View/6665/Crystal-Wave-Kayak-Park"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "American Whitewater Ogden Lorin Farr to Crystal Wave",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10903/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "USGS 10140700 Ogden River near Gibson Avenue",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-10140700/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Ogden City Lorin Farr Park",
+        "url": "https://www.ogdencity.gov/3289/Lorin-Farr-Park-Reservable",
+        "provider": "local"
+      },
+      {
+        "label": "Ogden City Crystal Wave Kayak Park map",
+        "url": "https://www.ogdencity.gov/DocumentCenter/View/6665/Crystal-Wave-Kayak-Park",
+        "provider": "local"
+      },
+      {
+        "label": "Weber State Ogden River urban section",
+        "url": "https://www.weber.edu/outdoor/aquatic-rec.html",
+        "provider": "local"
+      },
+      {
+        "label": "Ogden City camping and related activities code",
+        "url": "https://codelibrary.amlegal.com/codes/ogdencityut/latest/ogdencity_ut/0-0-0-11411",
+        "provider": "local"
+      }
+    ]
+  },
+  {
     "id": "colorado-river-hittle-bottom-takeout-beach",
     "slug": "colorado-river-hittle-bottom-takeout-beach",
     "name": "Colorado River",

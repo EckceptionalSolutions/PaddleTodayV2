@@ -8,6 +8,15 @@ Created 2026-06-08 for the `nebraska-route-additions` automation.
 - Current Nebraska candidate ledger rows: 7 as of 2026-06-12 12:58 blocker refresh.
 - Automation posture: seed a small official-source candidate set, then add at most one route only if all gates clear.
 
+## 2026-08-09 Coverage-Complete Saturation Audit
+
+- Completed the bounded Nebraska coverage-complete audit without adding a route or screening speculative expansion candidates. The task-board scope prohibited reopening Niobrara, Elkhorn, Calamus, Missouri, or Kearney blockers without fresh evidence.
+- Confirmed 9 Nebraska inventory routes and 9 scored direct-USGS routes. USGS Water Services returned same-day product-live data for Platte River at Louisville `06805500` at 3090 cfs / 2.97 ft on 2026-08-09 06:15 CDT and Loup River near Genoa `06793000` at 315 cfs / 4.13 ft on 2026-08-09 06:45 CDT.
+- Added missing bounded no-image rows for `platte-river-schramm-platte-river-state-park` and `platte-river-platte-river-state-park-louisville`.
+- Added explicit camping classifications for all Nebraska trip details: endpoint/basecamp/none according to managed campground or WMA primitive-camping support, while preserving the no-private-bank/no-sandbar route-camping caveats.
+- Nebraska is not marked saturated. Remaining blockers: coordinate audit still fails the George D. Syas WMA put-in on `loup-river-george-syas-monroe`, `loup-river-george-syas-columbus`, and `loup-river-george-syas-adm-access` because the stored point is an official area anchor rather than a verified launch/water-entry coordinate; geometry generation still emits route-scoped assets for only six of the nine Nebraska slugs and omits those three George D. Syas-starting Loup routes.
+- Next action: find a source-backed George D. Syas launch or water-entry coordinate, then regenerate route geometries and rerun coordinate/geometry audits before marking Nebraska saturated.
+
 ## Source Priorities
 
 - Nebraska Game and Parks Commission water-trail pages, state recreation areas, and official trail/access PDFs.

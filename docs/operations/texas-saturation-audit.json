@@ -1,0 +1,234 @@
+{
+  "generatedAt": "2026-08-10T12:33:00.000Z",
+  "state": "Texas",
+  "decision": "discovery_reopened_after_route_addition",
+  "rule": "Texas has no remaining planning inventory and can be marked saturated only after an explicit bounded audit confirms route quality, access, safety, gauge, geometry, coordinate, camping, and gallery-image evidence for the scored inventory.",
+  "totals": {
+    "inventory": 31,
+    "scored": 31,
+    "planning": 0
+  },
+  "auditScope": {
+    "screenedCandidates": [
+      "tx-waco-bosque-brazos-loop",
+      "tx-bridgeport-falls-loop",
+      "tx-west-fork-trinity-panther-island-handley-ederville",
+      "tx-dallas-trinity-trammell-crow-loop-12"
+    ],
+    "reasonNoExpansionCandidatesWereScreened": "This later bounded discovery run screened distinct candidates under the route-worker budget and stopped after one route qualified and shipped.",
+    "routeFamiliesReviewed": [
+      "Guadalupe River / Cuero TPWD paddling trail",
+      "Village Creek / Big Thicket and TPWD paddling trail",
+      "South Llano River / TPWD paddling trail and Cupgrass leased access",
+      "Colorado River / Bastrop El Camino Real Paddling Trail",
+      "Colorado River / Columbus Paddling Trail",
+      "Colorado River / Bastrop Wilbarger Paddling Trail",
+      "Upper Guadalupe River / Nichol's Landing Paddling Trail",
+      "San Antonio River / Goliad Paddling Trail",
+      "Brazos River / Stephen F. Austin Columbia Bottomland Waterway",
+      "Brazos River / Stephen F. Austin Gulf Prairie Run",
+      "Guadalupe River / Guadalupe River State Park Paddling Trail",
+      "San Antonio River / SASPAMCO Paddling Trail",
+      "San Antonio River / Mission Reach Paddling Trail",
+      "Buffalo Bayou / Woodway-to-Sabine urban paddling trail",
+      "Elm Fork Trinity River / LLELA-to-Hebron Parkway National Water Trail",
+      "West Fork Trinity River / Panther Island-to-Handley Ederville National Water Trail",
+      "Trinity River main stem / Dallas Trinity Paddling Trail"
+    ]
+  },
+  "liveGaugeCheck": {
+    "checkedAt": "2026-08-10T12:33:00.000Z",
+    "gauges": [
+      {
+        "siteId": "08175800",
+        "siteName": "Guadalupe Rv at Cuero, TX",
+        "dischargeCfs": 475,
+        "stageFt": 7.59,
+        "observedAt": "2026-08-09T00:30:00.000-05:00",
+        "supportsRoutes": [
+          "guadalupe-river-fm766-sh72",
+          "guadalupe-river-sh72-fm236",
+          "guadalupe-river-fm766-fm236"
+        ]
+      },
+      {
+        "siteId": "08041500",
+        "siteName": "Village Ck nr Kountze, TX",
+        "dischargeCfs": 85.7,
+        "stageFt": 2.5,
+        "observedAt": "2026-08-09T00:30:00.000-05:00",
+        "supportsRoutes": [
+          "village-creek-fm418-sh327",
+          "village-creek-sh327-baby-galvez",
+          "village-creek-fm418-baby-galvez",
+          "village-creek-baby-galvez-us-96",
+          "village-creek-sh327-us-96",
+          "village-creek-us-96-state-park",
+          "village-creek-baby-galvez-state-park",
+          "village-creek-fm418-state-park"
+        ],
+        "sameDayStatus": "Product-live but currently below the conservative 200 cfs minimum-only floor."
+      },
+      {
+        "siteId": "08149900",
+        "siteName": "S Llano Rv at Flat Rock Ln at Junction, TX",
+        "dischargeCfs": 132,
+        "stageFt": 2.59,
+        "observedAt": "2026-08-09T00:55:00.000-05:00",
+        "supportsRoutes": [
+          "south-llano-river-cupgrass-state-park",
+          "south-llano-river-state-park-flatrock-lane",
+          "south-llano-river-flatrock-lane-junction-city-park",
+          "south-llano-river-state-park-junction-city-park",
+          "south-llano-river-cupgrass-junction-city-park"
+        ]
+      },
+      {
+        "siteId": "08159200",
+        "siteName": "Colorado Rv at Bastrop, TX",
+        "dischargeCfs": 579,
+        "stageFt": 2.9,
+        "observedAt": "2026-08-09T21:40:00.000-05:00",
+        "supportsRoutes": [
+          "colorado-river-utley-bridge-fishermans-park",
+          "colorado-river-fishermans-park-lost-pines"
+        ],
+        "sameDayStatus": "Product-live; currently above Wilbarger's conservative 200 cfs lower-Colorado floor but below the downstream El Camino Real 800 cfs local floor."
+      },
+      {
+        "siteId": "08161000",
+        "siteName": "Colorado Rv at Columbus, TX",
+        "dischargeCfs": 365,
+        "stageFt": 9.67,
+        "observedAt": "2026-08-09T20:15:00.000-05:00",
+        "supportsRoutes": [
+          "colorado-river-business-71-beasons-park"
+        ]
+      },
+      {
+        "siteId": "08167500",
+        "siteName": "Guadalupe Rv nr Spring Branch, TX",
+        "dischargeCfs": 347,
+        "stageFt": 3.28,
+        "observedAt": "2026-08-09T23:00:00.000-05:00",
+        "supportsRoutes": [
+          "guadalupe-river-state-park-nichols-landing",
+          "guadalupe-river-nichols-landing-rebecca-creek"
+        ]
+      },
+      {
+        "siteId": "08181800",
+        "siteName": "San Antonio Rv nr Elmendorf, TX",
+        "dischargeCfs": 151,
+        "stageFt": 9.55,
+        "observedAt": "2026-08-09T23:30:00.000-05:00",
+        "supportsRoutes": [
+          "san-antonio-river-river-crossing-helton"
+        ],
+        "sameDayStatus": "Product-live but currently below the conservative 200 cfs minimum-only San Antonio River floor."
+      },
+      {
+        "siteId": "08188500",
+        "siteName": "San Antonio Rv at Goliad, TX",
+        "dischargeCfs": 224,
+        "stageFt": 3.84,
+        "observedAt": "2026-08-09T21:00:00.000-05:00",
+        "supportsRoutes": [
+          "san-antonio-river-riverdale-goliad-state-park"
+        ]
+      },
+      {
+        "siteId": "08116850",
+        "siteName": "Brazos Rv nr West Columbia, TX",
+        "dischargeCfs": 1660,
+        "stageFt": 0.05,
+        "observedAt": "2026-08-09T22:30:00.000-05:00",
+        "supportsRoutes": [
+          "brazos-river-county-park-bells-landing",
+          "brazos-river-fm2004-freeport-municipal-park"
+        ],
+        "sameDayStatus": "Product-live and currently in BRA's hazardous 1,200-3,000 cfs safety-cue band, above the 501-1,200 cfs ideal range."
+      },
+      {
+        "siteId": "08178000",
+        "siteName": "San Antonio Rv at San Antonio, TX",
+        "dischargeCfs": 22.3,
+        "stageFt": 3.93,
+        "observedAt": "2026-08-10T00:00:00.000-05:00",
+        "supportsRoutes": [
+          "san-antonio-river-mission-reach"
+        ],
+        "sameDayStatus": "Product-live but currently below the conservative 200 cfs minimum-only San Antonio River floor."
+      },
+      {
+        "siteId": "08074000",
+        "siteName": "Buffalo Bayou at Houston, TX",
+        "dischargeCfs": 164,
+        "stageFt": 1.48,
+        "observedAt": "2026-08-10T05:15:00.000-05:00",
+        "supportsRoutes": [
+          "buffalo-bayou-woodway-sabine-street"
+        ],
+        "sameDayStatus": "Product-live and currently above the conservative 150 cfs Woodway-to-Sabine floor."
+      },
+      {
+        "siteId": "08053000",
+        "siteName": "Elm Fk Trinity Rv nr Lewisville, TX",
+        "dischargeCfs": 452,
+        "stageFt": 6.66,
+        "observedAt": "2026-08-10T05:30:00.000-05:00",
+        "supportsRoutes": [
+          "elm-fork-trinity-river-llela-hebron-parkway"
+        ],
+        "sameDayStatus": "Product-live and currently inside the conservative LLELA 80-600 cfs route guidance."
+      },
+      {
+        "siteId": "08048000",
+        "siteName": "W Fk Trinity Rv at Ft Worth, TX",
+        "dischargeCfs": 13.7,
+        "stageFt": 0.71,
+        "observedAt": "2026-08-10T06:15:00.000-05:00",
+        "supportsRoutes": [
+          "west-fork-trinity-river-panther-island-handley-ederville"
+        ],
+        "sameDayStatus": "Product-live but currently below the conservative 100 cfs West Fork Trinity floor."
+      },
+      {
+        "siteId": "08057000",
+        "siteName": "Trinity Rv at Dallas, TX",
+        "dischargeCfs": 374,
+        "stageFt": 11.82,
+        "observedAt": "2026-08-10T06:30:00.000-05:00",
+        "supportsRoutes": [
+          "trinity-river-trammell-crow-loop-12"
+        ],
+        "sameDayStatus": "Product-live and currently above the conservative 100 cfs Dallas main-stem floor, below TRPA's 400 cfs ideal cue, and well below the 2,000 cfs maximum caution."
+      }
+    ]
+  },
+  "findings": [
+    "All 31 Texas inventory routes are direct-gauge scored routes; no proxy or planning Texas routes remain.",
+    "Official TPWD/SARA/LCRA pages still support the Guadalupe Valley, Upper Guadalupe, San Antonio River Goliad, Village Creek, South Llano, Bastrop Wilbarger, Bastrop El Camino Real, Columbus, Brazos Columbia Bottomland, and Brazos Gulf Prairie route shapes, endpoint names, endpoint coordinates or access-address anchors, and practical safety caveats.",
+    "NPS still supports Village Creek access sequencing, year-round sandbar camping, low-water log/sandbar cautions, and high-water hazard warnings.",
+    "Camping classifications remain conservative: Guadalupe routes are none, Village Creek ranges from nearby_basecamp to endpoint_campground and overnight_capable, and South Llano ranges from endpoint_campground to on_route_campsite.",
+    "Gallery-image coverage now has either an approved reusable image or a documented bounded no-image row for every Texas route.",
+    "The later Colorado River Wilbarger, Bastrop El Camino Real, Columbus, Upper Guadalupe, Goliad, Brazos Columbia Bottomland, and Brazos Gulf Prairie adds are direct-USGS scored; the Bastrop gauge is currently above Wilbarger's conservative 200 cfs floor but below the downstream El Camino Real 800 cfs local floor, while Columbus, Upper Guadalupe, and Goliad are above their conservative floors, and Brazos is above its ideal band in a hazardous safety-cue range.",
+    "The Guadalupe River State Park-to-Nichol's Landing add is a direct-USGS scored Upper Guadalupe route-family card with TPWD endpoint/portage/private-bank evidence, TRPA two-sided thresholds, endpoint-campground classification, and a bounded no-image row.",
+    "The upper SASPAMCO River Crossing Park-to-Helton add is a direct-USGS scored San Antonio River route-family card with TPWD/SARA endpoint and closure-boundary evidence, TRPA minimum-only thresholds, Helton endpoint-campground classification, and a bounded no-image row.",
+    "The Buffalo Bayou Woodway-to-Sabine add is a direct-USGS scored urban route-family card with TPWD access/safety/water-quality evidence, Save Buffalo Bayou 150 cfs minimum-only flow support, no route camping, access-anchor coordinate offsets, generated geometry, and a bounded no-image row.",
+    "The Elm Fork Trinity LLELA-to-Hebron add is a direct-USGS scored National Water Trail route-family card with LLELA access/current-conditions/camping evidence, Trinity Coalition coordinates, LLELA 80-600 cfs guidance, endpoint-campground classification, generated geometry, and a bounded no-image row.",
+    "The West Fork Trinity Panther-Island-to-Handley-Ederville add is a direct-USGS scored National Water Trail route-family card with Trinity Coalition public launch coordinates, TRPA 100 cfs minimum-only support, no route camping, urban runoff/dam/strainer/muddy-bank safety notes, and a bounded no-image row.",
+    "The Dallas Trinity Trammell-Crow-to-Loop-12 add is a direct-USGS scored National Water Trail / TPWD route-family card with TPWD and Trinity Coalition public access coordinates, TRPA 100 cfs minimum-only support, no route camping, Dallas Wave scout/portage handling, urban water-quality and dam safety notes, generated geometry, coordinate review offsets, and a bounded no-image row."
+  ],
+  "conclusion": "The prior Texas saturation decision is superseded by later bounded discovery route additions. Texas now has 31 scored direct-USGS routes and remains active for the next bounded discovery rotation.",
+  "supersededAt": "2026-08-10T12:33:00.000Z",
+  "supersededBy": "route-worker-20260810123300",
+  "discoveryReopen": {
+    "routeSlug": "trinity-river-trammell-crow-loop-12",
+    "screenedCandidates": [
+      "tx-dallas-trinity-trammell-crow-loop-12"
+    ],
+    "result": "one_scored_route_added",
+    "nextAction": "Continue Texas bounded discovery with distinct non-duplicate candidates; do not mark saturated until a later no-add sweep completes."
+  }
+}

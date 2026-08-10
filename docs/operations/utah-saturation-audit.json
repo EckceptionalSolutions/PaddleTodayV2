@@ -1,0 +1,86 @@
+{
+  "generatedAt": "2026-08-09T10:03:13.000Z",
+  "state": "Utah",
+  "decision": "saturated",
+  "rule": "Utah has no remaining planning inventory and can be marked saturated only after an explicit bounded audit confirms route quality, access, safety, gauge, geometry, coordinate, camping, and gallery-image evidence for the scored inventory.",
+  "totals": {
+    "inventory": 3,
+    "scored": 3,
+    "planning": 0
+  },
+  "auditScope": {
+    "screenedCandidates": [],
+    "reasonNoExpansionCandidatesWereScreened": "The task-board work order was a coverage-complete saturation audit and explicitly excluded known Weber endpoint/access and San Juan permitted multi-day blockers unless fresh evidence cleared them.",
+    "routeFamiliesReviewed": [
+      "Green River / Flaming Gorge Dam Section A",
+      "Colorado River / Moab Daily",
+      "Ogden River / Lorin Farr to Crystal Wave"
+    ],
+    "knownExcludedBlockers": [
+      {
+        "candidateId": "ut-weber-river-henefer-taggarts",
+        "reason": "Endpoint/access legitimacy and exact coordinates remain unresolved, especially the Taggarts take-out below Taggarts Falls."
+      },
+      {
+        "candidateId": "ut-provo-river-deer-creek-vivian-park",
+        "reason": "Current product-supported live gauge path did not clear in the prior Utah review."
+      },
+      {
+        "candidateId": "ut-san-juan-sand-island-mexican-hat",
+        "reason": "Permit-managed 26.9-mile desert trip remains outside the current same-day route model."
+      }
+    ]
+  },
+  "liveGaugeCheck": {
+    "checkedAt": "2026-08-09T10:03:13.000Z",
+    "gauges": [
+      {
+        "siteId": "09234500",
+        "siteName": "Green River near Greendale, UT",
+        "provider": "usgs",
+        "status": "recent_official_data",
+        "latestDailyDischargeCfs": 1910,
+        "observedAt": "2026-08-08T00:00:00.000-06:00",
+        "supportsRoutes": [
+          "green-river-flaming-gorge-dam-little-hole"
+        ],
+        "sameDayStatus": "Official USGS daily values returned through 2026-08-08 during this audit. The instantaneous-values retry closed the transport connection, so no threshold or route-data change was made."
+      },
+      {
+        "siteId": "09180500",
+        "siteName": "Colorado River near Cisco, UT",
+        "provider": "usgs",
+        "status": "product_live",
+        "dischargeCfs": 1290,
+        "stageFt": 1.59,
+        "observedAt": "2026-08-09T03:00:00.000-06:00",
+        "supportsRoutes": [
+          "colorado-river-hittle-bottom-takeout-beach"
+        ],
+        "sameDayStatus": "Product-live but currently below the conservative 2000 cfs minimum-only floor."
+      },
+      {
+        "siteId": "10140700",
+        "siteName": "Ogden River near Gibson Avenue at Ogden, UT",
+        "provider": "usgs",
+        "status": "product_live",
+        "dischargeCfs": 326,
+        "stageFt": 7.26,
+        "observedAt": "2026-08-09T03:45:00.000-06:00",
+        "supportsRoutes": [
+          "ogden-river-lorin-farr-crystal-wave"
+        ],
+        "sameDayStatus": "Product-live and inside the conservative 150-520 cfs preferred window."
+      }
+    ]
+  },
+  "findings": [
+    "All 3 Utah inventory routes are direct-USGS scored routes; no proxy or planning Utah routes remain.",
+    "The Green River Section A package retains federal route/access support, no-camping evidence, dam-release/cold-water safety caveats, and a generated canonical geometry.",
+    "The Colorado River Moab Daily package retains BLM/AW route, access, camping, safety, coordinate, and bounded no-image evidence.",
+    "The Ogden River Lorin Farr-to-Crystal-Wave package retains AW/Ogden City/Weber State access and threshold evidence, no-camping support, urban whitewater safety caveats, generated geometry, and bounded no-image evidence.",
+    "Coordinate audit coverage exists for all 3 Utah routes. Ogden includes documented access-anchor offsets; Colorado and Green River offsets remain reviewable in the coordinate audit artifact.",
+    "Gallery-image coverage has a documented bounded no-image row for every Utah route."
+  ],
+  "conclusion": "Utah satisfies the explicit coverage-complete saturation audit: preserve the 3 scored routes, do not add speculative Utah planning routes, and reopen Utah only for a materially new official route/access/gauge package or a product decision about Weber endpoint authority, Provo live-source support, San Juan permitted multi-day handling, or alternate itinerary cards."
+}
