@@ -1658,5 +1658,62 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default downstream public take-out from TPWD and Trinity Coalition."
       }
     ]
+  },
+  "rio-grande-rio-grande-village-heath-canyon": {
+    "putIn": {
+      "id": "rio-grande-village-river-access",
+      "name": "Rio Grande Village River Access",
+      "latitude": 29.17984,
+      "longitude": -102.96085
+    },
+    "takeOut": {
+      "id": "heath-canyon-la-linda",
+      "name": "Heath Canyon / La Linda take-out",
+      "latitude": 29.45025,
+      "longitude": -102.82346
+    },
+    "logistics": {
+      "distanceLabel": "About 33 mi to 35 mi",
+      "estimatedPaddleTime": "Usually 2 to 3 days, with NPS noting three days at most levels and a possible two-day pace above about 800 cfs",
+      "shuttle": "Stage the Heath Canyon take-out on the U.S. side downstream from La Linda only after confirming current TPWD Black Gap / Heath Canyon Limited Use Permit requirements, road conditions, vehicle security, and border-area logistics. Then drive back to Rio Grande Village inside Big Bend National Park for launch.",
+      "permits": "An NPS backcountry use permit is required before putting any watercraft on the Rio Grande, including day and overnight river trips. Heath Canyon take-out access is TPWD-operated and requires a Limited Use Permit with self-registration at Black Gap WMA headquarters.",
+      "camping": "This is an overnight-capable canyon route only with the required NPS river permit and a legal camp plan. NPS prohibits or discourages camping in developed, private, vehicle-accessible, and sensitive areas, including the early Boquillas Canyon Trail vicinity, private Heath Canyon ranch areas without approval, Black Gap fish camps, and other inhabited or cultivated areas. Use legal river camps above the high-water mark; do not infer camping from any random bank.",
+      "campingClassification": "overnight_capable",
+      "summary": "Launch at Rio Grande Village and paddle the remote Boquillas Canyon corridor to Heath Canyon / La Linda. The route is Class I-II but high-commitment because of heat, permits, water logistics, sudden rises, limited exits, camping restrictions, and the long take-out shuttle.",
+      "accessCaveats": [
+        "American Whitewater coordinates are access anchors, not a promise that the current wetted launch line is at the coordinate. Follow NPS signs, current riverbank conditions, and ranger guidance on arrival.",
+        "NPS says Rio Grande Village is the normal put-in for Boquillas Canyon; do not use private land, Mexican-bank landings, or informal roads as alternate access except for immediate safety needs.",
+        "NPS says Heath Canyon is now owned and operated by TPWD and requires Limited Use Permit handling through Black Gap WMA. Confirm the access is open, drivable, and permitted before committing to the canyon.",
+        "At low water below the 150 cfs recommendation, expect dragging, exposed boulders, slower travel, and higher risk at shallow rock gardens. At rising or storm-driven levels, treat camps, side canyons, and narrow canyon sections as flash-flood hazards.",
+        "The route is remote and border-adjacent. Carry required safety gear, repair supplies, extra water treatment capacity, waste system, firepan when fires are allowed, and reliable emergency communication."
+      ],
+      "watchFor": [
+        "Arroyo del Veinte, the lower-canyon Class II boulder feature American Whitewater flags as capable of flipping canoes at lower flows.",
+        "Extreme heat, limited shade, dehydration, treated-water planning, sudden storms, and flash flooding during the summer rainy season.",
+        "Strainers, boulders, rock gardens, shallow dragging, strong wind in open reaches, and difficult rescue due to limited road access.",
+        "NPS camping restrictions near Boquillas Canyon Trail, developed or vehicle-accessible areas, private ranch lands, Heath Canyon, Black Gap fish camps, and cultivated or inhabited areas.",
+        "Current NPS river regulations, private group size limits, required PFDs/spare gear, overnight waste-system rules, and water-quality concerns."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "rio-grande-village-river-access",
+        "name": "Rio Grande Village River Access",
+        "latitude": 29.17984,
+        "longitude": -102.96085,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default NPS Boquillas Canyon put-in; American Whitewater publishes this river-left Rio Grande Village access anchor."
+      },
+      {
+        "id": "heath-canyon-la-linda",
+        "name": "Heath Canyon / La Linda take-out",
+        "latitude": 29.45025,
+        "longitude": -102.82346,
+        "mileFromStart": 34.6,
+        "segmentKind": "creek",
+        "note": "Default downstream take-out below La Linda; American Whitewater publishes this access anchor and NPS notes TPWD Limited Use Permit requirements."
+      }
+    ]
   }
 };

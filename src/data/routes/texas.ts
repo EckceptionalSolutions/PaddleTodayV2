@@ -4368,5 +4368,164 @@ export const texasRoutes: River[] = [
         "provider": "usgs"
       }
     ]
+  },
+  {
+    "id": "rio-grande-rio-grande-village-heath-canyon",
+    "slug": "rio-grande-rio-grande-village-heath-canyon",
+    "name": "Rio Grande",
+    "reach": "Rio Grande Village to Heath Canyon",
+    "aliases": [
+      "Boquillas Canyon",
+      "Rio Grande Village to La Linda",
+      "Rio Grande Wild & Scenic River - Boquillas Canyon"
+    ],
+    "state": "Texas",
+    "region": "Big Bend",
+    "routeType": "whitewater",
+    "summary": "Remote Boquillas Canyon overnight route from the Rio Grande Village river access through Big Bend National Park and the Rio Grande Wild & Scenic River to the Heath Canyon take-out near La Linda. NPS and American Whitewater publish the public endpoint plan, permit requirements, camping limits, and Class I-II canyon character, while USGS 08375300 gives a direct same-reach condition check.",
+    "statusText": "Use the Rio Grande at Rio Grande Village gauge. Treat 150 cfs as the conservative recommended floor for app scoring, expect this route to read low below that level, and only launch with current NPS permit, heat, water, camping, and Heath Canyon take-out logistics confirmed.",
+    "latitude": 29.17984,
+    "longitude": -102.96085,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "remote",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "American Whitewater lists Boquillas Canyon as Class I-II and flags Arroyo del Veinte near the lower canyon as a Class II boulder feature that can flip canoes at lower flows; scout and portage if the line is unclear.",
+        "NPS requires backcountry river permits, self-sufficient safety gear, human-waste handling for overnight trips, camping above the high-water mark, and conservative decisions around sudden rises, storms, and remote rescue.",
+        "NPS river regulations and camping advisories restrict camping near developed, private, and vehicle-accessible areas, including the early Boquillas Canyon Trail vicinity and Heath Canyon/private ranch areas without approval."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08375300",
+      "provider": "usgs",
+      "siteId": "08375300",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Rio Grande at Rio Grande Village, Big Bnd NP, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08375300/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 150,
+      "thresholdSource": {
+        "label": "American Whitewater Boquillas Canyon flow guidance",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1821/main",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "NPS manages Boquillas Canyon as a year-round river trip but warns that summer heat is extreme, thunderstorms can create flash-flood conditions, and river levels must be checked before launch. The 150 cfs floor is conservative route scoring; American Whitewater notes the reach has been navigated below 100 cfs but recommends 150 cfs or higher.",
+      "difficulty": "hard",
+      "difficultyNotes": "The whitewater routeType and advanced risk level reflect a 33- to 35-mile remote desert canyon with Class I-II rapids, mandatory permits, limited bailouts, heat exposure, camping restrictions, and a long Heath Canyon shuttle rather than technical difficulty alone.",
+      "confidenceNotes": "Confidence is good for a conservative Texas add: NPS publishes Boquillas Canyon as a 33-mile Rio Grande Village-to-Heath Canyon overnight route with public access, permit, camping, and Heath Canyon limited-use-permit requirements; American Whitewater publishes the same route family, access coordinates, Class I-II rating, and 150 cfs recommended minimum; USGS 08375300 is a product-supported direct gauge at Rio Grande Village. The route ships minimum-only and currently-low because same-day USGS Water Services returned 30.4 cfs, well below the supported recommendation."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route shape",
+        "value": "Rio Grande Village to Heath Canyon, about 33 mi",
+        "note": "NPS identifies Boquillas Canyon as a two- to three-day trip beginning at Rio Grande Village and ending at Heath Canyon downstream from La Linda.",
+        "sourceUrl": "https://www.nps.gov/rigr/planyourvisit/boq_cyn.htm"
+      },
+      {
+        "label": "Public access coordinates",
+        "value": "29.17984, -102.96085 to 29.45025, -102.82346",
+        "note": "American Whitewater access pages publish Rio Grande Village river access and Heath Canyon Ranch / La Linda access coordinates; NPS confirms the same route endpoints and TPWD-operated Heath Canyon permit requirement.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/106685"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 08375300 at 30.4 cfs / 2.32 ft",
+        "note": "USGS Water Services returned same-day Rio Grande at Rio Grande Village discharge and gage height at 2026-08-10 07:00 CDT during this implementation run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08375300&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold posture",
+        "value": "150 cfs minimum-only",
+        "note": "American Whitewater recommends 150 cfs or higher for kayaks and rafts on Boquillas Canyon, while noting the reach has been paddled below 100 cfs; this route uses the recommended value as the app-supported floor.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1821/main"
+      },
+      {
+        "label": "Camping and permits",
+        "value": "NPS backcountry permit required; restricted camping zones",
+        "note": "NPS requires a backcountry river permit before launching and publishes river camping restrictions around developed, private, and vehicle-accessible areas; overnight plans must use legal river camps and respect high-water and private-property limits.",
+        "sourceUrl": "https://www.nps.gov/bibe/planyourvisit/riverregs.htm"
+      },
+      {
+        "label": "Safety",
+        "value": "Remote desert canyon, Class I-II, heat and sudden rises",
+        "note": "NPS river regulations and river-trip guidance require self-sufficient safety gear and current conditions checks; American Whitewater identifies Arroyo del Veinte as the main Class II feature in the lower canyon.",
+        "sourceUrl": "https://www.nps.gov/bibe/planyourvisit/river-trips.htm"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded NPS, American Whitewater, Commons, USGS, and same-route image review found route-context photos but no clearly rights-clean exact Rio-Grande-Village-to-Heath-Canyon paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Boquillas+Canyon+Rio+Grande+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "NPS Boquillas Canyon",
+        "url": "https://www.nps.gov/rigr/planyourvisit/boq_cyn.htm",
+        "provider": "local"
+      },
+      {
+        "label": "NPS river regulations",
+        "url": "https://www.nps.gov/bibe/planyourvisit/riverregs.htm",
+        "provider": "local"
+      },
+      {
+        "label": "NPS river camping advisory",
+        "url": "https://www.nps.gov/bibe/planyourvisit/river-camping.htm",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater Boquillas Canyon",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1821/main",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater Rio Grande Village access",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/106685",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater Heath Canyon access",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/106693",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08375300 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08375300/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08375300 Water Services current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08375300&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ]
   }
 ];

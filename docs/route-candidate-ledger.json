@@ -1,7 +1,8 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-10T11:37:32.273Z",
+  "updatedAt": "2026-08-10T13:08:30.000Z",
   "notes": [
+    "2026-08-10 08:08 America/Chicago / 2026-08-10 13:08 UTC Texas bounded discovery implementation. Screened three distinct non-duplicate candidates in priority order. Blocked tx-saspamco-helton-floresville because SARA current conditions still mark the southern SASPAMCO section downstream of Helton temporarily closed due to large log jams, so Helton-to-CR117/Floresville cannot ship. Blocked tx-san-antonio-king-william-eagleland because SARA documents short same-launch/same-recovery paddling zones rather than a point-to-point route card. Added rio-grande-rio-grande-village-heath-canyon with NPS/American Whitewater/USGS evidence, direct USGS 08375300 support at 30.4 cfs / 2.32 ft on 2026-08-10 07:00 CDT, 150 cfs minimum-only recommended-floor support, NPS backcountry and Heath Canyon permit handling, overnight-capable camping with restricted-zone caveats, remote desert canyon and Class I-II safety notes, access-anchor coordinate offsets, generated route geometry, and bounded no-image.",
     "2026-08-10 07:31 America/Chicago / 2026-08-10 12:31 UTC Texas bounded discovery implementation. Screened tx-dallas-trinity-trammell-crow-loop-12 first; it qualified and was added as trinity-river-trammell-crow-loop-12. TPWD documents the official 10.2-mile Dallas Trinity Paddling Trail from Trammell Crow / Sylvan through Dallas Wave to Loop 12 with access coordinates, float times, private-bank limits, and fish-advisory context. Trinity Coalition confirms the current National Water Trail launch-site map, Trammell-to-Loop-12 map coordinates, dam-warning policy, and changing-access caveat. TRPA supports Dallas main-stem thresholds of 100 cfs minimum, 400 cfs ideal cue, and 2,000 cfs maximum caution, while USGS 08057000 returned 374 cfs / 11.82 ft at 2026-08-10 06:30 CDT. The route ships whitewater-hidden with no route camping, Dallas Wave scout/portage handling, urban runoff/water-quality, dam, strainer, private-bank, and long-day safety notes, bounded no-image, and generated geometry requirement.",
     "2026-08-10 07:07 America/Chicago / 2026-08-10 12:07 UTC Texas bounded discovery implementation. Screened three distinct non-duplicate candidates in priority order. Blocked tx-waco-bosque-brazos-loop because TPWD supports Waco loop trails and USGS 08096500 is product-live, but the loop/out-and-back shape does not fit the current point-to-point route package without inventing endpoints. Blocked tx-bridgeport-falls-loop because TPWD supports Bridgeport Falls and TRPA West Fork thresholds, but the official route is a same-access loop with FM 920 marked emergency-only, so it lacks a normal public take-out pair for a route card. Added west-fork-trinity-river-panther-island-handley-ederville with Trinity Coalition / NRT / TRPA / TRWD / USGS evidence, direct USGS 08048000 support at 13.7 cfs / 0.71 ft on 2026-08-10 06:15 CDT, 100 cfs minimum-only threshold support, no route camping, urban runoff/dam/strainer/muddy-bank safety notes, generated/audited route geometry, audited access-anchor coordinates, and bounded no-image.",
     "2026-08-10 06:37 America/Chicago / 2026-08-10 11:37 UTC Texas bounded discovery implementation. Screened four distinct non-duplicate candidates in priority order. Blocked tx-nueces-george-west because TPWD supports the George West access pair and USGS 08210000 is product-live, but no route/gauge-specific lower-Nueces numeric threshold surfaced for the George West-to-US-59 route. Blocked tx-pecan-bayou-brownwood-loop because the TPWD loop has route shape but no product-supported current discharge/threshold package cleared: Cross Cut data was stale and Brownwood discharge is not exposed as usable live cfs. Blocked tx-bevilport-paddling-trail because the Bevilport gauge had no current product-live continuous data and no route-specific threshold. Added buffalo-bayou-woodway-sabine-street with TPWD/Save Buffalo Bayou/USGS/Houston Parks evidence, direct USGS 08074000 support at 164 cfs / 1.48 ft on 2026-08-10 05:15 CDT, 150 cfs minimum-only local threshold support with >2,000 cfs experienced-only caution, no route camping, urban runoff/reservoir-release/strainer/private-bank safety notes, generated geometry, documented access-anchor coordinate offsets, and bounded no-image.",
@@ -2780,6 +2781,105 @@
     "2026-07-22 16:05 America/Chicago / 2026-07-22 21:05 UTC Minnesota implementation pass. Added three Minnesota route slugs beyond the current 130-route Minnesota baseline: `mississippi-river-highway-6-trommald`, `mississippi-river-kiwanis-crow-wing-state-park`, and `mississippi-river-royalton-stearns-county-park`, bringing the checkout to 133 Minnesota routes. Qualification path: MN DNR Mississippi Maps 5/6/7, Mississippi Headwaters Board signed excursions for Highway 6 and Kiwanis, MN DNR river-level site data for Brainerd site 121 and Royalton site 149, and Minnesota public-water-access GIS for Highway 6 WAS00999, Trommald WAS02294, Kiwanis WAS01003, Crow Wing State Park WAS00990, Royalton WAS00463, and Mississippi River County Park / Stearns County Park WAS01283. Brainerd returned 952 cfs at 2026-07-22 14:30 CDT, in the official low band below medium; Royalton returned 2,040 cfs at 2026-07-22 14:15 CDT, barely inside the official low band. No route-gallery assets were added; bounded DNR / MHB / public-access / USGS / Commons review found no clearly rights-clean exact-route images."
   ],
   "candidates": [
+    {
+      "candidateId": "tx-saspamco-helton-floresville",
+      "river": "San Antonio River",
+      "route": "Helton Nature Park to CR 117 / Floresville River Park",
+      "state": "TX",
+      "status": "blocked",
+      "lastReviewed": "2026-08-10",
+      "reviewCount": 1,
+      "blocker": "SARA current conditions still list the southern SASPAMCO paddling trail downstream of Helton as temporarily closed because of large log jams, so the route fails the current access/safety gate.",
+      "retryCondition": "Retry only after SARA explicitly lifts the downstream-of-Helton closure and public access, camping, threshold, coordinate, and geometry evidence are rechecked.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "SARA Current Conditions opened 2026-08-10; confirms SASPAMCO Paddling Trail temporarily closed downstream of Helton because of large log jams.",
+        "SARA SASPAMCO Paddling Trail opened 2026-08-10; confirms the lower access chain continues through CR 117 and Floresville, but the current closure controls.",
+        "SARA Helton Nature Park opened 2026-08-10; confirms Helton is the current safe endpoint for the implemented upper SASPAMCO route."
+      ],
+      "updatedAt": "2026-08-10T13:08:30.000Z"
+    },
+    {
+      "candidateId": "tx-san-antonio-king-william-eagleland",
+      "river": "San Antonio River",
+      "route": "King William / Eagleland Zone paddling loops",
+      "state": "TX",
+      "status": "blocked",
+      "lastReviewed": "2026-08-10",
+      "reviewCount": 1,
+      "blocker": "SARA documents these as short same-launch/same-recovery urban paddling zones, not a named public put-in and distinct take-out route package. The candidate fails the current point-to-point route-shape gate.",
+      "retryCondition": "Retry only if the product supports loop/same-access route cards or SARA publishes a distinct point-to-point reach with current threshold, camping, safety, coordinate, and geometry evidence.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "SARA King William Paddling Trail opened 2026-08-10; confirms the launch point is also the take-out at 100 E. Guenther Street for a 1.5-mile zone.",
+        "SARA Eagleland Zone Paddling Trail opened 2026-08-10; confirms a 0.5-mile launch/recovery paddling zone rather than a point-to-point route."
+      ],
+      "updatedAt": "2026-08-10T13:08:30.000Z"
+    },
+    {
+      "candidateId": "tx-rio-grande-boquillas-canyon",
+      "river": "Rio Grande",
+      "route": "Rio Grande Village to Heath Canyon / Boquillas Canyon",
+      "state": "TX",
+      "status": "added",
+      "lastReviewed": "2026-08-10",
+      "reviewCount": 1,
+      "blocker": "Implemented 2026-08-10 as rio-grande-rio-grande-village-heath-canyon after route-addition gates cleared. Do not duplicate this Boquillas Canyon alignment unless fresh evidence materially changes access, permit, threshold, camping, safety, image, coordinate, or geometry evidence.",
+      "retryCondition": "Do not retry this exact route. Future Texas rotation should continue with distinct non-duplicate manager-backed candidates and preserve the current 150 cfs minimum-only posture unless stronger route-specific threshold evidence appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "NPS Boquillas Canyon opened 2026-08-10; confirms a 33-mile Rio Grande Village-to-Heath Canyon route, two- to three-day timing, Rio Grande Village put-in, Heath Canyon take-out, and TPWD Limited Use Permit requirement at Heath Canyon.",
+        "NPS river regulations opened 2026-08-10; confirms NPS backcountry river permit requirements, private group limits, safety equipment, overnight waste system, and river-camping rules.",
+        "NPS river camping advisory opened 2026-08-10; confirms restricted/prohibited camping areas near developed, private, vehicle-accessible, and inhabited/cultivated locations including Heath Canyon/private ranch contexts.",
+        "American Whitewater Boquillas Canyon opened 2026-08-10; confirms Rio Grande Village-to-La Linda/Heath Canyon route, 34.6-mile Class I-II character, Rio Grande Village gauge, 150 cfs recommended minimum, below-100 cfs navigability caveat, and Arroyo del Veinte Class II feature.",
+        "American Whitewater access pages opened 2026-08-10; publish Rio Grande Village River Access at 29.17984, -102.96085 and Heath Canyon Ranch / La Linda access at 29.45025, -102.82346.",
+        "USGS Water Services checked 2026-08-10; returned Rio Grande at Rio Grande Village 08375300 discharge 30.4 cfs and stage 2.32 ft at 2026-08-10 07:00 CDT.",
+        "Bounded NPS / American Whitewater / Commons / USGS / same-route image review found route-context photos but no clearly rights-clean exact route paddling asset selected for local reuse."
+      ],
+      "aliases": [
+        "Boquillas Canyon",
+        "Rio Grande Village to La Linda",
+        "Rio Grande Wild & Scenic River - Boquillas Canyon"
+      ],
+      "v2Slug": "rio-grande-rio-grande-village-heath-canyon",
+      "gauge": {
+        "quality": "direct_gauge_supported",
+        "id": "08375300",
+        "provider": "USGS",
+        "notes": "Direct Rio Grande at Rio Grande Village gauge returned current discharge and stage through USGS Water Services during the implementation run."
+      },
+      "thresholdSupport": {
+        "strength": "minimum_only_community",
+        "notes": "American Whitewater recommends 150 cfs or higher for kayaks and rafts on Boquillas Canyon while noting the route has been run below 100 cfs. PaddleToday uses only the conservative 150 cfs floor for scoring."
+      },
+      "endpoints": {
+        "putIn": "Rio Grande Village River Access",
+        "takeOut": "Heath Canyon / La Linda take-out",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 29.17984,
+          "longitude": -102.96085
+        },
+        "takeOutCoordinates": {
+          "latitude": 29.45025,
+          "longitude": -102.82346
+        },
+        "coordinateSource": "American Whitewater access pages publish both endpoint coordinates; NPS corroborates Rio Grande Village and Heath Canyon as the route endpoints and confirms TPWD permit handling at Heath Canyon."
+      },
+      "camping": {
+        "status": "overnight_capable",
+        "notes": "NPS supports overnight river trips only with a backcountry permit and legal camp plan. Route notes prohibit inferring camping from private/developed/vehicle-accessible banks and preserve NPS restricted-area caveats."
+      },
+      "safety": {
+        "status": "reviewed",
+        "notes": "Safety package foregrounds currently below-floor flow, Class I-II Arroyo del Veinte boulder hazard, remote desert rescue limits, extreme heat, water treatment, sudden rises, camping above high-water mark, required gear, private-bank and border-area access limits."
+      },
+      "image": {
+        "status": "no_gallery_asset_added",
+        "notes": "Bounded NPS, American Whitewater, Commons, USGS, and same-route review found route-context photos but no clearly rights-clean exact route paddling asset for local reuse."
+      },
+      "updatedAt": "2026-08-10T13:08:30.000Z"
+    },
     {
       "reviewCount": 1,
       "candidateId": "tx-buffalo-bayou-woodway-sabine-street",

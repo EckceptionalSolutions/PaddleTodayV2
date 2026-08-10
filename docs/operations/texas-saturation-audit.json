@@ -1,21 +1,20 @@
 {
-  "generatedAt": "2026-08-10T12:33:00.000Z",
+  "generatedAt": "2026-08-10T13:08:30.000Z",
   "state": "Texas",
   "decision": "discovery_reopened_after_route_addition",
   "rule": "Texas has no remaining planning inventory and can be marked saturated only after an explicit bounded audit confirms route quality, access, safety, gauge, geometry, coordinate, camping, and gallery-image evidence for the scored inventory.",
   "totals": {
-    "inventory": 31,
-    "scored": 31,
+    "inventory": 32,
+    "scored": 32,
     "planning": 0
   },
   "auditScope": {
     "screenedCandidates": [
-      "tx-waco-bosque-brazos-loop",
-      "tx-bridgeport-falls-loop",
-      "tx-west-fork-trinity-panther-island-handley-ederville",
-      "tx-dallas-trinity-trammell-crow-loop-12"
+      "tx-saspamco-helton-floresville",
+      "tx-san-antonio-king-william-eagleland",
+      "tx-rio-grande-boquillas-canyon"
     ],
-    "reasonNoExpansionCandidatesWereScreened": "This later bounded discovery run screened distinct candidates under the route-worker budget and stopped after one route qualified and shipped.",
+    "reasonNoExpansionCandidatesWereScreened": "This bounded discovery run screened three distinct candidates and stopped after one route qualified and shipped.",
     "routeFamiliesReviewed": [
       "Guadalupe River / Cuero TPWD paddling trail",
       "Village Creek / Big Thicket and TPWD paddling trail",
@@ -33,11 +32,12 @@
       "Buffalo Bayou / Woodway-to-Sabine urban paddling trail",
       "Elm Fork Trinity River / LLELA-to-Hebron Parkway National Water Trail",
       "West Fork Trinity River / Panther Island-to-Handley Ederville National Water Trail",
-      "Trinity River main stem / Dallas Trinity Paddling Trail"
+      "Trinity River main stem / Dallas Trinity Paddling Trail",
+      "Rio Grande / Big Bend Boquillas Canyon overnight river route"
     ]
   },
   "liveGaugeCheck": {
-    "checkedAt": "2026-08-10T12:33:00.000Z",
+    "checkedAt": "2026-08-10T13:08:30.000Z",
     "gauges": [
       {
         "siteId": "08175800",
@@ -203,11 +203,22 @@
           "trinity-river-trammell-crow-loop-12"
         ],
         "sameDayStatus": "Product-live and currently above the conservative 100 cfs Dallas main-stem floor, below TRPA's 400 cfs ideal cue, and well below the 2,000 cfs maximum caution."
+      },
+      {
+        "siteId": "08375300",
+        "siteName": "Rio Grande at Rio Grande Village, Big Bnd NP, TX",
+        "dischargeCfs": 30.4,
+        "stageFt": 2.32,
+        "observedAt": "2026-08-10T07:00:00.000-05:00",
+        "supportsRoutes": [
+          "rio-grande-rio-grande-village-heath-canyon"
+        ],
+        "sameDayStatus": "Product-live but currently below the conservative 150 cfs Boquillas Canyon recommended floor."
       }
     ]
   },
   "findings": [
-    "All 31 Texas inventory routes are direct-gauge scored routes; no proxy or planning Texas routes remain.",
+    "All 32 Texas inventory routes are direct-gauge scored routes; no proxy or planning Texas routes remain.",
     "Official TPWD/SARA/LCRA pages still support the Guadalupe Valley, Upper Guadalupe, San Antonio River Goliad, Village Creek, South Llano, Bastrop Wilbarger, Bastrop El Camino Real, Columbus, Brazos Columbia Bottomland, and Brazos Gulf Prairie route shapes, endpoint names, endpoint coordinates or access-address anchors, and practical safety caveats.",
     "NPS still supports Village Creek access sequencing, year-round sandbar camping, low-water log/sandbar cautions, and high-water hazard warnings.",
     "Camping classifications remain conservative: Guadalupe routes are none, Village Creek ranges from nearby_basecamp to endpoint_campground and overnight_capable, and South Llano ranges from endpoint_campground to on_route_campsite.",
@@ -218,15 +229,18 @@
     "The Buffalo Bayou Woodway-to-Sabine add is a direct-USGS scored urban route-family card with TPWD access/safety/water-quality evidence, Save Buffalo Bayou 150 cfs minimum-only flow support, no route camping, access-anchor coordinate offsets, generated geometry, and a bounded no-image row.",
     "The Elm Fork Trinity LLELA-to-Hebron add is a direct-USGS scored National Water Trail route-family card with LLELA access/current-conditions/camping evidence, Trinity Coalition coordinates, LLELA 80-600 cfs guidance, endpoint-campground classification, generated geometry, and a bounded no-image row.",
     "The West Fork Trinity Panther-Island-to-Handley-Ederville add is a direct-USGS scored National Water Trail route-family card with Trinity Coalition public launch coordinates, TRPA 100 cfs minimum-only support, no route camping, urban runoff/dam/strainer/muddy-bank safety notes, and a bounded no-image row.",
-    "The Dallas Trinity Trammell-Crow-to-Loop-12 add is a direct-USGS scored National Water Trail / TPWD route-family card with TPWD and Trinity Coalition public access coordinates, TRPA 100 cfs minimum-only support, no route camping, Dallas Wave scout/portage handling, urban water-quality and dam safety notes, generated geometry, coordinate review offsets, and a bounded no-image row."
+    "The Dallas Trinity Trammell-Crow-to-Loop-12 add remains a direct-USGS scored National Water Trail / TPWD route-family card with TPWD and Trinity Coalition public access coordinates, TRPA 100 cfs minimum-only support, no route camping, Dallas Wave scout/portage handling, urban water-quality and dam safety notes, generated geometry, coordinate review offsets, and a bounded no-image row.",
+    "The Rio Grande Boquillas Canyon add is a direct-USGS scored Big Bend overnight route-family card with NPS Rio Grande Village-to-Heath Canyon route/permit/camping evidence, American Whitewater Class I-II access and 150 cfs recommended-floor support, USGS 08375300 live flow, remote desert canyon safety notes, access-anchor coordinate offsets, generated geometry, and a bounded no-image row."
   ],
-  "conclusion": "The prior Texas saturation decision is superseded by later bounded discovery route additions. Texas now has 31 scored direct-USGS routes and remains active for the next bounded discovery rotation.",
-  "supersededAt": "2026-08-10T12:33:00.000Z",
-  "supersededBy": "route-worker-20260810123300",
+  "conclusion": "The prior Texas saturation decision is superseded by later bounded discovery route additions. Texas now has 32 scored direct-USGS routes and remains active for the next bounded discovery rotation.",
+  "supersededAt": "2026-08-10T13:08:30.000Z",
+  "supersededBy": "route-worker-20260810130830",
   "discoveryReopen": {
-    "routeSlug": "trinity-river-trammell-crow-loop-12",
+    "routeSlug": "rio-grande-rio-grande-village-heath-canyon",
     "screenedCandidates": [
-      "tx-dallas-trinity-trammell-crow-loop-12"
+      "tx-saspamco-helton-floresville",
+      "tx-san-antonio-king-william-eagleland",
+      "tx-rio-grande-boquillas-canyon"
     ],
     "result": "one_scored_route_added",
     "nextAction": "Continue Texas bounded discovery with distinct non-duplicate candidates; do not mark saturated until a later no-add sweep completes."

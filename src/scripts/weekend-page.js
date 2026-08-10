@@ -1,4 +1,5 @@
 import {
+  bindMarkerPopup,
   clearMapMarkers,
   createMapMarker,
   createMapStatusController,
@@ -16,6 +17,7 @@ import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { createBoardLocationService } from './board-location-service.js';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
+import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import {
   buildWeekendPlan,
   DEFAULT_WEEKEND_DISTANCE_LIMIT,
@@ -1180,37 +1182,83 @@ function renderCampingGrid(items, { forceVisible = false } = {}) {
   }
 }
 
-function syncWeekendRouteLines(points) {
+function weekendFallbackRouteLine(point) {
+  if (point.span.length < 2) {
+    return null;
+  }
+
+  return {
+    type: 'Feature',
+    properties: {
+      slug: point.id,
+      rating: point.rating,
+      traced: false,
+    },
+    geometry: {
+      type: 'LineString',
+      coordinates: point.span.map((coordinate) => [
+        coordinate.longitude,
+        coordinate.latitude,
+      ]),
+    },
+  };
+}
+
+async function weekendRouteLine(item, point) {
+  if (point.span.length < 2) {
+    return null;
+  }
+
+  try {
+    const routeLine = await loadCanonicalRiverRouteLine(point.id, point.span, {
+      stateName: item.river.state,
+    });
+    if (routeLine) {
+      return {
+        ...routeLine,
+        properties: {
+          ...routeLine.properties,
+          slug: point.id,
+          rating: point.rating,
+        },
+      };
+    }
+  } catch (error) {
+    console.warn(`Canonical river geometry unavailable for weekend route ${point.id}; using access coordinates.`, error);
+  }
+
+  return weekendFallbackRouteLine(point);
+}
+
+function syncWeekendRouteLines(features) {
   if (!weekendMapRuntime) {
     return;
   }
 
   const sourceId = 'weekend-route-spans';
+  const casingLayerId = 'weekend-route-spans-casing';
   const layerId = 'weekend-route-spans';
   const data = {
     type: 'FeatureCollection',
-    features: points
-      .filter((point) => point.span.length >= 2)
-      .map((point) => ({
-        type: 'Feature',
-        properties: {
-          slug: point.id,
-          rating: point.rating,
-        },
-        geometry: {
-          type: 'LineString',
-          coordinates: point.span.map((coordinate) => [
-            coordinate.longitude,
-            coordinate.latitude,
-          ]),
-        },
-      })),
+    features,
   };
 
   syncGeoJsonOverlay(weekendMapRuntime, {
     sourceId,
     data,
     layers: [{
+      id: casingLayerId,
+      type: 'line',
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': '#ffffff',
+        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 3.8, 8, 6.2, 12, 8],
+        'line-opacity': 0.76,
+      },
+    }, {
       id: layerId,
       type: 'line',
       layout: {
@@ -1224,16 +1272,39 @@ function syncWeekendRouteLines(points) {
           'Strong',
           '#2c8a54',
           'Good',
-          '#3e8f65',
+          '#1c7770',
           'Fair',
           '#ad752c',
           '#1e7397',
         ],
-        'line-width': 4,
-        'line-opacity': 0.72,
+        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.8, 8, 3.4, 12, 4.8],
+        'line-opacity': 0.82,
       },
     }],
   });
+}
+
+function weekendMapPopupMarkup(item, point) {
+  const tone = ratingToneKey(item.weekend.rating);
+  const meta = [
+    item.river.distanceLabel,
+    item.travelLabel,
+    confidenceDisplayLabel(item.weekend.confidence),
+  ].filter(Boolean).join(' \u2022 ');
+
+  return `
+    <article class="score-map-popup">
+      <h3>${escapeHtml(item.river.name)}</h3>
+      <p class="score-map-popup__reach">${escapeHtml(item.river.reach)}</p>
+      ${meta ? `<p class="score-map-popup__meta">${escapeHtml(meta)}</p>` : ''}
+      <div class="score-map-popup__scoreline">
+        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(tone)}">${escapeHtml(point.score)}</span>
+        <p class="score-map-popup__verdict">${escapeHtml(weekendVerdict(item))}</p>
+      </div>
+      <p class="score-map-popup__summary">${escapeHtml(item.weekend.summary)}</p>
+      <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(item.river.slug)}/">View route</a>
+    </article>
+  `;
 }
 
 async function renderWeekendMap(routes) {
@@ -1310,28 +1381,49 @@ async function renderWeekendMap(routes) {
 
     weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
     weekendMapMarkersByKey = new Map();
-    syncWeekendRouteLines(points);
+    const routesBySlug = new Map(routes.map((item) => [item.river.slug, item]));
+    const routeLines = (await Promise.all(points.map((point) => {
+      const item = routesBySlug.get(point.id);
+      return item ? weekendRouteLine(item, point) : null;
+    }))).filter(Boolean);
+    if (renderVersion !== weekendMapRenderVersion) {
+      return;
+    }
+    syncWeekendRouteLines(routeLines);
     const bounds = new maplibregl.LngLatBounds();
 
     for (const point of points) {
+      const item = routesBySlug.get(point.id);
+      if (!item) {
+        continue;
+      }
       const markerNode = document.createElement('button');
       markerNode.type = 'button';
       markerNode.className = markerClassForRating(point.rating, point.confidence);
       markerNode.innerHTML = `<span>${escapeHtml(point.score)}</span>`;
       markerNode.setAttribute(
         'aria-label',
-        `${point.label}, ${point.reach}, weekend score ${point.score}. Open route.`,
+        `${point.label}, ${point.reach}, weekend score ${point.score}. Show route details.`,
       );
-      markerNode.addEventListener('click', () => {
-        updateWeekendMapSelection(point.id);
-        window.location.assign(`/rivers/${encodeURIComponent(point.id)}/`);
-      });
 
       const marker = createMapMarker({
         maplibregl,
         mapRuntime: weekendMapRuntime,
         element: markerNode,
         point,
+        popupHtml: weekendMapPopupMarkup(item, point),
+        popupOptions: {
+          offset: 18,
+          maxWidth: '260px',
+        },
+      });
+      bindMarkerPopup(marker, markerNode, {
+        map: weekendMapRuntime,
+        onSelectedChange(selected) {
+          if (selected) {
+            updateWeekendMapSelection(point.id);
+          }
+        },
       });
       weekendMapMarkers.push(marker);
       weekendMapMarkersByKey.set(point.id, marker);

@@ -602,6 +602,7 @@ const routeOrder = [
   "elm-fork-trinity-river-llela-hebron-parkway",
   "west-fork-trinity-river-panther-island-handley-ederville",
   "trinity-river-trammell-crow-loop-12",
+  "rio-grande-rio-grande-village-heath-canyon",
   "fox-river-yorkville-whitewater-course",
   "green-river-dennison-ferry-houchins-ferry",
   "barren-river-vpa-3-martinsville",

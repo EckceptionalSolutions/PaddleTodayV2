@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-10T12:38:37.992Z",
+  "updatedAt": "2026-08-10T13:08:30.000Z",
   "tasks": [
     {
       "id": "ops-governance-state-normalization",
@@ -249,7 +249,7 @@
       "kind": "state_coverage",
       "owner": "state-coverage",
       "priority": "high",
-      "summary": "Added Trinity River Trammell Crow / Sylvan Boat Ramp-to-Loop 12 as the latest bounded Texas route after the first screened Dallas Trinity candidate qualified. Keep Texas active until a later bounded no-add sweep supports saturation; preserve prior Waco, Bridgeport, Elm Fork, Buffalo Bayou, and West Fork blockers unless fresh evidence clears them.",
+      "summary": "Added Rio Grande Boquillas Canyon / Rio Grande Village-to-Heath Canyon as the latest bounded Texas route after blocking lower SASPAMCO on active closure and King William / Eagleland on loop/same-access route shape. Keep Texas active until a later bounded no-add sweep supports saturation; preserve prior Dallas, West Fork, Elm Fork, Buffalo Bayou, Waco, Bridgeport, and SASPAMCO closure blockers unless fresh evidence clears them.",
       "evidence": [
         "docs/operations/gate-policy.json",
         "src/data/routes/texas.ts",
@@ -266,7 +266,8 @@
         "public/data/canonical-river-geometries/routes/san-antonio-river-mission-reach.json",
         "public/data/canonical-river-geometries/routes/buffalo-bayou-woodway-sabine-street.json",
         "public/data/canonical-river-geometries/routes/west-fork-trinity-river-panther-island-handley-ederville.json",
-        "public/data/canonical-river-geometries/routes/trinity-river-trammell-crow-loop-12.json"
+        "public/data/canonical-river-geometries/routes/trinity-river-trammell-crow-loop-12.json",
+        "public/data/canonical-river-geometries/routes/rio-grande-rio-grande-village-heath-canyon.json"
       ]
     },
     {
