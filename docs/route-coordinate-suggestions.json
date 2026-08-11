@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-10T13:07:33.293Z",
+  "generatedAt": "2026-08-11T16:37:28.738Z",
   "registryGeneratedAt": "2026-08-02T00:50:43.957Z",
-  "count": 37,
+  "count": 38,
   "autoApplyEligibleCount": 0,
   "items": [
     {
@@ -8865,6 +8865,194 @@
               "signal": "route-order-plausible",
               "effect": 5,
               "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.26).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "colorado-river-lost-pines-riverbend-park",
+      "routeName": "Colorado River",
+      "reach": "Lost Pines Recreational Trails to Riverbend Park",
+      "state": "Texas",
+      "endpoint": "accessPoint",
+      "endpointName": "Loop 230 / Highway 95 Bridge access",
+      "current": {
+        "latitude": 30.01,
+        "longitude": -97.16
+      },
+      "reason": "Endpoint is 1066 ft from the matched NHD flowline.",
+      "canonicalAccessId": null,
+      "canonicalAccessStatus": null,
+      "sharedRouteCount": 0,
+      "sourceLinks": [
+        {
+          "label": "LCRA Paddle the Colorado",
+          "url": "https://lcraparks.com/paddle-the-colorado",
+          "provider": "local"
+        },
+        {
+          "label": "Explore Bastrop County Colorado River",
+          "url": "https://explorebastropcounty.com/listings/colorado-river-in-bastrop-county/",
+          "provider": "local"
+        },
+        {
+          "label": "Explore Bastrop County Riverbend Park",
+          "url": "https://explorebastropcounty.com/listings/vernon-l-richards-riverbend-park/",
+          "provider": "local"
+        },
+        {
+          "label": "Visit Smithville Colorado River",
+          "url": "https://www.visitsmithvilletx.org/colorado-river",
+          "provider": "local"
+        },
+        {
+          "label": "Southwest Paddler Colorado River",
+          "url": "https://southwestpaddler.com/docs/colorado5.html",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 08159200 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08159200/",
+          "provider": "usgs"
+        },
+        {
+          "label": "USGS 08159200 Water Services current values",
+          "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08159200&parameterCd=00060,00065&siteStatus=all",
+          "provider": "usgs"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 30.01251252963289,
+          "longitude": -97.16087738739502,
+          "distanceFeet": 957.6028469902942,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.9079073980382608,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 15,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 958 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.91).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Colorado River",
+          "latitude": 30.012827,
+          "longitude": -97.160858,
+          "distanceFeet": 1066.3593102072282,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.9073295280529194,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 65,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Colorado River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Colorado River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1066 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.91).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Colorado River",
+          "latitude": 30.012827,
+          "longitude": -97.160858,
+          "distanceFeet": 1066.3593102072282,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.9073295280529194,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 55,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Colorado River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1066 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.91).",
               "source": "hydrography"
             }
           ],

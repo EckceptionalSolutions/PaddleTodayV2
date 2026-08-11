@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   boardMarkerClassFor,
+  boardMapRouteActionsMarkup,
+  boardRouteActionModel,
   createBoardMapMarker,
   createBoardMapController,
   createBoardMapPopupRenderer,
@@ -120,6 +122,7 @@ describe('board map controller', () => {
         score: 87,
         confidence: { label: 'High' },
         river: {
+          slug: 'rum',
           name: 'Rum <River>',
           distanceLabel: '11.75 mi',
           difficulty: 'easy',
@@ -142,6 +145,36 @@ describe('board map controller', () => {
     expect(popupMarkup(item)).toContain('Easy difficulty');
     expect(popupMarkup(item)).toContain('Strong today');
     expect(popupMarkup(item)).toContain('/rivers/rum/');
+  });
+
+  it('offers a specific route and river comparison for grouped results', () => {
+    const item = {
+      kind: 'group',
+      link: '/rivers/by-river/rum-river/',
+      totalRouteCount: 3,
+      cardRoute: {
+        river: {
+          slug: 'rum-river-milaca-andover',
+        },
+      },
+    };
+
+    expect(boardRouteActionModel(item, { routeLabel: 'View best route' })).toEqual({
+      route: {
+        href: '/rivers/rum-river-milaca-andover/',
+        label: 'View best route',
+      },
+      compare: {
+        href: '/rivers/by-river/rum-river/',
+        label: 'Compare 3 routes',
+      },
+    });
+
+    const markup = boardMapRouteActionsMarkup(item);
+    expect(markup).toContain('View route');
+    expect(markup).toContain('/rivers/rum-river-milaca-andover/');
+    expect(markup).toContain('Compare 3 routes');
+    expect(markup).toContain('/rivers/by-river/rum-river/');
   });
 
   it('owns mobile list/map state and collapse presentation', () => {

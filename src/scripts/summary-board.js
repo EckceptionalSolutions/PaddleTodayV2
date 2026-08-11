@@ -21,6 +21,8 @@ import {
   createBoardMapMarker,
   createBoardMapController,
   createBoardMapPopupRenderer,
+  boardMapRouteActionsMarkup,
+  boardRouteActionModel,
 } from './board-map-controller.js';
 import {
   createBoardFeaturedMapController,
@@ -36,7 +38,6 @@ import {
   formatMixedFilterSummary,
   formatMixedPaginationSummary,
   formatMixedResultCount,
-  mixedCardLinkLabel,
   mixedResultsEmptyText,
   mixedResultsNoMatchText,
   mixedResultsTitle,
@@ -89,7 +90,6 @@ import {
 } from './board-domain.js';
 import { chooseBestGeocodeCandidate } from './location-domain.js';
 import {
-  cardLinkLabel,
   confidenceLabel,
   distanceBucketLabel,
   exploreSortSummaryLabel,
@@ -232,6 +232,7 @@ const featuredName = document.querySelector('[data-field="featured-title-link"]'
 const featuredReach = document.querySelector('[data-featured-reach]');
 const featuredBridge = document.querySelector('[data-featured-bridge]');
 const featuredLink = document.querySelector('[data-featured-link]');
+const featuredCompareLink = document.querySelector('[data-featured-compare-link]');
 const featuredJumpLink = document.querySelector('.home-featured__jump-link');
 const featuredConfidence = document.querySelector('[data-field="featured-confidence"]');
 const featuredDistance = document.querySelector('[data-field="featured-distance"]');
@@ -1370,6 +1371,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       featuredLink.href = locationReady ? '/explore/' : '#home-location';
       featuredLink.textContent = locationReady ? 'Browse all results' : 'Set location first';
     }
+    if (featuredCompareLink instanceof HTMLAnchorElement) {
+      featuredCompareLink.hidden = true;
+    }
     if (featuredJumpLink instanceof HTMLElement) {
       featuredJumpLink.hidden = locationReady;
     }
@@ -1458,9 +1462,17 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
     orb.classList.add(`score-orb--${ratingKey}`);
   }
-  if (featuredLink instanceof HTMLAnchorElement) {
-    featuredLink.href = item.link;
-    featuredLink.textContent = mixedCardLinkLabel(isGroupedItem(item));
+  const featuredActions = boardRouteActionModel(item, { routeLabel: 'View best route' });
+  if (featuredLink instanceof HTMLAnchorElement && featuredActions.route) {
+    featuredLink.href = featuredActions.route.href;
+    featuredLink.textContent = featuredActions.route.label;
+  }
+  if (featuredCompareLink instanceof HTMLAnchorElement) {
+    featuredCompareLink.hidden = !featuredActions.compare;
+    if (featuredActions.compare) {
+      featuredCompareLink.href = featuredActions.compare.href;
+      featuredCompareLink.textContent = featuredActions.compare.label;
+    }
   }
   if (featuredJumpLink instanceof HTMLElement) {
     featuredJumpLink.hidden = false;
@@ -2799,16 +2811,20 @@ function conditionZonePopupMarkup(item, group) {
           <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(routeItem))}</p>
         </div>
         <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(routeItem, nearbyReady, latestResults))}</p>
-        <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${escapeHtml(cardLinkLabel(item))}</a>
+        ${boardMapRouteActionsMarkup(item, { route: group.representative })}
       </article>
     `;
   }
   const reachMarkup = routeCount === 1
     ? ''
     : `<p class="score-map-popup__reach">${escapeHtml(group.representative?.river?.reach || 'Mapped river coverage')}</p>`;
+  const aggregateActions = boardRouteActionModel(item);
+  const compareMarkup = aggregateActions.compare
+    ? `<a class="score-map-popup__link score-map-popup__link--button score-map-popup__link--secondary" href="${escapeHtml(aggregateActions.compare.href)}">${escapeHtml(aggregateActions.compare.label)}</a>`
+    : '';
   const actionMarkup = routeCount > 1
-    ? '<button class="score-map-popup__link score-map-popup__link--button" type="button" data-summary-zone-zoom>Zoom in to choose a route</button>'
-    : `<a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${escapeHtml(cardLinkLabel(item))}</a>`;
+    ? `<div class="score-map-popup__actions"><button class="score-map-popup__link score-map-popup__link--button score-map-popup__link--primary" type="button" data-summary-zone-zoom>Zoom in to choose a route</button>${compareMarkup}</div>`
+    : boardMapRouteActionsMarkup(item, { route: group.representative });
   return `
     <article class="score-map-popup">
       <p class="score-map-popup__state">${escapeHtml(regions)}</p>

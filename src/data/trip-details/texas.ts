@@ -146,6 +146,62 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "guadalupe-river-fm3351-state-park": {
+    "putIn": {
+      "id": "fm-3351-bergheim-crossing",
+      "name": "FM 3351 Crossing (Bergheim)",
+      "latitude": 29.8922,
+      "longitude": -98.559
+    },
+    "takeOut": {
+      "id": "guadalupe-river-state-park-aw-access",
+      "name": "Guadalupe River State Park river access",
+      "latitude": 29.876,
+      "longitude": -98.4858
+    },
+    "logistics": {
+      "distanceLabel": "About 7.8 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr at ordinary levels, longer if scouting, low-water dragging, Edge Falls Road debris, wind, or shuttle delays stack up",
+      "shuttle": "Stage Guadalupe River State Park first, then drive back to FM 3351 / Bergheim. Confirm state-park day-use entry or camping reservations, inspect the park landing, and use only the AW-described FM 3351 public highway-easement access or a separately arranged Bergheim Campground access plan.",
+      "permits": "No route-specific paddling permit is published. Normal Guadalupe River State Park entry or camping fees may apply at the take-out. Follow Texas boating and PFD rules, posted bridge and park rules, and current access signs.",
+      "camping": "Use Guadalupe River State Park as the endpoint campground or basecamp if you have a valid reservation or day-use plan. Do not infer legal camping from private banks, gravel bars, Edge Falls Road, or the FM 3351 highway-easement access.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at FM 3351 / Bergheim and take out at Guadalupe River State Park for the upstream Upper Guadalupe day run. Use USGS 08167500 near Spring Branch with TRPA's conservative Upper Guadalupe range, then make a same-day call on visible level, Edge Falls Road debris, private-bank limits, and storm risk.",
+      "accessCaveats": [
+        "American Whitewater publishes FM 3351 and Guadalupe River State Park as access anchors. Treat these as arrival points, then follow current signs, traffic, parking, and safe-bank conditions for the exact water entry or exit.",
+        "FM 3351 public access is described as river-left highway-easement access via a dirt or gravel road. If that access is posted, blocked, or unsafe, skip the route instead of inventing a private-bank launch.",
+        "Guadalupe River State Park access is fee-controlled and can reach capacity. Reserve day-use or camping passes when needed and confirm current park river access before leaving the shuttle.",
+        "The Spring Branch gauge is downstream of the state-park take-out and is used as an Upper Guadalupe flow check, not as a substitute for scouting the FM 3351 launch, Edge Falls Road, and the park landing."
+      ],
+      "watchFor": [
+        "Rock Pile and Dog Leg Class II rock-garden rapids in the upper miles, especially when the gauge is near the low side or rising.",
+        "Edge Falls Road low-water crossing around mile 3.6; American Whitewater says it can clog with debris and records an entrapment drowning history there.",
+        "Flows near or below about 100 cfs, when the TRPA Upper Guadalupe minimum is not met and exposed limestone, dragging, or private-bank portage choices become more likely.",
+        "High or rising water after storms, when Hill Country current, strainers, crossings, and low banks can change quickly.",
+        "Private-property boundaries, limited exits, hot-weather exposure, crowded state-park access, and the temptation to continue below the state park without the separate TPWD route plan."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fm-3351-bergheim-crossing",
+        "name": "FM 3351 Crossing (Bergheim)",
+        "latitude": 29.8922,
+        "longitude": -98.559,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "American Whitewater access anchor; public highway-easement access is described at river left downstream of the bridge."
+      },
+      {
+        "id": "guadalupe-river-state-park-aw-access",
+        "name": "Guadalupe River State Park river access",
+        "latitude": 29.876,
+        "longitude": -98.4858,
+        "mileFromStart": 7.8,
+        "segmentKind": "creek",
+        "note": "American Whitewater access anchor for the state-park take-out; state-park entry, hours, and capacity rules apply."
+      }
+    ]
+  },
   "guadalupe-river-state-park-nichols-landing": {
     "putIn": {
       "id": "guadalupe-river-state-park-paddling-access",
@@ -262,6 +318,61 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 9.9,
         "segmentKind": "creek",
         "note": "Default TPWD take-out for the full Nichol's Landing trail."
+      }
+    ]
+  },
+  "comal-river-hinman-island-last-public-exit": {
+    "putIn": {
+      "id": "hinman-island-park",
+      "name": "Hinman Island Park",
+      "latitude": 29.7011,
+      "longitude": -98.1067
+    },
+    "takeOut": {
+      "id": "last-public-exit-comal",
+      "name": "Last Public Exit",
+      "latitude": 29.7046,
+      "longitude": -98.1161
+    },
+    "logistics": {
+      "distanceLabel": "About 1.5 mi",
+      "estimatedPaddleTime": "About 1 hr to 3 hr depending on crowding, chute handling, river rules, and whether the group stops or portages",
+      "shuttle": "Stage the Last Public Exit first, then return to Hinman Island Park. The route is short, urban, and access-controlled, so parking, paid access, wristbands, outfitter shuttles, and seasonal crowd rules matter more than driving distance.",
+      "permits": "No separate route permit was found, but New Braunfels manages river access rules, wristbands, parking, container restrictions, vessel limits, and temporary closures. Canoes and kayaks may not exceed 18 feet and may not use Last Tubers Exit on weekends or holidays.",
+      "camping": "Treat this as a day-use urban river only. New Braunfels park rules prohibit camping and overnight lodging in all city parks, and the route does not infer legal camping from riverfront parks, outfitters, or private banks.",
+      "campingClassification": "none",
+      "summary": "Launch at Hinman Island Park and finish at the Last Public Exit for the Comal River Water Trail through New Braunfels. Use USGS 08169000 with the City's 100-500 cfs open recreation band, then check posted river status, crowd rules, Tube Chute operations, and exit restrictions before committing.",
+      "accessCaveats": [
+        "National Recreation Trails names Hinman Island Park as the start and the Last Public Exit as the finish; Paddle Today stores both as public access anchors rather than guessed wetted-edge launch points.",
+        "New Braunfels requires river users to exit at the Last Public Exit on this route; do not continue into the lower Guadalupe or toward downstream dam hazards without a separate route plan.",
+        "Canoes and kayaks cannot exceed 18 feet and the City says they may not use Last Tubers Exit on weekends or holidays, so hard-boat users need a weekday or locally approved take-out plan.",
+        "Parking, river access fees, wristbands, disposable-container bans, and outfitter rules can change seasonally. Posted City rules control on arrival."
+      ],
+      "watchFor": [
+        "Tube Chute and Clemens Dam handling; hard boats may need to portage when tubing or lifeguard operations are active.",
+        "Two low-head dams and other short urban hydraulic features documented by American Whitewater; scout or portage rather than following tubes blindly.",
+        "Flows at or above 500 cfs, when the City moves into extreme-caution conditions, and 600 cfs or above, when temporary closure applies.",
+        "Crowded summer/weekend traffic, limited maneuvering room at chutes and exits, bridge-jumping violations, alcohol/container enforcement, and urban storm runoff."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "hinman-island-park",
+        "name": "Hinman Island Park",
+        "latitude": 29.7011,
+        "longitude": -98.1067,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default National Recreation Trails upstream start and city-managed Comal River access area."
+      },
+      {
+        "id": "last-public-exit-comal",
+        "name": "Last Public Exit",
+        "latitude": 29.7046,
+        "longitude": -98.1161,
+        "mileFromStart": 1.5,
+        "segmentKind": "creek",
+        "note": "Required public exit for the Comal route before the lower Guadalupe hazard corridor; stored as the S Union Avenue / W Lincoln Street access anchor rather than a guessed wetted-edge point."
       }
     ]
   },
@@ -433,6 +544,63 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "san-antonio-river-cr125-helton-nature-park": {
+    "putIn": {
+      "id": "cr-125-river-access-site",
+      "name": "CR 125 River Access Site / Graytown Park",
+      "latitude": 29.2114,
+      "longitude": -98.3126
+    },
+    "takeOut": {
+      "id": "helton-san-antonio-river-nature-park",
+      "name": "John William Helton - San Antonio River Nature Park",
+      "latitude": 29.2153,
+      "longitude": -98.2628
+    },
+    "logistics": {
+      "distanceLabel": "About 6.43 mi",
+      "estimatedPaddleTime": "About 2 hr to 4 hr depending on water level, flow rate, wind, log jams, mud, and group pace",
+      "shuttle": "Stage the Helton Nature Park take-out first, then drive back to the CR 125 River Access Site / Graytown Park. TPWD lists about 5.2 road miles between the midpoint access and Helton via FM 1303.",
+      "permits": "No route-specific paddling permit is published. CR 125 / Graytown and Helton are public River Authority access points; Helton Nature Park has free day use, while campground reservations are separate. Follow Texas boating/PFD rules, use only named public access sites, and check SARA current conditions before launching.",
+      "camping": "Helton Nature Park has SARA-managed campgrounds at the take-out, with reservations and an overnight fee. Treat camping as an endpoint campground plan, not permission to camp on private banks, soft mud bars, or the closed downstream SASPAMCO section.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from the CR 125 / Graytown midpoint access and take out at Helton Nature Park for the shorter official SASPAMCO day route. Use USGS 08181800 near Elmendorf with a conservative 200 cfs floor, then make a same-day call on low water, log jams, rainfall, water quality, soft banks, and the firm Helton finish.",
+      "accessCaveats": [
+        "TPWD publishes CR 125 and Helton coordinates for the 6.43-mile SASPAMCO option, and SARA confirms Graytown Park and Helton as public River Authority access points.",
+        "SARA's current alert keeps the southern SASPAMCO section downstream of Helton temporarily closed because of large log jams. Do not continue past Helton toward CR 117 or Floresville until SARA lifts that closure.",
+        "Helton Nature Park has day-use amenities, river access, and campground reservations, but overnight use needs a separate campground booking rather than an informal riverbank plan.",
+        "This route uses conservative corridor-level TRPA flow guidance and the upstream Elmendorf gauge, not a manager-authored exact-segment gauge table. If the gauge is below about 200 cfs, expect a slower, scrape-prone, debris-sensitive trip.",
+        "Coordinates are access anchors from TPWD/SARA context. Follow posted launch paths and current site conditions on arrival rather than projecting mid-channel points."
+      ],
+      "watchFor": [
+        "Flows near or below about 200 cfs, when the current implementation reading was below the conservative floor and low-water snags or shallow lines are more likely.",
+        "Fresh rain, rising water, or readings approaching TRPA's 2,000 cfs maximum cue, when the unrestrained lower San Antonio can produce temporary high flows and poorer water quality.",
+        "Log jams, sweepers, strainers, soft mud banks, variable cell coverage, heat, limited bailouts, and long quiet pools that can stretch the day.",
+        "The required Helton take-out boundary; do not drift into the temporarily closed downstream SASPAMCO section.",
+        "Private banks outside the named public accesses and any direct hazard-portage corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "cr-125-river-access-site",
+        "name": "CR 125 River Access Site / Graytown Park",
+        "latitude": 29.2114,
+        "longitude": -98.3126,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default TPWD/SARA put-in and SASPAMCO midpoint access for the shorter CR 125-to-Helton option."
+      },
+      {
+        "id": "helton-san-antonio-river-nature-park",
+        "name": "John William Helton - San Antonio River Nature Park",
+        "latitude": 29.2153,
+        "longitude": -98.2628,
+        "mileFromStart": 6.43,
+        "segmentKind": "creek",
+        "note": "Default take-out and endpoint campground; do not continue into the currently closed downstream SASPAMCO section."
+      }
+    ]
+  },
   "san-antonio-river-riverdale-goliad-state-park": {
     "putIn": {
       "id": "riverdale-lane-access",
@@ -499,6 +667,350 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "blanco-river-fischer-store-john-knox-ranch": {
+    "putIn": {
+      "id": "fischer-store-road-bridge",
+      "name": "Fischer Store Road Bridge",
+      "latitude": 30.000583,
+      "longitude": -98.200361
+    },
+    "takeOut": {
+      "id": "john-knox-ranch-river-access",
+      "name": "John Knox Ranch River Access",
+      "latitude": 29.968451,
+      "longitude": -98.192709
+    },
+    "logistics": {
+      "distanceLabel": "About 3.6 mi",
+      "estimatedPaddleTime": "Short half-day float when the Blanco has enough water, with extra time for John Knox gate-code logistics, shallow dragging near the floor, scouting, and a firm daylight take-out",
+      "shuttle": "Reserve John Knox Ranch River Access at least 24 hours in advance and stage the take-out only after receiving confirmation and the gate code. Then use Fischer Store Road bridge as a drop-off put-in; TPWD says no parking is available at the bridge.",
+      "permits": "No public river permit is published, but the take-out is a TPWD leased access with required advance email confirmation, gate-code use, daylight hours, limited parking, and pack-in/pack-out rules. Follow Texas boating and PFD rules and current site instructions.",
+      "camping": "Treat this as a day route. TPWD documents daylight public river access, not public route camping; John Knox Ranch is a separate camp/program property, so any overnight stay requires separate arrangements and is not inferred from the paddle route.",
+      "campingClassification": "none",
+      "summary": "Launch by drop-off at Fischer Store Road bridge and take out at John Knox Ranch River Access for TPWD's 3.6-mile Blanco River float. Use USGS 08171000 at Wimberley with a conservative 800 cfs minimum floor, and verify the Fischer Store visual gauge, weather, and John Knox access confirmation before launch.",
+      "accessCaveats": [
+        "Fischer Store Road bridge is the route put-in, but TPWD says no parking is available there. Plan a drop-off or a legal off-route shuttle solution rather than leaving a vehicle at the bridge.",
+        "John Knox Ranch is a private property participating in TPWD leased public access. Email 24 hours in advance for confirmation and gate code, stay inside posted daylight hours, and expect limited parking with no overflow parking.",
+        "The John Knox coordinate is the TPWD access anchor. Final boat exit should follow current ranch instructions, river stage, and safe bank conditions on arrival.",
+        "Do not substitute the longer TPWD FM 1492 alternate without separate planning; TPWD says the FM 1492 take-out is only a north-bank spot and no free parking is available there."
+      ],
+      "watchFor": [
+        "Flash-flood potential and fast rises after Hill Country storms, especially if upstream weather changes after the shuttle is staged.",
+        "Class I-II current, shallow ledges, low-water crossings, wood, root wads, and post-2015 flood changes documented by American Whitewater for the containing Blanco reach.",
+        "Very low flow below the 800 cfs floor. Same-day readings during implementation were 11.0 cfs at Wimberley and 19.5 cfs at Fischer Store, both far below runnable guidance.",
+        "Private banks and limited exits between the road bridge and John Knox Ranch."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fischer-store-road-bridge",
+        "name": "Fischer Store Road Bridge",
+        "latitude": 30.000583,
+        "longitude": -98.200361,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "USGS gage/bridge coordinate used as the source-backed put-in anchor; TPWD says this is drop-off only because no bridge parking is available."
+      },
+      {
+        "id": "john-knox-ranch-river-access",
+        "name": "John Knox Ranch River Access",
+        "latitude": 29.968451,
+        "longitude": -98.192709,
+        "mileFromStart": 3.6,
+        "segmentKind": "creek",
+        "note": "TPWD leased-access take-out anchor at John Knox Ranch; confirm reservation, gate code, parking, daylight hours, and current bank condition before launch."
+      }
+    ]
+  },
+  "llano-river-james-river-martin-simonsville": {
+    "putIn": {
+      "id": "james-river-crossing-fr-2389",
+      "name": "James River Crossing / FR-2389",
+      "latitude": 30.650638,
+      "longitude": -99.250613
+    },
+    "takeOut": {
+      "id": "martin-simonsville-crossing",
+      "name": "Martin / Simonsville Crossing",
+      "latitude": 30.64065,
+      "longitude": -99.167714
+    },
+    "logistics": {
+      "distanceLabel": "About 6.0 mi",
+      "estimatedPaddleTime": "Short-to-half-day Hill Country run; allow extra time for scouting, low-water ledges, wood, wind, and safe public-crossing carries",
+      "shuttle": "Stage the Martin / Simonsville Crossing take-out first, then drive back to James River Crossing / FR-2389. Confirm current signs, parking, road conditions, and safe bank access before unloading at either crossing.",
+      "permits": "No route-specific paddling permit is published. Use only public road-crossing access, obey posted no-trespassing or use-restriction signs, and follow Texas boating and PFD rules.",
+      "camping": "Treat this as a day route with no public on-route camping selected. TRPA identifies the endpoints as public road crossings and tells paddlers to respect no-trespassing and use-restriction signs; do not infer legal camping from private banks, gravel bars, or nearby ranch roads.",
+      "campingClassification": "none",
+      "summary": "Launch at James River Crossing / FR-2389 and finish at Martin / Simonsville Crossing for a six-mile main Llano run. Use USGS 08151500 with TRPA's 65 cfs floor, 100-500 cfs preferred window, and 5,000 cfs high-water ceiling, then make a same-day call on weather, wood, and legal access.",
+      "accessCaveats": [
+        "Both endpoints are TRPA route-map access anchors at public road crossings, not guaranteed wetted-edge launch coordinates. Pick the actual water entry and landing from current signs, parking, bank condition, and safe carry paths.",
+        "Do not use private roads, ranch gates, private banks, or posted areas as alternate access if either crossing is crowded, washed out, or signed against use.",
+        "The Martin / Simonsville crossing is the selected take-out anchor for this six-mile route; continuing downstream enters the separate Martin/Simonsville-to-Keller's and Keller's-to-Castell route family.",
+        "If either public crossing lacks legal parking or safe bank access on arrival, skip the route rather than inventing a private alternate."
+      ],
+      "watchFor": [
+        "Class II-II+ Llano current, shallow limestone shelves, riffles, strainers, and blind swiftwater lines that need scouting.",
+        "Fast rises after Hill Country storms. Recheck USGS 08151500, radar, and upstream rainfall before launch and during the shuttle.",
+        "Low-water scraping near the 65 cfs floor and changing lines even inside the 100-500 cfs preferred range.",
+        "Private banks and limited legal exits between the two public road crossings.",
+        "Heat, sun exposure, wind, narrow road shoulders, muddy carries, snakes, and pack-in/pack-out discipline at undeveloped crossings."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "james-river-crossing-fr-2389",
+        "name": "James River Crossing / FR-2389",
+        "latitude": 30.650638,
+        "longitude": -99.250613,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor at the public road crossing; choose the actual launch from current signs, parking, bank condition, and safe carry path."
+      },
+      {
+        "id": "martin-simonsville-crossing",
+        "name": "Martin / Simonsville Crossing",
+        "latitude": 30.64065,
+        "longitude": -99.167714,
+        "mileFromStart": 6,
+        "segmentKind": "creek",
+        "note": "TRPA map-link take-out anchor at the downstream public road crossing; verify current signs, parking, and bank condition before relying on it."
+      }
+    ]
+  },
+  "llano-river-martin-simonsville-kellers-landing": {
+    "putIn": {
+      "id": "martin-simonsville-crossing",
+      "name": "Martin / Simonsville Crossing",
+      "latitude": 30.64065,
+      "longitude": -99.167714
+    },
+    "takeOut": {
+      "id": "kellers-landing-us-87",
+      "name": "Keller's Landing / US-87",
+      "latitude": 30.660737,
+      "longitude": -99.109219
+    },
+    "logistics": {
+      "distanceLabel": "About 3.8 mi",
+      "estimatedPaddleTime": "Short Hill Country connector; allow extra time for scouting, low-water ledges, wood, wind, and safe public-crossing carries",
+      "shuttle": "Stage the Keller's Landing / US-87 take-out first, then drive back to Martin / Simonsville Crossing. Confirm current signs, parking, road conditions, and safe bank access before unloading at either access anchor.",
+      "permits": "No route-specific paddling permit is published. Use only public or permission-backed access, obey posted no-trespassing or use-restriction signs, and follow Texas boating and PFD rules.",
+      "camping": "Treat this as a day route with no public on-route camping selected. TRPA identifies the endpoints as access anchors and tells paddlers to respect no-trespassing and use-restriction signs; do not infer legal camping from private banks, gravel bars, or nearby ranch roads.",
+      "campingClassification": "none",
+      "summary": "Launch at Martin / Simonsville Crossing and finish at Keller's Landing / US-87 for a 3.8-mile main Llano connector. Use USGS 08151500 with TRPA's 65 cfs floor, 100-500 cfs preferred window, and 5,000 cfs high-water ceiling, then make a same-day call on weather, wood, and legal access.",
+      "accessCaveats": [
+        "Both endpoints are route-source access anchors, not guaranteed wetted-edge launch coordinates. Pick the actual water entry and landing from current signs, parking, bank condition, and safe carry paths.",
+        "Keller's Landing / US-87 is also the put-in for the downstream Keller's-to-Castell route family, and TRPA describes the US-87 access as steep and muddy.",
+        "Do not use private roads, ranch gates, private banks, or posted areas as alternate access if either crossing is crowded, washed out, or signed against use.",
+        "If either endpoint lacks legal parking or safe bank access on arrival, skip the route rather than inventing a private alternate."
+      ],
+      "watchFor": [
+        "Class II-II+ Llano current, shallow limestone shelves, riffles, strainers, and blind swiftwater lines that need scouting.",
+        "Fast rises after Hill Country storms. Recheck USGS 08151500, radar, and upstream rainfall before launch and during the shuttle.",
+        "Low-water scraping near the 65 cfs floor and changing lines even inside the 100-500 cfs preferred range.",
+        "Private banks and limited legal exits between the two access anchors.",
+        "Heat, sun exposure, wind, narrow road shoulders, muddy carries, snakes, and pack-in/pack-out discipline at undeveloped crossings."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "martin-simonsville-crossing",
+        "name": "Martin / Simonsville Crossing",
+        "latitude": 30.64065,
+        "longitude": -99.167714,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor at the upstream public crossing; choose the actual launch from current signs, parking, bank condition, and safe carry path."
+      },
+      {
+        "id": "kellers-landing-us-87",
+        "name": "Keller's Landing / US-87",
+        "latitude": 30.660737,
+        "longitude": -99.109219,
+        "mileFromStart": 3.8,
+        "segmentKind": "creek",
+        "note": "US-87/Keller's Landing take-out anchor for this connector; TRPA describes this access as steep and muddy, so verify current signs, parking, and bank condition before relying on it."
+      }
+    ]
+  },
+  "llano-river-kellers-landing-castell-crossing": {
+    "putIn": {
+      "id": "kellers-landing-us-87",
+      "name": "Keller's Landing / US-87",
+      "latitude": 30.660737,
+      "longitude": -99.109219
+    },
+    "takeOut": {
+      "id": "castell-crossing",
+      "name": "Castell Crossing",
+      "latitude": 30.704516,
+      "longitude": -98.958782
+    },
+    "logistics": {
+      "distanceLabel": "About 12.0 mi",
+      "estimatedPaddleTime": "Full Hill Country day run; allow extra time for steep US-87 access, scouting, low-water ledges, wind, and a firm daylight take-out at Castell",
+      "shuttle": "Stage the take-out at TPWD's Castell Crossing lease first, then drive back to the US-87/Keller's Landing access. Confirm signs, parking, bank condition, and no-posted-access changes before unloading at US-87.",
+      "permits": "No route-specific paddling permit is published. Castell Crossing is a TPWD leased public access with daylight use, designated parking, pack-in/pack-out rules, and no overnight camping. Follow Texas boating and PFD rules.",
+      "camping": "Treat this as a day route with no public on-route camping selected. TPWD prohibits overnight camping at Castell Crossing, and no source-backed legal river camp was selected for the Keller's-to-Castell corridor.",
+      "campingClassification": "none",
+      "summary": "Launch at Keller's Landing / US-87 and finish at TPWD's Castell Crossing lease for a 12-mile main Llano run. Use USGS 08150700 near Mason with TRPA's 65 cfs floor, keep the route behind the whitewater filter, and skip the trip if access, weather, or wood conditions are unclear.",
+      "accessCaveats": [
+        "Keller's Landing / US-87 is a route-source access anchor, not a developed TPWD launch. TRPA says the easiest access is on the southeast side by a steep muddy bank, so final water entry depends on current signs, parking, and safe bank conditions.",
+        "Castell Crossing is an active TPWD leased access through August 31, 2027, with daylight public use, designated parking, and no overnight camping.",
+        "Do not infer legal access or camping from private banks, gravel bars, ranch roads, or low-water crossings between the named endpoints.",
+        "If the US-87 access is posted, washed out, muddy beyond safe carry, or lacks legal parking, skip the route rather than inventing a private alternate."
+      ],
+      "watchFor": [
+        "Class II-II+ Llano current, ledges, shallow limestone shelves, strainers, and blind swiftwater lines that need scouting.",
+        "Fast rises after Hill Country storms. Recheck USGS 08150700, radar, and upstream rainfall before launch and during the shuttle.",
+        "Low-water scraping near the 65 cfs floor and changing lines even inside the 100-500 cfs preferred range.",
+        "Private banks and limited exits between US-87 and Castell Crossing.",
+        "Heat, sun exposure, wind, muddy access, roadside parking constraints, and pack-in/pack-out requirements at the public take-out."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "kellers-landing-us-87",
+        "name": "Keller's Landing / US-87",
+        "latitude": 30.660737,
+        "longitude": -99.109219,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "USGS/American Whitewater access and gauge anchor at US-87; TRPA says the route access is steep and muddy, so use current signs and safe bank conditions for the actual launch."
+      },
+      {
+        "id": "castell-crossing",
+        "name": "Castell Crossing",
+        "latitude": 30.704516,
+        "longitude": -98.958782,
+        "mileFromStart": 12,
+        "segmentKind": "creek",
+        "note": "TPWD leased-access take-out anchor with daylight use, designated parking, and no overnight camping."
+      }
+    ]
+  },
+  "san-marcos-river-city-park-smrr": {
+    "putIn": {
+      "id": "san-marcos-city-park-access",
+      "name": "City Park",
+      "latitude": 29.8859203,
+      "longitude": -97.9344384
+    },
+    "takeOut": {
+      "id": "san-marcos-river-retreat-raca",
+      "name": "San Marcos River Retreat",
+      "latitude": 29.8592938,
+      "longitude": -97.8886993
+    },
+    "logistics": {
+      "distanceLabel": "About 6.0 mi",
+      "estimatedPaddleTime": "About 3 hr to 6 hr depending on flow, dam portages, crowds, scouting, wood, and private-access timing",
+      "shuttle": "Stage the San Marcos River Retreat take-out only after confirming day-use access, fee, parking, daylight hours, and no-alcohol rules. City Park is the public upstream put-in; Westerfield Crossing / CR 101 is the practical early take-out or portage point if Cummings Dam, flow, or group skill argues against continuing.",
+      "permits": "No public river permit is published for the route, but San Marcos River Retreat is private/RACA access and requires fee/rule compliance. Follow Texas boating and PFD rules, City of San Marcos riverfront park rules, and posted closures or seasonal entry controls around City Park and Rio Vista.",
+      "camping": "Treat the paddle itself as a day route. San Marcos River Retreat is a private campground and TPWD RACA site, so overnight use requires separate campground/group arrangements; do not infer legal camping from City Park, Rio Vista, John Stokes Park, Westerfield Crossing, or private banks.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at City Park and finish at San Marcos River Retreat for the upper San Marcos run through Rio Vista, Cape's Dam, Cummings Dam, and Westerfield Crossing. Use USGS 08170500 with TRPA's 60 cfs floor, 150 cfs target, and 500 cfs upper caution, then make a same-day call on portages, crowds, and access permissions.",
+      "accessCaveats": [
+        "City of San Marcos confirms City Park river access for kayaks and canoes, but parking, seasonal crowd controls, and nearby Rio Vista entry rules can change during high-use periods.",
+        "San Marcos River Retreat is private property even though it participates as a TPWD River Access and Conservation Area site. Confirm day-use availability and rules before relying on it as the take-out.",
+        "Westerfield Crossing is a route-supported access/portage anchor, but it should not be treated as unrestricted parking or private-bank permission beyond the actual public crossing access.",
+        "The TRPA Google-map coordinates are access anchors, not promises that the exact wetted-edge launch or landing is at the coordinate. Follow signs, ramps, current bank conditions, and staff guidance on arrival.",
+        "Below the city parks, private banks are common. Stop only at public or permission-backed accesses and direct hazard portages."
+      ],
+      "watchFor": [
+        "Rio Vista Falls early in the route; most open-canoe and mixed-skill groups should portage uncertain drops rather than treating the playspot as mandatory.",
+        "Cape's Dam / Thompson's Island route choices, where TRPA notes portage and channel decisions that can be confusing for novice groups.",
+        "Cummings Dam around mile five; TRPA calls it very dangerous, warns not to shoot or surf it casually, and describes portage handling rather than a normal runnable feature.",
+        "Flows below 100 cfs, when TRPA says conditions are low, and flows near or above 500 cfs, when upstream paddling, dam hydraulics, and portage margins become less forgiving.",
+        "Blanco River runoff, flash-flood response, crowds, strainers, low bridges, slick dam tops, wrapped boats below drops, and limited legal exits away from the named access points."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "san-marcos-city-park-access",
+        "name": "City Park",
+        "latitude": 29.8859203,
+        "longitude": -97.9344384,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Public City of San Marcos river access and default put-in."
+      },
+      {
+        "id": "westerfield-crossing-cr101",
+        "name": "Westerfield Crossing / CR 101",
+        "latitude": 29.8569488,
+        "longitude": -97.8968908,
+        "mileFromStart": 5.5,
+        "segmentKind": "creek",
+        "note": "TRPA route-supported portage/access anchor just below Cummings Dam and practical early take-out."
+      },
+      {
+        "id": "san-marcos-river-retreat-raca",
+        "name": "San Marcos River Retreat",
+        "latitude": 29.8592938,
+        "longitude": -97.8886993,
+        "mileFromStart": 6,
+        "segmentKind": "creek",
+        "note": "Private campground and TPWD RACA day-use access; confirm fees, daylight access, and rules before using."
+      }
+    ]
+  },
+  "san-marcos-river-retreat-scull-road": {
+    "putIn": {
+      "id": "san-marcos-river-retreat-aw-access",
+      "name": "San Marcos River Retreat",
+      "latitude": 29.8584,
+      "longitude": -97.8876
+    },
+    "takeOut": {
+      "id": "scull-road-bridge-aw-access",
+      "name": "Scull Road Bridge",
+      "latitude": 29.8496,
+      "longitude": -97.8569
+    },
+    "logistics": {
+      "distanceLabel": "About 3.0 mi",
+      "estimatedPaddleTime": "About 2 hr at ordinary levels, longer if low water, Cottonseed scouting or portage, gate logistics, or bridge/take-out conditions slow the day",
+      "shuttle": "Stage Scull Road first: TPWD says the bridge area is for loading and unloading only, no parking is allowed there, and paddlers should text the lease contact before arrival for the gate code and parking availability. Then confirm San Marcos River Retreat reservation, fee, no-alcohol rule, and daylight access before launching.",
+      "permits": "No public river permit is published, but both endpoints are TPWD leased access sites with site-specific rules. San Marcos River Retreat requires reservations and a launch/take-out fee; Scull Road requires gate-code/parking coordination. Follow Texas boating and PFD rules and posted lease conditions.",
+      "camping": "Treat this as a day route. The public lease access language is daylight use and does not create route camping rights; San Marcos River Retreat is a separate private campground, so any overnight stay requires separate campground arrangements and is not inferred from the paddle route.",
+      "campingClassification": "none",
+      "summary": "Launch at San Marcos River Retreat and take out at Scull Road for TPWD's 3-mile San Marcos float through Cottonseed Rapids. Use USGS 08172000 with a conservative 100 cfs floor, expect below-200 cfs readings to be scrapey, and make Scull Road the firm exit before the Martindale Dam reach.",
+      "accessCaveats": [
+        "San Marcos River Retreat is private property participating as a TPWD lease access. Confirm reservation, launch fee, daylight hours, and no-alcohol rules before relying on it.",
+        "TPWD says the Scull Road parking area is 0.16 miles southwest of the bridge, while the immediate bridge area is only for loading and unloading. The route records American Whitewater's bridge/access-point coordinate as the water-entry anchor and TPWD's coordinate as the parking/access anchor.",
+        "American Whitewater describes past private-bank conflict around the Scull Road take-out. Use the public road/right-of-way context, do not linger, and avoid private-bank stops except for immediate safety.",
+        "Scull Road is the intended finish. Continuing downstream adds flatwater above Martindale Dam and a required dam portage that is outside this route package."
+      ],
+      "watchFor": [
+        "Cottonseed Rapids, an old-dam-remnant Class II rapid with a river-left sieve. Stay right, scout, and portage river right unless the group is deliberately prepared to run it.",
+        "Low water near the 100 cfs floor and below 200 cfs, when American Whitewater says this reach can be run but tends to be scrapey.",
+        "High or rising water, debris, Blanco River runoff, and the low Scull Road bridge, which can become a hazard at higher flows.",
+        "Gate-code, parking, daylight, fee, reservation, and no-alcohol restrictions at the two leased access sites."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "san-marcos-river-retreat-aw-access",
+        "name": "San Marcos River Retreat",
+        "latitude": 29.8584,
+        "longitude": -97.8876,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "American Whitewater water-access anchor; TPWD lease access is nearby at 29.85725, -97.88874 with reservation, fee, daylight, and no-alcohol rules."
+      },
+      {
+        "id": "scull-road-bridge-aw-access",
+        "name": "Scull Road Bridge",
+        "latitude": 29.8496,
+        "longitude": -97.8569,
+        "mileFromStart": 3,
+        "segmentKind": "creek",
+        "note": "American Whitewater Scull's Crossing take-out anchor upstream of the road; TPWD parking/access anchor is 0.16 miles southwest at 29.849542, -97.857083."
+      }
+    ]
+  },
   "san-marcos-river-sh90-zedler-mill": {
     "putIn": {
       "id": "sh-90-river-crossing",
@@ -551,6 +1063,242 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 6,
         "segmentKind": "creek",
         "note": "Default take-out above the downstream dam warning."
+      }
+    ]
+  },
+  "colorado-river-texas-river-school-little-webberville": {
+    "putIn": {
+      "id": "texas-river-school-river-camp",
+      "name": "Texas River School River Camp",
+      "latitude": 30.256179,
+      "longitude": -97.634178
+    },
+    "takeOut": {
+      "id": "little-webberville-park-boat-ramp",
+      "name": "Little Webberville Park",
+      "latitude": 30.229665,
+      "longitude": -97.518125
+    },
+    "logistics": {
+      "distanceLabel": "About 17.5 mi",
+      "estimatedPaddleTime": "About 6 hr to 9 hr at ordinary levels, longer if flow drops near the 200 cfs floor, headwind builds, heat slows the group, or scouting access takes time",
+      "shuttle": "Stage Little Webberville Park first, then drive back to Texas River School only after securing the required advance reservation and gate-code access. Do not count on informal intermediate exits; treat the route as a long point-to-point day.",
+      "permits": "No route-specific paddling permit is published, but Texas River School requires advance reservation and a gate code for vehicle access, and charges day-use and camping fees. Follow Texas boating and PFD rules, check USGS 08158000 / LCRA Hydromet and weather before launch, and obey current county-park rules at Little Webberville.",
+      "camping": "Texas River School offers reserved primitive campsites at the put-in, with fee, parking, fire, pet, pack-in/pack-out, and designated-area rules. Treat the downstream paddle as a day-use route: Little Webberville Park prohibits camping, and Paddle Today does not infer legal island, sandbar, or private-bank camping between endpoints.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from Texas River School River Camp and paddle 17.5 lower-Colorado miles to Little Webberville Park. Use the Colorado River at Austin gauge with a conservative 200 cfs floor, then make a same-day call on release changes, heat, wind, shallow bars, limited exits, and private banks.",
+      "accessCaveats": [
+        "TPWD publishes Texas River School as an active leased-access river camp with a source-backed access anchor. Follow the current gate-code, parking, unloading, fee, and designated-area rules rather than treating the coordinate as a guessed water-entry point.",
+        "Texas River School and TPWD both state that River Camp is 17.5 miles upriver from Little Webberville Park. LCRA and Travis County publish Little Webberville as a public lower-Colorado access, but its coordinates are still access anchors; follow the current ramp path on arrival.",
+        "The Austin gauge is upstream of this selected reach and the threshold floor is broad Austin-to-Bastrop guidance. Treat the app score as conservative and verify visible level and current at Texas River School before launching.",
+        "Texas River School day-use access is by advance arrangement and Little Webberville has no electricity or drinking water. Bring water, sun protection, shuttle gear, lights for emergency delay, and a realistic bailout plan.",
+        "Do not infer camping or casual private-bank stops from the long rural shoreline, mid-river bars, or islands. Only the Texas River School endpoint campground is included in the route package."
+      ],
+      "watchFor": [
+        "Flows near or below about 200 cfs, when the Texas River Flows minimum is barely met and shallow bars or dragging can slow a 17.5-mile day.",
+        "High or rising water after rain or upstream release changes, when current, debris, water quality, and bank exits can change quickly below Austin.",
+        "Headwind on the broad channel, summer heat, thunderstorms, motorboat traffic near access points, and a trip length that leaves little daylight margin after a slow start.",
+        "Snags, overhanging limbs, island splits, soft banks, and private banks away from Texas River School and Little Webberville Park.",
+        "Arrival-point offsets: use the published access anchors for planning, then choose the actual wetted launch or landing only from signed, open, source-backed access paths on arrival."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "texas-river-school-river-camp",
+        "name": "Texas River School River Camp",
+        "latitude": 30.256179,
+        "longitude": -97.634178,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream TPWD leased-access river-camp anchor; reserve in advance, use the gate code, and follow current unloading and parking rules."
+      },
+      {
+        "id": "little-webberville-park-boat-ramp",
+        "name": "Little Webberville Park",
+        "latitude": 30.229665,
+        "longitude": -97.518125,
+        "mileFromStart": 17.5,
+        "segmentKind": "creek",
+        "note": "Default downstream Travis County park boat-ramp access; no camping, no drinking water, and no electricity."
+      }
+    ]
+  },
+  "colorado-river-little-webberville-big-webberville": {
+    "putIn": {
+      "id": "little-webberville-park-boat-ramp",
+      "name": "Little Webberville Park",
+      "latitude": 30.229665,
+      "longitude": -97.518125
+    },
+    "takeOut": {
+      "id": "webberville-park-boat-ramp",
+      "name": "Webberville Park",
+      "latitude": 30.21587,
+      "longitude": -97.494247
+    },
+    "logistics": {
+      "distanceLabel": "About 5 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr at ordinary levels, longer if flow is near the floor, wind picks up, or the group stops on mid-river bars",
+      "shuttle": "Stage Webberville Park first, then drive back to Little Webberville Park. Little Webberville boat-ramp access is open 24 hours, but Webberville Park boat-ramp hours are 8 a.m. to civil twilight, so do not start late or assume after-dark take-out access.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use the Travis County park ramps, check LCRA Hydromet / USGS 08158000 and weather before launch, and obey current county park rules.",
+      "camping": "Treat this as a day-use route. Travis County Parks lists camping as prohibited at both Little Webberville Park and Webberville Park, and Paddle Today does not infer legal overnight use from islands, sandbars, or private banks between the ramps.",
+      "campingClassification": "none",
+      "summary": "Launch at Little Webberville Park and paddle five lower-Colorado miles to Webberville Park. Use the Colorado River at Austin gauge with a conservative 200 cfs floor, then make a same-day call on shallow bars, releases, weather, wind, motorboat traffic, and park hours.",
+      "accessCaveats": [
+        "Travis County publishes both endpoint parks as boat-ramp Colorado River accesses, but the coordinates are access anchors; follow current ramp signs and the wetted launch path on arrival.",
+        "LCRA lists Little Webberville and Big Webberville as consecutive lower-Colorado access points five river miles apart, with Little Webberville managed by Travis County Parks and Big Webberville / Webberville Park also county-managed.",
+        "The Austin gauge is upstream of the Webberville reach and the threshold floor is broad Austin-to-Bastrop guidance. Treat the app score as conservative and verify visible level at the ramp before launching.",
+        "Little Webberville has no electricity or drinking water, and Travis County Parks does not provide paddling equipment. Bring water, shuttle gear, and a backup plan.",
+        "Do not infer camping or casual private-bank stops from the short distance, mid-river bars, or nearby rural land. Both endpoint parks prohibit camping."
+      ],
+      "watchFor": [
+        "Flows near or below about 200 cfs, when the Texas River Flows minimum is barely met and shallow bars or scraping can slow the day.",
+        "High or rising water after rain or upstream release changes, when current, debris, and bank exits can change quickly even on this easy reach.",
+        "Motorboat traffic near the county ramps, headwind on the broad channel, summer heat, thunderstorms, and limited services at Little Webberville.",
+        "Snags, overhanging limbs, soft banks, island splits, and private banks away from the two public park accesses.",
+        "Webberville Park closing at civil twilight; missing the take-out window creates an avoidable access problem."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "little-webberville-park-boat-ramp",
+        "name": "Little Webberville Park",
+        "latitude": 30.229665,
+        "longitude": -97.518125,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream Travis County park boat-ramp access; open 24 hours for the ramp, with no drinking water."
+      },
+      {
+        "id": "webberville-park-boat-ramp",
+        "name": "Webberville Park",
+        "latitude": 30.21587,
+        "longitude": -97.494247,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Default downstream Travis County park boat-ramp access; ramp hours are 8 a.m. to civil twilight."
+      }
+    ]
+  },
+  "colorado-river-webberville-utley-bridge": {
+    "putIn": {
+      "id": "webberville-park-boat-ramp",
+      "name": "Webberville Park",
+      "latitude": 30.21587,
+      "longitude": -97.494247
+    },
+    "takeOut": {
+      "id": "utley-fm-969-bridge",
+      "name": "Utley (FM 969) Bridge",
+      "latitude": 30.1683,
+      "longitude": -97.4023
+    },
+    "logistics": {
+      "distanceLabel": "About 14 mi",
+      "estimatedPaddleTime": "About 5 hr to 8 hr at ordinary levels, longer if flow is below the 200 cfs floor, wind picks up, heat slows the group, or scouting the take-out takes time",
+      "shuttle": "Stage the FM 969 / Utley Bridge take-out first, then drive back to Webberville Park. Webberville Park boat-ramp hours are 8 a.m. to civil twilight, so start early enough to launch legally and finish with daylight margin.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use the named public access points, check LCRA Hydromet / USGS 08158000 and weather before launch, and obey current county park and TxDOT bridge-access signs.",
+      "camping": "Treat this as a long day-use route. Webberville Park is a county park with posted boat-ramp hours, FM 969 / Utley is a bridge access, and no LCRA, Travis County, TPWD, or TRPA source supports legal camping for this selected segment. Paddle Today does not infer overnight rights from sandbars, islands, or private banks.",
+      "campingClassification": "none",
+      "summary": "Launch at Webberville Park and paddle 14 lower-Colorado miles to FM 969 / Utley Bridge. Use the Colorado River at Austin gauge with a conservative 200 cfs floor, then make a same-day call on low-water dragging, heat, wind, regulated releases, debris, and the long shuttle.",
+      "accessCaveats": [
+        "Travis County publishes Webberville Park as a boat-ramp access with daily ramp hours; coordinates are access anchors, so follow current ramp signs and the wetted launch path on arrival.",
+        "LCRA lists Big Webberville Park and FM 969 / Utley Bridge as consecutive lower-Colorado access points 14 miles apart, with FM 969 managed by TxDOT.",
+        "TRPA lists Webberville Park to Utley FM-969 Bridge / Boat Ramp as a featured 14-mile Colorado River run.",
+        "The Austin gauge is upstream of the selected reach and the threshold floor is broad Austin-to-Bastrop guidance. Treat the app score as conservative and verify visible level at Webberville before launching.",
+        "Do not infer camping or casual private-bank stops from the long distance, mid-river bars, or rural shoreline. No route source supports legal camping for this segment."
+      ],
+      "watchFor": [
+        "Flows near or below about 200 cfs, when the Texas River Flows minimum is not met and shallow bars, scraping, and slow travel can dominate the 14-mile day.",
+        "High or rising water after rain or upstream release changes, when current, debris, water quality, and bank exits can change quickly.",
+        "Headwind on the broad channel, summer heat, thunderstorms, limited services, motorboat traffic near access points, and a finish that can run late if the group starts slowly.",
+        "Snags, overhanging limbs, island splits, soft banks, and private banks away from Webberville Park and the FM 969 / Utley access.",
+        "Missing the FM 969 / Utley take-out or leaving vehicles in a way that conflicts with current bridge-access signs."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "webberville-park-boat-ramp",
+        "name": "Webberville Park",
+        "latitude": 30.21587,
+        "longitude": -97.494247,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream Travis County park boat-ramp access; ramp hours are 8 a.m. to civil twilight."
+      },
+      {
+        "id": "horseshoe-on-the-colorado",
+        "name": "Horseshoe on the Colorado",
+        "latitude": 30.179637,
+        "longitude": -97.427311,
+        "mileFromStart": 7.4,
+        "segmentKind": "creek",
+        "note": "TPWD leased-access midpoint and optional take-out from Webberville; text vehicle details at least 24 hours ahead, complete the waiver, and use the immediate river access area only for loading and unloading."
+      },
+      {
+        "id": "utley-fm-969-bridge",
+        "name": "Utley (FM 969) Bridge",
+        "latitude": 30.1683,
+        "longitude": -97.4023,
+        "mileFromStart": 14,
+        "segmentKind": "creek",
+        "note": "Default downstream LCRA / TxDOT bridge access and upstream put-in for the Wilbarger route."
+      }
+    ]
+  },
+  "colorado-river-horseshoe-utley-bridge": {
+    "putIn": {
+      "id": "horseshoe-on-the-colorado",
+      "name": "Horseshoe on the Colorado",
+      "latitude": 30.179637,
+      "longitude": -97.427311
+    },
+    "takeOut": {
+      "id": "utley-fm-969-bridge",
+      "name": "Utley (FM 969) Bridge",
+      "latitude": 30.1683,
+      "longitude": -97.4023
+    },
+    "logistics": {
+      "distanceLabel": "About 6.8 mi",
+      "estimatedPaddleTime": "About 2 hr to 4 hr at ordinary lower-Colorado levels, longer if the flow is near the 200 cfs floor, wind pushes upstream, heat slows the group, or access logistics take time",
+      "shuttle": "Stage the FM 969 / Utley Bridge take-out first, then drive back to Horseshoe on the Colorado only after texting the landowner at least 24 hours ahead with vehicle make, model, and license plate information.",
+      "permits": "No route-specific paddling permit is published, but Horseshoe is a TPWD leased-access property with required advance text, vehicle information, liability waiver, designated parking, daylight access, no firearms, and no alcohol. Follow Texas boating and PFD rules and current signs at both access points.",
+      "camping": "Treat this as a day-use route. Horseshoe access is open from 30 minutes before sunrise to 30 minutes after sunset, the immediate river access area is for loading and unloading only, Utley is a bridge access, and no TPWD, LCRA, or route-manager source supports legal camping for this selected segment.",
+      "campingClassification": "none",
+      "summary": "Launch at Horseshoe on the Colorado and paddle 6.8 lower-Colorado miles to the FM 969 / Utley Bridge access. Use the Colorado River at Bastrop gauge with a conservative 200 cfs floor, then make a same-day call on low-water dragging, heat, wind, regulated releases, debris, and private-bank discipline.",
+      "accessCaveats": [
+        "TPWD publishes Horseshoe as an active leased-access site through August 31, 2026, with the coordinate at 30.179637, -97.427311. Treat it as an access anchor and follow the signed parking and river-entry path on arrival.",
+        "Text the Horseshoe landowner at least 24 hours before arrival with vehicle make, model, and license plate information; complete the waiver before using the property.",
+        "Horseshoe is open daily from 30 minutes before sunrise to 30 minutes after sunset for bank angling and launching non-motorized boats, canoes, or kayaks for paddling or fishing.",
+        "The immediate Horseshoe river access area is for loading and unloading only, parking must stay in the designated area, and TPWD says no firearms or alcohol are allowed on the property.",
+        "Do not infer camping or casual private-bank stops from the short distance, sandbars, islands, or rural shoreline. No route source supports legal camping for this segment."
+      ],
+      "watchFor": [
+        "Flows near or below about 200 cfs, when the Texas River Flows minimum is not met and shallow bars, scraping, and slow travel can dominate even this shorter segment.",
+        "High or rising water after rain or upstream release changes, when current, debris, water quality, and bank exits can change quickly.",
+        "Headwind on open bends, summer heat, thunderstorms, limited public exits, motorboat traffic near access points, and a missed or crowded take-out at FM 969 / Utley.",
+        "Snags, overhanging limbs, island splits, soft banks, and private banks away from the named access points."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "horseshoe-on-the-colorado",
+        "name": "Horseshoe on the Colorado",
+        "latitude": 30.179637,
+        "longitude": -97.427311,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default TPWD leased-access put-in; text vehicle details at least 24 hours ahead, complete the waiver, park in the designated area, and use the immediate river access area only for loading and unloading."
+      },
+      {
+        "id": "utley-fm-969-bridge",
+        "name": "Utley (FM 969) Bridge",
+        "latitude": 30.1683,
+        "longitude": -97.4023,
+        "mileFromStart": 6.8,
+        "segmentKind": "creek",
+        "note": "Default downstream FM 969 / Utley Bridge take-out and upstream put-in for the Wilbarger route."
       }
     ]
   },
@@ -666,6 +1414,72 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "colorado-river-lost-pines-riverbend-park": {
+    "putIn": {
+      "id": "lost-pines-recreational-trails",
+      "name": "Lost Pines Recreational Trails / Colorado River Refuge",
+      "latitude": 30.0735,
+      "longitude": -97.3106
+    },
+    "takeOut": {
+      "id": "riverbend-park-smithville",
+      "name": "Vernon L. Richards Riverbend Park",
+      "latitude": 30.02,
+      "longitude": -97.14
+    },
+    "logistics": {
+      "distanceLabel": "About 20 mi",
+      "estimatedPaddleTime": "About 7 hr to 10 hr depending on flow, headwind, heat, stops, low-water shallows, and group pace",
+      "shuttle": "Stage Riverbend Park first, scout the rough walk-in river access, and decide whether the Highway 95 / Loop 230 bridge access is a better take-out for the group. Then drive back to Lost Pines / Bastrop County Nature Park. This is a long one-way day with few public exits, so leave daylight and weather margin.",
+      "permits": "No route-specific public paddling permit is published. Riverbend camping or RV use should be reserved through Smithville Parks and Recreation when needed; otherwise follow Texas boating and PFD rules, posted park rules, and same-day flow and weather checks.",
+      "camping": "Riverbend Park has overnight campsites and RV pads at the take-out, so this route works as an endpoint-campground trip. Do not infer legal camping from islands, gravel bars, random riverbanks, or private land between Bastrop County and Smithville.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Lost Pines / Colorado River Refuge and paddle the long Bastrop-to-Smithville lower-Colorado reach to Vernon L. Richards Riverbend Park. Use USGS 08159200 at Bastrop with a conservative 200 cfs floor, then make a same-day call on distance, wind, heat, shallow lines, releases, debris, and private-bank limits.",
+      "accessCaveats": [
+        "LCRA publishes rounded access coordinates for Lost Pines, Loop 230, and Riverbend Park; treat them as access anchors, not survey-grade wetted-edge launch points.",
+        "Visit Smithville describes Riverbend Park access as rough dirt/brush and walk-in for canoes and kayaks. Scout the take-out before launching, and consider the Highway 95 / Loop 230 bridge access if the planned landing is not appropriate.",
+        "This route uses a conservative minimum-only threshold from Bastrop-to-Smithville community guidance. If the Bastrop gauge is near or below about 200 cfs, expect slower travel, shallow routing, and a harder 20-mile day.",
+        "Riverbend camping requires a normal park reservation or manager handling. Paddle Today does not treat mid-river islands, gravel bars, or private banks as generally legal campsites.",
+        "Rainfall runoff and upstream release changes can alter current, debris, water quality, and sandbar availability on this lower Colorado reach."
+      ],
+      "watchFor": [
+        "Strong southeasterly headwinds, summer heat, limited shade, and long flatwater fatigue over the 20-mile day.",
+        "Low-water shallows, sand/cobble bars, slow lines, and possible dragging when flow drops toward the 200 cfs floor.",
+        "High or rising water after rain or upstream release changes, especially where bends, islands, and side channels collect wood.",
+        "Minor ledges or rapids at higher flows, soft banks, hidden rocks, thunderstorms, and limited public exits between Bastrop County and Smithville.",
+        "Private banks outside the named public accesses and any direct hazard-portage corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "lost-pines-recreational-trails",
+        "name": "Lost Pines Recreational Trails / Colorado River Refuge",
+        "latitude": 30.0735,
+        "longitude": -97.3106,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream LCRA / Bastrop County public access; verify flood-sensitive access after recent rain."
+      },
+      {
+        "id": "loop-230-smithville-bridge",
+        "name": "Loop 230 / Highway 95 Bridge access",
+        "latitude": 30.01,
+        "longitude": -97.16,
+        "mileFromStart": 19,
+        "segmentKind": "creek",
+        "note": "LCRA-listed public access one river mile above Riverbend Park; Visit Smithville describes a larger concrete access under the Highway 95 / Loop 230 bridge."
+      },
+      {
+        "id": "riverbend-park-smithville",
+        "name": "Vernon L. Richards Riverbend Park",
+        "latitude": 30.02,
+        "longitude": -97.14,
+        "mileFromStart": 20,
+        "segmentKind": "creek",
+        "note": "Default downstream take-out and endpoint campground; rounded LCRA coordinate stored as an access anchor and arrival-point offset."
+      }
+    ]
+  },
   "colorado-river-business-71-beasons-park": {
     "putIn": {
       "id": "business-71-crossing-columbus",
@@ -719,6 +1533,289 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 6.5,
         "segmentKind": "creek",
         "note": "Default TPWD take-out with parking, restrooms, picnic tables, and pavilion."
+      }
+    ]
+  },
+  "colorado-river-plum-park-buffalo-trail": {
+    "putIn": {
+      "id": "plum-park-on-the-colorado",
+      "name": "Plum Park on the Colorado",
+      "latitude": 29.97,
+      "longitude": -97
+    },
+    "takeOut": {
+      "id": "buffalo-trail-park-la-grange",
+      "name": "Buffalo Trail Park",
+      "latitude": 29.9007004,
+      "longitude": -96.8862568
+    },
+    "logistics": {
+      "distanceLabel": "About 18 mi",
+      "estimatedPaddleTime": "About 6 hr to 9 hr depending on flow, wind, heat, low-water rock gardens, stops, and group pace",
+      "shuttle": "Stage Buffalo Trail Park in La Grange first, then drive upstream to Plum Park. This is a long one-way day with limited public exits, so confirm both access points, daylight, weather, and vehicle logistics before launching.",
+      "permits": "No route-specific public paddling permit is published. Plum Park camping or special access should be arranged with LCRA when needed; otherwise follow Texas boating and PFD rules, posted park rules, and same-day flow and weather checks.",
+      "camping": "Plum Park allows camping for parties arriving by river or by prior arrangement with LCRA parks, so overnight support is endpoint-campground only. Do not infer legal camping from islands, sandbars, gravel bars, or private banks between Plum Park and La Grange.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Plum Park and paddle the long lower-Colorado reach to Buffalo Trail Park in La Grange. Use USGS 08160400 above La Grange with a conservative 200 cfs floor, then make a same-day call on shallow rock gardens, wind, heat, releases, debris, and private-bank limits.",
+      "accessCaveats": [
+        "LCRA publishes rounded access coordinates for Plum Park, while the City of La Grange map resolves Buffalo Trail Park more precisely; treat both as access anchors, not exact wetted-edge launch coordinates.",
+        "The City of La Grange says Buffalo Trail Park provides Colorado River access for canoe trips, but the park page also notes bridge construction context. Confirm the boat-ramp approach before committing to the shuttle.",
+        "This route uses a conservative minimum-only threshold from lower-Colorado community guidance. If the La Grange gauge is near or below about 200 cfs, expect shallow route-finding, exposed cobble, and a slower long day.",
+        "Plum Park camping requires river arrival or prior arrangement; Paddle Today does not treat mid-river islands, gravel bars, or private banks as generally legal campsites.",
+        "Rainfall runoff and upstream release changes can alter current, debris, water quality, and sandbar availability on this lower Colorado reach."
+      ],
+      "watchFor": [
+        "Low-water shallows, cobble bars, Buffalo Wallow Rapid, and the La Grange rock garden when the gauge is near or below the 200 cfs floor.",
+        "High or rising water after rain or upstream release changes, especially where bends, islands, and side channels collect wood.",
+        "Wind on open bends, summer heat, thunderstorms, long flatwater fatigue, soft banks, hidden rocks, and limited public exits over 18 miles.",
+        "Private banks outside the named public accesses and any direct hazard-portage corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "plum-park-on-the-colorado",
+        "name": "Plum Park on the Colorado",
+        "latitude": 29.97,
+        "longitude": -97,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default LCRA put-in; rounded coordinate stored as an access anchor."
+      },
+      {
+        "id": "buffalo-trail-park-la-grange",
+        "name": "Buffalo Trail Park",
+        "latitude": 29.9007004,
+        "longitude": -96.8862568,
+        "mileFromStart": 18,
+        "segmentKind": "creek",
+        "note": "Default City of La Grange take-out; City map coordinate stored as an access anchor."
+      }
+    ]
+  },
+  "colorado-river-riverbend-park-plum-park": {
+    "putIn": {
+      "id": "riverbend-park-smithville",
+      "name": "Vernon L. Richards Riverbend Park",
+      "latitude": 30.02,
+      "longitude": -97.14
+    },
+    "takeOut": {
+      "id": "plum-park-on-the-colorado",
+      "name": "Plum Park on the Colorado",
+      "latitude": 29.97,
+      "longitude": -97
+    },
+    "logistics": {
+      "distanceLabel": "About 17 mi",
+      "estimatedPaddleTime": "About 6 hr to 9 hr depending on flow, wind, heat, low-water dragging, stops, and group pace",
+      "shuttle": "Stage Plum Park first, then drive upstream to Smithville's Riverbend Park. This is a long one-way day with limited public exits, so verify both access roads, park rules, daylight, weather, and vehicle logistics before launching.",
+      "permits": "No route-specific public paddling permit is published. Plum Park camping or special access should be arranged with LCRA when needed; otherwise follow Texas boating and PFD rules, posted park rules, and same-day flow and weather checks.",
+      "camping": "Plum Park allows camping for parties arriving by river or by prior arrangement with LCRA parks, so overnight support is endpoint-campground only. Riverbend also has local camping context, but this route does not treat mid-river islands, gravel bars, or private banks as generally legal campsites.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Vernon L. Richards Riverbend Park in Smithville and paddle the long lower-Colorado reach to LCRA's Plum Park. Use USGS 08160400 above La Grange with a conservative 200 cfs floor, then make a same-day call on shallow lines, wind, heat, releases, debris, and private-bank limits.",
+      "accessCaveats": [
+        "LCRA publishes rounded access coordinates for both Riverbend Park and Plum Park; treat them as access anchors, not survey-grade wetted-edge launch coordinates.",
+        "Visit Smithville describes the Riverbend access as rough dirt/brush and walk-in for canoes and kayaks. Scout the actual water-entry point before leaving a loaded vehicle or committing a group.",
+        "This route uses the La Grange USGS gauge because it is product-live for the same Smithville-to-La Grange section. The discontinued Smithville gauge remains useful context only, not the selected product gauge.",
+        "This route uses a conservative minimum-only threshold from lower-Colorado community guidance. If the La Grange gauge is below about 200 cfs, expect shallow route-finding, exposed bars, and a slower long day.",
+        "Plum Park camping requires river arrival or prior arrangement. Do not infer legal camping from islands, gravel bars, or private banks between Smithville and Plum Park."
+      ],
+      "watchFor": [
+        "Low-water shallows, sand/cobble bars, slow lines, and possible dragging when the gauge is near or below the 200 cfs floor.",
+        "High or rising water after rain or upstream release changes, especially where bends, islands, and side channels collect wood.",
+        "Strong headwinds, summer heat, limited shade, thunderstorms, long flatwater fatigue, soft banks, floating wood, and few public exits over 17 miles.",
+        "Private banks outside the named public accesses and any direct hazard-portage corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "riverbend-park-smithville",
+        "name": "Vernon L. Richards Riverbend Park",
+        "latitude": 30.02,
+        "longitude": -97.14,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default LCRA / City of Smithville put-in; rounded coordinate stored as an access anchor and arrival-point offset."
+      },
+      {
+        "id": "plum-park-on-the-colorado",
+        "name": "Plum Park on the Colorado",
+        "latitude": 29.97,
+        "longitude": -97,
+        "mileFromStart": 17,
+        "segmentKind": "creek",
+        "note": "Default LCRA take-out and river-arrival campground; rounded coordinate stored as an access anchor."
+      }
+    ]
+  },
+  "brazos-river-riverside-park-spivey-crossing": {
+    "putIn": {
+      "id": "riverside-park-whitney-dam",
+      "name": "Riverside Park below Whitney Dam",
+      "latitude": 31.866028,
+      "longitude": -97.367336
+    },
+    "takeOut": {
+      "id": "spivey-crossing-rv-park",
+      "name": "Spivey Crossing RV Park",
+      "latitude": 31.801114,
+      "longitude": -97.307315
+    },
+    "logistics": {
+      "distanceLabel": "About 9.6 mi",
+      "estimatedPaddleTime": "Good half-day to long half-day when Whitney releases and the Aquilla gauge are comfortably above the floor; current below-floor readings can mean shallow bars, dragging, and no-go conditions",
+      "shuttle": "Stage Spivey Crossing first only after calling ahead for availability, fee, liability paperwork, and any shuttle handling, then return to Riverside Park below Whitney Dam. Inspect Riverside's river access before leaving because USACE closes the gravel river-access road when floodwater is being released.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use Riverside Park and Spivey Crossing only under current posted conditions, obey USACE park hours and closures, and follow TPWD leased-access rules at Spivey.",
+      "camping": "Treat this as a day route with nearby or endpoint basecamp options only. USACE documents five Riverside camp/picnic sites, and TPWD notes RV hookups, a river cabin, and a cottage at the adjacent Spivey property, but those facilities are separate access or reservation services; do not infer legal camping from bars, private banks, or ranch land.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Riverside Park below Whitney Dam and take out at Spivey Crossing for TPWD RACA's Whitney-to-Spivey Brazos segment. Use the Aquilla gauge with BRA's Brazos flow chart, then confirm dam releases, Spivey access, current, weather, and private-bank limits before leaving a shuttle.",
+      "accessCaveats": [
+        "USACE documents Riverside Park on both sides of the Brazos below Whitney Dam. The stored put-in coordinate is a route-guide access anchor for Riverside Park; use current signs, park roads, and safe riverbank conditions for the actual water entry.",
+        "USACE says the east-side gravel access road to the river closes when floodwater is being released. If that access is closed, skip the route instead of improvising a dam-tailwater launch.",
+        "TPWD publishes Spivey as an active leased-access take-out through August 31, 2027. Call before arrival, confirm availability, pay the day-use fee, sign required liability paperwork, and prearrange shuttle handling when using it as the downstream exit.",
+        "The route was implemented with USGS 08093100 at 55.3 cfs, far below BRA's 200 cfs paddling minimum. At similar readings, the app should rate the route below floor rather than encouraging a launch.",
+        "Lake Whitney Dam releases can create rapid rises and swift current even if the day starts low. Recheck release conditions, weather, and the hydrograph before committing."
+      ],
+      "watchFor": [
+        "Flows at or below about 200 cfs on USGS 08093100, when BRA says the Brazos is below the minimum needed for paddling.",
+        "Hydropower peaking or flood releases from Whitney Dam, rising water, fresh basin rainfall, or flows above about 1,200 cfs, when BRA's chart moves into hazardous or worse categories.",
+        "Closed Riverside river-access road, changed park access, Spivey availability limits, fee or liability-form requirements, and shuttle confusion at the leased take-out.",
+        "Private banks, ranch roads, low-water bars, driftwood, strainers, possible fences or debris after releases, and rural cell-service gaps.",
+        "Heat, sun exposure, wind on open bends, and the temptation to continue past Spivey without the separate Spivey-to-Brazos-River-Nature-Center package."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "riverside-park-whitney-dam",
+        "name": "Riverside Park below Whitney Dam",
+        "latitude": 31.866028,
+        "longitude": -97.367336,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "USACE public park and Southwest Paddler access-anchor coordinate below Whitney Dam; use current park signs and open river-access roads for the actual launch."
+      },
+      {
+        "id": "spivey-crossing-rv-park",
+        "name": "Spivey Crossing RV Park",
+        "latitude": 31.801114,
+        "longitude": -97.307315,
+        "mileFromStart": 9.59,
+        "segmentKind": "creek",
+        "note": "Default TPWD RACA / leased-access take-out anchor; call ahead for availability, fee, liability form, and shuttle handling."
+      }
+    ]
+  },
+  "brazos-river-fullers-folly-sandy-bottoms": {
+    "putIn": {
+      "id": "fullers-folly-river-ranch",
+      "name": "Fuller's Folly River Ranch",
+      "latitude": 32.61955,
+      "longitude": -97.89381
+    },
+    "takeOut": {
+      "id": "sandy-bottoms-river-trail-camp",
+      "name": "Sandy Bottoms River Trail Camp",
+      "latitude": 32.580406,
+      "longitude": -97.892005
+    },
+    "logistics": {
+      "distanceLabel": "About 4.1 mi",
+      "estimatedPaddleTime": "Short half-day float when the Dennis gauge is comfortably above the floor; slower near 200 cfs or when shallow bars, heat, or bank conditions make access awkward",
+      "shuttle": "Stage Sandy Bottoms River Trail Camp first after confirming access availability, then return to Fuller's Folly River Ranch. Both sites require advance contact and liability forms for TPWD leased-access users, so do not assume a drop-in shuttle will work.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use the TPWD leased-access sites only during posted daylight windows, contact each property at least 24 hours ahead, and obey any current lease or property rules.",
+      "camping": "Treat the paddle route as day-use only. TPWD describes private accommodations at Fuller's Folly and Sandy Bottoms, but those are separate reservation-based services and not public route camping rights; do not infer legal camps from bars, private banks, or ranch land.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Fuller's Folly and take out at Sandy Bottoms River Trail Camp for TPWD's short leased-access Brazos float upstream of Lake Granbury. Use the Dennis gauge with BRA's conservative Brazos flow chart, then confirm access, current, weather, and private-bank limits before driving the shuttle.",
+      "accessCaveats": [
+        "TPWD publishes both endpoint coordinates as leased-access site anchors. Final water entry and exit should follow current signs, property instructions, and safe bank conditions rather than a projected mid-channel point.",
+        "Fuller's Folly access is open from 30 minutes before sunrise to 30 minutes after sunset and requires at least 24-hour advance contact by email or backup phone.",
+        "Sandy Bottoms access is open from 30 minutes before sunrise to 30 minutes before sunset and requires at least 24-hour advance text contact, with a liability form before access.",
+        "The current Dennis gauge reading during implementation was just above BRA's 200 cfs lower floor. At similar levels, expect more paddling, exposed gravel or sand, and possible dragging.",
+        "BRA notes that upstream reservoir releases and storms can change Brazos flow. Recheck the hydrograph and weather before leaving a vehicle."
+      ],
+      "watchFor": [
+        "Flows at or below about 200 cfs on USGS 08090800, when BRA says the Brazos is below the minimum needed for paddling.",
+        "Flows above about 1,200 cfs, rising water, upstream releases, or fresh basin rainfall, when BRA's chart moves into hazardous or worse categories.",
+        "Private banks, ranch roads, fences, livestock areas, muddy landings, low-water bars, driftwood, strainers, and wood moved by recent releases.",
+        "Heat, sun exposure, wind on open bends, and rural cell-service gaps despite the short mileage.",
+        "Access uncertainty if either leased site is unavailable, posted differently, or cannot accept the group that day; skip the trip rather than inventing an alternate private landing."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fullers-folly-river-ranch",
+        "name": "Fuller's Folly River Ranch",
+        "latitude": 32.61955,
+        "longitude": -97.89381,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default TPWD leased-access put-in and access anchor; contact Fuller's Folly at least 24 hours in advance and follow site instructions for the actual launch."
+      },
+      {
+        "id": "sandy-bottoms-river-trail-camp",
+        "name": "Sandy Bottoms River Trail Camp",
+        "latitude": 32.580406,
+        "longitude": -97.892005,
+        "mileFromStart": 4.1,
+        "segmentKind": "creek",
+        "note": "Default TPWD leased-access take-out and access anchor; contact Sandy Bottoms in advance, sign required liability paperwork, and use current property directions for the actual landing."
+      }
+    ]
+  },
+  "brazos-river-milam-county-area-1-area-2": {
+    "putIn": {
+      "id": "brazos-river-milam-county-area-1",
+      "name": "Brazos River Milam County Area 1",
+      "latitude": 30.977162,
+      "longitude": -96.761887
+    },
+    "takeOut": {
+      "id": "brazos-river-milam-county-area-2",
+      "name": "Brazos River Milam County Area 2",
+      "latitude": 30.919294,
+      "longitude": -96.746588
+    },
+    "logistics": {
+      "distanceLabel": "About 5 mi",
+      "estimatedPaddleTime": "Short half-day float when the Highbank gauge is comfortably above the floor; slower near 200 cfs or when shallow bars, heat, bottomland mud, or the long Area 2 access path slows the take-out",
+      "shuttle": "Stage Area 2 first only after contacting BRMC for gate codes, site conditions, and any shuttle-service details, then return to Area 1 at FM 979. TPWD says the Area 2 river access is about one mile from the designated parking area through Brazos River bottomland forest, so scout the finish path before committing.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use the TPWD leased-access sites only during posted daylight windows, contact BRMC before arrival for gate codes and current site conditions, and obey any temporary wet-weather or flooding closure.",
+      "camping": "Treat this as a day-use leased-access route with no public route camping selected. TPWD publishes daylight access, gate-code procedures, muddy-site closures, and pack-in/pack-out rules, but no route campsite or public overnight right for Area 1, Area 2, private banks, or bottomland forest.",
+      "campingClassification": "none",
+      "summary": "Launch at Brazos River Milam County Area 1 and take out at Area 2 for TPWD's 5-mile leased-access Brazos float downstream of FM 979. Use the Highbank gauge with BRA's conservative Brazos flow chart, then confirm access, weather, site mud, and private-bank limits before leaving a shuttle.",
+      "accessCaveats": [
+        "TPWD publishes Area 1 and Area 2 coordinates as leased-access anchors. Final water entry and exit should follow current signs, BRMC instructions, and safe bank conditions rather than projected mid-channel points.",
+        "Area 1 is the TPWD-named put-in at 10794 FM 979 near Cameron; Area 2 is the TPWD-named take-out at 5988 County Road 259 near Cameron.",
+        "TPWD requires prearrival contact for gate codes and site conditions. The access areas can temporarily close when wet or muddy from rain or flooding.",
+        "Area 2's river access is about one mile from the parking area through bottomland forest. Prearrange any shuttle support and inspect the route out before paddling.",
+        "USGS 08098290 was below BRA's 200 cfs paddling floor during implementation. At similar levels, expect shallow bars, more paddling, dragging, and a no-go rating until flows recover."
+      ],
+      "watchFor": [
+        "Flows at or below about 200 cfs on USGS 08098290, when BRA says the Brazos is below the minimum needed for paddling.",
+        "Flows above about 1,200 cfs, rising water, upstream reservoir releases, or fresh basin rainfall, when BRA's chart moves into hazardous or worse categories.",
+        "Muddy leased-access roads or bottomland paths, temporary site closures, a long carry or shuttle transfer at Area 2, and any changed gate-code or landowner instructions.",
+        "Private banks, fences, ranch roads, livestock areas, sand or gravel bars, driftwood, strainers, and wood moved by recent flow changes.",
+        "Heat, sun exposure, wind on open bends, rural cell-service gaps, and the temptation to improvise a private landing if Area 2 is unavailable."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "brazos-river-milam-county-area-1",
+        "name": "Brazos River Milam County Area 1",
+        "latitude": 30.977162,
+        "longitude": -96.761887,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default TPWD leased-access put-in and access anchor at FM 979; contact BRMC before arrival and follow current site instructions for the actual launch."
+      },
+      {
+        "id": "brazos-river-milam-county-area-2",
+        "name": "Brazos River Milam County Area 2",
+        "latitude": 30.919294,
+        "longitude": -96.746588,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Default TPWD leased-access take-out and access anchor; TPWD says the river access is about one mile from designated parking through bottomland forest."
       }
     ]
   },
@@ -1171,7 +2268,63 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "Heat, thunderstorms, insects, private-bank discipline, and fatigue from treating an easy-looking creek like a casual short float.",
         "Snags, overhanging limbs, strainers, and the need to re-evaluate at SH 327, Baby Galvez, or US 96 instead of pressing on with a tired group."
       ]
-    }
+    },
+    "corridorId": "village-creek-paddling-trail",
+    "corridorLabel": "Village Creek Paddling Trail — choose your in/out pair",
+    "continuityStatus": "verified",
+    "accessPoints": [
+      {
+        "id": "village-creek-fm-418-boat-launch",
+        "name": "FM 418 Boat Launch",
+        "latitude": 30.397794,
+        "longitude": -94.265024,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Upper public launch and full-corridor start."
+      },
+      {
+        "id": "tx-327-boat-launch",
+        "name": "TX 327 Boat Launch",
+        "latitude": 30.346944,
+        "longitude": -94.239385,
+        "mileFromStart": 8.6,
+        "segmentKind": "creek",
+        "note": "Public midpoint launch/take-out and shorter-day option."
+      },
+      {
+        "id": "baby-galvez-road-boat-launch",
+        "name": "Baby Galvez Road Boat Launch",
+        "latitude": 30.3345,
+        "longitude": -94.20391,
+        "mileFromStart": 12,
+        "segmentKind": "creek",
+        "note": "Public middle-corridor launch/take-out."
+      },
+      {
+        "id": "us-96-boat-launch",
+        "name": "US 96 Boat Launch",
+        "latitude": 30.2857,
+        "longitude": -94.19145,
+        "mileFromStart": 19.1,
+        "segmentKind": "creek",
+        "note": "Public lower-corridor bailout before the state-park finish."
+      },
+      {
+        "id": "village-creek-state-park-canoe-launch",
+        "name": "Village Creek State Park canoe launch",
+        "latitude": 30.2553,
+        "longitude": -94.171,
+        "mileFromStart": 22.3,
+        "segmentKind": "creek",
+        "note": "Lower public finish with direct campground context."
+      }
+    ],
+    "segmentEdges": [
+      { "fromId": "village-creek-fm-418-boat-launch", "toId": "tx-327-boat-launch", "status": "verified" },
+      { "fromId": "tx-327-boat-launch", "toId": "baby-galvez-road-boat-launch", "status": "verified" },
+      { "fromId": "baby-galvez-road-boat-launch", "toId": "us-96-boat-launch", "status": "verified" },
+      { "fromId": "us-96-boat-launch", "toId": "village-creek-state-park-canoe-launch", "status": "verified" }
+    ]
   },
   "south-llano-river-cupgrass-state-park": {
     "putIn": {
@@ -1395,6 +2548,148 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "buffalo-bayou-highway-6-west-sam-houston": {
+    "putIn": {
+      "id": "highway-6-buffalo-bayou-access",
+      "name": "Highway 6",
+      "latitude": 29.7694,
+      "longitude": -95.6434
+    },
+    "takeOut": {
+      "id": "west-sam-houston-parkway-access",
+      "name": "West Sam Houston Parkway",
+      "latitude": 29.7622,
+      "longitude": -95.5583
+    },
+    "logistics": {
+      "distanceLabel": "About 6 mi",
+      "estimatedPaddleTime": "About 4 hr to 5 hr by TPWD segment estimates from Highway 6 through Terry Hershy Park and Dairy Ashford to West Sam Houston Parkway, longer if low water, mud, wood, heat, or a slow shuttle stacks up",
+      "shuttle": "Stage the West Sam Houston Parkway / Beltway 8 take-out first, then drive back to the Highway 6 access in Terry Hershey Park. Dairy Ashford is an official coordinate-backed midpoint access and a practical shorter take-out when water or daylight is marginal.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08073500 and recent rainfall or reservoir-release context before launching, use only public access points or direct hazard portages, and obey current park rules and posted access signs.",
+      "camping": "Treat this as a day-use urban route only. Houston Parks says city-park camping is permitted only at Lake Houston Wilderness Park, and Terry Hershey Park is published with daily hours and day-use amenities rather than river-camping support. Do not infer legal camping from wooded banks, sand, or trail-adjacent open space.",
+      "campingClassification": "none",
+      "summary": "Launch at Highway 6 and finish at West Sam Houston Parkway for the Terry Hershey Park section of the Buffalo Bayou Paddling Trail. Use USGS 08073500 near Addicks with a conservative 150 cfs base-flow floor, then make a same-day call on reservoir releases, urban runoff, water quality, strainers, and rough access.",
+      "accessCaveats": [
+        "TPWD publishes Highway 6, Terry Hershy Park, Dairy Ashford Road, and West Sam Houston Parkway as official access anchors, but the actual water-entry paths can be muddy, steep, or shifted by erosion.",
+        "Save Buffalo Bayou confirms public parking at Highway 6, Dairy Ashford, and Beltway 8, but also warns that some access points require dragging or clambering.",
+        "The stored coordinates are public access anchors, not projected mid-channel launch points. Follow the signed path, visible bank condition, and current park rules on arrival.",
+        "The bayou is navigable, but TPWD says private-bank use outside direct hazard portages can be trespassing. Do not turn visible lawns, wooded banks, or trail edges into casual stops.",
+        "This route uses a local minimum-only threshold source. Around 150 cfs is treated as the floor, while storm or release-driven flows above about 2,000 cfs require experienced paddlers and a separate high-water judgment."
+      ],
+      "watchFor": [
+        "Flows near or below about 150 cfs, when Save Buffalo Bayou describes base flow as very low and slow and muddy launches, shallow bars, or downed trees can slow the day.",
+        "Storm runoff, Addicks/Barker Reservoir releases, rising hydrographs, or flows over about 2,000 cfs, when the same local guidance says the bayou can be fast and dangerous.",
+        "Log jams, strainers, pipelines, downed trees, low bridges, concrete or bank obstructions near access points, muddy banks, and the need to portage obstructions with private-bank discipline.",
+        "Urban water quality: TPWD says Buffalo Bayou is generally unsuitable for swimming, so avoid body contact where possible, wash hands, and do not paddle after sewage, bacteria, or heavy-rain alerts.",
+        "Heat, limited shade on open trail sections, bikes and pedestrians around launch carries, variable parking logistics, fishing lines, wildlife, and the temptation to continue past Beltway 8 without a separate downstream route plan."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "highway-6-buffalo-bayou-access",
+        "name": "Highway 6",
+        "latitude": 29.7694,
+        "longitude": -95.6434,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream TPWD access anchor; Save Buffalo Bayou identifies public parking beside Highway 6 in Terry Hershey Park."
+      },
+      {
+        "id": "terry-hershy-park-access",
+        "name": "Terry Hershy Park",
+        "latitude": 29.7733,
+        "longitude": -95.6233,
+        "mileFromStart": 1,
+        "segmentKind": "creek",
+        "note": "Official TPWD access about one hour below Highway 6; name preserved as TPWD spells it."
+      },
+      {
+        "id": "dairy-ashford-road-access",
+        "name": "Dairy Ashford Road",
+        "latitude": 29.7617,
+        "longitude": -95.6064,
+        "mileFromStart": 2,
+        "segmentKind": "creek",
+        "note": "Official TPWD midpoint access and practical shorter take-out with public parking noted by Save Buffalo Bayou."
+      },
+      {
+        "id": "west-sam-houston-parkway-access",
+        "name": "West Sam Houston Parkway",
+        "latitude": 29.7622,
+        "longitude": -95.5583,
+        "mileFromStart": 6,
+        "segmentKind": "creek",
+        "note": "Default downstream TPWD take-out at Beltway 8 / West Sam Houston Parkway."
+      }
+    ]
+  },
+  "buffalo-bayou-west-sam-houston-woodway": {
+    "putIn": {
+      "id": "west-sam-houston-parkway-access",
+      "name": "West Sam Houston Parkway",
+      "latitude": 29.7622,
+      "longitude": -95.5583
+    },
+    "takeOut": {
+      "id": "woodway-memorial-park",
+      "name": "Woodway Memorial Park",
+      "latitude": 29.7647,
+      "longitude": -95.4569
+    },
+    "logistics": {
+      "distanceLabel": "About 11 to 12 mi",
+      "estimatedPaddleTime": "About 6.5 hr to 8.5 hr by TPWD segment estimates from West Sam Houston Parkway through Briar Bend Park to Woodway Memorial Park, longer if low water, mud, wood, heat, or portages slow the group",
+      "shuttle": "Stage Woodway Memorial Park first, then drive back to West Sam Houston Parkway / Beltway 8. Briar Bend Park is an official coordinate-backed midpoint access and a practical shorter take-out if water, daylight, or group pace is marginal.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08073700 plus recent rainfall or reservoir-release context before launching, use only public access points or direct hazard portages, and obey current City of Houston and park rules.",
+      "camping": "Treat this as a long day-use urban route only. Houston Parks says city-park camping is permitted only at Lake Houston Wilderness Park, so West Sam Houston Parkway, Briar Bend Park, Woodway Memorial Park, private banks, wooded banks, and gravel bars are not route-camping evidence.",
+      "campingClassification": "none",
+      "summary": "Launch at West Sam Houston Parkway and finish at Woodway Memorial Park for the middle Buffalo Bayou Paddling Trail connector. Use the Piney Point gauge with a conservative 150 cfs base-flow floor, and treat Briar Bend as the source-backed midpoint bailout.",
+      "accessCaveats": [
+        "TPWD publishes West Sam Houston Parkway, Briar Bend Park, and Woodway Memorial Park as official Buffalo Bayou Paddling Trail access anchors, but the actual water-entry paths can be muddy, steep, or shifted by erosion.",
+        "Save Buffalo Bayou identifies parking under Beltway 8, street parking at Briar Bend Park, and public parking plus a sloped Woodway ramp, while warning that some Buffalo Bayou access points require dragging or clambering.",
+        "The stored coordinates are public access anchors, not projected mid-channel launch points. Follow signed paths, visible bank condition, and current park rules on arrival.",
+        "The bayou is navigable, but TPWD says private-bank use outside direct hazard portages can be trespassing. Do not turn lawns, wooded banks, trail edges, or golf-course banks into casual stops.",
+        "This route uses a local minimum-only threshold source. Around 150 cfs is treated as the floor, while storm or release-driven flows above about 2,000 cfs require experienced paddlers and a separate high-water judgment.",
+        "Because TPWD estimates this connector as a long two-segment day, use Briar Bend as the default bailout when daylight, heat, pace, or obstruction work starts stacking up."
+      ],
+      "watchFor": [
+        "Flows near or below about 150 cfs, when Save Buffalo Bayou describes base flow as very low and slow and muddy launches, gravel bars, or downed trees can slow the day.",
+        "Storm runoff, Addicks/Barker Reservoir releases, rising hydrographs, or flows over about 2,000 cfs, when the same local guidance says the bayou can be fast and dangerous.",
+        "Log jams, strainers, pipelines, downed trees, gravel bars, low bridges, concrete or bank obstructions near access points, muddy banks, and the need to portage obstructions with private-bank discipline.",
+        "Urban water quality: TPWD says Buffalo Bayou is generally unsuitable for swimming, so avoid body contact where possible, wash hands, and do not paddle after sewage, bacteria, or heavy-rain alerts.",
+        "Heat, limited shade on access carries, bikes and pedestrians around launch paths, variable parking logistics, fishing lines, wildlife, and the temptation to continue below Woodway without the separate downstream route plan."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "west-sam-houston-parkway-access",
+        "name": "West Sam Houston Parkway",
+        "latitude": 29.7622,
+        "longitude": -95.5583,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream TPWD access at Beltway 8 / West Sam Houston Parkway; Save Buffalo Bayou identifies parking under Beltway 8."
+      },
+      {
+        "id": "briar-bend-park",
+        "name": "Briar Bend Park",
+        "latitude": 29.746,
+        "longitude": -95.5072,
+        "mileFromStart": 5.5,
+        "segmentKind": "creek",
+        "note": "Official TPWD midpoint access and practical bailout; Save Buffalo Bayou notes street parking and variable bank conditions."
+      },
+      {
+        "id": "woodway-memorial-park",
+        "name": "Woodway Memorial Park",
+        "latitude": 29.7647,
+        "longitude": -95.4569,
+        "mileFromStart": 11.5,
+        "segmentKind": "creek",
+        "note": "Default downstream TPWD take-out and Save Buffalo Bayou's public Woodway launch with parking and a sloped ramp."
+      }
+    ]
+  },
   "buffalo-bayou-woodway-sabine-street": {
     "putIn": {
       "id": "woodway-memorial-park",
@@ -1471,6 +2766,63 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "buffalo-bayou-sabine-street-allens-landing": {
+    "putIn": {
+      "id": "sabine-street-access",
+      "name": "Sabine Street Access",
+      "latitude": 29.7622,
+      "longitude": -95.3736
+    },
+    "takeOut": {
+      "id": "allens-landing-park",
+      "name": "Allen's Landing Park",
+      "latitude": 29.7647,
+      "longitude": -95.3592
+    },
+    "logistics": {
+      "distanceLabel": "About 1 mi",
+      "estimatedPaddleTime": "About 1 hr by TPWD segment estimate, longer if low water, mud, wind, obstruction portages, or downtown take-out handling slows the trip",
+      "shuttle": "Stage Allen's Landing first, then return to Sabine Street. This is the final short downtown segment of the official Buffalo Bayou Paddling Trail; do not continue below Allen's Landing without a separate ship-channel and downstream-access plan.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08074000 and recent rainfall or reservoir-release context before launching, use only public access points or direct hazard portages, and obey current City of Houston and park rules.",
+      "camping": "Treat this as a day-use urban route only. Houston Parks says camping is permitted only at Lake Houston Wilderness Park in the city park system, so Buffalo Bayou Park and downtown access points are not route-camping evidence.",
+      "campingClassification": "none",
+      "summary": "Launch at Sabine Street and finish at Allen's Landing for the short downtown Houston connector on the Buffalo Bayou Paddling Trail. Use USGS 08074000 with a conservative 150 cfs base-flow floor, then make a same-day call on storm runoff, reservoir releases, water quality, strainers, and bridge-area take-out handling.",
+      "accessCaveats": [
+        "TPWD publishes Sabine Street and Allen's Landing as official downstream access points with GPS coordinates, but access quality can change after floods, erosion, events, or construction.",
+        "The stored coordinates are public access anchors, not projected mid-channel launch points. Follow signed ramps, visible banks, and current park rules on arrival.",
+        "The route is short, but the Allen's Landing take-out is mandatory for this card. Do not drift into a longer downtown or ship-channel plan without a separate route package and current safety review.",
+        "The bayou is navigable, but TPWD says private-bank use outside direct hazard portages can be trespassing. Do not use downtown banks, lawns, bridge embankments, or private edges as casual stops.",
+        "This route uses a local minimum-only threshold source. Around 150 cfs is treated as the floor, while flows above about 2,000 cfs require experienced paddlers and a separate high-water judgment."
+      ],
+      "watchFor": [
+        "Flows near or below about 150 cfs, when Save Buffalo Bayou describes base flow as very low and slow and muddy banks or shallow obstructions can slow even a short route.",
+        "Storm runoff, Addicks/Barker Reservoir releases, rising hydrographs, or flows over about 2,000 cfs, when the same local guidance says the bayou can be fast and dangerous.",
+        "Bridge approaches, low or floating debris, log jams, strainers, pipelines, downed trees, downtown walls, and the need to land cleanly at Allen's Landing.",
+        "Urban water quality: TPWD says Buffalo Bayou is generally unsuitable for swimming, so avoid body contact where possible, wash hands, and do not paddle after sewage, bacteria, or heavy-rain alerts.",
+        "Heat, limited shade, event closures, fishing lines, wildlife, variable parking, and the temptation to treat the short distance as a no-check outing when the gauge or weather is wrong."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "sabine-street-access",
+        "name": "Sabine Street Access",
+        "latitude": 29.7622,
+        "longitude": -95.3736,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default TPWD put-in for the short downtown connector; also the take-out for the upstream Woodway-to-Sabine route."
+      },
+      {
+        "id": "allens-landing-park",
+        "name": "Allen's Landing Park",
+        "latitude": 29.7647,
+        "longitude": -95.3592,
+        "mileFromStart": 1,
+        "segmentKind": "creek",
+        "note": "Default TPWD downstream take-out and official end of the Buffalo Bayou Paddling Trail."
+      }
+    ]
+  },
   "elm-fork-trinity-river-llela-hebron-parkway": {
     "putIn": {
       "id": "llela-lewisville-lake-dam-launch",
@@ -1524,6 +2876,474 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 6,
         "segmentKind": "creek",
         "note": "Public downstream launch/take-out named by LLELA and coordinate-backed on the current-conditions page."
+      }
+    ]
+  },
+  "elm-fork-trinity-river-hebron-parkway-mcinnish-park": {
+    "putIn": {
+      "id": "hebron-parkway-kayak-launch",
+      "name": "Hebron Parkway Kayak Launch",
+      "latitude": 33.0126,
+      "longitude": -96.950689
+    },
+    "takeOut": {
+      "id": "mcinnish-park-launch",
+      "name": "McInnish Park",
+      "latitude": 32.96744,
+      "longitude": -96.942685
+    },
+    "logistics": {
+      "distanceLabel": "About 5.75 mi",
+      "estimatedPaddleTime": "Short to half-day urban river run; pace depends on release, flow, wood, shallow water, wind, and shuttle timing",
+      "shuttle": "Stage McInnish Park first, then drive back to Hebron Parkway / Trinity Fork Park. This fills the middle Elm Fork gap between the LLELA-to-Hebron and McInnish-to-California route cards.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check the Trinity Coalition map, USGS 08055500, weather, runoff, and current access conditions before launching.",
+      "camping": "Treat this as a day-use urban river route. The route starts below LLELA's designated primitive campsite area and ends at Carrollton park/open-space access; no reviewed source supports informal riverbank camping between Hebron and McInnish.",
+      "campingClassification": "none",
+      "summary": "Launch at Hebron Parkway / Trinity Fork Park and take out at McInnish Park for the missing middle Elm Fork segment of the Trinity River National Water Trail. Use USGS 08055500 with TRPA's 100 cfs floor, and cancel when release, wood, water quality, or shuttle conditions are not clean.",
+      "accessCaveats": [
+        "Trinity Coalition map coordinates are public access anchors; follow current launch paths, signs, and park rules rather than projecting a mid-channel water-entry point.",
+        "LLELA names Hebron Parkway / Trinity Fork Park as the first public take-out below the dam and the next public downstream access in Carrollton; do not invent private-bank stops or unmanaged road-shoulder access.",
+        "USGS 08055500 was product-live during implementation but below the 100 cfs floor; expect shallow, slow, or scrape-prone conditions at similar readings.",
+        "This segment stays downstream of the strongest LLELA tailwater, but the whole Elm Fork corridor remains release-influenced and wood-prone after floods."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs on USGS 08055500, which can turn this into a shallow scrape through an urban corridor.",
+        "High or rising water after storms or release changes, especially near TRPA's 2,000 cfs maximum caution.",
+        "Log jams, strainers, fallen trees, bank erosion, and fresh wood after flooding.",
+        "Urban water quality, heat, limited shade, park hours, vehicle security, and private-bank boundaries.",
+        "A missed McInnish take-out that commits the group to the separate McInnish-to-California Crossing card."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "hebron-parkway-kayak-launch",
+        "name": "Hebron Parkway Kayak Launch",
+        "latitude": 33.0126,
+        "longitude": -96.950689,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition public launch coordinate and upstream access anchor for the section."
+      },
+      {
+        "id": "mcinnish-park-launch",
+        "name": "McInnish Park",
+        "latitude": 32.96744,
+        "longitude": -96.942685,
+        "mileFromStart": 5.75,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition downstream launch coordinate at Carrollton's McInnish Park."
+      }
+    ]
+  },
+  "clear-fork-trinity-river-art-cowsen-bryant-irvin": {
+    "putIn": {
+      "id": "art-cowsen-trailhead",
+      "name": "Art Cowsen Trailhead",
+      "latitude": 32.6643568,
+      "longitude": -97.4476423
+    },
+    "takeOut": {
+      "id": "bryant-irvin-road-access",
+      "name": "Bryant Irvin Road access",
+      "latitude": 32.7045112,
+      "longitude": -97.4115092
+    },
+    "logistics": {
+      "distanceLabel": "About 4.8 mi",
+      "estimatedPaddleTime": "Half-day wooded urban Clear Fork run; pace slows sharply near the 100 cfs floor or when wood, low water, runoff, or shuttle handling stacks up",
+      "shuttle": "Stage Bryant Irvin Road first, then drive back to Art Cowsen Trailhead. This is the upstream Clear Fork leg below Benbrook Dam; do not continue downstream without a separate Bryant-Irvin-to-Rogers or Rogers-to-Trinity plan.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08047000, weather, runoff, TRPA route notes, and current Fort Worth access conditions before launching.",
+      "camping": "Treat this as a day-use urban route. Fort Worth publishes city park hours of 5 a.m. to 10 p.m. unless posted otherwise, and no reviewed source supports overnight route camping between Art Cowsen Trailhead and Bryant Irvin Road.",
+      "campingClassification": "none",
+      "summary": "Launch at Art Cowsen Trailhead and finish at Bryant Irvin Road for TRPA's 4.8-mile Clear Fork Trinity run below Benbrook Dam. Use USGS 08047000 with TRPA's 100 cfs floor, 150-250 cfs ideal band, and 2,000 cfs high-water caution, and skip the trip when wood, runoff, or low-water dragging makes the line uncertain.",
+      "accessCaveats": [
+        "TRPA Google map coordinates are public access anchors; follow current signs, paths, and landing conditions rather than projecting a mid-channel water-entry point.",
+        "USGS 08047000 is upstream near Benbrook Dam and product-live for this Clear Fork reach, but same-day visual scouting still matters for wood, banks, and usable water at the launch.",
+        "USGS 08047000 returned 16.6 cfs during implementation, well below TRPA's 100 cfs Clear Fork floor; expect shallow, slow, or scrape-prone conditions at similar readings.",
+        "Use named public access only. Do not substitute private banks, golf-course edges, road shoulders, or unmanaged crossings for the planned take-out."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs on USGS 08047000, when TRPA's Clear Fork minimum is not met and dragging or exposed obstructions become more likely.",
+        "High or rising water after storms or release changes, especially near TRPA's 2,000 cfs maximum caution.",
+        "Log jams, fallen trees, strainers, overhanging limbs, and fresh wood in the wooded Benbrook-to-Loop-820 corridor.",
+        "Urban runoff and water quality after medium or heavy rains; clean cuts promptly and avoid contact when water is suspect.",
+        "Fort Worth park hours, heat, vehicle security, private-bank boundaries, and a missed Bryant Irvin take-out that commits the group to a separate downstream leg."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "art-cowsen-trailhead",
+        "name": "Art Cowsen Trailhead",
+        "latitude": 32.6643568,
+        "longitude": -97.4476423,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA public access map-link anchor and upstream access point for the section; treat as an arrival anchor, not a surveyed wetted-edge coordinate."
+      },
+      {
+        "id": "bryant-irvin-road-access",
+        "name": "Bryant Irvin Road access",
+        "latitude": 32.7045112,
+        "longitude": -97.4115092,
+        "mileFromStart": 4.8,
+        "segmentKind": "creek",
+        "note": "TRPA public access map-link anchor and downstream take-out for the section; verify the current path and landing before committing downstream."
+      }
+    ]
+  },
+  "clear-fork-trinity-river-bryant-irvin-rogers-road": {
+    "putIn": {
+      "id": "bryant-irvin-road-access",
+      "name": "Bryant Irvin Road access",
+      "latitude": 32.7045112,
+      "longitude": -97.4115092
+    },
+    "takeOut": {
+      "id": "rogers-road-launch",
+      "name": "Rogers Road",
+      "latitude": 32.723245,
+      "longitude": -97.365564
+    },
+    "logistics": {
+      "distanceLabel": "About 3.4 mi",
+      "estimatedPaddleTime": "Short urban Clear Fork run; pace depends on Benbrook release/flow, shallow bars, wood, wind, and shuttle timing",
+      "shuttle": "Stage Rogers Road first, then drive back to Bryant Irvin Road. This fills the middle Clear Fork leg between the upstream Art Cowsen route and the downstream Rogers-to-Trinity Park route.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08047000, TRPA's Clear Fork notes, weather, runoff, and current access conditions before launching.",
+      "camping": "Treat this as a day-use urban route. Fort Worth publishes city park hours of 5 a.m. to 10 p.m. unless posted otherwise, and no reviewed source supports overnight route camping between Bryant Irvin Road and Rogers Road.",
+      "campingClassification": "none",
+      "summary": "Launch at Bryant Irvin Road and finish at Rogers Road for TRPA's 3.4-mile middle Clear Fork Trinity run. Use USGS 08047000 with TRPA's 100 cfs floor, 150-250 cfs ideal band, and 2,000 cfs high-water caution, and skip the trip when wood, runoff, or low-water dragging makes the line uncertain.",
+      "accessCaveats": [
+        "TRPA and Trinity Coalition coordinates are public access anchors; follow current signs, paths, and landing conditions rather than projecting a mid-channel water-entry point.",
+        "USGS 08047000 is upstream near Benbrook Dam and product-live for this Clear Fork reach, but same-day visual scouting still matters for wood, banks, and usable water at the launch.",
+        "USGS 08047000 returned 16.6 cfs during implementation, well below TRPA's 100 cfs Clear Fork floor; expect shallow, slow, or scrape-prone conditions at similar readings.",
+        "Use named public access only. Do not substitute private banks, golf-course edges, road shoulders, or unmanaged crossings for the planned take-out."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs on USGS 08047000, when TRPA's Clear Fork minimum is not met and dragging or exposed obstructions become more likely.",
+        "High or rising water after storms or release changes, especially near TRPA's 2,000 cfs maximum caution.",
+        "Log jams, fallen trees, strainers, overhanging limbs, and fresh wood in the wooded urban corridor.",
+        "Urban runoff and water quality after medium or heavy rains; clean cuts promptly and avoid contact when water is suspect.",
+        "Fort Worth park hours, heat, vehicle security, private-bank boundaries, and a missed Rogers Road take-out that commits the group to the separate Rogers-to-Trinity Park leg."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "bryant-irvin-road-access",
+        "name": "Bryant Irvin Road access",
+        "latitude": 32.7045112,
+        "longitude": -97.4115092,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA public access map-link anchor and upstream access point for the section; treat as an arrival anchor, not a surveyed wetted-edge coordinate."
+      },
+      {
+        "id": "rogers-road-launch",
+        "name": "Rogers Road",
+        "latitude": 32.723245,
+        "longitude": -97.365564,
+        "mileFromStart": 3.4,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition downstream launch coordinate and take-out for the middle Clear Fork section."
+      }
+    ]
+  },
+  "clear-fork-trinity-river-rogers-road-trinity-park": {
+    "putIn": {
+      "id": "rogers-road-launch",
+      "name": "Rogers Road",
+      "latitude": 32.723245,
+      "longitude": -97.365564
+    },
+    "takeOut": {
+      "id": "trinity-park-kayak-launch",
+      "name": "Trinity Park Kayak Launch",
+      "latitude": 32.73993,
+      "longitude": -97.356348
+    },
+    "logistics": {
+      "distanceLabel": "About 1.5 mi",
+      "estimatedPaddleTime": "Short urban paddle; pace depends on Clear Fork flow, wind, wood, current access paths, and shuttle handling",
+      "shuttle": "Stage Trinity Park first, then drive back to Rogers Road. This is a short point-to-point Clear Fork leg; do not extend downstream into the Trinity Park chute sequence without a separate whitewater plan and current map review.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08047000, weather, runoff, and the current Trinity Coalition launch map before launching.",
+      "camping": "Treat this as a day-use urban route. Fort Worth publishes city park hours of 5 a.m. to 10 p.m. unless posted otherwise, and no reviewed source supports overnight route camping between Rogers Road and Trinity Park.",
+      "campingClassification": "none",
+      "summary": "Launch at Rogers Road and finish at Trinity Park Kayak Launch for a short Clear Fork Trinity National Water Trail segment in Fort Worth. Use USGS 08047000 with TRPA's 100 cfs floor and skip the downstream Trinity Park chutes unless the group has a separate, current whitewater plan.",
+      "accessCaveats": [
+        "Trinity Coalition map coordinates are launch-site access anchors; follow current signs, paths, and landing conditions rather than projecting a mid-channel water-entry point.",
+        "This route intentionally ends at Trinity Park Kayak Launch before the downstream chute and dam sequence. Do not miss the take-out or continue into the chutes by default.",
+        "USGS 08047000 was product-live during implementation but below the 100 cfs floor; expect shallow, slow, or scrape-prone conditions at similar readings.",
+        "Trinity Coalition says access sites, river conditions, infrastructure, and dam guidance can change; review the interactive map before launching."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs on USGS 08047000, when TRPA's Clear Fork minimum is not met.",
+        "High or rising water after storms, especially near TRPA's 2,000 cfs maximum caution and after local runoff.",
+        "Wood, strainers, overhanging limbs, urban water quality, and limited exits away from mapped public launches.",
+        "The Trinity Park chute and dam sequence downstream of the take-out; treat it as a separate whitewater feature and avoid every dam unless current manager guidance clearly supports the move.",
+        "Fort Worth park hours, heat, vehicle security, trail events, and private-bank boundaries between public access points."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "rogers-road-launch",
+        "name": "Rogers Road",
+        "latitude": 32.723245,
+        "longitude": -97.365564,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition public launch coordinate and upstream access anchor for the section."
+      },
+      {
+        "id": "trinity-park-kayak-launch",
+        "name": "Trinity Park Kayak Launch",
+        "latitude": 32.73993,
+        "longitude": -97.356348,
+        "mileFromStart": 1.5,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition downstream launch coordinate; route ends here before the downstream Trinity Park chute and dam sequence."
+      }
+    ]
+  },
+  "elm-fork-trinity-river-mcinnish-california-crossing": {
+    "putIn": {
+      "id": "mcinnish-park-launch",
+      "name": "McInnish Park",
+      "latitude": 32.96744,
+      "longitude": -96.942685
+    },
+    "takeOut": {
+      "id": "california-crossing-park-launch",
+      "name": "California Crossing Park",
+      "latitude": 32.868524,
+      "longitude": -96.923634
+    },
+    "logistics": {
+      "distanceLabel": "About 9.25 mi",
+      "estimatedPaddleTime": "Half-day to long urban day; pace depends on flow, wind, wood, shallow water, and shuttle timing",
+      "shuttle": "Stage California Crossing Park first, then drive to McInnish Park. Elm Park and Bird's Fort Trail Park are mapped intermediate launch/take-out options for shorter trips or bailouts.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check the Trinity Coalition map, USGS 08055500, weather, runoff, and current access conditions before launching.",
+      "camping": "Treat this as a day-use urban river route. Carrollton posts park hours of 5 a.m. to 10:30 p.m., California Crossing is a Dallas community park with parking but no campground, and no reviewed source supports informal riverbank camping.",
+      "campingClassification": "none",
+      "summary": "Run the Elm Fork from McInnish Park through the official Trinity River National Water Trail access chain to California Crossing Park. This is a practical North Texas day trip when USGS 08055500 is above TRPA's 100 cfs floor, wood is clear, and the shuttle is staged before park-hour constraints become an issue.",
+      "accessCaveats": [
+        "Trinity Coalition map coordinates are public access anchors; follow current launch paths, signs, and park rules rather than projecting a mid-channel water-entry point.",
+        "McInnish Park, Elm Park, Bird's Fort Trail Park, and California Crossing Park form the mapped access chain; do not invent private-bank stops or unmanaged road-shoulder access.",
+        "USGS 08055500 was product-live during implementation but below the 100 cfs floor; expect slow/shallow travel and possible dragging at similar readings.",
+        "Trinity Coalition says access, infrastructure, river conditions, and dams can change; review the interactive map before launching."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs on USGS 08055500, which can turn this into a shallow scrape through an urban corridor.",
+        "High or rising water after storms, especially near TRPA's 2,000 cfs maximum caution and after local runoff.",
+        "Log jams, strainers, fallen trees, and fresh wood after flooding.",
+        "Frazier Dam downstream of California Crossing; do not miss the take-out or continue without a separate current map and portage plan.",
+        "Urban water quality, heat, limited shade, park hours, vehicle security, and private-bank boundaries."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "mcinnish-park-launch",
+        "name": "McInnish Park",
+        "latitude": 32.96744,
+        "longitude": -96.942685,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition public launch coordinate and upstream access anchor for the section."
+      },
+      {
+        "id": "elm-park-launch",
+        "name": "Elm Park",
+        "latitude": 32.947578,
+        "longitude": -96.93722,
+        "mileFromStart": 1.5,
+        "segmentKind": "creek",
+        "note": "Mapped intermediate Trinity Coalition launch and practical short-trip option."
+      },
+      {
+        "id": "birds-fort-trail-park-launch",
+        "name": "Bird's Fort Trail Park",
+        "latitude": 32.881723,
+        "longitude": -96.930802,
+        "mileFromStart": 7.75,
+        "segmentKind": "creek",
+        "note": "Mapped intermediate launch before the final leg to California Crossing Park."
+      },
+      {
+        "id": "california-crossing-park-launch",
+        "name": "California Crossing Park",
+        "latitude": 32.868524,
+        "longitude": -96.923634,
+        "mileFromStart": 9.25,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition downstream launch coordinate and Dallas Parks community-park take-out."
+      }
+    ]
+  },
+  "elm-fork-trinity-river-california-crossing-frasier-dam": {
+    "putIn": {
+      "id": "california-crossing-park-launch",
+      "name": "California Crossing Park",
+      "latitude": 32.868524,
+      "longitude": -96.923634
+    },
+    "takeOut": {
+      "id": "frasier-dam-recreation-area-launch",
+      "name": "Frasier Dam Recreation Area",
+      "latitude": 32.84498,
+      "longitude": -96.878471
+    },
+    "logistics": {
+      "distanceLabel": "About 5.5 mi",
+      "estimatedPaddleTime": "Half-day urban run; pace depends on flow, wind, wood, shallow water, and shuttle timing",
+      "shuttle": "Stage Frasier Dam Recreation Area first, then drive to California Crossing Park. Treat Frasier Dam as the mandatory take-out for this card unless you have a separate current portage plan from the Trinity Coalition map.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check the Trinity Coalition map, USGS 08055500, weather, runoff, dam hazards, and current access conditions before launching.",
+      "camping": "Treat this as a day-use urban river route. Dallas park rules close public parks from 11 p.m. to 5 a.m. and prohibit overnight camping on park property except by special permit; no reviewed source supports route camping.",
+      "campingClassification": "none",
+      "summary": "Run the Elm Fork from California Crossing Park to Frasier Dam Recreation Area on the Trinity River National Water Trail. This is a practical North Texas day trip when USGS 08055500 is above TRPA's 100 cfs floor, wood is clear, and the dam-area take-out is confirmed before launch.",
+      "accessCaveats": [
+        "Trinity Coalition map coordinates are public access anchors; follow current launch paths, signs, and park rules rather than projecting a mid-channel water-entry point.",
+        "California Crossing Park and Frasier Dam Recreation Area form the mapped access pair for this segment; do not invent private-bank stops or unmanaged road-shoulder access.",
+        "USGS 08055500 was product-live during implementation and just above the 100 cfs floor; expect slower/shallow travel and possible dragging at similar readings.",
+        "Trinity Coalition says access, infrastructure, river conditions, and dams can change; review the interactive map before launching."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs on USGS 08055500, which can turn this into a shallow scrape through an urban corridor.",
+        "High or rising water after storms, especially near TRPA's 2,000 cfs maximum caution and after local runoff.",
+        "Log jams, strainers, fallen trees, and fresh wood after flooding.",
+        "Frasier Dam and nearby low-head-dam infrastructure; treat Frasier Dam Recreation Area as the take-out for this card and avoid every dam unless current manager guidance clearly supports a portage.",
+        "Urban water quality, heat, limited shade, park hours, vehicle security, and private-bank boundaries."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "california-crossing-park-launch",
+        "name": "California Crossing Park",
+        "latitude": 32.868524,
+        "longitude": -96.923634,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition upstream launch coordinate and Dallas Parks community-park access anchor."
+      },
+      {
+        "id": "frasier-dam-recreation-area-launch",
+        "name": "Frasier Dam Recreation Area",
+        "latitude": 32.84498,
+        "longitude": -96.878471,
+        "mileFromStart": 5.5,
+        "segmentKind": "creek",
+        "note": "Official Trinity Coalition downstream launch coordinate and mandatory take-out before continuing into dam-influenced water."
+      }
+    ]
+  },
+  "elm-fork-trinity-river-trinity-view-trammell-crow": {
+    "putIn": {
+      "id": "trinity-view-park-launch",
+      "name": "Trinity View Park kayak launch",
+      "latitude": 32.810622,
+      "longitude": -96.906538
+    },
+    "takeOut": {
+      "id": "trammell-crow-park-sylvan-boat-ramp",
+      "name": "Trammell Crow Park / Sylvan Boat Ramp",
+      "latitude": 32.789872,
+      "longitude": -96.834669
+    },
+    "logistics": {
+      "distanceLabel": "About 5 mi",
+      "estimatedPaddleTime": "Short urban connector; pace depends on flow, wind, wood, shallow water, runoff, and shuttle timing",
+      "shuttle": "Stage Trammell Crow Park / Sylvan Boat Ramp first during Dallas park hours, then drive to Trinity View Park in Irving. This route uses the new Trinity View launch as the upstream access and should not be treated as the older 24.75-mile River Legacy-to-Trammell Crow long-day card.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check the Trinity Coalition map, USGS 08055500, weather, runoff, and current access conditions before launching.",
+      "camping": "Treat this as a day-use urban river route with no route camping. Irving posts Trinity View Park hours as sunrise to sunset, Dallas parks close overnight, and Dallas city code prohibits overnight camping on park property except by special permit; do not infer legal riverbank or floodway camping.",
+      "campingClassification": "none",
+      "summary": "Launch at the new Trinity View Park kayak launch and finish at Trammell Crow Park for the short Irving-to-Dallas Elm Fork connector. Use USGS 08055500 with TRPA's 100 cfs floor, then make a same-day call on runoff, wood, access status, private-bank discipline, and the current National Water Trail dam map.",
+      "accessCaveats": [
+        "TRPA's Trinity View Park map link resolves to an access-anchor coordinate for the new Irving launch. Follow the actual park ramp, posted signs, gate, parking, and bank conditions on arrival rather than projecting a mid-channel water-entry point.",
+        "Trinity Coalition says the completed Trinity View launch sits at the southeast edge of the park near parking. If that launch is posted closed, blocked, or unsafe, skip the route rather than substituting a levee road or private bank.",
+        "Trammell Crow Park / Sylvan Boat Ramp is the downstream public take-out used by existing Trinity River National Water Trail routes and Dallas Parks lists the park as having a boat ramp and parking.",
+        "USGS Water Services JSON returned a temporary 503 during implementation, while the same USGS site returned current legacy RDB data. Recheck the live gauge before launch instead of relying on stale values.",
+        "Trinity Coalition says access sites, dams, infrastructure, and river conditions change. Review the current launch-site and dam-hazard map before launching."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs on USGS 08055500, when TRPA's Elm Fork minimum is not met and the route can become slow, shallow, muddy, or scrape-prone.",
+        "High or rising water after storms, especially near TRPA's 2,000 cfs maximum caution and after local runoff.",
+        "Log jams, strainers, fallen trees, urban water quality, soft mud banks, and difficult exits away from the mapped public launches.",
+        "Confluence and dam context on the broader Trinity River Paddling Trail; review the current interactive map before launching and avoid every dam unless current manager guidance clearly supports a portage.",
+        "Park-hour limits at both endpoints, vehicle security, heat, limited shade, wind, and private-bank boundaries through the Irving and Dallas floodway corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "trinity-view-park-launch",
+        "name": "Trinity View Park kayak launch",
+        "latitude": 32.810622,
+        "longitude": -96.906538,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and Trinity Coalition-described completed Irving kayak launch; follow current park signs and ramp conditions for the actual water entry."
+      },
+      {
+        "id": "trammell-crow-park-sylvan-boat-ramp",
+        "name": "Trammell Crow Park / Sylvan Boat Ramp",
+        "latitude": 32.789872,
+        "longitude": -96.834669,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Downstream public take-out from Trinity Coalition National Water Trail materials and Dallas Parks Trammell Crow Park boat-ramp listing."
+      }
+    ]
+  },
+  "west-fork-trinity-river-white-settlement-panther-island": {
+    "putIn": {
+      "id": "white-settlement-road-launch",
+      "name": "White Settlement Road",
+      "latitude": 32.760046,
+      "longitude": -97.3871
+    },
+    "takeOut": {
+      "id": "panther-island-launch",
+      "name": "Panther Island",
+      "latitude": 32.759716,
+      "longitude": -97.338446
+    },
+    "logistics": {
+      "distanceLabel": "About 4.5 mi",
+      "estimatedPaddleTime": "Short urban connector; pace depends on flow, wind, mud, wood, event closures, and launch handling",
+      "shuttle": "Stage Panther Island first, then drive back to White Settlement Road. This is the short upstream connector into the existing Panther-to-Handley West Fork route; do not continue downstream without the separate longer-route plan.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08048000 and same-day Trinity Trails or event closures before launching, and use only public launch sites or direct hazard portages.",
+      "camping": "Treat this as a day-use urban river route. Fort Worth park code limits city park and recreation-area use to posted hours or permit contexts, and no reviewed Trinity Coalition, TRWD, Trinity Trails, or TRPA source supports informal overnight camping on this connector.",
+      "campingClassification": "none",
+      "summary": "Launch at White Settlement Road and finish at Panther Island for the short upstream Fort Worth connector on the Trinity River National Water Trail. Use USGS 08048000 with TRPA's conservative 100 cfs floor, then make a same-day call on mud, wood, water quality, dam awareness, and access closures.",
+      "accessCaveats": [
+        "The Trinity Coalition map publishes White Settlement Road and Panther Island coordinates as launch-site anchors. Follow current signs and launch paths on arrival rather than projecting mid-channel coordinates.",
+        "The Trinity Trails launch guide describes White Settlement access from the Isbell Road parking lot down to a concrete platform and Panther Island access from the public beach or Henderson Street area.",
+        "TRWD says White Settlement Trailhead and Panther Island Pavilion are part of the Fort Worth paddling access network, and local managers had to agree to maintain the improved access for National Recreation Trail status.",
+        "Trinity Coalition says river conditions, access sites, infrastructure, and dams can change and that users must investigate current conditions while planning a trip.",
+        "TRPA's 100 cfs minimum and 200 cfs ideal cue are broad West Fork guidance. At very low readings, expect scraping, mud, slow travel, and more effort than the short mileage suggests."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs, when TRPA's minimum is not met and the short urban reach can become slow, muddy, or scrape-prone.",
+        "High or rising water, urban runoff, poor water quality, and storm-driven debris after rain.",
+        "Log jams, strainers, steep muddy banks, low bridges, narrow-channel current, and difficult exits away from the mapped public launches.",
+        "Dam and low-head-dam context on the broader Trinity River Paddling Trail; review the current interactive map before launching and avoid every dam unless a manager-marked chute or portage is clearly appropriate.",
+        "Heat, limited shade, trail or event closures around Panther Island, vehicle security, and private-bank discipline between public access points."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "white-settlement-road-launch",
+        "name": "White Settlement Road",
+        "latitude": 32.760046,
+        "longitude": -97.3871,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream launch from the Trinity Coalition Clear and West Forks map and Trinity Trails launch guide."
+      },
+      {
+        "id": "panther-island-launch",
+        "name": "Panther Island",
+        "latitude": 32.759716,
+        "longitude": -97.338446,
+        "mileFromStart": 4.5,
+        "segmentKind": "creek",
+        "note": "Default downstream take-out and the upstream launch for the existing Panther-to-Handley West Fork route."
       }
     ]
   },
@@ -1593,6 +3413,63 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "west-fork-trinity-river-handley-ederville-river-legacy": {
+    "putIn": {
+      "id": "handley-ederville-road-launch",
+      "name": "Handley Ederville Road",
+      "latitude": 32.782252,
+      "longitude": -97.221388
+    },
+    "takeOut": {
+      "id": "river-legacy-park-access-site",
+      "name": "River Legacy Park Access Site",
+      "latitude": 32.788243,
+      "longitude": -97.100328
+    },
+    "logistics": {
+      "distanceLabel": "About 13.25 mi",
+      "estimatedPaddleTime": "Long urban day; expect several hours depending on flow, wind, wood, mud, heat, and shuttle pace",
+      "shuttle": "Stage River Legacy Park first during open park hours, then drive back to Handley Ederville Road. This is the downstream continuation of the Panther-to-Handley segment, not the shorter River Legacy out-and-back.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08048000 and same-day Trinity Coalition or River Legacy access conditions before launching, and use only public launch sites or direct hazard portages.",
+      "camping": "Treat this as a day-use urban river route. River Legacy Park posts 5 a.m.-10 p.m. park hours, and no reviewed Trinity Coalition, TPWD, TRPA, or River Legacy source supports informal overnight camping along the route.",
+      "campingClassification": "none",
+      "summary": "Launch at Handley Ederville Road and finish at River Legacy Park for a distinct West Fork Trinity National Water Trail segment through the Mid-Cities corridor. Use USGS 08048000 with TRPA's conservative 100 cfs floor, then make a same-day call on mud, wood, water quality, dam awareness, park hours, and access status.",
+      "accessCaveats": [
+        "The Trinity Coalition map publishes Handley Ederville Road and River Legacy Park coordinates as launch-site anchors. Follow current signs and launch paths on arrival rather than projecting mid-channel coordinates.",
+        "TPWD corroborates the River Legacy Park Access Site and says the launch is adjacent to the pedestrian bridge inside River Legacy Parks.",
+        "This is a long point-to-point route with fewer normal exits than the River Legacy out-and-back. Do not substitute unmanaged road crossings or private banks for a planned take-out.",
+        "Trinity Coalition says river conditions, access sites, infrastructure, and dams can change and that users must investigate current conditions while planning a trip.",
+        "TRPA's 100 cfs minimum and 200 cfs ideal cue are broad West Fork guidance. At very low readings, expect scraping, mud, slow travel, and more effort than the mileage alone suggests."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs, when TRPA's minimum is not met and the long urban reach can become slow, muddy, or scrape-prone.",
+        "High or rising water, urban runoff, poor water quality, and storm-driven debris after rain.",
+        "Log jams, strainers, steep muddy banks, low bridges, narrow-channel current, and difficult exits away from the mapped public launches.",
+        "Dam and low-head-dam context on the broader Trinity River Paddling Trail; review the current interactive map before launching and avoid every dam unless a manager-marked chute or portage is clearly appropriate.",
+        "River Legacy Park hours, heat, limited shade, vehicle security, and private-bank discipline between public access points."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "handley-ederville-road-launch",
+        "name": "Handley Ederville Road",
+        "latitude": 32.782252,
+        "longitude": -97.221388,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream launch from the Trinity Coalition Handley-to-River-Legacy map."
+      },
+      {
+        "id": "river-legacy-park-access-site",
+        "name": "River Legacy Park Access Site",
+        "latitude": 32.788243,
+        "longitude": -97.100328,
+        "mileFromStart": 13.25,
+        "segmentKind": "creek",
+        "note": "Default downstream take-out from the Trinity Coalition map and TPWD River Legacy Parks Paddling Trail page."
+      }
+    ]
+  },
   "trinity-river-trammell-crow-loop-12": {
     "putIn": {
       "id": "trammell-crow-park-sylvan-boat-ramp",
@@ -1659,6 +3536,186 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "west-fork-trinity-river-river-legacy-trammell-crow": {
+    "putIn": {
+      "id": "river-legacy-park-access-site",
+      "name": "River Legacy Park Access Site",
+      "latitude": 32.788243,
+      "longitude": -97.100328
+    },
+    "takeOut": {
+      "id": "trammell-crow-park-sylvan-boat-ramp",
+      "name": "Trammell Crow Park / Sylvan Boat Ramp",
+      "latitude": 32.789872,
+      "longitude": -96.834669
+    },
+    "logistics": {
+      "distanceLabel": "About 24.75 mi",
+      "estimatedPaddleTime": "All-day urban river commitment; expect a long day even near the 200 cfs ideal cue, and much slower progress in low water, wind, heat, mud, or wood",
+      "shuttle": "Stage Trammell Crow Park / Sylvan Boat Ramp first during Dallas park hours, then return to River Legacy Park. This is the long downstream continuation between two existing Paddle Today route families, not the short River Legacy out-and-back.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08049500, Trinity Coalition map/access notes, River Legacy and Dallas park hours, weather, and recent rain before launch, and use only public launches or direct hazard portages.",
+      "camping": "Treat this as a day-use urban route with no on-route camping. River Legacy Park posts 5 a.m.-10 p.m. hours, Dallas parks close overnight, and Dallas city code prohibits overnight camping on park property except by special permit; do not infer legal riverbank or floodway camping from the long mileage.",
+      "campingClassification": "none",
+      "summary": "Launch at River Legacy Park and finish at Trammell Crow Park for the 24.75-mile Trinity National Water Trail link through Grand Prairie and Irving to Dallas. Use the Grand Prairie gauge with a conservative 100 cfs floor, then make a same-day call on mileage, storm runoff, wood, water quality, heat, park hours, and the current dam/portage map.",
+      "accessCaveats": [
+        "Trinity Coalition publishes both endpoints as launch-site anchors. Follow current signs, ramps, park access paths, and bank conditions on arrival rather than treating the coordinates as survey-grade wetted-edge points.",
+        "This is a long point-to-point segment with few normal exits. The map shows Beltline Road only as an emergency exit, not a planned public split for inventing a shorter scored route.",
+        "TRPA's 100 cfs minimum and 200 cfs ideal cue are broad West Fork guidance. Near or below the floor, expect scraping, muddy banks, slow travel, and more exposure than the route distance alone suggests.",
+        "Trinity Coalition says access sites, dams, infrastructure, and river conditions change. Review the current launch-site and dam-hazard map before launching.",
+        "Do not substitute private banks, golf-course edges, levee roads, unmanaged road crossings, or floodway service roads for the planned take-out unless there is an immediate safety need."
+      ],
+      "watchFor": [
+        "Flows below about 100 cfs on USGS 08049500, when TRPA's West Fork minimum is not met and the long urban route can become slow, muddy, or scrape-prone.",
+        "High or rising water, urban runoff, poor water quality, storm debris, and limited rescue options after rain.",
+        "Log jams, strainers, steep muddy banks, low bridges, narrow-channel current, and difficult exits away from the mapped public launches.",
+        "Dam and low-head-dam context on the broader Trinity River Paddling Trail; review the current interactive map before launching and avoid every dam unless manager-marked portage guidance is clear.",
+        "Heat, sun exposure, headwind, vehicle security, park-hour limits at both endpoints, and the possibility that the group will need far more time than shorter Trinity route cards suggest."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "river-legacy-park-access-site",
+        "name": "River Legacy Park Access Site",
+        "latitude": 32.788243,
+        "longitude": -97.100328,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream public launch from the Trinity Coalition River-Legacy-to-Trammell-Crow map."
+      },
+      {
+        "id": "trammell-crow-park-sylvan-boat-ramp",
+        "name": "Trammell Crow Park / Sylvan Boat Ramp",
+        "latitude": 32.789872,
+        "longitude": -96.834669,
+        "mileFromStart": 24.75,
+        "segmentKind": "creek",
+        "note": "Default downstream public take-out from the Trinity Coalition map and the existing Dallas Trinity route family."
+      }
+    ]
+  },
+  "rio-grande-mariscal-canyon-talley-solis": {
+    "putIn": {
+      "id": "talley-river-access",
+      "name": "Talley River Access",
+      "latitude": 28.9832,
+      "longitude": -103.184
+    },
+    "takeOut": {
+      "id": "solis-river-access",
+      "name": "Solis River Access",
+      "latitude": 29.0443,
+      "longitude": -103.106
+    },
+    "logistics": {
+      "distanceLabel": "About 10.2 mi",
+      "estimatedPaddleTime": "Often a long day or overnight because of rough access roads and shuttle time; NPS says the canyon can be floated in a day above about 300 cfs",
+      "shuttle": "Stage Solis first and scout the take-out from the road so it is recognizable from the river, then drive the high-clearance River Road approach to Talley. NPS says Panther Junction-to-Talley can take two to two and a half hours and road conditions should be checked before final plans.",
+      "permits": "An NPS backcountry use permit is required before placing watercraft on the Rio Grande in Big Bend, including day-use and overnight Mariscal trips. Parties must carry required PFDs, spare equipment, survival gear, and overnight waste and fire-pan systems where applicable.",
+      "camping": "This is overnight-capable only with a valid NPS river permit and a legal camp plan. NPS advises river parties not to camp at vehicle-accessible river-road sites unless a separate permit for that car camp has been secured, and camps must be above the high-water mark and out of arroyos. Do not infer camping from random banks, the Mexican side, or road-accessible sites.",
+      "campingClassification": "overnight_capable",
+      "summary": "Launch at Talley and finish at Solis for the remote Mariscal Canyon run. Use the Rio Grande Village USGS gauge with a conservative 200 cfs floor and NPS 300 cfs day-float cue, then make a same-day call on permits, River Road access, low-water dragging, Rock Pile, Tight Squeeze, heat, and storms.",
+      "accessCaveats": [
+        "American Whitewater coordinates are access anchors, not guaranteed wetted-edge launch points. Follow NPS signs, current road and bank conditions, and ranger guidance on arrival.",
+        "NPS says high-clearance vehicles are usually required for both Mariscal access locations and the river road is rarely passable to passenger cars. Loose sand near the Talley road end is specifically called out.",
+        "The route is currently below the 200 cfs conservative floor. Low water can mean dragging, longer exposure, harder lining choices, and more consequential boulder moves in the canyon.",
+        "Solis is the common take-out, but NPS warns not to overshoot it because the next access is far downstream. Scout the take-out before launching.",
+        "The route is border-adjacent and remote. Use only lawful U.S.-side access, respect international/private-land limits, and carry reliable emergency communication and enough treated water capacity."
+      ],
+      "watchFor": [
+        "Rock Pile rapid around mile 2.6 and Tight Squeeze around mile 3.3; scout, line, or portage when the line or group skill is not clearly appropriate.",
+        "Flows below about 200 cfs, when American Whitewater's lowest recommended level is not met and shallow dragging can dominate the day.",
+        "Open-boat caution above about 1000 cfs and NPS high-water equipment cautions around 2000 cfs, especially on a rising hydrograph or after upstream storms.",
+        "Extreme heat, limited shade, dehydration, treated-water planning, summer thunderstorms, sudden rises, flash flooding, and camps placed too low or in arroyos.",
+        "Long rough-road shuttle exposure, vehicle security at remote accesses, poor cell coverage, wind, water-quality changes, and the temptation to continue downstream after Solis without the separate Boquillas or Great Unknown route plan."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "talley-river-access",
+        "name": "Talley River Access",
+        "latitude": 28.9832,
+        "longitude": -103.184,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream access from American Whitewater map data; NPS names Talley as the Mariscal Canyon put-in."
+      },
+      {
+        "id": "solis-river-access",
+        "name": "Solis River Access",
+        "latitude": 29.0443,
+        "longitude": -103.106,
+        "mileFromStart": 10.2,
+        "segmentKind": "creek",
+        "note": "Default downstream access from American Whitewater map data; NPS names Solis as the common Mariscal Canyon take-out."
+      }
+    ]
+  },
+  "rio-grande-lajitas-santa-elena-canyon": {
+    "putIn": {
+      "id": "lajitas-river-access",
+      "name": "Lajitas River Access",
+      "latitude": 29.264526,
+      "longitude": -103.78302
+    },
+    "takeOut": {
+      "id": "santa-elena-canyon-river-access",
+      "name": "Santa Elena Canyon River Access",
+      "latitude": 29.15559,
+      "longitude": -103.598946
+    },
+    "logistics": {
+      "distanceLabel": "About 20.6 mi",
+      "estimatedPaddleTime": "Usually an overnight or two- to three-day trip; only fast, skilled groups should treat it as a high-water day run",
+      "shuttle": "Stage the Santa Elena Canyon River Access take-out first, then return to Lajitas. Confirm Big Bend road conditions, take-out access, vehicle security, shuttle timing, and current river level before leaving a vehicle in this remote corridor.",
+      "permits": "An NPS backcountry river permit is required before placing watercraft on the Rio Grande in Big Bend, including day-use and overnight Santa Elena trips. Parties must carry required PFDs, spare equipment, fire pan, and overnight waste system where applicable.",
+      "camping": "This is an overnight-capable canyon route only with a valid NPS river permit and a legal camp plan. NPS prohibits camping in named Santa Elena / Castolon closure zones and requires camps to be above the high-water mark and out of side canyons or arroyos. Do not infer camping from random banks, the Mexican side, or private/developed areas.",
+      "campingClassification": "overnight_capable",
+      "summary": "Launch at Lajitas and finish at Santa Elena Canyon River Access for Big Bend's classic canyon run. Use the Castolon USGS gauge with a conservative 150 cfs floor and NPS 300-600 cfs open-boat band, then make a same-day call on permits, Rock Slide, heat, storm risk, camping zones, and group skill.",
+      "accessCaveats": [
+        "American Whitewater coordinates are access anchors, not guaranteed wetted-edge launch points. Follow NPS signs, current bank conditions, and ranger guidance on arrival.",
+        "NPS says the Lajitas put-in and Santa Elena take-out are accessible by car, but this remains a remote desert shuttle with limited services and little margin for missed logistics.",
+        "The route is currently below the 150 cfs conservative canoe/kayak floor. Low water can mean dragging, longer exposure, and more consequential boulder moves at Rock Slide and other canyon features.",
+        "High or rising water can quickly change Rock Slide, wall shots, eddies, and camps. NPS says novices should reconsider above 600 cfs and adds high-water equipment cautions around 2,000 cfs.",
+        "The route is border-adjacent and remote. Use only lawful U.S.-side access, respect international/private-land limits, and carry reliable emergency communication and enough treated water capacity."
+      ],
+      "watchFor": [
+        "Rock Slide about two miles into the canyon; scout early and portage from river right if the line, level, or group skill is not clearly appropriate.",
+        "Matadero, False Sentinel, San Carlos, Entrance Rapid, wall-shot moves, undercut rocks, sieves, boulders, shallow dragging, and channel splits at low to moderate levels.",
+        "Extreme heat, limited shade, dehydration, treated-water planning, summer thunderstorms, sudden rises, flash flooding, and camps placed too low or in arroyos.",
+        "NPS camping restrictions from the upstream end of the Santa Elena Nature Trail to 0.75 mile downstream from Castolon, plus current permit, group-size, waste-system, fire-pan, and PFD rules.",
+        "Long shuttle exposure, vehicle security, poor cell coverage, wind, water-quality changes, and the temptation to treat this as a casual day float when the gauge or weather is marginal."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "lajitas-river-access",
+        "name": "Lajitas River Access",
+        "latitude": 29.264526,
+        "longitude": -103.78302,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream access from American Whitewater map data; NPS names Lajitas as the put-in for the downstream Santa Elena trip."
+      },
+      {
+        "id": "entrance-camp",
+        "name": "Entrance Camp",
+        "latitude": 29.1852,
+        "longitude": -103.709,
+        "mileFromStart": 11.8,
+        "segmentKind": "creek",
+        "note": "American Whitewater identifies this popular overnight camp at the upper mouth of Santa Elena Canyon; camp only under the NPS river permit and current legal camp-zone rules."
+      },
+      {
+        "id": "santa-elena-canyon-river-access",
+        "name": "Santa Elena Canyon River Access",
+        "latitude": 29.15559,
+        "longitude": -103.598946,
+        "mileFromStart": 20.3,
+        "segmentKind": "creek",
+        "note": "Default downstream take-out from American Whitewater map data; parking and composting toilets are noted at river left."
+      }
+    ]
+  },
   "rio-grande-rio-grande-village-heath-canyon": {
     "putIn": {
       "id": "rio-grande-village-river-access",
@@ -1713,6 +3770,287 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 34.6,
         "segmentKind": "creek",
         "note": "Default downstream take-out below La Linda; American Whitewater publishes this access anchor and NPS notes TPWD Limited Use Permit requirements."
+      }
+    ]
+  },
+  "rio-grande-gravel-pit-rio-grande-village": {
+    "putIn": {
+      "id": "gravel-pit-river-access",
+      "name": "Gravel Pit river access",
+      "latitude": 29.151417,
+      "longitude": -103.002417
+    },
+    "takeOut": {
+      "id": "rio-grande-village-river-access",
+      "name": "Rio Grande Village take-out",
+      "latitude": 29.17984,
+      "longitude": -102.96085
+    },
+    "logistics": {
+      "distanceLabel": "About 5 mi",
+      "estimatedPaddleTime": "Usually a half-day float, with the first couple miles slow at lower water",
+      "shuttle": "Stage the Rio Grande Village take-out first, then use River Road East and the Gravel Pit access road only when current NPS road conditions support high-clearance travel. Bring two vehicles or arrange a local shuttle or guided trip.",
+      "permits": "NPS requires a backcountry river permit before placing watercraft on the Rio Grande within Big Bend National Park. Day-use inner tubes are exempt, but this canoe/kayak route should still be treated as a permitted river trip.",
+      "camping": "NPS says there is no overnight camping along the Hot Springs Canyon stretch, so the river trip is day-use only. Gravel Pit has permitted primitive roadside campsites at the put-in area, but they require a separate backcountry campsite permit and should not be treated as on-route camping.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from the Gravel Pit river access and float through Hot Springs Canyon to Rio Grande Village. The route is gentle at most levels and currently just above the NPS 30 cfs canoe/kayak floor, but high-clearance access, heat, shallow water, and NPS permit requirements still matter.",
+      "accessCaveats": [
+        "The Gravel Pit coordinate is an access anchor for the river access/campsite road area, not a guaranteed wetted-edge launch point. Use the signed NPS river-bank access at the end of the road and current bank conditions.",
+        "NPS says River Road East and Gravel Pit Road require high-clearance vehicles and can become extremely muddy or impassable after rain.",
+        "NPS says no overnight camping is allowed along this stretch of river. Use only separately permitted primitive roadside campsite plans at Gravel Pit or normal developed campground plans away from the route.",
+        "The same-day gauge reading is only barely above the 30 cfs NPS floor. Expect shallow riffles, slow travel, and possible dragging if the hydrograph drops.",
+        "This is a border river trip. The NPS river permit does not authorize entering Mexico, and parties should follow all current park, private-land, and river-use rules."
+      ],
+      "watchFor": [
+        "Slow first miles, shallow riffles below Hot Springs, low-water scraping, and missed take-out discipline at Rio Grande Village.",
+        "Summer heat, limited shade, sun exposure, dehydration, and the need to carry enough water even on a short float.",
+        "Thunderstorms, sudden rises, muddy access roads, and flash-flood response in side drainages.",
+        "Required PFDs, extra paddle/spare gear expectations, and current NPS river regulations.",
+        "Private-bank and international-boundary limits; do not land in Mexico or use informal access except for immediate safety."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "gravel-pit-river-access",
+        "name": "Gravel Pit river access",
+        "latitude": 29.151417,
+        "longitude": -103.002417,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream Hot Springs Canyon put-in. NPS says the river bank at the end of Gravel Pit Road is easily accessed but can have deep sand and gravel."
+      },
+      {
+        "id": "rio-grande-village-river-access",
+        "name": "Rio Grande Village take-out",
+        "latitude": 29.17984,
+        "longitude": -102.96085,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Default downstream take-out named by NPS for the Hot Springs Canyon day float and already used as the upstream access anchor for the Boquillas Canyon route."
+      }
+    ]
+  },
+  "north-prong-medina-river-freeman-crossing-moffett-park": {
+    "putIn": {
+      "id": "freeman-crossing-sh-16",
+      "name": "Freeman Crossing at SH 16",
+      "latitude": 29.85418,
+      "longitude": -99.2796359
+    },
+    "takeOut": {
+      "id": "moffett-park-medina",
+      "name": "Moffett Park, Medina",
+      "latitude": 29.7945195,
+      "longitude": -99.2490676
+    },
+    "logistics": {
+      "distanceLabel": "About 6.3 mi",
+      "estimatedPaddleTime": "Half-day North Prong run when recent rain leaves enough water; near or below the 50 cfs floor, expect a slow scrape with dragging and exposed limestone",
+      "shuttle": "Stage Moffett Park first, then return to Freeman Crossing at SH 16. Use only the TRPA-named public road-crossing access anchors and current roadside conditions; do not rely on private banks for shuttle, bailout, or casual stops.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use only public road crossings or named access points, check USGS 0817887350, weather, and recent rain before launching, and obey posted access restrictions.",
+      "camping": "Treat this as a day-use route with no public on-route camping selected. TRPA says the only public camping along the Medina River is Pioneer River Resort in Bandera, downstream from this North Prong reach, so do not infer legal camps from gravel bars, private banks, road crossings, cabins, or nearby ranch land.",
+      "campingClassification": "none",
+      "summary": "Launch at Freeman Crossing and take out at Moffett Park for a 6.3-mile North Prong Medina run. Use the Patterson Road gauge, treat 50 cfs as the North Prong floor, and skip the route if crossings, wood, weather, or private-bank access make the plan ambiguous.",
+      "accessCaveats": [
+        "TRPA's Google map links resolve to exact access-anchor coordinates for Freeman Crossing and Moffett Park, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
+        "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
+        "The route was implemented with USGS 0817887350 product-live at 48.5 cfs, just below TRPA's 50 cfs North Prong floor and far below the 300 cfs ideal cue. At similar or lower levels, expect exposed limestone, dragging, and slower travel.",
+        "TRPA says all low-water crossings are potential hazards. If a crossing is posted, blocked, pushy, fenced, or unsafe, skip the route rather than inventing a private alternate."
+      ],
+      "watchFor": [
+        "Flows below about 50 cfs on USGS 0817887350, when the TRPA North Prong minimum is not met and dragging over rock or gravel bars is likely.",
+        "High or rising water after storms, especially above about 300 cfs where TRPA says stronger navigation skill is needed and near 2,000 cfs where the route should not be attempted.",
+        "Low-water crossings, ledges, strainers, narrow channels, blind bends, fences or debris after floods, and limited exits between public crossings.",
+        "Private-property boundaries, road-crossing traffic, roadside parking limits, heat, sun exposure, and lack of public riverbank camping.",
+        "Class I-III rain-dependent whitewater character; casual flatwater groups should choose an easier Medina segment instead."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "freeman-crossing-sh-16",
+        "name": "Freeman Crossing at SH 16",
+        "latitude": 29.85418,
+        "longitude": -99.2796359,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and upstream public-road-crossing route point; use current signs and safe bank conditions for the actual water entry."
+      },
+      {
+        "id": "moffett-park-medina",
+        "name": "Moffett Park, Medina",
+        "latitude": 29.7945195,
+        "longitude": -99.2490676,
+        "mileFromStart": 6.3,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and downstream Moffett Park take-out beside the Patterson Road gauge; confirm current park and bank conditions on arrival."
+      }
+    ]
+  },
+  "medina-river-moffett-park-bandina-camp-road": {
+    "putIn": {
+      "id": "moffett-park-medina",
+      "name": "Moffett Park, Medina",
+      "latitude": 29.7945195,
+      "longitude": -99.2490676
+    },
+    "takeOut": {
+      "id": "bandina-camp-road-crossing",
+      "name": "Bandina Camp Road crossing",
+      "latitude": 29.7677822,
+      "longitude": -99.1882724
+    },
+    "logistics": {
+      "distanceLabel": "About 6.7 mi",
+      "estimatedPaddleTime": "Half-day Hill Country run when the Medina has enough water; low flows near the 30 cfs floor can turn this into a slow scrape with dragging",
+      "shuttle": "Stage Bandina Camp Road first, then return to Moffett Park in Medina. Use only the TRPA-named public access anchors and current public road-crossing conditions; do not rely on private banks for shuttle, bailout, or casual stops.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use only public road crossings or named access points, check USGS 0817887350, weather, and recent rain before launching, and obey any posted access restrictions.",
+      "camping": "Treat this as a day-use route with no public on-route camping selected. TRPA says the only public camping along the Medina River is Pioneer River Resort in Bandera, downstream from this reach, so do not infer legal camps from gravel bars, private banks, Moffett Park, or the Bandina Camp Road crossing.",
+      "campingClassification": "none",
+      "summary": "Launch at Moffett Park in Medina and take out at Bandina Camp Road for a 6.7-mile upper Medina River day trip. Use the Patterson Road gauge, expect shallow dragging near the 30 cfs floor, and keep stops to lawful public access because most adjacent land is private.",
+      "accessCaveats": [
+        "TRPA's Google map links resolve to exact access-anchor coordinates for Moffett Park and Bandina Camp Road, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
+        "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
+        "The route was implemented with USGS 0817887350 product-live at 49.6 cfs, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue. At similar or lower levels, expect exposed gravel, dragging, and slower travel.",
+        "Downstream Bandera-area water-quality cautions on the TRPA page are not used as route evidence for this upper reach, but paddlers should still avoid paddling after local runoff or visible contamination."
+      ],
+      "watchFor": [
+        "Flows below about 30 cfs on USGS 0817887350, when the TRPA lower-Medina minimum is not met and dragging over rock or gravel bars is likely.",
+        "High or rising water after storms, especially above about 300 cfs where TRPA says more navigation skill is needed and near 2,000 cfs where the route should not be attempted.",
+        "Wood, strainers, narrow channels, blind bends, fences or debris after floods, and limited exits between public crossings.",
+        "Private-property boundaries, road-crossing traffic, roadside parking limits, heat, sun exposure, and lack of public riverbank camping.",
+        "Changing access conditions at small public crossings; if a crossing is posted, unsafe, or blocked, skip the trip rather than inventing a private alternate."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "moffett-park-medina",
+        "name": "Moffett Park, Medina",
+        "latitude": 29.7945195,
+        "longitude": -99.2490676,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and upstream public route point; use current signs and safe bank conditions for the actual water entry."
+      },
+      {
+        "id": "bandina-camp-road-crossing",
+        "name": "Bandina Camp Road crossing",
+        "latitude": 29.7677822,
+        "longitude": -99.1882724,
+        "mileFromStart": 6.7,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and downstream public-road-crossing take-out; confirm current roadside parking and bank conditions on arrival."
+      }
+    ]
+  },
+  "medina-river-bandina-camp-road-peaceful-valley": {
+    "putIn": {
+      "id": "bandina-camp-road-crossing",
+      "name": "Bandina Camp Road crossing",
+      "latitude": 29.7677822,
+      "longitude": -99.1882724
+    },
+    "takeOut": {
+      "id": "peaceful-valley-road-crossing",
+      "name": "Peaceful Valley Road Crossing",
+      "latitude": 29.7439466,
+      "longitude": -99.1487218
+    },
+    "logistics": {
+      "distanceLabel": "About 3.5 mi",
+      "estimatedPaddleTime": "Short Hill Country run when the Medina has enough water; low flows near the 30 cfs floor can turn this into a scrape-prone wade-and-float",
+      "shuttle": "Stage Peaceful Valley Road first, then return to Bandina Camp Road. Use only the TRPA-named public road-crossing access anchors and current roadside conditions; do not rely on private banks for shuttle, bailout, or casual stops.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use only public road crossings or named access points, check USGS 0817887350, downstream USGS 08178880, weather, and recent rain before launching, and obey posted access restrictions.",
+      "camping": "Treat this as a day-use route with no public on-route camping selected. TRPA says the only public camping along the Medina River is Pioneer River Resort in Bandera, downstream from this reach, so do not infer legal camps from gravel bars, private banks, road crossings, cabins, or nearby ranch land.",
+      "campingClassification": "none",
+      "summary": "Launch at Bandina Camp Road and take out at Peaceful Valley Road for a 3.5-mile upper Medina River day trip. Use the Patterson Road gauge, cross-check the Bandera gauge, expect shallow dragging near the 30 cfs floor, and keep stops to lawful public access because most adjacent land is private.",
+      "accessCaveats": [
+        "TRPA's Google map links resolve to exact access-anchor coordinates for Bandina Camp Road and Peaceful Valley Road, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
+        "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
+        "The route was implemented with USGS 0817887350 product-live at 49.6 cfs and downstream USGS 08178880 at 59.0 cfs, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue. At similar or lower levels, expect exposed gravel, dragging, and slower travel.",
+        "Downstream Bandera-area water-quality cautions on the TRPA page are not the primary evidence for this upper reach, but paddlers should still avoid paddling after local runoff or visible contamination."
+      ],
+      "watchFor": [
+        "Flows below about 30 cfs on USGS 0817887350, when the TRPA lower-Medina minimum is not met and dragging over rock or gravel bars is likely.",
+        "High or rising water after storms, especially above about 300 cfs where TRPA says more navigation skill is needed and near 2,000 cfs where the route should not be attempted.",
+        "Wood, strainers, narrow channels, blind bends, fences or debris after floods, and limited exits between public crossings.",
+        "Private-property boundaries, road-crossing traffic, roadside parking limits, heat, sun exposure, and lack of public riverbank camping.",
+        "Changing access conditions at small public crossings; if a crossing is posted, unsafe, or blocked, skip the trip rather than inventing a private alternate."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "bandina-camp-road-crossing",
+        "name": "Bandina Camp Road crossing",
+        "latitude": 29.7677822,
+        "longitude": -99.1882724,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and upstream public-road-crossing route point; use current signs and safe bank conditions for the actual water entry."
+      },
+      {
+        "id": "peaceful-valley-road-crossing",
+        "name": "Peaceful Valley Road Crossing",
+        "latitude": 29.7439466,
+        "longitude": -99.1487218,
+        "mileFromStart": 3.5,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and downstream public-road-crossing take-out; confirm current roadside parking and bank conditions on arrival."
+      }
+    ]
+  },
+  "medina-river-peaceful-valley-ranger-crossing": {
+    "putIn": {
+      "id": "peaceful-valley-road-crossing",
+      "name": "Peaceful Valley Road Crossing",
+      "latitude": 29.7439466,
+      "longitude": -99.1487218
+    },
+    "takeOut": {
+      "id": "ranger-crossing-highway-16",
+      "name": "Ranger Crossing at Highway 16",
+      "latitude": 29.7369976,
+      "longitude": -99.1232512
+    },
+    "logistics": {
+      "distanceLabel": "About 3.8 mi",
+      "estimatedPaddleTime": "Short Hill Country run when the Medina has enough water; low flows near the 30 cfs floor can turn this into a scrape-prone wade-and-float",
+      "shuttle": "Stage Ranger Crossing at Highway 16 first, then return to Peaceful Valley Road. Use only the TRPA-named public road-crossing access anchors and current roadside conditions; do not rely on private banks for shuttle, bailout, or casual stops.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use only public road crossings or named access points, check USGS 0817887350, downstream USGS 08178880, weather, and recent rain before launching, and obey posted access restrictions.",
+      "camping": "Treat this as a day-use route with no public on-route camping selected. TRPA says the only public camping along the Medina River is Pioneer River Resort in Bandera, downstream from this reach, so do not infer legal camps from gravel bars, private banks, road crossings, cabins, or nearby ranch land.",
+      "campingClassification": "none",
+      "summary": "Launch at Peaceful Valley Road and take out at Ranger Crossing for a 3.8-mile Medina River day trip. Use the Patterson Road gauge, cross-check the Bandera gauge, expect shallow dragging near the 30 cfs floor, and keep stops to lawful public access because most adjacent land is private.",
+      "accessCaveats": [
+        "TRPA's Google map links resolve to exact access-anchor coordinates for Peaceful Valley Road and Ranger Crossing, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
+        "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
+        "The route was implemented with USGS 0817887350 product-live at 49.6 cfs and downstream USGS 08178880 at 59.0 cfs, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue. At similar or lower levels, expect exposed gravel, dragging, and slower travel.",
+        "Downstream Bandera-area water-quality cautions on the TRPA page are not the primary evidence for this short reach, but paddlers should still avoid paddling after local runoff or visible contamination."
+      ],
+      "watchFor": [
+        "Flows below about 30 cfs on USGS 0817887350, when the TRPA lower-Medina minimum is not met and dragging over rock or gravel bars is likely.",
+        "High or rising water after storms, especially above about 300 cfs where TRPA says more navigation skill is needed and near 2,000 cfs where the route should not be attempted.",
+        "Wood, strainers, narrow channels, blind bends, fences or debris after floods, and limited exits between public crossings.",
+        "Private-property boundaries, road-crossing traffic, roadside parking limits, heat, sun exposure, and lack of public riverbank camping.",
+        "Changing access conditions at small public crossings; if a crossing is posted, unsafe, or blocked, skip the trip rather than inventing a private alternate."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "peaceful-valley-road-crossing",
+        "name": "Peaceful Valley Road Crossing",
+        "latitude": 29.7439466,
+        "longitude": -99.1487218,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and upstream public-road-crossing route point; use current signs and safe bank conditions for the actual water entry."
+      },
+      {
+        "id": "ranger-crossing-highway-16",
+        "name": "Ranger Crossing at Highway 16",
+        "latitude": 29.7369976,
+        "longitude": -99.1232512,
+        "mileFromStart": 3.8,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and downstream public-road-crossing take-out; confirm current roadside parking and bank conditions on arrival."
       }
     ]
   }

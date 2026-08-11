@@ -1,7 +1,6 @@
 import { mixedSelectionPromptText } from './board-copy.js';
 import { isGroupedItem, joinWithBullet } from './board-domain.js';
 import {
-  cardLinkLabel,
   confidenceLabel,
   ratingToneKey,
   recommendationSummaryText,
@@ -18,6 +17,58 @@ import {
 
 export function boardMarkerClassFor(item) {
   return markerClassForRating(item.cardRoute.rating, item.cardRoute.confidence.label);
+}
+
+export function boardRouteActionModel(
+  item,
+  {
+    route = item?.cardRoute,
+    routeLabel = 'View route',
+  } = {},
+) {
+  const routeSlug = route?.river?.slug;
+  const grouped = isGroupedItem(item);
+  const routeCount = Number.isFinite(item?.totalRouteCount)
+    ? item.totalRouteCount
+    : item?.allRiverRoutes?.length;
+
+  return {
+    route: routeSlug
+      ? {
+          href: `/rivers/${encodeURIComponent(routeSlug)}/`,
+          label: routeLabel,
+        }
+      : null,
+    compare: grouped && item?.link
+      ? {
+          href: item.link,
+          label: Number.isFinite(routeCount) && routeCount > 1
+            ? `Compare ${routeCount} routes`
+            : 'Compare routes',
+        }
+      : null,
+  };
+}
+
+export function boardMapRouteActionsMarkup(item, options = {}) {
+  const {
+    includeRoute = true,
+    includeCompare = true,
+    ...actionOptions
+  } = options;
+  const actions = boardRouteActionModel(item, actionOptions);
+  const links = [
+    includeRoute && actions.route
+      ? `<a class="score-map-popup__link score-map-popup__link--button score-map-popup__link--primary" href="${escapeHtml(actions.route.href)}">${escapeHtml(actions.route.label)}</a>`
+      : '',
+    includeCompare && actions.compare
+      ? `<a class="score-map-popup__link score-map-popup__link--button score-map-popup__link--secondary" href="${escapeHtml(actions.compare.href)}">${escapeHtml(actions.compare.label)}</a>`
+      : '',
+  ].filter(Boolean);
+
+  return links.length > 0
+    ? `<div class="score-map-popup__actions">${links.join('')}</div>`
+    : '';
 }
 
 export function createBoardMapMarker({
@@ -108,7 +159,7 @@ export function createBoardMapPopupRenderer({
           <p class="score-map-popup__verdict">${escapeHtml(mapMarkerContext(item))}</p>
         </div>
         <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(item, isNearbyReady(item), getLatestResults()))}</p>
-        <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
+        ${boardMapRouteActionsMarkup(item)}
       </article>
     `;
   };

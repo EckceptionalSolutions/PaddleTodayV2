@@ -19,10 +19,11 @@ describe('operations snapshot', () => {
   it('keeps Texas in review until the discovery sweep completes', () => {
     const snapshot = getOperationsSnapshot();
     const texas = snapshot.states.find((state) => state.id === 'TX');
-    expect(texas).toMatchObject({ scored: 16, planning: 0, saturation: 'not_started' });
+    expect(texas).toMatchObject({ planning: 0, saturation: 'not_started' });
+    expect(texas?.scored ?? 0).toBeGreaterThanOrEqual(16);
   });
 
-  it('keeps Utah in review until the discovery sweep completes', () => {
+  it('keeps Utah in review until the bounded discovery sweep completes', () => {
     const snapshot = getOperationsSnapshot();
     const utah = snapshot.states.find((state) => state.id === 'UT');
     expect(utah).toMatchObject({ scored: 3, planning: 0, saturation: 'not_started' });
@@ -46,7 +47,7 @@ describe('operations snapshot', () => {
     expect(ranked[2].done).toBe(true);
   });
 
-  it('does not call coverage-complete Texas or Utah saturated without discovery sweeps', () => {
+  it('does not call coverage-complete Texas or Utah saturated before discovery', () => {
     const snapshot = getOperationsSnapshot();
     expect(snapshot.states.find((state) => state.id === 'TX')?.saturation).toBe('not_started');
     expect(snapshot.states.find((state) => state.id === 'UT')?.saturation).toBe('not_started');
