@@ -26,6 +26,8 @@ export type RouteHazard =
   | 'strainers'
   | 'whitewater'
   | 'fast_rise'
+  | 'low_water'
+  | 'flash_flood'
   | 'cold_water'
   | 'remote'
   | 'urban_water_quality'
@@ -206,6 +208,8 @@ export const routeHazardLabels: Record<RouteHazard, string> = {
   strainers: 'Strainers',
   whitewater: 'Whitewater',
   fast_rise: 'Fast rise',
+  low_water: 'Low water',
+  flash_flood: 'Flash flood',
   cold_water: 'Cold water',
   remote: 'Remote',
   urban_water_quality: 'Water quality',

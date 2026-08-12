@@ -2827,6 +2827,148 @@ export const texasRoutes: River[] = [
     ]
   },
   {
+    "id": "colorado-river-fm973-little-webberville",
+    "slug": "colorado-river-fm973-little-webberville",
+    "name": "Colorado River",
+    "reach": "FM 973 / Del Valle Bridge to Little Webberville Park",
+    "aliases": [
+      "FM 973 to Little Webberville",
+      "Del Valle Bridge to Little Webberville",
+      "Lower Colorado River FM 973 to Little Webberville"
+    ],
+    "state": "Texas",
+    "region": "Prairies and Lakes",
+    "summary": "Public lower-Colorado day route from the LCRA-listed FM 973 / Del Valle Bridge access to Travis County's Little Webberville Park. LCRA publishes the consecutive access points and 12-mile spacing, while the Austin USGS gauge gives a product-supported flow check for the Austin-to-Bastrop corridor.",
+    "statusText": "Use the Colorado River at Austin gauge. Treat about 200 cfs as the conservative Austin-to-Bastrop floating floor; below that, expect shallow bars and slow travel, and at high or rising water treat release changes, debris, and private banks conservatively.",
+    "latitude": 30.21,
+    "longitude": -97.64,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "LCRA describes FM 973 / Del Valle Bridge as limited parking with an uneven carry to the river; scout the launch path before leaving a shuttle vehicle.",
+        "This 12-mile lower-Colorado reach has limited public exits. Wind, heat, low-water bars, release changes, or a late start can turn an easy current into a long day.",
+        "Use only the LCRA/Travis County access anchors and do not infer casual stops or camping from islands, sandbars, or private shoreline."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08158000",
+      "provider": "usgs",
+      "siteId": "08158000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Colorado Rv at Austin, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08158000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 200,
+      "thresholdSource": {
+        "label": "Texas River Flows lower Colorado Austin-to-Bastrop table",
+        "url": "https://theworld.com/~reichert/riverflo.htm",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 0.45,
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "The FM 973-to-Webberville corridor can work year-round when releases, runoff, weather, and access conditions line up. Low water can expose bars and slow the 12-mile trip, while storms or upstream release changes can quickly alter current, debris, and water quality.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The route is normally flatwater, but it is moderate because the 12-mile distance, few public exits, uneven FM 973 launch carry, wind exposure, heat, and release-driven flow changes require early planning.",
+      "confidenceNotes": "Confidence is good for a conservative Texas add: LCRA publishes FM 973 / Del Valle Bridge and Little Webberville Park as consecutive lower-Colorado access points with 12 miles between them and coordinates for each; Travis County confirms Little Webberville river access for canoeing and kayaking and no-camping rules; USGS 08158000 is product-supported for the Austin-to-Bastrop corridor; and the legacy Texas River Flows table gives a 200 cfs minimum floating level for Colorado Austin-to-Bastrop. Confidence remains conservative because the numeric floor is broad lower-Colorado guidance rather than a modern route-manager FM-973-specific band."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "FM 973 / Del Valle Bridge to Little Webberville Park, 12 mi",
+        "note": "LCRA lists FM 973 / Del Valle Bridge and Little Webberville Park as consecutive lower-Colorado access points and gives 12 miles from FM 973 to the next point.",
+        "sourceUrl": "https://lcraparks.com/paddle-the-colorado"
+      },
+      {
+        "label": "Public endpoint access",
+        "value": "TxDOT bridge access to Travis County park ramp",
+        "note": "LCRA identifies FM 973 / Del Valle Bridge as a TxDOT-managed access with limited parking and an uneven carry, and Travis County publishes Little Webberville as a park with 24-hour boat ramp access and river access for canoeing and kayaking.",
+        "sourceUrl": "https://parks.traviscountytx.gov/parks/little-webberville"
+      },
+      {
+        "label": "Access-anchor coordinates",
+        "value": "30.21, -97.64 to 30.23, -97.52",
+        "note": "LCRA publishes access-anchor coordinates for both FM 973 / Del Valle Bridge and Little Webberville Park. Treat them as planning anchors, not exact wetted-edge launch points.",
+        "sourceUrl": "https://lcraparks.com/paddle-the-colorado"
+      },
+      {
+        "label": "Product-supported live gauge",
+        "value": "USGS 08158000 at 185 cfs / 12.39 ft",
+        "note": "USGS Water Services JSON returned same-day Colorado River at Austin discharge and gage height at 2026-08-11 12:50 CDT during this implementation run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08158000&period=P1D&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Conservative low-water floor",
+        "value": "200 cfs minimum-only",
+        "note": "Texas River Flows lists the Colorado Austin-to-Bastrop corridor at 200 / 500 / 1,000 / 3,000 / 5,000 cfs and defines the first tier as minimum floating water; Paddle Today uses only that conservative floor.",
+        "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
+      },
+      {
+        "label": "Camping",
+        "value": "No route camping selected",
+        "note": "Travis County prohibits camping at Little Webberville, and LCRA does not identify FM 973 / Del Valle Bridge as a campground. Do not infer legal camping from private banks, islands, or sandbars on this shorter public-access route.",
+        "sourceUrl": "https://parks.traviscountytx.gov/parks/little-webberville"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded LCRA, Travis County, TPWD, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact FM-973-to-Little-Webberville paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Colorado+River+FM+973+Little+Webberville+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "LCRA Paddle the Colorado",
+        "url": "https://lcraparks.com/paddle-the-colorado",
+        "provider": "local"
+      },
+      {
+        "label": "Travis County Little Webberville Park",
+        "url": "https://parks.traviscountytx.gov/parks/little-webberville",
+        "provider": "local"
+      },
+      {
+        "label": "Texas River Flows for 5 Levels of Paddling",
+        "url": "https://theworld.com/~reichert/riverflo.htm",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08158000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08158000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08158000 Water Services current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08158000&period=P1D&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "colorado-river-little-webberville-big-webberville",
     "slug": "colorado-river-little-webberville-big-webberville",
     "name": "Colorado River",
@@ -4402,6 +4544,141 @@ export const texasRoutes: River[] = [
       {
         "label": "USGS 08090800 legacy current values",
         "url": "https://nwis.waterdata.usgs.gov/tx/nwis/uv?cb_00060=on&cb_00065=on&format=rdb&site_no=08090800&period=P1D&legacy=1",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "brazos-river-sandy-bottoms-chavez-access",
+    "slug": "brazos-river-sandy-bottoms-chavez-access",
+    "name": "Brazos River",
+    "reach": "Sandy Bottoms River Trail Camp to Sandy Bottoms Chavez Access",
+    "aliases": [
+      "Sandy Bottoms to Chavez Access",
+      "Sandy Bottoms River Company short float",
+      "Brazos River upstream of Lake Granbury"
+    ],
+    "state": "Texas",
+    "region": "Dallas-Fort Worth",
+    "routeType": "recreational",
+    "summary": "Very short TPWD leased-access Brazos River connector upstream of Lake Granbury, from Sandy Bottoms River Trail Camp to Sandy Bottoms Chavez Access. TPWD publishes the active leased access, both access coordinates, 1.5-mile downstream spacing, direct Chavez dock and river-access context, daylight day-use rules, and contact requirements, while USGS 08090800 at Dennis gives a direct same-reach flow check.",
+    "statusText": "Use the Brazos River near Dennis gauge. BRA's public paddling chart treats 200 cfs as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous; this short connector still needs access confirmation and enough water to avoid dragging.",
+    "latitude": 32.580406,
+    "longitude": -97.892005,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Both endpoints are TPWD leased-access Sandy Bottoms sites with advance-text and liability-form requirements; confirm the route and landing before driving a shuttle.",
+        "BRA warns that Brazos paddling conditions can change with rain and upstream reservoir releases, and that flows above 1,200 cfs become hazardous for less-skilled paddlers.",
+        "Stay on the named leased-access route and public navigable channel; do not treat private banks, sandbars, or nearby ranch roads as casual rest, scout, bailout, or camping options."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08090800",
+      "provider": "usgs",
+      "siteId": "08090800",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Brazos Rv nr Dennis, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08090800/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 501,
+      "idealMax": 1200,
+      "tooLow": 200,
+      "tooHigh": 5000,
+      "thresholdSource": {
+        "label": "Brazos River Authority paddling-flow chart",
+        "url": "https://brazos.org/about-us/news/news-room/resource-library/stay-informed-on-the-river",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 0.25,
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "This Sandy Bottoms connector is only about 1.5 river miles, so it is most useful as a short practice, fishing, or family shuttle when the Dennis gauge is comfortably above the 200 cfs floor, access is confirmed, and weather or reservoir-release changes are not pushing the Brazos upward.",
+      "difficulty": "easy",
+      "difficultyNotes": "The route is very short and TPWD names both access points, but leased-access logistics, shallow low-water bars, private banks, rural landing conditions, and fast-changing Brazos releases still require same-day checks.",
+      "confidenceNotes": "Confidence is good for a conservative TPWD leased-access route: TPWD publishes Sandy Bottoms River Trail Camp and Sandy Bottoms Chavez Access as active public leased access through August 31, 2026, gives both endpoint coordinates, and says Chavez is about 1.5 river miles downstream with direct river access and a small dock. USGS 08090800 is a direct same-reach gauge at Dennis with same-day legacy RDB discharge and stage. BRA's flow chart is river-wide rather than route-specific, so the route keeps explicit low-water, release, storm, private-bank, and visual-check caveats."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route shape",
+        "value": "Sandy Bottoms River Trail Camp to Sandy Bottoms Chavez Access, 1.5 mi",
+        "note": "TPWD says Sandy Bottoms Chavez Access is about 1.5 river miles downstream of Sandy Bottoms River Trail Camp and provides direct river access plus a small dock for paddle craft and fishing.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/sandy_bottoms.phtml"
+      },
+      {
+        "label": "Public endpoint coordinates",
+        "value": "32.580406, -97.892005 to 32.563572, -97.877014",
+        "note": "TPWD publishes current leased-access coordinates for Sandy Bottoms River Trail Camp and Sandy Bottoms Chavez Access; both are recorded as access anchors and not guessed wetted-edge points.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/sandy_bottoms.phtml"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 08090800 at 211 cfs / 2.41 ft",
+        "note": "USGS legacy RDB current conditions returned Brazos River near Dennis discharge and gage height at 2026-08-11 13:45 CDT during this implementation run after Water Services JSON returned HTTP 503.",
+        "sourceUrl": "https://nwis.waterdata.usgs.gov/tx/nwis/uv?cb_00060=on&cb_00065=on&format=rdb&site_no=08090800&period=1&siteStatus=all"
+      },
+      {
+        "label": "Brazos flow guidance",
+        "value": "200 cfs below minimum; 501-1,200 cfs ideal; 5,001+ cfs flood",
+        "note": "BRA's public river-recreation chart lists 200 cfs or less as below the minimum needed for paddling, 501-1,200 cfs as ideal conditions, 1,200-3,000 cfs as hazardous, 3,001-5,000 cfs as experts-only, and 5,001+ cfs as flood conditions.",
+        "sourceUrl": "https://brazos.org/about-us/news/news-room/resource-library/stay-informed-on-the-river"
+      },
+      {
+        "label": "Access rules and camping",
+        "value": "Advance text, daylight access, liability form, separate private accommodations",
+        "note": "TPWD requires advance text contact and liability forms for Sandy Bottoms access, limits use to daylight windows, and describes private accommodations as separate reservation-based services rather than public route camping rights.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/sandy_bottoms.phtml"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded TPWD, BRA, Commons, USGS, and same-route web review found route-context imagery but no clearly rights-clean exact Sandy-Bottoms-to-Chavez-Access paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brazos+River+Sandy+Bottoms+Chavez+Access+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "TPWD Sandy Bottoms River Company",
+        "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/sandy_bottoms.phtml",
+        "provider": "local"
+      },
+      {
+        "label": "Brazos River Authority Stay Informed On The River",
+        "url": "https://brazos.org/about-us/news/news-room/resource-library/stay-informed-on-the-river",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08090800 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08090800/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08090800 legacy current values",
+        "url": "https://nwis.waterdata.usgs.gov/tx/nwis/uv?cb_00060=on&cb_00065=on&format=rdb&site_no=08090800&period=1&siteStatus=all",
         "provider": "usgs"
       }
     ]
@@ -9955,6 +10232,154 @@ export const texasRoutes: River[] = [
     ]
   },
   {
+    "id": "north-prong-medina-river-3rd-crossing-freeman-crossing",
+    "slug": "north-prong-medina-river-3rd-crossing-freeman-crossing",
+    "name": "North Prong Medina River",
+    "reach": "3rd Crossing to Freeman Crossing",
+    "aliases": [
+      "3rd Crossing of FR2107 to Freeman Crossing at SH16",
+      "North Prong Medina 3rd Crossing to Freeman Crossing",
+      "Medina River 3rd Crossing to Freeman Crossing"
+    ],
+    "state": "Texas",
+    "region": "Texas Hill Country",
+    "routeType": "whitewater",
+    "summary": "North Prong Medina day run from 3rd Crossing of FR 2107 to Freeman Crossing at SH 16. TRPA publishes this 6.6-mile featured run, map-link access anchors, Class I-III corridor context, private-bank rules, and Medina flow bands tied to the product-supported Patterson Road gauge downstream.",
+    "statusText": "Use the Medina River at Patterson Road gauge. Treat 50 cfs as the North Prong floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling; current readings below the floor mean scraping and dragging are likely.",
+    "latitude": 29.8763326,
+    "longitude": -99.3483821,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "low_head_dam",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "TRPA frames the Medina corridor as Class I-III and says the North Prong above Medina is a rain-dependent whitewater stream; casual flatwater groups should skip this route.",
+        "TRPA calls out Chamblee Falls on the North Prong as a 10 ft drop followed soon by another 4 ft drop. Treat the upper North Prong corridor as scout-required whitewater and portage any drop, ledge, fence, or crossing that is not clearly within the group's ability.",
+        "All low-water crossings should be treated as hazards. Scout road crossings, limestone drops, wood, fences, and blind bends rather than assuming the mapped access anchor is a safe water-entry line.",
+        "TRPA says almost all land along the Medina River is private and paddlers should use public road crossings for access; do not use private banks for casual stops or camps."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-0817887350",
+      "provider": "usgs",
+      "siteId": "0817887350",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Medina Rv at Patterson Rd at Medina, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-0817887350/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "tooLow": 50,
+      "idealMin": 300,
+      "idealMax": 1500,
+      "tooHigh": 2000,
+      "thresholdSource": {
+        "label": "Texas Rivers Protection Association Medina River guidance",
+        "url": "https://txrivers.org/discover-texas-rivers/medina-river/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "TRPA describes the North Prong above Medina as a rain-dependent whitewater and fly-fishing stream, while the broader Medina can be too low in drought or flood after sustained rainfall. Use same-day gauge trend, rainfall, and visible water before committing.",
+      "difficulty": "hard",
+      "difficultyNotes": "The route is short enough for a half day, but the Class I-III posture, North Prong drop hazards, low-water crossings, public-road-access limitations, private banks, wood, and fast Hill Country rises make this an advanced whitewater-hidden entry rather than a casual Explore route.",
+      "confidenceNotes": "Confidence is good for a conservative Texas add: TRPA lists 3rd Crossing of FR 2107-to-Freeman Crossing at SH 16 as a 6.6-mile North Prong Medina featured run, publishes map links that resolve to exact endpoint access anchors, says to use public road crossings because almost all adjacent property is private, and provides 50 / 300-1,500 / 2,000 cfs North Prong guidance. USGS 0817887350 is a product-supported direct gauge downstream at Patterson Road and returned current discharge and stage during this implementation run."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "3rd Crossing of FR 2107 to Freeman Crossing at SH 16, 6.6 mi",
+        "note": "TRPA lists 3rd Crossing of FR 2107-to-Freeman Crossing at SH 16 as a North Prong Medina featured run and gives the route mileage.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
+      },
+      {
+        "label": "Public access coordinates",
+        "value": "29.8763326, -99.3483821 to 29.85418, -99.2796359",
+        "note": "TRPA's 3rd Crossing and Freeman Crossing map links resolve to these Google Maps coordinates; they are stored as access anchors, with final water-entry adjusted to current signs, road-shoulder conditions, and safe banks.",
+        "sourceUrl": "https://goo.gl/maps/BbWtmumhsmS1VB2x5"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 0817887350 at 47.4 cfs / 4.69 ft",
+        "note": "USGS Water Services returned same-day Medina River at Patterson Road discharge and gage height at 2026-08-12 00:55 CDT during this implementation run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=0817887350&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold posture",
+        "value": "50 cfs North Prong floor; 300-1,500 cfs ideal; 2,000 cfs ceiling",
+        "note": "TRPA says the North Prong minimum is 50 cfs, the Medina is ideal around 300-1,500 cfs, and the river should not be attempted above about 2,000 cfs.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
+      },
+      {
+        "label": "Camping",
+        "value": "No public on-route camping selected",
+        "note": "TRPA says the only public camping along the Medina River is Pioneer River Resort in Bandera, downstream from this selected North Prong reach; no road-crossing, gravel-bar, or private-bank camping is inferred.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
+      },
+      {
+        "label": "Safety",
+        "value": "Class I-III, North Prong drops, low-water crossings, private banks, drought, floods and wood",
+        "note": "TRPA frames the Medina corridor as Class I-III, says the North Prong is known for whitewater after rain, calls out Chamblee Falls and a second drop, warns that high flows above about 300 cfs require stronger navigation skill, and says all low-water crossings are potential hazards.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded TRPA, Commons, USGS, Medina/Bandera local tourism, and same-route web review found route-context photos but no clearly rights-clean exact 3rd-Crossing-to-Freeman-Crossing paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=North+Prong+Medina+3rd+Crossing+Freeman+Crossing+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "TRPA Medina River",
+        "url": "https://txrivers.org/discover-texas-rivers/medina-river/",
+        "provider": "local"
+      },
+      {
+        "label": "TRPA 3rd Crossing map link",
+        "url": "https://goo.gl/maps/BbWtmumhsmS1VB2x5",
+        "provider": "local"
+      },
+      {
+        "label": "TRPA Freeman Crossing map link",
+        "url": "https://goo.gl/maps/fU2Nkd5gk9XZGo9X7",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 0817887350 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-0817887350/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 0817887350 Water Services current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=0817887350&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "north-prong-medina-river-freeman-crossing-moffett-park",
     "slug": "north-prong-medina-river-freeman-crossing-moffett-park",
     "name": "North Prong Medina River",
@@ -10565,6 +10990,164 @@ export const texasRoutes: River[] = [
       {
         "label": "USGS Medina Water Services current values",
         "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=0817887350,08178880&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "medina-river-ranger-crossing-bandera-city-park",
+    "slug": "medina-river-ranger-crossing-bandera-city-park",
+    "name": "Medina River",
+    "reach": "Ranger Crossing to Bandera City Park",
+    "aliases": [
+      "SH 16 Ranger Crossing to Bandera City Park",
+      "Medina River Ranger Crossing to Bandera",
+      "Ranger Crossing to Bandera City Park Medina"
+    ],
+    "state": "Texas",
+    "region": "Texas Hill Country",
+    "routeType": "recreational",
+    "summary": "Bandera-area Medina River day trip from Ranger Crossing at Highway 16 to Bandera City Park. American Whitewater publishes this public access-to-access reach, endpoint coordinates, Class I-II context, low-water-crossing hazards, and the direct Bandera USGS gauge; Bandera City Park publishes current day-use rules, no-camping rules, and dam-area restrictions for the take-out.",
+    "statusText": "Use the Medina River at Bandera gauge directly at the take-out. Treat 30 cfs as the lower-Medina floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling; American Whitewater also showed the same-day 56 cfs reading as below its recommended level, so expect shallow, scrape-prone conditions near today's flow.",
+    "latitude": 29.7369976,
+    "longitude": -99.1232512,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "low_head_dam",
+        "mandatory_takeout"
+      ],
+      "safetyNotes": [
+        "American Whitewater lists low-water crossings on the Bandera-area Medina reach as potential hazards and says current beta is needed for specific rapid details.",
+        "Take out at Bandera City Park before extending into the dam corridor. The city park rules prohibit swimming near or standing on the dam and allow water entry only from the river bank.",
+        "TRPA says almost all land along the Medina River is private and paddlers should use public road crossings for access; do not treat nearby banks, gravel bars, or ranch roads as casual stops or camps.",
+        "Use same-day USGS 08178880, recent rain, local weather, and Bandera-area water-quality information before launch because Hill Country rivers can rise quickly after storms and city water-quality notices can change."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08178880",
+      "provider": "usgs",
+      "siteId": "08178880",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Medina Rv at Bandera, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08178880/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "tooLow": 30,
+      "idealMin": 300,
+      "idealMax": 1500,
+      "tooHigh": 2000,
+      "thresholdSource": {
+        "label": "Texas Rivers Protection Association Medina River guidance",
+        "url": "https://txrivers.org/discover-texas-rivers/medina-river/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "TRPA frames the lower Medina as runnable when water is present but cautions that drought can make levels too low and floods can make the river hazardous. Use the direct Bandera gauge and city water-quality information before committing to the Bandera City Park finish.",
+      "difficulty": "moderate",
+      "difficultyNotes": "American Whitewater rates the Bandera reach Class I-II, but it stays moderate because the route includes low-water crossings, low bridges, mostly private banks, shallow dragging risk, wood, fast Hill Country rises, and a mandatory city-park take-out before the dam corridor.",
+      "confidenceNotes": "Confidence is good for a conservative Texas add: American Whitewater identifies Ranger Crossing at Highway 16 and Bandera City Park as public access points on the Medina reach, publishes coordinates for both access anchors, describes the larger 27.5-mile Bandera-area reach as Class I-II with low-water crossings and bridge hazards, and ties it to USGS 08178880 at Bandera. Bandera City Park publishes current access hours, fees, no-camping rules, and dam-area restrictions. TRPA supplies the accepted lower-Medina 30 / 300-1,500 / 2,000 cfs flow bands and public-road-crossing/private-bank camping context already used by adjacent Medina cards."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Ranger Crossing at Hwy 16 to Bandera City Park, about 5.9 mi",
+        "note": "American Whitewater lists SH 16 / Ranger Crossing at river mile 21.2 and Bandera City Park at river mile 27.12 on its Medina River route page.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1815/main"
+      },
+      {
+        "label": "Public access coordinates",
+        "value": "29.7369976, -99.1232512 to 29.72254, -99.06975",
+        "note": "Ranger Crossing is stored using the existing source-backed Medina chain access anchor, corroborated by American Whitewater's Ranger Crossing public-access page; Bandera City Park uses American Whitewater's public access coordinate. These are arrival anchors, not guessed mid-channel water-entry points.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/104892"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 08178880 at 55.8 cfs / 4.26 ft",
+        "note": "USGS Water Services returned same-day Medina River discharge and gage height at Bandera at 2026-08-12 04:45 CDT, and American Whitewater ties the Bandera-area route to the same gauge.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08178880&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold posture",
+        "value": "30 cfs floor; 300-1,500 cfs ideal; 2,000 cfs ceiling",
+        "note": "TRPA says the Medina needs about 30 cfs from town of Medina and below, is ideal around 300-1,500 cfs, and should not be attempted above about 2,000 cfs. American Whitewater's same-day display called about 56 cfs below recommended, so near-floor trips should expect scraping.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
+      },
+      {
+        "label": "Camping",
+        "value": "No camping at Bandera City Park; nearby basecamp only",
+        "note": "Bandera City Park rules prohibit camping. TRPA says the only public camping along the Medina River is Pioneer River Resort in Bandera, across SH 173 from the city park area; no private-bank, gravel-bar, road-crossing, or park camping is inferred.",
+        "sourceUrl": "https://www.banderatx.gov/park"
+      },
+      {
+        "label": "Safety",
+        "value": "Low-water crossings, low bridges, private banks and mandatory city-park exit",
+        "note": "American Whitewater flags low-water crossings and Bandera low bridges as hazards, while Bandera City Park rules prohibit swimming near or standing on the dam. The route package requires taking out at the park and not extending into the dam corridor without a separate source-backed plan.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1815/main"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded American Whitewater, TRPA, Commons, USGS, Bandera city/local tourism, and same-route web review found route-context photos but no clearly rights-clean exact Ranger-Crossing-to-Bandera-City-Park paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Medina+River+Ranger+Crossing+Bandera+City+Park+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "American Whitewater Medina River route",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1815/main",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater Ranger Crossing access",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/104892",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater Bandera City Park access",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/104897",
+        "provider": "local"
+      },
+      {
+        "label": "Bandera City Park rules",
+        "url": "https://www.banderatx.gov/park",
+        "provider": "local"
+      },
+      {
+        "label": "TRPA Medina River",
+        "url": "https://txrivers.org/discover-texas-rivers/medina-river/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08178880 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08178880/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS Medina at Bandera current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08178880&parameterCd=00060,00065&siteStatus=all",
         "provider": "usgs"
       }
     ]

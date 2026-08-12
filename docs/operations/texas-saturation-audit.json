@@ -1,15 +1,19 @@
 {
-  "generatedAt": "2026-08-11T17:03:00.000Z",
+  "generatedAt": "2026-08-12T12:50:00.000Z",
   "state": "Texas",
   "decision": "bounded_discovery_open_no_route_added",
-  "rule": "Texas remains open for bounded discovery; this run screened five candidates and added no route because none cleared the evidence, access, duplicate, gauge, camping, safety, coordinate, geometry, and image gates into implementation.",
+  "rule": "Texas remains in bounded discovery. The latest route-worker pass screened five mutable recheck candidates and added no route because all failed current live-gauge, active access-closure, drawdown/dam-safety, or route-shape gates before implementation.",
   "totals": {
-    "inventory": 71,
-    "scored": 71,
+    "inventory": 75,
+    "scored": 75,
     "planning": 0
   },
   "auditScope": {
     "screenedCandidates": [
+      "tx-caddo-clear-lake-loop",
+      "tx-caddo-mill-pond-loop",
+      "tx-caddo-old-river-ii-loop",
+      "tx-caddo-hells-half-acre-loop",
       "tx-rio-grande-santa-elena-canyon",
       "tx-fort-worth-nature-center-refuge-loop",
       "tx-river-legacy-parks-out-and-back",
@@ -131,10 +135,85 @@
       "tx-guadalupe-i10-comfort-james-kiehl",
       "tx-guadalupe-james-kiehl-waring-welfare",
       "tx-guadalupe-fm311-rebecca-creek-contained",
-      "tx-brazos-fm4-us180"
+      "tx-brazos-fm4-us180",
+      "tx-trinity-loop12-mccommas-bluff",
+      "tx-san-jacinto-sh242-tollway99",
+      "tx-clear-fork-trinity-oakmont-river-park",
+      "tx-colorado-fm973-little-webberville",
+      "tx-guadalupe-trophy-trout-4th-2nd-crossing",
+      "tx-devils-san-pedro-devils-back",
+      "tx-seadrift-guadalupe-delta-trail",
+      "tx-rio-grande-great-unknown-santa-elena-talley",
+      "tx-brazos-ham-creek-chisholm-kimball",
+      "tx-brazos-sandy-bottoms-chavez-access",
+      "tx-colorado-big-webberville-horseshoe",
+      "tx-brazos-brnc-brazos-park-east",
+      "tx-san-marcos-city-park-westerfield-scout-camp",
+      "tx-san-marcos-smrr-staples",
+      "tx-colorado-us190-colorado-bend-state-park",
+      "tx-inks-lake-paddling-trails",
+      "tx-grapevine-lake-paddling-trail",
+      "tx-lake-arlington-paddling-trail",
+      "tx-lewisville-lake-highland-village-paddling-trails",
+      "tx-morgans-point-lake-belton-paddling-trails",
+      "tx-christmas-bay-coastal-trails",
+      "tx-galveston-island-state-park-paddling-trails",
+      "tx-lighthouse-lakes-paddling-trail-loops",
+      "tx-port-oconnor-bay-marsh-trails",
+      "tx-powderhorn-shoreline-marsh-trails",
+      "tx-caddo-benton-lake-loop",
+      "tx-caddo-haggerty-creek-loop",
+      "tx-caddo-cathedral-loop",
+      "tx-caddo-old-folks-playground-loop",
+      "tx-caddo-turtle-shell-loop",
+      "tx-joe-pool-lake-walnut-creek",
+      "tx-ron-smith-oso-bay-loop",
+      "tx-south-bay-paddling-trail-loop",
+      "tx-martin-dies-jr-neches-paddling-trail",
+      "tx-martin-dies-jr-walnut-slough-paddling-trail",
+      "tx-toledo-bend-patroon-bayou",
+      "tx-toledo-bend-lost-frontier",
+      "tx-toledo-bend-six-mile",
+      "tx-leon-gatesville-mother-neff",
+      "tx-angelina-hwy21-us59",
+      "tx-bosque-iredell-lake-waco",
+      "tx-lampasas-rumley-youngsport",
+      "tx-san-saba-menard-colorado",
+      "tx-neches-davy-crockett-anderson-sh7-threshold-recheck",
+      "tx-cherokee-neches-river-run-us79-threshold-recheck",
+      "tx-brazos-old-settlement-sugar-mill-cr849-access-recheck",
+      "tx-san-marcos-staples-dam-river-grove-closure-recheck",
+      "tx-colorado-buffalo-trail-white-rock",
+      "tx-guadalupe-schumachers-ingram",
+      "tx-guadalupe-lions-park-dam-i10-comfort",
+      "tx-guadalupe-waring-welfare-sisterdale",
+      "tx-guadalupe-sisterdale-hwy474",
+      "tx-guadalupe-whitewater-rio-mountain-breeze-recheck",
+      "tx-sabine-grand-bluff-black-shoals-recheck",
+      "tx-brazos-outdoor-center-route-family-recheck",
+      "tx-elm-fork-trinity-frasier-dam-trinity-view-recheck",
+      "tx-medina-ranger-crossing-bandera-city-park",
+      "tx-colorado-fm950-fm960",
+      "tx-colorado-fm960-hollywood-bottom",
+      "tx-colorado-hollywood-bottom-texas35",
+      "tx-colorado-texas35-riverside-park",
+      "tx-colorado-fm521-river-bend-boat-ramp",
+      "tx-saspamco-loop1604-cr125",
+      "tx-guadalupe-valley-hwy183-emergency-connector",
+      "tx-goliad-highway59-ferry-street-state-park-splits",
+      "tx-colorado-columbus-paddling-trail",
+      "tx-sabine-sandbar-fm2517-yellow-dog-live-gauge-recheck-20260812-1440",
+      "tx-brazos-old-settlement-cr849-access-recheck-20260812-1440",
+      "tx-brazos-sugar-mill-cr849-access-recheck-20260812-1440",
+      "tx-san-marcos-staples-dam-river-grove-closure-recheck-20260812-1440",
+      "tx-seguin-lake-nolte-meadow-lake-closure-recheck-20260812-1440"
     ],
-    "reasonNoExpansionCandidatesWereScreened": "Five bounded Texas candidates were screened; no route was implemented because each failed a decisive gate before implementation.",
+    "reasonNoExpansionCandidatesWereScreened": "Expansion candidates were screened; no route was added because all five failed before implementation gates.",
     "routeFamiliesReviewed": [
+      "Caddo Lake / Big Cypress Clear Lake loop",
+      "Caddo Lake / Big Cypress Mill Pond loop",
+      "Caddo Lake / Big Cypress Old River II loop",
+      "Caddo Lake / Big Cypress Hell's Half Acre loop",
       "Guadalupe River / Cuero TPWD paddling trail",
       "Village Creek / Big Thicket and TPWD paddling trail",
       "South Llano River / TPWD paddling trail and Cupgrass leased access",
@@ -258,7 +337,33 @@
       "Toledo Bend Reservoir / Palo Gaucho and Midlake trail family",
       "Sabine River / Grand Bluff Boat Ramp and Black Shoals access lead",
       "Upper Guadalupe River / I-10 Comfort, James Kiehl, Waring-Welfare, and FM311 alternate leads",
-      "Upper-Middle Brazos River / Hwy16-to-FM4 and FM4-to-US180 bridge-access leads"
+      "Upper-Middle Brazos River / Hwy16-to-FM4 and FM4-to-US180 bridge-access leads",
+      "Trinity River main stem / Loop 12-to-McCommas downstream Dallas continuation",
+      "West Fork San Jacinto River / SH242-to-Tollway99 bridge segment lead",
+      "Clear Fork Trinity River / Oakmont-to-River-Park access-inventory lead",
+      "Brazos River / Sandy Bottoms River Trail Camp-to-Sandy Bottoms Chavez Access short leased-access connector",
+      "Christmas Bay / Churchill Bayou / Titlum Tatlum Bayou coastal marker-route family",
+      "Galveston Island State Park / Dana Cove, Oak Bayou, and Jenkins Bayou bay-marsh loop family",
+      "Lighthouse Lakes / Redfish Bay tidal channel and mangrove loop family",
+      "Port O Connor / Espiritu Santo and Matagorda Bay marsh trail family",
+      "Powderhorn / Boggy Bayou, Matagorda Bay, Powderhorn Lake, and Coloma Creek shoreline-marsh family",
+      "Toledo Bend Reservoir / Patroon Bayou loop trail",
+      "Toledo Bend Reservoir / Lost Frontier Carrice Creek loop trail",
+      "Toledo Bend Reservoir / Six Mile loop trail",
+      "Leon River / Gatesville-to-Mother-Neff legacy corridor",
+      "Angelina River / SH21-to-US59 legacy corridor",
+      "North Bosque River / Iredell-to-Lake-Waco legacy corridor",
+      "Lampasas River / Rumley-to-Youngsport legacy corridor",
+      "San Saba River / Menard-to-Colorado legacy corridor",
+      "Sabine River / Sabine Sandbar FM2517-to-McFadden/Yellow-Dog live-gauge recheck",
+      "Neches River / Davy Crockett Anderson Crossing-to-SH7 threshold recheck",
+      "Neches River / Cherokee River Run FM747-to-US79 threshold recheck",
+      "Brazos River / Stephen F. Austin Old Settlement and Sugar Mill CR849 closure recheck",
+      "Colorado River / lower-Colorado FM950-to-FM960 access segment",
+      "Colorado River / lower-Colorado FM960-to-Hollywood Bottom access segment",
+      "Colorado River / Hollywood Bottom-to-Texas 35 Bay City boundary segment",
+      "Colorado River / Texas 35-to-Riverside Park Bay City Dam segment",
+      "Colorado River / FM521-to-River Bend Boat Ramp coastal-transition segment"
     ]
   },
   "liveGaugeCheck": {
@@ -680,6 +785,7 @@
         "SASPAMCO Helton-to-Floresville remains blocked by SARA downstream-of-Helton closure for large log jams."
       ]
     },
+    "The 2026-08-11 23:45 UTC bounded Texas pass added no route after screening five fresh TPWD lake/reservoir route-choice families: Inks Lake, Grapevine Lake, Lake Arlington, Lewisville Lake / Highland Village, and Morgan's Point / Lake Belton. All five have public TPWD route/access context, but none cleared the current point-to-point river-route product model with a product-supported live river gauge and numeric paddling thresholds.",
     "The 2026-08-11 08:00 UTC bounded Texas pass continued past blockers and added elm-fork-trinity-river-california-crossing-frasier-dam as a 5.5-mile direct-USGS Elm Fork Trinity National Water Trail segment with Trinity Coalition endpoint coordinates and route shape, TRPA 100 / 200-1,000 / 2,000 cfs guidance, USGS 08055500 product-live flow at 105 cfs / 3.46 ft, no route camping under Dallas park rules, mandatory Frasier Dam take-out and urban/dam/strainer/private-bank safety notes, generated geometry, put-in ok and take-out review coordinate results, expected upstream shared-endpoint overlap only, and a bounded no-image row.",
     "The same 2026-08-11 pass first blocked tx-devils-bakers-crossing-san-pedro because the same-river USGS Devils River gauge candidates 08449000 and 08449400 lacked current product-supported discharge/stage data; live Dolan Creek tributary data was rejected as a route gauge substitute.",
     "The same 2026-08-11 pass then blocked tx-trinity-east-fork-us80-i20 because the selected East Fork Trinity lead lacked a manager-backed public endpoint/camping package, while the Forney gauge was stale and the live Crandall gauge did not cure the route-package gap.",
@@ -727,9 +833,11 @@
     "The 2026-08-10 23:01 UTC bounded Texas pass added no route. Neches-Davy Crockett had strong TPWD endpoint and route evidence plus product-live USGS 08032700 at SH 7, but no durable route-specific numeric threshold tied to that gauge surfaced; Limestone Bluffs is a virtually-no-current Navasota / Fort Parker quiet-water route without a supported live river threshold model; Martin Dies Jr. Sandy Creek is a no-shuttle backwater/reservoir/state-park trail system without numeric route thresholds; Big Cypress Backwater Jack's / Caddo leads are loop/lake/bayou route-choice trails with blank TRPA threshold fields; San Gabriel corridor evidence lacks a selected manager-backed endpoint, coordinate, threshold, camping, and safety package.",
     "The 2026-08-10 23:32 UTC bounded Texas pass added no route. Come and Take It had TPWD endpoints, mandatory dam take-out evidence, and product-live USGS 08173900, but still lacked route-specific numeric thresholds tied to the Gonzales gauge; Victoria Chisholm had TPWD endpoint/section evidence and product-live USGS 08176500, but only Cuero-gauge corridor thresholds surfaced; Concho San Angelo lacked a selected manager-backed route/access/camping/safety package; Pine Island Bayou FM770-to-Neches lacked manager-backed endpoint coordinates and camping/safety package; Pedernales Johnson-City-to-state-park failed the public take-out/safety gate because TPWD forbids put-ins and take-outs in the falls area.",
     "The 2026-08-10 20:47 America/Chicago / 2026-08-11 01:47 UTC bounded Texas pass added san-marcos-river-retreat-scull-road after continuing past two blockers. Llano Maso-Llan-to-Castell was blocked because the official TPWD access coordinate audited as a parking/lease anchor 1293 ft from the Llano flowline and no source-backed water-entry coordinate was found. Guadalupe Camp Huaco was blocked because the TPWD lease period was expired and the page states there are no free public downstream take-outs. San Marcos River Retreat-to-Scull Road cleared with TPWD active lease/access and 3-mile route evidence, TRPA route listing, American Whitewater access coordinates and Cottonseed sieve warning, product-live USGS 08172000 at 110 cfs / 3.87 ft, no inferred route camping, bounded no-image, generated geometry, and ok coordinate audit results.",
-    "The 2026-08-11 03:36 America/Chicago / 2026-08-11 08:36 UTC bounded Texas pass added clear-fork-trinity-river-art-cowsen-bryant-irvin. The route cleared with TRPA 4.8-mile route/access/threshold evidence, TRPA map-link endpoint coordinates, product-live USGS 08047000 at 16.6 cfs / 3.37 ft, Fort Worth day-use/no-route-camping handling, urban/log-jam/fallen-tree safety notes, bounded no-image, generated geometry, and focused coordinate audit results."
+    "The 2026-08-11 03:36 America/Chicago / 2026-08-11 08:36 UTC bounded Texas pass added clear-fork-trinity-river-art-cowsen-bryant-irvin. The route cleared with TRPA 4.8-mile route/access/threshold evidence, TRPA map-link endpoint coordinates, product-live USGS 08047000 at 16.6 cfs / 3.37 ft, Fort Worth day-use/no-route-camping handling, urban/log-jam/fallen-tree safety notes, bounded no-image, generated geometry, and focused coordinate audit results.",
+    "The 2026-08-11 19:09 UTC bounded Texas pass screened tx-brazos-sandy-bottoms-chavez-access first and added brazos-river-sandy-bottoms-chavez-access as a TPWD 1.5-mile Sandy Bottoms River Trail Camp-to-Chavez Access leased-access connector with USGS 08090800, BRA official flow bands, nearby-basecamp-only camping handling, safety caveats, generated geometry, review-level waterbody-backed access anchors, and bounded no-image.",
+    "The 2026-08-12 00:45 UTC bounded Texas pass added no route after screening five fresh TPWD coastal/bay/marsh trail families: Christmas Bay, Galveston Island State Park, Lighthouse Lakes, Port O Connor, and Powderhorn. Each has official route/access/safety context, but each failed the current point-to-point downstream river reach, product-supported live river-gauge, and numeric cfs/stage threshold gates before implementation."
   ],
-  "conclusion": "Texas bounded discovery remains open after a five-candidate no-add sweep on 2026-08-11; continue with fresh distinct manager-backed public point-to-point river reaches outside the recorded blockers.",
+  "conclusion": "Texas remains open for bounded discovery after a no-add TPWD coastal/bay/marsh screen; continue with fresh distinct manager-backed public point-to-point river reaches outside recorded product-model and route-package blockers.",
   "supersededAt": null,
   "supersededBy": null,
   "discoveryReopen": {
@@ -743,10 +851,13 @@
     "updatedAt": "2026-08-11T15:43:00.000Z",
     "gatekeeperId": "gatekeeper-20260811154232"
   },
-  "updatedAt": "2026-08-11T16:57:58.438Z",
-  "evidenceSummary": "2026-08-11 bounded Texas route add: screened tx-saspamco-cr125-helton-nature-park first and added san-antonio-river-cr125-helton-nature-park as TPWD's 6.43-mile CR 125 / Graytown-to-Helton SASPAMCO option with SARA access/camping/closure evidence, TRPA thresholds, USGS 08181800 current support, safety caveats, bounded no-image handling, generated geometry, ok coordinate audit results, and reviewed contained-subroute overlap.",
-  "reasonNoExpansionCandidatesWereScreened": "The first screened candidate qualified and one route was implemented, so no additional candidates were screened under the one-route-per-run cap.",
+  "updatedAt": "2026-08-12T14:51:15.980Z",
+  "evidenceSummary": "Screened five mutable Texas recheck candidates in bounded priority order; no route was added because Sabine still lacks current discharge, both Brazos CR849 routes remain access-closed, River Grove remains temporarily closed, and Lake Nolte/Meadow Lake remains closed under GBRA drawdown safety language.",
+  "reasonNoExpansionCandidatesWereScreened": "Expansion candidates were screened; no route was added because all five failed before implementation gates.",
   "evidenceFindings": [
+    "The 2026-08-11 18:44 UTC bounded Texas pass added no route after screening five candidates: Guadalupe Trophy Trout failed public endpoint/access/camping gates; Devils San Pedro-to-Devils Back failed the product-supported live gauge gate because thresholds depend on IBWC; Seadrift failed the current river-gauge threshold model because it is a coastal river/lake/bay route-choice trail; Rio Grande Great Unknown failed route-data distance bounds after implementation was rolled back; Brazos Ham Creek/Chisholm/Kimball failed selected manager-backed endpoint, threshold, and camping package gates.",
+    "The 2026-08-11 18:20 UTC bounded Texas pass added Colorado River FM 973 / Del Valle Bridge-to-Little Webberville Park as a direct-USGS scored lower-Colorado day route with LCRA 12-mile route/access evidence, Travis County Little Webberville access and camping-prohibited rules, USGS 08158000 product-live flow at 185 cfs / 12.39 ft, Texas River Flows 200 cfs conservative Austin-to-Bastrop floor, no route camping, FM 973 limited-parking/uneven-carry and lower-Colorado private-bank/release/weather safety notes, generated geometry, documented review/suspicious access-anchor coordinate results, expected shared-endpoint overlap only, and a bounded no-image row.",
+    "The 2026-08-11 17:36 UTC bounded Texas pass added no route after screening five candidates: Dallas Trinity Loop12-to-McCommas is blocked by nonofficial/closed-launch context and McCommas/Lock & Dam #1 take-out safety; Fort Worth Nature Center remains a loop/out-and-back Lake Worth level route model; Paluxy CR1008-to-Glen Rose remains blocked by roadside put-in and Big Rocks Park Dam-adjacent take-out handling; San Jacinto SH242-to-Tollway99 lacks thresholds and manager-backed endpoint/camping package; Clear Fork Oakmont-to-River-Park is public-access inventory/duplicate-adjacent context without a distinct route package.",
     "The 2026-08-11 16:32 UTC bounded Texas pass added san-antonio-river-cr125-helton-nature-park after screening it first. TPWD publishes the 6.43-mile CR 125 River Access Site / Graytown Park-to-Helton SASPAMCO option with endpoint coordinates; SARA corroborates Graytown and Helton public access, Helton campground/day-use context, and the downstream-of-Helton closure boundary; TRPA supports the San Antonio River 200 cfs conservative floor with 300 cfs ideal and 2,000 cfs maximum caution; USGS 08181800 returned 152 cfs / 9.56 ft at 2026-08-11 10:30 CDT, below the route floor. Image review ended bounded no-image. Geometry, coordinate review, and contained-subroute overlap review cleared because this is an official TPWD half-day alternate itinerary inside the larger River Crossing-to-Helton route family.",
     "The 2026-08-11 15:38 UTC bounded Texas pass added elm-fork-trinity-river-trinity-view-trammell-crow after screening it first. Trinity Coalition confirms the new Trinity View Park kayak launch and TRPA lists Trinity View Park-to-Trammell Crow Park as a 5-mile Elm Fork route; TRPA supports 100 / 200-1,000 / 2,000 cfs guidance; USGS 08055500 legacy RDB returned 91.1 cfs / 3.42 ft at 2026-08-11 10:15 CDT after Water Services JSON returned 503; no route camping was inferred; image review ended bounded no-image; generated geometry, coordinate review, and expected shared-endpoint overlap review cleared.",
     "2026-08-11 bounded Texas no-add sweep: screened tx-east-fork-trinity-i20-malloy-bridge, tx-cherokee-neches-river-run-us79, tx-san-marcos-scull-road-spencer-canoes, tx-toledo-bend-palo-gaucho-midlake, tx-sabine-grand-bluff-black-shoals; no route added because East Fork Trinity lacked manager-backed endpoint/camping package, Cherokee Neches lacked route-specific numeric thresholds, Scull-to-Spencer required unresolved Martindale Dam/take-out safety evidence, Toledo Bend Palo Gaucho/Midlake lacked a river-gauge condition model, and Sabine Grand Bluff lacked a selected route/take-out/threshold/camping package.",
@@ -758,14 +869,17 @@
     "The 2026-08-11 11:36 UTC bounded Texas pass added Medina River Peaceful-Valley-Road-to-Ranger-Crossing as a direct-USGS scored upper Medina card with TRPA 3.8-mile route/access-map-coordinate support, TRPA 30 / 300-1,500 / 2,000 cfs lower-Medina guidance, USGS 0817887350 product-live flow at 49.6 cfs / 4.71 ft and downstream USGS 08178880 at 59.0 cfs / 4.29 ft, no public on-route camping selected, private-bank/public-crossing/low-water/wood/fast-rise safety notes, generated geometry, put-in ok and take-out review-level access-anchor coordinate results, expected upstream shared-endpoint overlap only, and a bounded no-image row.",
     "The 2026-08-11 11:06 UTC bounded Texas pass added Brazos River Riverside-Park-to-Spivey-Crossing-RV-Park as a direct-USGS scored Brazos card with TPWD RACA route/access evidence, active TPWD Spivey lease through 2027-08-31, USACE Riverside Park below-dam access and west-side camp/picnic context, BRA <=200 / 201-500 / 501-1,200 / 1,200-3,000 / 3,001-5,000 / 5,001+ cfs flow bands, USGS 08093100 product-live flow at 55.3 cfs / 6.09 ft, nearby-basecamp-only camping, Whitney release/rapid-rise/private-bank/wood/low-water safety notes, generated geometry, review-level source-backed access-anchor coordinate results, no route-specific overlap findings, and a bounded no-image row.",
     "The 2026-08-11 10:39 UTC bounded Texas pass added Buffalo Bayou West-Sam-Houston-Parkway-to-Woodway-Memorial-Park as a direct-USGS scored urban Buffalo Bayou card with TPWD West Sam / Briar Bend / Woodway access and segment-time evidence, Save Buffalo Bayou 150-200 cfs base-flow and 2,000 cfs experienced-only caution, USGS 08073700 product-live flow at 155 cfs / 28.36 ft, no route camping under Houston park rules, urban runoff/release/strainer/water-quality/private-bank safety notes, generated geometry, coordinate audit evidence, expected adjacency overlap only, and a bounded no-image row.",
-    "The 2026-08-11 10:25 UTC bounded Texas pass added Clear Fork Trinity River Bryant-Irvin-Road-to-Rogers-Road as a direct-USGS scored National Water Trail card with TRPA 3.4-mile route evidence, TRPA 100 / 150-250 / 2,000 cfs threshold support, TRPA/Trinity Coalition public access-anchor coordinates, USGS 08047000 product-live flow at 16.6 cfs / 3.37 ft, no route camping, Fort Worth day-use rules, urban runoff/wood/private-bank safety notes, generated geometry, coordinate audit put-in ok and take-out review access-anchor results, expected adjacency overlap only, and a bounded no-image row."
+    "The 2026-08-11 10:25 UTC bounded Texas pass added Clear Fork Trinity River Bryant-Irvin-Road-to-Rogers-Road as a direct-USGS scored National Water Trail card with TRPA 3.4-mile route evidence, TRPA 100 / 150-250 / 2,000 cfs threshold support, TRPA/Trinity Coalition public access-anchor coordinates, USGS 08047000 product-live flow at 16.6 cfs / 3.37 ft, no route camping, Fort Worth day-use rules, urban runoff/wood/private-bank safety notes, generated geometry, coordinate audit put-in ok and take-out review access-anchor results, expected adjacency overlap only, and a bounded no-image row.",
+    "2026-08-12T01:12:50.666Z: Screened Benton Lake, Haggerty Creek, Cathedral, Old Folks Playground, and Turtle Shell TPWD Caddo-area trails. All remain blocked as lake/swamp loop products outside the current PaddleToday direct river-gauge threshold model; no route data, trip details, geometry, coordinate, image, camping, or safety package was implemented."
   ],
   "latestRouteAdded": {
-    "routeSlug": "san-antonio-river-cr125-helton-nature-park",
-    "addedAt": "2026-08-11T16:32:00.000Z",
-    "summary": "Added San Antonio River CR 125-to-Helton Nature Park with TPWD/SARA route, access, closure, camping, and safety evidence, TRPA San Antonio River minimum-only threshold support, USGS 08181800 current support, bounded no-image handling, generated geometry, ok coordinate audit results, and reviewed contained-subroute overlap."
+    "routeSlug": "north-prong-medina-river-3rd-crossing-freeman-crossing",
+    "addedAt": "2026-08-12T06:18:30.000Z",
+    "summary": "Added North Prong Medina River 3rd Crossing-to-Freeman Crossing with TRPA route/mileage/access-map-coordinate evidence, USGS 0817887350 product-live flow, TRPA 50 / 300-1,500 / 2,000 cfs North Prong/Medina guidance, no public on-route camping, Chamblee Falls/drop/low-water-crossing/private-bank safety handling, bounded no-image, generated geometry, review-level put-in access-anchor coordinate result, ok take-out coordinate result, and expected downstream shared-endpoint overlap."
   },
   "evidence": [
+    "2026-08-12T14:51:15.980Z no-add validation passed for route-worker-202608121440-texas-rechecks-no-add: JSON parse, routes:audit, gallery:audit, routes:safety:audit, routes:geometries:audit, routes:audit:overlap, typecheck:routes, full typecheck, production build, operations:verify gatekeeper-20260812145044, and git diff --check passed; coordinate audit and geometry generation skipped because no route endpoints or geometry changed.",
+    "2026-08-12T14:48:39.784Z Screened five mutable Texas recheck candidates in bounded priority order; no route was added because Sabine still lacks current discharge, both Brazos CR849 routes remain access-closed, River Grove remains temporarily closed, and Lake Nolte/Meadow Lake remains closed under GBRA drawdown safety language.",
     "public/data/canonical-river-geometries/routes/san-antonio-river-cr125-helton-nature-park.json",
     "2026-08-11T16:43Z validation completed for san-antonio-river-cr125-helton-nature-park: JSON parse, typecheck:routes, routes:audit, gallery:audit, safety audit, geometry generate/audit, focused coordinate audit/suggestions, contained-subroute overlap review, full typecheck, production build, operations:verify gatekeeper-20260811164326, and final git diff --check passed.",
     "The 2026-08-11 16:32 UTC bounded Texas pass added san-antonio-river-cr125-helton-nature-park after screening tx-saspamco-cr125-helton-nature-park first. TPWD supports the 6.43-mile route and endpoint coordinates; SARA supports public access, Helton endpoint campground/day-use context, and the downstream closure boundary; TRPA supports 200 cfs floor / 300 cfs ideal / 2,000 cfs maximum caution; USGS 08181800 returned 152 cfs / 9.56 ft at 2026-08-11 10:30 CDT; image review ended bounded no-image; geometry generation/audit, focused coordinate audit/suggestions, and overlap review cleared with accepted contained-subroute findings against the larger River Crossing-to-Helton card.",
@@ -777,9 +891,216 @@
     "The 2026-08-11 13:10 UTC bounded Texas pass added llano-river-james-river-martin-simonsville after screening it second. TRPA documents the six-mile James River Crossing-to-Martin/Simonsville route, public-road-crossing map anchors, Class II-II+ character, and 65 / 100-500 / 5,000 cfs guidance; USGS 08151500 returned 343 cfs / 2.39 ft at 2026-08-11 07:00 CDT; no route camping was inferred; image review ended bounded no-image; generated geometry, coordinate review, and overlap review cleared.",
     "The 2026-08-11 12:36 UTC bounded Texas pass added west-fork-trinity-river-white-settlement-panther-island after screening it first. Trinity Coalition documents the White Settlement Road and Panther Island public launch anchors and about 4.5-mile route shape; TRWD and Trinity Trails corroborate the Fort Worth launch network; TRPA provides West Fork 100 cfs minimum, 200 cfs ideal cue, and 2,000 cfs maximum caution; USGS 08048000 returned 14.6 cfs / 0.72 ft at 2026-08-11 07:15 CDT; Fort Worth park code supports day-use/no-camping handling; image review ended bounded no-image; generated geometry, coordinate review, and expected adjacent overlap cleared.",
     "2026-08-11T16:06Z added north-prong-medina-river-freeman-crossing-moffett-park after three Medina/Bandera blockers; validation in runs.json.",
-    "2026-08-11 no-add sweep: screened five Texas candidates; Upper Guadalupe I-10-to-James-Kiehl failed public bridge-access and dam/portage safety gates; James-Kiehl-to-Waring failed take-out package gate; FM311-to-Rebecca failed duplicate/contained-route gate; upper-middle Brazos Hwy16-to-FM4 recheck remained blocked by access-coordinate/camping rules and Water Services 503; Brazos FM4-to-US180 failed manager-backed endpoint/camping package gates."
+    "2026-08-11 no-add sweep: screened five Texas candidates; Upper Guadalupe I-10-to-James-Kiehl failed public bridge-access and dam/portage safety gates; James-Kiehl-to-Waring failed take-out package gate; FM311-to-Rebecca failed duplicate/contained-route gate; upper-middle Brazos Hwy16-to-FM4 recheck remained blocked by access-coordinate/camping rules and Water Services 503; Brazos FM4-to-US180 failed manager-backed endpoint/camping package gates.",
+    "public/data/canonical-river-geometries/routes/colorado-river-fm973-little-webberville.json",
+    "src/data/routes/texas.ts",
+    "src/data/trip-details/texas.ts",
+    "docs/route-candidate-ledger.json",
+    "docs/river-image-source-audit.csv",
+    "docs/route-coordinate-river-audit.json",
+    "public/data/canonical-river-geometries/routes/brazos-river-sandy-bottoms-chavez-access.json",
+    "2026-08-11T19:09Z validation completed for brazos-river-sandy-bottoms-chavez-access: route audit, typecheck:routes, gallery audit, safety audit, geometry generate/audit, focused coordinate audit/suggestions, focused overlap audit, full typecheck, and production build passed before final operations gatekeeper update.",
+    "The 2026-08-11 19:09 UTC bounded Texas pass added brazos-river-sandy-bottoms-chavez-access after screening tx-brazos-sandy-bottoms-chavez-access first. TPWD supports the 1.5-mile route, endpoint coordinates, active leased access through 2026-08-31, direct Chavez river access/dock, advance text, liability forms, and daylight access. USGS 08090800 returned 211 cfs / 2.41 ft through legacy RDB after Water Services JSON 503; BRA supports broad Brazos flow bands; no on-route camping was inferred; image review ended bounded no-image; generated geometry, coordinate review, and expected shared-endpoint overlap review cleared.",
+    "2026-08-11T19:11Z operations:verify passed for brazos-river-sandy-bottoms-chavez-access as gatekeeper-20260811191106; git diff --check passed with line-ending warnings only.",
+    "docs/state-route-memories/texas.md",
+    "docs/operations/runs.json"
   ],
   "noAddSweeps": [
+    {
+      "id": "route-worker-202608121440-texas-rechecks-no-add",
+      "completedAt": "2026-08-12T14:48:39.784Z",
+      "candidates": [
+        "tx-sabine-sandbar-fm2517-yellow-dog-live-gauge-recheck-20260812-1440",
+        "tx-brazos-old-settlement-cr849-access-recheck-20260812-1440",
+        "tx-brazos-sugar-mill-cr849-access-recheck-20260812-1440",
+        "tx-san-marcos-staples-dam-river-grove-closure-recheck-20260812-1440",
+        "tx-seguin-lake-nolte-meadow-lake-closure-recheck-20260812-1440"
+      ],
+      "blockers": [
+        {
+          "candidateId": "tx-sabine-sandbar-fm2517-yellow-dog-live-gauge-recheck-20260812-1440",
+          "status": "blocked_live_gauge_stale_discharge"
+        },
+        {
+          "candidateId": "tx-brazos-old-settlement-cr849-access-recheck-20260812-1440",
+          "status": "blocked_access_closure"
+        },
+        {
+          "candidateId": "tx-brazos-sugar-mill-cr849-access-recheck-20260812-1440",
+          "status": "blocked_access_closure"
+        },
+        {
+          "candidateId": "tx-san-marcos-staples-dam-river-grove-closure-recheck-20260812-1440",
+          "status": "blocked_takeout_closure"
+        },
+        {
+          "candidateId": "tx-seguin-lake-nolte-meadow-lake-closure-recheck-20260812-1440",
+          "status": "blocked_active_closure_dam_safety_route_shape"
+        }
+      ]
+    },
+    {
+      "id": "tx-five-candidate-no-add-20260812t0416z",
+      "completedAt": "2026-08-12T04:18:28.273Z",
+      "status": "blocked_no_route_added",
+      "candidates": [
+        "tx-leon-gatesville-mother-neff",
+        "tx-angelina-hwy21-us59",
+        "tx-bosque-iredell-lake-waco",
+        "tx-lampasas-rumley-youngsport",
+        "tx-san-saba-menard-colorado"
+      ],
+      "blockers": [
+        {
+          "candidateId": "tx-leon-gatesville-mother-neff",
+          "blocker": "Legacy public river-guide evidence describes a broad about 46-mile Gatesville-to-Lake-Belton/Mother-Neff corridor, while current park/access evidence does not supply a manager-backed day-route endpoint, camping, and safety package for Gatesville-to-Mother-Neff. USGS Leon gauges were product-live but same-run values were below the Texas River Flows 200 cfs floor, and Mother Neff lower river-bottom/fishing-access closure evidence remains a current access/camping blocker."
+        },
+        {
+          "candidateId": "tx-angelina-hwy21-us59",
+          "blocker": "TPWD legacy analysis identifies the Angelina SH 21-to-US 59 section as about 46 miles with very little current at normal water and access/property context tied to lumber-company/private land, not a current manager-backed public day-route package. Product-live USGS values at Alto and US 59 were below the Texas River Flows 200 cfs floor, and no official camping/overnight rules for this exact corridor surfaced."
+        },
+        {
+          "candidateId": "tx-bosque-iredell-lake-waco",
+          "blocker": "The Bosque lead is a broad river-to-impoundment corridor rather than a selected public route card. Available official context points to Lake Waco/urban or reservoir-transition conditions, no manager-backed Iredell-to-Lake-Waco put-in/take-out/camping package surfaced, and USGS 08095000 was product-live but below the Texas River Flows 125 cfs floor."
+        },
+        {
+          "candidateId": "tx-lampasas-rumley-youngsport",
+          "blocker": "TPWD legacy analysis and Texas River Flows point to the about 42-mile Rumley-to-Youngsport corridor, but the cited Youngsport gauge 08104000 is not product-live in current USGS IV output. The nearby Kempner gauge is live but is not the source-backed route gauge and was below the 100 cfs floor; no manager-backed endpoint/camping/safety package surfaced for publication."
+        },
+        {
+          "candidateId": "tx-san-saba-menard-colorado",
+          "blocker": "Texas River Flows supports a Menard-gauge threshold row for the long Menard-to-Colorado corridor, and USGS 08144500 is product-live, but same-run flow was below the 150 cfs floor. Current public evidence did not supply manager-backed downstream endpoints, legal camping/overnight terms, or route-specific safety information; Menard River Park evidence is day-use context only and does not solve the corridor package."
+        }
+      ],
+      "routeAdded": null,
+      "gallery": "not_started_no_route_added",
+      "camping": "blocked_or_not_finalized_per_candidate_no_route_added",
+      "safety": "blocked_before_package_complete_per_candidate_no_route_added",
+      "geometry": "not_started_no_route_added",
+      "coordinates": "not_started_no_route_added",
+      "nextCandidateRotation": "Continue Texas bounded discovery with fresh distinct manager-backed public point-to-point reaches outside Leon Gatesville-to-Mother-Neff, Angelina SH21-to-US59, Bosque Iredell-to-Lake-Waco, Lampasas Rumley-to-Youngsport, San Saba Menard-to-Colorado, and all previously recorded loop, reservoir, coastal, unsupported-gauge, threshold, duplicate, private-access, closure, dam-safety, camping, coordinate, geometry, and distance blockers unless fresh evidence clears the exact recorded gate.",
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: npm.cmd run routes:audit (776 routes)",
+        "passed: npm.cmd run gallery:audit (325 images)",
+        "passed: npm.cmd run routes:safety:audit (0 issues for 776 routes)",
+        "passed: npm.cmd run routes:geometries:audit (942/943 matched; one unrelated pre-existing unmatched route)",
+        "not run: npm.cmd run routes:geometries:generate because no route was implemented and no route geometry changed",
+        "not run: npm.cmd run routes:audit:coordinates because no route data or endpoint coordinates changed",
+        "passed: npm.cmd run typecheck",
+        "passed: npm.cmd run build (expected SITE_URL fallback warning only)",
+        "passed: npm.cmd run operations:verify / gatekeeper-20260812041756",
+        "passed: git diff --check"
+      ]
+    },
+    {
+      "id": "tx-five-candidate-no-add-20260811t1932z",
+      "completedAt": "2026-08-11T19:32:50.329Z",
+      "status": "blocked_no_route_added",
+      "candidates": [
+        "tx-colorado-big-webberville-horseshoe",
+        "tx-brazos-brnc-brazos-park-east",
+        "tx-san-marcos-city-park-westerfield-scout-camp",
+        "tx-san-marcos-smrr-staples",
+        "tx-colorado-us190-colorado-bend-state-park"
+      ],
+      "blockers": [
+        {
+          "candidateId": "tx-colorado-big-webberville-horseshoe",
+          "blocker": "TPWD Horseshoe on the Colorado supports an active access lease and describes the 7.4-mile Big Webberville-to-Horseshoe float, but PaddleToday already models the same split inside colorado-river-webberville-utley-bridge with Horseshoe as a coordinate-backed midpoint/optional take-out, and also has the downstream colorado-river-horseshoe-utley-bridge card. A separate card would be a contained connector without distinct coverage value."
+        },
+        {
+          "candidateId": "tx-brazos-brnc-brazos-park-east",
+          "blocker": "TPWD Brazos River Nature Center supports active leased access and says BRNC is 16 river miles upstream of Waco public access, while TPWD Waco trail evidence supports Brazos Park East as a public access and USGS 08096500 Waco returned product-live current discharge/stage. Publication is blocked because the BRNC TPWD access-anchor coordinate is the same source family that previously failed the route coordinate gate at review-level distance from the Brazos flowline, no fresh source-backed wetted-edge coordinate or autonomous-safe correction surfaced, and the evidence is distance/access context rather than a selected manager-backed downstream point-to-point route and camping package."
+        },
+        {
+          "candidateId": "tx-san-marcos-city-park-westerfield-scout-camp",
+          "blocker": "TRPA supports the City Park-to-Westerfield / San Marcos Scout Camp run with route-family thresholds and dam/portage cautions, but PaddleToday already has san-marcos-river-city-park-smrr covering the same upper San Marcos public route family from City Park to San Marcos River Retreat / Scout Camp. A separate Westerfield/Scout Camp card would duplicate the existing upper-route package rather than add distinct Google-searchable coverage."
+        },
+        {
+          "candidateId": "tx-san-marcos-smrr-staples",
+          "blocker": "TRPA lists downstream San Marcos reaches through Scull Road, Shady Grove / Spencer Canoes, and Staples, but a single SMRR-to-Staples package would include the already-blocked Scull-to-Spencer / Martindale Dam backwater and portage/take-out problem. No manager-backed public access, dam-portage safety, camping/no-camping, and take-out package surfaced that would let the combined route publish without human judgment."
+        },
+        {
+          "candidateId": "tx-colorado-us190-colorado-bend-state-park",
+          "blocker": "TRPA lists US 190 Bridge-to-Colorado Bend State Park as a 30-mile Colorado River featured run, but the bounded screen did not surface route-specific numeric minimum/ideal/maximum paddling thresholds tied to a PaddleToday-supported live gauge. The route is long enough to require explicit overnight/camping and park-rule evidence, so it cannot be published from route-list context without further source-backed threshold and camping/access work."
+        }
+      ],
+      "routeAdded": null,
+      "gallery": "not_started_no_route_added",
+      "camping": "blocked_or_not_finalized_per_candidate_no_route_added",
+      "safety": "blocked_before_package_complete_per_candidate_no_route_added",
+      "geometry": "not_started_no_route_added",
+      "coordinates": "not_started_no_route_added",
+      "nextCandidateRotation": "Continue Texas bounded discovery with fresh distinct manager-backed public point-to-point reaches outside Big-Webberville-to-Horseshoe contained split, BRNC/Waco coordinate/route-shape blockers, upper San Marcos duplicate/SMRR-to-Staples dam-access blockers, upper Colorado US190-to-Colorado-Bend threshold/camping blockers, and all earlier ledger blockers unless fresh evidence clears the exact gate.",
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: npm.cmd run routes:audit (776 routes)",
+        "passed: npm.cmd run gallery:audit (325 images)",
+        "passed: npm.cmd run routes:safety:audit (0 issues for 776 routes)",
+        "passed: npm.cmd run routes:geometries:audit (942/943 matched; one unrelated pre-existing unmatched route)",
+        "not run: npm.cmd run routes:geometries:generate because no route was implemented and no route geometry changed",
+        "not run: npm.cmd run routes:audit:coordinates because no route data or endpoint coordinates changed",
+        "passed: npm.cmd run typecheck",
+        "passed: npm.cmd run build (expected SITE_URL fallback warning only)",
+        "passed: npm.cmd run operations:verify / gatekeeper-20260811193729",
+        "passed: git diff --check (exit 0; CRLF normalization warnings only)"
+      ]
+    },
+    {
+      "id": "tx-five-candidate-no-add-20260811t1736z",
+      "completedAt": "2026-08-11T17:36:00.000Z",
+      "status": "blocked_no_route_added",
+      "candidates": [
+        "tx-trinity-loop12-mccommas-bluff",
+        "tx-fort-worth-nature-center-refuge-loop",
+        "tx-paluxy-cr1008-glen-rose",
+        "tx-san-jacinto-sh242-tollway99",
+        "tx-clear-fork-trinity-oakmont-river-park"
+      ],
+      "blockers": [
+        {
+          "candidateId": "tx-trinity-loop12-mccommas-bluff",
+          "blocker": "TRPA identifies Loop 12 / Great Trinity Forest Way-to-McCommas Bluff / Riverwood Overlook as a 3-mile Dallas Trinity continuation, but says it is not an official TPWD paddling trail, labels McCommas/Riverwood a mandatory strenuous take-out, and flags Lock & Dam #1 at McCommas Bluff as a canoeist hazard. TPWD official Dallas Trinity coverage stops at Loop 12, and the NCTCOG Trinity River National Water Trail summary search result indicates the Loop 12 launch remains closed from flood damage/proposed as take-out-only. USGS 08057000 was product-live at 333 cfs / 11.69 ft, and TRPA Dallas thresholds exist, but the active/unclear Loop 12 launch status and dam-adjacent mandatory take-out safety package block publication."
+        },
+        {
+          "candidateId": "tx-fort-worth-nature-center-refuge-loop",
+          "blocker": "Rechecked only far enough to confirm the prior blocker remains. TPWD still frames Fort Worth Nature Center & Refuge as a Big River / Greer Island out-and-back or loop / marsh / upper Lake Worth trail, and the FWNC launch-status page controls access by Lake Worth elevation rather than a river-discharge threshold. The current route gate still requires a point-to-point route and product-supported numeric river threshold model."
+        },
+        {
+          "candidateId": "tx-paluxy-cr1008-glen-rose",
+          "blocker": "Rechecked the known Paluxy lead after TRPA and USGS evidence surfaced. TRPA still supports the 9-mile CR 1008-to-Glen Rose route, 100 / 1000-1500 / 3000 cfs thresholds, Class II-II+ safety context, and the Big Rocks Park Dam warning, and USGS 08091500 returned product-live 2.65 cfs / 1.73 ft. No fresh manager-grade launch/take-out infrastructure or explicit Big Rocks Park Dam no-extension handling surfaced for the roadside ledge put-in and dam-adjacent Heritage Park take-out, so the existing blocker remains."
+        },
+        {
+          "candidateId": "tx-san-jacinto-sh242-tollway99",
+          "blocker": "TRPA lists West Fork San Jacinto bridge-to-bridge segments including SH-242-to-Tollway-99 and warns the river rises quickly after heavy weather, with possible log jams / hydraulic currents near bridges and long no-take-out spans. USGS 08068000, 08067500, and 08070200 returned live values, but no source-backed numeric paddling thresholds, manager-backed public launch/take-out terms, water-entry coordinates, camping/no-camping rules, or selected route package surfaced for a San Jacinto bridge-to-bridge add."
+        },
+        {
+          "candidateId": "tx-clear-fork-trinity-oakmont-river-park",
+          "blocker": "TPWD/Fort Worth public-access references identify Oakmont Park and River Park / Bryant Irvin on the Clear Fork Trinity, and USGS 08047000 returned product-live 17.4 cfs / 3.38 ft. The route-supported Clear Fork Trinity splits from Art Cowsen to Bryant Irvin, Bryant Irvin to Rogers, and Rogers to Trinity Park are already implemented; the Oakmont/River Park lead did not surface a separate manager-backed paddling route package, route distance, camping/no-camping treatment, or safety/access terms beyond park/access inventory context."
+        }
+      ],
+      "routeAdded": null,
+      "gallery": "not_started_no_route_added",
+      "camping": "blocked_or_not_finalized_per_candidate_no_route_added",
+      "safety": "blocked_before_package_complete_per_candidate_no_route_added",
+      "geometry": "not_started_no_route_added",
+      "coordinates": "not_started_no_route_added",
+      "nextCandidateRotation": "Continue Texas bounded discovery with fresh distinct manager-backed public point-to-point reaches outside Dallas Trinity downstream McCommas, Fort Worth Nature Center loops, Paluxy CR1008/Glen Rose, San Jacinto bridge segments, Clear Fork Oakmont inventory leads, and prior recorded blockers unless fresh evidence clears the exact gate.",
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: npm.cmd run routes:audit",
+        "passed: npm.cmd run gallery:audit",
+        "passed: npm.cmd run routes:safety:audit",
+        "passed: npm.cmd run routes:geometries:audit (940/941 matched; pre-existing unmatched route only)",
+        "not run: npm.cmd run routes:geometries:generate because no route was implemented and no route geometry changed",
+        "not run: npm.cmd run routes:audit:coordinates because no route data or endpoint coordinates changed",
+        "passed: npm.cmd run typecheck",
+        "passed: npm.cmd run build",
+        "passed: npm.cmd run operations:verify / gatekeeper-20260811173939",
+        "passed: git diff --check (exit 0; CRLF normalization warnings only)"
+      ]
+    },
     {
       "id": "tx-five-candidate-no-add-20260811t1703z",
       "completedAt": "2026-08-11T17:03:00.000Z",
@@ -995,6 +1316,560 @@
         "passed: npm run operations:verify / gatekeeper-20260811133729",
         "passed: git diff --check (exit 0; CRLF normalization warnings only)"
       ]
+    },
+    {
+      "id": "route-worker-202608111945-texas-five-no-add",
+      "completedAt": "2026-08-12T00:44:01.447Z",
+      "candidates": [
+        "tx-christmas-bay-coastal-trails",
+        "tx-galveston-island-state-park-paddling-trails",
+        "tx-lighthouse-lakes-paddling-trail-loops",
+        "tx-port-oconnor-bay-marsh-trails",
+        "tx-powderhorn-shoreline-marsh-trails"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-christmas-bay-coastal-trails",
+          "blocker": "TPWD supports the Christmas Bay Paddling Trail with 29 GPS markers, 19.1 miles of route choices, shorter marked options, and shallow-water/stingray safety notes, but the candidate is a coastal bay/bayou marker-route system rather than a named public downstream river put-in/take-out reach with a product-supported live river gauge and numeric cfs/stage thresholds."
+        },
+        {
+          "candidateId": "tx-galveston-island-state-park-paddling-trails",
+          "blocker": "TPWD supports three Galveston Island State Park paddling trails with public access coordinates and park camping context, but Dana Cove, Oak Bayou, and Jenkins Bayou are bay/marsh loop or return-to-put-in trails rather than downstream point-to-point river reaches with a product-supported live river gauge and numeric thresholds."
+        },
+        {
+          "candidateId": "tx-lighthouse-lakes-paddling-trail-loops",
+          "blocker": "TPWD supports the Lighthouse Lakes trail complex with public access coordinates, four loop options, mangrove/slough/back-lake route descriptions, commercial-channel crossing hazards, and GPS-navigation warnings, but it is a tidal bay/slough loop system rather than a downstream river reach with a product-supported live river gauge and numeric thresholds."
+        },
+        {
+          "candidateId": "tx-port-oconnor-bay-marsh-trails",
+          "blocker": "TPWD supports the Port O Connor trail family with public and private access context, six interconnecting bay/marsh trails, Matagorda Island camping context, tide guidance, wind and motorboat hazards, and private-property warnings, but it is a coastal route-choice system rather than a selected downstream river reach with a product-supported live river gauge and numeric cfs/stage thresholds."
+        },
+        {
+          "candidateId": "tx-powderhorn-shoreline-marsh-trails",
+          "blocker": "TPWD supports the Powderhorn Paddling Trails with four access points, 26 miles of shoreline/marsh trails, one-way and loop options, private-property/WMA-entry limitations, and wind/tide/shallow-flat caveats, but the package is a coastal shoreline/marsh/lake route-choice family rather than a selected downstream river route with a product-supported live river gauge and numeric thresholds."
+        }
+      ],
+      "routeAdded": false,
+      "validation": "passed through gatekeeper-20260812004542; git diff --check exit 0 with CRLF normalization warnings only"
+    },
+    {
+      "id": "route-worker-202608112012-texas-five-no-add",
+      "completedAt": "2026-08-12T01:15:54.097Z",
+      "candidates": [
+        "tx-caddo-benton-lake-loop",
+        "tx-caddo-haggerty-creek-loop",
+        "tx-caddo-cathedral-loop",
+        "tx-caddo-old-folks-playground-loop",
+        "tx-caddo-turtle-shell-loop"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-caddo-benton-lake-loop",
+          "blocker": "TPWD Benton Lake Paddling Trail supports 2.4-mile loop trail on Big Cypress Bayou / Caddo Lake from Backwater Jack's RV Park and publishes the single-launch access coordinate, but the candidate is a Caddo Lake / Big Cypress lake-swamp loop or return-to-put-in product rather than a named downstream public river reach with separate put-in/take-out, a product-supported live river gauge, and source-backed numeric cfs/stage thresholds."
+        },
+        {
+          "candidateId": "tx-caddo-haggerty-creek-loop",
+          "blocker": "TPWD Haggerty Creek Paddling Trail supports 5-mile loop trail on Big Cypress Bayou / Caddo Lake from Backwater Jack's RV Park and publishes the single-launch access coordinate, but the candidate is a Caddo Lake / Big Cypress lake-swamp loop or return-to-put-in product rather than a named downstream public river reach with separate put-in/take-out, a product-supported live river gauge, and source-backed numeric cfs/stage thresholds."
+        },
+        {
+          "candidateId": "tx-caddo-cathedral-loop",
+          "blocker": "TPWD Cathedral Paddling Trail supports 3.8-mile loop / turn-around trail on Caddo Lake from Shady Glade Resort near Uncertain and publishes the single-launch access coordinate, but the candidate is a Caddo Lake / Big Cypress lake-swamp loop or return-to-put-in product rather than a named downstream public river reach with separate put-in/take-out, a product-supported live river gauge, and source-backed numeric cfs/stage thresholds."
+        },
+        {
+          "candidateId": "tx-caddo-old-folks-playground-loop",
+          "blocker": "TPWD Old Folks Playground Paddling Trail supports 4.9-mile loop trail on Caddo Lake from Crip's Camp, passing Starr Ranch day-use area and publishes the single-launch access coordinate, but the candidate is a Caddo Lake / Big Cypress lake-swamp loop or return-to-put-in product rather than a named downstream public river reach with separate put-in/take-out, a product-supported live river gauge, and source-backed numeric cfs/stage thresholds."
+        },
+        {
+          "candidateId": "tx-caddo-turtle-shell-loop",
+          "blocker": "TPWD Turtle Shell Paddling Trail supports 4.6-mile loop trail on Caddo Lake from Johnson's Ranch and publishes the single-launch access coordinate, but the candidate is a Caddo Lake / Big Cypress lake-swamp loop or return-to-put-in product rather than a named downstream public river reach with separate put-in/take-out, a product-supported live river gauge, and source-backed numeric cfs/stage thresholds."
+        }
+      ],
+      "routeAdded": false,
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, and runs",
+        "passed: npm.cmd run routes:audit (776 routes)",
+        "passed: npm.cmd run gallery:audit (325 images)",
+        "passed: npm.cmd run routes:safety:audit (0 issues for 776 routes)",
+        "passed: npm.cmd run routes:geometries:audit (942/943 matched; pre-existing unmatched route state only)",
+        "not run: npm.cmd run routes:geometries:generate because no route was implemented and no route geometry changed",
+        "not run: npm.cmd run routes:audit:coordinates because no route data or endpoint coordinates changed",
+        "passed: npm.cmd run typecheck",
+        "passed: npm.cmd run build (1119 pages)",
+        "passed: npm.cmd run operations:verify / gatekeeper-20260812011544",
+        "passed: git diff --check (exit 0; CRLF normalization warnings only)"
+      ],
+      "gatekeeperId": "gatekeeper-20260812011544"
+    },
+    {
+      "id": "route-worker-202608112341-texas-five-rechecks-no-add",
+      "completedAt": "2026-08-12T04:48:30.681Z",
+      "status": "blocked_no_route_added",
+      "candidates": [
+        "tx-sabine-sandbar-fm2517-yellow-dog-live-gauge-recheck",
+        "tx-neches-davy-crockett-anderson-sh7-threshold-recheck",
+        "tx-cherokee-neches-river-run-us79-threshold-recheck",
+        "tx-brazos-old-settlement-sugar-mill-cr849-access-recheck",
+        "tx-san-marcos-staples-dam-river-grove-closure-recheck"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-sabine-sandbar-fm2517-yellow-dog-live-gauge-recheck",
+          "blocker": "TPWD still supports the Sabine Sandbar route, endpoints, 15/19/4-mile options, private-bank warnings, alligator/wood/rainfall safety context, and TRPA still supports 300 / 500-5,000 / 10,000 cfs Sabine guidance. Publication remains blocked because USGS 08022120 near Carthage again returned stale discharge, 7,250 cfs at 2025-07-01 20:45 CDT, while only stage values were current at 11.56 ft and 17.44 ft on 2026-08-11 22:45 CDT. No product-supported current discharge package cleared."
+        },
+        {
+          "candidateId": "tx-neches-davy-crockett-anderson-sh7-threshold-recheck",
+          "blocker": "TPWD supports the Neches-Davy Crockett Anderson Crossing-to-State-Highway-7 trail, and USGS Water Services returned current 08033000 Neches River near Diboll data at 149 cfs / 1.86 ft on 2026-08-11 23:15 CDT. Publication remains blocked because no route/gauge-specific numeric paddling thresholds for the selected Davy Crockett / lower-gauge corridor surfaced; broad Neches guidance is not enough to publish an honest threshold model."
+        },
+        {
+          "candidateId": "tx-cherokee-neches-river-run-us79-threshold-recheck",
+          "blocker": "TPWD supports the 6.6-mile Cherokee Neches route from River Run Park / FM 747 to US 79 with endpoint coordinates and rainfall/low-water safety context, and USGS Water Services returned current 08032000 Neches River near Neches discharge at 103 cfs on 2026-08-11 22:30 CDT. Publication remains blocked because no route-specific or clearly same-reach numeric paddling thresholds tied to this gauge surfaced."
+        },
+        {
+          "candidateId": "tx-brazos-old-settlement-sugar-mill-cr849-access-recheck",
+          "blocker": "TPWD Old Settlement Passage and Sugar Mill Stretch still depend on CR 849 as take-out or put-in, and current TPWD pages state CR 849 is not currently accessible because severe flooding destroyed the parking area and the ramp is being rebuilt. Both the Bells Landing-to-CR849 and CR849-to-FM2004 route shapes remain blocked by current access closure."
+        },
+        {
+          "candidateId": "tx-san-marcos-staples-dam-river-grove-closure-recheck",
+          "blocker": "TPWD currently marks River Grove Get In temporarily closed, so the 2025 Staples-Dam-to-River-Grove route announcement cannot support a publishable take-out/access package this run."
+        }
+      ],
+      "routeAdded": false,
+      "gallery": "not_started_no_route_added",
+      "camping": "blocked_or_not_finalized_no_route_added",
+      "safety": "blocked_no_route_added",
+      "geometry": "not_started_no_route_added",
+      "coordinates": "not_started_no_route_added",
+      "nextCandidateRotation": "Continue Texas bounded discovery with fresh distinct manager-backed public point-to-point river reaches outside Sabine Sandbar stale-discharge rechecks, Neches Davy Crockett and Cherokee threshold blockers, Brazos CR 849 closure blockers, San Marcos River Grove closure blockers, and all previously recorded loop, reservoir, coastal, unsupported-gauge, threshold, duplicate, private-access, dam-safety, camping, coordinate, geometry, and distance blockers unless fresh evidence clears the exact recorded gate.",
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: route, gallery, safety, and geometry audits",
+        "passed: full typecheck and production build",
+        "passed: operations:verify / gatekeeper-20260812044824",
+        "passed: git diff --check with CRLF normalization warnings only",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812044824"
+    },
+    {
+      "id": "route-worker-202608121145-texas-lower-colorado-no-add",
+      "completedAt": "2026-08-12T11:45:00.000Z",
+      "status": "blocked_no_route_added_validation_passed",
+      "candidates": [
+        "tx-colorado-fm950-fm960",
+        "tx-colorado-fm960-hollywood-bottom",
+        "tx-colorado-hollywood-bottom-texas35",
+        "tx-colorado-texas35-riverside-park",
+        "tx-colorado-fm521-river-bend-boat-ramp"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-colorado-fm950-fm960",
+          "blocker": "LCRA supports the lower-Colorado access chain and identifies FM 950 Bridge and FM 960 Bridge as TxDOT-managed river access points with rounded coordinates; FM 950 is pedestrian right-of-way access down a dirt path to steep banks and FM 960 is an unimproved dirt path to a steep river edge. USGS 08162000 at Wharton was product-live at 368 cfs / 7.99 ft on 2026-08-12 06:15 CDT, but no source-backed numeric paddling thresholds for this exact Wharton-area bridge-to-bridge segment surfaced, and no legal camping/no-camping package for the long reach cleared."
+        },
+        {
+          "candidateId": "tx-colorado-fm960-hollywood-bottom",
+          "blocker": "LCRA identifies FM 960 Bridge as a TxDOT-managed unimproved dirt-path access to a steep river edge and Hollywood Bottom Park as an LCRA-managed 24-hour access where camping is permitted. USGS 08162000 at Wharton was product-live at 368 cfs / 7.99 ft on 2026-08-12 06:15 CDT, but no source-backed numeric paddling thresholds for this lower-Colorado segment surfaced, and the rough bridge put-in plus long-reach safety package did not clear for publication."
+        },
+        {
+          "candidateId": "tx-colorado-hollywood-bottom-texas35",
+          "blocker": "LCRA identifies Hollywood Bottom Park as a 24-hour LCRA access where camping is permitted and Texas 35 Bridge as a Bay City-managed access one mile west of Bay City. The chain notes an 18-mile spacing and warns that there is no portage around Bay City Dam if continuing toward the Gulf. USGS 08162000 at Wharton was product-live at 368 cfs / 7.99 ft on 2026-08-12 06:15 CDT, but no source-backed numeric paddling thresholds or complete route safety/camping package surfaced for this long lower-Colorado reach."
+        },
+        {
+          "candidateId": "tx-colorado-texas35-riverside-park",
+          "blocker": "LCRA identifies Texas 35 Bridge and Riverside Park as consecutive Bay City-managed public access points five miles apart, but explicitly says there is no portage around Bay City Dam and recommends taking out at Texas 35 when traveling toward the Gulf. USGS 08162500 near Bay City returned current stage but stale discharge, with the latest discharge value 2310 cfs from 2026-08-01 18:00 CDT, so the product-live discharge gate also failed for the below-dam segment."
+        },
+        {
+          "candidateId": "tx-colorado-fm521-river-bend-boat-ramp",
+          "blocker": "LCRA identifies FM 521 River Park as a lower-Colorado access with campsites and River Bend Boat Ramp as a TPWD-managed access 11 miles downstream that is one mile below the Intracoastal Waterway and provides access to the last six miles of the Colorado River, the Intracoastal Waterway, and Matagorda Bay. USGS 08162500 near Bay City returned current stage but stale discharge, with the latest discharge value 2310 cfs from 2026-08-01 18:00 CDT, and no source-backed route-specific thresholds surfaced for the coastal/ICW transition."
+        }
+      ],
+      "routeAdded": false,
+      "gallery": "not_started_no_route_added",
+      "camping": "blocked_or_not_finalized_no_route_added",
+      "safety": "blocked_no_route_added",
+      "geometry": "not_started_no_route_added",
+      "coordinates": "not_started_no_route_added",
+      "nextCandidateRotation": "Continue Texas bounded discovery with fresh distinct manager-backed public point-to-point river reaches outside lower-Colorado Wharton/Bay-City threshold, rough bridge-access, Bay City Dam no-portage, stale Bay City discharge, coastal/ICW transition blockers, and all previously recorded loop, reservoir, coastal, unsupported-gauge, threshold, duplicate, private-access, dam-safety, camping, coordinate, geometry, and distance blockers unless fresh evidence clears the exact recorded gate.",
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: routes:audit, gallery:audit, routes:safety:audit, and routes:geometries:audit",
+        "passed: typecheck:routes, full typecheck, and production build",
+        "passed: operations:verify / gatekeeper-20260812114917",
+        "passed: git diff --check with CRLF normalization warnings only",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812114917"
+    }
+  ],
+  "latestRuns": [
+    {
+      "id": "route-worker-202608121440-texas-rechecks-no-add",
+      "status": "blocked_no_route_added_validation_passed",
+      "completedAt": "2026-08-12T14:48:39.784Z",
+      "candidates": [
+        "tx-sabine-sandbar-fm2517-yellow-dog-live-gauge-recheck-20260812-1440",
+        "tx-brazos-old-settlement-cr849-access-recheck-20260812-1440",
+        "tx-brazos-sugar-mill-cr849-access-recheck-20260812-1440",
+        "tx-san-marcos-staples-dam-river-grove-closure-recheck-20260812-1440",
+        "tx-seguin-lake-nolte-meadow-lake-closure-recheck-20260812-1440"
+      ]
+    },
+    {
+      "id": "route-worker-202608112341-texas-five-rechecks-no-add",
+      "completedAt": "2026-08-12T04:48:30.681Z",
+      "candidates": [
+        "tx-sabine-sandbar-fm2517-yellow-dog-live-gauge-recheck",
+        "tx-neches-davy-crockett-anderson-sh7-threshold-recheck",
+        "tx-cherokee-neches-river-run-us79-threshold-recheck",
+        "tx-brazos-old-settlement-sugar-mill-cr849-access-recheck",
+        "tx-san-marcos-staples-dam-river-grove-closure-recheck"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-sabine-sandbar-fm2517-yellow-dog-live-gauge-recheck",
+          "blocker": "TPWD still supports the Sabine Sandbar route, endpoints, 15/19/4-mile options, private-bank warnings, alligator/wood/rainfall safety context, and TRPA still supports 300 / 500-5,000 / 10,000 cfs Sabine guidance. Publication remains blocked because USGS 08022120 near Carthage again returned stale discharge, 7,250 cfs at 2025-07-01 20:45 CDT, while only stage values were current at 11.56 ft and 17.44 ft on 2026-08-11 22:45 CDT. No product-supported current discharge package cleared."
+        },
+        {
+          "candidateId": "tx-neches-davy-crockett-anderson-sh7-threshold-recheck",
+          "blocker": "TPWD supports the Neches-Davy Crockett Anderson Crossing-to-State-Highway-7 trail, and USGS Water Services returned current 08033000 Neches River near Diboll data at 149 cfs / 1.86 ft on 2026-08-11 23:15 CDT. Publication remains blocked because no route/gauge-specific numeric paddling thresholds for the selected Davy Crockett / lower-gauge corridor surfaced; broad Neches guidance is not enough to publish an honest threshold model."
+        },
+        {
+          "candidateId": "tx-cherokee-neches-river-run-us79-threshold-recheck",
+          "blocker": "TPWD supports the 6.6-mile Cherokee Neches route from River Run Park / FM 747 to US 79 with endpoint coordinates and rainfall/low-water safety context, and USGS Water Services returned current 08032000 Neches River near Neches discharge at 103 cfs on 2026-08-11 22:30 CDT. Publication remains blocked because no route-specific or clearly same-reach numeric paddling thresholds tied to this gauge surfaced."
+        },
+        {
+          "candidateId": "tx-brazos-old-settlement-sugar-mill-cr849-access-recheck",
+          "blocker": "TPWD Old Settlement Passage and Sugar Mill Stretch still depend on CR 849 as take-out or put-in, and current TPWD pages state CR 849 is not currently accessible because severe flooding destroyed the parking area and the ramp is being rebuilt. Both the Bells Landing-to-CR849 and CR849-to-FM2004 route shapes remain blocked by current access closure."
+        },
+        {
+          "candidateId": "tx-san-marcos-staples-dam-river-grove-closure-recheck",
+          "blocker": "TPWD currently marks River Grove Get In temporarily closed, so the 2025 Staples-Dam-to-River-Grove route announcement cannot support a publishable take-out/access package this run."
+        }
+      ],
+      "routeAdded": false,
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: route, gallery, safety, and geometry audits",
+        "passed: full typecheck and production build",
+        "passed: operations:verify / gatekeeper-20260812044824",
+        "passed: git diff --check with CRLF normalization warnings only",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812044824"
+    },
+    {
+      "id": "route-worker-202608112316-texas-legacy-corridors-no-add",
+      "completedAt": "2026-08-12T04:18:28.273Z",
+      "candidates": [
+        "tx-leon-gatesville-mother-neff",
+        "tx-angelina-hwy21-us59",
+        "tx-bosque-iredell-lake-waco",
+        "tx-lampasas-rumley-youngsport",
+        "tx-san-saba-menard-colorado"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-leon-gatesville-mother-neff",
+          "blocker": "Legacy public river-guide evidence describes a broad about 46-mile Gatesville-to-Lake-Belton/Mother-Neff corridor, while current park/access evidence does not supply a manager-backed day-route endpoint, camping, and safety package for Gatesville-to-Mother-Neff. USGS Leon gauges were product-live but same-run values were below the Texas River Flows 200 cfs floor, and Mother Neff lower river-bottom/fishing-access closure evidence remains a current access/camping blocker."
+        },
+        {
+          "candidateId": "tx-angelina-hwy21-us59",
+          "blocker": "TPWD legacy analysis identifies the Angelina SH 21-to-US 59 section as about 46 miles with very little current at normal water and access/property context tied to lumber-company/private land, not a current manager-backed public day-route package. Product-live USGS values at Alto and US 59 were below the Texas River Flows 200 cfs floor, and no official camping/overnight rules for this exact corridor surfaced."
+        },
+        {
+          "candidateId": "tx-bosque-iredell-lake-waco",
+          "blocker": "The Bosque lead is a broad river-to-impoundment corridor rather than a selected public route card. Available official context points to Lake Waco/urban or reservoir-transition conditions, no manager-backed Iredell-to-Lake-Waco put-in/take-out/camping package surfaced, and USGS 08095000 was product-live but below the Texas River Flows 125 cfs floor."
+        },
+        {
+          "candidateId": "tx-lampasas-rumley-youngsport",
+          "blocker": "TPWD legacy analysis and Texas River Flows point to the about 42-mile Rumley-to-Youngsport corridor, but the cited Youngsport gauge 08104000 is not product-live in current USGS IV output. The nearby Kempner gauge is live but is not the source-backed route gauge and was below the 100 cfs floor; no manager-backed endpoint/camping/safety package surfaced for publication."
+        },
+        {
+          "candidateId": "tx-san-saba-menard-colorado",
+          "blocker": "Texas River Flows supports a Menard-gauge threshold row for the long Menard-to-Colorado corridor, and USGS 08144500 is product-live, but same-run flow was below the 150 cfs floor. Current public evidence did not supply manager-backed downstream endpoints, legal camping/overnight terms, or route-specific safety information; Menard River Park evidence is day-use context only and does not solve the corridor package."
+        }
+      ],
+      "routeAdded": false,
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: route, gallery, safety, and geometry audits",
+        "passed: full typecheck and production build",
+        "passed: operations:verify / gatekeeper-20260812041756",
+        "passed: git diff --check",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812041756"
+    },
+    {
+      "id": "route-worker-202608112212-texas-caddo-no-add",
+      "completedAt": "2026-08-12T03:17:15.046Z",
+      "candidates": [
+        "tx-caddo-clear-lake-loop",
+        "tx-caddo-mill-pond-loop",
+        "tx-caddo-old-river-ii-loop",
+        "tx-caddo-hells-half-acre-loop"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-caddo-clear-lake-loop",
+          "blocker": "TPWD supports a 2.9-mile Clear Lake loop from Backwater Jack's RV Park at 32.7114, -94.2291, but it is a single-access lake/swamp backwater loop rather than a downstream public river reach with separate put-in/take-out, product-supported live condition adapter, and source-backed numeric cfs/stage thresholds."
+        },
+        {
+          "candidateId": "tx-caddo-mill-pond-loop",
+          "blocker": "TPWD supports a 7.2-mile Mill Pond round-trip/loop from Backwater Jack's RV Park with optional arranged Caddo Lake State Park take-out, but it remains a lake/swamp route-choice product without an accepted downstream public river route or supported live threshold package."
+        },
+        {
+          "candidateId": "tx-caddo-old-river-ii-loop",
+          "blocker": "TPWD supports a 3-mile Old River II loop from Backwater Jack's into an old oxbow with still/shallow water, but it is not a downstream public put-in/take-out river reach and lacks a supported live gauge plus numeric thresholds."
+        },
+        {
+          "candidateId": "tx-caddo-hells-half-acre-loop",
+          "blocker": "TPWD supports an 8.8-mile Hell's Half Acre Caddo Lake / Big Cypress loop from Mill Pond Canoe/Kayak Launch and designated primitive campsite context on Caddo Lake WMA, but route-shape and supported live-threshold gates fail before implementation."
+        }
+      ],
+      "routeAdded": false,
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: route, gallery, safety, and geometry audits",
+        "passed: full typecheck and production build",
+        "passed: operations:verify / gatekeeper-20260812031715",
+        "passed: git diff --check with CRLF normalization warnings only",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812031715"
+    },
+    {
+      "id": "route-worker-202608112140-texas-three-no-add",
+      "completedAt": "2026-08-12T02:42:56.312Z",
+      "candidates": [
+        "tx-toledo-bend-patroon-bayou",
+        "tx-toledo-bend-lost-frontier",
+        "tx-toledo-bend-six-mile"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-toledo-bend-patroon-bayou",
+          "blocker": "TPWD supports the Toledo Bend / Patroon Bayou trail from Holly Park Marina at 31.5223, -93.8012, with 2-to-8 miles of route choices on the Patroon Bayou arm of Toledo Bend Reservoir, but it is a same-access reservoir/bayou loop rather than a downstream public river reach with separate put-in/take-out, a product-supported live river gauge, and source-backed numeric cfs/stage thresholds."
+        },
+        {
+          "candidateId": "tx-toledo-bend-lost-frontier",
+          "blocker": "TPWD supports the Toledo Bend / Lost Frontier trail as a 5.3-mile beginner loop from Frontier RV Park, with Carrice Creek Boat Ramp as alternate access, but it remains a lake/reservoir creek loop with no downstream public river reach, no selected separate put-in/take-out route shape, and no product-supported live river gauge or numeric threshold package."
+        },
+        {
+          "candidateId": "tx-toledo-bend-six-mile",
+          "blocker": "TPWD supports the Toledo Bend / Six Mile trail with Six Mile North Public Boat Launch at 31.2455, -93.7654, Six Mile South Public Boat Launch at 31.2389, -93.7558, and a 5-mile quiet-water lake trail, but it is a Toledo Bend Reservoir loop/route-choice product with motorboat/wind exposure rather than a scoreable downstream river reach with product-supported live gauge thresholds."
+        }
+      ],
+      "routeAdded": false,
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: route, gallery, safety, and geometry audits",
+        "passed: full typecheck and production build",
+        "passed: operations:verify / gatekeeper-20260812024519",
+        "passed: git diff --check with CRLF normalization warnings only",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812024519"
+    },
+    {
+      "id": "route-worker-202608112112-texas-five-no-add",
+      "completedAt": "2026-08-12T02:17:20.393Z",
+      "candidates": [
+        "tx-joe-pool-lake-walnut-creek",
+        "tx-ron-smith-oso-bay-loop",
+        "tx-south-bay-paddling-trail-loop",
+        "tx-martin-dies-jr-neches-paddling-trail",
+        "tx-martin-dies-jr-walnut-slough-paddling-trail"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-joe-pool-lake-walnut-creek",
+          "blocker": "TPWD supports the Joe Pool Lake / Walnut Creek trail as a 4.9-to-5-mile roundtrip from Loyd Park Canoe Launch to the Hwy 360 bridge and back, with a public access coordinate and park facilities, but it is a lake/creek out-and-back route from one access rather than a downstream public river reach with separate put-in/take-out, product-supported live gauge, and source-backed numeric thresholds."
+        },
+        {
+          "candidateId": "tx-ron-smith-oso-bay-loop",
+          "blocker": "TPWD supports the Ron R. Smith Memorial Paddling Trail on Oso Bay as 2-to-5 miles of loop options from Turtle Cove near Texas A&M-Corpus Christi, with a public access coordinate, but it is a coastal bay loop/out-and-back product governed by tide, wind, and water-quality exposure rather than a downstream river reach with a product-supported live river/tide gauge and numeric thresholds."
+        },
+        {
+          "candidateId": "tx-south-bay-paddling-trail-loop",
+          "blocker": "TPWD supports the South Bay Paddling Trail as an approximately eight-mile loop from Isla Blanca Park through a shallow subtropical coastal bay bounded by the Rio Grande riparian edge, Brownsville Ship Channel, and Brazos Island, but it is a coastal bay loop with ship-channel, shallow-flat, oyster, tide, and wind considerations and no product-supported live river/tide gauge or numeric cfs/stage threshold package."
+        },
+        {
+          "candidateId": "tx-martin-dies-jr-neches-paddling-trail",
+          "blocker": "TPWD supports the Martin Dies, Jr. Neches Paddling Trail from the Walnut Ridge Unit access with route choices totaling 3.2-to-16 miles to the Neches River and back to the park, but the official trail is a same-access, no-shuttle route-choice product crossing park backwater, reservoir, and river settings rather than a selected downstream public river put-in/take-out with a product-supported live gauge and source-backed numeric thresholds."
+        },
+        {
+          "candidateId": "tx-martin-dies-jr-walnut-slough-paddling-trail",
+          "blocker": "TPWD supports the Martin Dies, Jr. Walnut Slough Paddling Trail as a 4.3-mile state-park trail from the same Walnut Ridge Unit access used for the Neches route, but it is a same-access slough/backwater trail with no shuttle rather than a downstream point-to-point river reach with separate public endpoints, a product-supported live gauge, and source-backed numeric thresholds."
+        }
+      ],
+      "routeAdded": false,
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state-registry, gate-policy, and Minnesota saturation audit",
+        "passed: npm.cmd run routes:audit (776 routes)",
+        "passed: npm.cmd run gallery:audit (325 images)",
+        "passed: npm.cmd run routes:safety:audit (0 issues for 776 routes)",
+        "passed: npm.cmd run routes:geometries:audit (942/943 matched; pre-existing unmatched route state only)",
+        "not run: npm.cmd run routes:geometries:generate because no route was implemented and no route geometry changed",
+        "not run: npm.cmd run routes:audit:coordinates because no route data or endpoint coordinates changed",
+        "passed: npm.cmd run typecheck",
+        "passed: npm.cmd run build (1119 pages)",
+        "passed: npm.cmd run operations:verify / gatekeeper-20260812021653",
+        "passed: git diff --check (exit 0; CRLF normalization warnings only)"
+      ],
+      "gatekeeperId": "gatekeeper-20260812021653"
+    },
+    {
+      "id": "route-worker-202608120013-texas-five-rechecks-no-add",
+      "completedAt": "2026-08-12T05:13:56.024Z",
+      "candidates": [
+        "tx-rio-grande-colorado-canyon-rancherias-lajitas-live-gauge-recheck-20260812",
+        "tx-rio-grande-colorado-canyon-redford-rancherias-live-gauge-recheck-20260812",
+        "tx-devils-bakers-crossing-san-pedro-usgs-live-recheck-20260812",
+        "tx-devils-san-pedro-devils-back-usgs-live-recheck-20260812",
+        "tx-paluxy-cr1008-glen-rose-flow-access-recheck-20260812"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-rio-grande-colorado-canyon-rancherias-lajitas-live-gauge-recheck-20260812",
+          "blocker": "Colorado Canyon Rancherias-to-Lajitas retained strong route/access/camping/safety/threshold evidence, but USGS Water Services again returned no current timeSeries for direct Presidio gauge 08374200, so the product-live gauge gate failed."
+        },
+        {
+          "candidateId": "tx-rio-grande-colorado-canyon-redford-rancherias-live-gauge-recheck-20260812",
+          "blocker": "Colorado Canyon Redford-to-Rancherias retained strong route/access/camping/safety/threshold evidence, but the same direct USGS 08374200 source again returned no current Water Services discharge/stage series."
+        },
+        {
+          "candidateId": "tx-devils-bakers-crossing-san-pedro-usgs-live-recheck-20260812",
+          "blocker": "Devils River Baker's Crossing-to-San-Pedro retained strong TPWD/TRPA/DRC access, permit, camping, safety, and threshold evidence, but thresholds still depend on unsupported IBWC/DRC Baker's Crossing data and USGS 08449000 / 08449400 returned no current Water Services discharge/stage series."
+        },
+        {
+          "candidateId": "tx-devils-san-pedro-devils-back-usgs-live-recheck-20260812",
+          "blocker": "Devils River San-Pedro-to-Devils-Back retained strong TRPA/DRAP route, camping, safety, and threshold evidence, but thresholds still depend on unsupported IBWC Baker's Crossing data and USGS 08449000 / 08449400 returned no current Water Services discharge/stage series."
+        },
+        {
+          "candidateId": "tx-paluxy-cr1008-glen-rose-flow-access-recheck-20260812",
+          "blocker": "Paluxy CR 1008-to-Glen-Rose retained TRPA route and threshold evidence, and USGS 08091500 was product-live at 2.65 cfs / 1.73 ft on 2026-08-12 00:00 CDT, but current flow was far below the 100 cfs floor and fresh searches still found no manager-grade CR 1008 / Heritage Park access package or explicit Big Rocks Park Dam no-extension handling."
+        }
+      ],
+      "routeAdded": false,
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state-registry, gate-policy, and Minnesota saturation audit",
+        "passed: npm.cmd run routes:audit (776 routes)",
+        "passed: npm.cmd run gallery:audit (325 images)",
+        "passed: npm.cmd run routes:safety:audit (0 issues for 776 routes)",
+        "passed: npm.cmd run routes:geometries:audit (942/943 matched; pre-existing unmatched route state only)",
+        "passed: npm.cmd run typecheck",
+        "passed: npm.cmd run build (1119 pages)",
+        "passed: npm.cmd run operations:verify / gatekeeper-20260812051823",
+        "passed: git diff --check (line-ending normalization warnings only)",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812051823"
+    },
+    {
+      "id": "route-worker-202608121145-texas-lower-colorado-no-add",
+      "completedAt": "2026-08-12T11:45:00.000Z",
+      "status": "blocked_no_route_added_validation_passed",
+      "candidates": [
+        "tx-colorado-fm950-fm960",
+        "tx-colorado-fm960-hollywood-bottom",
+        "tx-colorado-hollywood-bottom-texas35",
+        "tx-colorado-texas35-riverside-park",
+        "tx-colorado-fm521-river-bend-boat-ramp"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-colorado-fm950-fm960",
+          "blocker": "LCRA supports the lower-Colorado access chain and identifies FM 950 Bridge and FM 960 Bridge as TxDOT-managed river access points with rounded coordinates; FM 950 is pedestrian right-of-way access down a dirt path to steep banks and FM 960 is an unimproved dirt path to a steep river edge. USGS 08162000 at Wharton was product-live at 368 cfs / 7.99 ft on 2026-08-12 06:15 CDT, but no source-backed numeric paddling thresholds for this exact Wharton-area bridge-to-bridge segment surfaced, and no legal camping/no-camping package for the long reach cleared."
+        },
+        {
+          "candidateId": "tx-colorado-fm960-hollywood-bottom",
+          "blocker": "LCRA identifies FM 960 Bridge as a TxDOT-managed unimproved dirt-path access to a steep river edge and Hollywood Bottom Park as an LCRA-managed 24-hour access where camping is permitted. USGS 08162000 at Wharton was product-live at 368 cfs / 7.99 ft on 2026-08-12 06:15 CDT, but no source-backed numeric paddling thresholds for this lower-Colorado segment surfaced, and the rough bridge put-in plus long-reach safety package did not clear for publication."
+        },
+        {
+          "candidateId": "tx-colorado-hollywood-bottom-texas35",
+          "blocker": "LCRA identifies Hollywood Bottom Park as a 24-hour LCRA access where camping is permitted and Texas 35 Bridge as a Bay City-managed access one mile west of Bay City. The chain notes an 18-mile spacing and warns that there is no portage around Bay City Dam if continuing toward the Gulf. USGS 08162000 at Wharton was product-live at 368 cfs / 7.99 ft on 2026-08-12 06:15 CDT, but no source-backed numeric paddling thresholds or complete route safety/camping package surfaced for this long lower-Colorado reach."
+        },
+        {
+          "candidateId": "tx-colorado-texas35-riverside-park",
+          "blocker": "LCRA identifies Texas 35 Bridge and Riverside Park as consecutive Bay City-managed public access points five miles apart, but explicitly says there is no portage around Bay City Dam and recommends taking out at Texas 35 when traveling toward the Gulf. USGS 08162500 near Bay City returned current stage but stale discharge, with the latest discharge value 2310 cfs from 2026-08-01 18:00 CDT, so the product-live discharge gate also failed for the below-dam segment."
+        },
+        {
+          "candidateId": "tx-colorado-fm521-river-bend-boat-ramp",
+          "blocker": "LCRA identifies FM 521 River Park as a lower-Colorado access with campsites and River Bend Boat Ramp as a TPWD-managed access 11 miles downstream that is one mile below the Intracoastal Waterway and provides access to the last six miles of the Colorado River, the Intracoastal Waterway, and Matagorda Bay. USGS 08162500 near Bay City returned current stage but stale discharge, with the latest discharge value 2310 cfs from 2026-08-01 18:00 CDT, and no source-backed route-specific thresholds surfaced for the coastal/ICW transition."
+        }
+      ],
+      "routeAdded": false,
+      "gallery": "not_started_no_route_added",
+      "camping": "blocked_or_not_finalized_no_route_added",
+      "safety": "blocked_no_route_added",
+      "geometry": "not_started_no_route_added",
+      "coordinates": "not_started_no_route_added",
+      "nextCandidateRotation": "Continue Texas bounded discovery with fresh distinct manager-backed public point-to-point river reaches outside lower-Colorado Wharton/Bay-City threshold, rough bridge-access, Bay City Dam no-portage, stale Bay City discharge, coastal/ICW transition blockers, and all previously recorded loop, reservoir, coastal, unsupported-gauge, threshold, duplicate, private-access, dam-safety, camping, coordinate, geometry, and distance blockers unless fresh evidence clears the exact recorded gate.",
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: routes:audit, gallery:audit, routes:safety:audit, and routes:geometries:audit",
+        "passed: typecheck:routes, full typecheck, and production build",
+        "passed: operations:verify / gatekeeper-20260812114917",
+        "passed: git diff --check with CRLF normalization warnings only",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812114917"
+    }
+  ],
+  "currentConclusion": "Texas bounded discovery remains open for fresh manager-backed public point-to-point reaches outside the latest Sabine stale-discharge, Brazos CR849 closure, River Grove temporary-closure, Lake Nolte/Meadow Lake drawdown-closure, and prior recorded blockers unless fresh evidence clears the exact gate.",
+  "latestRun": "route-worker-202608121440-texas-rechecks-no-add",
+  "noAddRuns": [
+    "route-worker-202608121440-texas-rechecks-no-add",
+    {
+      "id": "route-worker-202608121246-texas-contained-no-add",
+      "completedAt": "2026-08-12T12:46:00.000Z",
+      "status": "blocked_no_route_added_validation_passed",
+      "candidates": [
+        "tx-nueces-barksdale-camp-wood",
+        "tx-saspamco-loop1604-cr125",
+        "tx-guadalupe-valley-hwy183-emergency-connector",
+        "tx-goliad-highway59-ferry-street-state-park-splits",
+        "tx-colorado-columbus-paddling-trail"
+      ],
+      "decisiveBlockers": [
+        {
+          "candidateId": "tx-nueces-barksdale-camp-wood",
+          "blocker": "TRPA still supports the Barksdale-to-CR390 Camp Wood featured Nueces run with route mileage, Class I-III safety context, source-backed threshold guidance, and USGS Barksdale / downstream gauge links; same-run USGS Water Services also returned product-live upper Nueces values. The candidate was not implemented because this exact lead is a known blocker and this run found no fresh manager-grade Barksdale/CR390 public access terms, no source-backed water-entry coordinate package beyond map leads, and no official legal camping/no-camping package. The tentative route edit was rolled back before validation."
+        },
+        {
+          "candidateId": "tx-saspamco-loop1604-cr125",
+          "blocker": "TPWD supports the 5.63-mile Loop 1604-to-CR125 upper SASPAMCO option with endpoint coordinates and private-property / high-water caveats, but this segment is contained inside the existing Loop 1604-to-Helton route family and directly adjacent to the shipped CR125-to-Helton split. Same-run USGS 08181800 returned 154 cfs / 9.58 ft, below the conservative 200 cfs floor recorded for this corridor, so it also failed live-condition publication value."
+        },
+        {
+          "candidateId": "tx-guadalupe-valley-hwy183-emergency-connector",
+          "blocker": "TPWD publishes Highway 183 only as alternate/emergency access about 2.6 miles below SH72 within the Guadalupe Valley trail. Existing PaddleToday routes already cover FM766-to-SH72, SH72-to-FM236, and the full FM766-to-FM236 Cuero package with the remnant dam, snag, high-water, GBRA-flow, and private-property caveats. The Highway 183 connector adds no distinct route value and would duplicate contained official coverage."
+        },
+        {
+          "candidateId": "tx-goliad-highway59-ferry-street-state-park-splits",
+          "blocker": "TPWD supports the Goliad paddling trail with Highway 59, Ferry Street, and Goliad State Park access coordinates and notes Ferry Street as an optional access with limited parking. Existing route san-antonio-river-riverdale-goliad-state-park already covers the official SARA/Goliad trail story and includes the relevant midpoint and access caveats. The optional subsegments would duplicate coverage without adding a distinct gauge, threshold, camping, safety, geometry, or image package."
+        },
+        {
+          "candidateId": "tx-colorado-columbus-paddling-trail",
+          "blocker": "TPWD supports the 6.5-mile Columbus Paddling Trail from the 71 Business Crossing to Beason's Park with access coordinates, float time, island/picnic context, and private-property caveats. That exact route is already implemented as colorado-river-business-71-beasons-park, so no second route package was started."
+        }
+      ],
+      "routeAdded": false,
+      "gallery": "not_started_no_route_added",
+      "camping": "blocked_or_not_finalized_no_route_added",
+      "safety": "blocked_no_route_added",
+      "geometry": "not_started_no_route_added",
+      "coordinates": "not_started_no_route_added",
+      "nextCandidateRotation": "Continue Texas bounded discovery with fresh distinct manager-backed public point-to-point river reaches outside Nueces Barksdale/Camp Wood access-camping-coordinate blockers, SASPAMCO contained connector duplication, Guadalupe Valley Highway 183 emergency access, Goliad optional split duplication, Columbus exact duplicate coverage, and all prior recorded blockers unless fresh evidence clears the exact recorded gate.",
+      "validation": [
+        "passed: JSON parse for route-candidate-ledger, Texas saturation audit, tasks, runs, state registry, gate policy, and Minnesota saturation audit",
+        "passed: routes:audit, gallery:audit, routes:safety:audit, and routes:geometries:audit",
+        "passed: typecheck:routes, full typecheck, and production build",
+        "passed: operations:verify / gatekeeper-20260812124932",
+        "passed: git diff --check with CRLF normalization warnings only",
+        "not run: route-scoped coordinate audit or geometry generation because no route endpoints or geometry changed"
+      ],
+      "gatekeeperId": "gatekeeper-20260812124932"
     }
   ]
 }

@@ -14,6 +14,19 @@ type Task = {
   evidence: string[];
 };
 
+type OverlapReviewItem = {
+  id: string;
+  status: string;
+  priority: string;
+  category: string;
+  routes: string[];
+  findingCount: number;
+  maxSeverity: number;
+  recommendation: string;
+  lastSeenAt: string;
+  taskId?: string;
+};
+
 /**
  * Ranks unsaturated states by how close their current inventory is to being
  * fully scored. Planning routes remain excluded from the scored numerator;
@@ -71,12 +84,105 @@ const runHistory = JSON.parse(
   runs?: Array<{ id: string; kind: string; startedAt: string; status: string; taskId?: string; workerRole?: string; summary?: string }>;
 };
 
+const overlapQueue = (() => {
+  try {
+    return JSON.parse(readFileSync(resolve(process.cwd(), 'docs/operations/overlap-review-queue.json'), 'utf8')) as { items?: OverlapReviewItem[]; generatedAt?: string };
+  } catch {
+    return { items: [] as OverlapReviewItem[], generatedAt: null };
+  }
+})();
+
+function classifyBlocker(text: string) {
+  const value = text.toLowerCase();
+  if (value.includes('gauge') || value.includes('provider')) return 'gauge/provider';
+  if (value.includes('coordinate') || value.includes('geometry')) return 'coordinates/geometry';
+  if (value.includes('camp')) return 'camping';
+  if (value.includes('safety') || value.includes('dam')) return 'safety';
+  if (value.includes('access') || value.includes('endpoint')) return 'access/endpoints';
+  if (value.includes('threshold') || value.includes('flow')) return 'thresholds';
+  return 'policy/other';
+}
+
+function getOperationsTelemetry() {
+  const runs = runHistory.runs ?? [];
+  const latestByKind = new Map<string, { startedAt: string; status: string; summary?: string }>();
+  for (const run of runs) {
+    const previous = latestByKind.get(run.kind);
+    if (!previous || Date.parse(run.startedAt) > Date.parse(previous.startedAt)) latestByKind.set(run.kind, run);
+  }
+  const blockedTasks = taskRegistry.tasks.filter((task) => task.lane === 'blocked');
+  const blockerCounts = blockedTasks.reduce<Record<string, number>>((counts, task) => {
+    const category = classifyBlocker(`${task.title} ${task.summary}`);
+    counts[category] = (counts[category] ?? 0) + 1;
+    return counts;
+  }, {});
+  const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+  const routeWorkKinds = (run: { kind: string }) => run.kind === 'route_implementation' || run.kind.includes('route_worker') || run.kind === 'route_planning_review';
+  const recentRouteRuns = runs.filter((run) => Date.parse(run.startedAt) >= cutoff && routeWorkKinds(run));
+  const chronologicalRouteRuns = runs
+    .filter((run) => routeWorkKinds(run))
+    .slice()
+    .sort((left, right) => Date.parse(right.startedAt) - Date.parse(left.startedAt));
+  let consecutiveNoAddRuns = 0;
+  for (const run of chronologicalRouteRuns) {
+    if (run.status.includes('blocked') || run.status.includes('no_add')) consecutiveNoAddRuns += 1;
+    else break;
+  }
+  const qualityByState = stateRegistry.canonicalStates.map((state) => {
+    const routes = routeInventory.filter((route) => canonicalStateId(route.state) === state.id && rivers.some((scored) => scored.slug === route.slug));
+    const scores = routes.map((route) => {
+      let score = 0;
+      if (route.evidenceNotes?.length) score += 1;
+      if (route.sourceLinks?.length) score += 1;
+      if (route.logistics?.camping) score += 1;
+      if (route.safetyProfile) score += 1;
+      if (route.putIn && route.takeOut) score += 1;
+      return score;
+    });
+    return { stateId: state.id, averagePackageScore: scores.length ? Math.round((scores.reduce((sum, value) => sum + value, 0) / scores.length) * 10) / 10 : 0, scoredRoutes: routes.length };
+  });
+  return {
+    automationHealth: Array.from(latestByKind.entries()).map(([kind, run]) => ({ kind, ...run })),
+    blockerQueue: blockedTasks.map((task) => ({ taskId: task.id, title: task.title, category: classifyBlocker(`${task.title} ${task.summary}`), summary: task.summary })),
+    blockerCounts,
+    throughput: {
+      routeRunsLast24h: recentRouteRuns.length,
+      routesAddedLast24h: recentRouteRuns.filter((run) => run.status === 'route_added' || run.kind === 'route_implementation').length,
+      noAddRunsLast24h: recentRouteRuns.filter((run) => run.status.includes('blocked') || run.status.includes('no_add')).length,
+    },
+    saturationDossiers: stateRegistry.canonicalStates.map((state) => {
+      const row = taskRegistry.tasks.find((task) => task.id.startsWith(state.id.toLowerCase()) && task.kind === 'state_coverage');
+      return { stateId: state.id, stateName: state.name, discoveryTask: row?.id ?? null, discoveryStatus: row?.lane ?? 'not_started', boundedSearchEvidence: row?.evidence?.length ?? 0 };
+    }),
+    routeQualityByState: qualityByState,
+    researchControl: {
+      activeState: 'TX',
+      consecutiveNoAddRuns,
+      rotationThreshold: 10,
+      rotationRecommended: consecutiveNoAddRuns >= 10,
+      recommendation: consecutiveNoAddRuns >= 10
+        ? 'Pause Texas discovery for a strategy review or rotate to the next unsaturated state.'
+        : 'Continue bounded discovery with fresh candidate families.',
+    },
+    overlapReview: {
+      generatedAt: overlapQueue.generatedAt ?? null,
+      openItems: (overlapQueue.items ?? []).filter((item) => !['rejected', 'implemented'].includes(item.status)).length,
+      highConfidenceItems: (overlapQueue.items ?? []).filter((item) => item.priority === 'high' && item.status === 'new').length,
+      items: (overlapQueue.items ?? []).slice(0, 12),
+    },
+  };
+}
+
 const automationRegistry = [
   { id: 'paddletoday-operations-orchestrator', name: 'PaddleToday Operations Orchestrator', schedule: 'Every four hours', status: 'enabled', owner: 'orchestrator' },
   { id: 'paddletoday-hourly-route-worker', name: 'PaddleToday Hourly Route Worker', schedule: 'Every hour', status: 'enabled', owner: 'route-implementation' },
   { id: 'paddletoday-route-worker-supervisor', name: 'PaddleToday Route Worker Supervisor', schedule: 'Every two hours', status: 'enabled', owner: 'orchestrator' },
   { id: 'paddletoday-route-overlap-auditor', name: 'PaddleToday Route Overlap Auditor', schedule: 'Every six hours', status: 'enabled', owner: 'independent-verifier' },
   { id: 'paddletoday-daily-operations-report', name: 'PaddleToday Daily Operations Report', schedule: 'Daily at 20:00', status: 'enabled', owner: 'product-analysis' },
+  { id: 'paddletoday-route-freshness-monitor', name: 'PaddleToday Route Freshness Monitor', schedule: 'Daily at 06:30', status: 'enabled', owner: 'independent-verifier' },
+  { id: 'paddletoday-blocker-resolution-planner', name: 'PaddleToday Blocker Resolution Planner', schedule: 'Daily at 07:00', status: 'enabled', owner: 'orchestrator' },
+  { id: 'paddletoday-operations-dossier-refresh', name: 'PaddleToday Operations Dossier Refresh', schedule: 'Daily at 06:00', status: 'enabled', owner: 'orchestrator' },
+  { id: 'paddletoday-operations-metrics-refresh', name: 'PaddleToday Operations Metrics Refresh', schedule: 'Daily at 06:15', status: 'enabled', owner: 'product-analysis' },
   { id: 'river-snapshots', name: 'River snapshots', schedule: 'Every 30 minutes', status: 'enabled', owner: 'operations' },
   { id: 'river-alerts', name: 'River alerts', schedule: 'Twice hourly', status: 'enabled', owner: 'operations' },
   { id: 'history-snapshots', name: 'History snapshots', schedule: 'Hourly', status: 'enabled', owner: 'operations' },
@@ -155,6 +261,7 @@ export function getOperationsSnapshot() {
       activeClaims: claims.filter((claim) => claim.status === 'active'),
     },
     runs: (runHistory.runs ?? []).slice(-12).reverse(),
+    telemetry: getOperationsTelemetry(),
   };
 }
 

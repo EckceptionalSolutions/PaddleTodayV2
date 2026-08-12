@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-08-12T14:02:56.550Z",
+  "groups": [
+    {
+      "category": "gauge/provider",
+      "taskIds": [
+        "mn-direct-gauge-provider-recheck",
+        "south-dakota-state-coverage-baseline"
+      ],
+      "titles": [
+        "Recheck Minnesota direct-gauge candidates",
+        "Build the South Dakota scored-route coverage baseline"
+      ],
+      "summaries": [
+        "Rechecked the six direct-gauge planning candidates; none can be promoted without fresh provider data or a Stump Lake gauge-applicability decision.",
+        "Paused the broad South Dakota scored-route baseline after fourteen five-candidate no-add reviews. South Dakota is not exhausted, but repeated cadence work is now blocked by documented source, threshold, access, safety, camping, route-shape, and provider-adapter gaps; resume only after a precise evidence task clears a blocker or a new manager-grade source appears."
+      ]
+    },
+    {
+      "category": "coordinates/geometry",
+      "taskIds": [
+        "nebraska-coverage-complete-saturation-audit"
+      ],
+      "titles": [
+        "Audit Nebraska coverage-complete state for saturation"
+      ],
+      "summaries": [
+        "Completed the bounded Nebraska coverage-complete audit without adding a route. Nebraska has 9 scored direct-USGS routes and no planning routes, but saturation is blocked by unresolved George D. Syas WMA put-in coordinate failures and missing route-scoped geometries for three George D. Syas-starting Loup routes; bounded image and camping metadata gaps were fixed."
+      ]
+    },
+    {
+      "category": "policy/other",
+      "taskIds": [
+        "noaa-mrms-upstream-health-failures"
+      ],
+      "titles": [
+        "Track NOAA MRMS upstream health failures"
+      ],
+      "summaries": [
+        "Latest scheduled River Snapshots run 31424184561 failed after job execution because mapservices.weather.noaa.gov returned 100% MRMS failures and tripped the upstream health gate; production snapshots were preserved. Treat as blocked upstream infrastructure, not a route-worker failure."
+      ]
+    }
+  ],
+  "nextAction": "Resolve the highest-leverage group only with fresh manager-grade evidence or an approved provider/policy change."
+}

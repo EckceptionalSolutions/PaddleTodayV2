@@ -1,0 +1,2279 @@
+{
+  "generatedAt": "2026-08-12T14:02:56.549Z",
+  "policy": "bounded-discovery-required-before-done",
+  "dossiers": [
+    {
+      "stateId": "AR",
+      "stateName": "Arkansas",
+      "inventoryCount": 51,
+      "scoredCount": 46,
+      "planningCount": 5,
+      "scoredCoveragePercent": 90,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "IL",
+      "stateName": "Illinois",
+      "inventoryCount": 4,
+      "scoredCount": 3,
+      "planningCount": 1,
+      "scoredCoveragePercent": 75,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "IN",
+      "stateName": "Indiana",
+      "inventoryCount": 10,
+      "scoredCount": 8,
+      "planningCount": 2,
+      "scoredCoveragePercent": 80,
+      "discoveryTasks": [
+        {
+          "id": "mn-planning-to-scored-audit",
+          "lane": "completed",
+          "summary": "Completed the bounded Minnesota planning-to-scored review. Minnesota is provisionally saturated at 145 scored routes; 113 planning candidates remain excluded because no additional route cleared the direct-gauge scored publication gate.",
+          "evidenceCount": 3
+        },
+        {
+          "id": "mn-final-bounded-discovery-sweep",
+          "lane": "completed",
+          "summary": "Reviewed the strongest remaining official Otter Tail candidate; it remains planning-only because its product-supported gauge is a downstream proxy. Minnesota is provisionally saturated under the current policy.",
+          "evidenceCount": 2
+        },
+        {
+          "id": "utah-state-coverage-baseline",
+          "lane": "completed",
+          "summary": "Added a second Utah scored route for the Colorado River Moab Daily / Hittle Bottom to Takeout Beach, with BLM/AW/USGS evidence, camping classification, safety caveats, geometry/coordinate audit path, and a bounded no-image result.",
+          "evidenceCount": 5
+        },
+        {
+          "id": "south-dakota-state-coverage-baseline",
+          "lane": "blocked",
+          "summary": "Paused the broad South Dakota scored-route baseline after fourteen five-candidate no-add reviews. South Dakota is not exhausted, but repeated cadence work is now blocked by documented source, threshold, access, safety, camping, route-shape, and provider-adapter gaps; resume only after a precise evidence task clears a blocker or a new manager-grade source appears.",
+          "evidenceCount": 7
+        }
+      ],
+      "recentEvidenceRuns": [
+        {
+          "id": "route-worker-20260809001800",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-08T23:54:56.050Z",
+          "completedAt": "2026-08-09T00:18:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five fresh South Dakota central/northeast water-access candidates in priority order: Oahe Dam Run to LaFramboise Causeway, LaFramboise/Farm Island local Missouri River family, West Bend/Lake Sharpe, Big Stone Island Nature Area, and Whetstone River near Big Stone City. No route was added: blockers were stage-only or unsupported gauge relationships, missing route-specific numeric thresholds, lake/recreation-area context rather than point-to-point route shape, missing manager-backed endpoint coordinates, unresolved camping classifications, and incomplete big-river/safety packages."
+        },
+        {
+          "id": "orchestrator-20260809005550",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-09T00:55:50.094Z",
+          "status": "planned",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-worker-20260809005900",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-09T00:55:50.094Z",
+          "completedAt": "2026-08-09T00:59:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five fresh/residual South Dakota candidates in priority order: Redwater Old Belle-to-Helmer, Redwater Helmer-to-Hwy-34, Vermillion Parker-to-Centerville, Big Sioux Watertown/Lake Kampeska, and Snake Creek/Lake Francis Case. No route was added: blockers were generic/private or locked access, Redwater dam/chains/trespass handling, below-window flows, unsupported/stage-only gauge relationships, missing manager-backed endpoints and camping legality, weak route shape, and incomplete safety/threshold packages."
+        },
+        {
+          "id": "orchestrator-20260809015142",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-09T01:51:42.939Z",
+          "status": "planned",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260809015618",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-09T01:56:18.581Z",
+          "status": "planned",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-supervisor-20260809015625",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-09T01:56:25.000Z",
+          "completedAt": "2026-08-09T01:56:25.000Z",
+          "status": "completed",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity after the prior supervisor pass: the 2026-08-08T23:54Z/2026-08-09T00:18Z South Dakota central/northeast water-access screen and the 2026-08-09T00:55Z/00:59Z Redwater/Vermillion/Watertown/Snake Creek screen were blocked candidate reviews, not completed routes, no-work/WIP dead ends, failed validation, or infrastructure failures. GitHub Actions are succeeding, with the latest scheduled River Alerts run completed successfully at 2026-08-09T01:54Z. A fresh planner entry at 2026-08-09T01:51Z may represent an active route-worker claim, so no lane repair or new task was safe. operations:plan -- --record at 2026-08-09T01:56Z selected south-dakota-state-coverage-baseline."
+        },
+        {
+          "id": "orchestrator-20260809015728",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-09T01:57:28.912Z",
+          "status": "planned",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-worker-20260809020400",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-09T01:57:28.912Z",
+          "completedAt": "2026-08-09T02:04:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five residual South Dakota candidates in priority order: Platte Creek / Lake Francis Case inlet, Cow Creek / Lake Oahe, West Whitlock / Lake Oahe, Big Sioux Recreation Area North-to-Madison Street, and Split Rock Creek-to-Big Sioux confluence. No route was added: blockers were recreation-area or reservoir context instead of point-to-point route shape, stage-only or unsupported Missouri River gauge relationships, missing numeric thresholds, no manager-backed endpoint pairs for blog/community fragments, below-floor Split Rock flow, campground-only camping context, and incomplete safety packages."
+        },
+        {
+          "id": "orchestrator-20260809025922",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-09T02:59:22.217Z",
+          "status": "planned",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-worker-20260809030102",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-09T02:59:22.217Z",
+          "completedAt": "2026-08-09T03:01:02.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five fresh residual South Dakota candidates in priority order: Big Sioux Sioux Falls 26th Street/Falls fragment, Lake Alvin/Nine Mile Creek, Lake Vermillion west arm, Pease Creek/Lake Francis Case inlet, and Lake Poinsett Recreation Area. No route was added: blockers were high-consequence urban falls/low-head-dam safety without manager route handling, lake/reservoir or same-ramp recreation-area shape instead of point-to-point river reaches, missing product-supported live gauge and numeric thresholds, missing endpoint pairs/route distances/river-line geometry, campground-only camping context, and no image work reached because earlier gates failed."
+        }
+      ],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "IA",
+      "stateName": "Iowa",
+      "inventoryCount": 131,
+      "scoredCount": 99,
+      "planningCount": 32,
+      "scoredCoveragePercent": 76,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "KS",
+      "stateName": "Kansas",
+      "inventoryCount": 11,
+      "scoredCount": 3,
+      "planningCount": 8,
+      "scoredCoveragePercent": 27,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "KY",
+      "stateName": "Kentucky",
+      "inventoryCount": 136,
+      "scoredCount": 127,
+      "planningCount": 9,
+      "scoredCoveragePercent": 93,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "MI",
+      "stateName": "Michigan",
+      "inventoryCount": 6,
+      "scoredCount": 4,
+      "planningCount": 2,
+      "scoredCoveragePercent": 67,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "MN",
+      "stateName": "Minnesota",
+      "inventoryCount": 258,
+      "scoredCount": 145,
+      "planningCount": 113,
+      "scoredCoveragePercent": 56,
+      "discoveryTasks": [
+        {
+          "id": "mn-planning-to-scored-audit",
+          "lane": "completed",
+          "summary": "Completed the bounded Minnesota planning-to-scored review. Minnesota is provisionally saturated at 145 scored routes; 113 planning candidates remain excluded because no additional route cleared the direct-gauge scored publication gate.",
+          "evidenceCount": 3
+        },
+        {
+          "id": "mn-direct-gauge-provider-recheck",
+          "lane": "blocked",
+          "summary": "Rechecked the six direct-gauge planning candidates; none can be promoted without fresh provider data or a Stump Lake gauge-applicability decision.",
+          "evidenceCount": 3
+        },
+        {
+          "id": "mn-final-bounded-discovery-sweep",
+          "lane": "completed",
+          "summary": "Reviewed the strongest remaining official Otter Tail candidate; it remains planning-only because its product-supported gauge is a downstream proxy. Minnesota is provisionally saturated under the current policy.",
+          "evidenceCount": 2
+        }
+      ],
+      "recentEvidenceRuns": [
+        {
+          "id": "route-supervisor-20260810183533",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T18:34:40.000Z",
+          "completedAt": "2026-08-10T18:35:33.028Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the previous supervisor pass: route-worker-20260810174500 completed Comal River Hinman Island-to-Last Public Exit with full route, camping, safety, image, geometry, coordinate, build, and gatekeeper evidence; route-worker-20260810180039 was a blocked Texas candidate pass with five explicit blockers and no route added. No workOrder:null dead end, stale route WIP, failed validation, omitted package work, infrastructure failure, or active route claim was found. Preserved the unrelated Operations Center product WIP plus blocked Minnesota, South Dakota, Nebraska, provider, coordinate, and policy lanes. Latest GitHub Actions scheduled runs are successful. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: docs/operations/tasks.json has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress",
+            "classified: route-worker-20260810174500 as completed route for comal-river-hinman-island-last-public-exit with gatekeeper-20260810174559 passed",
+            "classified: route-worker-20260810180039 as blocked candidate pass; Lake Nolte/Meadow Lake closure, Palacios/Tres Palacios and Armand Bayou live-threshold gaps, Lady Bird Lake and Lake Seguin loop/lake route-shape blockers",
+            "checked: GitHub Actions latest scheduled runs 31417733652, 31417004570, and 31416185630 completed successfully; earlier 31408606616 remains an already-recorded upstream infrastructure/MRMS failure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810183515"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810183751",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T18:34:40.000Z",
+          "completedAt": "2026-08-10T18:37:51.359Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the previous supervisor pass, including the concurrent route completion that landed during this supervisor run. route-worker-20260810174500 completed Comal River Hinman Island-to-Last Public Exit with full package and gatekeeper evidence; route-worker-20260810180039 was a blocked Texas five-candidate pass with explicit blockers and no route added; route-worker-2026081018-webberville-utley completed Colorado River Webberville-to-Utley Bridge with package evidence, generated geometry, coordinate review, build evidence, and passing gatekeepers. No workOrder:null dead end, stale route WIP, active route claim, failed validation, omitted package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP plus blocked Minnesota, South Dakota, Nebraska, provider, coordinate, and policy lanes. Latest GitHub Actions scheduled runs are successful. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: tasks board has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress",
+            "classified: route-worker-20260810174500 as completed route for comal-river-hinman-island-last-public-exit with gatekeeper-20260810174559 passed",
+            "classified: route-worker-20260810180039 as blocked candidate pass; Lake Nolte/Meadow Lake closure, Palacios/Tres Palacios and Armand Bayou live-threshold gaps, Lady Bird Lake and Lake Seguin loop/lake route-shape blockers",
+            "classified: route-worker-2026081018-webberville-utley as completed route for colorado-river-webberville-utley-bridge with route package, geometry, coordinate, image, typecheck, build, and gatekeeper evidence",
+            "repaired validation notation only: changed the latest Webberville-Utley run validation from pending operations:verify/git diff to passed after local verification completed",
+            "checked: GitHub Actions latest scheduled runs 31417733652, 31417004570, and 31416185630 completed successfully; earlier 31408606616 remains already-recorded upstream infrastructure/MRMS failure",
+            "passed: npm run operations:verify / gatekeeper-20260810183723; concurrent gatekeeper-20260810183742 also passed",
+            "passed: git diff --check (exit 0; CRLF normalization warnings only)",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810183737"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810193634",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T19:35:51.184Z",
+          "completedAt": "2026-08-10T19:36:34.007Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810183751. route-worker-2026081019-hot-springs-canyon completed route work for rio-grande-gravel-pit-rio-grande-village with full package evidence and gatekeeper-20260810191756 passing; four screened Texas candidates were blocked with explicit product-live, threshold, product-live Presidio, and route-distance blockers. Later orchestrator plans selected tx-bounded-discovery-sweep rather than returning no work. No stale route WIP, active route claim, no-work/WIP dead end, failed route validation, or omitted route package work was found. Added blocked governance task noaa-mrms-upstream-health-failures after GitHub Actions River Snapshots run 31424184561 failed from mapservices.weather.noaa.gov 100% MRMS upstream failures; production snapshots were preserved and this is infrastructure/upstream health, not a route-worker failure. Preserved the unrelated Operations Center product WIP plus Minnesota, South Dakota, Nebraska, provider, coordinate, route-shape, and policy blockers. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: docs/operations/tasks.json has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress before supervisor repair",
+            "classified: route-worker-2026081019-hot-springs-canyon as completed route for rio-grande-gravel-pit-rio-grande-village with gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper evidence",
+            "classified: tx-sabine-sandbar-fm2517-yellow-dog, tx-cherokee-neches-river-run-us79, tx-rio-grande-colorado-canyon-redford-rancherias, and tx-rio-grande-lower-canyons-heath-dryden as blocked candidates from the same worker run",
+            "blocked infrastructure: GitHub Actions River Snapshots 31424184561 failed after runner execution because mapservices.weather.noaa.gov returned 100% MRMS failures and tripped the upstream health gate; existing production snapshots were preserved",
+            "board repair: added blocked governance task noaa-mrms-upstream-health-failures; no ready speculative route task was created",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810193611",
+            "passed: npm run operations:verify / gatekeeper-20260810193719",
+            "passed: git diff --check (exit 0; LF-to-CRLF warnings only)"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810204021",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T20:34:32.935Z",
+          "completedAt": "2026-08-10T20:40:21.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified latest hourly route-worker activity since the prior supervisor pass. route-worker-2026081019-plum-park-buffalo-trail, route-worker-20260810200210-riverbend-plum, and route-worker-202608102031-lost-pines-riverbend are completed Texas route packages with route, trip, gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper evidence. The Lost Pines run initially appeared as a completed route with pending validation, but the worker closure landed while this supervisor was running and now records gatekeeper-20260810203809; supervisor reran validation independently and gatekeeper-20260810203902 also passed. No no-work/WIP dead end, stale route WIP, failed validation, omitted required package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and existing blocked NOAA MRMS upstream-health infrastructure task. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-2026081019-plum-park-buffalo-trail as completed route for colorado-river-plum-park-buffalo-trail with gatekeeper-20260810194247 passed",
+            "classified: route-worker-20260810200210-riverbend-plum as completed route for colorado-river-riverbend-park-plum-park with gatekeeper-20260810200645 passed",
+            "classified: route-worker-202608102031-lost-pines-riverbend as completed route for colorado-river-lost-pines-riverbend-park after pending validation was closed by worker gatekeeper-20260810203809",
+            "supervisor validation passed: npm run typecheck:routes; npm run routes:audit (746 routes); npm run gallery:audit (325 images); npm run routes:safety:audit (0 issues)",
+            "supervisor validation passed: npm run routes:geometries:generate and npm run routes:geometries:audit (912/913 routes matched; only pre-existing unrelated unmatched route remains)",
+            "supervisor validation passed with review findings: npm run routes:audit:coordinates -- --slug colorado-river-lost-pines-riverbend-park; route endpoints/intermediate access anchor recorded, global coordinate failures remain existing backlog",
+            "supervisor validation passed: npm run routes:audit:coordinates:suggestions (38 suggestions, 0 autonomous-safe)",
+            "supervisor validation passed with expected adjacency: npm run routes:audit:overlap only flagged shared endpoints with adjacent Colorado River reaches for the new route",
+            "supervisor validation passed: npm run typecheck; npm run build (1084 pages; SITE_URL/PUBLIC_SITE_URL not set, defaulted to https://paddletoday.com); npm run operations:verify / gatekeeper-20260810203902",
+            "checked: latest GitHub Actions runs 31427475772 and 31426447086 succeeded; prior 31424184561 remains already-recorded NOAA MRMS upstream-health infrastructure failure",
+            "passed: git diff --check (exit 0; LF-to-CRLF warnings only)",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810203943"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810213905",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T21:36:18.000Z",
+          "completedAt": "2026-08-10T21:39:05.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810204021. route-worker-202608102108-handley-river-legacy is a completed Texas route package for west-fork-trinity-river-handley-ederville-river-legacy with gatekeeper-20260810211013 passed. route-worker-202608102136-texas-no-add is a blocked candidate/no-add discovery pass: five distinct Texas candidates were screened and blocked by long-route/camping practicality, threshold support, endpoint coordinate/access, and loop-shape gates, with gatekeeper-20260810213602 passed and no route package omission. No no-work/WIP dead end, failed validation, stale route WIP, active route claim to clear, or new infrastructure failure was found. Latest GitHub Actions runs 31432470062, 31431786746, and 31430453954 succeeded; prior NOAA MRMS failure 31424184561 remains an already-recorded upstream infrastructure block. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and the NOAA MRMS infrastructure block. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608102108-handley-river-legacy as completed route for west-fork-trinity-river-handley-ederville-river-legacy with gatekeeper-20260810211013 passed",
+            "classified: route-worker-202608102136-texas-no-add as blocked candidate/no-add discovery pass with five evidence-backed Texas blockers and gatekeeper-20260810213602 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: latest GitHub Actions runs 31432470062 River Snapshots, 31431786746 History Snapshots, and 31430453954 River Alerts succeeded; prior 31424184561 NOAA MRMS failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810213725",
+            "passed on rerun: npm run operations:verify / gatekeeper-20260810213848; first verify attempt passed checks/build but failed final runs.json write with a transient Windows file-open error during concurrent JSON parsing"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810224025",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T22:08:58.000Z",
+          "completedAt": "2026-08-10T22:40:25.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810213905. route-worker-202608102204-texas-no-add is a no-add Texas discovery pass with five evidence-backed blockers and gatekeeper-20260810220815 passed. route-worker-202608102234-elm-fork-mcinnish-california is a completed Texas route package for elm-fork-trinity-river-mcinnish-california-crossing with gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper-20260810223923 evidence. No workOrder:null dead end, stale route WIP, failed validation, active route claim conflict, omitted package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and the NOAA MRMS upstream-health infrastructure block. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608102204-texas-no-add as a no-add route-worker run with Clear Fork Trinity, White Rock Creek, East Fork Trinity, Sabine Sandbar, and Bevilport-to-Walnut blocked by explicit gauge, coordinate, route-shape, endpoint, threshold, or policy gates",
+            "classified: route-worker-202608102234-elm-fork-mcinnish-california as a completed route package for elm-fork-trinity-river-mcinnish-california-crossing with gatekeeper-20260810223923 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: tx-bounded-discovery-sweep already records the latest Elm Fork route summary and evidence, so no new route/evidence task or task-lane repair was needed",
+            "checked: latest GitHub Actions runs 31436718403 River Snapshots, 31436123935 History Snapshots, and 31435076910 River Alerts succeeded; prior 31424184561 NOAA MRMS failure remains blocked upstream infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810224009"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811004134",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T00:40:45.000Z",
+          "completedAt": "2026-08-11T00:41:34.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810233934. route-worker-202608110004-clear-fork-rogers-trinity and route-worker-202608110028-medina-moffett-bandina are completed Texas route packages with route, threshold, camping, safety, bounded image/no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. No workOrder:null dead end, stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP and blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes. Board repair was limited to adding the Medina route-scoped geometry evidence pointer to tx-bounded-discovery-sweep before rerunning the planner.",
+          "validation": [
+            "classified: route-worker-202608110004-clear-fork-rogers-trinity as completed route for clear-fork-trinity-river-rogers-road-trinity-park with gatekeeper-20260811000729 passed",
+            "classified: route-worker-202608110028-medina-moffett-bandina as completed route for medina-river-moffett-park-bandina-camp-road with gatekeeper-20260811004030 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "repaired: tx-bounded-discovery-sweep evidence now includes public/data/canonical-river-geometries/routes/medina-river-moffett-park-bandina-camp-road.json",
+            "checked: latest GitHub Actions scheduled runs 31444310967 River Snapshots, 31443818437 History Snapshots, and 31442994756 River Alerts succeeded; prior NOAA MRMS upstream-health failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260811004156",
+            "passed: npm run operations:verify recorded gatekeeper-20260811004240"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811014252",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T01:42:52.710Z",
+          "completedAt": "2026-08-11T01:42:52.710Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260811004134. route-worker-202608110104-river-legacy-trammell is a completed Texas route package with route, threshold, camping, safety, bounded no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. The later orchestrator plans at 2026-08-11T01:28:35Z and 2026-08-11T01:31:21Z are planned Texas sweep work orders, not workOrder:null dead ends. No stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and the ready Texas/Utah state-coverage lanes. No board repair or new task was safe or needed; final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608110104-river-legacy-trammell as completed route for west-fork-trinity-river-river-legacy-trammell-crow with gatekeeper-20260811010930 passed",
+            "classified: orchestrator-20260811012835 and orchestrator-20260811013121 as planned work orders for tx-bounded-discovery-sweep, with no matching failure/no-work record and no workOrder:null dead end",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: tx-bounded-discovery-sweep already records River Legacy-to-Trammell Crow summary and route-scoped geometry evidence; no task evidence repair was needed",
+            "checked: latest GitHub Actions runs 31449938445 River Snapshots, 31444310967 River Snapshots, 31443818437 History Snapshots, and 31442994756 River Alerts succeeded; prior NOAA MRMS upstream-health failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260811014141",
+            "passed: npm run operations:verify recorded gatekeeper-20260811014221"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811024211",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T02:42:11.000Z",
+          "completedAt": "2026-08-11T02:42:11.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260811014252. route-worker-202608110147-smrr-scull, route-worker-202608110206-horseshoe-utley, and route-worker-202608110240-fullers-folly-sandy-bottoms are completed Texas route packages with route, threshold, camping, safety, bounded no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. No workOrder:null dead end, stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and ready Texas/Utah state-coverage lanes. No board repair or new task was safe or needed; operations planner remains expected to continue Texas bounded discovery with fresh distinct non-duplicate candidates."
+        },
+        {
+          "id": "route-supervisor-20260811034220",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T03:42:20.909Z",
+          "completedAt": "2026-08-11T03:44:08.456Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the 2026-08-11T02:40:35Z automation checkpoint. route-worker-202608110310-milam-county and route-worker-202608110341-blanco-jkr are completed Texas route packages with access, gauge, threshold, no-camping, safety, bounded no-image, generated geometry, coordinate audit, overlap audit, typecheck, build, and gatekeeper evidence. Later orchestrator plan records selected tx-bounded-discovery-sweep and did not produce workOrder:null. No stale route WIP, active route claim conflict, failed validation, omitted package work, or new infrastructure failure remains. Repaired only the tx-bounded-discovery-sweep task summary/evidence so it reflects the true latest Blanco / John Knox Ranch pass while preserving Milam evidence. Preserved the unrelated Operations Center product WIP, blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and ready Texas/Utah state-coverage lanes. No new task was created because eligible Texas work already exists.",
+          "inspectedRuns": [
+            "orchestrator-20260811024228",
+            "gatekeeper-20260811024305",
+            "orchestrator-20260811025852",
+            "route-worker-202608110310-milam-county",
+            "gatekeeper-20260811031005",
+            "orchestrator-20260811032903",
+            "orchestrator-20260811033304",
+            "route-worker-202608110341-blanco-jkr",
+            "gatekeeper-20260811034030",
+            "orchestrator-20260811034132",
+            "orchestrator-20260811034234",
+            "gatekeeper-20260811034310"
+          ],
+          "classifications": [
+            {
+              "runId": "route-worker-202608110310-milam-county",
+              "classification": "completed route",
+              "routeSlug": "brazos-river-milam-county-area-1-area-2"
+            },
+            {
+              "runId": "route-worker-202608110341-blanco-jkr",
+              "classification": "completed route",
+              "routeSlug": "blanco-river-fischer-store-john-knox-ranch"
+            },
+            {
+              "runId": "orchestrator-20260811032903",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            },
+            {
+              "runId": "orchestrator-20260811033304",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            },
+            {
+              "runId": "gatekeeper-20260811034030",
+              "classification": "validation passed"
+            }
+          ],
+          "boardRepair": "Updated tx-bounded-discovery-sweep summary/evidence to the true latest Blanco / John Knox Ranch package and preserved Milam County evidence.",
+          "nextTaskCreated": null,
+          "blockedItems": [
+            "Minnesota remains provisionally saturated under direct-gauge policy.",
+            "South Dakota broad baseline remains blocked pending precise evidence or adapter work.",
+            "Nebraska saturation remains blocked by George D. Syas coordinate and geometry gaps.",
+            "NOAA MRMS upstream health remains blocked infrastructure, not route-worker failure."
+          ],
+          "validation": [
+            "checked: latest GitHub scheduled Actions are successful through River Snapshots 31455406290 at 2026-08-11T03:28:04Z",
+            "checked: no route_implementation task is in_progress; only operations-center-read-only product WIP remains active",
+            "checked: operations planner selected tx-bounded-discovery-sweep and did not return workOrder:null",
+            "passed: npm run operations:verify / gatekeeper-20260811034310 after the supervisor record was added"
+          ]
+        }
+      ],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "MO",
+      "stateName": "Missouri",
+      "inventoryCount": 77,
+      "scoredCount": 71,
+      "planningCount": 6,
+      "scoredCoveragePercent": 92,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [
+        {
+          "id": "route-worker-20260807064000",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-07T06:36:47.747Z",
+          "completedAt": "2026-08-07T06:40:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "routeSlug": "sd-vermillion-river-centerville-wakonda-missouri",
+          "summary": "Reviewed South Dakota Vermillion River Centerville/Wakonda-to-Missouri corridor. No route was added: USGS 06479010 is product-live through 2026-08-07 01:30 CDT at 17.9 cfs / 1.43 ft, and local/tourism sources describe the corridor, but no selected named manager-backed public endpoint pair, water-entry coordinates, day-route distance, numeric gauge-tied threshold model, camping legality, or full safety package surfaced."
+        },
+        {
+          "id": "route-supervisor-20260807075120",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-07T07:51:20.160Z",
+          "completedAt": "2026-08-07T07:51:20.160Z",
+          "status": "completed",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "orchestrator",
+          "summary": "Classified the latest hourly route-worker runs after the prior supervisor pass: Vermillion River Centerville/Wakonda-to-Missouri and James River Highway 38-to-258th Street were blocked candidate reviews, not completed routes, validation failures, no-work dead ends, or infrastructure failures. No board repair was performed because the ready South Dakota task already excludes those blockers and operations:plan selected south-dakota-state-coverage-baseline."
+        },
+        {
+          "id": "route-worker-20260807094500",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-07T09:40:59.622Z",
+          "completedAt": "2026-08-07T09:45:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "routeSlug": "sd-missouri-national-recreational-river-day-trips",
+          "summary": "Reviewed South Dakota Missouri National Recreational River Myron Grove to Clay County Park. No route was added: NPS supports the 6.1-mile public access pair, endpoint coordinates, camping limits, safety hazards, and Gavins Point 16,000/40,000 cfs release thresholds, but PaddleToday cannot currently fetch that USACE release source and USGS 06467500 returned stage-only product data through 2026-08-07 04:30 CDT at 10.72 ft with no discharge series."
+        },
+        {
+          "id": "route-supervisor-20260807095320",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-07T09:53:20.000Z",
+          "completedAt": "2026-08-07T09:53:20.000Z",
+          "status": "completed",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "orchestrator",
+          "summary": "Classified the latest hourly route-worker runs after the prior supervisor pass: Redwater River Old Belle/Helmer/Highway 34 and Missouri National Recreational River Myron Grove-to-Clay County were blocked candidate reviews, not completed routes, validation failures, no-work dead ends, or infrastructure failures. No task-board repair was performed because the ready South Dakota baseline task already excludes those blockers and no stale route WIP was present."
+        },
+        {
+          "id": "route-worker-20260808005200",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-08T00:48:32.882Z",
+          "completedAt": "2026-08-08T00:52:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five distinct South Dakota candidates in priority order: Big Sioux Canton-to-Newton-Hills, Newton-Hills-to-Fairview, Fairview-to-Oak-Ridge, IA-3/SD-50-to-Sioux-City/Missouri-River-Boat-Club, and Missouri River Fort-Randall-to-Running-Water. No route was added: the first three have launch-supported endpoints but lack route-specific numeric threshold/gauge support; the downstream Big Sioux extension depends on a private/fee marina take-out and lacks a public access/camping/safety package; the Missouri 39-mile reach has NPS route/access/camping/safety support but lacks product-supported discharge/threshold data."
+        },
+        {
+          "id": "route-worker-20260808015800",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-08T01:48:00.000Z",
+          "completedAt": "2026-08-08T01:58:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five distinct South Dakota candidates in priority order: Split Rock Creek McHardy Park-to-Garretson Dam-above, Split Rock Creek Sunken Bridge-to-Split Rock Park, Split Rock Creek Split Rock Park round-trip, Big Sioux River US Hwy 18-to-Canton City Park, and Missouri National Recreational River Riverside Park-to-Green-Island/Clay-County family. No route was added: blockers were dam-adjacent safety/portage handling, missing manager-backed Sunken Bridge access plus wrong Skunk Creek gauge links, round-trip route shape, wrong-gauge/no Big Sioux threshold support, and missing product-supported Gavins Point discharge/threshold adapter."
+        },
+        {
+          "id": "route-worker-20260808225739",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-08T22:55:43.981Z",
+          "completedAt": "2026-08-08T22:57:39.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five residual South Dakota source leads in priority order: Big Sioux Settlers/Fairview-to-Oak Ridge, lower Big Sioux near Jefferson, James River Forestburg/RiverScout overview, South Dakota Kayak Challenge Missouri race corridor, and MNRR Gavins Point/White Crane-to-Riverside Yankton. No route was added: blockers were missing route-specific thresholds and accepted gauge applicability, missing manager-backed public endpoint packages, private/no-launch extension fragments, broad/community overview sources, race-corridor shape, and MNRR stage-only / unsupported dam-release live-discharge evidence."
+        },
+        {
+          "id": "route-worker-20260809001800",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-08T23:54:56.050Z",
+          "completedAt": "2026-08-09T00:18:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five fresh South Dakota central/northeast water-access candidates in priority order: Oahe Dam Run to LaFramboise Causeway, LaFramboise/Farm Island local Missouri River family, West Bend/Lake Sharpe, Big Stone Island Nature Area, and Whetstone River near Big Stone City. No route was added: blockers were stage-only or unsupported gauge relationships, missing route-specific numeric thresholds, lake/recreation-area context rather than point-to-point route shape, missing manager-backed endpoint coordinates, unresolved camping classifications, and incomplete big-river/safety packages."
+        },
+        {
+          "id": "route-worker-20260809020400",
+          "kind": "route_planning_review",
+          "startedAt": "2026-08-09T01:57:28.912Z",
+          "completedAt": "2026-08-09T02:04:00.000Z",
+          "status": "blocked",
+          "taskId": "south-dakota-state-coverage-baseline",
+          "workerRole": "route-implementation",
+          "summary": "Screened five residual South Dakota candidates in priority order: Platte Creek / Lake Francis Case inlet, Cow Creek / Lake Oahe, West Whitlock / Lake Oahe, Big Sioux Recreation Area North-to-Madison Street, and Split Rock Creek-to-Big Sioux confluence. No route was added: blockers were recreation-area or reservoir context instead of point-to-point route shape, stage-only or unsupported Missouri River gauge relationships, missing numeric thresholds, no manager-backed endpoint pairs for blog/community fragments, below-floor Split Rock flow, campground-only camping context, and incomplete safety packages."
+        }
+      ],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "NE",
+      "stateName": "Nebraska",
+      "inventoryCount": 9,
+      "scoredCount": 9,
+      "planningCount": 0,
+      "scoredCoveragePercent": 100,
+      "discoveryTasks": [
+        {
+          "id": "utah-state-coverage-baseline",
+          "lane": "completed",
+          "summary": "Added a second Utah scored route for the Colorado River Moab Daily / Hittle Bottom to Takeout Beach, with BLM/AW/USGS evidence, camping classification, safety caveats, geometry/coordinate audit path, and a bounded no-image result.",
+          "evidenceCount": 5
+        },
+        {
+          "id": "south-dakota-state-coverage-baseline",
+          "lane": "blocked",
+          "summary": "Paused the broad South Dakota scored-route baseline after fourteen five-candidate no-add reviews. South Dakota is not exhausted, but repeated cadence work is now blocked by documented source, threshold, access, safety, camping, route-shape, and provider-adapter gaps; resume only after a precise evidence task clears a blocker or a new manager-grade source appears.",
+          "evidenceCount": 7
+        },
+        {
+          "id": "nebraska-coverage-complete-saturation-audit",
+          "lane": "blocked",
+          "summary": "Completed the bounded Nebraska coverage-complete audit without adding a route. Nebraska has 9 scored direct-USGS routes and no planning routes, but saturation is blocked by unresolved George D. Syas WMA put-in coordinate failures and missing route-scoped geometries for three George D. Syas-starting Loup routes; bounded image and camping metadata gaps were fixed.",
+          "evidenceCount": 11
+        }
+      ],
+      "recentEvidenceRuns": [
+        {
+          "id": "route-supervisor-20260810183533",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T18:34:40.000Z",
+          "completedAt": "2026-08-10T18:35:33.028Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the previous supervisor pass: route-worker-20260810174500 completed Comal River Hinman Island-to-Last Public Exit with full route, camping, safety, image, geometry, coordinate, build, and gatekeeper evidence; route-worker-20260810180039 was a blocked Texas candidate pass with five explicit blockers and no route added. No workOrder:null dead end, stale route WIP, failed validation, omitted package work, infrastructure failure, or active route claim was found. Preserved the unrelated Operations Center product WIP plus blocked Minnesota, South Dakota, Nebraska, provider, coordinate, and policy lanes. Latest GitHub Actions scheduled runs are successful. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: docs/operations/tasks.json has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress",
+            "classified: route-worker-20260810174500 as completed route for comal-river-hinman-island-last-public-exit with gatekeeper-20260810174559 passed",
+            "classified: route-worker-20260810180039 as blocked candidate pass; Lake Nolte/Meadow Lake closure, Palacios/Tres Palacios and Armand Bayou live-threshold gaps, Lady Bird Lake and Lake Seguin loop/lake route-shape blockers",
+            "checked: GitHub Actions latest scheduled runs 31417733652, 31417004570, and 31416185630 completed successfully; earlier 31408606616 remains an already-recorded upstream infrastructure/MRMS failure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810183515"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810183751",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T18:34:40.000Z",
+          "completedAt": "2026-08-10T18:37:51.359Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the previous supervisor pass, including the concurrent route completion that landed during this supervisor run. route-worker-20260810174500 completed Comal River Hinman Island-to-Last Public Exit with full package and gatekeeper evidence; route-worker-20260810180039 was a blocked Texas five-candidate pass with explicit blockers and no route added; route-worker-2026081018-webberville-utley completed Colorado River Webberville-to-Utley Bridge with package evidence, generated geometry, coordinate review, build evidence, and passing gatekeepers. No workOrder:null dead end, stale route WIP, active route claim, failed validation, omitted package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP plus blocked Minnesota, South Dakota, Nebraska, provider, coordinate, and policy lanes. Latest GitHub Actions scheduled runs are successful. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: tasks board has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress",
+            "classified: route-worker-20260810174500 as completed route for comal-river-hinman-island-last-public-exit with gatekeeper-20260810174559 passed",
+            "classified: route-worker-20260810180039 as blocked candidate pass; Lake Nolte/Meadow Lake closure, Palacios/Tres Palacios and Armand Bayou live-threshold gaps, Lady Bird Lake and Lake Seguin loop/lake route-shape blockers",
+            "classified: route-worker-2026081018-webberville-utley as completed route for colorado-river-webberville-utley-bridge with route package, geometry, coordinate, image, typecheck, build, and gatekeeper evidence",
+            "repaired validation notation only: changed the latest Webberville-Utley run validation from pending operations:verify/git diff to passed after local verification completed",
+            "checked: GitHub Actions latest scheduled runs 31417733652, 31417004570, and 31416185630 completed successfully; earlier 31408606616 remains already-recorded upstream infrastructure/MRMS failure",
+            "passed: npm run operations:verify / gatekeeper-20260810183723; concurrent gatekeeper-20260810183742 also passed",
+            "passed: git diff --check (exit 0; CRLF normalization warnings only)",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810183737"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810193634",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T19:35:51.184Z",
+          "completedAt": "2026-08-10T19:36:34.007Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810183751. route-worker-2026081019-hot-springs-canyon completed route work for rio-grande-gravel-pit-rio-grande-village with full package evidence and gatekeeper-20260810191756 passing; four screened Texas candidates were blocked with explicit product-live, threshold, product-live Presidio, and route-distance blockers. Later orchestrator plans selected tx-bounded-discovery-sweep rather than returning no work. No stale route WIP, active route claim, no-work/WIP dead end, failed route validation, or omitted route package work was found. Added blocked governance task noaa-mrms-upstream-health-failures after GitHub Actions River Snapshots run 31424184561 failed from mapservices.weather.noaa.gov 100% MRMS upstream failures; production snapshots were preserved and this is infrastructure/upstream health, not a route-worker failure. Preserved the unrelated Operations Center product WIP plus Minnesota, South Dakota, Nebraska, provider, coordinate, route-shape, and policy blockers. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: docs/operations/tasks.json has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress before supervisor repair",
+            "classified: route-worker-2026081019-hot-springs-canyon as completed route for rio-grande-gravel-pit-rio-grande-village with gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper evidence",
+            "classified: tx-sabine-sandbar-fm2517-yellow-dog, tx-cherokee-neches-river-run-us79, tx-rio-grande-colorado-canyon-redford-rancherias, and tx-rio-grande-lower-canyons-heath-dryden as blocked candidates from the same worker run",
+            "blocked infrastructure: GitHub Actions River Snapshots 31424184561 failed after runner execution because mapservices.weather.noaa.gov returned 100% MRMS failures and tripped the upstream health gate; existing production snapshots were preserved",
+            "board repair: added blocked governance task noaa-mrms-upstream-health-failures; no ready speculative route task was created",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810193611",
+            "passed: npm run operations:verify / gatekeeper-20260810193719",
+            "passed: git diff --check (exit 0; LF-to-CRLF warnings only)"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810204021",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T20:34:32.935Z",
+          "completedAt": "2026-08-10T20:40:21.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified latest hourly route-worker activity since the prior supervisor pass. route-worker-2026081019-plum-park-buffalo-trail, route-worker-20260810200210-riverbend-plum, and route-worker-202608102031-lost-pines-riverbend are completed Texas route packages with route, trip, gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper evidence. The Lost Pines run initially appeared as a completed route with pending validation, but the worker closure landed while this supervisor was running and now records gatekeeper-20260810203809; supervisor reran validation independently and gatekeeper-20260810203902 also passed. No no-work/WIP dead end, stale route WIP, failed validation, omitted required package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and existing blocked NOAA MRMS upstream-health infrastructure task. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-2026081019-plum-park-buffalo-trail as completed route for colorado-river-plum-park-buffalo-trail with gatekeeper-20260810194247 passed",
+            "classified: route-worker-20260810200210-riverbend-plum as completed route for colorado-river-riverbend-park-plum-park with gatekeeper-20260810200645 passed",
+            "classified: route-worker-202608102031-lost-pines-riverbend as completed route for colorado-river-lost-pines-riverbend-park after pending validation was closed by worker gatekeeper-20260810203809",
+            "supervisor validation passed: npm run typecheck:routes; npm run routes:audit (746 routes); npm run gallery:audit (325 images); npm run routes:safety:audit (0 issues)",
+            "supervisor validation passed: npm run routes:geometries:generate and npm run routes:geometries:audit (912/913 routes matched; only pre-existing unrelated unmatched route remains)",
+            "supervisor validation passed with review findings: npm run routes:audit:coordinates -- --slug colorado-river-lost-pines-riverbend-park; route endpoints/intermediate access anchor recorded, global coordinate failures remain existing backlog",
+            "supervisor validation passed: npm run routes:audit:coordinates:suggestions (38 suggestions, 0 autonomous-safe)",
+            "supervisor validation passed with expected adjacency: npm run routes:audit:overlap only flagged shared endpoints with adjacent Colorado River reaches for the new route",
+            "supervisor validation passed: npm run typecheck; npm run build (1084 pages; SITE_URL/PUBLIC_SITE_URL not set, defaulted to https://paddletoday.com); npm run operations:verify / gatekeeper-20260810203902",
+            "checked: latest GitHub Actions runs 31427475772 and 31426447086 succeeded; prior 31424184561 remains already-recorded NOAA MRMS upstream-health infrastructure failure",
+            "passed: git diff --check (exit 0; LF-to-CRLF warnings only)",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810203943"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810213905",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T21:36:18.000Z",
+          "completedAt": "2026-08-10T21:39:05.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810204021. route-worker-202608102108-handley-river-legacy is a completed Texas route package for west-fork-trinity-river-handley-ederville-river-legacy with gatekeeper-20260810211013 passed. route-worker-202608102136-texas-no-add is a blocked candidate/no-add discovery pass: five distinct Texas candidates were screened and blocked by long-route/camping practicality, threshold support, endpoint coordinate/access, and loop-shape gates, with gatekeeper-20260810213602 passed and no route package omission. No no-work/WIP dead end, failed validation, stale route WIP, active route claim to clear, or new infrastructure failure was found. Latest GitHub Actions runs 31432470062, 31431786746, and 31430453954 succeeded; prior NOAA MRMS failure 31424184561 remains an already-recorded upstream infrastructure block. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and the NOAA MRMS infrastructure block. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608102108-handley-river-legacy as completed route for west-fork-trinity-river-handley-ederville-river-legacy with gatekeeper-20260810211013 passed",
+            "classified: route-worker-202608102136-texas-no-add as blocked candidate/no-add discovery pass with five evidence-backed Texas blockers and gatekeeper-20260810213602 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: latest GitHub Actions runs 31432470062 River Snapshots, 31431786746 History Snapshots, and 31430453954 River Alerts succeeded; prior 31424184561 NOAA MRMS failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810213725",
+            "passed on rerun: npm run operations:verify / gatekeeper-20260810213848; first verify attempt passed checks/build but failed final runs.json write with a transient Windows file-open error during concurrent JSON parsing"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810224025",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T22:08:58.000Z",
+          "completedAt": "2026-08-10T22:40:25.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810213905. route-worker-202608102204-texas-no-add is a no-add Texas discovery pass with five evidence-backed blockers and gatekeeper-20260810220815 passed. route-worker-202608102234-elm-fork-mcinnish-california is a completed Texas route package for elm-fork-trinity-river-mcinnish-california-crossing with gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper-20260810223923 evidence. No workOrder:null dead end, stale route WIP, failed validation, active route claim conflict, omitted package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and the NOAA MRMS upstream-health infrastructure block. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608102204-texas-no-add as a no-add route-worker run with Clear Fork Trinity, White Rock Creek, East Fork Trinity, Sabine Sandbar, and Bevilport-to-Walnut blocked by explicit gauge, coordinate, route-shape, endpoint, threshold, or policy gates",
+            "classified: route-worker-202608102234-elm-fork-mcinnish-california as a completed route package for elm-fork-trinity-river-mcinnish-california-crossing with gatekeeper-20260810223923 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: tx-bounded-discovery-sweep already records the latest Elm Fork route summary and evidence, so no new route/evidence task or task-lane repair was needed",
+            "checked: latest GitHub Actions runs 31436718403 River Snapshots, 31436123935 History Snapshots, and 31435076910 River Alerts succeeded; prior 31424184561 NOAA MRMS failure remains blocked upstream infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810224009"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811004134",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T00:40:45.000Z",
+          "completedAt": "2026-08-11T00:41:34.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810233934. route-worker-202608110004-clear-fork-rogers-trinity and route-worker-202608110028-medina-moffett-bandina are completed Texas route packages with route, threshold, camping, safety, bounded image/no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. No workOrder:null dead end, stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP and blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes. Board repair was limited to adding the Medina route-scoped geometry evidence pointer to tx-bounded-discovery-sweep before rerunning the planner.",
+          "validation": [
+            "classified: route-worker-202608110004-clear-fork-rogers-trinity as completed route for clear-fork-trinity-river-rogers-road-trinity-park with gatekeeper-20260811000729 passed",
+            "classified: route-worker-202608110028-medina-moffett-bandina as completed route for medina-river-moffett-park-bandina-camp-road with gatekeeper-20260811004030 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "repaired: tx-bounded-discovery-sweep evidence now includes public/data/canonical-river-geometries/routes/medina-river-moffett-park-bandina-camp-road.json",
+            "checked: latest GitHub Actions scheduled runs 31444310967 River Snapshots, 31443818437 History Snapshots, and 31442994756 River Alerts succeeded; prior NOAA MRMS upstream-health failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260811004156",
+            "passed: npm run operations:verify recorded gatekeeper-20260811004240"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811014252",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T01:42:52.710Z",
+          "completedAt": "2026-08-11T01:42:52.710Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260811004134. route-worker-202608110104-river-legacy-trammell is a completed Texas route package with route, threshold, camping, safety, bounded no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. The later orchestrator plans at 2026-08-11T01:28:35Z and 2026-08-11T01:31:21Z are planned Texas sweep work orders, not workOrder:null dead ends. No stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and the ready Texas/Utah state-coverage lanes. No board repair or new task was safe or needed; final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608110104-river-legacy-trammell as completed route for west-fork-trinity-river-river-legacy-trammell-crow with gatekeeper-20260811010930 passed",
+            "classified: orchestrator-20260811012835 and orchestrator-20260811013121 as planned work orders for tx-bounded-discovery-sweep, with no matching failure/no-work record and no workOrder:null dead end",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: tx-bounded-discovery-sweep already records River Legacy-to-Trammell Crow summary and route-scoped geometry evidence; no task evidence repair was needed",
+            "checked: latest GitHub Actions runs 31449938445 River Snapshots, 31444310967 River Snapshots, 31443818437 History Snapshots, and 31442994756 River Alerts succeeded; prior NOAA MRMS upstream-health failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260811014141",
+            "passed: npm run operations:verify recorded gatekeeper-20260811014221"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811024211",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T02:42:11.000Z",
+          "completedAt": "2026-08-11T02:42:11.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260811014252. route-worker-202608110147-smrr-scull, route-worker-202608110206-horseshoe-utley, and route-worker-202608110240-fullers-folly-sandy-bottoms are completed Texas route packages with route, threshold, camping, safety, bounded no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. No workOrder:null dead end, stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and ready Texas/Utah state-coverage lanes. No board repair or new task was safe or needed; operations planner remains expected to continue Texas bounded discovery with fresh distinct non-duplicate candidates."
+        },
+        {
+          "id": "route-supervisor-20260811034220",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T03:42:20.909Z",
+          "completedAt": "2026-08-11T03:44:08.456Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the 2026-08-11T02:40:35Z automation checkpoint. route-worker-202608110310-milam-county and route-worker-202608110341-blanco-jkr are completed Texas route packages with access, gauge, threshold, no-camping, safety, bounded no-image, generated geometry, coordinate audit, overlap audit, typecheck, build, and gatekeeper evidence. Later orchestrator plan records selected tx-bounded-discovery-sweep and did not produce workOrder:null. No stale route WIP, active route claim conflict, failed validation, omitted package work, or new infrastructure failure remains. Repaired only the tx-bounded-discovery-sweep task summary/evidence so it reflects the true latest Blanco / John Knox Ranch pass while preserving Milam evidence. Preserved the unrelated Operations Center product WIP, blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and ready Texas/Utah state-coverage lanes. No new task was created because eligible Texas work already exists.",
+          "inspectedRuns": [
+            "orchestrator-20260811024228",
+            "gatekeeper-20260811024305",
+            "orchestrator-20260811025852",
+            "route-worker-202608110310-milam-county",
+            "gatekeeper-20260811031005",
+            "orchestrator-20260811032903",
+            "orchestrator-20260811033304",
+            "route-worker-202608110341-blanco-jkr",
+            "gatekeeper-20260811034030",
+            "orchestrator-20260811034132",
+            "orchestrator-20260811034234",
+            "gatekeeper-20260811034310"
+          ],
+          "classifications": [
+            {
+              "runId": "route-worker-202608110310-milam-county",
+              "classification": "completed route",
+              "routeSlug": "brazos-river-milam-county-area-1-area-2"
+            },
+            {
+              "runId": "route-worker-202608110341-blanco-jkr",
+              "classification": "completed route",
+              "routeSlug": "blanco-river-fischer-store-john-knox-ranch"
+            },
+            {
+              "runId": "orchestrator-20260811032903",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            },
+            {
+              "runId": "orchestrator-20260811033304",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            },
+            {
+              "runId": "gatekeeper-20260811034030",
+              "classification": "validation passed"
+            }
+          ],
+          "boardRepair": "Updated tx-bounded-discovery-sweep summary/evidence to the true latest Blanco / John Knox Ranch package and preserved Milam County evidence.",
+          "nextTaskCreated": null,
+          "blockedItems": [
+            "Minnesota remains provisionally saturated under direct-gauge policy.",
+            "South Dakota broad baseline remains blocked pending precise evidence or adapter work.",
+            "Nebraska saturation remains blocked by George D. Syas coordinate and geometry gaps.",
+            "NOAA MRMS upstream health remains blocked infrastructure, not route-worker failure."
+          ],
+          "validation": [
+            "checked: latest GitHub scheduled Actions are successful through River Snapshots 31455406290 at 2026-08-11T03:28:04Z",
+            "checked: no route_implementation task is in_progress; only operations-center-read-only product WIP remains active",
+            "checked: operations planner selected tx-bounded-discovery-sweep and did not return workOrder:null",
+            "passed: npm run operations:verify / gatekeeper-20260811034310 after the supervisor record was added"
+          ]
+        }
+      ],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "ND",
+      "stateName": "North Dakota",
+      "inventoryCount": 7,
+      "scoredCount": 3,
+      "planningCount": 4,
+      "scoredCoveragePercent": 43,
+      "discoveryTasks": [
+        {
+          "id": "mn-final-bounded-discovery-sweep",
+          "lane": "completed",
+          "summary": "Reviewed the strongest remaining official Otter Tail candidate; it remains planning-only because its product-supported gauge is a downstream proxy. Minnesota is provisionally saturated under the current policy.",
+          "evidenceCount": 2
+        },
+        {
+          "id": "tx-bounded-discovery-sweep",
+          "lane": "ready",
+          "summary": "Texas bounded discovery remains open after validated no-add screens for AW/whitewater-oriented candidates and the Palacios/Powderhorn coastal trail family. Continue only with fresh manager-backed public point-to-point Texas river reaches outside coastal/tidal, route-shape, unsupported live-condition, numeric-threshold, open-bay, below-floor, access, camping, safety, and prior recorded blockers unless fresh evidence clears the exact gate.",
+          "evidenceCount": 209
+        },
+        {
+          "id": "utah-bounded-discovery-sweep",
+          "lane": "ready",
+          "summary": "Ready under the stricter saturation policy. Screen a bounded set of Utah route families; the prior inventory audit is not sufficient to mark Utah saturated. Preserve known Weber endpoint/access, Provo live-source, and San Juan permitted multi-day blockers unless fresh evidence clears them.",
+          "evidenceCount": 6
+        }
+      ],
+      "recentEvidenceRuns": [
+        {
+          "id": "route-worker-202608121246-texas-contained-no-add",
+          "kind": "route_worker",
+          "startedAt": "2026-08-12T12:38:16.199Z",
+          "completedAt": "2026-08-12T12:46:00.000Z",
+          "status": "blocked_no_route_added_validation_passed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workOrderId": "orchestrator-20260812123816",
+          "summary": "Screened five Texas official/public candidates across the Nueces, SASPAMCO, Guadalupe Valley, Goliad, and Columbus route families. No route was added because all candidates failed known access/camping/coordinate, contained-connector, emergency-alternate, optional-split duplicate, or exact-duplicate gates before implementation.",
+          "candidatesScreened": [
+            {
+              "candidateId": "tx-nueces-barksdale-camp-wood",
+              "status": "blocked_known_access_camping_coordinate_package",
+              "blocker": "TRPA still supports the Barksdale-to-CR390 Camp Wood featured Nueces run with route mileage, Class I-III safety context, source-backed threshold guidance, and USGS Barksdale / downstream gauge links; same-run USGS Water Services also returned product-live upper Nueces values. The candidate was not implemented because this exact lead is a known blocker and this run found no fresh manager-grade Barksdale/CR390 public access terms, no source-backed water-entry coordinate package beyond map leads, and no official legal camping/no-camping package. The tentative route edit was rolled back before validation."
+            },
+            {
+              "candidateId": "tx-saspamco-loop1604-cr125",
+              "status": "blocked_contained_connector_below_floor",
+              "blocker": "TPWD supports the 5.63-mile Loop 1604-to-CR125 upper SASPAMCO option with endpoint coordinates and private-property / high-water caveats, but this segment is contained inside the existing Loop 1604-to-Helton route family and directly adjacent to the shipped CR125-to-Helton split. Same-run USGS 08181800 returned 154 cfs / 9.58 ft, below the conservative 200 cfs floor recorded for this corridor, so it also failed live-condition publication value."
+            },
+            {
+              "candidateId": "tx-guadalupe-valley-hwy183-emergency-connector",
+              "status": "blocked_emergency_alternate_contained_connector",
+              "blocker": "TPWD publishes Highway 183 only as alternate/emergency access about 2.6 miles below SH72 within the Guadalupe Valley trail. Existing PaddleToday routes already cover FM766-to-SH72, SH72-to-FM236, and the full FM766-to-FM236 Cuero package with the remnant dam, snag, high-water, GBRA-flow, and private-property caveats. The Highway 183 connector adds no distinct route value and would duplicate contained official coverage."
+            },
+            {
+              "candidateId": "tx-goliad-highway59-ferry-street-state-park-splits",
+              "status": "blocked_contained_optional_split_duplicate",
+              "blocker": "TPWD supports the Goliad paddling trail with Highway 59, Ferry Street, and Goliad State Park access coordinates and notes Ferry Street as an optional access with limited parking. Existing route san-antonio-river-riverdale-goliad-state-park already covers the official SARA/Goliad trail story and includes the relevant midpoint and access caveats. The optional subsegments would duplicate coverage without adding a distinct gauge, threshold, camping, safety, geometry, or image package."
+            },
+            {
+              "candidateId": "tx-colorado-columbus-paddling-trail",
+              "status": "blocked_exact_duplicate_existing_route",
+              "blocker": "TPWD supports the 6.5-mile Columbus Paddling Trail from the 71 Business Crossing to Beason's Park with access coordinates, float time, island/picnic context, and private-property caveats. That exact route is already implemented as colorado-river-business-71-beasons-park, so no second route package was started."
+            }
+          ],
+          "routeAdded": null,
+          "validation": {
+            "status": "passed",
+            "gatekeeperId": "gatekeeper-20260812124920",
+            "detail": "No route data, trip details, geometry, coordinate package, camping package, safety package, or image audit row changed. operations:verify passed after the no-add record was present; route-scoped coordinate audit and geometry generation remained skipped because no route endpoints or geometry changed."
+          }
+        },
+        {
+          "id": "orchestrator-20260812125013",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T12:50:13.378Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "supervisor-20260812125124",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-12T12:51:24.392Z",
+          "completedAt": "2026-08-12T12:51:24.392Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Supervisor classified the latest hourly Texas activity as evidence-backed blocked/no-add sweeps, closed the newest pending validation to passed, found no stale route WIP or workOrder:null dead end, and preserved the ready Texas discovery task.",
+          "hourlyRunsInspected": [
+            {
+              "id": "route-worker-202608121213-texas-denton-llano-no-add",
+              "classification": "blocked_candidate",
+              "evidence": "Screened Denton Creek, lower Llano, Guadalupe Camp Huaco, and Dallas Trinity candidates; no route was added because manager-grade access, camping/safety, route-shape, active-lease/take-out, or duplicate-coverage gates failed; validation passed via gatekeeper-20260812121626."
+            },
+            {
+              "id": "route-worker-202608121246-texas-contained-no-add",
+              "classification": "blocked_candidate",
+              "evidence": "Screened Nueces Barksdale/Camp Wood, SASPAMCO Loop1604/CR125, Guadalupe Valley Hwy183 emergency connector, Goliad optional splits, and Columbus; no route was added because known access/camping/coordinate, contained-connector, emergency-alternate, optional-split duplicate, or exact-duplicate gates failed; validation closed to passed via gatekeeper-20260812124920."
+            }
+          ],
+          "classification": {
+            "completedRoute": [],
+            "blockedCandidate": [
+              "route-worker-202608121213-texas-denton-llano-no-add",
+              "route-worker-202608121246-texas-contained-no-add"
+            ],
+            "noWorkWipDeadEnd": [],
+            "failedValidation": [],
+            "infrastructureFailure": []
+          },
+          "boardRepair": {
+            "action": "closed_pending_validation_and_preserved_ready_task",
+            "taskId": "tx-bounded-discovery-sweep",
+            "detail": "Closed route-worker-202608121246-texas-contained-no-add from pending validation to passed after operations:verify succeeded with gatekeeper-20260812124920; updated the Texas sweep evidence and updatedAt. No new task was created because eligible ready Texas discovery work remained and no active route WIP was present."
+          },
+          "nextTask": {
+            "action": "preserved_existing_ready_task",
+            "taskId": "tx-bounded-discovery-sweep",
+            "detail": "Continue only with fresh manager-backed Texas point-to-point river reaches outside the newly recorded Barksdale/Camp Wood, SASPAMCO, Guadalupe Valley emergency connector, Goliad optional split, Columbus duplicate, Denton Creek, Kingsland, Camp Huaco, Dallas Trinity, and prior blockers unless fresh evidence clears the exact gate."
+          },
+          "workOrder": {
+            "id": "orchestrator-20260812125013",
+            "taskId": "tx-bounded-discovery-sweep",
+            "workerRole": "state-coverage",
+            "status": "planned",
+            "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          },
+          "blockedItems": [
+            "route-worker-202608121213-texas-denton-llano-no-add: evidence-backed no-add Texas sweep; blockers were Denton Creek manager-backed access/camping/safety, Kingsland route-shape/impoundment ambiguity, Camp Huaco expired lease/no public downstream take-out, and Dallas Trinity contained duplicate coverage.",
+            "route-worker-202608121246-texas-contained-no-add: evidence-backed no-add Texas sweep; blockers were known Nueces access/camping/coordinate package, SASPAMCO contained connector/below-floor flow, Guadalupe Valley emergency alternate duplication, Goliad optional split duplication, and Columbus exact duplicate coverage.",
+            "operations-center-read-only remains the only in_progress task and is product work, not active route WIP.",
+            "noaa-mrms-upstream-health-failures remains blocked upstream infrastructure work from an earlier scheduled River Snapshots failure; latest GitHub Actions runs succeeded."
+          ],
+          "githubActions": {
+            "checkedAt": "2026-08-12T12:51:24.392Z",
+            "status": "healthy_latest_scheduled_runs_successful",
+            "summary": "Latest gh run list --limit 5 showed River Snapshots run 31598138450, River Alerts, and History Snapshots completed successfully; no runner acquisition or upstream infrastructure failure was found in the current window."
+          },
+          "validation": {
+            "status": "passed",
+            "commands": [
+              "passed: parsed required operations files, worker memory, task lanes, route-worker runs, orchestrator policy, git status, and GitHub Actions state during supervisor inspection",
+              "passed: npm run operations:verify closed the no-add validation with gatekeeper-20260812124920",
+              "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260812125013 and did not return workOrder:null",
+              "passed: npm run operations:verify after reconciliation with gatekeeper-20260812125057",
+              "passed: latest gh run list --limit 5 returned completed successful scheduled workflow runs"
+            ],
+            "skipped": [
+              "No route-scoped coordinate audit or geometry generation was required because the supervised no-add runs did not promote endpoints or route geometry.",
+              "No new task was created because an eligible ready Texas sweep already exists."
+            ],
+            "gatekeeperId": "gatekeeper-20260812125057"
+          }
+        },
+        {
+          "id": "orchestrator-20260812130818",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T13:08:18.374Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-worker-202608121311-texas-aw-whitewater-no-add",
+          "kind": "route_worker",
+          "startedAt": "2026-08-12T13:08:18.374Z",
+          "completedAt": "2026-08-12T13:11:16.582Z",
+          "status": "blocked_no_route_added_validation_passed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workOrderId": "orchestrator-20260812130818",
+          "workerRole": "route-implementation",
+          "summary": "Screened five distinct Texas AW/whitewater-oriented route candidates across the Lower Guadalupe, Middle Bosque, Sabinal, Neils Creek, and Clear Fork Brazos. No route was added because every candidate failed access, camping, safety, live-flow, or threshold-source gates before implementation.",
+          "candidatesScreened": [
+            {
+              "candidateId": "tx-guadalupe-first-crossing-common-st",
+              "status": "blocked_private_put_in_safety_camping_package",
+              "blocker": "American Whitewater supports the 6.2-mile First Crossing-to-Common Street Lower Guadalupe reach, Class II+(III), Hueco Falls / Gruene Bridge / Common Street Dam hazards, and direct USGS 08168500 gauge context; USGS Water Services returned 401 cfs / 2.47 ft at 2026-08-12 08:00 CDT. The candidate still failed because First Crossing is not public access in the AW evidence and requires paying private outfitters, while no manager-grade route package cleared public put-in, exact launch handling, official camping/no-camping terms for the route, and high-flow city/outfitter safety handling."
+            },
+            {
+              "candidateId": "tx-middle-bosque-crawford-fm3047",
+              "status": "blocked_below_floor_unmanaged_access_camping_safety",
+              "blocker": "American Whitewater supports a 7-mile Crawford-to-FM3047 Middle Bosque whitewater reach and says local guidance uses about 3.8 ft as the minimum runnable stage; same-run USGS 08095300 returned product-live 1.20 cfs / 2.44 ft at 2026-08-12 07:45 CDT, below that floor. The candidate also lacks manager-grade public endpoint access, parking/water-entry coordinates, official legal camping/no-camping terms, and a complete low-water-crossing / ledge-hole safety package."
+            },
+            {
+              "candidateId": "tx-sabinal-utopia-fm187",
+              "status": "blocked_below_recommended_current_beta_access_camping",
+              "blocker": "American Whitewater frames Utopia-to-FM187 as current-beta-needed, Class II, 10.5 miles, with Texas Whitewater-derived flow/range and warnings about low bridges, private landowner rock-wall pools, trees that could trap and drown paddlers, and an unportable high fence after the first FM187 crossing. Same-run USGS 08198000 returned product-live 54.4 cfs / 5.14 ft at 2026-08-12 08:00 CDT and AW displayed below recommended. No manager-grade endpoint access, coordinate-backed launch/take-out, official camping/no-camping package, or high-fence/safety plan cleared."
+            },
+            {
+              "candidateId": "tx-neils-creek-cr4250-sh6",
+              "status": "blocked_below_recommended_dam_access_camping_package",
+              "blocker": "American Whitewater lists Neils Creek CR4250-to-SH6 as current-beta-needed, 8.6 miles, with a seven-foot dam halfway through the run and book-derived distance/flow guidance. Same-run USGS 08095000 returned product-live 9.74 cfs / 1.45 ft at 2026-08-12 08:00 CDT and AW displayed below recommended. No manager-grade public endpoint coordinates, official access/parking terms, legal camping/no-camping package, or dam-portage safety infrastructure surfaced."
+            },
+            {
+              "candidateId": "tx-clear-fork-brazos-us180-lueders",
+              "status": "blocked_unsupported_threshold_source_hypothetical_route",
+              "blocker": "American Whitewater lists US180-to-Lueders as a 5-mile Clear Fork Brazos possible descent with hypothetical difficulty and explicitly says the source of the recommended flow range is unknown. Same-run USGS 08084000 returned product-live 0.00 cfs / 1.39 ft at 2026-08-12 07:45 CDT. The candidate fails threshold-source, live-flow, manager-grade access, coordinate, camping/no-camping, and safety-package gates."
+            }
+          ],
+          "routeAdded": null,
+          "validation": {
+            "status": "passed",
+            "gatekeeperId": "gatekeeper-20260812131418",
+            "commands": [
+              "passed: JSON parse for operations files and route candidate ledger",
+              "passed: npm.cmd run routes:audit",
+              "passed: npm.cmd run gallery:audit",
+              "passed: npm.cmd run routes:safety:audit",
+              "passed: npm.cmd run routes:geometries:audit",
+              "skipped: npm.cmd run routes:geometries:generate because no route was implemented and no route geometry changed",
+              "skipped: npm.cmd run routes:audit:coordinates because no route data or endpoint coordinates changed",
+              "passed: npm.cmd run typecheck:routes",
+              "passed: npm.cmd run typecheck",
+              "passed: npm.cmd run build",
+              "passed: npm.cmd run operations:verify / gatekeeper-20260812131418"
+            ],
+            "detail": "No route data, trip details, geometry, coordinate package, camping package, safety package, or image audit row changed. Route-scoped coordinate audit and geometry generation were skipped because no endpoint package or route geometry changed."
+          }
+        },
+        {
+          "id": "orchestrator-20260812133810",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T13:38:10.952Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260812134211",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T13:42:11.705Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-worker-202608121344-texas-palacios-powderhorn-no-add",
+          "kind": "route_worker",
+          "startedAt": "2026-08-12T13:38:10.952Z",
+          "completedAt": "2026-08-12T13:44:00.000Z",
+          "status": "blocked_no_route_added_validation_passed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workOrderId": "orchestrator-20260812133810",
+          "summary": "Screened five Texas coastal/new-trail candidates across the new Palacios TPWD trail family and Powderhorn Coloma Creek. No route was added because all candidates failed the current PaddleToday scored-river live-condition and numeric-threshold model, with additional route-shape, open-bay, wind/tide, shipping-channel, camping, and limited-shoreline-access blockers.",
+          "candidatesScreened": [
+            {
+              "candidateId": "tx-palacios-tres-palacios-river-carl-east-bay",
+              "status": "blocked_coastal_transition_no_threshold_model",
+              "blocker": "TPWD supports the new 10-mile one-way Tres Palacios River Trail from Carl Park Boat Ramp to East Bay Park with public access coordinates and notes limited camping at Carl Park and no camping at East Bay Park. USGS 08162600 was product-live at 38.1 cfs / 3.70 ft at 2026-08-12 07:30 CDT, but the selected route widens into Tres Palacios Bay and TPWD frames suitability around water level, tide, flow, and wind without publishing numeric cfs/stage thresholds. No accepted coastal/tidal route-scoring model exists for this river-to-bay transition, so the candidate fails threshold/live-condition policy before implementation."
+            },
+            {
+              "candidateId": "tx-palacios-city-by-the-sea-east-south-bay",
+              "status": "blocked_coastal_seawall_no_live_threshold_model",
+              "blocker": "TPWD supports the 1.5-mile one-way City by the Sea Trail between East Bay Park and South Bay Park with public access coordinates and no-camping statements at both parks. The trail follows the Palacios seawall through bay water and TPWD frames travel time around water levels, tide, flow rate, and wind. No product-supported live river gauge or accepted numeric coastal/tidal threshold model surfaced, so it cannot be scored as a PaddleToday river route."
+            },
+            {
+              "candidateId": "tx-palacios-wetlands-east-bay-loop",
+              "status": "blocked_roundtrip_marsh_no_threshold_model",
+              "blocker": "TPWD supports the 2-mile roundtrip Palacios Wetlands Trail from East Bay Park into coastal salt marsh and wetland habitat, including a humpback bridge, a second lower bridge that may need portage in higher water, and a turn-around at the Highway 35 culvert. It is a same-access roundtrip marsh route, not a downstream point-to-point river reach, and no supported live condition adapter or numeric threshold model surfaced."
+            },
+            {
+              "candidateId": "tx-palacios-dolphin-run-south-bay-jensen",
+              "status": "blocked_open_bay_shipping_channel_no_threshold_model",
+              "blocker": "TPWD supports the 6-mile one-way Dolphin Run Trail from South Bay Park to Jensen Point with public access coordinates, but it crosses the Palacios shipping channel, rounds a private peninsula, and then crosses open Turtle Bay where TPWD warns strong winds and choppy water can occur. No product-supported live river gauge or accepted numeric wind/tide/bay threshold model surfaced, so the safety and condition gates fail before implementation."
+            },
+            {
+              "candidateId": "tx-powderhorn-coloma-creek-fm1289-roundtrip",
+              "status": "blocked_coastal_creek_roundtrip_no_threshold_model",
+              "blocker": "TPWD supports Powderhorn as a four-trail shoreline/marsh system and lists the Coloma Creek Trail as an 8-mile roundtrip from the FM 1289 bridge, but says the creek behaves more like shallow bay water, includes mostly shallow mud flats, and is part of a coastal route-choice family with wind, tide, and access caveats. No product-supported live gauge or accepted numeric condition threshold model surfaced, so the route cannot be scored under the current river-route policy."
+            }
+          ],
+          "routeAdded": null,
+          "validation": {
+            "status": "passed",
+            "gatekeeperId": "gatekeeper-20260812134401",
+            "detail": "No route data, trip details, geometry, coordinate package, camping package, safety package, or image audit row changed. JSON parse, routes:audit, gallery:audit, routes:safety:audit, routes:geometries:audit, typecheck:routes, full typecheck, production build, and operations:verify passed after the no-add record was present; route-scoped coordinate audit and geometry generation remained skipped because no route endpoints or geometry changed."
+          }
+        },
+        {
+          "id": "orchestrator-20260812135037",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T13:50:37.741Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "supervisor-20260812135109",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-12T13:51:09.194Z",
+          "completedAt": "2026-08-12T13:51:09.194Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Supervisor classified the latest hourly Texas activity as evidence-backed blocked/no-add sweeps with passed validation, found no stale route WIP or workOrder:null dead end, preserved the ready Texas discovery task, and confirmed the planner selected a real next work order.",
+          "hourlyRunsInspected": [
+            {
+              "id": "route-worker-202608121311-texas-aw-whitewater-no-add",
+              "classification": "blocked_candidate",
+              "evidence": "Screened Lower Guadalupe First Crossing, Middle Bosque, Sabinal, Neils Creek, and Clear Fork Brazos candidates; no route was added because access, camping, safety, live-flow, or threshold-source gates failed; validation passed via gatekeeper-20260812131418."
+            },
+            {
+              "id": "route-worker-202608121344-texas-palacios-powderhorn-no-add",
+              "classification": "blocked_candidate",
+              "evidence": "Screened Palacios Tres Palacios River, City by the Sea, Wetlands, Dolphin Run, and Powderhorn Coloma Creek; no route was added because coastal/tidal, marsh/roundtrip, open-bay, shipping-channel, shallow-mud-flat, live-gauge, and numeric-threshold gates failed; validation passed via gatekeeper-20260812134401."
+            }
+          ],
+          "classification": {
+            "completedRoute": [],
+            "blockedCandidate": [
+              "route-worker-202608121311-texas-aw-whitewater-no-add",
+              "route-worker-202608121344-texas-palacios-powderhorn-no-add"
+            ],
+            "noWorkWipDeadEnd": [],
+            "failedValidation": [],
+            "infrastructureFailure": []
+          },
+          "staleDeadEnds": [],
+          "boardRepair": {
+            "action": "preserved_ready_task_with_supervisor_evidence",
+            "taskId": "tx-bounded-discovery-sweep",
+            "detail": "Added one supervisor evidence note and refreshed updatedAt; no lane change or new task was needed because the Texas sweep remained eligible and no active route claim or stale in_progress route task existed."
+          },
+          "duplicatePlanning": {
+            "id": "orchestrator-20260812134211",
+            "classification": "harmless_duplicate_plan_record",
+            "detail": "A second plan record appeared while the Palacios/Powderhorn worker window was active, but it did not create a stale task lane, active claim, failed validation, or workOrder:null dead end."
+          },
+          "nextTask": {
+            "action": "preserved_existing_ready_task",
+            "taskId": "tx-bounded-discovery-sweep",
+            "detail": "Continue Texas only with fresh manager-backed public point-to-point river reaches outside Lower Guadalupe private/access package, Middle Bosque below-floor/access, Sabinal/Neils current-beta and dam/high-fence safety, Clear Fork Brazos unknown-threshold/no-flow, Palacios/Powderhorn coastal/tidal route-shape, and prior blockers unless fresh evidence clears the exact gate."
+          },
+          "workOrder": {
+            "id": "orchestrator-20260812135037",
+            "taskId": "tx-bounded-discovery-sweep",
+            "workerRole": "state-coverage",
+            "status": "planned",
+            "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          },
+          "blockedItems": [
+            "route-worker-202608121311-texas-aw-whitewater-no-add: evidence-backed no-add Texas sweep; blockers were private/outfitter-only put-in, below-floor/current-beta flows, missing endpoint/camping/safety packages, dam/high-fence hazards, unknown threshold source, and no-flow evidence.",
+            "route-worker-202608121344-texas-palacios-powderhorn-no-add: evidence-backed no-add Texas sweep; blockers were coastal/tidal, marsh/roundtrip, open-bay, shipping-channel, shallow-mud-flat, no supported live river gauge, no numeric thresholds, wind/tide, camping, and limited shoreline access.",
+            "orchestrator-20260812134211: duplicate plan record only; no stale lane, claim, or worker failure was produced.",
+            "operations-center-read-only and route-freshness-and-growth-metrics remain unrelated product in_progress tasks; this route supervisor did not override their lanes.",
+            "github-hosted-runner-acquisition-failures and noaa-mrms-upstream-health-failures remain historical/blocked infrastructure records; latest GitHub Actions runs succeeded."
+          ],
+          "githubActions": {
+            "checkedAt": "2026-08-12T13:51:09.194Z",
+            "status": "healthy_latest_scheduled_runs_successful",
+            "summary": "gh run list --limit 10 showed the newest History Snapshots, River Snapshots, and River Alerts workflow runs completed successfully; no current runner acquisition or upstream infrastructure failure was found.",
+            "latestRun": {
+              "databaseId": 31602968790,
+              "workflowName": "Paddle Today History Snapshots",
+              "createdAt": "2026-08-12T13:44:11Z",
+              "conclusion": "success"
+            }
+          },
+          "validation": {
+            "status": "passed",
+            "commands": [
+              "passed: parsed required operations files, worker memory, task lanes, route-worker runs, orchestrator policy, git status, and GitHub Actions state during supervisor inspection",
+              "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260812135037 and did not return workOrder:null",
+              "passed: npm run operations:verify completed with gatekeeper-20260812135155",
+              "passed: git diff --check returned no whitespace errors; CRLF normalization warnings only"
+            ],
+            "skipped": [
+              "No route-scoped coordinate audit or geometry generation was required because the supervised no-add runs did not promote endpoints or route geometry.",
+              "No new ready task was created because tx-bounded-discovery-sweep is already eligible."
+            ],
+            "gatekeeperId": "gatekeeper-20260812135155"
+          }
+        }
+      ],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "OH",
+      "stateName": "Ohio",
+      "inventoryCount": 11,
+      "scoredCount": 10,
+      "planningCount": 1,
+      "scoredCoveragePercent": 91,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "PA",
+      "stateName": "Pennsylvania",
+      "inventoryCount": 47,
+      "scoredCount": 31,
+      "planningCount": 16,
+      "scoredCoveragePercent": 66,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "SD",
+      "stateName": "South Dakota",
+      "inventoryCount": 12,
+      "scoredCount": 12,
+      "planningCount": 0,
+      "scoredCoveragePercent": 100,
+      "discoveryTasks": [
+        {
+          "id": "south-dakota-state-coverage-baseline",
+          "lane": "blocked",
+          "summary": "Paused the broad South Dakota scored-route baseline after fourteen five-candidate no-add reviews. South Dakota is not exhausted, but repeated cadence work is now blocked by documented source, threshold, access, safety, camping, route-shape, and provider-adapter gaps; resume only after a precise evidence task clears a blocker or a new manager-grade source appears.",
+          "evidenceCount": 7
+        }
+      ],
+      "recentEvidenceRuns": [
+        {
+          "id": "route-supervisor-20260810183533",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T18:34:40.000Z",
+          "completedAt": "2026-08-10T18:35:33.028Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the previous supervisor pass: route-worker-20260810174500 completed Comal River Hinman Island-to-Last Public Exit with full route, camping, safety, image, geometry, coordinate, build, and gatekeeper evidence; route-worker-20260810180039 was a blocked Texas candidate pass with five explicit blockers and no route added. No workOrder:null dead end, stale route WIP, failed validation, omitted package work, infrastructure failure, or active route claim was found. Preserved the unrelated Operations Center product WIP plus blocked Minnesota, South Dakota, Nebraska, provider, coordinate, and policy lanes. Latest GitHub Actions scheduled runs are successful. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: docs/operations/tasks.json has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress",
+            "classified: route-worker-20260810174500 as completed route for comal-river-hinman-island-last-public-exit with gatekeeper-20260810174559 passed",
+            "classified: route-worker-20260810180039 as blocked candidate pass; Lake Nolte/Meadow Lake closure, Palacios/Tres Palacios and Armand Bayou live-threshold gaps, Lady Bird Lake and Lake Seguin loop/lake route-shape blockers",
+            "checked: GitHub Actions latest scheduled runs 31417733652, 31417004570, and 31416185630 completed successfully; earlier 31408606616 remains an already-recorded upstream infrastructure/MRMS failure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810183515"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810183751",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T18:34:40.000Z",
+          "completedAt": "2026-08-10T18:37:51.359Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the previous supervisor pass, including the concurrent route completion that landed during this supervisor run. route-worker-20260810174500 completed Comal River Hinman Island-to-Last Public Exit with full package and gatekeeper evidence; route-worker-20260810180039 was a blocked Texas five-candidate pass with explicit blockers and no route added; route-worker-2026081018-webberville-utley completed Colorado River Webberville-to-Utley Bridge with package evidence, generated geometry, coordinate review, build evidence, and passing gatekeepers. No workOrder:null dead end, stale route WIP, active route claim, failed validation, omitted package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP plus blocked Minnesota, South Dakota, Nebraska, provider, coordinate, and policy lanes. Latest GitHub Actions scheduled runs are successful. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: tasks board has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress",
+            "classified: route-worker-20260810174500 as completed route for comal-river-hinman-island-last-public-exit with gatekeeper-20260810174559 passed",
+            "classified: route-worker-20260810180039 as blocked candidate pass; Lake Nolte/Meadow Lake closure, Palacios/Tres Palacios and Armand Bayou live-threshold gaps, Lady Bird Lake and Lake Seguin loop/lake route-shape blockers",
+            "classified: route-worker-2026081018-webberville-utley as completed route for colorado-river-webberville-utley-bridge with route package, geometry, coordinate, image, typecheck, build, and gatekeeper evidence",
+            "repaired validation notation only: changed the latest Webberville-Utley run validation from pending operations:verify/git diff to passed after local verification completed",
+            "checked: GitHub Actions latest scheduled runs 31417733652, 31417004570, and 31416185630 completed successfully; earlier 31408606616 remains already-recorded upstream infrastructure/MRMS failure",
+            "passed: npm run operations:verify / gatekeeper-20260810183723; concurrent gatekeeper-20260810183742 also passed",
+            "passed: git diff --check (exit 0; CRLF normalization warnings only)",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810183737"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810193634",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T19:35:51.184Z",
+          "completedAt": "2026-08-10T19:36:34.007Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810183751. route-worker-2026081019-hot-springs-canyon completed route work for rio-grande-gravel-pit-rio-grande-village with full package evidence and gatekeeper-20260810191756 passing; four screened Texas candidates were blocked with explicit product-live, threshold, product-live Presidio, and route-distance blockers. Later orchestrator plans selected tx-bounded-discovery-sweep rather than returning no work. No stale route WIP, active route claim, no-work/WIP dead end, failed route validation, or omitted route package work was found. Added blocked governance task noaa-mrms-upstream-health-failures after GitHub Actions River Snapshots run 31424184561 failed from mapservices.weather.noaa.gov 100% MRMS upstream failures; production snapshots were preserved and this is infrastructure/upstream health, not a route-worker failure. Preserved the unrelated Operations Center product WIP plus Minnesota, South Dakota, Nebraska, provider, coordinate, route-shape, and policy blockers. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "checked: docs/operations/tasks.json has tx-bounded-discovery-sweep and utah-bounded-discovery-sweep ready, with only operations-center-read-only in_progress before supervisor repair",
+            "classified: route-worker-2026081019-hot-springs-canyon as completed route for rio-grande-gravel-pit-rio-grande-village with gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper evidence",
+            "classified: tx-sabine-sandbar-fm2517-yellow-dog, tx-cherokee-neches-river-run-us79, tx-rio-grande-colorado-canyon-redford-rancherias, and tx-rio-grande-lower-canyons-heath-dryden as blocked candidates from the same worker run",
+            "blocked infrastructure: GitHub Actions River Snapshots 31424184561 failed after runner execution because mapservices.weather.noaa.gov returned 100% MRMS failures and tripped the upstream health gate; existing production snapshots were preserved",
+            "board repair: added blocked governance task noaa-mrms-upstream-health-failures; no ready speculative route task was created",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810193611",
+            "passed: npm run operations:verify / gatekeeper-20260810193719",
+            "passed: git diff --check (exit 0; LF-to-CRLF warnings only)"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810204021",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T20:34:32.935Z",
+          "completedAt": "2026-08-10T20:40:21.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified latest hourly route-worker activity since the prior supervisor pass. route-worker-2026081019-plum-park-buffalo-trail, route-worker-20260810200210-riverbend-plum, and route-worker-202608102031-lost-pines-riverbend are completed Texas route packages with route, trip, gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper evidence. The Lost Pines run initially appeared as a completed route with pending validation, but the worker closure landed while this supervisor was running and now records gatekeeper-20260810203809; supervisor reran validation independently and gatekeeper-20260810203902 also passed. No no-work/WIP dead end, stale route WIP, failed validation, omitted required package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and existing blocked NOAA MRMS upstream-health infrastructure task. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-2026081019-plum-park-buffalo-trail as completed route for colorado-river-plum-park-buffalo-trail with gatekeeper-20260810194247 passed",
+            "classified: route-worker-20260810200210-riverbend-plum as completed route for colorado-river-riverbend-park-plum-park with gatekeeper-20260810200645 passed",
+            "classified: route-worker-202608102031-lost-pines-riverbend as completed route for colorado-river-lost-pines-riverbend-park after pending validation was closed by worker gatekeeper-20260810203809",
+            "supervisor validation passed: npm run typecheck:routes; npm run routes:audit (746 routes); npm run gallery:audit (325 images); npm run routes:safety:audit (0 issues)",
+            "supervisor validation passed: npm run routes:geometries:generate and npm run routes:geometries:audit (912/913 routes matched; only pre-existing unrelated unmatched route remains)",
+            "supervisor validation passed with review findings: npm run routes:audit:coordinates -- --slug colorado-river-lost-pines-riverbend-park; route endpoints/intermediate access anchor recorded, global coordinate failures remain existing backlog",
+            "supervisor validation passed: npm run routes:audit:coordinates:suggestions (38 suggestions, 0 autonomous-safe)",
+            "supervisor validation passed with expected adjacency: npm run routes:audit:overlap only flagged shared endpoints with adjacent Colorado River reaches for the new route",
+            "supervisor validation passed: npm run typecheck; npm run build (1084 pages; SITE_URL/PUBLIC_SITE_URL not set, defaulted to https://paddletoday.com); npm run operations:verify / gatekeeper-20260810203902",
+            "checked: latest GitHub Actions runs 31427475772 and 31426447086 succeeded; prior 31424184561 remains already-recorded NOAA MRMS upstream-health infrastructure failure",
+            "passed: git diff --check (exit 0; LF-to-CRLF warnings only)",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810203943"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810213905",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T21:36:18.000Z",
+          "completedAt": "2026-08-10T21:39:05.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810204021. route-worker-202608102108-handley-river-legacy is a completed Texas route package for west-fork-trinity-river-handley-ederville-river-legacy with gatekeeper-20260810211013 passed. route-worker-202608102136-texas-no-add is a blocked candidate/no-add discovery pass: five distinct Texas candidates were screened and blocked by long-route/camping practicality, threshold support, endpoint coordinate/access, and loop-shape gates, with gatekeeper-20260810213602 passed and no route package omission. No no-work/WIP dead end, failed validation, stale route WIP, active route claim to clear, or new infrastructure failure was found. Latest GitHub Actions runs 31432470062, 31431786746, and 31430453954 succeeded; prior NOAA MRMS failure 31424184561 remains an already-recorded upstream infrastructure block. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and the NOAA MRMS infrastructure block. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608102108-handley-river-legacy as completed route for west-fork-trinity-river-handley-ederville-river-legacy with gatekeeper-20260810211013 passed",
+            "classified: route-worker-202608102136-texas-no-add as blocked candidate/no-add discovery pass with five evidence-backed Texas blockers and gatekeeper-20260810213602 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: latest GitHub Actions runs 31432470062 River Snapshots, 31431786746 History Snapshots, and 31430453954 River Alerts succeeded; prior 31424184561 NOAA MRMS failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810213725",
+            "passed on rerun: npm run operations:verify / gatekeeper-20260810213848; first verify attempt passed checks/build but failed final runs.json write with a transient Windows file-open error during concurrent JSON parsing"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260810224025",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T22:08:58.000Z",
+          "completedAt": "2026-08-10T22:40:25.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810213905. route-worker-202608102204-texas-no-add is a no-add Texas discovery pass with five evidence-backed blockers and gatekeeper-20260810220815 passed. route-worker-202608102234-elm-fork-mcinnish-california is a completed Texas route package for elm-fork-trinity-river-mcinnish-california-crossing with gallery/no-image, camping, safety, geometry, coordinate, typecheck, build, and gatekeeper-20260810223923 evidence. No workOrder:null dead end, stale route WIP, failed validation, active route claim conflict, omitted package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/provider/coordinate/policy lanes, and the NOAA MRMS upstream-health infrastructure block. Final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608102204-texas-no-add as a no-add route-worker run with Clear Fork Trinity, White Rock Creek, East Fork Trinity, Sabine Sandbar, and Bevilport-to-Walnut blocked by explicit gauge, coordinate, route-shape, endpoint, threshold, or policy gates",
+            "classified: route-worker-202608102234-elm-fork-mcinnish-california as a completed route package for elm-fork-trinity-river-mcinnish-california-crossing with gatekeeper-20260810223923 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: tx-bounded-discovery-sweep already records the latest Elm Fork route summary and evidence, so no new route/evidence task or task-lane repair was needed",
+            "checked: latest GitHub Actions runs 31436718403 River Snapshots, 31436123935 History Snapshots, and 31435076910 River Alerts succeeded; prior 31424184561 NOAA MRMS failure remains blocked upstream infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260810224009"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811004134",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T00:40:45.000Z",
+          "completedAt": "2026-08-11T00:41:34.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810233934. route-worker-202608110004-clear-fork-rogers-trinity and route-worker-202608110028-medina-moffett-bandina are completed Texas route packages with route, threshold, camping, safety, bounded image/no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. No workOrder:null dead end, stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP and blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes. Board repair was limited to adding the Medina route-scoped geometry evidence pointer to tx-bounded-discovery-sweep before rerunning the planner.",
+          "validation": [
+            "classified: route-worker-202608110004-clear-fork-rogers-trinity as completed route for clear-fork-trinity-river-rogers-road-trinity-park with gatekeeper-20260811000729 passed",
+            "classified: route-worker-202608110028-medina-moffett-bandina as completed route for medina-river-moffett-park-bandina-camp-road with gatekeeper-20260811004030 passed",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "repaired: tx-bounded-discovery-sweep evidence now includes public/data/canonical-river-geometries/routes/medina-river-moffett-park-bandina-camp-road.json",
+            "checked: latest GitHub Actions scheduled runs 31444310967 River Snapshots, 31443818437 History Snapshots, and 31442994756 River Alerts succeeded; prior NOAA MRMS upstream-health failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260811004156",
+            "passed: npm run operations:verify recorded gatekeeper-20260811004240"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811014252",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T01:42:52.710Z",
+          "completedAt": "2026-08-11T01:42:52.710Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260811004134. route-worker-202608110104-river-legacy-trammell is a completed Texas route package with route, threshold, camping, safety, bounded no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. The later orchestrator plans at 2026-08-11T01:28:35Z and 2026-08-11T01:31:21Z are planned Texas sweep work orders, not workOrder:null dead ends. No stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and the ready Texas/Utah state-coverage lanes. No board repair or new task was safe or needed; final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608110104-river-legacy-trammell as completed route for west-fork-trinity-river-river-legacy-trammell-crow with gatekeeper-20260811010930 passed",
+            "classified: orchestrator-20260811012835 and orchestrator-20260811013121 as planned work orders for tx-bounded-discovery-sweep, with no matching failure/no-work record and no workOrder:null dead end",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: tx-bounded-discovery-sweep already records River Legacy-to-Trammell Crow summary and route-scoped geometry evidence; no task evidence repair was needed",
+            "checked: latest GitHub Actions runs 31449938445 River Snapshots, 31444310967 River Snapshots, 31443818437 History Snapshots, and 31442994756 River Alerts succeeded; prior NOAA MRMS upstream-health failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260811014141",
+            "passed: npm run operations:verify recorded gatekeeper-20260811014221"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811024211",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T02:42:11.000Z",
+          "completedAt": "2026-08-11T02:42:11.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260811014252. route-worker-202608110147-smrr-scull, route-worker-202608110206-horseshoe-utley, and route-worker-202608110240-fullers-folly-sandy-bottoms are completed Texas route packages with route, threshold, camping, safety, bounded no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. No workOrder:null dead end, stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and ready Texas/Utah state-coverage lanes. No board repair or new task was safe or needed; operations planner remains expected to continue Texas bounded discovery with fresh distinct non-duplicate candidates."
+        },
+        {
+          "id": "route-supervisor-20260811034220",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T03:42:20.909Z",
+          "completedAt": "2026-08-11T03:44:08.456Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the 2026-08-11T02:40:35Z automation checkpoint. route-worker-202608110310-milam-county and route-worker-202608110341-blanco-jkr are completed Texas route packages with access, gauge, threshold, no-camping, safety, bounded no-image, generated geometry, coordinate audit, overlap audit, typecheck, build, and gatekeeper evidence. Later orchestrator plan records selected tx-bounded-discovery-sweep and did not produce workOrder:null. No stale route WIP, active route claim conflict, failed validation, omitted package work, or new infrastructure failure remains. Repaired only the tx-bounded-discovery-sweep task summary/evidence so it reflects the true latest Blanco / John Knox Ranch pass while preserving Milam evidence. Preserved the unrelated Operations Center product WIP, blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and ready Texas/Utah state-coverage lanes. No new task was created because eligible Texas work already exists.",
+          "inspectedRuns": [
+            "orchestrator-20260811024228",
+            "gatekeeper-20260811024305",
+            "orchestrator-20260811025852",
+            "route-worker-202608110310-milam-county",
+            "gatekeeper-20260811031005",
+            "orchestrator-20260811032903",
+            "orchestrator-20260811033304",
+            "route-worker-202608110341-blanco-jkr",
+            "gatekeeper-20260811034030",
+            "orchestrator-20260811034132",
+            "orchestrator-20260811034234",
+            "gatekeeper-20260811034310"
+          ],
+          "classifications": [
+            {
+              "runId": "route-worker-202608110310-milam-county",
+              "classification": "completed route",
+              "routeSlug": "brazos-river-milam-county-area-1-area-2"
+            },
+            {
+              "runId": "route-worker-202608110341-blanco-jkr",
+              "classification": "completed route",
+              "routeSlug": "blanco-river-fischer-store-john-knox-ranch"
+            },
+            {
+              "runId": "orchestrator-20260811032903",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            },
+            {
+              "runId": "orchestrator-20260811033304",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            },
+            {
+              "runId": "gatekeeper-20260811034030",
+              "classification": "validation passed"
+            }
+          ],
+          "boardRepair": "Updated tx-bounded-discovery-sweep summary/evidence to the true latest Blanco / John Knox Ranch package and preserved Milam County evidence.",
+          "nextTaskCreated": null,
+          "blockedItems": [
+            "Minnesota remains provisionally saturated under direct-gauge policy.",
+            "South Dakota broad baseline remains blocked pending precise evidence or adapter work.",
+            "Nebraska saturation remains blocked by George D. Syas coordinate and geometry gaps.",
+            "NOAA MRMS upstream health remains blocked infrastructure, not route-worker failure."
+          ],
+          "validation": [
+            "checked: latest GitHub scheduled Actions are successful through River Snapshots 31455406290 at 2026-08-11T03:28:04Z",
+            "checked: no route_implementation task is in_progress; only operations-center-read-only product WIP remains active",
+            "checked: operations planner selected tx-bounded-discovery-sweep and did not return workOrder:null",
+            "passed: npm run operations:verify / gatekeeper-20260811034310 after the supervisor record was added"
+          ]
+        }
+      ],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "TN",
+      "stateName": "Tennessee",
+      "inventoryCount": 4,
+      "scoredCount": 4,
+      "planningCount": 0,
+      "scoredCoveragePercent": 100,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "TX",
+      "stateName": "Texas",
+      "inventoryCount": 75,
+      "scoredCount": 75,
+      "planningCount": 0,
+      "scoredCoveragePercent": 100,
+      "discoveryTasks": [
+        {
+          "id": "tx-coverage-complete-saturation-audit",
+          "lane": "completed",
+          "summary": "Completed the Texas inventory-quality audit only. All 16 Texas inventory routes remain scored with direct USGS gauges and complete route packages; this does not satisfy the saturation policy until a bounded fresh discovery sweep finds no strong additional scored route.",
+          "evidenceCount": 8
+        },
+        {
+          "id": "tx-bounded-discovery-sweep",
+          "lane": "ready",
+          "summary": "Texas bounded discovery remains open after validated no-add screens for AW/whitewater-oriented candidates and the Palacios/Powderhorn coastal trail family. Continue only with fresh manager-backed public point-to-point Texas river reaches outside coastal/tidal, route-shape, unsupported live-condition, numeric-threshold, open-bay, below-floor, access, camping, safety, and prior recorded blockers unless fresh evidence clears the exact gate.",
+          "evidenceCount": 209
+        }
+      ],
+      "recentEvidenceRuns": [
+        {
+          "id": "route-worker-202608121246-texas-contained-no-add",
+          "kind": "route_worker",
+          "startedAt": "2026-08-12T12:38:16.199Z",
+          "completedAt": "2026-08-12T12:46:00.000Z",
+          "status": "blocked_no_route_added_validation_passed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workOrderId": "orchestrator-20260812123816",
+          "summary": "Screened five Texas official/public candidates across the Nueces, SASPAMCO, Guadalupe Valley, Goliad, and Columbus route families. No route was added because all candidates failed known access/camping/coordinate, contained-connector, emergency-alternate, optional-split duplicate, or exact-duplicate gates before implementation.",
+          "candidatesScreened": [
+            {
+              "candidateId": "tx-nueces-barksdale-camp-wood",
+              "status": "blocked_known_access_camping_coordinate_package",
+              "blocker": "TRPA still supports the Barksdale-to-CR390 Camp Wood featured Nueces run with route mileage, Class I-III safety context, source-backed threshold guidance, and USGS Barksdale / downstream gauge links; same-run USGS Water Services also returned product-live upper Nueces values. The candidate was not implemented because this exact lead is a known blocker and this run found no fresh manager-grade Barksdale/CR390 public access terms, no source-backed water-entry coordinate package beyond map leads, and no official legal camping/no-camping package. The tentative route edit was rolled back before validation."
+            },
+            {
+              "candidateId": "tx-saspamco-loop1604-cr125",
+              "status": "blocked_contained_connector_below_floor",
+              "blocker": "TPWD supports the 5.63-mile Loop 1604-to-CR125 upper SASPAMCO option with endpoint coordinates and private-property / high-water caveats, but this segment is contained inside the existing Loop 1604-to-Helton route family and directly adjacent to the shipped CR125-to-Helton split. Same-run USGS 08181800 returned 154 cfs / 9.58 ft, below the conservative 200 cfs floor recorded for this corridor, so it also failed live-condition publication value."
+            },
+            {
+              "candidateId": "tx-guadalupe-valley-hwy183-emergency-connector",
+              "status": "blocked_emergency_alternate_contained_connector",
+              "blocker": "TPWD publishes Highway 183 only as alternate/emergency access about 2.6 miles below SH72 within the Guadalupe Valley trail. Existing PaddleToday routes already cover FM766-to-SH72, SH72-to-FM236, and the full FM766-to-FM236 Cuero package with the remnant dam, snag, high-water, GBRA-flow, and private-property caveats. The Highway 183 connector adds no distinct route value and would duplicate contained official coverage."
+            },
+            {
+              "candidateId": "tx-goliad-highway59-ferry-street-state-park-splits",
+              "status": "blocked_contained_optional_split_duplicate",
+              "blocker": "TPWD supports the Goliad paddling trail with Highway 59, Ferry Street, and Goliad State Park access coordinates and notes Ferry Street as an optional access with limited parking. Existing route san-antonio-river-riverdale-goliad-state-park already covers the official SARA/Goliad trail story and includes the relevant midpoint and access caveats. The optional subsegments would duplicate coverage without adding a distinct gauge, threshold, camping, safety, geometry, or image package."
+            },
+            {
+              "candidateId": "tx-colorado-columbus-paddling-trail",
+              "status": "blocked_exact_duplicate_existing_route",
+              "blocker": "TPWD supports the 6.5-mile Columbus Paddling Trail from the 71 Business Crossing to Beason's Park with access coordinates, float time, island/picnic context, and private-property caveats. That exact route is already implemented as colorado-river-business-71-beasons-park, so no second route package was started."
+            }
+          ],
+          "routeAdded": null,
+          "validation": {
+            "status": "passed",
+            "gatekeeperId": "gatekeeper-20260812124920",
+            "detail": "No route data, trip details, geometry, coordinate package, camping package, safety package, or image audit row changed. operations:verify passed after the no-add record was present; route-scoped coordinate audit and geometry generation remained skipped because no route endpoints or geometry changed."
+          }
+        },
+        {
+          "id": "orchestrator-20260812125013",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T12:50:13.378Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "supervisor-20260812125124",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-12T12:51:24.392Z",
+          "completedAt": "2026-08-12T12:51:24.392Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Supervisor classified the latest hourly Texas activity as evidence-backed blocked/no-add sweeps, closed the newest pending validation to passed, found no stale route WIP or workOrder:null dead end, and preserved the ready Texas discovery task.",
+          "hourlyRunsInspected": [
+            {
+              "id": "route-worker-202608121213-texas-denton-llano-no-add",
+              "classification": "blocked_candidate",
+              "evidence": "Screened Denton Creek, lower Llano, Guadalupe Camp Huaco, and Dallas Trinity candidates; no route was added because manager-grade access, camping/safety, route-shape, active-lease/take-out, or duplicate-coverage gates failed; validation passed via gatekeeper-20260812121626."
+            },
+            {
+              "id": "route-worker-202608121246-texas-contained-no-add",
+              "classification": "blocked_candidate",
+              "evidence": "Screened Nueces Barksdale/Camp Wood, SASPAMCO Loop1604/CR125, Guadalupe Valley Hwy183 emergency connector, Goliad optional splits, and Columbus; no route was added because known access/camping/coordinate, contained-connector, emergency-alternate, optional-split duplicate, or exact-duplicate gates failed; validation closed to passed via gatekeeper-20260812124920."
+            }
+          ],
+          "classification": {
+            "completedRoute": [],
+            "blockedCandidate": [
+              "route-worker-202608121213-texas-denton-llano-no-add",
+              "route-worker-202608121246-texas-contained-no-add"
+            ],
+            "noWorkWipDeadEnd": [],
+            "failedValidation": [],
+            "infrastructureFailure": []
+          },
+          "boardRepair": {
+            "action": "closed_pending_validation_and_preserved_ready_task",
+            "taskId": "tx-bounded-discovery-sweep",
+            "detail": "Closed route-worker-202608121246-texas-contained-no-add from pending validation to passed after operations:verify succeeded with gatekeeper-20260812124920; updated the Texas sweep evidence and updatedAt. No new task was created because eligible ready Texas discovery work remained and no active route WIP was present."
+          },
+          "nextTask": {
+            "action": "preserved_existing_ready_task",
+            "taskId": "tx-bounded-discovery-sweep",
+            "detail": "Continue only with fresh manager-backed Texas point-to-point river reaches outside the newly recorded Barksdale/Camp Wood, SASPAMCO, Guadalupe Valley emergency connector, Goliad optional split, Columbus duplicate, Denton Creek, Kingsland, Camp Huaco, Dallas Trinity, and prior blockers unless fresh evidence clears the exact gate."
+          },
+          "workOrder": {
+            "id": "orchestrator-20260812125013",
+            "taskId": "tx-bounded-discovery-sweep",
+            "workerRole": "state-coverage",
+            "status": "planned",
+            "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          },
+          "blockedItems": [
+            "route-worker-202608121213-texas-denton-llano-no-add: evidence-backed no-add Texas sweep; blockers were Denton Creek manager-backed access/camping/safety, Kingsland route-shape/impoundment ambiguity, Camp Huaco expired lease/no public downstream take-out, and Dallas Trinity contained duplicate coverage.",
+            "route-worker-202608121246-texas-contained-no-add: evidence-backed no-add Texas sweep; blockers were known Nueces access/camping/coordinate package, SASPAMCO contained connector/below-floor flow, Guadalupe Valley emergency alternate duplication, Goliad optional split duplication, and Columbus exact duplicate coverage.",
+            "operations-center-read-only remains the only in_progress task and is product work, not active route WIP.",
+            "noaa-mrms-upstream-health-failures remains blocked upstream infrastructure work from an earlier scheduled River Snapshots failure; latest GitHub Actions runs succeeded."
+          ],
+          "githubActions": {
+            "checkedAt": "2026-08-12T12:51:24.392Z",
+            "status": "healthy_latest_scheduled_runs_successful",
+            "summary": "Latest gh run list --limit 5 showed River Snapshots run 31598138450, River Alerts, and History Snapshots completed successfully; no runner acquisition or upstream infrastructure failure was found in the current window."
+          },
+          "validation": {
+            "status": "passed",
+            "commands": [
+              "passed: parsed required operations files, worker memory, task lanes, route-worker runs, orchestrator policy, git status, and GitHub Actions state during supervisor inspection",
+              "passed: npm run operations:verify closed the no-add validation with gatekeeper-20260812124920",
+              "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260812125013 and did not return workOrder:null",
+              "passed: npm run operations:verify after reconciliation with gatekeeper-20260812125057",
+              "passed: latest gh run list --limit 5 returned completed successful scheduled workflow runs"
+            ],
+            "skipped": [
+              "No route-scoped coordinate audit or geometry generation was required because the supervised no-add runs did not promote endpoints or route geometry.",
+              "No new task was created because an eligible ready Texas sweep already exists."
+            ],
+            "gatekeeperId": "gatekeeper-20260812125057"
+          }
+        },
+        {
+          "id": "orchestrator-20260812130818",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T13:08:18.374Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-worker-202608121311-texas-aw-whitewater-no-add",
+          "kind": "route_worker",
+          "startedAt": "2026-08-12T13:08:18.374Z",
+          "completedAt": "2026-08-12T13:11:16.582Z",
+          "status": "blocked_no_route_added_validation_passed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workOrderId": "orchestrator-20260812130818",
+          "workerRole": "route-implementation",
+          "summary": "Screened five distinct Texas AW/whitewater-oriented route candidates across the Lower Guadalupe, Middle Bosque, Sabinal, Neils Creek, and Clear Fork Brazos. No route was added because every candidate failed access, camping, safety, live-flow, or threshold-source gates before implementation.",
+          "candidatesScreened": [
+            {
+              "candidateId": "tx-guadalupe-first-crossing-common-st",
+              "status": "blocked_private_put_in_safety_camping_package",
+              "blocker": "American Whitewater supports the 6.2-mile First Crossing-to-Common Street Lower Guadalupe reach, Class II+(III), Hueco Falls / Gruene Bridge / Common Street Dam hazards, and direct USGS 08168500 gauge context; USGS Water Services returned 401 cfs / 2.47 ft at 2026-08-12 08:00 CDT. The candidate still failed because First Crossing is not public access in the AW evidence and requires paying private outfitters, while no manager-grade route package cleared public put-in, exact launch handling, official camping/no-camping terms for the route, and high-flow city/outfitter safety handling."
+            },
+            {
+              "candidateId": "tx-middle-bosque-crawford-fm3047",
+              "status": "blocked_below_floor_unmanaged_access_camping_safety",
+              "blocker": "American Whitewater supports a 7-mile Crawford-to-FM3047 Middle Bosque whitewater reach and says local guidance uses about 3.8 ft as the minimum runnable stage; same-run USGS 08095300 returned product-live 1.20 cfs / 2.44 ft at 2026-08-12 07:45 CDT, below that floor. The candidate also lacks manager-grade public endpoint access, parking/water-entry coordinates, official legal camping/no-camping terms, and a complete low-water-crossing / ledge-hole safety package."
+            },
+            {
+              "candidateId": "tx-sabinal-utopia-fm187",
+              "status": "blocked_below_recommended_current_beta_access_camping",
+              "blocker": "American Whitewater frames Utopia-to-FM187 as current-beta-needed, Class II, 10.5 miles, with Texas Whitewater-derived flow/range and warnings about low bridges, private landowner rock-wall pools, trees that could trap and drown paddlers, and an unportable high fence after the first FM187 crossing. Same-run USGS 08198000 returned product-live 54.4 cfs / 5.14 ft at 2026-08-12 08:00 CDT and AW displayed below recommended. No manager-grade endpoint access, coordinate-backed launch/take-out, official camping/no-camping package, or high-fence/safety plan cleared."
+            },
+            {
+              "candidateId": "tx-neils-creek-cr4250-sh6",
+              "status": "blocked_below_recommended_dam_access_camping_package",
+              "blocker": "American Whitewater lists Neils Creek CR4250-to-SH6 as current-beta-needed, 8.6 miles, with a seven-foot dam halfway through the run and book-derived distance/flow guidance. Same-run USGS 08095000 returned product-live 9.74 cfs / 1.45 ft at 2026-08-12 08:00 CDT and AW displayed below recommended. No manager-grade public endpoint coordinates, official access/parking terms, legal camping/no-camping package, or dam-portage safety infrastructure surfaced."
+            },
+            {
+              "candidateId": "tx-clear-fork-brazos-us180-lueders",
+              "status": "blocked_unsupported_threshold_source_hypothetical_route",
+              "blocker": "American Whitewater lists US180-to-Lueders as a 5-mile Clear Fork Brazos possible descent with hypothetical difficulty and explicitly says the source of the recommended flow range is unknown. Same-run USGS 08084000 returned product-live 0.00 cfs / 1.39 ft at 2026-08-12 07:45 CDT. The candidate fails threshold-source, live-flow, manager-grade access, coordinate, camping/no-camping, and safety-package gates."
+            }
+          ],
+          "routeAdded": null,
+          "validation": {
+            "status": "passed",
+            "gatekeeperId": "gatekeeper-20260812131418",
+            "commands": [
+              "passed: JSON parse for operations files and route candidate ledger",
+              "passed: npm.cmd run routes:audit",
+              "passed: npm.cmd run gallery:audit",
+              "passed: npm.cmd run routes:safety:audit",
+              "passed: npm.cmd run routes:geometries:audit",
+              "skipped: npm.cmd run routes:geometries:generate because no route was implemented and no route geometry changed",
+              "skipped: npm.cmd run routes:audit:coordinates because no route data or endpoint coordinates changed",
+              "passed: npm.cmd run typecheck:routes",
+              "passed: npm.cmd run typecheck",
+              "passed: npm.cmd run build",
+              "passed: npm.cmd run operations:verify / gatekeeper-20260812131418"
+            ],
+            "detail": "No route data, trip details, geometry, coordinate package, camping package, safety package, or image audit row changed. Route-scoped coordinate audit and geometry generation were skipped because no endpoint package or route geometry changed."
+          }
+        },
+        {
+          "id": "orchestrator-20260812133810",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T13:38:10.952Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260812134211",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T13:42:11.705Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-worker-202608121344-texas-palacios-powderhorn-no-add",
+          "kind": "route_worker",
+          "startedAt": "2026-08-12T13:38:10.952Z",
+          "completedAt": "2026-08-12T13:44:00.000Z",
+          "status": "blocked_no_route_added_validation_passed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workOrderId": "orchestrator-20260812133810",
+          "summary": "Screened five Texas coastal/new-trail candidates across the new Palacios TPWD trail family and Powderhorn Coloma Creek. No route was added because all candidates failed the current PaddleToday scored-river live-condition and numeric-threshold model, with additional route-shape, open-bay, wind/tide, shipping-channel, camping, and limited-shoreline-access blockers.",
+          "candidatesScreened": [
+            {
+              "candidateId": "tx-palacios-tres-palacios-river-carl-east-bay",
+              "status": "blocked_coastal_transition_no_threshold_model",
+              "blocker": "TPWD supports the new 10-mile one-way Tres Palacios River Trail from Carl Park Boat Ramp to East Bay Park with public access coordinates and notes limited camping at Carl Park and no camping at East Bay Park. USGS 08162600 was product-live at 38.1 cfs / 3.70 ft at 2026-08-12 07:30 CDT, but the selected route widens into Tres Palacios Bay and TPWD frames suitability around water level, tide, flow, and wind without publishing numeric cfs/stage thresholds. No accepted coastal/tidal route-scoring model exists for this river-to-bay transition, so the candidate fails threshold/live-condition policy before implementation."
+            },
+            {
+              "candidateId": "tx-palacios-city-by-the-sea-east-south-bay",
+              "status": "blocked_coastal_seawall_no_live_threshold_model",
+              "blocker": "TPWD supports the 1.5-mile one-way City by the Sea Trail between East Bay Park and South Bay Park with public access coordinates and no-camping statements at both parks. The trail follows the Palacios seawall through bay water and TPWD frames travel time around water levels, tide, flow rate, and wind. No product-supported live river gauge or accepted numeric coastal/tidal threshold model surfaced, so it cannot be scored as a PaddleToday river route."
+            },
+            {
+              "candidateId": "tx-palacios-wetlands-east-bay-loop",
+              "status": "blocked_roundtrip_marsh_no_threshold_model",
+              "blocker": "TPWD supports the 2-mile roundtrip Palacios Wetlands Trail from East Bay Park into coastal salt marsh and wetland habitat, including a humpback bridge, a second lower bridge that may need portage in higher water, and a turn-around at the Highway 35 culvert. It is a same-access roundtrip marsh route, not a downstream point-to-point river reach, and no supported live condition adapter or numeric threshold model surfaced."
+            },
+            {
+              "candidateId": "tx-palacios-dolphin-run-south-bay-jensen",
+              "status": "blocked_open_bay_shipping_channel_no_threshold_model",
+              "blocker": "TPWD supports the 6-mile one-way Dolphin Run Trail from South Bay Park to Jensen Point with public access coordinates, but it crosses the Palacios shipping channel, rounds a private peninsula, and then crosses open Turtle Bay where TPWD warns strong winds and choppy water can occur. No product-supported live river gauge or accepted numeric wind/tide/bay threshold model surfaced, so the safety and condition gates fail before implementation."
+            },
+            {
+              "candidateId": "tx-powderhorn-coloma-creek-fm1289-roundtrip",
+              "status": "blocked_coastal_creek_roundtrip_no_threshold_model",
+              "blocker": "TPWD supports Powderhorn as a four-trail shoreline/marsh system and lists the Coloma Creek Trail as an 8-mile roundtrip from the FM 1289 bridge, but says the creek behaves more like shallow bay water, includes mostly shallow mud flats, and is part of a coastal route-choice family with wind, tide, and access caveats. No product-supported live gauge or accepted numeric condition threshold model surfaced, so the route cannot be scored under the current river-route policy."
+            }
+          ],
+          "routeAdded": null,
+          "validation": {
+            "status": "passed",
+            "gatekeeperId": "gatekeeper-20260812134401",
+            "detail": "No route data, trip details, geometry, coordinate package, camping package, safety package, or image audit row changed. JSON parse, routes:audit, gallery:audit, routes:safety:audit, routes:geometries:audit, typecheck:routes, full typecheck, production build, and operations:verify passed after the no-add record was present; route-scoped coordinate audit and geometry generation remained skipped because no route endpoints or geometry changed."
+          }
+        },
+        {
+          "id": "orchestrator-20260812135037",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-12T13:50:37.741Z",
+          "status": "planned",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "state-coverage",
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "supervisor-20260812135109",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-12T13:51:09.194Z",
+          "completedAt": "2026-08-12T13:51:09.194Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Supervisor classified the latest hourly Texas activity as evidence-backed blocked/no-add sweeps with passed validation, found no stale route WIP or workOrder:null dead end, preserved the ready Texas discovery task, and confirmed the planner selected a real next work order.",
+          "hourlyRunsInspected": [
+            {
+              "id": "route-worker-202608121311-texas-aw-whitewater-no-add",
+              "classification": "blocked_candidate",
+              "evidence": "Screened Lower Guadalupe First Crossing, Middle Bosque, Sabinal, Neils Creek, and Clear Fork Brazos candidates; no route was added because access, camping, safety, live-flow, or threshold-source gates failed; validation passed via gatekeeper-20260812131418."
+            },
+            {
+              "id": "route-worker-202608121344-texas-palacios-powderhorn-no-add",
+              "classification": "blocked_candidate",
+              "evidence": "Screened Palacios Tres Palacios River, City by the Sea, Wetlands, Dolphin Run, and Powderhorn Coloma Creek; no route was added because coastal/tidal, marsh/roundtrip, open-bay, shipping-channel, shallow-mud-flat, live-gauge, and numeric-threshold gates failed; validation passed via gatekeeper-20260812134401."
+            }
+          ],
+          "classification": {
+            "completedRoute": [],
+            "blockedCandidate": [
+              "route-worker-202608121311-texas-aw-whitewater-no-add",
+              "route-worker-202608121344-texas-palacios-powderhorn-no-add"
+            ],
+            "noWorkWipDeadEnd": [],
+            "failedValidation": [],
+            "infrastructureFailure": []
+          },
+          "staleDeadEnds": [],
+          "boardRepair": {
+            "action": "preserved_ready_task_with_supervisor_evidence",
+            "taskId": "tx-bounded-discovery-sweep",
+            "detail": "Added one supervisor evidence note and refreshed updatedAt; no lane change or new task was needed because the Texas sweep remained eligible and no active route claim or stale in_progress route task existed."
+          },
+          "duplicatePlanning": {
+            "id": "orchestrator-20260812134211",
+            "classification": "harmless_duplicate_plan_record",
+            "detail": "A second plan record appeared while the Palacios/Powderhorn worker window was active, but it did not create a stale task lane, active claim, failed validation, or workOrder:null dead end."
+          },
+          "nextTask": {
+            "action": "preserved_existing_ready_task",
+            "taskId": "tx-bounded-discovery-sweep",
+            "detail": "Continue Texas only with fresh manager-backed public point-to-point river reaches outside Lower Guadalupe private/access package, Middle Bosque below-floor/access, Sabinal/Neils current-beta and dam/high-fence safety, Clear Fork Brazos unknown-threshold/no-flow, Palacios/Powderhorn coastal/tidal route-shape, and prior blockers unless fresh evidence clears the exact gate."
+          },
+          "workOrder": {
+            "id": "orchestrator-20260812135037",
+            "taskId": "tx-bounded-discovery-sweep",
+            "workerRole": "state-coverage",
+            "status": "planned",
+            "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          },
+          "blockedItems": [
+            "route-worker-202608121311-texas-aw-whitewater-no-add: evidence-backed no-add Texas sweep; blockers were private/outfitter-only put-in, below-floor/current-beta flows, missing endpoint/camping/safety packages, dam/high-fence hazards, unknown threshold source, and no-flow evidence.",
+            "route-worker-202608121344-texas-palacios-powderhorn-no-add: evidence-backed no-add Texas sweep; blockers were coastal/tidal, marsh/roundtrip, open-bay, shipping-channel, shallow-mud-flat, no supported live river gauge, no numeric thresholds, wind/tide, camping, and limited shoreline access.",
+            "orchestrator-20260812134211: duplicate plan record only; no stale lane, claim, or worker failure was produced.",
+            "operations-center-read-only and route-freshness-and-growth-metrics remain unrelated product in_progress tasks; this route supervisor did not override their lanes.",
+            "github-hosted-runner-acquisition-failures and noaa-mrms-upstream-health-failures remain historical/blocked infrastructure records; latest GitHub Actions runs succeeded."
+          ],
+          "githubActions": {
+            "checkedAt": "2026-08-12T13:51:09.194Z",
+            "status": "healthy_latest_scheduled_runs_successful",
+            "summary": "gh run list --limit 10 showed the newest History Snapshots, River Snapshots, and River Alerts workflow runs completed successfully; no current runner acquisition or upstream infrastructure failure was found.",
+            "latestRun": {
+              "databaseId": 31602968790,
+              "workflowName": "Paddle Today History Snapshots",
+              "createdAt": "2026-08-12T13:44:11Z",
+              "conclusion": "success"
+            }
+          },
+          "validation": {
+            "status": "passed",
+            "commands": [
+              "passed: parsed required operations files, worker memory, task lanes, route-worker runs, orchestrator policy, git status, and GitHub Actions state during supervisor inspection",
+              "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260812135037 and did not return workOrder:null",
+              "passed: npm run operations:verify completed with gatekeeper-20260812135155",
+              "passed: git diff --check returned no whitespace errors; CRLF normalization warnings only"
+            ],
+            "skipped": [
+              "No route-scoped coordinate audit or geometry generation was required because the supervised no-add runs did not promote endpoints or route geometry.",
+              "No new ready task was created because tx-bounded-discovery-sweep is already eligible."
+            ],
+            "gatekeeperId": "gatekeeper-20260812135155"
+          }
+        }
+      ],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "UT",
+      "stateName": "Utah",
+      "inventoryCount": 3,
+      "scoredCount": 3,
+      "planningCount": 0,
+      "scoredCoveragePercent": 100,
+      "discoveryTasks": [
+        {
+          "id": "utah-state-coverage-baseline",
+          "lane": "completed",
+          "summary": "Added a second Utah scored route for the Colorado River Moab Daily / Hittle Bottom to Takeout Beach, with BLM/AW/USGS evidence, camping classification, safety caveats, geometry/coordinate audit path, and a bounded no-image result.",
+          "evidenceCount": 5
+        },
+        {
+          "id": "south-dakota-state-coverage-baseline",
+          "lane": "blocked",
+          "summary": "Paused the broad South Dakota scored-route baseline after fourteen five-candidate no-add reviews. South Dakota is not exhausted, but repeated cadence work is now blocked by documented source, threshold, access, safety, camping, route-shape, and provider-adapter gaps; resume only after a precise evidence task clears a blocker or a new manager-grade source appears.",
+          "evidenceCount": 7
+        },
+        {
+          "id": "utah-coverage-complete-saturation-audit",
+          "lane": "completed",
+          "summary": "Completed the Utah inventory-quality audit only. All 3 Utah inventory routes remain scored with direct USGS gauges and complete route packages; this does not satisfy the saturation policy until a bounded fresh discovery sweep finds no strong additional scored route.",
+          "evidenceCount": 8
+        },
+        {
+          "id": "utah-bounded-discovery-sweep",
+          "lane": "ready",
+          "summary": "Ready under the stricter saturation policy. Screen a bounded set of Utah route families; the prior inventory audit is not sufficient to mark Utah saturated. Preserve known Weber endpoint/access, Provo live-source, and San Juan permitted multi-day blockers unless fresh evidence clears them.",
+          "evidenceCount": 6
+        }
+      ],
+      "recentEvidenceRuns": [
+        {
+          "id": "route-supervisor-20260810113047",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T11:30:47.977Z",
+          "completedAt": "2026-08-10T11:30:47.977Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810061932: no new route-worker run appeared; latest route-worker remains route-worker-20260810054500 completed for Texas Mission Reach with source/access, no-camping, safety, bounded-image, coordinate, and generated-geometry evidence, and later planner records continued to select tx-bounded-discovery-sweep rather than workOrder:null. No blocked candidate-only run, no-work/WIP dead end, stale route WIP, active route claim conflict, route-worker validation omission, failed validation requiring repair, or infrastructure failure was found. GitHub Actions latest scheduled runs are succeeding through River Alerts run 31382304784 at 2026-08-10T11:11:14Z. Supervisor validation passed with gatekeeper-20260810113014; operations:plan -- --record selected tx-bounded-discovery-sweep for state-coverage. No board repair or new task was created; preserve Minnesota, South Dakota, Nebraska, Utah, policy, coordinate, geometry, and provider blockers until fresh evidence or approval."
+        },
+        {
+          "id": "route-supervisor-20260810123004",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T12:30:04.539Z",
+          "completedAt": "2026-08-10T12:30:04.539Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810113047: route-worker-20260810114100 completed Elm Fork Trinity LLELA-to-Hebron after blocking Cherokee Neches and Sabine Sandbar; route-worker-20260810114220 completed Buffalo Bayou Woodway-to-Sabine after blocking Nueces George West, Pecan Bayou Brownwood, and Bevilport; route-worker-20260810120600 completed West Fork Trinity Panther Island-to-Handley after blocking Waco loop/out-and-back and Bridgeport Falls loop candidates. All three completed route packages recorded gallery/no-image, camping, safety, coordinate, geometry, route audit, typecheck, build, and operations gate evidence; latest gatekeeper was gatekeeper-20260810121202 passed. No no-work/WIP dead end, failed validation, stale route WIP lane, active claim to clear, or infrastructure failure was found. Board repair was limited to refreshing tasks.json updatedAt because tx-bounded-discovery-sweep already honestly preserves the West Fork summary and evidence. GitHub Actions latest scheduled runs are succeeding through River Alerts run 31386606485 at 2026-08-10T12:08:16Z. operations:plan -- --record selected tx-bounded-discovery-sweep for state-coverage; preserve Minnesota, South Dakota, Nebraska, Utah, policy, coordinate, geometry, and provider blockers until fresh evidence or approval."
+        },
+        {
+          "id": "route-supervisor-20260810133257",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T13:32:57.367Z",
+          "completedAt": "2026-08-10T13:32:57.367Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260810123004: route-worker-20260810124020 completed Dallas Trinity Trammell Crow-to-Loop 12 and route-worker-20260810131230 completed Rio Grande Boquillas Canyon; both recorded required gallery/no-image, camping, safety, coordinate, geometry, route audit, typecheck, build, and gate evidence. Also found a newer Santa Elena Canyon package in route/trip data, candidate ledger, and image audit without a route-worker completion record, worker-memory note, route-scoped canonical geometry file, or refreshed geometry manifest; first operations:verify failed on stale canonical geometry route count 902 vs 903. Created one critical ready validation follow-up, tx-santa-elena-canyon-geometry-followup. A concurrent geometry update then made routes:geometries:audit pass at 902/903 and operations:verify passed with gatekeeper-20260810133656, but the follow-up remains ready to formalize package closure before another Texas route. Final operations:plan -- --record selected tx-santa-elena-canyon-geometry-followup. Latest GitHub push API/Frontend jobs failed in npm test because HEAD expected Texas scored=16 while route data reports 32; jobs acquired runners, so this is validation, not infrastructure, and the local dirty worktree already generalizes that test with npm test passing. Preserve Minnesota, South Dakota, Nebraska, Utah, policy, coordinate, geometry, and provider blockers until fresh evidence or approval."
+        },
+        {
+          "id": "route-supervisor-20260810143403",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-10T14:34:03.112Z",
+          "completedAt": "2026-08-10T14:34:03.112Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly activity since the prior supervisor pass: route-worker-20260810134200 completed the Santa Elena validation follow-up with route/trip data, candidate ledger, bounded no-image audit, route-scoped geometry, coordinate evidence, and gatekeeper-20260810134129; route-worker-20260810140057 closed the stale Santa Elena follow-up lane without starting a second route and gatekeeper-20260810140038 passed. No stale route WIP, no workOrder:null dead end, no active route claim conflict, no route-package omission, and no infrastructure failure remain. The only in-progress task is the unrelated Operations Center product task and was preserved. GitHub API/Frontend push failures at 2026-08-10T13:09:51Z reached npm test and failed stale operations snapshot assertions, so they were classified as validation drift rather than runner infrastructure; this supervisor updated src/lib/operations.test.ts to match current Texas count and Utah saturated/completed board state, and full npm test now passes. operations:verify passed with gatekeeper-20260810143247, and operations:plan -- --record selected tx-bounded-discovery-sweep for the next route/state coverage work order.",
+          "validation": [
+            "passed: npm run operations:verify / gatekeeper-20260810143247",
+            "passed: npm test (72 root test files, 420 root tests; 8 api-contract test files, 19 api-contract tests)",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep",
+            "checked: GitHub Actions latest scheduled River Snapshots/Alerts/History jobs succeeded; latest push API/Frontend failures are test validation drift, not runner infrastructure"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811014252",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T01:42:52.710Z",
+          "completedAt": "2026-08-11T01:42:52.710Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260811004134. route-worker-202608110104-river-legacy-trammell is a completed Texas route package with route, threshold, camping, safety, bounded no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. The later orchestrator plans at 2026-08-11T01:28:35Z and 2026-08-11T01:31:21Z are planned Texas sweep work orders, not workOrder:null dead ends. No stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and the ready Texas/Utah state-coverage lanes. No board repair or new task was safe or needed; final operations:plan -- --record selected tx-bounded-discovery-sweep.",
+          "validation": [
+            "classified: route-worker-202608110104-river-legacy-trammell as completed route for west-fork-trinity-river-river-legacy-trammell-crow with gatekeeper-20260811010930 passed",
+            "classified: orchestrator-20260811012835 and orchestrator-20260811013121 as planned work orders for tx-bounded-discovery-sweep, with no matching failure/no-work record and no workOrder:null dead end",
+            "checked: no route_implementation lane is in_progress; only operations-center-read-only product WIP remains active and was preserved",
+            "checked: tx-bounded-discovery-sweep already records River Legacy-to-Trammell Crow summary and route-scoped geometry evidence; no task evidence repair was needed",
+            "checked: latest GitHub Actions runs 31449938445 River Snapshots, 31444310967 River Snapshots, 31443818437 History Snapshots, and 31442994756 River Alerts succeeded; prior NOAA MRMS upstream-health failure remains blocked infrastructure",
+            "passed: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260811014141",
+            "passed: npm run operations:verify recorded gatekeeper-20260811014221"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811024211",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T02:42:11.000Z",
+          "completedAt": "2026-08-11T02:42:11.000Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "summary": "Classified hourly route-worker activity since route-supervisor-20260811014252. route-worker-202608110147-smrr-scull, route-worker-202608110206-horseshoe-utley, and route-worker-202608110240-fullers-folly-sandy-bottoms are completed Texas route packages with route, threshold, camping, safety, bounded no-image, coordinate, geometry, audit, build, and gatekeeper evidence recorded. No workOrder:null dead end, stale route WIP, active route claim conflict, failed validation, omitted route-package work, or new infrastructure failure remains. Preserved the unrelated Operations Center product WIP, existing blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and ready Texas/Utah state-coverage lanes. No board repair or new task was safe or needed; operations planner remains expected to continue Texas bounded discovery with fresh distinct non-duplicate candidates."
+        },
+        {
+          "id": "route-supervisor-20260811034220",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T03:42:20.909Z",
+          "completedAt": "2026-08-11T03:44:08.456Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the 2026-08-11T02:40:35Z automation checkpoint. route-worker-202608110310-milam-county and route-worker-202608110341-blanco-jkr are completed Texas route packages with access, gauge, threshold, no-camping, safety, bounded no-image, generated geometry, coordinate audit, overlap audit, typecheck, build, and gatekeeper evidence. Later orchestrator plan records selected tx-bounded-discovery-sweep and did not produce workOrder:null. No stale route WIP, active route claim conflict, failed validation, omitted package work, or new infrastructure failure remains. Repaired only the tx-bounded-discovery-sweep task summary/evidence so it reflects the true latest Blanco / John Knox Ranch pass while preserving Milam evidence. Preserved the unrelated Operations Center product WIP, blocked Minnesota/South Dakota/Nebraska/NOAA MRMS lanes, and ready Texas/Utah state-coverage lanes. No new task was created because eligible Texas work already exists.",
+          "inspectedRuns": [
+            "orchestrator-20260811024228",
+            "gatekeeper-20260811024305",
+            "orchestrator-20260811025852",
+            "route-worker-202608110310-milam-county",
+            "gatekeeper-20260811031005",
+            "orchestrator-20260811032903",
+            "orchestrator-20260811033304",
+            "route-worker-202608110341-blanco-jkr",
+            "gatekeeper-20260811034030",
+            "orchestrator-20260811034132",
+            "orchestrator-20260811034234",
+            "gatekeeper-20260811034310"
+          ],
+          "classifications": [
+            {
+              "runId": "route-worker-202608110310-milam-county",
+              "classification": "completed route",
+              "routeSlug": "brazos-river-milam-county-area-1-area-2"
+            },
+            {
+              "runId": "route-worker-202608110341-blanco-jkr",
+              "classification": "completed route",
+              "routeSlug": "blanco-river-fischer-store-john-knox-ranch"
+            },
+            {
+              "runId": "orchestrator-20260811032903",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            },
+            {
+              "runId": "orchestrator-20260811033304",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            },
+            {
+              "runId": "gatekeeper-20260811034030",
+              "classification": "validation passed"
+            }
+          ],
+          "boardRepair": "Updated tx-bounded-discovery-sweep summary/evidence to the true latest Blanco / John Knox Ranch package and preserved Milam County evidence.",
+          "nextTaskCreated": null,
+          "blockedItems": [
+            "Minnesota remains provisionally saturated under direct-gauge policy.",
+            "South Dakota broad baseline remains blocked pending precise evidence or adapter work.",
+            "Nebraska saturation remains blocked by George D. Syas coordinate and geometry gaps.",
+            "NOAA MRMS upstream health remains blocked infrastructure, not route-worker failure."
+          ],
+          "validation": [
+            "checked: latest GitHub scheduled Actions are successful through River Snapshots 31455406290 at 2026-08-11T03:28:04Z",
+            "checked: no route_implementation task is in_progress; only operations-center-read-only product WIP remains active",
+            "checked: operations planner selected tx-bounded-discovery-sweep and did not return workOrder:null",
+            "passed: npm run operations:verify / gatekeeper-20260811034310 after the supervisor record was added"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811044132",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T04:41:32.348Z",
+          "completedAt": "2026-08-11T04:41:32.348Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity since the prior supervisor pass. route-worker-202608110408-texas-noadd is an evidence-backed blocked/no-add Texas candidate sweep with passed gatekeeper evidence, and route-worker-202608110438-texas-river-school is a completed Texas route package with image, camping, safety, geometry, coordinate, overlap, typecheck, build, and gatekeeper evidence. No workOrder:null dead end, stale route WIP, active route claim conflict, omitted package work, failed validation, or new infrastructure failure remains. Preserved the ready tx-bounded-discovery-sweep and utah-bounded-discovery-sweep tasks and the unrelated Operations Center product WIP; no board repair or new task was needed.",
+          "inspectedRuns": [
+            "orchestrator-20260811034234",
+            "gatekeeper-20260811034310",
+            "orchestrator-20260811034412",
+            "gatekeeper-20260811034448",
+            "orchestrator-20260811035845",
+            "route-worker-202608110408-texas-noadd",
+            "gatekeeper-20260811041301",
+            "orchestrator-20260811042851",
+            "route-worker-202608110438-texas-river-school",
+            "gatekeeper-20260811043940",
+            "orchestrator-20260811044124"
+          ],
+          "classifications": [
+            {
+              "runId": "route-worker-202608110408-texas-noadd",
+              "classification": "blocked candidate",
+              "routeSlug": null
+            },
+            {
+              "runId": "route-worker-202608110438-texas-river-school",
+              "classification": "completed route",
+              "routeSlug": "colorado-river-texas-river-school-little-webberville"
+            },
+            {
+              "runId": "gatekeeper-20260811041301",
+              "classification": "validation passed"
+            },
+            {
+              "runId": "gatekeeper-20260811043940",
+              "classification": "validation passed"
+            },
+            {
+              "runId": "orchestrator-20260811044124",
+              "classification": "planned work order",
+              "taskId": "tx-bounded-discovery-sweep"
+            }
+          ],
+          "boardRepair": "None. tx-bounded-discovery-sweep already records the latest Texas River School-to-Little-Webberville package and remains legitimately ready for fresh distinct Texas evidence.",
+          "nextTaskCreated": null,
+          "workOrderSelected": {
+            "taskId": "tx-bounded-discovery-sweep",
+            "workerRole": "state-coverage"
+          },
+          "blockedItems": [
+            "Texas Rio Libros, River Grove, Spivey-to-BRNC, Brazos Outdoor Center generic trips, and WJF/Hidden Shores connectors remain blocked by recorded closure, coordinate, route-shape, or duplication evidence.",
+            "Minnesota remains provisionally saturated under direct-gauge policy.",
+            "South Dakota broad baseline remains blocked pending precise evidence or adapter work.",
+            "Nebraska saturation remains blocked by George D. Syas coordinate and geometry gaps.",
+            "NOAA MRMS upstream health remains recorded as blocked infrastructure, while the latest scheduled GitHub Actions are green."
+          ],
+          "validation": [
+            "checked: latest GitHub scheduled Actions were successful through Paddle Today History Snapshots 31459091064 at 2026-08-11T04:39:42Z",
+            "checked: no route_implementation task is in_progress; only operations-center-read-only product WIP remains active",
+            "checked: operations planner selected tx-bounded-discovery-sweep and did not return workOrder:null",
+            "passed: npm run operations:verify / gatekeeper-20260811044243 after the supervisor record was added"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811T054301",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T05:43:01.647Z",
+          "completedAt": "2026-08-11T05:43:01.647Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity after the prior supervisor checkpoint. Buffalo Bayou Sabine Street-to-Allen's Landing and Llano River Keller's Landing-to-Castell Crossing are completed Texas route packages with image, camping, safety, geometry, coordinate, overlap, typecheck, build, and gatekeeper evidence. No workOrder:null dead end, stale route WIP, active route claim conflict, omitted package work, failed validation, or new infrastructure failure remains. Preserved the ready tx-bounded-discovery-sweep and utah-bounded-discovery-sweep tasks; no board repair or new task was safe or needed.",
+          "inspectedHourlyRuns": [
+            {
+              "id": "route-worker-202608110505-buffalo-bayou-sabine-allens",
+              "classification": "completed route",
+              "evidence": "Added buffalo-bayou-sabine-street-allens-landing with bounded no-image, no route camping, safety notes, generated geometry, coordinate review, overlap review, full build/typecheck, and gatekeeper-20260811050754."
+            },
+            {
+              "id": "route-worker-202608110540-llano-kellers-castell",
+              "classification": "completed route",
+              "evidence": "Added llano-river-kellers-landing-castell-crossing with bounded no-image, no route camping, safety notes, generated geometry, coordinate review, overlap pass, full build/typecheck, and gatekeepers gatekeeper-20260811054029/gatekeeper-20260811054122."
+            }
+          ],
+          "staleOrDeadEndIssues": [],
+          "boardRepair": "none; task lanes already matched the evidence and no route implementation WIP was active",
+          "nextTask": "preserved tx-bounded-discovery-sweep as the highest-value ready route/state-coverage task; utah-bounded-discovery-sweep remains ready behind Texas",
+          "workOrder": {
+            "selectedBy": "orchestrator-20260811054218",
+            "taskId": "tx-bounded-discovery-sweep",
+            "workerRole": "state-coverage",
+            "rationale": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          },
+          "blockedItems": [
+            "Minnesota remains provisionally saturated under direct-gauge policy.",
+            "South Dakota broad baseline remains blocked pending precise evidence or adapter work.",
+            "Nebraska saturation remains blocked by George D. Syas coordinate and geometry gaps.",
+            "NOAA MRMS upstream health remains recorded as blocked infrastructure; latest GitHub scheduled Actions inspected here are green.",
+            "Texas candidate blockers recorded by the worker remain preserved unless fresh evidence materially clears them."
+          ],
+          "validation": [
+            "checked: latest GitHub scheduled Actions were successful through Paddle Today River Alerts 31460808285 at 2026-08-11T05:12:04Z",
+            "checked: no route_implementation task is in_progress; only operations-center-read-only product WIP remains active",
+            "checked: operations planner selected tx-bounded-discovery-sweep and did not return workOrder:null",
+            "passed: npm run operations:verify / gatekeeper-20260811054340 after the supervisor record"
+          ]
+        },
+        {
+          "id": "route-supervisor-20260811064353",
+          "kind": "route_worker_supervisor",
+          "startedAt": "2026-08-11T06:43:53.854Z",
+          "completedAt": "2026-08-11T06:43:53.854Z",
+          "status": "completed",
+          "taskId": "tx-bounded-discovery-sweep",
+          "workerRole": "orchestrator",
+          "summary": "Classified hourly route-worker activity after the prior supervisor checkpoint. route-worker-202608110608-texas-no-add-sweep is an evidence-backed blocked/no-add Texas candidate sweep with passed validation, and route-worker-202608110634-hebron-mcinnish is a completed Texas route package with bounded image decision, camping, safety, generated geometry, coordinate-near-river audit, overlap review, typecheck, build, and gatekeeper evidence. No workOrder:null dead end, stale route WIP, active route claim conflict, omitted package work, failed validation, or new infrastructure failure remains. Preserved the ready tx-bounded-discovery-sweep and utah-bounded-discovery-sweep tasks; no board repair or new task was safe or needed.",
+          "inspectedHourlyRuns": [
+            {
+              "id": "route-worker-202608110608-texas-no-add-sweep",
+              "classification": "blocked candidate",
+              "evidence": "Screened five Texas candidates with decisive closure, mixed-access/camping, threshold, endpoint, and duplication blockers; no route package was started, and validation passed with gatekeeper-20260811060813 plus follow-up gatekeeper-20260811060917."
+            },
+            {
+              "id": "route-worker-202608110634-hebron-mcinnish",
+              "classification": "completed route",
+              "evidence": "Added elm-fork-trinity-river-hebron-parkway-mcinnish-park with bounded no-image, no route camping, safety notes, generated geometry, ok coordinate audit results, expected adjacent-reach overlap only, full build/typecheck, and gatekeeper-20260811064036 plus follow-up gatekeeper-20260811064131."
+            }
+          ],
+          "staleOrDeadEndIssues": [],
+          "boardRepair": "none; task lanes already matched the evidence and no route implementation WIP was active",
+          "nextTask": "preserved tx-bounded-discovery-sweep as the highest-value ready route/state-coverage task; utah-bounded-discovery-sweep remains ready behind Texas",
+          "workOrder": {
+            "selectedBy": "orchestrator-20260811064500",
+            "taskId": "tx-bounded-discovery-sweep",
+            "workerRole": "state-coverage",
+            "rationale": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          },
+          "blockedItems": [
+            "Minnesota remains provisionally saturated under direct-gauge policy.",
+            "South Dakota broad baseline remains blocked pending precise evidence or adapter work.",
+            "Nebraska saturation remains blocked by George D. Syas coordinate and geometry gaps.",
+            "NOAA MRMS upstream health remains recorded as blocked infrastructure, while the latest scheduled GitHub Actions inspected here are green.",
+            "Texas candidate blockers from the latest no-add sweep remain preserved unless fresh evidence materially clears them."
+          ],
+          "validation": [
+            "checked: latest GitHub scheduled Actions were successful through Paddle Today River Alerts 31465172647 at 2026-08-11T06:28:50Z",
+            "checked: no route_implementation task is in_progress; only operations-center-read-only product WIP remains active",
+            "checked: route-worker-202608110634-hebron-mcinnish recorded required image, camping, safety, geometry, coordinate, overlap, typecheck, build, and gatekeeper evidence",
+            "checked: npm run operations:plan -- --record selected tx-bounded-discovery-sweep via orchestrator-20260811064500 and did not return workOrder:null",
+            "passed: npm run operations:verify / gatekeeper-20260811064546 after the supervisor and planner records"
+          ]
+        }
+      ],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    },
+    {
+      "stateId": "WI",
+      "stateName": "Wisconsin",
+      "inventoryCount": 173,
+      "scoredCount": 125,
+      "planningCount": 48,
+      "scoredCoveragePercent": 72,
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "inventory quality audit",
+        "bounded fresh discovery sweep",
+        "no candidate clears all scored-route gates"
+      ]
+    }
+  ]
+}

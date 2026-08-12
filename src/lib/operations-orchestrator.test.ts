@@ -39,4 +39,21 @@ describe('operations orchestrator', () => {
     ]);
     expect(order).toBeNull();
   });
+
+  it('routes consolidation reviews to an independent verifier with non-destructive gates', () => {
+    const order = selectNextWorkOrder([
+      task({ id: 'corridor-review', kind: 'consolidation_review', owner: 'independent-verifier' }),
+    ]);
+    expect(order).toMatchObject({ taskId: 'corridor-review', workerRole: 'independent-verifier' });
+    expect(order?.requiredGates).toContain('no destructive route change without explicit approval');
+  });
+
+  it('limits active consolidation reviews to two', () => {
+    const order = selectNextWorkOrder([
+      task({ id: 'active-a', kind: 'consolidation_review', lane: 'in_progress' }),
+      task({ id: 'active-b', kind: 'consolidation_review', lane: 'in_progress' }),
+      task({ id: 'waiting', kind: 'consolidation_review' }),
+    ]);
+    expect(order).toBeNull();
+  });
 });

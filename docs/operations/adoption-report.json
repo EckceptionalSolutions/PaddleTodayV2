@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-08-12T14:06:04.854Z",
+  "source": "no-export-available",
+  "eventCount": 0,
+  "eventCounts": {},
+  "routeViews": 0,
+  "noResultSearches": 0,
+  "noResultTargets": {},
+  "nextAction": "Export privacy-safe aggregate events from the configured analytics provider to docs/operations/adoption-events.json; do not copy raw identifiers."
+}

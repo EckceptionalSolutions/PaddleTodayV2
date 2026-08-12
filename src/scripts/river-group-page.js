@@ -1290,6 +1290,10 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
   }
 
   if (empty) {
+    trackEvent('river_hub_no_results', {
+      river_id: riverId,
+      filter_count: activeFilterTotal(),
+    });
     mapMarkers = clearMapMarkers(mapMarkers);
     clearConditionScoreMarkers();
     if (mapRuntime && mapReadyPromise) {

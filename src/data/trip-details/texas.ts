@@ -1123,6 +1123,63 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "colorado-river-fm973-little-webberville": {
+    "putIn": {
+      "id": "fm-973-del-valle-bridge",
+      "name": "FM 973 / Del Valle Bridge",
+      "latitude": 30.21,
+      "longitude": -97.64
+    },
+    "takeOut": {
+      "id": "little-webberville-park-boat-ramp",
+      "name": "Little Webberville Park",
+      "latitude": 30.23,
+      "longitude": -97.52
+    },
+    "logistics": {
+      "distanceLabel": "About 12 mi",
+      "estimatedPaddleTime": "About 4 hr to 6 hr at ordinary levels, longer if the Austin gauge is near the 200 cfs floor, headwind builds, heat slows the group, or the FM 973 carry takes extra time",
+      "shuttle": "Stage Little Webberville Park first, then drive back to FM 973 / Del Valle Bridge. Scout the FM 973 access before unloading because LCRA describes limited parking and an uneven carry from the bridge area to the river.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use only the LCRA-listed public access points, check USGS 08158000 / LCRA Hydromet and weather before launch, and obey current bridge and county-park rules.",
+      "camping": "Treat this as a day-use route with no route camping selected. Travis County prohibits camping at Little Webberville Park, and LCRA does not identify FM 973 / Del Valle Bridge as a campground, so do not infer legal overnight use from islands, sandbars, or private banks between endpoints.",
+      "campingClassification": "none",
+      "summary": "Launch at FM 973 / Del Valle Bridge and paddle 12 lower-Colorado miles to Little Webberville Park. Use the Colorado River at Austin gauge with a conservative 200 cfs floor, then make a same-day call on release changes, heat, wind, shallow bars, limited exits, and private banks.",
+      "accessCaveats": [
+        "LCRA publishes FM 973 / Del Valle Bridge as a TxDOT-managed access with limited parking alongside the bridge and boat launching that requires a carry over uneven ground.",
+        "LCRA and Travis County publish Little Webberville as a public lower-Colorado access, but the stored coordinates are access anchors; follow the current ramp path and signs on arrival.",
+        "The Austin gauge is upstream of this selected reach and the threshold floor is broad Austin-to-Bastrop guidance. Treat the app score as conservative and verify visible level and current at FM 973 before launching.",
+        "Little Webberville has no electricity or drinking water, and Travis County Parks does not provide paddling equipment. Bring water, sun protection, shuttle gear, and a backup plan.",
+        "Do not infer camping or casual private-bank stops from the rural shoreline, mid-river bars, or islands. This shorter public-access route has no selected overnight option."
+      ],
+      "watchFor": [
+        "Flows near or below about 200 cfs, when the Texas River Flows minimum is barely met and shallow bars or dragging can slow a 12-mile day.",
+        "High or rising water after rain or upstream release changes, when current, debris, water quality, and bank exits can change quickly below Austin.",
+        "Headwind on the broad channel, summer heat, thunderstorms, motorboat traffic near access points, and a trip length that still needs daylight margin.",
+        "Snags, overhanging limbs, island splits, soft banks, and private banks away from FM 973 and Little Webberville Park.",
+        "Arrival-point offsets: use the published access anchors for planning, then choose the actual wetted launch or landing only from signed, open, source-backed access paths on arrival."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fm-973-del-valle-bridge",
+        "name": "FM 973 / Del Valle Bridge",
+        "latitude": 30.21,
+        "longitude": -97.64,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream LCRA-listed TxDOT bridge access anchor; scout limited parking and the uneven carry before unloading."
+      },
+      {
+        "id": "little-webberville-park-boat-ramp",
+        "name": "Little Webberville Park",
+        "latitude": 30.23,
+        "longitude": -97.52,
+        "mileFromStart": 12,
+        "segmentKind": "creek",
+        "note": "Default downstream Travis County park boat-ramp access; camping is prohibited and there is no drinking water or electricity."
+      }
+    ]
+  },
   "colorado-river-little-webberville-big-webberville": {
     "putIn": {
       "id": "little-webberville-park-boat-ramp",
@@ -1759,6 +1816,63 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 4.1,
         "segmentKind": "creek",
         "note": "Default TPWD leased-access take-out and access anchor; contact Sandy Bottoms in advance, sign required liability paperwork, and use current property directions for the actual landing."
+      }
+    ]
+  },
+  "brazos-river-sandy-bottoms-chavez-access": {
+    "putIn": {
+      "id": "sandy-bottoms-river-trail-camp",
+      "name": "Sandy Bottoms River Trail Camp",
+      "latitude": 32.580406,
+      "longitude": -97.892005
+    },
+    "takeOut": {
+      "id": "sandy-bottoms-chavez-access",
+      "name": "Sandy Bottoms Chavez Access",
+      "latitude": 32.563572,
+      "longitude": -97.877014
+    },
+    "logistics": {
+      "distanceLabel": "About 1.5 mi",
+      "estimatedPaddleTime": "Very short downstream connector for a practice, fishing, or family shuttle when the Dennis gauge is comfortably above the floor; near 200 cfs, expect shallow bars and possible dragging even on the short mileage",
+      "shuttle": "Stage Sandy Bottoms Chavez Access first after confirming access availability, then return to Sandy Bottoms River Trail Camp. TPWD requires at least 24-hour advance text contact and liability paperwork, so do not assume a same-day drop-in shuttle will work.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use the TPWD leased-access sites only during posted daylight windows, contact Sandy Bottoms at least 24 hours ahead, and obey any current lease or property rules.",
+      "camping": "Treat the paddle route as day-use only. TPWD describes private accommodations at Sandy Bottoms, but those are separate reservation-based services and not public route camping rights; do not infer legal camps from bars, private banks, or ranch land.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Sandy Bottoms River Trail Camp and take out at Sandy Bottoms Chavez Access for TPWD's very short leased-access Brazos connector upstream of Lake Granbury. Use the Dennis gauge with BRA's conservative Brazos flow chart, then confirm access, current, weather, and private-bank limits before driving the shuttle.",
+      "accessCaveats": [
+        "TPWD publishes both endpoint coordinates as leased-access site anchors. Final water entry and exit should follow current signs, property instructions, the Chavez dock or access directions, and safe bank conditions rather than a projected mid-channel point.",
+        "Sandy Bottoms access is open from 30 minutes before sunrise to 30 minutes before sunset and requires at least 24-hour advance text contact, with a liability form before access.",
+        "Chavez Access is a separate Sandy Bottoms downstream access with direct river access and a small dock for paddle craft and fishing; confirm it is available for take-out before launching upstream.",
+        "The current Dennis gauge reading during implementation was just above BRA's 200 cfs lower floor. At similar levels, expect more paddling, exposed gravel or sand, and possible dragging.",
+        "BRA notes that upstream reservoir releases and storms can change Brazos flow. Recheck the hydrograph and weather before leaving a vehicle."
+      ],
+      "watchFor": [
+        "Flows at or below about 200 cfs on USGS 08090800, when BRA says the Brazos is below the minimum needed for paddling.",
+        "Flows above about 1,200 cfs, rising water, upstream releases, or fresh basin rainfall, when BRA's chart moves into hazardous or worse categories.",
+        "Private banks, ranch roads, fences, livestock areas, muddy landings, low-water bars, driftwood, strainers, and wood moved by recent releases.",
+        "Heat, sun exposure, wind on open bends, and rural cell-service gaps despite the short mileage.",
+        "Access uncertainty if either leased site is unavailable, posted differently, or cannot accept the group that day; skip the trip rather than inventing an alternate private landing."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "sandy-bottoms-river-trail-camp",
+        "name": "Sandy Bottoms River Trail Camp",
+        "latitude": 32.580406,
+        "longitude": -97.892005,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default TPWD leased-access put-in and access anchor; contact Sandy Bottoms at least 24 hours in advance and follow site instructions for the actual launch."
+      },
+      {
+        "id": "sandy-bottoms-chavez-access",
+        "name": "Sandy Bottoms Chavez Access",
+        "latitude": 32.563572,
+        "longitude": -97.877014,
+        "mileFromStart": 1.5,
+        "segmentKind": "creek",
+        "note": "Default TPWD leased-access take-out and access anchor; TPWD says the site is about 1.5 river miles downstream and has direct river access plus a small dock for paddle craft and fishing."
       }
     ]
   },
@@ -3830,6 +3944,62 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "north-prong-medina-river-3rd-crossing-freeman-crossing": {
+    "putIn": {
+      "id": "third-crossing-fr-2107",
+      "name": "3rd Crossing of FR 2107",
+      "latitude": 29.8763326,
+      "longitude": -99.3483821
+    },
+    "takeOut": {
+      "id": "freeman-crossing-sh-16",
+      "name": "Freeman Crossing at SH 16",
+      "latitude": 29.85418,
+      "longitude": -99.2796359
+    },
+    "logistics": {
+      "distanceLabel": "About 6.6 mi",
+      "estimatedPaddleTime": "Half-day North Prong run when recent rain leaves enough water; near or below the 50 cfs floor, expect a slow scrape with dragging and exposed limestone",
+      "shuttle": "Stage Freeman Crossing at SH 16 first, then return to 3rd Crossing of FR 2107. Use only the TRPA-named public road-crossing access anchors and current roadside conditions; do not rely on private banks for shuttle, bailout, or casual stops.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use only public road crossings or named access points, check USGS 0817887350, weather, and recent rain before launching, and obey posted access restrictions.",
+      "camping": "Treat this as a day-use route with no public on-route camping selected. TRPA says the only public camping along the Medina River is Pioneer River Resort in Bandera, downstream from this North Prong reach, so do not infer legal camps from gravel bars, private banks, road crossings, cabins, or nearby ranch land.",
+      "campingClassification": "none",
+      "summary": "Launch at 3rd Crossing of FR 2107 and take out at Freeman Crossing for a 6.6-mile North Prong Medina run. Use the Patterson Road gauge, treat 50 cfs as the North Prong floor, and skip the route if crossings, drops, wood, weather, or private-bank access make the plan ambiguous.",
+      "accessCaveats": [
+        "TRPA's Google map links resolve to exact access-anchor coordinates for 3rd Crossing and Freeman Crossing, but final water entry and exit should follow current signs, road-shoulder conditions, and safe banks rather than a projected mid-channel point.",
+        "TRPA says almost all property adjacent to the Medina River is private. Use public road crossings for access and do not treat private banks, cabins, camps, or ranch roads as public stops.",
+        "The route was implemented with USGS 0817887350 product-live at 47.4 cfs, just below TRPA's 50 cfs North Prong floor and far below the 300 cfs ideal cue. At similar or lower levels, expect exposed limestone, dragging, and slower travel.",
+        "TRPA says all low-water crossings are potential hazards. If a crossing is posted, blocked, pushy, fenced, or unsafe, skip the route rather than inventing a private alternate."
+      ],
+      "watchFor": [
+        "Flows below about 50 cfs on USGS 0817887350, when the TRPA North Prong minimum is not met and dragging over rock or gravel bars is likely.",
+        "High or rising water after storms, especially above about 300 cfs where TRPA says stronger navigation skill is needed and near 2,000 cfs where the route should not be attempted.",
+        "Chamblee Falls and other North Prong drops, ledges, low-water crossings, strainers, narrow channels, blind bends, fences or debris after floods, and limited exits between public crossings.",
+        "Private-property boundaries, road-crossing traffic, roadside parking limits, heat, sun exposure, and lack of public riverbank camping.",
+        "Class I-III rain-dependent whitewater character; casual flatwater groups should choose an easier Medina segment instead."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "third-crossing-fr-2107",
+        "name": "3rd Crossing of FR 2107",
+        "latitude": 29.8763326,
+        "longitude": -99.3483821,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and upstream public-road-crossing route point; use current signs and safe bank conditions for the actual water entry."
+      },
+      {
+        "id": "freeman-crossing-sh-16",
+        "name": "Freeman Crossing at SH 16",
+        "latitude": 29.85418,
+        "longitude": -99.2796359,
+        "mileFromStart": 6.6,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor and downstream public-road-crossing route point; confirm current road-shoulder, traffic, and bank conditions on arrival."
+      }
+    ]
+  },
   "north-prong-medina-river-freeman-crossing-moffett-park": {
     "putIn": {
       "id": "freeman-crossing-sh-16",
@@ -4051,6 +4221,63 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 3.8,
         "segmentKind": "creek",
         "note": "TRPA map-link access anchor and downstream public-road-crossing take-out; confirm current roadside parking and bank conditions on arrival."
+      }
+    ]
+  },
+  "medina-river-ranger-crossing-bandera-city-park": {
+    "putIn": {
+      "id": "ranger-crossing-highway-16",
+      "name": "Ranger Crossing at Highway 16",
+      "latitude": 29.7369976,
+      "longitude": -99.1232512
+    },
+    "takeOut": {
+      "id": "bandera-city-park",
+      "name": "Bandera City Park",
+      "latitude": 29.72254,
+      "longitude": -99.06975
+    },
+    "logistics": {
+      "distanceLabel": "About 5.9 mi",
+      "estimatedPaddleTime": "Half-day Bandera-area float when the Medina has enough water; near the 30 cfs lower-Medina floor, expect shallow scraping, dragging, and slower travel",
+      "shuttle": "Stage Bandera City Park first during posted park hours, then return to Ranger Crossing at Highway 16. Use the public access anchors and current signs for parking and bank entry, and make the city park the mandatory take-out rather than continuing toward the dam corridor.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, Bandera City Park hours and fee rules, posted access restrictions, USGS 08178880, local weather, recent rain, and Bandera-area water-quality notices before launching.",
+      "camping": "No camping at Bandera City Park. Treat this as a day route with nearby-basecamp options only: TRPA says Pioneer River Resort in Bandera is the only public camping along the Medina River, and private banks, gravel bars, road crossings, city park grounds, and nearby ranch land are not legal route camps.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch from Ranger Crossing at Highway 16 and take out at Bandera City Park for a 5.9-mile Medina River day trip. Use the direct Bandera gauge, expect shallow dragging when flows are near today's 56 cfs level, and exit cleanly at the city park before the dam-restricted area.",
+      "accessCaveats": [
+        "The Ranger Crossing coordinate is a source-backed access anchor shared with the upstream Medina card and corroborated by American Whitewater's Ranger Crossing public-access page; it is not a guessed mid-channel water-entry point.",
+        "American Whitewater publishes the Bandera City Park public access coordinate river left upstream of the SH 173 / Main Street bridge. Use posted city-park signs, bank conditions, and the open lower-level parking rules on arrival.",
+        "Bandera City Park is open daily from 8 a.m. to 30 minutes before sundown, charges weekend and holiday entry fees, prohibits camping, prohibits swimming near or standing on the dam, and says water entry is from the river bank only.",
+        "The route was implemented with USGS 08178880 product-live at 55.8 cfs / 4.26 ft at 2026-08-12 04:45 CDT, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue and below American Whitewater's recommended display.",
+        "TRPA says almost all adjacent Medina River property is private. Keep stops to lawful public access and do not treat private banks, cabins, ranch roads, or gravel bars as public bailout or camping options."
+      ],
+      "watchFor": [
+        "Flows below about 30 cfs at USGS 08178880, when the TRPA lower-Medina minimum is not met and dragging over rock or gravel bars is likely.",
+        "High or rising water after storms, especially above about 300 cfs where TRPA says more navigation skill is needed and near 2,000 cfs where the route should not be attempted.",
+        "Low-water crossings, the 6th Street / Schmidtke Road low bridge, the 1st Street / Rugh Hill low bridge, wood, strainers, blind bends, fences, and flood debris.",
+        "The mandatory Bandera City Park take-out, park hours, lower-level parking limits, entry fees, dam restrictions, and water-quality or closure notices.",
+        "Private-property boundaries, road-crossing traffic, heat, sun exposure, and limited public exits between Ranger Crossing and Bandera City Park."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "ranger-crossing-highway-16",
+        "name": "Ranger Crossing at Highway 16",
+        "latitude": 29.7369976,
+        "longitude": -99.1232512,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Existing Medina-chain access anchor corroborated by American Whitewater's public Ranger Crossing page; use current signs and safe bank conditions for the actual water entry."
+      },
+      {
+        "id": "bandera-city-park",
+        "name": "Bandera City Park",
+        "latitude": 29.72254,
+        "longitude": -99.06975,
+        "mileFromStart": 5.9,
+        "segmentKind": "creek",
+        "note": "American Whitewater public access anchor upstream of the SH 173 / Main Street bridge; this is the mandatory route finish before the dam-restricted area, not permission to continue downstream."
       }
     ]
   }

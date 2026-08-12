@@ -71,6 +71,29 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
         </div>
       </section>
 
+      <section class="operations-section operations-demand" aria-label="Operations observability">
+        <div class="operations-section__head"><div><p class="eyebrow">Observability</p><h2>Throughput and blocker signals</h2></div><p class="muted">Derived from the recorded control-plane runs.</p></div>
+        <div class="operations-stats operations-stats--compact">
+          <article class="snapshot-card"><span class="snapshot-card__label">Route runs / 24h</span><strong>{snapshot.telemetry.throughput.routeRunsLast24h}</strong><small>Research or implementation attempts</small></article>
+          <article class="snapshot-card"><span class="snapshot-card__label">Routes added / 24h</span><strong>{snapshot.telemetry.throughput.routesAddedLast24h}</strong><small>Passed implementation records</small></article>
+          <article class="snapshot-card"><span class="snapshot-card__label">No-add runs / 24h</span><strong>{snapshot.telemetry.throughput.noAddRunsLast24h}</strong><small>Evidence-backed rejections</small></article>
+          <article class="snapshot-card"><span class="snapshot-card__label">Open blocker types</span><strong>{Object.keys(snapshot.telemetry.blockerCounts).length}</strong><small>Reusable resolution categories</small></article>
+        </div>
+        <p class={`operations-callout ${snapshot.telemetry.researchControl.rotationRecommended ? 'operations-callout--warning' : ''}`}>
+          Texas research has {snapshot.telemetry.researchControl.consecutiveNoAddRuns} consecutive no-add runs (rotation threshold {snapshot.telemetry.researchControl.rotationThreshold}). {snapshot.telemetry.researchControl.recommendation}
+        </p>
+        <div class="operations-grid-two">
+          <div><h3>Blocker resolution queue</h3><div class="operations-list">{snapshot.telemetry.blockerQueue.map((blocker) => <article class="operations-list__row"><div><h3>{blocker.title}</h3><p class="muted">{blocker.summary}</p></div><span class="operations-pill">{blocker.category}</span></article>)}</div></div>
+          <div><h3>Automation freshness</h3><div class="operations-list">{snapshot.telemetry.automationHealth.slice(0, 8).map((automation) => <article class="operations-list__row"><div><h3>{automation.kind}</h3><p class="muted">{automation.summary ?? 'Latest recorded run'}</p></div><small>{new Date(automation.startedAt).toLocaleString()}</small></article>)}</div></div>
+        </div>
+        <h3>Route package quality by state</h3>
+        <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Scored routes</th><th>Average package score</th></tr></thead><tbody>{snapshot.telemetry.routeQualityByState.map((row) => <tr><th scope="row">{row.stateId}</th><td>{row.scoredRoutes}</td><td>{row.averagePackageScore} / 5</td></tr>)}</tbody></table></div>
+        <div class="operations-grid-two">
+          <div><h3>Consolidation review queue</h3><p class="muted">{snapshot.telemetry.overlapReview.openItems} open items · {snapshot.telemetry.overlapReview.highConfidenceItems} high-confidence new reviews · generated {snapshot.telemetry.overlapReview.generatedAt ? new Date(snapshot.telemetry.overlapReview.generatedAt).toLocaleString() : 'not yet'}</p><div class="operations-list">{snapshot.telemetry.overlapReview.items.map((item) => <article class="operations-list__row"><div><h3>{item.group}</h3><p class="muted">{item.recommendation}</p><small>{item.routes.length} routes · {item.findingCount} findings · max severity {item.maxSeverity}</small></div><span class={`operations-pill operations-pill--${item.status}`}>{item.category} · {item.status}</span></article>)}{snapshot.telemetry.overlapReview.items.length === 0 && <p class="operations-empty">No persisted consolidation candidates yet.</p>}</div></div>
+          <div><h3>Consolidation guardrails</h3><p class="muted">High-confidence candidates create verifier tasks only. Route deletion, retirement, merging, and family-model changes require explicit review and normal evidence, safety, verification, test, and rollback gates.</p><p class="operations-callout">The route worker must consult this queue before implementing a candidate and record why any overlap risk was cleared.</p></div>
+        </div>
+      </section>
+
       <section class="operations-section">
         <div class="operations-section__head"><div><p class="eyebrow">Work queue</p><h2>Kanban</h2></div><p class="muted">Read-only until the orchestration contracts are connected to GitHub.</p></div>
         <div class="operations-kanban">
