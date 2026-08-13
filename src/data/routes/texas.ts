@@ -379,6 +379,159 @@ export const texasRoutes: River[] = [
     ]
   },
   {
+    "id": "guadalupe-river-kreutzberg-canyon-bergheim-campground",
+    "slug": "guadalupe-river-kreutzberg-canyon-bergheim-campground",
+    "name": "Guadalupe River",
+    "reach": "Kreutzberg Canyon Natural Area to Bergheim Campground",
+    "aliases": [
+      "Kreutzberg Canyon to Bergheim",
+      "Upper Guadalupe Kreutzberg to FM 3351",
+      "Kreutzberg Canyon to Bergheim Campground"
+    ],
+    "state": "Texas",
+    "region": "Texas Hill Country",
+    "routeType": "whitewater",
+    "summary": "Upper Guadalupe day run from Kendall County's Kreutzberg Canyon Natural Area to Bergheim Campground and River Outfitters at FM 3351. TRPA documents this 12.2-mile segment and Upper Guadalupe flow bands, Kendall County confirms public river frontage at the put-in, and Bergheim publishes private-boat landing, shuttle, and campground terms at the take-out.",
+    "statusText": "Use the Guadalupe River near Spring Branch gauge as the Upper Guadalupe flow check. TRPA lists 100 cfs as the minimum, 300-1,200 cfs as the ideal window, and 5,000 cfs as the high-side ceiling; scout the county-park river access, low-water crossings, private-bank limits, and Bergheim landing before committing.",
+    "latitude": 29.8998365,
+    "longitude": -98.6420277,
+    "gaugeSource": {
+      "id": "usgs-08167500",
+      "provider": "usgs",
+      "siteId": "08167500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Guadalupe Rv nr Spring Branch, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08167500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "mandatory_takeout",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "TRPA describes the Upper Guadalupe as Class I-III+ water with rain-dependent flow; treat this long upper segment as swiftwater with limited public exits.",
+        "Kendall County's public park access is dawn-to-dusk, and Bergheim's private-boat landing requires current fees or arrangements. If either endpoint is closed, posted, crowded, or unsafe, skip the route.",
+        "Do not infer stops or camping from river frontage. TRPA warns that Upper Guadalupe banks are private, and Bergheim is the selected paid endpoint landing and campground context.",
+        "Hill Country storms can raise the river quickly and load crossings with debris. Use the Spring Branch gauge, visible water level, weather radar, and current road/park conditions before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 300,
+      "idealMax": 1200,
+      "tooLow": 100,
+      "tooHigh": 5000,
+      "thresholdSource": {
+        "label": "Texas Rivers Protection Association Upper Guadalupe flow guidance",
+        "url": "https://txrivers.org/discover-texas-rivers/guadalupe-river/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "The Upper Guadalupe can work year-round when spring flow, recent rain, and access conditions line up, but TRPA notes that the upper river is rain dependent and can mean dragging during dry periods. Cancel after storms, rising gauges, low-water-crossing debris, or endpoint access uncertainty.",
+      "difficulty": "hard",
+      "difficultyNotes": "The route is long for a same-day Upper Guadalupe run and has Class I-III Hill Country current, private banks, simple access anchors, limited exits, and fast-rise exposure. Keep it behind the whitewater filter rather than presenting it as a casual float.",
+      "confidenceNotes": "Confidence is good for a conservative add: TRPA lists Kreutzberg Canyon-to-FR3160 Bergheim Campground as a 12.2-mile Upper Guadalupe segment, publishes the Upper Guadalupe 100 / 300-1,200 / 5,000 cfs guidance, and links the endpoint map anchors. Kendall County confirms Kreutzberg Canyon Natural Area has Guadalupe River frontage suited to kayaking and is open dawn to dusk. Bergheim Campground publishes canoe/kayak service, private-boat landing fees, shuttle options, primitive campsites, RV sites, and day-use timing. USGS 08167500 returned same-day current discharge and stage during this run, but route copy still requires same-day scouting because the gauge is downstream of the take-out and Hill Country conditions change quickly."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Kreutzberg Canyon to FR3160 Bergheim Campground, 12.2 mi",
+        "note": "TRPA lists this exact Upper Guadalupe launch-map segment between Kreutzberg Canyon and FR3160 / Bergheim Campground.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/guadalupe-river/"
+      },
+      {
+        "label": "Public and outfitter access anchors",
+        "value": "29.8998365, -98.6420277 to 29.8928415, -98.5582463",
+        "note": "TRPA's Google map links resolve to these access anchors. Kendall County confirms the put-in park has Guadalupe waterfront for kayaking, and Bergheim publishes paid landing terms for private boats returning from upriver.",
+        "sourceUrl": "https://goo.gl/maps/4HCP3qixmVjg6ZsG6"
+      },
+      {
+        "label": "Live Upper Guadalupe gauge",
+        "value": "USGS 08167500 at 314 cfs / 3.19 ft",
+        "note": "USGS Water Services returned same-day Guadalupe River near Spring Branch discharge and gage height at 2026-08-12 13:00 CDT during this implementation run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08167500&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold posture",
+        "value": "100 cfs minimum; 300-1,200 cfs ideal; 5,000 cfs maximum",
+        "note": "TRPA publishes Upper Guadalupe flow guidance tied to the Upper Guadalupe gauge family; Paddle Today uses the full range conservatively and keeps the route behind the whitewater filter.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/guadalupe-river/"
+      },
+      {
+        "label": "Camping",
+        "value": "Endpoint campground",
+        "note": "Bergheim Campground publishes primitive campsites and RV sites at the take-out plus private-boat landing fees. No private-bank, gravel-bar, county-park, or informal on-route camping is inferred.",
+        "sourceUrl": "https://bergheimcampground.com/index.php?id=pricing"
+      },
+      {
+        "label": "Safety",
+        "value": "Long Class I-III Upper Guadalupe run, private banks, fast rises and simple access anchors",
+        "note": "TRPA warns that the Upper Guadalupe is rain dependent and private-property sensitive. Kendall County and Bergheim endpoint rules add dawn-to-dusk, fee, landing, shuttle, and no-dog constraints that must be checked before launch.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/guadalupe-river/"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded TRPA, Kendall County, Bergheim, Boerne, Commons, USGS, and same-route web review found route-context photos and social trip imagery but no clearly rights-clean exact Kreutzberg-to-Bergheim paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Kreutzberg+Canyon+Bergheim+Guadalupe+River+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Texas Rivers Protection Association Guadalupe River",
+        "url": "https://txrivers.org/discover-texas-rivers/guadalupe-river/",
+        "provider": "local"
+      },
+      {
+        "label": "TRPA Kreutzberg Canyon map link",
+        "url": "https://goo.gl/maps/4HCP3qixmVjg6ZsG6",
+        "provider": "local"
+      },
+      {
+        "label": "TRPA Bergheim Campground map link",
+        "url": "https://goo.gl/maps/i1pfx9PqSq7koXMS7",
+        "provider": "local"
+      },
+      {
+        "label": "Kendall County Kreutzberg Canyon Natural Area",
+        "url": "https://www.co.kendall.tx.us/facilities/facility/details/Kreutzberg-Canyon-Natural-Area-11",
+        "provider": "local"
+      },
+      {
+        "label": "Bergheim Campground pricing and private boat landing",
+        "url": "https://bergheimcampground.com/index.php?id=pricing",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08167500 current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08167500&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "guadalupe-river-fm3351-state-park",
     "slug": "guadalupe-river-fm3351-state-park",
     "name": "Guadalupe River",
@@ -4405,6 +4558,163 @@ export const texasRoutes: River[] = [
         "label": "Southwest Paddler Brazos below Lake Whitney",
         "url": "https://southwestpaddler.com/docs/brazos6.html",
         "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "brazos-river-spivey-crossing-brazos-river-nature-center",
+    "slug": "brazos-river-spivey-crossing-brazos-river-nature-center",
+    "name": "Brazos River",
+    "reach": "Spivey Crossing RV Park to Brazos River Nature Center",
+    "aliases": [
+      "Spivey Crossing to Brazos River Nature Center",
+      "Brazos River below Lake Whitney - Spivey to BRNC",
+      "Aquilla to Gholson Brazos River"
+    ],
+    "state": "Texas",
+    "region": "Central Texas",
+    "routeType": "recreational",
+    "summary": "Brazos River day trip below Lake Whitney Dam from TPWD leased-access Spivey Crossing RV Park to the TPWD leased-access Brazos River Nature Center. TPWD publishes the downstream route relationship, active public-use rules at both endpoints, and the Aquilla USGS gauge gives a direct same-corridor flow check.",
+    "statusText": "Use the Brazos River near Aquilla gauge. BRA's public paddling chart treats 200 cfs or less as below the minimum, 501-1,200 cfs as ideal, and higher flows as increasingly hazardous; current readings are well below the floor, so wait for more water and confirm Whitney release conditions and both leased-access reservations.",
+    "latitude": 31.801114,
+    "longitude": -97.307315,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "TPWD warns that Lake Whitney Dam releases upstream can cause rapid rises and swift current in this Brazos corridor; leave the river if water starts rising.",
+        "Both endpoints are leased-access properties with call-ahead, daylight-use, fee or liability-form requirements. Confirm Spivey and BRNC access before committing to the shuttle.",
+        "BRNC is primitive, with no restrooms or potable water, and TPWD restricts users to designated access trails and parking areas only."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08093100",
+      "provider": "usgs",
+      "siteId": "08093100",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Brazos Rv nr Aquilla, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08093100/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 501,
+      "idealMax": 1200,
+      "tooLow": 200,
+      "tooHigh": 5000,
+      "thresholdSource": {
+        "label": "Brazos River Authority paddling-flow chart",
+        "url": "https://brazos.org/about-us/news/news-room/resource-library/on-the-river",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 0.25,
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "This dam-tailwater corridor can work year-round when Whitney releases, same-day flow, access, and weather cooperate. Low-water scraping, release-driven rises, storms, heat, wind, and private-bank limits all require same-day checks.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The river is mostly straightforward, but the route is a rural 10-to-11-mile tailwater day with two reservation-controlled leased accesses, below-floor lows, private banks, primitive BRNC facilities, and possible wood or release debris.",
+      "confidenceNotes": "Confidence is good for a conservative Texas add: TPWD publishes Spivey Crossing as an active leased-access put-in and says paddlers can float downstream about 10 miles to Brazos River Nature Center; TPWD publishes BRNC as an active leased-access take-out 11 miles downstream of Spivey, with daylight access, reservation, fee, liability-form, and primitive-site limits. TPWD's RACA GIS layer supplies the stored BRNC access coordinate near the river, while the HTML page's 31.69956, -97.26898 value is retained as driving-arrival context. USGS 08093100 is a direct product-live gauge near Aquilla, and BRA provides official Brazos paddling-flow bands. Coordinates are stored as access anchors rather than exact wetted-edge survey points."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route shape",
+        "value": "Spivey Crossing to Brazos River Nature Center, about 10-11 mi",
+        "note": "TPWD says Spivey Crossing can be used as a put-in for a downstream float of about 10 miles to BRNC; the BRNC page describes the site as 11 river miles downstream of Spivey and a take-out for upstream paddlers.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/spivey_crossing.phtml"
+      },
+      {
+        "label": "Put-in access",
+        "value": "Spivey Crossing RV Park active TPWD leased access",
+        "note": "TPWD lists Spivey Crossing's lease through August 31, 2027, allows daylight non-motorized launch use, requires call-ahead availability, charges a small adult day-use fee, and requires liability paperwork.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/spivey_crossing.phtml"
+      },
+      {
+        "label": "Take-out access",
+        "value": "Brazos River Nature Center active TPWD leased access",
+        "note": "TPWD lists BRNC's lease through August 31, 2027, requires 24-hour advance reservation and fee payment, restricts users to designated trails and parking areas, and notes there are no restrooms or potable water. TPWD's RACA GIS layer publishes the stored access point at 31.698655, -97.279101; the HTML page's 31.69956, -97.26898 coordinate is the driving-arrival context.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/brazos_river_nature_center.phtml"
+      },
+      {
+        "label": "BRNC GIS access coordinate",
+        "value": "31.698655, -97.279101",
+        "note": "TPWD's River Access and Conservation Areas GIS layer lists Brazos River Nature Center as a current Brazos access point and places the feature near the river frontage, resolving the older page-coordinate offset for route-audit purposes.",
+        "sourceUrl": "https://tpwd.texas.gov/server/rest/services/Inland/River_Access_and_Conservation_Areas/FeatureServer/0"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 08093100 at 61.4 cfs / 6.13 ft",
+        "note": "USGS Water Services returned current Brazos River near Aquilla discharge and gage height at 2026-08-12 16:00 CDT during this implementation run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08093100&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Brazos flow guidance",
+        "value": "200 cfs below minimum; 501-1,200 cfs ideal; 5,001+ cfs flood",
+        "note": "BRA's public river-recreation chart lists 200 cfs or less as below the minimum needed for paddling, 501-1,200 cfs as ideal conditions, 1,200-3,000 cfs as hazardous, 3,001-5,000 cfs as experts-only, and 5,001+ cfs as flood conditions.",
+        "sourceUrl": "https://brazos.org/about-us/news/news-room/resource-library/on-the-river"
+      },
+      {
+        "label": "Camping and safety",
+        "value": "Nearby basecamp only; release, primitive-access, and private-bank caveats",
+        "note": "TPWD describes adjacent Spivey RV/cabin/cottage services but only daylight public lease use for the route endpoints, warns Whitney releases can cause rapid rises, and describes BRNC as primitive with no restrooms or potable water.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/brazos_river_nature_center.phtml"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded TPWD, BRA, Commons, USGS, and same-route web review found route-context pages but no clearly rights-clean exact Spivey-to-Brazos-River-Nature-Center paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brazos+River+Spivey+Crossing+Brazos+River+Nature+Center+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "TPWD Spivey Crossing RV Park",
+        "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/spivey_crossing.phtml",
+        "provider": "local"
+      },
+      {
+        "label": "TPWD Brazos River Nature Center",
+        "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/brazos_river_nature_center.phtml",
+        "provider": "local"
+      },
+      {
+        "label": "TPWD RACA access points GIS",
+        "url": "https://tpwd.texas.gov/server/rest/services/Inland/River_Access_and_Conservation_Areas/FeatureServer/0",
+        "provider": "local"
+      },
+      {
+        "label": "Brazos River Authority On The River",
+        "url": "https://brazos.org/about-us/news/news-room/resource-library/on-the-river",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08093100 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08093100/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08093100 Water Services current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08093100&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
       }
     ]
   },
@@ -11138,6 +11448,158 @@ export const texasRoutes: River[] = [
       {
         "label": "TRPA Medina River",
         "url": "https://txrivers.org/discover-texas-rivers/medina-river/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08178880 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08178880/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS Medina at Bandera current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08178880&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "medina-river-bandera-city-park-dam-english-crossing",
+    "slug": "medina-river-bandera-city-park-dam-english-crossing",
+    "name": "Medina River",
+    "reach": "Bandera City Park Dam to English Crossing",
+    "aliases": [
+      "Bandera to English Crossing",
+      "Bandera City Park Dam to English Crossing",
+      "Medina River English Crossing"
+    ],
+    "state": "Texas",
+    "region": "Texas Hill Country",
+    "routeType": "recreational",
+    "summary": "Downstream Bandera-area Medina River day trip from the Bandera City Park Dam access anchor to English Crossing. TRPA publishes this as a 12.5-mile featured run, ties lower-Medina paddling to the direct Bandera USGS gauge, warns not to run the City Park dam, and states public camping on the Medina is limited to Pioneer River Resort.",
+    "statusText": "Use the Medina River at Bandera gauge directly at the put-in. Treat 30 cfs as the lower-Medina floor, 300-1,500 cfs as the preferred window, and 2,000 cfs as the high-water ceiling; at today's near-floor flow, expect a long shallow day with scraping, dragging, and private-bank discipline.",
+    "latitude": 29.7222995,
+    "longitude": -99.0702231,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "low_head_dam"
+      ],
+      "safetyNotes": [
+        "TRPA marks this run with a prominent warning not to run the Bandera City Park dam. Start below the dam only where current park rules, signs, and bank conditions allow safe legal entry.",
+        "Bandera City Park rules prohibit swimming near or standing on the dam and allow water entry only from the river bank.",
+        "TRPA says almost all land along the Medina River is private and paddlers should use public road crossings for access; do not treat nearby banks, gravel bars, ranch roads, or cabins as casual stops or camps.",
+        "Use same-day USGS 08178880, recent rain, local weather, and Bandera-area water-quality information before launch because Hill Country rivers can rise quickly after storms and low flows can leave a 12.5-mile route scrape-prone."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08178880",
+      "provider": "usgs",
+      "siteId": "08178880",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Medina Rv at Bandera, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08178880/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "tooLow": 30,
+      "idealMin": 300,
+      "idealMax": 1500,
+      "tooHigh": 2000,
+      "thresholdSource": {
+        "label": "Texas Rivers Protection Association Medina River guidance",
+        "url": "https://txrivers.org/discover-texas-rivers/medina-river/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "TRPA frames the lower Medina as runnable when water is present but cautions that drought can make levels too low and floods can make the river hazardous. Use the direct Bandera gauge and city water-quality information before committing to the long downstream run to English Crossing.",
+      "difficulty": "moderate",
+      "difficultyNotes": "TRPA classifies the Medina as Class I-III overall; this downstream run stays moderate because it is 12.5 miles, starts below a do-not-run dam, has mostly private banks, can be shallow at current near-floor flows, and remains exposed to wood, fences, blind bends, and fast Hill Country rises.",
+      "confidenceNotes": "Confidence is good for a conservative Texas add: TRPA lists Bandera City Park Dam-to-English Crossing as a 12.5-mile featured Medina River run, publishes map links that resolve to endpoint access anchors, says to use public road crossings because almost all adjacent property is private, and provides lower-Medina 30 / 300-1,500 / 2,000 cfs flow guidance. USGS 08178880 is product-supported and returned current discharge and stage during this run. Bandera City Park supplies current hours, fees, no-camping rules, dam restrictions, and water-quality reference context."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Bandera City Park Dam to English Crossing, 12.5 mi",
+        "note": "TRPA lists Bandera City Park Dam to English Crossing as a featured Main Medina run and gives the route mileage.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
+      },
+      {
+        "label": "Public access coordinates",
+        "value": "29.7222995, -99.0702231 to 29.6819834, -98.9758513",
+        "note": "TRPA's Bandera City Park Dam and English Crossing map links resolve to these Google Maps access anchors; they are not guessed mid-channel water-entry points.",
+        "sourceUrl": "https://goo.gl/maps/uF6gbjbcAdXYVKVf8"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 08178880 at 54.8 cfs / 4.25 ft",
+        "note": "USGS Water Services returned same-day Medina River discharge and gage height at Bandera at 2026-08-12 11:45 CDT, directly at the route's upstream access area.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08178880&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold posture",
+        "value": "30 cfs floor; 300-1,500 cfs ideal; 2,000 cfs ceiling",
+        "note": "TRPA says the Medina needs about 30 cfs from town of Medina and below, is ideal around 300-1,500 cfs, and should not be attempted above about 2,000 cfs.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
+      },
+      {
+        "label": "Camping",
+        "value": "Nearby basecamp only",
+        "note": "Bandera City Park rules prohibit camping. TRPA says the only public camping along the Medina River is Pioneer River Resort in Bandera; no private-bank, gravel-bar, road-crossing, or park camping is inferred.",
+        "sourceUrl": "https://www.banderatx.gov/park"
+      },
+      {
+        "label": "Safety",
+        "value": "Do-not-run dam, private banks, low water, floods and long-day exposure",
+        "note": "TRPA flags the City Park dam with a do-not-run warning and warns that low water can require dragging while high flows require strong navigation skills; Bandera City Park rules also prohibit standing or swimming near the dam.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/medina-river/"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded TRPA, Bandera city, Commons, USGS, local tourism, trip-report, and same-route web review found route-context photos but no clearly rights-clean exact Bandera-to-English-Crossing paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Medina+River+Bandera+English+Crossing+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "TRPA Medina River",
+        "url": "https://txrivers.org/discover-texas-rivers/medina-river/",
+        "provider": "local"
+      },
+      {
+        "label": "TRPA Bandera City Park Dam map link",
+        "url": "https://goo.gl/maps/uF6gbjbcAdXYVKVf8",
+        "provider": "local"
+      },
+      {
+        "label": "TRPA English Crossing map link",
+        "url": "https://goo.gl/maps/iur11xjRyC3Tzhdn8",
+        "provider": "local"
+      },
+      {
+        "label": "Bandera City Park rules",
+        "url": "https://www.banderatx.gov/park",
         "provider": "local"
       },
       {

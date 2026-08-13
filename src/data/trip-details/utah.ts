@@ -150,5 +150,62 @@ export const utahRiverTripDetails: Record<string, RiverTripDetails> = {
         "New Zealand mudsnail decontamination guidance applies to boats, wading boots, and river gear."
       ]
     }
+  },
+  "green-river-little-hole-indian-crossing": {
+    "putIn": {
+      "id": "little-hole-boat-launch-area",
+      "name": "Little Hole Boat Launch Area",
+      "latitude": 40.910719,
+      "longitude": -109.315144
+    },
+    "takeOut": {
+      "id": "indian-crossing-campground",
+      "name": "Indian Crossing Campground / Browns Park take-out",
+      "latitude": 40.898831,
+      "longitude": -109.183372
+    },
+    "logistics": {
+      "distanceLabel": "About 9.0 mi",
+      "estimatedPaddleTime": "About 4 hr to 6 hr for prepared groups; longer with fishing, low water, wind, scouting, or an overnight camp plan",
+      "shuttle": "Stage the take-out at Indian Crossing in Browns Park before launching at Little Hole. The take-out involves a long remote-road shuttle, including gravel and steep grades depending on the route used; verify road conditions, fuel, daylight, and vehicle suitability before committing.",
+      "permits": "BLM says permits are required for commercial float boating only and that no permit is required for personal use from Flaming Gorge Dam to Dinosaur National Monument at Ladore Canyon. Recreation fees, campground reservations, fire/toilet rules, posted closures, and commercial permits can still apply.",
+      "camping": "Section B has official float-in overnight support, not casual dispersed camping. Recreation.gov lists 17 river camps in Section B that are accessed only by hiking or floating in; use reservable/assigned camps, carry the required portable toilet system, pack out trash, and do not imply camping on private banks or undesignated stops.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Little Hole and take out at Indian Crossing for the remote Green River Section B float through Browns Park. Use the Greendale gauge and release schedule, plan the long shuttle, reserve/confirm any float-in camp, and treat Red Creek and cold dam-release water as the main safety gates.",
+      "accessCaveats": [
+        "Little Hole is an Ashley National Forest / Flaming Gorge National Recreation Area boat-launch facility with published coordinates, fees, restrooms, and seasonal potable water.",
+        "Indian Crossing is a BLM campground and river access in Browns Park with published coordinates, first-come developed campsites, toilets, and river-use rules.",
+        "The stored endpoint coordinates are public-agency access anchors, not surveyed water-entry pixels. Use the signed ramp/landing, current parking layout, and posted agency rules on arrival.",
+        "The Browns Park approach can be remote, gravel, steep, and slow. Do not rely on last-minute cell service or a casual shuttle plan.",
+        "Stay with public launches, assigned/reservable float camps, and legal stops. Do not infer private-bank camping or access from proximity to the river."
+      ],
+      "watchFor": [
+        "Cold tailwater and hourly Flaming Gorge Dam release changes; the river can become colder, higher, and swifter during elevated releases.",
+        "Red Creek rapid and Red Creek sediment pulses. Visit Utah warns this is the largest rapid on the reach and can be difficult at low water because of multiple large boulders.",
+        "Remote-road shuttle exposure, limited services, long retrieval time, and a consequential missed take-out.",
+        "Required life jackets under BLM rules, plus spare propulsion, throw rope, repair kit, first aid, warm layers, and a group communication plan.",
+        "Fishing guide traffic, wading anglers, camp reservation conflicts, fire restrictions, toilet-system requirements, and pack-out obligations."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "little-hole-boat-launch-area",
+        "name": "Little Hole Boat Launch Area",
+        "latitude": 40.910719,
+        "longitude": -109.315144,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Ashley National Forest publishes this as the Green River Section B boat launch."
+      },
+      {
+        "id": "indian-crossing-campground",
+        "name": "Indian Crossing Campground / Browns Park take-out",
+        "latitude": 40.898831,
+        "longitude": -109.183372,
+        "mileFromStart": 9,
+        "segmentKind": "creek",
+        "note": "Default take-out at the BLM Indian Crossing campground and river access in Browns Park."
+      }
+    ]
   }
 };

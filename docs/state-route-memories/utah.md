@@ -1,6 +1,16 @@
 # Utah Route Memory
 
-Last summarized: 2026-08-09.
+Last summarized: 2026-08-13.
+
+## 2026-08-13 Implementation
+
+- Added `green-river-little-hole-indian-crossing` as a guarded Green River Section B route from Little Hole to Indian Crossing / Browns Park.
+- This was treated as a materially new official package under the Utah saturation caveat, not a broad Utah reopening: Ashley National Forest publishes Little Hole as the Section B boat launch with coordinates, BLM publishes Indian Crossing Campground coordinates and river-use rules, Recreation.gov documents Section B float-in camps, and USGS 09234500 returned live Green River near Greendale data at 2,150 cfs / 9.63 ft on 2026-08-13 07:30 MDT.
+- Thresholds are conservative minimum-only at 1,000 cfs. American Whitewater ties the broader Flaming Gorge-to-Lodore reach to the Greendale gauge and exposes a runnable range, but the app does not infer an ideal or high-water band for this exact remote 9-mile Section B card.
+- Camping is classified `on_route_campsite`: Recreation.gov lists 17 Section B river camps accessed only by hiking or floating in; route copy requires assigned/reservable camps, portable toilet system, trash pack-out, and no inferred private-bank/dispersed camping.
+- Safety package records cold dam-release water, hourly 2026 Flaming Gorge release fluctuations, remote Browns Park shuttle exposure, Red Creek rapid/boulder difficulty, PFD requirements, and take-out logistics.
+- Image result: bounded no-image. Forest Service / BLM / Recreation.gov / Commons / same-route web review found agency context imagery but no exact Section B paddling asset selected for local reuse.
+- Geometry and coordinate results: canonical geometry generated; route-scoped coordinate audit returned review offsets, not failures, with Little Hole 184 ft from the matched Green River flowline and within 46 ft of mapped waterbody, and Indian Crossing 180 ft from a topology-connected Green River trace.
 
 ## 2026-08-09 Saturation Audit
 
@@ -12,13 +22,13 @@ Last summarized: 2026-08-09.
 
 ## Current Inventory
 
-- Live routes: 3.
+- Live routes: 4.
 - Rivers represented: Colorado River, Green River, Ogden River.
 - Ledger candidates: 6 total; 3 added/implemented, 1 blocked Weber manual-coordinate/access lead, 1 Provo no-live-gauge lead, 1 San Juan research-later multi-day/permit-model lead.
 
 ## Status
 
-Utah now has three implemented seed routes: Green River below Flaming Gorge Dam to Little Hole, Colorado River Hittle Bottom to Takeout Beach / Moab Daily, and Ogden River Lorin Farr Park to Crystal Wave.
+Utah now has four implemented seed routes: Green River below Flaming Gorge Dam to Little Hole, Green River Little Hole to Indian Crossing, Colorado River Hittle Bottom to Takeout Beach / Moab Daily, and Ogden River Lorin Farr Park to Crystal Wave.
 
 ## Main Blockers
 
@@ -48,4 +58,4 @@ Utah now has three implemented seed routes: Green River below Flaming Gorge Dam 
 - Do not rerun broad Utah cadence on the same blocked Weber candidate.
 - Revisit Weber only with manager/AW-grade endpoint coordinates and access authority.
 - Favor official river management, AW route/gauge linkage, and conservative whitewater scoring.
-- Next useful Utah task: look for another same-day, public-access route with product-supported live gauge and source-backed numeric thresholds outside the shipped Green, Colorado, and Ogden routes; do not promote San Juan until permitted multi-day handling is product-approved.
+- Next useful Utah task: do not reopen Utah broadly; only consider another materially new official route/access/gauge package outside the shipped Green, Colorado, and Ogden routes, and do not promote San Juan until permitted multi-day handling is product-approved.

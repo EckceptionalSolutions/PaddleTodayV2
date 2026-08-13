@@ -15,6 +15,21 @@ const contributions = root.querySelector('[data-operations-contributions]');
 const githubStatus = root.querySelector('[data-operations-github-status]');
 const openPrs = root.querySelector('[data-operations-open-prs]');
 const githubFailures = root.querySelector('[data-operations-github-failures]');
+const tabButtons = [...root.querySelectorAll('[data-operations-tab]')];
+const tabPanels = [...root.querySelectorAll('[data-operations-panel]')];
+
+function selectOperationsTab(tabName) {
+  const selected = tabName || 'overview';
+  tabButtons.forEach((button) => {
+    const active = button.dataset.operationsTab === selected;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-selected', String(active));
+  });
+  tabPanels.forEach((panel) => {
+    panel.hidden = panel.dataset.operationsPanel !== selected;
+  });
+  try { sessionStorage.setItem('paddletoday-operations-tab', selected); } catch {}
+}
 
 function showAuthenticated(authenticated) {
   if (privatePanel instanceof HTMLElement) privatePanel.hidden = !authenticated;
@@ -47,7 +62,7 @@ async function loadOperations() {
 loginForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (!(password instanceof HTMLInputElement)) return;
-  if (status instanceof HTMLElement) status.textContent = 'Signing in…';
+  if (status instanceof HTMLElement) status.textContent = 'Signing in...';
   const response = await fetch('/api/admin/session', {
     method: 'POST',
     headers: { 'content-type': 'application/json', accept: 'application/json' },
@@ -71,5 +86,13 @@ logout?.addEventListener('click', async () => {
   await fetch('/api/admin/logout', { method: 'POST', headers: { accept: 'application/json' } });
   showAuthenticated(false);
 });
+
+tabButtons.forEach((button) => {
+  button.addEventListener('click', () => selectOperationsTab(button.dataset.operationsTab));
+});
+
+let savedTab = 'overview';
+try { savedTab = sessionStorage.getItem('paddletoday-operations-tab') || 'overview'; } catch {}
+selectOperationsTab(savedTab);
 
 checkSession().catch(() => showAuthenticated(false));

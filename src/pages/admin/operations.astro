@@ -47,6 +47,14 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
     </section>
 
     <div data-operations-private hidden>
+      <nav class="operations-tabs" aria-label="Operations sections" data-operations-tabs>
+        <button class="operations-tab is-active" type="button" aria-selected="true" data-operations-tab="overview">Overview</button>
+        <button class="operations-tab" type="button" aria-selected="false" data-operations-tab="operations">Operations</button>
+        <button class="operations-tab" type="button" aria-selected="false" data-operations-tab="work">Work queue</button>
+        <button class="operations-tab" type="button" aria-selected="false" data-operations-tab="coverage">Coverage</button>
+        <button class="operations-tab" type="button" aria-selected="false" data-operations-tab="automations">Automations</button>
+        <button class="operations-tab" type="button" aria-selected="false" data-operations-tab="audit">Audit trail</button>
+      </nav>
       <section class="operations-stats" aria-label="Operations totals">
         <article class="snapshot-card"><span class="snapshot-card__label">Scored routes</span><strong>{snapshot.totals.scored}</strong><small>Qualifying live gauges</small></article>
         <article class="snapshot-card"><span class="snapshot-card__label">Planning routes</span><strong>{snapshot.totals.planning}</strong><small>Excluded from saturation</small></article>
@@ -54,24 +62,27 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
         <article class="snapshot-card"><span class="snapshot-card__label">Route WIP limit</span><strong>1</strong><small>Implementation at a time</small></article>
       </section>
 
-      <section class="operations-section operations-demand" aria-label="Demand inbox summary">
-        <div class="operations-section__head"><div><p class="eyebrow">Demand inbox</p><h2>Requests and contributions</h2></div><p class="muted" data-operations-freshness>Loading runtime demand…</p></div>
+      <section class="operations-section operations-demand" aria-label="Demand inbox summary" data-operations-panel="overview">
+        <p class="operations-explainer">This is the user-driven work signal: route requests, unanswered messages, and submitted trip reports or photos. It is useful context, but sparse demand does not stop route research.</p>
+        <div class="operations-section__head"><div><p class="eyebrow">Demand inbox</p><h2>Requests and contributions</h2></div><p class="muted" data-operations-freshness>Loading runtime demand...</p></div>
         <div class="operations-stats operations-stats--compact">
-          <article class="snapshot-card"><span class="snapshot-card__label">Route requests</span><strong data-operations-route-requests>—</strong><small>Total stored requests</small></article>
-          <article class="snapshot-card"><span class="snapshot-card__label">Need triage</span><strong data-operations-unreplied>—</strong><small>Requests without a reply record</small></article>
-          <article class="snapshot-card"><span class="snapshot-card__label">Pending contributions</span><strong data-operations-contributions>—</strong><small>Trip reports or photos</small></article>
+          <article class="snapshot-card"><span class="snapshot-card__label">Route requests</span><strong data-operations-route-requests>-</strong><small>Total stored requests</small></article>
+          <article class="snapshot-card"><span class="snapshot-card__label">Need triage</span><strong data-operations-unreplied>-</strong><small>Requests without a reply record</small></article>
+          <article class="snapshot-card"><span class="snapshot-card__label">Pending contributions</span><strong data-operations-contributions>-</strong><small>Trip reports or photos</small></article>
         </div>
       </section>
 
-      <section class="operations-section operations-demand" aria-label="GitHub delivery summary">
-        <div class="operations-section__head"><div><p class="eyebrow">Delivery telemetry</p><h2>GitHub checks</h2></div><p class="muted" data-operations-github-status>Loading GitHub statusâ€¦</p></div>
+      <section class="operations-section operations-demand" aria-label="GitHub delivery summary" data-operations-panel="overview">
+        <p class="operations-explainer">These checks tell you whether code delivery is healthy. Open PRs are work awaiting merge; recent failures are signals to investigate, not automatic route blockers.</p>
+        <div class="operations-section__head"><div><p class="eyebrow">Delivery telemetry</p><h2>GitHub checks</h2></div><p class="muted" data-operations-github-status>Loading GitHub status...</p></div>
         <div class="operations-stats operations-stats--compact">
-          <article class="snapshot-card"><span class="snapshot-card__label">Open PRs</span><strong data-operations-open-prs>â€”</strong><small>Read-only repository view</small></article>
-          <article class="snapshot-card"><span class="snapshot-card__label">Recent failures</span><strong data-operations-github-failures>â€”</strong><small>Actions conclusions</small></article>
+          <article class="snapshot-card"><span class="snapshot-card__label">Open PRs</span><strong data-operations-open-prs>-</strong><small>Read-only repository view</small></article>
+          <article class="snapshot-card"><span class="snapshot-card__label">Recent failures</span><strong data-operations-github-failures>-</strong><small>Actions conclusions</small></article>
         </div>
       </section>
 
-      <section class="operations-section operations-demand" aria-label="Operations observability">
+      <section class="operations-section operations-demand" aria-label="Operations observability" data-operations-panel="operations">
+        <p class="operations-explainer">This section answers: are workers producing routes, and if not, why? A no-add run can be healthy when evidence or safety gates correctly reject a weak candidate.</p>
         <div class="operations-section__head"><div><p class="eyebrow">Observability</p><h2>Throughput and blocker signals</h2></div><p class="muted">Derived from the recorded control-plane runs.</p></div>
         <div class="operations-stats operations-stats--compact">
           <article class="snapshot-card"><span class="snapshot-card__label">Route runs / 24h</span><strong>{snapshot.telemetry.throughput.routeRunsLast24h}</strong><small>Research or implementation attempts</small></article>
@@ -89,12 +100,13 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
         <h3>Route package quality by state</h3>
         <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Scored routes</th><th>Average package score</th></tr></thead><tbody>{snapshot.telemetry.routeQualityByState.map((row) => <tr><th scope="row">{row.stateId}</th><td>{row.scoredRoutes}</td><td>{row.averagePackageScore} / 5</td></tr>)}</tbody></table></div>
         <div class="operations-grid-two">
-          <div><h3>Consolidation review queue</h3><p class="muted">{snapshot.telemetry.overlapReview.openItems} open items · {snapshot.telemetry.overlapReview.highConfidenceItems} high-confidence new reviews · generated {snapshot.telemetry.overlapReview.generatedAt ? new Date(snapshot.telemetry.overlapReview.generatedAt).toLocaleString() : 'not yet'}</p><div class="operations-list">{snapshot.telemetry.overlapReview.items.map((item) => <article class="operations-list__row"><div><h3>{item.group}</h3><p class="muted">{item.recommendation}</p><small>{item.routes.length} routes · {item.findingCount} findings · max severity {item.maxSeverity}</small></div><span class={`operations-pill operations-pill--${item.status}`}>{item.category} · {item.status}</span></article>)}{snapshot.telemetry.overlapReview.items.length === 0 && <p class="operations-empty">No persisted consolidation candidates yet.</p>}</div></div>
+          <div><h3>Consolidation review queue</h3><p class="muted">{snapshot.telemetry.overlapReview.openItems} open items - {snapshot.telemetry.overlapReview.highConfidenceItems} high-confidence new reviews - generated {snapshot.telemetry.overlapReview.generatedAt ? new Date(snapshot.telemetry.overlapReview.generatedAt).toLocaleString() : 'not yet'}</p><div class="operations-list">{snapshot.telemetry.overlapReview.items.map((item) => <article class="operations-list__row"><div><h3>{item.group}</h3><p class="muted">{item.recommendation}</p><small>{item.routes.length} routes - {item.findingCount} findings - max severity {item.maxSeverity}</small></div><span class={`operations-pill operations-pill--${item.status}`}>{item.category} - {item.status}</span></article>)}{snapshot.telemetry.overlapReview.items.length === 0 && <p class="operations-empty">No persisted consolidation candidates yet.</p>}</div></div>
           <div><h3>Consolidation guardrails</h3><p class="muted">High-confidence candidates create verifier tasks only. Route deletion, retirement, merging, and family-model changes require explicit review and normal evidence, safety, verification, test, and rollback gates.</p><p class="operations-callout">The route worker must consult this queue before implementing a candidate and record why any overlap risk was cleared.</p></div>
         </div>
       </section>
 
-      <section class="operations-section">
+      <section class="operations-section" data-operations-panel="work">
+        <p class="operations-explainer">Each card is a bounded piece of work. Ready means it can be claimed, in progress means a worker owns it, blocked means a recorded dependency stopped it, and completed means its evidence and gates passed.</p>
         <div class="operations-section__head"><div><p class="eyebrow">Work queue</p><h2>Kanban</h2></div><p class="muted">Read-only until the orchestration contracts are connected to GitHub.</p></div>
         <div class="operations-kanban">
           {laneLabels.map(([lane, label]) => (
@@ -106,7 +118,7 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
                     <div class="operations-task__top"><span class="operations-pill">{task.kind}</span><span class="operations-priority">{task.priority}</span></div>
                     <h4>{task.title}</h4>
                     <p>{task.summary}</p>
-                    <small>{task.owner} · {task.id}</small>
+                    <small>{task.owner} - {task.id}</small>
                   </article>
                 ))}
                 {(taskLanes.get(lane) ?? []).length === 0 && <p class="operations-empty">No work here.</p>}
@@ -116,19 +128,22 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
         </div>
       </section>
 
-      <section class="operations-section">
+      <section class="operations-section" data-operations-panel="coverage">
+        <p class="operations-explainer">Scored routes have a supported live gauge and can count toward a state's done decision. Planning routes are useful research leads, but they do not inflate saturation.</p>
         <div class="operations-section__head"><div><p class="eyebrow">Coverage</p><h2>State saturation</h2></div><p class="muted">Planning routes never count toward saturation.</p></div>
         <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Scored</th><th>Planning</th><th>Coverage</th><th>Status</th><th>Research priority</th></tr></thead><tbody>
-          {snapshot.stateResearchRanking.map((state) => <tr class={state.id === 'MN' ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.scored}</td><td>{state.planning}</td><td>{state.coveragePercent}%</td><td><span class={`operations-pill operations-pill--${state.saturation}`}>{state.done ? 'saturated (audited)' : state.researchStatus.replaceAll('_', ' ')}</span></td><td>{state.done ? '—' : state.researchPriorityScore}</td></tr>)}
+          {snapshot.stateResearchRanking.map((state) => <tr class={state.id === 'MN' ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.scored}</td><td>{state.planning}</td><td>{state.coveragePercent}%</td><td><span class={`operations-pill operations-pill--${state.saturation}`}>{state.done ? 'saturated (audited)' : state.researchStatus.replaceAll('_', ' ')}</span></td><td>{state.done ? '-' : state.researchPriorityScore}</td></tr>)}
         </tbody></table></div>
       </section>
 
-      <section class="operations-section operations-grid-two">
-        <div><div class="operations-section__head"><div><p class="eyebrow">Automation roster</p><h2>Ongoing automations</h2></div></div><div class="operations-list">{snapshot.automations.map((automation) => <article class="operations-list__row"><div><h3>{automation.name}</h3><p class="muted">{automation.schedule} · {automation.owner}</p></div><span class={`operations-pill operations-pill--${automation.status}`}>{automation.status}</span></article>)}</div></div>
-        <div><div class="operations-section__head"><div><p class="eyebrow">Control plane</p><h2>Recent claims</h2></div></div><div class="operations-list">{snapshot.controlPlane.recentClaims.map((claim) => <article class="operations-list__row"><div><h3>{claim.state ?? 'Unknown state'} / {claim.mode ?? 'work'}</h3><p class="muted">{claim.outcome ?? claim.status ?? 'No outcome'} · {claim.candidateIds?.length ?? 0} candidates</p></div><small>{claim.completedAt ? new Date(claim.completedAt).toLocaleDateString() : 'active'}</small></article>)}</div></div>
+      <section class="operations-section operations-grid-two" data-operations-panel="automations">
+        <p class="operations-explainer operations-grid-two__intro">These are the recurring workers and checks. Enabled means scheduled; planned or pilot means present in the design but not fully autonomous.</p>
+        <div><div class="operations-section__head"><div><p class="eyebrow">Automation roster</p><h2>Ongoing automations</h2></div></div><div class="operations-list">{snapshot.automations.map((automation) => <article class="operations-list__row"><div><h3>{automation.name}</h3><p class="muted">{automation.schedule} - {automation.owner}</p></div><span class={`operations-pill operations-pill--${automation.status}`}>{automation.status}</span></article>)}</div></div>
+        <div><div class="operations-section__head"><div><p class="eyebrow">Control plane</p><h2>Recent claims</h2></div></div><div class="operations-list">{snapshot.controlPlane.recentClaims.map((claim) => <article class="operations-list__row"><div><h3>{claim.state ?? 'Unknown state'} / {claim.mode ?? 'work'}</h3><p class="muted">{claim.outcome ?? claim.status ?? 'No outcome'} - {claim.candidateIds?.length ?? 0} candidates</p></div><small>{claim.completedAt ? new Date(claim.completedAt).toLocaleDateString() : 'active'}</small></article>)}</div></div>
       </section>
 
-      <section class="operations-section">
+      <section class="operations-section" data-operations-panel="audit">
+        <p class="operations-explainer">This is the factual history of planning, worker, verifier, and gatekeeper activity. Use it to understand what changed and why a task is waiting.</p>
         <div class="operations-section__head"><div><p class="eyebrow">Audit trail</p><h2>Orchestrator runs</h2></div><p class="muted">Planning passes are recorded before workers are enabled.</p></div>
         <div class="operations-list">
           {snapshot.runs.length > 0 ? snapshot.runs.map((run) => <article class="operations-list__row"><div><h3>{run.workerRole ?? 'orchestrator'} / {run.taskId ?? 'No task'}</h3><p class="muted">{run.summary ?? run.kind}</p></div><span class={`operations-pill operations-pill--${run.status}`}>{run.status}</span></article>) : <p class="operations-empty">No recorded orchestrator runs yet. Use <code>npm run operations:plan -- --record</code> to record the first planning pass.</p>}

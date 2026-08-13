@@ -146,6 +146,62 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "guadalupe-river-kreutzberg-canyon-bergheim-campground": {
+    "putIn": {
+      "id": "kreutzberg-canyon-natural-area",
+      "name": "Kreutzberg Canyon Natural Area",
+      "latitude": 29.8998365,
+      "longitude": -98.6420277
+    },
+    "takeOut": {
+      "id": "bergheim-campground-landing",
+      "name": "Bergheim Campground and River Outfitters landing",
+      "latitude": 29.8928415,
+      "longitude": -98.5582463
+    },
+    "logistics": {
+      "distanceLabel": "About 12.2 mi",
+      "estimatedPaddleTime": "About 5 hr to 8 hr depending on flow, low-water dragging, scouting, group speed, wind, and Bergheim landing or shuttle timing",
+      "shuttle": "Stage Bergheim first only after confirming current private-boat landing, parking, and shuttle terms, then drive back to Kreutzberg Canyon Natural Area. Use the county park river frontage only during posted dawn-to-dusk hours and treat both coordinates as arrival anchors rather than exact water-entry survey points.",
+      "permits": "No route-specific paddling permit is published. Bergheim landing, day-use, camping, or parking fees can apply at the take-out, and prior arrangements may be required for private boats. Follow Texas boating and PFD rules, posted county-park rules, and current Bergheim policies.",
+      "camping": "Use Bergheim Campground as the endpoint campground only with current paid arrangements. Do not infer legal camping from Kreutzberg Canyon Natural Area, private banks, gravel bars, road crossings, or any unposted riverside stop along the 12.2-mile route.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Kreutzberg Canyon Natural Area and take out at Bergheim Campground for a long Upper Guadalupe day run. Use USGS 08167500 near Spring Branch with TRPA's conservative Upper Guadalupe range, then make a same-day call on flow trend, visible low-water crossings, private-bank limits, county-park hours, and Bergheim landing terms.",
+      "accessCaveats": [
+        "Kendall County confirms Kreutzberg Canyon Natural Area has 1,700 feet of Guadalupe River frontage suitable for kayaking and is open dawn to dusk, but it is still a natural-area access rather than a staffed paddling livery.",
+        "Bergheim publishes paid private-boat landing fees and shuttle options. Confirm current fees, parking, check-out timing, and whether prior arrangements are required before depending on it as the take-out.",
+        "TRPA's map links resolve access anchors, not exact wetted-edge launch points. Choose the actual water entry or exit only where current signs, river level, bank conditions, and staff or park rules allow.",
+        "The Spring Branch gauge is downstream of this segment and is used as the product-supported Upper Guadalupe flow check; it does not replace visual scouting of the county-park access, crossings, or Bergheim landing."
+      ],
+      "watchFor": [
+        "Low flows near or below TRPA's 100 cfs floor, when exposed limestone, scraping, dragging, and poor public stopping options become more likely.",
+        "High or rising Hill Country water after storms, when the Guadalupe can rise quickly and low-water crossings, debris, trees, and bends can become consequential.",
+        "Long no-exit stretches with mostly private banks; stop only at legal public or paid access points unless a direct safety portage is unavoidable.",
+        "Rock gardens, ledges, shallow riffles, strainers, fences, and changing lines around bends and bridge or road-crossing approaches.",
+        "Endpoint timing: Kreutzberg is dawn-to-dusk and Bergheim day-use check-out is sunset, so a late start can create a practical access problem."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "kreutzberg-canyon-natural-area",
+        "name": "Kreutzberg Canyon Natural Area",
+        "latitude": 29.8998365,
+        "longitude": -98.6420277,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor; Kendall County confirms public Guadalupe River frontage suitable for kayaking and dawn-to-dusk park hours."
+      },
+      {
+        "id": "bergheim-campground-landing",
+        "name": "Bergheim Campground and River Outfitters landing",
+        "latitude": 29.8928415,
+        "longitude": -98.5582463,
+        "mileFromStart": 12.2,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor; Bergheim publishes paid private-boat landing and endpoint campground terms."
+      }
+    ]
+  },
   "guadalupe-river-fm3351-state-park": {
     "putIn": {
       "id": "fm-3351-bergheim-crossing",
@@ -1759,6 +1815,64 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 9.59,
         "segmentKind": "creek",
         "note": "Default TPWD RACA / leased-access take-out anchor; call ahead for availability, fee, liability form, and shuttle handling."
+      }
+    ]
+  },
+  "brazos-river-spivey-crossing-brazos-river-nature-center": {
+    "putIn": {
+      "id": "spivey-crossing-rv-park",
+      "name": "Spivey Crossing RV Park",
+      "latitude": 31.801114,
+      "longitude": -97.307315
+    },
+    "takeOut": {
+      "id": "brazos-river-nature-center",
+      "name": "Brazos River Nature Center",
+      "latitude": 31.698655,
+      "longitude": -97.279101
+    },
+    "logistics": {
+      "distanceLabel": "About 10-11 mi",
+      "estimatedPaddleTime": "Long half-day to full rural day when Whitney releases and the Aquilla gauge are comfortably above the floor; current below-floor readings can mean shallow bars, dragging, and no-go conditions",
+      "shuttle": "Stage BRNC first only after making the required advance reservation, fee payment, and liability-form arrangements, then return to Spivey Crossing after confirming its call-ahead access, fee, waiver, and loading rules. The stored BRNC point follows TPWD's RACA GIS access geometry; the page's 31.69956, -97.26898 driving coordinate sits inland and should be treated as arrival context. Use current signs, designated trails, and safe banks for the actual entry and exit.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, use Spivey and BRNC only under current TPWD leased-access rules, make required advance arrangements at both properties, and obey all posted access restrictions.",
+      "camping": "Treat this as a day route with nearby-basecamp support only. TPWD notes RV hookups, a river cabin, and a cottage at the adjacent Spivey property, but the public lease use is daylight access; BRNC is primitive with no restrooms or potable water. Do not infer legal camping from bars, private banks, ranch land, or BRNC trails.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Spivey Crossing and take out at Brazos River Nature Center for TPWD's downstream Brazos tailwater option below Lake Whitney. Use the Aquilla gauge with BRA's Brazos flow chart, then confirm Whitney releases, access reservations, current, weather, primitive BRNC logistics, and private-bank limits before leaving a shuttle.",
+      "accessCaveats": [
+        "TPWD publishes Spivey as an active leased access through August 31, 2027. Call before arrival, confirm availability, pay the day-use fee, sign required liability paperwork, and arrange any shuttle handling before using it as the put-in.",
+        "The stored Spivey coordinate is TPWD's RACA GIS access anchor. TPWD's driving latitude/longitude and the route coordinate should both be treated as arrival context, not a surveyed wetted-edge launch point.",
+        "TPWD publishes BRNC as an active leased access through August 31, 2027, but requires 24-hour advance contact, fee payment, and liability paperwork; access is restricted to designated trails and parking areas only.",
+        "The stored BRNC take-out coordinate is TPWD's RACA GIS access point at 31.698655, -97.279101. TPWD's HTML page also lists 31.69956, -97.26898 for driving directions, about 0.6 mi east/inland of the GIS river-access point, so follow current site directions and posted trails rather than treating either point as a surveyed wetted-edge landing.",
+        "BRNC is primitive: TPWD says there are currently no restrooms and no potable water. Carry enough water and do not plan on services at the take-out.",
+        "The route was implemented with USGS 08093100 at 61.4 cfs / 6.13 ft at 2026-08-12 16:00 CDT, far below BRA's 200 cfs paddling minimum. At similar readings, the app should rate the route below floor rather than encouraging a launch."
+      ],
+      "watchFor": [
+        "Flows at or below about 200 cfs on USGS 08093100, when BRA says the Brazos is below the minimum needed for paddling.",
+        "Hydropower peaking or flood releases from Whitney Dam, rising water, fresh basin rainfall, or flows above about 1,200 cfs, when BRA's chart moves into hazardous or worse categories.",
+        "Spivey and BRNC reservation, gate, fee, waiver, shuttle, trail-use, and parking rules; either endpoint can become unavailable if site conditions are too wet, muddy, or full.",
+        "Private banks, ranch roads, low-water bars, driftwood, strainers, possible fences or debris after releases, and rural cell-service gaps.",
+        "Heat, sun exposure, wind on open bends, no potable water or restrooms at BRNC, and the temptation to continue downstream toward Waco without a separate Bosque Bluffs route package."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "spivey-crossing-rv-park",
+        "name": "Spivey Crossing RV Park",
+        "latitude": 31.801114,
+        "longitude": -97.307315,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Existing TPWD RACA / leased-access anchor; call ahead for availability, fee, liability form, and shuttle handling before using it as the put-in."
+      },
+      {
+        "id": "brazos-river-nature-center",
+        "name": "Brazos River Nature Center",
+        "latitude": 31.698655,
+        "longitude": -97.279101,
+        "mileFromStart": 10.5,
+        "segmentKind": "creek",
+        "note": "TPWD RACA GIS leased-access take-out anchor for the downstream float from Spivey; the HTML page's driving coordinate is inland. Advance reservation, fee payment, liability paperwork, designated-trail use, and primitive-site planning are required."
       }
     ]
   },
@@ -4278,6 +4392,62 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 5.9,
         "segmentKind": "creek",
         "note": "American Whitewater public access anchor upstream of the SH 173 / Main Street bridge; this is the mandatory route finish before the dam-restricted area, not permission to continue downstream."
+      }
+    ]
+  },
+  "medina-river-bandera-city-park-dam-english-crossing": {
+    "putIn": {
+      "id": "bandera-city-park-dam",
+      "name": "Bandera City Park Dam",
+      "latitude": 29.7222995,
+      "longitude": -99.0702231
+    },
+    "takeOut": {
+      "id": "english-crossing",
+      "name": "English Crossing",
+      "latitude": 29.6819834,
+      "longitude": -98.9758513
+    },
+    "logistics": {
+      "distanceLabel": "About 12.5 mi",
+      "estimatedPaddleTime": "Full day Bandera-area float when the Medina has enough water; near the 30 cfs lower-Medina floor, expect shallow scraping, dragging, and slower travel",
+      "shuttle": "Stage a legal take-out vehicle at English Crossing first, then return to Bandera City Park during posted park hours. Treat the Bandera City Park Dam coordinate as an access anchor only: start below the dam where current park rules, signs, and safe river-bank conditions permit, and do not run or stand on the dam.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, Bandera City Park hours and fee rules, posted access restrictions, USGS 08178880, local weather, recent rain, and Bandera-area water-quality notices before launching.",
+      "camping": "Treat this as a long day route with nearby-basecamp options only. Bandera City Park rules prohibit camping, and TRPA says Pioneer River Resort in Bandera is the only public camping along the Medina River; private banks, gravel bars, road crossings, city park grounds, and nearby ranch land are not legal route camps.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch below the Bandera City Park Dam access area and take out at English Crossing for a 12.5-mile downstream Medina River day. Use the direct Bandera gauge, expect shallow dragging near today's 55 cfs level, and keep the city-park dam and private banks out of the paddling plan.",
+      "accessCaveats": [
+        "TRPA's Bandera City Park Dam and English Crossing map links resolve to source-backed access anchors; they are not guessed mid-channel water-entry points.",
+        "Bandera City Park is open daily from 8 a.m. to 30 minutes before sundown, charges weekend and holiday entry fees, prohibits camping, prohibits swimming near or standing on the dam, and says water entry is from the river bank only.",
+        "TRPA marks the upstream access with a do-not-run dam warning. Start below the dam only where current city-park rules, signs, and safe bank conditions allow.",
+        "The route was implemented with USGS 08178880 product-live at 54.8 cfs / 4.25 ft at 2026-08-12 11:45 CDT, above the 30 cfs lower-Medina floor but far below the 300 cfs ideal cue.",
+        "TRPA says almost all adjacent Medina River property is private. Keep stops to lawful public access and do not treat private banks, cabins, ranch roads, or gravel bars as public bailout or camping options."
+      ],
+      "watchFor": [
+        "Flows below about 30 cfs at USGS 08178880, when the TRPA lower-Medina minimum is not met and dragging over rock or gravel bars is likely.",
+        "High or rising water after storms, especially above about 300 cfs where TRPA says more navigation skill is needed and near 2,000 cfs where the route should not be attempted.",
+        "The Bandera City Park dam, low-water crossings, low bridges, wood, strainers, blind bends, fences, and flood debris.",
+        "Long-day pacing, heat, limited legal exits, private-property boundaries, road-crossing traffic, park hours, entry fees, and water-quality or closure notices."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "bandera-city-park-dam",
+        "name": "Bandera City Park Dam",
+        "latitude": 29.7222995,
+        "longitude": -99.0702231,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor at the city-park dam area; start only below the dam where posted rules and bank conditions permit, and do not run or stand on the dam."
+      },
+      {
+        "id": "english-crossing",
+        "name": "English Crossing",
+        "latitude": 29.6819834,
+        "longitude": -98.9758513,
+        "mileFromStart": 12.5,
+        "segmentKind": "creek",
+        "note": "TRPA map-link access anchor for the downstream public-road-crossing take-out; confirm current roadside parking and bank conditions on arrival."
       }
     ]
   }

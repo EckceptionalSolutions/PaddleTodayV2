@@ -439,5 +439,159 @@ export const utahRoutes: River[] = [
         "provider": "local"
       }
     ]
+  },
+  {
+    "id": "green-river-little-hole-indian-crossing",
+    "slug": "green-river-little-hole-indian-crossing",
+    "name": "Green River",
+    "reach": "Little Hole to Indian Crossing",
+    "aliases": [
+      "Green River Section B",
+      "Little Hole to Browns Park",
+      "Little Hole to Indian Crossing"
+    ],
+    "state": "Utah",
+    "region": "Northeastern Utah",
+    "routeType": "whitewater",
+    "summary": "Remote Section B tailwater run from Little Hole to Indian Crossing in Browns Park. Ashley National Forest publishes the Little Hole boat-launch coordinates, BLM publishes Indian Crossing campground coordinates and river-use rules, and USGS 09234500 is the direct below-dam Green River gauge.",
+    "statusText": "Use the Green River near Greendale gauge as the direct tailwater check. American Whitewater ties the broader Flaming Gorge-to-Lodore reach to the Greendale gauge and shows a 200-5,000 cfs range; Paddle Today treats 1,000 cfs as a conservative Section B minimum because Red Creek and daily dam-release swings make a full ideal band inappropriate.",
+    "latitude": 40.910719,
+    "longitude": -109.315144,
+    "gaugeSource": {
+      "id": "usgs-09234500",
+      "provider": "usgs",
+      "siteId": "09234500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Green River near Greendale, UT",
+      "detailUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09234500"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "dam_release",
+        "whitewater",
+        "fast_rise",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Treat Section B as remote cold-water moving water, not a casual roadside float; the take-out is down a long Browns Park road and missed logistics carry real consequence.",
+        "Check USGS 09234500 and the current Flaming Gorge release schedule immediately before launching. Reclamation says 2026 releases can fluctuate hourly and elevated releases can make the below-dam river colder, higher, and swifter.",
+        "Visit Utah warns that Red Creek creates the largest rapid on this Green River reach and can be difficult at low water because of multiple large boulders. Scout conditions and use an experienced rower/paddler judgment call."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 1000,
+      "thresholdSource": {
+        "label": "American Whitewater Flaming Gorge-to-Lodore runnable-flow context on the Greendale gauge",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1852/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "low",
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "Flaming Gorge Dam gives this tailwater year-round release support, but Section B is remote and still changes with hourly dam releases, Red Creek sediment pulses, wind, storms, and cold water. Check the gauge, release schedule, weather, shuttle roads, and camp reservations before committing.",
+      "difficulty": "hard",
+      "difficultyNotes": "Section B is commonly described as a slower remote float, but Red Creek can be a serious boulder rapid and the route has cold dam-release water, limited road access, and overnight logistics. It is hidden from default casual discovery as whitewater/swiftwater.",
+      "confidenceNotes": "Confidence is high for route shape, endpoints, live gauge, camping rules, and a conservative floor: Ashley National Forest identifies Little Hole as the Section B boat launch with coordinates; BLM publishes Indian Crossing campground coordinates, river-use rules, PFD requirements, and no private-use permit requirement through Ladore Canyon; Recreation.gov and Visit Utah describe Section B as Little Hole to Indian Crossing/Browns Park with float-in camps; USGS 09234500 returned same-day discharge and stage on 2026-08-13. Threshold confidence remains conservative because AW supports the broader Flaming Gorge-to-Lodore gauge range, while Paddle Today does not infer an ideal or high-water band for this exact 9-mile card."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Live gauge",
+        "value": "USGS 09234500 at 2,150 cfs / 9.63 ft",
+        "note": "USGS Water Services returned Green River near Greendale discharge and gage height at 07:30 MDT on 2026-08-13.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09234500"
+      },
+      {
+        "label": "Route shape",
+        "value": "Section B, about 9 miles",
+        "note": "Visit Utah identifies Section B as Little Hole to Indian Crossing in Browns Park, and Flaming Gorge Country describes the Little Hole-to-Indian-Crossing section as a 9-mile float.",
+        "sourceUrl": "https://www.visitutah.com/articles/green-river-fly-fishing"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "40.910719, -109.315144 to 40.898831, -109.183372",
+        "note": "Ashley National Forest publishes Little Hole Boat Launch coordinates; BLM publishes Indian Crossing Campground geographic coordinates.",
+        "sourceUrl": "https://www.fs.usda.gov/r04/ashley/recreation/little-hole-boat-launch-area"
+      },
+      {
+        "label": "Camping",
+        "value": "Reservable float-in campsites on Section B",
+        "note": "Recreation.gov lists 17 river camps in Section B, accessible only by hiking or floating in. BLM also documents developed camping at Indian Crossing and Bridge Hollow.",
+        "sourceUrl": "https://www.recreation.gov/camping/campgrounds/250036"
+      },
+      {
+        "label": "Safety rules",
+        "value": "Life jackets required; private-use permit not required",
+        "note": "BLM says life jackets are required on the Green River and that permits are required for commercial float boating only, with no permit required for personal use from Flaming Gorge Dam to Dinosaur National Monument at Ladore Canyon.",
+        "sourceUrl": "https://www.blm.gov/visit/indian-crossing-campground"
+      },
+      {
+        "label": "Current dam-release caution",
+        "value": "2026 hourly release fluctuations",
+        "note": "The Bureau of Reclamation says Flaming Gorge releases can fluctuate hourly and that elevated releases can make the Green River below the dam colder, higher, and swifter.",
+        "sourceUrl": "https://www.usbr.gov/uc/water/crsp/cs/fgd.html"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded Forest Service, BLM, Recreation.gov, Commons, and same-route web review found public-agency context images but no exact Section B paddling asset selected for local reuse in this pass.",
+        "sourceUrl": "https://www.blm.gov/visit/indian-crossing-campground"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "USGS 09234500 Green River near Greendale current conditions",
+        "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09234500",
+        "provider": "usgs"
+      },
+      {
+        "label": "Ashley National Forest Little Hole Boat Launch Area",
+        "url": "https://www.fs.usda.gov/r04/ashley/recreation/little-hole-boat-launch-area",
+        "provider": "local"
+      },
+      {
+        "label": "BLM Indian Crossing Campground",
+        "url": "https://www.blm.gov/visit/indian-crossing-campground",
+        "provider": "local"
+      },
+      {
+        "label": "Recreation.gov Green River Float-In Campsites",
+        "url": "https://www.recreation.gov/camping/campgrounds/250036",
+        "provider": "local"
+      },
+      {
+        "label": "Visit Utah Green River Sections Explained",
+        "url": "https://www.visitutah.com/articles/green-river-fly-fishing",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater Green River Flaming Gorge to Lodore",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1852/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "Bureau of Reclamation Flaming Gorge water operations",
+        "url": "https://www.usbr.gov/uc/water/crsp/cs/fgd.html",
+        "provider": "local"
+      }
+    ]
   }
 ];

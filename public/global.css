@@ -1160,17 +1160,105 @@ a {
 
 .operations-section {
   display: grid;
-  gap: 0.9rem;
-  padding: 1rem;
+  gap: 1.15rem;
+  padding: 1.25rem;
   border: 1px solid rgba(16, 35, 45, 0.08);
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.72);
   box-shadow: var(--shadow-soft);
 }
 
+/* The section layout rule above must not override the native hidden state used by tabs. */
+.operations-section[hidden],
+.operations-grid-two[hidden] {
+  display: none !important;
+}
+
+.operations-explainer {
+  max-width: 76rem;
+  margin: -0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.operations-tabs {
+  display: flex;
+  gap: 0.42rem;
+  align-items: center;
+  overflow-x: auto;
+  padding: 0.35rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  background: rgba(248, 244, 237, 0.78);
+  scrollbar-width: none;
+}
+
+.operations-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.operations-tab {
+  flex: 0 0 auto;
+  min-height: 2.1rem;
+  padding: 0.42rem 0.78rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.operations-tab:hover,
+.operations-tab:focus-visible {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.operations-tab.is-active {
+  color: white;
+  background: var(--river-deep);
+  box-shadow: 0 2px 8px rgba(16, 35, 45, 0.14);
+}
+
+.operations-grid-two__intro {
+  grid-column: 1 / -1;
+}
+
 .operations-section__head {
   justify-content: space-between;
   align-items: end;
+  order: 1;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(16, 35, 45, 0.08);
+}
+
+.operations-section > .operations-explainer {
+  order: 2;
+  max-width: 62rem;
+}
+
+.operations-section > :not(.operations-section__head):not(.operations-explainer) {
+  order: 3;
+}
+
+.operations-section .operations-list {
+  max-height: 22rem;
+  overflow-y: auto;
+  padding-right: 0.3rem;
+}
+
+.operations-section .operations-list__row {
+  align-items: flex-start;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(16, 35, 45, 0.07);
+}
+
+.operations-section .operations-list__row:last-child {
+  border-bottom: 0;
 }
 
 .operations-kanban {
@@ -1178,6 +1266,9 @@ a {
   grid-template-columns: repeat(6, minmax(10rem, 1fr));
   gap: 0.6rem;
   overflow-x: auto;
+  max-height: 34rem;
+  padding-bottom: 0.25rem;
+  overflow-y: auto;
 }
 
 .operations-lane {

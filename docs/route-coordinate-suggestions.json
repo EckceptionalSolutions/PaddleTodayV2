@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T09:56:03.287Z",
-  "registryGeneratedAt": "2026-08-02T00:50:43.957Z",
-  "count": 38,
+  "generatedAt": "2026-08-12T21:46:50.260Z",
+  "registryGeneratedAt": "2026-08-12T19:16:46.139Z",
+  "count": 39,
   "autoApplyEligibleCount": 0,
   "items": [
     {
@@ -6065,6 +6065,166 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "brazos-river-spivey-crossing-brazos-river-nature-center",
+      "routeName": "Brazos River",
+      "reach": "Spivey Crossing RV Park to Brazos River Nature Center",
+      "state": "Texas",
+      "endpoint": "takeOut",
+      "endpointName": "Brazos River Nature Center",
+      "current": {
+        "latitude": 31.69956,
+        "longitude": -97.26898
+      },
+      "reason": "Endpoint is 1546 ft from the matched NHD flowline.",
+      "canonicalAccessId": null,
+      "canonicalAccessStatus": null,
+      "sharedRouteCount": 0,
+      "sourceLinks": [
+        {
+          "label": "TPWD Spivey Crossing RV Park",
+          "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/spivey_crossing.phtml",
+          "provider": "local"
+        },
+        {
+          "label": "TPWD Brazos River Nature Center",
+          "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/brazos_river_nature_center.phtml",
+          "provider": "local"
+        },
+        {
+          "label": "Brazos River Authority On The River",
+          "url": "https://brazos.org/about-us/news/news-room/resource-library/on-the-river",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 08093100 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08093100/",
+          "provider": "usgs"
+        },
+        {
+          "label": "USGS 08093100 Water Services current values",
+          "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08093100&parameterCd=00060,00065&siteStatus=all",
+          "provider": "usgs"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 31.699354999999997,
+          "longitude": -97.266115,
+          "distanceFeet": 892.4123827965957,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 10,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 892 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Brazos River",
+          "latitude": 31.695624881965283,
+          "longitude": -97.27083183181851,
+          "distanceFeet": 1546.396020939616,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Brazos River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Brazos River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1546 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Brazos River",
+          "latitude": 31.695624881965283,
+          "longitude": -97.27083183181851,
+          "distanceFeet": 1546.396020939616,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 50,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Brazos River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1546 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "mullet-river-sumac-river-park",
       "routeName": "Mullet River",
       "reach": "Sumac Road to River Park",
@@ -8886,9 +9046,9 @@
         "longitude": -97.16
       },
       "reason": "Endpoint is 1066 ft from the matched NHD flowline.",
-      "canonicalAccessId": null,
-      "canonicalAccessStatus": null,
-      "sharedRouteCount": 0,
+      "canonicalAccessId": "texas--loop-230-highway-95-bridge-access",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
       "sourceLinks": [
         {
           "label": "LCRA Paddle the Colorado",
