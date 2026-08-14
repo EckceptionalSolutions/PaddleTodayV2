@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T22:35:00.000Z",
+  "updatedAt": "2026-08-14T23:25:14.000Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
@@ -19190,31 +19190,54 @@
     },
     {
       "key": "usgs:04026160",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:05:00.000Z",
+      "decisionReason": "USGS 04026160 monitors the Siskiwit River at Cornucopia. Bayfield County and Lake Superior water-trail sources document public shoreline access at Siskiwit Bay, Cornucopia paddling services, and the river mouth/estuary context. A route-capable corridor exists, but the gauge is river-mouth/coastal and no station-specific thresholds, river endpoint pair, Lake Superior hazard package, camping terms, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Siskiwit River Wisconsin"
+      ],
+      "blockers": [
+        "River-mouth/coastal hazard and endpoint package need validation",
+        "Station-specific thresholds need authoritative confirmation",
+        "Camping, coordinates, imagery, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04026160/",
+        "https://www.lostcreekadventures.org/sotrental",
+        "https://www.nwrpc.com/DocumentCenter/View/732/LAKE-SUPERIOR-WATER-TRAIL-GUIDE-High-Resolution?bidId=",
+        "https://www.bayfieldcounty.wi.gov/370/Public-Access-Study-PDF"
+      ]
     },
     {
       "key": "usgs:040263205",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T05:45:00-05:00",
+      "decisionReason": "USGS 040263205 is an active Whittlesey Creek station near Ashland with discharge and stage telemetry. Federal and regional sources document canoe/kayak use in the Whittlesey Creek estuary and Lake Superior coastal complex, but no distinct upstream point-to-point route from the Cherryville Road station has a validated public endpoint, safety, camping/no-camping, coordinate, image, geometry, and station-specific threshold package. The estuary evidence is not treated as direct route coverage for the upstream gauge without that package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Whittlesey Creek / Lake Superior estuary"
+      ],
+      "blockers": [
+        "No validated upstream put-in/take-out pair tied to the Cherryville Road station.",
+        "Estuary and coastal paddling evidence does not establish direct station-corridor thresholds.",
+        "Complete safety, camping/no-camping, coordinate, image, and geometry package is not yet validated."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/040263205/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=040263205",
+        "https://www.fws.gov/refuge/whittlesey-creek/visit-us",
+        "https://www.nwrpc.com/DocumentCenter/View/732/LAKE-SUPERIOR-WATER-TRAIL-GUIDE-High-Resolution?bidId=",
+        "https://www.visitashland.com/files/2017CBBNFbooklet.pdf"
+      ]
     },
     {
       "key": "usgs:04026390",
@@ -19362,17 +19385,27 @@
     },
     {
       "key": "usgs:04026900",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T16:10:00.000Z",
+      "decisionReason": "Iron County documents canoe/kayak access at Potato River Falls campground, while regional paddling guidance warns that the Potato River includes waterfalls and difficult whitewater. The Gurney gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific thresholds, portage/rapid safety package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "station-specific thresholds need authoritative confirmation",
+        "waterfall/rapid and portage safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.co.iron.wi.gov/DocumentCenter/View/605/ICF-15-Year-Comprehensive-Land-Use-Plan-FINAL?bidId=",
+        "https://www.co.iron.wi.gov/Facilities/Facility/Details/Potato-River-Falls-7",
+        "https://wisconsinrivers.org/wp-content/uploads/2018/02/North-Central-FINAL-1.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/04026900/"
+      ]
     },
     {
       "key": "usgs:04027000",
@@ -20401,31 +20434,52 @@
     },
     {
       "key": "usgs:04071765",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:25:00.000Z",
+      "decisionReason": "Wisconsin DNR identifies the Oconto River as popular for paddle and float trips, and the city/county document public river access and canoe/kayak launches. This direct Oconto River gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific thresholds, camping/access rules, safety package, coordinates, imagery, or river-line geometry has been validated for the near-Oconto reach.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public put-in/take-out pair not validated",
+        "station-specific flow thresholds not validated",
+        "camping/access and safety package not validated",
+        "coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://dnr.wisconsin.gov/topic/parks/oconto/recreation",
+        "https://dnr.wisconsin.gov/topic/parks/oconto",
+        "https://cityofoconto.com/oconto-river/",
+        "https://www.ocontocountywi.gov/933/Boat-Landing",
+        "https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/LM_OcontoRiverAccess.pdf"
+      ]
     },
     {
       "key": "usgs:04072076",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T21:25:00.000Z",
+      "decisionReason": "USGS 04072076 monitors Silver Creek at Florist Drive at Oneida. Oneida Nation documents Silver Creek as public access and describes local kayak/canoe programs, while the station is a small 5.01-square-mile stream reach. A route-capable corridor is plausible, but no authoritative endpoint pair, station-specific thresholds, current access terms, safety/camping package, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Silver Creek Wisconsin"
+      ],
+      "blockers": [
+        "Endpoint pair and current public-access terms need validation",
+        "Station-specific thresholds need authoritative confirmation",
+        "Safety, camping, coordinates, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04072076/",
+        "https://oneida-nsn.gov/divisions/human-services/fitness/experiential-adventures/",
+        "https://www.oneidanation.org/environment/"
+      ]
     },
     {
       "key": "usgs:04072150",
@@ -20522,17 +20576,28 @@
     },
     {
       "key": "usgs:04073458",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:15:00.000Z",
+      "decisionReason": "USGS 04073458 monitors the small Roy Creek tributary at Roy Creek Road near Green Lake. USGS reports a recent discharge of about 1.15 cfs, and the Green Lake paddling overview identifies public paddling on Green Lake, Silver Creek, and the Puchyan River rather than a Roy Creek point-to-point route. No authoritative Roy Creek endpoint pair, paddling thresholds, safety/camping package, or supported scored corridor was found.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Roy Creek Wisconsin"
+      ],
+      "blockers": [
+        "No supported public Roy Creek point-to-point paddle corridor",
+        "Gauge is a small tributary and not the nearby Green Lake/Silver Creek/Puchyan route corridor",
+        "No route-quality package with endpoints, thresholds, safety, camping, coordinates, image, and geometry"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04073458",
+        "https://visitgreenlake.com/paddling/",
+        "https://www.greenlakeassociation.org/about-our-lake",
+        "https://www.wisconsinrivertrips.com/segments/fox-river-white-river-locks"
+      ]
     },
     {
       "key": "usgs:040734605",
@@ -20556,31 +20621,53 @@
     },
     {
       "key": "usgs:04073462",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T05:15:00-05:00",
+      "decisionReason": "USGS 04073462 is White Creek at Spring Grove Road near Green Lake, a 3.05-square-mile monitored tributary at a road culvert. The reviewed Green Lake paddling sources describe lake and larger connected-water recreation, but no public point-to-point White Creek paddle corridor or endpoint package. Its telemetry therefore does not establish route relevance for PaddleToday.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No supported public White Creek paddling corridor or endpoint pair found.",
+        "Green Lake paddling references concern the lake and larger connected waters, not this small tributary.",
+        "Telemetry at a road culvert is insufficient for route-capable coverage."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04073462",
+        "https://waterdata.usgs.gov/monitoring-location/04073462/",
+        "https://visitgreenlake.com/paddling/",
+        "https://www.greenlakeassociation.org/about-our-lake",
+        "https://dnr.wisconsin.gov/topic/parks/watertrails"
+      ]
     },
     {
       "key": "usgs:04073466",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T21:45:00.000Z",
+      "decisionReason": "USGS 04073466 is at Spaulding Road on Silver Creek near Green Lake. Green Lake Conservancy and local paddling sources identify Spaulding Bridge Landing as the head of a public Silver Creek Water Trail, and Wisconsin River Trips documents the Spaulding Hill Road to Sunset Park segment. The gauge is route-capable, but station-specific thresholds, complete endpoint/portage package, camping terms, coordinates, imagery, and geometry remain unvalidated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Silver Creek Water Trail Wisconsin",
+        "Puchyan River Wisconsin"
+      ],
+      "blockers": [
+        "Station-specific thresholds need authoritative confirmation",
+        "Endpoint/portage package and route geometry need validation",
+        "Camping, coordinates, imagery, and current access terms need validation"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04073466/",
+        "https://greenlakeconservancy.org/spauldings-bridge/",
+        "https://visitgreenlake.com/paddling/",
+        "https://www.wisconsinrivertrips.com/segments/puchyan-river"
+      ]
     },
     {
       "key": "usgs:04073468",
@@ -20604,17 +20691,27 @@
     },
     {
       "key": "usgs:04073473",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T16:25:00.000Z",
+      "decisionReason": "Green Lake city/chamber sources document a canoe/kayak launch on the Puchyan River, and Wisconsin River Trips documents multiple Puchyan paddle segments with dam and retaining-wall hazards. The Lawson Drive gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific thresholds, portage/safety package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "station-specific thresholds need authoritative confirmation",
+        "dam/retaining-wall and portage safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://visitgreenlake.com/paddling/",
+        "https://www.wisconsinrivertrips.com/segments/puchyan-river",
+        "https://cityofgreenlake.com/wp-content/uploads/sites/34/2022/05/City-of-Green-Lake-Comprehensive-Park-Outdoor-Recreation-Plan-2022-2026.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/04073473/"
+      ]
     },
     {
       "key": "usgs:04073500",
@@ -20673,31 +20770,53 @@
     },
     {
       "key": "usgs:04077400",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T11:30:00-05:00",
+      "decisionReason": "USGS 04077400 is on the Wolf River near Shawano and is historically route-relevant, but the official monitoring page reports no continuous, daily, or field measurement data and the real-time record ended in 2001. The site is also 350 feet below a dam, so its legacy observations cannot support current product telemetry or station-specific paddling thresholds. Retain it as stale_or_unsupported rather than treating gauge presence as current route coverage.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wolf River"
+      ],
+      "blockers": [
+        "USGS monitoring page reports no continuous, daily, or field measurement data.",
+        "Published period of record ends June 2001; no current product-supported telemetry is available.",
+        "Station is immediately below a dam, requiring a separate release/portage safety package even if telemetry returns."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04077400/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04077400",
+        "https://waterdata.usgs.gov/monitoring-location/04077400/statistics/",
+        "https://www.wolfriver.org/explore/paddling",
+        "https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2960wolfriver.html"
+      ]
     },
     {
       "key": "usgs:04077630",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T16:40:00.000Z",
+      "decisionReason": "Wisconsin Trail Guide and American Whitewater document a Red River reach explicitly matched to the Morgan Road gauge, with Class II-III/IV hazards and a minimum flow recommendation. The gauge is route-capable, but no PaddleToday-ready endpoint pair, independently validated thresholds, portage/safety package, camping rules, coordinates, imagery, or geometry has been assembled.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "flow threshold and dam-release policy need independent confirmation",
+        "Class II-III/IV rapid and portage safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://wisconsintrailguide.com/2024/paddle/pdf/guide-red.pdf",
+        "https://wisconsintrailguide.com/paddle/red-river.html",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2313/main",
+        "https://waterdata.usgs.gov/monitoring-location/04077630/"
+      ]
     },
     {
       "key": "usgs:04078500",
@@ -20723,59 +20842,108 @@
     },
     {
       "key": "usgs:04079000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T10:30:00-05:00",
+      "decisionReason": "USGS 04079000 is a live discharge and stage gauge on the Wolf River at New London, a documented paddling corridor with multiple public launches and commercial canoe/kayak access. The gauge is route-capable, but a scored route still lacks a validated station-specific threshold band, selected endpoint pair, camping/access terms, hazard treatment, coordinates, image decision, and river-line geometry package. Keep it blocked rather than publishing a speculative route.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wolf River"
+      ],
+      "blockers": [
+        "No station-specific paddling threshold band has been validated for the New London reach.",
+        "Endpoint pairing, camping/access terms, and Wolf/Embarrass corridor hazard treatment remain incomplete.",
+        "Coordinates, rights-clean image decision, and river-line geometry have not been verified for a scored route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04079000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04079000",
+        "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=314842",
+        "https://www.newlondontourism.com/rivers-2/",
+        "https://www.newlondontourism.com/recreation/",
+        "https://wisconsinrivers.org/wp-content/uploads/2017/12/East_Central_FINAL.pdf"
+      ]
     },
     {
       "key": "usgs:0407991001",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T04:45:00-05:00",
+      "decisionReason": "USGS 0407991001 is an unnamed tributary to the South Branch Little Wolf River near Ogdensburg with only a 40-square-mile-scale local monitoring context and very low observed flows. The reviewed evidence establishes the nearby Little Wolf River as a paddling destination, but no public point-to-point route, water trail, or endpoint package exists for this unnamed tributary; nearby mainstem paddling references do not transfer route relevance to the tributary.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No supported public paddling corridor or endpoint pair for the unnamed tributary.",
+        "Nearby Little Wolf River paddling sources describe the mainstem, not this tributary.",
+        "Telemetry alone is insufficient to make an unnamed tributary route-capable."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=0407991001",
+        "https://waterdata.usgs.gov/monitoring-location/0407991001/",
+        "https://www.wisconsinrivertrips.com/segments/little-wolf-river/ness-road",
+        "https://visitwaupacacounty.com/routes/paddling/little-wolf-river-lower/",
+        "https://dnr.wisconsin.gov/topic/parks/watertrails"
+      ]
     },
     {
       "key": "usgs:04080798",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T03:15:00-05:00",
+      "decisionReason": "USGS 04080798 is an active Tomorrow River station near Nelsonville with discharge and gage-height telemetry, and authoritative regional paddling sources describe the Tomorrow River as a real canoe/kayak corridor from Nelsonville toward Waupaca. However, no current scored route explicitly adopts this direct station with a complete public endpoint, camping, safety, coordinate, image, geometry, and station-specific threshold package. The existing Crystal River route uses a different Tomorrow River key only as a proxy, so this station remains blocked pending a distinct Tomorrow River route package rather than being counted as covered by proxy equivalence.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Tomorrow River Wisconsin"
+      ],
+      "blockers": [
+        "No scored route explicitly adopts the direct Nelsonville station.",
+        "A complete named endpoint, camping/no-camping, safety, coordinate, image, geometry, and station-specific threshold package is not yet validated.",
+        "Existing Crystal River coverage uses a separate Tomorrow River proxy key and does not establish direct coverage for this station."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04080798/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04080798",
+        "https://www.stevenspointarea.com/blog/stories/post/tomorrow-river/",
+        "https://www.wisconsinrivertrips.com/segments/waupaca-river/tomorrow-river",
+        "https://milespaddled.com/tomorrow-river/",
+        "https://wisconsinrivers.org/wp-content/uploads/2017/12/East_Central_FINAL.pdf"
+      ]
     },
     {
       "key": "usgs:04081500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T11:00:00-05:00",
+      "decisionReason": "USGS 04081500 is a live discharge and stage gauge on the Wolf River at Winneconne. Official Wisconsin sources document public access, lake/river boating, and a real Wolf River paddling network, but a scored route still lacks a validated station-specific threshold band, selected endpoint pair, camping/access terms, hazard treatment, coordinates, image decision, and river-line geometry package. Keep it blocked rather than publishing a speculative route.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wolf River"
+      ],
+      "blockers": [
+        "No station-specific paddling threshold band has been validated for the Winneconne reach.",
+        "Endpoint pairing, camping/access terms, and lake/river navigation hazards remain incomplete.",
+        "Coordinates, rights-clean image decision, and river-line geometry have not been verified for a scored route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04081500/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04081500",
+        "https://apps.dnr.wi.gov/lakes/lakepages/LakeDetail.aspx?page=boating&wbic=241600",
+        "https://www.winnebagocountywi.gov/612/Boating",
+        "https://www.wolfriver.org/explore/paddling",
+        "https://wisconsintrailguide.com/2024/paddle/pdf/guide-wolf5.pdf"
+      ]
     },
     {
       "key": "usgs:04082400",
@@ -21278,17 +21446,28 @@
     },
     {
       "key": "usgs:04087088",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T04:15:00-05:00",
+      "decisionReason": "USGS 04087088 is an active Underwood Creek station at Wauwatosa. American Whitewater documents a real whitewater run from Krueger Park to Hoyt Park, but the urban channel has ledges, strainers, foot-entrapment hazards, flashy flows, and documented bacteria concerns. No PaddleToday-ready endpoint, safety, water-quality, camping/no-camping, coordinate, image, geometry, and station-specific threshold package has been validated, so this remains blocked rather than publishing a high-risk speculative route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Underwood Creek Milwaukee"
+      ],
+      "blockers": [
+        "Urban ledges, strainers, flashy flow, and foot-entrapment hazards require a specialist whitewater safety package.",
+        "Wisconsin DNR lists the lower creek as impaired for bacteria/recreational restrictions.",
+        "No complete public endpoint, camping/no-camping, coordinate, image, geometry, and station-specific threshold package is validated."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04087088",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/10405/main",
+        "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=10027",
+        "https://county.milwaukee.gov/EN/Parks/Experience/On-the-Water"
+      ]
     },
     {
       "key": "usgs:04087119",
@@ -21359,31 +21538,48 @@
     },
     {
       "key": "usgs:040871473",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:25:14.000Z",
+      "decisionReason": "USGS 040871473 is Wilson Park Creek at General Mitchell International Airport infall, a small urban airport-drainage monitoring site. Same-run USGS data were current at 0.47 cfs / 10.67 ft, but Milwaukee airport water-quality documentation and USGS station context support runoff/outfall monitoring rather than a public point-to-point paddle corridor.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "airport infall/urban drainage monitoring context",
+        "no public paddling corridor, endpoint pair, thresholds, camping, safety, coordinates, image, or geometry package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/040871473/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=040871473&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://county.milwaukee.gov/files/county/administrative-services/ArchEng/Bids-and-RFPs/RFP5055-19808MKEPFASInvestigation.pdf",
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-WI/USGS-040871473/"
+      ]
     },
     {
       "key": "usgs:040871475",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T06:15:00-05:00",
+      "decisionReason": "USGS 040871475 is Wilson Park Creek at General Mitchell International Airport outfall 7, a 2.25-square-mile urban drainage and airport-outfall monitoring site. USGS and airport water-quality documentation identify the site for runoff and outfall monitoring; no public paddling corridor, endpoint pair, or route-quality package exists. It is screened out rather than treated as a route candidate.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "Airport outfall/urban drainage monitoring context, not a public paddle corridor.",
+        "No supported public endpoint pair, paddling access, or route-quality evidence found.",
+        "Telemetry alone is insufficient for route relevance."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/040871475/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=040871475",
+        "https://county.milwaukee.gov/files/county/administrative-services/ArchEng/Bids-and-RFPs/RFP5055-19808MKEPFASInvestigation.pdf",
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-WI/USGS-040871475/"
+      ]
     },
     {
       "key": "usgs:040871476",
@@ -21477,31 +21673,51 @@
     },
     {
       "key": "usgs:04087214",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:40:00.000Z",
+      "decisionReason": "The Root River watershed plan documents diverse canoe/kayak conditions and public access in the Milwaukee/Racine corridor, while American Whitewater identifies the Greendale reach and access issues. The Grange Avenue gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific thresholds, urban hazard/access package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "station-specific thresholds need authoritative confirmation",
+        "urban access and hazard package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/10998/main",
+        "https://sewrpc.org/SEWRPCFiles/Environment/RootRiverWshedRestorationPlan/capr-316-chapter-04-draft.pdf",
+        "https://rootriver.weebly.com/explore.html",
+        "https://waterdata.usgs.gov/monitoring-location/04087214/"
+      ]
     },
     {
       "key": "usgs:04087220",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T19:10:00.000Z",
+      "decisionReason": "American Whitewater and Wisconsin River Trips document an upper Root River paddling reach near Franklin, while Racine County documents Root River Parkway access. The Franklin gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific thresholds, urban hazard/access package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "station-specific thresholds need authoritative confirmation",
+        "urban access, current, and hazard package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/5027/main",
+        "https://www.wisconsinrivertrips.com/segments/root-river",
+        "https://www.racinecounty.gov/departments/public-works-and-development-services/parks-department/boat-launches",
+        "https://waterdata.usgs.gov/monitoring-location/04087220/"
+      ]
     },
     {
       "key": "usgs:040872342",
@@ -21527,31 +21743,51 @@
     },
     {
       "key": "usgs:04087240",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:55:00.000Z",
+      "decisionReason": "City of Racine documents two Island Park and one Lincoln Park canoe/kayak launches, and the Root River Water Trail documents canoeing/kayaking access points along the corridor. The Racine gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific thresholds, urban hazard/access package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "station-specific thresholds need authoritative confirmation",
+        "urban access, current, and hazard package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://cityofracinewi.gov/parksrec/on-the-water/",
+        "https://www.rootrivertrail.org/trails/water-trails/",
+        "https://rootriver.weebly.com/explore.html",
+        "https://waterdata.usgs.gov/monitoring-location/04087240/"
+      ]
     },
     {
       "key": "usgs:04087257",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T15:40:00.000Z",
+      "decisionReason": "American Whitewater documents a Pike River reach explicitly matched to the Pike River near Racine gauge, while Wisconsin DNR and Racine County document paddling opportunities and public canoe/kayak access in the corridor. The gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific thresholds, camping/access rules, safety package, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs independent validation",
+        "station-specific thresholds need authoritative confirmation",
+        "camping/access and safety package not validated",
+        "coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/3563/main",
+        "https://apps.dnr.wi.gov/water/wsSWIMSDocument.ashx?documentSeqNo=161639464",
+        "https://www.racinecounty.gov/departments/public-works-and-development-services/parks-department/boat-launches",
+        "https://waterdata.usgs.gov/monitoring-location/04087257/"
+      ]
     },
     {
       "key": "usgs:04092677",
@@ -29690,17 +29926,28 @@
     },
     {
       "key": "usgs:05344490",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:25:00.000Z",
+      "decisionReason": "USGS 05344490 monitors the St. Croix River at Prescott at the St. Croix–Mississippi confluence. NPS and Minnesota DNR document the St. Croix National Scenic Riverway and water trail, while Prescott documents canoe/kayak access and the lower river's boating setting. The gauge is route-capable, but exact endpoint pairing, confluence/navigation hazards, wind/current treatment, camping rules, coordinates, imagery, and geometry need validation for a PaddleToday route.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "St. Croix River Wisconsin"
+      ],
+      "blockers": [
+        "Confluence/navigation and wind/current safety package needs validation",
+        "Exact public endpoint pair and station-specific thresholds need confirmation",
+        "Camping, coordinates, imagery, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05344490/",
+        "https://www.nps.gov/sacn/planyourvisit/paddling.htm",
+        "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html",
+        "https://visitprescottwi.com/on-the-water/"
+      ]
     },
     {
       "key": "usgs:05344500",
@@ -30026,17 +30273,28 @@
     },
     {
       "key": "usgs:05359500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:45:00.000Z",
+      "decisionReason": "USGS 05359500 monitors the South Fork Flambeau River near Phillips. Wisconsin DNR documents the South Fork's 15-mile state-forest paddling section, established landings, canoe camping context, and class I-V rapids; American Whitewater and Wisconsin Trail Guide document multiple gauge-linked reaches. The station is route-capable, but route-specific thresholds, segment endpoints, current hazard/portage package, camping rules, coordinates, imagery, and geometry require validation.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Flambeau River Wisconsin"
+      ],
+      "blockers": [
+        "Whitewater-specific thresholds and hazard/portage package need validation",
+        "Segment endpoint, coordinate, image, and geometry package needs validation",
+        "Camping terms and route-level state-forest rules need recording"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05359500/",
+        "https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle",
+        "https://wisconsintrailguide.com/2024/paddle/flambeau-river-south.html",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2295/main"
+      ]
     },
     {
       "key": "usgs:05360500",
@@ -30428,17 +30686,30 @@
     },
     {
       "key": "usgs:05379400",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T03:45:00-05:00",
+      "decisionReason": "USGS 05379400 is an active Trempealeau River station at Arcadia with discharge and gage-height telemetry, and City of Arcadia, Wisconsin DNR, and regional paddling sources document public canoe access and canoeable Trempealeau reaches. No current scored route explicitly adopts the Arcadia station with a complete Arcadia-specific endpoint, camping, safety, coordinate, image, geometry, and threshold package; the existing Whitehall-to-Independence route uses the Dodge gauge as a proxy. The station remains blocked pending a distinct upstream route package rather than being counted as covered by proxy equivalence.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Trempealeau River"
+      ],
+      "blockers": [
+        "No scored route explicitly adopts the Arcadia station.",
+        "Arcadia-specific endpoint, camping/no-camping, safety, coordinate, image, geometry, and threshold evidence is incomplete.",
+        "Existing Whitehall-to-Independence coverage uses the downstream Dodge gauge as a proxy and does not establish direct Arcadia coverage."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05379400/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05379400",
+        "https://www.cityofarcadiawi.com/city_services/parks___rec_program_/parks/schultz_park/",
+        "https://dnr.wisconsin.gov/topic/parks/perrot/recreation/water",
+        "https://wisconsinrivers.org/wp-content/uploads/2019/06/West-Central-FINAL.pdf",
+        "https://milespaddled.com/trempealeau-river-i/"
+      ]
     },
     {
       "key": "usgs:05379500",
@@ -31050,31 +31321,53 @@
     },
     {
       "key": "usgs:05391000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:25:14.000Z",
+      "decisionReason": "USGS 05391000 is active on the Wisconsin River at Rainbow Lake near Lake Tomahawk, and the upper Wisconsin River is a known paddling corridor. Same-run USGS data were current at 508 cfs / 1.97 ft, but no selected point-to-point route tied directly to the Rainbow Lake station cleared station-specific thresholds, public endpoints, camping/no-camping terms, dam/flowage safety handling, coordinates, image, and geometry gates.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wisconsin River / Great Pinery upper river"
+      ],
+      "blockers": [
+        "no selected Rainbow Lake station route",
+        "station-specific numeric paddling thresholds not validated",
+        "upper-river dam/flowage safety, camping, endpoint, coordinate, image, and geometry package incomplete"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05391000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=040871473,05391000,05395000,05398000,05398100,05400760&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://greatpinery.com/safety/",
+        "https://wmcpf.org/great-pinery-heritage-waterway/"
+      ]
     },
     {
       "key": "usgs:05393500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:05:00.000Z",
+      "decisionReason": "USGS 05393500 monitors the Spirit River at Spirit Falls. American Whitewater documents a gauge-linked class II 0.2-mile falls reach, while Wisconsin River Trips documents a longer Spirit River route with severe shallow sections and a dangerous low-head-dam-like Spirit Falls. The gauge is route-capable, but the route must be treated as advanced/high-risk; station-specific thresholds, endpoint/portage package, access, camping, coordinates, imagery, and geometry remain unvalidated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Spirit River Wisconsin"
+      ],
+      "blockers": [
+        "Dangerous Spirit Falls/low-head-dam hazard requires explicit safety treatment",
+        "Station-specific thresholds and endpoint/portage package need validation",
+        "Camping, coordinates, imagery, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05393500/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/10912/main",
+        "https://www.wisconsinrivertrips.com/segments/spirit-river",
+        "https://www.wvic.com/media/files/Spirit_Rec.pdf"
+      ]
     },
     {
       "key": "usgs:05394500",
@@ -31110,17 +31403,29 @@
     },
     {
       "key": "usgs:05395000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:25:14.000Z",
+      "decisionReason": "USGS 05395000 is active at Merrill and Great Pinery Heritage Waterway pages publish named Wisconsin River segments, endpoint coordinates, Merrill-area landings, and portage context. Same-run USGS data were current at 1060 cfs / 4.04 ft, but the evidence still lacks a source-backed numeric station-threshold ladder and a fully validated PaddleToday camping, dam/portage safety, coordinate, image, and geometry package for one selected segment.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wisconsin River / Great Pinery Heritage Waterway"
+      ],
+      "blockers": [
+        "station-specific numeric thresholds tied to USGS 05395000 are not validated",
+        "selected segment still needs full camping, dam/portage safety, coordinate, image, and geometry package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05395000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=040871473,05391000,05395000,05398000,05398100,05400760&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://greatpinery.com/alexander-dam-to-riverside-park-landing/",
+        "https://greatpinery.com/riverside-park-landing-to-brokaw-mill-landing/",
+        "https://greatpinery.com/ada-launches/",
+        "https://www.wisconsinrivertrips.com/segments/wisconsin-river/granite-heights"
+      ]
     },
     {
       "key": "usgs:05396000",
@@ -31182,31 +31487,50 @@
     },
     {
       "key": "usgs:05398000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:25:14.000Z",
+      "decisionReason": "USGS 05398000 is active at Rothschild and Great Pinery references it for Oak Island Park-to-Rothschild Dam and Rothschild Dam-to-Chuck's Landing segments. Same-run USGS data were current at 1150 cfs / 11.96 ft, but no route cleared because the available source package lacks numeric station thresholds plus complete dam-boundary, navigation, camping, coordinates, image, and geometry validation.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wisconsin River / Great Pinery Heritage Waterway"
+      ],
+      "blockers": [
+        "station-specific numeric thresholds tied to USGS 05398000 are not validated",
+        "Rothschild Dam/urban navigation safety and full endpoint/camping/coordinate/image/geometry package incomplete"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05398000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=040871473,05391000,05395000,05398000,05398100,05400760&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://greatpinery.com/safety/",
+        "https://greatpinery.com/rothschild-dam-to-chucks-landing/"
+      ]
     },
     {
       "key": "usgs:05398100",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:25:14.000Z",
+      "decisionReason": "USGS 05398100 is a current Wisconsin River stage-only station at Mosinee. Same-run USGS data returned 10.32 ft at 2026-08-14 18:00 CDT, but no supported discharge metric or route-specific stage threshold, endpoint pair, dam/flowage safety package, camping rules, coordinates, image, or geometry package cleared for a scored PaddleToday route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wisconsin River / middle Wisconsin River"
+      ],
+      "blockers": [
+        "stage-only gauge lacks a validated route-specific threshold interpretation",
+        "no selected public endpoint, dam/flowage safety, camping, coordinate, image, or geometry package cleared"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05398100/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=040871473,05391000,05395000,05398000,05398100,05400760&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://greatpinery.com/safety/"
+      ]
     },
     {
       "key": "usgs:05399500",
@@ -31250,31 +31574,52 @@
     },
     {
       "key": "usgs:05400760",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T10:00:00-05:00",
+      "decisionReason": "USGS 05400760 is a live discharge and stage gauge on a genuinely paddle-relevant Wisconsin River reach between Biron and Nekoosa. Public access is documented at Ben Hanson Park and the Wisconsin River Trips segment identifies launch/take-out options, but the station-specific threshold interpretation, complete paired endpoint package, camping terms, hazard/portage treatment, and verified river-line geometry are not yet assembled to the product quality bar. Keep the gauge route-capable but blocked rather than publishing a speculative scored route.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wisconsin River"
+      ],
+      "blockers": [
+        "No station-specific paddling threshold band has been validated for the Wisconsin Rapids reach.",
+        "A complete named put-in/take-out, camping, safety, and portage package is not yet tied to this gauge.",
+        "River-line geometry and coordinate-near-river verification remain unresolved for a new scored route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05400760/",
+        "https://waterdata.usgs.gov/nwis/dv/?referred_module=sw&site_no=05400760",
+        "https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids",
+        "https://www.wirapids.gov/facilities",
+        "https://www.blm.gov/visit/wisconsin-river-island-portage"
+      ]
     },
     {
       "key": "usgs:05401034",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T21:00:00.000Z",
+      "decisionReason": "USGS 05401034 is the South Branch Tenmile Creek near Bancroft. Wisconsin DNR watershed records identify this area as South Branch Tenmile Creek Ditch #6 and related agricultural drainage features; no authoritative public point-to-point paddle corridor, endpoint pair, or route-quality package was found for this station.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Branch Tenmile Creek Wisconsin"
+      ],
+      "blockers": [
+        "DNR watershed record identifies a drainage/ditch setting near Bancroft rather than a supported paddling corridor",
+        "No public endpoint pair, thresholds, safety, camping, coordinates, image, or geometry package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05401034/",
+        "https://apps.dnr.wi.gov/water/wsSWIMSDocument.ashx?documentSeqNo=126463507",
+        "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=12275"
+      ]
     },
     {
       "key": "usgs:05401050",
@@ -31348,17 +31693,29 @@
     },
     {
       "key": "usgs:05403202",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T07:15:00-05:00",
+      "decisionReason": "USGS 05403202 is the Wisconsin River below Castle Rock Dam near Mauston. USGS confirms stage telemetry immediately downstream of the dam, and Wisconsin DNR/Wisconsin Valley Improvement Company sources document public boating and below-dam access. The gauge exposes stage but not discharge, and no distinct route package with dam/flow-release safety, named endpoints, camping/no-camping, coordinates, imagery, geometry, and station-specific interpretation has been validated. It remains blocked rather than publishing a speculative dam-adjacent route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wisconsin River below Castle Rock Dam"
+      ],
+      "blockers": [
+        "Dam and hydropower releases require route-specific hazard and flow-interpretation treatment.",
+        "Provider inventory exposes gage height but not discharge at this station.",
+        "Complete named endpoint, camping/no-camping, coordinate, image, geometry, and station-specific threshold package is not validated."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05403202",
+        "https://waterdata.usgs.gov/monitoring-location/05403202/",
+        "https://dnr.wisconsin.gov/topic/parks/buckhorn/recreation/water",
+        "https://www.wvic.com/maps/map-15/Castle-Rock-Dam-to-Upper-Dells.php",
+        "https://www.wisconsinriverpower.com/castlerock"
+      ]
     },
     {
       "key": "usgs:05403500",
@@ -32180,59 +32537,100 @@
     },
     {
       "key": "usgs:05423500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:25:00.000Z",
+      "decisionReason": "USGS 05423500 monitors the South Branch Rock River at Waupun. Dodge County and Rock County water-trail materials document the Waupun-to-Horicon Marsh corridor, public access, camping at Waupun County Park, dam portage, and a route-specific 29 cfs reference. The station is clearly route-capable, but current station thresholds, endpoint coordinates, changing logjam/portage conditions, camping terms, imagery, and geometry still need PaddleToday validation.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Branch Rock River Wisconsin"
+      ],
+      "blockers": [
+        "Station-specific thresholds need authoritative confirmation against the published 29 cfs reference",
+        "Current logjam, dam-portage, endpoint, coordinate, image, and geometry package needs validation",
+        "Camping and refuge closure rules need route-specific recording"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05423500/",
+        "https://dodgecountywi.com/lake-river/rock-river-water-trail-northern-water-trail/",
+        "https://www.wisconsinrivertrips.com/segments/rock-river-south-branch",
+        "https://www.co.rock.wi.us/home/showpublisheddocument/278/637756795587170000"
+      ]
     },
     {
       "key": "usgs:05424057",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:40:00.000Z",
+      "decisionReason": "Wisconsin DNR documents the Horicon Marsh paddling route from Greenhead Boat Landing to Horicon, and the City of Horicon documents the Rock River Water Trail with signed access sites. The Horicon gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific threshold policy, marsh water-level/seasonal safety package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "station-specific threshold and marsh conditions need confirmation",
+        "seasonal wildlife-area and marsh safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/horicon/canoeing.html",
+        "https://www.horiconwi.gov/226/Rock-River-Water-Trail",
+        "https://horiconmarsh.org/visit/maps-points-of-interest/",
+        "https://waterdata.usgs.gov/monitoring-location/05424057/"
+      ]
     },
     {
       "key": "usgs:05424081",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T16:55:00.000Z",
+      "decisionReason": "Dodge County, the Rock River Water Trail, and Wisconsin River Trips document paddling through Hustisford with public carry-in access and a dam portage. The Tweedy Street gauge is route-capable, but it reports gage height only and lacks a validated station-specific threshold, endpoint pair, portage/safety package, camping rules, coordinates, imagery, and geometry.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "gage-height threshold needs authoritative confirmation",
+        "named public endpoint pair needs validation",
+        "dam portage and safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://dodgecountywi.com/community/hustisford/",
+        "https://www.co.rock.wi.us/home/showpublisheddocument/278/637756795587170000",
+        "https://www.wisconsinrivertrips.com/segments/rock-river/hustisford",
+        "https://waterdata.usgs.gov/monitoring-location/05424081/"
+      ]
     },
     {
       "key": "usgs:05424157",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:59:00.000Z",
+      "decisionReason": "The Rock River Water Trail documents the Horicon-to-Watertown corridor with public access-site infrastructure, and USGS 05424157 provides live discharge/stage near Lebanon. The gauge is route-capable, but no PaddleToday-ready Lebanon-gauge route cleared because the package lacks a selected endpoint pair, station-specific numeric thresholds, camping/access terms, safety handling, coordinates, image decision, and geometry distinct from already covered Watertown-gauge Rock River routes.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "selected public endpoint pair needs validation for the Lebanon-gauge reach",
+        "station-specific thresholds tied to USGS 05424157 are not validated",
+        "camping/access and safety package not validated",
+        "coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://rockrivertrail.com/water-trail/",
+        "https://dnr.wisconsin.gov/topic/parks/watertrails",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05424157/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05424157&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05425500",
@@ -32308,17 +32706,27 @@
     },
     {
       "key": "usgs:05426031",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:55:00.000Z",
+      "decisionReason": "Wisconsin DNR and Jefferson County water-trail materials document multiple public Rock River access sites and a portage at the Jefferson dam, with a named city boat launch above the dam. The Jefferson gauge is route-capable, but it reports gage height only and lacks a validated station-specific threshold, endpoint pair, portage/safety package, camping rules, coordinates, imagery, and geometry.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "gage-height threshold needs authoritative confirmation",
+        "named public endpoint pair needs validation",
+        "Jefferson dam portage and safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://cms4files.revize.com/jeffersoncountynew/park/Document%20Center/Recreation/Trails/Water%20Trails/Watertrail%20Guide.pdf",
+        "https://ecode360.com/39858552",
+        "https://jeffersonwi.recdesk.com/Community/Facility/Detail?facilityId=29",
+        "https://waterdata.usgs.gov/monitoring-location/05426031/"
+      ]
     },
     {
       "key": "usgs:05426067",
@@ -32372,87 +32780,149 @@
     },
     {
       "key": "usgs:05427085",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:25:00.000Z",
+      "decisionReason": "Rock River Water Trail and Rock County access sources document public paddling access through Fort Atkinson, including a route section without a dam in town and multiple launches. The Fort Atkinson gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific threshold policy, safety package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "station-specific thresholds need authoritative confirmation",
+        "water-trail safety and access package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://rkld.org/wp-content/uploads/2017/03/Exhibit-1-Rock-River-Water-Trail.pdf",
+        "https://www.co.rock.wi.us/home/showpublisheddocument/278/637756795587170000",
+        "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=356113",
+        "https://waterdata.usgs.gov/monitoring-location/05427085/"
+      ]
     },
     {
       "key": "usgs:05427530",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:10:00.000Z",
+      "decisionReason": "Wisconsin DNR and Rock County sources document the reopened Newville boat launch and Rock River paddling access, with regional water-trail materials describing Newville-to-Indianford and downstream sections. The Newville gauge is route-capable, but no PaddleToday-ready endpoint pair, station-specific threshold policy, dam/safety package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "station-specific threshold and flood/slow-no-wake policy need confirmation",
+        "Indianford dam/portage and safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://dnr.wisconsin.gov/newsroom/release/123181",
+        "https://www.rockcounty.org/Portals/0/documents/2026-rcg-digital-version.pdf",
+        "https://rockrivercoalition.org/testing-the-waters-a-paddle-and-probe-adventure/",
+        "https://waterdata.usgs.gov/monitoring-location/05427530/"
+      ]
     },
     {
       "key": "usgs:05427718",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:59:00.000Z",
+      "decisionReason": "DeForest documents upper-Yahara canoe/kayak launch points and USGS 05427718 is a live Windsor gauge, but the Windsor reach does not clear scoring. Public route evidence is negative or caution-heavy: Miles Paddled explicitly rejects the Windsor-to-Yahara-Heights trip, Wisconsin River Trips records warning-level upper-Yahara context, and recent strainer/logjam safety evidence prevents a durable route package.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "negative route recommendation and current strainer/logjam safety evidence",
+        "station-specific thresholds do not support a scoreable same-day recommendation",
+        "selected endpoint, camping/access, coordinate, image, and geometry package not validated",
+        "retry only after manager-grade clearance/current-condition and threshold evidence appears"
+      ],
+      "evidence": [
+        "https://www.deforestwi.gov/282/Yahara-River",
+        "https://www.engagedeforest.com/yahara-river-habitat-and-streambank-restoration-project/canoe-launch",
+        "https://www.wisconsinrivertrips.com/segments/yahara-river",
+        "https://milespaddled.com/yahara-river-ii/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05427718/"
+      ]
     },
     {
       "key": "usgs:05427850",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:59:00.000Z",
+      "decisionReason": "USGS 05427850 is a live Yahara River station at Highway 113/Yahara Heights, and the upper-Yahara route family reaches this corridor. It remains blocked because the available route evidence does not support publication: the Windsor-to-Yahara-Heights trip is explicitly not recommended, upper-Yahara sources warn about down trees/strainers, and no station-specific threshold, safety, camping/access, coordinate, image, or geometry package cleared.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "negative Windsor-to-Yahara-Heights route evidence",
+        "station-specific thresholds and high/low safety model not validated",
+        "current strainer/logjam and Highway 113 access safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://milespaddled.com/yahara-river-ii/",
+        "https://milespaddled.com/yahara-river-paddle-guide/",
+        "https://www.wisconsinrivertrips.com/segments/yahara-river",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05427850/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05427850&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05427880",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:59:00.000Z",
+      "decisionReason": "USGS 05427880 is a live Sixmile Creek gauge at Highway 19 near Waunakee, and paddling evidence exists for the creek. The Highway 19 / upper-Waunakee segment remains blocked because available public evidence emphasizes shallow water, major logjams/portages, bridge/parking constraints, and no durable gauge-threshold model or manager-backed access/camping/safety package.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "upper Sixmile route evidence remains logjam/portage and low-water blocked",
+        "station-specific threshold model tied to USGS 05427880 is not validated",
+        "public access, parking, and safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.wisconsinrivertrips.com/segments/six-mile-creek",
+        "https://milespaddled.com/six-mile-creek-i/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05427880/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05427880&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05427910",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:59:00.000Z",
+      "decisionReason": "USGS 05427910 is a live lower-Sixmile gauge near County M, and Wisconsin River Trips describes Woodland Drive to Governor Nelson State Park as the strongest lower-Sixmile paddle lead. It still does not clear PaddleToday gates because access/parking remains informal, threshold evidence is comment-level and uncertain, and current obstruction/muck/logjam conditions plus camping, coordinates, image, and geometry are not validated by a route manager.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "manager-backed Woodland Drive / Governor Nelson endpoint and parking package not validated",
+        "threshold evidence is informal and explicitly uncertain",
+        "obstruction, muck, and lower-creek safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.wisconsinrivertrips.com/segments/six-mile-creek",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05427910/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05427910&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://dnr.wisconsin.gov/topic/parks/watertrails"
+      ]
     },
     {
       "key": "usgs:05427927",
@@ -32504,45 +32974,76 @@
     },
     {
       "key": "usgs:05427943",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T15:10:00.000Z",
+      "decisionReason": "Friends of Pheasant Branch documents a kayak excursion on Pheasant Branch, and Wisconsin DNR identifies the monitored stream corridor through Middleton. The airport-road gauge is therefore route-capable, but no PaddleToday-ready endpoint pair, station-specific threshold policy, camping/access rules, safety package, coordinates, imagery, or geometry has been validated for this reach.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation for the gauged reach",
+        "station-specific thresholds need authoritative confirmation",
+        "camping/access and safety package not validated",
+        "coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://pheasantbranch.org/event/pheasant-branch-paddle-excursion-with-marshall-boats/",
+        "https://apps.dnr.wi.gov/water/waterDetail.aspx?WBIC=805900",
+        "https://waterdata.usgs.gov/nwis/inventory/?site_no=05427943",
+        "https://www.cityofmiddleton.us/DocumentCenter/View/6167/Pheasant-Branch-2018-Flood-Damage-Assessment-and-Five-Year-Plan"
+      ]
     },
     {
       "key": "usgs:054279465",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:35:00.000Z",
+      "decisionReason": "USGS 054279465 monitors the South Fork Pheasant Branch at Deming Way in Middleton. Friends of Pheasant Branch documents a short beginner paddle excursion from Marshall Boats to the conservancy mouth, while Middleton and Wisconsin DNR sources document the creek corridor and its urban/impaired watershed. A route-capable corridor exists, but no station-specific thresholds, authoritative endpoint pair, current-access package, camping terms, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Pheasant Branch Wisconsin"
+      ],
+      "blockers": [
+        "Station-specific thresholds need authoritative confirmation",
+        "Endpoint pair and current launch/access conditions need validation",
+        "Urban/impaired-water safety package, camping, coordinates, image, and geometry not validated"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/054279465/",
+        "https://pheasantbranch.org/event/pheasant-branch-paddle-excursion-with-marshall-boats/",
+        "https://apps.dnr.wi.gov/water/waterDetail.aspx?WBIC=805900",
+        "https://visitmiddleton.com/location/pheasant-branch-creek-corridor-trail/"
+      ]
     },
     {
       "key": "usgs:05427948",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T15:25:00.000Z",
+      "decisionReason": "This downstream Pheasant Branch gauge is within the same documented paddling corridor as the Airport Road station. Local paddling evidence and Wisconsin DNR water detail establish route relevance, but no station-specific endpoint pair, threshold policy, camping/access rules, safety package, coordinates, imagery, or geometry has been validated for the Middleton station.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation for the Middleton station",
+        "station-specific thresholds need authoritative confirmation",
+        "camping/access and safety package not validated",
+        "coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://pheasantbranch.org/event/pheasant-branch-paddle-excursion-with-marshall-boats/",
+        "https://apps.dnr.wi.gov/water/waterDetail.aspx?WBIC=805900",
+        "https://waterdata.usgs.gov/nwis/inventory/?site_no=05427948",
+        "https://www.cityofmiddleton.us/DocumentCenter/View/6167/Pheasant-Branch-2018-Flood-Damage-Assessment-and-Five-Year-Plan"
+      ]
     },
     {
       "key": "usgs:05428500",
@@ -32582,17 +33083,28 @@
     },
     {
       "key": "usgs:05429369",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:45:00.000Z",
+      "decisionReason": "USGS 05429369 monitors Swan Creek at Lalor Road near Fitchburg. Fitchburg and Dane County sources document cleanup, park, and general waterway stewardship, but no authoritative point-to-point paddle route, public launch pair, or route-quality package for this small urban creek was found; nearby Dane County paddlesport references concern other waterways.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Swan Creek Wisconsin"
+      ],
+      "blockers": [
+        "No supported public Swan Creek point-to-point paddle corridor",
+        "Fitchburg/Dane County materials document stewardship and parks rather than a route package",
+        "No endpoint pair, thresholds, safety, camping, coordinates, image, or geometry package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05429369/",
+        "https://fitchburgwi.gov/2634/Waterway-Cleanups",
+        "https://www.danecountyparks.com/recreation/lake-access-boating/paddlesports",
+        "https://dnr.wisconsin.gov/topic/lands/boataccess"
+      ]
     },
     {
       "key": "usgs:05429500",
@@ -32685,17 +33197,27 @@
     },
     {
       "key": "usgs:05430500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:10:00.000Z",
+      "decisionReason": "Rock County and Wisconsin River Trips document public Afton-area access and gauge-matched Rock River paddling routes. Rock County also publishes a gauge-triggered slow-no-wake rule above 6.5 feet. The Afton gauge is route-capable, but no PaddleToday-ready endpoint pair, complete threshold policy, dam/portage safety package, camping rules, coordinates, imagery, or geometry has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs validation",
+        "threshold and slow-no-wake policy need route-specific confirmation",
+        "dam/portage and safety package not validated",
+        "camping, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.wisconsinrivertrips.com/segments/rock-river",
+        "https://www.co.rock.wi.us/home/showpublisheddocument/278/637756795587170000",
+        "https://www.co.rock.wi.us/departments/sheriff-s-office/recreational-patrol/slow-no-wake",
+        "https://waterdata.usgs.gov/monitoring-location/05430500/"
+      ]
     },
     {
       "key": "usgs:05431016",
@@ -32820,17 +33342,27 @@
     },
     {
       "key": "usgs:05434500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:40:00.000Z",
+      "decisionReason": "The Village of Argyle documents canoe and kayak rentals on the Pecatonica, and Wisconsin River Trips documents a Martintown-gauge-matched state-line reach with public access points and a station-specific reference level. The gauge is route-capable, but no PaddleToday-ready endpoint, threshold policy, camping/access rules, safety package, coordinates, imagery, or geometry package has been validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "named public endpoint pair needs independent validation",
+        "station-specific thresholds need authoritative confirmation",
+        "camping/access and safety package not validated",
+        "coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.argylewi.gov/directory/area-attractions/pecatonica-river/",
+        "https://www.wisconsinrivertrips.com/segments/pecatonica-river/state-line",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05434500",
+        "https://dnr.wisconsin.gov/topic/lands/boataccess"
+      ]
     },
     {
       "key": "usgs:05435500",
@@ -33030,17 +33562,27 @@
     },
     {
       "key": "usgs:05438283",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "proxy",
+      "checkedAt": "2026-08-14T15:55:00.000Z",
+      "decisionReason": "Wisconsin River Trips documents Piscasaw Creek paddle segments and a public canoe access site, but explicitly warns that the Walworth gauge is on a smaller Wisconsin branch and may not represent the downstream route reaches. The provider record is therefore route-capable as a proxy candidate, but no station-specific endpoint, threshold, camping/access, safety, coordinate, image, or geometry package is validated.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "gauge-to-route relationship requires proxy validation",
+        "named public endpoint pair needs independent validation",
+        "station-specific thresholds need authoritative confirmation",
+        "camping/access, safety, coordinate, image, and geometry package not validated"
+      ],
+      "evidence": [
+        "https://www.wisconsinrivertrips.com/segments/piscasaw-creek",
+        "https://www.co.walworth.wi.us/DocumentCenter/View/10647",
+        "https://waterdata.usgs.gov/nwis/inventory/?agency_cd=USGS&site_no=05438283",
+        "https://dnr.wisconsin.gov/topic/lands/boataccess"
+      ]
     },
     {
       "key": "usgs:05438500",
@@ -66949,17 +67491,21 @@
     },
     {
       "key": "usgs:430305089165301",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:55:00.000Z",
+      "decisionReason": "Pennito Creek at Femrite Drive is documented by Madison as an urban watershed and flood-hazard study stream. Madison's official canoe/kayak launch inventory identifies launches on lakes, Yahara River, and Wingra Creek but no Pennito Creek launch or paddling segment; no authoritative recreational route package surfaced for this small urban monitoring reach.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://www.cityofmadison.com/engineering/projects/pennito-creek-watershed-study",
+        "https://www.fitchburgwi.gov/DocumentCenter/View/248/Flood-Storage-District?bidId=",
+        "https://www.cityofmadison.com/parks/find-a-park/water/canoe-kayak-launches"
+      ]
     },
     {
       "key": "usgs:430639089185701",

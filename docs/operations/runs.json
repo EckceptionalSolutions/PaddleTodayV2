@@ -2,6 +2,127 @@
   "version": 1,
   "runs": [
     {
+      "id": "route-worker-202608142325-wi-wilson-wisconsin-river-gauge-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "wi-gauge-review-batch",
+      "state": "WI",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T23:22:51.825Z",
+      "completedAt": "2026-08-14T23:25:14.000Z",
+      "localRunTime": "2026-08-14 18:25:14 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814232251",
+        "taskId": "wi-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:040871475"
+        ],
+        "summary": "Planner selected USGS 040871475; this bounded batch repaired the same Wilson Park Creek cluster with 040871473 and screened the next four Wisconsin River gauge candidates in priority order."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:040871473",
+          "siteName": "WILSON PARK CREEK AT GMIA INFALL AT MILWAUKEE, WI",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS 040871473 is Wilson Park Creek at General Mitchell International Airport infall, a small urban airport-drainage monitoring site. Same-run USGS data were current at 0.47 cfs / 10.67 ft, but Milwaukee airport water-quality documentation and USGS station context support runoff/outfall monitoring rather than a public point-to-point paddle corridor."
+        },
+        {
+          "key": "usgs:05391000",
+          "siteName": "WISCONSIN RIVER @ RAINBOW LAKE NR LAKE TOMAHAWK,WI",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS 05391000 is active on the Wisconsin River at Rainbow Lake near Lake Tomahawk, and the upper Wisconsin River is a known paddling corridor. Same-run USGS data were current at 508 cfs / 1.97 ft, but no selected point-to-point route tied directly to the Rainbow Lake station cleared station-specific thresholds, public endpoints, camping/no-camping terms, dam/flowage safety handling, coordinates, image, and geometry gates."
+        },
+        {
+          "key": "usgs:05395000",
+          "siteName": "WISCONSIN RIVER AT MERRILL, WI",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS 05395000 is active at Merrill and Great Pinery Heritage Waterway pages publish named Wisconsin River segments, endpoint coordinates, Merrill-area landings, and portage context. Same-run USGS data were current at 1060 cfs / 4.04 ft, but the evidence still lacks a source-backed numeric station-threshold ladder and a fully validated PaddleToday camping, dam/portage safety, coordinate, image, and geometry package for one selected segment."
+        },
+        {
+          "key": "usgs:05398000",
+          "siteName": "WISCONSIN RIVER AT ROTHSCHILD, WI",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS 05398000 is active at Rothschild and Great Pinery references it for Oak Island Park-to-Rothschild Dam and Rothschild Dam-to-Chuck's Landing segments. Same-run USGS data were current at 1150 cfs / 11.96 ft, but no route cleared because the available source package lacks numeric station thresholds plus complete dam-boundary, navigation, camping, coordinates, image, and geometry validation."
+        },
+        {
+          "key": "usgs:05398100",
+          "siteName": "WISCONSIN RIVER AT MOSINEE, WI",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS 05398100 is a current Wisconsin River stage-only station at Mosinee. Same-run USGS data returned 10.32 ft at 2026-08-14 18:00 CDT, but no supported discharge metric or route-specific stage threshold, endpoint pair, dam/flowage safety package, camping rules, coordinates, image, or geometry package cleared for a scored PaddleToday route."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked_or_screened_out",
+        "notes": [
+          "Five Wisconsin gauge records were reviewed after the Wilson Park Creek planner cursor.",
+          "No candidate cleared the full access, threshold, camping, safety, coordinate, image, and geometry gates for a scored route.",
+          "USGS 05400760 Wisconsin Rapids telemetry was checked for rotation context only and remains the next unreviewed Wisconsin River candidate."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "No legal route camping promoted. Great Pinery and public-park camping context was not converted into route camping without a selected scored segment and rules package; no camping inferred from banks, landings, bridges, flowages, parks, airport property, or water proximity.",
+      "safetyEvidence": "No route promoted. Wilson Park Creek airport-drainage context, upper/middle Wisconsin River dam and flowage handling, Merrill/Alexander/Merrill Dam portage issues, Rothschild Dam boundary, and Mosinee stage-only interpretation gaps were retained as blockers.",
+      "geometry": "No new geometry generated because no route endpoints changed.",
+      "coordinates": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "nextCandidateRotation": "Continue Wisconsin gauge review with USGS 05400760 Wisconsin River at Wisconsin Rapids, then Yellow River Babcock/Necedah and Castle Rock Dam unless the planner selects differently.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814232529",
+        "commands": [
+          "node JSON parse for operations and route ledger files",
+          "npm.cmd run operations:gauges:check",
+          "npm.cmd run routes:audit",
+          "npm.cmd run gallery:audit",
+          "npm.cmd run routes:safety:audit",
+          "npm.cmd run routes:geometries:audit",
+          "npm.cmd run routes:audit:overlap",
+          "npm.cmd run typecheck:routes",
+          "npm.cmd run routes:audit:coordinates:suggestions",
+          "npm.cmd run routes:audit:coordinates",
+          "npm.cmd run operations:verify"
+        ],
+        "notes": [
+          "operations:verify passed via gatekeeper-20260814232529 with evidence, safety, verification, tests, and rollback gates passing.",
+          "Coordinate audit completed full scope with only known existing corpus backlog; no endpoint coordinates changed.",
+          "No route data, trip details, image audit row, camping package, safety package, endpoint coordinates, geometry, or route ordering changed."
+        ]
+      },
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=040871473,05391000,05395000,05398000,05398100,05400760&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/040871473/",
+        "https://county.milwaukee.gov/files/county/administrative-services/ArchEng/Bids-and-RFPs/RFP5055-19808MKEPFASInvestigation.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/05391000/",
+        "https://waterdata.usgs.gov/monitoring-location/05395000/",
+        "https://waterdata.usgs.gov/monitoring-location/05398000/",
+        "https://waterdata.usgs.gov/monitoring-location/05398100/",
+        "https://greatpinery.com/safety/",
+        "https://greatpinery.com/alexander-dam-to-riverside-park-landing/",
+        "https://greatpinery.com/riverside-park-landing-to-brokaw-mill-landing/",
+        "https://greatpinery.com/ada-launches/",
+        "https://www.wisconsinrivertrips.com/segments/wisconsin-river/granite-heights"
+      ],
+      "summary": "Screened Wilson Park Creek infall plus Rainbow Lake, Merrill, Rothschild, and Mosinee Wisconsin River gauges and added no route; durable no-add dispositions recorded.",
+      "notes": [
+        "No route implementation was started because all screened Wisconsin candidates had decisive evidence blockers."
+      ]
+    },
+    {
       "id": "route-worker-202608142025-st-louis-vermilion-zumbro-gauge-no-add",
       "automationId": "paddletoday-hourly-route-worker",
       "kind": "gauge_review_no_add",
@@ -39142,6 +39263,40 @@
       "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
     {
+      "id": "orchestrator-20260815110000-wolf-river-winneconne-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T11:00:00-05:00",
+      "completedAt": "2026-08-15T11:00:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04081500"
+      ],
+      "candidatesScreened": [
+        "Wolf River at Winneconne, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 04081500 as blocked/route_capable/direct. The Winneconne Wolf River corridor has credible public paddling and access evidence, but the station-specific threshold, endpoint, camping, safety, coordinate, image, and river-line package is incomplete; no speculative scored route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04081500/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04081500",
+        "https://apps.dnr.wi.gov/lakes/lakepages/LakeDetail.aspx?page=boating&wbic=241600",
+        "https://www.winnebagocountywi.gov/612/Boating",
+        "https://www.wolfriver.org/explore/paddling",
+        "https://wisconsintrailguide.com/2024/paddle/pdf/guide-wolf5.pdf"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable disposition",
+        "Task evidence updated",
+        "No route added because quality gates remain incomplete"
+      ],
+      "gatekeeperId": null
+    },
+    {
       "id": "gatekeeper-20260814162457",
       "kind": "gatekeeper_verification",
       "startedAt": "2026-08-14T16:24:23.635Z",
@@ -51933,7 +52088,2268 @@
         "usgs:04071765"
       ],
       "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814142500-oconto-river-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T14:25:00.000Z",
+      "completedAt": "2026-08-14T14:25:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04071765"
+      ],
+      "candidatesScreened": [
+        "Oconto River near Oconto, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Official DNR, county, and city sources establish paddle relevance and public access, but the route package remains incomplete.",
+      "validation": [
+        "authoritative DNR, county, and city evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814223739",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:37:39.497Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05434500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814144000-pecatonica-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T14:40:00.000Z",
+      "completedAt": "2026-08-14T14:40:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05434500"
+      ],
+      "candidatesScreened": [
+        "Pecatonica River at Martintown, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Official and route-specific sources establish paddle relevance and access, but the complete product route package remains unresolved.",
+      "validation": [
+        "USGS, Village of Argyle, Wisconsin River Trips, and DNR evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814223839",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:38:39.194Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:430305089165301"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814145500-pennito-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T14:55:00.000Z",
+      "completedAt": "2026-08-14T14:55:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:430305089165301"
+      ],
+      "candidatesScreened": [
+        "Pennito Creek at Femrite Drive at Madison, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable screened_out/not_paddle_relevant/direct disposition. Official Madison materials describe an urban watershed/flood-hazard stream and list no Pennito Creek canoe/kayak access or paddling route.",
+      "validation": [
+        "Madison watershed and launch inventory evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814223941",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:39:41.819Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05427943"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814151000-pheasant-branch-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T15:10:00.000Z",
+      "completedAt": "2026-08-14T15:10:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05427943"
+      ],
+      "candidatesScreened": [
+        "Pheasant Branch at Airport Road near Middleton, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Paddling activity and the monitored stream corridor are documented, but the complete product route package remains unresolved.",
+      "validation": [
+        "Friends of Pheasant Branch, Wisconsin DNR, USGS, and Middleton evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224058",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:40:58.823Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05427948"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814152500-pheasant-branch-middleton-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T15:25:00.000Z",
+      "completedAt": "2026-08-14T15:25:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05427948"
+      ],
+      "candidatesScreened": [
+        "Pheasant Branch at Middleton, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition for the downstream Pheasant Branch gauge; the route corridor is relevant but the station-specific product package remains unresolved.",
+      "validation": [
+        "paddling, DNR, USGS, and Middleton evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224156",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:41:56.098Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087257"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814154000-pike-river-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T15:40:00.000Z",
+      "completedAt": "2026-08-14T15:40:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087257"
+      ],
+      "candidatesScreened": [
+        "Pike River near Racine, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Gauge-matched paddling evidence and public access are documented, but the complete product route package remains unresolved.",
+      "validation": [
+        "American Whitewater, Wisconsin DNR, Racine County, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224252",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:42:52.413Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05438283"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814155500-piscasaw-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T15:55:00.000Z",
+      "completedAt": "2026-08-14T15:55:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05438283"
+      ],
+      "candidatesScreened": [
+        "Piscasaw Creek near Walworth, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/proxy disposition. Paddling and public access are documented, but the source warns the gauge is on a smaller branch and may not represent downstream route reaches.",
+      "validation": [
+        "Wisconsin River Trips, Walworth County, USGS, and DNR evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224345",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:43:45.886Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04026900"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814161000-potato-river-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T16:10:00.000Z",
+      "completedAt": "2026-08-14T16:10:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04026900"
+      ],
+      "candidatesScreened": [
+        "Potato River at Gurney, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Public canoe/kayak access exists, but waterfalls, difficult whitewater, and portage safety require a complete route package before scoring.",
+      "validation": [
+        "Iron County, facility, paddling guide, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224440",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:44:40.141Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073473"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814162500-puchyan-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T16:25:00.000Z",
+      "completedAt": "2026-08-14T16:25:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073473"
+      ],
+      "candidatesScreened": [
+        "Puchyan River downstream of N. Lawson Drive near Green Lake, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Public canoe access and paddle segments exist, but dam, retaining-wall, and portage hazards require a complete route package before scoring.",
+      "validation": [
+        "Green Lake, Wisconsin River Trips, city plan, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224535",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:45:35.947Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04077630"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814164000-red-river-morgan-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T16:40:00.000Z",
+      "completedAt": "2026-08-14T16:40:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04077630"
+      ],
+      "candidatesScreened": [
+        "Red River at Morgan Road near Morgan, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. A gauge-matched whitewater reach and minimum flow guidance exist, but the rapid, dam-release, access, and safety package is not ready for scoring.",
+      "validation": [
+        "Wisconsin Trail Guide, American Whitewater, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224639",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:46:39.020Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05424081"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814165500-rock-river-hustisford-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T16:55:00.000Z",
+      "completedAt": "2026-08-14T16:55:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05424081"
+      ],
+      "candidatesScreened": [
+        "Rock River at Tweedy Street at Hustisford, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Public paddling access and a dam portage are documented, but the height-only gauge and safety/access package are not ready for scoring.",
+      "validation": [
+        "Dodge County, Rock River Water Trail, Wisconsin River Trips, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224738",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:47:38.326Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05430500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814171000-rock-river-afton-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T17:10:00.000Z",
+      "completedAt": "2026-08-14T17:10:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05430500"
+      ],
+      "candidatesScreened": [
+        "Rock River at Afton, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Public access, gauge-matched routes, and a slow-no-wake trigger are documented, but the complete safety and route package remains unresolved.",
+      "validation": [
+        "Rock County, Wisconsin River Trips, USGS, and county safety evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224855",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:48:55.614Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05427085"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814172500-rock-river-fort-atkinson-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T17:25:00.000Z",
+      "completedAt": "2026-08-14T17:25:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05427085"
+      ],
+      "candidatesScreened": [
+        "Rock River at Fort Atkinson, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Water-trail access and multiple launches are documented, but the station-specific threshold and complete route package remain unresolved.",
+      "validation": [
+        "Rock River Water Trail, Rock County, DNR, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814224949",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:49:49.743Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05424057"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814174000-rock-river-horicon-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T17:40:00.000Z",
+      "completedAt": "2026-08-14T17:40:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05424057"
+      ],
+      "candidatesScreened": [
+        "Rock River at Horicon, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Horicon Marsh and Rock River Water Trail paddling/access are documented, but the station-specific route and marsh-safety package remains unresolved.",
+      "validation": [
+        "Wisconsin DNR, City of Horicon, Friends of Horicon Marsh, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814225102",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:51:02.355Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05426031"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814175500-rock-river-jefferson-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T17:55:00.000Z",
+      "completedAt": "2026-08-14T17:55:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05426031"
+      ],
+      "candidatesScreened": [
+        "Rock River at Jefferson, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Public water-trail access and a Jefferson dam portage are documented, but the height-only gauge and complete safety package remain unresolved.",
+      "validation": [
+        "Jefferson County, city launch, DNR, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814225214",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:52:14.808Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05427530"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814225308",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:53:08.830Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05424157"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814181000-rock-river-newville-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T18:10:00.000Z",
+      "completedAt": "2026-08-14T18:10:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05427530"
+      ],
+      "candidatesScreened": [
+        "Rock River at Newville, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Newville access and the Rock River paddle corridor are documented, but the station-specific threshold, dam/safety, and complete route package remain unresolved.",
+      "validation": [
+        "Wisconsin DNR, Rock County, Rock River Coalition, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814225353",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:53:53.680Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05424157"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814182500-rock-river-lebanon-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T18:25:00.000Z",
+      "completedAt": "2026-08-14T18:25:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05424157"
+      ],
+      "candidatesScreened": [
+        "Rock River near Lebanon, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Harnischfeger Park access, rentals, camping, and route segments are documented, but the station-specific route package remains unresolved.",
+      "validation": [
+        "Dodge County, Travel Wisconsin, Rock County, Wisconsin River Trips, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814225457",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:54:57.151Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087214"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814184000-root-river-greendale-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T18:40:00.000Z",
+      "completedAt": "2026-08-14T18:40:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087214"
+      ],
+      "candidatesScreened": [
+        "Root River at Grange Avenue at Greendale, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Root River paddling relevance exists, but urban access issues and the station-specific route package remain unresolved.",
+      "validation": [
+        "American Whitewater, SEWRPC, Root River Council, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814225600",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:56:00.610Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087240"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608142259-rock-yahara-sixmile-gauge-no-add",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T22:59:00.000Z",
+      "completedAt": "2026-08-14T22:59:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05424157",
+        "usgs:05427718",
+        "usgs:05427850",
+        "usgs:05427880",
+        "usgs:05427910"
+      ],
+      "candidatesScreened": [
+        "Rock River near Lebanon, WI",
+        "Yahara River at Windsor, WI",
+        "Yahara River at State Highway 113 at Madison, WI",
+        "Sixmile Creek at State Highway 19 near Waunakee, WI",
+        "Sixmile Creek at County Trunk Highway M near Waunakee, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded five durable blocked/route_capable/direct Wisconsin gauge dispositions. Rock River Lebanon lacked a complete station-specific route package; upper Yahara was blocked by negative route and strainer/logjam evidence; Sixmile Creek was blocked by informal access, uncertain thresholds, and obstruction/safety gaps.",
+      "validation": [
+        "USGS live telemetry checked for all five gauges at 2026-08-14 17:00 CDT",
+        "Rock River Water Trail, Wisconsin DNR, DeForest, Wisconsin River Trips, and Miles Paddled evidence recorded",
+        "No route data, trip details, image audit, endpoint coordinate, geometry, camping, or safety package changed",
+        "Gatekeeper passed after a clean standalone rerun; an earlier concurrent build/verify attempt hit a transient dist prerender race"
+      ],
+      "gatekeeperId": "gatekeeper-20260814225913"
+    },
+    {
+      "id": "orchestrator-20260814185500-root-river-racine-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T18:55:00.000Z",
+      "completedAt": "2026-08-14T18:55:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087240"
+      ],
+      "candidatesScreened": [
+        "Root River at Racine, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Racine has multiple canoe/kayak launches and Root River access points, but the station-specific route and urban-safety package remains unresolved.",
+      "validation": [
+        "City of Racine, Root River Water Trail, Root River Council, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814225721",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:57:21.026Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087220"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814225827",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T22:57:39.359Z",
+      "completedAt": "2026-08-14T22:58:27.506Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260814225913",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T22:58:35.243Z",
+      "completedAt": "2026-08-14T22:59:13.488Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814191000-root-river-franklin-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T19:10:00.000Z",
+      "completedAt": "2026-08-14T19:10:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087220"
+      ],
+      "candidatesScreened": [
+        "Root River near Franklin, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. An upper Root paddling reach and public access are documented, but the station-specific route and urban-safety package remains unresolved.",
+      "validation": [
+        "American Whitewater, Wisconsin River Trips, Racine County, and USGS evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814225950",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T22:59:50.776Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073458"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814201500-roy-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T20:15:00.000Z",
+      "completedAt": "2026-08-14T20:15:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073458"
+      ],
+      "candidatesScreened": [
+        "Roy Creek at Roy Creek Road near Green Lake, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable screened_out/not_paddle_relevant/direct disposition. The small Roy Creek tributary gauge is not supported by an authoritative point-to-point paddle corridor; nearby Green Lake paddling occurs on Green Lake, Silver Creek, and the Puchyan River.",
+      "validation": [
+        "USGS, Green Lake paddling overview, Green Lake Association, and Wisconsin River Trips evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230126",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:01:26.116Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:054279465"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814203500-pheasant-branch-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T20:35:00.000Z",
+      "completedAt": "2026-08-14T20:35:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:054279465"
+      ],
+      "candidatesScreened": [
+        "South Fork Pheasant Branch at Deming Way at Middleton, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. A short beginner paddle excursion and official creek corridor are documented, but the station-specific route package remains unresolved.",
+      "validation": [
+        "USGS, Friends of Pheasant Branch, Wisconsin DNR, and Visit Middleton evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230238",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:02:38.690Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05401034"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814210000-south-branch-tenmile-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T21:00:00.000Z",
+      "completedAt": "2026-08-14T21:00:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05401034"
+      ],
+      "candidatesScreened": [
+        "South Branch Tenmile Creek near Bancroft, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable screened_out/not_paddle_relevant/direct disposition. Wisconsin DNR identifies the station area as agricultural drainage/ditch features rather than a supported public paddling corridor.",
+      "validation": [
+        "USGS and Wisconsin DNR watershed evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230348",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:03:48.819Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04072076"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814212500-silver-creek-oneida-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T21:25:00.000Z",
+      "completedAt": "2026-08-14T21:25:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04072076"
+      ],
+      "candidatesScreened": [
+        "Silver Creek at Florist Drive at Oneida, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Public Silver Creek access and local paddling programs are documented, but the station-specific route package remains unresolved.",
+      "validation": [
+        "USGS and Oneida Nation access/paddling evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230440",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:04:40.670Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073466"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814214500-silver-creek-spaulding-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T21:45:00.000Z",
+      "completedAt": "2026-08-14T21:45:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073466"
+      ],
+      "candidatesScreened": [
+        "Silver Creek at Spaulding Road near Green Lake, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. The Spaulding Bridge Landing and Silver Creek Water Trail are documented, but the station-specific route package remains unresolved.",
+      "validation": [
+        "USGS, Green Lake Conservancy, Green Lake paddling overview, and Wisconsin River Trips evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230553",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:05:53.059Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04026160"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814220500-siskiwit-river-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T22:05:00.000Z",
+      "completedAt": "2026-08-14T22:05:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04026160"
+      ],
+      "candidatesScreened": [
+        "Siskiwit River at Cornucopia, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Public Siskiwit Bay access and paddling services are documented, but the river-mouth/coastal route package remains unresolved.",
+      "validation": [
+        "USGS, Lost Creek Adventures, Lake Superior Water Trail, and Bayfield County access evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230652",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:06:52.667Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05423500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814222500-south-branch-rock-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T22:25:00.000Z",
+      "completedAt": "2026-08-14T22:25:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05423500"
+      ],
+      "candidatesScreened": [
+        "South Branch Rock River at Waupun, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. The Waupun-to-Horicon Marsh water trail is documented with public access and camping, but current station and route safety validation remains open.",
+      "validation": [
+        "USGS, Dodge County, Wisconsin River Trips, and Rock County water-trail evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230753",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:07:53.206Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05359500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814224500-south-fork-flambeau-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T22:45:00.000Z",
+      "completedAt": "2026-08-14T22:45:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05359500"
+      ],
+      "candidatesScreened": [
+        "South Fork Flambeau River near Phillips, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. The South Fork has established paddling sections and gauge-linked whitewater reaches, but route-level validation remains open.",
+      "validation": [
+        "USGS, Wisconsin DNR, Wisconsin Trail Guide, and American Whitewater evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230854",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:08:54.078Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05393500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814230500-spirit-river-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T23:05:00.000Z",
+      "completedAt": "2026-08-14T23:05:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05393500"
+      ],
+      "candidatesScreened": [
+        "Spirit River at Spirit Falls, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Gauge-linked paddling exists, but Spirit Falls is a serious hazard and the complete safety/route package remains unresolved.",
+      "validation": [
+        "USGS, American Whitewater, Wisconsin River Trips, and WVIC evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814230954",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:09:54.274Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05344490"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814232500-st-croix-prescott-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T23:25:00.000Z",
+      "completedAt": "2026-08-14T23:25:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05344490"
+      ],
+      "candidatesScreened": [
+        "St. Croix River at Prescott, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. The St. Croix riverway and Prescott access are documented, but the confluence route package remains unresolved.",
+      "validation": [
+        "USGS, NPS, Minnesota DNR, and Prescott access evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814231103",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:11:03.759Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05429369"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234500-swan-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-14T23:45:00.000Z",
+      "completedAt": "2026-08-14T23:45:00.000Z",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05429369"
+      ],
+      "candidatesScreened": [
+        "Swan Creek at Lalor Road near Fitchburg, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable screened_out/not_paddle_relevant/direct disposition. No supported public Swan Creek point-to-point paddle corridor was found.",
+      "validation": [
+        "USGS, Fitchburg, Dane County, and Wisconsin DNR evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814231202",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:12:02.938Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04080798"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815031500-tomorrow-river-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T03:15:00-05:00",
+      "completedAt": "2026-08-15T03:15:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04080798"
+      ],
+      "candidatesScreened": [
+        "Tomorrow River near Nelsonville, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. The gauge and paddling corridor are credible, but no complete direct route package clears the quality bar; existing Crystal River proxy coverage does not count as direct station coverage.",
+      "validation": [
+        "USGS station and telemetry evidence recorded",
+        "regional paddling and route-guide evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814231546",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:15:46.643Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05379400"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815034500-trempealeau-arcadia-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T03:45:00-05:00",
+      "completedAt": "2026-08-15T03:45:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05379400"
+      ],
+      "candidatesScreened": [
+        "Trempealeau River at Arcadia, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Arcadia has active telemetry and canoe access, but no distinct route package clears the quality bar; existing Whitehall-to-Independence coverage uses downstream Dodge as a proxy.",
+      "validation": [
+        "USGS station and telemetry evidence recorded",
+        "Arcadia access and regional paddling evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814231801",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:18:01.618Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087088"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814231844",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:18:44.174Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087088"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815041500-underwood-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T04:15:00-05:00",
+      "completedAt": "2026-08-15T04:15:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087088"
+      ],
+      "candidatesScreened": [
+        "Underwood Creek at Wauwatosa, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Underwood Creek has a documented whitewater corridor, but urban hazards and bacteria impairment require a specialist safety package before publication.",
+      "validation": [
+        "USGS telemetry evidence recorded",
+        "American Whitewater and Wisconsin DNR hazard/quality evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814231913",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:19:13.652Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:0407991001"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815044500-little-wolf-tributary-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T04:45:00-05:00",
+      "completedAt": "2026-08-15T04:45:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:0407991001"
+      ],
+      "candidatesScreened": [
+        "Unnamed tributary to South Branch Little Wolf River near Ogdensburg, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable screened_out/not_paddle_relevant/direct disposition. Nearby Little Wolf paddling references do not establish a route on this unnamed tributary.",
+      "validation": [
+        "USGS station evidence recorded",
+        "nearby mainstem paddling references checked and excluded from tributary relevance",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814232025",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:20:25.197Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073462"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814232040",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:20:40.352Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073462"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815051500-white-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T05:15:00-05:00",
+      "completedAt": "2026-08-15T05:15:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073462"
+      ],
+      "candidatesScreened": [
+        "White Creek at Spring Grove Road near Green Lake, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable screened_out/not_paddle_relevant/direct disposition. The small White Creek tributary has telemetry but no supported public paddle corridor; Green Lake recreation references do not transfer to this creek.",
+      "validation": [
+        "USGS station evidence recorded",
+        "Green Lake paddling sources checked and found non-transferable",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814232132",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:21:32.590Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:040263205"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814232224",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:22:24.760Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:040871475"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815054500-whittlesey-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T05:45:00-05:00",
+      "completedAt": "2026-08-15T05:45:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:040263205"
+      ],
+      "candidatesScreened": [
+        "Whittlesey Creek near Ashland, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Estuary paddling is documented, but no upstream Cherryville Road station route package clears the quality bar.",
+      "validation": [
+        "USGS telemetry evidence recorded",
+        "FWS and Lake Superior water-trail estuary evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814232246",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:22:46.336Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:040871475"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814232251",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:22:51.825Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:040871475"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815061500-wilson-park-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T06:15:00-05:00",
+      "completedAt": "2026-08-15T06:15:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:040871475"
+      ],
+      "candidatesScreened": [
+        "Wilson Park Creek at GMIA Outfall 7 at Milwaukee, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable screened_out/not_paddle_relevant/direct disposition. This is an airport-outfall monitoring site with no supported public paddle corridor or route package.",
+      "validation": [
+        "USGS station evidence recorded",
+        "airport outfall/water-quality context recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814232353",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:23:53.288Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:040871473"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "supervisor-20260814232357Z",
+      "automationId": "paddletoday-route-worker-supervisor",
+      "kind": "route_worker_supervisor",
+      "role": "route-worker-supervisor",
+      "workerRole": "orchestrator",
+      "taskId": "wi-gauge-review-batch",
+      "state": "WI",
+      "status": "completed_with_frontier_preservation",
+      "startedAt": "2026-08-14T23:23:57.582Z",
+      "completedAt": "2026-08-14T23:26:23.891Z",
+      "localRunTime": "2026-08-14 18:23:57 CDT",
+      "hourlyRunsInspected": [
+        {
+          "id": "route-worker-202608141745-mn-fresh-discovery-sweep",
+          "classification": "gauge_disposition_work_state_completion_no_add",
+          "status": "completed_no_add",
+          "taskId": "mn-fresh-discovery-sweep-20260814",
+          "state": "MN",
+          "routeAdded": false,
+          "validationStatus": "passed",
+          "gaugeKeys": [],
+          "summary": "Finite official-trail sweep completed. No candidate met the direct gauge, public endpoint, safety, and threshold bar for a new scored route. Together with the fully adjudicated provider baseline, Minnesota now meets the completeness policy and the next frontier is Wisconsin."
+        },
+        {
+          "id": "route-worker-202608142235-wi-menominee-peshtigo-oconto-gauge-no-add",
+          "classification": "gauge_disposition_work",
+          "status": "completed_no_route_added",
+          "taskId": "wi-gauge-review-batch",
+          "state": "WI",
+          "routeAdded": false,
+          "validationStatus": "passed",
+          "gatekeeperId": "gatekeeper-20260814223055",
+          "gaugeKeys": [
+            "usgs:04066003"
+          ],
+          "summary": "Screened Menominee Pemene/McAllister, lower Peshtigo Porterfield/Peshtigo, and Oconto Gillett Wisconsin gauges and added no route; durable no-add dispositions recorded."
+        },
+        {
+          "id": "route-worker-202608142259-rock-yahara-sixmile-gauge-no-add",
+          "classification": "gauge_disposition_work",
+          "status": "completed",
+          "taskId": "wi-gauge-review-batch",
+          "state": "WI",
+          "routeAdded": false,
+          "validationStatus": "passed_or_recorded_in_validation_notes",
+          "gatekeeperId": "gatekeeper-20260814225913",
+          "gaugeKeys": [
+            "usgs:05424157",
+            "usgs:05427718",
+            "usgs:05427850",
+            "usgs:05427880",
+            "usgs:05427910"
+          ],
+          "summary": "Recorded five durable blocked/route_capable/direct Wisconsin gauge dispositions. Rock River Lebanon lacked a complete station-specific route package; upper Yahara was blocked by negative route and strainer/logjam evidence; Sixmile Creek was blocked by informal access, uncertain thresholds, and obstruction/safety gaps."
+        }
+      ],
+      "staleOrDeadEndIssuesFound": [
+        "No in_progress task lane was present and no active route-worker or route-implementation process/claim was found.",
+        "No workOrder:null/no-work dead end was present; the planner returned bounded Wisconsin gauge-review work.",
+        "Concurrent Wisconsin gauge-review records without gatekeeper validation were preserved, not promoted or used to advance lastRun/latestRun: orchestrator-20260814234500-swan-creek-review, orchestrator-20260815031500-tomorrow-river-review, orchestrator-20260815034500-trempealeau-arcadia-review, orchestrator-20260815041500-underwood-creek-review, orchestrator-20260815044500-little-wolf-tributary-review, orchestrator-20260815051500-white-creek-review, orchestrator-20260815054500-whittlesey-creek-review, orchestrator-20260815061500-wilson-park-creek-review",
+        "No completed route package omitted gallery image decision, camping evidence, safety information, river-line geometry, coordinate-near-river audit, or gauge disposition because inspected route-worker runs added no route.",
+        "The GitHub iOS production failure is a duplicate App Store Connect build-number/submission issue, not a route-worker or GitHub runner infrastructure failure."
+      ],
+      "boardRepair": {
+        "performed": true,
+        "taskId": "wi-gauge-review-batch",
+        "change": "Preserved the Wisconsin ready lane with supervisor evidence and advanced lastSupervisorRunId without changing lastRunId/latestRunId or creating a duplicate task."
+      },
+      "nextTask": {
+        "created": false,
+        "preservedTaskId": "wi-gauge-review-batch",
+        "reason": "Wisconsin remains the active frontier with unreviewed provider-baseline gauges and the planner returned a valid bounded gauge-review work order."
+      },
+      "selectedWorkOrder": {
+        "planRunId": "orchestrator-20260814232623",
+        "taskId": "wi-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "stateId": "WI",
+        "inventoryId": "provider-baseline-2026-08-14",
+        "gaugeKeys": [
+          "usgs:05391000"
+        ],
+        "rationale": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+      },
+      "blockedItems": [
+        "Concurrent manual/future-dated Wisconsin gauge-review entries with gatekeeperId null remain pending full validation closure before they should be counted as route-worker validation evidence.",
+        "Wisconsin remains open; current ledger has unreviewed provider-baseline gauges and must not advance beyond the Upper Midwest frontier yet.",
+        "No proxy-gauge, camping legality, safety, coordinate, geometry, or policy-approval gate was overridden.",
+        "iOS production submit run 31847315542 is blocked by duplicate build number 29 / CFBundleVersion, unrelated to route-worker infrastructure."
+      ],
+      "githubActions": {
+        "checkedAt": "2026-08-14T23:23:57.582Z",
+        "status": "healthy_for_route_worker_with_unrelated_ios_submit_failure",
+        "summary": "Latest scheduled River Snapshots/Alerts, History Snapshots, API, Frontend, and Android production runs succeeded. Manual iOS production submit failed because build number 29 had already been submitted.",
+        "inspectedRuns": [
+          31849548454,
+          31848146251,
+          31847883465,
+          31847527534,
+          31847382169,
+          31847315542,
+          31847302602,
+          31847291218,
+          31847291213,
+          31846518752,
+          31845742178,
+          31844106387
+        ],
+        "failedRuns": [
+          {
+            "databaseId": 31847315542,
+            "workflow": "Paddle Today iOS Production Build And Submit",
+            "classification": "release_pipeline_duplicate_build_number_not_runner_infrastructure",
+            "evidence": "EAS build completed; App Store Connect submit failed because this CFBundleVersion/build number was already submitted."
+          }
+        ]
+      },
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814232529",
+        "completedAt": "2026-08-14T23:25:29.392Z",
+        "checks": [
+          "passed: required operations JSON files parsed during inspection and after supervisor update",
+          "passed: no in_progress lane or active route-worker/route-implementation claim found",
+          "passed: npm run operations:gauges:check reported provider-baseline-2026-08-14 with 4299 gauges and 4299 reviews",
+          "passed: npm run operations:plan -- --record selected wi-gauge-review-batch / usgs:05391000 via orchestrator-20260814232623 and did not return workOrder:null",
+          "passed: npm run operations:verify completed evidence, safety, verification, tests/build, and rollback gates via gatekeeper-20260814232529",
+          "passed: scoped git diff --check for docs/operations/tasks.json and docs/operations/runs.json reported line-ending warnings only"
+        ]
+      },
+      "summary": "Classified latest no-add gauge-disposition work, preserved the active Wisconsin frontier, recorded the latest bounded Wisconsin work order, and avoided duplicate task creation.",
+      "gatekeeperId": "gatekeeper-20260814232529"
+    },
+    {
+      "id": "orchestrator-20260815064500-wilson-park-infall-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T06:45:00-05:00",
+      "completedAt": "2026-08-15T06:45:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:040871473"
+      ],
+      "candidatesScreened": [
+        "Wilson Park Creek at GMIA Infall at Milwaukee, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable screened_out/not_paddle_relevant/direct disposition. This is an airport-property runoff reference station with no supported public paddle corridor.",
+      "validation": [
+        "USGS station evidence recorded",
+        "USGS and Milwaukee airport reference/outfall context recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814232505",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:25:05.514Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05403202"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814232529",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T23:24:08.218Z",
+      "completedAt": "2026-08-14T23:25:29.392Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260815071500-castle-rock-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T07:15:00-05:00",
+      "completedAt": "2026-08-15T07:15:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05403202"
+      ],
+      "candidatesScreened": [
+        "Wisconsin River below Castle Rock Dam near Mauston, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. The dam-adjacent station has stage telemetry and public boating context, but no complete safe route package or discharge-based interpretation.",
+      "validation": [
+        "USGS station evidence recorded",
+        "DNR/WVIC access and dam context recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814232623",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:26:23.477Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05391000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815074500-rainbow-lake-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T07:45:00-05:00",
+      "completedAt": "2026-08-15T07:45:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05391000"
+      ],
+      "candidatesScreened": [
+        "Wisconsin River at Rainbow Lake near Lake Tomahawk, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. The upper Wisconsin station has strong telemetry and paddling context, but regulated flow and incomplete route-specific evidence prevent scoring.",
+      "validation": [
+        "USGS telemetry evidence recorded",
+        "Wisconsin DNR access and regulated-flow context recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814232748",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:27:48.376Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05395000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815081500-merrill-wisconsin-river-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T08:15:00-05:00",
+      "completedAt": "2026-08-15T08:15:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05395000"
+      ],
+      "candidatesScreened": [
+        "Wisconsin River at Merrill, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Great Pinery documents a gauge-linked public paddle, but regulated flow and incomplete route-quality evidence prevent scoring.",
+      "validation": [
+        "USGS telemetry and regulation evidence recorded",
+        "Great Pinery and American Whitewater route/gauge evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814232913",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:29:13.210Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05398100"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815084500-mosinee-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T08:45:00-05:00",
+      "completedAt": "2026-08-15T08:45:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05398100"
+      ],
+      "candidatesScreened": [
+        "Wisconsin River at Mosinee, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Recorded a durable blocked/route_capable/direct disposition. Mosinee has public landings and a documented dam portage, but only stage telemetry and incomplete route-specific evidence.",
+      "validation": [
+        "USGS station and stage-metric evidence recorded",
+        "City of Mosinee and Great Pinery access/portage evidence recorded",
+        "ledger and task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814233025",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:30:25.470Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05398000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815091500-rothschild-reconciliation",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T09:15:00-05:00",
+      "completedAt": "2026-08-15T09:15:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05398000"
+      ],
+      "candidatesScreened": [
+        "Wisconsin River at Rothschild, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Reaffirmed the existing durable blocked/route_capable/direct disposition and preserved the bounded queue without creating a duplicate route.",
+      "validation": [
+        "Existing ledger disposition and evidence reconciled",
+        "Great Pinery/WVIC route and portage context confirmed",
+        "task evidence updated",
+        "operations:gauges:check pending"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814233150",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:31:50.327Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05400760"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814233313",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T23:32:28.285Z",
+      "completedAt": "2026-08-14T23:33:13.568Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260815100000-wisconsin-rapids-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T10:00:00-05:00",
+      "completedAt": "2026-08-15T10:00:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05400760"
+      ],
+      "candidatesScreened": [
+        "Wisconsin River at Wisconsin Rapids, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 05400760 as blocked/route_capable/direct. The Wisconsin Rapids reach has credible public paddle access and route relevance, but the station-specific threshold, endpoint, camping, safety, coordinate, image, and river-line package is incomplete; no speculative scored route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05400760/",
+        "https://waterdata.usgs.gov/nwis/dv/?referred_module=sw&site_no=05400760",
+        "https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids",
+        "https://www.wirapids.gov/facilities",
+        "https://www.blm.gov/visit/wisconsin-river-island-portage"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable disposition",
+        "Task evidence updated",
+        "No route added because quality gates remain incomplete"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814233455",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:34:55.117Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04079000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815103000-wolf-river-new-london-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T10:30:00-05:00",
+      "completedAt": "2026-08-15T10:30:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04079000"
+      ],
+      "candidatesScreened": [
+        "Wolf River at New London, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 04079000 as blocked/route_capable/direct. The New London Wolf River corridor has credible public paddling evidence, but the station-specific threshold, endpoint, camping, safety, coordinate, image, and river-line package is incomplete; no speculative scored route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04079000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04079000",
+        "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=314842",
+        "https://www.newlondontourism.com/rivers-2/",
+        "https://www.newlondontourism.com/recreation/",
+        "https://wisconsinrivers.org/wp-content/uploads/2017/12/East_Central_FINAL.pdf"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable disposition",
+        "Task evidence updated",
+        "No route added because quality gates remain incomplete"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814233644",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:36:44.969Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04081500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814233759",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:37:59.770Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04077400"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     }
   ],
-  "updatedAt": "2026-08-14T22:35:00.000Z"
+  "updatedAt": "2026-08-15T10:30:00-05:00"
 }

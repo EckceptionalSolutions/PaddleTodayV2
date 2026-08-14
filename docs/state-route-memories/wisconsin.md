@@ -1,3 +1,19 @@
+
+## 2026-08-14 America/Chicago Wilson Park / Wisconsin River gauge screen
+
+- Screened the bounded Wisconsin frontier batch claimed by `orchestrator-20260814232251`: `usgs:040871473`, `usgs:05391000`, `usgs:05395000`, `usgs:05398000`, and `usgs:05398100`. The planner cursor `usgs:040871475` was already present as a pending screened-out Wilson Park Creek outfall disposition, so this run repaired the same Wilson Park Creek cluster and continued into the next Wisconsin River records.
+- Wilson Park Creek GMIA infall was screened_out/not_paddle_relevant: USGS returned 0.47 cfs / 10.67 ft, but the station is airport drainage / outfall monitoring with no public point-to-point paddle corridor or route package.
+- Wisconsin River Rainbow Lake, Merrill, Rothschild, and Mosinee were blocked/route_capable: live telemetry and Great Pinery / Wisconsin River corridor evidence exist, but no candidate cleared station-specific numeric thresholds, selected endpoint pair, dam/flowage or portage safety handling, camping/no-camping terms, coordinates, rights-clean image decision, and canonical geometry. Mosinee is also stage-only for this review.
+- No route was added; no route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed. Next Wisconsin rotation should start with `usgs:05400760` Wisconsin River at Wisconsin Rapids, then the Yellow River / Castle Rock candidates unless the planner selects differently.
+- Validation passed via `gatekeeper-20260814232529`: JSON parse, operations:gauges:check, route/gallery/safety/geometry/overlap/coordinate audits, coordinate suggestions, typecheck:routes, operations:verify full gates, and git diff --check. Coordinate audit retained only known repo-wide backlog because no endpoints changed.
+
+## 2026-08-14 America/Chicago Rock / Yahara / Sixmile gauge screen
+
+- Screened the next Wisconsin frontier batch claimed by `orchestrator-20260814225308`: `usgs:05424157`, `usgs:05427718`, `usgs:05427850`, `usgs:05427880`, and `usgs:05427910`.
+- Rock River near Lebanon was blocked/route_capable/direct: the Rock River Water Trail documents the corridor and USGS was live at 175 cfs / 4.43 ft, but no Lebanon-gauge route cleared selected endpoint, station-specific threshold, camping/access, safety, coordinate, image, or geometry gates distinct from existing Watertown-gauge cards.
+- Yahara Windsor and Highway 113 were blocked/route_capable/direct: DeForest and paddling sources confirm upper-Yahara access, but Miles Paddled explicitly rejects the Windsor-to-Yahara-Heights trip and WRT/Miles Paddled safety evidence includes warning-level strainer/logjam concerns; no scoreable threshold/safety package cleared.
+- Sixmile Creek Highway 19 and County M were blocked/route_capable/direct: WRT documents creek paddling leads and USGS live telemetry, but upper Sixmile remains low-water/logjam/portage blocked and lower Sixmile depends on informal access/parking plus uncertain comment-level thresholds and unresolved obstruction/muck safety.
+- No route was added; no route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed. Next Wisconsin rotation should resume after `usgs:05427910`, with South Fork Pheasant Branch / Yahara Madison-McFarland / Swan Creek candidates unless the planner selects differently.
 # Wisconsin Route Memory
 
 ## 2026-08-14 America/Chicago Menominee / Peshtigo / Oconto gauge screen
