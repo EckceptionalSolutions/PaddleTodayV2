@@ -2828,6 +2828,148 @@ export const texasRoutes: River[] = [
     ]
   },
   {
+    "id": "colorado-river-texas-river-school-fm973",
+    "slug": "colorado-river-texas-river-school-fm973",
+    "name": "Colorado River",
+    "reach": "Texas River School River Camp to FM 973 / Del Valle Bridge",
+    "aliases": [
+      "Texas River School to FM 973",
+      "River Camp to Del Valle Bridge",
+      "Lower Colorado River Camp to FM 973"
+    ],
+    "state": "Texas",
+    "region": "Prairies and Lakes",
+    "summary": "Short lower-Colorado split from the active TPWD Texas River School leased-access camp in east Austin to LCRA's FM 973 / Del Valle Bridge access. TPWD publishes the River Camp access, camping rules, and five-mile spacing to the Highway 973 take-out, while the Austin USGS gauge gives the product-supported flow check for the Austin-to-Bastrop corridor.",
+    "statusText": "Use the Colorado River at Austin gauge. Treat about 200 cfs as the conservative Austin-to-Bastrop floating floor; at current water above that floor, still confirm the Texas River School reservation, scout the FM 973 landing, and plan around release changes, wind, heat, shallow bars, and private-bank limits.",
+    "latitude": 30.256179,
+    "longitude": -97.634178,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This route intentionally starts at Texas River School, downstream of the urban upstream access sequence where LCRA flags a low-head dam between US 183 and FM 973; do not extend the trip upstream without a separate dam-portage plan.",
+        "LCRA describes FM 973 / Del Valle Bridge as limited parking with an uneven carry to the river; scout the take-out path before launching upstream.",
+        "Use Texas River School and FM 973 / Del Valle Bridge as the public access pair, and do not infer legal casual stops or camping from islands, sandbars, or private shoreline."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08158000",
+      "provider": "usgs",
+      "siteId": "08158000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Colorado Rv at Austin, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08158000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 200,
+      "thresholdSource": {
+        "label": "Texas River Flows lower Colorado Austin-to-Bastrop table",
+        "url": "https://theworld.com/~reichert/riverflo.htm",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 0.35,
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "The short River Camp-to-FM 973 split can work year-round when Texas River School access, releases, runoff, weather, and take-out conditions line up. Low water can expose bars and make the landing awkward, while storms or upstream release changes can quickly alter current, debris, and water quality.",
+      "difficulty": "easy",
+      "difficultyNotes": "The route is short and normally flatwater, but it stays caution-rated because access is reservation-controlled at the put-in, FM 973 has limited parking and an uneven carry, and release-driven flow, wind, heat, debris, and private banks can still matter.",
+      "confidenceNotes": "Confidence is good for a conservative Texas add: TPWD publishes Texas River School as an active leased-access River Camp with latitude/longitude, day-use and campground rules, and the five-mile distance to the Hwy 973 take-out; LCRA publishes FM 973 / Del Valle Bridge as a lower-Colorado access point with coordinates and access caveats; USGS 08158000 is product-supported for the Austin-to-Bastrop corridor; and the legacy Texas River Flows table gives a 200 cfs minimum floating level for Colorado Austin-to-Bastrop. Confidence remains conservative because the numeric floor is broad lower-Colorado guidance rather than a modern manager-published River-Camp-specific band."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route shape",
+        "value": "Texas River School River Camp to FM 973 / Del Valle Bridge, 5 mi",
+        "note": "TPWD states that Texas River School River Camp is five miles upriver from the Hwy 973 take-out, and LCRA lists FM 973 / Del Valle Bridge as a lower-Colorado public access point.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/riverschool.phtml"
+      },
+      {
+        "label": "Public endpoint access",
+        "value": "Active TPWD leased access to LCRA-listed TxDOT bridge access",
+        "note": "TPWD lists Texas River School as a leased-access fishing, boating, paddling, and camping area open by advance reservation through August 31, 2027; LCRA identifies FM 973 / Del Valle Bridge as a TxDOT-managed river access with limited parking and an uneven carry.",
+        "sourceUrl": "https://lcraparks.com/paddle-the-colorado"
+      },
+      {
+        "label": "Access-anchor coordinates",
+        "value": "30.256179, -97.634178 to 30.21, -97.64",
+        "note": "TPWD publishes the Texas River School River Camp latitude/longitude, and LCRA publishes rounded FM 973 / Del Valle Bridge access-anchor coordinates. Treat both as planning anchors and select the actual wetted launch or landing only from signed, open access paths on arrival.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/riverschool.phtml"
+      },
+      {
+        "label": "Product-supported live gauge",
+        "value": "USGS 08158000 at 1160 cfs / 15.34 ft",
+        "note": "USGS Water Services JSON returned same-day Colorado River at Austin discharge and gage height at 2026-08-13 23:50 CDT during this implementation run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08158000&period=P1D&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Conservative low-water floor",
+        "value": "200 cfs minimum-only",
+        "note": "Texas River Flows lists the Colorado Austin-to-Bastrop corridor at 200 / 500 / 1,000 / 3,000 / 5,000 cfs and defines the first tier as minimum floating water; Paddle Today uses only that conservative floor.",
+        "sourceUrl": "https://theworld.com/~reichert/riverflo.htm"
+      },
+      {
+        "label": "Camping and endpoint rules",
+        "value": "Endpoint campground at Texas River School",
+        "note": "TPWD publishes eight primitive campsites at Texas River School with reservation, fee, gate-code, fire, pet, and pack-in/pack-out rules. FM 973 is not a campground, and route camping is not inferred from private banks, islands, or sandbars.",
+        "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/riverschool.phtml"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded TPWD, Texas River School, LCRA, Commons, USGS, and same-route web image review found route-context photos but no clearly rights-clean exact Texas-River-School-to-FM-973 paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Texas+River+School+FM+973+Colorado+River+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "TPWD Texas River School access",
+        "url": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/riverschool.phtml",
+        "provider": "local"
+      },
+      {
+        "label": "LCRA Paddle the Colorado",
+        "url": "https://lcraparks.com/paddle-the-colorado",
+        "provider": "local"
+      },
+      {
+        "label": "Texas River Flows for 5 Levels of Paddling",
+        "url": "https://theworld.com/~reichert/riverflo.htm",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08158000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08158000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08158000 Water Services current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08158000&period=P1D&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "colorado-river-texas-river-school-little-webberville",
     "slug": "colorado-river-texas-river-school-little-webberville",
     "name": "Colorado River",
@@ -7840,6 +7982,162 @@ export const texasRoutes: River[] = [
       {
         "label": "USGS 08074000 Water Services current values",
         "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08074000&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "greens-bayou-brock-adventure-thomas-bell-foster",
+    "slug": "greens-bayou-brock-adventure-thomas-bell-foster",
+    "name": "Greens Bayou",
+    "reach": "Brock Adventure Park to Thomas Bell Foster Park",
+    "aliases": [
+      "Greens Bayou Paddling Trail",
+      "Brock Adventure Park to Thomas Bell Foster Park",
+      "Greens Bayou Regatta route"
+    ],
+    "state": "Texas",
+    "region": "Gulf Coast",
+    "summary": "Official Houston bayou trail from Brock Adventure Park to Thomas Bell Foster Park, with Strickland Park as the middle public launch. TPWD publishes the 7.7-mile route, access coordinates, tidal and private-bank caveats, while USGS 08076000 gives a same-bayou live flow check upstream of the trail.",
+    "statusText": "Use Greens Bayou near Houston as a conservative same-bayou check. Houston Canoe Club found about 25 cfs near the practical low end on this gauge family; below that, expect dragging, shallow spots, and low-tide landings, while tide, wind, storms, wood, and urban water quality can override a simple cfs number.",
+    "latitude": 29.8423,
+    "longitude": -95.2317,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "urban_water_quality",
+        "private_banks",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "TPWD says steep banks and heavy undergrowth make take-outs along the bayou difficult, so plan to use the three public launches instead of improvised banks.",
+        "TPWD says the lower trail has tidal stretches and that flow, tide, and wind affect trip time; cancel when storms, rising water, wind, or low tide make landings unreliable.",
+        "TPWD flags a fish-consumption advisory and wildlife including alligators; treat this as urban-bayou water and avoid unnecessary body contact."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08076000",
+      "provider": "usgs",
+      "siteId": "08076000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Greens Bayou nr Houston, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08076000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 25,
+      "thresholdSource": {
+        "label": "Houston Canoe Club Greens Bayou trip report",
+        "url": "https://thcc.clubexpress.com/content.aspx?club_id=496051&module_id=139482&page_id=22",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 0.55,
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "The official Greens Bayou route can be used year-round when park access, gauge, tide, wind, weather, and water quality cooperate. Treat 25 cfs as a conservative low-water floor only; the lower bayou is tidal, and storms or urban runoff can change current, debris, and water quality quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "TPWD describes the trail as suitable for all skill levels and estimates 2-3.5 hours for the full 7.7 miles, but the route stays caution-rated because tidal stretches, wind, shallow low-water spots, steep banks, heavy undergrowth, alligators, urban water quality, and private-bank limits matter.",
+      "confidenceNotes": "Confidence is good for a conservative Houston add: TPWD publishes the official 7.7-mile Greens Bayou Paddling Trail, exact Brock Adventure Park and Thomas Bell Foster Park coordinates, Strickland Park as a middle public launch, route time, private-property rules, tidal caveats, and safety context; Greens Bayou Coalition confirms the TPWD-designated Brock-to-Thomas-Bell-Foster route opened with the 2025 regatta; USGS 08076000 is product-live on Greens Bayou; Houston Canoe Club gives a same-gauge 25 cfs practical low-water cue. The route ships minimum-only because the threshold is community trip-report evidence and the official lower trail also depends on tide and wind."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route shape",
+        "value": "Brock Adventure Park to Thomas Bell Foster Park, 7.7 mi",
+        "note": "TPWD publishes Greens Bayou as a 7.7-mile official paddling trail through urban Houston and lists Brock Adventure Park, Strickland Park, and Thomas Bell Foster Park as the launch chain.",
+        "sourceUrl": "https://tpwd.texas.gov/boating/paddling-trails/gulf-coast/greens-bayou/"
+      },
+      {
+        "label": "Public access coordinates",
+        "value": "29.8423, -95.2317 to 29.7743, -95.2020",
+        "note": "TPWD publishes GPS coordinates for Brock Adventure Park, Strickland Park, and Thomas Bell Foster Park on the Greens Bayou trail page.",
+        "sourceUrl": "https://tpwd.texas.gov/boating/paddling-trails/gulf-coast/greens-bayou/"
+      },
+      {
+        "label": "Current TPWD designation",
+        "value": "Surveyed and approved by TPWD in 2024; opened with the 2025 regatta",
+        "note": "Greens Bayou Coalition says the trail from Brock Park to Thomas Bell Foster Park was surveyed and approved by TPWD in 2024 and that its opening coincided with the 2025 Greens Bayou Regatta.",
+        "sourceUrl": "https://www.greensbayou.org/parks-trails-recreation"
+      },
+      {
+        "label": "Live gauge support",
+        "value": "USGS 08076000 at 36.3 cfs / 39.08 ft",
+        "note": "USGS Water Services returned same-day Greens Bayou near Houston discharge and gage height at 2026-08-14 00:30 CDT during this implementation run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08076000&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold posture",
+        "value": "25 cfs minimum-only low-water cue",
+        "note": "Houston Canoe Club reported about 25 cfs on Greens Bayou near Houston and described that as about as low as they would want to paddle, with occasional light dragging and tidal effects near the finish.",
+        "sourceUrl": "https://thcc.clubexpress.com/content.aspx?club_id=496051&module_id=139482&page_id=22"
+      },
+      {
+        "label": "Safety and access",
+        "value": "Tide, wind, steep banks, private property, wildlife, and advisory",
+        "note": "TPWD says lower Greens Bayou includes tidal stretches, take-outs along steep undergrown banks are difficult, private property should be respected, wildlife includes alligators, and a fish-consumption advisory applies.",
+        "sourceUrl": "https://tpwd.texas.gov/boating/paddling-trails/gulf-coast/greens-bayou/"
+      },
+      {
+        "label": "Camping",
+        "value": "No route camping",
+        "note": "TPWD publishes park-hour access windows for the Greens Bayou launches, and Houston Parks says camping in the city park system is permitted only at Lake Houston Wilderness Park, so the Greens Bayou launch parks are treated as day-use paddling anchors.",
+        "sourceUrl": "https://www.houstontx.gov/parks/parkrules.html"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded TPWD, Greens Bayou Coalition, Houston Canoe Club, Commons, USGS, and same-route image review found route-context pages and photos, but no clearly rights-clean exact Brock-to-Thomas-Bell-Foster paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Greens+Bayou+Brock+Adventure+Thomas+Bell+Foster+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "TPWD Greens Bayou Paddling Trail",
+        "url": "https://tpwd.texas.gov/boating/paddling-trails/gulf-coast/greens-bayou/",
+        "provider": "local"
+      },
+      {
+        "label": "Greens Bayou Coalition parks and trails",
+        "url": "https://www.greensbayou.org/parks-trails-recreation",
+        "provider": "local"
+      },
+      {
+        "label": "Houston Canoe Club Greens Bayou report",
+        "url": "https://thcc.clubexpress.com/content.aspx?club_id=496051&module_id=139482&page_id=22",
+        "provider": "local"
+      },
+      {
+        "label": "City of Houston park rules",
+        "url": "https://www.houstontx.gov/parks/parkrules.html",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08076000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08076000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08076000 Water Services current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08076000&parameterCd=00060,00065&siteStatus=all",
         "provider": "usgs"
       }
     ]

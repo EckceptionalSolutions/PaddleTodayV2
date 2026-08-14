@@ -1122,6 +1122,63 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "colorado-river-texas-river-school-fm973": {
+    "putIn": {
+      "id": "texas-river-school-river-camp",
+      "name": "Texas River School River Camp",
+      "latitude": 30.256179,
+      "longitude": -97.634178
+    },
+    "takeOut": {
+      "id": "fm-973-del-valle-bridge",
+      "name": "FM 973 / Del Valle Bridge",
+      "latitude": 30.21,
+      "longitude": -97.64
+    },
+    "logistics": {
+      "distanceLabel": "About 5 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr at ordinary levels, longer if flow drops near the 200 cfs floor, headwind builds, heat slows the group, or the FM 973 carry takes extra time",
+      "shuttle": "Stage the FM 973 / Del Valle Bridge take-out first, then drive back to Texas River School only after securing the required advance reservation and gate-code access. Scout the FM 973 access before unloading upstream because LCRA describes limited parking and an uneven carry from the bridge area to the river.",
+      "permits": "No route-specific paddling permit is published, but Texas River School requires advance reservation and a gate code for vehicle access, and charges day-use and camping fees. Follow Texas boating and PFD rules, check USGS 08158000 / LCRA Hydromet and weather before launch, and obey current bridge-access signs at FM 973.",
+      "camping": "Texas River School offers reserved primitive campsites at the put-in, with fee, gate-code, parking, fire, pet, and pack-in/pack-out rules. Treat the five-mile paddle as a day-use route: FM 973 / Del Valle Bridge is not a campground, and Paddle Today does not infer legal island, sandbar, or private-bank camping between endpoints.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from Texas River School River Camp and paddle five lower-Colorado miles to FM 973 / Del Valle Bridge. Use the Colorado River at Austin gauge with a conservative 200 cfs floor, then make a same-day call on reservation access, release changes, heat, wind, shallow bars, the FM 973 carry, and private banks.",
+      "accessCaveats": [
+        "TPWD publishes Texas River School as an active leased-access river camp with a source-backed access anchor. Follow the current gate-code, parking, unloading, fee, and designated-area rules rather than treating the coordinate as a guessed water-entry point.",
+        "TPWD states that River Camp is five miles upriver from the Hwy 973 take-out. LCRA publishes FM 973 / Del Valle Bridge as a TxDOT-managed access, but its coordinates are rounded access anchors; follow the current open route from the bridge area to the water on arrival.",
+        "The Austin gauge is upstream of this selected reach and the threshold floor is broad Austin-to-Bastrop guidance. Treat the app score as conservative and verify visible level and current at Texas River School before launching.",
+        "This route starts at Texas River School, downstream of the urban upstream access sequence where LCRA warns of a low-head dam between US 183 and FM 973. Do not extend the trip upstream without a separate dam-portage plan.",
+        "Do not infer camping or casual private-bank stops from the short rural shoreline, mid-river bars, or islands. Only the Texas River School endpoint campground is included in the route package."
+      ],
+      "watchFor": [
+        "Flows near or below about 200 cfs, when the Texas River Flows minimum is barely met and shallow bars, scraping, or a muddy landing can slow even a short day.",
+        "High or rising water after rain or upstream release changes, when current, debris, water quality, and bank exits can change quickly below Austin.",
+        "Headwind on the broad channel, summer heat, thunderstorms, motorboat traffic near access points, and the limited FM 973 parking/carry setup.",
+        "Snags, overhanging limbs, island splits, soft banks, and private banks away from Texas River School and FM 973 / Del Valle Bridge.",
+        "Arrival-point offsets: use the published access anchors for planning, then choose the actual wetted launch or landing only from signed, open, source-backed access paths on arrival."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "texas-river-school-river-camp",
+        "name": "Texas River School River Camp",
+        "latitude": 30.256179,
+        "longitude": -97.634178,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream TPWD leased-access river-camp anchor; reserve in advance, use the gate code, and follow current unloading and parking rules."
+      },
+      {
+        "id": "fm-973-del-valle-bridge",
+        "name": "FM 973 / Del Valle Bridge",
+        "latitude": 30.21,
+        "longitude": -97.64,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Default downstream LCRA-listed TxDOT bridge access anchor; scout limited parking and the uneven carry before committing."
+      }
+    ]
+  },
   "colorado-river-texas-river-school-little-webberville": {
     "putIn": {
       "id": "texas-river-school-river-camp",
@@ -3048,6 +3105,72 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 1,
         "segmentKind": "creek",
         "note": "Default TPWD downstream take-out and official end of the Buffalo Bayou Paddling Trail."
+      }
+    ]
+  },
+  "greens-bayou-brock-adventure-thomas-bell-foster": {
+    "putIn": {
+      "id": "brock-adventure-park",
+      "name": "Brock Adventure Park",
+      "latitude": 29.8423,
+      "longitude": -95.2317
+    },
+    "takeOut": {
+      "id": "thomas-bell-foster-park",
+      "name": "Thomas Bell Foster Park",
+      "latitude": 29.7743,
+      "longitude": -95.202
+    },
+    "logistics": {
+      "distanceLabel": "About 7.7 mi",
+      "estimatedPaddleTime": "About 2 hr to 3.5 hr for the full TPWD trail, longer when flow is low, the tide is wrong, wind builds, or launch handling slows the group",
+      "shuttle": "Stage Thomas Bell Foster Park first, then drive to Brock Adventure Park. Strickland Park is the official middle launch if you need a shorter segment, but this route card assumes the full Brock-to-Thomas-Bell-Foster run.",
+      "permits": "No route-specific paddling permit is published. Follow Texas boating and PFD rules, check USGS 08076000, tide, wind, weather, water-quality advisories, and current park hours before launching.",
+      "camping": "Treat Greens Bayou as a day-use urban route. TPWD publishes park-hour windows for the three launches, and Houston Parks says camping in the city park system is permitted only at Lake Houston Wilderness Park; no bayou-bank, launch-park, or private-edge camping is inferred.",
+      "campingClassification": "none",
+      "summary": "Launch at Brock Adventure Park and take out at Thomas Bell Foster Park for the full official Greens Bayou Paddling Trail through northeast Houston. Use USGS 08076000 only as a conservative minimum-flow check, then make a separate same-day call on tide, wind, storm runoff, water quality, wood, and park access.",
+      "accessCaveats": [
+        "TPWD publishes Brock Adventure Park, Strickland Park, and Thomas Bell Foster Park as manicured launch sites with GPS coordinates; the stored points are public access anchors, not projected mid-channel water-entry points.",
+        "TPWD says steep banks and heavy undergrowth make take-outs along the bayou difficult, so plan to use the public launches and do not treat private banks as casual stops.",
+        "Brock Adventure Park has seasonal posted hours, while Strickland and Thomas Bell Foster parks are listed sunrise to sunset; verify current gates, parking, construction, and post-storm closures before staging vehicles.",
+        "The downstream part of the trail is tidal, and the Thomas Bell Foster landing can be more awkward at low tide or low flow; inspect the actual water-entry and arrival point on site.",
+        "The 25 cfs floor is a community minimum-only cue from a Houston Canoe Club trip report on the Greens Bayou near Houston gauge, not an agency ideal range or high-water cutoff."
+      ],
+      "watchFor": [
+        "Readings near or below about 25 cfs on USGS 08076000, when Houston Canoe Club described the bayou as about as low as they would want to paddle and noted occasional light dragging.",
+        "Tide and wind on the lower bayou, especially near Thomas Bell Foster Park, where timing can affect landing height, current feel, and trip duration.",
+        "Storm runoff, fast rises, floating trash, strainers, downed trees, and undercut or steep banks that limit improvised exits.",
+        "Urban water quality and the TPWD fish-consumption advisory; avoid unnecessary body contact and skip the route after sewage, bacteria, or heavy-rain alerts.",
+        "Alligators, fishing lines, heat, insects, variable cell coverage, park-hour gates, and the need to stay within public launches or direct hazard portages."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "brock-adventure-park",
+        "name": "Brock Adventure Park",
+        "latitude": 29.8423,
+        "longitude": -95.2317,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default TPWD upstream launch and public access anchor for the full Greens Bayou Paddling Trail."
+      },
+      {
+        "id": "strickland-park",
+        "name": "Strickland Park",
+        "latitude": 29.7931,
+        "longitude": -95.2068,
+        "mileFromStart": 4.6,
+        "segmentKind": "creek",
+        "note": "Official TPWD middle launch for shorter segment options; mile is route-plan approximate from endpoint geometry, so verify current landing conditions on arrival."
+      },
+      {
+        "id": "thomas-bell-foster-park",
+        "name": "Thomas Bell Foster Park",
+        "latitude": 29.7743,
+        "longitude": -95.202,
+        "mileFromStart": 7.7,
+        "segmentKind": "creek",
+        "note": "Default TPWD downstream take-out for the full Greens Bayou trail and the annual regatta route."
       }
     ]
   },

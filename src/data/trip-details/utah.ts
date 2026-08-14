@@ -59,6 +59,98 @@ export const utahRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "south-fork-ogden-river-willows-magpie": {
+    "putIn": {
+      "id": "willows-campground-south-fork-ogden",
+      "name": "Willows Campground / South Fork Ogden River put-in",
+      "latitude": 41.292013,
+      "longitude": -111.634697
+    },
+    "takeOut": {
+      "id": "magpie-campground-south-fork-ogden",
+      "name": "Magpie Campground / South Fork Ogden River take-out",
+      "latitude": 41.270264,
+      "longitude": -111.667206
+    },
+    "logistics": {
+      "distanceLabel": "About 3 mi",
+      "estimatedPaddleTime": "About 1 hr to 2.5 hr for a prepared whitewater group; longer with scouting, low water, wood, or campground congestion",
+      "shuttle": "Stage the take-out at Magpie Campground first, then drive Highway 39 east through the Forest Service campground complex to Willows. Keep vehicles in legal campground/day-use parking, avoid blocking hosts or campers, and identify the actual signed river access path at both ends before launching.",
+      "permits": "No route-specific private boating permit is known for this campground-complex day run. Forest Service campground fees, reservations, gate hours, quiet hours, fire restrictions, and posted site rules still apply, and life jackets are required for floating/tubing the South Fork Ogden River.",
+      "camping": "Endpoint camping is available only through the Forest Service campground system and current Recreation.gov/host rules. Willows and Magpie are seasonal developed campgrounds; do not infer legal camping on private banks, unsignposted pullouts, or below the public campground complex.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Willows Campground and take out at Magpie Campground for a public-access South Fork Ogden River run inside the Forest Service campground complex. Use USGS 10137500, expect no-go conditions below about 175 cfs, and treat all wood, bridges, and private-bank edges conservatively.",
+      "accessCaveats": [
+        "Forest Service coordinates are campground arrival/access anchors, not surveyed water-entry pixels. Use signed paths, host instructions, and current posted access rules for the actual launch and landing.",
+        "The route intentionally ends at Magpie to avoid the private-sensitive Huntsville Hollow and lower take-out issues reported on American Whitewater. Continuing downstream requires a separate legal-access and hazard review.",
+        "Campground gates, seasonal operations, fire restrictions, parking availability, reservations, and host directions can change the practical staging plan.",
+        "Keep the group on public Forest Service property and the legal river corridor; do not shortcut through campsites, private land, fences, or no-parking areas."
+      ],
+      "watchFor": [
+        "Class II-III(IV) character on the broader AW reach; treat this route as whitewater/swiftwater even when the campground complex looks informal.",
+        "Strainers, fresh wood, narrow bends, low bridges, log-jam/bridge-portage history, and low-water scraping.",
+        "Cold mountain water, fast changes from releases/runoff/storms, and poor margin for beginners at higher flows.",
+        "Anglers, swimmers, tubers, campground traffic, host vehicles, and family use around every public access point.",
+        "Private-bank and lower-takeout sensitivity downstream of the public Forest Service complex."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "willows-campground-south-fork-ogden",
+        "name": "Willows Campground / South Fork Ogden River put-in",
+        "latitude": 41.292013,
+        "longitude": -111.634697,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Forest Service publishes Willows coordinates and says the South Fork Ogden River flows through the campground."
+      },
+      {
+        "id": "lower-meadows-campground-south-fork-ogden",
+        "name": "Lower Meadows Campground",
+        "latitude": 41.286623,
+        "longitude": -111.643195,
+        "mileFromStart": 0.9,
+        "segmentKind": "creek",
+        "note": "Intermediate Forest Service campground river-adjacent access; use only if current signs and parking allow it."
+      },
+      {
+        "id": "perception-park-family-campground-south-fork-ogden",
+        "name": "Perception Park Family Campground",
+        "latitude": 41.289719,
+        "longitude": -111.640667,
+        "mileFromStart": 1.3,
+        "segmentKind": "creek",
+        "note": "Intermediate accessible campground area with river platforms and river access context."
+      },
+      {
+        "id": "south-fork-campground-south-fork-ogden",
+        "name": "South Fork Campground",
+        "latitude": 41.282989,
+        "longitude": -111.653808,
+        "mileFromStart": 2,
+        "segmentKind": "creek",
+        "note": "Intermediate Forest Service campground; useful as a bailout only if parking and posted rules allow."
+      },
+      {
+        "id": "botts-campground-south-fork-ogden",
+        "name": "Botts Campground",
+        "latitude": 41.277178,
+        "longitude": -111.658225,
+        "mileFromStart": 2.4,
+        "segmentKind": "creek",
+        "note": "Intermediate campground bend; Forest Service asks visitors to respect anglers with lines in the water."
+      },
+      {
+        "id": "magpie-campground-south-fork-ogden",
+        "name": "Magpie Campground / South Fork Ogden River take-out",
+        "latitude": 41.270264,
+        "longitude": -111.667206,
+        "mileFromStart": 3,
+        "segmentKind": "creek",
+        "note": "Default take-out inside the public Forest Service campground complex; do not drift downstream into private-sensitive lower take-outs."
+      }
+    ]
+  },
   "colorado-river-hittle-bottom-takeout-beach": {
     "putIn": {
       "id": "hittle-bottom-recreation-site",

@@ -195,6 +195,9 @@ const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   // Iowa DNR/Jones County documents Pictured Rocks Park as a Maquoketa River
   // access; the saved point is the park-side ramp anchor.
   'maquoketa-river-pictured-rocks-ebys-mill': 8500,
+  // LCRA publishes FM 973 / Del Valle Bridge as a lower-Colorado access point
+  // with rounded bridge/parking coordinates, not a precise wetted-edge landing.
+  'colorado-river-texas-river-school-fm973': 600,
   // Iowa DNR's Boone River water-trail guide names Albright, Tunnel Mill,
   // Bell's Mill, and Boone Forks as the successive access sites.
   'boone-river-albright-tunnel-mill': 3500,

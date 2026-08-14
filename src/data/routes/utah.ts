@@ -145,6 +145,136 @@ export const utahRoutes: River[] = [
     ]
   },
   {
+    "id": "south-fork-ogden-river-willows-magpie",
+    "slug": "south-fork-ogden-river-willows-magpie",
+    "name": "South Fork Ogden River",
+    "reach": "Willows Campground to Magpie Campground",
+    "aliases": [
+      "South Fork Ogden campground float",
+      "Willows to Magpie",
+      "Causey to Huntsville upper public complex"
+    ],
+    "state": "Utah",
+    "region": "Ogden Valley / Uinta-Wasatch-Cache National Forest",
+    "routeType": "whitewater",
+    "summary": "Public South Fork Ogden River campground-complex run from Willows Campground downstream to Magpie Campground. The Forest Service publishes both campground coordinates, states the river flows through or adjacent to the campgrounds, and requires life jackets for South Fork floating/tubing; American Whitewater documents the broader Causey Reservoir-to-Huntsville Class II-III(IV) reach on direct USGS 10137500.",
+    "statusText": "Use South Fork Ogden River near Huntsville as the direct gauge. Today's 50.4 cfs reading is below the conservative 175 cfs minimum from AW trip-report evidence, so expect a no-go/too-low result until releases or runoff improve.",
+    "latitude": 41.292013,
+    "longitude": -111.634697,
+    "gaugeSource": {
+      "id": "usgs-10137500",
+      "provider": "usgs",
+      "siteId": "10137500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "South Fork Ogden River Near Huntsville, UT",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-10137500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "low_water",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Treat this as a narrow mountain whitewater/swiftwater run, not a casual tube float; the app intentionally keeps it behind whitewater filtering.",
+        "American Whitewater reports Class II-III(IV) character on the broader reach, with strainers, low bridges, a log-jam/bridge-portage history, and a private-sensitive lower take-out.",
+        "Stay within the public Forest Service campground complex from Willows to Magpie and do not continue downstream toward private Huntsville Hollow take-outs unless separately scouted and legally confirmed."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 175,
+      "thresholdSource": {
+        "label": "American Whitewater South Fork Ogden trip-report minimum context",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1862/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "seasonNotes": "The South Fork Ogden is most plausible during spring runoff, reservoir-supported releases, or short-lived rain boosts. Summer base flow can be far below the practical floor, so check the live gauge trend, weather, and Forest Service access status before staging.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the broader Causey Reservoir-to-Huntsville run Class II-III(IV). This campground-to-campground card avoids the private-sensitive lower finish but still has swift current, cold water, strainers, low bridges, and low-water scraping risk.",
+      "confidenceNotes": "Confidence is high for public endpoints, live gauge identity, camping status, and safety posture because the Forest Service publishes Willows and Magpie coordinates and river-floating context, USGS 10137500 returned same-day discharge/stage, and American Whitewater documents the broader reach and direct gauge. Threshold confidence is intentionally conservative: the app uses a 175 cfs minimum-only floor from AW trip-report evidence and withholds ideal/high bands."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Live gauge",
+        "value": "USGS 10137500 at 50.4 cfs / 1.42 ft",
+        "note": "USGS Water Services returned South Fork Ogden River near Huntsville discharge and gage height at 00:15 MDT on 2026-08-14.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-10137500/"
+      },
+      {
+        "label": "Route shape",
+        "value": "Willows Campground to Magpie Campground",
+        "note": "Forest Service pages place the South Fork complex campgrounds in west-to-east order and state the river flows through or adjacent to the endpoints; AW separately documents the broader 7.5-mile Causey-to-Huntsville whitewater reach.",
+        "sourceUrl": "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/willows-campground"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "41.292013, -111.634697 to 41.270264, -111.667206",
+        "note": "Forest Service publishes latitude/longitude for Willows Campground and Magpie Campground. Stored points are arrival/access anchors; use signed campground river access and current host or posted guidance for the actual water-entry and landing paths.",
+        "sourceUrl": "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/magpie-campground"
+      },
+      {
+        "label": "Camping",
+        "value": "Endpoint campgrounds, reservation/fee rules, 7-day limits",
+        "note": "Forest Service pages list seasonal campground operations, reservations, fees/current-availability referral, potable water/vault toilets where available, gate/quiet-hour rules, and a 7-day stay limit at Willows.",
+        "sourceUrl": "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/willows-campground"
+      },
+      {
+        "label": "Safety",
+        "value": "PFD-required South Fork floating plus AW whitewater hazards",
+        "note": "Forest Service South Fork pages require life jackets for floating/tubing, while AW reports Class II-III(IV) character, strainers, low bridges, and private-sensitive lower take-out history on the broader reach.",
+        "sourceUrl": "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/south-fork-ogden-river"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "Bounded Forest Service, AW, Commons, and same-route web review found route/context photos but no clearly rights-clean exact Willows-to-Magpie paddling asset selected for local reuse.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=South+Fork+Ogden+River+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "American Whitewater South Fork Ogden Causey to Huntsville",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1862/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "USGS 10137500 South Fork Ogden River near Huntsville",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-10137500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Forest Service South Fork Ogden River",
+        "url": "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/south-fork-ogden-river",
+        "provider": "local"
+      },
+      {
+        "label": "Forest Service Willows Campground",
+        "url": "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/willows-campground",
+        "provider": "local"
+      },
+      {
+        "label": "Forest Service Magpie Campground",
+        "url": "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/magpie-campground",
+        "provider": "local"
+      }
+    ]
+  },
+  {
     "id": "colorado-river-hittle-bottom-takeout-beach",
     "slug": "colorado-river-hittle-bottom-takeout-beach",
     "name": "Colorado River",

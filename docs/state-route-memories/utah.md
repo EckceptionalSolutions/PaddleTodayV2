@@ -1,6 +1,17 @@
 # Utah Route Memory
 
-Last summarized: 2026-08-13.
+Last summarized: 2026-08-14.
+
+## 2026-08-14 Implementation
+
+- Added `south-fork-ogden-river-willows-magpie` as a guarded South Fork Ogden River campground-complex route from Willows Campground to Magpie Campground.
+- This was treated as a materially new official route/access/gauge package outside the shipped Ogden River town section: Uinta-Wasatch-Cache National Forest publishes Willows and Magpie coordinates, states the South Fork Ogden River flows through or adjacent to the campgrounds, identifies the South Fork campground complex order, and requires life jackets for South Fork floating/tubing.
+- Current USGS Water Services check returned South Fork Ogden River near Huntsville 10137500 at 50.4 cfs / 1.42 ft on 2026-08-14 00:15 MDT.
+- Thresholds are conservative minimum-only at 175 cfs. American Whitewater documents the broader Causey Reservoir-to-Huntsville Class II-III(IV) reach on the direct South Fork Ogden gauge and AW trip-report evidence says 175 cfs was plenty for packrafts; the app does not infer ideal or high-water bands.
+- Camping is classified `endpoint_campground`: Willows and Magpie are seasonal Forest Service developed campgrounds with reservations/fees/current availability, gate and quiet-hour rules, and stay-limit constraints. No private-bank or unsignposted pullout camping is inferred.
+- Safety package records whitewater/swiftwater filtering, cold mountain water, strainers, low bridges, log-jam/bridge-portage history, low-water scraping, campground users/anglers, and private-sensitive lower-takeout cautions. The route intentionally ends inside the public Forest Service complex instead of continuing to Huntsville Hollow.
+- Image result: bounded no-image. Forest Service / American Whitewater / Commons / same-route web review found route context but no clearly rights-clean exact Willows-to-Magpie paddling asset selected for local reuse.
+- Geometry and coordinate results: canonical geometry generated and audited; route-scoped coordinate audit produced review offsets for Forest Service campground access anchors, not accepted water-entry failures, with arrival-point caveats recorded.
 
 ## 2026-08-13 Implementation
 

@@ -14,7 +14,6 @@ import { SectionCard } from '../components/section-card';
 import { WeekendRiverCard } from '../components/weekend-river-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
-import { normalizeApiText } from '../lib/format';
 import { distanceMiles, distancePenalty, estimateTravelMinutes, formatTravelTime, type StoredLocation } from '../lib/location';
 import { androidBottomInset } from '../lib/safe-area';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
@@ -176,9 +175,14 @@ export default function WeekendScreen() {
         />
 
         {location ? (
-          <WeekendDistanceSelector
-            selected={distanceLimit}
-            onSelect={(value) => setDistanceLimit(value)}
+          <WeekendFilters
+            distance={distanceLimit}
+            onSelectDistance={setDistanceLimit}
+            dayTrips={topPicks.length + lowerCommitment.length}
+            campingRoutes={campingFriendlyRoutes.length}
+            rechecks={watchList.length}
+            selectedRouteType={weekendFilter}
+            onSelectRouteType={setWeekendFilter}
           />
         ) : null}
 
@@ -196,23 +200,7 @@ export default function WeekendScreen() {
             <SnapshotStat label="Watch" value={nearbyWatch.length + watchList.length} tone={styles.snapshotWatch} />
           </View>
 
-          {featured && hasWeekendPlan ? (
-            <Pressable
-              style={styles.featuredBlock}
-              onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: featured.river.slug } })}
-              android_ripple={{ color: colors.canvasMuted }}
-            >
-              <Text style={styles.featuredLabel}>{location ? 'Best nearby' : 'Best weekend option'}</Text>
-              <Text style={styles.featuredName}>{featured.river.name}</Text>
-              <Text style={styles.featuredReach}>{featured.river.reach}</Text>
-              <View style={styles.featuredFacts}>
-                {weekendFacts(featured).map((fact) => (
-                  <Text key={fact} style={styles.featuredFact} numberOfLines={1}>{fact}</Text>
-                ))}
-              </View>
-              <Text style={styles.featuredSummary}>{weekendHeroSummary(featured)}</Text>
-            </Pressable>
-          ) : featured ? (
+          {!hasWeekendPlan && featured ? (
             <Pressable
               style={styles.featuredBlock}
               onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: featured.river.slug } })}
@@ -232,15 +220,15 @@ export default function WeekendScreen() {
                   : 'No Good routes are inside your selected range. Recheck nearby watch routes before planning.'}
               </Text>
             </Pressable>
-          ) : (
+          ) : !featured ? (
             <Text style={styles.emptyText}>
               No strong weekend options right now. Check Today or Explore for current routes.
             </Text>
-          )}
+          ) : null}
         </View>
       </View>
 
-      {hasWeekendPlan ? (
+      {!location && hasWeekendPlan ? (
         <WeekendPlanLanes
           dayTrips={topPicks.length + lowerCommitment.length}
           campingRoutes={campingFriendlyRoutes.length}
@@ -436,33 +424,92 @@ function WeekendLocationStrip({
   );
 }
 
-function WeekendDistanceSelector({
-  selected,
-  onSelect,
+function WeekendFilters({
+  distance,
+  onSelectDistance,
+  dayTrips,
+  campingRoutes,
+  rechecks,
+  selectedRouteType,
+  onSelectRouteType,
 }: {
-  selected: number | null;
-  onSelect: (value: number | null) => void;
+  distance: number | null;
+  onSelectDistance: (value: number | null) => void;
+  dayTrips: number;
+  campingRoutes: number;
+  rechecks: number;
+  selectedRouteType: WeekendFilter;
+  onSelectRouteType: (filter: WeekendFilter) => void;
 }) {
+  const selectedIndex = weekendDistanceOptions.findIndex((option) => option.value === distance);
+
   return (
-    <View style={styles.distanceSelector}>
-      <Text style={styles.distanceLabel}>Weekend range</Text>
-      <View style={styles.distanceOptions}>
-        {weekendDistanceOptions.map((option) => {
-          const active = selected === option.value;
-          return (
-            <Pressable
-              key={option.label}
-              style={[styles.distanceChip, active ? styles.distanceChipActive : null]}
-              onPress={() => onSelect(option.value)}
-            >
-              <Text style={[styles.distanceChipText, active ? styles.distanceChipTextActive : null]}>
-                {option.label}
-              </Text>
-            </Pressable>
-          );
-        })}
+    <View style={styles.weekendFilters}>
+      <Text style={styles.filterTitle}>Weekend filters</Text>
+
+      <View style={styles.filterSection}>
+        <View style={styles.filterLabelRow}>
+          <Text style={styles.filterLabel}>Range</Text>
+          <Text style={styles.filterValue}>{rangeFreshnessLabel(distance)}</Text>
+        </View>
+        <View style={styles.rangeControl}>
+          <View style={styles.rangeTrack} />
+          <View
+            style={[
+              styles.rangeTrackActive,
+              { width: `${Math.max(0, selectedIndex) * 20}%` },
+            ]}
+          />
+          <View style={styles.rangeStops}>
+            {weekendDistanceOptions.map((option, index) => {
+              const active = index <= selectedIndex;
+              const selected = index === selectedIndex;
+              return (
+                <Pressable
+                  key={option.label}
+                  style={styles.rangeStopButton}
+                  onPress={() => onSelectDistance(option.value)}
+                  accessibilityRole="radio"
+                  accessibilityState={{ checked: selected }}
+                  accessibilityLabel={`Weekend range ${option.label}`}
+                >
+                  <View style={[styles.rangeStop, active ? styles.rangeStopActive : null, selected ? styles.rangeThumb : null]} />
+                  <Text style={[styles.rangeStopLabel, selected ? styles.rangeStopLabelActive : null]}>{option.label}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        </View>
+      </View>
+
+      <View style={styles.filterDivider} />
+
+      <View style={styles.filterSection}>
+        <Text style={styles.filterLabel}>Route type</Text>
+        <View style={styles.routeTypeRow}>
+          <RouteTypeChip label="All" value={dayTrips + campingRoutes + rechecks} active={selectedRouteType === 'all'} onPress={() => onSelectRouteType('all')} />
+          <RouteTypeChip label="Day trips" value={dayTrips} active={selectedRouteType === 'day-trips'} onPress={() => onSelectRouteType('day-trips')} />
+          <RouteTypeChip label="Camping" value={campingRoutes} active={selectedRouteType === 'camping'} onPress={() => onSelectRouteType('camping')} />
+          <RouteTypeChip label="Rechecks" value={rechecks} active={selectedRouteType === 'rechecks'} onPress={() => onSelectRouteType('rechecks')} />
+        </View>
       </View>
     </View>
+  );
+}
+
+function RouteTypeChip({ label, value, active, onPress }: { label: string; value: number; active: boolean; onPress: () => void }) {
+  return (
+    <Pressable
+      style={[styles.routeTypeChip, active ? styles.routeTypeChipActive : null]}
+      onPress={onPress}
+      android_ripple={{ color: colors.canvasMuted }}
+      accessibilityRole="tab"
+      accessibilityState={{ selected: active }}
+      accessibilityLabel={`${label}, ${value} routes`}
+    >
+      <Text style={[styles.routeTypeCount, active ? styles.routeTypeTextActive : null]}>{value}</Text>
+      <Text style={[styles.routeTypeLabel, active ? styles.routeTypeTextActive : null]} numberOfLines={1}>{label}</Text>
+    </Pressable>
   );
 }
 
@@ -731,11 +778,6 @@ function rankWeekendRoutes(rivers: WeekendSummaryApiItem[], location: StoredLoca
     });
 }
 
-function weekendHeroSummary(river: WeekendSummaryApiItem) {
-  const summary = normalizeApiText(river.weekend.summary);
-  return summary;
-}
-
 function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
@@ -818,44 +860,142 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '900',
   },
-  distanceSelector: {
+  weekendFilters: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.md,
     borderWidth: 1,
     borderColor: colors.border,
     padding: spacing.md,
+    gap: spacing.md,
+  },
+  filterTitle: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  filterSection: {
     gap: spacing.sm,
   },
-  distanceLabel: {
+  filterLabelRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  filterLabel: {
     color: colors.text,
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  filterValue: {
+    color: colors.accentDeep,
     fontSize: 13,
     fontWeight: '900',
   },
-  distanceOptions: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
+  filterDivider: {
+    height: 1,
+    backgroundColor: colors.border,
   },
-  distanceChip: {
-    minHeight: 36,
+  rangeControl: {
+    height: 52,
+    justifyContent: 'flex-start',
+    paddingTop: 2,
+    marginHorizontal: 2,
+  },
+  rangeTrack: {
+    position: 'absolute',
+    top: 11,
+    left: '10%',
+    right: '10%',
+    height: 4,
     borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    paddingHorizontal: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: colors.border,
   },
-  distanceChipActive: {
+  rangeTrackActive: {
+    position: 'absolute',
+    top: 11,
+    left: '10%',
+    maxWidth: '80%',
+    height: 4,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+  },
+  rangeStops: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  rangeStopButton: {
+    width: '20%',
+    minHeight: 48,
+    alignItems: 'center',
+    gap: 7,
+  },
+  rangeStop: {
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    borderWidth: 2,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+  },
+  rangeStopActive: {
     borderColor: colors.accent,
     backgroundColor: colors.accent,
   },
-  distanceChipText: {
-    color: colors.accent,
-    fontSize: 12,
+  rangeThumb: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderWidth: 4,
+    borderColor: colors.surfaceStrong,
+    backgroundColor: colors.accent,
+    shadowColor: '#0F172A',
+    shadowOpacity: 0.18,
+    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 1 },
+    elevation: 2,
+  },
+  rangeStopLabel: {
+    color: colors.textMuted,
+    fontSize: 10,
+    fontWeight: '700',
+  },
+  rangeStopLabelActive: {
+    color: colors.accentDeep,
     fontWeight: '900',
   },
-  distanceChipTextActive: {
+  routeTypeRow: {
+    flexDirection: 'row',
+    gap: spacing.xs,
+  },
+  routeTypeChip: {
+    flex: 1,
+    minWidth: 0,
+    minHeight: 48,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 4,
+    gap: 1,
+    overflow: 'hidden',
+  },
+  routeTypeChipActive: {
+    borderColor: colors.accent,
+    backgroundColor: colors.accent,
+  },
+  routeTypeCount: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  routeTypeLabel: {
+    color: colors.textMuted,
+    fontSize: 10,
+    fontWeight: '800',
+  },
+  routeTypeTextActive: {
     color: colors.surfaceStrong,
   },
   heroPanel: {
