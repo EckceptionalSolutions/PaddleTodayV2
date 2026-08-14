@@ -17,9 +17,10 @@ describe('operations orchestrator', () => {
   it('selects high-priority state work before lower-priority product work', () => {
     const order = selectNextWorkOrder([
       task({ id: 'product', kind: 'product', priority: 'high', title: 'Product' }),
-      task({ id: 'state', kind: 'state_coverage', priority: 'critical', title: 'State' }),
+      task({ id: 'state', kind: 'state_coverage', priority: 'critical', title: 'State', stateId: 'TX', inventoryId: 'tx-v1', gaugeKeys: ['usgs:1'] }),
     ]);
-    expect(order).toMatchObject({ taskId: 'state', workerRole: 'state-coverage' });
+    expect(order).toMatchObject({ taskId: 'state', workerRole: 'gauge-coverage', stateId: 'TX', inventoryId: 'tx-v1', gaugeKeys: ['usgs:1'] });
+    expect(order?.requiredGates).toContain('gauge key and durable disposition recorded');
   });
 
   it('enforces one route implementation at a time', () => {

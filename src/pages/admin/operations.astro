@@ -136,6 +136,9 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
         <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Known gauges</th><th>Reviewed</th><th>Gauge review</th><th>Direct coverage</th><th>Legacy routes</th><th>Status</th><th>Priority</th></tr></thead><tbody>
           {snapshot.stateResearchRanking.map((state) => <tr class={state.id === 'MN' ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.gaugeCoverage.knownGaugeCount}</td><td>{state.gaugeCoverage.reviewedGaugeCount}</td><td>{state.gaugeCoverage.reviewCoveragePercent}%</td><td>{state.gaugeCoverage.coveredGaugeCount} / {state.gaugeCoverage.routeCapableGaugeCount} ({state.gaugeCoverage.routeCoveragePercent}%)</td><td>{state.scored} / {state.scored + state.planning} ({state.legacyCoveragePercent}%)</td><td><span class={`operations-pill operations-pill--${state.researchStatus}`}>{state.researchStatus.replaceAll('_', ' ')}</span></td><td>{state.done ? '-' : state.researchPriorityScore}</td></tr>)}
         </tbody></table></div>
+        <h3>Next bounded gauge reviews</h3>
+        <p class="muted">Generated from unresolved gauges in the highest-priority states. Final dispositions are not reopened automatically.</p>
+        <div class="operations-list">{snapshot.gaugeReviewQueue.slice(0, 12).map((gauge) => <article class="operations-list__row"><div><h3>{gauge.siteName}</h3><p class="muted">{gauge.key} · {gauge.routeEvidenceCount} linked route candidates</p></div><span class="operations-pill">{gauge.stateId} · {gauge.status}</span></article>)}</div>
       </section>
 
       <section class="operations-section operations-grid-two" data-operations-panel="automations">

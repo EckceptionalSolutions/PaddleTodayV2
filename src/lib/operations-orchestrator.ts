@@ -7,6 +7,9 @@ export type OperationsTask = {
   priority: string;
   summary: string;
   evidence: string[];
+  stateId?: string;
+  inventoryId?: string;
+  gaugeKeys?: string[];
 };
 
 export type WorkOrder = {
@@ -15,6 +18,9 @@ export type WorkOrder = {
   rationale: string;
   requiredGates: string[];
   mergePolicy: 'automatic_after_all_gates';
+  stateId?: string;
+  inventoryId?: string;
+  gaugeKeys?: string[];
 };
 
 const priorityRank: Record<string, number> = { critical: 0, high: 1, medium: 2, low: 3 };
@@ -55,7 +61,7 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
 
   const workerRole =
     task.kind === 'state_coverage'
-      ? 'state-coverage'
+      ? 'gauge-coverage'
       : task.kind === 'product'
         ? 'product-implementation'
         : task.kind === 'demand'
@@ -68,7 +74,14 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
     taskId: task.id,
     workerRole,
     rationale: `${task.priority} priority ${task.kind} task selected from the ${task.lane} lane; WIP policy permits assignment.`,
-    requiredGates: task.kind === 'consolidation_review'
+    requiredGates: task.kind === 'state_coverage'
+      ? [
+          'frozen gauge inventory version recorded',
+          'gauge key and durable disposition recorded',
+          'direct versus proxy relationship verified',
+          'route implementation uses normal evidence and safety gates when applicable',
+        ]
+      : task.kind === 'consolidation_review'
       ? [
           'source-backed duplicate or corridor evidence',
           'independent verifier recommendation',
@@ -82,5 +95,8 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
           'production build and smoke checks',
         ],
     mergePolicy: 'automatic_after_all_gates',
+    stateId: task.stateId,
+    inventoryId: task.inventoryId,
+    gaugeKeys: task.gaugeKeys,
   };
 }

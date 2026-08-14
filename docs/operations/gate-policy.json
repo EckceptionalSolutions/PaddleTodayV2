@@ -20,7 +20,7 @@
     "screenedOutGaugeCountsAsReviewed": true,
     "inventoryVersionRequired": true,
     "stateLifecycle": [
-      "not_baselined",
+      "gauge_baseline_pending",
       "inventory_ready",
       "gauge_review_in_progress",
       "research_complete",

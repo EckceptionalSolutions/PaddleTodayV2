@@ -118,6 +118,9 @@ export function validateGaugeCoverageArtifacts(
     if (review.status === 'covered' && review.scoredRouteSlugs.length === 0) {
       issues.push(`Covered gauge ${review.key} has no scored route.`);
     }
+    if (review.status !== 'covered' && review.scoredRouteSlugs.length > 0) {
+      issues.push(`Gauge ${review.key} has a scored direct route but is not marked covered.`);
+    }
     if (review.status === 'screened_out' && review.eligibility !== 'not_paddle_relevant') {
       issues.push(`Screened-out gauge ${review.key} must be marked not_paddle_relevant.`);
     }
@@ -168,6 +171,7 @@ export function gaugeResearchStatus(
   saturation: string,
 ) {
   if (!coverage.baselineComplete) return 'gauge_baseline_pending';
+  if (coverage.eligibleGaugeCount > 0 && coverage.reviewedGaugeCount === 0) return 'inventory_ready';
   if (coverage.unreviewedGaugeCount > 0) return 'gauge_review_in_progress';
   if (coverage.uncoveredRouteCapableGaugeCount > 0) return 'route_coverage_review';
   if (saturation === 'saturated' || saturation === 'provisionally_saturated') return 'saturated';
@@ -183,4 +187,30 @@ export function gaugeResearchPriorityScore(coverage: StateGaugeCoverage, saturat
     + coverage.unreviewedGaugeCount * 2_000
     + coverage.staleGaugeCount * 1_000
     + coverage.knownGaugeCount;
+}
+
+export function selectGaugeReviewCandidates(
+  stateId: string,
+  inventory: GaugeInventoryArtifact,
+  ledger: GaugeReviewLedgerArtifact,
+  limit = 5,
+) {
+  const reviewsByKey = new Map(ledger.reviews.map((review) => [review.key, review]));
+  return inventory.gauges
+    .filter((gauge) => gauge.coverageStates.includes(stateId))
+    .map((gauge) => ({ gauge, review: reviewsByKey.get(gauge.key) }))
+    .filter((row): row is { gauge: GaugeInventoryEntry; review: GaugeReviewEntry } => (
+      Boolean(row.review) && (row.review?.status === 'unreviewed' || row.review?.status === 'researching')
+    ))
+    .sort((left, right) => {
+      const leftResearching = left.review.status === 'researching' ? 1 : 0;
+      const rightResearching = right.review.status === 'researching' ? 1 : 0;
+      const leftRouteEvidence = left.review.routeSlugs.length > 0 ? 1 : 0;
+      const rightRouteEvidence = right.review.routeSlugs.length > 0 ? 1 : 0;
+      return rightResearching - leftResearching
+        || rightRouteEvidence - leftRouteEvidence
+        || left.gauge.siteName.localeCompare(right.gauge.siteName)
+        || left.gauge.key.localeCompare(right.gauge.key);
+    })
+    .slice(0, Math.max(0, limit));
 }

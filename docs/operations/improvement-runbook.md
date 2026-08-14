@@ -5,6 +5,7 @@ The control plane now has durable reports for the improvements beyond route disc
 ## Durable reports
 
 - `npm run operations:gauges` regenerates the conservative known-evidence gauge inventory and review ledger. Until a state has a frozen provider-wide baseline, its status remains `gauge_baseline_pending` regardless of existing route depth.
+- `npm run operations:gauges:refresh` refreshes the frozen USGS and Minnesota DNR provider denominator; `npm run operations:gauges:check` validates keys, route relationships, blockers, and baseline integrity without contacting providers.
 - `npm run operations:dossiers` regenerates `saturation-dossiers.json` and `blocker-resolution-queue.json`.
 - `npm run operations:freshness` regenerates `route-freshness-report.json` for package/access/safety metadata review. Live gauge freshness remains provider-runtime data and is never inferred from static route records.
 - `npm run operations:adoption` regenerates `adoption-report.json`. It accepts only a privacy-safe aggregate export matching `adoption-events.schema.json`; without an export it records that adoption data is unavailable rather than inventing metrics.

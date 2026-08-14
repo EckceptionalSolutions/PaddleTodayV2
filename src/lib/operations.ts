@@ -6,6 +6,7 @@ import {
   gaugeResearchPriorityScore,
   gaugeResearchStatus,
   loadGaugeCoverageArtifacts,
+  selectGaugeReviewCandidates,
   type StateGaugeCoverage,
 } from './gauge-coverage';
 
@@ -289,6 +290,16 @@ export function getOperationsSnapshot() {
   });
   const rankedStates = rankGaugeStateCoverage(stateRows);
   const legacyRankedStates = rankStateCoverage(stateRows);
+  const gaugeReviewQueue = rankedStates.flatMap((state) => (
+    selectGaugeReviewCandidates(state.id, gaugeCoverageArtifacts.inventory, gaugeCoverageArtifacts.ledger, 5)
+      .map(({ gauge, review }) => ({
+        stateId: state.id,
+        key: gauge.key,
+        siteName: gauge.siteName,
+        status: review.status,
+        routeEvidenceCount: review.routeSlugs.length,
+      }))
+  )).slice(0, 30);
 
   const claims = (controlState.claims ?? []).slice().sort((a, b) => {
     return Date.parse(b.completedAt ?? b.claimedAt ?? '') - Date.parse(a.completedAt ?? a.claimedAt ?? '');
@@ -319,6 +330,7 @@ export function getOperationsSnapshot() {
     states: stateRows,
     stateResearchRanking: rankedStates,
     legacyStateResearchRanking: legacyRankedStates,
+    gaugeReviewQueue,
     tasks: taskRegistry.tasks,
     automations: automationRegistry,
     controlPlane: {
