@@ -1,4 +1,16 @@
 
+## 2026-08-14 06:55 CDT - current public-source no-add sweep
+- Source of truth remained `docs/operations/tasks.json`; route worker stayed on `tx-bounded-discovery-sweep`, respected WIP, did not claim the independent-verifier overlap plan, did not use paused route-addition automations, and did not reopen Minnesota.
+- Screened five current public Texas candidates and added no route:
+  - Frio River Garner / Concan access family: blocked because current Concan flow was favorable, but no manager-backed selected public point-to-point route with endpoint coordinates, legal normal private-paddler take-out terms, route-specific camping/no-camping rules, and complete safety package surfaced.
+  - Nueces River George West, Live Oak County Park to US Highway 59: blocked because TPWD publishes endpoints and USGS `08210000` was live, but no source-backed lower-Nueces route/gauge-specific numeric thresholds or official camping/no-camping terms surfaced.
+  - Cherokee Neches, FM 747 / River Run Park to US Highway 79: blocked because TPWD publishes endpoints and USGS `08032000` was live, but TRPA Neches threshold fields remain placeholders and the route camping package is unresolved.
+  - Neches-Davy Crockett, Anderson Crossing to State Highway 7: blocked because TPWD publishes endpoints and USGS `08033000` was live, but the same placeholder-threshold issue remains and remote/logjam/camping safety evidence is incomplete.
+  - Guadalupe Come and Take It, Lake Wood Park to Come and Take It Dock: blocked because TPWD publishes endpoints and USGS `08173900` was live, but broad Guadalupe thresholds do not establish a Gonzales-gauge route threshold for the mandatory hydro-electric-dam take-out.
+- No route data, trip details, gallery image, image-audit row, camping classification, endpoint coordinate package, route-scoped coordinate correction, or canonical geometry changed. No legal camping was inferred from parks, private campgrounds, road crossings, banks, islands, shorelines, nearby public/private land, or source proximity.
+- Validation passed via `gatekeeper-20260814120140`: JSON parse, routes:audit, gallery:audit, routes:safety:audit, routes:geometries:audit, routes:audit:overlap, routes:audit:coordinates, typecheck:routes, full typecheck, production build, and operations:verify passed. Coordinate audit retained only known repo-wide backlog; no Texas endpoint or canonical geometry changed, so geometry generation and route-scoped coordinate corrections were skipped.
+- Next Texas rotation should continue only with genuinely fresh manager-backed public point-to-point day river reaches outside Frio package gaps, lower Nueces George West threshold/camping gaps, Neches placeholder-threshold gaps, Come and Take It Gonzales-threshold/dam-safety gaps, implemented Texas chains, and all recorded blockers unless fresh evidence clears the exact gate.
+
 ## 2026-08-14 05:27 CDT - official-source exclusion no-add sweep
 - Source of truth remained `docs/operations/tasks.json`; route worker stayed on `tx-bounded-discovery-sweep`, respected WIP, did not claim the independent-verifier overlap plan, did not use paused route-addition automations, and did not reopen Minnesota.
 - Screened five current official/local Texas source-family buckets and added no route:

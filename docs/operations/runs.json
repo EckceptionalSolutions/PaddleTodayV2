@@ -2,6 +2,148 @@
   "version": 1,
   "runs": [
     {
+      "id": "route-worker-202608141155-texas-current-public-no-add",
+      "kind": "route_worker_no_add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "taskId": "tx-bounded-discovery-sweep",
+      "workerRole": "route-worker",
+      "status": "blocked_no_route_added_validation_passed",
+      "startedAt": "2026-08-14T11:55:39.392Z",
+      "completedAt": "2026-08-14T12:01:40.000Z",
+      "localRunTime": "2026-08-14 06:55 America/Chicago",
+      "state": "TX",
+      "routeAdded": false,
+      "slug": null,
+      "workOrder": "tx-bounded-discovery-sweep",
+      "planningNote": "operations:plan -- --record selected overlap-review-9f79f9e8998f for independent-verifier work; this hourly route worker did not claim that task and stayed scoped to tx-bounded-discovery-sweep.",
+      "candidatesScreened": [
+        {
+          "id": "tx-frio-garner-concan-current-package-20260814-1155",
+          "river": "Frio River",
+          "route": "Garner / Concan public-access family",
+          "status": "blocked_access_camping_route_package",
+          "blocker": "Favorable current flow and broad access context, but no manager-backed selected public point-to-point route with endpoint coordinates, legal camping/no-camping terms, or complete public safety package.",
+          "gaugeEvidence": "USGS 08195000 Frio River at Concan was current at 349 cfs / 4.47 ft at 2026-08-14 06:45 CDT; Floating Texas displayed Concan at 355 cfs / 4.48 ft updated 2026-08-14 06:30 CDT.",
+          "thresholdEvidence": "Floating Texas classified Concan as favorable, but no source-backed threshold package was tied to a selected public point-to-point route.",
+          "campingEvidence": "Access directory mentions state-park/private-resort camping context, but no route-specific legal camping/no-camping terms surfaced; no camping inferred from river frontage, parks, resorts, crossings, or proximity to water.",
+          "safetyEvidence": "Floating Texas warns that Frio levels can change rapidly after upstream rain, rocky sections require care, and flash flooding is possible in the canyon; no route-specific hazard package surfaced for a selected put-in/take-out pair.",
+          "imageDecision": "No image-audit row added; no route qualified. A bounded no-image result was not promoted because the access/package gate failed first.",
+          "geometryDecision": "No geometry generated because no route was implemented.",
+          "coordinateDecision": "No endpoint coordinates promoted; no manager-backed selected endpoint pair surfaced.",
+          "sourceLinks": [
+            "https://www.floatingtexas.com/rivers/frio",
+            "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08195000,08210000,08032000,08033000,08173900,08176500&period=P1D&parameterCd=00060,00065&siteStatus=all"
+          ],
+          "nextAction": "Retry only if a public manager publishes a selected Frio point-to-point paddling route with endpoint coordinates, camping/access terms, and route-specific safety/threshold support."
+        },
+        {
+          "id": "tx-nueces-george-west-threshold-current-20260814-1155",
+          "river": "Nueces River",
+          "route": "Live Oak County Park to US Highway 59 / George West",
+          "status": "blocked_missing_route_specific_threshold_and_camping_package",
+          "blocker": "Official endpoint route exists, but route/gauge-specific numeric thresholds and official camping/no-camping terms remain missing.",
+          "gaugeEvidence": "USGS 08210000 Nueces River near Three Rivers, TX: 541 cfs / 5.80 ft at 2026-08-14 06:15 CDT.",
+          "thresholdEvidence": "TPWD gives distance and timing dependent on water level/flow/wind but no numeric runnable bands; TRPA Nueces thresholds apply to upper Nueces Barksdale/Below Uvalde context, not the lower George West trail.",
+          "campingEvidence": "No official route camping/no-camping terms found for the George West trail; no camping inferred from Live Oak County Park, bridges, banks, or nearby land.",
+          "safetyEvidence": "TPWD flags motor boats on the trail and alligators along this stretch; these are usable safety caveats but do not cure the missing threshold/camping gates.",
+          "imageDecision": "No image-audit row added because no route was implemented.",
+          "geometryDecision": "No geometry generated because no route was implemented.",
+          "coordinateDecision": "TPWD access anchors were reviewed as source context only: Live Oak County Park 28.3741, -98.1159 and US Highway 59 28.3335, -98.0866. No endpoint package was promoted.",
+          "sourceLinks": [
+            "https://tpwd.texas.gov/boating/paddling-trails/south-texas-plains/nueces-river/",
+            "https://txrivers.org/discover-texas-rivers/nueces-river/",
+            "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08195000,08210000,08032000,08033000,08173900,08176500&period=P1D&parameterCd=00060,00065&siteStatus=all"
+          ],
+          "nextAction": "Do not retry George West unless a source-backed lower-Nueces numeric threshold model and route camping/no-camping terms surface."
+        },
+        {
+          "id": "tx-cherokee-neches-threshold-current-20260814-1155",
+          "river": "Neches River",
+          "route": "FM 747 / River Run Park to US Highway 79",
+          "status": "blocked_placeholder_thresholds_and_incomplete_route_package",
+          "blocker": "Official TPWD endpoint route exists, but Neches thresholds remain placeholders and route camping terms are unresolved.",
+          "gaugeEvidence": "USGS 08032000 Neches River near Neches, TX: 99.4 cfs / 3.52 ft at 2026-08-14 06:30 CDT.",
+          "thresholdEvidence": "TRPA Neches search result still shows upper/lower minimum and ideal fields as placeholder xxxx values; TPWD gives only qualitative water-level timing, not numeric route thresholds.",
+          "campingEvidence": "No official route camping/no-camping terms found; no camping inferred from River Run Park check-in, highway take-out, private banks, crossings, or nearby land.",
+          "safetyEvidence": "TPWD notes small riffles, snags at low water, heavy-rain/high-water danger, rainfall-runoff influence, and undesirable water-quality conditions.",
+          "imageDecision": "No image-audit row added because no route was implemented.",
+          "geometryDecision": "No geometry generated because no route was implemented.",
+          "coordinateDecision": "TPWD access anchors were reviewed as source context only: FM 747/River Run Park 31.9456, -95.4445 and US Highway 79 31.8927, -95.4312. No endpoint package was promoted.",
+          "sourceLinks": [
+            "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/cherokee-neches/",
+            "https://txrivers.org/discover-texas-rivers/neches-river-landing-page/",
+            "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08195000,08210000,08032000,08033000,08173900,08176500&period=P1D&parameterCd=00060,00065&siteStatus=all"
+          ],
+          "nextAction": "Retry only if a source-backed Neches route threshold model and camping/no-camping terms are published or otherwise verified."
+        },
+        {
+          "id": "tx-neches-davy-crockett-threshold-current-20260814-1155",
+          "river": "Neches River",
+          "route": "Anderson Crossing to State Highway 7",
+          "status": "blocked_placeholder_thresholds_and_safety_package",
+          "blocker": "Official TPWD endpoint route exists, but route/gauge-specific numeric thresholds remain placeholders and remote/logjam/camping package is incomplete.",
+          "gaugeEvidence": "USGS 08033000 Neches River near Diboll, TX: 160 cfs / 1.95 ft at 2026-08-14 06:15 CDT.",
+          "thresholdEvidence": "TRPA Neches guidance still shows placeholder threshold fields; TPWD does not publish numeric flow/stage bands for this route.",
+          "campingEvidence": "No official route camping/no-camping terms found; Davy Crockett National Forest proximity was not treated as legal riverside camping permission.",
+          "safetyEvidence": "TPWD reports occasional logjams and snags, especially at low water, and remote access via forest roads; these caveats need a threshold-backed route package before publication.",
+          "imageDecision": "No image-audit row added because no route was implemented.",
+          "geometryDecision": "No geometry generated because no route was implemented.",
+          "coordinateDecision": "TPWD access anchors were reviewed as source context only: Anderson Crossing 31.4446, -95.0344 and State Highway 7 31.3967, -94.9655. No endpoint package was promoted.",
+          "sourceLinks": [
+            "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/neches-davy-crockett/",
+            "https://txrivers.org/discover-texas-rivers/neches-river-landing-page/",
+            "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08195000,08210000,08032000,08033000,08173900,08176500&period=P1D&parameterCd=00060,00065&siteStatus=all"
+          ],
+          "nextAction": "Retry only if a source-backed Neches numeric threshold model, legal camping classification, and route-specific remote/logjam safety package are available."
+        },
+        {
+          "id": "tx-guadalupe-come-and-take-it-threshold-current-20260814-1155",
+          "river": "Guadalupe River",
+          "route": "Lake Wood Park to Come and Take It Dock",
+          "status": "blocked_route_specific_threshold_and_dam_safety_package",
+          "blocker": "Official TPWD route exists, but no source-backed Gonzales-gauge threshold package for a dam-adjacent lower Guadalupe trail.",
+          "gaugeEvidence": "USGS 08173900 Guadalupe River at Gonzales, TX: 577 cfs / 11.80 ft at 2026-08-14 06:45 CDT.",
+          "thresholdEvidence": "TRPA publishes broad Guadalupe minimum/ideal/maximum flow bands but references upper/below-Canyon current-condition gauges and commercial access; it does not establish route-specific Lake Wood Park-to-Come-and-Take-It thresholds at Gonzales.",
+          "campingEvidence": "No official route camping/no-camping terms found; no camping inferred from Lake Wood Park, dock access, banks, islands, parks, or nearby land.",
+          "safetyEvidence": "TPWD requires taking out above the hydro-electric dam after the caution sign; this dam-adjacent mandatory take-out requires route-specific thresholds and safety support before publication.",
+          "imageDecision": "No image-audit row added because no route was implemented.",
+          "geometryDecision": "No geometry generated because no route was implemented.",
+          "coordinateDecision": "TPWD access anchors were reviewed as source context only: Lake Wood Park 29.4707, -97.4899 and Come and Take It Dock 29.4978, -97.4558. No endpoint package was promoted.",
+          "sourceLinks": [
+            "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/come-and-take-it/",
+            "https://txrivers.org/discover-texas-rivers/guadalupe-river/",
+            "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08195000,08210000,08032000,08033000,08173900,08176500&period=P1D&parameterCd=00060,00065&siteStatus=all"
+          ],
+          "nextAction": "Do not retry without a source-backed Gonzales-gauge flow/stage threshold package and accepted high-consequence dam take-out safety evidence."
+        }
+      ],
+      "galleryResult": "No image-audit row or gallery image added because no route qualified; rights-clean image search stopped at blocker recording.",
+      "campingResult": "No camping classification promoted; no legal camping inferred from parks, private campgrounds, road crossings, banks, islands, shorelines, or nearby land.",
+      "safetyResult": "Safety caveats recorded as blockers only: Frio flash-flood/rocky canyon risk, Nueces motorboats/alligators, Neches snags/logjams/runoff, Guadalupe hydro-electric dam take-out.",
+      "geometryResult": "No canonical route geometry generated because no route data changed.",
+      "coordinateResult": "No endpoint coordinates promoted; TPWD/Floating Texas access anchors remained source context only.",
+      "validation": {
+        "status": "passed",
+        "commands": [
+          "passed: parsed docs/operations/tasks.json, state-registry.json, gate-policy.json, runs.json, minnesota-saturation-audit.json, and docs/route-candidate-ledger.json",
+          "passed: npm.cmd run routes:audit",
+          "passed: npm.cmd run gallery:audit",
+          "passed: npm.cmd run routes:safety:audit",
+          "passed: npm.cmd run routes:geometries:audit",
+          "passed: npm.cmd run routes:audit:overlap",
+          "passed: npm.cmd run routes:audit:coordinates with existing repo-wide backlog only; no new Texas endpoints changed",
+          "passed: npm.cmd run typecheck:routes",
+          "passed: npm.cmd run typecheck",
+          "passed: npm.cmd run build",
+          "passed: npm.cmd run operations:verify via gatekeeper-20260814120140"
+        ],
+        "gatekeeperId": "gatekeeper-20260814120140"
+      },
+      "nextCandidateRotation": "Continue Texas only with fresh manager-backed public point-to-point day river reaches outside Frio package gaps, lower Nueces George West threshold/camping gaps, Neches placeholder-threshold gaps, Come and Take It Gonzales-threshold/dam-safety gaps, implemented Texas chains, and all recorded blockers unless fresh evidence clears the exact gate.",
+      "summary": "2026-08-14 current public-source no-add sweep screened Frio, Nueces George West, Cherokee Neches, Neches-Davy Crockett, and Guadalupe Come and Take It; no route shipped after access/package, route-specific threshold, camping, safety, image, geometry, and coordinate gates blocked publication. Validation passed via gatekeeper-20260814120140.",
+      "gatekeeperId": "gatekeeper-20260814120140"
+    },
+    {
       "id": "gauge-completeness-policy-20260814064200",
       "kind": "gauge_completeness_policy",
       "taskId": "gauge-network-completeness-policy",
@@ -32410,6 +32552,50 @@
       "kind": "gatekeeper_verification",
       "startedAt": "2026-08-14T11:43:16.129Z",
       "completedAt": "2026-08-14T11:43:54.328Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814115301",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T11:53:01.790Z",
+      "status": "planned",
+      "taskId": "overlap-review-9f79f9e8998f",
+      "workerRole": "independent-verifier",
+      "summary": "critical priority consolidation_review task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814120140",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T12:01:05.533Z",
+      "completedAt": "2026-08-14T12:01:40.429Z",
       "status": "passed",
       "summary": "All required merge gates passed.",
       "gates": [
