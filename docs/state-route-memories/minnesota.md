@@ -1,5 +1,12 @@
 # Minnesota Route Memory
 
+## 2026-08-14 America/Chicago Elk River Big Lake gauge disposition
+
+- No route was added. The Minnesota gauge-review batch selected USGS `05275000` / Elk River near Big Lake as the bounded work item.
+- USGS Water Services returned product-supported provisional telemetry at `54.7 cfs / 0.89 ft` at `2026-08-14 12:00 CDT`.
+- Disposition: `usgs:05275000` is recorded as `screened_out` / `not_paddle_relevant` / `direct` for the current product model. Reviewed official sources confirmed the gauge and nearby water recreation context, but did not provide an Elk River point-to-point route package with named public endpoints, route-specific numeric thresholds, camping/no-camping terms, safety handling, endpoint coordinates, image, or geometry evidence.
+- No route data, trip details, image-audit row, endpoint coordinates, coordinate corrections, camping package, safety package, canonical geometry, or route order changed. Reopen only if a public manager publishes a route-ready Elk River point-to-point package tied to a supported live gauge.
+
 ## 2026-08-14 America/Chicago Chippewa USGS Milan/Watson gauge disposition
 
 - No route was added. The Minnesota gauge-review batch selected USGS `05305000` / Chippewa River (TW) near Watson, and validation also exposed the same-family USGS `05304500` / Chippewa River near Milan covered-without-scored-route issue.

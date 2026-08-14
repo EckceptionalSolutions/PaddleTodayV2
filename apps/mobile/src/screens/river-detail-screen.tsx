@@ -616,6 +616,7 @@ export default function RiverDetailScreen() {
                   />
                   <SaveToggleButton
                     compact
+                    primary
                     saved={isSaved(detail.river.slug)}
                     onPress={() =>
                       void toggleSavedRiver({
@@ -630,8 +631,8 @@ export default function RiverDetailScreen() {
               </View>
               {recommendationSourceLabel ? <Text style={styles.todayRecommendationLabel}>{recommendationSourceLabel}</Text> : null}
               <Text style={styles.heroVerdictTitle}>{isPlanningRoute ? 'Planning route' : decisionStatement(detail)}</Text>
-              <Text style={styles.subtitle}>{isPlanningRoute ? 'Not scored today' : `${detail.rating} · Score ${detail.score}`}</Text>
-              <Text style={styles.routeMetaLine} numberOfLines={2}>{routeHeroLine(detail)}</Text>
+              <Text style={styles.subtitle}>{isPlanningRoute ? 'Not scored today' : `Score ${detail.score}`}</Text>
+              <Text style={styles.routeMetaLine} numberOfLines={3}>{routeHeroLine(detail)}</Text>
               <View style={styles.heroMeta}>
                 {isPlanningRoute ? <Text style={styles.planningLabel}>Proxy gauge · verify local conditions</Text> : <RatingPill rating={detail.rating} />}
                 {!isPlanningRoute ? <StatusPill status={effectiveLiveData.overall} /> : null}
@@ -660,8 +661,14 @@ export default function RiverDetailScreen() {
               <MaterialCommunityIcons name="routes" color={colors.accent} size={20} />
             </View>
             <View style={styles.riverHubLinkCopy}>
-              <Text style={styles.riverHubLinkTitle}>See all {siblingRouteCount} routes on {detail.river.name}</Text>
-              <Text style={styles.riverHubLinkText}>Compare other routes by distance, difficulty, and today’s conditions.</Text>
+              <Text style={styles.riverHubLinkTitle}>
+                Compare {siblingRouteCount} routes on {detail.river.name}
+              </Text>
+              <Text style={styles.riverHubLinkText}>
+                {routeSource === 'today'
+                  ? 'This is one route on the river. Find the fit for your access, distance, and today’s conditions.'
+                  : 'Compare by distance, difficulty, access, and today’s conditions.'}
+              </Text>
             </View>
             <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
           </Pressable>
@@ -717,6 +724,7 @@ export default function RiverDetailScreen() {
                 </View>
                 <GaugeSourceActions detail={detail} />
               </SectionCard>
+              <ScoreExplanationCard breakdown={detail.scoreBreakdown} />
             </View> : null}
 
             <RouteBasicsCard detail={detail} />
@@ -1024,7 +1032,7 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
         tone: conditionToneForStatus(firstWarning.status),
       }
     : {
-        label: 'Quick facts',
+        label: 'Weather check',
         text: conditionQuickFactText(detail, checklistByLabel),
         tone: styles.conditionGood,
       };
@@ -1051,11 +1059,22 @@ function conditionQuickFactText(
 }
 
 function routeHeroLine(detail: RiverDetailApiResult) {
+  const distance = compactRouteDistanceLabel(detail.river.distanceLabel);
+  const paddleTime = compactHeroPaddleTime(detail.river.estimatedPaddleTime);
   return [
-    detail.river.distanceLabel || null,
-    compactPaddleTime(detail.river.estimatedPaddleTime),
+    distance,
+    paddleTime,
     `${capitalize(detail.river.profile.difficulty)} difficulty`,
   ].filter(Boolean).join(' - ');
+}
+
+function compactRouteDistanceLabel(value: string) {
+  if (!value) return null;
+
+  return value
+    .replace(/;.*$/i, '')
+    .replace(/\s+for the full corridor/i, ' full corridor')
+    .trim();
 }
 
 function buildRouteShareMessage(
@@ -1089,7 +1108,7 @@ function buildRouteShareMessage(
 
 function compactPaddleTime(value: string) {
   if (!value) return null;
-  return value
+  const compact = value
     .replace(/^About\s+/i, '')
     .replace(/roughly\s+/i, '')
     .replace(/\s+depending.*$/i, '')
@@ -1099,6 +1118,26 @@ function compactPaddleTime(value: string) {
     .replace(/\s+to\s+/gi, '-')
     .replace(/\s+/g, ' ')
     .trim();
+
+  return compact;
+}
+
+function compactHeroPaddleTime(value: string) {
+  const compact = compactPaddleTime(value);
+  if (!compact) {
+    return null;
+  }
+
+  if (compact.length <= 70) {
+    return compact;
+  }
+
+  const firstSentence = compact.split(/[.!?]/)[0]?.trim() ?? compact;
+  if (/^Full corridor is /i.test(firstSentence)) {
+    return `${firstSentence.replace(/^Full corridor is /i, '')}; shorter segments in Access`;
+  }
+
+  return `${compact.slice(0, 67).trimEnd()}…`;
 }
 
 function decisionStatement(detail: RiverDetailApiResult) {
@@ -1171,7 +1210,6 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
           </View>
         ))}
       </View>
-      <ScoreExplanationCard breakdown={detail.scoreBreakdown} />
     </View>
   );
 }
@@ -1384,7 +1422,7 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <View style={[styles.safetyPanel, advanced ? styles.safetyPanelAdvanced : caution ? styles.safetyPanelCaution : null]}>
+    <View style={[styles.safetyPanel, !expanded ? styles.safetyPanelCollapsed : null, advanced ? styles.safetyPanelAdvanced : caution ? styles.safetyPanelCaution : null]}>
       <Pressable
         style={styles.safetyHeader}
         onPress={() => setExpanded((current) => !current)}
@@ -1407,7 +1445,7 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
           size={20}
         />
       </Pressable>
-      <Text style={styles.safetyBody}>{safetyModel.summary}</Text>
+      {expanded ? <Text style={styles.safetyBody}>{safetyModel.summary}</Text> : null}
       {safetyModel.hazards.length > 0 ? (
         <View style={styles.safetyChipRow}>
           {safetyModel.hazards.map((hazard) => (
@@ -3335,6 +3373,10 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     gap: spacing.sm,
   },
+  safetyPanelCollapsed: {
+    paddingVertical: spacing.sm,
+    gap: spacing.xs,
+  },
   safetyPanelCaution: {
     borderColor: '#D8A45E',
     backgroundColor: '#FFF5E5',
@@ -4236,18 +4278,18 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   riverHubLink: {
-    minHeight: 68,
+    minHeight: 54,
     borderRadius: radius.md,
     backgroundColor: colors.surface,
-    padding: spacing.md,
+    padding: spacing.sm,
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
   },
   riverHubLinkIcon: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
     backgroundColor: colors.accentSoft,
     alignItems: 'center',
     justifyContent: 'center',
@@ -4258,13 +4300,13 @@ const styles = StyleSheet.create({
   },
   riverHubLinkTitle: {
     color: colors.text,
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '900',
   },
   riverHubLinkText: {
     color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
+    fontSize: 11,
+    lineHeight: 15,
   },
   weatherStrip: {
     gap: spacing.sm,

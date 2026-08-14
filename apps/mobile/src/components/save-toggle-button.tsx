@@ -7,10 +7,12 @@ export function SaveToggleButton({
   saved,
   onPress,
   compact = false,
+  primary = false,
 }: {
   saved: boolean;
   onPress: () => void;
   compact?: boolean;
+  primary?: boolean;
 }) {
   function handlePress(event: GestureResponderEvent) {
     event.stopPropagation();
@@ -20,7 +22,7 @@ export function SaveToggleButton({
   if (compact) {
     return (
       <Pressable
-        style={styles.compactButton}
+        style={[styles.compactButton, primary ? styles.compactButtonPrimary : null, saved ? styles.compactButtonSaved : null]}
         onPress={handlePress}
         hitSlop={10}
         accessibilityRole="button"
@@ -32,7 +34,7 @@ export function SaveToggleButton({
         <MaterialCommunityIcons
           name={saved ? 'bookmark' : 'bookmark-outline'}
           size={20}
-          color={saved ? colors.accent : colors.textMuted}
+          color={saved ? colors.surfaceStrong : primary ? colors.accent : colors.textMuted}
         />
       </Pressable>
     );
@@ -83,6 +85,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderWidth: 1,
     borderColor: colors.border,
+  },
+  compactButtonPrimary: {
+    borderColor: colors.accent,
+  },
+  compactButtonSaved: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
   },
   row: {
     flexDirection: 'row',

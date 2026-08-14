@@ -61,10 +61,12 @@
         "2026-08-14T17:17:46.127Z supervisor metadata repair: while this supervisor pass was validating, route-worker-202608141725-cannon-dnr-285-no-add was recorded as completed gauge-disposition/no-add work for mn-gauge-review-batch. Classified it as gauge disposition work, not a completed route, workOrder:null dead end, failed validation, omitted route package, active-claim conflict, policy override, or infrastructure failure; advanced mn-gauge-review-batch lastRunId to that latest checked-in run and preserved ready status.",
         "2026-08-14T17:24:00.000Z: route-worker-202608141724-chippewa-usgs-provider-equivalence-no-add screened USGS 05305000 Chippewa River (TW) near Watson and added no route. Disposition recorded as covered/route_capable/direct because existing scored Chippewa route packages already cover the lower Watson corridor with the equivalent MN DNR Watson gauge, official thresholds, DNR endpoint/camping context, safety notes, coordinates, and geometry; no duplicate route package changed.",
         "2026-08-14T17:29:00.000Z: route-worker-202608141724-chippewa-usgs-provider-equivalence-no-add screened USGS 05305000 Chippewa River (TW) near Watson plus the same-family USGS 05304500 Milan validation blocker and added no route. Dispositions recorded as blocked/route_capable/direct provider-equivalence blockers because existing scored Chippewa route packages use equivalent MN DNR Watson/Milan gauges; current coverage gates do not count cross-provider equivalents as covered, and no duplicate route package changed.",
-        "gatekeeper-20260814172823 passed: the durable USGS Chippewa Milan/Watson provider-equivalence blockers and no-add evidence passed all required gates after correcting stale covered-without-scored metadata."
+        "gatekeeper-20260814172823 passed: the durable USGS Chippewa Milan/Watson provider-equivalence blockers and no-add evidence passed all required gates after correcting stale covered-without-scored metadata.",
+        "2026-08-14T17:54:36.214Z: route-worker-202608141308-elk-river-usgs-05275000-no-add screened USGS 05275000 Elk River near Big Lake and added no route. Disposition recorded as screened_out/not_paddle_relevant because live USGS telemetry exists, but no official Elk River point-to-point route package surfaced with named public endpoints, thresholds, camping/no-camping terms, safety handling, coordinates, image, or geometry evidence.",
+        "gatekeeper-20260814175431 passed: the durable Elk River screened-out disposition, manual review preservation fix, and no-add evidence passed required gates; operations:plan recorded the next Minnesota gauge as usgs:05287890."
       ],
-      "updatedAt": "2026-08-14T17:29:00.000Z",
-      "lastRunId": "route-worker-202608141724-chippewa-usgs-provider-equivalence-no-add",
+      "updatedAt": "2026-08-14T17:54:36.214Z",
+      "lastRunId": "route-worker-202608141308-elk-river-usgs-05275000-no-add",
       "lastSupervisorRunId": "supervisor-20260814T171456Z"
     },
     {

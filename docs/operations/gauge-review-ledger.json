@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T17:29:00.000Z",
+  "updatedAt": "2026-08-14T18:06:01.199Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -39,7 +39,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -61,7 +61,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -83,7 +83,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -598,7 +598,7 @@
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -1303,17 +1303,39 @@
     },
     {
       "key": "mn_dnr:27",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:25:00-05:00",
+      "decisionReason": "MN DNR gauge 27 is directly relevant to the official Cloquet River State Water Trail because Island Lake dam releases control the downstream paddling reach. Existing scored Cloquet packages use Brimson/Burnett gauges, so this provider key remains blocked until a dedicated Island Lake release/threshold, endpoint, geometry, and safety package is assembled.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Cloquet River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly adopts MN DNR gauge 27.",
+        "Island Lake release telemetry is not yet represented by a provider-specific PaddleToday threshold package.",
+        "A dedicated Island Lake Dam-to-Bachelor Road route package still needs endpoint, geometry, camping, and safety evidence."
+      ],
+      "evidence": [
+        {
+          "label": "Minnesota DNR Cloquet River segments and maps",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/cloquet-river/segments-maps.html",
+          "note": "Official source identifies the Island Lake Dam to Bachelor Road reach, dam-release-dependent levels, primitive watercraft campsites, and Class I-II rapids."
+        },
+        {
+          "label": "Minnesota DNR Cloquet River Map 2",
+          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cloquet2.pdf",
+          "note": "Official map documents the Indian Lake-to-Island Lake corridor, access sequence, campsites, and the need to check river flow."
+        },
+        {
+          "label": "Minnesota DNR cooperative stream gaging",
+          "url": "https://www.dnr.state.mn.us/waters/csg/index.html",
+          "note": "Official telemetry source; the gauge is live but its route-specific release interpretation is not yet adopted by a scored route."
+        }
+      ]
     },
     {
       "key": "mn_dnr:273",
@@ -1348,7 +1370,7 @@
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17531,7 +17553,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -18577,17 +18599,26 @@
     },
     {
       "key": "usgs:04010510",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:30:00-05:00",
+      "decisionReason": "USGS 04010510 is a discharge and stage gauge on the Grand Portage River at Grand Portage. DNR Lake Superior trail materials identify the Grand Portage River beach/corridor, and NPS documents canoe access and portage context, so it is route-capable; however, no existing scored route or complete endpoint/threshold package uses this provider key.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Grand Portage River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly uses USGS provider key 04010510.",
+        "Limited-access tribal/reservation context requires a dedicated endpoint, rights, safety, and threshold package."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04010510",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf",
+        "https://www.nps.gov/grpo/planyourvisit/outdoor-activities.htm"
+      ]
     },
     {
       "key": "usgs:04015330",
@@ -18646,7 +18677,7 @@
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -26511,17 +26542,26 @@
     },
     {
       "key": "usgs:05124480",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:45:00-05:00",
+      "decisionReason": "USGS 05124480 is a live Kawishiwi River gauge near Ely, and USGS describes the basin as entirely within the Boundary Waters Canoe Area Wilderness. DNR documents a Kawishiwi canoe loop, so the gauge is route-capable; however, no existing scored route uses this key and a wilderness permit, portage, camping, access, geometry, and threshold package is required.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Kawishiwi River / BWCAW"
+      ],
+      "blockers": [
+        "No existing scored route explicitly uses USGS provider key 05124480.",
+        "Wilderness permit, portage, camping, endpoint, and route-specific threshold evidence remain required."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05124480",
+        "https://pubs.usgs.gov/circ/1999/circ1173/circ1173b/chapter07.htm",
+        "https://www.dnr.state.mn.us/mcvmagazine/issues/2023/mar-apr/carhart.html"
+      ]
     },
     {
       "key": "usgs:05125000",
@@ -26603,17 +26643,26 @@
     },
     {
       "key": "usgs:05129290",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:22:00-05:00",
+      "decisionReason": "USGS 05129290 is the Gold Portage outlet from Kabetogama Lake near Ray, a canoe/portage corridor in Voyageurs National Park. The current USGS location page reports no continuous, daily, or field-measurement data, so it cannot support a live route gauge. It remains route-capable for a future lake/portage package but stale or unsupported for current gauge-driven scoring.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Gold Portage / Kabetogama Lake"
+      ],
+      "blockers": [
+        "USGS location page reports no continuous, daily, or field-measurement data.",
+        "No current river-style route package or live threshold ladder is available for this lake/portage gauge."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05129290/",
+        "https://www.nps.gov/voya/planyourvisit/backcountry-camping-and-canoes.htm",
+        "https://www.nps.gov/voya/learn/news/operation-hours-for-kettle-falls-portage-established.htm"
+      ]
     },
     {
       "key": "usgs:05129515",
@@ -26980,7 +27029,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -27086,17 +27135,29 @@
     },
     {
       "key": "usgs:05275000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:08:00-05:00",
+      "decisionReason": "USGS 05275000 is a long-running streamgage on the Elk River near Big Lake with current discharge and stage telemetry, but no official Elk River point-to-point paddling route package was found. City access evidence identifies Lake Orono and Mississippi River launches plus Houlton Conservation Area access to the Elk or Mississippi, but it does not establish a route-capable Elk River endpoint pair, thresholds, camping/no-camping terms, safety handling, or coordinate package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Elk River"
+      ],
+      "blockers": [
+        "No official Elk River state-water-trail or recommended point-to-point paddling corridor found.",
+        "Reviewed local access evidence does not establish an Elk River endpoint pair, route thresholds, camping/no-camping terms, safety package, or endpoint coordinates.",
+        "Nearby Mississippi River trail references do not establish route relevance for this Elk River gauge."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05275000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05275000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.elkrivermn.gov/1867/Boat-Launches-Kayak-Rentals",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html"
+      ]
     },
     {
       "key": "usgs:05280000",
@@ -27138,7 +27199,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -27198,17 +27259,26 @@
     },
     {
       "key": "usgs:05287890",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:15:00-05:00",
+      "decisionReason": "USGS 05287890 is an urban Elm Creek streamgage near Champlin. No official Elm Creek state-water-trail or recommended paddling section with route-capable access evidence was found; DNR and local sources instead emphasize the Champlin Mill Pond/Elm Creek dam and restoration context.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Elm Creek"
+      ],
+      "blockers": [
+        "No official Elm Creek state-water-trail or recommended paddling corridor found.",
+        "Urban dam/restoration context does not supply a route-capable access package."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05287890",
+        "https://www.dnr.state.mn.us/fishing/fin/kidsponds/champlin_mill.html",
+        "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html"
+      ]
     },
     {
       "key": "usgs:05288490",
@@ -27735,17 +27805,26 @@
     },
     {
       "key": "usgs:05327000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:36:00-05:00",
+      "decisionReason": "USGS 05327000 is a continuous gauge on High Island Creek near Henderson, but no official High Island Creek state-water-trail or recommended paddling section with route-capable access evidence was found. It is a Minnesota River tributary gauge, not an extension of the scored Minnesota River corridor.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "High Island Creek"
+      ],
+      "blockers": [
+        "No official High Island Creek paddling corridor or route-capable access package found.",
+        "Nearby Minnesota River trail evidence does not establish tributary route relevance."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05327000",
+        "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/index.html"
+      ]
     },
     {
       "key": "usgs:05330000",
@@ -28562,7 +28641,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -28835,7 +28914,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -55353,7 +55432,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -57725,7 +57804,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T11:25:01.469Z",
+      "checkedAt": "2026-08-14T18:06:01.199Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [

@@ -2,6 +2,372 @@
   "version": 1,
   "runs": [
     {
+      "id": "route-worker-202608141345-kawishiwi-usgs-05124480-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:45:00.000Z",
+      "completedAt": "2026-08-14T18:45:00.000Z",
+      "localRunTime": "2026-08-14 13:45:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814184500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05124480"
+        ],
+        "summary": "Bounded Minnesota review of Kawishiwi River near Ely."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05124480",
+          "siteName": "KAWISHIWI RIVER NEAR ELY, MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "BWCAW wilderness route package, permits, portages, camping, and provider-specific thresholds are not yet complete."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked",
+        "notes": [
+          "USGS and DNR sources establish wilderness paddling relevance; no route was promoted without a complete package."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "DNR wilderness-loop source retained; camping/permit package remains unresolved.",
+      "safetyEvidence": "BWCAW portage and wilderness context require dedicated safety review; no new claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "pending",
+        "commands": [],
+        "notes": [
+          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05124480",
+        "https://pubs.usgs.gov/circ/1999/circ1173/circ1173b/chapter07.htm",
+        "https://www.dnr.state.mn.us/mcvmagazine/issues/2023/mar-apr/carhart.html"
+      ],
+      "summary": "USGS 05124480 is route-capable for a BWCAW Kawishiwi package but remains blocked pending wilderness-specific route evidence."
+    },
+    {
+      "id": "route-worker-202608141336-high-island-usgs-05327000-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:36:00.000Z",
+      "completedAt": "2026-08-14T18:36:00.000Z",
+      "localRunTime": "2026-08-14 13:36:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814183600",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05327000"
+        ],
+        "summary": "Bounded Minnesota review of High Island Creek near Henderson."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05327000",
+          "siteName": "HIGH ISLAND CREEK NEAR HENDERSON, MN",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "direct",
+          "decisiveBlocker": "No official High Island Creek paddling corridor or route-capable access package found."
+        }
+      ],
+      "routeEvidence": {
+        "status": "not_applicable",
+        "notes": [
+          "Tributary gauge does not inherit the nearby Minnesota River route package."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "Not applicable; no route promoted.",
+      "safetyEvidence": "No route promoted; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "pending",
+        "commands": [],
+        "notes": [
+          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05327000",
+        "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/index.html"
+      ],
+      "summary": "USGS 05327000 was screened out as not paddle-relevant: continuous High Island Creek gauge without an official tributary paddling corridor."
+    },
+    {
+      "id": "route-worker-202608141330-grand-portage-usgs-04010510-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:30:00.000Z",
+      "completedAt": "2026-08-14T18:30:00.000Z",
+      "localRunTime": "2026-08-14 13:30:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814183000",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:04010510"
+        ],
+        "summary": "Bounded Minnesota review of Grand Portage River at Grand Portage."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:04010510",
+          "siteName": "GRAND PORTAGE RIVER AT GRAND PORTAGE MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "Route relevance exists, but no provider-specific route package or rights/access evidence is complete."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked",
+        "notes": [
+          "DNR and NPS sources establish paddling/portage relevance; no route was promoted without a complete package."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "NPS sources retained for future package research; no camping claim promoted.",
+      "safetyEvidence": "Reservation/limited-access context retained; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "pending",
+        "commands": [],
+        "notes": [
+          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04010510",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/lakesuperior5.pdf",
+        "https://www.nps.gov/grpo/planyourvisit/outdoor-activities.htm"
+      ],
+      "summary": "USGS 04010510 is route-capable at Grand Portage but remains blocked pending a provider-specific route package and rights/access review."
+    },
+    {
+      "id": "route-worker-202608141322-gold-portage-usgs-05129290-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:22:00.000Z",
+      "completedAt": "2026-08-14T18:22:00.000Z",
+      "localRunTime": "2026-08-14 13:22:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814182200",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05129290"
+        ],
+        "summary": "Bounded Minnesota review of Gold Portage outlet from Kabetogama Lake."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05129290",
+          "siteName": "GOLD PORTAGE OUTLET FROM KABETOGAMA LK NR RAY,MN",
+          "status": "stale_or_unsupported",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS location page reports no continuous, daily, or field-measurement data."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked",
+        "notes": [
+          "NPS confirms canoe/portage relevance, but no live gauge or river-style scoring package exists."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "NPS canoe/backcountry sources retained; no route camping package promoted.",
+      "safetyEvidence": "NPS portage restrictions and canoe access sources retained; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "pending",
+        "commands": [],
+        "notes": [
+          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/05129290/",
+        "https://www.nps.gov/voya/planyourvisit/backcountry-camping-and-canoes.htm",
+        "https://www.nps.gov/voya/learn/news/operation-hours-for-kettle-falls-portage-established.htm"
+      ],
+      "summary": "USGS 05129290 is stale/unsupported for live gauge scoring despite canoe/portage relevance at Gold Portage; no route was promoted."
+    },
+    {
+      "id": "route-worker-202608141315-elm-creek-usgs-05287890-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:15:00.000Z",
+      "completedAt": "2026-08-14T18:15:00.000Z",
+      "localRunTime": "2026-08-14 13:15:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814181500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05287890"
+        ],
+        "summary": "Bounded Minnesota review of Elm Creek near Champlin."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05287890",
+          "siteName": "ELM CREEK NR CHAMPLIN, MN",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "direct",
+          "decisiveBlocker": "No official Elm Creek paddling corridor or route-capable access package found."
+        }
+      ],
+      "routeEvidence": {
+        "status": "not_applicable",
+        "notes": [
+          "No route package promoted; urban dam/restoration context did not meet the route-quality bar."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "Not applicable; no route promoted.",
+      "safetyEvidence": "No route promoted; dam/restoration context retained as screening evidence.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "pending",
+        "commands": [],
+        "notes": [
+          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05287890",
+        "https://www.dnr.state.mn.us/fishing/fin/kidsponds/champlin_mill.html",
+        "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html"
+      ],
+      "summary": "USGS 05287890 was screened out as not paddle-relevant: urban Elm Creek station without an official paddling corridor or route-capable access package."
+    },
+    {
+      "id": "route-worker-202608141308-elk-river-usgs-05275000-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:08:00.000Z",
+      "completedAt": "2026-08-14T18:08:00.000Z",
+      "localRunTime": "2026-08-14 13:08:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814180800",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05275000"
+        ],
+        "summary": "Bounded Minnesota review of Elk River near Big Lake."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05275000",
+          "siteName": "ELK RIVER NEAR BIG LAKE, MN",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "direct",
+          "decisiveBlocker": "No official Elk River paddling corridor or route-capable access package found."
+        }
+      ],
+      "routeEvidence": {
+        "status": "not_applicable",
+        "notes": [
+          "Nearby Mississippi River trail references do not establish Elk River route relevance."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "Not applicable; no route promoted.",
+      "safetyEvidence": "No route promoted; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814175431",
+        "commands": [
+          "npm run operations:gauges",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "Generator preservation fix and full evidence/safety/verification/typecheck/build/rollback gates passed."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05275000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05275000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.elkrivermn.gov/1867/Boat-Launches-Kayak-Rentals",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html"
+      ],
+      "summary": "USGS 05275000 was screened out as not paddle-relevant; the ledger generator was also fixed to preserve manual worker dispositions during regeneration."
+    },
+    {
       "id": "route-worker-202608141302-des-moines-jackson-usgs-05476000-no-add",
       "automationId": "paddletoday-hourly-route-worker",
       "kind": "gauge_review_no_add",
@@ -39423,7 +39789,434 @@
         "usgs:05275000"
       ],
       "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814175431",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:53:58.164Z",
+      "completedAt": "2026-08-14T17:54:31.585Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814175436",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:54:36.214Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05287890"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814175630",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:55:57.430Z",
+      "completedAt": "2026-08-14T17:56:30.996Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814175641",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:56:41.169Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05129290"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814175819",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:57:46.230Z",
+      "completedAt": "2026-08-14T17:58:19.635Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814175826",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:58:26.696Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04010510"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814175955",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:59:19.372Z",
+      "completedAt": "2026-08-14T17:59:55.863Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814180001",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T18:00:01.014Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05327000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814180129",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T18:00:54.292Z",
+      "completedAt": "2026-08-14T18:01:29.807Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814180135",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T18:01:35.593Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05124480"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814180247",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T18:02:33.584Z",
+      "completedAt": "2026-08-14T18:02:47.257Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260814180351",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T18:03:18.094Z",
+      "completedAt": "2026-08-14T18:03:51.718Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814180357",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T18:03:57.908Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "mn_dnr:27"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814180500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T18:05:00.650Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "mn_dnr:27"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814180538",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T18:05:03.463Z",
+      "completedAt": "2026-08-14T18:05:38.143Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260814180641",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T18:06:06.557Z",
+      "completedAt": "2026-08-14T18:06:41.330Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814180647",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T18:06:47.778Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "mn_dnr:62"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     }
   ],
-  "updatedAt": "2026-08-14T17:19:43.737Z"
+  "updatedAt": "2026-08-14T17:54:36.214Z"
 }

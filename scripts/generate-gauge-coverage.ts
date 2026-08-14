@@ -115,7 +115,11 @@ if (refreshProviders) {
   statesBaselined = await addProviderGaugeInventory();
 }
 
-const existingManualReviews = existingArtifacts?.ledger.reviews.filter((review) => review.decisionSource === 'manual') ?? [];
+const existingManualReviews = existingArtifacts?.ledger.reviews.filter((review) => (
+  review.decisionSource === 'manual'
+  || review.decisionSource === 'manual_gauge_review'
+  || review.decisionSource === 'manual_route_worker_review'
+)) ?? [];
 for (const manual of existingManualReviews) {
   const derived = reviewsByKey.get(manual.key);
   if (!derived) continue;

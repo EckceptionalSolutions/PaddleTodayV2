@@ -40,7 +40,7 @@ export interface GaugeReviewEntry {
   relationship: GaugeRelationship;
   checkedAt: string | null;
   decisionReason: string;
-  decisionSource: 'derived_route_inventory' | 'saturation_audit' | 'manual';
+  decisionSource: 'derived_route_inventory' | 'saturation_audit' | 'manual' | 'manual_gauge_review' | 'manual_route_worker_review';
   routeSlugs: string[];
   scoredRouteSlugs: string[];
   routeFamilies: string[];

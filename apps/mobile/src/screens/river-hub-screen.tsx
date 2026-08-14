@@ -83,10 +83,6 @@ export default function RiverHubScreen() {
     region: regionFilter,
   }), [difficultyFilter, distanceFilter, regionFilter]);
   const filteredRoutes = useMemo(() => filterRiverHubRoutes(allRoutes, filters), [allRoutes, filters]);
-  const recommendedRoute = useMemo(
-    () => [...allRoutes].filter((route) => route.river.scoreEligibility !== 'planning').sort(compareBestRoute)[0] ?? null,
-    [allRoutes]
-  );
   const bestRoute = useMemo(() => [...filteredRoutes].sort(compareBestRoute)[0] ?? null, [filteredRoutes]);
   const routes = useMemo(() => sortedRoutes(filteredRoutes, sortMode), [filteredRoutes, sortMode]);
   const routePoints = useMemo(() => routeMapPoints(routes, mapZoomLevel), [routes, mapZoomLevel]);
@@ -174,10 +170,6 @@ export default function RiverHubScreen() {
   }
 
   const summary = routeStatusSummary(allRoutes);
-  const distanceRangeLabel = result.group.distanceRange?.label ?? distanceRangeForRoutes(allRoutes);
-  const difficultyLabel = difficultySummary(
-    result.group.difficultyOptions ?? allRoutes.map((route) => route.river.profile.difficulty)
-  );
   const heroPhoto = result.group.heroPhoto;
   const bottomContentInset = androidBottomInset(insets.bottom);
 
@@ -205,7 +197,7 @@ export default function RiverHubScreen() {
     }
   }
 
-  function openHubRoute(route: RiverDetailApiResult, source: 'river_hub_recommended' | 'river_hub_list') {
+  function openHubRoute(route: RiverDetailApiResult, source: 'river_hub_list') {
     trackAppEvent('corridor_trip_selected', {
       corridor_id: route.river.corridorId ?? route.river.conditionZoneId ?? route.river.riverId,
       slug: route.river.slug,
@@ -215,7 +207,7 @@ export default function RiverHubScreen() {
       region: route.river.region,
       source,
     });
-    router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug, source: source === 'river_hub_recommended' ? 'hub-recommended' : 'river-hub' } });
+    router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug, source: 'river-hub' } });
   }
 
   function renderRoute({ item: route, index }: { item: RiverDetailApiResult; index: number }) {
@@ -310,33 +302,10 @@ export default function RiverHubScreen() {
                 </Text>
                 <View style={[styles.heroFacts, compactFacts ? styles.heroFactsCompact : null]}>
                   <HeroFact compact={compactFacts} label="Routes" value={String(result.group.routeCount)} />
-                  <HeroFact compact={compactFacts} label="Distance range" value={distanceRangeLabel ?? 'Varies'} />
-                  <HeroFact compact={compactFacts} label="Difficulty" value={difficultyLabel} />
                 </View>
                 <Text style={styles.routeCalls}>{hubStatusLine(summary, result.group.routeCount)}</Text>
               </View>
             </View>
-
-            {recommendedRoute ? (
-              <View style={recommendedRouteStyles.card}>
-                <View style={recommendedRouteStyles.header}>
-                  <Text style={recommendedRouteStyles.kicker}>Recommended today</Text>
-                  <Text style={recommendedRouteStyles.score}>Score {recommendedRoute.score}</Text>
-                </View>
-                <Text style={recommendedRouteStyles.verdict}>{verdictForRating(recommendedRoute.rating)}</Text>
-                <Text style={recommendedRouteStyles.name}>{recommendedRoute.river.reach}</Text>
-                <Text style={recommendedRouteStyles.meta}>{routeMetaLine(recommendedRoute)}</Text>
-                <Pressable
-                  style={recommendedRouteStyles.button}
-                  onPress={() => openHubRoute(recommendedRoute, 'river_hub_recommended')}
-                  accessibilityRole="button"
-                  accessibilityLabel={`Open recommended route, ${recommendedRoute.river.reach}`}
-                >
-                  <Text style={recommendedRouteStyles.buttonText}>Open recommended route</Text>
-                  <MaterialCommunityIcons name="chevron-right" color={colors.surfaceStrong} size={20} />
-                </Pressable>
-              </View>
-            ) : null}
 
             <View style={styles.listIntro}>
               <Text style={styles.listIntroTitle}>Choose a route</Text>
@@ -515,10 +484,11 @@ function RouteChoiceCard({
 
         <View style={styles.routeCopy}>
           <View style={styles.routeBadgeRow}>
-            {recommended ? <Text style={styles.recommendedBadge}>Best today</Text> : null}
+            {recommended ? <Text style={styles.recommendedBadge}>Recommended today</Text> : null}
             {rank ? <Text style={styles.routeRank}>Rank #{rank}</Text> : null}
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
+          {recommended ? <Text style={styles.recommendationReason}>{recommendationReason(route)}</Text> : null}
           <Text style={styles.routeVerdict}>{route.river.scoreEligibility === 'planning' ? 'Not scored today' : verdictForRating(route.rating)}</Text>
           <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
           <Text style={styles.routeMeta} numberOfLines={2}>
@@ -854,6 +824,14 @@ function groupedReachCountForRoute(route: RiverDetailApiResult, routes: RiverDet
 
 function routeMetaLine(route: RiverDetailApiResult) {
   return routePreviewFactLine(route.river);
+}
+
+function recommendationReason(route: RiverDetailApiResult) {
+  return [
+    route.gaugeBandLabel ? normalizeApiText(route.gaugeBandLabel) : null,
+    route.weather?.windMph ? `${Math.round(route.weather.windMph)} mph wind` : null,
+    route.confidence?.label ? `${route.confidence.label} confidence` : null,
+  ].filter(Boolean).join(' Â· ');
 }
 
 function scoreBreakdownRows(breakdown: ScoreBreakdown) {
@@ -1251,6 +1229,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '900',
   },
+  recommendationReason: {
+    color: colors.textMuted,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '700',
+  },
   routeName: {
     color: colors.text,
     fontSize: 16,
@@ -1393,69 +1377,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     lineHeight: 22,
-  },
-});
-
-const recommendedRouteStyles = StyleSheet.create({
-  card: {
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.accentSoft,
-    padding: spacing.md,
-    gap: 5,
-    ...shadow,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.sm,
-  },
-  kicker: {
-    color: colors.accentDeep,
-    fontSize: 11,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
-  score: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '800',
-  },
-  verdict: {
-    color: colors.accentDeep,
-    fontSize: 20,
-    lineHeight: 24,
-    fontWeight: '900',
-  },
-  name: {
-    color: colors.text,
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: '900',
-  },
-  meta: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
-    fontWeight: '700',
-  },
-  button: {
-    minHeight: 44,
-    marginTop: spacing.sm,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 4,
-    paddingHorizontal: spacing.md,
-  },
-  buttonText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
   },
 });
