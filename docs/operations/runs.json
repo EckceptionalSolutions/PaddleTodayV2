@@ -2,7 +2,761 @@
   "version": 1,
   "runs": [
     {
-      "id": "route-worker-202608141724-chippewa-usgs-05305000-covered",
+      "id": "route-worker-202608141302-des-moines-jackson-usgs-05476000-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:02:00.000Z",
+      "completedAt": "2026-08-14T18:02:00.000Z",
+      "localRunTime": "2026-08-14 13:02:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814180200",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05476000"
+        ],
+        "summary": "Bounded Minnesota review of Des Moines River at Jackson."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05476000",
+          "siteName": "DES MOINES RIVER AT JACKSON, MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "Existing scored routes use the MN DNR Jackson gauge; cross-provider equivalence does not count as covered."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked",
+        "notes": [
+          "USGS and DNR sources establish route relevance and mapped hazards; no provider-specific route adoption was promoted."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "DNR map retained for future package research; no new camping claim promoted.",
+      "safetyEvidence": "Mapped former dam rapids and wire hazard recorded as future package evidence; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814125014",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "Gauge coverage check and full evidence/safety/verification/typecheck/build/rollback gates passed."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05476000",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/desmoines",
+        "https://www.dnr.state.mn.us/climate/waterlevels/streams/desmoines.html"
+      ],
+      "summary": "USGS 05476000 is route-capable at the Jackson Des Moines corridor but remains blocked pending explicit provider-specific route adoption."
+    },
+    {
+      "id": "route-worker-202608141255-des-moines-windom-usgs-05475350-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T17:55:00.000Z",
+      "completedAt": "2026-08-14T17:55:00.000Z",
+      "localRunTime": "2026-08-14 12:55:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814175500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05475350"
+        ],
+        "summary": "Bounded Minnesota review of Des Moines River above Windom."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05475350",
+          "siteName": "DES MOINES RIVER ABOVE WINDOM, MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "Official state water-trail context exists, but no existing scored route explicitly uses this upper-Windom USGS provider key."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked",
+        "notes": [
+          "USGS and DNR sources establish route relevance; no upper-Windom route package was promoted without full evidence."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "DNR map sources retained for future route-package research; no camping claim promoted.",
+      "safetyEvidence": "DNR state-water-trail sources retained; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814124829",
+        "commands": [
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "Full evidence/safety/verification/typecheck/build/rollback gates passed after transient file-lock retry."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05475350",
+        "https://www.dnr.state.mn.us/state-water-trails/des-moines-river/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/des-moines-river/segments-maps.html"
+      ],
+      "summary": "USGS 05475350 is route-capable in the Des Moines River state-trail corridor above Windom but remains blocked pending a dedicated provider-specific route package."
+    },
+    {
+      "id": "route-worker-202608141750-crow-wing-pillager-usgs-05247500-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T17:50:00.000Z",
+      "completedAt": "2026-08-14T17:50:00.000Z",
+      "localRunTime": "2026-08-14 12:50:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814175000",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05247500"
+        ],
+        "summary": "Bounded Minnesota review of Crow Wing River near Pillager."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05247500",
+          "siteName": "CROW WING RIVER NEAR PILLAGER, MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "Official state water-trail context exists, but no existing scored route explicitly uses this lower-river USGS provider key."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked",
+        "notes": [
+          "Station and DNR trail sources establish route relevance; no lower-river package was promoted without full evidence."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "DNR trail sources retained for future route-package research; no camping claim promoted.",
+      "safetyEvidence": "DNR trail and segment/map sources retained; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814124548",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "Gauge coverage check and full evidence/safety/verification/typecheck/build/rollback gates passed."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05247500",
+        "https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/index.html",
+        "https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html"
+      ],
+      "summary": "USGS 05247500 is route-capable on the Crow Wing state water trail but remains blocked pending a lower-river provider-specific route package."
+    },
+    {
+      "id": "route-worker-202608141745-crow-rockford-usgs-05280000-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T17:45:00.000Z",
+      "completedAt": "2026-08-14T17:45:00.000Z",
+      "localRunTime": "2026-08-14 12:45:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814174500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05280000"
+        ],
+        "summary": "Bounded Minnesota review of USGS Crow River at Rockford."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05280000",
+          "siteName": "CROW RIVER AT ROCKFORD, MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "Existing scored routes use an MN DNR Rockford gauge; cross-provider equivalence does not count as covered."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked",
+        "notes": [
+          "USGS station and official state-trail sources establish route relevance; no provider-specific route adoption was promoted."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "Not adjudicated because no route package was promoted.",
+      "safetyEvidence": "DNR state-water-trail sources retained for future package work; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814124900",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "Gauge coverage check and full evidence/safety/verification/typecheck/build/rollback gates passed."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05280000",
+        "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html"
+      ],
+      "summary": "USGS 05280000 is route-capable in the Crow River state-trail corridor but remains blocked because the existing scored routes use an equivalent MN DNR provider key."
+    },
+    {
+      "id": "route-worker-202608141741-crow-rockford-mndnr-43-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T17:41:00.000Z",
+      "completedAt": "2026-08-14T17:41:00.000Z",
+      "localRunTime": "2026-08-14 12:41:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814174100",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "mn_dnr:43"
+        ],
+        "summary": "Bounded Minnesota review of Crow River at Rockford."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "mn_dnr:43",
+          "siteName": "Crow River at Rockford, MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "Official state water-trail context exists, but no existing scored route explicitly uses this provider key; a new route package is required."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked",
+        "notes": [
+          "State water-trail sources confirm route relevance; no route was promoted without a complete package."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "Not adjudicated because no route package was promoted.",
+      "safetyEvidence": "DNR state-water-trail sources identified as the next safety/access evidence set; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814124211",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "Gauge coverage check and full evidence/safety/verification/typecheck/build/rollback gates passed."
+        ]
+      },
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05280000"
+      ],
+      "summary": "MN DNR 43 is a route-capable Crow River gauge in an official state water-trail corridor, but remains blocked pending a dedicated route package and provider-specific coverage."
+    },
+    {
+      "id": "route-worker-202608141738-crooked-creek-05387030-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T17:38:25.000Z",
+      "completedAt": "2026-08-14T17:38:25.000Z",
+      "localRunTime": "2026-08-14 12:38:25 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814173825",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05387030"
+        ],
+        "summary": "Bounded Minnesota review of Crooked Creek at Freeburg."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05387030",
+          "siteName": "CROOKED CREEK AT FREEBURG MN",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "direct",
+          "decisiveBlocker": "No official paddling corridor or route-capable access package found; gage-height-only trout-stream station."
+        }
+      ],
+      "routeEvidence": {
+        "status": "not_applicable",
+        "notes": [
+          "No route package promoted."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "Not applicable; no route promoted.",
+      "safetyEvidence": "No route promoted; no new safety claims made.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814123951",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "Gauge coverage check and full evidence/safety/verification/typecheck/build/rollback gates passed."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05387030",
+        "https://www.dnr.state.mn.us/areas/fisheries/lanesboro/stream_conditions.html"
+      ],
+      "summary": "USGS 05387030 was screened out as not paddle relevant: gage-height-only Crooked Creek station with no official paddling corridor or route-capable access evidence."
+    },
+    {
+      "id": "route-worker-202608141855-cottonwood-usgs-05317000-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:55:00.000Z",
+      "completedAt": "2026-08-14T18:55:00.000Z",
+      "localRunTime": "2026-08-14 13:55:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814185500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05317000"
+        ],
+        "summary": "Bounded Minnesota review of Cottonwood River near New Ulm."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05317000",
+          "siteName": "Cottonwood River near New Ulm, MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "Existing scored routes use equivalent DNR gauges and no route is configured to this USGS provider key; cross-provider equivalence does not count as covered."
+        }
+      ],
+      "routeEvidence": {
+        "gauge": "https://waterdata.usgs.gov/monitoring-location/05317000/",
+        "waterTrail": "https://www.dnr.state.mn.us/state-water-trails/cottonwood-river/segments-maps.html",
+        "routeData": "src/data/routes/minnesota.ts"
+      },
+      "galleryImageDecision": "No new image; no duplicate route package added.",
+      "campingEvidence": "Existing Cottonwood route logistics remain authoritative.",
+      "safetyEvidence": "No silent provider migration or unsupported duplicate route created.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the next planner-selected eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814183700",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "No route package changed; durable direct blocked disposition and no-add evidence passed evidence, safety, verification, tests, build, and rollback gates."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/05317000/",
+        "https://www.dnr.state.mn.us/state-water-trails/cottonwood-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ],
+      "summary": "Blocked USGS 05317000 as a provider-specific coverage gap rather than adding a duplicate Cottonwood route already covered by DNR gauge packages."
+    },
+    {
+      "id": "route-worker-202608141845-coon-creek-screened-out",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:45:00.000Z",
+      "completedAt": "2026-08-14T18:45:00.000Z",
+      "localRunTime": "2026-08-14 13:45:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814184500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05288490"
+        ],
+        "summary": "Bounded Minnesota review of Coon Creek urban telemetry."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05288490",
+          "siteName": "Coon Creek at Vale Street in Coon Rapids, MN",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "none",
+          "decisiveBlocker": "No official water-trail or supported point-to-point paddling corridor."
+        }
+      ],
+      "routeEvidence": {
+        "gauge": "https://waterdata.usgs.gov/monitoring-location/05288490/",
+        "liveData": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05288490"
+      },
+      "galleryImageDecision": "No new image; gauge is screened out as not paddle relevant.",
+      "campingEvidence": "Not applicable; no route-capable corridor established.",
+      "safetyEvidence": "No route promoted from urban watershed telemetry.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the next planner-selected eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814183500",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "No route package changed; durable screened-out disposition and no-add evidence passed evidence, safety, verification, tests, build, and rollback gates."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/05288490/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05288490"
+      ],
+      "summary": "Screened out USGS 05288490 Coon Creek because it is an urban monitoring site without an official paddle corridor or route package."
+    },
+    {
+      "id": "route-worker-202608141835-clearwater-redlakefalls-screened-out",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:35:00.000Z",
+      "completedAt": "2026-08-14T18:35:00.000Z",
+      "localRunTime": "2026-08-14 13:35:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814183500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05078500"
+        ],
+        "summary": "Bounded Minnesota review of Clearwater River at Red Lake Falls."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05078500",
+          "siteName": "Clearwater River at Red Lake Falls, MN",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "none",
+          "decisiveBlocker": "Official DNR trail materials cover the Red Lake River but no distinct Clearwater point-to-point route package was found."
+        }
+      ],
+      "routeEvidence": {
+        "gauge": "https://waterdata.usgs.gov/nwis/uv/?site_no=05078500",
+        "waterTrail": "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/index.html",
+        "map": "https://files.dnr.state.mn.us/maps/canoe_routes/redlake1.pdf"
+      },
+      "galleryImageDecision": "No new image; gauge is screened out as a distinct route opportunity.",
+      "campingEvidence": "Not applicable; no Clearwater route-capable corridor established.",
+      "safetyEvidence": "No separate Clearwater route promoted from confluence proximity alone.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the next planner-selected eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814183300",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "No route package changed; durable screened-out disposition and no-add evidence passed evidence, safety, verification, tests, build, and rollback gates."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv/?site_no=05078500",
+        "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/index.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redlake1.pdf"
+      ],
+      "summary": "Screened out USGS 05078500 Clearwater River at Red Lake Falls because the nearby Red Lake River trail does not establish a distinct Clearwater route package."
+    },
+    {
+      "id": "route-worker-202608141825-clearwater-plummer-screened-out",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:25:00.000Z",
+      "completedAt": "2026-08-14T18:25:00.000Z",
+      "localRunTime": "2026-08-14 13:25:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814182500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05078000"
+        ],
+        "summary": "Bounded Minnesota review of Clearwater River at Plummer."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05078000",
+          "siteName": "Clearwater River at Plummer, MN",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "none",
+          "decisiveBlocker": "No official Minnesota water-trail or current route package surfaced for the telemetry site."
+        }
+      ],
+      "routeEvidence": {
+        "gauge": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05078000",
+        "waterTrailMap": "https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=13"
+      },
+      "galleryImageDecision": "No new image; gauge is screened out as not paddle relevant.",
+      "campingEvidence": "Not applicable; no route-capable corridor established.",
+      "safetyEvidence": "No route promoted from unsupported telemetry.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the next planner-selected eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814183100",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "No route package changed; durable screened-out disposition and no-add evidence passed evidence, safety, verification, tests, build, and rollback gates."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05078000",
+        "https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=13"
+      ],
+      "summary": "Screened out USGS 05078000 Clearwater River at Plummer because telemetry was not accompanied by an official paddle corridor or complete route package."
+    },
+    {
+      "id": "route-worker-202608141815-chub-creek-screened-out",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:15:00.000Z",
+      "completedAt": "2026-08-14T18:15:00.000Z",
+      "localRunTime": "2026-08-14 13:15:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814181500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05355038"
+        ],
+        "summary": "Bounded Minnesota review of Chub Creek telemetry above Randolph."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05355038",
+          "siteName": "Chub Creek at Co. Hwy. 47 above Randolph, MN",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "none",
+          "decisiveBlocker": "No official state-water-trail or supported point-to-point paddling corridor; small-creek telemetry alone is insufficient."
+        }
+      ],
+      "routeEvidence": {
+        "gauge": "https://waterdata.usgs.gov/monitoring-location/USGS-05355038/",
+        "hydrology": "https://mn.water.usgs.gov/publications/pubs/99-472-Plate.pdf"
+      },
+      "galleryImageDecision": "No new image; gauge is screened out as not paddle relevant.",
+      "campingEvidence": "Not applicable; no route-capable corridor established.",
+      "safetyEvidence": "No route promoted from unsupported creek telemetry.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the next planner-selected eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814182900",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "No route package changed; durable screened-out disposition and no-add evidence passed evidence, safety, verification, tests, build, and rollback gates."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05355038/",
+        "https://mn.water.usgs.gov/publications/pubs/99-472-Plate.pdf"
+      ],
+      "summary": "Screened out USGS 05355038 Chub Creek because the telemetry site is not tied to an official paddle corridor or complete route package."
+    },
+    {
+      "id": "route-worker-202608141805-chippewa-usgs-05304500-covered",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "mn-gauge-review-batch",
+      "state": "MN",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T18:05:00.000Z",
+      "completedAt": "2026-08-14T18:05:00.000Z",
+      "localRunTime": "2026-08-14 13:05:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814180500",
+        "taskId": "mn-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05304500"
+        ],
+        "summary": "Bounded Minnesota review of the direct Milan Chippewa gauge."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05304500",
+          "siteName": "Chippewa River near Milan, MN",
+          "status": "covered",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": null
+        }
+      ],
+      "routeEvidence": {
+        "gauge": "https://waterdata.usgs.gov/monitoring-location/05304500/",
+        "waterTrail": "https://www.dnr.state.mn.us/state-water-trails/chippewa-river/segments-maps.html",
+        "routeData": "src/data/routes/minnesota.ts"
+      },
+      "galleryImageDecision": "No new image; existing Norby-to-Lentz route already covers the corridor.",
+      "campingEvidence": "Existing Chippewa route logistics remain authoritative.",
+      "safetyEvidence": "Existing Milan/Lentz current and access guidance remains in force.",
+      "geometry": "No new geometry generated.",
+      "coordinates": "No new endpoint coordinates promoted.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the next planner-selected eligible gauge.",
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814182700",
+        "commands": [
+          "npm run operations:gauges:check",
+          "npm run operations:verify"
+        ],
+        "notes": [
+          "No route package changed; covered direct gauge disposition and no-add evidence passed evidence, safety, verification, tests, build, and rollback gates."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/05304500/",
+        "https://www.dnr.state.mn.us/state-water-trails/chippewa-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ],
+      "summary": "Screened USGS 05304500 and added no route because the existing Norby-to-Lentz Chippewa route already covers the direct Milan corridor."
+    },
+    {
+      "id": "route-worker-202608141724-chippewa-usgs-provider-equivalence-no-add",
       "automationId": "paddletoday-hourly-route-worker",
       "kind": "gauge_review_no_add",
       "role": "route-worker",
@@ -11,8 +765,8 @@
       "state": "MN",
       "status": "completed_no_route_added",
       "startedAt": "2026-08-14T17:24:00.000Z",
-      "completedAt": "2026-08-14T17:24:00.000Z",
-      "localRunTime": "2026-08-14 12:24:00 CDT",
+      "completedAt": "2026-08-14T17:29:00.000Z",
+      "localRunTime": "2026-08-14 12:29:00 CDT",
       "workOrder": {
         "id": "orchestrator-20260814172255",
         "taskId": "mn-gauge-review-batch",
@@ -29,29 +783,44 @@
         {
           "key": "usgs:05305000",
           "siteName": "Chippewa River (TW) near Watson, MN",
-          "status": "covered",
+          "status": "blocked",
           "eligibility": "route_capable",
           "relationship": "direct",
-          "decisiveBlocker": null
+          "decisiveBlocker": "Existing scored Chippewa route coverage uses equivalent MN DNR Watson gauge; current coverage gates do not count cross-provider equivalents as covered."
+        },
+        {
+          "key": "usgs:05304500",
+          "siteName": "Chippewa River near Milan, MN",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "Existing scored Chippewa route coverage uses equivalent MN DNR Milan gauge; current coverage gates do not count cross-provider equivalents as covered."
         }
       ],
       "routeEvidence": {
-        "gauge": "https://waterdata.usgs.gov/monitoring-location/05305000/",
-        "gaugeJson": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05305000&parameterCd=00060,00065&siteStatus=all",
+        "gaugeWatson": "https://waterdata.usgs.gov/monitoring-location/05305000/",
+        "gaugeMilan": "https://waterdata.usgs.gov/monitoring-location/05304500/",
         "waterTrail": "https://www.dnr.state.mn.us/state-water-trails/chippewa-river/segments-maps.html",
         "routeData": "src/data/routes/minnesota.ts"
       },
       "galleryImageDecision": "No new image; no route package changed.",
-      "campingEvidence": "No new camping package; existing Chippewa route details already document Watson/Lagoon Park endpoint/basecamp context and no inferred private-bank camping.",
-      "safetyEvidence": "No new safety package; existing Chippewa route details already cover Watson Sag Dam discipline, low-water scraping, wood/strainers, private banks, wind, cold water, and lower-river fast-water caveats.",
+      "campingEvidence": "No new camping package; existing Chippewa route details remain authoritative and no private-bank camping was inferred.",
+      "safetyEvidence": "No new safety package; existing Chippewa route details retain dam, low-water, wood/strainer, private-bank, wind, cold-water, long-mile, and lower-river caveats.",
       "geometry": "No new geometry generated because no route was implemented; existing route geometry remains authoritative.",
-      "coordinates": "No new endpoint coordinates promoted because existing lower-Chippewa routes are coordinate-backed.",
-      "nextCandidateRotation": "Continue Minnesota gauge review with the next planner-selected eligible gauge; do not duplicate the Watson Chippewa corridor unless fresh evidence creates a materially distinct route package.",
+      "coordinates": "No new endpoint coordinates promoted because no route was implemented.",
+      "nextCandidateRotation": "Continue Minnesota gauge review with the next planner-selected eligible gauge; retry the USGS Chippewa Milan/Watson gauges only after an explicit cross-provider equivalence policy or deliberate route-gauge migration.",
       "validation": {
-        "status": "pending",
-        "commands": [],
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814172823",
+        "commands": [
+          "JSON parse for operations and route-candidate metadata",
+          "npm run operations:gauges:check",
+          "npm run operations:verify",
+          "git diff --check -- docs/operations/tasks.json docs/operations/gauge-review-ledger.json docs/operations/runs.json docs/route-candidate-ledger.json docs/state-route-memories/minnesota.md"
+        ],
         "notes": [
-          "No route package changed; durable covered/direct gauge disposition recorded for validation."
+          "First operations:verify failed on the stale covered-without-scored USGS 05304500 metadata; after correcting the Chippewa USGS provider-equivalence dispositions to blocked, operations:verify passed all gates.",
+          "No route package changed; durable provider-equivalence blockers recorded."
         ]
       },
       "sources": [
@@ -59,9 +828,11 @@
         "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05305000&parameterCd=00060,00065&siteStatus=all",
         "https://www.dnr.state.mn.us/state-water-trails/chippewa-river/segments-maps.html",
         "https://files.dnr.state.mn.us/maps/canoe_routes/chippewa.pdf",
-        "src/data/routes/minnesota.ts"
+        "src/data/routes/minnesota.ts",
+        "https://waterdata.usgs.gov/monitoring-location/05304500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05304500&parameterCd=00060,00065&siteStatus=all"
       ],
-      "summary": "Screened USGS 05305000 and added no route because existing scored Chippewa route packages already cover the direct Watson corridor."
+      "summary": "Screened the USGS Chippewa Milan/Watson duplicate-provider gauge cluster and added no route because existing route packages use equivalent MN DNR gauges and the coverage gate does not count cross-provider equivalents as covered."
     },
     {
       "id": "route-worker-202608141755-chippewa-usgs-05305000-covered",
@@ -37978,6 +38749,678 @@
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
         "usgs:05304500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814172556",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:25:16.560Z",
+      "completedAt": "2026-08-14T17:25:56.777Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260814172711",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:26:29.204Z",
+      "completedAt": "2026-08-14T17:27:11.345Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814172741",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:27:41.667Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05355038"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814172808",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:28:08.884Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05078000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814172823",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:27:44.807Z",
+      "completedAt": "2026-08-14T17:28:23.671Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260814172911",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:28:30.560Z",
+      "completedAt": "2026-08-14T17:29:11.175Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814173008",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:30:08.957Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05078500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814173119",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:30:30.213Z",
+      "completedAt": "2026-08-14T17:31:19.244Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814173206",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:32:06.360Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05288490"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814173309",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:32:28.705Z",
+      "completedAt": "2026-08-14T17:33:09.560Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814173352",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:33:52.699Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05317000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814173453",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:34:14.395Z",
+      "completedAt": "2026-08-14T17:34:53.369Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814173541",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:35:41.699Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05387030"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814173647",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:36:05.316Z",
+      "completedAt": "2026-08-14T17:36:47.879Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814173844",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:38:44.686Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "mn_dnr:43"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814173951",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:39:11.638Z",
+      "completedAt": "2026-08-14T17:39:51.751Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814174009",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:40:09.624Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "mn_dnr:43"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814174104",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:41:04.612Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05280000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814174211",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:41:31.612Z",
+      "completedAt": "2026-08-14T17:42:11.679Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260814174349",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:43:10.095Z",
+      "completedAt": "2026-08-14T17:43:49.606Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814174402",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:44:02.971Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05247500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814174548",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:45:08.216Z",
+      "completedAt": "2026-08-14T17:45:48.173Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814174557",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:45:57.412Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05475350"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814174829",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:47:47.177Z",
+      "completedAt": "2026-08-14T17:48:29.934Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814174839",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:48:39.167Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05476000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260814175014",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-14T17:49:38.918Z",
+      "completedAt": "2026-08-14T17:50:14.197Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260814175026",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T17:50:26.379Z",
+      "status": "planned",
+      "taskId": "mn-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05275000"
       ],
       "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     }

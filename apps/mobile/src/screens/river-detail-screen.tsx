@@ -1381,7 +1381,7 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
   const riskLevel = safetyModel.riskLevel;
   const advanced = riskLevel === 'advanced';
   const caution = riskLevel === 'caution';
-  const [expanded, setExpanded] = useState(advanced || caution);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <View style={[styles.safetyPanel, advanced ? styles.safetyPanelAdvanced : caution ? styles.safetyPanelCaution : null]}>

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T17:24:00.000Z",
+  "updatedAt": "2026-08-14T17:29:00.000Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
@@ -2239,17 +2239,38 @@
     },
     {
       "key": "mn_dnr:43",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T12:42:00-05:00",
+      "decisionReason": "MN DNR 43 is a discharge gauge on the Crow River at Rockford, within an official North Fork Crow state water-trail corridor. It is route-capable, but no existing scored route explicitly uses this provider key, so a new route package still needs endpoint, threshold, safety, and geometry evidence before coverage can be promoted.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Crow River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly uses MN DNR provider key mn_dnr:43.",
+        "A route-specific access, safety, geometry, and threshold package must be assembled before this gauge can become covered."
+      ],
+      "evidence": [
+        {
+          "label": "Minnesota DNR Crow River North Fork state water trail",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/index.html",
+          "note": "Official state water-trail corridor reaches Rockford and identifies paddling context."
+        },
+        {
+          "label": "Minnesota DNR Crow River North Fork segments and maps",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html",
+          "note": "Official segment and access-map source for route-package research."
+        },
+        {
+          "label": "USGS Crow River at Rockford reference",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05280000",
+          "note": "Independent provider confirms discharge monitoring at the Rockford corridor; cross-provider equivalence is not counted as coverage."
+        }
+      ]
     },
     {
       "key": "mn_dnr:47",
@@ -25923,17 +25944,23 @@
     },
     {
       "key": "usgs:05078000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T18:25:00.000Z",
+      "decisionReason": "Clearwater River at Plummer has live discharge telemetry, but no official Minnesota state-water-trail segment or current PaddleToday-ready public endpoint package was found for this reach; telemetry alone does not establish route relevance.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official water-trail segment or supported point-to-point paddling package surfaced.",
+        "No route-specific access, threshold, camping, and safety package was found."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05078000",
+        "https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=13"
+      ]
     },
     {
       "key": "usgs:05078230",
@@ -25951,17 +25978,24 @@
     },
     {
       "key": "usgs:05078500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T18:35:00.000Z",
+      "decisionReason": "Clearwater River at Red Lake Falls is a real discharge station near the Clearwater/Red Lake confluence, but official DNR trail materials document the Red Lake River—not a distinct Clearwater point-to-point route—and no complete Clearwater endpoint package was found.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official state-water-trail segment or current Clearwater route package was found.",
+        "The gauge's proximity to the Red Lake trail does not establish a separate Clearwater route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv/?site_no=05078500",
+        "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/index.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redlake1.pdf"
+      ]
     },
     {
       "key": "usgs:05079000",
@@ -26908,17 +26942,38 @@
     },
     {
       "key": "usgs:05247500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T12:50:00-05:00",
+      "decisionReason": "USGS 05247500 is a discharge and stage station on the lower Crow Wing River near Pillager, within the official Crow Wing River state water-trail corridor. It is route-capable, but current scored Crow Wing packages use the MN DNR Nimrod gauge; this provider key needs a dedicated lower-river route package and provider-specific threshold evidence before it can count as covered.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Crow Wing River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly uses USGS provider key 05247500.",
+        "Lower-river endpoint, access, safety, geometry, and threshold package remains to be assembled."
+      ],
+      "evidence": [
+        {
+          "label": "USGS Crow Wing River near Pillager station",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05247500",
+          "note": "USGS provides discharge and gage-height observations for the lower Crow Wing corridor."
+        },
+        {
+          "label": "Minnesota DNR Crow Wing River State Water Trail",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/index.html",
+          "note": "Official state water-trail source confirms paddling relevance."
+        },
+        {
+          "label": "Minnesota DNR Crow Wing River segments and maps",
+          "url": "https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html",
+          "note": "Official access, campsite, and segment source for future lower-river route research."
+        }
+      ]
     },
     {
       "key": "usgs:05261000",
@@ -27045,17 +27100,38 @@
     },
     {
       "key": "usgs:05280000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T12:45:00-05:00",
+      "decisionReason": "USGS 05280000 is a discharge and stage gauge on the Crow River at Rockford inside the official North Fork Crow state water-trail corridor. Existing scored routes use an MN DNR Rockford gauge instead; cross-provider equivalence is not counted as coverage, so this key remains blocked until a route explicitly adopts it with provider-specific threshold and evidence support.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Crow River"
+      ],
+      "blockers": [
+        "Existing scored Crow routes use an MN DNR Rockford gauge rather than this USGS provider key.",
+        "Provider-specific route adoption and threshold evidence are still required."
+      ],
+      "evidence": [
+        {
+          "label": "USGS Crow River at Rockford station",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05280000",
+          "note": "USGS provides discharge and gage-height observations at Rockford."
+        },
+        {
+          "label": "Minnesota DNR Crow River North Fork state water trail",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/index.html",
+          "note": "Official paddling corridor establishes route relevance."
+        },
+        {
+          "label": "Minnesota DNR Crow River North Fork segments and maps",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html",
+          "note": "Official access and segment evidence for any future provider-specific package."
+        }
+      ]
     },
     {
       "key": "usgs:05280400",
@@ -27136,17 +27212,23 @@
     },
     {
       "key": "usgs:05288490",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T18:45:00.000Z",
+      "decisionReason": "Coon Creek at Vale Street is an urban watershed monitoring site with no official state-water-trail or supported point-to-point paddling corridor; live telemetry alone does not make it a route candidate.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official water-trail segment or public paddling endpoint package surfaced.",
+        "USGS data page identifies monitoring but not a paddle route or route-specific threshold package."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05288490/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05288490"
+      ]
     },
     {
       "key": "usgs:05288500",
@@ -27359,19 +27441,29 @@
     },
     {
       "key": "usgs:05304500",
-      "status": "covered",
+      "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:05:00.000Z",
-      "decisionReason": "USGS 05304500 is the direct Milan-area discharge station represented by the existing Norby-to-Lentz Chippewa route package through the equivalent DNR Milan gauge; no duplicate route is justified.",
+      "checkedAt": "2026-08-14T17:29:00.000Z",
+      "decisionReason": "usgs:05304500 is a product-supported direct USGS Chippewa station in a corridor already represented by MN DNR site 24 / Chippewa River near Milan, but no scored route is configured to this USGS provider key. Current coverage gates do not treat cross-provider equivalents as covered, so this remains blocked rather than forcing a duplicate route or silent gauge migration.",
       "decisionSource": "manual_gauge_review",
-      "routeSlugs": [],
+      "routeSlugs": [
+        "chippewa-river-norby-lentz"
+      ],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
+      "routeFamilies": [
+        "Chippewa River"
+      ],
+      "blockers": [
+        "Existing route coverage uses the equivalent MN DNR site 24 / Chippewa River near Milan gauge, not usgs:05304500.",
+        "The gauge-coverage gate requires a scored route tied to the reviewed provider key before status can be covered.",
+        "No duplicate Chippewa route is justified because the official DNR endpoint, threshold, camping, safety, coordinate, and geometry package is already represented."
+      ],
       "evidence": [
         "https://waterdata.usgs.gov/monitoring-location/05304500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05304500&parameterCd=00060,00065&siteStatus=all",
         "https://www.dnr.state.mn.us/state-water-trails/chippewa-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/chippewa.pdf",
         "src/data/routes/minnesota.ts"
       ]
     },
@@ -27398,24 +27490,25 @@
     },
     {
       "key": "usgs:05305000",
-      "status": "covered",
+      "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T17:24:00.000Z",
-      "decisionReason": "USGS 05305000 is the direct Watson-area discharge/stage station for the same lower-Chippewa corridor already covered by existing scored Chippewa routes using the equivalent MN DNR Watson gauge; no duplicate route is justified.",
+      "checkedAt": "2026-08-14T17:29:00.000Z",
+      "decisionReason": "usgs:05305000 is a product-supported direct USGS Chippewa station in a corridor already represented by MN DNR site 20 / Chippewa River (TW) near Watson, but no scored route is configured to this USGS provider key. Current coverage gates do not treat cross-provider equivalents as covered, so this remains blocked rather than forcing a duplicate route or silent gauge migration.",
       "decisionSource": "manual_gauge_review",
       "routeSlugs": [
         "chippewa-river-lentz-watson-lions-park",
         "chippewa-river-watson-lagoon"
       ],
-      "scoredRouteSlugs": [
-        "chippewa-river-lentz-watson-lions-park",
-        "chippewa-river-watson-lagoon"
-      ],
+      "scoredRouteSlugs": [],
       "routeFamilies": [
         "Chippewa River"
       ],
-      "blockers": [],
+      "blockers": [
+        "Existing route coverage uses the equivalent MN DNR site 20 / Chippewa River (TW) near Watson gauge, not usgs:05305000.",
+        "The gauge-coverage gate requires a scored route tied to the reviewed provider key before status can be covered.",
+        "No duplicate Chippewa route is justified because the official DNR endpoint, threshold, camping, safety, coordinate, and geometry package is already represented."
+      ],
       "evidence": [
         "https://waterdata.usgs.gov/monitoring-location/05305000/",
         "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05305000&parameterCd=00060,00065&siteStatus=all",
@@ -27532,17 +27625,24 @@
     },
     {
       "key": "usgs:05317000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:55:00.000Z",
+      "decisionReason": "USGS 05317000 is a direct Cottonwood discharge station near New Ulm, but existing scored Cottonwood routes use equivalent MN DNR Leavenworth/New Ulm gauges and current coverage gates do not silently count cross-provider equivalents or justify duplicate route packages.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No scored route is configured to the USGS provider key.",
+        "Cross-provider DNR equivalence is not counted as covered without explicit route-package migration."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05317000/",
+        "https://www.dnr.state.mn.us/state-water-trails/cottonwood-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05317200",
@@ -28032,17 +28132,23 @@
     },
     {
       "key": "usgs:05355038",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T18:15:00.000Z",
+      "decisionReason": "Chub Creek telemetry is a small tributary monitoring site, not a Minnesota DNR state-water-trail gauge or supported point-to-point paddling corridor; no route-capable package was found.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official state water-trail segment or public paddling endpoint package surfaced for Chub Creek.",
+        "Gage-height telemetry alone does not establish paddle relevance."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05355038/",
+        "https://mn.water.usgs.gov/publications/pubs/99-472-Plate.pdf"
+      ]
     },
     {
       "key": "usgs:05355080",
@@ -28856,17 +28962,31 @@
     },
     {
       "key": "usgs:05387030",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T12:38:25-05:00",
+      "decisionReason": "USGS 05387030 is a short-duration gage-height-only station on Crooked Creek at Freeburg. Official Minnesota DNR material treats Crooked Creek in this area as a southeast Minnesota trout-stream management reach, not a designated state water trail or recommended paddling corridor; no route-capable access package or paddle-specific threshold evidence was found.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official state-water-trail or recommended paddling section found for Crooked Creek at Freeburg.",
+        "Only gage height is available and no paddle-specific threshold conversion is documented."
+      ],
+      "evidence": [
+        {
+          "label": "USGS station record",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05387030",
+          "note": "Station exposes gage height only and identifies the site as Crooked Creek at Freeburg, MN."
+        },
+        {
+          "label": "Minnesota DNR southeast stream conditions",
+          "url": "https://www.dnr.state.mn.us/areas/fisheries/lanesboro/stream_conditions.html",
+          "note": "DNR presents Crooked Creek as a southeast Minnesota stream-condition/trout-management reach rather than a state water-trail route."
+        }
+      ]
     },
     {
       "key": "usgs:05387440",
@@ -32200,31 +32320,73 @@
     },
     {
       "key": "usgs:05475350",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T12:55:00-05:00",
+      "decisionReason": "USGS 05475350 is a discharge and stage station on the Des Moines River above Windom, directly within the Minnesota DNR Des Moines River State Water Trail corridor. It is route-capable, but existing scored Des Moines packages use a West Fork/Jackson gauge; this upper Windom gauge needs a dedicated provider-specific route package and thresholds before coverage can be promoted.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Des Moines River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly uses USGS provider key 05475350.",
+        "Upper-Windom endpoint, safety, geometry, and provider-specific threshold package remains to be assembled."
+      ],
+      "evidence": [
+        {
+          "label": "USGS Des Moines River above Windom station",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05475350",
+          "note": "USGS provides discharge and gage-height observations above Windom."
+        },
+        {
+          "label": "Minnesota DNR Des Moines River State Water Trail",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/des-moines-river/index.html",
+          "note": "Official state water-trail page identifies the Windom corridor and normal-level paddling context."
+        },
+        {
+          "label": "Minnesota DNR Des Moines River segments and maps",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/des-moines-river/segments-maps.html",
+          "note": "Official segment and access source for a future upper-Windom package."
+        }
+      ]
     },
     {
       "key": "usgs:05476000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:02:00-05:00",
+      "decisionReason": "USGS 05476000 is a discharge and stage gauge at Jackson on the Des Moines River, directly within the official state water-trail corridor and adjacent to mapped hazards and public access. Existing scored routes use an MN DNR Jackson gauge; cross-provider equivalence is not counted as coverage, so this key remains blocked until a route explicitly adopts it with provider-specific evidence.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Des Moines River"
+      ],
+      "blockers": [
+        "Existing scored Des Moines routes use the MN DNR Jackson gauge rather than this USGS provider key.",
+        "Provider-specific threshold, endpoint, geometry, and safety adoption remain required."
+      ],
+      "evidence": [
+        {
+          "label": "USGS Des Moines River at Jackson station",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05476000",
+          "note": "USGS reports discharge and stage and documents the 2016 gauge relocation."
+        },
+        {
+          "label": "Minnesota DNR Des Moines River trail map",
+          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/desmoines",
+          "note": "Official map places Ashley access, the Jackson gauge/former dam rapids, wire hazard, and Petersburg access in sequence."
+        },
+        {
+          "label": "Minnesota DNR Des Moines River at Jackson levels",
+          "url": "https://www.dnr.state.mn.us/climate/waterlevels/streams/desmoines.html",
+          "note": "Official DNR level context for the Jackson corridor."
+        }
+      ]
     },
     {
       "key": "usgs:05476500",

@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-## 2026-08-14 America/Chicago Chippewa Watson USGS gauge disposition
+## 2026-08-14 America/Chicago Chippewa USGS Milan/Watson gauge disposition
 
-- No route was added. The Minnesota gauge-review batch selected USGS `05305000` / Chippewa River (TW) near Watson as the bounded work item.
-- USGS Water Services returned product-supported provisional telemetry of `211 cfs / 37.56 ft` at `2026-08-14 12:00 CDT`.
-- Disposition: `usgs:05305000` recorded as `covered` / `route_capable` / `direct` because existing scored Chippewa route packages `chippewa-river-lentz-watson-lions-park` and `chippewa-river-watson-lagoon` already cover the lower Watson corridor with the equivalent MN DNR Watson gauge, official threshold bands, DNR route and camping evidence, safety notes, coordinate-backed endpoints, and existing geometry.
-- No route data, trip details, image-audit row, endpoint coordinates, coordinate corrections, camping package, safety package, canonical geometry, or route order changed. Next rotation should continue with the next planner-selected Minnesota gauge and should not duplicate the Watson Chippewa corridor unless fresh evidence creates a materially distinct route package.
+- No route was added. The Minnesota gauge-review batch selected USGS `05305000` / Chippewa River (TW) near Watson, and validation also exposed the same-family USGS `05304500` / Chippewa River near Milan covered-without-scored-route issue.
+- USGS Water Services returned product-supported provisional telemetry: `05305000` at `211 cfs / 37.56 ft` at `2026-08-14 12:00 CDT`, and `05304500` at `266 cfs / 1.53 ft` at `2026-08-14 11:45 CDT`.
+- Disposition: both USGS gauges are recorded as `blocked` / `route_capable` / `direct` provider-equivalence blockers. Existing scored Chippewa route packages already cover the practical Milan/Watson corridor through equivalent MN DNR sites `24` and `20`, but current coverage gates do not count cross-provider equivalents as `covered`.
+- No duplicate route was added and no route gauge was migrated without a policy decision. No route data, trip details, image-audit row, endpoint coordinates, coordinate corrections, camping package, safety package, canonical geometry, or route order changed. Retry only after an explicit cross-provider gauge-equivalence policy or deliberate route-gauge migration with thresholds and audits.
 
 ## 2026-08-14 America/Chicago Ball Club River gauge disposition
 

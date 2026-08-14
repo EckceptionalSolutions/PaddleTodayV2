@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T17:24:00.000Z",
+  "updatedAt": "2026-08-14T17:29:00.000Z",
   "tasks": [
     {
       "id": "geographic-gauge-frontier-workflow",
@@ -28,7 +28,7 @@
       "owner": "state-coverage",
       "priority": "critical",
       "stateId": "MN",
-      "summary": "Minnesota active gauge frontier remains open. Latest bounded review covered USGS 05305000 Chippewa River (TW) near Watson as route_capable/direct because existing scored Chippewa route packages already cover the lower Watson corridor; the next batch should use the next planner-selected eligible gauge.",
+      "summary": "Minnesota active gauge frontier remains open. Latest bounded review blocked the USGS Chippewa Milan/Watson duplicate-provider gauge cluster because existing scored Chippewa route packages use equivalent MN DNR gauges and current coverage gates do not count cross-provider equivalents; the next batch should use the next planner-selected eligible gauge.",
       "evidence": [
         "2026-08-14T16:33:00.000Z: route-worker-202608141633-basswood-gauge-no-add screened usgs:05127500 Basswood River near Winton and added no route. Disposition recorded as blocked/route_capable because no PaddleToday-ready public endpoint, threshold, camping/permit, safety, or coordinate package surfaced for the gauge reach; no route data, trip details, image row, endpoint coordinates, geometry, or route package changed.",
         "2026-08-14T16:38:00.000Z: route-worker-202608141638-big-cobb-gauge-no-add screened mn_dnr:346 Big Cobb River near Beauford and added no route. Disposition recorded as blocked/route_capable; DNR confirms a scrapable gauge and one Co. Rd. 16 carry-in, but no complete public endpoint sequence, route threshold, camping, safety, or coordinate package surfaced.",
@@ -59,10 +59,12 @@
         "gatekeeper-20260814170719 passed: the durable Cannon USGS 05355092 direct-threshold blocker and no-add evidence passed all required gates.",
         "2026-08-14T17:14:56.387Z supervisor preservation: classified post-16:11Z hourly route-worker records route-worker-202608141624-mn-ball-club-gauge-no-add through route-worker-202608141718-cannon-usgs-05354500-no-add as completed gauge-disposition/no-add work, not completed routes, no-work/WIP dead ends, failed validations, omitted route packages, active-claim conflicts, policy overrides, or infrastructure failures. Found no in_progress task lane and no active route-worker/operations process. Preserved mn-gauge-review-batch ready because Minnesota remains the active frontier with unreviewed eligible gauges; final post-reconciliation operations:plan -- --record selected usgs:05457000 via orchestrator-20260814171550.",
         "2026-08-14T17:17:46.127Z supervisor metadata repair: while this supervisor pass was validating, route-worker-202608141725-cannon-dnr-285-no-add was recorded as completed gauge-disposition/no-add work for mn-gauge-review-batch. Classified it as gauge disposition work, not a completed route, workOrder:null dead end, failed validation, omitted route package, active-claim conflict, policy override, or infrastructure failure; advanced mn-gauge-review-batch lastRunId to that latest checked-in run and preserved ready status.",
-        "2026-08-14T17:24:00.000Z: route-worker-202608141724-chippewa-usgs-05305000-covered screened USGS 05305000 Chippewa River (TW) near Watson and added no route. Disposition recorded as covered/route_capable/direct because existing scored Chippewa route packages already cover the lower Watson corridor with the equivalent MN DNR Watson gauge, official thresholds, DNR endpoint/camping context, safety notes, coordinates, and geometry; no duplicate route package changed."
+        "2026-08-14T17:24:00.000Z: route-worker-202608141724-chippewa-usgs-provider-equivalence-no-add screened USGS 05305000 Chippewa River (TW) near Watson and added no route. Disposition recorded as covered/route_capable/direct because existing scored Chippewa route packages already cover the lower Watson corridor with the equivalent MN DNR Watson gauge, official thresholds, DNR endpoint/camping context, safety notes, coordinates, and geometry; no duplicate route package changed.",
+        "2026-08-14T17:29:00.000Z: route-worker-202608141724-chippewa-usgs-provider-equivalence-no-add screened USGS 05305000 Chippewa River (TW) near Watson plus the same-family USGS 05304500 Milan validation blocker and added no route. Dispositions recorded as blocked/route_capable/direct provider-equivalence blockers because existing scored Chippewa route packages use equivalent MN DNR Watson/Milan gauges; current coverage gates do not count cross-provider equivalents as covered, and no duplicate route package changed.",
+        "gatekeeper-20260814172823 passed: the durable USGS Chippewa Milan/Watson provider-equivalence blockers and no-add evidence passed all required gates after correcting stale covered-without-scored metadata."
       ],
-      "updatedAt": "2026-08-14T17:24:00.000Z",
-      "lastRunId": "route-worker-202608141724-chippewa-usgs-05305000-covered",
+      "updatedAt": "2026-08-14T17:29:00.000Z",
+      "lastRunId": "route-worker-202608141724-chippewa-usgs-provider-equivalence-no-add",
       "lastSupervisorRunId": "supervisor-20260814T171456Z"
     },
     {
