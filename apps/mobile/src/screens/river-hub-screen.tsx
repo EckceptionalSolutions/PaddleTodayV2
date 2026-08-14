@@ -8,7 +8,7 @@ import {
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View, type GestureResponderEvent } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
@@ -56,8 +56,6 @@ type MapCoordinate = { latitude: number; longitude: number };
 type HubAccessPoint = NonNullable<RiverDetailApiResult['river']['accessPoints']>[number];
 
 export default function RiverHubScreen() {
-  const { width: windowWidth } = useWindowDimensions();
-  const compactFacts = windowWidth < 360;
   const params = useLocalSearchParams<{ riverId?: string | string[] }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -300,9 +298,6 @@ export default function RiverHubScreen() {
                 <Text style={styles.subtitle}>
                   {riverHubChoiceLine(result.group.routeCount, regions.length)} Compare distance, difficulty, and today’s conditions.
                 </Text>
-                <View style={[styles.heroFacts, compactFacts ? styles.heroFactsCompact : null]}>
-                  <HeroFact compact={compactFacts} label="Routes" value={String(result.group.routeCount)} />
-                </View>
                 <Text style={styles.routeCalls}>{hubStatusLine(summary, result.group.routeCount)}</Text>
               </View>
             </View>
@@ -310,20 +305,13 @@ export default function RiverHubScreen() {
             <View style={styles.listIntro}>
               <Text style={styles.listIntroTitle}>Choose a route</Text>
               <Text style={styles.listIntroSubtitle}>Start with distance, then narrow by difficulty or paddle area.</Text>
-              <Text style={styles.filterLabel}>Distance</Text>
-              <View style={styles.filterChips}>
-                {DISTANCE_FILTERS.map((option) => (
-                  <FilterChip
-                    key={option.value}
-                    label={option.label}
-                    selected={distanceFilter === option.value}
-                    onPress={() => {
-                      setDistanceFilter(option.value);
-                      trackAppEvent('river_hub_filter_applied', { river_id: riverId, filter: 'distance', value: option.value });
-                    }}
-                  />
-                ))}
-              </View>
+              <DistanceSlider
+                value={distanceFilter}
+                onChange={(value) => {
+                  setDistanceFilter(value);
+                  trackAppEvent('river_hub_filter_applied', { river_id: riverId, filter: 'distance', value });
+                }}
+              />
               <View style={styles.filterActions}>
                 <Pressable
                   style={[styles.moreFiltersButton, showMoreFilters ? styles.moreFiltersButtonActive : null]}
@@ -558,11 +546,47 @@ function ReasonChip({ label }: { label: string }) {
   );
 }
 
-function HeroFact({ compact, label, value }: { compact?: boolean; label: string; value: string }) {
+function DistanceSlider({
+  value,
+  onChange,
+}: {
+  value: HubDistanceFilter;
+  onChange: (value: HubDistanceFilter) => void;
+}) {
+  const [trackWidth, setTrackWidth] = useState(280);
+  const selectedIndex = Math.max(0, DISTANCE_FILTERS.findIndex((option) => option.value === value));
+
+  function selectFromTrack(event: GestureResponderEvent) {
+    const index = Math.round((event.nativeEvent.locationX / trackWidth) * (DISTANCE_FILTERS.length - 1));
+    onChange(DISTANCE_FILTERS[Math.max(0, Math.min(DISTANCE_FILTERS.length - 1, index))].value);
+  }
+
   return (
-    <View style={[styles.heroFact, compact ? styles.heroFactCompact : null]}>
-      <Text style={styles.heroFactValue} numberOfLines={2}>{value}</Text>
-      <Text style={styles.heroFactLabel}>{label}</Text>
+    <View style={styles.distanceSliderWrap}>
+      <View style={styles.distanceSliderHeader}>
+        <Text style={styles.filterLabel}>Distance</Text>
+        <Text style={styles.distanceSliderValue}>{DISTANCE_FILTERS[selectedIndex].label}</Text>
+      </View>
+      <Pressable
+        style={styles.distanceSlider}
+        onLayout={(event) => setTrackWidth(event.nativeEvent.layout.width)}
+        onPress={selectFromTrack}
+        accessibilityRole="adjustable"
+        accessibilityLabel="Route distance"
+        accessibilityValue={{ text: DISTANCE_FILTERS[selectedIndex].label }}
+        accessibilityHint="Tap along the track to choose a distance range"
+      >
+        <View style={styles.distanceSliderTrack} />
+        <View style={[styles.distanceSliderFill, { width: `${(selectedIndex / (DISTANCE_FILTERS.length - 1)) * 100}%` }]} />
+        {DISTANCE_FILTERS.map((option, index) => (
+          <View key={option.value} style={[styles.distanceSliderStep, { left: `${(index / (DISTANCE_FILTERS.length - 1)) * 100}%` }]} />
+        ))}
+        <View style={[styles.distanceSliderThumb, { left: `${(selectedIndex / (DISTANCE_FILTERS.length - 1)) * 100}%` }]} />
+      </Pressable>
+      <View style={styles.distanceSliderLabels}>
+        <Text style={styles.distanceSliderEndpoint}>All routes</Text>
+        <Text style={styles.distanceSliderEndpoint}>10+ mi</Text>
+      </View>
     </View>
   );
 }
@@ -636,11 +660,9 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
   });
 }
 
-function riverHubChoiceLine(routeCount: number, areaCount: number) {
+function riverHubChoiceLine(_routeCount: number, areaCount: number) {
   const areaLabel = `${areaCount} ${areaCount === 1 ? 'paddle area' : 'paddle areas'}`;
-  return routeCount === 1
-    ? `Choose the route in ${areaLabel}.`
-    : `Choose one of ${routeCount} routes in ${areaLabel}.`;
+  return `Choose a route across ${areaLabel}.`;
 }
 
 function mapPointIdForRoute(
@@ -729,21 +751,20 @@ function routeStatusSummary(routes: RiverDetailApiResult[]) {
       }
       if (route.rating === 'Strong' || route.rating === 'Good') {
         summary.paddleable += 1;
+      } else if (route.rating === 'Fair') {
+        summary.watch += 1;
       } else {
         summary.skip += 1;
       }
       return summary;
     },
-    { paddleable: 0, skip: 0, planning: 0 }
+    { paddleable: 0, watch: 0, skip: 0, planning: 0 }
   );
 }
 
-function hubStatusLine(summary: { paddleable: number; skip: number; planning: number }, total: number) {
-  const scored = total - summary.planning;
-  const paddleable = `${summary.paddleable} of ${scored} scored route${scored === 1 ? '' : 's'} good today`;
-  const skips = `${summary.skip} skip${summary.skip === 1 ? '' : 's'}`;
-  const planning = summary.planning > 0 ? `${summary.planning} planning route${summary.planning === 1 ? '' : 's'}` : null;
-  return [paddleable, skips, planning].filter(Boolean).join(' - ');
+function hubStatusLine(summary: { paddleable: number; watch: number; skip: number; planning: number }, _total: number) {
+  const planning = summary.planning > 0 ? ` · ${summary.planning} planning` : '';
+  return `Today: ${summary.paddleable} good · ${summary.watch} watch · ${summary.skip} skip${planning}`;
 }
 
 function compareBestRoute(left: RiverDetailApiResult, right: RiverDetailApiResult) {
@@ -989,6 +1010,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 17,
     fontWeight: '900',
+    marginTop: -2,
   },
   mapSection: {
     ...shadow,
@@ -1028,6 +1050,75 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     marginTop: spacing.sm,
+  },
+  distanceSliderWrap: {
+    marginTop: spacing.sm,
+    gap: 4,
+  },
+  distanceSliderHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  distanceSliderValue: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  distanceSlider: {
+    height: 34,
+    justifyContent: 'center',
+    position: 'relative',
+  },
+  distanceSliderTrack: {
+    position: 'absolute',
+    left: 8,
+    right: 8,
+    height: 5,
+    borderRadius: radius.pill,
+    backgroundColor: colors.border,
+  },
+  distanceSliderFill: {
+    position: 'absolute',
+    left: 8,
+    height: 5,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+  },
+  distanceSliderStep: {
+    position: 'absolute',
+    width: 9,
+    height: 9,
+    marginLeft: -4.5,
+    borderRadius: radius.pill,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 2,
+    borderColor: colors.accent,
+  },
+  distanceSliderThumb: {
+    position: 'absolute',
+    width: 22,
+    height: 22,
+    marginLeft: -11,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    borderWidth: 4,
+    borderColor: colors.surfaceStrong,
+    shadowColor: '#000',
+    shadowOpacity: 0.14,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 1 },
+    elevation: 2,
+  },
+  distanceSliderLabels: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 4,
+  },
+  distanceSliderEndpoint: {
+    color: colors.textMuted,
+    fontSize: 10,
+    fontWeight: '800',
   },
   filterChips: {
     flexDirection: 'row',

@@ -543,13 +543,13 @@ function legendItemsForPoints(points: RoutePlotPoint[]) {
   const ratings = new Set(points.map((point) => point.rating));
   return [
     ratings.has('Strong') || ratings.has('Good')
-      ? { color: colors.strong, label: 'Good+' }
+      ? { color: colors.strong, label: 'Good' }
       : null,
     ratings.has('Fair')
       ? { color: colors.fair, label: 'Watch' }
       : null,
     [...ratings].some((rating) => rating && rating !== 'Strong' && rating !== 'Good' && rating !== 'Fair')
-      ? { color: colors.noGo, label: 'No-go' }
+      ? { color: colors.noGo, label: 'Skip' }
       : null,
   ].filter((item): item is { color: string; label: string } => item !== null);
 }

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T18:07:50.017Z",
+  "updatedAt": "2026-08-14T20:15:30.643Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -39,7 +39,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -61,7 +61,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -83,7 +83,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -129,17 +129,27 @@
     },
     {
       "key": "mn_dnr:108",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T19:05:00-05:00",
+      "decisionReason": "MN DNR gauge 108 is the Minnesota River at Ortonville, at the head of the official water trail, but the official segment description reports snags, broken-down bridges, and other obstacles from Ortonville to Marsh Lake and does not provide a strong named paired day-trip endpoint for this gauge. Under the quality bar, this remains route-capable but blocked pending a stronger access-and-safety package rather than publishing a speculative route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "No scored Ortonville corridor route is currently published.",
+        "Official DNR segment notes snags and broken-down bridges from Ortonville to Marsh Lake.",
+        "No strong named paired endpoint and gauge interpretation package is currently validated."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/index.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota1.pdf",
+        "https://www.dnr.state.mn.us/river_levels/index.html"
+      ]
     },
     {
       "key": "mn_dnr:112",
@@ -169,17 +179,27 @@
     },
     {
       "key": "mn_dnr:114",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:35:00-05:00",
+      "decisionReason": "MN DNR gauge 114 is the Minnesota River near Lac Qui Parle and is provider-equivalent to USGS 05301000. That corridor has already been reviewed as route-capable but blocked because no distinct endpoint and station-specific threshold package is validated; a duplicate DNR route would not add coverage value.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "Provider-equivalent to blocked USGS 05301000.",
+        "No distinct named endpoint pair or station-specific paddling thresholds are validated.",
+        "Duplicate provider route would add no endpoint or safety value."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "https://waterdata.usgs.gov/monitoring-location/05301000/",
+        "https://www.dnr.state.mn.us/river_levels/index.html"
+      ]
     },
     {
       "key": "mn_dnr:116",
@@ -366,17 +386,28 @@
     },
     {
       "key": "mn_dnr:134",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:55:27-05:00",
+      "decisionReason": "MN DNR site 134 is the Mississippi River at Winona and is route-capable in the broader Mississippi corridor, but the DNR river-level feed was stale to 2026-08-07 13:45 CDT during this run. No scored route can be tied to this provider key until fresh product-supported telemetry and a Winona reach route package clear together.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "MN DNR Winona feed was stale to 2026-08-07 13:45 CDT during this run.",
+        "No scored route currently uses mn_dnr:134 directly.",
+        "No Winona-specific endpoint, threshold, camping, safety, coordinate, image, and geometry package was accepted."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi10.pdf"
+      ]
     },
     {
       "key": "mn_dnr:149",
@@ -431,31 +462,52 @@
     },
     {
       "key": "mn_dnr:157",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T01:10:00-05:00",
+      "decisionReason": "MN DNR gauge 157 at Breckenridge is on the official Otter Tail Map 2 corridor, but the bounded discovery sweep found no DNR-recommended one-way endpoint pair for the Breckenridge reach. DNR documents multiple dams, culverts, dangerous obstructions, low/high-water concerns, and windy-lake exposure, while the current product has no complete endpoint, camping, river-line, and station-specific threshold package. A scored route would therefore be speculative.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Otter Tail River"
+      ],
+      "blockers": [
+        "No DNR-recommended one-way endpoint pair was found for the Breckenridge reach.",
+        "DNR documents dams, culverts, dangerous obstructions, and low/high-water hazards.",
+        "Endpoint, camping, river-line, and station-specific threshold evidence is incomplete."
+      ],
+      "evidence": [
+        "https://files.dnr.state.mn.us/maps/canoe_routes/ottertail2.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways",
+        "https://www.dnr.state.mn.us/state-water-trails/river_conditions.html"
+      ]
     },
     {
       "key": "mn_dnr:158",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T01:25:00-05:00",
+      "decisionReason": "MN DNR gauge 158 is below Orwell Dam on the Otter Tail River. DNR Map 2 and the USACE Orwell Lake materials identify the dam, reservoir, and below-dam access context, but no distinct scored reach with complete endpoints, portage, camping, and station-specific threshold package is established. Existing Otter Tail routes use the stronger Elizabeth gauge package and already cover the recommended sections that clear the route-quality bar.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Otter Tail River"
+      ],
+      "blockers": [
+        "Orwell Dam and reservoir require a separate portage and access package.",
+        "No distinct endpoint/camping package is established for this station.",
+        "Existing Otter Tail scored routes use the Elizabeth gauge and cover the DNR-recommended sections."
+      ],
+      "evidence": [
+        "https://files.dnr.state.mn.us/maps/canoe_routes/ottertail2.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html",
+        "https://www.mvp.usace.army.mil/Missions/Recreation/Orwell-Lake/"
+      ]
     },
     {
       "key": "mn_dnr:159",
@@ -505,17 +557,28 @@
     },
     {
       "key": "mn_dnr:167",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T02:25:00-05:00",
+      "decisionReason": "MN DNR gauge 167 at Pine River near Mission/CSAH 11 lies on the official Pine River water-trail map, but the bounded discovery sweep found only a County Road 11 bridge/crossing and no separate DNR-recommended one-way section or verified public endpoint pair around the station. The existing Pine routes already use stronger public-access packages and the Jenkins gauge; a new Mission route would be speculative.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Pine River"
+      ],
+      "blockers": [
+        "No separate DNR-recommended one-way section was found around the Mission gauge.",
+        "County Road 11 bridge/crossing is not by itself a verified public launch or take-out.",
+        "Existing Pine routes already have stronger public-access and threshold packages."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/463416094014101/",
+        "https://www.dnr.state.mn.us/state-water-trails/pine-river/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/pine-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/pine.pdf"
+      ]
     },
     {
       "key": "mn_dnr:168",
@@ -598,7 +661,7 @@
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -706,17 +769,29 @@
     },
     {
       "key": "mn_dnr:189",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:26:26-05:00",
+      "decisionReason": "MN DNR site 189 is the Red River of the North at Oslo, river mile 274.5, and the DNR feed was fresh during this run. The Red River State Water Trail is paddle-relevant, but this Oslo provider key remains blocked because no Oslo-specific scored route package with selected endpoints, numeric station thresholds, camping/no-camping terms, safety handling, endpoint coordinates, image decision, and geometry cleared; the same-location USGS Oslo gauge was already blocked as stage-only/current-provider incomplete.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Red River of the North"
+      ],
+      "blockers": [
+        "No Oslo-specific Red River point-to-point route package cleared.",
+        "No complete station-specific threshold package was accepted for MN DNR site 189.",
+        "Same-location USGS 05083500 remains blocked for stage-only/provider-package gaps."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://www.dnr.state.mn.us/state-water-trails/red-river/index.html",
+        "https://www.dnr.state.mn.us/fisheries/red-river-access.html",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05083500/"
+      ]
     },
     {
       "key": "mn_dnr:191",
@@ -724,8 +799,8 @@
       "eligibility": "route_capable",
       "relationship": "proxy",
       "checkedAt": "2026-08-14T11:18:29.828Z",
-      "decisionReason": "A route candidate references this gauge but does not clear scored-route publication.",
-      "decisionSource": "derived_route_inventory",
+      "decisionReason": "MN DNR gauge 191 is referenced only as proxy evidence for the Red River of the North route candidate; it has no scored direct route and is not eligible for covered status without a direct route package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [
         "red-river-golden-grain-hilltop"
       ],
@@ -742,31 +817,54 @@
     },
     {
       "key": "mn_dnr:194",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:45:00-05:00",
+      "decisionReason": "MN DNR gauge 194 at Redwood River Russell/County Road 15 is route-capable and has a direct discharge metric, but no official Redwood River state-water-trail segment or complete public point-to-point endpoint package was validated for this reach. The nearby USGS Redwood gauges are separate provider records; no station-specific paddling thresholds, camping, safety, coordinate, image, or geometry package cleared for a scored route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Redwood River"
+      ],
+      "blockers": [
+        "No validated official Redwood River route segment or named endpoint pair at Russell/CR15.",
+        "No station-specific paddling threshold ladder was accepted.",
+        "Camping, safety, endpoint coordinates, image, and canonical geometry package remain unresolved."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/state-water-trails/index.html",
+        "https://waterdata.usgs.gov/monitoring-location/05315000/",
+        "https://waterdata.usgs.gov/monitoring-location/05316500/",
+        "https://www.dnr.state.mn.us/water_access/index.html"
+      ]
     },
     {
       "key": "mn_dnr:195",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T19:00:00-05:00",
+      "decisionReason": "MN DNR gauge 195 near Marshall is a direct discharge gauge on the official Redwood River State Water Trail. A bounded fresh discovery sweep confirmed DNR Map 3 has a mapped corridor from Marshall through Vesta and Wabasso, but the strongest existing product package remains Vesta-to-Wabasso on downstream gauge 196; the upper corridor lacks a validated PaddleToday day-trip endpoint pair, station-specific threshold package, and complete safety/camping/coordinate/image/geometry evidence. Do not publish a speculative long rural reach.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Redwood River"
+      ],
+      "blockers": [
+        "Bounded discovery found no stronger named upper-Redwood day-trip endpoint pair than the existing Vesta-to-Wabasso package.",
+        "A long Marshall-to-Vesta/Marshall-to-Wabasso reach would require additional route-specific threshold interpretation and logistics evidence.",
+        "The existing lower route is already covered by downstream DNR gauge 196; no distinct high-confidence package cleared for gauge 195."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/state-water-trails/redwood-river/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/redwood-river/more.html",
+        "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/Minnesota%203%20GEO.pdf",
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "mn_dnr:196",
@@ -793,17 +891,28 @@
     },
     {
       "key": "mn_dnr:197",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T19:35:00-05:00",
+      "decisionReason": "MN DNR gauge 197 is the Root River/Pilot Mound water-trail gauge family already represented by the scored Root River Parsley-to-Moens route using equivalent USGS 05383950 telemetry. DNR Root Map 1 and the river-level system provide the corridor and gauge context, but no distinct provider-specific route package would add endpoint, threshold, camping, safety, or geometry value.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Root River"
+      ],
+      "blockers": [
+        "Existing scored Root River route uses equivalent USGS 05383950 telemetry.",
+        "Provider-specific DNR duplicate would add no distinct endpoint, threshold, camping, safety, or geometry value.",
+        "Completeness policy does not count cross-provider equivalence as covered without a provider-specific package."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/Root%201%20GEO.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05383950/",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "mn_dnr:20",
@@ -853,17 +962,28 @@
     },
     {
       "key": "mn_dnr:201",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T19:15:00-05:00",
+      "decisionReason": "MN DNR gauge 201 near Pilot Mound is provider-equivalent to USGS 05383950, which already powers the scored Root River Parsley-to-Moens route. The route has DNR Root Map 1 endpoint/campsite context and a documented conservative stage model, but the provider-specific DNR key is not separately adopted; adding a duplicate route would not add endpoint, safety, camping, or geometry value under the completeness policy.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Root River"
+      ],
+      "blockers": [
+        "Existing scored route uses equivalent USGS 05383950 rather than MN DNR 201.",
+        "Provider-specific DNR threshold adoption is not present.",
+        "A duplicate DNR route would add no distinct endpoint, camping, safety, or geometry value."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/areas/fisheries/lanesboro/stream_conditions.html",
+        "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/Root%201%20GEO.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05383950/",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "mn_dnr:204",
@@ -990,17 +1110,67 @@
     },
     {
       "key": "mn_dnr:216",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "eligibility": "route_capable",
+      "relationship": "mixed",
+      "checkedAt": "2026-08-14T16:00:00-05:00",
+      "decisionReason": "MN DNR gauge 216 is the Sauk River near St. Cloud monitoring location and is provider-equivalent to USGS 05270500, which is already used as the direct fallback gauge across the published Sauk route family. The official Sauk State Water Trail supplies named access points, recommended paddling sections, camping, and hazard guidance; no additional route is warranted solely because the same monitoring location appears in the DNR inventory.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "sauk-river-frogtown-rockville",
+        "sauk-river-frogtown-eagle-park",
+        "sauk-river-frogtown-miller-landing",
+        "sauk-river-frogtown-knights-of-columbus",
+        "sauk-river-rockville-miller-landing",
+        "sauk-river-rockville-knights-of-columbus",
+        "sauk-river-rockville-heims-mill",
+        "sauk-river-pineview-heims-mill",
+        "sauk-river-eagle-miller-landing",
+        "sauk-river-eagle-knights-of-columbus",
+        "sauk-river-eagle-heims-mill",
+        "sauk-river-spring-hill-st-martin",
+        "sauk-river-frogtown-heims-mill",
+        "sauk-river-miller-landing-knights-of-columbus",
+        "sauk-river-miller-landing-heims-mill",
+        "sauk-river-knights-of-columbus-heims-mill",
+        "sauk-river-horseshoe-lions-park",
+        "sauk-river-mill-pond-oak-township",
+        "sauk-river-sauk-centre-dam-mill-pond",
+        "sauk-river-oak-township-spring-hill",
+        "sauk-river-richmond-horseshoe-lake"
+      ],
+      "scoredRouteSlugs": [
+        "sauk-river-frogtown-rockville",
+        "sauk-river-frogtown-eagle-park",
+        "sauk-river-frogtown-miller-landing",
+        "sauk-river-frogtown-knights-of-columbus",
+        "sauk-river-rockville-miller-landing",
+        "sauk-river-rockville-knights-of-columbus",
+        "sauk-river-rockville-heims-mill",
+        "sauk-river-pineview-heims-mill",
+        "sauk-river-eagle-miller-landing",
+        "sauk-river-eagle-knights-of-columbus",
+        "sauk-river-eagle-heims-mill",
+        "sauk-river-spring-hill-st-martin",
+        "sauk-river-frogtown-heims-mill",
+        "sauk-river-miller-landing-knights-of-columbus",
+        "sauk-river-miller-landing-heims-mill",
+        "sauk-river-knights-of-columbus-heims-mill",
+        "sauk-river-horseshoe-lions-park",
+        "sauk-river-mill-pond-oak-township",
+        "sauk-river-sauk-centre-dam-mill-pond",
+        "sauk-river-oak-township-spring-hill",
+        "sauk-river-richmond-horseshoe-lake"
+      ],
+      "routeFamilies": [
+        "Sauk River"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "mn_dnr:226",
@@ -1339,38 +1509,56 @@
     },
     {
       "key": "mn_dnr:273",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T20:30:00-05:00",
+      "decisionReason": "MN DNR gauge 273 is provider-equivalent to USGS 05372995, but the former South Fork Zumbro route is not live. It was removed because the proposed Frank's Ford put-in was documented only as a bridge/informal footpath without confirmed public launch or parking rights. The gauge and downstream Lake Zumbro take-out remain relevant, but access legitimacy must be resolved before the corridor can count as covered.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Zumbro River"
+      ],
+      "blockers": [
+        "Former route was removed because the Frank's Ford put-in lacks confirmed public access and parking authorization.",
+        "A public replacement put-in or explicit land-manager authorization is required before route publication."
+      ],
+      "evidence": [
+        "docs/state-route-memories/minnesota.md",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05372995/",
+        "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html"
+      ]
     },
     {
       "key": "mn_dnr:279",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T21:00:00-05:00",
+      "decisionReason": "MN DNR gauge 279 is the South Fork Zumbro River at Highway 14 in Rochester and belongs to the same unresolved South Fork Zumbro corridor as DNR 273 and USGS 05372995. The city confirms the monitoring site, but the former route's Frank's Ford put-in lacked confirmed public launch and parking rights. This provider record remains blocked until a lawful replacement access is validated.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Zumbro River"
+      ],
+      "blockers": [
+        "South Fork Zumbro corridor lacks a confirmed public replacement put-in.",
+        "A public access and parking authorization is required before route publication."
+      ],
+      "evidence": [
+        "https://www.rochestermn.gov/home-property-utilities/water-services/stormwater/",
+        "docs/state-route-memories/minnesota.md",
+        "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html"
+      ]
     },
     {
       "key": "mn_dnr:280",
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -1657,17 +1845,27 @@
     },
     {
       "key": "mn_dnr:298",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T19:55:00-05:00",
+      "decisionReason": "MN DNR gauge 298 is the Minnesota River at St. Peter (MN22) and is directly relevant to the lower Minnesota River. Traverse des Sioux Park provides a documented canoe launch, but no distinct paired endpoint, route-specific threshold interpretation, or complete safety package is validated; existing scored coverage uses nearby DNR gauge packages and should not be duplicated speculatively.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "Only one named canoe-launch endpoint is currently validated at Traverse des Sioux Park.",
+        "No station-specific paddling threshold interpretation or distinct paired corridor is documented.",
+        "Existing nearby lower-river routes already have gauge and access packages."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "https://www.saintpetermn.gov/Facilities/Facility/Details/Traverse-des-Sioux-Park-18",
+        "https://www.dnr.state.mn.us/river_levels/index.html"
+      ]
     },
     {
       "key": "mn_dnr:302",
@@ -1696,17 +1894,27 @@
     },
     {
       "key": "mn_dnr:304",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T00:25:00-05:00",
+      "decisionReason": "MN DNR gauge 304 (Mississippi River near Bemidji, CSAH 11) is the DNR counterpart to the reviewed USGS Bemidji station. The headwaters water-trail package already uses the interpreted Stump Lake/CSAH 12 gauge for the guarded Iron Bridge-to-County Road 12 corridor, while DNR warns of trees down upstream of Bemidji. A second Bemidji station does not justify another scored route without a distinct endpoint and threshold package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "Provider counterpart to the blocked USGS Bemidji station.",
+        "Existing headwaters route uses the interpreted Stump Lake gauge and mapped access package.",
+        "Current DNR hazard warning and lack of a distinct endpoint package do not support another scored route."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/index.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1"
+      ]
     },
     {
       "key": "mn_dnr:305",
@@ -1732,17 +1940,27 @@
     },
     {
       "key": "mn_dnr:307",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T00:45:00-05:00",
+      "decisionReason": "MN DNR gauge 307 is on the North Branch Middle Fork Zumbro near Oronoco. DNR Map 1 confirms the branch and Oronoco Park access, but the current product has no distinct scored reach for this branch and no station-specific paddling threshold package. Existing Zumbro routes cover the stronger North Fork, South Fork, and main-stem packages; adding this gauge without a complete endpoint, safety, camping, and threshold package would be speculative.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Zumbro River"
+      ],
+      "blockers": [
+        "No distinct scored North Branch Middle Fork route package currently exists.",
+        "No station-specific DNR paddling threshold interpretation is recorded.",
+        "Endpoint, camping, and hazard evidence is not complete enough for a new route."
+      ],
+      "evidence": [
+        "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html",
+        "https://waterdata.usgs.gov/monitoring-location/05373150/statistics/"
+      ]
     },
     {
       "key": "mn_dnr:308",
@@ -1865,17 +2083,27 @@
     },
     {
       "key": "mn_dnr:321",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T20:00:00-05:00",
+      "decisionReason": "MN DNR gauge 321 is the South Fork Root River near Houston and appears on the official Root River State Water Trail map system. Existing PaddleToday routes cover the main Root corridor, but no distinct South Fork route currently has a validated numeric threshold, paired public endpoints, and complete geometry/safety package. Keep this route-capable gauge explicitly blocked pending a focused South Fork review.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Root River"
+      ],
+      "blockers": [
+        "No source-backed numeric paddling threshold for MN DNR gauge 321 was validated.",
+        "No distinct South Fork Root paired endpoint and geometry package is currently published."
+      ],
+      "evidence": [
+        "https://mobile-maps-files.dnr.state.mn.us/file/Water_Trail/Root%201%20GEO.pdf",
+        "https://mobile-maps-files.dnr.state.mn.us/file/Water_Trail/Root%202%20GEO.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/root-river/segments-maps.html",
+        "https://www.dnr.state.mn.us/river_levels/index.html"
+      ]
     },
     {
       "key": "mn_dnr:328",
@@ -1980,45 +2208,76 @@
     },
     {
       "key": "mn_dnr:333",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:01:06.000Z",
+      "decisionReason": "MN DNR gauge 333 is live on the South Branch Middle Fork Zumbro near Oronoco, and official Zumbro materials document the broader paddle corridor, Oronoco Park/Landing access context, rapids, snags, dams, and flash-flood hazards. It remains blocked because no selected Oronoco same-reach route cleared with source-backed numeric gauge thresholds, route-specific camping/no-camping terms, defensible endpoint coordinates, a rights-clean image decision, and canonical geometry.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Branch Middle Fork Zumbro River"
+      ],
+      "blockers": [
+        "No source-backed numeric paddling threshold for MN DNR gauge 333 was validated.",
+        "Official Zumbro materials identify Oronoco-area hazards, including rapids, snags/logs, dams, and flash-flood risk.",
+        "No complete selected endpoint, camping/no-camping, safety, coordinate, image, and geometry package cleared."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html",
+        "https://mobile-maps-files.dnr.state.mn.us/file/Water_Trail/Zumbro%201%20-%20west%20and%20branches%20GEO.pdf"
+      ]
     },
     {
       "key": "mn_dnr:335",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:01:06.000Z",
+      "decisionReason": "MN DNR gauge 335 is live on the South Fork Crow near Lester Prairie, and official materials place it in the state water-trail corridor. The candidate remains blocked because DNR describes the nearby Biscay-to-New Germany corridor as potentially dangerous or impassable with overhanging trees, snags, and large logjams, and no safe selected endpoint pair or complete threshold, camping, safety, coordinate, image, and geometry package cleared for the Lester Prairie station.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Crow River"
+      ],
+      "blockers": [
+        "Official South Fork Crow materials document dangerous/impassable logjam and snag conditions in the nearby corridor.",
+        "No safe selected public endpoint pair was promoted for a scored Lester Prairie route.",
+        "No complete station-specific threshold, camping/no-camping, coordinate, image, and geometry package cleared."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://www.dnr.state.mn.us/state-water-trails/crow-river-south-fork/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/south_fork_crow.pdf"
+      ]
     },
     {
       "key": "mn_dnr:336",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T21:30:00-05:00",
+      "decisionReason": "MN DNR gauge 336 is another South Fork Zumbro monitoring location near Rochester. It belongs to the same unresolved corridor as gauges 273, 279, and USGS 05372995. The former route was removed because its Frank's Ford put-in lacked confirmed public launch and parking rights; this provider record remains blocked until a lawful replacement access is validated.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Zumbro River"
+      ],
+      "blockers": [
+        "South Fork Zumbro corridor lacks a confirmed public replacement put-in.",
+        "A public access and parking authorization is required before route publication."
+      ],
+      "evidence": [
+        "https://www.rochestermn.gov/home-property-utilities/water-services/stormwater/",
+        "docs/state-route-memories/minnesota.md",
+        "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html"
+      ]
     },
     {
       "key": "mn_dnr:338",
@@ -2393,31 +2652,56 @@
     },
     {
       "key": "mn_dnr:53",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:01:06.000Z",
+      "decisionReason": "MN DNR gauge 53 is live on the South Fork Crow near Cosmos inside the official water-trail corridor. It remains route-capable but blocked because the upstream Little Kandiyohi-to-Cosmos reach is documented as channelized and prone to low-flow limitations, while no distinct Cosmos-centered route package cleared with numeric station thresholds, selected public endpoints, camping/no-camping terms, safety handling, endpoint coordinates, image decision, and geometry.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Crow River"
+      ],
+      "blockers": [
+        "No source-backed numeric paddling threshold for MN DNR gauge 53 was validated.",
+        "Official South Fork Crow materials describe the upper Little Kandiyohi-to-Cosmos channelized/low-flow corridor.",
+        "No complete selected endpoint, camping/no-camping, safety, coordinate, image, and geometry package cleared."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://www.dnr.state.mn.us/state-water-trails/crow-river-south-fork/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/south_fork_crow.pdf",
+        "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      ]
     },
     {
       "key": "mn_dnr:54",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:01:06.000Z",
+      "decisionReason": "MN DNR gauge 54 is live on the lower South Fork Crow near Mayer. The lower river is route-capable, but existing scored South Fork Crow coverage already uses stronger supported route packages elsewhere, including the DNR-recommended Rick Johnson Park to Lake Rebecca reach. No distinct Mayer-centered public endpoint pair, station-specific thresholds, camping/no-camping terms, safety package, endpoint coordinates, rights-clean image decision, or geometry cleared in this run.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Crow River"
+      ],
+      "blockers": [
+        "No distinct Mayer-centered public endpoint pair and route shape was accepted.",
+        "Existing lower South Fork Crow scored coverage uses a stronger supported route package rather than this provider key.",
+        "No station-specific threshold, camping/no-camping, safety, coordinate, image, and geometry package cleared."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://www.dnr.state.mn.us/state-water-trails/crow-river-south-fork/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/south_fork_crow.pdf",
+        "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "mn_dnr:55",
@@ -2541,17 +2825,40 @@
     },
     {
       "key": "mn_dnr:76",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:35:00-05:00",
+      "decisionReason": "MN DNR gauge 76 is the interpreted Le Sueur River near Rapidan gauge listed for the Blue Earth State Water Trail. It is directly route-relevant, but the Rapidan Dam failure/debris hazard and missing safe downstream endpoint, threshold, camping, and geometry package prevent coverage or route creation.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Le Sueur River",
+        "Blue Earth River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly adopts MN DNR gauge 76.",
+        "Rapidan Dam failure/debris hazard requires a clearly downstream launch and no-extension boundary.",
+        "A provider-specific threshold, endpoint, camping/no-camping, and route geometry package remains to be assembled."
+      ],
+      "evidence": [
+        {
+          "label": "Minnesota DNR river levels",
+          "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+          "note": "DNR lists Le Sueur River near Rapidan, MN66 as an interpreted Blue Earth water-trail gauge."
+        },
+        {
+          "label": "Minnesota DNR Blue Earth State Water Trail map",
+          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/blueearth.pdf",
+          "note": "Official map identifies canoeable Le Sueur options and warns against paddling through the dangerous Rapidan Dam area."
+        },
+        {
+          "label": "Minnesota DNR safety guidance",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/safety-rules.html",
+          "note": "DNR safety rules require route-specific hazard and water-level handling; these have not yet been packaged for a direct gauge-76 route."
+        }
+      ]
     },
     {
       "key": "mn_dnr:81",
@@ -2652,17 +2959,27 @@
     },
     {
       "key": "mn_dnr:95",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:20:00-05:00",
+      "decisionReason": "MN DNR gauge 95 is the Minnesota River at Judson station, directly beside the Judson-to-Land-of-Memories corridor. The existing scored route uses the downstream Mankato gauge 96; gauge 95 could improve direct coverage, but no station-specific threshold migration or route package has yet been validated.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "Existing Judson-to-Land-of-Memories route uses downstream Mankato gauge 96 rather than DNR gauge 95.",
+        "DNR gauge 95's station-specific threshold and trend behavior have not been validated for this route.",
+        "This is a direct-gauge integration task, not a reason to add a duplicate route."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "mn_dnr:96",
@@ -17575,7 +17892,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -18699,7 +19016,7 @@
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -24914,59 +25231,112 @@
     },
     {
       "key": "usgs:05030500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T01:55:00-05:00",
+      "decisionReason": "USGS 05030500 is the Otter Tail River near Elizabeth and is provider-equivalent to the covered MN DNR Elizabeth gauge used by the existing Otter Tail scored routes. The existing route packages already carry official DNR bands, endpoints, camping, hazards, and geometry; a second USGS record would duplicate the same corridor without adding route value.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Otter Tail River"
+      ],
+      "blockers": [
+        "Provider-equivalent to covered MN DNR Elizabeth gauge 159.",
+        "Existing Otter Tail routes already contain the endpoint, camping, safety, geometry, and threshold package.",
+        "Cross-provider duplication adds no distinct scored-route value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05030500/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05030500",
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html"
+      ]
     },
     {
       "key": "usgs:05046000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T01:40:00-05:00",
+      "decisionReason": "USGS 05046000 is the provider counterpart to MN DNR gauge 158 below Orwell Dam. The official Otter Tail Map 2 and USACE Orwell Lake materials establish the same dam/reservoir hazard and access context, while the existing Otter Tail route package uses the DNR Elizabeth gauge and DNR-recommended reaches. A second provider record would not add a distinct endpoint, threshold, camping, or safety package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Otter Tail River"
+      ],
+      "blockers": [
+        "Provider-equivalent to blocked MN DNR gauge 158.",
+        "Orwell Dam/reservoir requires the same unresolved portage and access treatment.",
+        "Duplicate provider record adds no distinct route-quality value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05046000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05046000",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/ottertail2.pdf",
+        "https://www.mvp.usace.army.mil/Missions/Recreation/Orwell-Lake/"
+      ]
     },
     {
       "key": "usgs:05049000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T00:35:00-05:00",
+      "decisionReason": "USGS 05049000 is the Mustinka River above Wheaton. The station has live and historical stream data, but the current Minnesota DNR water-trail and public-access materials do not establish a distinct, route-ready Mustinka endpoint pair, camping package, or paddling threshold interpretation. Without that evidence, adding a scored route would be speculative even though the gauge is technically route-capable.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mustinka River"
+      ],
+      "blockers": [
+        "No current DNR water-trail segment or named public endpoint pair established.",
+        "No source-backed paddling threshold interpretation for this station.",
+        "Camping, safety, and river-line evidence would require a separate discovery effort."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05049000/",
+        "https://waterdata.usgs.gov/nwis/uv/?site_no=05049000",
+        "https://www.dnr.state.mn.us/water_access/index.html",
+        "https://www.pca.state.mn.us/watershed-information/mustinka-river"
+      ]
     },
     {
       "key": "usgs:05049710",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:05:00-05:00",
+      "decisionReason": "USGS 05049710 is a stage-only station at the Lake Traverse Reservation Dam. Official Minnesota paddling material places the supported Otter Tail State Water Trail downstream near Wheaton, while this station is a reservoir/dam-control location with no current point-to-point PaddleToday route corridor or river-specific threshold package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official state-water-trail or recommended river section uses the Reservation Dam gauge as a route gauge.",
+        "Telemetry is gage height only and describes reservoir/dam control rather than a paddle-specific river reach.",
+        "No named public point-to-point route package, thresholds, camping, safety, or geometry was found for this station."
+      ],
+      "evidence": [
+        {
+          "label": "USGS station 05049710",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05049710/",
+          "note": "USGS identifies the stage station at Lake Traverse Reservation Dam near Wheaton."
+        },
+        {
+          "label": "Minnesota DNR Otter Tail State Water Trail Map 1",
+          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/ottertail1.pdf",
+          "note": "Official paddling route begins at Wannigan Road and continues downstream; it does not establish a Reservation Dam route."
+        },
+        {
+          "label": "U.S. Army Corps Lake Traverse recreation and dam information",
+          "url": "https://www.mvp-wc.usace.army.mil/reports/TraverseRES_Dam.Report.shtml",
+          "note": "Federal source describes Reservation Dam as reservoir water-control infrastructure, not a river route package."
+        }
+      ]
     },
     {
       "key": "usgs:05050000",
@@ -25969,31 +26339,51 @@
     },
     {
       "key": "usgs:05075000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:24:30.000Z",
+      "decisionReason": "DNR confirms the Red Lake River state-water-trail corridor and reservation restrictions upstream, and USGS is live at High Landing, but no complete High Landing-specific public endpoint, threshold, camping/permit, safety, coordinate, image, and geometry package cleared for a scored route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Red Lake River"
+      ],
+      "blockers": [
+        "No complete public-manager point-to-point endpoint pair was accepted for the High Landing / Goodridge gauge reach.",
+        "No route-specific numeric paddling threshold ladder tied to USGS 05075000 was found.",
+        "Upstream Lower Red Lake Reservation paddling restrictions and permit context require route-specific access/camping review before any promotion."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05075000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05075000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redlake1.pdf"
+      ]
     },
     {
       "key": "usgs:05076000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:24:30.000Z",
+      "decisionReason": "USGS 05076000 is live on the Thief River tributary, but no official Thief River state-water-trail or route-capable public point-to-point paddling package surfaced for this gauge reach.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official Thief River paddling corridor or recommended point-to-point section surfaced.",
+        "No route-specific public endpoint pair, numeric thresholds, camping/no-camping terms, safety package, coordinates, image decision, or geometry package was found.",
+        "Nearby Red Lake River route evidence does not establish a Thief River route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05076000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05076000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/recommended-paddling.html"
+      ]
     },
     {
       "key": "usgs:05078000",
@@ -26017,17 +26407,25 @@
     },
     {
       "key": "usgs:05078230",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:30:00-05:00",
+      "decisionReason": "Lost River at Oklee is a live USGS stream station, but Minnesota DNR water-trail materials do not identify a Lost River state-water-trail segment or a current point-to-point paddling package for this reach. Telemetry alone does not establish route relevance, so no scored route should be created from this gauge.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official Minnesota state-water-trail segment or recommended paddling section surfaced for Lost River at Oklee.",
+        "No route-specific access, threshold, camping, and safety package was found.",
+        "Live telemetry alone is insufficient to establish a PaddleToday route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05078230/",
+        "https://www.dnr.state.mn.us/state-water-trails/interactive-map/index.html",
+        "https://www.dnr.state.mn.us/river_levels/index.html"
+      ]
     },
     {
       "key": "usgs:05078500",
@@ -26052,31 +26450,61 @@
     },
     {
       "key": "usgs:05079000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:24:30.000Z",
+      "decisionReason": "USGS 05079000 is product-live in the Crookston Red Lake River corridor, but existing scored Crookston routes already use equivalent MN DNR site 172 with official thresholds; current coverage gates do not count cross-provider equivalents as covered.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "red-lake-river-huot-crookston",
+        "red-lake-river-crookston-highway-75-bypass"
+      ],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Red Lake River"
+      ],
+      "blockers": [
+        "Existing scored Crookston route coverage uses MN DNR site 172 rather than USGS 05079000.",
+        "The gauge-coverage gate requires a scored route tied to the reviewed provider key before status can be covered.",
+        "No duplicate Crookston route is justified because the existing DNR package already contains endpoints, thresholds, camping, safety, coordinates, and geometry."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05079000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05079000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05080000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:24:30.000Z",
+      "decisionReason": "USGS 05080000 is product-live in the Fisher Red Lake River corridor, but existing scored lower Red Lake routes already use equivalent MN DNR site 175 with official thresholds; current coverage gates do not count cross-provider equivalents as covered.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "red-lake-river-highway-75-bypass-fisher",
+        "red-lake-river-fisher-red-river-recreation"
+      ],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Red Lake River"
+      ],
+      "blockers": [
+        "Existing scored Fisher route coverage uses MN DNR site 175 rather than USGS 05080000.",
+        "The gauge-coverage gate requires a scored route tied to the reviewed provider key before status can be covered.",
+        "No duplicate Fisher route is justified because the existing DNR package already contains endpoints, thresholds, camping, safety, coordinates, and geometry."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05080000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05080000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05082500",
@@ -26108,17 +26536,29 @@
     },
     {
       "key": "usgs:05083500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:24:30.000Z",
+      "decisionReason": "USGS 05083500 is a live Oslo stage station on the Red River State Water Trail, but no existing scored route uses this provider key and no complete Oslo-specific endpoint, threshold, camping, safety, coordinate, image, and geometry package cleared for a new scored route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Red River of the North"
+      ],
+      "blockers": [
+        "No scored route is tied to USGS 05083500, and existing Map 6 coverage uses the upstream MN DNR Drayton gauge as a same-map proxy.",
+        "USGS 05083500 returned stage/elevation telemetry only in this run, with no discharge value for PaddleToday scoring.",
+        "No Oslo-specific public endpoint pair, route distance, camping/no-camping terms, threshold ladder, safety package, and endpoint-coordinate package was accepted."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05083500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05083500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/red-river/index.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redriver6.pdf",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05084000",
@@ -26150,31 +26590,47 @@
     },
     {
       "key": "usgs:05085450",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T17:00:00-05:00",
+      "decisionReason": "USGS 05085450 is Snake River above Warren in the Red River basin, while Minnesota DNR's supported Snake River State Water Trail is a separate 84-mile corridor from McGrath to the St. Croix River. The station is not a gauge for the supported paddle corridor and no route package connects it to PaddleToday's published Snake routes.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "Station is in the Red River basin and is not the Minnesota DNR Snake River State Water Trail gauge.",
+        "No supported point-to-point paddle route package was found for the Warren-area reach."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05085450/",
+        "https://www.dnr.state.mn.us/state-water-trails/snake-river/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/interactive-map/index.html"
+      ]
     },
     {
       "key": "usgs:05087500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:45:00-05:00",
+      "decisionReason": "Middle River at Argyle is a live USGS stream station, and the river passes through Old Mill State Park, but Minnesota DNR water-trail and recommended-paddling materials do not identify a Middle River route or provide a complete point-to-point access, threshold, camping, and safety package. Telemetry alone is not sufficient for a scored route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official Minnesota state-water-trail segment or recommended paddling section surfaced for Middle River at Argyle.",
+        "Old Mill State Park presence does not establish a navigable point-to-point route or public endpoint package.",
+        "No route-specific access, threshold, camping, and safety package was found."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05087500/",
+        "https://www.dnr.state.mn.us/state-water-trails/interactive-map/index.html",
+        "https://files.dnr.state.mn.us/maps/state_parks/spk00247.pdf",
+        "https://www.dnr.state.mn.us/river_levels/index.html"
+      ]
     },
     {
       "key": "usgs:05089995",
@@ -26220,17 +26676,27 @@
     },
     {
       "key": "usgs:05094000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:01:06.000Z",
+      "decisionReason": "USGS 05094000 is a live South Branch Two Rivers station at Lake Bronson, but the route evidence reviewed is lake/park and dam context rather than an official point-to-point river route. Lake Bronson materials document boating/canoeing around the impoundment and dam-created lake context, and current park material reports dam-replacement/lake-closure conditions. Under the river-route model this gauge is not paddle-relevant for a scored river route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Branch Two Rivers"
+      ],
+      "blockers": [
+        "No official South Branch Two Rivers point-to-point river route package surfaced for the station reach.",
+        "Available public recreation evidence is Lake Bronson lake/park and dam context, not a scored river corridor.",
+        "Lake Bronson dam-replacement/lake-closure context blocks treating the lake setting as a current route substitute."
+      ],
+      "evidence": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05094000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00208",
+        "https://www.dnr.state.mn.us/state_parks/virtual_tour/lake_bronson/dialup.html"
+      ]
     },
     {
       "key": "usgs:05099400",
@@ -26312,17 +26778,28 @@
     },
     {
       "key": "usgs:05104500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:10:00-05:00",
+      "decisionReason": "USGS 05104500 is Roseau River below South Fork near Malung. It is a hydrologic/flood-monitoring station, but the bounded discovery sweep found no official state-water-trail segment or public point-to-point paddling package for this gauge reach. Local Roseau River access references do not establish a route-capable corridor with named endpoints and paddle thresholds.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Roseau River"
+      ],
+      "blockers": [
+        "No official state-water-trail or manager-backed point-to-point route package found below South Fork near Malung.",
+        "No named public endpoint pair, paddling threshold, camping, safety, coordinate, image, or geometry evidence.",
+        "Gauge context is hydrologic/flood monitoring rather than a supported paddle route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05104500/",
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://www.dnr.state.mn.us/areas/wildlife/roseau_river_wma.html",
+        "https://files.dnr.state.mn.us/maps/water_access/counties/kittson_marshall_roseau.pdf"
+      ]
     },
     {
       "key": "usgs:05106000",
@@ -26340,31 +26817,54 @@
     },
     {
       "key": "usgs:05107500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T19:50:00-05:00",
+      "decisionReason": "USGS 05107500 at Ross has discharge and gage-height telemetry, and the Roseau River is locally promoted for boating/canoe access. A bounded discovery sweep found no official state-water-trail segment or current public point-to-point paddling package tied to the Ross gauge; watershed-management and flood-control material is not sufficient to infer a scored route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Roseau River"
+      ],
+      "blockers": [
+        "No official state-water-trail or manager-backed point-to-point route package was found for the Ross reach.",
+        "No station-specific paddling thresholds, named endpoints, camping, safety, coordinates, image, or geometry package cleared.",
+        "Local boating/access references do not establish a durable scored route without route-specific evidence."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05107500",
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://www.dnr.state.mn.us/areas/wildlife/roseau_river_wma.html",
+        "https://files.dnr.state.mn.us/maps/water_access/counties/kittson_marshall_roseau.pdf",
+        "https://www.roseauriverwd.com/pdf/Trail_River/Final%20Document%20RRWT%209_10%20%28003%29.pdf"
+      ]
     },
     {
       "key": "usgs:05112000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:25:00-05:00",
+      "decisionReason": "USGS 05112000 is Roseau River below State Ditch 51 near Caribou. It is a hydrologic station in the Roseau basin, but the bounded discovery sweep found no official state-water-trail segment or public point-to-point paddling package for this reach; Minnesota DNR’s water-trail and river-level systems do not establish a route at this gauge.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Roseau River"
+      ],
+      "blockers": [
+        "No official state-water-trail or manager-backed point-to-point route package found near Caribou.",
+        "No named endpoint pair, paddling thresholds, camping, safety, coordinate, image, or geometry evidence.",
+        "Gauge is hydrologic/flood context rather than a supported paddle route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05112000",
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/index.html",
+        "https://www.dnr.state.mn.us/areas/wildlife/roseau_river_wma.html"
+      ]
     },
     {
       "key": "usgs:05113600",
@@ -26587,31 +27087,51 @@
     },
     {
       "key": "usgs:05125000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T15:16:00-05:00",
+      "decisionReason": "USGS 05125000 is a live South Kawishiwi River stream gauge near Ely with continuous and daily data. Official Minnesota DNR sources establish paddle relevance in the Kawishiwi/White Iron/BWCA system, but the reviewed evidence does not yield a PaddleToday-ready public point-to-point route package tied to this gauge: no named endpoint pair, route-specific numeric threshold, complete access and safety package, camping/permit handling, coordinate evidence, image decision, and canonical geometry were found.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Kawishiwi River / White Iron Lake"
+      ],
+      "blockers": [
+        "No named public South Kawishiwi River put-in/take-out pair tied to the USGS 05125000 reach was identified in the reviewed official sources.",
+        "Official Kawishiwi access references describe a connected lake-and-portage/BWCA system with wilderness permit rules, not the product's standard day-route evidence package.",
+        "No source-backed route-specific numeric paddling threshold, complete safety and camping/permit terms, endpoint coordinates, image decision, or canonical geometry was found for this gauge reach."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05125000/ identifies South Kawishiwi River near Ely, a stream with continuous and daily data through 2026-08-14 and coordinates 47.840058, -91.695358.",
+        "https://www.dnr.state.mn.us/mcvmagazine/issues/2023/mar-apr/carhart.html documents the Kawishiwi/Isabella canoe corridor as a 100-mile loop with 53 portages and a BWCA permit.",
+        "https://files.dnr.state.mn.us/maps/state_forests/sft00026.pdf documents Kawishiwi access through the Boundary Waters and an approximately 12-mile paddle from Lake One Entry Point through the Kawishiwi chain, with overnight permit requirements."
+      ]
     },
     {
       "key": "usgs:05126210",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T15:13:00-05:00",
+      "decisionReason": "USGS 05126210 is a live stream gauge immediately above White Iron Lake near Ely, and official Minnesota DNR material confirms the Kawishiwi River as a canoe corridor through the Boundary Waters. It is route-capable, but no PaddleToday-ready public day-route package was found for this gauge reach: the official material describes a lake-and-portage wilderness system rather than a named endpoint pair with route-specific numeric threshold, camping/permit, safety, coordinate, image, and geometry evidence.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Kawishiwi River / White Iron Lake"
+      ],
+      "blockers": [
+        "No named public Kawishiwi River put-in/take-out pair tied to the USGS 05126210 reach was identified in the reviewed official sources.",
+        "The documented Kawishiwi canoe corridor is a Boundary Waters wilderness/lake-and-portage system requiring wilderness-specific permit, portage, and camping handling rather than the product's standard day-route package.",
+        "No source-backed route-specific numeric paddling threshold, endpoint coordinate pair, complete safety package, or canonical route geometry was found for this gauge reach."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05126210/ identifies South Kawishiwi River above White Iron Lake near Ely, a stream with continuous and daily data through 2026-08-14 and coordinates 47.842038, -91.798854.",
+        "https://www.dnr.state.mn.us/mcvmagazine/issues/2023/mar-apr/carhart.html documents a 100-mile Kawishiwi/Isabella canoe loop with 53 portages, a BWCA permit, and wilderness entry from Farm Lake.",
+        "https://www.dnr.state.mn.us/fisheries/slice/white-iron-lake.html confirms the Kawishiwi River enters White Iron Lake and that dams control flows in the connected lake system."
+      ]
     },
     {
       "key": "usgs:05127500",
@@ -26637,17 +27157,28 @@
     },
     {
       "key": "usgs:05128400",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:45:00-05:00",
+      "decisionReason": "USGS 05128400 is Sand River near Britt, a Pike River tributary. The bounded discovery sweep found no official Minnesota state-water-trail or manager-backed point-to-point paddling package for Sand River near this gauge; nearby DNR trail material concerns other rivers and does not establish a route here.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Sand River"
+      ],
+      "blockers": [
+        "No official state-water-trail or manager-backed Sand River endpoint pair found near Britt.",
+        "No paddling thresholds, camping, safety, coordinate, image, or geometry package.",
+        "Gauge is not tied to a supported PaddleToday route corridor."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05128400/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05128400",
+        "https://www.dnr.state.mn.us/state-water-trails/index.html",
+        "https://www.dnr.state.mn.us/water_access/index.html"
+      ]
     },
     {
       "key": "usgs:05129115",
@@ -26688,31 +27219,63 @@
     },
     {
       "key": "usgs:05129515",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:26:26-05:00",
+      "decisionReason": "USGS 05129515 is live on the Rainy River below International Falls, and public Rainy River access sources describe canoe/kayak use along the border-river corridor. No PaddleToday-ready point-to-point route cleared because the sources reviewed did not provide a selected public endpoint pair with numeric gauge-tied paddling thresholds, route-specific camping/no-camping rules, safety handling, coordinates, image decision, and geometry package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Rainy River"
+      ],
+      "blockers": [
+        "No selected source-backed Rainy River point-to-point route package cleared for the International Falls gauge reach.",
+        "No numeric paddling threshold tied to USGS 05129515 surfaced.",
+        "Camping/no-camping, border-water safety, endpoint coordinates, image, and geometry package were not established."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05129515/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05129515&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://rainylake.org/exploring-rainy-river/"
+      ]
     },
     {
       "key": "usgs:05131500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T15:10:00-05:00",
+      "decisionReason": "USGS 05131500 is the Little Fork River at Littlefork discharge/stage station and corresponds to the same reach already scored with MN DNR gauge 81. Existing routes have a complete direct DNR gauge package, but the USGS provider key has not been explicitly adopted; cross-provider equivalence is not counted as covered under the gauge-completeness policy.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Little Fork River"
+      ],
+      "blockers": [
+        "Existing scored Little Fork routes use MN DNR gauge 81 rather than USGS provider key 05131500.",
+        "Provider-specific USGS threshold adoption and route metadata are not present.",
+        "Adding a USGS duplicate route would create provider overlap without new endpoint or safety value."
+      ],
+      "evidence": [
+        {
+          "label": "USGS Little Fork River at Littlefork",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05131500/",
+          "note": "USGS provides the live Little Fork discharge/stage station near Littlefork."
+        },
+        {
+          "label": "Minnesota DNR Little Fork River trail",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/little-fork-river/segments-maps.html",
+          "note": "Official trail source supports the Little Fork corridor and public accesses already represented by scored routes."
+        },
+        {
+          "label": "Existing PaddleToday Little Fork package",
+          "url": "src/data/routes/minnesota.ts",
+          "note": "Scored Little Fork routes use MN DNR gauge 81 with official interpreted thresholds; no duplicate USGS route is justified."
+        }
+      ]
     },
     {
       "key": "usgs:05132000",
@@ -26749,87 +27312,158 @@
     },
     {
       "key": "usgs:05133500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:26:26-05:00",
+      "decisionReason": "USGS 05133500 is live at Manitou Rapids on the Rainy River, and public access sources identify Manitou Rapids as a primitive Rainy River access. The candidate remains blocked because no route-specific endpoint pair, numeric threshold model, legal camping/no-camping package, border-water safety package, coordinate package, image decision, or geometry cleared for a scored route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Rainy River"
+      ],
+      "blockers": [
+        "Primitive access evidence is not enough without a selected point-to-point route package.",
+        "No numeric paddling thresholds tied to USGS 05133500 surfaced.",
+        "Camping, safety, coordinates, image, and geometry remain unresolved for a Manitou Rapids route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05133500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05133500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://rainylake.org/exploring-rainy-river/"
+      ]
     },
     {
       "key": "usgs:05134200",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:26:26-05:00",
+      "decisionReason": "USGS 05134200 is live on Rapid River near Baudette, and the MN DNR Rapid River Canoe Route PDF gives a real route shape with landmarks, UTM coordinates, minimum paddling times, and two unimproved state-forest camping landmarks. The route still fails the scored-route gate because no numeric gauge-tied paddling threshold or interpreted runnable range surfaced for the current USGS station, and endpoint/camping/safety/coordinate/image/geometry package work should not proceed without that threshold evidence.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Rapid River"
+      ],
+      "blockers": [
+        "Official route shape exists, but no numeric USGS 05134200 threshold or runnable range surfaced.",
+        "Camping landmarks are present in the PDF but were not promoted without a full route package.",
+        "Endpoint coordinate conversion, safety, image, and geometry work remain blocked by threshold evidence."
+      ],
+      "evidence": [
+        "https://files.dnr.state.mn.us/areas/fisheries/baudette/rapidriverroute.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05134200/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05134200&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05137500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:26:26-05:00",
+      "decisionReason": "USGS 05137500 is a live Rainy River stage station near the Wheelers Point boat landing at the river mouth. It is route-capable as border-river access context, but no scored route cleared because the gauge is stage-only in the product check and the Wheelers Point/Lake of the Woods transition lacks a selected point-to-point route, numeric paddling thresholds, camping/no-camping terms, safety package, coordinates, image decision, and geometry.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Rainy River"
+      ],
+      "blockers": [
+        "Stage-only gauge result during this run.",
+        "Wheelers Point is a river-mouth/Lake of the Woods transition rather than a selected scored river reach.",
+        "No route-specific threshold, camping, safety, coordinate, image, or geometry package cleared."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05137500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05137500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://rainylake.org/exploring-rainy-river/"
+      ]
     },
     {
       "key": "usgs:05140521",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T15:30:00-05:00",
+      "decisionReason": "USGS 05140521 is a stage-only Lake of the Woods station at Springsteel Island near Warroad. Minnesota DNR confirms a public boat access, but no state-water-trail or recommended point-to-point paddling corridor uses this station, and no river-style threshold package exists for a scored route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official state-water-trail or recommended river section tied to Springsteel Island gauge.",
+        "Telemetry is lake stage/elevation only, not a route-specific river discharge or paddling interpretation.",
+        "General boat access does not establish a scored PaddleToday point-to-point route package."
+      ],
+      "evidence": [
+        {
+          "label": "USGS Springsteel Island station",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05140521",
+          "note": "USGS exposes gage height and NAVD88 lake-level data only."
+        },
+        {
+          "label": "Minnesota DNR public water access map",
+          "url": "https://files.dnr.state.mn.us/maps/water_access/counties/kittson_marshall_roseau.pdf",
+          "note": "DNR map identifies Lake of the Woods Springsteel access for boating but does not establish a state-water-trail route."
+        },
+        {
+          "label": "Minnesota DNR Lake of the Woods information",
+          "url": "https://www.dnr.state.mn.us/lakeofthewoods/index.html",
+          "note": "Official source frames Lake of the Woods as a managed lake/fisheries resource, not a scored river corridor for this workflow."
+        }
+      ]
     },
     {
       "key": "usgs:05200510",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T00:15:00-05:00",
+      "decisionReason": "USGS 05200510 is the Mississippi River near Bemidji. The official Minnesota DNR headwaters maps provide public-water-trail reaches, but the current DNR trail page warns of multiple trees down upstream of Bemidji and does not provide a distinct, high-confidence endpoint and threshold package tied to this station. Existing headwaters routes use the interpreted DNR gauge family and stronger mapped access packages; this USGS station does not justify a separate scored route without additional current access and hazard evidence.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "DNR currently warns of multiple trees down on the river upstream of Bemidji.",
+        "No distinct endpoint and station-specific threshold package is established for this gauge.",
+        "Existing headwaters routes already use stronger DNR interpreted gauge and access packages."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05200510/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05200510",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/index.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1"
+      ]
     },
     {
       "key": "usgs:05207600",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:35:00-05:00",
+      "decisionReason": "USGS 05207600 is the Mississippi River at Willow Beach near Ball Club with live discharge and stage telemetry. It sits in the headwaters corridor, but no distinct named endpoint pair, current paddling thresholds, camping, safety, or geometry package is validated for this gauge reach; nearby access context is lake- and forest-oriented rather than a documented scored river section.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "No complete named endpoint and geometry package is validated.",
+        "No station-specific paddling threshold interpretation is documented.",
+        "Available access context does not establish a strong scored point-to-point river route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05207600/",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "https://www.dnr.state.mn.us/state-water-trails/virtual-tour/mississippi-river/snapshot.html"
+      ]
     },
     {
       "key": "usgs:05208010",
@@ -26861,17 +27495,27 @@
     },
     {
       "key": "usgs:05210000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:55:00-05:00",
+      "decisionReason": "USGS 05210000 is the Mississippi River at Days High Landing near Deer River and is provider-equivalent to MN DNR gauge 116. Existing scored Schoolcraft, Sylvan, and Winnie-area route packages already use the DNR station with official interpreted thresholds and access evidence; current policy does not silently count the USGS key as covered or create a duplicate route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "Provider-equivalent to covered MN DNR gauge 116.",
+        "Cross-provider equivalence is not counted as covered without explicit migration.",
+        "Duplicate USGS route would add no endpoint, threshold, or safety value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05210000/",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05211000",
@@ -26899,59 +27543,100 @@
     },
     {
       "key": "usgs:05212700",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T03:25:00-05:00",
+      "decisionReason": "USGS 05212700 Prairie River near Taconite is a discontinued station. USGS historical records identify the station as discontinued after 1983, and the current statistics page reports no available data types or statistics. It cannot support a live PaddleToday gauge or a new scored route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Prairie River"
+      ],
+      "blockers": [
+        "USGS historical record identifies the station as discontinued.",
+        "Current USGS statistics page reports no available data types.",
+        "No official state-water-trail route package is established for this Prairie River station."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05212700/statistics/",
+        "https://mn.water.usgs.gov/infodata/ann-repts/annrpt00/discontinued.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/"
+      ]
     },
     {
       "key": "usgs:05227500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T21:35:00-05:00",
+      "decisionReason": "USGS 05227500 is the Mississippi River at Aitkin and is provider-equivalent to the covered MN DNR Aitkin gauge 120. Multiple scored Aitkin-area routes already use the DNR station with official thresholds, public endpoints, camping, and safety evidence; a duplicate USGS route would not improve coverage.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "Provider-equivalent to covered MN DNR gauge 120.",
+        "Cross-provider equivalence is not counted as covered without explicit migration.",
+        "Duplicate USGS route would add no endpoint, threshold, camping, or safety value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05227500/",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05227530",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T00:05:00-05:00",
+      "decisionReason": "USGS 05227530 is the Mississippi River diversion near Aitkin. The current Mississippi State Water Trail Map 5 already provides the Aitkin Campground-to-Highway 6 and Aitkin Campground-to-Overlook corridor packages, and the app has scored routes using the covered Aitkin DNR gauge family. Adding this diversion gauge as a separate route would duplicate the existing corridor without a distinct endpoint, threshold, or safety package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "Provider-equivalent to the covered Aitkin DNR gauge family.",
+        "Existing DNR Map 5 route packages already cover the relevant public-access corridor.",
+        "A separate diversion-gauge route would add no distinct endpoint, threshold, camping, or safety value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05227530/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05227530",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi5.pdf",
+        "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      ]
     },
     {
       "key": "usgs:05242300",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T21:55:00-05:00",
+      "decisionReason": "USGS 05242300 is the Mississippi River at Brainerd and is provider-equivalent to MN DNR gauge 121 used by existing Brainerd-area scored routes. Those routes already carry official DNR threshold, endpoint, camping, and safety packages; a duplicate USGS route would not improve coverage.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "Provider-equivalent to covered MN DNR gauge 121.",
+        "Cross-provider equivalence is not counted as covered without explicit migration.",
+        "Duplicate USGS route would add no endpoint, threshold, camping, or safety value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05242300/",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05243725",
@@ -26999,17 +27684,27 @@
     },
     {
       "key": "usgs:05245100",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T16:05:00-05:00",
+      "decisionReason": "USGS 05245100 is the Long Prairie River at Long Prairie live discharge/stage station and corresponds to existing scored routes using MN DNR gauge 89. The existing DNR package has official thresholds and named access endpoints, but this USGS key is not explicitly adopted; cross-provider equivalence is not counted as covered, and a duplicate USGS route would add no endpoint or safety value.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Long Prairie River"
+      ],
+      "blockers": [
+        "Existing scored Long Prairie routes use MN DNR gauge 89 rather than USGS 05245100.",
+        "Provider-specific USGS threshold adoption and route metadata are not present.",
+        "A duplicate USGS route would add no endpoint or safety value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05245100/",
+        "https://www.dnr.state.mn.us/state-water-trails/long-prairie-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05247500",
@@ -27051,7 +27746,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -27221,7 +27916,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -27241,17 +27936,27 @@
     },
     {
       "key": "usgs:05283500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:15:00-05:00",
+      "decisionReason": "USGS 05283500 is the Mississippi River at US Highway 169 in Champlin. The station has discharge and stage telemetry and is in a paddle-relevant metro corridor, but USGS notes low-flow discharge can be unavailable or distorted by Coon Rapids Dam backwater. Existing metro routes already use stronger DNR/USGS packages, and no distinct station-specific threshold and endpoint package is validated.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "USGS documents low-flow discharge/backwater limitations from Coon Rapids Dam.",
+        "No distinct route package with station-specific thresholds is validated.",
+        "Existing metro Mississippi routes already have stronger endpoint and gauge packages."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05283500",
+        "https://files.dnr.state.mn.us/education_safety/safety/boatwater/metro_river_guide.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html"
+      ]
     },
     {
       "key": "usgs:05286000",
@@ -27371,45 +28076,74 @@
     },
     {
       "key": "usgs:05288670",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T21:15:00-05:00",
+      "decisionReason": "USGS 05288670 is a stage-only Mississippi River station above 37th Avenue NE in Fridley. Existing metro Mississippi routes already have official DNR endpoint and gauge packages around Dayton, Coon Rapids Dam, and Anoka; no distinct Fridley endpoint pair or station-specific threshold package is validated.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "Stage-only telemetry lacks a station-specific paddling threshold package.",
+        "No distinct named public endpoint pair is validated for the Fridley station.",
+        "Existing metro Mississippi routes already cover nearby corridors with official DNR packages."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05288670/",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05288705",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:00:00-05:00",
+      "decisionReason": "USGS 05288705 at Queen Avenue in Minneapolis has no continuous, daily, or field measurement data and no current graph. Minnesota DNR water-trail material identifies Shingle Creek as a Mississippi River confluence but does not provide a supported Shingle Creek point-to-point paddle package with thresholds, access sequence, camping, safety, and route geometry. No route is published from this stale/unsupported gauge.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "USGS reports no continuous, daily, or field measurement data.",
+        "No current supported Shingle Creek point-to-point paddle package was found.",
+        "No defensible gauge-tied threshold and public access sequence supports a scored route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05288705/",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi9.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/interactive-map/index.html"
+      ]
     },
     {
       "key": "usgs:05289100",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:00:00-05:00",
+      "decisionReason": "USGS 05289100 is a live gage-height station immediately below Gray's Bay Dam on the Minnehaha Creek corridor, so it is route-capable. However, the existing PaddleToday Minnehaha package uses the downstream Hiawatha discharge gauge (05289800) with MCWD's official 75–150 cfs paddling band; no provider-specific threshold mapping or separate headwater route package has been established for this station.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnehaha Creek"
+      ],
+      "blockers": [
+        "Existing scored Minnehaha route uses downstream USGS 05289800 rather than this Gray's Bay station.",
+        "Only gage height is available; MCWD's published paddling threshold is discharge at Hiawatha and is not transferable without validation.",
+        "Gray's Bay Dam operations can change upstream-to-downstream conditions, so a duplicate route would require a separate segment package and threshold study."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05289100",
+        "https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/",
+        "https://minnehahacreek.org/explore/grays-bay-dam/grays-bay-dam-operations/",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05289800",
@@ -27463,17 +28197,27 @@
     },
     {
       "key": "usgs:05292000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T19:20:00-05:00",
+      "decisionReason": "USGS 05292000 is the Minnesota River at Ortonville station and is provider-equivalent to MN DNR gauge 108. The DNR station has already been dispositioned as route-capable but blocked because the Ortonville-to-Marsh Lake segment lacks a strong validated route package; adding a duplicate USGS route would not improve endpoint, threshold, or safety coverage.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "Provider-equivalent to blocked MN DNR gauge 108.",
+        "No validated Ortonville corridor route package exists.",
+        "Duplicate provider entry would add no endpoint, threshold, or safety value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05292000/",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "docs/operations/gauge-review-ledger.json"
+      ]
     },
     {
       "key": "usgs:05293000",
@@ -27491,45 +28235,88 @@
     },
     {
       "key": "usgs:05294000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T02:45:00-05:00",
+      "decisionReason": "USGS 05294000 is the Pomme de Terre River at Appleton and is provider-equivalent to the covered MN DNR Appleton gauge used by the existing Larson-to-Appleton and Pomme #1-to-Appleton scored routes. Those routes already include the official level ladder, endpoints, camping, hazards, and geometry; a second USGS record would duplicate the same corridor.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Pomme de Terre River"
+      ],
+      "blockers": [
+        "Provider-equivalent to covered MN DNR Appleton gauge 168.",
+        "Existing Pomme de Terre routes already carry the full endpoint, threshold, camping, safety, and geometry package.",
+        "Duplicate provider record adds no distinct route value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05294000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05294000",
+        "https://www.dnr.state.mn.us/state-water-trails/pomme-de-terre-river/segments-maps.html",
+        "https://www.dnr.state.mn.us/river_levels/index.html"
+      ]
     },
     {
       "key": "usgs:05300000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:50:00-05:00",
+      "decisionReason": "USGS 05300000 is a live discharge and stage gauge on the Lac qui Parle River. Official Minnesota sources confirm canoe access at Lac qui Parle State Park and the river's confluence with the Minnesota River, but no PaddleToday-ready point-to-point reach with named endpoints, route-specific thresholds, camping, safety, and geometry has been assembled for this gauge.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Lac qui Parle River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly adopts USGS 05300000.",
+        "Official sources confirm canoe access and confluence context but do not provide a complete point-to-point Lac qui Parle River route package.",
+        "Gauge-specific paddling thresholds, endpoint coordinates, camping/no-camping terms, hazards, and geometry remain unresolved."
+      ],
+      "evidence": [
+        {
+          "label": "USGS station 05300000",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05300000/",
+          "note": "USGS identifies a long-running live discharge and stage station on the Lac qui Parle River near Lac qui Parle."
+        },
+        {
+          "label": "Minnesota DNR Minnesota River segments and maps",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+          "note": "Official water-trail material documents the Lac qui Parle River confluence with the Minnesota River, but does not establish a route on the tributary reach."
+        },
+        {
+          "label": "Minnesota DNR Lac qui Parle State Park access",
+          "url": "https://www.dnr.state.mn.us/state_parks/virtual_tour/lac_qui_parle/dialup.html",
+          "note": "Official park material confirms canoe/boat access at Lac qui Parle Lake; a dedicated river route still needs separate endpoint and safety evidence."
+        }
+      ]
     },
     {
       "key": "usgs:05301000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T20:15:00-05:00",
+      "decisionReason": "USGS 05301000 is the Minnesota River near Lac qui Parle with live discharge and stage telemetry. The surrounding state water-trail corridor is paddle-relevant, but no distinct endpoint pair, station-specific threshold interpretation, or complete route package is validated; existing nearby Chippewa and Minnesota River routes already have separate official gauge packages.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "No distinct named endpoint pair is currently validated for this station.",
+        "USGS station-specific paddling thresholds are not mapped to a route package.",
+        "Nearby Chippewa and Minnesota River routes already use separate official gauge packages."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05301000/",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05304500",
@@ -27611,31 +28398,51 @@
     },
     {
       "key": "usgs:05311000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:40:00-05:00",
+      "decisionReason": "USGS 05311000 is the Minnesota River at Montevideo live discharge/stage station and corresponds to existing scored routes using MN DNR gauge 99. The DNR route package already supplies official thresholds and endpoints; the USGS key is not explicitly adopted, and adding a duplicate USGS-backed route would add no endpoint or safety value.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "Existing scored Montevideo routes use MN DNR gauge 99 rather than USGS 05311000.",
+        "Provider-specific USGS threshold adoption and route metadata are not present.",
+        "Duplicate USGS route would add no endpoint or safety value."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05311000/",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05311150",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:00:00-05:00",
+      "decisionReason": "USGS 05311150 is a live discharge/stage station at Highway 212 in Granite Falls, directly relevant to the Minnesota River corridor and near the existing War Memorial-to-Kinney scored route. That route currently uses the Montevideo DNR gauge as a proxy; the USGS station could improve direct coverage, but no validated station-specific threshold mapping or product gauge migration has been completed.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "Existing scored War Memorial-to-Kinney route uses a Montevideo DNR proxy rather than USGS 05311150.",
+        "USGS station-specific paddling thresholds and trend handling are not yet validated against the route's Granite Falls hazards and portage boundary.",
+        "This is a gauge integration/route-quality task, not a reason to add a duplicate route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05311150/",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota3.pdf",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05313500",
@@ -27653,31 +28460,53 @@
     },
     {
       "key": "usgs:05315000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:05:00-05:00",
+      "decisionReason": "USGS 05315000 near Marshall has discharge and gage-height records, but the current monitoring page reports no continuous, daily, or field measurement data while the legacy page exposes historical/provisional values. No official Redwood River paddling segment with named public endpoint pair and station-specific threshold package was validated for this reach, so publication would be speculative.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Redwood River"
+      ],
+      "blockers": [
+        "Modern USGS page reports no continuous, daily, or field measurement data.",
+        "No official Redwood River point-to-point paddling segment and endpoint pair was validated near Marshall.",
+        "No station-specific paddling thresholds, camping, safety, coordinates, image, or geometry package cleared."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05315000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05315000",
+        "https://www.dnr.state.mn.us/state-water-trails/index.html",
+        "https://www.dnr.state.mn.us/water_access/index.html"
+      ]
     },
     {
       "key": "usgs:05316500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:25:00-05:00",
+      "decisionReason": "USGS 05316500 near Redwood Falls is provider-equivalent to the existing MN DNR Redwood Falls gauge 196 used by the scored Redwood River Vesta-to-Wabasso route. The existing route already has official DNR thresholds, public endpoints, camping/safety context, coordinates, and geometry; adding a duplicate USGS route would add no endpoint or safety value and provider-specific duplicate coverage is not counted as covered under the completeness policy.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Redwood River"
+      ],
+      "blockers": [
+        "Existing scored Redwood route uses equivalent MN DNR gauge 196.",
+        "USGS duplicate would add no distinct endpoint, threshold, camping, safety, or geometry value.",
+        "Provider-specific USGS route metadata is not present and is not justified as a duplicate package."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05316500/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05316500",
+        "src/data/routes/minnesota.ts",
+        "https://www.dnr.state.mn.us/state-water-trails/index.html"
+      ]
     },
     {
       "key": "usgs:05316580",
@@ -27703,17 +28532,27 @@
     },
     {
       "key": "usgs:05316770",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:50:00-05:00",
+      "decisionReason": "USGS 05316770 is recorded as the direct live gauge for the New Ulm Minnesota River scored corridor in the route inventory; the station has current discharge and stage telemetry, and the route package carries the required official water-trail and access evidence.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "minnesota-river-buessman-riverside"
+      ],
+      "scoredRouteSlugs": [
+        "minnesota-river-buessman-riverside"
+      ],
+      "routeFamilies": [
+        "Minnesota River"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05316770/",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05317000",
@@ -27738,17 +28577,37 @@
     },
     {
       "key": "usgs:05317200",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:50:00-05:00",
+      "decisionReason": "USGS 05317200 is a live discharge and stage station on the Little Cottonwood River near Courtland. Minnesota DNR maps show the Little Cottonwood confluence and Courtland access on the Minnesota River State Water Trail, but do not identify a Little Cottonwood paddling section or route-specific gauge interpretation; no PaddleToday route corridor was found.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official Little Cottonwood State Water Trail or recommended paddling section found.",
+        "DNR material identifies the tributary confluence but does not establish a route package or gauge interpretation for the tributary.",
+        "No named Little Cottonwood endpoint sequence, threshold, camping, safety, or geometry package was found."
+      ],
+      "evidence": [
+        {
+          "label": "USGS Little Cottonwood River near Courtland",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05317200/",
+          "note": "USGS provides live discharge and stage observations for the tributary station."
+        },
+        {
+          "label": "Minnesota DNR Cottonwood and Minnesota River map",
+          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf",
+          "note": "Official map places Courtland access and the Little Cottonwood confluence on the Minnesota River trail, without a Little Cottonwood route section."
+        },
+        {
+          "label": "Minnesota DNR Cottonwood River trail",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/cottonwood-river/segments-maps.html",
+          "note": "Official trail page describes the supported Cottonwood River corridor, not the Little Cottonwood tributary gauge reach."
+        }
+      ]
     },
     {
       "key": "usgs:05319500",
@@ -27789,17 +28648,40 @@
     },
     {
       "key": "usgs:05320500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T14:20:00-05:00",
+      "decisionReason": "USGS 05320500 is the live Le Sueur River near Rapidan gauge and Minnesota DNR lists it as an interpreted gauge for the Blue Earth State Water Trail corridor. The Rapidan Dam area has an explicit dangerous-conditions warning, and no PaddleToday route currently adopts this USGS key with a safe downstream endpoint package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Le Sueur River",
+        "Blue Earth River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly adopts USGS 05320500.",
+        "Rapidan Dam failure/debris hazard requires a clearly downstream launch and no-extension safety boundary.",
+        "Provider-specific threshold, endpoints, camping/no-camping terms, and route geometry remain to be assembled."
+      ],
+      "evidence": [
+        {
+          "label": "USGS Le Sueur River near Rapidan",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05320500",
+          "note": "USGS provides live discharge and stage observations for the Le Sueur River near Rapidan."
+        },
+        {
+          "label": "Minnesota DNR river levels",
+          "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+          "note": "DNR lists Le Sueur River near Rapidan as an interpreted Blue Earth water-trail gauge."
+        },
+        {
+          "label": "Minnesota DNR Blue Earth State Water Trail map",
+          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/blueearth.pdf",
+          "note": "Official map notes canoeable Le Sueur options and warns that the Rapidan Dam area has dangerous debris and should not be paddled through."
+        }
+      ]
     },
     {
       "key": "usgs:05325000",
@@ -27876,45 +28758,77 @@
     },
     {
       "key": "usgs:05330713",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T19:35:00-05:00",
+      "decisionReason": "USGS 05330713 is a live stage station at State Highway 101 in Shakopee on the lower Minnesota River. It is route-capable, but no station-specific paddling thresholds or named endpoint pair are validated; the existing Thompson Ferry–Carver scored route already has an official DNR Jordan gauge package and a nearby USGS fallback. A duplicate route would not add value without a distinct access corridor and safety package.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "Stage-only station lacks validated paddling thresholds.",
+        "No named public endpoint pair or distinct scored corridor is currently validated.",
+        "Existing lower-river route package already uses the official Jordan gauge and USGS fallback."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05330713/",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05330890",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:20:00-05:00",
+      "decisionReason": "USGS 05330890 is a live gage-height station on the lower Minnesota River at Port Cargill Harbor in Savage, within an officially paddle-relevant river corridor. It is not currently covered because the station has no validated PaddleToday threshold/route package, and the existing lower-river routes use other interpreted DNR gauges and named public accesses.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "The station provides gage height only; no station-specific paddling threshold package was found.",
+        "Port Cargill Harbor is an industrial harbor, not a validated PaddleToday launch or take-out endpoint.",
+        "Existing lower Minnesota River routes use other DNR-interpreted gauges and public-water-access pairs; a new route needs its own endpoint, safety, and geometry package."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05330890/",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05330920",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:40:00-05:00",
+      "decisionReason": "USGS 05330920 is a live gage-height station at Fort Snelling on the lower Minnesota River, within an official state-water-trail corridor. It is not covered because no station-specific PaddleToday threshold, public endpoint pair, or route package has been established; existing lower-river cards use other DNR-interpreted gauges and access sequences.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Minnesota River"
+      ],
+      "blockers": [
+        "The station provides gage height only and no Fort Snelling-specific paddling threshold interpretation was found.",
+        "Fort Snelling is a confluence/park corridor with navigation, current, and access boundaries; it is not by itself a validated launch/take-out pair.",
+        "Existing lower Minnesota River routes use Jordan, Henderson, or Mankato DNR packages rather than this station."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05330920/",
+        "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05331000",
@@ -27941,17 +28855,27 @@
     },
     {
       "key": "usgs:05331580",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:55:00-05:00",
+      "decisionReason": "USGS 05331580 is the Mississippi River below Lock and Dam 2 at Hastings, but the current USGS station page reports no continuous, daily, or field measurement data types available. The station therefore cannot support a live PaddleToday gauge despite the route-capable Pool 2 corridor.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "USGS page reports no continuous, daily, or field measurement data available.",
+        "Lock and Dam 2 navigation and portage safety require separate route handling.",
+        "No current live threshold source is available for this station."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05331580/",
+        "https://home.nps.gov/miss/planyourvisit/lockdam2.htm",
+        "https://www.umesc.usgs.gov/rivers/upper_mississippi/reach_1/pool_2/pool_2.html"
+      ]
     },
     {
       "key": "usgs:05331833",
@@ -28253,17 +29177,27 @@
     },
     {
       "key": "usgs:05355080",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T03:05:00-05:00",
+      "decisionReason": "USGS 05355080 is Prairie Creek near Cannon Falls, but the current USGS station page states that no continuous, daily, or field measurement data are available and that the site is crest-stage record only. Cannon Falls paddling routes use the Cannon River corridor and its supported gauge family, not this unsupported Prairie Creek station.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Prairie Creek"
+      ],
+      "blockers": [
+        "USGS reports no continuous, daily, or field measurements.",
+        "Crest-stage-only data cannot support a live PaddleToday gauge.",
+        "No distinct Prairie Creek state-water-trail route package is established."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05355080/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05355080",
+        "https://www.dnr.state.mn.us/state-water-trails/cannon-river/index.html"
+      ]
     },
     {
       "key": "usgs:05355092",
@@ -28326,17 +29260,27 @@
     },
     {
       "key": "usgs:05355250",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:55:00-05:00",
+      "decisionReason": "USGS 05355250 is the Mississippi River at Red Wing with live discharge and stage telemetry. The Red Wing/Pool 3 corridor is paddle-relevant, but no PaddleToday-ready point-to-point package with station-specific thresholds, endpoint geometry, and lock/dam/boat-traffic safety handling is validated; no speculative route is warranted.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "No complete named endpoint and geometry package is currently validated.",
+        "Station-specific paddling thresholds are not documented in the product.",
+        "Pool 3 lock/dam, navigation traffic, and backwater safety require dedicated handling."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05355250/",
+        "https://www.dnr.state.mn.us/education_safety/safety/boatwater/guides.html",
+        "https://www.recreation.gov/gateways/167"
+      ]
     },
     {
       "key": "usgs:05356000",
@@ -28620,17 +29564,26 @@
     },
     {
       "key": "usgs:05372995",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T20:45:00-05:00",
+      "decisionReason": "USGS 05372995 is the South Fork Zumbro River at Rochester and is provider-equivalent to MN DNR gauge 273. The former South Fork Zumbro route was removed because the Frank's Ford put-in was documented only as a bridge/informal footpath without confirmed public launch or parking rights. The gauge remains route-capable, but this provider record is blocked until a lawful replacement put-in or explicit land-manager authorization is validated.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Zumbro River"
+      ],
+      "blockers": [
+        "Former route was removed because the Frank's Ford put-in lacks confirmed public access and parking authorization.",
+        "A public replacement put-in or explicit land-manager authorization is required before route publication."
+      ],
+      "evidence": [
+        "docs/state-route-memories/minnesota.md",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05372995/",
+        "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html"
+      ]
     },
     {
       "key": "usgs:05374000",
@@ -28663,7 +29616,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -28683,31 +29636,52 @@
     },
     {
       "key": "usgs:05378490",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:35:00-05:00",
+      "decisionReason": "USGS 05378490 is a stage-only Mississippi River station at Lock and Dam 5A near Winona. The pool is paddle-relevant and has public access, but the lock/dam navigation hazard, seasonal refuge rules, powerboat traffic, and lack of a PaddleToday endpoint/threshold/geometry package prevent a strong scored route from being published without further dedicated research.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "Stage-only station lacks station-specific paddling thresholds.",
+        "Lock and Dam 5A creates a non-trivial navigation and portage hazard.",
+        "No complete named endpoint, geometry, seasonal-access, and safety package is validated."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05378490/",
+        "https://files.dnr.state.mn.us/education_safety/safety/boatwater/guides.html",
+        "https://www.fws.gov/refuge/upper-mississippi-river/visit-us"
+      ]
     },
     {
       "key": "usgs:05378500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:55:27-05:00",
+      "decisionReason": "USGS 05378500 is live on the Mississippi River at Winona, but this run did not find a PaddleToday-ready Winona point-to-point package. The river reach is navigation-pool/lock-and-dam affected, and no accepted source-backed endpoint pair, route-specific thresholds, camping/no-camping terms, safety package, image decision, or geometry package cleared.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "No scored Winona Mississippi route is currently published.",
+        "No route-specific numeric paddling thresholds tied to USGS 05378500 were accepted.",
+        "Navigation channel, lock-and-dam, barge/motorboat wake, private-bank, refuge/seasonal, camping, endpoint-coordinate, image, and geometry gates remain unresolved."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05378500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05378500,05384350,05384500,05385500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi10.pdf"
+      ]
     },
     {
       "key": "usgs:05379400",
@@ -28936,7 +29910,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -28955,31 +29929,54 @@
     },
     {
       "key": "usgs:05384350",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:55:27-05:00",
+      "decisionReason": "USGS 05384350 is a live stage-only Root River station above Rushford. The adjacent Root corridor is paddle-relevant, but existing scored Root routes use other gauge keys, Peterson access remains closure-blocked upstream, and no route-specific stage threshold, endpoint, camping, safety, coordinate, image, and geometry package cleared for this provider key.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Root River"
+      ],
+      "blockers": [
+        "USGS 05384350 returned stage only, with no discharge series for normal PaddleToday scoring.",
+        "The closest Peterson-to-Rushford route remains blocked by the current DNR Peterson carry-in closure/worksite notice.",
+        "No scored route currently uses this provider key and no source-backed stage threshold package was accepted."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05384350/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05378500,05384350,05384500,05385500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/root-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf",
+        "docs/route-candidate-ledger.json"
+      ]
     },
     {
       "key": "usgs:05384500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:55:27-05:00",
+      "decisionReason": "USGS 05384500 is a stage-only tributary gauge on Rush Creek. DNR Root River Map 2 notes Rush Creek only as a confluence/designated trout stream, and no public-manager point-to-point paddling route with endpoints, thresholds, camping, safety, coordinates, image, or geometry surfaced for Rush Creek itself.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Rush Creek"
+      ],
+      "blockers": [
+        "No official Rush Creek state-water-trail or public point-to-point paddling package surfaced.",
+        "Gauge returned stage only, including a negative gage-height value during this run.",
+        "Nearby Root River access evidence does not establish a Rush Creek route."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05384500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05378500,05384350,05384500,05385500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/root-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf"
+      ]
     },
     {
       "key": "usgs:05384800",
@@ -29035,31 +30032,54 @@
     },
     {
       "key": "usgs:05385500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:55:27-05:00",
+      "decisionReason": "USGS 05385500 is live on the South Fork Root River near Houston, and the branch is hydrologically connected to the Root system, but no official South Fork point-to-point paddling route package cleared. DNR Root Map 2 marks the confluence, while existing scored Root cards use other gauges and routes; this provider key still lacks accepted endpoints, thresholds, camping, safety, coordinate, image, and geometry evidence.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Root River",
+        "Root River"
+      ],
+      "blockers": [
+        "No official South Fork Root River point-to-point route package with named public endpoints and route distance was accepted.",
+        "No South Fork Root threshold ladder tied to USGS 05385500 was accepted.",
+        "Camping/no-camping terms, route-specific safety handling, endpoint coordinates, image decision, and geometry are unresolved."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05385500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05378500,05384350,05384500,05385500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dnr.state.mn.us/state-water-trails/root-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05386400",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T22:15:00-05:00",
+      "decisionReason": "USGS 05386400 is a stage-only Mississippi River station at Brownsville. The river and Upper Mississippi refuge are paddle-relevant, but no PaddleToday-ready point-to-point package with named Minnesota endpoints, station-specific thresholds, and complete access/safety handling is validated; refuge access also carries seasonal closures and powerboat/current hazards.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mississippi River"
+      ],
+      "blockers": [
+        "Stage-only station lacks a validated paddling threshold package.",
+        "No named Minnesota endpoint pair and geometry package is currently validated.",
+        "Upper Mississippi refuge access includes seasonal restrictions and strong boat/current safety considerations."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05386400/",
+        "https://www.fws.gov/refuge/upper-mississippi-river/visit-us",
+        "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/index.html"
+      ]
     },
     {
       "key": "usgs:05387030",
@@ -55454,7 +56474,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -57826,7 +58846,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:07:50.017Z",
+      "checkedAt": "2026-08-14T20:15:30.643Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [

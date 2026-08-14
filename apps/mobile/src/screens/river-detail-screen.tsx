@@ -724,21 +724,10 @@ export default function RiverDetailScreen() {
                 </View>
                 <GaugeSourceActions detail={detail} />
               </SectionCard>
-              <ScoreExplanationCard breakdown={detail.scoreBreakdown} />
             </View> : null}
 
             <RouteBasicsCard detail={detail} />
             <AboutRouteCard detail={detail} />
-            <Pressable
-              style={styles.planAccessButton}
-              onPress={() => showSection('Access')}
-              accessibilityRole="button"
-              accessibilityLabel="Plan access"
-            >
-              <MaterialCommunityIcons name="map-marker-path" color={colors.surfaceStrong} size={18} />
-              <Text style={styles.planAccessButtonText}>Plan access</Text>
-              <MaterialCommunityIcons name="chevron-right" color={colors.surfaceStrong} size={18} />
-            </Pressable>
           </View>
         ) : null}
 
@@ -864,6 +853,8 @@ export default function RiverDetailScreen() {
                 </Text>
               </View>
             </SectionCard>
+
+            {!isPlanningRoute ? <ScoreExplanationCard breakdown={detail.scoreBreakdown} /> : null}
 
             <SectionCard
               title="Upcoming outlook"
@@ -1237,6 +1228,7 @@ function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
       >
         <View style={styles.scoreWhyHeaderCopy}>
           <Text style={styles.scoreWhyTitle}>Why this score?</Text>
+          <Text style={styles.scoreWhySubtitle}>How today’s score was calculated.</Text>
         </View>
         <View style={styles.scoreWhyToggle}>
           <MaterialCommunityIcons
@@ -2941,10 +2933,12 @@ const styles = StyleSheet.create({
     letterSpacing: 0.4,
   },
   scoreWhyCard: {
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
     backgroundColor: colors.surfaceStrong,
-    padding: spacing.sm,
-    gap: 6,
+    padding: spacing.md,
+    gap: spacing.sm,
   },
   scoreWhyHeader: {
     minHeight: 34,
@@ -2967,8 +2961,13 @@ const styles = StyleSheet.create({
   },
   scoreWhyTitle: {
     color: colors.text,
-    fontSize: 12,
+    fontSize: 15,
     fontWeight: '900',
+  },
+  scoreWhySubtitle: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
   },
   scoreWhySummary: {
     color: colors.textMuted,
@@ -3349,21 +3348,6 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     fontWeight: '900',
     flexShrink: 1,
-  },
-  planAccessButton: {
-    minHeight: 44,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: spacing.md,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-  },
-  planAccessButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
   },
   safetyPanel: {
     borderRadius: radius.md,
