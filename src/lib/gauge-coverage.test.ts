@@ -3,6 +3,7 @@ import {
   computeStateGaugeCoverage,
   gaugeResearchPriorityScore,
   gaugeResearchStatus,
+  selectGaugeReviewCandidates,
   validateGaugeCoverageArtifacts,
   type GaugeInventoryArtifact,
   type GaugeReviewLedgerArtifact,
@@ -65,5 +66,16 @@ describe('gauge coverage', () => {
     const issues = validateGaugeCoverageArtifacts(inventory, invalidLedger);
     expect(issues.some((issue) => issue.includes('absent from the inventory'))).toBe(true);
     expect(issues.some((issue) => issue.includes('has no scored route'))).toBe(true);
+  });
+
+  it('selects unresolved gauges without reopening final dispositions', () => {
+    const unresolvedLedger: GaugeReviewLedgerArtifact = {
+      ...ledger,
+      reviews: ledger.reviews.map((review) => review.key === 'usgs:2'
+        ? { ...review, status: 'researching', routeSlugs: ['candidate-route'] }
+        : review),
+    };
+    const candidates = selectGaugeReviewCandidates('TX', inventory, unresolvedLedger);
+    expect(candidates.map((candidate) => candidate.gauge.key)).toEqual(['usgs:2']);
   });
 });

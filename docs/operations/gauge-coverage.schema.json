@@ -3,6 +3,29 @@
   "$id": "https://paddletoday.com/schemas/gauge-coverage.schema.json",
   "title": "PaddleToday gauge coverage artifacts",
   "type": "object",
+  "oneOf": [
+    {
+      "required": ["version", "inventoryId", "generatedAt", "scope", "statesBaselined", "gauges"],
+      "properties": {
+        "version": { "const": 1 },
+        "inventoryId": { "type": "string", "minLength": 1 },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "scope": { "enum": ["known_evidence_seed", "provider_baseline"] },
+        "statesBaselined": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z]{2}$" } },
+        "gauges": { "type": "array", "items": { "$ref": "#/$defs/inventoryGauge" } }
+      },
+      "additionalProperties": false
+    },
+    {
+      "required": ["version", "updatedAt", "reviews"],
+      "properties": {
+        "version": { "const": 1 },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "reviews": { "type": "array", "items": { "$ref": "#/$defs/review" } }
+      },
+      "additionalProperties": false
+    }
+  ],
   "$defs": {
     "gaugeKey": {
       "type": "string",

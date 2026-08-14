@@ -6,6 +6,7 @@ import {
   gaugeResearchPriorityScore,
   gaugeResearchStatus,
   loadGaugeCoverageArtifacts,
+  selectGaugeReviewCandidates,
   type StateGaugeCoverage,
 } from './gauge-coverage';
 
@@ -241,7 +242,7 @@ const automationRegistry = [
   { id: 'product-loop', name: 'Metrics-to-product loop', schedule: 'Planned weekly', status: 'planned', owner: 'product-analysis' },
 ];
 
-function stateSaturationStatus(stateId: string) {
+function legacyStateSaturationStatus(stateId: string) {
   if (stateId === 'MN') return 'provisionally_saturated';
   if (
     stateId === 'TX' &&
@@ -278,17 +279,32 @@ export function getOperationsSnapshot() {
   const stateRows = stateRegistry.canonicalStates.map((state) => {
     const inventory = routeInventory.filter((route) => canonicalStateId(route.state) === state.id);
     const scored = inventory.filter((route) => scoredSlugs.has(route.slug));
+    const gaugeCoverage = computeStateGaugeCoverage(state.id, gaugeCoverageArtifacts.inventory, gaugeCoverageArtifacts.ledger);
+    const legacySaturation = legacyStateSaturationStatus(state.id);
     return {
       ...state,
       inventory: inventory.length,
       scored: scored.length,
       planning: inventory.length - scored.length,
-      saturation: stateSaturationStatus(state.id),
-      gaugeCoverage: computeStateGaugeCoverage(state.id, gaugeCoverageArtifacts.inventory, gaugeCoverageArtifacts.ledger),
+      // Gauge completeness is authoritative. Legacy route-queue decisions remain
+      // visible separately so they cannot silently declare a state complete.
+      saturation: gaugeResearchStatus(gaugeCoverage, legacySaturation),
+      legacySaturation,
+      gaugeCoverage,
     };
   });
   const rankedStates = rankGaugeStateCoverage(stateRows);
-  const legacyRankedStates = rankStateCoverage(stateRows);
+  const legacyRankedStates = rankStateCoverage(stateRows.map((state) => ({ ...state, saturation: state.legacySaturation })));
+  const gaugeReviewQueue = rankedStates.flatMap((state) => (
+    selectGaugeReviewCandidates(state.id, gaugeCoverageArtifacts.inventory, gaugeCoverageArtifacts.ledger, 5)
+      .map(({ gauge, review }) => ({
+        stateId: state.id,
+        key: gauge.key,
+        siteName: gauge.siteName,
+        status: review.status,
+        routeEvidenceCount: review.routeSlugs.length,
+      }))
+  )).slice(0, 30);
 
   const claims = (controlState.claims ?? []).slice().sort((a, b) => {
     return Date.parse(b.completedAt ?? b.claimedAt ?? '') - Date.parse(a.completedAt ?? a.claimedAt ?? '');
@@ -298,7 +314,7 @@ export function getOperationsSnapshot() {
     generatedAt: new Date().toISOString(),
     policy: {
       planningRoutes: 'frozen_without_explicit_user_request',
-      completenessModel: 'gauge_network_with_legacy_route_ratio_during_migration',
+      completenessModel: 'gauge_network_authoritative_after_bounded_review',
       gaugeInventoryId: gaugeCoverageArtifacts.inventory.inventoryId,
       gaugeInventoryScope: gaugeCoverageArtifacts.inventory.scope,
       maxProductWorkInProgress: 3,
@@ -319,6 +335,7 @@ export function getOperationsSnapshot() {
     states: stateRows,
     stateResearchRanking: rankedStates,
     legacyStateResearchRanking: legacyRankedStates,
+    gaugeReviewQueue,
     tasks: taskRegistry.tasks,
     automations: automationRegistry,
     controlPlane: {

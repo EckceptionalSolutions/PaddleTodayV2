@@ -12,7 +12,8 @@ describe('operations snapshot', () => {
   it('keeps planning routes out of scored saturation counts', () => {
     const snapshot = getOperationsSnapshot();
     const minnesota = snapshot.states.find((state) => state.id === 'MN');
-    expect(minnesota).toMatchObject({ scored: 145, planning: 113, saturation: 'provisionally_saturated' });
+    expect(minnesota).toMatchObject({ scored: 145, planning: 113, legacySaturation: 'provisionally_saturated' });
+    expect(minnesota?.saturation).not.toBe('saturated');
     expect(snapshot.policy.planningRoutes).toBe('frozen_without_explicit_user_request');
     expect(snapshot.totals.scored + snapshot.totals.planning).toBe(snapshot.totals.inventory);
   });
@@ -20,14 +21,20 @@ describe('operations snapshot', () => {
   it('keeps Texas in review until the discovery sweep completes', () => {
     const snapshot = getOperationsSnapshot();
     const texas = snapshot.states.find((state) => state.id === 'TX');
-    expect(texas).toMatchObject({ planning: 0, saturation: 'not_started' });
+    expect(texas).toMatchObject({ planning: 0, legacySaturation: 'not_started' });
+    expect(texas?.saturation).toBe('gauge_review_in_progress');
     expect(texas?.scored ?? 0).toBeGreaterThanOrEqual(16);
   });
 
-  it('keeps Utah in review until the bounded discovery sweep completes', () => {
+  it('does not let Utah legacy saturation bypass gauge review', () => {
     const snapshot = getOperationsSnapshot();
     const utah = snapshot.states.find((state) => state.id === 'UT');
-    expect(utah).toMatchObject({ scored: 3, planning: 0, saturation: 'not_started' });
+    const rankedUtah = snapshot.stateResearchRanking.find((state) => state.id === 'UT');
+    expect(utah).toMatchObject({ planning: 0, legacySaturation: 'saturated' });
+    expect(utah?.saturation).not.toBe('saturated');
+    expect(utah?.scored ?? 0).toBeGreaterThanOrEqual(3);
+    expect(rankedUtah?.researchStatus).toBe('gauge_review_in_progress');
+    expect(rankedUtah?.done).toBe(false);
   });
 
   it('exposes the route implementation WIP limit and control-plane activity', () => {
@@ -69,11 +76,13 @@ describe('operations snapshot', () => {
     expect(ranked[2].done).toBe(true);
   });
 
-  it('does not call coverage-complete Texas or Utah saturated before discovery', () => {
+  it('keeps legacy state decisions separate from gauge completeness', () => {
     const snapshot = getOperationsSnapshot();
-    expect(snapshot.states.find((state) => state.id === 'TX')?.saturation).toBe('not_started');
-    expect(snapshot.states.find((state) => state.id === 'UT')?.saturation).toBe('not_started');
-    expect(snapshot.tasks.find((task) => task.id === 'tx-bounded-discovery-sweep')?.lane).toBe('ready');
-    expect(snapshot.tasks.find((task) => task.id === 'utah-bounded-discovery-sweep')?.lane).toBe('ready');
+    expect(snapshot.stateResearchRanking.find((state) => state.id === 'TX')?.researchStatus).not.toBe('saturated');
+    expect(snapshot.stateResearchRanking.find((state) => state.id === 'UT')?.researchStatus).not.toBe('saturated');
+    expect(snapshot.legacyStateResearchRanking.length).toBe(snapshot.states.length);
+    expect(snapshot.policy.completenessModel).toBe('gauge_network_authoritative_after_bounded_review');
+    expect(snapshot.states.find((state) => state.id === 'UT')?.legacySaturation).toBe('saturated');
+    expect(snapshot.states.find((state) => state.id === 'UT')?.saturation).not.toBe('saturated');
   });
 });

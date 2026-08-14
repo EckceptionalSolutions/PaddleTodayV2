@@ -42,6 +42,22 @@ const scoredSlugs = new Set(rivers.map((route) => route.slug));
 const routesBySlug = new Map(routeInventory.map((route) => [route.slug, route]));
 const inventoryByKey = new Map<string, GaugeInventoryEntry>();
 const reviewsByKey = new Map<string, GaugeReviewEntry>();
+const stateFips: Record<string, string> = {
+  AR: '05', IL: '17', IN: '18', IA: '19', KS: '20', KY: '21', MI: '26', MN: '27',
+  MO: '29', NE: '31', ND: '38', OH: '39', PA: '42', SD: '46', TN: '47', TX: '48',
+  UT: '49', WI: '55',
+};
+const refreshProviders = process.argv.includes('--refresh-providers');
+const existingArtifacts = await loadExistingArtifacts();
+let statesBaselined = refreshProviders ? [] as string[] : existingArtifacts?.inventory.statesBaselined ?? [];
+
+if (!refreshProviders && existingArtifacts) {
+  for (const gauge of existingArtifacts.inventory.gauges.filter((entry) => entry.source === 'provider_inventory')) {
+    mergeInventory(gauge);
+    const review = existingArtifacts.ledger.reviews.find((candidate) => candidate.key === gauge.key);
+    if (review) reviewsByKey.set(review.key, review);
+  }
+}
 
 for (const route of routeInventory) {
   addRouteGauge(route, route.gaugeSource, false);
@@ -95,7 +111,11 @@ for (const filename of await readdir(operationsDir)) {
   }
 }
 
-const existingManualReviews = await loadExistingManualReviews();
+if (refreshProviders) {
+  statesBaselined = await addProviderGaugeInventory();
+}
+
+const existingManualReviews = existingArtifacts?.ledger.reviews.filter((review) => review.decisionSource === 'manual') ?? [];
 for (const manual of existingManualReviews) {
   const derived = reviewsByKey.get(manual.key);
   if (!derived) continue;
@@ -129,10 +149,13 @@ for (const key of inventoryByKey.keys()) {
 
 const inventory: GaugeInventoryArtifact = {
   version: 1,
-  inventoryId: `known-evidence-${generatedAt.slice(0, 10)}`,
+  inventoryId: refreshProviders
+    ? `provider-baseline-${generatedAt.replace(/[^0-9]/g, '').slice(0, 12)}`
+    : existingArtifacts?.inventory.inventoryId
+      ?? `${statesBaselined.length > 0 ? 'provider-baseline' : 'known-evidence'}-${generatedAt.slice(0, 10)}`,
   generatedAt,
-  scope: 'known_evidence_seed',
-  statesBaselined: [],
+  scope: statesBaselined.length > 0 ? 'provider_baseline' : 'known_evidence_seed',
+  statesBaselined,
   gauges: [...inventoryByKey.values()].sort((left, right) => left.key.localeCompare(right.key)),
 };
 const ledger: GaugeReviewLedgerArtifact = {
@@ -220,6 +243,7 @@ function mergeInventory(entry: GaugeInventoryEntry) {
   }
   inventoryByKey.set(entry.key, {
     ...existing,
+    homeState: entry.source === 'provider_inventory' ? entry.homeState : existing.homeState,
     siteName: existing.siteName || entry.siteName,
     coverageStates: unique([...existing.coverageStates, ...entry.coverageStates]),
     availableMetrics: unique([...existing.availableMetrics, ...entry.availableMetrics]),
@@ -287,11 +311,127 @@ function laterDate(left?: string, right?: string) {
   return Date.parse(left) >= Date.parse(right) ? left : right;
 }
 
-async function loadExistingManualReviews() {
+async function loadExistingArtifacts() {
   try {
-    const existing = JSON.parse(await readFile(resolve(operationsDir, 'gauge-review-ledger.json'), 'utf8')) as GaugeReviewLedgerArtifact;
-    return existing.reviews.filter((review) => review.decisionSource === 'manual');
+    const inventory = JSON.parse(await readFile(resolve(operationsDir, 'gauge-inventory.json'), 'utf8')) as GaugeInventoryArtifact;
+    const ledger = JSON.parse(await readFile(resolve(operationsDir, 'gauge-review-ledger.json'), 'utf8')) as GaugeReviewLedgerArtifact;
+    return { inventory, ledger };
   } catch {
-    return [];
+    return null;
   }
+}
+
+type OgcFeature = {
+  properties?: {
+    monitoring_location_id?: string;
+    monitoring_location_number?: string;
+    monitoring_location_name?: string;
+    parameter_code?: string;
+    time?: string;
+  };
+};
+
+type OgcFeatureCollection = {
+  features?: OgcFeature[];
+  links?: Array<{ rel?: string; href?: string }>;
+};
+
+async function addProviderGaugeInventory() {
+  const completedStates: string[] = [];
+  for (const state of stateRegistry.canonicalStates) {
+    const fips = stateFips[state.id];
+    if (!fips) continue;
+    const latestBySite = new Map<string, { metrics: Array<'discharge_cfs' | 'gage_height_ft'>; observedAt?: string }>();
+    for (const [parameter, metric] of [['00060', 'discharge_cfs'], ['00065', 'gage_height_ft']] as const) {
+      const url = new URL('https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items');
+      url.searchParams.set('f', 'json');
+      url.searchParams.set('limit', '10000');
+      url.searchParams.set('state_code', fips);
+      url.searchParams.set('parameter_code', parameter);
+      for (const feature of await fetchOgcFeatures(url.toString())) {
+        const id = feature.properties?.monitoring_location_id?.replace(/^USGS-/, '');
+        const observedAt = feature.properties?.time;
+        if (!id || !isFreshObservation(observedAt)) continue;
+        const existing = latestBySite.get(id) ?? { metrics: [] };
+        existing.metrics = unique([...existing.metrics, metric]);
+        existing.observedAt = laterDate(existing.observedAt, observedAt);
+        latestBySite.set(id, existing);
+      }
+    }
+
+    const locationsUrl = new URL('https://api.waterdata.usgs.gov/ogcapi/v0/collections/monitoring-locations/items');
+    locationsUrl.searchParams.set('f', 'json');
+    locationsUrl.searchParams.set('limit', '10000');
+    locationsUrl.searchParams.set('state_code', fips);
+    locationsUrl.searchParams.set('agency_code', 'USGS');
+    locationsUrl.searchParams.set('site_type_code', 'ST');
+    const locations = await fetchOgcFeatures(locationsUrl.toString());
+    for (const feature of locations) {
+      const siteId = feature.properties?.monitoring_location_number;
+      const latest = siteId ? latestBySite.get(siteId) : null;
+      if (!siteId || !latest) continue;
+      mergeInventory({
+        key: `usgs:${siteId}`,
+        provider: 'usgs',
+        siteId,
+        siteName: feature.properties?.monitoring_location_name?.trim() || `USGS ${siteId}`,
+        homeState: state.id,
+        coverageStates: [state.id],
+        availableMetrics: latest.metrics,
+        source: 'provider_inventory',
+        lastObservationAt: latest.observedAt,
+      });
+    }
+    completedStates.push(state.id);
+    console.log(`USGS provider baseline ${state.id}: ${latestBySite.size} fresh telemetry sites, ${locations.length} stream locations checked.`);
+  }
+
+  await addMnDnrProviderInventory();
+  return completedStates;
+}
+
+async function addMnDnrProviderInventory() {
+  const response = await fetch('https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json');
+  if (!response.ok) throw new Error(`MN DNR inventory request failed: ${response.status}`);
+  const data = await response.json() as {
+    sites?: Array<{ id?: number; name?: string; variable?: number; tstamp?: string; age?: number }>;
+  };
+  for (const site of data.sites ?? []) {
+    if (typeof site.id !== 'number' || !isFreshMnDnrSite(site)) continue;
+    const metric = site.variable === 262 ? 'discharge_cfs' : site.variable === 232 ? 'gage_height_ft' : null;
+    if (!metric) continue;
+    mergeInventory({
+      key: `mn_dnr:${site.id}`,
+      provider: 'mn_dnr',
+      siteId: String(site.id),
+      siteName: site.name?.trim() || `MN DNR ${site.id}`,
+      homeState: 'MN',
+      coverageStates: ['MN'],
+      availableMetrics: [metric],
+      source: 'provider_inventory',
+    });
+  }
+}
+
+async function fetchOgcFeatures(initialUrl: string) {
+  const features: OgcFeature[] = [];
+  let url: string | undefined = initialUrl;
+  while (url) {
+    const response = await fetch(url, { headers: { Accept: 'application/geo+json, application/json' } });
+    if (!response.ok) throw new Error(`USGS inventory request failed: ${response.status} ${url}`);
+    const data = await response.json() as OgcFeatureCollection;
+    features.push(...(data.features ?? []));
+    url = data.links?.find((link) => link.rel === 'next')?.href;
+  }
+  return features;
+}
+
+function isFreshObservation(value?: string) {
+  const timestamp = value ? Date.parse(value) : Number.NaN;
+  return Number.isFinite(timestamp) && timestamp >= Date.now() - 30 * 24 * 60 * 60 * 1000;
+}
+
+function isFreshMnDnrSite(site: { tstamp?: string; age?: number }) {
+  if (typeof site.age === 'number') return site.age <= 30 * 24;
+  return Boolean(site.tstamp);
 }
