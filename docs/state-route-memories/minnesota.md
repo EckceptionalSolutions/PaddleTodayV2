@@ -1,5 +1,13 @@
 # Minnesota Route Memory
 
+## 2026-08-14 America/Chicago five-gauge no-add batch
+
+- No route was added. The bounded Minnesota gauge-review batch reconciled five distinct gauges: USGS `05275000` Elk River near Big Lake, USGS `05287890` Elm Creek near Champlin, USGS `05129290` Gold Portage outlet from Kabetogama Lake, USGS `04010510` Grand Portage River at Grand Portage, and USGS `05327000` High Island Creek near Henderson.
+- Durable dispositions: Elk River and Elm Creek are `screened_out` / `not_paddle_relevant` / `direct`; Gold Portage is `stale_or_unsupported` / `route_capable` / `direct`; Grand Portage River is `blocked` / `route_capable` / `direct`; High Island Creek is `screened_out` / `not_paddle_relevant` / `direct`.
+- Decisive blockers: Elk River, Elm Creek, and High Island Creek had live telemetry but no official point-to-point paddling corridor with route-capable public endpoint, threshold, camping/no-camping, safety, coordinate, image, or geometry package. Gold Portage has canoe/portage relevance but no current USGS continuous/daily/field-measurement support. Grand Portage River has route relevance but still needs provider-specific rights/access, endpoint, threshold, camping, safety, coordinate, image, and geometry evidence before any route can be promoted.
+- No route data, trip details, image-audit row, endpoint coordinates, coordinate corrections, camping package, safety package, canonical geometry, or route order changed. Validation passed via `gatekeeper-20260814180614`; coordinate audit retained only known repo-wide backlog because this batch changed no route endpoints.
+- While this batch was being validated, `route-worker-202608141345-kawishiwi-usgs-05124480-no-add` appeared separately with pending validation and a future local timestamp. Treat that as a next-pass reconciliation item, not part of this five-candidate batch.
+
 ## 2026-08-14 America/Chicago Elk River Big Lake gauge disposition
 
 - No route was added. The Minnesota gauge-review batch selected USGS `05275000` / Elk River near Big Lake as the bounded work item.

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T18:06:01.199Z",
+  "updatedAt": "2026-08-14T18:07:50.017Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -39,7 +39,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -61,7 +61,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -83,7 +83,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -598,7 +598,7 @@
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -1370,7 +1370,7 @@
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -2481,17 +2481,39 @@
     },
     {
       "key": "mn_dnr:62",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T13:35:00-05:00",
+      "decisionReason": "MN DNR gauge 62 at the Kettle River County Road 12 bridge is explicitly used by the official Kettle River State Water Trail as a paddling-level check. Existing scored Kettle packages use the Willow River/Long Lake Road gauge instead, so this provider key remains blocked until a direct County Road 12 route package and threshold interpretation are adopted.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Kettle River"
+      ],
+      "blockers": [
+        "No existing scored route explicitly adopts MN DNR gauge 62.",
+        "Current Kettle scored routes use the Willow River/Long Lake Road gauge as a same-map proxy.",
+        "County Road 12 endpoint, route geometry, threshold, and safety package remain to be assembled."
+      ],
+      "evidence": [
+        {
+          "label": "Minnesota DNR Kettle River segments and maps",
+          "url": "https://www.dnr.state.mn.us/state-water-trails/kettle-river/segments-maps.html",
+          "note": "Official source says most rapids are runnable when the County Road 12 bridge gauge and/or Willow River gauge reads Medium or above, and documents the Kettle access corridor and Banning hazards."
+        },
+        {
+          "label": "Minnesota DNR Kettle River Map 1",
+          "url": "https://files.dnr.state.mn.us/maps/canoe_routes/kettle1.pdf",
+          "note": "Official map identifies the County Road 12 bridge river-level gauge and the upstream Kettle State Water Trail reach."
+        },
+        {
+          "label": "Existing PaddleToday Kettle route package",
+          "url": "src/data/routes/minnesota.ts",
+          "note": "Current scored Kettle route uses MN DNR gauge 293 at Willow River/Long Lake Road, so it does not establish direct coverage for gauge 62."
+        }
+      ]
     },
     {
       "key": "mn_dnr:68",
@@ -17553,7 +17575,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -18677,7 +18699,7 @@
       "status": "stale_or_unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -27029,7 +27051,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -27199,7 +27221,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -28641,7 +28663,7 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -28914,7 +28936,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -55432,7 +55454,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -57804,7 +57826,7 @@
       "status": "covered",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-14T18:06:01.199Z",
+      "checkedAt": "2026-08-14T18:07:50.017Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
