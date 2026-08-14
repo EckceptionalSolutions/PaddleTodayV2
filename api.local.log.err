@@ -48,3 +48,49 @@ API server request failed. {
     at async Promise.all (index 0)
     at async fetchWeatherSnapshot (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\weather.ts:7:27)
 [weather] Weather snapshot unavailable for 48.01040,-89.70830
+API server request failed. {
+  requestId: 'req_mssxocjj_jbeati',
+  method: 'GET',
+  path: '/api/weekend/summary.json',
+  error: Error: weekend summary scoring timed out after 12000ms
+      at Timeout.<anonymous> (C:\Users\Yerff\source\repos\PaddleTodayV2\src\server\server-runtime.ts:18:18)
+      at listOnTimeout (node:internal/timers:605:17)
+      at process.processTimers (node:internal/timers:541:7)
+}
+API server request failed. {
+  requestId: 'req_mssxociw_3hh7ce',
+  method: 'GET',
+  path: '/api/rivers/summary.json',
+  error: Error: river summary scoring timed out after 12000ms
+      at Timeout.<anonymous> (C:\Users\Yerff\source\repos\PaddleTodayV2\src\server\server-runtime.ts:18:18)
+      at listOnTimeout (node:internal/timers:605:17)
+      at process.processTimers (node:internal/timers:541:7)
+}
+[weather] NWS fetch failed for 48.01040,-89.70830 Error: HTTP 404
+    at fetchJson (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\http.ts:94:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async fetchNwsWeatherSnapshot (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\nws.ts:87:17)
+    at async Promise.all (index 0)
+    at async fetchWeatherSnapshot (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\weather.ts:7:27)
+[weather] Weather snapshot unavailable for 48.01040,-89.70830
+API server request failed. {
+  requestId: 'req_mst2dl84_sp7b4v',
+  method: 'GET',
+  path: '/api/rivers/summary.json',
+  error: Error: river summary scoring timed out after 12000ms
+      at Timeout.<anonymous> (C:\Users\Yerff\source\repos\PaddleTodayV2\src\server\server-runtime.ts:18:18)
+      at listOnTimeout (node:internal/timers:605:17)
+      at process.processTimers (node:internal/timers:541:7)
+}
+[weather] NWS fetch failed for 48.01040,-89.70830 Error: HTTP 404
+    at fetchJson (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\http.ts:94:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async fetchNwsWeatherSnapshot (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\nws.ts:87:17)
+    at async Promise.all (index 0)
+    at async fetchWeatherSnapshot (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\weather.ts:7:27)
+    at async Promise.all (index 1)
+    at async scoreRiver (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\rivers.ts:190:28)
+    at async worker (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\async-concurrency.ts:22:24)
+    at async Promise.all (index 11)
+    at async mapWithConcurrency (C:\Users\Yerff\source\repos\PaddleTodayV2\src\lib\async-concurrency.ts:26:3)
+[weather] Weather snapshot unavailable for 48.01040,-89.70830

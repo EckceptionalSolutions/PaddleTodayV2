@@ -3,7 +3,7 @@ import { selectNextWorkOrder, type OperationsTask } from '../src/lib/operations-
 import { selectGaugeReviewCandidates, type GaugeInventoryArtifact, type GaugeReviewLedgerArtifact } from '../src/lib/gauge-coverage';
 
 const payload = JSON.parse(await readFile('docs/operations/tasks.json', 'utf8')) as { tasks: OperationsTask[] };
-const stateRegistry = JSON.parse(await readFile('docs/operations/state-registry.json', 'utf8')) as { canonicalStates: Array<{ id: string; name: string }> };
+const stateRegistry = JSON.parse(await readFile('docs/operations/state-registry.json', 'utf8')) as { canonicalStates: Array<{ id: string; name: string; frontierTier: number }> };
 const gaugeInventory = JSON.parse(await readFile('docs/operations/gauge-inventory.json', 'utf8')) as GaugeInventoryArtifact;
 const gaugeLedger = JSON.parse(await readFile('docs/operations/gauge-review-ledger.json', 'utf8')) as GaugeReviewLedgerArtifact;
 const enrichedTasks = payload.tasks.map((task) => {
@@ -17,7 +17,10 @@ const enrichedTasks = payload.tasks.map((task) => {
     : stateId
       ? selectGaugeReviewCandidates(stateId, gaugeInventory, gaugeLedger, 1).map((candidate) => candidate.gauge.key)
       : [];
-  return { ...task, stateId, inventoryId: task.inventoryId ?? gaugeInventory.inventoryId, gaugeKeys };
+  const frontierTier = stateId
+    ? stateRegistry.canonicalStates.find((state) => state.id === stateId)?.frontierTier
+    : undefined;
+  return { ...task, stateId, frontierTier, inventoryId: task.inventoryId ?? gaugeInventory.inventoryId, gaugeKeys };
 });
 const workOrder = selectNextWorkOrder(enrichedTasks);
 const generatedAt = new Date().toISOString();

@@ -1,5 +1,20 @@
 # Minnesota Route Memory
 
+## 2026-08-14 America/Chicago Chippewa Watson USGS gauge disposition
+
+- No route was added. The Minnesota gauge-review batch selected USGS `05305000` / Chippewa River (TW) near Watson as the bounded work item.
+- USGS Water Services returned product-supported provisional telemetry of `211 cfs / 37.56 ft` at `2026-08-14 12:00 CDT`.
+- Disposition: `usgs:05305000` recorded as `covered` / `route_capable` / `direct` because existing scored Chippewa route packages `chippewa-river-lentz-watson-lions-park` and `chippewa-river-watson-lagoon` already cover the lower Watson corridor with the equivalent MN DNR Watson gauge, official threshold bands, DNR route and camping evidence, safety notes, coordinate-backed endpoints, and existing geometry.
+- No route data, trip details, image-audit row, endpoint coordinates, coordinate corrections, camping package, safety package, canonical geometry, or route order changed. Next rotation should continue with the next planner-selected Minnesota gauge and should not duplicate the Watson Chippewa corridor unless fresh evidence creates a materially distinct route package.
+
+## 2026-08-14 America/Chicago Ball Club River gauge disposition
+
+- No route was added. The Minnesota gauge-review batch selected USGS `05208010` / Ball Club River near Ball Club as the bounded work item.
+- USGS Water Services was product-reachable, but discharge returned `-999999` with provisional/equipment-malfunction qualifiers at 2026-08-14 11:00 CDT; stage returned `4.61 ft` provisional.
+- Route publication remains blocked/screened out: no official/public source surfaced a named Ball Club River point-to-point paddling route with public put-in/take-out, endpoint coordinates, numeric paddling thresholds, camping/no-camping rules, route safety package, or geometry. DNR access evidence nearby is Ball Club Lake and Mississippi River context, not a Ball Club River route package.
+- Disposition: `usgs:05208010` recorded as `screened_out` / `not_paddle_relevant` for the current product model. Reopen only if a public manager publishes route-ready Ball Club River access/threshold/camping/safety evidence and telemetry is usable.
+
+
 ## 2026-08-06 America/Chicago final bounded saturation sweep
 
 - No route was added or promoted. The final bounded review examined `otter-tail-river-wannigan-riverside`, the strongest remaining official-access candidate after the direct-gauge rechecks and Big Fork/North Fork Zumbro/Redwood reviews.
@@ -883,3 +898,11 @@ Pre-push audit note: the lower Crow Wing `crow-wing-river-cottingham-bullard-blu
 - Safety/logistics: Pike-Creek-to-Royalton requires the DNR-mapped 600-yard left-bank Blanchard Dam portage; Kettle #4-to-#5 explicitly starts below the main Banning whitewater corridor and should not be moved upstream casually; Wild-River-to-Lion's-Park ends at the mandatory St. Croix Falls hydroelectric-dam take-out and must not continue below the dam by water.
 - No route-gallery images were added; image-audit rows record bounded DNR / NPS / public-access / Commons / same-route searches with no clearly rights-clean exact-route asset selected.
 - Reviewed but did not add Rum 320th variants because public-water-access GIS did not resolve the 320th Street landing, Red River Drayton/Hilltop because the strongest upstream access evidence was North Dakota-side and weaker than the accepted routes, or broader St. Croix through-portage planner cards because the dam carry is better represented as a high-caveat endpoint route.
+
+## 2026-08-14 America/Chicago Buffalo/Wild Rice bounded gauge review
+
+- No route was added. The Minnesota gauge-review batch started from USGS `05062000` and continued through five gauge-family candidates after blockers.
+- Buffalo River Hawley/Sabin/Dilworth: USGS returned Hawley `8.39 cfs / 3.15 ft`, Sabin discharge `-999999` with backwater qualifier and `6.82 ft` stage, and Dilworth `26.7 cfs / 2.65 ft`; DNR park/confluence context did not provide a point-to-point route with thresholds, camping, safety, or coordinates. Hawley/Dilworth are `blocked`; Sabin is `stale_or_unsupported`.
+- Wild Rice River Twin Valley/South Branch/Hendrum: Twin Valley `21.0 cfs / 1.52 ft`, South Branch Felton discharge `-999999` with backwater qualifier and `4.23 ft`, Hendrum `17.4 cfs / 2.82 ft`; community paddle evidence did not clear manager-grade route, threshold, camping, safety, or coordinate gates. Twin Valley/Hendrum are `blocked`; South Branch is `stale_or_unsupported`.
+- Marsh River near Shelly was `screened_out` / `not_paddle_relevant` after USGS returned `0.00 cfs / 3.40 ft` and no route package surfaced. Sand Hill River at Climax is `blocked` because watershed recreation interest did not provide endpoints, thresholds, camping, safety, or coordinates and same-run flow was `12.4 cfs`. Red Lake River near Red Lake is `blocked` because DNR marks the headwater/reservation segment as prohibited without Red Lake DNR permission and USGS discharge was backwater-affected.
+- No route data, trip details, image-audit row, endpoint coordinates, coordinate corrections, camping package, safety package, canonical geometry, or river order changed. Next rotation should continue with USGS `05075000` unless fresh manager-grade evidence clears one of these exact blockers.

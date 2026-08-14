@@ -11,6 +11,24 @@
   "failureHandling": "keep_task_open_and_record_failure",
   "saturationPolicy": {
     "completenessModel": "gauge_network",
+    "researchStrategy": "geographic_frontier_then_completion_gap",
+    "frontierOrder": [
+      { "tier": 0, "states": ["MN"], "label": "Active focus" },
+      { "tier": 1, "states": ["WI", "IA", "ND", "SD", "NE"], "label": "Upper Midwest frontier" },
+      { "tier": 2, "states": ["IL", "MI"], "label": "Near frontier" },
+      { "tier": 3, "states": ["OH", "IN", "MO", "KS"], "label": "Regional expansion" },
+      { "tier": 4, "states": ["AR", "KY", "TN"], "label": "Outer Midwest" },
+      { "tier": 5, "states": ["TX", "PA", "UT"], "label": "Distant expansion" }
+    ],
+    "eligibleGaugeDenominator": "all provider-baseline gauges except not_paddle_relevant",
+    "routeCoverageDenominator": "route_capable gauges only",
+    "dispositionDefinitions": {
+      "covered": "Eligible route-capable gauge with a direct same-reach scored route that passes evidence, access, safety, threshold, camping/logistics, coordinate, geometry, image, and audit gates.",
+      "blocked": "Potentially useful gauge or reach with a precise evidence, access, provider, threshold, safety, coordinate, camping/logistics, or geometry blocker and a documented retry condition; reviewed but not route-covered.",
+      "screened_out": "Durably reviewed gauge that is not paddle-relevant under the supported product model, such as a drainage, tidal/bay, lake/spillway, canal, or urban gauge without a plausible public point-to-point reach.",
+      "stale_or_unsupported": "Gauge identity, telemetry, or provider support is not reliable enough for a current decision; reopen only after fresh provider evidence.",
+      "researching_or_unreviewed": "Temporary states that prevent state completion."
+    },
     "legacyRouteInventoryRatio": "migration_diagnostic_only",
     "planningRoutesCountTowardSaturation": false,
     "coverageCompleteIsNotSaturated": true,
@@ -28,6 +46,18 @@
       "saturated",
       "reopened"
     ],
+    "stateCompletion": {
+      "coverageComplete": [
+        "every eligible gauge has a final disposition",
+        "every route-capable gauge is covered or has an accepted blocker",
+        "no gauge remains unreviewed or researching"
+      ],
+      "saturated": [
+        "coverageComplete is true",
+        "existing route packages pass quality audits",
+        "bounded fresh discovery sweep across distinct gauge and river families finds no additional strong scored route"
+      ]
+    },
     "requiredBeforeDone": [
       "provider-wide frozen gauge inventory exists",
       "every eligible gauge has a durable disposition",

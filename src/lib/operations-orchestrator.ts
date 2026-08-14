@@ -10,6 +10,7 @@ export type OperationsTask = {
   stateId?: string;
   inventoryId?: string;
   gaugeKeys?: string[];
+  frontierTier?: number;
 };
 
 export type WorkOrder = {
@@ -26,8 +27,9 @@ export type WorkOrder = {
 const priorityRank: Record<string, number> = { critical: 0, high: 1, medium: 2, low: 3 };
 
 function rankTask(task: OperationsTask) {
-  const kindRank = task.kind === 'consolidation_review' ? 0 : task.kind === 'state_coverage' ? 1 : 2;
-  return [priorityRank[task.priority] ?? 9, kindRank, task.title];
+  const frontierRank = task.kind === 'state_coverage' ? (task.frontierTier ?? 50) : 99;
+  const kindRank = task.kind === 'state_coverage' ? 0 : task.kind === 'consolidation_review' ? 1 : 2;
+  return [frontierRank, priorityRank[task.priority] ?? 9, kindRank, task.title];
 }
 
 function compareTasks(left: OperationsTask, right: OperationsTask) {

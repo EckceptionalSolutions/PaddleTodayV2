@@ -563,6 +563,7 @@ function FullScreenExploreMap({
           height={mapHeight}
           showFooter={false}
           fullBleed
+          refitOnPointChanges={false}
           onZoomLevelChange={setMapZoomLevel}
         />
       ) : (

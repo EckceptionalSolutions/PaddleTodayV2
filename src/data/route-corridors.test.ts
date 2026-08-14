@@ -12,6 +12,11 @@ describe('route corridor registry', () => {
     expect(corridorForSlug('turtle-creek-school-section-east-creek')?.continuityStatus).toBe('verified');
     expect(corridorForSlug('middle-river-pammel-holliwell')?.continuityStatus).toBe('partial');
     expect(corridorForSlug('cedar-river-charles-city-nashua')?.continuityStatus).toBe('condition-family');
+    expect(corridorForSlug('village-creek-fm418-state-park')).toMatchObject({
+      corridorId: 'tx-village-creek-paddling-trail',
+      continuityStatus: 'verified',
+      canonicalSlug: 'village-creek-fm418-state-park',
+    });
   });
 
   it('only assigns explicit access edges to canonical routes', () => {

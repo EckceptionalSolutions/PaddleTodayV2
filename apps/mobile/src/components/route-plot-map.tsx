@@ -53,6 +53,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fitToSelectedOnReady?: boolean;
   focusOnSelect?: boolean;
   selectedFocusBottomInset?: number;
+  refitOnPointChanges?: boolean;
 }>(function RoutePlotMap({
   points,
   selectedId,
@@ -73,6 +74,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fitToSelectedOnReady = false,
   focusOnSelect = false,
   selectedFocusBottomInset = 0,
+  refitOnPointChanges = true,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
   const backgroundSpans = [
@@ -224,12 +226,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     const previousPointSignature = previousPointSignatureRef.current;
     previousPointSignatureRef.current = pointSignature;
 
-    if (!nativeMaps || selectedId || !previousPointSignature || previousPointSignature === pointSignature) {
+    if (!refitOnPointChanges || !nativeMaps || selectedId || !previousPointSignature || previousPointSignature === pointSignature) {
       return;
     }
 
     focusAll();
-  }, [nativeMaps, pointSignature, userLocation]);
+  }, [nativeMaps, pointSignature, refitOnPointChanges, selectedId, userLocation]);
 
   useEffect(() => {
     if (!nativeMaps) {

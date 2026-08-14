@@ -3,14 +3,13 @@ import { resolve } from 'node:path';
 import { routeInventory, rivers } from '../data/rivers';
 import {
   computeStateGaugeCoverage,
-  gaugeResearchPriorityScore,
   gaugeResearchStatus,
   loadGaugeCoverageArtifacts,
   selectGaugeReviewCandidates,
   type StateGaugeCoverage,
 } from './gauge-coverage';
 
-type CanonicalState = { id: string; name: string };
+type CanonicalState = { id: string; name: string; frontierTier: number; frontierLabel: string };
 type Task = {
   id: string;
   title: string;
@@ -76,6 +75,8 @@ export function rankGaugeStateCoverage<T extends {
   planning: number;
   saturation: string;
   gaugeCoverage: StateGaugeCoverage;
+  frontierTier?: number;
+  frontierLabel?: string;
 }>(states: T[]) {
   return states
     .map((state) => {
@@ -83,15 +84,27 @@ export function rankGaugeStateCoverage<T extends {
       const legacyCoveragePercent = legacyTotal === 0 ? 0 : Math.round((state.scored / legacyTotal) * 100);
       const researchStatus = gaugeResearchStatus(state.gaugeCoverage, state.saturation);
       const done = researchStatus === 'saturated';
+      const frontierTier = state.frontierTier ?? 99;
+      const completionGap = state.gaugeCoverage.unreviewedGaugeCount + state.gaugeCoverage.uncoveredRouteCapableGaugeCount;
+      const researchPriorityScore = (100 - Math.min(frontierTier, 99)) * 1_000_000
+        - completionGap * 1_000
+        - state.gaugeCoverage.staleGaugeCount * 100
+        + state.gaugeCoverage.routeCapableGaugeCount;
       return {
         ...state,
         legacyCoveragePercent,
         researchStatus,
         done,
-        researchPriorityScore: gaugeResearchPriorityScore(state.gaugeCoverage, state.saturation),
+        frontierTier,
+        frontierLabel: state.frontierLabel ?? 'Unranked frontier',
+        completionGap,
+        researchPriorityScore,
       };
     })
-    .sort((left, right) => right.researchPriorityScore - left.researchPriorityScore || right.gaugeCoverage.uncoveredRouteCapableGaugeCount - left.gaugeCoverage.uncoveredRouteCapableGaugeCount || left.id.localeCompare(right.id));
+    .sort((left, right) => left.frontierTier - right.frontierTier
+      || left.completionGap - right.completionGap
+      || right.gaugeCoverage.uncoveredRouteCapableGaugeCount - left.gaugeCoverage.uncoveredRouteCapableGaugeCount
+      || left.id.localeCompare(right.id));
 }
 
 const stateRegistry = JSON.parse(
@@ -223,10 +236,11 @@ function getOperationsTelemetry() {
 }
 
 const automationRegistry = [
-  { id: 'paddletoday-operations-orchestrator', name: 'PaddleToday Operations Orchestrator', schedule: 'Every four hours', status: 'enabled', owner: 'orchestrator' },
-  { id: 'paddletoday-hourly-route-worker', name: 'PaddleToday Hourly Route Worker', schedule: 'Every hour', status: 'enabled', owner: 'route-implementation' },
-  { id: 'paddletoday-route-worker-supervisor', name: 'PaddleToday Route Worker Supervisor', schedule: 'Every two hours', status: 'enabled', owner: 'orchestrator' },
+  { id: 'paddletoday-operations-orchestrator', name: 'PaddleToday Operations Orchestrator', schedule: 'Every two hours', status: 'enabled', owner: 'orchestrator' },
+  { id: 'paddletoday-hourly-route-worker', name: 'PaddleToday Route Worker', schedule: 'Every 30 minutes', status: 'enabled', owner: 'route-implementation' },
+  { id: 'paddletoday-route-worker-supervisor', name: 'PaddleToday Route Worker Supervisor', schedule: 'Every hour', status: 'enabled', owner: 'orchestrator' },
   { id: 'paddletoday-route-overlap-auditor', name: 'PaddleToday Route Overlap Auditor', schedule: 'Every six hours', status: 'enabled', owner: 'independent-verifier' },
+  { id: 'paddletoday-consolidation-reviewer', name: 'PaddleToday Consolidation Reviewer', schedule: 'Every six hours', status: 'enabled', owner: 'independent-verifier' },
   { id: 'paddletoday-daily-operations-report', name: 'PaddleToday Daily Operations Report', schedule: 'Daily at 20:00', status: 'enabled', owner: 'product-analysis' },
   { id: 'paddletoday-route-freshness-monitor', name: 'PaddleToday Route Freshness Monitor', schedule: 'Daily at 06:30', status: 'enabled', owner: 'independent-verifier' },
   { id: 'paddletoday-blocker-resolution-planner', name: 'PaddleToday Blocker Resolution Planner', schedule: 'Daily at 07:00', status: 'enabled', owner: 'orchestrator' },
@@ -291,6 +305,8 @@ export function getOperationsSnapshot() {
       saturation: gaugeResearchStatus(gaugeCoverage, legacySaturation),
       legacySaturation,
       gaugeCoverage,
+      frontierTier: state.frontierTier,
+      frontierLabel: state.frontierLabel,
     };
   });
   const rankedStates = rankGaugeStateCoverage(stateRows);
@@ -309,12 +325,19 @@ export function getOperationsSnapshot() {
   const claims = (controlState.claims ?? []).slice().sort((a, b) => {
     return Date.parse(b.completedAt ?? b.claimedAt ?? '') - Date.parse(a.completedAt ?? a.claimedAt ?? '');
   });
+  const gaugeReviews = gaugeCoverageArtifacts.ledger.reviews;
+  const eligibleGaugeReviews = gaugeReviews.filter((review) => review.eligibility !== 'not_paddle_relevant');
+  const reviewedGaugeReviews = eligibleGaugeReviews.filter((review) => !['unreviewed', 'researching'].includes(review.status));
+  const routeCapableGaugeReviews = gaugeReviews.filter((review) => review.eligibility === 'route_capable');
+  const coveredRouteCapableGaugeReviews = routeCapableGaugeReviews.filter((review) => review.status === 'covered');
 
   return {
     generatedAt: new Date().toISOString(),
     policy: {
       planningRoutes: 'frozen_without_explicit_user_request',
       completenessModel: 'gauge_network_authoritative_after_bounded_review',
+      researchStrategy: 'geographic_frontier_then_completion_gap',
+      activeFrontierState: 'MN',
       gaugeInventoryId: gaugeCoverageArtifacts.inventory.inventoryId,
       gaugeInventoryScope: gaugeCoverageArtifacts.inventory.scope,
       maxProductWorkInProgress: 3,
@@ -327,8 +350,10 @@ export function getOperationsSnapshot() {
       scored: rivers.length,
       planning: routeInventory.length - rivers.length,
       knownGauges: gaugeCoverageArtifacts.inventory.gauges.length,
-      reviewedGauges: gaugeCoverageArtifacts.ledger.reviews.filter((review) => !['unreviewed', 'researching'].includes(review.status)).length,
-      coveredGauges: gaugeCoverageArtifacts.ledger.reviews.filter((review) => review.status === 'covered').length,
+      reviewedGauges: reviewedGaugeReviews.length,
+      coveredGauges: coveredRouteCapableGaugeReviews.length,
+      gaugeReviewCoveragePercent: eligibleGaugeReviews.length === 0 ? 0 : Math.round((reviewedGaugeReviews.length / eligibleGaugeReviews.length) * 100),
+      routeGaugeCoveragePercent: routeCapableGaugeReviews.length === 0 ? 0 : Math.round((coveredRouteCapableGaugeReviews.length / routeCapableGaugeReviews.length) * 100),
       activeTasks: taskRegistry.tasks.filter((task) => task.lane === 'in_progress').length,
       readyTasks: taskRegistry.tasks.filter((task) => task.lane === 'ready').length,
     },

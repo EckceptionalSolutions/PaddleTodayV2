@@ -208,6 +208,28 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     continuityStatus: 'condition-family',
     slugPrefix: 'north-raccoon-river-',
   },
+  {
+    corridorId: 'tx-village-creek-paddling-trail',
+    label: 'Village Creek Paddling Trail multi-endpoint corridor',
+    continuityStatus: 'verified',
+    canonicalSlug: 'village-creek-fm418-state-park',
+    slugs: [
+      'village-creek-fm418-sh327',
+      'village-creek-sh327-baby-galvez',
+      'village-creek-fm418-baby-galvez',
+      'village-creek-baby-galvez-us-96',
+      'village-creek-sh327-us-96',
+      'village-creek-us-96-state-park',
+      'village-creek-baby-galvez-state-park',
+      'village-creek-fm418-state-park',
+    ],
+    segmentEdges: [
+      { fromId: 'village-creek-fm-418-boat-launch', toId: 'tx-327-boat-launch', status: 'verified' },
+      { fromId: 'tx-327-boat-launch', toId: 'baby-galvez-road-boat-launch', status: 'verified' },
+      { fromId: 'baby-galvez-road-boat-launch', toId: 'us-96-boat-launch', status: 'verified' },
+      { fromId: 'us-96-boat-launch', toId: 'village-creek-state-park-canoe-launch', status: 'verified' },
+    ],
+  },
 ];
 
 export function corridorForSlug(slug: string) {

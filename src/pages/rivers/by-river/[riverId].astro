@@ -194,10 +194,10 @@ const groupStructuredData = [
             <FeatureIcon name="compass" size={16} />
             Trip picker
           </p>
-          <h2 class="section-title">Choose your stretch</h2>
+          <h2 class="section-title">Choose a route</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          Pick a distance first. Conditions update with your selection.
+          Start with distance, then compare today’s conditions.
         </p>
       </div>
 
@@ -320,6 +320,7 @@ const groupStructuredData = [
                       <span class="route-choice__eyebrow">
                         {active ? <span class="route-choice__on-map">On map</span> : <>{route.state} · {route.region}</>}
                       </span>
+                      {index === 0 ? <span class="route-choice__recommended">Recommended today</span> : null}
                       <strong class="route-choice__title">{route.reach}</strong>
                       <span class="route-choice__facts">
                         {route.logistics?.distanceLabel ? <span class="route-choice__fact route-choice__fact--distance">{route.logistics.distanceLabel}</span> : null}

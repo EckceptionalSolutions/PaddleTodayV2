@@ -101,13 +101,16 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
     setStatus('requesting');
 
     try {
-      const [result] = await Location.geocodeAsync(cleanQuery);
+      const remoteResult = await geocodeWithOpenMeteo(cleanQuery);
+      const [result] = remoteResult ? [remoteResult] : await Location.geocodeAsync(cleanQuery);
       if (!result) {
         setStatus(location ? 'ready' : 'idle');
         return null;
       }
 
-      const resolvedLabel = await reverseGeocodeLabel(result.latitude, result.longitude);
+      const resolvedLabel = 'label' in result && typeof result.label === 'string'
+        ? result.label
+        : await reverseGeocodeLabel(result.latitude, result.longitude);
       const nextLocation: StoredLocation = {
         latitude: result.latitude,
         longitude: result.longitude,
@@ -137,6 +140,55 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
   );
 
   return createElement(StoredLocationContext.Provider, { value }, children);
+}
+
+async function geocodeWithOpenMeteo(query: string): Promise<{
+  latitude: number;
+  longitude: number;
+  label: string;
+} | null> {
+  const response = await fetch(
+    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=en&format=json&countryCode=US`,
+    { headers: { accept: 'application/json' } }
+  );
+  if (!response.ok) {
+    return null;
+  }
+
+  const payload: unknown = await response.json();
+  if (!isRecord(payload) || !Array.isArray(payload.results)) {
+    return null;
+  }
+
+  const candidates = payload.results.filter(isGeocodeCandidate);
+  const match = candidates
+    .sort((left, right) => (right.population ?? 0) - (left.population ?? 0))[0];
+  if (!match) {
+    return null;
+  }
+
+  const state = match.admin1 || match.country || '';
+  return {
+    latitude: match.latitude,
+    longitude: match.longitude,
+    label: state ? `${match.name}, ${state}` : match.name,
+  };
+}
+
+function isGeocodeCandidate(value: unknown): value is {
+  latitude: number;
+  longitude: number;
+  name: string;
+  admin1?: string;
+  country?: string;
+  population?: number;
+} {
+  return (
+    isRecord(value) &&
+    typeof value.latitude === 'number' &&
+    typeof value.longitude === 'number' &&
+    typeof value.name === 'string'
+  );
 }
 
 export function useStoredLocation() {

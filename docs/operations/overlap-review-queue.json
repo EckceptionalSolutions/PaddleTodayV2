@@ -492,13 +492,13 @@
     },
     {
       "id": "overlap-review-9f79f9e8998f",
-      "fingerprint": "9f79f9e8998f",
+    "fingerprint": "9f79f9e8998f",
       "state": "Texas",
       "group": "Texas · village-creek-baby-galvez-state-park ↔ village-creek-baby-galvez-us-96 ↔ village-creek-fm418-baby-galvez +5",
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+    "status": "implemented",
       "routes": [
         "village-creek-baby-galvez-state-park",
         "village-creek-baby-galvez-us-96",

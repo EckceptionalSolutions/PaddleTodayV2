@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T11:25:01.469Z",
+  "updatedAt": "2026-08-14T17:24:00.000Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
@@ -1392,45 +1392,81 @@
     },
     {
       "key": "mn_dnr:283",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:51:00.000Z",
+      "decisionReason": "Blue Earth River near Winnebago is paddle-relevant and has a DNR interpreted gauge at RM 76, but no complete PaddleToday-ready point-to-point route package was established around this gauge reach. Keep blocked until a manager-backed endpoint sequence, route-specific threshold interpretation, camping/no-camping terms, safety guidance, and coordinates are documented.",
+      "decisionSource": "manual",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "DNR river levels identifies the gauge and an interpreted Medium reading at RM 76, but no recommended day-trip endpoint pair is tied to this gauge reach.",
+        "The Blue Earth State Water Trail map names public accesses farther downstream and the County Road 90-to-Sibley recommended section, but does not provide a selected endpoint pair around RM 76.",
+        "No route-specific numeric threshold, camping package, or safety package was found for a selected RM 76 segment."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html?wt=CBR00627 identifies Blue Earth River near Winnebago, CSAH12 at RM 76 with an interpreted reading.",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/blueearth.pdf documents the Blue Earth State Water Trail, access sequence, and the downstream County Road 90-to-Sibley recommended section.",
+        "https://www.dnr.state.mn.us/state-water-trails/blue-earth-river/index.html confirms the Blue Earth River State Water Trail."
+      ]
     },
     {
       "key": "mn_dnr:284",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "proxy",
+      "checkedAt": "2026-08-14T17:13:00.000Z",
+      "decisionReason": "The DNR 284 station is on the Cannon River below Faribault and sits in the official Tetonka-to-Dundas route corridor, but it exposes only gage height and no route-specific threshold band. Existing upper-Cannon scored coverage uses the direct Northfield discharge gauge, so DNR 284 remains a proxy blocker rather than being labeled covered.",
+      "decisionSource": "manual_route_worker_review",
+      "routeSlugs": [
+        "cannon-river-faribault-dundas",
+        "cannon-river-wilderness-northfield"
+      ],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Cannon River"
+      ],
+      "blockers": [
+        "DNR 284 provides gage height only; no route-specific discharge or interpreted threshold band is available.",
+        "Existing upper-Cannon route package uses the direct Northfield discharge gauge; proxy coverage does not satisfy covered-state policy."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/nwis/uv/?referred_module=sw&site_no=05354500",
+          "note": "USGS corroborates the Cannon County Highway 29 reach with live discharge, gage height, and stream-level telemetry at the corresponding bridge location."
+        },
+        {
+          "source": "https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf",
+          "note": "DNR Cannon Map 1 documents the Faribault-to-Dundas route corridor and public access sequence."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+          "note": "DNR identifies Two Rivers to Dundas as a recommended 13.2-mile section but publishes route-level interpretation through other gauge references."
+        }
+      ]
     },
     {
       "key": "mn_dnr:285",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "proxy",
+      "checkedAt": "2026-08-14T17:25:00.000Z",
+      "decisionReason": "DNR provides an interpreted Cannon rating and the official water-trail map includes the Morristown/CSAH16 reach, but this station exposes only gage height and no route-specific conversion or independent route package; retain as proxy-blocked rather than inventing a threshold or duplicate route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "Gage-height-only station lacks a route-specific threshold conversion for the existing Faribault-Dundas package.",
+        "The official map covers a broad corridor, but does not establish a distinct high-value endpoint package at Morristown."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html?wt=CBR00627",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html"
+      ]
     },
     {
       "key": "mn_dnr:286",
@@ -2076,31 +2112,62 @@
     },
     {
       "key": "mn_dnr:345",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "proxy",
+      "checkedAt": "2026-08-14T17:08:00.000Z",
+      "decisionReason": "The 9th Street Bridge gauge sits on the official Cannon River State Water Trail near the Riverside-to-Miesville corridor, but it exposes only gage height and no route-specific threshold package. Existing scored Cannon routes use the interpreted Welch gauge as the direct operational gauge, so this gauge remains an explicit proxy blocker rather than being mislabeled covered.",
+      "decisionSource": "manual_route_worker_review",
+      "routeSlugs": [
+        "cannon-river-riverside-miesville",
+        "cannon-river-byllesby-highway-61",
+        "cannon-river-wilderness-northfield",
+        "cannon-river-faribault-dundas"
+      ],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Cannon River"
+      ],
+      "blockers": [
+        "DNR 345 provides gage height only; no route-specific discharge or interpreted threshold band is available.",
+        "Existing Cannon scored routes use the direct interpreted Welch gauge; proxy relationship does not satisfy covered-state policy."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05355092",
+          "note": "USGS corroborates the Cannon 9th Street Bridge gauge location and shows live discharge, gage height, and stream-level metrics for the same bridge reach."
+        },
+        {
+          "source": "https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf",
+          "note": "DNR Cannon Map 2 places the 9th Street bridge at river mile 26.0, Hannah's Bend/Riverside access at 25.9/25.5, and the route corridor downstream."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+          "note": "DNR documents the Cannon recommended sections and route safety context, while official interpreted thresholds are published for Welch rather than DNR 345."
+        }
+      ]
     },
     {
       "key": "mn_dnr:346",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:38:00.000Z",
+      "decisionReason": "Big Cobb River is paddle-relevant and has a Minnesota DNR interpreted gauge, but the reviewed sources did not provide a PaddleToday-ready point-to-point route package for the gauge reach. Keep blocked until a manager-backed second endpoint, route-specific threshold interpretation, camping/no-camping terms, safety guidance, and defensible coordinates are established.",
+      "decisionSource": "manual",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "Minnesota DNR river-level page identifies Big Cobb River near Beauford at river mile 5.4 and publishes a scrapable interpretation, but no named point-to-point public take-out paired with the CSAH 16 access was established.",
+        "The Blue Earth/Faribault public-water-access map identifies a Big Cobb River Co. Rd. 16 carry-in site, but does not provide a complete route endpoint sequence, route-specific camping terms, or safety package.",
+        "No PaddleToday-supported numeric threshold package beyond the DNR scrapable interpretation was found for a selected route segment."
+      ],
+      "evidence": [
+        "https://www.dnr.state.mn.us/river_levels/index.html?wt=CBR00627 identifies Big Cobb River nr Beauford, CSAH16 at RM 5.4 and reports a scrapable paddling interpretation.",
+        "https://files.dnr.state.mn.us/maps/water_access/counties/blueearth_faribault.pdf identifies a Big Cobb River (Co. Rd. 16) carry-in public-water-access site.",
+        "https://www.weather.gov/media/ncrfc/web/papers/nwsli_mn.pdf identifies BFRM5/Big Cobb River near Beauford 4NW and coordinates the monitoring site."
+      ]
     },
     {
       "key": "mn_dnr:38",
@@ -24843,17 +24910,33 @@
     },
     {
       "key": "usgs:05051300",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:51:00.000Z",
+      "decisionReason": "USGS confirms a live Bois de Sioux gauge near Doran, but current official Minnesota DNR water-trail materials document the Otter Tail joining the Bois de Sioux at Breckenridge rather than a supported Bois de Sioux route segment. No PaddleToday-ready public endpoint pair, threshold, camping/permit, safety, and coordinate package was found for the gauge reach.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official DNR Bois de Sioux paddling segment or complete endpoint pair found for the Doran gauge reach.",
+        "Historical/secondary paddling references are insufficient to establish a current safe, thresholded PaddleToday route package."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05051300/",
+          "note": "USGS monitoring location identifies Bois de Sioux River near Doran and provides current discharge and gage-height telemetry."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/index.html",
+          "note": "Minnesota DNR documents the Otter Tail State Water Trail and its confluence with the Bois de Sioux at Breckenridge, but does not establish a Bois de Sioux segment for this gauge."
+        },
+        {
+          "source": "https://mn.water.usgs.gov/infodata/ann-repts/annrpt00/05051300.2000.sw.pdf",
+          "note": "USGS annual report places the gauge at the County Highway 6 bridge and notes regulated flow; this is gauge context, not a route package."
+        }
+      ]
     },
     {
       "key": "usgs:05051500",
@@ -25415,45 +25498,129 @@
     },
     {
       "key": "usgs:05061000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "USGS confirms Buffalo-family gauges at Hawley, Sabin, and Dilworth, but no current official/public manager source provides a PaddleToday-ready Buffalo River route with named public put-in/take-out, numeric thresholds, camping/no-camping rules, safety guidance, endpoint coordinates, and geometry. Sabin discharge is also backwater-affected.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official Buffalo River paddling segment or complete endpoint pair found for the Hawley gauge reach.",
+        "Current Hawley flow was 8.39 cfs and no route-specific numeric threshold ladder surfaced."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05061000/",
+          "note": "USGS identifies Buffalo River near Hawley and returned 8.39 cfs / 3.15 ft provisional at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05061500/",
+          "note": "USGS identifies South Branch Buffalo River at Sabin; discharge returned -999999 with backwater qualifier and stage 6.82 ft at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05062000/",
+          "note": "USGS identifies Buffalo River near Dilworth and returned 26.7 cfs / 2.65 ft provisional at 2026-08-14 11:00 CDT."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00124",
+          "note": "Minnesota DNR Buffalo River State Park supports hiking, fishing, and campground context along the river, not a named point-to-point paddling route with thresholds."
+        },
+        {
+          "source": "https://files.dnr.state.mn.us/maps/state_parks/spk00124.pdf",
+          "note": "The state park map documents park hours/rules and river-adjacent trails/campground, but not a Buffalo River launch-to-landing paddling segment."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state water-trail index has no supported Buffalo River state-water-trail route package."
+        }
+      ]
     },
     {
       "key": "usgs:05061500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "The South Branch Buffalo River at Sabin gauge is a plausible river gauge, but same-run discharge was unusable because USGS returned -999999 with a backwater qualifier; no supported route package surfaced around the gauge reach.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "USGS discharge returned -999999 with P/Bkw qualifiers; stage-only telemetry is insufficient for scoring.",
+        "No official/public South Branch Buffalo route package with endpoints, thresholds, camping, safety, and coordinates surfaced."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05061000/",
+          "note": "USGS identifies Buffalo River near Hawley and returned 8.39 cfs / 3.15 ft provisional at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05061500/",
+          "note": "USGS identifies South Branch Buffalo River at Sabin; discharge returned -999999 with backwater qualifier and stage 6.82 ft at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05062000/",
+          "note": "USGS identifies Buffalo River near Dilworth and returned 26.7 cfs / 2.65 ft provisional at 2026-08-14 11:00 CDT."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00124",
+          "note": "Minnesota DNR Buffalo River State Park supports hiking, fishing, and campground context along the river, not a named point-to-point paddling route with thresholds."
+        },
+        {
+          "source": "https://files.dnr.state.mn.us/maps/state_parks/spk00124.pdf",
+          "note": "The state park map documents park hours/rules and river-adjacent trails/campground, but not a Buffalo River launch-to-landing paddling segment."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state water-trail index has no supported Buffalo River state-water-trail route package."
+        }
+      ]
     },
     {
       "key": "usgs:05062000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "USGS confirms a live Buffalo River gauge near Dilworth, but current official Minnesota DNR water-trail materials document Red River access/confluence context rather than a supported Buffalo River route segment. No PaddleToday-ready public endpoint pair, threshold, camping/permit, safety, and coordinate package was found for the gauge reach.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No official DNR Buffalo River paddling segment or complete endpoint pair found for the Dilworth gauge reach.",
+        "The Red River trail map identifies the Buffalo River confluence but does not establish an upstream Buffalo River route package."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05061000/",
+          "note": "USGS identifies Buffalo River near Hawley and returned 8.39 cfs / 3.15 ft provisional at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05061500/",
+          "note": "USGS identifies South Branch Buffalo River at Sabin; discharge returned -999999 with backwater qualifier and stage 6.82 ft at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05062000/",
+          "note": "USGS identifies Buffalo River near Dilworth and returned 26.7 cfs / 2.65 ft provisional at 2026-08-14 11:00 CDT."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00124",
+          "note": "Minnesota DNR Buffalo River State Park supports hiking, fishing, and campground context along the river, not a named point-to-point paddling route with thresholds."
+        },
+        {
+          "source": "https://files.dnr.state.mn.us/maps/state_parks/spk00124.pdf",
+          "note": "The state park map documents park hours/rules and river-adjacent trails/campground, but not a Buffalo River launch-to-landing paddling segment."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state water-trail index has no supported Buffalo River state-water-trail route package."
+        }
+      ]
     },
     {
       "key": "usgs:05062130",
@@ -25471,45 +25638,117 @@
     },
     {
       "key": "usgs:05062500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "Wild Rice River has product-supported USGS gauges and community paddle evidence near Twin Valley, but no official/public manager route package surfaced with a durable endpoint pair, source-backed numeric thresholds, camping/no-camping rules, route safety package, and coordinates; South Branch telemetry is backwater-affected.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No manager-grade Wild Rice River endpoint, threshold, camping, safety, and coordinate package found for the Twin Valley gauge reach.",
+        "Same-run flow was 21.0 cfs, and no accepted route-specific threshold ladder surfaced."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05062500/",
+          "note": "USGS Wild Rice River at Twin Valley returned 21.0 cfs / 1.52 ft provisional at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05063398/",
+          "note": "USGS South Branch Wild Rice near Felton returned discharge -999999 with backwater qualifier and stage 4.23 ft at 2026-08-14 11:00 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05064000/",
+          "note": "USGS Wild Rice River at Hendrum returned 17.4 cfs / 2.82 ft provisional at 2026-08-14 11:30 CDT."
+        },
+        {
+          "source": "https://storymaps.arcgis.com/stories/c87f390894d444e6b71c081a2e105327",
+          "note": "Norman County East River Explorers documents a community paddle from the County Road 29 bridge to Heiberg Park, but not a full route package with numeric thresholds, camping/no-camping rules, or safety/coordinate evidence."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state water-trail index does not provide a Wild Rice River state-water-trail route package matching the gauges."
+        }
+      ]
     },
     {
       "key": "usgs:05063398",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "South Branch Wild Rice River near Felton is a plausible river gauge, but same-run discharge was unusable because USGS returned -999999 with a backwater qualifier; no supported route package surfaced around the gauge reach.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "USGS discharge returned -999999 with P/Bkw qualifiers; stage-only telemetry is insufficient for scoring.",
+        "No official/public South Branch Wild Rice route package with endpoints, thresholds, camping, safety, and coordinates surfaced."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05062500/",
+          "note": "USGS Wild Rice River at Twin Valley returned 21.0 cfs / 1.52 ft provisional at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05063398/",
+          "note": "USGS South Branch Wild Rice near Felton returned discharge -999999 with backwater qualifier and stage 4.23 ft at 2026-08-14 11:00 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05064000/",
+          "note": "USGS Wild Rice River at Hendrum returned 17.4 cfs / 2.82 ft provisional at 2026-08-14 11:30 CDT."
+        },
+        {
+          "source": "https://storymaps.arcgis.com/stories/c87f390894d444e6b71c081a2e105327",
+          "note": "Norman County East River Explorers documents a community paddle from the County Road 29 bridge to Heiberg Park, but not a full route package with numeric thresholds, camping/no-camping rules, or safety/coordinate evidence."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state water-trail index does not provide a Wild Rice River state-water-trail route package matching the gauges."
+        }
+      ]
     },
     {
       "key": "usgs:05064000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "Wild Rice River has product-supported USGS gauges and community paddle evidence near Twin Valley, but no official/public manager route package surfaced with a durable endpoint pair, source-backed numeric thresholds, camping/no-camping rules, route safety package, and coordinates; South Branch telemetry is backwater-affected.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No manager-grade Wild Rice River endpoint, threshold, camping, safety, and coordinate package found for the Hendrum gauge reach.",
+        "Same-run flow was 17.4 cfs, and no accepted route-specific threshold ladder surfaced."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05062500/",
+          "note": "USGS Wild Rice River at Twin Valley returned 21.0 cfs / 1.52 ft provisional at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05063398/",
+          "note": "USGS South Branch Wild Rice near Felton returned discharge -999999 with backwater qualifier and stage 4.23 ft at 2026-08-14 11:00 CDT."
+        },
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05064000/",
+          "note": "USGS Wild Rice River at Hendrum returned 17.4 cfs / 2.82 ft provisional at 2026-08-14 11:30 CDT."
+        },
+        {
+          "source": "https://storymaps.arcgis.com/stories/c87f390894d444e6b71c081a2e105327",
+          "note": "Norman County East River Explorers documents a community paddle from the County Road 29 bridge to Heiberg Park, but not a full route package with numeric thresholds, camping/no-camping rules, or safety/coordinate evidence."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state water-trail index does not provide a Wild Rice River state-water-trail route package matching the gauges."
+        }
+      ]
     },
     {
       "key": "usgs:05064500",
@@ -25555,31 +25794,59 @@
     },
     {
       "key": "usgs:05067500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "Marsh River near Shelly returned 0.00 cfs and no current official/public source surfaced a public point-to-point Marsh River paddling route, endpoint pair, thresholds, camping rules, safety package, or route geometry. Treat as not paddle-relevant under the current product model.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "0.00 cfs same-run discharge and no public route package surfaced.",
+        "No route-ready access, threshold, camping, safety, coordinate, or geometry evidence found."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05067500/",
+          "note": "USGS Marsh River near Shelly returned 0.00 cfs / 3.40 ft provisional at 2026-08-14 11:30 CDT."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state water-trail index provides no Marsh River paddling route package."
+        }
+      ]
     },
     {
       "key": "usgs:05069000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "Sand Hill River has a live USGS gauge and watershed-district recreation interest, but no current route-ready public endpoint pair, numeric thresholds, camping/no-camping rules, safety package, or coordinate evidence surfaced for the Climax gauge reach.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "Sand Hill Watershed District recreation page describes planned/guided kayak-event interest rather than a published point-to-point route package.",
+        "Same-run flow was 12.4 cfs and no accepted route-specific threshold ladder surfaced."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05069000/",
+          "note": "USGS Sand Hill River at Climax returned 12.4 cfs / 3.94 ft provisional at 2026-08-14 10:45 CDT."
+        },
+        {
+          "source": "https://www.sandhillwatershed.org/River_Recreation.html",
+          "note": "Sand Hill River Watershed District recreation page references guided kayak tours depending on river level, but does not publish route endpoints, thresholds, camping, safety, or coordinates."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state water-trail index provides no Sand Hill River state-water-trail route package."
+        }
+      ]
     },
     {
       "key": "usgs:05070000",
@@ -25597,17 +25864,34 @@
     },
     {
       "key": "usgs:05074500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:57:00.000Z",
+      "decisionReason": "Red Lake River is a state water trail, but the near-Red-Lake gauge sits in the headwater/reservation segment where DNR says paddling is prohibited unless a Red Lake Department of Natural Resources permit is obtained; same-run USGS discharge was backwater-affected and unusable. No route can be promoted without manager-grade permit/access, threshold, camping, safety, and coordinate evidence.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "DNR Map 1 segment context says paddling from river mile 195.5 to 182.5 through the Red Lake Indian Reservation is prohibited unless a Red Lake DNR permit is obtained.",
+        "USGS discharge returned -999999 with a backwater qualifier, leaving stage-only telemetry.",
+        "No permit/access/camping/safety/coordinate route package was established for the gauge reach."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/monitoring-location/05074500/",
+          "note": "USGS Red Lake River near Red Lake returned discharge -999999 with P/Bkw qualifier and stage 69.73 ft at 2026-08-14 11:30 CDT."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/index.html",
+          "note": "Minnesota DNR identifies Red Lake River as a state water trail beginning at Upper and Lower Red Lake."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/segments-maps.html",
+          "note": "DNR Map 1 segment notes the first reach passes through the Red Lake Indian Reservation and paddling is prohibited unless a permit is obtained from Red Lake DNR."
+        }
+      ]
     },
     {
       "key": "usgs:05075000",
@@ -26235,17 +26519,25 @@
     },
     {
       "key": "usgs:05127500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:33:00.000Z",
+      "decisionReason": "Basswood River is paddle-relevant through Boundary Waters canoe-route context, but no PaddleToday-ready public point-to-point day route package was found for the gauge reach. Keep blocked until a manager-backed endpoint sequence, route-specific live threshold guidance, camping/permit rules, safety hazards, and defensible coordinates are published for a supported route model.",
+      "decisionSource": "manual",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No named public Basswood River put-in/take-out pair tied to the USGS 05127500 reach was identified in the reviewed official sources.",
+        "Minnesota DNR state water-trail A-Z listing does not list Basswood River as a state water trail; available references describe Boundary Waters canoe routes with portages and wilderness permit logistics rather than a PaddleToday-supported day-route package.",
+        "No source-backed Basswood River route-specific numeric paddling thresholds or complete camping/permit and hazard package was found for this gauge reach."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05127500/ identifies BASSWOOD RIVER NEAR WINTON, MN and exposes live discharge and gage-height telemetry.",
+        "https://www.dnr.state.mn.us/state-water-trails/az.html checked 2026-08-14; Basswood River is not listed in Minnesota's state water-trail index.",
+        "https://www.lrl.mn.gov/docs/2015/other/155293.pdf describes access to Basswood River as confined to primary canoe routes, but does not provide a PaddleToday-ready endpoint, threshold, camping, safety, and coordinate package for the gauge reach."
+      ]
     },
     {
       "key": "usgs:05128400",
@@ -26319,17 +26611,36 @@
     },
     {
       "key": "usgs:05132000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T16:41:00.000Z",
+      "decisionReason": "Covered by the scored Big Fork River route family: USGS 05132000 is the named Big Fork River at Big Falls station and the existing routes use the equivalent MN DNR Big Falls gauge at the same direct finish corridor and river-mile reach.",
+      "decisionSource": "manual",
+      "routeSlugs": [
+        "big-fork-river-johnson-big-falls-east",
+        "big-fork-river-big-falls-west-kueffners",
+        "big-fork-river-ben-linn-ivan-crawford",
+        "big-fork-river-gowdy-reedy-flats",
+        "big-fork-river-highway-6-north-big-falls-east"
+      ],
+      "scoredRouteSlugs": [
+        "big-fork-river-johnson-big-falls-east",
+        "big-fork-river-big-falls-west-kueffners",
+        "big-fork-river-ben-linn-ivan-crawford",
+        "big-fork-river-gowdy-reedy-flats",
+        "big-fork-river-highway-6-north-big-falls-east"
+      ],
+      "routeFamilies": [
+        "Big Fork River"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05132000/ identifies Big Fork River at Big Falls, MN.",
+        "https://www.dnr.state.mn.us/state-water-trails/big-fork-river/segments-maps.html names the Johnson Landing to Big Falls East recommended 14.5-mile trip and its mandatory take-out above Big Falls.",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf provides the endpoint, campsite, safety, and rapid/portage package for the Big Fork Map 2 route family.",
+        "src/data/routes/minnesota.ts records the equivalent MN DNR Big Falls direct gauge and five scored Big Fork routes using the same river-mile finish corridor."
+      ]
     },
     {
       "key": "usgs:05133500",
@@ -26417,17 +26728,31 @@
     },
     {
       "key": "usgs:05208010",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:24:08.000Z",
+      "decisionReason": "USGS 05208010 is a small Ball Club River stream gauge with current stage only usable for telemetry; same-run discharge returned the USGS no-data sentinel with equipment-malfunction qualifier, Minnesota DNR water-trail materials do not list Ball Club River as a state water trail or recommended paddling route, and nearby public accesses are Ball Club Lake or Mississippi River sites rather than a named point-to-point Ball Club River route with thresholds, camping, safety, and endpoint package.",
+      "decisionSource": "manual",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Ball Club River"
+      ],
+      "blockers": [
+        "No named public Ball Club River point-to-point paddling route surfaced from official/public sources.",
+        "USGS discharge value for 05208010 returned -999999 with equipment-malfunction qualifier at 2026-08-14 11:00 CDT; stage was 4.61 ft only.",
+        "No route-specific numeric low/ideal/high paddling thresholds tied to the gauge surfaced.",
+        "Nearby public-water-access records identify Ball Club Lake launches and Mississippi River accesses, not a source-backed Ball Club River put-in/take-out pair.",
+        "No official camping/no-camping or safety package exists for a Ball Club River route."
+      ],
+      "evidence": [
+        "USGS monitoring location 05208010 Ball Club River Near Ball Club, MN: stream site, Itasca County, 43.6 sq mi drainage area, continuous data from 2024-12-19 to 2026-08-14.",
+        "USGS Water Services IV checked 2026-08-14T16:23Z: discharge 00060 returned -999999 with P/Eqp qualifiers at 2026-08-14 11:00 CDT; gage height 00065 returned 4.61 ft provisional.",
+        "Minnesota DNR State Water Trails index checked 2026-08-14: 35 state water trails and recommended sections; Ball Club River was not listed in the water-trail index evidence reviewed.",
+        "Minnesota public-water-access FeatureServer proximity query checked 2026-08-14: nearby records include Ball Club Lake (W) WAS01911, Ball Club Lake (S) WAS01914, Mississippi River #2 WAS02462, and Mississippi River Co Rd 3 WAS01084, but no Ball Club River route access pair.",
+        "DNR Public Waters Inventory identifies Ball Club River as a public watercourse from Ball Club Lake basin context, but not as a route package with endpoints, thresholds, camping, or safety rules."
+      ]
     },
     {
       "key": "usgs:05210000",
@@ -27034,45 +27359,70 @@
     },
     {
       "key": "usgs:05304500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "covered",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T18:05:00.000Z",
+      "decisionReason": "USGS 05304500 is the direct Milan-area discharge station represented by the existing Norby-to-Lentz Chippewa route package through the equivalent DNR Milan gauge; no duplicate route is justified.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05304500/",
+        "https://www.dnr.state.mn.us/state-water-trails/chippewa-river/segments-maps.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05304995",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "proxy",
+      "checkedAt": "2026-08-14T17:45:00.000Z",
+      "decisionReason": "USGS confirms a headwater Chippewa gauge above County Road 13 near Watson, while the official DNR trail maps and existing scored routes cover the lower Watson corridor; this station is gage-height-only and lacks an authoritative route-specific threshold/package for a distinct upstream route.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "Gage-height-only telemetry has no route-specific interpreted band or discharge conversion.",
+        "No distinct public endpoint sequence and camping/safety package was found for the headwater reach above County Road 13."
+      ],
+      "evidence": [
+        "https://mn.water.usgs.gov/flood/OneStop/",
+        "https://www.dnr.state.mn.us/state-water-trails/chippewa-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/chippewa.pdf"
+      ]
     },
     {
       "key": "usgs:05305000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:24:00.000Z",
+      "decisionReason": "USGS 05305000 is the direct Watson-area discharge/stage station for the same lower-Chippewa corridor already covered by existing scored Chippewa routes using the equivalent MN DNR Watson gauge; no duplicate route is justified.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "chippewa-river-lentz-watson-lions-park",
+        "chippewa-river-watson-lagoon"
+      ],
+      "scoredRouteSlugs": [
+        "chippewa-river-lentz-watson-lions-park",
+        "chippewa-river-watson-lagoon"
+      ],
+      "routeFamilies": [
+        "Chippewa River"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05305000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05305000&parameterCd=00060,00065&siteStatus=all",
+        "https://www.dnr.state.mn.us/state-water-trails/chippewa-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/chippewa.pdf",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05311000",
@@ -27224,17 +27574,26 @@
     },
     {
       "key": "usgs:05320000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "blocked",
+      "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T16:46:00.000Z",
+      "decisionReason": "Blue Earth River is paddle-relevant downstream, but USGS 05320000 is the Rapidan-area gauge adjacent to the failed dam hazard. Minnesota DNR explicitly warns against paddling through the dam area because of debris, unstable channel, and recirculating currents; existing safe Blue Earth routes begin downstream at County Road 90 and use a different lower-river gauge. Keep this gauge blocked unless a manager publishes a safe, supported reach and gauge relationship that clears the dam hazard.",
+      "decisionSource": "manual",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "Minnesota DNR Blue Earth map marks the Rapidan Dam failure area as unsafe, with debris, unstable channel, and recirculating currents; paddling through the dam area is not recommended.",
+        "Existing scored Blue Earth route support begins downstream at County Road 90 Bridge to Sibley Park and does not use this Rapidan-area gauge as the route's direct condition source.",
+        "No safe public endpoint package or route-specific threshold relationship was established for the gauge reach adjacent to the failed dam."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05320000/ identifies BLUE EARTH RIVER NEAR RAPIDAN, MN.",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/blueearth.pdf marks the Rapidan Dam failure area (RM 10.0-2.8) as dangerous and not recommended for paddling.",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/blueearth.pdf names the supported County Road 90 Bridge to Sibley Park recommended section downstream of the dam area.",
+        "https://www.dnr.state.mn.us/state-water-trails/blue-earth-river/index.html confirms the Blue Earth River State Water Trail."
+      ]
     },
     {
       "key": "usgs:05320500",
@@ -27630,17 +27989,24 @@
     },
     {
       "key": "usgs:05354500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:18:00.000Z",
+      "decisionReason": "Direct discharge gauge on the official Cannon River water-trail corridor below Faribault, but no defensible route-specific discharge threshold is published for this reach; retain as a research blocker rather than inventing a score.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "No authoritative route-specific discharge threshold or interpretation band for the County Road 29 reach.",
+        "Existing scored Cannon route is calibrated to the Northfield gauge; this station cannot be substituted without a defensible conversion."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv/?referred_module=sw&site_no=05354500",
+        "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf"
+      ]
     },
     {
       "key": "usgs:05355024",
@@ -27694,17 +28060,40 @@
     },
     {
       "key": "usgs:05355092",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:10:00.000Z",
+      "decisionReason": "USGS 05355092 is a direct same-corridor Cannon gauge at the 9th Street bridge and has discharge telemetry, but no route-specific threshold conversion is published for this station. Existing scored Cannon routes use the official interpreted Welch bands, so this direct gauge remains blocked until thresholds can be defended without weakening the route quality bar.",
+      "decisionSource": "manual_route_worker_review",
+      "routeSlugs": [
+        "cannon-river-riverside-miesville",
+        "cannon-river-byllesby-highway-61",
+        "cannon-river-wilderness-northfield",
+        "cannon-river-faribault-dundas"
+      ],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Cannon River"
+      ],
+      "blockers": [
+        "No defensible route-specific low/ideal/high threshold band is published for USGS 05355092.",
+        "Existing route packages rely on official MN DNR Welch interpretation bands; substituting raw 9th Street discharge without a validated conversion would weaken safety evidence."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05355092",
+          "note": "USGS provides live discharge, gage height, and stream-level telemetry at the Cannon 9th Street bridge."
+        },
+        {
+          "source": "https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf",
+          "note": "DNR Cannon Map 2 places the station in the lower-Cannon route corridor near Riverside and Miesville access points."
+        },
+        {
+          "source": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+          "note": "Official interpreted Cannon thresholds are published for the Welch station, not for the USGS 9th Street station."
+        }
+      ]
     },
     {
       "key": "usgs:05355200",
@@ -28387,17 +28776,33 @@
     },
     {
       "key": "usgs:05384800",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T17:03:00.000Z",
+      "decisionReason": "Campbell Creek near Money Creek is a small tributary gauge with only gage-height telemetry, no current discharge metric, no Minnesota DNR water-trail designation, and no public paddling endpoint package. It is screened out from route research rather than treated as a blocked route candidate.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "Only gage-height telemetry is available; no current discharge metric supports route thresholds.",
+        "No official water-trail or public endpoint package found for Campbell Creek near Money Creek."
+      ],
+      "evidence": [
+        {
+          "source": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05384800",
+          "note": "USGS current-conditions page shows gage-height-only telemetry for Campbell Creek near Money Creek."
+        },
+        {
+          "source": "https://pubs.usgs.gov/sir/2013/5110/sir2013-5110.pdf",
+          "note": "USGS peak-flow report identifies insufficient peak flows for station 05384800."
+        },
+        {
+          "source": "https://www.dnr.state.mn.us/state-water-trails/index.html",
+          "note": "Minnesota DNR state-water-trail system does not identify Campbell Creek as a supported water-trail route."
+        }
+      ]
     },
     {
       "key": "usgs:05385000",
@@ -31051,17 +31456,33 @@
     },
     {
       "key": "usgs:05457000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T17:35:00.000Z",
+      "decisionReason": "Existing Cedar River Austin-area scored routes cover the same official water-trail corridor with a direct DNR Austin gauge package; USGS 05457000 is the corresponding live discharge station and does not justify another duplicate route.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "cedar-river-ramsey-austin-mill-pond",
+        "cedar-river-austin-mill-pond-marcusen",
+        "cedar-river-marcusen-riverwood",
+        "cedar-river-riverwood-state-line"
+      ],
+      "scoredRouteSlugs": [
+        "cedar-river-ramsey-austin-mill-pond",
+        "cedar-river-austin-mill-pond-marcusen",
+        "cedar-river-marcusen-riverwood",
+        "cedar-river-riverwood-state-line"
+      ],
+      "routeFamilies": [
+        "Cedar River"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05457000/",
+        "https://www.dnr.state.mn.us/state-water-trails/cedar-river/index.html",
+        "src/data/routes/minnesota.ts"
+      ]
     },
     {
       "key": "usgs:05457440",

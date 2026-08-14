@@ -49,6 +49,16 @@ describe('operations orchestrator', () => {
     expect(order?.requiredGates).toContain('no destructive route change without explicit approval');
   });
 
+  it('keeps the geographic frontier ahead of consolidation and distant research', () => {
+    const order = selectNextWorkOrder([
+      task({ id: 'texas', kind: 'state_coverage', stateId: 'TX', frontierTier: 5, priority: 'critical' }),
+      task({ id: 'village-creek', kind: 'consolidation_review', priority: 'critical' }),
+      task({ id: 'minnesota', kind: 'state_coverage', stateId: 'MN', frontierTier: 0, priority: 'high' }),
+    ]);
+    expect(order?.taskId).toBe('minnesota');
+    expect(order?.workerRole).toBe('gauge-coverage');
+  });
+
   it('limits active consolidation reviews to two', () => {
     const order = selectNextWorkOrder([
       task({ id: 'active-a', kind: 'consolidation_review', lane: 'in_progress' }),

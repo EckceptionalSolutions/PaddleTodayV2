@@ -354,6 +354,32 @@ a {
   gap: 0.45rem;
 }
 
+.route-choice__eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.28rem;
+}
+
+.route-choice__recommended {
+  width: fit-content;
+  padding: 0.16rem 0.42rem;
+  border-radius: 999px;
+  background: rgba(225, 242, 232, 0.92);
+  color: #246247;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.route-choice__recommendation-reason {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 .river-route-picker__more-filters {
   width: fit-content;
   max-width: min(100%, 48rem);
@@ -23168,6 +23194,27 @@ html body.page-river-hub .route-faq__item .river-accordion__body p {
 
   html body.page-river-hub .river-route-picker__toolbar {
     padding: 0.72rem;
+  }
+
+  html body.page-river-hub .river-group-page__hero-facts .river-group-page__hero-fact:nth-child(n + 3) {
+    display: none;
+  }
+
+  html body.page-river-hub .river-route-picker__distance-filters {
+    flex-wrap: nowrap;
+    margin-inline: -0.1rem;
+    padding: 0.1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html body.page-river-hub .river-route-picker__distance-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  html body.page-river-hub .river-route-picker__distance-filters .filter-chip {
+    flex: 0 0 auto;
   }
 
   html body.page-river-hub .river-route-picker__sort {
