@@ -12,6 +12,7 @@ type Task = {
   summary: string;
   evidence?: string[];
   stateId?: string;
+  discoveryComplete?: boolean;
 };
 type Run = {
   id: string;
@@ -59,6 +60,7 @@ const dossiers = registry.canonicalStates.map((state) => {
   const taskIds = new Set(stateTasks.map((task) => task.id));
   const relevantRuns = runs.filter((run) => run.stateId === state.id || (run.taskId && taskIds.has(run.taskId)));
   const gaugeCoverage = computeStateGaugeCoverage(state.id, gaugeInventory, gaugeLedger);
+  const discoveryComplete = stateTasks.some((task) => task.lane === 'completed' && task.discoveryComplete === true);
 
   return {
     stateId: state.id,
@@ -66,7 +68,8 @@ const dossiers = registry.canonicalStates.map((state) => {
     gaugeInventoryId: gaugeInventory.inventoryId,
     gaugeInventoryScope: gaugeInventory.scope,
     gaugeCoverage,
-    researchStatus: gaugeResearchStatus(gaugeCoverage, 'not_started'),
+    discoveryComplete,
+    researchStatus: gaugeResearchStatus(gaugeCoverage, discoveryComplete ? 'saturated' : 'not_started', discoveryComplete),
     legacyRouteCoverage: {
       inventoryCount: routeRows.length,
       scoredCount: scoredRoutes.length,

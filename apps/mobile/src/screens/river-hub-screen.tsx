@@ -8,7 +8,7 @@ import {
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View, type GestureResponderEvent } from 'react-native';
+import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
@@ -40,7 +40,7 @@ import { colors, radius, shadow, spacing } from '../theme/tokens';
 
 const SORT_MODES = ['Best', 'Shortest', 'Easiest', 'Confidence'] as const;
 const DISTANCE_FILTERS: Array<{ value: HubDistanceFilter; label: string }> = [
-  { value: 'all', label: 'All routes' },
+  { value: 'all', label: 'Any length' },
   { value: 'under-5', label: 'Under 5 mi' },
   { value: '5-10', label: '5–10 mi' },
   { value: '10-plus', label: '10+ mi' },
@@ -296,7 +296,7 @@ export default function RiverHubScreen() {
                 <Text style={styles.kicker}>{result.group.stateSummary} · River guide</Text>
                 <Text style={styles.title}>{result.group.name}</Text>
                 <Text style={styles.subtitle}>
-                  {riverHubChoiceLine(result.group.routeCount, regions.length)} Compare distance, difficulty, and today’s conditions.
+                  {riverHubChoiceLine(result.group.routeCount, regions.length)} Compare paddle length, difficulty, and today’s conditions.
                 </Text>
                 <Text style={styles.routeCalls}>{hubStatusLine(summary, result.group.routeCount)}</Text>
               </View>
@@ -304,8 +304,8 @@ export default function RiverHubScreen() {
 
             <View style={styles.listIntro}>
               <Text style={styles.listIntroTitle}>Choose a route</Text>
-              <Text style={styles.listIntroSubtitle}>Start with distance, then narrow by difficulty or paddle area.</Text>
-              <DistanceSlider
+              <Text style={styles.listIntroSubtitle}>Start with paddle length, then narrow by difficulty or paddle area.</Text>
+              <PaddleLengthOptions
                 value={distanceFilter}
                 onChange={(value) => {
                   setDistanceFilter(value);
@@ -546,46 +546,25 @@ function ReasonChip({ label }: { label: string }) {
   );
 }
 
-function DistanceSlider({
+function PaddleLengthOptions({
   value,
   onChange,
 }: {
   value: HubDistanceFilter;
   onChange: (value: HubDistanceFilter) => void;
 }) {
-  const [trackWidth, setTrackWidth] = useState(280);
-  const selectedIndex = Math.max(0, DISTANCE_FILTERS.findIndex((option) => option.value === value));
-
-  function selectFromTrack(event: GestureResponderEvent) {
-    const index = Math.round((event.nativeEvent.locationX / trackWidth) * (DISTANCE_FILTERS.length - 1));
-    onChange(DISTANCE_FILTERS[Math.max(0, Math.min(DISTANCE_FILTERS.length - 1, index))].value);
-  }
-
   return (
-    <View style={styles.distanceSliderWrap}>
-      <View style={styles.distanceSliderHeader}>
-        <Text style={styles.filterLabel}>Distance</Text>
-        <Text style={styles.distanceSliderValue}>{DISTANCE_FILTERS[selectedIndex].label}</Text>
-      </View>
-      <Pressable
-        style={styles.distanceSlider}
-        onLayout={(event) => setTrackWidth(event.nativeEvent.layout.width)}
-        onPress={selectFromTrack}
-        accessibilityRole="adjustable"
-        accessibilityLabel="Route distance"
-        accessibilityValue={{ text: DISTANCE_FILTERS[selectedIndex].label }}
-        accessibilityHint="Tap along the track to choose a distance range"
-      >
-        <View style={styles.distanceSliderTrack} />
-        <View style={[styles.distanceSliderFill, { width: `${(selectedIndex / (DISTANCE_FILTERS.length - 1)) * 100}%` }]} />
-        {DISTANCE_FILTERS.map((option, index) => (
-          <View key={option.value} style={[styles.distanceSliderStep, { left: `${(index / (DISTANCE_FILTERS.length - 1)) * 100}%` }]} />
+    <View>
+      <Text style={styles.filterLabel}>Paddle length</Text>
+      <View style={styles.filterChips}>
+        {DISTANCE_FILTERS.map((option) => (
+          <FilterChip
+            key={option.value}
+            label={option.label}
+            selected={value === option.value}
+            onPress={() => onChange(option.value)}
+          />
         ))}
-        <View style={[styles.distanceSliderThumb, { left: `${(selectedIndex / (DISTANCE_FILTERS.length - 1)) * 100}%` }]} />
-      </Pressable>
-      <View style={styles.distanceSliderLabels}>
-        <Text style={styles.distanceSliderEndpoint}>All routes</Text>
-        <Text style={styles.distanceSliderEndpoint}>10+ mi</Text>
       </View>
     </View>
   );
@@ -1050,75 +1029,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     marginTop: spacing.sm,
-  },
-  distanceSliderWrap: {
-    marginTop: spacing.sm,
-    gap: 4,
-  },
-  distanceSliderHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  distanceSliderValue: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  distanceSlider: {
-    height: 34,
-    justifyContent: 'center',
-    position: 'relative',
-  },
-  distanceSliderTrack: {
-    position: 'absolute',
-    left: 8,
-    right: 8,
-    height: 5,
-    borderRadius: radius.pill,
-    backgroundColor: colors.border,
-  },
-  distanceSliderFill: {
-    position: 'absolute',
-    left: 8,
-    height: 5,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-  },
-  distanceSliderStep: {
-    position: 'absolute',
-    width: 9,
-    height: 9,
-    marginLeft: -4.5,
-    borderRadius: radius.pill,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 2,
-    borderColor: colors.accent,
-  },
-  distanceSliderThumb: {
-    position: 'absolute',
-    width: 22,
-    height: 22,
-    marginLeft: -11,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    borderWidth: 4,
-    borderColor: colors.surfaceStrong,
-    shadowColor: '#000',
-    shadowOpacity: 0.14,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 1 },
-    elevation: 2,
-  },
-  distanceSliderLabels: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 4,
-  },
-  distanceSliderEndpoint: {
-    color: colors.textMuted,
-    fontSize: 10,
-    fontWeight: '800',
   },
   filterChips: {
     flexDirection: 'row',

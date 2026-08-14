@@ -13,7 +13,8 @@ describe('operations snapshot', () => {
     const snapshot = getOperationsSnapshot();
     const minnesota = snapshot.states.find((state) => state.id === 'MN');
     expect(minnesota).toMatchObject({ scored: 145, planning: 113, legacySaturation: 'provisionally_saturated' });
-    expect(minnesota?.saturation).not.toBe('saturated');
+    expect(minnesota?.saturation).toBe('saturated');
+    expect(minnesota?.discoveryComplete).toBe(true);
     expect(snapshot.policy.planningRoutes).toBe('frozen_without_explicit_user_request');
     expect(snapshot.totals.scored + snapshot.totals.planning).toBe(snapshot.totals.inventory);
   });
@@ -44,7 +45,7 @@ describe('operations snapshot', () => {
     expect(Array.isArray(snapshot.controlPlane.recentClaims)).toBe(true);
     expect(snapshot.policy.completenessModel).toContain('gauge_network');
     expect(snapshot.policy.researchStrategy).toBe('geographic_frontier_then_completion_gap');
-    expect(snapshot.policy.activeFrontierState).toBe('MN');
+    expect(snapshot.policy.activeFrontierState).toBe('WI');
     expect(snapshot.totals.knownGauges).toBeGreaterThan(0);
     expect(snapshot.states.find((state) => state.id === 'MN')?.gaugeCoverage.knownGaugeCount).toBeGreaterThan(0);
     expect(snapshot.totals.gaugeReviewCoveragePercent).toBeGreaterThanOrEqual(0);

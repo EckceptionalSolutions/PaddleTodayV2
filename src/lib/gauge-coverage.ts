@@ -68,6 +68,8 @@ export interface StateGaugeCoverage {
   staleGaugeCount: number;
   routeCapableGaugeCount: number;
   uncoveredRouteCapableGaugeCount: number;
+  /** Route-capable gauges still needing research, excluding accepted blockers. */
+  unresolvedRouteCapableGaugeCount?: number;
   reviewCoveragePercent: number;
   routeCoveragePercent: number;
   routeFamilyCount: number;
@@ -160,6 +162,7 @@ export function computeStateGaugeCoverage(
     staleGaugeCount: reviews.filter((review) => review.status === 'stale_or_unsupported').length,
     routeCapableGaugeCount: routeCapable.length,
     uncoveredRouteCapableGaugeCount: routeCapable.filter((review) => review.status !== 'covered').length,
+    unresolvedRouteCapableGaugeCount: routeCapable.filter((review) => ['unreviewed', 'researching'].includes(review.status)).length,
     reviewCoveragePercent: eligible.length === 0 ? 0 : Math.round((reviewed.length / eligible.length) * 100),
     routeCoveragePercent: routeCapable.length === 0 ? 0 : Math.round((covered.length / routeCapable.length) * 100),
     routeFamilyCount: routeFamilies.size,
@@ -169,21 +172,23 @@ export function computeStateGaugeCoverage(
 export function gaugeResearchStatus(
   coverage: StateGaugeCoverage,
   saturation: string,
+  discoveryComplete = false,
 ) {
   if (!coverage.baselineComplete) return 'gauge_baseline_pending';
   if (coverage.eligibleGaugeCount > 0 && coverage.reviewedGaugeCount === 0) return 'inventory_ready';
   if (coverage.unreviewedGaugeCount > 0) return 'gauge_review_in_progress';
-  if (coverage.uncoveredRouteCapableGaugeCount > 0) return 'route_coverage_review';
+  if ((coverage.unresolvedRouteCapableGaugeCount ?? coverage.uncoveredRouteCapableGaugeCount) > 0) return 'route_coverage_review';
+  if (!discoveryComplete) return 'discovery_sweep_required';
   if (saturation === 'saturated' || saturation === 'provisionally_saturated') return 'saturated';
   return 'research_complete';
 }
 
-export function gaugeResearchPriorityScore(coverage: StateGaugeCoverage, saturation: string) {
-  const status = gaugeResearchStatus(coverage, saturation);
+export function gaugeResearchPriorityScore(coverage: StateGaugeCoverage, saturation: string, discoveryComplete = false) {
+  const status = gaugeResearchStatus(coverage, saturation, discoveryComplete);
   if (status === 'saturated') return -1;
   const baselinePenalty = coverage.baselineComplete ? 0 : 1_000_000;
   return baselinePenalty
-    + coverage.uncoveredRouteCapableGaugeCount * 3_000
+    + (coverage.unresolvedRouteCapableGaugeCount ?? coverage.uncoveredRouteCapableGaugeCount) * 3_000
     + coverage.unreviewedGaugeCount * 2_000
     + coverage.staleGaugeCount * 1_000
     + coverage.knownGaugeCount;

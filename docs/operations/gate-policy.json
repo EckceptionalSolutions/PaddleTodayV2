@@ -43,6 +43,7 @@
       "gauge_review_in_progress",
       "research_complete",
       "route_coverage_review",
+      "discovery_sweep_required",
       "saturated",
       "reopened"
     ],

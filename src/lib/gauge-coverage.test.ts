@@ -45,7 +45,8 @@ describe('gauge coverage', () => {
       routeCoveragePercent: 50,
       screenedOutGaugeCount: 1,
     });
-    expect(gaugeResearchStatus(coverage, 'not_started')).toBe('route_coverage_review');
+    expect(gaugeResearchStatus(coverage, 'not_started')).toBe('discovery_sweep_required');
+    expect(gaugeResearchStatus(coverage, 'not_started', true)).toBe('research_complete');
   });
 
   it('keeps seed inventories in baseline-pending status', () => {

@@ -1,5 +1,39 @@
 # Wisconsin Route Memory
 
+## 2026-08-14 America/Chicago Menominee / Peshtigo / Oconto gauge screen
+
+- Screened the next Wisconsin frontier batch claimed by `orchestrator-20260814222314`: `usgs:04066003`, `usgs:04067500`, `usgs:04069416`, `usgs:04069500`, and `usgs:04071000`.
+- Preserved the existing Menominee below Pemene Creek blocker: DNR documents recreation-area launches and reservable canoe campsites, and American Whitewater ties the gauge to Quiver/Pemene Falls, but the product still lacks a complete expert-whitewater, mandatory-portage, endpoint, camping-linkage, coordinate, image, and geometry package.
+- Menominee McAllister was blocked/route_capable: live USGS telemetry and bridge/boat-ramp context exist, but no selected lower-river route cleared Grand Rapids Dam/flowage safety handling, thresholds, endpoints, camping, coordinates, image, or geometry.
+- Peshtigo Porterfield and Peshtigo Harbor were blocked/route_capable: live gauges and access/canoe-trail context exist, but Porterfield lacks a selected route and the lower Peshtigo Harbor trail lacks scoreable numeric thresholds and complete below-dam safety/endpoint/camping/coordinate packages.
+- Oconto Gillett was blocked/route_capable: Wisconsin River Trips and Oconto County support paddling/access context, but current 318 cfs / 0.96 ft was far below WRT's single 970 cfs trip level and no defensible threshold floor/high band or current wood/access package cleared.
+- No route was added; no gallery audit row, trip details, route data, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed. Next Wisconsin rotation should resume after `usgs:04071000` unless the planner selects differently.
+
+## 2026-08-14 America/Chicago Lower Fox / Kewaunee / Milwaukee gauge screen
+
+- Screened the next Wisconsin frontier batch claimed by `orchestrator-20260814215327`: `usgs:04084445`, `usgs:040851385`, `usgs:04085200`, `usgs:040869416`, and `usgs:04087030`.
+- Lower Fox Appleton and Green Bay Oil Tank Depot gauges were blocked/route_capable: live USGS telemetry and corridor paddling evidence exist, but no selected scored segment cleared route-specific thresholds, endpoint coordinates, lock/dam or navigation safety, camping, image, and geometry gates.
+- Kewaunee River was blocked/route_capable: USGS `04085200` is live and public marina/harbor context exists, but Miles Paddled route evidence is negative for low water/deadfall/dam/estuary issues and no accepted threshold/access/camping/safety/coordinate package cleared.
+- Lincoln Creek Sherman Boulevard was screened out as not paddle-relevant for the current product model: live small urban creek telemetry exists, but evidence supports monitoring, cleanup, flood-management, and greenway context rather than a route-ready public paddling corridor.
+- Menomonee River at Menomonee Falls was blocked/route_capable: village paddle-launch/river-access context exists, but no station-specific route, threshold, camping, safety, coordinate, image, or geometry package cleared; existing Menomonee route coverage remains downstream around Hoyt Park/Wauwatosa with a different gauge.
+- No route was added; no gallery audit row, trip details, route data, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed. Next Wisconsin rotation should resume after `usgs:04087030`, with Milwaukee-area Little Menomonee / Underwood / Honey Creek records unless the planner selects differently.
+
+## 2026-08-14 America/Chicago Black / Stillwell / La Crosse / Silver gauge screen
+
+- Screened the next Wisconsin frontier batch claimed by `orchestrator-20260814212306`: `usgs:05382000`, `usgs:05382255`, `usgs:05382257`, `usgs:05382267`, and `usgs:05382284`. A concurrent metadata pass recorded `usgs:05382000` as blocked while this screen was in progress; this run preserved that durable Black River Galesville blocker and did not promote a duplicate lower-Black route.
+- Stillwell Creek `05382255` / `05382257` was screened out as not paddle-relevant for PaddleToday. Both gauges are live, but public evidence supports small-creek monitoring rather than a route-ready public paddling corridor with named endpoints, route thresholds, camping/access terms, safety package, coordinates, image, and geometry.
+- La Crosse River `05382267` at County Highway BB remains route-capable but blocked. Wisconsin River Trips and Monroe County evidence support paddling context near Fort McCoy/Angelo, but the candidate depends on an Angelo Pond dam portage and lacks manager-backed portage/safety instructions plus selected endpoint coordinates, route-specific thresholds, camping terms, rights-clean image decision, and canonical geometry.
+- Silver Creek `05382284` near Angelo was screened out as not paddle-relevant for the current product model. Live telemetry exists, but no supported point-to-point public route package surfaced for this small headwater/managed-area creek.
+- No route was added; no gallery audit row, trip details, route data, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed. Next Wisconsin rotation by remaining unreviewed inventory starts with `usgs:04024430`, `usgs:04026160`, `usgs:040263205`, `usgs:040265935`, and `usgs:040265981`, unless the planner cursor has already claimed later keys.
+
+## 2026-08-14 America/Chicago Apple / Ashwaubenon / lower Bad gauge screen
+
+- Screened the next Wisconsin frontier gauge batch after Minnesota showed no outstanding eligible gauges in the current ledger: `usgs:05341498`, `usgs:040850684`, `usgs:04085068`, `usgs:04027595`, and `usgs:04027655`.
+- Apple River Somerset remains route-capable but blocked for PaddleToday: USGS `05341498` is live and American Whitewater ties it to the Somerset park/play reach, but the public evidence supports a tubing / park-and-play feature rather than a complete point-to-point route with two public endpoints, route shape, camping legality, safety package, endpoint coordinates, geometry, and image decision. Same-run Water Services returned `225 cfs / 2.97 ft` at 2026-08-14 15:00 CDT.
+- Ashwaubenon Creek Grant Street and Little Rapids were screened out as not paddle-relevant for the current product model. The USGS gauges are current, but public evidence surfaced small urban creek monitoring and trail context rather than a credible public paddling route package. Same-run Water Services returned `3.11 cfs / 3.78 ft` at Grant Street and `0.98 cfs / 2.93 ft` at Little Rapids.
+- Lower Bad River Odanah remains blocked / unsupported. USGS `04027595` is route-capable in principle but requires explicit tribal/public access permission, selected endpoints, camping legality, thresholds, safety, coordinates, image, and geometry before promotion. USGS `04027655` at the mouth was marked stale_or_unsupported for PaddleToday scoring because same-run telemetry returned negative provisional discharge (`-326 cfs`) and USGS lists no daily data types. Bad River Band / GLITC visitor guidance requires tribal permission to navigate tribal waters.
+- No route was added; no gallery audit row, geometry, route coordinate, or trip-detail change was made. Next Wisconsin rotation should resume after these five durable dispositions, starting with the remaining Bad River cluster around `usgs:04026511` / `usgs:04027000` only if access-permission and route-package evidence can be resolved, then continue to Badger Mill Creek.
+
 ## 2026-07-27 America/Chicago Waupaca stale-gauge block
 
 - Removed `waupaca-river-county-q-brainards-bridge` from the canonical live route inventory; retained the inactive route and trip-detail records for a future gauge-backed reopening review.

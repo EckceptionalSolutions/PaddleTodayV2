@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T11:25:02.806Z",
+  "generatedAt": "2026-08-14T20:55:11.628Z",
   "policy": "gauge-network-completeness-with-bounded-discovery-before-saturation",
   "dossiers": [
     {
@@ -21,10 +21,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 12,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 7,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 9
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 51,
@@ -60,10 +62,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 5,
         "uncoveredRouteCapableGaugeCount": 1,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 2,
         "routeCoveragePercent": 80,
         "routeFamilyCount": 5
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 4,
@@ -99,10 +103,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 5,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 2,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 5
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 10,
@@ -138,10 +144,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 41,
         "uncoveredRouteCapableGaugeCount": 1,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 23,
         "routeCoveragePercent": 98,
         "routeFamilyCount": 27
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 131,
@@ -177,10 +185,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 3,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 1,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 1
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 11,
@@ -216,10 +226,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 23,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 11,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 20
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 136,
@@ -255,10 +267,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 4,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 2,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 4
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 6,
@@ -285,20 +299,22 @@
         "inventoryId": "provider-baseline-2026-08-14",
         "baselineComplete": true,
         "knownGaugeCount": 260,
-        "eligibleGaugeCount": 260,
-        "reviewedGaugeCount": 112,
-        "unreviewedGaugeCount": 148,
-        "coveredGaugeCount": 79,
-        "blockedGaugeCount": 29,
-        "screenedOutGaugeCount": 0,
-        "staleGaugeCount": 4,
-        "routeCapableGaugeCount": 112,
-        "uncoveredRouteCapableGaugeCount": 33,
-        "reviewCoveragePercent": 43,
-        "routeCoveragePercent": 71,
+        "eligibleGaugeCount": 234,
+        "reviewedGaugeCount": 234,
+        "unreviewedGaugeCount": 0,
+        "coveredGaugeCount": 83,
+        "blockedGaugeCount": 138,
+        "screenedOutGaugeCount": 26,
+        "staleGaugeCount": 13,
+        "routeCapableGaugeCount": 234,
+        "uncoveredRouteCapableGaugeCount": 151,
+        "unresolvedRouteCapableGaugeCount": 0,
+        "reviewCoveragePercent": 100,
+        "routeCoveragePercent": 35,
         "routeFamilyCount": 43
       },
-      "researchStatus": "gauge_review_in_progress",
+      "discoveryComplete": true,
+      "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 258,
         "scoredCount": 145,
@@ -306,6 +322,12 @@
         "scoredCoveragePercent": 56
       },
       "discoveryTasks": [
+        {
+          "id": "mn-gauge-review-batch",
+          "lane": "completed",
+          "summary": "Minnesota provider-baseline gauges are fully adjudicated and the bounded official-trail discovery sweep is complete. Route-capable gauges without direct scored routes remain explicit accepted blockers; reopen only for a refreshed inventory or materially new evidence.",
+          "evidenceCount": 49
+        },
         {
           "id": "mn-planning-to-scored-audit",
           "lane": "completed",
@@ -323,88 +345,165 @@
           "lane": "completed",
           "summary": "Reviewed the strongest remaining official Otter Tail candidate; it remains planning-only because its product-supported gauge is a downstream proxy. Minnesota is provisionally saturated under the current policy.",
           "evidenceCount": 2
+        },
+        {
+          "id": "mn-fresh-discovery-sweep-20260814",
+          "lane": "completed",
+          "summary": "Completed a finite sweep of official Minnesota DNR state-water-trail families not represented as scored route families: Blue Earth is blocked by the Rapidan dam-adjacent gauge and safety constraints; Cottonwood and Shell Rock have strong corridor evidence but only proxy gauge models; Lake Superior is outside discharge-gauge scoring because marine conditions govern safety. No new scored route was added; Minnesota remains open while provider-baseline gauges are adjudicated.",
+          "evidenceCount": 9
         }
       ],
       "recentEvidenceRuns": [
         {
-          "id": "orchestrator-20260806024137",
+          "id": "orchestrator-20260814202959",
           "kind": "orchestrator_plan",
-          "startedAt": "2026-08-06T02:41:37.172Z",
+          "startedAt": "2026-08-14T20:29:59.982Z",
           "status": "planned",
-          "taskId": "mn-planning-to-scored-audit",
-          "workerRole": "state-coverage",
-          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05353800"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
         },
         {
-          "id": "orchestrator-20260806114359",
+          "id": "orchestrator-20260814203051",
           "kind": "orchestrator_plan",
-          "startedAt": "2026-08-06T11:43:59.036Z",
+          "startedAt": "2026-08-14T20:30:51.377Z",
           "status": "planned",
-          "taskId": "mn-direct-gauge-provider-recheck",
-          "workerRole": "state-coverage",
-          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05353800"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
         },
         {
-          "id": "route-worker-20260806192734",
-          "kind": "route_provider_recheck",
-          "startedAt": "2026-08-06T19:27:34.000Z",
-          "completedAt": "2026-08-06T19:27:34.000Z",
-          "status": "blocked",
-          "taskId": "mn-direct-gauge-provider-recheck",
-          "workerRole": "route-implementation",
-          "summary": "Rechecked six Minnesota unavailable-direct planning candidates. No route added: DNR 179 and 280 remain stale, USGS 04021960 has no current series, and DNR 341 is fresh but remains blocked by the current Stump Lake gauge-applicability gate."
-        },
-        {
-          "id": "route-worker-20260806202734",
-          "kind": "route_planning_review",
-          "startedAt": "2026-08-06T20:27:34.000Z",
-          "completedAt": "2026-08-06T20:27:34.000Z",
-          "status": "blocked",
-          "taskId": "mn-planning-to-scored-audit",
-          "workerRole": "route-implementation",
-          "routeSlug": "redwood-river-vesta-wabasso",
-          "summary": "Reviewed Minnesota planning route redwood-river-vesta-wabasso for direct-gauge promotion. No route was added or promoted: official DNR/public-access evidence remains strong for Vesta WAS02156 to Wabasso WAS00004, but all product-supported live Redwood River gauges are outside the selected reach. MN DNR sites 194 and 195 / USGS 05315000 are upstream near Russell/Marshall; MN DNR site 196 / USGS 05316500 is downstream near Redwood Falls at river mile 9.3 below the Wabasso river-mile 13.3 take-out. Keep the card planning-only until a reach-direct gauge or deliberate product policy for proxy-scored planning routes exists."
-        },
-        {
-          "id": "route-worker-20260806212916",
-          "kind": "route_planning_review",
-          "startedAt": "2026-08-06T21:29:16.000Z",
-          "completedAt": "2026-08-06T21:29:16.000Z",
-          "status": "blocked",
-          "taskId": "mn-planning-to-scored-audit",
-          "workerRole": "route-implementation",
-          "routeSlug": "north-fork-zumbro-river-covered-bridge-walking-bridge",
-          "summary": "Reviewed Minnesota planning route north-fork-zumbro-river-covered-bridge-walking-bridge for direct-gauge promotion. No route was added or promoted: official DNR/public-access evidence remains strong for Covered Bridge Park WAS02181 at river mile 69.6 to Walking Bridge Park WAS02184 at river mile 60.1, but the only product-supported live North Fork Zumbro gauge is MN DNR site 311 at river mile 54.7 downstream of the take-out. Keep the card planning-only until a reach-direct gauge or deliberate product policy for proxy-scored planning routes exists."
-        },
-        {
-          "id": "orchestrator-20260806222500",
+          "id": "orchestrator-20260814203421",
           "kind": "orchestrator_plan",
-          "startedAt": "2026-08-06T22:25:00.863Z",
+          "startedAt": "2026-08-14T20:34:21.437Z",
           "status": "planned",
-          "taskId": "mn-final-bounded-discovery-sweep",
-          "workerRole": "state-coverage",
-          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05243725"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
         },
         {
-          "id": "route-worker-20260806223046",
-          "kind": "route_planning_review",
-          "startedAt": "2026-08-06T22:30:46.000Z",
-          "completedAt": "2026-08-06T22:30:46.000Z",
-          "status": "blocked",
-          "taskId": "mn-planning-to-scored-audit",
-          "workerRole": "route-implementation",
-          "routeSlug": "big-fork-river-highway-6-north-johnson",
-          "summary": "Reviewed Minnesota planning route big-fork-river-highway-6-north-johnson for direct-gauge promotion. No route was added or promoted: MN DNR Map 2 and public-water-access GIS support Highway 6 North WAS01792 at river mile 75.8 to Johnson WAS02708 at river mile 67.5, and Craigsville site 281 was fresh at 4.85 ft on 2026-08-06 15:00 CDT with official 4.0 / 4.5-8.5 / 9.5 ft bands, but the gauge is upstream at river mile 91.6 rather than inside the reviewed reach. Keep the card planning-only for scored-route accounting until a reach-direct gauge or deliberate proxy-publication policy exists."
+          "id": "orchestrator-20260814203542",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:35:42.266Z",
+          "status": "planned",
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05345000"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
         },
         {
-          "id": "orchestrator-20260806223400",
-          "kind": "orchestrator_saturation_decision",
-          "startedAt": "2026-08-06T22:34:00.000Z",
-          "completedAt": "2026-08-06T22:34:00.000Z",
-          "status": "completed",
-          "taskId": "mn-final-bounded-discovery-sweep",
+          "id": "orchestrator-20260814203722",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:37:22.336Z",
+          "status": "planned",
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05319500"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260814203856",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:38:56.293Z",
+          "status": "planned",
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05293000"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260814204027",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:40:27.143Z",
+          "status": "planned",
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05313500"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260814204159",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:41:59.787Z",
+          "status": "planned",
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "route-worker-202608141745-mn-fresh-discovery-sweep",
+          "kind": "state_discovery_sweep",
+          "startedAt": "2026-08-14T17:45:00-05:00",
+          "completedAt": "2026-08-14T17:51:00-05:00",
+          "status": "completed_no_add",
+          "taskId": "mn-fresh-discovery-sweep-20260814",
           "workerRole": "state-coverage",
-          "summary": "Final bounded Minnesota sweep reviewed the official Otter Tail Wannigan Road to Riverside Park candidate. No route cleared the direct-gauge scored publication gate; Minnesota is provisionally saturated at 145 scored routes with 113 planning candidates explicitly excluded."
+          "stateId": "MN",
+          "discoveryScope": [
+            "Blue Earth River",
+            "Cottonwood River",
+            "Shell Rock River",
+            "Lake Superior State Water Trail"
+          ],
+          "candidateOutcomes": {
+            "Blue Earth River": "blocked",
+            "Cottonwood River": "blocked",
+            "Shell Rock River": "blocked",
+            "Lake Superior State Water Trail": "screened_out"
+          },
+          "routeAdded": false,
+          "summary": "Finite official-trail sweep completed. No candidate met the direct gauge, public endpoint, safety, and threshold bar for a new scored route. Minnesota provider-baseline review remains the next work frontier.",
+          "validation": {
+            "required": true,
+            "command": "npm run operations:verify",
+            "status": "passed"
+          }
+        },
+        {
+          "id": "orchestrator-20260814205132",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:51:32.460Z",
+          "status": "planned",
+          "taskId": "mn-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "MN",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
         }
       ],
       "doneOnlyWhen": [
@@ -433,10 +532,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 20,
         "uncoveredRouteCapableGaugeCount": 2,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 8,
         "routeCoveragePercent": 90,
         "routeFamilyCount": 12
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 77,
@@ -472,10 +573,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 2,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 1,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 2
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 9,
@@ -557,10 +660,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 3,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 2,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 3
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 7,
@@ -596,10 +701,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 7,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 2,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 7
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 11,
@@ -635,10 +742,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 11,
         "uncoveredRouteCapableGaugeCount": 3,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 3,
         "routeCoveragePercent": 73,
         "routeFamilyCount": 5
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 47,
@@ -674,10 +783,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 5,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 3,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 3
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 12,
@@ -816,10 +927,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 3,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 2,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 3
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 4,
@@ -855,10 +968,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 37,
         "uncoveredRouteCapableGaugeCount": 2,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 5,
         "routeCoveragePercent": 95,
         "routeFamilyCount": 19
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 80,
@@ -876,54 +991,11 @@
         {
           "id": "tx-bounded-discovery-sweep",
           "lane": "ready",
-          "summary": "Continue Texas only with genuinely fresh manager-backed point-to-point reaches; Aug. 14 current-source pass found no qualifying candidate outside duplicates, closures, single-access, and placeholder-threshold blockers.",
-          "evidenceCount": 375
+          "summary": "Preserve Texas only for genuinely fresh manager-backed point-to-point reaches; latest route-worker pass found only access, threshold, camping, safety, coordinate, and dam-hazard blockers.",
+          "evidenceCount": 389
         }
       ],
       "recentEvidenceRuns": [
-        {
-          "id": "route-worker-202608131756-texas-official-recheck-no-add",
-          "kind": "route_worker",
-          "startedAt": "2026-08-13T22:53:00.000Z",
-          "completedAt": "2026-08-13T23:00:31.877Z",
-          "status": "blocked_no_route_added_validation_passed",
-          "taskId": "tx-bounded-discovery-sweep",
-          "workerRole": "route-implementation",
-          "summary": "Screened five Texas official/source-backed recheck candidates across Sabine, Neches, lower Guadalupe/Victoria, South Llano, and Brazos. No route was added because all candidates failed stale-discharge, missing-threshold, duplicate/saturation, or access-closure gates before implementation.",
-          "candidatesScreened": [
-            {
-              "candidateId": "tx-sabine-sandbar-fm2517-yellow-dog-stale-discharge-20260813-1756",
-              "status": "blocked_stale_product_discharge",
-              "blocker": "TPWD still publishes the Sabine Sandbar route family with FM 2517, McFadden Landing, and Yellow Dog endpoint coordinates plus 15-, 19-, and 4-mile route options, but USGS 08022120 again returned current stage only while discharge remained stale at 7250 cfs from 2025-07-01. Upstream Beckville 08022040 was current at 131 cfs / 6.77 ft, below the broad 300 cfs Sabine floor previously used for screening and not an accepted substitute for the Carthage Sandbar route."
-            },
-            {
-              "candidateId": "tx-neches-davy-crockett-anderson-sh7-threshold-20260813-1756",
-              "status": "blocked_missing_route_specific_threshold",
-              "blocker": "TPWD publishes a 9.2-mile Anderson Crossing-to-SH 7 public route with endpoint coordinates and float times, and USGS 08032700 / 08033000 returned current discharge. Publication remains blocked because no durable route-specific numeric paddling threshold tied to the selected Davy Crockett gauge package surfaced."
-            },
-            {
-              "candidateId": "tx-victoria-chisholm-nursery-riverside-threshold-20260813-1756",
-              "status": "blocked_missing_section_threshold",
-              "blocker": "TPWD publishes the Victoria Paddling Trail sections and access coordinates, including the 13.1-mile Chisholm Trail section, and USGS 08176500 was product-live at Victoria. The candidate remains blocked because no section-specific numeric threshold tied to the Victoria gauge surfaced; older Gonzales-to-Victoria / Cuero-gauge guidance is still not accepted for this route/gauge package."
-            },
-            {
-              "candidateId": "tx-south-llano-cr150-state-park-duplicate-recheck-20260813-1756",
-              "status": "blocked_duplicate_saturated_chain",
-              "blocker": "TPWD / prior source material supports the County Road 150-to-State-Park reach and USGS 08150000 was live at 230 cfs / 1.19 ft, but Texas memory treats South Llano as saturated at five live slugs and the CR150-to-State-Park connector is contained in the existing South Llano coverage. A new card would duplicate the shipped chain without a materially distinct access, camping, safety, image, coordinate, or geometry package."
-            },
-            {
-              "candidateId": "tx-brazos-old-settlement-cr849-closure-recheck-20260813-1756",
-              "status": "blocked_current_access_closure",
-              "blocker": "TPWD still documents Old Settlement Passage as a 10.4-mile Brazos River route from Bells Landing to CR 849, but the current route family remains blocked because CR 849 is not accessible while flood-damage rebuilding is pending. The take-out closure fails the access gate before camping, image, coordinate, geometry, gauge, or threshold work can be promoted."
-            }
-          ],
-          "routeAdded": null,
-          "validation": {
-            "status": "passed",
-            "gatekeeperId": "gatekeeper-20260813230031",
-            "detail": "No route data, trip details, geometry, coordinate package, camping package, safety package, or image audit row changed. JSON parse, routes:audit, gallery:audit, routes:safety:audit, routes:geometries:audit, routes:audit:overlap, typecheck:routes, full typecheck, production build, and operations:verify passed. Route overlap audit reported existing findings but exited successfully. Route-scoped coordinate audit and routes:geometries:generate were skipped because no route endpoints or canonical geometry changed."
-          }
-        },
         {
           "id": "supervisor-20260813T230244Z",
           "kind": "route_worker_supervisor",
@@ -1750,6 +1822,186 @@
             "gatekeeperId": "gatekeeper-20260814111141"
           },
           "gatekeeperId": "gatekeeper-20260814111141"
+        },
+        {
+          "id": "route-worker-202608140756-texas-current-recheck-no-add",
+          "automationId": "paddletoday-hourly-route-worker",
+          "role": "route-worker",
+          "taskId": "tx-bounded-discovery-sweep",
+          "state": "TX",
+          "status": "blocked_no_route_added_validation_passed",
+          "startedAt": "2026-08-14T13:00:02.064Z",
+          "localRunTime": "2026-08-14 07:56 CDT",
+          "routeAdded": false,
+          "slug": null,
+          "candidatesScreened": [
+            {
+              "id": "tx-upper-middle-brazos-hwy16-fm4-current-20260814-0756",
+              "name": "Brazos River: Hwy 16 Bridge to FM 4 at Dark Valley Creek",
+              "status": "blocked_public_endpoint_camping_coordinate_package",
+              "blocker": "TRPA supports the 19.5-mile Hwy 16-to-FM 4 route with a 150 cfs minimum, and same-run USGS checks were marginally above that floor at Graford and Palo Pinto. The route still fails implementation because no public-manager package surfaced for normal water-entry/parking coordinates at both endpoints, explicit legal camping/no-camping terms, and route-grade safety/access limitations; TRPA canoe-camping language was not treated as legal camping permission.",
+              "gaugeEvidence": "USGS 08088610 Brazos River near Graford: 219 cfs / 65.90 ft at 2026-08-14 07:00 CDT; USGS 08089000 Brazos River near Palo Pinto: 161 cfs / 1.48 ft at 2026-08-14 07:30 CDT.",
+              "thresholdEvidence": "TRPA quick info lists 150 cfs minimum, 225-1,500 cfs ideal, and 5,000 cfs maximum. Current flow clears the minimum at both checked gauges but does not cure access/camping/coordinate gates.",
+              "campingEvidence": "No legal route camping package promoted. TRPA mentions canoe camping/scenic campsites, but no official public camping rules, permit terms, bank/island legality, or no-camping decision surfaced for the route.",
+              "safetyEvidence": "Long remote I-II reach with cliffs, dark-sky/overnight context, variable release/drought conditions, and private-bank/access uncertainty requires a source-backed package before publication.",
+              "imageDecision": "No image-audit row added because the route failed access/camping/coordinate gates before implementation.",
+              "geometryDecision": "No canonical route geometry generated because no route package was accepted.",
+              "coordinateDecision": "No endpoint coordinate package promoted; access anchors were not converted into water-entry points without manager-backed parking/egress and arrival-offset evidence.",
+              "sources": [
+                "https://txrivers.org/discover-texas-rivers/brazos-river/upper-middle-brazos-hwy-16-to-hwy-4-19-5-miles/",
+                "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08088610,08089000,08091000,08091500,08447300,08192000&period=P1D&parameterCd=00060,00065&siteStatus=all"
+              ],
+              "nextAction": "Retry only if fresh manager/public evidence supplies normal endpoint water-entry/parking coordinates, explicit camping/no-camping rules, and a complete safety package while live gauges remain above the TRPA floor."
+            },
+            {
+              "id": "tx-middle-brazos-hwy67-brazos-point-current-20260814-0756",
+              "name": "Brazos River: Hwy 67 Bridge to Brazos Point FM 1118",
+              "status": "blocked_below_floor_public_access_camping_package",
+              "blocker": "TRPA supports the 16-mile route and lists a 50 cfs minimum / 100-1,500 cfs ideal / 5,000 cfs maximum, but same-run USGS 08091000 was only 13.1 cfs. The route also still depends on mixed private/outfitter access and gravel-bar camping language rather than a manager-grade endpoint, parking, water-entry, camping/no-camping, and safety package.",
+              "gaugeEvidence": "USGS 08091000 Brazos River near Glen Rose: 13.1 cfs / 4.02 ft at 2026-08-14 07:00 CDT.",
+              "thresholdEvidence": "Current flow is below the TRPA 50 cfs floor for the Hwy 67-to-Brazos Point route.",
+              "campingEvidence": "No legal route camping promoted; TRPA gravel-bar campsite language did not provide official public camping rules or no-camping terms.",
+              "safetyEvidence": "Very low water, inconsistent dam releases, private/outfitter access dependency, tire/debris context, and Lake Whitney slowdown remain unresolved route-package hazards.",
+              "imageDecision": "No image-audit row added because the route failed below-floor and package gates.",
+              "geometryDecision": "No canonical route geometry generated because no route was implemented.",
+              "coordinateDecision": "No endpoint coordinate package promoted because flow and access/camping gates failed before coordinate validation.",
+              "sources": [
+                "https://txrivers.org/discover-texas-rivers/brazos-river/hwy-67-to-brazos-point-fm-1118-ver-2-16-miles/",
+                "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08088610,08089000,08091000,08091500,08447300,08192000&period=P1D&parameterCd=00060,00065&siteStatus=all"
+              ],
+              "nextAction": "Retry only if USGS 08091000 clears the 50 cfs floor and a public manager or durable source provides complete public endpoint/camping/safety terms."
+            },
+            {
+              "id": "tx-paluxy-cr1008-glen-rose-current-20260814-0756",
+              "name": "Paluxy River: CR 1008 roadside ledge to Heritage Park / Glen Rose",
+              "status": "blocked_below_floor_access_dam_safety_package",
+              "blocker": "TRPA supports the 9-mile CR 1008-to-Heritage Park route with a 100 cfs minimum and a required take-out before Big Rocks Park Dam, but same-run USGS 08091500 was only 2.65 cfs. The CR 1008 roadside ledge / Heritage Park package also still needs manager-grade launch, take-out, arrival-offset, camping/no-camping, and dam no-extension evidence before publication.",
+              "gaugeEvidence": "USGS 08091500 Paluxy River at Glen Rose: 2.65 cfs / 1.73 ft at 2026-08-14 07:00 CDT.",
+              "thresholdEvidence": "Current flow is far below TRPA quick-info thresholds: 100 cfs minimum, 1,000-1,500 cfs ideal, 3,000 cfs maximum.",
+              "campingEvidence": "No route camping promoted; Glen Rose parks and nearby facilities were not treated as legal overnight route-camping evidence.",
+              "safetyEvidence": "Below-floor conditions plus mandatory take-out before Big Rocks Park Dam make the no-extension safety package decisive before any route could ship.",
+              "imageDecision": "No image-audit row added because the route failed current-flow and safety/package gates.",
+              "geometryDecision": "No canonical route geometry generated because no route was implemented.",
+              "coordinateDecision": "No endpoint coordinate package promoted because flow/access/dam-safety gates failed before coordinate validation.",
+              "sources": [
+                "https://txrivers.org/discover-texas-rivers/brazos-river/paluxy-river-2-9-miles/",
+                "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08088610,08089000,08091000,08091500,08447300,08192000&period=P1D&parameterCd=00060,00065&siteStatus=all"
+              ],
+              "nextAction": "Retry only after USGS 08091500 clears the 100 cfs floor and manager-grade public endpoint, camping/no-camping, and dam-safety evidence is available."
+            },
+            {
+              "id": "tx-lower-pecos-pandale-us90-current-20260814-0756",
+              "name": "Lower Pecos River: Pandale Crossing to Pass Through Cave / US 90 High Bridge",
+              "status": "blocked_below_floor_expedition_camping_takeout_package",
+              "blocker": "TRPA supports the classic 50-to-59-mile Lower Pecos expedition with a 125 cfs minimum / 200-800 cfs ideal / 2,000 cfs maximum, but same-run USGS 08447300 was only 56.8 cfs. The route also remains outside the product package until tow-out or US 90 take-out logistics, legal camping/Leave No Trace/no-trespass terms, water supply, bacterial/salt, side-canyon, and remote-rescue safety evidence are fully modeled.",
+              "gaugeEvidence": "USGS 08447300 Pecos River at Brotherton Ranch near Pandale: 56.8 cfs / 5.86 ft at 2026-08-14 07:00 CDT.",
+              "thresholdEvidence": "Current flow is below TRPA Lower Pecos minimum of 125 cfs and below the 200-800 cfs ideal band.",
+              "campingEvidence": "No legal route camping promoted; TRPA expedition/camp language is paired with do-not-trespass and Leave No Trace context, but no product-ready official camping rule package was assembled.",
+              "safetyEvidence": "Remote Class II-IV expedition, headwinds/lake tow-out, water scarcity, alkaline/salt conditions, bacterial infection risk, rock-art/site sensitivity, and trespass concerns remain high-consequence gates.",
+              "imageDecision": "No image-audit row added because the route failed current-flow and expedition-package gates.",
+              "geometryDecision": "No canonical route geometry generated because no route was implemented.",
+              "coordinateDecision": "No endpoint coordinate package promoted because current-flow and take-out/tow/camping/safety gates failed before coordinate validation.",
+              "sources": [
+                "https://txrivers.org/discover-texas-rivers/lower-pecos-river/",
+                "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08088610,08089000,08091000,08091500,08447300,08192000&period=P1D&parameterCd=00060,00065&siteStatus=all"
+              ],
+              "nextAction": "Retry only if Pandale flow clears 125 cfs and a complete public access, tow/take-out, camping legality, image, coordinate, geometry, and expedition safety package is ready."
+            },
+            {
+              "id": "tx-nueces-tx55-chalk-bluff-current-20260814-0756",
+              "name": "Nueces River: TX 55 north of Uvalde to Chalk Bluff Park",
+              "status": "blocked_below_floor_public_putin_camping_package",
+              "blocker": "TRPA supports the Nueces route family with TX 55 and Chalk Bluff Park access references and a 75 cfs minimum / 150-500 cfs ideal / 2,000 cfs maximum, but same-run USGS 08192000 was only 16.2 cfs. Chalk Bluff has developed camping context, but the route still lacks a manager-grade TX 55 public put-in/water-entry package and official route camping/no-camping terms for the full point-to-point reach.",
+              "gaugeEvidence": "USGS 08192000 Nueces River below Uvalde: 16.2 cfs / 1.90 ft at 2026-08-14 07:30 CDT.",
+              "thresholdEvidence": "Current flow is below the TRPA Nueces-family 75 cfs minimum and far below the 150-500 cfs ideal band.",
+              "campingEvidence": "Chalk Bluff has developed camping context, but no legal route-camping package was promoted because the public TX 55 put-in and full-route camping/no-camping terms remain unresolved.",
+              "safetyEvidence": "Very low-water conditions, private-bank/access uncertainty, bluff/channel hazards, and July 2026 regional flooding context require fresh route-grade safety evidence before publication.",
+              "imageDecision": "No image-audit row added because the route failed current-flow and endpoint/camping package gates.",
+              "geometryDecision": "No canonical route geometry generated because no route was implemented.",
+              "coordinateDecision": "No endpoint coordinate package promoted because flow and public-put-in/camping gates failed before coordinate validation.",
+              "sources": [
+                "https://txrivers.org/discover-texas-rivers/nueces-river/",
+                "https://tpwd.texas.gov/huntwild/wildlife/wildlife-trails/hotw/nueces-loop",
+                "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08088610,08089000,08091000,08091500,08447300,08192000&period=P1D&parameterCd=00060,00065&siteStatus=all"
+              ],
+              "nextAction": "Retry only if USGS 08192000 clears 75 cfs and a public manager supplies TX 55 put-in coordinates/terms plus full-route camping/no-camping and safety evidence."
+            }
+          ],
+          "validation": {
+            "status": "passed",
+            "gatekeeperId": "gatekeeper-20260814130247",
+            "commands": [
+              {
+                "command": "node -e JSON.parse required operations files",
+                "status": "passed",
+                "detail": "Parsed tasks, state registry, gate policy, runs, Minnesota saturation audit, and route candidate ledger."
+              },
+              {
+                "command": "npm run routes:audit",
+                "status": "passed",
+                "detail": "Route data audit passed for 785 routes."
+              },
+              {
+                "command": "npm run gallery:audit",
+                "status": "passed",
+                "detail": "Gallery image audit passed for 325 images."
+              },
+              {
+                "command": "npm run routes:safety:audit",
+                "status": "passed",
+                "detail": "Route safety audit generated 0 issues for 785 routes."
+              },
+              {
+                "command": "npm run routes:geometries:audit",
+                "status": "passed",
+                "detail": "Canonical geometry audit passed: 951/952 routes matched; no route was added, so geometry generation was skipped."
+              },
+              {
+                "command": "npm run routes:audit:overlap",
+                "status": "passed_with_existing_findings",
+                "detail": "Route overlap audit completed with existing full-dataset findings and no new route-specific overlap."
+              },
+              {
+                "command": "npm run routes:audit:coordinates",
+                "status": "passed_with_existing_backlog",
+                "detail": "Audited 2428 endpoints across 1032 routes; retained known repo-wide backlog of 38 failures and 5 unknowns; no Texas endpoint changed."
+              },
+              {
+                "command": "npm run typecheck:routes",
+                "status": "passed"
+              },
+              {
+                "command": "npm run typecheck",
+                "status": "passed",
+                "detail": "Full typecheck passed, including design tokens, public scripts, DRY invariants, route data, and mobile typecheck."
+              },
+              {
+                "command": "npm run build",
+                "status": "passed",
+                "detail": "Production build completed and generated 1130 pages."
+              },
+              {
+                "command": "npm run operations:verify",
+                "status": "passed",
+                "detail": "gatekeeper-20260814130247 passed all required merge gates."
+              },
+              {
+                "command": "git diff --check",
+                "status": "passed_with_line_ending_warnings",
+                "detail": "No whitespace errors; Git reported LF-to-CRLF warnings only."
+              }
+            ]
+          },
+          "notes": "No route was implemented because all five current-sensitive TRPA/live-gauge candidates failed current-flow, access, camping, safety, coordinate, image, or geometry gates before implementation. Minnesota remained provisionally saturated; no paused route-addition automation was used.",
+          "type": "automation_run",
+          "kind": "route_worker_no_add",
+          "workerRole": "route-worker",
+          "addedSlug": null,
+          "workOrder": "tx-bounded-discovery-sweep",
+          "planNote": "operations:plan selected overlap-review-9f79f9e8998f for independent-verifier work during this run; route worker did not claim that WIP and stayed scoped to Texas route research.",
+          "summary": "Screened five current Texas TRPA/live-gauge recheck candidates and added no route because current-flow, public endpoint, camping, safety, coordinate, image, and geometry gates blocked publication. Validation passed via gatekeeper-20260814130247.",
+          "completedAt": "2026-08-14T13:03:46.924Z",
+          "gatekeeperId": "gatekeeper-20260814130247"
         }
       ],
       "doneOnlyWhen": [
@@ -1778,10 +2030,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 4,
         "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 2,
         "routeCoveragePercent": 100,
         "routeFamilyCount": 4
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 5,
@@ -2044,10 +2298,12 @@
         "staleGaugeCount": 0,
         "routeCapableGaugeCount": 68,
         "uncoveredRouteCapableGaugeCount": 10,
+        "unresolvedRouteCapableGaugeCount": 0,
         "reviewCoveragePercent": 33,
         "routeCoveragePercent": 85,
         "routeFamilyCount": 57
       },
+      "discoveryComplete": false,
       "researchStatus": "gauge_review_in_progress",
       "legacyRouteCoverage": {
         "inventoryCount": 173,
@@ -2055,8 +2311,58 @@
         "planningCount": 48,
         "scoredCoveragePercent": 72
       },
-      "discoveryTasks": [],
-      "recentEvidenceRuns": [],
+      "discoveryTasks": [
+        {
+          "id": "wi-gauge-review-batch",
+          "lane": "ready",
+          "summary": "Wisconsin is the next Upper Midwest frontier after Minnesota. Review the frozen provider-baseline gauges in bounded batches, preserve direct/proxy relationships, and only promote routes that clear endpoint, threshold, safety, camping, coordinate, image, and geometry gates.",
+          "evidenceCount": 3
+        }
+      ],
+      "recentEvidenceRuns": [
+        {
+          "id": "orchestrator-20260814205254",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:52:54.135Z",
+          "status": "planned",
+          "taskId": "wi-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "WI",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05341498"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260814205317",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:53:17.519Z",
+          "status": "planned",
+          "taskId": "wi-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "WI",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05341498"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260814205416",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-14T20:54:16.476Z",
+          "status": "planned",
+          "taskId": "wi-gauge-review-batch",
+          "workerRole": "gauge-coverage",
+          "stateId": "WI",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:05341498"
+          ],
+          "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        }
+      ],
       "doneOnlyWhen": [
         "provider-wide gauge inventory frozen and fully adjudicated",
         "every route-capable gauge is covered or has an accepted blocker",

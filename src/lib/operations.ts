@@ -22,6 +22,7 @@ type Task = {
   stateId?: string;
   inventoryId?: string;
   gaugeKeys?: string[];
+  discoveryComplete?: boolean;
 };
 
 type OverlapReviewItem = {
@@ -75,6 +76,7 @@ export function rankGaugeStateCoverage<T extends {
   planning: number;
   saturation: string;
   gaugeCoverage: StateGaugeCoverage;
+  discoveryComplete?: boolean;
   frontierTier?: number;
   frontierLabel?: string;
 }>(states: T[]) {
@@ -82,10 +84,11 @@ export function rankGaugeStateCoverage<T extends {
     .map((state) => {
       const legacyTotal = state.scored + state.planning;
       const legacyCoveragePercent = legacyTotal === 0 ? 0 : Math.round((state.scored / legacyTotal) * 100);
-      const researchStatus = gaugeResearchStatus(state.gaugeCoverage, state.saturation);
+      const researchStatus = gaugeResearchStatus(state.gaugeCoverage, state.saturation, state.discoveryComplete === true);
       const done = researchStatus === 'saturated';
       const frontierTier = state.frontierTier ?? 99;
-      const completionGap = state.gaugeCoverage.unreviewedGaugeCount + state.gaugeCoverage.uncoveredRouteCapableGaugeCount;
+      const unresolvedRouteCapable = state.gaugeCoverage.unresolvedRouteCapableGaugeCount ?? state.gaugeCoverage.uncoveredRouteCapableGaugeCount;
+      const completionGap = state.gaugeCoverage.unreviewedGaugeCount + unresolvedRouteCapable;
       const researchPriorityScore = (100 - Math.min(frontierTier, 99)) * 1_000_000
         - completionGap * 1_000
         - state.gaugeCoverage.staleGaugeCount * 100
@@ -206,7 +209,10 @@ function getOperationsTelemetry() {
       noAddRunsLast24h: recentRouteRuns.filter((run) => run.status.includes('blocked') || run.status.includes('no_add')).length,
     },
     saturationDossiers: stateRegistry.canonicalStates.map((state) => {
-      const row = taskRegistry.tasks.find((task) => task.kind === 'state_coverage' && taskStateId(task) === state.id);
+      const stateTasks = taskRegistry.tasks.filter((task) => task.kind === 'state_coverage' && taskStateId(task) === state.id);
+      const row = stateTasks.find((task) => task.discoveryComplete === true)
+        ?? stateTasks.find((task) => ['ready', 'in_progress', 'validation'].includes(task.lane))
+        ?? stateTasks[0];
       return {
         stateId: state.id,
         stateName: state.name,
@@ -218,13 +224,13 @@ function getOperationsTelemetry() {
     }),
     routeQualityByState: qualityByState,
     researchControl: {
-      activeState: 'TX',
+      activeState: activeFrontierStateId(),
       consecutiveNoAddRuns,
       rotationThreshold: 10,
       rotationRecommended: consecutiveNoAddRuns >= 10,
       recommendation: consecutiveNoAddRuns >= 10
-        ? 'Pause Texas discovery for a strategy review or rotate to the next unsaturated state.'
-        : 'Continue bounded discovery with fresh candidate families.',
+        ? 'Pause the current frontier after repeated no-add runs and review the next evidence opportunity.'
+        : 'Continue bounded gauge review and fresh discovery for the active frontier state.',
     },
     overlapReview: {
       generatedAt: overlapQueue.generatedAt ?? null,
@@ -288,6 +294,32 @@ function taskStateId(task: Task) {
   return exactPrefix?.id ?? null;
 }
 
+function activeFrontierStateId() {
+  return stateRegistry.canonicalStates
+    .slice()
+    .map((state) => {
+      const coverage = computeStateGaugeCoverage(state.id, gaugeCoverageArtifacts.inventory, gaugeCoverageArtifacts.ledger);
+      const unresolvedRouteCapable = coverage.unresolvedRouteCapableGaugeCount ?? coverage.uncoveredRouteCapableGaugeCount;
+      return {
+        state,
+        status: gaugeResearchStatus(coverage, legacyStateSaturationStatus(state.id), hasCompletedFreshDiscoveryTask(state.id)),
+        gap: coverage.unreviewedGaugeCount + unresolvedRouteCapable,
+      };
+    })
+    .filter(({ status }) => status !== 'saturated')
+    .sort((left, right) => left.state.frontierTier - right.state.frontierTier || left.gap - right.gap || left.state.id.localeCompare(right.state.id))
+    .at(0)?.state.id ?? null;
+}
+
+function hasCompletedFreshDiscoveryTask(stateId: string) {
+  return taskRegistry.tasks.some((task) => (
+    task.kind === 'state_coverage'
+    && taskStateId(task) === stateId
+    && task.lane === 'completed'
+    && task.discoveryComplete === true
+  ));
+}
+
 export function getOperationsSnapshot() {
   const scoredSlugs = new Set(rivers.map((route) => route.slug));
   const stateRows = stateRegistry.canonicalStates.map((state) => {
@@ -295,6 +327,7 @@ export function getOperationsSnapshot() {
     const scored = inventory.filter((route) => scoredSlugs.has(route.slug));
     const gaugeCoverage = computeStateGaugeCoverage(state.id, gaugeCoverageArtifacts.inventory, gaugeCoverageArtifacts.ledger);
     const legacySaturation = legacyStateSaturationStatus(state.id);
+    const discoveryComplete = hasCompletedFreshDiscoveryTask(state.id);
     return {
       ...state,
       inventory: inventory.length,
@@ -302,8 +335,9 @@ export function getOperationsSnapshot() {
       planning: inventory.length - scored.length,
       // Gauge completeness is authoritative. Legacy route-queue decisions remain
       // visible separately so they cannot silently declare a state complete.
-      saturation: gaugeResearchStatus(gaugeCoverage, legacySaturation),
+      saturation: gaugeResearchStatus(gaugeCoverage, legacySaturation, discoveryComplete),
       legacySaturation,
+      discoveryComplete,
       gaugeCoverage,
       frontierTier: state.frontierTier,
       frontierLabel: state.frontierLabel,
@@ -337,7 +371,7 @@ export function getOperationsSnapshot() {
       planningRoutes: 'frozen_without_explicit_user_request',
       completenessModel: 'gauge_network_authoritative_after_bounded_review',
       researchStrategy: 'geographic_frontier_then_completion_gap',
-      activeFrontierState: 'MN',
+      activeFrontierState: activeFrontierStateId(),
       gaugeInventoryId: gaugeCoverageArtifacts.inventory.inventoryId,
       gaugeInventoryScope: gaugeCoverageArtifacts.inventory.scope,
       maxProductWorkInProgress: 3,
@@ -354,6 +388,7 @@ export function getOperationsSnapshot() {
       coveredGauges: coveredRouteCapableGaugeReviews.length,
       gaugeReviewCoveragePercent: eligibleGaugeReviews.length === 0 ? 0 : Math.round((reviewedGaugeReviews.length / eligibleGaugeReviews.length) * 100),
       routeGaugeCoveragePercent: routeCapableGaugeReviews.length === 0 ? 0 : Math.round((coveredRouteCapableGaugeReviews.length / routeCapableGaugeReviews.length) * 100),
+      gaugeCompleteStates: rankedStates.filter((state) => state.done).length,
       activeTasks: taskRegistry.tasks.filter((task) => task.lane === 'in_progress').length,
       readyTasks: taskRegistry.tasks.filter((task) => task.lane === 'ready').length,
     },
