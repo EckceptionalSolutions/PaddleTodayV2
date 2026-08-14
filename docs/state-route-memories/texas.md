@@ -66,11 +66,12 @@
   - `tx-llano-kingsland-slab-single-access-20260814-1056`: blocked because TPWD documents one active Kingsland Slab leased access and USGS `08151500` was live at `303 cfs / 2.28 ft`, but no manager-backed downstream public take-out, route distance, legal camping/no-camping, or route-specific safety package surfaced.
   - `tx-neches-featured-runs-threshold-package-20260814-1056`: blocked because TRPA still lists Neches featured runs with placeholder numeric threshold fields and broad logjam/strainer/dead-end-channel/steep-bank hazards; same-run USGS upper/lower checks were live, but no selected non-duplicate route cleared endpoint, camping, safety, and threshold gates.
 - No route data, trip details, gallery image, image-audit row, camping classification, endpoint coordinate package, route-scoped coordinate correction, or canonical geometry changed. No legal camping was inferred from parks, state parks, leased-access frontage, RV campgrounds, sandbars, banks, lakes, access pages, or source proximity.
+- Validation passed via `gatekeeper-20260814110140`: JSON parse, routes:audit, gallery:audit, routes:safety:audit, routes:geometries:audit, routes:audit:overlap, routes:audit:coordinates, typecheck:routes, full typecheck, production build, operations:verify, and git diff --check passed with LF-to-CRLF warnings only. Coordinate audit retained only known repo-wide backlog; no Texas endpoint or canonical geometry changed, so geometry generation and route-scoped coordinate corrections were skipped.
 - Next Texas rotation should continue only with genuinely fresh manager-backed public point-to-point day river reaches outside Bastrop duplicates, downstream SASPAMCO and Goliad closure blockers, Kingsland single-access/Lake-LBJ-transition blockers, Neches placeholder-threshold/route-package blockers, implemented Texas chains, and all recorded access, gauge, threshold, camping, safety, image, geometry, coordinate, closure, and duplicate blockers unless fresh evidence clears the exact gate. If no such Texas source appears, supervisor/planning should decide whether to close or rotate `tx-bounded-discovery-sweep` rather than cycling known blockers.
 
 # Texas Route Memory
 
-Last summarized: 2026-08-14T10:56:32.896Z
+Last summarized: 2026-08-14T11:02:06.000Z
 
 ## 2026-08-14 04:27 CDT - active-source family exhaustion sweep (no add)
 - Source of truth remained `docs/operations/tasks.json`; route worker stayed on `tx-bounded-discovery-sweep`, respected WIP, did not use paused route-addition automations, and did not reopen Minnesota.

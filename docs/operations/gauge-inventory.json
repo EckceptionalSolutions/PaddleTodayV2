@@ -1,0 +1,5142 @@
+{
+  "version": 1,
+  "inventoryId": "known-evidence-2026-08-14",
+  "generatedAt": "2026-08-14T11:13:43.115Z",
+  "scope": "known_evidence_seed",
+  "statesBaselined": [],
+  "gauges": [
+    {
+      "key": "mn_dnr:01022001",
+      "provider": "mn_dnr",
+      "siteId": "01022001",
+      "siteName": "Brule River nr Hovland, MN61",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:01063003",
+      "provider": "mn_dnr",
+      "siteId": "01063003",
+      "siteName": "Poplar River near Lutsen, 0.2 mi upstream of MN 61",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:01092001",
+      "provider": "mn_dnr",
+      "siteId": "01092001",
+      "siteName": "Baptism River near Beaver Bay, MN 61",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:02006003",
+      "provider": "mn_dnr",
+      "siteId": "02006003",
+      "siteName": "Beaver River near Beaver Bay, 1.2 mi upstream of MN 61",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:107",
+      "provider": "mn_dnr",
+      "siteId": "107",
+      "siteName": "Minnesota River at Morton, MN19",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:112",
+      "provider": "mn_dnr",
+      "siteId": "112",
+      "siteName": "Minnesota River near Jordan, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:116",
+      "provider": "mn_dnr",
+      "siteId": "116",
+      "siteName": "Mississippi River at Days High Landing nr Deer River, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:120",
+      "provider": "mn_dnr",
+      "siteId": "120",
+      "siteName": "Mississippi River at Aitkin, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:121",
+      "provider": "mn_dnr",
+      "siteId": "121",
+      "siteName": "Mississippi River at Brainerd, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:124",
+      "provider": "mn_dnr",
+      "siteId": "124",
+      "siteName": "Mississippi River at Grand Rapids, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:129",
+      "provider": "mn_dnr",
+      "siteId": "129",
+      "siteName": "Mississippi River at St. Cloud, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:13",
+      "provider": "mn_dnr",
+      "siteId": "13",
+      "siteName": "Cannon River at Welch, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:133",
+      "provider": "mn_dnr",
+      "siteId": "133",
+      "siteName": "Mississippi River at St. Paul, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:149",
+      "provider": "mn_dnr",
+      "siteId": "149",
+      "siteName": "Mississippi River nr Royalton, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:155",
+      "provider": "mn_dnr",
+      "siteId": "155",
+      "siteName": "Mississippi River near Wilton, CSAH7",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:159",
+      "provider": "mn_dnr",
+      "siteId": "159",
+      "siteName": "Otter Tail River nr Elizabeth, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:16",
+      "provider": "mn_dnr",
+      "siteId": "16",
+      "siteName": "Cannon River at Northfield, 2nd St West",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:168",
+      "provider": "mn_dnr",
+      "siteId": "168",
+      "siteName": "Pomme De Terre River at Appleton, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:172",
+      "provider": "mn_dnr",
+      "siteId": "172",
+      "siteName": "Red Lake River at Crookston, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:175",
+      "provider": "mn_dnr",
+      "siteId": "175",
+      "siteName": "Red Lake River at Fisher, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:179",
+      "provider": "mn_dnr",
+      "siteId": "179",
+      "siteName": "Red Lake River at Thief River Falls, Zeh St W",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:180",
+      "provider": "mn_dnr",
+      "siteId": "180",
+      "siteName": "Red Lake River nr Red Lake Falls, CR13",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:184",
+      "provider": "mn_dnr",
+      "siteId": "184",
+      "siteName": "Red River of the North at Fargo, ND",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:185",
+      "provider": "mn_dnr",
+      "siteId": "185",
+      "siteName": "Red River of the North at Grand Forks, ND",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:186",
+      "provider": "mn_dnr",
+      "siteId": "186",
+      "siteName": "Red River of the North at Halstad, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:191",
+      "provider": "mn_dnr",
+      "siteId": "191",
+      "siteName": "Red River of the North at Drayton, ND",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:196",
+      "provider": "mn_dnr",
+      "siteId": "196",
+      "siteName": "Redwood River nr Redwood Falls, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:20",
+      "provider": "mn_dnr",
+      "siteId": "20",
+      "siteName": "Chippewa River (TW) nr Watson, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:200",
+      "provider": "mn_dnr",
+      "siteId": "200",
+      "siteName": "Root River nr Mound Prairie, CSAH25",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:204",
+      "provider": "mn_dnr",
+      "siteId": "204",
+      "siteName": "South Branch Root River at Lanesboro, Rochelle Ave N",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:207",
+      "provider": "mn_dnr",
+      "siteId": "207",
+      "siteName": "Rum River at Onamia, CR25",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:21",
+      "provider": "mn_dnr",
+      "siteId": "21",
+      "siteName": "Chippewa River at Benson, US12",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:211",
+      "provider": "mn_dnr",
+      "siteId": "211",
+      "siteName": "Rum River near St. Francis, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:212",
+      "provider": "mn_dnr",
+      "siteId": "212",
+      "siteName": "St. Croix River nr Danbury, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI",
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:226",
+      "provider": "mn_dnr",
+      "siteId": "226",
+      "siteName": "Snake River at Mora, MN65",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:229",
+      "provider": "mn_dnr",
+      "siteId": "229",
+      "siteName": "Snake River near Pine City, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:236",
+      "provider": "mn_dnr",
+      "siteId": "236",
+      "siteName": "St. Croix River at St. Croix Falls, WI",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:24",
+      "provider": "mn_dnr",
+      "siteId": "24",
+      "siteName": "Chippewa River nr Milan, MN40",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:244",
+      "provider": "mn_dnr",
+      "siteId": "244",
+      "siteName": "St. Louis River nr Forbes, US53",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:247",
+      "provider": "mn_dnr",
+      "siteId": "247",
+      "siteName": "Straight River nr Faribault, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:254",
+      "provider": "mn_dnr",
+      "siteId": "254",
+      "siteName": "Watonwan River nr Garden City, CSAH13",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:259",
+      "provider": "mn_dnr",
+      "siteId": "259",
+      "siteName": "West Fork Des Moines River at Jackson, River St",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:265",
+      "provider": "mn_dnr",
+      "siteId": "265",
+      "siteName": "Whitewater River nr Beaver, CSAH30",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:267",
+      "provider": "mn_dnr",
+      "siteId": "267",
+      "siteName": "Zumbro River at Zumbro Falls, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:280",
+      "provider": "mn_dnr",
+      "siteId": "280",
+      "siteName": "Big Fork River nr Bigfork, MN6",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:281",
+      "provider": "mn_dnr",
+      "siteId": "281",
+      "siteName": "Big Fork River nr Craigsville, MN6",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:286",
+      "provider": "mn_dnr",
+      "siteId": "286",
+      "siteName": "Cedar River nr Austin, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:287",
+      "provider": "mn_dnr",
+      "siteId": "287",
+      "siteName": "Cedar River nr Lansing, CR2",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:288",
+      "provider": "mn_dnr",
+      "siteId": "288",
+      "siteName": "Cloquet River near Brimson, CSAH44",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:289",
+      "provider": "mn_dnr",
+      "siteId": "289",
+      "siteName": "Cottonwood River nr Leavenworth, CR8",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:293",
+      "provider": "mn_dnr",
+      "siteId": "293",
+      "siteName": "Kettle River nr Willow River, Long Lake Rd",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:294",
+      "provider": "mn_dnr",
+      "siteId": "294",
+      "siteName": "Little Fork River nr Little Fork, MN65",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:295",
+      "provider": "mn_dnr",
+      "siteId": "295",
+      "siteName": "Little Fork River nr Silverdale, MN65",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:302",
+      "provider": "mn_dnr",
+      "siteId": "302",
+      "siteName": "Mississippi River at Hwy 610 in Brooklyn Park, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:305",
+      "provider": "mn_dnr",
+      "siteId": "305",
+      "siteName": "Mississippi River near Vern, CSAH37",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:308",
+      "provider": "mn_dnr",
+      "siteId": "308",
+      "siteName": "North Fork Crow River nr Cokato, CSAH4",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:310",
+      "provider": "mn_dnr",
+      "siteId": "310",
+      "siteName": "North Fork Crow River nr Rockford, Farmington Ave",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:311",
+      "provider": "mn_dnr",
+      "siteId": "311",
+      "siteName": "North Fork Zumbro River nr Mazeppa, CSAH7",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:316",
+      "provider": "mn_dnr",
+      "siteId": "316",
+      "siteName": "Pine River nr Jenkins, CSAH15",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:318",
+      "provider": "mn_dnr",
+      "siteId": "318",
+      "siteName": "Red River - RR1",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:328",
+      "provider": "mn_dnr",
+      "siteId": "328",
+      "siteName": "Sauk River nr St. Martin, CR12",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:329",
+      "provider": "mn_dnr",
+      "siteId": "329",
+      "siteName": "Shell Rock River nr Gordonsville, CSAH1",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:330",
+      "provider": "mn_dnr",
+      "siteId": "330",
+      "siteName": "Snake River at Grasston, MN107",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:338",
+      "provider": "mn_dnr",
+      "siteId": "338",
+      "siteName": "St. Louis River at Floodwood, CSAH8",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:341",
+      "provider": "mn_dnr",
+      "siteId": "341",
+      "siteName": "Stump Lake near Bemidji, CSAH12",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:342",
+      "provider": "mn_dnr",
+      "siteId": "342",
+      "siteName": "Vermilion River at Buyck, CSAH 24",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:344",
+      "provider": "mn_dnr",
+      "siteId": "344",
+      "siteName": "Otter Tail River nr Battle Lake, CR72",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:38",
+      "provider": "mn_dnr",
+      "siteId": "38",
+      "siteName": "Cloquet River nr Burnett, CR694",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:39",
+      "provider": "mn_dnr",
+      "siteId": "39",
+      "siteName": "Cottonwood River nr New Ulm, MN68",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:42",
+      "provider": "mn_dnr",
+      "siteId": "42",
+      "siteName": "Cottonwood River nr Springfield, CR2",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:47",
+      "provider": "mn_dnr",
+      "siteId": "47",
+      "siteName": "North Fork Crow River nr Manannah, MN22",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:5",
+      "provider": "mn_dnr",
+      "siteId": "5",
+      "siteName": "Big Fork River at Big Falls, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:51",
+      "provider": "mn_dnr",
+      "siteId": "51",
+      "siteName": "South Fork Crow River at Delano, Bridge Ave",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:52",
+      "provider": "mn_dnr",
+      "siteId": "52",
+      "siteName": "South Fork Crow River at Hutchinson, CSAH25",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:55",
+      "provider": "mn_dnr",
+      "siteId": "55",
+      "siteName": "Crow Wing River at Nimrod, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:58",
+      "provider": "mn_dnr",
+      "siteId": "58",
+      "siteName": "Crow Wing River near Pillager, Sylvan Dam",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:68",
+      "provider": "mn_dnr",
+      "siteId": "68",
+      "siteName": "Kettle River nr Sandstone, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:81",
+      "provider": "mn_dnr",
+      "siteId": "81",
+      "siteName": "Little Fork River at Little Fork, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:88",
+      "provider": "mn_dnr",
+      "siteId": "88",
+      "siteName": "Little Fork River nr Linden Grove, TH73",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:89",
+      "provider": "mn_dnr",
+      "siteId": "89",
+      "siteName": "Long Prairie River at Long Prairie, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:94",
+      "provider": "mn_dnr",
+      "siteId": "94",
+      "siteName": "Minnesota River at Henderson, MN19",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:96",
+      "provider": "mn_dnr",
+      "siteId": "96",
+      "siteName": "Minnesota River at Mankato, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "mn_dnr:99",
+      "provider": "mn_dnr",
+      "siteId": "99",
+      "siteName": "Minnesota River at Montevideo",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01447800",
+      "provider": "usgs",
+      "siteId": "01447800",
+      "siteName": "Lehigh River below Francis E. Walter Reservoir near White Haven, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01531500",
+      "provider": "usgs",
+      "siteId": "01531500",
+      "siteName": "Susquehanna River at Towanda, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01533400",
+      "provider": "usgs",
+      "siteId": "01533400",
+      "siteName": "Susquehanna River at Meshoppen, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01536500",
+      "provider": "usgs",
+      "siteId": "01536500",
+      "siteName": "Susquehanna River at Wilkes-Barre, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01538700",
+      "provider": "usgs",
+      "siteId": "01538700",
+      "siteName": "Susquehanna River at Bloomsburg, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01540500",
+      "provider": "usgs",
+      "siteId": "01540500",
+      "siteName": "Susquehanna River at Danville, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01564895",
+      "provider": "usgs",
+      "siteId": "01564895",
+      "siteName": "Juniata River at Lewistown, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01567000",
+      "provider": "usgs",
+      "siteId": "01567000",
+      "siteName": "Juniata River at Newport, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01570000",
+      "provider": "usgs",
+      "siteId": "01570000",
+      "siteName": "Conodoguinet Creek near Hogestown, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01571500",
+      "provider": "usgs",
+      "siteId": "01571500",
+      "siteName": "Yellow Breeches Creek near Camp Hill, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03081500",
+      "provider": "usgs",
+      "siteId": "03081500",
+      "siteName": "Youghiogheny River at Ohiopyle, PA",
+      "homeState": "PA",
+      "coverageStates": [
+        "PA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03109500",
+      "provider": "usgs",
+      "siteId": "03109500",
+      "siteName": "Little Beaver Creek near East Liverpool, OH",
+      "homeState": "OH",
+      "coverageStates": [
+        "OH"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03209500",
+      "provider": "usgs",
+      "siteId": "03209500",
+      "siteName": "Levisa Fork at Pikeville, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03209800",
+      "provider": "usgs",
+      "siteId": "03209800",
+      "siteName": "Levisa Fork at Prestonsburg, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03217000",
+      "provider": "usgs",
+      "siteId": "03217000",
+      "siteName": "Tygarts Creek near Greenup, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03245500",
+      "provider": "usgs",
+      "siteId": "03245500",
+      "siteName": "Little Miami River at Milford, OH",
+      "homeState": "OH",
+      "coverageStates": [
+        "OH"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03246500",
+      "provider": "usgs",
+      "siteId": "03246500",
+      "siteName": "East Fork Little Miami River at Williamsburg, OH",
+      "homeState": "OH",
+      "coverageStates": [
+        "OH"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03250190",
+      "provider": "usgs",
+      "siteId": "03250190",
+      "siteName": "Slate Creek at Highway 713 near Mt. Sterling, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03252500",
+      "provider": "usgs",
+      "siteId": "03252500",
+      "siteName": "South Fork Licking River at Cynthiana, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03274000",
+      "provider": "usgs",
+      "siteId": "03274000",
+      "siteName": "Great Miami River at Hamilton, OH",
+      "homeState": "OH",
+      "coverageStates": [
+        "OH"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03277500",
+      "provider": "usgs",
+      "siteId": "03277500",
+      "siteName": "North Fork Kentucky River at Hazard, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03280000",
+      "provider": "usgs",
+      "siteId": "03280000",
+      "siteName": "North Fork Kentucky River at Jackson, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03281100",
+      "provider": "usgs",
+      "siteId": "03281100",
+      "siteName": "Goose Creek at Manchester, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03281500",
+      "provider": "usgs",
+      "siteId": "03281500",
+      "siteName": "South Fork Kentucky River at Booneville, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03289500",
+      "provider": "usgs",
+      "siteId": "03289500",
+      "siteName": "Elkhorn Creek near Frankfort, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03295400",
+      "provider": "usgs",
+      "siteId": "03295400",
+      "siteName": "Salt River at Glensboro, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03298000",
+      "provider": "usgs",
+      "siteId": "03298000",
+      "siteName": "Floyds Fork at Fisherville, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03306500",
+      "provider": "usgs",
+      "siteId": "03306500",
+      "siteName": "Green River at Greensburg, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03307000",
+      "provider": "usgs",
+      "siteId": "03307000",
+      "siteName": "Russell Creek near Columbia, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03308500",
+      "provider": "usgs",
+      "siteId": "03308500",
+      "siteName": "Green River at Munfordville, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03309000",
+      "provider": "usgs",
+      "siteId": "03309000",
+      "siteName": "Green River at Mammoth Cave, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03313000",
+      "provider": "usgs",
+      "siteId": "03313000",
+      "siteName": "Barren River near Finney, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03314000",
+      "provider": "usgs",
+      "siteId": "03314000",
+      "siteName": "Drakes Creek near Alvaton, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03314500",
+      "provider": "usgs",
+      "siteId": "03314500",
+      "siteName": "Barren River at Bowling Green, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03323000",
+      "provider": "usgs",
+      "siteId": "03323000",
+      "siteName": "Wabash River at Bluffton, IN",
+      "homeState": "IN",
+      "coverageStates": [
+        "IN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03334000",
+      "provider": "usgs",
+      "siteId": "03334000",
+      "siteName": "Wildcat Creek at Owasco, IN",
+      "homeState": "IN",
+      "coverageStates": [
+        "IN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:033356848",
+      "provider": "usgs",
+      "siteId": "033356848",
+      "siteName": "Big Pine Creek at Pine Village, IN",
+      "homeState": "IN",
+      "coverageStates": [
+        "IN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03339500",
+      "provider": "usgs",
+      "siteId": "03339500",
+      "siteName": "Sugar Creek at Crawfordsville, IN",
+      "homeState": "IN",
+      "coverageStates": [
+        "IN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03347000",
+      "provider": "usgs",
+      "siteId": "03347000",
+      "siteName": "White River at Muncie, IN",
+      "homeState": "IN",
+      "coverageStates": [
+        "IN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03384100",
+      "provider": "usgs",
+      "siteId": "03384100",
+      "siteName": "Tradewater River at Providence, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03404000",
+      "provider": "usgs",
+      "siteId": "03404000",
+      "siteName": "Cumberland River at Williamsburg, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03407500",
+      "provider": "usgs",
+      "siteId": "03407500",
+      "siteName": "Buck Creek near Shopville, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03410210",
+      "provider": "usgs",
+      "siteId": "03410210",
+      "siteName": "South FK Cumberland River at Leatherwood Ford, TN",
+      "homeState": "TN",
+      "coverageStates": [
+        "TN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03410500",
+      "provider": "usgs",
+      "siteId": "03410500",
+      "siteName": "South Fork Cumberland River near Stearns, KY",
+      "homeState": "KY",
+      "coverageStates": [
+        "KY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03460795",
+      "provider": "usgs",
+      "siteId": "03460795",
+      "siteName": "Pigeon River below Power Plant near Waterville, NC",
+      "homeState": "TN",
+      "coverageStates": [
+        "TN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03567500",
+      "provider": "usgs",
+      "siteId": "03567500",
+      "siteName": "South Chickamauga Creek Near Chickamauga, TN",
+      "homeState": "TN",
+      "coverageStates": [
+        "TN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04010500",
+      "provider": "usgs",
+      "siteId": "04010500",
+      "siteName": "Pigeon River at Middle Falls near Grand Portage, MN (downstream proxy)",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04015330",
+      "provider": "usgs",
+      "siteId": "04015330",
+      "siteName": "Knife River near Two Harbors, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04021960",
+      "provider": "usgs",
+      "siteId": "04021960",
+      "siteName": "Cloquet River near Island Lake, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04025500",
+      "provider": "usgs",
+      "siteId": "04025500",
+      "siteName": "Bois Brule River at Brule, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04026561",
+      "provider": "usgs",
+      "siteId": "04026561",
+      "siteName": "Tyler Forks River at Stricker Road near Mellen, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04027500",
+      "provider": "usgs",
+      "siteId": "04027500",
+      "siteName": "White River near Ashland, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04060993",
+      "provider": "usgs",
+      "siteId": "04060993",
+      "siteName": "Brule River at US Highway 2 near Florence, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04063700",
+      "provider": "usgs",
+      "siteId": "04063700",
+      "siteName": "Popple River Near Fence, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04064500",
+      "provider": "usgs",
+      "siteId": "04064500",
+      "siteName": "Pine River Below Pine River Powerplant near Florence, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04065106",
+      "provider": "usgs",
+      "siteId": "04065106",
+      "siteName": "Menominee River at Niagara, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04066500",
+      "provider": "usgs",
+      "siteId": "04066500",
+      "siteName": "Pike River at Amberg, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04067958",
+      "provider": "usgs",
+      "siteId": "04067958",
+      "siteName": "Peshtigo River Near Wabeno, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04073240",
+      "provider": "usgs",
+      "siteId": "04073240",
+      "siteName": "Chaffee Creek at I-39 Near Coloma, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04073365",
+      "provider": "usgs",
+      "siteId": "04073365",
+      "siteName": "Fox River at Princeton, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04074950",
+      "provider": "usgs",
+      "siteId": "04074950",
+      "siteName": "Wolf River at Langlade, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04078500",
+      "provider": "usgs",
+      "siteId": "04078500",
+      "siteName": "Embarrass River near Embarrass, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04085427",
+      "provider": "usgs",
+      "siteId": "04085427",
+      "siteName": "Manitowoc River at Manitowoc, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04086000",
+      "provider": "usgs",
+      "siteId": "04086000",
+      "siteName": "Sheboygan River at Sheboygan, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04086500",
+      "provider": "usgs",
+      "siteId": "04086500",
+      "siteName": "Cedar Creek near Cedarburg, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04086600",
+      "provider": "usgs",
+      "siteId": "04086600",
+      "siteName": "Milwaukee River near Cedarburg, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04087000",
+      "provider": "usgs",
+      "siteId": "04087000",
+      "siteName": "Milwaukee R @ Milwaukee, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04087120",
+      "provider": "usgs",
+      "siteId": "04087120",
+      "siteName": "Menomonee River at Wauwatosa, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:040872342",
+      "provider": "usgs",
+      "siteId": "040872342",
+      "siteName": "Root River at W. Eight Mile Rd near Caledonia, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04125460",
+      "provider": "usgs",
+      "siteId": "04125460",
+      "siteName": "Pine River at High School Bridge near Hoxeyville, MI",
+      "homeState": "MI",
+      "coverageStates": [
+        "MI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04161820",
+      "provider": "usgs",
+      "siteId": "04161820",
+      "siteName": "Clinton River at Sterling Heights, MI",
+      "homeState": "MI",
+      "coverageStates": [
+        "MI"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04174500",
+      "provider": "usgs",
+      "siteId": "04174500",
+      "siteName": "Huron River at Ann Arbor, MI",
+      "homeState": "MI",
+      "coverageStates": [
+        "MI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04199500",
+      "provider": "usgs",
+      "siteId": "04199500",
+      "siteName": "Vermilion River near Vermilion, OH",
+      "homeState": "OH",
+      "coverageStates": [
+        "OH"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04206425",
+      "provider": "usgs",
+      "siteId": "04206425",
+      "siteName": "Cuyahoga River at Jaite, OH",
+      "homeState": "OH",
+      "coverageStates": [
+        "OH"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04212100",
+      "provider": "usgs",
+      "siteId": "04212100",
+      "siteName": "Grand River near Painesville, OH",
+      "homeState": "OH",
+      "coverageStates": [
+        "OH"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05058000",
+      "provider": "usgs",
+      "siteId": "05058000",
+      "siteName": "Sheyenne River below Baldhill Dam, ND",
+      "homeState": "ND",
+      "coverageStates": [
+        "ND"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05099600",
+      "provider": "usgs",
+      "siteId": "05099600",
+      "siteName": "Pembina River at Walhalla, ND",
+      "homeState": "ND",
+      "coverageStates": [
+        "ND"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05211000",
+      "provider": "usgs",
+      "siteId": "05211000",
+      "siteName": "Mississippi River at Grand Rapids, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05244000",
+      "provider": "usgs",
+      "siteId": "05244000",
+      "siteName": "Crow Wing River at Nimrod, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05261000",
+      "provider": "usgs",
+      "siteId": "05261000",
+      "siteName": "Mississippi River near Fort Ripley, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05267000",
+      "provider": "usgs",
+      "siteId": "05267000",
+      "siteName": "Mississippi River near Royalton, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05270500",
+      "provider": "usgs",
+      "siteId": "05270500",
+      "siteName": "Sauk River near St. Cloud, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05270700",
+      "provider": "usgs",
+      "siteId": "05270700",
+      "siteName": "Mississippi River at St. Cloud, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05280400",
+      "provider": "usgs",
+      "siteId": "05280400",
+      "siteName": "Crow River below State Hwy 101 at Dayton, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05286000",
+      "provider": "usgs",
+      "siteId": "05286000",
+      "siteName": "Rum River near St. Francis, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05288500",
+      "provider": "usgs",
+      "siteId": "05288500",
+      "siteName": "Mississippi River at Hwy 610 in Brooklyn Park, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05288580",
+      "provider": "usgs",
+      "siteId": "05288580",
+      "siteName": "Rice Creek near New Brighton, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05289800",
+      "provider": "usgs",
+      "siteId": "05289800",
+      "siteName": "Minnehaha Creek at Hiawatha Ave. in Minneapolis, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05316580",
+      "provider": "usgs",
+      "siteId": "05316580",
+      "siteName": "Minnesota River at Morton, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05325000",
+      "provider": "usgs",
+      "siteId": "05325000",
+      "siteName": "Minnesota River at Mankato, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05330000",
+      "provider": "usgs",
+      "siteId": "05330000",
+      "siteName": "Minnesota River near Jordan, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05331000",
+      "provider": "usgs",
+      "siteId": "05331000",
+      "siteName": "Mississippi River at St. Paul, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05331833",
+      "provider": "usgs",
+      "siteId": "05331833",
+      "siteName": "Namekagon River at Leonards, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05333500",
+      "provider": "usgs",
+      "siteId": "05333500",
+      "siteName": "St. Croix River near Danbury, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI",
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05336700",
+      "provider": "usgs",
+      "siteId": "05336700",
+      "siteName": "Kettle River near Sandstone, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05338500",
+      "provider": "usgs",
+      "siteId": "05338500",
+      "siteName": "Snake River near Pine City, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05340500",
+      "provider": "usgs",
+      "siteId": "05340500",
+      "siteName": "St. Croix River at St. Croix Falls, WI",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05342000",
+      "provider": "usgs",
+      "siteId": "05342000",
+      "siteName": "Kinnickinnic River near River Falls, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05355024",
+      "provider": "usgs",
+      "siteId": "05355024",
+      "siteName": "Cannon River at Northfield, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05355200",
+      "provider": "usgs",
+      "siteId": "05355200",
+      "siteName": "Cannon River at Welch, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05356500",
+      "provider": "usgs",
+      "siteId": "05356500",
+      "siteName": "Chippewa River Near Bruce, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05360500",
+      "provider": "usgs",
+      "siteId": "05360500",
+      "siteName": "Flambeau River Near Bruce, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05362000",
+      "provider": "usgs",
+      "siteId": "05362000",
+      "siteName": "Jump River at Sheldon, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05367500",
+      "provider": "usgs",
+      "siteId": "05367500",
+      "siteName": "Red Cedar River Near Colfax, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05368000",
+      "provider": "usgs",
+      "siteId": "05368000",
+      "siteName": "Hay River at Wheeler, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05369000",
+      "provider": "usgs",
+      "siteId": "05369000",
+      "siteName": "Red Cedar River at Menomonie, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05370000",
+      "provider": "usgs",
+      "siteId": "05370000",
+      "siteName": "Eau Galle River at Spring Valley, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05374000",
+      "provider": "usgs",
+      "siteId": "05374000",
+      "siteName": "Zumbro River at Zumbro Falls, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05377500",
+      "provider": "usgs",
+      "siteId": "05377500",
+      "siteName": "Whitewater River at Beaver, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05379500",
+      "provider": "usgs",
+      "siteId": "05379500",
+      "siteName": "Trempealeau River at Dodge, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05381000",
+      "provider": "usgs",
+      "siteId": "05381000",
+      "siteName": "Black River at Neillsville, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:053813595",
+      "provider": "usgs",
+      "siteId": "053813595",
+      "siteName": "Black River DS ST Hwy 54 at Black River Falls, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05382325",
+      "provider": "usgs",
+      "siteId": "05382325",
+      "siteName": "La Crosse River at Sparta, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05383075",
+      "provider": "usgs",
+      "siteId": "05383075",
+      "siteName": "La Crosse River Near La Crosse, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05383950",
+      "provider": "usgs",
+      "siteId": "05383950",
+      "siteName": "Root River near Pilot Mound, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05384000",
+      "provider": "usgs",
+      "siteId": "05384000",
+      "siteName": "Root River near Lanesboro, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05385000",
+      "provider": "usgs",
+      "siteId": "05385000",
+      "siteName": "Root River near Houston, MN",
+      "homeState": "MN",
+      "coverageStates": [
+        "MN"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05387440",
+      "provider": "usgs",
+      "siteId": "05387440",
+      "siteName": "Upper Iowa River at Bluffton, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05387500",
+      "provider": "usgs",
+      "siteId": "05387500",
+      "siteName": "Upper Iowa River near Decorah, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05388250",
+      "provider": "usgs",
+      "siteId": "05388250",
+      "siteName": "Upper Iowa River near Dorchester, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05389000",
+      "provider": "usgs",
+      "siteId": "05389000",
+      "siteName": "Yellow River near Ion, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05394500",
+      "provider": "usgs",
+      "siteId": "05394500",
+      "siteName": "Prairie River Near Merrill, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05396000",
+      "provider": "usgs",
+      "siteId": "05396000",
+      "siteName": "Big Rib River at Rib Falls, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05397500",
+      "provider": "usgs",
+      "siteId": "05397500",
+      "siteName": "Eau Claire River at Kelly, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05399500",
+      "provider": "usgs",
+      "siteId": "05399500",
+      "siteName": "Big Eau Pleine River at Stratford, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05401050",
+      "provider": "usgs",
+      "siteId": "05401050",
+      "siteName": "Tomorrow River near Nelsonville, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05403500",
+      "provider": "usgs",
+      "siteId": "05403500",
+      "siteName": "Lemonweir River at New Lisbon, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05404000",
+      "provider": "usgs",
+      "siteId": "05404000",
+      "siteName": "Wisconsin River near Wisconsin Dells, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05404129",
+      "provider": "usgs",
+      "siteId": "05404129",
+      "siteName": "Baraboo River at La Valle, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:054041665",
+      "provider": "usgs",
+      "siteId": "054041665",
+      "siteName": "Baraboo River at Main Street at Reedsburg, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05405000",
+      "provider": "usgs",
+      "siteId": "05405000",
+      "siteName": "Baraboo River Near Baraboo, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05407000",
+      "provider": "usgs",
+      "siteId": "05407000",
+      "siteName": "Wisconsin River at Muscoda, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05407468",
+      "provider": "usgs",
+      "siteId": "05407468",
+      "siteName": "Kickapoo River at Ontario, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05408000",
+      "provider": "usgs",
+      "siteId": "05408000",
+      "siteName": "Kickapoo River at La Farge, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05410490",
+      "provider": "usgs",
+      "siteId": "05410490",
+      "siteName": "Kickapoo River at Steuben, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05411850",
+      "provider": "usgs",
+      "siteId": "05411850",
+      "siteName": "Turkey River near Eldorado, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05412020",
+      "provider": "usgs",
+      "siteId": "05412020",
+      "siteName": "Turkey River above French Hollow Cr at Elkader, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05412400",
+      "provider": "usgs",
+      "siteId": "05412400",
+      "siteName": "Volga River at Littleport, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05412500",
+      "provider": "usgs",
+      "siteId": "05412500",
+      "siteName": "Turkey River at Garber, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05414000",
+      "provider": "usgs",
+      "siteId": "05414000",
+      "siteName": "Platte River near Rockville, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05416900",
+      "provider": "usgs",
+      "siteId": "05416900",
+      "siteName": "Maquoketa River at Manchester, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05418400",
+      "provider": "usgs",
+      "siteId": "05418400",
+      "siteName": "North Fork Maquoketa River near Fulton, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05418500",
+      "provider": "usgs",
+      "siteId": "05418500",
+      "siteName": "Maquoketa River near Maquoketa, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05421000",
+      "provider": "usgs",
+      "siteId": "05421000",
+      "siteName": "Wapsipinicon River at Independence, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "siteName": "Wapsipinicon River at Anamosa, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05422000",
+      "provider": "usgs",
+      "siteId": "05422000",
+      "siteName": "Wapsipinicon River near De Witt, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05425500",
+      "provider": "usgs",
+      "siteId": "05425500",
+      "siteName": "Rock River at Watertown, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05425912",
+      "provider": "usgs",
+      "siteId": "05425912",
+      "siteName": "Beaverdam River at Beaver Dam, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05426000",
+      "provider": "usgs",
+      "siteId": "05426000",
+      "siteName": "Crawfish River at Milford, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05426067",
+      "provider": "usgs",
+      "siteId": "05426067",
+      "siteName": "Bark River at Delafield, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05426250",
+      "provider": "usgs",
+      "siteId": "05426250",
+      "siteName": "Bark River Near Rome, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05430150",
+      "provider": "usgs",
+      "siteId": "05430150",
+      "siteName": "Badfish Creek Near Cooksville, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05430175",
+      "provider": "usgs",
+      "siteId": "05430175",
+      "siteName": "Yahara River near Fulton, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05431016",
+      "provider": "usgs",
+      "siteId": "05431016",
+      "siteName": "Jackson Creek at Mound Road near Elkhorn, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05431486",
+      "provider": "usgs",
+      "siteId": "05431486",
+      "siteName": "Turtle Creek at Carvers Rock Road Near Clinton, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05432500",
+      "provider": "usgs",
+      "siteId": "05432500",
+      "siteName": "Pecatonica River at Darlington, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI",
+        "IL"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05433000",
+      "provider": "usgs",
+      "siteId": "05433000",
+      "siteName": "East Branch Pecatonica River near Blanchardville, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05435943",
+      "provider": "usgs",
+      "siteId": "05435943",
+      "siteName": "Badger Mill Creek at Verona, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05435950",
+      "provider": "usgs",
+      "siteId": "05435950",
+      "siteName": "Sugar River near Verona, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05436500",
+      "provider": "usgs",
+      "siteId": "05436500",
+      "siteName": "Sugar River near Brodhead, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05438500",
+      "provider": "usgs",
+      "siteId": "05438500",
+      "siteName": "Kishwaukee River at Belvidere, IL",
+      "homeState": "IL",
+      "coverageStates": [
+        "IL"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05453100",
+      "provider": "usgs",
+      "siteId": "05453100",
+      "siteName": "Iowa River at Marengo, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05454500",
+      "provider": "usgs",
+      "siteId": "05454500",
+      "siteName": "Iowa River at Iowa City, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05457700",
+      "provider": "usgs",
+      "siteId": "05457700",
+      "siteName": "Cedar River at Charles City, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05458300",
+      "provider": "usgs",
+      "siteId": "05458300",
+      "siteName": "Cedar River at Waverly, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05458500",
+      "provider": "usgs",
+      "siteId": "05458500",
+      "siteName": "Cedar River at Janesville, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05459500",
+      "provider": "usgs",
+      "siteId": "05459500",
+      "siteName": "Winnebago River at Mason City, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05462000",
+      "provider": "usgs",
+      "siteId": "05462000",
+      "siteName": "Shell Rock River at Shell Rock, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05463500",
+      "provider": "usgs",
+      "siteId": "05463500",
+      "siteName": "Black Hawk Creek at Hudson, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05464500",
+      "provider": "usgs",
+      "siteId": "05464500",
+      "siteName": "Cedar River at Cedar Rapids, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05470000",
+      "provider": "usgs",
+      "siteId": "05470000",
+      "siteName": "South Skunk River near Ames, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05472500",
+      "provider": "usgs",
+      "siteId": "05472500",
+      "siteName": "North Skunk River near Sigourney, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05480080",
+      "provider": "usgs",
+      "siteId": "05480080",
+      "siteName": "Lizard Creek near Fort Dodge, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05480500",
+      "provider": "usgs",
+      "siteId": "05480500",
+      "siteName": "Des Moines River at Fort Dodge, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05481000",
+      "provider": "usgs",
+      "siteId": "05481000",
+      "siteName": "Boone River near Webster City, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05481300",
+      "provider": "usgs",
+      "siteId": "05481300",
+      "siteName": "Des Moines River near Stratford, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05482430",
+      "provider": "usgs",
+      "siteId": "05482430",
+      "siteName": "North Raccoon River near Lanesboro, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05482500",
+      "provider": "usgs",
+      "siteId": "05482500",
+      "siteName": "North Raccoon River near Jefferson, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05483600",
+      "provider": "usgs",
+      "siteId": "05483600",
+      "siteName": "Middle Raccoon River at Panora, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05484000",
+      "provider": "usgs",
+      "siteId": "05484000",
+      "siteName": "South Raccoon River at Redfield, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05484500",
+      "provider": "usgs",
+      "siteId": "05484500",
+      "siteName": "Raccoon River at Van Meter, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05486490",
+      "provider": "usgs",
+      "siteId": "05486490",
+      "siteName": "Middle River near Indianola, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05490500",
+      "provider": "usgs",
+      "siteId": "05490500",
+      "siteName": "Des Moines River at Keosauqua, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05544200",
+      "provider": "usgs",
+      "siteId": "05544200",
+      "siteName": "Mukwonago River at Mukwonago, WI",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05548280",
+      "provider": "usgs",
+      "siteId": "05548280",
+      "siteName": "Nippersink Creek near Spring Grove, IL",
+      "homeState": "WI",
+      "coverageStates": [
+        "WI"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05551580",
+      "provider": "usgs",
+      "siteId": "05551580",
+      "siteName": "Fox River at Yorkville, IL",
+      "homeState": "IL",
+      "coverageStates": [
+        "IL"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:05555300",
+      "provider": "usgs",
+      "siteId": "05555300",
+      "siteName": "Vermilion River Near Leonore, IL",
+      "homeState": "IL",
+      "coverageStates": [
+        "IL"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06336000",
+      "provider": "usgs",
+      "siteId": "06336000",
+      "siteName": "Little Missouri River at Medora, ND",
+      "homeState": "ND",
+      "coverageStates": [
+        "ND"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06481500",
+      "provider": "usgs",
+      "siteId": "06481500",
+      "siteName": "Skunk Creek at Sioux Falls, SD",
+      "homeState": "SD",
+      "coverageStates": [
+        "SD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06482000",
+      "provider": "usgs",
+      "siteId": "06482000",
+      "siteName": "Big Sioux River at Sioux Falls, SD",
+      "homeState": "SD",
+      "coverageStates": [
+        "SD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06482020",
+      "provider": "usgs",
+      "siteId": "06482020",
+      "siteName": "Big Sioux River at North Cliff Avenue at Sioux Falls, SD",
+      "homeState": "SD",
+      "coverageStates": [
+        "SD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06482610",
+      "provider": "usgs",
+      "siteId": "06482610",
+      "siteName": "Split Rock Creek at Corson, SD",
+      "homeState": "SD",
+      "coverageStates": [
+        "SD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06485500",
+      "provider": "usgs",
+      "siteId": "06485500",
+      "siteName": "Big Sioux River at Akron, IA",
+      "homeState": "SD",
+      "coverageStates": [
+        "SD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06605850",
+      "provider": "usgs",
+      "siteId": "06605850",
+      "siteName": "Little Sioux River at Linn Grove, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06793000",
+      "provider": "usgs",
+      "siteId": "06793000",
+      "siteName": "Loup River near Genoa, Nebr.",
+      "homeState": "NE",
+      "coverageStates": [
+        "NE"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T06:45:00.000-05:00"
+    },
+    {
+      "key": "usgs:06805500",
+      "provider": "usgs",
+      "siteId": "06805500",
+      "siteName": "Platte River at Louisville, Nebr.",
+      "homeState": "NE",
+      "coverageStates": [
+        "NE"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T06:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:06807410",
+      "provider": "usgs",
+      "siteId": "06807410",
+      "siteName": "West Nishnabotna River at Hancock, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06808500",
+      "provider": "usgs",
+      "siteId": "06808500",
+      "siteName": "West Nishnabotna River at Randolph, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06809500",
+      "provider": "usgs",
+      "siteId": "06809500",
+      "siteName": "East Nishnabotna River at Red Oak, IA",
+      "homeState": "IA",
+      "coverageStates": [
+        "IA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06887500",
+      "provider": "usgs",
+      "siteId": "06887500",
+      "siteName": "Kansas River at Wamego, KS",
+      "homeState": "KS",
+      "coverageStates": [
+        "KS"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06888990",
+      "provider": "usgs",
+      "siteId": "06888990",
+      "siteName": "Kansas River above Topeka Weir at Topeka, KS",
+      "homeState": "KS",
+      "coverageStates": [
+        "KS"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06892350",
+      "provider": "usgs",
+      "siteId": "06892350",
+      "siteName": "Kansas River at De Soto, KS",
+      "homeState": "KS",
+      "coverageStates": [
+        "KS"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06921350",
+      "provider": "usgs",
+      "siteId": "06921350",
+      "siteName": "Pomme de Terre River near Hermitage, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06923250",
+      "provider": "usgs",
+      "siteId": "06923250",
+      "siteName": "Niangua River at Windyville, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06930000",
+      "provider": "usgs",
+      "siteId": "06930000",
+      "siteName": "Big Piney River near Big Piney, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:06934000",
+      "provider": "usgs",
+      "siteId": "06934000",
+      "siteName": "Gasconade River near Rich Fountain, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07013000",
+      "provider": "usgs",
+      "siteId": "07013000",
+      "siteName": "Meramec River near Steelville, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07014500",
+      "provider": "usgs",
+      "siteId": "07014500",
+      "siteName": "Meramec River near Sullivan, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07018100",
+      "provider": "usgs",
+      "siteId": "07018100",
+      "siteName": "Big River near Richwoods, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07050500",
+      "provider": "usgs",
+      "siteId": "07050500",
+      "siteName": "Kings River near Berryville, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07050700",
+      "provider": "usgs",
+      "siteId": "07050700",
+      "siteName": "James River near Springfield, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07052250",
+      "provider": "usgs",
+      "siteId": "07052250",
+      "siteName": "James River near Boaz, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07052500",
+      "provider": "usgs",
+      "siteId": "07052500",
+      "siteName": "James River at Galena, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07054080",
+      "provider": "usgs",
+      "siteId": "07054080",
+      "siteName": "Beaver Creek at Bradleyville, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07055607",
+      "provider": "usgs",
+      "siteId": "07055607",
+      "siteName": "Crooked Creek at Kelly Crossing at Yellville, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07055660",
+      "provider": "usgs",
+      "siteId": "07055660",
+      "siteName": "Buffalo River at Ponca, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07055680",
+      "provider": "usgs",
+      "siteId": "07055680",
+      "siteName": "Buffalo River at Pruitt, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07056000",
+      "provider": "usgs",
+      "siteId": "07056000",
+      "siteName": "Buffalo River near St. Joe, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07057500",
+      "provider": "usgs",
+      "siteId": "07057500",
+      "siteName": "North Fork River near Tecumseh, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07058000",
+      "provider": "usgs",
+      "siteId": "07058000",
+      "siteName": "Bryant Creek near Tecumseh, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07064533",
+      "provider": "usgs",
+      "siteId": "07064533",
+      "siteName": "Current River above Akers, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07065200",
+      "provider": "usgs",
+      "siteId": "07065200",
+      "siteName": "Jacks Fork near Mountain View, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07065495",
+      "provider": "usgs",
+      "siteId": "07065495",
+      "siteName": "Jacks Fork at Alley Spring, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07066000",
+      "provider": "usgs",
+      "siteId": "07066000",
+      "siteName": "Jacks Fork at Eminence, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07067000",
+      "provider": "usgs",
+      "siteId": "07067000",
+      "siteName": "Current River at Van Buren, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07071500",
+      "provider": "usgs",
+      "siteId": "07071500",
+      "siteName": "Eleven Point River near Bardley, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07077730",
+      "provider": "usgs",
+      "siteId": "07077730",
+      "siteName": "Bayou Deview near Brinkley, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07187000",
+      "provider": "usgs",
+      "siteId": "07187000",
+      "siteName": "Shoal Creek above Joplin, MO",
+      "homeState": "MO",
+      "coverageStates": [
+        "MO"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07195400",
+      "provider": "usgs",
+      "siteId": "07195400",
+      "siteName": "Illinois River at Hwy. 16 near Siloam Springs, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07252000",
+      "provider": "usgs",
+      "siteId": "07252000",
+      "siteName": "Mulberry River near Mulberry, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07340300",
+      "provider": "usgs",
+      "siteId": "07340300",
+      "siteName": "Cossatot River near Vandervoort, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07356000",
+      "provider": "usgs",
+      "siteId": "07356000",
+      "siteName": "Ouachita River near Mount Ida, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07359002",
+      "provider": "usgs",
+      "siteId": "07359002",
+      "siteName": "Ouachita River at Remmel Dam above Jones Mill, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:07363000",
+      "provider": "usgs",
+      "siteId": "07363000",
+      "siteName": "Saline River at Benton, AR",
+      "homeState": "AR",
+      "coverageStates": [
+        "AR"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:08041500",
+      "provider": "usgs",
+      "siteId": "08041500",
+      "siteName": "Village Ck nr Kountze, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T00:30:00.000-05:00"
+    },
+    {
+      "key": "usgs:08047000",
+      "provider": "usgs",
+      "siteId": "08047000",
+      "siteName": "Clear Fk Trinity Rv nr Benbrook, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T18:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:08048000",
+      "provider": "usgs",
+      "siteId": "08048000",
+      "siteName": "W Fk Trinity Rv at Ft Worth, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T15:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08049500",
+      "provider": "usgs",
+      "siteId": "08049500",
+      "siteName": "W Fk Trinity Rv at Grand Prairie, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T19:30:00.000-05:00"
+    },
+    {
+      "key": "usgs:08053000",
+      "provider": "usgs",
+      "siteId": "08053000",
+      "siteName": "Elm Fk Trinity Rv nr Lewisville, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T05:30:00.000-05:00"
+    },
+    {
+      "key": "usgs:08055500",
+      "provider": "usgs",
+      "siteId": "08055500",
+      "siteName": "Elm Fk Trinity Rv nr Carrollton, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-11T01:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08057000",
+      "provider": "usgs",
+      "siteId": "08057000",
+      "siteName": "Trinity Rv at Dallas, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T06:30:00.000-05:00"
+    },
+    {
+      "key": "usgs:08073500",
+      "provider": "usgs",
+      "siteId": "08073500",
+      "siteName": "Buffalo Bayou nr Addicks, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T09:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08073700",
+      "provider": "usgs",
+      "siteId": "08073700",
+      "siteName": "Buffalo Bayou at Piney Point, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:08074000",
+      "provider": "usgs",
+      "siteId": "08074000",
+      "siteName": "Buffalo Bayou at Houston, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T05:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08076000",
+      "provider": "usgs",
+      "siteId": "08076000",
+      "siteName": "Greens Bayou nr Houston, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:08090800",
+      "provider": "usgs",
+      "siteId": "08090800",
+      "siteName": "Brazos Rv nr Dennis, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T21:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:08091000",
+      "provider": "usgs",
+      "siteId": "08091000",
+      "siteName": "Brazos Rv nr Glen Rose, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "saturation_audit",
+      "lastObservationAt": "2026-08-11T00:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:08093100",
+      "provider": "usgs",
+      "siteId": "08093100",
+      "siteName": "Brazos Rv nr Aquilla, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-11T00:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:08098290",
+      "provider": "usgs",
+      "siteId": "08098290",
+      "siteName": "Brazos Rv nr Highbank, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T21:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:08108700",
+      "provider": "usgs",
+      "siteId": "08108700",
+      "siteName": "Brazos Rv at SH 21 nr Bryan, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T21:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08116850",
+      "provider": "usgs",
+      "siteId": "08116850",
+      "siteName": "Brazos Rv nr West Columbia, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T22:30:00.000-05:00"
+    },
+    {
+      "key": "usgs:08149900",
+      "provider": "usgs",
+      "siteId": "08149900",
+      "siteName": "S Llano Rv at Flat Rock Ln at Junction, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T00:55:00.000-05:00"
+    },
+    {
+      "key": "usgs:08150700",
+      "provider": "usgs",
+      "siteId": "08150700",
+      "siteName": "Llano Rv nr Mason, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-11T00:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08151500",
+      "provider": "usgs",
+      "siteId": "08151500",
+      "siteName": "Llano Rv at Llano, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:08158000",
+      "provider": "usgs",
+      "siteId": "08158000",
+      "siteName": "Colorado Rv at Austin, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T22:50:00.000-05:00"
+    },
+    {
+      "key": "usgs:08159200",
+      "provider": "usgs",
+      "siteId": "08159200",
+      "siteName": "Colorado Rv at Bastrop, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T20:40:00.000-05:00"
+    },
+    {
+      "key": "usgs:08160400",
+      "provider": "usgs",
+      "siteId": "08160400",
+      "siteName": "Colorado Rv abv La Grange, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T14:25:00.000-05:00"
+    },
+    {
+      "key": "usgs:08161000",
+      "provider": "usgs",
+      "siteId": "08161000",
+      "siteName": "Colorado Rv at Columbus, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T20:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08167500",
+      "provider": "usgs",
+      "siteId": "08167500",
+      "siteName": "Guadalupe Rv nr Spring Branch, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T23:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:08169000",
+      "provider": "usgs",
+      "siteId": "08169000",
+      "siteName": "Comal Rv at New Braunfels, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T11:45:00.000-05:00"
+    },
+    {
+      "key": "usgs:08170500",
+      "provider": "usgs",
+      "siteId": "08170500",
+      "siteName": "San Marcos Rv at San Marcos, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T10:45:00.000-05:00"
+    },
+    {
+      "key": "usgs:08170950",
+      "provider": "usgs",
+      "siteId": "08170950",
+      "siteName": "Blanco Rv at Fischer Store Rd nr Fischer, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T22:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08171000",
+      "provider": "usgs",
+      "siteId": "08171000",
+      "siteName": "Blanco Rv at Wimberley, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T22:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08172000",
+      "provider": "usgs",
+      "siteId": "08172000",
+      "siteName": "San Marcos Rv at Luling, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T19:45:00.000-05:00"
+    },
+    {
+      "key": "usgs:08175800",
+      "provider": "usgs",
+      "siteId": "08175800",
+      "siteName": "Guadalupe Rv at Cuero, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T00:30:00.000-05:00"
+    },
+    {
+      "key": "usgs:08178000",
+      "provider": "usgs",
+      "siteId": "08178000",
+      "siteName": "San Antonio Rv at San Antonio, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T00:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:0817887350",
+      "provider": "usgs",
+      "siteId": "0817887350",
+      "siteName": "Medina Rv at Patterson Rd at Medina, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T19:10:00.000-05:00"
+    },
+    {
+      "key": "usgs:08178880",
+      "provider": "usgs",
+      "siteId": "08178880",
+      "siteName": "Medina Rv at Bandera, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:08181800",
+      "provider": "usgs",
+      "siteId": "08181800",
+      "siteName": "San Antonio Rv nr Elmendorf, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-11T10:30:00.000-05:00"
+    },
+    {
+      "key": "usgs:08188500",
+      "provider": "usgs",
+      "siteId": "08188500",
+      "siteName": "San Antonio Rv at Goliad, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T21:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:08374550",
+      "provider": "usgs",
+      "siteId": "08374550",
+      "siteName": "Rio Grande nr Castolon, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T08:15:00.000-05:00"
+    },
+    {
+      "key": "usgs:08375300",
+      "provider": "usgs",
+      "siteId": "08375300",
+      "siteName": "Rio Grande at Rio Grande Village, Big Bnd NP, TX",
+      "homeState": "TX",
+      "coverageStates": [
+        "TX"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-10T11:00:00.000-05:00"
+    },
+    {
+      "key": "usgs:09180500",
+      "provider": "usgs",
+      "siteId": "09180500",
+      "siteName": "Colorado River near Cisco, UT",
+      "homeState": "UT",
+      "coverageStates": [
+        "UT"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T03:00:00.000-06:00"
+    },
+    {
+      "key": "usgs:09234500",
+      "provider": "usgs",
+      "siteId": "09234500",
+      "siteName": "Green River near Greendale, UT",
+      "homeState": "UT",
+      "coverageStates": [
+        "UT"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-08T00:00:00.000-06:00"
+    },
+    {
+      "key": "usgs:10137500",
+      "provider": "usgs",
+      "siteId": "10137500",
+      "siteName": "South Fork Ogden River Near Huntsville, UT",
+      "homeState": "UT",
+      "coverageStates": [
+        "UT"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:10140700",
+      "provider": "usgs",
+      "siteId": "10140700",
+      "siteName": "Ogden River NR Gibson Avenue at Ogden, UT",
+      "homeState": "UT",
+      "coverageStates": [
+        "UT"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory",
+      "lastObservationAt": "2026-08-09T03:45:00.000-06:00"
+    }
+  ]
+}

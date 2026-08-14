@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { getCanonicalStateId, getOperationsSnapshot, rankStateCoverage } from './operations';
+import { getCanonicalStateId, getOperationsSnapshot, rankGaugeStateCoverage, rankStateCoverage } from './operations';
+import type { StateGaugeCoverage } from './gauge-coverage';
 
 describe('operations snapshot', () => {
   it('normalizes state names and codes to one registry', () => {
@@ -34,6 +35,27 @@ describe('operations snapshot', () => {
     expect(snapshot.policy.maxRouteImplementationsInProgress).toBe(1);
     expect(snapshot.automations.some((automation) => automation.id === 'route-control-plane')).toBe(true);
     expect(Array.isArray(snapshot.controlPlane.recentClaims)).toBe(true);
+    expect(snapshot.policy.completenessModel).toContain('gauge_network');
+    expect(snapshot.totals.knownGauges).toBeGreaterThan(0);
+    expect(snapshot.states.find((state) => state.id === 'MN')?.gaugeCoverage.knownGaugeCount).toBeGreaterThan(0);
+  });
+
+  it('prioritizes incomplete gauge baselines before legacy route saturation', () => {
+    const coverage = (overrides: Partial<StateGaugeCoverage>): StateGaugeCoverage => ({
+      stateId: 'TX', inventoryId: 'seed', baselineComplete: true, knownGaugeCount: 10,
+      eligibleGaugeCount: 10, reviewedGaugeCount: 10, unreviewedGaugeCount: 0,
+      coveredGaugeCount: 10, blockedGaugeCount: 0, screenedOutGaugeCount: 0,
+      staleGaugeCount: 0, routeCapableGaugeCount: 10, uncoveredRouteCapableGaugeCount: 0,
+      reviewCoveragePercent: 100, routeCoveragePercent: 100, routeFamilyCount: 10,
+      ...overrides,
+    });
+    const ranked = rankGaugeStateCoverage([
+      { id: 'TX', scored: 80, planning: 0, saturation: 'not_started', gaugeCoverage: coverage({}) },
+      { id: 'MN', scored: 145, planning: 113, saturation: 'provisionally_saturated', gaugeCoverage: coverage({ stateId: 'MN', baselineComplete: false }) },
+    ]);
+    expect(ranked[0].id).toBe('MN');
+    expect(ranked[0].researchStatus).toBe('gauge_baseline_pending');
+    expect(ranked[1].legacyCoveragePercent).toBe(100);
   });
 
   it('ranks unsaturated states by scored coverage, then route depth', () => {

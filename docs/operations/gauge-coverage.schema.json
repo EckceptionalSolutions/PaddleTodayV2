@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paddletoday.com/schemas/gauge-coverage.schema.json",
+  "title": "PaddleToday gauge coverage artifacts",
+  "type": "object",
+  "$defs": {
+    "gaugeKey": {
+      "type": "string",
+      "pattern": "^(usgs|mn_dnr):[^:]+$"
+    },
+    "reviewStatus": {
+      "enum": ["unreviewed", "researching", "covered", "blocked", "screened_out", "stale_or_unsupported"]
+    },
+    "eligibility": {
+      "enum": ["unknown", "route_capable", "not_paddle_relevant"]
+    },
+    "relationship": {
+      "enum": ["none", "direct", "proxy", "mixed"]
+    },
+    "inventoryGauge": {
+      "type": "object",
+      "required": ["key", "provider", "siteId", "siteName", "homeState", "coverageStates", "availableMetrics", "source"],
+      "properties": {
+        "key": { "$ref": "#/$defs/gaugeKey" },
+        "provider": { "enum": ["usgs", "mn_dnr"] },
+        "siteId": { "type": "string", "minLength": 1 },
+        "siteName": { "type": "string", "minLength": 1 },
+        "homeState": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "coverageStates": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Z]{2}$" } },
+        "availableMetrics": { "type": "array", "uniqueItems": true, "items": { "enum": ["discharge_cfs", "gage_height_ft"] } },
+        "source": { "enum": ["route_inventory", "saturation_audit", "provider_inventory"] },
+        "lastObservationAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "required": ["key", "status", "eligibility", "relationship", "checkedAt", "decisionReason", "decisionSource", "routeSlugs", "scoredRouteSlugs", "routeFamilies", "blockers", "evidence"],
+      "properties": {
+        "key": { "$ref": "#/$defs/gaugeKey" },
+        "status": { "$ref": "#/$defs/reviewStatus" },
+        "eligibility": { "$ref": "#/$defs/eligibility" },
+        "relationship": { "$ref": "#/$defs/relationship" },
+        "checkedAt": { "type": ["string", "null"], "format": "date-time" },
+        "decisionReason": { "type": "string", "minLength": 1 },
+        "decisionSource": { "enum": ["derived_route_inventory", "saturation_audit", "manual"] },
+        "routeSlugs": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "scoredRouteSlugs": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "routeFamilies": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "blockers": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "evidence": { "type": "array", "uniqueItems": true, "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

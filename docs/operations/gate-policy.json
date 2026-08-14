@@ -10,15 +10,34 @@
   ],
   "failureHandling": "keep_task_open_and_record_failure",
   "saturationPolicy": {
+    "completenessModel": "gauge_network",
+    "legacyRouteInventoryRatio": "migration_diagnostic_only",
     "planningRoutesCountTowardSaturation": false,
     "coverageCompleteIsNotSaturated": true,
+    "gaugeIdentity": "provider:siteId",
+    "coveredGaugeRequiresDirectScoredRoute": true,
+    "proxyGaugeCountsAsCovered": false,
+    "screenedOutGaugeCountsAsReviewed": true,
+    "inventoryVersionRequired": true,
+    "stateLifecycle": [
+      "not_baselined",
+      "inventory_ready",
+      "gauge_review_in_progress",
+      "research_complete",
+      "route_coverage_review",
+      "saturated",
+      "reopened"
+    ],
     "requiredBeforeDone": [
+      "provider-wide frozen gauge inventory exists",
+      "every eligible gauge has a durable disposition",
+      "every route-capable gauge is covered or has an accepted blocker",
       "inventory and scored-route quality audit",
       "bounded fresh discovery sweep across distinct candidate families",
       "no candidate clears the scored-route evidence, safety, gauge, access, camping, geometry, coordinate, and image gates"
     ],
     "discoveryBudget": "bounded by the active state task; stop after the documented candidate budget or when a strong scored route is found",
-    "reopenCondition": "fresh manager-grade access, gauge, threshold, safety, or route-shape evidence"
+    "reopenCondition": "new eligible gauge, resumed telemetry, cleared blocker, user demand, provider expansion, retired direct coverage, or fresh manager-grade access, threshold, safety, or route-shape evidence"
   },
   "workflow": ".github/workflows/operations-gates.yml",
   "humanEscalation": "required_for_policy_change_or_safety_exception"

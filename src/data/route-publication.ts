@@ -3,7 +3,7 @@ import type { River } from '../lib/types';
 // These stations were explicitly checked during the northern Minnesota gauge audit.
 // They are direct in the historical route data, but they do not currently satisfy
 // the product requirement for usable river telemetry.
-const unavailableGaugeKeys = new Set([
+export const unavailableGaugeKeys = new Set([
   'mn_dnr:179', // Red Lake River at Thief River Falls: stale in the current DNR feed.
   'mn_dnr:280', // Big Fork River near Bigfork: stale in the current DNR feed.
   'mn_dnr:341', // Stump Lake stage, not a river gauge for the configured Mississippi reaches.

@@ -4,10 +4,11 @@ The control plane now has durable reports for the improvements beyond route disc
 
 ## Durable reports
 
+- `npm run operations:gauges` regenerates the conservative known-evidence gauge inventory and review ledger. Until a state has a frozen provider-wide baseline, its status remains `gauge_baseline_pending` regardless of existing route depth.
 - `npm run operations:dossiers` regenerates `saturation-dossiers.json` and `blocker-resolution-queue.json`.
 - `npm run operations:freshness` regenerates `route-freshness-report.json` for package/access/safety metadata review. Live gauge freshness remains provider-runtime data and is never inferred from static route records.
 - `npm run operations:adoption` regenerates `adoption-report.json`. It accepts only a privacy-safe aggregate export matching `adoption-events.schema.json`; without an export it records that adoption data is unavailable rather than inventing metrics.
-- The saturation dossier keeps inventory counts, scored/planning counts, related discovery tasks, recent evidence runs, and the three conditions required before a state can be called done.
+- The saturation dossier treats gauge review and direct route coverage as the primary completeness measures. It retains scored/planning route counts only as legacy migration diagnostics, alongside related discovery tasks, recent evidence runs, and the conditions required before a state can be called done.
 - The blocker queue groups blocked work by reusable resolution category. It is advisory: it never bypasses evidence or creates routes.
 
 ## Product-growth signals

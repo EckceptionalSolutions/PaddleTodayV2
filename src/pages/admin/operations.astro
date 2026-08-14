@@ -56,6 +56,8 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
         <button class="operations-tab" type="button" aria-selected="false" data-operations-tab="audit">Audit trail</button>
       </nav>
       <section class="operations-stats" aria-label="Operations totals">
+        <article class="snapshot-card"><span class="snapshot-card__label">Known gauges</span><strong>{snapshot.totals.knownGauges}</strong><small>{snapshot.totals.reviewedGauges} durably reviewed</small></article>
+        <article class="snapshot-card"><span class="snapshot-card__label">Covered gauges</span><strong>{snapshot.totals.coveredGauges}</strong><small>At least one direct scored route</small></article>
         <article class="snapshot-card"><span class="snapshot-card__label">Scored routes</span><strong>{snapshot.totals.scored}</strong><small>Qualifying live gauges</small></article>
         <article class="snapshot-card"><span class="snapshot-card__label">Planning routes</span><strong>{snapshot.totals.planning}</strong><small>Excluded from saturation</small></article>
         <article class="snapshot-card"><span class="snapshot-card__label">Active work</span><strong>{snapshot.totals.activeTasks}</strong><small>{snapshot.totals.readyTasks} ready to start</small></article>
@@ -129,10 +131,10 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
       </section>
 
       <section class="operations-section" data-operations-panel="coverage">
-        <p class="operations-explainer">Scored routes have a supported live gauge and can count toward a state's done decision. Planning routes are useful research leads, but they do not inflate saturation.</p>
-        <div class="operations-section__head"><div><p class="eyebrow">Coverage</p><h2>State saturation</h2></div><p class="muted">Planning routes never count toward saturation.</p></div>
-        <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Scored</th><th>Planning</th><th>Coverage</th><th>Status</th><th>Research priority</th></tr></thead><tbody>
-          {snapshot.stateResearchRanking.map((state) => <tr class={state.id === 'MN' ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.scored}</td><td>{state.planning}</td><td>{state.coveragePercent}%</td><td><span class={`operations-pill operations-pill--${state.saturation}`}>{state.done ? 'saturated (audited)' : state.researchStatus.replaceAll('_', ' ')}</span></td><td>{state.done ? '-' : state.researchPriorityScore}</td></tr>)}
+        <p class="operations-explainer">Gauge review coverage measures how much of a frozen provider inventory has a durable disposition. Route coverage measures how many route-capable gauges support a direct scored route. The old scored/planning ratio remains visible only as a migration diagnostic.</p>
+        <div class="operations-section__head"><div><p class="eyebrow">Coverage</p><h2>Gauge-network completeness</h2></div><p class="muted">Inventory {snapshot.policy.gaugeInventoryId} · {snapshot.policy.gaugeInventoryScope.replaceAll('_', ' ')}</p></div>
+        <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Known gauges</th><th>Reviewed</th><th>Gauge review</th><th>Direct coverage</th><th>Legacy routes</th><th>Status</th><th>Priority</th></tr></thead><tbody>
+          {snapshot.stateResearchRanking.map((state) => <tr class={state.id === 'MN' ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.gaugeCoverage.knownGaugeCount}</td><td>{state.gaugeCoverage.reviewedGaugeCount}</td><td>{state.gaugeCoverage.reviewCoveragePercent}%</td><td>{state.gaugeCoverage.coveredGaugeCount} / {state.gaugeCoverage.routeCapableGaugeCount} ({state.gaugeCoverage.routeCoveragePercent}%)</td><td>{state.scored} / {state.scored + state.planning} ({state.legacyCoveragePercent}%)</td><td><span class={`operations-pill operations-pill--${state.researchStatus}`}>{state.researchStatus.replaceAll('_', ' ')}</span></td><td>{state.done ? '-' : state.researchPriorityScore}</td></tr>)}
         </tbody></table></div>
       </section>
 

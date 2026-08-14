@@ -1,6 +1,13 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { routeInventory, rivers } from '../data/rivers';
+import {
+  computeStateGaugeCoverage,
+  gaugeResearchPriorityScore,
+  gaugeResearchStatus,
+  loadGaugeCoverageArtifacts,
+  type StateGaugeCoverage,
+} from './gauge-coverage';
 
 type CanonicalState = { id: string; name: string };
 type Task = {
@@ -12,6 +19,9 @@ type Task = {
   priority: string;
   summary: string;
   evidence: string[];
+  stateId?: string;
+  inventoryId?: string;
+  gaugeKeys?: string[];
 };
 
 type OverlapReviewItem = {
@@ -54,6 +64,35 @@ export function rankStateCoverage(states: Array<{ id: string; scored: number; pl
     .sort((left, right) => right.researchPriorityScore - left.researchPriorityScore || right.scored - left.scored || left.id.localeCompare(right.id));
 }
 
+/**
+ * Gauge-network ranking used by the Operations Center during the migration.
+ * A provider-wide baseline is deliberately worth more than route-derived seed
+ * evidence, followed by viable uncovered gauges and unfinished reviews.
+ */
+export function rankGaugeStateCoverage<T extends {
+  id: string;
+  scored: number;
+  planning: number;
+  saturation: string;
+  gaugeCoverage: StateGaugeCoverage;
+}>(states: T[]) {
+  return states
+    .map((state) => {
+      const legacyTotal = state.scored + state.planning;
+      const legacyCoveragePercent = legacyTotal === 0 ? 0 : Math.round((state.scored / legacyTotal) * 100);
+      const researchStatus = gaugeResearchStatus(state.gaugeCoverage, state.saturation);
+      const done = researchStatus === 'saturated';
+      return {
+        ...state,
+        legacyCoveragePercent,
+        researchStatus,
+        done,
+        researchPriorityScore: gaugeResearchPriorityScore(state.gaugeCoverage, state.saturation),
+      };
+    })
+    .sort((left, right) => right.researchPriorityScore - left.researchPriorityScore || right.gaugeCoverage.uncoveredRouteCapableGaugeCount - left.gaugeCoverage.uncoveredRouteCapableGaugeCount || left.id.localeCompare(right.id));
+}
+
 const stateRegistry = JSON.parse(
   readFileSync(resolve(process.cwd(), 'docs/operations/state-registry.json'), 'utf8')
 ) as { canonicalStates: CanonicalState[]; aliases: Record<string, string> };
@@ -91,6 +130,8 @@ const overlapQueue = (() => {
     return { items: [] as OverlapReviewItem[], generatedAt: null };
   }
 })();
+
+const gaugeCoverageArtifacts = loadGaugeCoverageArtifacts();
 
 function classifyBlocker(text: string) {
   const value = text.toLowerCase();
@@ -151,8 +192,15 @@ function getOperationsTelemetry() {
       noAddRunsLast24h: recentRouteRuns.filter((run) => run.status.includes('blocked') || run.status.includes('no_add')).length,
     },
     saturationDossiers: stateRegistry.canonicalStates.map((state) => {
-      const row = taskRegistry.tasks.find((task) => task.id.startsWith(state.id.toLowerCase()) && task.kind === 'state_coverage');
-      return { stateId: state.id, stateName: state.name, discoveryTask: row?.id ?? null, discoveryStatus: row?.lane ?? 'not_started', boundedSearchEvidence: row?.evidence?.length ?? 0 };
+      const row = taskRegistry.tasks.find((task) => task.kind === 'state_coverage' && taskStateId(task) === state.id);
+      return {
+        stateId: state.id,
+        stateName: state.name,
+        gaugeCoverage: computeStateGaugeCoverage(state.id, gaugeCoverageArtifacts.inventory, gaugeCoverageArtifacts.ledger),
+        discoveryTask: row?.id ?? null,
+        discoveryStatus: row?.lane ?? 'not_started',
+        boundedSearchEvidence: row?.evidence?.length ?? 0,
+      };
     }),
     routeQualityByState: qualityByState,
     researchControl: {
@@ -216,6 +264,15 @@ function canonicalStateId(value: string) {
   return stateRegistry.aliases[normalized] ?? normalized.toUpperCase();
 }
 
+function taskStateId(task: Task) {
+  if (task.stateId) return canonicalStateId(task.stateId);
+  const exactPrefix = stateRegistry.canonicalStates.find((state) => (
+    task.id.toLowerCase().startsWith(`${state.id.toLowerCase()}-`)
+    || task.id.toLowerCase().startsWith(`${state.name.toLowerCase().replaceAll(' ', '-')}-`)
+  ));
+  return exactPrefix?.id ?? null;
+}
+
 export function getOperationsSnapshot() {
   const scoredSlugs = new Set(rivers.map((route) => route.slug));
   const stateRows = stateRegistry.canonicalStates.map((state) => {
@@ -227,9 +284,11 @@ export function getOperationsSnapshot() {
       scored: scored.length,
       planning: inventory.length - scored.length,
       saturation: stateSaturationStatus(state.id),
+      gaugeCoverage: computeStateGaugeCoverage(state.id, gaugeCoverageArtifacts.inventory, gaugeCoverageArtifacts.ledger),
     };
   });
-  const rankedStates = rankStateCoverage(stateRows);
+  const rankedStates = rankGaugeStateCoverage(stateRows);
+  const legacyRankedStates = rankStateCoverage(stateRows);
 
   const claims = (controlState.claims ?? []).slice().sort((a, b) => {
     return Date.parse(b.completedAt ?? b.claimedAt ?? '') - Date.parse(a.completedAt ?? a.claimedAt ?? '');
@@ -239,6 +298,9 @@ export function getOperationsSnapshot() {
     generatedAt: new Date().toISOString(),
     policy: {
       planningRoutes: 'frozen_without_explicit_user_request',
+      completenessModel: 'gauge_network_with_legacy_route_ratio_during_migration',
+      gaugeInventoryId: gaugeCoverageArtifacts.inventory.inventoryId,
+      gaugeInventoryScope: gaugeCoverageArtifacts.inventory.scope,
       maxProductWorkInProgress: 3,
       maxRouteImplementationsInProgress: 1,
       mergeMode: 'automatic_after_evidence_safety_tests_and_deploy_gates',
@@ -248,11 +310,15 @@ export function getOperationsSnapshot() {
       inventory: routeInventory.length,
       scored: rivers.length,
       planning: routeInventory.length - rivers.length,
+      knownGauges: gaugeCoverageArtifacts.inventory.gauges.length,
+      reviewedGauges: gaugeCoverageArtifacts.ledger.reviews.filter((review) => !['unreviewed', 'researching'].includes(review.status)).length,
+      coveredGauges: gaugeCoverageArtifacts.ledger.reviews.filter((review) => review.status === 'covered').length,
       activeTasks: taskRegistry.tasks.filter((task) => task.lane === 'in_progress').length,
       readyTasks: taskRegistry.tasks.filter((task) => task.lane === 'ready').length,
     },
     states: stateRows,
     stateResearchRanking: rankedStates,
+    legacyStateResearchRanking: legacyRankedStates,
     tasks: taskRegistry.tasks,
     automations: automationRegistry,
     controlPlane: {
