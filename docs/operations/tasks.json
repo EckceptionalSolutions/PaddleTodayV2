@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T17:29:00.000Z",
+  "updatedAt": "2026-08-14T18:06:14.000Z",
   "tasks": [
     {
       "id": "geographic-gauge-frontier-workflow",
@@ -28,7 +28,7 @@
       "owner": "state-coverage",
       "priority": "critical",
       "stateId": "MN",
-      "summary": "Minnesota active gauge frontier remains open. Latest bounded review blocked the USGS Chippewa Milan/Watson duplicate-provider gauge cluster because existing scored Chippewa route packages use equivalent MN DNR gauges and current coverage gates do not count cross-provider equivalents; the next batch should use the next planner-selected eligible gauge.",
+      "summary": "Minnesota active gauge frontier remains open. Latest reconciled bounded review screened Elk River, Elm Creek, Gold Portage, Grand Portage River, and High Island Creek with durable no-add dispositions; the next batch should use the next planner-selected eligible gauge after pending/concurrent records are reconciled.",
       "evidence": [
         "2026-08-14T16:33:00.000Z: route-worker-202608141633-basswood-gauge-no-add screened usgs:05127500 Basswood River near Winton and added no route. Disposition recorded as blocked/route_capable because no PaddleToday-ready public endpoint, threshold, camping/permit, safety, or coordinate package surfaced for the gauge reach; no route data, trip details, image row, endpoint coordinates, geometry, or route package changed.",
         "2026-08-14T16:38:00.000Z: route-worker-202608141638-big-cobb-gauge-no-add screened mn_dnr:346 Big Cobb River near Beauford and added no route. Disposition recorded as blocked/route_capable; DNR confirms a scrapable gauge and one Co. Rd. 16 carry-in, but no complete public endpoint sequence, route threshold, camping, safety, or coordinate package surfaced.",
@@ -63,10 +63,13 @@
         "2026-08-14T17:29:00.000Z: route-worker-202608141724-chippewa-usgs-provider-equivalence-no-add screened USGS 05305000 Chippewa River (TW) near Watson plus the same-family USGS 05304500 Milan validation blocker and added no route. Dispositions recorded as blocked/route_capable/direct provider-equivalence blockers because existing scored Chippewa route packages use equivalent MN DNR Watson/Milan gauges; current coverage gates do not count cross-provider equivalents as covered, and no duplicate route package changed.",
         "gatekeeper-20260814172823 passed: the durable USGS Chippewa Milan/Watson provider-equivalence blockers and no-add evidence passed all required gates after correcting stale covered-without-scored metadata.",
         "2026-08-14T17:54:36.214Z: route-worker-202608141308-elk-river-usgs-05275000-no-add screened USGS 05275000 Elk River near Big Lake and added no route. Disposition recorded as screened_out/not_paddle_relevant because live USGS telemetry exists, but no official Elk River point-to-point route package surfaced with named public endpoints, thresholds, camping/no-camping terms, safety handling, coordinates, image, or geometry evidence.",
-        "gatekeeper-20260814175431 passed: the durable Elk River screened-out disposition, manual review preservation fix, and no-add evidence passed required gates; operations:plan recorded the next Minnesota gauge as usgs:05287890."
+        "gatekeeper-20260814175431 passed: the durable Elk River screened-out disposition, manual review preservation fix, and no-add evidence passed required gates; operations:plan recorded the next Minnesota gauge as usgs:05287890.",
+        "2026-08-14T18:06:14.000Z: route-worker batch screened five Minnesota gauges and added no route: USGS 05275000 Elk River and USGS 05287890 Elm Creek were screened_out/not_paddle_relevant; USGS 05129290 Gold Portage was stale_or_unsupported/route_capable; USGS 04010510 Grand Portage River was blocked/route_capable; USGS 05327000 High Island Creek was screened_out/not_paddle_relevant. No route data, trip details, image audit row, endpoint coordinate package, coordinate correction, camping package, safety package, canonical geometry, or route order changed.",
+        "gatekeeper-20260814180614 passed: JSON parse, operations:gauges:check, route/gallery/safety/geometry/overlap/coordinate audits, operations:verify with full typecheck and production build, and git diff --check completed for the five no-add Minnesota gauge dispositions. Coordinate audit retained only known repo-wide backlog because no route endpoints changed.",
+        "2026-08-14T18:06:14.000Z concurrency note: route-worker-202608141345-kawishiwi-usgs-05124480-no-add appeared while this batch was being validated with pending validation and a future local timestamp; it was left for the next supervisor/worker pass rather than folded into this five-candidate batch."
       ],
-      "updatedAt": "2026-08-14T17:54:36.214Z",
-      "lastRunId": "route-worker-202608141308-elk-river-usgs-05275000-no-add",
+      "updatedAt": "2026-08-14T18:06:14.000Z",
+      "lastRunId": "route-worker-202608141336-high-island-usgs-05327000-no-add",
       "lastSupervisorRunId": "supervisor-20260814T171456Z"
     },
     {

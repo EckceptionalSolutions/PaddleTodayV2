@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T18:45:00.000Z",
+  "updatedAt": "2026-08-14T18:06:14.000Z",
   "notes": "Minnesota gauge-review batch screened five gauges (Elk River, Elm Creek, Gold Portage, Grand Portage River, High Island Creek) and added no route; durable no-add dispositions recorded.",
   "candidates": [
     {
@@ -10,7 +10,7 @@
       "route": "High Island Creek near Henderson gauge review",
       "state": "MN",
       "status": "screened_out_not_paddle_relevant_gauge",
-      "screenedAt": "2026-08-14T18:45:00.000Z",
+      "screenedAt": "2026-08-14T18:06:14.000Z",
       "runId": "route-worker-202608141336-high-island-usgs-05327000-no-add",
       "decisiveBlocker": "USGS 05327000 is a product-supported High Island Creek streamgage, but reviewed official sources did not surface an official High Island Creek paddling corridor or route-capable access package.",
       "blocker": "No official High Island Creek route-capable endpoint pair, thresholds, camping terms, safety package, image decision, coordinates, or geometry package surfaced.",
@@ -29,7 +29,7 @@
       ],
       "nextAction": "Do not retry unless a public manager publishes a route-ready High Island Creek point-to-point package with endpoint coordinates, numeric thresholds, camping/no-camping terms, and safety guidance tied to a supported live gauge.",
       "lastReviewed": "2026-08-14",
-      "updatedAt": "2026-08-14T18:45:00.000Z"
+      "updatedAt": "2026-08-14T18:06:14.000Z"
     },
     {
       "id": "mn-grand-portage-river-usgs-04010510-gauge-review-20260814-1330",
@@ -38,7 +38,7 @@
       "route": "Grand Portage River at Grand Portage gauge review",
       "state": "MN",
       "status": "blocked_route_capable_gauge",
-      "screenedAt": "2026-08-14T18:45:00.000Z",
+      "screenedAt": "2026-08-14T18:06:14.000Z",
       "runId": "route-worker-202608141330-grand-portage-usgs-04010510-no-add",
       "decisiveBlocker": "USGS 04010510 is route-capable, but no provider-specific route package with complete rights, endpoint, threshold, camping, safety, image, coordinate, and geometry evidence is ready for promotion.",
       "blocker": "Route relevance exists, but limited-access context and incomplete route package evidence block implementation.",
@@ -57,7 +57,7 @@
       ],
       "nextAction": "Retry only after a complete public-manager route package, rights/access review, route-specific threshold model, camping/no-camping terms, safety handling, coordinates, and image decision are available for the 04010510 reach.",
       "lastReviewed": "2026-08-14",
-      "updatedAt": "2026-08-14T18:45:00.000Z"
+      "updatedAt": "2026-08-14T18:06:14.000Z"
     },
     {
       "id": "mn-gold-portage-usgs-05129290-gauge-review-20260814-1322",
@@ -66,7 +66,7 @@
       "route": "Gold Portage outlet from Kabetogama Lake gauge review",
       "state": "MN",
       "status": "stale_or_unsupported_route_capable_gauge",
-      "screenedAt": "2026-08-14T18:45:00.000Z",
+      "screenedAt": "2026-08-14T18:06:14.000Z",
       "runId": "route-worker-202608141322-gold-portage-usgs-05129290-no-add",
       "decisiveBlocker": "USGS 05129290 has canoe/portage relevance, but the current USGS location page reports no continuous, daily, or field-measurement data to support live route scoring.",
       "blocker": "Provider support is stale or unsupported for a current live-gauge PaddleToday route package.",
@@ -85,7 +85,7 @@
       ],
       "nextAction": "Retry only if the provider restores current telemetry and a route-ready lake/portage package with thresholds, access, camping, safety, coordinates, and image rights can be assembled.",
       "lastReviewed": "2026-08-14",
-      "updatedAt": "2026-08-14T18:45:00.000Z"
+      "updatedAt": "2026-08-14T18:06:14.000Z"
     },
     {
       "id": "mn-elm-creek-usgs-05287890-gauge-review-20260814-1315",
@@ -94,7 +94,7 @@
       "route": "Elm Creek near Champlin gauge review",
       "state": "MN",
       "status": "screened_out_not_paddle_relevant_gauge",
-      "screenedAt": "2026-08-14T18:45:00.000Z",
+      "screenedAt": "2026-08-14T18:06:14.000Z",
       "runId": "route-worker-202608141315-elm-creek-usgs-05287890-no-add",
       "decisiveBlocker": "USGS 05287890 is a product-supported urban Elm Creek streamgage, but reviewed official sources did not surface an official Elm Creek paddling corridor or route-capable access package.",
       "blocker": "No official Elm Creek route-capable endpoint pair, thresholds, camping terms, safety package, image decision, coordinates, or geometry package surfaced.",
@@ -113,7 +113,7 @@
       ],
       "nextAction": "Do not retry unless a public manager publishes a route-ready Elm Creek point-to-point package with endpoint coordinates, numeric thresholds, camping/no-camping terms, and safety guidance tied to a supported live gauge.",
       "lastReviewed": "2026-08-14",
-      "updatedAt": "2026-08-14T18:45:00.000Z"
+      "updatedAt": "2026-08-14T18:06:14.000Z"
     },
     {
       "id": "mn-elk-river-usgs-05275000-gauge-review-20260814-1308",
@@ -122,7 +122,7 @@
       "route": "Elk River near Big Lake gauge review",
       "state": "MN",
       "status": "screened_out_not_paddle_relevant_gauge",
-      "screenedAt": "2026-08-14T18:45:00.000Z",
+      "screenedAt": "2026-08-14T18:06:14.000Z",
       "runId": "route-worker-202608141308-elk-river-usgs-05275000-no-add",
       "decisiveBlocker": "USGS 05275000 is a product-supported Elk River streamgage, but reviewed official sources did not surface an Elk River point-to-point paddling route with named public endpoints, numeric thresholds, camping/no-camping terms, safety package, or endpoint coordinates.",
       "blocker": "No official Elk River route-capable public endpoint pair, threshold, camping, safety, coordinate, image, or geometry package surfaced.",
@@ -143,7 +143,7 @@
       ],
       "nextAction": "Do not retry unless a public manager publishes a route-ready Elk River point-to-point package with endpoint coordinates, numeric thresholds, camping/no-camping terms, and safety guidance tied to a supported live gauge.",
       "lastReviewed": "2026-08-14",
-      "updatedAt": "2026-08-14T18:45:00.000Z"
+      "updatedAt": "2026-08-14T18:06:14.000Z"
     },
     {
       "id": "mn-chippewa-river-usgs-05304500-gauge-review-20260814-1229",

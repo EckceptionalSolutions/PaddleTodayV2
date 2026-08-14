@@ -108,10 +108,23 @@
       "coordinates": "No new endpoint coordinates promoted.",
       "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
       "validation": {
-        "status": "pending",
-        "commands": [],
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814180614",
+        "commands": [
+          "JSON parse for operations and route-candidate metadata",
+          "npm run operations:gauges:check",
+          "npm run routes:audit",
+          "npm run gallery:audit",
+          "npm run routes:safety:audit",
+          "npm run routes:geometries:audit",
+          "npm run routes:audit:overlap",
+          "npm run routes:audit:coordinates",
+          "npm run operations:verify",
+          "git diff --check"
+        ],
         "notes": [
-          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+          "No route package changed; durable no-add disposition evidence passed evidence, safety, verification, typecheck, build, and rollback gates.",
+          "Coordinate audit retained the known repo-wide endpoint backlog; no route endpoints or canonical geometry changed in this batch."
         ]
       },
       "sources": [
@@ -168,10 +181,23 @@
       "coordinates": "No new endpoint coordinates promoted.",
       "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
       "validation": {
-        "status": "pending",
-        "commands": [],
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814180614",
+        "commands": [
+          "JSON parse for operations and route-candidate metadata",
+          "npm run operations:gauges:check",
+          "npm run routes:audit",
+          "npm run gallery:audit",
+          "npm run routes:safety:audit",
+          "npm run routes:geometries:audit",
+          "npm run routes:audit:overlap",
+          "npm run routes:audit:coordinates",
+          "npm run operations:verify",
+          "git diff --check"
+        ],
         "notes": [
-          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+          "No route package changed; durable no-add disposition evidence passed evidence, safety, verification, typecheck, build, and rollback gates.",
+          "Coordinate audit retained the known repo-wide endpoint backlog; no route endpoints or canonical geometry changed in this batch."
         ]
       },
       "sources": [
@@ -228,10 +254,23 @@
       "coordinates": "No new endpoint coordinates promoted.",
       "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
       "validation": {
-        "status": "pending",
-        "commands": [],
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814180614",
+        "commands": [
+          "JSON parse for operations and route-candidate metadata",
+          "npm run operations:gauges:check",
+          "npm run routes:audit",
+          "npm run gallery:audit",
+          "npm run routes:safety:audit",
+          "npm run routes:geometries:audit",
+          "npm run routes:audit:overlap",
+          "npm run routes:audit:coordinates",
+          "npm run operations:verify",
+          "git diff --check"
+        ],
         "notes": [
-          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+          "No route package changed; durable no-add disposition evidence passed evidence, safety, verification, typecheck, build, and rollback gates.",
+          "Coordinate audit retained the known repo-wide endpoint backlog; no route endpoints or canonical geometry changed in this batch."
         ]
       },
       "sources": [
@@ -288,10 +327,23 @@
       "coordinates": "No new endpoint coordinates promoted.",
       "nextCandidateRotation": "Continue Minnesota gauge review with the planner-selected next eligible gauge.",
       "validation": {
-        "status": "pending",
-        "commands": [],
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260814180614",
+        "commands": [
+          "JSON parse for operations and route-candidate metadata",
+          "npm run operations:gauges:check",
+          "npm run routes:audit",
+          "npm run gallery:audit",
+          "npm run routes:safety:audit",
+          "npm run routes:geometries:audit",
+          "npm run routes:audit:overlap",
+          "npm run routes:audit:coordinates",
+          "npm run operations:verify",
+          "git diff --check"
+        ],
         "notes": [
-          "Gauge disposition and evidence recorded; run gauges:check and operations:verify."
+          "No route package changed; durable no-add disposition evidence passed evidence, safety, verification, typecheck, build, and rollback gates.",
+          "Coordinate audit retained the known repo-wide endpoint backlog; no route endpoints or canonical geometry changed in this batch."
         ]
       },
       "sources": [
@@ -40218,5 +40270,5 @@
       "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     }
   ],
-  "updatedAt": "2026-08-14T17:54:36.214Z"
+  "updatedAt": "2026-08-14T18:06:14.000Z"
 }
