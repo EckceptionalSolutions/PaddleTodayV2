@@ -39297,6 +39297,299 @@
       "gatekeeperId": null
     },
     {
+      "id": "orchestrator-20260815113000-wolf-river-shawano-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T11:30:00-05:00",
+      "completedAt": "2026-08-15T11:30:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04077400"
+      ],
+      "candidatesScreened": [
+        "Wolf River near Shawano, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 04077400 as stale_or_unsupported/route_capable/direct. The historical Wolf River station has no current supported telemetry and sits below a dam; no route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/04077400/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04077400",
+        "https://waterdata.usgs.gov/monitoring-location/04077400/statistics/",
+        "https://www.wolfriver.org/explore/paddling",
+        "https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2960wolfriver.html"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable stale_or_unsupported disposition",
+        "Task evidence updated",
+        "No route added because current telemetry and safety gates are unavailable"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260815120000-wuerches-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T12:00:00-05:00",
+      "completedAt": "2026-08-15T12:00:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073457"
+      ],
+      "candidatesScreened": [
+        "Wuerches Creek at CT Hwy B near Green Lake, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 04073457 as screened_out/not_paddle_relevant/direct. Current telemetry exists, but no public Wuerches Creek paddling corridor or route-quality package was found; Green Lake sources describe other waterways.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04073457",
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-WI/USGS-04073457/",
+        "https://visitgreenlake.com/paddling/",
+        "https://apps.dnr.wi.gov/swims/Reports/ReportDownload?downloadFileName=ProjectSummary&reportName=ProjectSummary&urlParams=%26i_project_seq%3D149549420",
+        "https://apps.dnr.wi.gov/water/waterSearch.aspx"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable screened_out disposition",
+        "Task evidence updated",
+        "No route added because no defensible paddle corridor was found"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260815123000-yahara-mcfarland-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T12:30:00-05:00",
+      "completedAt": "2026-08-15T12:30:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05429510"
+      ],
+      "candidatesScreened": [
+        "Yahara River at Exchange Street Bridge at McFarland, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 05429510 as blocked/route_capable/direct. The McFarland Yahara corridor is paddle-relevant, but direct provider coverage and the full route-quality package are incomplete; no duplicate route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/dv/?PARAmeter_cd=00060%2C00065&referred_module=sw&site_no=05429510",
+        "https://apps.dnr.wi.gov/water/wsSWIMSDocument.ashx?documentSeqNo=54594440",
+        "https://www.danecountyparks.com/Event/Detail/2499",
+        "https://www.danecountyparks.com/Event/Detail/2543",
+        "https://lwrd.countyofdane.com/documents/pdfs/yaharaTrailGuide.pdf",
+        "https://quietpaddlingwisconsin.com/2020/05/22/jaeger-park-to-fish-camp-county-park/"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable blocked disposition",
+        "Task evidence updated",
+        "No duplicate route added because existing Yahara coverage uses another provider key"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260815130000-yahara-stoughton-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T13:00:00-05:00",
+      "completedAt": "2026-08-15T13:00:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05429700"
+      ],
+      "candidatesScreened": [
+        "Yahara River at Forton Street Bridge at Stoughton, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 05429700 as blocked/route_capable/direct. The Stoughton Yahara corridor is paddle-relevant, but direct provider coverage and the complete route-quality package remain unresolved; no speculative route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05429700/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05429700",
+        "https://quietpaddlingwisconsin.com/2024/08/31/multiple-wisconsin-waterways/",
+        "https://www.usgs.gov/centers/upper-midwest-water-science-center/science/dane-county-water-quality-monitoring-program",
+        "https://www.danecountyparks.com/Event/Detail/2499"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable blocked disposition",
+        "Task evidence updated",
+        "No route added because direct package gates remain incomplete"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260815133000-yahara-madison-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T13:30:00-05:00",
+      "completedAt": "2026-08-15T13:30:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05428500"
+      ],
+      "candidatesScreened": [
+        "Yahara River at East Main Street at Madison, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 05428500 as blocked/route_capable/direct. The upper Yahara corridor is route-relevant, but existing scored routes use downstream 05430175 and no distinct direct package clears the quality bar; no duplicate route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05428500",
+        "https://waterdata.usgs.gov/nwis/wys_rpt/?site_no=05428500",
+        "https://www.danecountyparks.com/recreation/lake-access-boating/paddlesports",
+        "https://www.usgs.gov/centers/upper-midwest-water-science-center/science/dane-county-water-quality-monitoring-program",
+        "https://www.yaharachain.com/"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable blocked disposition",
+        "Task evidence updated",
+        "No duplicate route added because proxy coverage already exists"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260815140000-yahara-mcfarland-legacy-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T14:00:00-05:00",
+      "completedAt": "2026-08-15T14:00:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05429500"
+      ],
+      "candidatesScreened": [
+        "Yahara River at McFarland, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 05429500 as stale_or_unsupported/route_capable/proxy. USGS announces the station's September 1, 2026 discontinuation and replacement publication at 05429510, so new route dependencies should migrate rather than rely on the retiring key.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05429500",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05429500/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05429510",
+        "https://quietpaddlingwisconsin.com/2020/05/22/jaeger-park-to-fish-camp-county-park/",
+        "https://quietpaddlingwisconsin.com/2019/09/26/yahara-river-upstream-from-fish-camp/"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable stale_or_unsupported disposition",
+        "Task evidence updated",
+        "No route added; migration is required before durable coverage"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260815143000-yellow-river-babcock-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T14:30:00-05:00",
+      "completedAt": "2026-08-15T14:30:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05402000"
+      ],
+      "candidatesScreened": [
+        "Yellow River at Babcock, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 05402000 as blocked/route_capable/direct. The Yellow River has credible paddling and canoe-camping evidence, but dam-release variability and incomplete route-package gates prevent scoring; no speculative route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05402000",
+        "https://waterdata.usgs.gov/monitoring-location/05402000/statistics/",
+        "https://www.wisconsinrivertrips.com/segments/yellow-river/hwy-f",
+        "https://www.wisconsinrivertrips.com/segments/yellow-river/hwy-n",
+        "https://dnr.wisconsin.gov/topic/statenaturalareas/YellowRiverFloodPlainForest",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2975/main"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable blocked disposition",
+        "Task evidence updated",
+        "No route added because route-quality gates remain incomplete"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260815150000-yellow-river-necedah-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T15:00:00-05:00",
+      "completedAt": "2026-08-15T15:00:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05403000"
+      ],
+      "candidatesScreened": [
+        "Yellow River at Necedah, WI"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 05403000 as blocked/route_capable/direct. The Necedah Yellow River corridor is strongly paddle-relevant, but dam-release variability and incomplete route-package gates prevent scoring; no speculative route was added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/dv/?referred_module=sw&site_no=05403000",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05403000/statistics/",
+        "https://www.travelwisconsin.com/outdoors/on-the-water/yellow-river",
+        "https://www.wisconsinrivertrips.com/segments/yellow-river/necedah",
+        "https://www.necedah.us/",
+        "https://milespaddled.com/canoe-kayak-camping-wisconsin-buckhorn-state-park/"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable blocked disposition",
+        "Task evidence updated",
+        "No route added because dam/flowage and route-quality gates remain incomplete"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260815153000-wisconsin-discovery-sweep",
+      "kind": "discovery_sweep",
+      "startedAt": "2026-08-15T15:30:00-05:00",
+      "completedAt": "2026-08-15T15:30:00-05:00",
+      "status": "completed",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "state-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Completed the bounded fresh Wisconsin discovery sweep after all provider-baseline gauges reached durable dispositions. Cross-checked DNR water trails/access, regional paddling guides, USGS inventory, and existing route families; found no additional strong scored corridor outside the reviewed gauge set. Wisconsin is discovery-complete, with route-capable gauges either covered or explicitly blocked/stale and non-paddle gauges screened out.",
+      "evidence": [
+        "https://dnr.wisconsin.gov/topic/parks/watertrails",
+        "https://dnr.wisconsin.gov/topic/lands/boataccess",
+        "https://www.wisconsinrivertrips.com/segments",
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-WI/"
+      ],
+      "validation": [
+        "Gauge candidate selector returned zero unreviewed/researching Wisconsin gauges",
+        "operations:gauges:check passed",
+        "No speculative route added"
+      ],
+      "gatekeeperId": null
+    },
+    {
       "id": "gatekeeper-20260814162457",
       "kind": "gatekeeper_verification",
       "startedAt": "2026-08-14T16:24:23.635Z",
@@ -54349,7 +54642,339 @@
         "usgs:04077400"
       ],
       "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814233909",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:39:09.523Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04073457"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234020",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:40:20.785Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05429510"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234144",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:41:44.483Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05429700"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234247",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:42:47.484Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05428500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234354",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:43:54.134Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05429500"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234459",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:44:59.975Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05402000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234611",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:46:11.024Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05403000"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234726",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:47:26.469Z",
+      "status": "planned",
+      "taskId": "wi-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260814234909",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:49:09.202Z",
+      "status": "planned",
+      "taskId": "tx-bounded-discovery-sweep",
+      "workerRole": "gauge-coverage",
+      "stateId": "TX",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:08091000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815160000-brazos-glen-rose-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T16:00:00-05:00",
+      "completedAt": "2026-08-15T16:00:00-05:00",
+      "status": "completed",
+      "taskId": "tx-bounded-discovery-sweep",
+      "workerRole": "gauge-coverage",
+      "stateId": "TX",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:08091000"
+      ],
+      "candidatesScreened": [
+        "Brazos River near Glen Rose, TX"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 08091000 as stale_or_unsupported/route_capable/direct. The Glen Rose Brazos corridor has credible paddling access, but current gauge support and complete endpoint/threshold/camping/safety/coordinate/image/geometry gates are unavailable; no route added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/inventory/?agency_cd=USGS&site_no=08091000",
+        "https://waterdata.usgs.gov/tx/nwis/dv/?agency_cd=USGS&referred_module=sw&site_no=08091000",
+        "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/brazos_outdoor_center.phtml",
+        "https://brazos.org/about-us/news/news-room/resource-library/recreation-on-the-brazos-river",
+        "https://www.brazosoutdoorcenter.com/"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable stale_or_unsupported disposition",
+        "Task evidence updated",
+        "No route added because current telemetry and quality gates are unavailable"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814235349",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:53:49.964Z",
+      "status": "planned",
+      "taskId": "tx-bounded-discovery-sweep",
+      "workerRole": "gauge-coverage",
+      "stateId": "TX",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07344100"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260815171500-anderson-creek-review",
+      "kind": "gauge_review",
+      "startedAt": "2026-08-15T17:15:00-05:00",
+      "completedAt": "2026-08-15T17:15:00-05:00",
+      "status": "completed",
+      "taskId": "tx-bounded-discovery-sweep",
+      "workerRole": "gauge-coverage",
+      "stateId": "TX",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07344100"
+      ],
+      "candidatesScreened": [
+        "Anderson Creek at Hwy 98 near Simms, TX"
+      ],
+      "routeAdded": false,
+      "routeSlug": null,
+      "summary": "Adjudicated USGS 07344100 as screened_out/not_paddle_relevant/direct. The station record ended in 2025 and official Texas access/paddling sources do not identify a named Anderson Creek paddling corridor or public endpoint pair; no route added.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/inventory/?agency_cd=USGS&site_no=07344100",
+        "https://tpwd.texas.gov/landwater/water/habitats/rivers/access/",
+        "https://tpwd.texas.gov/boating/paddling-trails/",
+        "https://tpwd.texas.gov/landwater/water/recreation/access/"
+      ],
+      "validation": [
+        "Ledger JSON updated with durable screened_out disposition",
+        "Task evidence updated",
+        "No route added because no supported paddling corridor or current telemetry exists"
+      ],
+      "gatekeeperId": null
+    },
+    {
+      "id": "orchestrator-20260814235649",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-14T23:56:49.390Z",
+      "status": "planned",
+      "taskId": "tx-bounded-discovery-sweep",
+      "workerRole": "gauge-coverage",
+      "stateId": "TX",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:08037180"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608142358-ia-beaver-bear-gauge-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "workerRole": "gauge-coverage",
+      "taskId": "ia-gauge-review-batch",
+      "state": "IA",
+      "status": "completed_no_route_added",
+      "startedAt": "2026-08-14T23:54:30.851Z",
+      "completedAt": "2026-08-14T23:58:00.000Z",
+      "localRunTime": "2026-08-14 18:58:00 CDT",
+      "workOrder": {
+        "id": "orchestrator-20260814235430-local-frontier-repair",
+        "taskId": "ia-gauge-review-batch",
+        "workerRole": "gauge-coverage",
+        "status": "planned",
+        "gaugeKeys": [
+          "usgs:05489490",
+          "usgs:05463000",
+          "usgs:05481950",
+          "usgs:05420460",
+          "usgs:05453000"
+        ],
+        "summary": "Planner selected distant Texas because no Iowa task existed; this run repaired the task-board frontier mismatch and screened the next five Iowa gauge candidates in bounded order."
+      },
+      "routeAdded": false,
+      "slug": null,
+      "gaugesReviewed": [
+        {
+          "key": "usgs:05489490",
+          "siteName": "Bear Creek at Ottumwa, IA",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "none",
+          "decisiveBlocker": "USGS 05489490 is a 22.9-square-mile Bear Creek monitoring site at Ottumwa with stage-only current telemetry. Same-run Water Services returned 80.13 ft at 2026-08-14 18:45 CDT, but no public point-to-point paddling corridor, discharge metric, route threshold, endpoint, camping, safety, coordinate, image, or geometry package surfaced."
+        },
+        {
+          "key": "usgs:05463000",
+          "siteName": "Beaver Creek at New Hartford, IA",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS 05463000 is a live 347-square-mile Beaver Creek station near New Hartford with same-run discharge/stage of 356 cfs / 3.56 ft at 2026-08-14 18:00 CDT. The creek is physically route-capable, but no selected public endpoint pair, numeric paddling threshold model, camping/no-camping terms, safety package, coordinate package, image decision, or geometry package cleared for a scored route."
+        },
+        {
+          "key": "usgs:05481950",
+          "siteName": "Beaver Creek near Grimes, IA",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS 05481950 is product-live on the Johnston Beaver Creek water-trail corridor and same-run Water Services returned 484 cfs / 5.44 ft at 2026-08-14 18:15 CDT. Iowa DNR supports a 50 cfs minimum and Johnston/ICON confirm public access at NW 70th Avenue and Lew Clarkson Park, but the current package still lacks a selected scored endpoint pair with route distance, downstream status, camping/no-camping terms, current logjam/safety handling, defensible high-water treatment, precise endpoint coordinates, rights-clean image decision, and canonical geometry."
+        },
+        {
+          "key": "usgs:05420460",
+          "siteName": "Beaver Slough at 3rd Street at Clinton, IA",
+          "status": "screened_out",
+          "eligibility": "not_paddle_relevant",
+          "relationship": "none",
+          "decisiveBlocker": "USGS 05420460 is a Beaver Slough / Mississippi-connected Clinton stage-monitoring site with an 85,600-square-mile drainage context and stage-only same-run telemetry of 10.58 ft at 2026-08-14 18:15 CDT. No riverine point-to-point paddling route, discharge threshold, camping/access/safety package, coordinates, image, or geometry package surfaced."
+        },
+        {
+          "key": "usgs:05453000",
+          "siteName": "Big Bear Creek at Ladora, IA",
+          "status": "blocked",
+          "eligibility": "route_capable",
+          "relationship": "direct",
+          "decisiveBlocker": "USGS 05453000 is a live 189-square-mile Big Bear Creek station at Ladora with same-run discharge/stage of 207 cfs / 12.13 ft at 2026-08-14 18:00 CDT. The creek is physically route-capable, but available evidence is gauge/watershed context only; no selected public endpoint pair, numeric paddling thresholds, camping/access terms, safety package, coordinates, image decision, or geometry package cleared."
+        }
+      ],
+      "routeEvidence": {
+        "status": "blocked_or_screened_out",
+        "notes": [
+          "Five Iowa gauge records were reviewed after detecting that Iowa had 137 unreviewed provider-baseline gauges but no ready Iowa task.",
+          "No candidate cleared the full access, threshold, camping, safety, coordinate, image, and geometry gates for a scored route.",
+          "The existing Texas ready task was not claimed because it is outside the active Upper Midwest frontier while Iowa remains incomplete."
+        ]
+      },
+      "galleryImageDecision": "No new image; no route promoted.",
+      "campingEvidence": "No legal route camping promoted. No camping inferred from banks, bridges, parks, sloughs, access corridors, or nearby public/private land.",
+      "safetyEvidence": "No route promoted. Bear Creek Ottumwa stage-only small-creek context, New Hartford/Ladora missing route packages, Johnston Beaver Creek logjam/downstream-status package gaps, and Clinton Beaver Slough stage-only slough/backwater context were retained as blockers.",
+      "geometry": "No new geometry generated because no route endpoints changed.",
+      "coordinates": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "nextCandidateRotation": "Continue Iowa gauge review with Big Creek north of Mount Pleasant, Big Sioux River at Sioux City, Bloody Run Creek near Marquette, Bluff Creek at Pilot Mound, and Boone River near Goldfield unless the planner selects differently.",
+      "validation": {
+        "status": "pending",
+        "gatekeeperId": null,
+        "commands": [
+          "node JSON parse for operations and route ledger files pending",
+          "npm.cmd run operations:gauges:check pending",
+          "route/gallery/safety/geometry/overlap audits pending",
+          "operations:verify pending"
+        ],
+        "notes": [
+          "No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route ordering changed."
+        ]
+      },
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05489490/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05463000/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05481950/",
+        "https://rivergages.mvr.usace.army.mil/WaterControl/stationinfo2.cfm?sid=GRMI4",
+        "https://www.cityofjohnston.com/1022/Water-Trails",
+        "https://www.iconwatertrails.com/water-trails/beaver-creek/",
+        "https://content.govdelivery.com/accounts/IACIO/bulletins/25bd224",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05420460/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05453000/",
+        "https://friendsoftheiowariver.wordpress.com/learn/streamflows-in-the-iowa-river-watershed/"
+      ],
+      "summary": "Screened Bear Creek Ottumwa, Beaver Creek New Hartford/Grimes, Beaver Slough Clinton, and Big Bear Creek Ladora Iowa gauges and added no route; durable no-add dispositions recorded.",
+      "notes": [
+        "No route implementation was started because all screened Iowa candidates had decisive evidence blockers."
+      ]
     }
   ],
-  "updatedAt": "2026-08-15T10:30:00-05:00"
+  "updatedAt": "2026-08-14T23:58:00.000Z"
 }

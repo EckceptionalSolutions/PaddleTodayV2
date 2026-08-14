@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T23:25:14.000Z",
+  "updatedAt": "2026-08-14T23:58:00.000Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
@@ -20562,17 +20562,29 @@
     },
     {
       "key": "usgs:04073457",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T12:00:00-05:00",
+      "decisionReason": "USGS 04073457 is Wuerches Creek at County Highway B near Green Lake. Although it has recent discharge and stage records, the reviewed Green Lake paddling sources identify Silver Creek, Puchyan River, lake shorelines, and designated launches—not a public Wuerches Creek point-to-point corridor. The station therefore remains a monitoring site without a defensible PaddleToday route package.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Wuerches Creek"
+      ],
+      "blockers": [
+        "No public Wuerches Creek endpoint pair or water-trail route was identified.",
+        "Green Lake paddling sources identify other waterways and launches, not this monitored creek.",
+        "No route-specific safety, camping/access, threshold, image, coordinate, or geometry package exists."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04073457",
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-WI/USGS-04073457/",
+        "https://visitgreenlake.com/paddling/",
+        "https://apps.dnr.wi.gov/swims/Reports/ReportDownload?downloadFileName=ProjectSummary&reportName=ProjectSummary&urlParams=%26i_project_seq%3D149549420",
+        "https://apps.dnr.wi.gov/water/waterSearch.aspx"
+      ]
     },
     {
       "key": "usgs:04073458",
@@ -31665,31 +31677,57 @@
     },
     {
       "key": "usgs:05402000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T14:30:00-05:00",
+      "decisionReason": "USGS 05402000 is a live discharge and stage gauge on the Yellow River at Babcock. Wisconsin River Trips and Wisconsin DNR document genuine paddling and canoe-camping corridors associated with this station, but erratic Dexter Dam releases, shallow/rocky reaches, and the absence of a complete selected endpoint, threshold, camping/access, safety, coordinate, image, and river-line package prevent scoring a route yet. Keep it blocked rather than publishing a speculative route.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Yellow River"
+      ],
+      "blockers": [
+        "Dexter Dam releases create station-to-reach variability that needs explicit threshold treatment.",
+        "No selected endpoint pair and complete camping/access package is validated.",
+        "Shallow boulder fields, military-area proximity, hazards, coordinates, image, and river-line geometry remain unresolved."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05402000",
+        "https://waterdata.usgs.gov/monitoring-location/05402000/statistics/",
+        "https://www.wisconsinrivertrips.com/segments/yellow-river/hwy-f",
+        "https://www.wisconsinrivertrips.com/segments/yellow-river/hwy-n",
+        "https://dnr.wisconsin.gov/topic/statenaturalareas/YellowRiverFloodPlainForest",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2975/main"
+      ]
     },
     {
       "key": "usgs:05403000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T15:00:00-05:00",
+      "decisionReason": "USGS 05403000 is a current discharge and stage gauge on the Yellow River at Necedah. Travel Wisconsin and Wisconsin River Trips document a strong paddle corridor below Necedah Dam toward Yellow River Bay/Castle Rock Flowage, but dam-release variability, flowage navigation, and the absence of a complete selected endpoint, threshold, camping/access, safety, coordinate, image, and river-line package prevent scoring a route yet. Keep it blocked rather than publishing a speculative route.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Yellow River"
+      ],
+      "blockers": [
+        "Necedah Dam release and downstream flowage conditions require explicit safety and threshold treatment.",
+        "No selected endpoint pair and complete camping/access package is validated for the Necedah-to-flowage reach.",
+        "Flowage navigation, hazards, coordinates, image, and river-line geometry remain unresolved."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/dv/?referred_module=sw&site_no=05403000",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05403000/statistics/",
+        "https://www.travelwisconsin.com/outdoors/on-the-water/yellow-river",
+        "https://www.wisconsinrivertrips.com/segments/yellow-river/necedah",
+        "https://www.necedah.us/",
+        "https://milespaddled.com/canoe-kayak-camping-wisconsin-buckhorn-state-park/"
+      ]
     },
     {
       "key": "usgs:05403202",
@@ -32379,17 +32417,22 @@
     },
     {
       "key": "usgs:05420460",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T23:58:00.000Z",
+      "decisionReason": "USGS 05420460 is a Beaver Slough / Mississippi-connected Clinton stage-monitoring site with an 85,600-square-mile drainage context and stage-only same-run telemetry of 10.58 ft at 2026-08-14 18:15 CDT. No riverine point-to-point paddling route, discharge threshold, camping/access/safety package, coordinates, image, or geometry package surfaced.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "stage-only slough/navigation/backwater monitoring context; no supported river point-to-point route package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05420460/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05420500",
@@ -33047,17 +33090,29 @@
     },
     {
       "key": "usgs:05428500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T13:30:00-05:00",
+      "decisionReason": "USGS 05428500 is a current discharge and stage station at East Main Street in Madison on the upper Yahara. It is clearly route-relevant, but existing scored Yahara routes use the downstream Fulton gauge 05430175 as a validated proxy; no distinct Main Street route package with station-specific thresholds, endpoints, safety, camping/access, coordinates, image, and geometry has been accepted. Keep it blocked rather than creating duplicate corridor coverage.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Yahara River"
+      ],
+      "blockers": [
+        "Existing scored Yahara routes use downstream USGS 05430175 as a proxy, not 05428500.",
+        "No distinct upper-Yahara endpoint pair and station-specific threshold interpretation are validated.",
+        "Camping/access, hazards, coordinates, image, and river-line geometry remain unresolved."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05428500",
+        "https://waterdata.usgs.gov/nwis/wys_rpt/?site_no=05428500",
+        "https://www.danecountyparks.com/recreation/lake-access-boating/paddlesports",
+        "https://www.usgs.gov/centers/upper-midwest-water-science-center/science/dane-county-water-quality-monitoring-program",
+        "https://www.yaharachain.com/"
+      ]
     },
     {
       "key": "usgs:05429120",
@@ -33108,45 +33163,82 @@
     },
     {
       "key": "usgs:05429500",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
+      "relationship": "proxy",
+      "checkedAt": "2026-08-15T14:00:00-05:00",
+      "decisionReason": "USGS 05429500 is a live, route-relevant Yahara River gauge at McFarland and has long-term discharge/stage data, but USGS states the site will be discontinued on September 1, 2026 and that the same reach's stage/discharge is being published from replacement station 05429510. Treat the legacy key as stale_or_unsupported for durable coverage rather than building new route dependencies on a retiring provider record.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Yahara River"
+      ],
+      "blockers": [
+        "USGS announces discontinuation of station 05429500 on September 1, 2026.",
+        "Replacement stage/discharge publication is identified as station 05429510.",
+        "Any route package must migrate thresholds and metadata to the replacement key before durable coverage."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05429500",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05429500/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05429510",
+        "https://quietpaddlingwisconsin.com/2020/05/22/jaeger-park-to-fish-camp-county-park/",
+        "https://quietpaddlingwisconsin.com/2019/09/26/yahara-river-upstream-from-fish-camp/"
+      ]
     },
     {
       "key": "usgs:05429510",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T12:30:00-05:00",
+      "decisionReason": "USGS 05429510 is a live discharge/stage station at the Yahara River Exchange Street bridge in McFarland. Dane County and local sources document a real beginner-friendly Babcock County Park-to-Fish Camp County Park paddle corridor that passes the gauge, but no scored route is tied directly to this provider key and the station-specific threshold, endpoint, camping/access, safety, coordinate, image, and geometry package is incomplete. Keep it blocked rather than duplicating the existing upstream Yahara coverage.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Yahara River"
+      ],
+      "blockers": [
+        "Existing Yahara scored routes use USGS 05430175; no route is directly tied to 05429510.",
+        "A separate Babcock-to-Fish Camp route package needs station-specific threshold interpretation and geometry.",
+        "Endpoint, camping/access, safety, coordinate, and image evidence are not yet assembled for this gauge."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/dv/?PARAmeter_cd=00060%2C00065&referred_module=sw&site_no=05429510",
+        "https://apps.dnr.wi.gov/water/wsSWIMSDocument.ashx?documentSeqNo=54594440",
+        "https://www.danecountyparks.com/Event/Detail/2499",
+        "https://www.danecountyparks.com/Event/Detail/2543",
+        "https://lwrd.countyofdane.com/documents/pdfs/yaharaTrailGuide.pdf",
+        "https://quietpaddlingwisconsin.com/2020/05/22/jaeger-park-to-fish-camp-county-park/"
+      ]
     },
     {
       "key": "usgs:05429700",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T13:00:00-05:00",
+      "decisionReason": "USGS 05429700 is a current discharge and stage station at Forton Street in Stoughton on the Yahara River. Paddling sources document the lower Yahara and Stoughton corridor, but no scored route is tied directly to this provider key and the station-specific threshold, endpoint, camping/access, safety, coordinate, image, and geometry package is incomplete. Keep it blocked rather than extending the existing Yahara routes speculatively.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Yahara River"
+      ],
+      "blockers": [
+        "No scored route currently uses USGS 05429700 directly.",
+        "Station-specific threshold interpretation and a Stoughton endpoint pair remain unresolved.",
+        "Camping/access, hazards, coordinates, image, and river-line geometry are not yet packaged for scoring."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/05429700/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05429700",
+        "https://quietpaddlingwisconsin.com/2024/08/31/multiple-wisconsin-waterways/",
+        "https://www.usgs.gov/centers/upper-midwest-water-science-center/science/dane-county-water-quality-monitoring-program",
+        "https://www.danecountyparks.com/Event/Detail/2499"
+      ]
     },
     {
       "key": "usgs:05430150",
@@ -33930,17 +34022,23 @@
     },
     {
       "key": "usgs:05453000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:58:00.000Z",
+      "decisionReason": "USGS 05453000 is a live 189-square-mile Big Bear Creek station at Ladora with same-run discharge/stage of 207 cfs / 12.13 ft at 2026-08-14 18:00 CDT. The creek is physically route-capable, but available evidence is gauge/watershed context only; no selected public endpoint pair, numeric paddling thresholds, camping/access terms, safety package, coordinates, image decision, or geometry package cleared.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "live direct gauge but no manager-backed public route, threshold, camping, safety, coordinate, image, or geometry package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05453000/",
+        "https://friendsoftheiowariver.wordpress.com/learn/streamflows-in-the-iowa-river-watershed/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05453100",
@@ -34384,17 +34482,22 @@
     },
     {
       "key": "usgs:05463000",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:58:00.000Z",
+      "decisionReason": "USGS 05463000 is a live 347-square-mile Beaver Creek station near New Hartford with same-run discharge/stage of 356 cfs / 3.56 ft at 2026-08-14 18:00 CDT. The creek is physically route-capable, but no selected public endpoint pair, numeric paddling threshold model, camping/no-camping terms, safety package, coordinate package, image decision, or geometry package cleared for a scored route.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "live direct gauge but no selected public route, numeric thresholds, access/camping/safety, coordinates, image, or geometry package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05463000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05463050",
@@ -35210,17 +35313,26 @@
     },
     {
       "key": "usgs:05481950",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-14T23:58:00.000Z",
+      "decisionReason": "USGS 05481950 is product-live on the Johnston Beaver Creek water-trail corridor and same-run Water Services returned 484 cfs / 5.44 ft at 2026-08-14 18:15 CDT. Iowa DNR supports a 50 cfs minimum and Johnston/ICON confirm public access at NW 70th Avenue and Lew Clarkson Park, but the current package still lacks a selected scored endpoint pair with route distance, downstream status, camping/no-camping terms, current logjam/safety handling, defensible high-water treatment, precise endpoint coordinates, rights-clean image decision, and canonical geometry.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "promising public Beaver Creek corridor but incomplete selected-route endpoint, threshold, camping, safety, coordinate, image, and geometry package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05481950/",
+        "https://rivergages.mvr.usace.army.mil/WaterControl/stationinfo2.cfm?sid=GRMI4",
+        "https://www.cityofjohnston.com/1022/Water-Trails",
+        "https://www.iconwatertrails.com/water-trails/beaver-creek/",
+        "https://content.govdelivery.com/accounts/IACIO/bulletins/25bd224",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05482000",
@@ -35672,17 +35784,22 @@
     },
     {
       "key": "usgs:05489490",
-      "status": "unreviewed",
-      "eligibility": "unknown",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "checkedAt": "2026-08-14T23:58:00.000Z",
+      "decisionReason": "USGS 05489490 is a 22.9-square-mile Bear Creek monitoring site at Ottumwa with stage-only current telemetry. Same-run Water Services returned 80.13 ft at 2026-08-14 18:45 CDT, but no public point-to-point paddling corridor, discharge metric, route threshold, endpoint, camping, safety, coordinate, image, or geometry package surfaced.",
+      "decisionSource": "manual_route_worker_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "stage-only small-creek monitoring site; no public paddling corridor or route-quality package surfaced"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05489490/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ]
     },
     {
       "key": "usgs:05489500",
@@ -54144,17 +54261,28 @@
     },
     {
       "key": "usgs:07344100",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T17:15:00-05:00",
+      "decisionReason": "USGS 07344100 is Anderson Creek at Highway 98 near Simms, a small 89.9-square-mile drainage whose record ended in July 2025. The official Texas access and paddling sources reviewed do not identify a named paddling trail, public river-access corridor, or route-specific recreational use for this creek; nearby official leads refer to other waters. Screen it out rather than infer a route from the gauge alone.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Anderson Creek"
+      ],
+      "blockers": [
+        "USGS record ended 2025-07-14; no current product-supported telemetry is available.",
+        "No official paddling trail, public access corridor, endpoint pair, camping terms, safety package, or route-specific threshold was found for Anderson Creek near Simms.",
+        "Nearby official Texas paddling sources describe other waters and cannot support a route for this gauge."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/inventory/?agency_cd=USGS&site_no=07344100",
+        "https://tpwd.texas.gov/landwater/water/habitats/rivers/access/",
+        "https://tpwd.texas.gov/boating/paddling-trails/",
+        "https://tpwd.texas.gov/landwater/water/recreation/access/"
+      ]
     },
     {
       "key": "usgs:07344210",
@@ -55324,17 +55452,29 @@
     },
     {
       "key": "usgs:08037180",
-      "status": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T18:00:00-05:00",
+      "decisionReason": "USGS 08037180 is the Angelina River at Highway 59 near Lufkin and has current continuous, daily, and field data. Official and specialist sources establish a real Angelina River paddling corridor, but the reach has limited public access, substantial logjams and riparian growth, and no complete product-ready endpoint, camping, safety, and station-specific threshold package. Keep it blocked pending a defensible route package rather than scoring it prematurely.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Angelina River"
+      ],
+      "blockers": [
+        "Official TPWD basin study describes limited public access and difficult navigation from downed trees and riparian growth.",
+        "No manager-backed endpoint pair and route-scoped coordinate package has been validated for the Hwy 59 reach.",
+        "No product-supported station-specific paddling threshold, camping/no-camping terms, complete safety package, image decision, or river-line geometry package is ready."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/inventory/?agency_cd=USGS&site_no=08037180",
+        "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_t3200_1953.pdf",
+        "https://southwestpaddler.com/docs/angelina2.html",
+        "https://tpwd.texas.gov/landwater/water/habitats/rivers/access/",
+        "https://tpwd.texas.gov/state-parks/martin-dies-jr/activities"
+      ]
     },
     {
       "key": "usgs:08038000",
@@ -58977,18 +59117,28 @@
     },
     {
       "key": "usgs:08091000",
-      "status": "researching",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": "2026-08-11T16:38:00.000Z",
-      "decisionReason": "Live telemetry was checked in a state saturation audit, but no durable gauge disposition was recorded.",
-      "decisionSource": "saturation_audit",
+      "status": "stale_or_unsupported",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-15T16:00:00-05:00",
+      "decisionReason": "USGS 08091000 is the Brazos River near Glen Rose and the corridor is genuinely paddle-relevant, but the current USGS monitoring page reports no continuous, daily, or field measurement data and no current graph. Historical records and Glen Rose access/outfitter sources support route relevance, not a current product-supported gauge. Keep it stale_or_unsupported rather than scoring a route against an unavailable station.",
+      "decisionSource": "manual_authoritative_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
+      "routeFamilies": [
+        "Brazos River"
+      ],
+      "blockers": [
+        "USGS monitoring page reports no continuous, daily, or field measurement data and no current graph.",
+        "No current product-supported telemetry or station-specific paddling thresholds are available.",
+        "Glen Rose endpoint, camping/access, safety, coordinate, image, and river-line package is not validated."
+      ],
       "evidence": [
-        "docs/operations/texas-saturation-audit.json"
+        "https://waterdata.usgs.gov/nwis/inventory/?agency_cd=USGS&site_no=08091000",
+        "https://waterdata.usgs.gov/tx/nwis/dv/?agency_cd=USGS&referred_module=sw&site_no=08091000",
+        "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/brazos_outdoor_center.phtml",
+        "https://brazos.org/about-us/news/news-room/resource-library/recreation-on-the-brazos-river",
+        "https://www.brazosoutdoorcenter.com/"
       ]
     },
     {

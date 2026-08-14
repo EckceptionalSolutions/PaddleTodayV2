@@ -1,8 +1,168 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T23:25:14.000Z",
-  "notes": "Wisconsin gauge-review batch screened Wilson Park Creek and Wisconsin River gauges; no route cleared full gates.",
+  "updatedAt": "2026-08-14T23:58:00.000Z",
+  "notes": "Iowa gauge-review batch opened after frontier mismatch; five Iowa gauges screened and no route cleared full gates.",
   "candidates": [
+    {
+      "id": "ia-usgs-05489490-gauge-review-20260814-2358",
+      "candidateId": "ia-usgs-05489490-gauge-review-20260814-2358",
+      "river": "Bear Creek",
+      "route": "Ottumwa stage-only Bear Creek gauge review",
+      "state": "IA",
+      "status": "screened_out_not_paddle_relevant",
+      "screenedAt": "2026-08-14T23:58:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608142358-ia-beaver-bear-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05489490"
+      ],
+      "decisiveBlocker": "USGS 05489490 is a 22.9-square-mile Bear Creek monitoring site at Ottumwa with stage-only current telemetry. Same-run Water Services returned 80.13 ft at 2026-08-14 18:45 CDT, but no public point-to-point paddling corridor, discharge metric, route threshold, endpoint, camping, safety, coordinate, image, or geometry package surfaced.",
+      "blocker": "stage-only small-creek monitoring site; no public paddling corridor or route-quality package surfaced",
+      "gaugeEvidence": "USGS Water Services returned stage-only current telemetry: 80.13 ft at 2026-08-14 18:45 CDT.",
+      "thresholdEvidence": "No discharge metric or paddle threshold exists for this gauge under the supported product model.",
+      "endpointEvidence": "No named public point-to-point Bear Creek paddling endpoint pair surfaced for the Ottumwa gauge reach.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, sloughs, access corridors, or nearby public/private land.",
+      "safetyEvidence": "Small urban/tributary stage-only monitoring context and no route manager package make the gauge not paddle-relevant for PaddleToday.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05489490/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Do not retry unless a public manager publishes a point-to-point paddling corridor and a supported threshold/access package for this exact gauge reach.",
+      "updatedAt": "2026-08-14T23:58:00.000Z"
+    },
+    {
+      "id": "ia-usgs-05463000-gauge-review-20260814-2358",
+      "candidateId": "ia-usgs-05463000-gauge-review-20260814-2358",
+      "river": "Beaver Creek",
+      "route": "New Hartford / lower Beaver Creek gauge review",
+      "state": "IA",
+      "status": "blocked_route_capable_gauge",
+      "screenedAt": "2026-08-14T23:58:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608142358-ia-beaver-bear-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05463000"
+      ],
+      "decisiveBlocker": "USGS 05463000 is a live 347-square-mile Beaver Creek station near New Hartford with same-run discharge/stage of 356 cfs / 3.56 ft at 2026-08-14 18:00 CDT. The creek is physically route-capable, but no selected public endpoint pair, numeric paddling threshold model, camping/no-camping terms, safety package, coordinate package, image decision, or geometry package cleared for a scored route.",
+      "blocker": "live direct gauge but no selected public route, numeric thresholds, access/camping/safety, coordinates, image, or geometry package",
+      "gaugeEvidence": "USGS Water Services returned 356 cfs / 3.56 ft at 2026-08-14 18:00 CDT.",
+      "thresholdEvidence": "No source-backed route-specific paddling threshold ladder tied to USGS 05463000 surfaced.",
+      "endpointEvidence": "No manager-backed New Hartford-area public put-in/take-out pair was validated.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, sloughs, access corridors, or nearby public/private land.",
+      "safetyEvidence": "Route-capable creek, but wood, bridge, private-bank, and access conditions lack a route-manager safety package.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05463000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only with fresh manager-grade public endpoint/access, numeric threshold, camping/no-camping, safety, coordinate, image, and geometry evidence for the exact gauged reach.",
+      "updatedAt": "2026-08-14T23:58:00.000Z"
+    },
+    {
+      "id": "ia-usgs-05481950-gauge-review-20260814-2358",
+      "candidateId": "ia-usgs-05481950-gauge-review-20260814-2358",
+      "river": "Beaver Creek",
+      "route": "Johnston 70th Avenue / Lew Clarkson / downstream Beaver Creek gauge review",
+      "state": "IA",
+      "status": "blocked_route_capable_gauge",
+      "screenedAt": "2026-08-14T23:58:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608142358-ia-beaver-bear-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05481950"
+      ],
+      "decisiveBlocker": "USGS 05481950 is product-live on the Johnston Beaver Creek water-trail corridor and same-run Water Services returned 484 cfs / 5.44 ft at 2026-08-14 18:15 CDT. Iowa DNR supports a 50 cfs minimum and Johnston/ICON confirm public access at NW 70th Avenue and Lew Clarkson Park, but the current package still lacks a selected scored endpoint pair with route distance, downstream status, camping/no-camping terms, current logjam/safety handling, defensible high-water treatment, precise endpoint coordinates, rights-clean image decision, and canonical geometry.",
+      "blocker": "promising public Beaver Creek corridor but incomplete selected-route endpoint, threshold, camping, safety, coordinate, image, and geometry package",
+      "gaugeEvidence": "USGS Water Services returned 484 cfs / 5.44 ft at 2026-08-14 18:15 CDT; USACE Rivergages showed 433 cfs / 5.41 ft at 18:00 Central and flood stage 14 ft.",
+      "thresholdEvidence": "Iowa DNR publishes 50 cfs as the minimum recommended Beaver Creek flow for a pleasant trip, but no high-water or selected-route scoring model was promoted in this pass.",
+      "endpointEvidence": "Johnston and ICON confirm Site 23 at 86th Street/70th Avenue and Site 30 at Lew Clarkson Park; the downstream Merle Hay Gateway remains future/incomplete in the reviewed ICON text, and no selected scored pair with full coordinates/distance cleared.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, sloughs, access corridors, or nearby public/private land.",
+      "safetyEvidence": "Iowa DNR documents logjam recurrence, higher-flow strainer danger, Camp Dodge restricted-area avoidance upstream, and the need to plan a downstream exit; current evidence is not yet a complete route safety package.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05481950/",
+        "https://rivergages.mvr.usace.army.mil/WaterControl/stationinfo2.cfm?sid=GRMI4",
+        "https://www.cityofjohnston.com/1022/Water-Trails",
+        "https://www.iconwatertrails.com/water-trails/beaver-creek/",
+        "https://content.govdelivery.com/accounts/IACIO/bulletins/25bd224",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only with fresh manager-grade public endpoint/access, numeric threshold, camping/no-camping, safety, coordinate, image, and geometry evidence for the exact gauged reach.",
+      "updatedAt": "2026-08-14T23:58:00.000Z"
+    },
+    {
+      "id": "ia-usgs-05420460-gauge-review-20260814-2358",
+      "candidateId": "ia-usgs-05420460-gauge-review-20260814-2358",
+      "river": "Beaver Slough",
+      "route": "Clinton Beaver Slough stage gauge review",
+      "state": "IA",
+      "status": "screened_out_not_paddle_relevant",
+      "screenedAt": "2026-08-14T23:58:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608142358-ia-beaver-bear-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05420460"
+      ],
+      "decisiveBlocker": "USGS 05420460 is a Beaver Slough / Mississippi-connected Clinton stage-monitoring site with an 85,600-square-mile drainage context and stage-only same-run telemetry of 10.58 ft at 2026-08-14 18:15 CDT. No riverine point-to-point paddling route, discharge threshold, camping/access/safety package, coordinates, image, or geometry package surfaced.",
+      "blocker": "stage-only slough/navigation/backwater monitoring context; no supported river point-to-point route package",
+      "gaugeEvidence": "USGS Water Services returned stage-only current telemetry: 10.58 ft at 2026-08-14 18:15 CDT.",
+      "thresholdEvidence": "No discharge metric or route-specific paddle threshold exists for this slough-stage gauge under the supported product model.",
+      "endpointEvidence": "No selected public river point-to-point endpoint pair surfaced for Beaver Slough at Clinton.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, sloughs, access corridors, or nearby public/private land.",
+      "safetyEvidence": "Mississippi-connected slough/navigation/backwater context is not a scored PaddleToday river route without a manager-backed route package.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05420460/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Do not retry unless a public manager publishes a point-to-point paddling corridor and a supported threshold/access package for this exact gauge reach.",
+      "updatedAt": "2026-08-14T23:58:00.000Z"
+    },
+    {
+      "id": "ia-usgs-05453000-gauge-review-20260814-2358",
+      "candidateId": "ia-usgs-05453000-gauge-review-20260814-2358",
+      "river": "Big Bear Creek",
+      "route": "Ladora / Big Bear Creek gauge review",
+      "state": "IA",
+      "status": "blocked_route_capable_gauge",
+      "screenedAt": "2026-08-14T23:58:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608142358-ia-beaver-bear-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05453000"
+      ],
+      "decisiveBlocker": "USGS 05453000 is a live 189-square-mile Big Bear Creek station at Ladora with same-run discharge/stage of 207 cfs / 12.13 ft at 2026-08-14 18:00 CDT. The creek is physically route-capable, but available evidence is gauge/watershed context only; no selected public endpoint pair, numeric paddling thresholds, camping/access terms, safety package, coordinates, image decision, or geometry package cleared.",
+      "blocker": "live direct gauge but no manager-backed public route, threshold, camping, safety, coordinate, image, or geometry package",
+      "gaugeEvidence": "USGS Water Services returned 207 cfs / 12.13 ft at 2026-08-14 18:00 CDT.",
+      "thresholdEvidence": "No source-backed Big Bear Creek paddling threshold model tied to USGS 05453000 surfaced.",
+      "endpointEvidence": "No manager-backed Big Bear Creek public put-in/take-out pair was validated for the Ladora gauge reach.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, sloughs, access corridors, or nearby public/private land.",
+      "safetyEvidence": "No route-specific public safety package surfaced for bridges, wood, rural access, private banks, or high/rising water.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05453000/",
+        "https://friendsoftheiowariver.wordpress.com/learn/streamflows-in-the-iowa-river-watershed/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05489490,05463000,05481950,05420460,05453000&parameterCd=00060,00065&siteStatus=all&period=P1D"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only with fresh manager-grade public endpoint/access, numeric threshold, camping/no-camping, safety, coordinate, image, and geometry evidence for the exact gauged reach.",
+      "updatedAt": "2026-08-14T23:58:00.000Z"
+    },
     {
       "id": "wi-usgs-040871473-wilson-park-creek-gauge-review-20260814-2325",
       "candidateId": "wi-usgs-040871473-wilson-park-creek-gauge-review-20260814-2325",

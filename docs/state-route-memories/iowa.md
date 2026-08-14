@@ -2,6 +2,13 @@
 
 Last summarized: 2026-07-24.
 
+## 2026-08-14 America/Chicago Beaver / Bear gauge screen
+
+- Repaired the frontier/task mismatch for this run: Minnesota and Wisconsin are ledger-complete, Iowa has unreviewed provider-baseline gauges, and `operations:plan` would otherwise have selected distant Texas because no Iowa task existed. Added `ia-gauge-review-batch` and kept it ready for bounded Iowa gauge review.
+- Screened five Iowa gauges and added no route: `usgs:05489490` Bear Creek at Ottumwa was screened_out/not_paddle_relevant because it is stage-only small-creek monitoring with no public point-to-point route package; `usgs:05463000` Beaver Creek at New Hartford was blocked/route_capable because live telemetry exists but no selected endpoint, threshold, camping, safety, coordinate, image, or geometry package cleared; `usgs:05481950` Beaver Creek near Grimes was blocked/route_capable because Johnston/ICON/DNR support public access and a 50 cfs minimum, but the selected endpoint/distance, downstream status, high-water, camping, safety, coordinate, image, and geometry gates remain incomplete; `usgs:05420460` Beaver Slough at Clinton was screened_out/not_paddle_relevant for stage-only slough/backwater context; `usgs:05453000` Big Bear Creek at Ladora was blocked/route_capable because live telemetry exists but no route package cleared.
+- Same-run USGS readings: Bear Creek Ottumwa 80.13 ft stage-only at 18:45 CDT; Beaver Creek New Hartford 356 cfs / 3.56 ft at 18:00 CDT; Beaver Creek Grimes 484 cfs / 5.44 ft at 18:15 CDT; Beaver Slough Clinton 10.58 ft stage-only at 18:15 CDT; Big Bear Creek Ladora 207 cfs / 12.13 ft at 18:00 CDT.
+- No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed. Next Iowa rotation should continue with Big Creek north of Mount Pleasant, Big Sioux River at Sioux City, Bloody Run Creek near Marquette, Bluff Creek at Pilot Mound, and Boone River near Goldfield unless the planner selects differently.
+
 ## Current Inventory
 
 - 2026-07-24 08:07 CDT update: dirty-checkout live exported Iowa routes were 128 at the start of this run and 131 after adding `wapsipinicon-river-syracuse-sherman`, `wapsipinicon-river-sherman-allens-grove`, and `wapsipinicon-river-allens-grove-gambril`.
