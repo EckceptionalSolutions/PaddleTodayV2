@@ -85,7 +85,11 @@ export function rankGaugeStateCoverage<T extends {
       const legacyTotal = state.scored + state.planning;
       const legacyCoveragePercent = legacyTotal === 0 ? 0 : Math.round((state.scored / legacyTotal) * 100);
       const researchStatus = gaugeResearchStatus(state.gaugeCoverage, state.saturation, state.discoveryComplete === true);
-      const done = researchStatus === 'saturated';
+      // Gauge-network completion is authoritative after every eligible gauge
+      // has a durable disposition and the bounded discovery sweep is done.
+      // `research_complete` is therefore complete even when legacy route
+      // saturation has not been migrated for that state yet.
+      const done = researchStatus === 'saturated' || researchStatus === 'research_complete';
       const frontierTier = state.frontierTier ?? 99;
       const unresolvedRouteCapable = state.gaugeCoverage.unresolvedRouteCapableGaugeCount ?? state.gaugeCoverage.uncoveredRouteCapableGaugeCount;
       const completionGap = state.gaugeCoverage.unreviewedGaugeCount + unresolvedRouteCapable;
@@ -306,7 +310,7 @@ function activeFrontierStateId() {
         gap: coverage.unreviewedGaugeCount + unresolvedRouteCapable,
       };
     })
-    .filter(({ status }) => status !== 'saturated')
+    .filter(({ status }) => status !== 'saturated' && status !== 'research_complete')
     .sort((left, right) => left.state.frontierTier - right.state.frontierTier || left.gap - right.gap || left.state.id.localeCompare(right.state.id))
     .at(0)?.state.id ?? null;
 }

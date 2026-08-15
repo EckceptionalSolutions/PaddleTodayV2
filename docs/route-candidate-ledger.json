@@ -1,8 +1,358 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T23:58:00.000Z",
-  "notes": "Iowa gauge-review batch opened after frontier mismatch; five Iowa gauges screened and no route cleared full gates.",
+  "updatedAt": "2026-08-15T03:00:10.891Z",
+  "notes": "Iowa bounded discovery sweep screened five distinct route-capable families and no candidate cleared full route gates.",
   "candidates": [
+    {
+      "id": "ia-discovery-boone-goldfield-20260815-0305",
+      "candidateId": "ia-discovery-boone-goldfield-20260815-0305",
+      "river": "Boone River",
+      "route": "Goldfield / upstream Boone River discovery lead",
+      "state": "IA",
+      "status": "blocked_stale_or_incomplete_route_package",
+      "screenedAt": "2026-08-15T03:00:10.891Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150305-ia-bounded-discovery-no-add",
+      "gaugeKeys": [
+        "usgs:05480820"
+      ],
+      "decisiveBlocker": "USGS 05480820 returned same-run discharge only (16.2 cfs at 2026-08-14 21:15 CDT) and no gage-height values through Water Services. Official Boone River water-trail evidence is strong downstream near Webster City and existing PaddleToday Boone routes already use USGS 05481000, but the Goldfield/upstream station did not clear a selected public endpoint pair, station-specific thresholds, camping/no-camping, safety, image, coordinate, or gauge-linked geometry package.",
+      "blocker": "upstream Boone gauge lacks current full metric support and a station-specific route package; downstream Boone route family is already represented",
+      "gaugeEvidence": "USGS Water Services IV: 05480820 discharge 16.2 cfs at 2026-08-14 21:15 CDT; no gage-height values returned for parameter 00065 in the same query.",
+      "thresholdEvidence": "No source-backed paddling threshold tied to USGS 05480820 surfaced. Existing Boone guidance applies to the Webster City / Briggs Woods / Albright family using USGS 05481000, not this upstream Goldfield station.",
+      "endpointEvidence": "No named Goldfield-area public put-in/take-out pair with route distance and coordinates cleared the sweep.",
+      "campingEvidence": "No legal route camping promoted; downstream Briggs Woods/Bell's Mill camping evidence was not conflated with the upstream Goldfield gauge reach.",
+      "safetyEvidence": "Boone River official material warns of low-water riffles/boulders and faster rocky reaches downstream, but no upstream Goldfield route-specific safety package cleared.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05480820",
+        "https://www.iowadnr.gov/media/8883/download?inline=",
+        "https://www.traveliowa.com/trails/boone-river-water-trail/81/",
+        "https://booneriver.org/wp-content/uploads/2022/02/boone-wma-public-access-final.pdf"
+      ],
+      "routeSlugs": [
+        "boone-river-riverside-briggs-woods",
+        "boone-river-briggs-woods-albright"
+      ],
+      "nextAction": "Do not retry the Goldfield gauge for a scored route unless a public manager publishes a station-specific upstream endpoint pair and numeric threshold package or provider support changes materially.",
+      "updatedAt": "2026-08-15T03:00:10.891Z"
+    },
+    {
+      "id": "ia-discovery-little-sioux-correctionville-20260815-0305",
+      "candidateId": "ia-discovery-little-sioux-correctionville-20260815-0305",
+      "river": "Little Sioux River",
+      "route": "Correctionville / Inkpaduta Canoe Trail discovery lead",
+      "state": "IA",
+      "status": "blocked_threshold_access_safety_package",
+      "screenedAt": "2026-08-15T03:00:10.891Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150305-ia-bounded-discovery-no-add",
+      "gaugeKeys": [
+        "usgs:06606600"
+      ],
+      "decisiveBlocker": "USGS 06606600 is product-live (223 cfs / 4.71 ft at 2026-08-14 21:00 CDT), and Inkpaduta/Little Sioux sources document a real paddling corridor. Publication remains blocked because the trail safety page treats gauges as context rather than a route-specific runnable range, and the sweep did not validate a selected Correctionville endpoint pair, camping/no-camping terms, cattle-fence/logjam/private-bank safety package, image decision, coordinates, or gauge-linked geometry.",
+      "blocker": "live gauge and corridor exist, but no source-backed route-specific threshold or complete selected-route package cleared",
+      "gaugeEvidence": "USGS Water Services IV: 06606600 discharge 223 cfs and gage height 4.71 ft at 2026-08-14 21:00 CDT.",
+      "thresholdEvidence": "Inkpaduta Canoe Trail points paddlers to Linn Grove and Correctionville gauges, but states experience is needed to learn what flows are too high/low; no numeric route threshold cleared for scoring.",
+      "endpointEvidence": "Copeland, Walling, Little Sioux Park, Riverside, and other access-family evidence exists, but no station-specific Correctionville put-in/take-out pair and distance package was selected for implementation.",
+      "campingEvidence": "No legal route camping promoted; county-park camping near parts of the corridor was not generalized to this selected reach.",
+      "safetyEvidence": "Inkpaduta safety evidence warns about dynamic rivers, strong currents, hidden debris, cold water, private banks/sandbars, and electric cattle fences across rivers.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06606600/",
+        "https://www.inkpadutacanoetrail.org/safety-1",
+        "https://www.mycountyparks.com/County/Cherokee/Content/Paddling-Little-Sioux",
+        "https://woodburyparks.org/copeland-park-access/",
+        "https://woodburyparks.org/walling-river-access/"
+      ],
+      "routeSlugs": [
+        "little-sioux-river-linn-grove-peterson"
+      ],
+      "nextAction": "Retry only with route-manager or strong source evidence tying Correctionville-area endpoints to numeric low/high thresholds and a complete access, safety, camping, coordinate, and geometry package.",
+      "updatedAt": "2026-08-15T03:00:10.891Z"
+    },
+    {
+      "id": "ia-discovery-cedar-creek-bussey-20260815-0305",
+      "candidateId": "ia-discovery-cedar-creek-bussey-20260815-0305",
+      "river": "Cedar Creek",
+      "route": "Bussey / Big Cedar Creek water-trail discovery lead",
+      "state": "IA",
+      "status": "blocked_threshold_endpoint_safety_package",
+      "screenedAt": "2026-08-15T03:00:10.891Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150305-ia-bounded-discovery-no-add",
+      "gaugeKeys": [
+        "usgs:05489000"
+      ],
+      "decisiveBlocker": "USGS 05489000 was product-live at 991 cfs / 7.88 ft at 2026-08-14 21:15 CDT, and National Rivers Project/Iowa DNR context identifies Big Cedar Creek as a remote 44-mile water-trail-style paddling lead. No route was added because the evidence remains corridor-level: no selected public endpoint pair with coordinates, no numeric threshold model tied to the Bussey gauge, and no complete steep-bank/logjam/camping/image/geometry package cleared.",
+      "blocker": "corridor-level Cedar Creek evidence lacks selected endpoints, numeric gauge thresholds, and route-quality safety/camping/coordinate/geometry support",
+      "gaugeEvidence": "USGS Water Services IV: 05489000 discharge 991 cfs and gage height 7.88 ft at 2026-08-14 21:15 CDT.",
+      "thresholdEvidence": "No source-backed low-water floor, preferred range, or high-water cutoff tied to USGS 05489000 surfaced.",
+      "endpointEvidence": "National Rivers Project frames Kale Boulevard to Skunk River as a 44-mile multiday lead, but the sweep did not validate a bounded day-route endpoint pair with coordinates.",
+      "campingEvidence": "NRP lists camping generally for the 44-mile lead, but no official site-by-site legal camping package was validated; no camping inferred from banks, sandbars, or nearby land.",
+      "safetyEvidence": "NRP/Iowa DNR context flags remote conditions, muddy runoff after heavy rain, steep banks, and potential creek-wide logjams requiring experienced paddlers.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05489000/",
+        "https://www.nationalriversproject.com/ia/big-cedar-creek-big-cedar-creek-water-trail",
+        "https://programs.iowadnr.gov/adbnet/Segments/1053",
+        "https://rivergages.mvr.usace.army.mil/WaterControl/stationinfo2.cfm?dt=S&fid=BSSI4&sid=BSSI4"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only if an official/current route map or manager source publishes a bounded endpoint pair, legal camping specifics, and numeric Bussey-gauge thresholds.",
+      "updatedAt": "2026-08-15T03:00:10.891Z"
+    },
+    {
+      "id": "ia-discovery-chariton-rathbun-moulton-20260815-0305",
+      "candidateId": "ia-discovery-chariton-rathbun-moulton-20260815-0305",
+      "river": "Chariton River",
+      "route": "Rathbun Lake to Iowa-Missouri border discovery lead",
+      "state": "IA",
+      "status": "blocked_current_flow_and_dam_release_package",
+      "screenedAt": "2026-08-15T03:00:10.891Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150305-ia-bounded-discovery-no-add",
+      "gaugeKeys": [
+        "usgs:06903900",
+        "usgs:06904010"
+      ],
+      "decisiveBlocker": "Chariton below Rathbun has an unusually concrete published release concept (100-500 cfs from Rathbun Lake for good floating), but same-run USGS readings were below that floor: 25.0 cfs / 2.38 ft at 06903900 and 34.6 cfs / 18.53 ft at 06904010. The regulated tailwater also still needs selected endpoints, dam-release safety handling, camping/no-camping, image, coordinate, and geometry evidence before implementation.",
+      "blocker": "current flow is below the published 100 cfs floating floor and regulated-release route package remains incomplete",
+      "gaugeEvidence": "USGS Water Services IV: 06903900 25.0 cfs / 2.38 ft at 2026-08-14 21:00 CDT; 06904010 34.6 cfs / 18.53 ft at 2026-08-14 20:45 CDT.",
+      "thresholdEvidence": "National Rivers Project / Iowa Canoe Guide says Rathbun Lake discharge of 100-500 cfs is the best/safest floating window, with higher water not recommended for novices; current flow did not reach the floor.",
+      "endpointEvidence": "The 37-mile Rathbun-to-border corridor is multiday-scale; no bounded day-route endpoint pair and coordinate package cleared this sweep.",
+      "campingEvidence": "NRP lists camping generally, but no selected official on-route campsite sequence or endpoint camping terms were validated for a route package.",
+      "safetyEvidence": "Rathbun regulation, dam-tailwater operations, low current, remote wooded valley, and higher-water novice limits require a route-specific package before scoring.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06903900/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06904010",
+        "https://www.nationalriversproject.com/ia/chariton-river-chariton-river",
+        "https://publications.iowa.gov/15395/1/Iowa_Canoe_Guide_2000.pdf",
+        "https://www.nwk.usace.army.mil/Locations/District-Lakes/Rathbun-Lake/Daily-Lake-Info-2/"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only during a current 100-500 cfs Rathbun release window and with selected endpoints, dam-tailwater safety, camping, image, coordinates, and geometry ready.",
+      "updatedAt": "2026-08-15T03:00:10.891Z"
+    },
+    {
+      "id": "ia-discovery-south-fork-iowa-new-providence-20260815-0305",
+      "candidateId": "ia-discovery-south-fork-iowa-new-providence-20260815-0305",
+      "river": "South Fork Iowa River",
+      "route": "Flowing Well Access to Iowa River discovery lead",
+      "state": "IA",
+      "status": "blocked_threshold_endpoint_package",
+      "screenedAt": "2026-08-15T03:00:10.891Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150305-ia-bounded-discovery-no-add",
+      "gaugeKeys": [
+        "usgs:05451210"
+      ],
+      "decisiveBlocker": "USGS 05451210 is product-live at 742 cfs / 6.11 ft at 2026-08-14 20:45 CDT, and NRP/Iowa DNR context identifies a 37.4-mile South Fork Iowa River water-trail lead. The candidate did not clear because no numeric threshold model tied to 05451210, no bounded selected endpoint pair with coordinates, and no route-specific camping/access/safety/image/geometry package surfaced.",
+      "blocker": "live gauge and water-trail corridor exist, but threshold, endpoint, camping, safety, coordinate, image, and geometry gates remain incomplete",
+      "gaugeEvidence": "USGS Water Services IV: 05451210 discharge 742 cfs and gage height 6.11 ft at 2026-08-14 20:45 CDT.",
+      "thresholdEvidence": "No source-backed runnable floor, ideal range, or high-water cutoff tied to USGS 05451210 surfaced.",
+      "endpointEvidence": "NRP frames Flowing Well Access to Iowa River as a 37.4-mile multiday corridor; no bounded segment endpoint pair with defensible water-entry coordinates cleared.",
+      "campingEvidence": "NRP lists camping generally, but no official/legal camping sequence or endpoint camping terms were validated for implementation.",
+      "safetyEvidence": "The long South Fork corridor needs selected-route hazard, private-bank, high-water, bridge, wood, and shuttle evidence before scoring.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05451210/",
+        "https://www.nationalriversproject.com/ia/south-fork-iowa-river-hardin-county",
+        "https://www.mycountyparks.com/county/hardin/Park/Flowing-Well-Park",
+        "https://www.hardincountyia.gov/water-trails",
+        "https://programs.iowadnr.gov/adbnet/segments/750"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only with numeric New Providence-gauge threshold support plus selected endpoint, camping, safety, image, coordinate, and geometry evidence.",
+      "updatedAt": "2026-08-15T03:00:10.891Z"
+    },
+    {
+      "id": "ia-usgs-05464475-gauge-review-20260815-0025",
+      "candidateId": "ia-usgs-05464475-gauge-review-20260815-0025",
+      "river": "Morgan Creek",
+      "route": "Morgan Creek near Covington, IA gauge review",
+      "state": "IA",
+      "status": "screened_out_not_paddle_relevant",
+      "screenedAt": "2026-08-15T00:25:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150025-ia-cedar-wolf-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05464475"
+      ],
+      "decisiveBlocker": "USGS 05464475 is a small Morgan Creek tributary station near Covington. Same-run telemetry was live, but the bounded official/public paddling-source review found no named Morgan Creek water trail, public point-to-point endpoint pair, route thresholds, camping/access rules, safety package, image decision, or route geometry. It is screened out as not paddle-relevant for PaddleToday unless a public manager publishes a real route package.",
+      "blocker": "no official/public point-to-point paddling corridor or route-quality package surfaced",
+      "gaugeEvidence": "Same-run USGS Water Services: 69.5 cfs / 6.24 ft at 2026-08-14 18:30 CDT.",
+      "thresholdEvidence": "No supported route threshold exists because no public paddling route package surfaced.",
+      "endpointEvidence": "No named public point-to-point endpoint pair surfaced for this gauge reach.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, trails, water proximity, or nearby public/private land.",
+      "safetyEvidence": "No route-specific public safety package exists for this non-promoted creek gauge.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05464475/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05463050,05464000,05464220,05464315,05464475,05464480&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle",
+        "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/6"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Do not retry unless a public manager publishes a point-to-point paddling corridor and supported threshold/access package for this exact gauge reach.",
+      "updatedAt": "2026-08-15T00:25:00.000Z"
+    },
+    {
+      "id": "ia-usgs-05464315-gauge-review-20260815-0025",
+      "candidateId": "ia-usgs-05464315-gauge-review-20260815-0025",
+      "river": "Cedar River",
+      "route": "Cedar River at Vinton, IA gauge review",
+      "state": "IA",
+      "status": "blocked_route_capable_gauge",
+      "screenedAt": "2026-08-15T00:25:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150025-ia-cedar-wolf-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05464315"
+      ],
+      "decisiveBlocker": "USGS 05464315 is live on the Cedar River at Vinton, and the Cedar River is an established Iowa water-trail family. No Vinton-station route was promoted because a selected public endpoint pair, station-specific threshold model, camping/no-camping terms, Vinton-area hazards and access handling, endpoint coordinates, rights-clean image decision, and gauge-linked geometry were not validated in this bounded pass.",
+      "blocker": "Cedar River at Vinton needs a selected station-specific public endpoint pair and route distance. No numeric paddling threshold interpretation tied to USGS 05464315 cleared. Camping/no-camping, safety, coordinate, image, and geometry packages remain incomplete.",
+      "gaugeEvidence": "Same-run USGS Water Services: 8270 cfs at 2026-08-14 18:15 CDT and 6.97 ft at 2026-08-14 19:15 CDT.",
+      "thresholdEvidence": "No source-backed station-specific paddling threshold model cleared for this gauge reach.",
+      "endpointEvidence": "No selected named public put-in/take-out pair with defensible route distance and coordinates was validated.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, trails, water proximity, or nearby public/private land.",
+      "safetyEvidence": "No route-specific safety package promoted; dam/portage, wood, high/rising water, urban, private-bank, and limited-egress issues require selected-route evidence.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05464315/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05463050,05464000,05464220,05464315,05464475,05464480&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://cedarvalleytrails.org/trails/cedar-river-water-trail/",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle",
+        "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/6",
+        "https://publications.iowa.gov/15395/1/Iowa_Canoe_Guide_2000.pdf"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only with fresh manager-grade public endpoint/access, numeric threshold, camping/no-camping, safety, coordinate, image, and geometry evidence for the exact gauged reach.",
+      "updatedAt": "2026-08-15T00:25:00.000Z"
+    },
+    {
+      "id": "ia-usgs-05464220-gauge-review-20260815-0025",
+      "candidateId": "ia-usgs-05464220-gauge-review-20260815-0025",
+      "river": "Wolf Creek",
+      "route": "Wolf Creek near Dysart, IA gauge review",
+      "state": "IA",
+      "status": "screened_out_not_paddle_relevant",
+      "screenedAt": "2026-08-15T00:25:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150025-ia-cedar-wolf-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05464220"
+      ],
+      "decisiveBlocker": "USGS 05464220 is a live 299-square-mile Wolf Creek tributary station in the Middle Cedar basin, but the bounded official/public paddling-source review found no Iowa DNR water-trail listing, named public point-to-point Wolf Creek paddling corridor, endpoint pair, route thresholds, camping rules, safety package, image decision, or route geometry for this gauge reach. It is screened out under the current product model rather than treated as a route candidate.",
+      "blocker": "no official/public point-to-point paddling corridor or route-quality package surfaced",
+      "gaugeEvidence": "Same-run USGS Water Services: 544 cfs at 2026-08-14 18:15 CDT and 3.93 ft at 2026-08-14 19:15 CDT.",
+      "thresholdEvidence": "No supported route threshold exists because no public paddling route package surfaced.",
+      "endpointEvidence": "No named public point-to-point endpoint pair surfaced for this gauge reach.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, trails, water proximity, or nearby public/private land.",
+      "safetyEvidence": "No route-specific public safety package exists for this non-promoted creek gauge.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05464220/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05463050,05464000,05464220,05464315,05464475,05464480&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle",
+        "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/6"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Do not retry unless a public manager publishes a point-to-point paddling corridor and supported threshold/access package for this exact gauge reach.",
+      "updatedAt": "2026-08-15T00:25:00.000Z"
+    },
+    {
+      "id": "ia-usgs-05464000-gauge-review-20260815-0025",
+      "candidateId": "ia-usgs-05464000-gauge-review-20260815-0025",
+      "river": "Cedar River",
+      "route": "Cedar River at Waterloo, IA gauge review",
+      "state": "IA",
+      "status": "blocked_route_capable_gauge",
+      "screenedAt": "2026-08-15T00:25:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150025-ia-cedar-wolf-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05464000"
+      ],
+      "decisiveBlocker": "USGS 05464000 is live on the Cedar River at Waterloo, and official/local Cedar River Water Trail sources show the Waterloo corridor is paddle-relevant. Publication remains blocked because the review did not identify a selected station-specific route with complete endpoints, threshold model, dam/portage safety handling, camping/no-camping evidence, coordinates, image decision, and canonical geometry.",
+      "blocker": "Waterloo corridor has dam/portage hazards requiring exact route-manager handling. No station-specific endpoint pair and distance package was validated for a scored route. Threshold, camping/no-camping, coordinate, image, and geometry gates remain incomplete.",
+      "gaugeEvidence": "Same-run USGS Water Services: 7020 cfs / 7.54 ft at 2026-08-14 19:00 CDT.",
+      "thresholdEvidence": "No source-backed station-specific paddling threshold model cleared for this gauge reach.",
+      "endpointEvidence": "No selected named public put-in/take-out pair with defensible route distance and coordinates was validated.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, trails, water proximity, or nearby public/private land.",
+      "safetyEvidence": "No route-specific safety package promoted; dam/portage, wood, high/rising water, urban, private-bank, and limited-egress issues require selected-route evidence.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05464000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05463050,05464000,05464220,05464315,05464475,05464480&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://cedarvalleytrails.org/trails/cedar-river-water-trail/",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle",
+        "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/6",
+        "https://publications.iowa.gov/15395/1/Iowa_Canoe_Guide_2000.pdf"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only with fresh manager-grade public endpoint/access, numeric threshold, camping/no-camping, safety, coordinate, image, and geometry evidence for the exact gauged reach.",
+      "updatedAt": "2026-08-15T00:25:00.000Z"
+    },
+    {
+      "id": "ia-usgs-05463050-gauge-review-20260815-0025",
+      "candidateId": "ia-usgs-05463050-gauge-review-20260815-0025",
+      "river": "Cedar River",
+      "route": "Cedar River at Cedar Falls, IA gauge review",
+      "state": "IA",
+      "status": "blocked_route_capable_gauge",
+      "screenedAt": "2026-08-15T00:25:00.000Z",
+      "lastReviewed": "2026-08-14",
+      "runId": "route-worker-202608150025-ia-cedar-wolf-gauge-no-add",
+      "gaugeKeys": [
+        "usgs:05463050"
+      ],
+      "decisiveBlocker": "USGS 05463050 is live on the Cedar River at Cedar Falls, and Cedar River Water Trail sources establish a real paddling corridor with public access plus Cedar Falls/Waterloo dam and portage hazards. The bounded review did not validate a station-specific endpoint pair, route distance, numeric threshold interpretation, camping/no-camping package, safety handling, rights-clean image decision, endpoint coordinates, or gauge-linked geometry for a scored route.",
+      "blocker": "Cedar Falls/Waterloo Cedar River route package needs selected public endpoints and gauge-tied route geometry. Cedar River Water Trail documents downtown Cedar Falls and Waterloo dams/portages that require route-specific safety handling. No station-specific threshold, camping/no-camping, coordinate, image, and geometry package cleared for this gauge.",
+      "gaugeEvidence": "Same-run USGS Water Services: 5970 cfs at 2026-08-14 18:45 CDT; gage-height value was blank in same-run Water Services.",
+      "thresholdEvidence": "No source-backed station-specific paddling threshold model cleared for this gauge reach.",
+      "endpointEvidence": "No selected named public put-in/take-out pair with defensible route distance and coordinates was validated.",
+      "campingEvidence": "No legal route camping promoted; no camping inferred from banks, bridges, parks, trails, water proximity, or nearby public/private land.",
+      "safetyEvidence": "No route-specific safety package promoted; dam/portage, wood, high/rising water, urban, private-bank, and limited-egress issues require selected-route evidence.",
+      "imageDecision": "No image-audit row added because no route reached implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted because no selected endpoint pair cleared.",
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05463050/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05463050,05464000,05464220,05464315,05464475,05464480&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://cedarvalleytrails.org/trails/cedar-river-water-trail/",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle",
+        "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/6",
+        "https://publications.iowa.gov/15395/1/Iowa_Canoe_Guide_2000.pdf"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Retry only with fresh manager-grade public endpoint/access, numeric threshold, camping/no-camping, safety, coordinate, image, and geometry evidence for the exact gauged reach.",
+      "updatedAt": "2026-08-15T00:25:00.000Z"
+    },
     {
       "id": "ia-usgs-05489490-gauge-review-20260814-2358",
       "candidateId": "ia-usgs-05489490-gauge-review-20260814-2358",
@@ -87673,6 +88023,579 @@
       ],
       "lastReviewed": "2026-08-14T10:56:32.896Z",
       "updatedAt": "2026-08-14T10:56:32.896Z",
+      "reviewCount": 1
+    },
+    {
+      "candidateId": "ia-missouri-decatur-gauge-20260814",
+      "river": "Missouri River",
+      "route": "Decatur gauge / Sioux City-to-Nebraska City corridor family",
+      "state": "IA",
+      "status": "blocked_big_river_route_package",
+      "blocker": "USGS 06601200 is product-live at 29,700 cfs / 20.27 ft on 2026-08-14 20:00 CDT, and broad Missouri River access context exists, but no Decatur-specific public endpoint pair, route distance, private-paddlecraft threshold model, camping terms, big-river navigation/wind/current safety package, image decision, coordinates, or geometry cleared.",
+      "retryCondition": "Retry only if NPS, Iowa DNR, Nebraska/Iowa managers, or a credible route manager publishes a Decatur-area Missouri River day reach with named public endpoints, coordinates, camping rules, safety handling, and numeric thresholds tied to USGS 06601200 or another product-supported gauge.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06601200",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06601200,06602400,06605000,06605750,06608500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.nationalriversproject.com/ia/missouri-river-missouri-river",
+        "https://www.nps.gov/mnrr/planyourvisit/riveraccpts.htm",
+        "https://www.iowadnr.gov/places-go/water-trails"
+      ],
+      "aliases": [
+        "Missouri River at Decatur",
+        "Missouri River Sioux City to Nebraska City"
+      ],
+      "gauge": {
+        "quality": "product_live_direct_but_route_blocked",
+        "provider": "USGS",
+        "siteId": "06601200",
+        "observedAt": "2026-08-14T20:00:00.000-05:00",
+        "dischargeCfs": 29700,
+        "stageFt": 20.27
+      },
+      "thresholdSupport": {
+        "strength": "blocked_no_private_paddlecraft_thresholds",
+        "notes": "No source-backed low/ideal/high or minimum-only paddling model surfaced for Decatur."
+      },
+      "endpoints": {
+        "putIn": "Unselected Decatur-area Missouri River access",
+        "takeOut": "Unselected downstream public take-out",
+        "coordinatesPresent": false,
+        "coordinateSource": "No endpoint coordinate package accepted."
+      },
+      "camping": {
+        "status": "blocked_no_route_terms",
+        "notes": "No route camping/no-camping package accepted; no camping inferred from broad corridor pages."
+      },
+      "safety": {
+        "status": "blocked_big_river_package_missing",
+        "notes": "Navigation, wind, current, commercial traffic, and rescue exposure package incomplete."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added because no route package cleared."
+      }
+    },
+    {
+      "candidateId": "ia-monona-harrison-ditch-turin-gauge-20260814",
+      "river": "Monona-Harrison Ditch",
+      "route": "Turin ditch gauge family",
+      "state": "IA",
+      "status": "screened_out_not_paddle_relevant",
+      "blocker": "USGS 06602400 is live at 742 cfs / 6.95 ft on 2026-08-14 20:00 CDT, but the source package is a managed drainage/ditch segment with no Iowa water-trail listing, named public endpoint pair, thresholds, camping/access package, safety package, image decision, coordinates, or geometry.",
+      "retryCondition": "Reopen only if Iowa DNR or a public manager publishes a real Monona-Harrison Ditch paddling corridor with route endpoints, access terms, thresholds, camping/safety, and coordinates.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06602400/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06601200,06602400,06605000,06605750,06608500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://programs.iowadnr.gov/adbnet/Segments/1580",
+        "https://www.iowadnr.gov/places-go/water-trails"
+      ],
+      "aliases": [
+        "Monona-Harrison Ditch near Turin"
+      ],
+      "gauge": {
+        "quality": "product_live_but_not_paddle_relevant",
+        "provider": "USGS",
+        "siteId": "06602400",
+        "observedAt": "2026-08-14T20:00:00.000-05:00",
+        "dischargeCfs": 742,
+        "stageFt": 6.95
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No paddling threshold package surfaced."
+      },
+      "endpoints": {
+        "putIn": "None selected",
+        "takeOut": "None selected",
+        "coordinatesPresent": false,
+        "coordinateSource": "No public paddling endpoint package accepted."
+      },
+      "camping": {
+        "status": "none_not_route",
+        "notes": "No camping package promoted."
+      },
+      "safety": {
+        "status": "not_route",
+        "notes": "No route safety package because the gauge was screened out."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added."
+      }
+    },
+    {
+      "candidateId": "ia-ocheyedan-spencer-gauge-20260814",
+      "river": "Ocheyedan River",
+      "route": "Willow Creek County Recreation Area to Little Sioux River family",
+      "state": "IA",
+      "status": "blocked_threshold_endpoint_camping_safety_package",
+      "blocker": "USGS 06605000 is product-live at 33.7 cfs / 1.85 ft on 2026-08-14 20:45 CDT, and county/NRP context supports Ocheyedan paddling. It still lacks a scored day-route endpoint pair, source-backed threshold model, camping legality/details, safety package, image decision, coordinate package, and gauge-linked geometry.",
+      "retryCondition": "Retry only if Iowa DNR, Osceola/Clay County, or a credible route source publishes route-specific public endpoints, coordinates, legal camping treatment, hazards, and numeric thresholds tied to USGS 06605000.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06605000/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06601200,06602400,06605000,06605750,06608500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.mycountyparks.com/County/Osceola/Park/Willow-Creek-County-Park/Activity/Canoeing-Kayaking",
+        "https://www.nationalriversproject.com/ia/ocheyedan-river-ocheyedan-river",
+        "https://programs.iowadnr.gov/adbnet/segments/1641",
+        "https://www.iowadnr.gov/places-go/water-trails"
+      ],
+      "aliases": [
+        "Ocheyedan River near Spencer",
+        "Willow Creek to Little Sioux"
+      ],
+      "gauge": {
+        "quality": "product_live_direct_but_route_blocked",
+        "provider": "USGS",
+        "siteId": "06605000",
+        "observedAt": "2026-08-14T20:45:00.000-05:00",
+        "dischargeCfs": 33.7,
+        "stageFt": 1.85
+      },
+      "thresholdSupport": {
+        "strength": "blocked_no_threshold_model",
+        "notes": "No accepted low/ideal/high or minimum-only model for 33.7 cfs."
+      },
+      "endpoints": {
+        "putIn": "Willow Creek County Recreation Area family",
+        "takeOut": "Little Sioux River confluence family",
+        "coordinatesPresent": false,
+        "coordinateSource": "Broad source names only; no scored endpoint coordinate package accepted."
+      },
+      "camping": {
+        "status": "blocked_incomplete_terms",
+        "notes": "NRP says camping yes, but legal sites/rules for a selected route were not validated."
+      },
+      "safety": {
+        "status": "blocked_incomplete_package",
+        "notes": "No current route-specific hazards, access, and low-water package accepted."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added."
+      }
+    },
+    {
+      "candidateId": "ia-willow-creek-cornell-gauge-20260814",
+      "river": "Willow Creek",
+      "route": "Cornell crest-stage gauge family",
+      "state": "IA",
+      "status": "stale_or_unsupported_not_paddle_relevant",
+      "blocker": "USGS 06605750 is a crest-stage/temporary stage station used for annual peak verification and hydrologic-response planning; it had only 81.62 ft stage at 2026-08-14 20:15 CDT and no discharge. No public paddling corridor or route package surfaced.",
+      "retryCondition": "Reopen only if durable recreation-suitable telemetry and a public Willow Creek paddling route package are published.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06605750",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06601200,06602400,06605000,06605750,06608500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.iowadnr.gov/places-go/water-trails"
+      ],
+      "aliases": [
+        "Willow Creek near Cornell"
+      ],
+      "gauge": {
+        "quality": "unsupported_stage_only_crest_gage",
+        "provider": "USGS",
+        "siteId": "06605750",
+        "observedAt": "2026-08-14T20:15:00.000-05:00",
+        "stageFt": 81.62
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No discharge or paddling threshold package."
+      },
+      "endpoints": {
+        "putIn": "None selected",
+        "takeOut": "None selected",
+        "coordinatesPresent": false,
+        "coordinateSource": "No route endpoint package accepted."
+      },
+      "camping": {
+        "status": "none_not_route",
+        "notes": "No route camping package."
+      },
+      "safety": {
+        "status": "not_route",
+        "notes": "Unsupported gauge and no route package."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added."
+      }
+    },
+    {
+      "candidateId": "ia-soldier-river-pisgah-gauge-20260814",
+      "river": "Soldier River",
+      "route": "Pisgah gauge family",
+      "state": "IA",
+      "status": "screened_out_not_paddle_relevant",
+      "blocker": "USGS 06608500 is live at 955 cfs / 6.02 ft on 2026-08-14 20:00 CDT, but official bounded review found no Iowa water-trail listing, route sheet, public endpoint pair, threshold model, camping/access, safety, image, coordinates, or geometry for a Soldier River paddling product.",
+      "retryCondition": "Reopen only if Iowa DNR, Harrison/Monona County, or a public manager publishes a real Soldier River paddling corridor with endpoints, access terms, thresholds, camping/safety, and coordinates.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06608500/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06601200,06602400,06605000,06605750,06608500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://programs.iowadnr.gov/adbnet/segments/1673",
+        "https://www.iowadnr.gov/places-go/water-trails"
+      ],
+      "aliases": [
+        "Soldier River at Pisgah"
+      ],
+      "gauge": {
+        "quality": "product_live_but_no_supported_route",
+        "provider": "USGS",
+        "siteId": "06608500",
+        "observedAt": "2026-08-14T20:00:00.000-05:00",
+        "dischargeCfs": 955,
+        "stageFt": 6.02
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No paddling threshold package surfaced."
+      },
+      "endpoints": {
+        "putIn": "None selected",
+        "takeOut": "None selected",
+        "coordinatesPresent": false,
+        "coordinateSource": "No public paddling endpoint pair accepted."
+      },
+      "camping": {
+        "status": "none_not_route",
+        "notes": "No route camping package."
+      },
+      "safety": {
+        "status": "not_route",
+        "notes": "No route safety package because the gauge was screened out."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added."
+      }
+    },
+    {
+      "candidateId": "ia-wapsipinicon-tripoli-gauge-20260814",
+      "river": "Wapsipinicon River",
+      "route": "Tripoli / upper Wapsipinicon gauge family",
+      "state": "IA",
+      "status": "blocked_threshold_endpoint_camping_safety_package",
+      "blocker": "USGS 05420680 is product-live at 664 cfs / 10.54 ft on 2026-08-14 20:45 CDT, and Iowa DNR confirms canoe/kayak navigation from Tripoli downstream, but no Tripoli-station scored reach cleared numeric thresholds, selected endpoint coordinates, camping/no-camping terms, route safety, image, or geometry gates.",
+      "retryCondition": "Retry only if Iowa DNR, Buchanan/Bremer managers, or a credible route source publishes a Tripoli-area point-to-point reach with endpoints, coordinates, thresholds tied to 05420680, camping rules, safety, and geometry support.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05420680",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RWR10",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://cms4files1.revize.com/buchanancounty/Conservation/Water_Trail_Brochure_2012.pdf"
+      ],
+      "aliases": [
+        "Wapsipinicon River near Tripoli",
+        "Tripoli to Troy Mills Wapsi family"
+      ],
+      "gauge": {
+        "quality": "product_live_direct_but_route_blocked",
+        "provider": "USGS",
+        "siteId": "05420680",
+        "observedAt": "2026-08-14T20:45:00.000-05:00",
+        "dischargeCfs": 664,
+        "stageFt": 10.54
+      },
+      "thresholdSupport": {
+        "strength": "blocked_no_threshold_model",
+        "notes": "No accepted low/ideal/high or minimum-only model for USGS 05420680 surfaced."
+      },
+      "endpoints": {
+        "putIn": "Unselected Tripoli-area Wapsipinicon access",
+        "takeOut": "Unselected downstream public take-out",
+        "coordinatesPresent": false,
+        "coordinateSource": "No route endpoint coordinate package accepted."
+      },
+      "camping": {
+        "status": "blocked_incomplete_terms",
+        "notes": "No legal route camping/no-camping package promoted; no camping inferred from public lands or water proximity."
+      },
+      "safety": {
+        "status": "blocked_incomplete_package",
+        "notes": "No route-specific hazards, take-out discipline, and flood/current package accepted."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added because no route package cleared."
+      },
+      "geometry": {
+        "status": "not_started_no_route_added",
+        "notes": "No canonical geometry generated because no route was promoted."
+      },
+      "coordinates": {
+        "status": "not_started_no_route_added",
+        "notes": "No route-scoped coordinate audit run because no endpoint package was accepted."
+      },
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05420680",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RWR10",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://cms4files1.revize.com/buchanancounty/Conservation/Water_Trail_Brochure_2012.pdf"
+      ],
+      "lastReviewed": "2026-08-15T02:25:00.000Z",
+      "updatedAt": "2026-08-15T02:25:00.000Z",
+      "reviewCount": 1
+    },
+    {
+      "candidateId": "ia-south-fork-iowa-blairsburg-gauge-20260814",
+      "river": "South Fork Iowa River",
+      "route": "Blairsburg headwater gauge family",
+      "state": "IA",
+      "status": "stale_or_unsupported_not_paddle_relevant",
+      "blocker": "USGS 05451080 has a 12-square-mile headwater basin and USGS Water Services returned no usable same-run discharge or stage values for this run. No public Blairsburg paddling corridor, endpoint, threshold, camping, safety, image, coordinate, or geometry package surfaced.",
+      "retryCondition": "Reopen only if durable recreation-suitable telemetry and a public Blairsburg/South Fork Iowa route package are published.",
+      "sourcesChecked": [
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-IA/USGS-05451080/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle"
+      ],
+      "aliases": [
+        "South Fork Iowa River near Blairsburg"
+      ],
+      "gauge": {
+        "quality": "unsupported_no_same_run_values",
+        "provider": "USGS",
+        "siteId": "05451080",
+        "notes": "Water Services returned null discharge and stage values during this run."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No discharge or paddling threshold package."
+      },
+      "endpoints": {
+        "putIn": "None selected",
+        "takeOut": "None selected",
+        "coordinatesPresent": false,
+        "coordinateSource": "No public paddling endpoint package accepted."
+      },
+      "camping": {
+        "status": "none_not_route",
+        "notes": "No route camping package."
+      },
+      "safety": {
+        "status": "not_route",
+        "notes": "Unsupported gauge and no route package."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added."
+      },
+      "geometry": {
+        "status": "not_started_no_route_added",
+        "notes": "No canonical geometry generated because no route was promoted."
+      },
+      "coordinates": {
+        "status": "not_started_no_route_added",
+        "notes": "No route-scoped coordinate audit run because no endpoint package was accepted."
+      },
+      "sourceLinks": [
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-IA/USGS-05451080/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle"
+      ],
+      "lastReviewed": "2026-08-15T02:25:00.000Z",
+      "updatedAt": "2026-08-15T02:25:00.000Z",
+      "reviewCount": 1
+    },
+    {
+      "candidateId": "ia-south-fork-iowa-new-providence-gauge-20260814",
+      "river": "South Fork Iowa River",
+      "route": "Flowing Well Access to Iowa River family",
+      "state": "IA",
+      "status": "blocked_threshold_endpoint_camping_safety_package",
+      "blocker": "USGS 05451210 is product-live at 742 cfs / 6.11 ft on 2026-08-14 20:45 CDT, and public route-family evidence exists for the South Fork Iowa River, but no scored segment cleared numeric thresholds, endpoint coordinates, camping legality/details, safety, image, or geometry gates.",
+      "retryCondition": "Retry only if a manager or credible route source publishes route-specific endpoint coordinates, threshold interpretation tied to 05451210, camping rules, and safety/geometry support for a selected South Fork Iowa segment.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05451210/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.nationalriversproject.com/ia/south-fork-iowa-river-hardin-county",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.hardincountyia.gov/water-trails"
+      ],
+      "aliases": [
+        "South Fork Iowa River NE of New Providence",
+        "Flowing Well Access to Iowa River"
+      ],
+      "gauge": {
+        "quality": "product_live_direct_but_route_blocked",
+        "provider": "USGS",
+        "siteId": "05451210",
+        "observedAt": "2026-08-14T20:45:00.000-05:00",
+        "dischargeCfs": 742,
+        "stageFt": 6.11
+      },
+      "thresholdSupport": {
+        "strength": "blocked_no_threshold_model",
+        "notes": "No accepted threshold model tied to USGS 05451210 surfaced."
+      },
+      "endpoints": {
+        "putIn": "Flowing Well Access family",
+        "takeOut": "Iowa River confluence family",
+        "coordinatesPresent": false,
+        "coordinateSource": "Broad route-family source only; no scored endpoint coordinate package accepted."
+      },
+      "camping": {
+        "status": "blocked_incomplete_terms",
+        "notes": "NRP route-family camping context was not promoted without official/legal site details for a selected segment."
+      },
+      "safety": {
+        "status": "blocked_incomplete_package",
+        "notes": "No route-specific hazards, access, and threshold package accepted."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added."
+      },
+      "geometry": {
+        "status": "not_started_no_route_added",
+        "notes": "No canonical geometry generated because no route was promoted."
+      },
+      "coordinates": {
+        "status": "not_started_no_route_added",
+        "notes": "No route-scoped coordinate audit run because no endpoint package was accepted."
+      },
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05451210/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.nationalriversproject.com/ia/south-fork-iowa-river-hardin-county",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.hardincountyia.gov/water-trails"
+      ],
+      "lastReviewed": "2026-08-15T02:25:00.000Z",
+      "updatedAt": "2026-08-15T02:25:00.000Z",
+      "reviewCount": 1
+    },
+    {
+      "candidateId": "ia-timber-creek-marshalltown-gauge-20260814",
+      "river": "Timber Creek",
+      "route": "Marshalltown Timber Creek gauge family",
+      "state": "IA",
+      "status": "screened_out_not_paddle_relevant",
+      "blocker": "USGS 05451700 is live at 66.5 cfs / 2.77 ft on 2026-08-14 21:00 CDT, but the bounded review found no official/public Timber Creek paddling corridor, endpoint pair, threshold model, camping/access, safety, image, coordinates, or geometry.",
+      "retryCondition": "Reopen only if Iowa DNR, Marshall County, or a public manager publishes a Timber Creek paddling route package with endpoints, thresholds, access/camping, safety, and coordinates.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05451700/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://water.noaa.gov/gauges/05451700",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle"
+      ],
+      "aliases": [
+        "Timber Creek near Marshalltown"
+      ],
+      "gauge": {
+        "quality": "product_live_but_no_supported_route",
+        "provider": "USGS",
+        "siteId": "05451700",
+        "observedAt": "2026-08-14T21:00:00.000-05:00",
+        "dischargeCfs": 66.5,
+        "stageFt": 2.77
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No paddling threshold package surfaced."
+      },
+      "endpoints": {
+        "putIn": "None selected",
+        "takeOut": "None selected",
+        "coordinatesPresent": false,
+        "coordinateSource": "No public paddling endpoint pair accepted."
+      },
+      "camping": {
+        "status": "none_not_route",
+        "notes": "No route camping package."
+      },
+      "safety": {
+        "status": "not_route",
+        "notes": "No route safety package because the gauge was screened out."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added."
+      },
+      "geometry": {
+        "status": "not_started_no_route_added",
+        "notes": "No canonical geometry generated because no route was promoted."
+      },
+      "coordinates": {
+        "status": "not_started_no_route_added",
+        "notes": "No route-scoped coordinate audit run because no endpoint package was accepted."
+      },
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05451700/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://water.noaa.gov/gauges/05451700",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle"
+      ],
+      "lastReviewed": "2026-08-15T02:25:00.000Z",
+      "updatedAt": "2026-08-15T02:25:00.000Z",
+      "reviewCount": 1
+    },
+    {
+      "candidateId": "ia-stein-creek-clutier-gauge-20260814",
+      "river": "Stein Creek",
+      "route": "Clutier Stein Creek gauge family",
+      "state": "IA",
+      "status": "stale_or_unsupported_not_paddle_relevant",
+      "blocker": "USGS 05451955 returned stage-only 68.10 ft at 2026-08-14 20:30 CDT, with no current discharge package; the bounded review found no official/public Stein Creek paddling corridor, endpoint pair, thresholds, camping/access, safety, image, coordinates, or geometry.",
+      "retryCondition": "Reopen only if durable recreation-suitable telemetry and a public Stein Creek paddling route package are published.",
+      "sourcesChecked": [
+        "https://waterdata.usgs.gov/monitoring-location/05451955/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle"
+      ],
+      "aliases": [
+        "Stein Creek near Clutier"
+      ],
+      "gauge": {
+        "quality": "unsupported_stage_only",
+        "provider": "USGS",
+        "siteId": "05451955",
+        "observedAt": "2026-08-14T20:30:00.000-05:00",
+        "stageFt": 68.1
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No discharge or paddling threshold package."
+      },
+      "endpoints": {
+        "putIn": "None selected",
+        "takeOut": "None selected",
+        "coordinatesPresent": false,
+        "coordinateSource": "No public paddling endpoint package accepted."
+      },
+      "camping": {
+        "status": "none_not_route",
+        "notes": "No route camping package."
+      },
+      "safety": {
+        "status": "not_route",
+        "notes": "Unsupported gauge and no route package."
+      },
+      "image": {
+        "status": "not_started_no_route",
+        "notes": "No image-audit row added."
+      },
+      "geometry": {
+        "status": "not_started_no_route_added",
+        "notes": "No canonical geometry generated because no route was promoted."
+      },
+      "coordinates": {
+        "status": "not_started_no_route_added",
+        "notes": "No route-scoped coordinate audit run because no endpoint package was accepted."
+      },
+      "sourceLinks": [
+        "https://waterdata.usgs.gov/monitoring-location/05451955/",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05420680,05451080,05451210,05451700,05451955&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.iowadnr.gov/places-go/water-trails",
+        "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle"
+      ],
+      "lastReviewed": "2026-08-15T02:25:00.000Z",
+      "updatedAt": "2026-08-15T02:25:00.000Z",
       "reviewCount": 1
     }
   ],
