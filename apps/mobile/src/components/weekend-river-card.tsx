@@ -1,11 +1,11 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '@paddletoday/api-contract';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
-import { normalizeApiText } from '../lib/format';
+import { callForRating, normalizeApiText } from '../lib/format';
 import { routePreviewFactItems } from '../lib/route-facts';
 import { photoForRiver } from '../lib/route-photos';
 import { colors, radius, spacing } from '../theme/tokens';
-import { RatingPill } from './rating-pill';
+import { QualityPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
 
 export function WeekendRiverCard({
@@ -29,7 +29,7 @@ export function WeekendRiverCard({
       onPress={onPress}
       android_ripple={{ color: colors.canvasMuted }}
       accessibilityRole="button"
-      accessibilityLabel={`${river.river.name}, ${river.river.reach}, score ${river.weekend.score}, ${river.weekend.rating}`}
+      accessibilityLabel={`${river.river.name}, ${river.river.reach}, ${callForRating(river.weekend.rating, 'weekend')}, score ${river.weekend.score}`}
       accessibilityHint="Opens the weekend route details."
     >
       <ImageBackground
@@ -39,11 +39,12 @@ export function WeekendRiverCard({
       >
         <View style={styles.mediaOverlay}>
           <View style={styles.scoreBlock}>
+            <Text style={styles.callLabel}>{callForRating(river.weekend.rating, 'weekend', true)}</Text>
             <Text style={styles.score}>{river.weekend.score}</Text>
           </View>
           <View style={styles.actions}>
             {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
-            <RatingPill rating={river.weekend.rating} />
+            <QualityPill rating={river.weekend.rating} />
           </View>
         </View>
       </ImageBackground>
@@ -125,8 +126,15 @@ const styles = StyleSheet.create({
   },
   score: {
     color: colors.accentDeep,
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '800',
+  },
+  callLabel: {
+    color: colors.accentDeep,
+    fontSize: 9,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
   },
   scoreLabel: {
     color: colors.textMuted,

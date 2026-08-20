@@ -26,10 +26,10 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
   .join(' ');
 
 const scoreLegendItems = [
-  { rating: 'Strong', score: '90', label: 'Strong', markerClass: 'summary-map-legend__marker--great', enabled: true },
-  { rating: 'Good', score: '70', label: 'Good', markerClass: 'summary-map-legend__marker--good', enabled: true },
-  { rating: 'Fair', score: '55', label: 'Fair: tradeoffs', markerClass: 'summary-map-legend__marker--marginal', enabled: true },
-  { rating: 'No-go', score: '15', label: 'No-go', markerClass: 'score-map-marker--no-go score-map-marker--confidence-low', enabled: false },
+  { rating: 'Strong', score: '90', label: 'Paddle · Strong', markerClass: 'summary-map-legend__marker--great', enabled: true },
+  { rating: 'Good', score: '70', label: 'Paddle · Good', markerClass: 'summary-map-legend__marker--good', enabled: true },
+  { rating: 'Fair', score: '55', label: 'Watch closely', markerClass: 'summary-map-legend__marker--marginal', enabled: true },
+  { rating: 'No-go', score: '15', label: 'Skip', markerClass: 'score-map-marker--no-go score-map-marker--confidence-low', enabled: false },
 ].filter((item) => showNoGoLegend || item.rating !== 'No-go');
 ---
 

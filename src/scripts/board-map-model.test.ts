@@ -22,7 +22,7 @@ describe('board map model', () => {
 
     expect(model.mapMarkerLabel(route)).toBe('84');
     expect(model.visibleMapMarkerLabel(route)).toBe('84');
-    expect(model.mapMarkerContext(route)).toBe('Solid option');
+    expect(model.mapMarkerContext(route)).toBe('Paddle today');
     expect(model.mapMarkerAriaLabel(route)).toBe(
       'Rum River: score 84, high data confidence'
     );

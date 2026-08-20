@@ -5,6 +5,7 @@ import {
   buildRouteSafetyViewModel,
   buildScoreBreakdownViewModel,
   campingClassificationLabel,
+  callLabelForDecision,
   formatHourlyWeatherLabel,
   routeAccessPoints,
   signedPoints,
@@ -53,7 +54,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryBars } from '../components/history-bars';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
-import { RatingPill, ratingColors } from '../components/rating-pill';
+import { QualityPill, ratingColors } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
 import { RouteDirectionActions } from '../components/route-direction-actions';
@@ -64,13 +65,13 @@ import { StatusPill } from '../components/status-pill';
 import { alertMutationMessage, alertThresholdLabel, isValidEmailAddress } from '../lib/alerts';
 import { resolveApiUrl, resolveWebUrl } from '../lib/api-base-url';
 import {
-  detailMessageForRating,
+  callForRating,
+  qualityForRating,
   formatGaugeValue,
   formatPercent,
   formatTemperature,
   formatTimestamp,
   normalizeApiText,
-  verdictForRating,
 } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { openExternalUrl } from '../lib/external-links';
@@ -144,6 +145,9 @@ export default function RiverDetailScreen() {
   const [reportEmail, setReportEmail] = useState(storedEmail);
   const [reportDate, setReportDate] = useState('');
   const [reportSentiment, setReportSentiment] = useState<CreateRouteContributionRequest['tripSentiment']>('');
+  const [reportWaterLevel, setReportWaterLevel] = useState<NonNullable<CreateRouteContributionRequest['scoringOutcome']>['observedWaterLevel'] | ''>('');
+  const [reportCompletion, setReportCompletion] = useState<NonNullable<CreateRouteContributionRequest['scoringOutcome']>['tripCompletion'] | ''>('');
+  const [reportVerdict, setReportVerdict] = useState<NonNullable<CreateRouteContributionRequest['scoringOutcome']>['overallVerdict'] | ''>('');
   const [reportText, setReportText] = useState('');
   const [reportNotes, setReportNotes] = useState('');
   const [reportPhotos, setReportPhotos] = useState<SelectedReportPhoto[]>([]);
@@ -482,6 +486,11 @@ export default function RiverDetailScreen() {
       return;
     }
 
+    if (!reportWaterLevel || !reportCompletion || !reportVerdict) {
+      setReportStatus('Choose the observed water level, trip outcome, and overall verdict.');
+      return;
+    }
+
     if (!reportConsent) {
       setReportStatus("Confirm that it's okay to contact you about this report.");
       return;
@@ -508,6 +517,22 @@ export default function RiverDetailScreen() {
         tripSentiment: reportSentiment,
         tripReport,
         notes: reportNotes.trim(),
+        scoringOutcome: {
+          schemaVersion: 1,
+          ...(detail?.generatedAt ? { decisionCapturedAt: detail.generatedAt } : {}),
+          ...(typeof detail?.score === 'number' ? { appScore: detail.score } : {}),
+          ...(detail?.rating ? { appRating: detail.rating } : {}),
+          ...(typeof detail?.confidence.score === 'number' ? { appConfidence: detail.confidence.score } : {}),
+          ...(detail?.readiness?.status ? { appReadiness: detail.readiness.status } : {}),
+          ...(detail?.river.profile.thresholdModel ? { thresholdModel: detail.river.profile.thresholdModel } : {}),
+          ...(detail?.river.profile.thresholdSourceStrength ? { thresholdSourceStrength: detail.river.profile.thresholdSourceStrength } : {}),
+          ...(typeof detail?.gauge?.current === 'number' ? { gaugeValue: detail.gauge.current } : {}),
+          ...(detail?.gauge?.unit ? { gaugeUnit: detail.gauge.unit } : {}),
+          ...(detail?.gauge?.trend ? { gaugeTrend: detail.gauge.trend } : {}),
+          observedWaterLevel: reportWaterLevel,
+          tripCompletion: reportCompletion,
+          overallVerdict: reportVerdict,
+        },
         reviewConsent: reportConsent,
         rightsConfirmed: reportPhotos.length > 0 ? reportPhotoRights : false,
         files: reportPhotos.map((photo) => ({
@@ -521,6 +546,9 @@ export default function RiverDetailScreen() {
       setReportNotes('');
       setReportDate('');
       setReportSentiment('');
+      setReportWaterLevel('');
+      setReportCompletion('');
+      setReportVerdict('');
       setReportPhotos([]);
       setReportPhotoRights(false);
       setReportConsent(false);
@@ -631,10 +659,10 @@ export default function RiverDetailScreen() {
               </View>
               {recommendationSourceLabel ? <Text style={styles.todayRecommendationLabel}>{recommendationSourceLabel}</Text> : null}
               <Text style={styles.heroVerdictTitle}>{isPlanningRoute ? 'Planning route' : decisionStatement(detail)}</Text>
-              <Text style={styles.subtitle}>{isPlanningRoute ? 'Not scored today' : `Score ${detail.score}`}</Text>
+              <Text style={styles.subtitle}>{isPlanningRoute ? 'Not scored today' : `Trip quality: ${qualityForRating(detail.rating)} · ${detail.score}`}</Text>
               <Text style={styles.routeMetaLine} numberOfLines={3}>{routeHeroLine(detail)}</Text>
               <View style={styles.heroMeta}>
-                {isPlanningRoute ? <Text style={styles.planningLabel}>Proxy gauge · verify local conditions</Text> : <RatingPill rating={detail.rating} />}
+                {isPlanningRoute ? <Text style={styles.planningLabel}>Proxy gauge · verify local conditions</Text> : <QualityPill rating={detail.rating} />}
                 {!isPlanningRoute ? <StatusPill status={effectiveLiveData.overall} /> : null}
               </View>
               {shareStatus ? <Text style={styles.shareStatus}>{shareStatus}</Text> : null}
@@ -830,7 +858,7 @@ export default function RiverDetailScreen() {
                   <MaterialCommunityIcons name="bell-outline" color={colors.accent} size={20} />
                 </View>
                 <View style={styles.alertCtaCopy}>
-                  <Text style={styles.alertCtaTitle}>Alert me at Good or Strong</Text>
+              <Text style={styles.alertCtaTitle}>Alert me when this becomes Paddle</Text>
                 </View>
                 <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
               </Pressable>
@@ -973,6 +1001,9 @@ export default function RiverDetailScreen() {
         email={reportEmail}
         tripDate={reportDate}
         sentiment={reportSentiment}
+        observedWaterLevel={reportWaterLevel}
+        tripCompletion={reportCompletion}
+        overallVerdict={reportVerdict}
         report={reportText}
         notes={reportNotes}
         photos={reportPhotos}
@@ -986,6 +1017,9 @@ export default function RiverDetailScreen() {
         onEmailChange={setReportEmail}
         onTripDateChange={setReportDate}
         onSentimentChange={setReportSentiment}
+        onObservedWaterLevelChange={setReportWaterLevel}
+        onTripCompletionChange={setReportCompletion}
+        onOverallVerdictChange={setReportVerdict}
         onReportChange={setReportText}
         onNotesChange={setReportNotes}
         onPickPhotos={() => void pickReportPhotos()}
@@ -1016,7 +1050,14 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
   const working = detail.checklist.filter((item) => item.status === 'go');
   const firstWarning = warnings[0];
   const primaryWorking = working[0] ?? detail.checklist[0];
-  const conditionItem = firstWarning
+  const gatedReadiness = detail.readiness.status !== 'ready' ? detail.readiness : null;
+  const conditionItem = gatedReadiness
+    ? {
+        label: gatedReadiness.status === 'withheld' ? 'Why no call' : gatedReadiness.status === 'skip' ? 'Why skip' : 'Why watch',
+        text: normalizeApiText(gatedReadiness.reason),
+        tone: conditionToneForStatus(gatedReadiness.status === 'skip' ? 'skip' : 'watch'),
+      }
+    : firstWarning
     ? {
         label: 'Cautions',
         text: normalizeApiText(firstWarning.detail),
@@ -1085,7 +1126,7 @@ function buildRouteShareMessage(
   const lines = [
     `PaddleToday - ${detail.river.name}`,
     `${detail.river.reach}`,
-    isPlanning ? 'Planning route - no same-day score' : `${detail.score} / ${detail.rating} - ${decisionStatement(detail)}`,
+    isPlanning ? 'Planning route - no same-day score' : `${detail.score} · ${callLabelForDecision(detail.rating, detail.readiness.status)} · ${qualityForRating(detail.rating)}`,
     routeHeroLine(detail),
     `Open in app: ${appUrl}`,
     `Web link: ${routeUrl.toString()}`,
@@ -1132,19 +1173,7 @@ function compactHeroPaddleTime(value: string) {
 }
 
 function decisionStatement(detail: RiverDetailApiResult) {
-  if (detail.rating === 'Strong') {
-    return 'Good to go.';
-  }
-
-  if (detail.rating === 'Good') {
-    return 'Good to paddle.';
-  }
-
-  if (detail.rating === 'Fair') {
-    return 'Watch closely.';
-  }
-
-  return 'Skip today.';
+  return callLabelForDecision(detail.rating, detail.readiness.status);
 }
 
 function verdictIconForRating(rating: RiverDetailApiResult['rating']) {
@@ -1594,17 +1623,24 @@ function OutlookRows({ outlooks }: { outlooks: RiverOutlook[] }) {
             <View style={styles.outlookTitleWrap}>
               <Text style={styles.outlookLabel}>{outlook.label}</Text>
               <Text style={styles.outlookAvailability}>
-                {outlook.availability === 'available' ? 'Available' : 'Withheld'}
+                {outlook.availability === 'available' ? 'Available' : 'No forecast'}
               </Text>
             </View>
             <View style={[styles.outlookScore, outlook.rating ? ratingBackground(outlook.rating) : styles.outlookScoreMuted]}>
-              <Text style={[styles.outlookScoreValue, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.score ?? '--'}</Text>
-              <Text style={[styles.outlookScoreLabel, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.rating ?? 'No forecast yet'}</Text>
+              <Text style={[styles.outlookScoreValue, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.scoreRange ? `${outlook.scoreRange.min}-${outlook.scoreRange.max}` : (outlook.score ?? '--')}</Text>
+              <Text style={[styles.outlookScoreLabel, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>
+                {outlook.rating
+                  ? `${callForRating(outlook.rating, outlook.id === 'weekend' ? 'weekend' : 'today', true)} · ${qualityForRating(outlook.rating)}`
+                  : 'No forecast yet'}
+              </Text>
             </View>
           </View>
           <Text style={styles.outlookText}>{normalizeApiText(outlook.explanation)}</Text>
+          {outlook.availability === 'available' ? (
+            <Text style={styles.outlookMeta}>Direction: {outlook.direction === 'improving' ? 'Trending better' : outlook.direction === 'worsening' ? 'Trending worse' : outlook.direction === 'stable' ? 'Holding steady' : 'Uncertain'}</Text>
+          ) : null}
           {outlook.confidence ? (
-            <Text style={styles.outlookMeta}>Forecast confidence: {outlook.confidence}</Text>
+            <Text style={styles.outlookMeta}>Forecast evidence: {outlook.confidence}</Text>
           ) : null}
         </View>
       ))}
@@ -2337,7 +2373,7 @@ function openGaugeSource(detail: RiverDetailApiResult, url: string, target: 'det
 async function shareRoute(detail: RiverDetailApiResult) {
   const url = `https://paddletoday.com/rivers/${detail.river.slug}/`;
   const title = `${detail.river.name}: ${detail.river.reach}`;
-  const message = `${title}\n${verdictForRating(detail.rating)} - ${detailMessageForRating(detail.rating)}\n${url}`;
+  const message = `${title}\n${callLabelForDecision(detail.rating, detail.readiness.status)} · ${qualityForRating(detail.rating)}\n${url}`;
 
   try {
     trackAppEvent('route_share_started', {

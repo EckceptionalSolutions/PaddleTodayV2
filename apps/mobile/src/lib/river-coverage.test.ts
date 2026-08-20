@@ -24,6 +24,7 @@ function route(slug: string, score: number, zone: string, longitude: number): Ri
     sources: [],
     score,
     rating: score >= 80 ? 'Good' : 'Fair',
+    readiness: { status: 'ready', label: 'Ready', reason: '' },
     gaugeBandLabel: '',
     explanation: '',
     confidence: { score: 80, label: 'High' },

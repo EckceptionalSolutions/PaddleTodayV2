@@ -86,7 +86,7 @@ describe('board presenters', () => {
       url: '/rivers/rum-river-test/',
     });
     expect(favoriteRecordForItem({ ...item, kind: 'group', totalRouteCount: 2 })).toBeNull();
-    expect(recommendationVerdict(item)).toBe('Great today');
+    expect(recommendationVerdict(item)).toBe('Paddle today');
     expect(coldWeatherDrivenCall(item)).toBe(true);
     expect(coldWeatherDrivenCall({
       ...item,

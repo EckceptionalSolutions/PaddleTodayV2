@@ -1,6 +1,6 @@
 export { friendlyCapReason, ratingToneKey, signedPoints } from '@paddletoday/api-contract';
 
-import { isColdWeatherDrivenCall, ratingVerdictLabel } from '@paddletoday/api-contract';
+import { callLabelForDecision, callStateForDecision, isColdWeatherDrivenCall } from '@paddletoday/api-contract';
 import { freshnessLabel } from './client-cache.js';
 import {
   hasStrongerBoardCall,
@@ -9,7 +9,11 @@ import {
   splitBulletParts,
 } from './board-domain.js';
 import { mixedCardLinkLabel } from './board-copy.js';
-import { confidenceDisplayLabel, liveDataWarning } from './ui-taxonomy.js';
+import {
+  confidenceDisplayLabel,
+  conditionTierDisplayLabel,
+  liveDataWarning,
+} from './ui-taxonomy.js';
 
 export function formatTravelLabel(minutes) {
   if (!Number.isFinite(minutes)) {
@@ -60,19 +64,13 @@ export function coldWeatherDrivenCall(item) {
 }
 
 export function recommendationVerdict(item) {
-  return ratingVerdictLabel(
-    item?.cardRoute?.rating,
-    item?.cardRoute?.score,
-    {
-      strongMaxLabel: 'Ideal today',
-      strongLabel: 'Great today',
-      goodLabel: 'Solid option',
-      fairLabel: 'Paddleable with tradeoffs',
-      noGoOfflineLabel: 'Manual check needed',
-      noGoLabel: 'Consider with caution',
-    },
-    item?.cardRoute?.liveData?.overall
-  );
+  const route = item?.cardRoute;
+  if (!route) return 'Checking';
+  return callLabelForDecision(route.rating, route.readiness?.status);
+}
+
+export function recommendationTier(item) {
+  return conditionTierDisplayLabel(item?.cardRoute?.rating);
 }
 
 export function recommendationSlotLabel(index, nearbyReady) {
@@ -138,8 +136,13 @@ export function recommendationSummaryText(item, nearbyReady, candidates = []) {
     || flowBand === 'low-shoulder'
     || flowBand === 'high-shoulder';
   const shortDrive = nearbyReady && Number.isFinite(item.travelMinutes) && item.travelMinutes <= 30;
+  const call = callStateForDecision(item.cardRoute.rating, item.cardRoute.readiness?.status);
 
-  if (item.cardRoute.rating === 'No-go') {
+  if (call === 'unavailable') {
+    return item.cardRoute.readiness?.reason || 'A current call is unavailable until the required evidence refreshes.';
+  }
+
+  if (call === 'skip') {
     if (flowLooksTooLow && hasWeatherRisk) {
       return 'Water is too low today, and weather only makes the call worse.';
     }
@@ -167,7 +170,7 @@ export function recommendationSummaryText(item, nearbyReady, candidates = []) {
     return 'Conditions stack up against this one today.';
   }
 
-  if (item.cardRoute.rating === 'Fair') {
+  if (call === 'watch') {
     if (coldWeatherDrivenCall(item) || hasColdWeather) {
       return 'Paddleable today, but cold weather raises the bar.';
     }
@@ -187,7 +190,7 @@ export function recommendationSummaryText(item, nearbyReady, candidates = []) {
     return 'Stable flow and a short drive make this one of the clearest nearby picks.';
   }
 
-  if (!shortDrive && nearbyReady && (item.cardRoute.rating === 'Strong' || item.cardRoute.rating === 'Good')) {
+  if (!shortDrive && nearbyReady && call === 'paddle') {
     return 'Worth the drive if you want the strongest nearby conditions.';
   }
 

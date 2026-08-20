@@ -59,6 +59,25 @@ describe('operations orchestrator', () => {
     expect(order?.workerRole).toBe('gauge-coverage');
   });
 
+  it('does not let blocked frontier work stall the next ready frontier state', () => {
+    const order = selectNextWorkOrder([
+      task({ id: 'mn-blocked', stateId: 'MN', frontierTier: 0, lane: 'blocked', priority: 'critical' }),
+      task({ id: 'nd-review', stateId: 'ND', frontierTier: 1, priority: 'critical', gaugeKeys: ['usgs:1'] }),
+      task({ id: 'ia-opportunity', kind: 'route_research', routeOpportunity: true, stateId: 'IA', frontierTier: 1, priority: 'high' }),
+    ]);
+    expect(order?.taskId).toBe('nd-review');
+    expect(order?.workerRole).toBe('gauge-coverage');
+  });
+
+  it('keeps a ready route opportunity in the active frontier before later work', () => {
+    const order = selectNextWorkOrder([
+      task({ id: 'nd-review', stateId: 'ND', frontierTier: 1, priority: 'critical', gaugeKeys: ['usgs:1'] }),
+      task({ id: 'mn-opportunity', kind: 'route_research', routeOpportunity: true, stateId: 'MN', frontierTier: 0, priority: 'high' }),
+    ]);
+    expect(order?.taskId).toBe('mn-opportunity');
+    expect(order?.workerRole).toBe('route-research');
+  });
+
   it('limits active consolidation reviews to two', () => {
     const order = selectNextWorkOrder([
       task({ id: 'active-a', kind: 'consolidation_review', lane: 'in_progress' }),

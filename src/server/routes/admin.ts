@@ -20,6 +20,7 @@ import { listRouteAudits, updateRouteAudit } from '../../lib/route-audits';
 import { getRiverBySlug } from '../../lib/rivers';
 import { listRiverAlerts } from '../../lib/alerts';
 import { getGitHubTelemetry } from '../../lib/github-telemetry';
+import { buildScoringCalibrationMetrics } from '../../lib/scoring-calibration';
 
 export async function handleAdminSessionStatus(
   request: ApiRequest,
@@ -112,6 +113,31 @@ export async function handleAdminContributionList(
       includeBody,
       'no-store'
     );
+  }
+}
+
+export async function handleAdminScoringCalibration(
+  request: ApiRequest,
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const submissions = await listRouteContributionSubmissions();
+    return sendJson(
+      response,
+      200,
+      { requestId, metrics: buildScoringCalibrationMetrics(submissions) },
+      includeBody,
+      'no-store'
+    );
+  } catch (error) {
+    console.error('[admin-calibration] metrics failed', { requestId, error });
+    return sendJson(response, 502, { requestId, error: 'request_failed', message: 'Could not load calibration metrics.' }, includeBody, 'no-store');
   }
 }
 

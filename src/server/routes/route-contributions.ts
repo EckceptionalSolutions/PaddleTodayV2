@@ -5,6 +5,7 @@ import { clean, readJsonBody, sendBinary, sendBodyLimitResponse, sendJson } from
 import { contentTypeFor } from '../static-route';
 import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 import { getRiverBySlug } from '../../lib/rivers';
+import { parseScoringOutcomeObservation } from '../../lib/scoring-outcomes';
 import {
   createRouteContributionSubmission,
   getApprovedCommunityForRoute,
@@ -51,9 +52,22 @@ export async function handleRoutePhotoSubmission(
     const reviewConsent = body?.reviewConsent === true;
     const honeypot = clean(body?.company, 240);
     const files = Array.isArray(body?.files) ? body.files : [];
+    const scoringOutcomeResult = body?.scoringOutcome === undefined
+      ? null
+      : parseScoringOutcomeObservation(body.scoringOutcome);
 
     if (honeypot) {
       return sendJson(response, 202, { requestId, ok: true, stored: false }, includeBody, 'no-store');
+    }
+
+    if (scoringOutcomeResult && !scoringOutcomeResult.ok) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'invalid_scoring_outcome', message: scoringOutcomeResult.error },
+        includeBody,
+        'no-store'
+      );
     }
 
     if (!riverSlug || !contributorName || !contributorEmail || !reviewConsent) {
@@ -181,6 +195,7 @@ export async function handleRoutePhotoSubmission(
         report: tripReport,
       },
       notes,
+      ...(scoringOutcomeResult?.ok ? { scoringOutcome: scoringOutcomeResult.value } : {}),
       rightsConfirmed,
       reviewConsent,
       files: decodedFiles,

@@ -12,10 +12,10 @@ import {
   waitForMapReady,
 } from './map-runtime.js';
 import { createBoardMapMarker } from './board-map-controller.js';
-import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
+import { confidenceDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
-import { ratingToneKey } from '@paddletoday/api-contract';
+import { callLabelForDecision, ratingToneKey } from '@paddletoday/api-contract';
 import { getBrowserApiClient } from './browser-api-client.js';
 
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
@@ -385,7 +385,7 @@ function renderFavoriteCard(favorite, current) {
     }
 
     setText(card, 'favorite-score', String(current.score));
-    setText(card, 'favorite-rating', ratingDisplayLabel(current.rating, { liveData: current.liveData, compact: true }));
+    setText(card, 'favorite-rating', callLabelForDecision(current.rating, current.readiness?.status, 'today', true));
     setText(card, 'favorite-verdict', current.gaugeBandLabel || 'Current route read');
     setText(card, 'favorite-meta', metaLine(current));
     setText(card, 'favorite-summary', current.summary?.shortExplanation || current.explanation || 'Current route read available.');

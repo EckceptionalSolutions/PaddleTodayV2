@@ -13,7 +13,13 @@
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
 import { trackEvent } from './analytics.js';
-import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
+import {
+  callDisplayLabel,
+  confidenceDisplayLabel,
+  conditionTierDisplayLabel,
+  liveDataWarning,
+  ratingDisplayLabel,
+} from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import {
   buildRiverReadinessViewModel,
@@ -24,6 +30,7 @@ import {
   isColdWeatherDrivenCall,
   ratingToneKey,
   signedPoints,
+  callLabelForDecision,
 } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { getBrowserApiClient } from './browser-api-client.js';
@@ -130,6 +137,9 @@ const routeReportNameInput = root.querySelector('[data-route-report-name]');
 const routeReportEmailInput = root.querySelector('[data-route-report-email]');
 const routeReportDateInput = root.querySelector('[data-route-report-date]');
 const routeReportSentimentInput = root.querySelector('[data-route-report-sentiment]');
+const routeReportWaterLevelInput = root.querySelector('[data-route-report-water-level]');
+const routeReportCompletionInput = root.querySelector('[data-route-report-completion]');
+const routeReportVerdictInput = root.querySelector('[data-route-report-verdict]');
 const routeReportTextInput = root.querySelector('[data-route-report-text]');
 const routeReportNotesInput = root.querySelector('[data-route-report-notes]');
 const routeReportFilesInput = root.querySelector('[data-route-report-files]');
@@ -1100,6 +1110,9 @@ function bindRouteReportForm() {
     const contributorEmail = routeReportEmailInput.value.trim();
     const tripDate = routeReportDateInput instanceof HTMLInputElement ? routeReportDateInput.value.trim() : '';
     const tripSentiment = routeReportSentimentInput instanceof HTMLSelectElement ? routeReportSentimentInput.value.trim() : '';
+    const observedWaterLevel = routeReportWaterLevelInput instanceof HTMLSelectElement ? routeReportWaterLevelInput.value.trim() : '';
+    const tripCompletion = routeReportCompletionInput instanceof HTMLSelectElement ? routeReportCompletionInput.value.trim() : '';
+    const overallVerdict = routeReportVerdictInput instanceof HTMLSelectElement ? routeReportVerdictInput.value.trim() : '';
     const tripReport = routeReportTextInput.value.trim();
     const notes = routeReportNotesInput instanceof HTMLTextAreaElement ? routeReportNotesInput.value.trim() : '';
     const reportFiles = routeReportFilesInput instanceof HTMLInputElement ? Array.from(routeReportFilesInput.files || []) : [];
@@ -1119,6 +1132,14 @@ function bindRouteReportForm() {
     if (tripReport.length < 12) {
       setRouteReportStatus('Add a little more detail to the condition report.', 'error');
       routeReportTextInput.focus();
+      return;
+    }
+
+    if (!observedWaterLevel || !tripCompletion || !overallVerdict) {
+      setRouteReportStatus('Choose the observed water level, trip outcome, and overall verdict.', 'error');
+      if (routeReportWaterLevelInput instanceof HTMLSelectElement && !observedWaterLevel) {
+        routeReportWaterLevelInput.focus();
+      }
       return;
     }
 
@@ -1167,6 +1188,22 @@ function bindRouteReportForm() {
         tripSentiment,
         tripReport,
         notes,
+        scoringOutcome: {
+          schemaVersion: 1,
+          ...(latestResult?.generatedAt ? { decisionCapturedAt: latestResult.generatedAt } : {}),
+          ...(typeof latestResult?.score === 'number' ? { appScore: latestResult.score } : {}),
+          ...(latestResult?.rating ? { appRating: latestResult.rating } : {}),
+          ...(typeof latestResult?.confidence?.score === 'number' ? { appConfidence: latestResult.confidence.score } : {}),
+          ...(latestResult?.readiness?.status ? { appReadiness: latestResult.readiness.status } : {}),
+          ...(latestResult?.river?.profile?.thresholdModel ? { thresholdModel: latestResult.river.profile.thresholdModel } : {}),
+          ...(latestResult?.river?.profile?.thresholdSourceStrength ? { thresholdSourceStrength: latestResult.river.profile.thresholdSourceStrength } : {}),
+          ...(typeof latestResult?.gauge?.current === 'number' ? { gaugeValue: latestResult.gauge.current } : {}),
+          ...(latestResult?.gauge?.unit ? { gaugeUnit: latestResult.gauge.unit } : {}),
+          ...(latestResult?.gauge?.trend ? { gaugeTrend: latestResult.gauge.trend } : {}),
+          observedWaterLevel,
+          tripCompletion,
+          overallVerdict,
+        },
         rightsConfirmed: routeReportRightsInput instanceof HTMLInputElement ? routeReportRightsInput.checked : false,
         reviewConsent: routeReportConsentInput.checked,
         company: routeReportCompanyInput instanceof HTMLInputElement ? routeReportCompanyInput.value.trim() : '',
@@ -1489,7 +1526,8 @@ function setupDetailJumpLinks() {
 function hasHardSkip(result) {
   return Boolean(
     result &&
-      (result.liveData?.overall === 'offline' ||
+      (result.readiness?.status === 'skip' ||
+        result.liveData?.overall === 'offline' ||
         (Array.isArray(result.checklist) && result.checklist.some((item) => item.status === 'skip')))
   );
 }
@@ -1508,11 +1546,11 @@ function isDataLimitedNoGo(result) {
 
 function decisionLabel(input) {
   const rating = typeof input === 'string' ? input : input?.rating;
-  if (typeof input !== 'string' && isDataLimitedNoGo(input)) return 'Manual check needed';
-  if (typeof input !== 'string' && hasHardSkip(input)) return 'Skip today';
-  if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
-  if (rating === 'Fair') return 'Paddle with caution';
-  return 'Skip today';
+  if (typeof input !== 'string') {
+    const readiness = input?.readiness?.status ?? (isDataLimitedNoGo(input) ? 'withheld' : hasHardSkip(input) ? 'skip' : 'ready');
+    return callLabelForDecision(rating, readiness);
+  }
+  return callDisplayLabel(rating, { liveData: typeof input === 'string' ? null : input?.liveData });
 }
 
 function liveWarningLabel(liveData) {
@@ -1525,7 +1563,8 @@ function liveWarningLabel(liveData) {
 function ratingLabel(resultOrRating) {
   const rating = typeof resultOrRating === 'string' ? resultOrRating : resultOrRating?.rating;
   const liveData = typeof resultOrRating === 'string' ? null : resultOrRating?.liveData;
-  return ratingDisplayLabel(rating, { liveData });
+  if (rating === 'No-go' && liveData?.overall === 'offline') return 'Manual check needed';
+  return conditionTierDisplayLabel(rating);
 }
 
 function weatherSkipReason(result) {
@@ -1543,10 +1582,14 @@ function weatherSkipReason(result) {
 
 function decisionStatement(result) {
   const rating = result?.rating;
-  if (isDataLimitedNoGo(result)) {
-    return 'Live river data is missing, so verify the gauge and access sources before treating this as a go or no-go.';
+  const readiness = result?.readiness?.status ?? (isDataLimitedNoGo(result) ? 'withheld' : hasHardSkip(result) ? 'skip' : 'ready');
+  if (readiness === 'withheld') {
+    return `Call unavailable. ${result?.readiness?.reason ?? 'Live river data is missing, so verify the gauge and access sources directly.'}`;
   }
-  if (hasHardSkip(result)) {
+  if (readiness === 'verify') {
+    return `Watch closely. ${result?.readiness?.reason ?? 'Verify the flagged conditions before launching.'}`;
+  }
+  if (readiness === 'skip' || hasHardSkip(result)) {
     const skipItem = firstSkipChecklistItem(result);
     if (skipItem?.label === 'Weather window') {
       return `Gauge looks good, but ${weatherSkipReason(result)} makes this a skip today.`;
@@ -1617,8 +1660,11 @@ function decorateDecision(element, result) {
   const rating = typeof result === 'string' ? result : result?.rating;
 
   element.classList.remove('decision-pill--paddle', 'decision-pill--maybe', 'decision-pill--skip');
+  const readiness = typeof result === 'string' ? null : result?.readiness?.status;
   element.classList.add(
-    typeof result !== 'string' && hasHardSkip(result)
+    readiness === 'withheld' || readiness === 'verify'
+      ? 'decision-pill--maybe'
+      : typeof result !== 'string' && (readiness === 'skip' || hasHardSkip(result))
       ? 'decision-pill--skip'
       : rating === 'Strong' || rating === 'Good'
       ? 'decision-pill--paddle'
@@ -2055,6 +2101,7 @@ function renderLaunchReadiness(result) {
     verdictEl.classList.remove(
       'launch-readiness__verdict--go',
       'launch-readiness__verdict--watch',
+      'launch-readiness__verdict--withheld',
       'launch-readiness__verdict--skip'
     );
     verdictEl.classList.add(`launch-readiness__verdict--${verdict}`);
@@ -2143,7 +2190,7 @@ function renderConfidenceDetail(confidence) {
     const reasons = Array.isArray(confidence?.reasons) ? confidence.reasons : [];
     reasonsList.innerHTML = reasons.length
       ? reasons.map((note) => `<li>${note}</li>`).join('')
-      : '<li>Data confidence notes are unavailable.</li>';
+      : '<li>Evidence-strength notes are unavailable.</li>';
   }
 
   if (warningsList instanceof HTMLElement && warningsGroup instanceof HTMLElement) {
@@ -2243,12 +2290,13 @@ function renderOutlooks(outlooks) {
     .map((outlook) => {
       const title =
         outlook.availability === 'available' && typeof outlook.score === 'number' && outlook.rating
-          ? `${outlook.score} - ${ratingDisplayLabel(outlook.rating)}`
+          ? `${outlook.scoreRange ? `${outlook.scoreRange.min}-${outlook.scoreRange.max}` : outlook.score} - ${ratingDisplayLabel(outlook.rating)}`
           : 'Not enough data';
       return `
         <article class="outlook-card outlook-card--${outlook.availability === 'available' ? 'available' : 'withheld'}">
           <span class="outlook-card__label">${outlook.label}</span>
           <strong>${title}</strong>
+          ${outlook.availability === 'available' ? `<span class="outlook-card__direction">${outlook.direction === 'improving' ? 'Trending better' : outlook.direction === 'worsening' ? 'Trending worse' : outlook.direction === 'stable' ? 'Holding steady' : 'Direction uncertain'}</span>` : ''}
           <p class="muted">${outlook.explanation}</p>
         </article>
       `;
@@ -3245,7 +3293,8 @@ function formatDuration(hours) {
 }
 
 function routeLineColor(result) {
-  if (result?.rating === 'Strong' || result?.rating === 'Good') return '#2c8a54';
+  if (result?.rating === 'Strong') return '#2c8a54';
+  if (result?.rating === 'Good') return '#3d9a83';
   if (result?.rating === 'Fair') return '#ad752c';
   if (result?.rating === 'No-go') return '#bb5840';
   return '#1e7397';

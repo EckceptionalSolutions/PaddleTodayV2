@@ -1,6 +1,5 @@
 import { escapeHtml } from './map-runtime.js';
 import { joinWithBullet } from './board-domain.js';
-import { ratingDisplayLabel } from './ui-taxonomy.js';
 import {
   breakdownValueToneClass,
   cardLinkLabel,
@@ -14,6 +13,7 @@ import {
   ratingToneKey,
   recommendationSlotLabel,
   recommendationSummaryText,
+  recommendationTier,
   recommendationTagLabels,
   recommendationVerdict,
   regionStateText,
@@ -145,9 +145,7 @@ export function recommendationCardViewModel(
     route: featuredRouteLabelForItem(item),
     summary: recommendationSummaryText(item, nearbyReady, latestResults),
     score: String(item.cardRoute.score),
-    rating: ratingDisplayLabel(item.cardRoute.rating, {
-      liveData: item.cardRoute.liveData,
-    }),
+    rating: recommendationTier(item),
     verdict: recommendationVerdict(item, index, nearbyReady),
     meta: metaLineText(item, nearbyReady, { includeRouteType }),
     liveLabel: index === 0 ? 'Live conditions right now' : '',
@@ -333,10 +331,7 @@ export function riverCardViewModel(
     route: routeLabelForItem(item),
     segment: segmentLabelForItem(item),
     score: String(item.cardRoute.score),
-    rating: ratingDisplayLabel(item.cardRoute.rating, {
-      liveData: item.cardRoute.liveData,
-      compact: true,
-    }),
+    rating: recommendationTier(item),
     verdict: recommendationVerdict(item),
     meta: metaLine(item, showDistance),
     summary: recommendationSummaryText(item, showDistance, latestResults),

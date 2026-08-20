@@ -15,9 +15,12 @@ import {
 import { createBoardMapMarker } from './board-map-controller.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
-import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
+import {
+  confidenceDisplayLabel,
+  ratingDisplayLabel,
+} from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
-import { ratingToneKey, ratingVerdictLabel, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
+import { callLabelForDecision, callStateForDecision, ratingToneKey, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { coverageAnchorForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
 import {
@@ -216,14 +219,8 @@ function resetPickerFilters({ render = true } = {}) {
   }
 }
 
-function decisionLabel(rating, score = null) {
-  return ratingVerdictLabel(rating, Number(score), {
-    strongMaxLabel: 'Strong',
-    strongLabel: 'Strong',
-    goodLabel: 'Good',
-    fairLabel: 'Fair: tradeoffs',
-    noGoLabel: 'No-go',
-  });
+function decisionLabel(route) {
+  return callLabelForDecision(route.rating, route.readiness?.status);
 }
 
 function corridorKey(route) {
@@ -524,7 +521,12 @@ function decisionSummary(route) {
   const hasStableFlow = mainParts.some((part) => part.includes('stable') || part.includes('perfect level'));
   const hasChangingFlow = mainParts.some((part) => part.includes('rising') || part.includes('falling'));
 
-  if (route.rating === 'No-go') {
+  const call = callStateForDecision(route.rating, route.readiness?.status);
+  if (call === 'unavailable') {
+    return route.readiness?.reason || 'A current call is unavailable until the required evidence refreshes.';
+  }
+
+  if (call === 'skip') {
     if (coldWeatherDrivenRoute(route) || (hasStableFlow && hasColdWeather)) {
       return 'River level looks usable, but weather makes it a skip for most paddlers today.';
     }
@@ -534,7 +536,7 @@ function decisionSummary(route) {
     return 'Conditions stack up against this route today.';
   }
 
-  if (route.rating === 'Fair') {
+  if (call === 'watch') {
     if (coldWeatherDrivenRoute(route) || hasColdWeather) {
       return 'Paddleable today, but cold weather raises the bar.';
     }
@@ -601,7 +603,7 @@ function signalIconMarkup(kind) {
     case 'gauge':
       const cleanRowLabel = active
         ? '<span class="route-choice__on-map">On map</span>'
-        : `${escapeHtml(route.state)} Â· ${escapeHtml(route.region)}`;
+        : `${escapeHtml(route.state)} · ${escapeHtml(route.region)}`;
 
       return `
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -843,7 +845,7 @@ function routePopupMarkup(route) {
       ${facts ? `<p class="score-map-popup__summary">${escapeHtml(facts)}</p>` : ''}
       ${isPlanningRoute(route)
         ? '<p class="score-map-popup__summary">Planning route · not scored because the available gauge is a proxy for this reach.</p>'
-        : `<div class="score-map-popup__scoreline"><span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span><p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating, route.score))}</p></div><p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>`}
+        : `<div class="score-map-popup__scoreline"><span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span><p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route))}</p></div><p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>`}
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
   `;
@@ -1477,7 +1479,7 @@ function renderRouteList(routes) {
             </span>
             ${isPlanningRoute(route)
               ? '<span class="route-choice__score-compact route-choice__score-compact--planning"><strong>—</strong><span>Planning route</span></span>'
-              : `<span class="route-choice__score-compact route-choice__score-compact--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route.rating, route.score))}</span></span>`}
+              : `<span class="route-choice__score-compact route-choice__score-compact--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></span>`}
           </button>
           <a class="river-link river-link--inline route-choice__details-link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
         </article>
@@ -1555,7 +1557,7 @@ function renderSelectedSummary(route) {
     ${favoriteButtonMarkup(route).replace('favorite-toggle--inline', 'favorite-toggle--inline river-route-picker__selected-save')}
     ${isPlanningRoute(route)
       ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Planning route · not scored</span></div>'
-      : `<div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route.rating, route.score))}</span></div>`}
+      : `<div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></div>`}
     <div class="river-route-picker__selected-actions">
       <a class="river-link river-link--inline" href="/rivers/${encodeURIComponent(route.slug)}/">View route details</a>
     </div>
@@ -1870,7 +1872,7 @@ async function loadGroup({ silent = false } = {}) {
     const scoredRoutes = routes.filter((route) => !isPlanningRoute(route));
     const planningCount = routes.length - scoredRoutes.length;
     const liveCount = scoredRoutes.filter((route) => route.liveData?.overall === 'live').length;
-    const readyCount = scoredRoutes.filter((route) => route.rating === 'Strong' || route.rating === 'Good').length;
+    const readyCount = scoredRoutes.filter((route) => callStateForDecision(route.rating, route.readiness?.status) === 'paddle').length;
     setBanner(
       liveCount === routes.length ? 'live' : 'degraded',
       planningCount > 0 ? `${readyCount} scored routes ready today · ${planningCount} planning routes` : `${readyCount} of ${routes.length} routes look ready today.`,

@@ -1,5 +1,6 @@
 import type { ScoreRating } from '@paddletoday/api-contract';
 import { StyleSheet, Text, View } from 'react-native';
+import { qualityForRating } from '../lib/format';
 import { colors, radius } from '../theme/tokens';
 
 export function RatingPill({ rating }: { rating: ScoreRating }) {
@@ -8,6 +9,17 @@ export function RatingPill({ rating }: { rating: ScoreRating }) {
   return (
     <View style={[styles.pill, { backgroundColor: tone.backgroundColor }]}>
       <Text style={[styles.label, { color: tone.textColor }]}>{rating}</Text>
+    </View>
+  );
+}
+
+/** Secondary tier label. The primary action remains the call shown beside it. */
+export function QualityPill({ rating }: { rating: ScoreRating }) {
+  const tone = ratingColors(rating);
+
+  return (
+    <View style={[styles.pill, styles.qualityPill, { backgroundColor: tone.backgroundColor }]}>
+      <Text style={[styles.label, { color: tone.textColor }]}>{qualityForRating(rating)}</Text>
     </View>
   );
 }
@@ -45,6 +57,10 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     paddingHorizontal: 9,
     paddingVertical: 5,
+  },
+  qualityPill: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   label: {
     fontSize: 11,

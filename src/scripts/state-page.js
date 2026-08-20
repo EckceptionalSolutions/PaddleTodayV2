@@ -13,8 +13,7 @@ import {
   waitForMapReady,
 } from './map-runtime.js';
 import { createBoardMapMarker } from './board-map-controller.js';
-import { ratingDisplayLabel } from './ui-taxonomy.js';
-import { ratingToneKey, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
+import { callLabelForDecision, compareTodayBoardQuality, ratingToneKey } from '@paddletoday/api-contract';
 import { canonicalRiverRouteLineFromFeature, loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
 import {
   coverageCenterForRoutes,
@@ -85,17 +84,7 @@ function weatherText(item) {
 }
 
 function compareLiveRoutes(left, right) {
-  if ((left?.score ?? 0) !== (right?.score ?? 0)) {
-    return (right?.score ?? 0) - (left?.score ?? 0);
-  }
-
-  const leftConfidence = todayBoardConfidenceWeight[left?.confidence?.label] ?? 0;
-  const rightConfidence = todayBoardConfidenceWeight[right?.confidence?.label] ?? 0;
-  if (leftConfidence !== rightConfidence) {
-    return rightConfidence - leftConfidence;
-  }
-
-  return String(left?.river?.name ?? '').localeCompare(String(right?.river?.name ?? ''));
+  return compareTodayBoardQuality(left, right);
 }
 
 function liveCardMarkup(item) {
@@ -107,7 +96,7 @@ function liveCardMarkup(item) {
     item.confidence?.label ? `${item.confidence.label} confidence` : '',
   ].filter(Boolean);
   const signals = [gaugeText(item), weatherText(item)].filter(Boolean);
-  const rating = ratingDisplayLabel(item.rating, { liveData: item.liveData, compact: true });
+  const rating = callLabelForDecision(item.rating, item.readiness?.status, 'today', true);
 
   return `
     <article class="state-live-card">

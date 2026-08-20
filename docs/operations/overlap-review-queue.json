@@ -612,7 +612,7 @@
       "category": "localized_crossing_review",
       "proposedModel": "geometry_review",
       "priority": "high",
-      "status": "new",
+      "status": "implemented",
       "routes": [
         "wabash-river-linn-grove-hale-street",
         "wabash-river-linn-grove-white-bridge",
@@ -632,7 +632,11 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-12T14:48:45.399Z",
+      "implementedAt": "2026-08-15T03:25:08.000Z",
+      "resolution": "Verified Wells County Wabash multi-endpoint corridor model in src/data/route-corridors.ts; preserved all four route cards.",
+      "corridorId": "in-wabash-wells-county",
+      "completedRunId": "independent-verifier-wabash-20260815032508"
     },
     {
       "id": "overlap-review-aa793ba1b116",
@@ -872,7 +876,7 @@
       "category": "localized_crossing_review",
       "proposedModel": "geometry_review",
       "priority": "high",
-      "status": "new",
+      "status": "blocked",
       "routes": [
         "shell-rock-river-heery-woods-renning",
         "shell-rock-river-renning-shell-rock"
@@ -887,7 +891,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-20T10:51:59.002Z",
+      "taskId": "overlap-review-0284d49cb5d9"
     },
     {
       "id": "overlap-review-129ef46da8ae",

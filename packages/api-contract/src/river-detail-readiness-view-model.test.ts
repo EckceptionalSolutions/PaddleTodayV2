@@ -127,7 +127,7 @@ describe('river detail readiness view model', () => {
 
     expect(model).toMatchObject({
       verdict: 'go',
-      verdictLabel: 'Go',
+      verdictLabel: 'Paddle today',
       summary: 'Conditions look good right now.',
       note: 'All sources live.',
       accessLabel: 'Mapped put-in and take-out',

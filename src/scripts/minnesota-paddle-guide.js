@@ -1,4 +1,4 @@
-import { ratingDisplayLabel } from './ui-taxonomy.js';
+import { callLabelForDecision } from '@paddletoday/api-contract';
 import { getBrowserApiClient } from './browser-api-client.js';
 
 const statusLine = document.querySelector('[data-minnesota-guide-status]');
@@ -31,11 +31,11 @@ function renderEntry(entry, item) {
   }
 
   setText(entry.querySelector('[data-guide-score]'), String(item.score));
-  setText(entry.querySelector('[data-guide-rating]'), ratingDisplayLabel(item.rating, { compact: true }));
+  setText(entry.querySelector('[data-guide-rating]'), callLabelForDecision(item.rating, item.readiness?.status, 'today', true));
 
   const liveSummary = entry.querySelector('[data-guide-live-summary]');
   const facts = [
-    `${ratingDisplayLabel(item.rating, { liveData: item.liveData })} right now`,
+    `${callLabelForDecision(item.rating, item.readiness?.status)} right now`,
     item.summary?.gaugeNow ? `Gauge: ${item.summary.gaugeNow}` : '',
     item.river?.distanceLabel ? item.river.distanceLabel : '',
     item.river?.difficulty ? `${item.river.difficulty} difficulty` : '',

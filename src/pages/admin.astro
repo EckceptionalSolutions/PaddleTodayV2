@@ -3,6 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { scoringCalibrationCases } from '../data/scoring-calibrations';
 import { rivers } from '../data/rivers';
 import { scoreRiverCondition } from '../lib/scoring';
+import sensitivityReportJson from '../data/generated/scoring-sensitivity-report.json';
+import type { ScoringSensitivityReport } from '../lib/scoring-sensitivity';
+
+const sensitivityReport = sensitivityReportJson as ScoringSensitivityReport;
+const topSensitivityRoutes = sensitivityReport.routes.slice(0, 40);
+const topSensitivityFindings = sensitivityReport.findings.slice(0, 50);
 
 function formatSigned(value: number) {
   return value > 0 ? `+${value}` : String(value);
@@ -92,6 +98,7 @@ const routeAuditGroups = Array.from(
       <button type="button" role="tab" data-admin-tab-target="requests" aria-controls="admin-requests" aria-selected="false">Requests</button>
       <button type="button" role="tab" data-admin-tab-target="alerts" aria-controls="admin-alerts" aria-selected="false">Alerts</button>
       <button type="button" role="tab" data-admin-tab-target="audits" aria-controls="admin-route-audits" aria-selected="false">Route audits</button>
+      <button type="button" role="tab" data-admin-tab-target="sensitivity" aria-controls="admin-scoring-sensitivity" aria-selected="false">Sensitivity</button>
       <button type="button" role="tab" data-admin-tab-target="checks" aria-controls="admin-reality-checks" aria-selected="false">Reality checks</button>
     </nav>
   </section>
@@ -180,6 +187,106 @@ const routeAuditGroups = Array.from(
     </div>
   </section>
 
+  <section class="admin-scoring-debug admin-tab-panel" id="admin-scoring-sensitivity" role="tabpanel" data-admin-tab-panel="sensitivity" hidden>
+    <div class="admin-review__section-head">
+      <div>
+        <p class="eyebrow">Scoring sensitivity</p>
+        <h2>Boundary and invariant audit</h2>
+      </div>
+      <p class="muted">Deterministic synthetic scenarios identify unstable scoring behavior; they are not field outcomes.</p>
+    </div>
+
+    <div class="admin-route-audits__stats">
+      <article class="snapshot-card">
+        <span class="snapshot-card__label">Routes swept</span>
+        <strong>{sensitivityReport.routeCount}</strong>
+        <small>{sensitivityReport.scenarioCount.toLocaleString()} scenarios</small>
+      </article>
+      <article class="snapshot-card">
+        <span class="snapshot-card__label">Invariant failures</span>
+        <strong>{sensitivityReport.invariantFailureCount}</strong>
+        <small>Must remain zero</small>
+      </article>
+      <article class="snapshot-card">
+        <span class="snapshot-card__label">Changed scenarios</span>
+        <strong>{sensitivityReport.comparison.changedScenarios}</strong>
+        <small>{sensitivityReport.comparison.baselineAvailable ? `Max score delta ${sensitivityReport.comparison.maxScoreDelta}` : 'Initial baseline'}</small>
+      </article>
+      <article class="snapshot-card">
+        <span class="snapshot-card__label">Readiness changes</span>
+        <strong>{sensitivityReport.comparison.readinessChanges}</strong>
+        <small>{sensitivityReport.comparison.ratingChanges} rating changes</small>
+      </article>
+    </div>
+
+    <div class="admin-review__section-head">
+      <div>
+        <p class="eyebrow">Review queue</p>
+        <h3>Highest sensitivity routes</h3>
+      </div>
+      <p class="muted">Priority combines invariant findings, boundary jumps, trend/weather sensitivity, and weaker profile evidence.</p>
+    </div>
+    <div class="admin-scoring-debug__list">
+      {topSensitivityRoutes.map((route) => (
+        <article class:list={['admin-scoring-card', route.findingCount > 0 ? 'admin-scoring-card--review' : 'admin-scoring-card--ok']}>
+          <header class="admin-scoring-card__head">
+            <div>
+              <p class="eyebrow">{route.state} · {route.thresholdModel} · {route.sourceStrength}</p>
+              <h3><a href={`/rivers/${route.routeSlug}/`}>{route.routeName}</a></h3>
+            </div>
+            <span class="admin-scoring-card__status">Priority {route.reviewPriority}</span>
+          </header>
+          <div class="admin-scoring-card__metrics">
+            <div><span>Boundary jump</span><strong>{route.maxBoundaryJump} pts</strong></div>
+            <div><span>Trend sensitivity</span><strong>{route.trendSensitivity} pts</strong></div>
+            <div><span>Weather sensitivity</span><strong>{route.weatherSensitivity} pts</strong></div>
+            <div><span>Score span</span><strong>{route.scoreSpan} pts</strong></div>
+          </div>
+          <p class="muted">{route.scenarioCount} scenarios · {route.findingCount} flagged finding{route.findingCount === 1 ? '' : 's'}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="admin-review__section-head">
+      <div>
+        <p class="eyebrow">Findings</p>
+        <h3>Ranked discontinuities and review signals</h3>
+      </div>
+      <p class="muted">Generated {sensitivityReport.generatedAt ? new Date(sensitivityReport.generatedAt).toLocaleString() : 'not yet'}.</p>
+    </div>
+    {sensitivityReport.baselineChanges.length > 0 && (
+      <div class="admin-scoring-debug__list">
+        {sensitivityReport.baselineChanges.slice(0, 50).map((change) => (
+          <article class="admin-scoring-card admin-scoring-card--review">
+            <header class="admin-scoring-card__head">
+              <div>
+                <p class="eyebrow">Baseline drift · {change.scenarioId}</p>
+                <h3><a href={`/rivers/${change.routeSlug}/`}>{change.routeSlug}</a></h3>
+              </div>
+              <span class="admin-scoring-card__status">{change.scoreDelta > 0 ? '+' : ''}{change.scoreDelta} pts</span>
+            </header>
+            <p>{change.scoreBefore} {change.ratingBefore} / {change.readinessBefore} → {change.scoreAfter} {change.ratingAfter} / {change.readinessAfter}</p>
+          </article>
+        ))}
+      </div>
+    )}
+    <div class="admin-scoring-debug__list">
+      {topSensitivityFindings.length > 0 ? topSensitivityFindings.map((finding) => (
+        <article class:list={['admin-scoring-card', finding.severity === 'critical' || finding.severity === 'high' ? 'admin-scoring-card--review' : 'admin-scoring-card--ok']}>
+          <header class="admin-scoring-card__head">
+            <div>
+              <p class="eyebrow">{finding.category} · {finding.code}</p>
+              <h3><a href={`/rivers/${finding.routeSlug}/`}>{finding.routeName}</a></h3>
+            </div>
+            <span class="admin-scoring-card__status">{finding.severity}</span>
+          </header>
+          <p>{finding.message}</p>
+          <p class="muted">{finding.evidence}</p>
+        </article>
+      )) : <p class="muted">No sensitivity findings are currently ranked for review.</p>}
+    </div>
+  </section>
+
   <section class="admin-scoring-debug admin-tab-panel" id="admin-reality-checks" role="tabpanel" data-admin-scoring-debug data-admin-tab-panel="checks" hidden>
     <div class="admin-review__section-head">
       <div>
@@ -188,6 +295,29 @@ const routeAuditGroups = Array.from(
       </div>
       <p class="muted">Use known on-water examples to tune scoring without losing real-world context.</p>
     </div>
+
+    <section class="admin-calibration-dashboard" data-admin-calibration>
+      <div class="admin-review__section-head">
+        <div>
+          <p class="eyebrow">Community calibration</p>
+          <h3>Approved field outcomes</h3>
+        </div>
+        <p class="muted request-form__status" data-admin-calibration-status aria-live="polite">Loading outcome metrics.</p>
+      </div>
+      <div class="admin-route-audits__stats">
+        <article class="snapshot-card"><span class="snapshot-card__label">Comparable outcomes</span><strong data-calibration-sample>0</strong><small data-calibration-approved>0 approved outcomes</small></article>
+        <article class="snapshot-card"><span class="snapshot-card__label">Exact verdict agreement</span><strong data-calibration-agreement>--</strong><small>App band vs observed verdict</small></article>
+        <article class="snapshot-card"><span class="snapshot-card__label">Unsafe misses</span><strong data-calibration-unsafe-misses>0</strong><small>Unsafe outcome above No-go</small></article>
+        <article class="snapshot-card"><span class="snapshot-card__label">Conservative misses</span><strong data-calibration-false-positives>0</strong><small>No-go but good/excellent trip</small></article>
+      </div>
+      <p class="muted" data-calibration-warning></p>
+      <div class="admin-scoring-card__metrics">
+        <div><span>By threshold model</span><strong data-calibration-models>No samples</strong></div>
+        <div><span>By source strength</span><strong data-calibration-sources>No samples</strong></div>
+        <div><span>Incomplete snapshots</span><strong data-calibration-incomplete>0</strong></div>
+      </div>
+      <div class="admin-scoring-card__breakdown" data-calibration-confusion aria-label="Calibration confusion matrix"></div>
+    </section>
 
     <div class="admin-scoring-debug__list">
       {calibrationResults.map(({ calibrationCase, river, result, status }) => (

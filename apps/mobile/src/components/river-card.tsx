@@ -1,10 +1,10 @@
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
-import { normalizeApiText, verdictForRating } from '../lib/format';
+import { callForDecision, normalizeApiText } from '../lib/format';
 import { routePhotoForRiver } from '../lib/route-photos';
 import { routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
-import { RatingPill } from './rating-pill';
+import { QualityPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
 
 export function RiverCard({
@@ -39,7 +39,7 @@ export function RiverCard({
 
       <View style={styles.header}>
         <View style={styles.scoreBlock}>
-          <Text style={styles.cardVerdict} numberOfLines={2}>{verdictForRating(river.rating)}</Text>
+          <Text style={styles.cardVerdict} numberOfLines={2}>{callForDecision(river.rating, river.readiness.status)}</Text>
           <Text style={styles.scoreLabel} numberOfLines={1}>Score {river.score}</Text>
         </View>
         <View style={styles.copy}>
@@ -47,7 +47,7 @@ export function RiverCard({
             <Text style={styles.name}>{river.river.name}</Text>
             <View style={styles.actions}>
               {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
-              <RatingPill rating={river.rating} />
+              <QualityPill rating={river.rating} />
             </View>
           </View>
           <Text style={styles.reach}>
@@ -69,7 +69,7 @@ export function RiverCard({
           <Text style={styles.metaPillValue} numberOfLines={1}>{river.summary.gaugeNow || river.gaugeBandLabel}</Text>
         </View>
         <View style={styles.metaPill}>
-          <Text style={styles.metaPillLabel}>Confidence</Text>
+          <Text style={styles.metaPillLabel}>Evidence</Text>
           <Text style={styles.metaPillValue} numberOfLines={1}>{river.confidence.label}</Text>
         </View>
       </View>

@@ -7,7 +7,7 @@ export type ExploreSort = 'best' | 'nearest' | 'confidence' | 'score' | 'name';
 export const sortOptions: Array<{ value: ExploreSort; label: string }> = [
   { value: 'best', label: 'Recommended' },
   { value: 'nearest', label: 'Nearest' },
-  { value: 'confidence', label: 'Confidence' },
+  { value: 'confidence', label: 'Evidence' },
   { value: 'score', label: 'Score' },
   { value: 'name', label: 'A-Z' },
 ];

@@ -48,7 +48,7 @@ export function routePreviewFactLine(river: FactRiver, options: RoutePreviewFact
 }
 
 export function routeDecisionLine(rating: string, explanation: string | null | undefined) {
-  return `${rating}: ${normalizeApiText(explanation)}`;
+  return normalizeApiText(explanation);
 }
 
 function travelFact(minutes: number | null | undefined) {

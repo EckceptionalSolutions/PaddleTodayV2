@@ -2,6 +2,7 @@ import { rivers } from '../src/data/rivers';
 import { riverTripDetails } from '../src/data/river-trip-details';
 import { minnesotaPaddleGuideEntries } from '../src/data/minnesota-paddle-guide';
 import type { River, RiverAccessPoint } from '../src/lib/types';
+import { validateScoringProfile } from '../src/lib/scoring-profile-validation';
 
 type Severity = 'Critical' | 'High' | 'Medium' | 'Low';
 
@@ -138,6 +139,12 @@ for (const route of rivers) {
 
   if (!route.profile.thresholdModel) {
     addIssue(route, 'Schema', 'Missing thresholdModel', route.id, 'High');
+  }
+
+  for (const profileIssue of validateScoringProfile(route.profile)) {
+    if (profileIssue.severity === 'error') {
+      addIssue(route, 'Scoring thresholds', profileIssue.message, profileIssue.code, 'High');
+    }
   }
 
   if (!route.sourceLinks || route.sourceLinks.length === 0) {

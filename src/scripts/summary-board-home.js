@@ -40,8 +40,9 @@ import {
   mixedResultsTitle,
 } from './board-copy.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
-import { ratingDisplayLabel } from './ui-taxonomy.js';
+import { conditionTierDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import {
+  callStateForDecision,
   compareTodayAlphabetically as compareAZ,
   compareTodayConfidenceStatusScore as compareConfidence,
   compareTodayLowestRisk as compareLowestRisk,
@@ -264,6 +265,7 @@ const homeStrongCount = document.querySelector('[data-home-strong-count]');
 const homeGoodCount = document.querySelector('[data-home-good-count]');
 const homeMixedCount = document.querySelector('[data-home-mixed-count]');
 const homeNoGoCount = document.querySelector('[data-home-no-go-count]');
+const homeUnavailableCount = document.querySelector('[data-home-unavailable-count]');
 const homeTrackedCounts = Array.from(document.querySelectorAll('[data-home-tracked-count]'));
 
 const summaryHeadline = document.querySelector('[data-summary-headline]');
@@ -1097,7 +1099,15 @@ function updateSummaryScoreFilterButtons(counts = {}) {
     const rating = button.dataset.summaryScoreToggle || '';
     const count = Number(counts[rating] ?? 0);
     const active = visibleRatings.has(rating);
-    const label = rating === 'Fair' ? 'Fair: tradeoffs' : rating;
+    const label = rating === 'Strong'
+      ? 'Strong conditions'
+      : rating === 'Good'
+        ? 'Good conditions'
+        : rating === 'Fair'
+          ? 'Fair conditions'
+          : rating === 'No-go'
+            ? 'No-go conditions'
+            : rating;
     button.disabled = false;
     button.classList.toggle('summary-map-legend__toggle--active', active);
     button.setAttribute('aria-pressed', active ? 'true' : 'false');
@@ -1110,10 +1120,12 @@ function updateSummaryScoreFilterButtons(counts = {}) {
 
 function updateHeroCallMix(results) {
   const totalCount = Array.isArray(results) ? results.length : 0;
-  const strongCount = results.filter((result) => result.rating === 'Strong').length;
-  const goodCount = results.filter((result) => result.rating === 'Good').length;
-  const noGoCount = results.filter((result) => result.rating === 'No-go').length;
-  const mixedCount = Math.max(0, totalCount - strongCount - goodCount - noGoCount);
+  const callFor = (result) => callStateForDecision(result.rating, result.readiness?.status);
+  const strongCount = results.filter((result) => result.rating === 'Strong' && callFor(result) === 'paddle').length;
+  const goodCount = results.filter((result) => result.rating === 'Good' && callFor(result) === 'paddle').length;
+  const mixedCount = results.filter((result) => callFor(result) === 'watch').length;
+  const unavailableCount = results.filter((result) => callFor(result) === 'unavailable').length;
+  const noGoCount = results.filter((result) => callFor(result) === 'skip').length;
 
   if (homeStrongCount instanceof HTMLElement) {
     homeStrongCount.textContent = String(strongCount);
@@ -1129,6 +1141,10 @@ function updateHeroCallMix(results) {
 
   if (homeNoGoCount instanceof HTMLElement) {
     homeNoGoCount.textContent = String(noGoCount);
+  }
+
+  if (homeUnavailableCount instanceof HTMLElement) {
+    homeUnavailableCount.textContent = String(unavailableCount);
   }
 
   updateSummaryScoreFilterButtons({
@@ -1600,7 +1616,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       : 'Best fit based on your location.';
   }
   setText(document, 'featured-score', String(item.cardRoute.score));
-  setText(document, 'featured-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData, compact: true }));
+  setText(document, 'featured-rating', conditionTierDisplayLabel(item.cardRoute.rating));
   setText(document, 'featured-verdict', recommendationVerdict(item));
   setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady, latestResults));
   renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
@@ -2087,7 +2103,7 @@ function buildExploreFilterPills() {
 
   if (activeFilters.paddleable) {
     pills.push({
-      label: 'Strong + Good',
+      label: 'Paddle routes',
       tone: 'filter',
     });
   }

@@ -1,5 +1,6 @@
 import {
   buildRoutePlannerParams,
+  callStateForDecision,
   formatRouteSegmentLabel,
   routeMatchesPaddleFilters,
   routeSegmentSummary,
@@ -1053,7 +1054,7 @@ function applyExploreFilters(
       if (filters.state && river.river.state !== filters.state) return false;
       if (!difficultyMatches(river.river.difficulty, filters.difficulty)) return false;
       if (!routeTypeMatches(river.river.routeType, filters.routeType)) return false;
-      if (!statusMatches(river.rating, filters.status)) return false;
+      if (!statusMatches(river.rating, river.readiness.status, filters.status)) return false;
       if (filters.rating !== 'any' && river.rating !== filters.rating) return false;
       if (filters.paddleTime === 'full-day') {
         if (!paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime, river.river.logistics?.campingClassification)) return false;
@@ -1130,10 +1131,12 @@ function compareBest(left: ExploreRiver, right: ExploreRiver) {
 }
 
 function recommendationRank(river: ExploreRiver) {
+  const call = callStateForDecision(river.rating, river.readiness.status);
+  const callBonus = call === 'paddle' ? 600 : call === 'watch' ? 400 : call === 'unavailable' ? 200 : 0;
   const confidenceBonus = (confidenceRank[river.confidence.label] ?? 0) * 4;
   const travelPenalty = river.distanceMiles === null ? 0 : distancePenalty(estimateDriveMinutes(river.distanceMiles));
   const statusPenalty = river.liveData.overall === 'offline' ? 12 : river.liveData.overall === 'degraded' ? 4 : 0;
-  return river.score + confidenceBonus - travelPenalty - statusPenalty;
+  return callBonus + river.score + confidenceBonus - travelPenalty - statusPenalty;
 }
 
 function searchBlob(river: RiverSummaryApiItem) {

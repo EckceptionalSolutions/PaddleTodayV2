@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-12T14:06:04.371Z",
+  "generatedAt": "2026-08-15T03:23:17.956Z",
   "scope": "metadata-and-package freshness; live gauge freshness remains provider-runtime data",
   "totals": {
-    "routesReviewed": 1025,
-    "findings": 1019,
+    "routesReviewed": 1032,
+    "findings": 1026,
     "high": 50
   },
   "findings": [
@@ -3965,6 +3965,16 @@
       "severity": "medium"
     },
     {
+      "slug": "south-fork-ogden-river-willows-magpie",
+      "state": "Utah",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "colorado-river-hittle-bottom-takeout-beach",
       "state": "Utah",
       "scored": true,
@@ -3976,6 +3986,16 @@
     },
     {
       "slug": "green-river-flaming-gorge-dam-little-hole",
+      "state": "Utah",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "green-river-little-hole-indian-crossing",
       "state": "Utah",
       "scored": true,
       "issues": [
@@ -5499,6 +5519,16 @@
       "severity": "medium"
     },
     {
+      "slug": "guadalupe-river-kreutzberg-canyon-bergheim-campground",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "guadalupe-river-fm3351-state-park",
       "state": "Texas",
       "scored": true,
@@ -5649,6 +5679,16 @@
       "severity": "medium"
     },
     {
+      "slug": "colorado-river-texas-river-school-fm973",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "colorado-river-texas-river-school-little-webberville",
       "state": "Texas",
       "scored": true,
@@ -5769,6 +5809,16 @@
       "severity": "medium"
     },
     {
+      "slug": "brazos-river-spivey-crossing-brazos-river-nature-center",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "brazos-river-fullers-folly-sandy-bottoms",
       "state": "Texas",
       "scored": true,
@@ -5859,6 +5909,16 @@
       "severity": "medium"
     },
     {
+      "slug": "greens-bayou-brock-adventure-thomas-bell-foster",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "north-prong-medina-river-3rd-crossing-freeman-crossing",
       "state": "Texas",
       "scored": true,
@@ -5910,6 +5970,16 @@
     },
     {
       "slug": "medina-river-ranger-crossing-bandera-city-park",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "medina-river-bandera-city-park-dam-english-crossing",
       "state": "Texas",
       "scored": true,
       "issues": [

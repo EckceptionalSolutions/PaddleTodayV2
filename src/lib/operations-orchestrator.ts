@@ -11,6 +11,7 @@ export type OperationsTask = {
   inventoryId?: string;
   gaugeKeys?: string[];
   frontierTier?: number;
+  routeOpportunity?: boolean;
 };
 
 export type WorkOrder = {
@@ -27,8 +28,10 @@ export type WorkOrder = {
 const priorityRank: Record<string, number> = { critical: 0, high: 1, medium: 2, low: 3 };
 
 function rankTask(task: OperationsTask) {
-  const frontierRank = task.kind === 'state_coverage' ? (task.frontierTier ?? 50) : 99;
-  const kindRank = task.kind === 'state_coverage' ? 0 : task.kind === 'consolidation_review' ? 1 : 2;
+  const frontierRank = task.kind === 'state_coverage' || task.routeOpportunity
+    ? (task.frontierTier ?? 50)
+    : 99;
+  const kindRank = task.kind === 'state_coverage' ? 0 : task.kind === 'route_research' ? 1 : task.kind === 'consolidation_review' ? 2 : 3;
   return [frontierRank, priorityRank[task.priority] ?? 9, kindRank, task.title];
 }
 
@@ -52,11 +55,14 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
   // Geographic completion is intentionally frontier-first. A preserved
   // discovery task in a distant state must not jump ahead of unfinished
   // gauge coverage in a nearer tier.
-  const unfinishedStateCoverageTasks = tasks.filter(
-    (task) => task.kind === 'state_coverage' && task.lane !== 'completed'
+  const unfinishedFrontierTasks = tasks.filter(
+    (task) => (task.kind === 'state_coverage' || task.routeOpportunity)
+      && task.lane !== 'completed'
+      && task.lane !== 'blocked'
+      && task.frontierTier !== undefined
   );
-  const activeFrontierTier = unfinishedStateCoverageTasks.length
-    ? Math.min(...unfinishedStateCoverageTasks.map((task) => task.frontierTier ?? 50))
+  const activeFrontierTier = unfinishedFrontierTasks.length
+    ? Math.min(...unfinishedFrontierTasks.map((task) => task.frontierTier ?? 50))
     : undefined;
 
   const candidates = tasks
@@ -69,7 +75,7 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
       && task.id.endsWith('gauge-review-batch')
       && !(task.gaugeKeys?.length)
     ))
-    .filter((task) => task.kind !== 'state_coverage'
+    .filter((task) => (task.kind !== 'state_coverage' && !task.routeOpportunity)
       || activeFrontierTier === undefined
       || (task.frontierTier ?? 50) === activeFrontierTier)
     .filter((task) => {
@@ -97,7 +103,15 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
     taskId: task.id,
     workerRole,
     rationale: `${task.priority} priority ${task.kind} task selected from the ${task.lane} lane; WIP policy permits assignment.`,
-    requiredGates: task.kind === 'state_coverage' && task.id.endsWith('bounded-discovery-sweep')
+    requiredGates: task.kind === 'route_research' && task.routeOpportunity
+      ? [
+          'gauge disposition and actionable blocker recorded',
+          'named public endpoints and defensible coordinates',
+          'product-supported live gauge and source-backed thresholds',
+          'access, camping, safety, image, geometry, and overlap checks',
+          'independent verification, tests, build, and rollback evidence',
+        ]
+      : task.kind === 'state_coverage' && task.id.endsWith('bounded-discovery-sweep')
       ? [
           'frozen gauge inventory and bounded candidate budget recorded',
           'distinct gauge and river families reviewed without speculative route creation',

@@ -22,6 +22,7 @@ import {
 import {
   handleAdminContributionFile,
   handleAdminContributionList,
+  handleAdminScoringCalibration,
   handleAdminContributionReview,
   handleAdminLogout,
   handleAdminOperationsSnapshot,
@@ -247,6 +248,10 @@ async function handleWriteRoutes(
 
   if (pathname === '/api/admin/route-contributions' && request.method === 'GET') {
     return handleAdminContributionList(request, response, requestId, includeBody);
+  }
+
+  if (pathname === '/api/admin/scoring-calibration' && request.method === 'GET') {
+    return handleAdminScoringCalibration(request, response, requestId, includeBody);
   }
 
   if (pathname === '/api/admin/route-requests' && request.method === 'GET') {

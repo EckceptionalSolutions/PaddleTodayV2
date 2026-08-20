@@ -45,13 +45,19 @@ describe('operations snapshot', () => {
     expect(Array.isArray(snapshot.controlPlane.recentClaims)).toBe(true);
     expect(snapshot.policy.completenessModel).toContain('gauge_network');
     expect(snapshot.policy.researchStrategy).toBe('geographic_frontier_then_completion_gap');
-    expect(snapshot.policy.activeFrontierState).toBe('WI');
+    const activeFrontier = snapshot.stateResearchRanking.find((state) => state.id === snapshot.policy.activeFrontierState);
+    const unfinishedFrontierTiers = snapshot.stateResearchRanking
+      .filter((state) => !state.done)
+      .map((state) => state.frontierTier);
+    expect(activeFrontier?.done).toBe(false);
+    expect(activeFrontier?.frontierTier).toBe(Math.min(...unfinishedFrontierTiers));
     expect(snapshot.totals.knownGauges).toBeGreaterThan(0);
     expect(snapshot.states.find((state) => state.id === 'MN')?.gaugeCoverage.knownGaugeCount).toBeGreaterThan(0);
     expect(snapshot.totals.gaugeReviewCoveragePercent).toBeGreaterThanOrEqual(0);
     expect(snapshot.totals.gaugeReviewCoveragePercent).toBeLessThanOrEqual(100);
     expect(snapshot.totals.routeGaugeCoveragePercent).toBeGreaterThanOrEqual(0);
     expect(snapshot.totals.routeGaugeCoveragePercent).toBeLessThanOrEqual(100);
+    expect(JSON.stringify(snapshot.tasks)).not.toMatch(/(?:Â|â†|â€“|�)/);
   });
 
   it('prioritizes incomplete gauge baselines before legacy route saturation', () => {

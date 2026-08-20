@@ -59,3 +59,16 @@ Approving a submission does two things:
 
 - photos become available in the route gallery
 - trip reports become available in the route page community reports section
+
+## Structured scoring outcomes
+
+The web and mobile condition-report forms collect a structured `scoringOutcome` object. It is stored with the reviewed submission so real trips, shortened trips, aborted trips, and decisions not to launch can all become calibration evidence without changing the public community-report format. The API field remains optional for backward compatibility with older clients.
+
+The version 1 payload requires:
+
+- `schemaVersion: 1`
+- `observedWaterLevel`: `too-low`, `low`, `ideal`, `high`, `unsafe`, or `unknown`
+- `tripCompletion`: `completed`, `shortened`, `aborted`, or `not-launched`
+- `overallVerdict`: `unsafe`, `poor`, `fair`, `good`, or `excellent`
+
+It can also capture the score, rating, confidence, gauge value/unit/trend shown at decision time; comfort, access, paddler experience, and craft; and bounded hazard/reason-code arrays. Invalid structured outcomes are rejected with `invalid_scoring_outcome`; ordinary route reports without this object remain backward compatible.

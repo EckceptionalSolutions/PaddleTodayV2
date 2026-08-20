@@ -394,6 +394,7 @@ function detailFromSummaryItem(item: RiverSummaryApiItem): RiverDetailApiResult 
     },
     score: item.score,
     rating: item.rating,
+    readiness: item.readiness ?? fallbackReadiness(item),
     gaugeBand: gaugeBandFromSummary(item),
     gaugeBandLabel: item.gaugeBandLabel,
     explanation: item.explanation,
@@ -507,6 +508,7 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
   const { safetyProfile: _safetyProfile, logistics: storedLogistics, ...storedRiver } = item.river;
   return {
     ...item,
+    readiness: item.readiness ?? fallbackReadiness(item),
     river: {
       ...storedRiver,
       conditionZoneId: item.river.conditionZoneId || (river ? conditionZoneIdForRiver(river) : undefined),
@@ -564,6 +566,16 @@ function normalizeDetailSnapshotResult(result: RiverDetailApiResult): RiverDetai
   const river = getRiverBySlug(result.river.slug);
   return {
     ...result,
+    readiness: result.readiness ?? {
+      status: result.liveData.gauge.state !== 'live' ? 'withheld' : result.rating === 'No-go' ? 'skip' : 'verify',
+      label: result.liveData.gauge.state !== 'live' ? 'Withheld' : result.rating === 'No-go' ? 'Skip' : 'Verify',
+      reason: 'Derived from a stored result created before explicit readiness was available.',
+    },
+    outlooks: result.outlooks.map((outlook) => ({
+      ...outlook,
+      direction: outlook.direction ?? 'uncertain',
+      scoreRange: outlook.scoreRange ?? (typeof outlook.score === 'number' ? { min: outlook.score, max: outlook.score } : null),
+    })),
     river: {
       ...result.river,
       estimatedPaddleTime: result.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
@@ -580,6 +592,16 @@ function normalizeDetailSnapshotResult(result: RiverDetailApiResult): RiverDetai
           : result.river.gaugeSource,
     },
   };
+}
+
+function fallbackReadiness(item: RiverSummaryApiItem): RiverSummaryApiItem['readiness'] {
+  if (item.liveData.gaugeState !== 'live') {
+    return { status: 'withheld', label: 'Withheld', reason: item.liveData.gaugeDetail };
+  }
+  if (item.rating === 'No-go') {
+    return { status: 'skip', label: 'Skip', reason: item.explanation };
+  }
+  return { status: 'verify', label: 'Verify', reason: 'Refresh this stored result before using it as launch readiness.' };
 }
 
 function buildSummarySnapshot(results: RiverScoreResult[], generatedAt: string): RiverSummarySnapshot {

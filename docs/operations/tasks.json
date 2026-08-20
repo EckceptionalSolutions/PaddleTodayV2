@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-15T03:02:30.000Z",
+  "updatedAt": "2026-08-20T16:30:43.737Z",
   "tasks": [
     {
       "id": "geographic-gauge-frontier-workflow",
@@ -1147,38 +1147,127 @@
         "public/data/canonical-river-geometries.json"
       ]
     },
-  {
-    "id": "nd-gauge-review-batch",
-    "title": "Review North Dakota provider-baseline gauges",
-    "lane": "ready",
-    "kind": "state_coverage",
-    "owner": "gauge-coverage",
-    "priority": "high",
-    "stateId": "ND",
-    "frontierTier": 1,
-    "inventoryId": "provider-baseline-2026-08-14",
-    "gaugeKeys": [
-      "usgs:05051500",
-      "usgs:0505152130",
-      "usgs:05051522",
-      "usgs:05051600",
-      "usgs:05052000",
-      "usgs:05052500",
-      "usgs:05053000",
-      "usgs:05053500",
-      "usgs:05054000",
-      "usgs:05054500"
-    ],
-    "summary": "Bounded first North Dakota gauge-review batch. Record a durable disposition for each key, preserve direct/proxy relationships, and promote only routes that clear the full evidence and safety gates.",
-    "evidence": [
-      "docs/operations/gauge-inventory.json",
-      "docs/operations/gauge-review-ledger.json",
-      "docs/operations/gate-policy.json"
-    ],
-    "routeAdded": false
-  },
-  {
-    "id": "tx-bounded-discovery-sweep",
+    {
+      "id": "nd-gauge-review-batch",
+      "title": "Review North Dakota provider-baseline gauges",
+      "lane": "ready",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "critical",
+      "stateId": "ND",
+      "frontierTier": 1,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05116150",
+        "usgs:05116500",
+        "usgs:05117500",
+        "usgs:05117600",
+        "usgs:05119410"
+      ],
+      "summary": "North Dakota provider-baseline gauge review is in progress. Recent bounded batches have closed reviewed Red River / Wild Rice / Antelope / Sheyenne / Mauvais Coulee / Devils Lake basin coulee, creek, Valley City, Fort Ransom, Lisbon, Kindred, Horace, West Fargo, Maple, Apple, Bear, Beaver, Big Muddy, Heart, Sweetbriar, Missouri, Hay Creek, Cannonball, and Cedar gauges with durable covered, blocked, screened-out, or stale dispositions; continue with the next queued unreviewed gauges and only promote routes that clear endpoint, threshold, safety, camping, coordinate, image, and geometry gates.",
+      "evidence": [
+        "2026-08-15T03:35:00.000Z: route-worker-202608150335-nd-red-wild-rice-gauge-no-add screened USGS 05051500, 0505152130, 05051522, 05051600, and 05052000. No route cleared the full scored-route gates; no route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/route-candidate-ledger.json",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05051500,0505152130,05051522,05051600,05052000&parameterCd=00060,00065&siteStatus=all",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=05051500,0505152130,05051522,05051600,05052000&siteOutput=expanded",
+        "https://www.dnr.state.mn.us/state-water-trails/red-river/index.html",
+        "https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html",
+        "https://gf.nd.gov/boating/access",
+        "https://www.ndtourism.com/articles/paddle-north-dakotas-rivers-and-lakes",
+        "https://gf.nd.gov/magazine/2026/mar-apr/2026-north-dakota-fishing-waters",
+        "2026-08-15T03:35:00.000Z: gatekeeper-20260815032847 passed after no-route gauge batch; production build completed inside operations:verify.",
+        "2026-08-15T04:02:00.000Z: route-worker-202608150358-nd-antelope-wild-rice-fargo-sheyenne-no-add screened USGS 05052500, 05053000, 05053500, 05054000, and 05054500. Antelope Creek and Wild Rice Abercrombie/St. Benedict were screened_out/not_paddle_relevant under current official-source evidence; Fargo Red River was recorded covered by existing scored same-reach route coverage after operations:gauges:check detected the route relationship; Sheyenne above Harvey was stale_or_unsupported because discharge was backwater-affected and no Harvey route package cleared. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
+        "2026-08-15T04:24:57.905Z: supervisor supervisor-20260815T042457Z classified route-worker-202608150335-nd-red-wild-rice-gauge-no-add and route-worker-202608150358-nd-antelope-wild-rice-fargo-sheyenne-no-add as completed North Dakota gauge-disposition/no-add work with passed validation; no stale WIP, workOrder:null dead end, route-package omission, policy override, or GitHub infrastructure failure was found. Preserved this ready bounded frontier task for the next ND gauges: usgs:05055300, usgs:05055400, usgs:05056000, usgs:05056060, and usgs:05056100. operations:plan -- --record selected overlap-review-0284d49cb5d9 via orchestrator-20260815042338.",
+        "2026-08-15T04:24:55.000Z: route-worker-202608150424-nd-sheyenne-mauvais-coulee-no-add screened USGS 05055300, 05055400, 05056000, 05056060, and 05056100. Flora/Bremen/Warwick upper-Sheyenne gauges were blocked because no station-specific public point-to-point route package, thresholds, camping/access, safety, image, coordinate, or geometry evidence cleared; Mauvais Coulee Tributary No. 3 and Mauvais Coulee near Cando were screened_out/not_paddle_relevant under current official-source evidence. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
+        "2026-08-15T04:28:30.000Z: supervisor supervisor-20260815T042457Z closed validation metadata for route-worker-202608150424-nd-sheyenne-mauvais-coulee-no-add using gatekeeper-20260815042555, which passed after the no-add ND batch was present. Preserved nd-gauge-review-batch ready for the next queued gauges: usgs:05056200, usgs:05056215, usgs:05056239, usgs:05056265, and usgs:05056340. Latest operations:plan -- --record selected overlap-review-0284d49cb5d9 via orchestrator-20260815042729.",
+        "2026-08-15T04:29:30.000Z: route-worker-202608150424-nd-sheyenne-mauvais-coulee-no-add validation metadata closed as passed using gatekeeper-20260815042851; no route package artifacts changed and the next ND queue remains usgs:05056200, usgs:05056215, usgs:05056239, usgs:05056265, and usgs:05056340.",
+        "2026-08-15T04:29:45.000Z: supervisor supervisor-20260815T042457Z normalized route-worker-202608150424-nd-sheyenne-mauvais-coulee-no-add validationStatus to passed and pointed latestGatekeeperId to gatekeeper-20260815042851, the later passed gatekeeper record after validation metadata closure.",
+        "2026-08-15T04:53:30.000Z: route-worker-202608150453-nd-devils-lake-coulee-no-add screened USGS 05056200, 05056215, 05056239, 05056265, and 05056340. All five Devils Lake basin coulee gauges were screened_out/not_paddle_relevant under current official-source evidence because no manager-backed public point-to-point paddling corridor, endpoint pair, thresholds, camping/access, safety, image, coordinate, or geometry package surfaced. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
+        "2026-08-15T04:58:10.584Z: route-worker-202608150453-nd-devils-lake-coulee-no-add validation passed via gatekeeper-20260815045810; no route package artifacts changed and the next ND queue remains usgs:05056678, usgs:05056770, usgs:05057000, usgs:05057200, and usgs:05058500.",
+        "2026-08-15T05:25:41.046Z: supervisor supervisor-20260815T052541Z classified route-worker-202608150424-nd-sheyenne-mauvais-coulee-no-add and route-worker-202608150453-nd-devils-lake-coulee-no-add as completed North Dakota gauge-disposition/no-add work with passed validation; found no in_progress lane, active route-worker claim, workOrder:null/no-work dead end, failed validation, omitted route package work, policy override, or GitHub runner infrastructure failure. Preserved nd-gauge-review-batch ready for the next queued gauges: usgs:05056678, usgs:05056770, usgs:05057000, usgs:05057200, and usgs:05058500. operations:plan -- --record selected overlap-review-0284d49cb5d9 via orchestrator-20260815052441, so no duplicate route-worker task was created.",
+        "2026-08-15T05:24:45.000Z: route-worker-202608150524-nd-sheyenne-tolna-baldhill-no-add screened USGS 05056678, 05056770, 05057000, 05057200, and 05058500. Tolna Coulee and Baldhill Creek were screened_out/not_paddle_relevant; Kloten and Cooperstown Sheyenne were blocked for missing station-specific route packages; Valley City Sheyenne remained blocked on the known Bjornson primitive-launch coordinate gate. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
+        "2026-08-15T05:27:28.336Z: supervisor supervisor-20260815T052541Z closed route-worker-202608150524-nd-sheyenne-tolna-baldhill-no-add from validation_pending to completed_no_route_added using gatekeeper-20260815052623; no route package artifacts changed and the next ND queue remains usgs:05058650, usgs:05058700, usgs:05058980, usgs:05059000, and usgs:05059300.",
+        "2026-08-15T05:27:50.453Z: supervisor supervisor-20260815T052541Z reran operations:plan -- --record after closing the latest ND validation metadata; planner selected overlap-review-0284d49cb5d9 via orchestrator-20260815052732 and did not return workOrder:null. Route-worker-ready frontier remains nd-gauge-review-batch for usgs:05058650, usgs:05058700, usgs:05058980, usgs:05059000, and usgs:05059300.",
+        "2026-08-15T05:54:36.277Z: route-worker-202608150554-nd-sheyenne-fort-ransom-horace-no-add screened USGS 05058650, 05058700, 05058980, 05059000, and 05059300. Fort Ransom Sheyenne was blocked by dam-adjacent Sportsman Landing endpoint/coordinate/safety gates; Lisbon and Kindred Sheyenne gauges were blocked by missing station-specific route and threshold packages; GOL Road near Kindred was stale_or_unsupported because it is stage-only without route thresholds; Horace was blocked by diversion-infrastructure safety/access and route-package gaps. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
+        "2026-08-15T05:58:48.377Z: route-worker-202608150554-nd-sheyenne-fort-ransom-horace-no-add validation passed via gatekeeper-20260815055848; no route package artifacts changed and the next ND queue remains usgs:05059480, usgs:05059500, usgs:05059600, usgs:05059700, and usgs:05060000.",
+        "2026-08-20T10:48:06.970Z: supervisor supervisor-20260820T104806Z inspected all six latest North Dakota hourly gauge-disposition/no-add runs (through route-worker-202608150554-nd-sheyenne-fort-ransom-horace-no-add); all were completed with passed gatekeepers, no newer hourly worker record exists, no active WIP claim was found, and the bounded ND frontier remains ready for usgs:05059480, usgs:05059500, usgs:05059600, usgs:05059700, and usgs:05060000. Generic operations:plan -- --record selected overlap-review-0284d49cb5d9 via orchestrator-20260820104732; no duplicate route-worker task was created. GitHub River Snapshots run 32275336509 remains blocked upstream after the maps.dnr.state.mn.us health gate reported 100% failures; existing snapshots were preserved.",
+        "2026-08-20T10:48:46.598Z: route-worker-202608201048-nd-sheyenne-maple-no-add screened USGS 05059480, 05059500, 05059600, 05059700, and 05060000. West Fargo diversion and natural-channel Sheyenne candidates were blocked on infrastructure/access/threshold/camping/safety/coordinate/image/geometry packages; Hope Maple was stale_or_unsupported after no current P1D values; Enderlin and Mapleton Maple were screened_out as lacking an official/public paddling corridor. No route package artifacts changed.",
+        "2026-08-20T11:17:43.328Z: route-worker-202608200617-nd-maple-rush-goose-no-add screened USGS 05060100, 05060400, 05060500, 05065500, and 05066500. Maple below Mapleton, Rush at Amenia, and the Goose River Portland/Hillsboro cluster were screened_out/not_paddle_relevant; Sheyenne at Harwood was blocked/route_capable because the live gauge and broader Sheyenne paddling relevance do not provide a station-specific public endpoint, threshold, lower-reach safety/access, camping, coordinate, image, or geometry package. No route data, trip details, gallery row, camping package, safety package, endpoint coordinates, canonical geometry, or route order changed.",
+        "2026-08-20T11:47:37.275Z: supervisor-20260820T114737Z confirmed the latest ND worker record is authoritative and validation-passed via gatekeeper-20260820112521; preserved this bounded ready frontier with no duplicate task or route change. The planner has a real existing MN route-research work order, so no board lane was overridden.",
+        "2026-08-20T11:49:39.337Z: route-worker-202608200649-nd-red-turtle-forest-no-add screened USGS 05070000, 05082500, 05082625, 05084000, and 05085000. Thompson and Grand Forks Red River gauges remain blocked/route_capable on station-specific endpoint, threshold, camping, safety, coordinate, image, and geometry gaps; Turtle River State Park and both Forest River gauges were screened_out/not_paddle_relevant because official sources did not identify public point-to-point paddling corridors. No route package artifacts changed; the following bounded queue was usgs:05089995, usgs:05090000, usgs:05092000, usgs:05099400, and usgs:05100000.",
+        "2026-08-20T11:59:57.230Z: validation passed via gatekeeper-20260820115957. JSON parse, operations:gauges:check, route/gallery/safety/geometry/overlap/coordinate audits, focused and full typechecks, production build, operations:verify, and git diff --check passed; coordinate audit retained only the existing 38-failure corpus backlog.",
+        "2026-08-20T12:48:23.461Z: route-worker-202608201248-nd-park-pembina-no-add screened USGS 05089995, 05090000, 05092000, 05099400, and 05100000. Park River diversion 05089995 was screened_out/not_paddle_relevant; Park River Grafton 05090000, Red River Drayton 05092000, Little South Pembina 05099400, and Pembina Neche 05100000 were blocked/route_capable on flood-control, endpoint, day-route-shape, threshold, camping, safety, image, coordinate, or geometry gaps. Fresh USGS readings were 0.00/23.99, 4.66/7.15, 893/11.56, 1.87/0.78, and 300/3.62 (cfs/ft), respectively. No route data, trip details, image audit row, camping package, safety package, endpoint coordinates, canonical geometry, or route order changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05089995,05090000,05092000,05099400,05100000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://draytonnd.com/canoeing",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redriver5.pdf",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4471/main",
+        "https://www.pembinacountynd.gov/?id=229",
+        "2026-08-20T13:49:36.694Z: route-worker-202608200849-nd-antelope-apple-bear-beaver-no-add screened USGS 06347000, 06349500, 06470800, 06332515, and 06354580. Antelope Creek, Bear Creek near Oakes, and Beaver Creek below Linton were screened_out/not_paddle_relevant; Apple Creek was blocked/route_capable because public kayaking context did not produce station-specific endpoints, thresholds, camping, safety, coordinates, image, or geometry; Bear Den Creek was stale_or_unsupported/route_capable because the current USGS query returned no valid discharge or stage and no route package cleared. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06347000,06349500,06470800,06332515,06354580&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://news.prairiepublic.org/podcast/dakota-datebook/2024-09-27/september-27-events-along-apple-creek-in-1885",
+        "https://gf.nd.gov/wma",
+        "https://www.recreation.gov/camping/campgrounds/234677",
+        "2026-08-20T14:17:43.890Z: route-worker-202608200917-nd-bigmuddy-heart-missouri-no-add screened USGS 06347500, 06348300, 06348500, 06349000, and 06349070. Big Muddy Creek and Sweetbriar Creek were screened_out/not_paddle_relevant; Heart River Stark Bridge and Heart River near Mandan were blocked/route_capable; Missouri River below Mandan was stale_or_unsupported/route_capable because the station is stage-only. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, coordinate correction, or route order changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06347500,06348300,06348500,06349000,06349070&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.parkrec.nd.gov/paddling",
+        "https://www.parkrec.nd.gov/sites/www/files/documents/Fort%20Lincoln/FALSP%20-%20Campground%20Map.pdf",
+        "https://www.mortonnd.gov/missouririver_trailhead",
+        "2026-08-20T14:48:07.189Z: route-worker-202608200948-nd-hay-cannonball-cedar-no-add screened USGS 06349600, 06349700, 06350000, 06351200, and 06352000. Hay Creek at Bismarck, Cannonball Regent/Raleigh, and Cedar Creek near Haynes were screened_out/not_paddle_relevant; Missouri River near Schmidt was stale_or_unsupported/route_capable because the provider is stage-only. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, coordinate correction, or route order changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06349600,06349700,06350000,06351200,06352000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=06349600,06349700,06350000,06351200,06352000&siteOutput=expanded",
+        "https://www.parkrec.nd.gov/paddling",
+        "https://www.bisparks.org/facilities/boat-ramps-fishing/",
+        "https://gf.nd.gov/boating/access",
+        "https://gf.nd.gov/magazine/2025/mar-apr/2025-north-dakota-fishing-waters",
+        "2026-08-20T14:50:57.583Z: supervisor supervisor-20260820T145057Z classified route-worker-202608200849-nd-antelope-apple-bear-beaver-no-add and route-worker-202608200917-nd-bigmuddy-heart-missouri-no-add as completed North Dakota gauge-disposition/no-add work with passed gatekeepers gatekeeper-20260820135553 and gatekeeper-20260820142349. A later task-board evidence append references route-worker-202608200948-nd-hay-cannonball-cedar-no-add, but that worker and its gatekeeper are absent from runs.json; preserved the ready claim and authoritative lastRunId rather than inventing closure. No stale in_progress lane, workOrder:null dead end, omitted route package, policy override, or current GitHub runner failure was found.",
+        "Next ND gauge-review rotation: usgs:05101000, usgs:05102490, usgs:05113600, usgs:05114000, and usgs:05116000.",
+        "2026-08-20T15:17:58.611Z: route-worker-202608201017-nd-cedar-cannonball-beaver-no-add screened USGS 06353000, 06354000, 06354050, 06354480, and 06354490. Cedar Creek and South Branch Beaver were screened_out/not_paddle_relevant; Cannonball Breien and Solen were blocked/route_capable because navigability did not produce station-specific scored route packages; Beaver Strasburg was stale_or_unsupported/route_capable because the station is stage-only. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, coordinate correction, or route order changed.",
+        "2026-08-20T15:23:34.659Z: gatekeeper-20260820152334 passed JSON parse, gauge coverage 4299/4299, route/gallery/safety/geometry/overlap/coordinate audits, route/full/mobile typechecks, production build, operations verification, and scoped git diff check for the no-add ND batch.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06353000,06354000,06354050,06354480,06354490&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.dwr.nd.gov/pdfs/navigating_sovereign_lands_waters.pdf",
+        "https://www.swc.nd.gov/info_edu/reports_and_publications/archived_prelim_engineering_reports/pdfs/beaver_creek_hydrology_report.pdf",
+        "2026-08-20T15:52:37.528Z: supervisor supervisor-20260820T155237Z classified route-worker-202608200948-nd-hay-cannonball-cedar-no-add and route-worker-202608201017-nd-cedar-cannonball-beaver-no-add as completed North Dakota gauge-disposition/no-add work with passed gatekeepers gatekeeper-20260820145327 and gatekeeper-20260820152641. The task pointer is authoritative at the 1017 worker and next rotation remains usgs:05101000, usgs:05102490, usgs:05113600, usgs:05114000, and usgs:05116000. Preserved the ready frontier; no stale active claim, workOrder:null dead end, omitted route package, policy override, or route-worker validation failure was found. GitHub River Snapshots 32383687232 is separate upstream api.weather.gov health-gate work, not a route-worker failure.",
+        "2026-08-20T15:49:16.734Z: route-worker-202608201049-nd-tongue-red-long-souris-no-add screened USGS 05101000, 05102490, 05113600, 05114000, and 05116000. Tongue River at Akra and Long Creek near Noonan were screened_out/not_paddle_relevant because no official/public point-to-point paddling corridor or named endpoint package surfaced; Red River at Pembina was stale_or_unsupported/route_capable because current provider support is stage-only; Souris near Sherwood and Foxholm were blocked/route_capable because broad refuge/canoe-trail evidence did not clear station-specific endpoints, thresholds, camping, safety, coordinates, image, or geometry. Fresh USGS values were 1.60/6.62, 10.80 ft stage-only, 16.4/3.22, 155/4.10, and 0.00/4.57 cfs/ft at 2026-08-20 10:00-10:30 CDT. No route package artifacts changed; next rotation is usgs:05116150, usgs:05116500, usgs:05117500, usgs:05117600, and usgs:05119410.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05101000,05102490,05113600,05114000,05116000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=05101000,05102490,05113600,05114000,05116000&siteOutput=expanded",
+        "https://www.dnr.state.mn.us/state-water-trails/red-river/index.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redriver6.pdf",
+        "https://www.fws.gov/refuge/upper-souris/visit-us/trails",
+        "https://www.govinfo.gov/content/pkg/GOVPUB-I49-PURL-gpo122815/pdf/GOVPUB-I49-PURL-gpo122815.pdf",
+        "https://www.parkrec.nd.gov/paddling"
+      ],
+      "routeAdded": false,
+      "lastSupervisorRunId": "supervisor-20260820T155237Z",
+      "updatedAt": "2026-08-20T16:24:32.685Z",
+      "lastRunId": "route-worker-202608201118-nd-des-lacs-souris-bonnes-no-add",
+      "latestRunId": "route-worker-202608201118-nd-des-lacs-souris-bonnes-no-add",
+      "latestGatekeeperId": "gatekeeper-20260820162715",
+      "workerValidationStatus": "passed"
+    },
+    {
+      "id": "nd-bounded-discovery-sweep",
+      "title": "Run bounded North Dakota discovery sweep before completion",
+      "lane": "ready",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "ND",
+      "frontierTier": 1,
+      "discoveryComplete": false,
+      "summary": "After all eligible North Dakota gauges receive durable dispositions, screen a bounded set of distinct public river and gauge families for one additional strong scored route. Do not force a route; record each candidate disposition and decisive blocker.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/gate-policy.json",
+        "docs/route-candidate-ledger.json",
+        "docs/state-route-memories/north-dakota.md"
+      ],
+      "routeAdded": false
+    },
+    {
+      "id": "tx-bounded-discovery-sweep",
       "title": "Run bounded Texas discovery sweep before saturation",
       "lane": "ready",
       "kind": "state_coverage",
@@ -1751,15 +1840,31 @@
     {
       "id": "overlap-review-a6118bc3fe1b",
       "title": "Review route consolidation candidate: Indiana · wabash-river-linn-grove-hale-street ↔ wabash-river-linn-grove-white-bridge ↔ wabash-river-vera-cruz-hale-street +1",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Verify endpoint order, river continuity, access legality, and whether the routes are genuinely distinct before proposing a family model. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Completed independent review of the Wells County Wabash overlap family. Verified the ordered Linn Grove, Vera Cruz, White Bridge, Kehoe Park, and Hale Street access-chain corridor, recorded in-wabash-wells-county as a verified corridor model, preserved all four distinct route cards, and documented the advisory route-freshness metadata distinction.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
-        "docs/operations/overlap-consolidation-summary.md"
+        "docs/operations/overlap-consolidation-summary.md",
+        "src/data/route-corridors.ts",
+        "docs/corridor-review-ledger.json",
+        "src/data/routes/indiana.ts",
+        "src/data/trip-details/indiana.ts",
+        "docs/route-coordinate-river-audit.json",
+        "docs/route-safety-audit.json",
+        "public/data/canonical-river-geometries/routes/wabash-river-linn-grove-hale-street.json",
+        "public/data/canonical-river-geometries/routes/wabash-river-linn-grove-white-bridge.json",
+        "public/data/canonical-river-geometries/routes/wabash-river-vera-cruz-hale-street.json",
+        "public/data/canonical-river-geometries/routes/wabash-river-vera-cruz-kehoe-park.json",
+        "https://www.wellscountytrails.org/kayaking",
+        "https://neiwatertrails.com/map",
+        "https://neiwatertrails.com/get-involved/event-calendar/wabash-river-challenge",
+        "https://blufftonindiana.net/380/Kehoe-Park",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03323000/",
+        "https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide"
       ],
       "routeSlugs": [
         "wabash-river-linn-grove-hale-street",
@@ -1767,26 +1872,92 @@
         "wabash-river-vera-cruz-hale-street",
         "wabash-river-vera-cruz-kehoe-park"
       ],
-      "sourceFindingId": "overlap-review-a6118bc3fe1b"
+      "sourceFindingId": "overlap-review-a6118bc3fe1b",
+      "updatedAt": "2026-08-15T03:25:08.000Z",
+      "lastRunId": "independent-verifier-wabash-20260815032508",
+      "latestRunId": "independent-verifier-wabash-20260815032508",
+      "blockers": [],
+      "familyModel": {
+        "corridorId": "in-wabash-wells-county",
+        "model": "verified_multi_endpoint_corridor",
+        "canonicalSlug": "wabash-river-linn-grove-hale-street",
+        "preserveRouteCards": true,
+        "routeSlugs": [
+          "wabash-river-linn-grove-hale-street",
+          "wabash-river-linn-grove-white-bridge",
+          "wabash-river-vera-cruz-hale-street",
+          "wabash-river-vera-cruz-kehoe-park"
+        ],
+        "accessOrder": [
+          "linn-grove-park",
+          "vera-cruz-paddlesports-launch",
+          "white-bridge-picnic-area",
+          "kehoe-park",
+          "hale-street-access"
+        ]
+      }
     },
     {
       "id": "overlap-review-0284d49cb5d9",
       "title": "Review route consolidation candidate: Iowa · shell-rock-river-heery-woods-renning ↔ shell-rock-river-renning-shell-rock",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Verify endpoint order, river continuity, access legality, and whether the routes are genuinely distinct before proposing a family model. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Blocked: the two cards do not share a verified Renning's Landing coordinate. Heery's take-out is stored near Shell Rock City Park while the downstream card starts at the county Renning Landing coordinate; do not create a corridor model until route-specific endpoint identity and geometry are corrected with evidence.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
-        "docs/operations/overlap-consolidation-summary.md"
+        "tmp/route-overlap-audit.md",
+        "docs/operations/overlap-consolidation-summary.md",
+        "src/data/routes/iowa.ts",
+        "src/data/trip-details/iowa.ts",
+        "src/data/generated/route-access-registry.json",
+        "docs/route-coordinate-river-audit.json",
+        "docs/route-coordinate-authoritative-evidence.json",
+        "docs/route-safety-audit.json",
+        "public/data/canonical-river-geometries/routes/shell-rock-river-heery-woods-renning.json",
+        "public/data/canonical-river-geometries/routes/shell-rock-river-renning-shell-rock.json",
+        "https://www.mycountyparks.com/County/Butler/Park/Renning-Landing",
+        "https://www.mycountyparks.com/County/Butler/Park/Renning-Landing/Activity/Canoeing-Kayaking",
+        "https://www.mycountyparks.com/County/Butler/Park/Heery-Woods-State-Park-North-Side",
+        "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/573",
+        "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/643",
+        "npm run routes:audit",
+        "npm run routes:audit:corridors",
+        "npm run routes:audit:coordinates",
+        "npm run routes:geometries:audit",
+        "npm run routes:safety:audit",
+        "npm run routes:audit:overlap",
+        "npm run operations:verify"
       ],
       "routeSlugs": [
         "shell-rock-river-heery-woods-renning",
         "shell-rock-river-renning-shell-rock"
       ],
-      "sourceFindingId": "overlap-review-0284d49cb5d9"
+      "sourceFindingId": "overlap-review-0284d49cb5d9",
+      "updatedAt": "2026-08-20T10:51:59.002Z",
+      "lastRunId": "independent-verifier-shell-rock-20260820105159",
+      "latestRunId": "independent-verifier-shell-rock-20260820105159",
+      "blockers": [
+        "Shared endpoint identity is unresolved: Heery route take-out Renning's Landing is 42.71024664913919,-92.57827877998353 near Shell Rock City Park, while the downstream route put-in Renning's Landing is 42.75192835290341,-92.62538909912111; generated access registry reports distinct-locations/ambiguous-name with 19,764 ft maximum separation.",
+        "Heery Woods access is dam-adjacent; official county evidence confirms boat/canoe access and a low-head dam but does not establish the exact below-dam launch line required by the route package.",
+        "Canonical geometry audit passes file coverage but cannot prove a valid shared endpoint while the route endpoint identity and stored coordinates disagree."
+      ],
+      "validation": {
+        "status": "blocked",
+        "corridorModelRecorded": false,
+        "routeRecordsChanged": false,
+        "rollback": "No route or corridor registry records were changed; future endpoint correction must be a bounded, evidence-backed edit reverted by this run/task id if needed.",
+        "gatekeeperId": "gatekeeper-20260820105148",
+        "gates": {
+          "evidence": "passed",
+          "safety": "passed",
+          "verification": "passed",
+          "tests": "passed",
+          "rollback": "passed"
+        }
+      }
     },
     {
       "id": "overlap-review-4442a7fcea5b",
@@ -2952,32 +3123,466 @@
       "latestRunId": "route-worker-202608150305-ia-bounded-discovery-no-add"
     },
     {
-      "id": "nd-gauge-review-batch",
-      "title": "Complete North Dakota gauge disposition batches",
-      "lane": "ready",
-      "kind": "state_coverage",
-      "owner": "state-coverage",
-      "priority": "critical",
-      "stateId": "ND",
-      "frontierTier": 1,
-      "summary": "North Dakota is the next Upper Midwest frontier after Minnesota, Wisconsin, and Iowa. Review frozen provider-baseline gauges in bounded batches and only promote routes that clear endpoint, threshold, safety, camping, coordinate, image, and geometry gates.",
+      "id": "route-opportunity-mn-usgs-05062000",
+      "title": "Investigate route opportunity: BUFFALO RIVER NEAR DILWORTH, MN",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "Blocked after the bounded Minnesota route-opportunity sweep: no Dilworth-area Buffalo endpoint pair or station-specific route package cleared. Reopen only for fresh manager-backed endpoint/access and threshold evidence.",
       "evidence": [
-        "2026-08-15T03:02:30.000Z: route worker opened North Dakota as the next tier-1 frontier after Iowa gauge review and bounded discovery completed. Current provider-baseline ledger counts show 140 North Dakota gauges: 137 unreviewed and 3 covered.",
-        "docs/operations/gauge-inventory.json",
         "docs/operations/gauge-review-ledger.json",
-        "docs/operations/state-registry.json",
-        "docs/operations/gate-policy.json"
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05062000",
+        "blocker:USGS confirms a live Buffalo River gauge near Dilworth, but current official Minnesota DNR water-trail materials document Red River access/confluence context rather than a supported Buffalo River route segment. No PaddleToday-ready public endpoint pair, threshold, camping/permit, safety, and coordinate package was found for the gauge reach.",
+        "2026-08-20T12:25:07.934Z route-worker: fresh 05062000 telemetry was 24.2 cfs / 2.57 ft; bounded evidence still found no Dilworth-area Buffalo endpoint pair or station-specific route package.",
+        "gatekeeper-20260820123439 passed: the bounded five-gauge Minnesota route-opportunity review completed with no route added; existing coordinate findings were pre-existing and no route package artifacts changed.",
+        "2026-08-20T12:48:27.935Z supervisor: moved this stale ready lane to blocked after authoritative worker completion; no active claim was cleared and no new task was created."
       ],
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:05051500",
-        "usgs:0505152130",
-        "usgs:05051522",
-        "usgs:05051600",
-        "usgs:05052000"
+        "usgs:05062000"
       ],
-      "routeAdded": false,
-      "updatedAt": "2026-08-15T03:02:30.000Z",
-      "blockers": []
+      "frontierTier": 0,
+      "routeOpportunity": true,
+      "updatedAt": "2026-08-20T12:48:27.935Z",
+      "lastRunId": "route-worker-202608200725-mn-route-opportunities-no-add",
+      "latestRunId": "route-worker-202608200725-mn-route-opportunities-no-add",
+      "latestGatekeeperId": "gatekeeper-20260820123439",
+      "lastSupervisorRunId": "supervisor-20260820T124827Z"
+    },
+    {
+      "id": "route-opportunity-mn-usgs-05061000",
+      "title": "Investigate route opportunity: BUFFALO RIVER NEAR HAWLEY, MN",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05061000 remains blocked after fresh review: no Hawley-area endpoint pair or station-tied route package cleared; retry only on manager-grade access, threshold, safety, camping, coordinate, image, and geometry evidence.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05061000",
+        "blocker:USGS confirms Buffalo-family gauges at Hawley, Sabin, and Dilworth, but no current official/public manager source provides a PaddleToday-ready Buffalo River route with named public put-in/take-out, numeric thresholds, camping/no-camping rules, safety guidance, endpoint coordinates, and geometry. Sabin discharge is also backwater-affected.",
+        "2026-08-20T12:25:07.934Z route-worker: fresh 05061000 telemetry was 8.39 cfs / 3.15 ft; Hawley remains blocked pending a public endpoint and station-specific route package.",
+        "2026-08-20T13:19:14.791Z route-worker: USGS 05061000 refreshed to 8.72 cfs / 3.16 ft; Hawley Parks and fresh DNR water-trail review still provide no named public Buffalo route package.",
+        "2026-08-20T13:48:58.547Z supervisor: reconciled the completed route-worker-202608200819-mn-route-opportunities-no-add record to this already-blocked task; gatekeeper-20260820132500 passed and no active claim was cleared."
+      ],
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05061000"
+      ],
+      "frontierTier": 0,
+      "routeOpportunity": true,
+      "updatedAt": "2026-08-20T13:48:58.547Z",
+      "lastRunId": "route-worker-202608200819-mn-route-opportunities-no-add",
+      "latestRunId": "route-worker-202608200819-mn-route-opportunities-no-add",
+      "latestGatekeeperId": "gatekeeper-20260820132500",
+      "lastSupervisorRunId": "supervisor-20260820T134858Z"
+    },
+    {
+      "id": "route-opportunity-mn-usgs-05064000",
+      "title": "Investigate route opportunity: WILD RICE RIVER AT HENDRUM, MN",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05064000 remains blocked after fresh review: Twin Valley evidence does not transfer to Hendrum; retry only on a Hendrum-specific route, threshold, access, camping, safety, coordinate, image, and geometry package.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05064000",
+        "blocker:Wild Rice River has product-supported USGS gauges and community paddle evidence near Twin Valley, but no official/public manager route package surfaced with a durable endpoint pair, source-backed numeric thresholds, camping/no-camping rules, route safety package, and coordinates; South Branch telemetry is backwater-affected.",
+        "2026-08-20T12:25:07.934Z route-worker: fresh 05064000 telemetry was 16.1 cfs / 2.78 ft; the new IWI evidence is for Twin Valley, not a distinct Hendrum route.",
+        "2026-08-20T13:19:14.791Z route-worker: USGS 05064000 refreshed to 15.8 cfs / 2.77 ft; current DNR/Red River materials still provide no Hendrum-specific route package."
+      ],
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05064000"
+      ],
+      "frontierTier": 0,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-mn-usgs-05062500",
+      "title": "Investigate route opportunity: WILD RICE RIVER AT TWIN VALLEY, MN",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05062500 remains blocked after fresh review: CR29/Heiberg water-entry coordinates and arrival offsets remain unresolved; retry only on manager or field-verified access evidence.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05062500",
+        "blocker:Wild Rice River has product-supported USGS gauges and community paddle evidence near Twin Valley, but no official/public manager route package surfaced with a durable endpoint pair, source-backed numeric thresholds, camping/no-camping rules, route safety package, and coordinates; South Branch telemetry is backwater-affected.",
+        "2026-08-20T12:25:07.934Z route-worker: IWI documents CR29-to-Heiberg as 3.6 miles and successful at 210 cfs / 2.57 ft; Twin Valley confirms Heiberg launch/camping, but CR29 side and authoritative water-entry coordinates remain unresolved.",
+        "2026-08-20T13:19:14.791Z route-worker: USGS 05062500 refreshed to 27.0 cfs / 1.61 ft; City of Twin Valley confirms Heiberg camping/launch but not authoritative CR29 or Heiberg water-entry coordinates."
+      ],
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05062500"
+      ],
+      "frontierTier": 0,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-mn-mn-dnr-54",
+      "title": "Investigate route opportunity: South Fork Crow River nr Mayer, MN7",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "mn_dnr:54 remains blocked after fresh map review: no distinct Mayer endpoint pair or scored route package cleared beyond existing Rick Johnson–Lake Rebecca coverage.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:mn_dnr:54",
+        "blocker:MN DNR gauge 54 is live on the lower South Fork Crow near Mayer. The lower river is route-capable, but existing scored South Fork Crow coverage already uses stronger supported route packages elsewhere, including the DNR-recommended Rick Johnson Park to Lake Rebecca reach. No distinct Mayer-centered public endpoint pair, station-specific thresholds, camping/no-camping terms, safety package, endpoint coordinates, rights-clean image decision, or geometry cleared in this run.",
+        "2026-08-20T12:25:07.934Z route-worker: DNR site 54 returned 264 cfs in rating band 3; threshold evidence improved, but no distinct Mayer-centered route package cleared.",
+        "2026-08-20T13:19:14.791Z route-worker: DNR site 54 refreshed to 262 cfs in rating band 3; official Mayer map context still has no named public endpoint pair or new scored reach."
+      ],
+      "stateId": "MN",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "mn_dnr:54"
+      ],
+      "frontierTier": 0,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-ia-usgs-05481950",
+      "title": "Investigate route opportunity: Beaver Creek near Grimes, IA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05481950 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05481950",
+        "blocker:USGS 05481950 is product-live on the Johnston Beaver Creek water-trail corridor and same-run Water Services returned 484 cfs / 5.44 ft at 2026-08-14 18:15 CDT. Iowa DNR supports a 50 cfs minimum and Johnston/ICON confirm public access at NW 70th Avenue and Lew Clarkson Park, but the current package still lacks a selected scored endpoint pair with route distance, downstream status, camping/no-camping terms, current logjam/safety handling, defensible high-water treatment, precise endpoint coordinates, rights-clean image decision, and canonical geometry."
+      ],
+      "stateId": "IA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05481950"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-nd-usgs-05059300",
+      "title": "Investigate route opportunity: SHEYENNE R AB SHEYENNE R DIVERSION NR HORACE, ND",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05059300 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05059300",
+        "blocker:USGS 05059300 is product-live above the Sheyenne River Diversion near Horace, but reviewed official sources frame this area as flood-diversion infrastructure rather than a public water-trail reach. West Fargo documents diversion channels, levees, diversion structures, pumping stations, and a 4,600 cfs design discharge; no public paddling endpoint pair, station-specific threshold model, camping/access terms, safety package, image decision, coordinates, or geometry cleared."
+      ],
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05059300"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-nd-usgs-05058650",
+      "title": "Investigate route opportunity: SHEYENNE RIVER AT FORT RANSOM STATE PARK, ND",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05058650 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05058650",
+        "blocker:USGS 05058650 is product-live at Fort Ransom State Park, and official Sheyenne sources identify the Fort Ransom State Park-to-Fort Ransom/Sportsman Landing segment, but publication still fails the route gates. The take-out is a dock above a dam, the Fort Ransom/Sportsman Landing package lacks accepted source-backed endpoint coordinates and dam-adjacent safety handling, and no complete camping/image/coordinate/geometry package cleared."
+      ],
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05058650"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-nd-usgs-05058700",
+      "title": "Investigate route opportunity: SHEYENNE RIVER AT LISBON, ND",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05058700 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05058700",
+        "blocker:USGS 05058700 is product-live at Lisbon and the broader Sheyenne River Water Trail is paddle-relevant, but the reviewed official sources do not provide a Lisbon-gauge scored route package. North Dakota Tourism notes a Lisbon dam portage at Sandager Park, while Valley City Tourism says the Baldhill Dam streamflow indicates conditions along most of the river; no 05058700-specific threshold model, selected endpoint coordinates, camping/access terms, safety package, image decision, or geometry cleared."
+      ],
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05058700"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-nd-usgs-05059000",
+      "title": "Investigate route opportunity: SHEYENNE RIVER NEAR KINDRED, ND",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05059000 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05059000",
+        "blocker:USGS 05059000 is product-live near Kindred and the Sheyenne remains paddle-relevant, but official route evidence did not produce a Kindred-specific scored route package. Existing Sheyenne National Grassland routes use the accepted Baldhill Dam gauge package and Grassland endpoint chain; no distinct Kindred endpoint pair, station-specific thresholds, camping/access terms, safety package, image decision, coordinates, or geometry cleared for this provider key."
+      ],
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05059000"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-nd-usgs-05056770",
+      "title": "Investigate route opportunity: SHEYENNE RIVER AT CO RD 20 NEAR KLOTEN, ND",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05056770 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05056770",
+        "blocker:USGS 05056770 is Sheyenne River at County Road 20 near Kloten. Same-run USGS data were product-live at 219 cfs / 32.05 ft at 2026-08-15 00:00 CDT, and official sources confirm the broader Sheyenne River Water Trail, but the reviewed evidence did not produce a Kloten- or County Road 20-specific public endpoint pair, station-specific threshold model, camping/access terms, safety package, rights-clean image decision, coordinates, or geometry. Existing supported Sheyenne route packages use USGS 05058000 below Baldhill Dam for the Valley City and Grassland corridors; that does not cover this upstream provider key under provider:siteId completion accounting."
+      ],
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05056770"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-wi-usgs-05395000",
+      "title": "Investigate route opportunity: WISCONSIN RIVER AT MERRILL, WI",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05395000 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05395000",
+        "blocker:USGS 05395000 is active at Merrill and Great Pinery Heritage Waterway pages publish named Wisconsin River segments, endpoint coordinates, Merrill-area landings, and portage context. Same-run USGS data were current at 1060 cfs / 4.04 ft, but the evidence still lacks a source-backed numeric station-threshold ladder and a fully validated PaddleToday camping, dam/portage safety, coordinate, image, and geometry package for one selected segment."
+      ],
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05395000"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-ia-usgs-05453000",
+      "title": "Investigate route opportunity: Big Bear Creek at Ladora, IA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05453000 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05453000",
+        "blocker:USGS 05453000 is a live 189-square-mile Big Bear Creek station at Ladora with same-run discharge/stage of 207 cfs / 12.13 ft at 2026-08-14 18:00 CDT. The creek is physically route-capable, but available evidence is gauge/watershed context only; no selected public endpoint pair, numeric paddling thresholds, camping/access terms, safety package, coordinates, image decision, or geometry package cleared."
+      ],
+      "stateId": "IA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05453000"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-ia-usgs-06609500",
+      "title": "Investigate route opportunity: Boyer River at Logan, IA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:06609500 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:06609500",
+        "blocker:USGS 06609500 is the live Boyer River at Logan station, and official Iowa sources confirm a real Boyer River corridor with public river access and primary-contact recreation designation. The bounded review did not validate a station-specific paired endpoint, threshold interpretation, camping and hazard package, or canonical river geometry at the gauge. It remains route-capable but blocked rather than publishing a speculative route."
+      ],
+      "stateId": "IA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06609500"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-ia-usgs-05463050",
+      "title": "Investigate route opportunity: Cedar River at Cedar Falls, IA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05463050 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05463050",
+        "blocker:USGS 05463050 is live on the Cedar River at Cedar Falls, and Cedar River Water Trail sources establish a real paddling corridor with public access plus Cedar Falls/Waterloo dam and portage hazards. The bounded review did not validate a station-specific endpoint pair, route distance, numeric threshold interpretation, camping/no-camping package, safety handling, rights-clean image decision, endpoint coordinates, or gauge-linked geometry for a scored route."
+      ],
+      "stateId": "IA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05463050"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-ia-usgs-05464315",
+      "title": "Investigate route opportunity: Cedar River at Vinton, IA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05464315 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05464315",
+        "blocker:USGS 05464315 is live on the Cedar River at Vinton, and the Cedar River is an established Iowa water-trail family. No Vinton-station route was promoted because a selected public endpoint pair, station-specific threshold model, camping/no-camping terms, Vinton-area hazards and access handling, endpoint coordinates, rights-clean image decision, and gauge-linked geometry were not validated in this bounded pass."
+      ],
+      "stateId": "IA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05464315"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-wi-usgs-04066003",
+      "title": "Investigate route opportunity: MENOMINEE RIVER BELOW PEMENE CREEK NR PEMBINE, WI",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:04066003 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:04066003",
+        "blocker:Wisconsin DNR documents canoe launches and campsites in the Menominee River State Recreation Area, and American Whitewater ties this gauge to Quiver/Pemene Falls reaches; no product route package currently resolves whitewater skill limits, portages, and camping endpoints."
+      ],
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04066003"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-wi-usgs-04087142",
+      "title": "Investigate route opportunity: MENOMONEE RIVER AT 16TH STREET AT MILWAUKEE, WI",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:04087142 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:04087142",
+        "blocker:The Milwaukee Urban Water Trail explicitly supports canoe/kayak travel on the Menomonee River and the 16th Street reach; no product route package currently resolves the gauged urban endpoints, industrial hazards, and access details."
+      ],
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087142"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-wi-usgs-04087170",
+      "title": "Investigate route opportunity: MILWAUKEE RIVER AT MOUTH AT MILWAUKEE, WI",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:04087170 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:04087170",
+        "blocker:The Milwaukee Urban Water Trail explicitly supports paddling on the Milwaukee River estuary and this mouth gauge; no product route package currently resolves launch/exit points, harbor traffic, and Lake Michigan exposure."
+      ],
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04087170"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
+    },
+    {
+      "id": "route-opportunity-wi-usgs-05344500",
+      "title": "Investigate route opportunity: MISSISSIPPI RIVER AT PRESCOTT, WI",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "usgs:05344500 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:05344500",
+        "blocker:Prescott and regional public agencies document canoe/kayak access at the St. Croix–Mississippi confluence and Upper Mississippi backwaters; no product route package currently resolves navigation-channel hazards, wind, and exact public endpoints for this active gauge."
+      ],
+      "stateId": "WI",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05344500"
+      ],
+      "frontierTier": 1,
+      "routeOpportunity": true
     }
   ]
 }

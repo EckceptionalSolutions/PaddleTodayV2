@@ -64,6 +64,7 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
         <article class="snapshot-card"><span class="snapshot-card__label">Scored routes</span><strong>{snapshot.totals.scored}</strong><small>Qualifying live gauges</small></article>
         <article class="snapshot-card"><span class="snapshot-card__label">Planning routes</span><strong>{snapshot.totals.planning}</strong><small>Excluded from saturation</small></article>
         <article class="snapshot-card"><span class="snapshot-card__label">Active work</span><strong>{snapshot.totals.activeTasks}</strong><small>{snapshot.totals.readyTasks} ready to start</small></article>
+        <article class="snapshot-card"><span class="snapshot-card__label">Route opportunities</span><strong>{snapshot.telemetry.routeOpportunities.ready}</strong><small>Bounded gauge-derived research tasks</small></article>
         <article class="snapshot-card"><span class="snapshot-card__label">Route WIP limit</span><strong>1</strong><small>Implementation at a time</small></article>
       </section>
 
@@ -100,7 +101,7 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
         </p>
         <div class="operations-grid-two">
           <div><h3>Blocker resolution queue</h3><div class="operations-list">{snapshot.telemetry.blockerQueue.map((blocker) => <article class="operations-list__row"><div><h3>{blocker.title}</h3><p class="muted">{blocker.summary}</p></div><span class="operations-pill">{blocker.category}</span></article>)}</div></div>
-          <div><h3>Automation freshness</h3><div class="operations-list">{snapshot.telemetry.automationHealth.slice(0, 8).map((automation) => <article class="operations-list__row"><div><h3>{automation.kind}</h3><p class="muted">{automation.summary ?? 'Latest recorded run'}</p></div><small>{new Date(automation.startedAt).toLocaleString()}</small></article>)}</div></div>
+          <div><h3>Automation freshness</h3><div class="operations-list">{snapshot.telemetry.automationHealth.slice(0, 8).map((automation) => <article class="operations-list__row"><div><h3>{automation.kind}</h3><p class="muted">{automation.summary ?? 'Latest recorded run'}</p></div><small>{new Date(automation.startedAt).toLocaleString()}</small></article>)}</div><p class="operations-callout">Route worker cadence: <strong>{snapshot.telemetry.routeWorkerCadence.status}</strong> · last run {snapshot.telemetry.routeWorkerCadence.latestRunAt ? new Date(snapshot.telemetry.routeWorkerCadence.latestRunAt).toLocaleString() : 'not recorded'} · expected every {snapshot.telemetry.routeWorkerCadence.expectedIntervalMinutes} minutes.</p></div>
         </div>
         <h3>Route package quality by state</h3>
         <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Scored routes</th><th>Average package score</th></tr></thead><tbody>{snapshot.telemetry.routeQualityByState.map((row) => <tr><th scope="row">{row.stateId}</th><td>{row.scoredRoutes}</td><td>{row.averagePackageScore} / 5</td></tr>)}</tbody></table></div>
@@ -134,14 +135,31 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
       </section>
 
       <section class="operations-section" data-operations-panel="coverage">
-        <p class="operations-explainer">Gauge review coverage measures how much of a frozen provider inventory has a durable disposition. Route coverage measures how many route-capable gauges support a direct scored route. Research order follows the geographic frontier first, then the remaining disposition gap. The old scored/planning ratio remains visible only as a migration diagnostic.</p>
+        <p class="operations-explainer">Gauge review coverage measures how much of a frozen provider inventory has a durable disposition. Route coverage measures how many route-capable gauges support a direct scored route. “Research complete” means every gauge was adjudicated and the bounded discovery sweep found no fully evidenced candidate; “more routes possible” means uncovered route-capable gauges still represent expansion opportunities, even when they are currently blocked. Research order follows the geographic frontier first, then the remaining disposition gap. The old scored/planning ratio remains visible only as a migration diagnostic.</p>
         <div class="operations-section__head"><div><p class="eyebrow">Coverage</p><h2>Gauge-network completeness</h2></div><p class="muted">Inventory {snapshot.policy.gaugeInventoryId} · {snapshot.policy.gaugeInventoryScope.replaceAll('_', ' ')}</p></div>
-        <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Frontier</th><th>Known gauges</th><th>Reviewed</th><th>Gauge review</th><th>Direct coverage</th><th>Legacy routes</th><th>Discovery</th><th>Disposition gap</th><th>Status</th><th>Priority</th></tr></thead><tbody>
-          {snapshot.stateResearchRanking.map((state) => <tr class={state.id === snapshot.policy.activeFrontierState ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.frontierLabel}</td><td>{state.gaugeCoverage.knownGaugeCount}</td><td>{state.gaugeCoverage.reviewedGaugeCount}</td><td>{state.gaugeCoverage.reviewCoveragePercent}%</td><td>{state.gaugeCoverage.coveredGaugeCount} / {state.gaugeCoverage.routeCapableGaugeCount} ({state.gaugeCoverage.routeCoveragePercent}%)</td><td>{state.scored} / {state.scored + state.planning} ({state.legacyCoveragePercent}%)</td><td>{state.discoveryComplete ? 'complete' : 'required'}</td><td>{state.completionGap}</td><td><span class={`operations-pill operations-pill--${state.researchStatus}`}>{state.researchStatus.replaceAll('_', ' ')}</span></td><td>{state.done ? '-' : state.researchPriorityScore}</td></tr>)}
+        <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Frontier</th><th>Known gauges</th><th>Reviewed</th><th>Gauge review</th><th>Direct coverage</th><th>Expansion</th><th>Legacy routes</th><th>Discovery</th><th>Disposition gap</th><th>Status</th><th>Priority</th></tr></thead><tbody>
+          {snapshot.stateResearchRanking.map((state) => <tr class={state.id === snapshot.policy.activeFrontierState ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.frontierLabel}</td><td>{state.gaugeCoverage.knownGaugeCount}</td><td>{state.gaugeCoverage.reviewedGaugeCount}</td><td>{state.gaugeCoverage.reviewCoveragePercent}%</td><td>{state.gaugeCoverage.coveredGaugeCount} / {state.gaugeCoverage.routeCapableGaugeCount} ({state.gaugeCoverage.routeCoveragePercent}%)</td><td><span class={`operations-pill operations-pill--${state.routeExpansionStatus}`}>{state.routeExpansionStatus.replaceAll('_', ' ')}</span><small>{state.routeExpansionGaugeCount} gauges</small></td><td>{state.scored} / {state.scored + state.planning} ({state.legacyCoveragePercent}%)</td><td>{state.discoveryComplete ? 'complete' : 'required'}</td><td>{state.completionGap}</td><td><span class={`operations-pill operations-pill--${state.researchStatus}`}>{state.researchStatus.replaceAll('_', ' ')}</span></td><td>{state.done ? '-' : state.researchPriorityScore}</td></tr>)}
         </tbody></table></div>
         <h3>Next bounded gauge reviews</h3>
         <p class="muted">Generated from unresolved gauges in the highest-priority states. Final dispositions are not reopened automatically.</p>
         <div class="operations-list">{snapshot.gaugeReviewQueue.slice(0, 12).map((gauge) => <article class="operations-list__row"><div><h3>{gauge.siteName}</h3><p class="muted">{gauge.key} · {gauge.routeEvidenceCount} linked route candidates</p></div><span class="operations-pill">{gauge.stateId} · {gauge.status}</span></article>)}</div>
+        <div class="operations-grid-two">
+          <div>
+            <h3>Potential route queue</h3>
+            <p class="muted">These are route-capable gauges with an actionable blocker. They are bounded research tasks, not promises that a route will be published.</p>
+            <div class="operations-stats operations-stats--compact">
+              <article class="snapshot-card"><span class="snapshot-card__label">Ready</span><strong>{snapshot.telemetry.routeOpportunities.ready}</strong><small>Queued for route research</small></article>
+              <article class="snapshot-card"><span class="snapshot-card__label">In progress</span><strong>{snapshot.telemetry.routeOpportunities.inProgress}</strong><small>Currently claimed</small></article>
+              <article class="snapshot-card"><span class="snapshot-card__label">Blocked</span><strong>{snapshot.telemetry.routeOpportunities.blocked}</strong><small>Waiting on new evidence</small></article>
+            </div>
+            <div class="operations-list">{snapshot.telemetry.routeOpportunities.items.map((opportunity) => <article class="operations-list__row"><div><h3>{opportunity.siteName}</h3><p class="muted">{opportunity.stateId} · {opportunity.gaugeKey} · {opportunity.nextEvidenceAction}</p><small>{opportunity.reason}</small></div><span class={'operations-pill operations-pill--' + opportunity.status}>{opportunity.priority} · {opportunity.status}</span></article>)}{snapshot.telemetry.routeOpportunities.items.length === 0 && <p class="operations-empty">No actionable route opportunities are queued yet.</p>}</div>
+          </div>
+          <div>
+            <h3>Queue rules</h3>
+            <p class="muted">The planner keeps at most {snapshot.routeOpportunityQueue.maxPerState} opportunities per state and {snapshot.routeOpportunityQueue.maxGlobal} globally. Permanent safety, private-access, duplicate, and non-paddling blockers stay in the ledger without creating retry work.</p>
+            <p class="operations-callout">A route-research task must clear the normal endpoint, live-gauge, threshold, access, camping, safety, image, coordinate, geometry, verification, test, and rollback gates before implementation.</p>
+          </div>
+        </div>
       </section>
 
       <section class="operations-section operations-grid-two" data-operations-panel="automations">

@@ -31,9 +31,9 @@ function isMinnesotaWeekendPick(item) {
 }
 
 function weekendVerdict(item) {
-  if (item.weekend.rating === 'Strong') return 'Top weekend pick';
-  if (item.weekend.rating === 'Good') return 'Good weekend pick';
-  return 'Weekend route';
+  if (item.weekend.rating === 'Strong' || item.weekend.rating === 'Good') return 'Paddle this weekend';
+  if (item.weekend.rating === 'Fair') return 'Watch closely';
+  return 'Skip this weekend';
 }
 
 function favoriteRecord(item) {

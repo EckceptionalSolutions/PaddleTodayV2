@@ -70,6 +70,10 @@ export {
 
 export {
   buildTodayBoardSnapshot,
+  callLabelForRating,
+  callLabelForDecision,
+  callStateForRating,
+  callStateForDecision,
   compareTodayBoardQuality,
   compareTodayAlphabetically,
   compareTodayCertainty,
@@ -80,11 +84,18 @@ export {
   compareTodayStatusThenScore,
   ratingDetailMessage,
   ratingVerdictLabel,
+  qualityTierLabel,
   todayBoardConfidenceWeight,
   todayBoardRank,
   todayBoardRatingRiskWeight,
   todayBoardStatusWeight,
   type RatingVerdictOptions,
+  type CallContext,
+  type CallState,
+  type DecisionCallState,
+  type DecisionCallLabel,
+  type CompactDecisionCallLabel,
+  type DecisionReadinessStatus,
   type TodayBoardItem,
   type TodayBoardSnapshot,
 } from './today-board';
@@ -442,7 +453,17 @@ export interface RiverOutlook {
   score: number | null;
   rating: ScoreRating | null;
   confidence: ConfidenceLabel | null;
+  direction: 'improving' | 'stable' | 'worsening' | 'uncertain';
+  scoreRange: { min: number; max: number } | null;
   explanation: string;
+}
+
+export type RiverReadinessStatus = 'ready' | 'verify' | 'withheld' | 'skip';
+
+export interface RiverReadinessResult {
+  status: RiverReadinessStatus;
+  label: 'Ready' | 'Verify' | 'Withheld' | 'Skip';
+  reason: string;
 }
 
 export interface DataFreshness {
@@ -491,6 +512,7 @@ export interface RiverSummaryApiItem {
   }>;
   score: number;
   rating: ScoreRating;
+  readiness: RiverReadinessResult;
   gaugeBandLabel: string;
   explanation: string;
   confidence: {
@@ -619,6 +641,7 @@ export interface RiverDetailApiResult {
   sources?: RiverSummaryApiItem['sources'];
   score: number;
   rating: ScoreRating;
+  readiness: RiverReadinessResult;
   gaugeBand: GaugeBand;
   gaugeBandLabel: string;
   explanation: string;
@@ -842,6 +865,34 @@ export interface RouteContributionFileInput {
   caption?: string;
 }
 
+export type ObservedWaterLevel = 'too-low' | 'low' | 'ideal' | 'high' | 'unsafe' | 'unknown';
+export type TripCompletion = 'completed' | 'shortened' | 'aborted' | 'not-launched';
+export type TripOutcomeVerdict = 'unsafe' | 'poor' | 'fair' | 'good' | 'excellent';
+export type ScoringGaugeTrend = 'rising' | 'steady' | 'falling' | 'unknown';
+
+export interface ScoringOutcomeObservationInput {
+  schemaVersion: 1;
+  decisionCapturedAt?: string;
+  appScore?: number;
+  appRating?: ScoreRating;
+  appConfidence?: number;
+  appReadiness?: RiverReadinessStatus;
+  thresholdModel?: 'two-sided' | 'minimum-only';
+  thresholdSourceStrength?: 'official' | 'mixed' | 'community' | 'derived';
+  gaugeValue?: number;
+  gaugeUnit?: GaugeUnit;
+  gaugeTrend?: ScoringGaugeTrend;
+  observedWaterLevel: ObservedWaterLevel;
+  tripCompletion: TripCompletion;
+  overallVerdict: TripOutcomeVerdict;
+  comfortRating?: 1 | 2 | 3 | 4 | 5;
+  accessStatus?: 'open' | 'limited' | 'closed' | 'unknown';
+  paddlerExperience?: 'beginner' | 'intermediate' | 'advanced' | 'guide';
+  craftType?: 'canoe' | 'recreational-kayak' | 'touring-kayak' | 'whitewater-kayak' | 'packraft' | 'sup' | 'other';
+  hazards?: string[];
+  reasonCodes?: string[];
+}
+
 export interface CreateRouteReportRequest {
   riverSlug: string;
   contributorName: string;
@@ -854,6 +905,7 @@ export interface CreateRouteReportRequest {
   reviewConsent: boolean;
   company?: string;
   files?: RouteContributionFileInput[];
+  scoringOutcome?: ScoringOutcomeObservationInput;
 }
 
 export type CreateRouteContributionRequest = CreateRouteReportRequest;

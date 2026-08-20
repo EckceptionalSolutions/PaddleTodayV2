@@ -120,7 +120,7 @@ function makeRiverGauge(
 ): GaugeReading {
   return {
     sourceId: river.gaugeSource.id,
-    observedAt: '2026-05-10T11:00:00Z',
+    observedAt: '2026-06-10T11:00:00Z',
     current,
     unit: river.gaugeSource.unit,
     trend,
@@ -130,7 +130,7 @@ function makeRiverGauge(
     gaugeHeightNow: river.gaugeSource.unit === 'ft' ? current : null,
     dischargeNow: river.gaugeSource.unit === 'cfs' ? current : null,
     waterTempF: 58,
-    waterTempObservedAt: '2026-05-10T11:00:00Z',
+    waterTempObservedAt: '2026-06-10T11:00:00Z',
     gaugeSource: 'USGS Water Data',
     waterTempSource: 'USGS Water Data',
   };
@@ -399,6 +399,12 @@ describe('scoreRiverCondition', () => {
     expect(result.liveData.overall).toBe('degraded');
     expect(result.liveData.gauge.state).toBe('stale');
     expect(result.confidence.label).toBe('Low');
+    expect(result.score).toBeLessThanOrEqual(49);
+    expect(result.rating).toBe('No-go');
+    expect(result.outlooks.every((outlook) => outlook.availability === 'withheld')).toBe(true);
+    expect(result.scoreBreakdown.capReasons).toContain(
+      "Stale gauge data limits today's score to 49 until a current river reading is available."
+    );
     expect(result.factors.some((factor) => factor.id === 'live-data' && factor.impact === 'warning')).toBe(true);
     expect(result.explanation).toContain('cautious estimate');
   });
@@ -512,6 +518,57 @@ describe('scoreRiverCondition', () => {
       impact: 'negative',
     });
     expect(result.scoreBreakdown.riverQualityExplanation).toContain('extra low-water penalty');
+    expect(result.rating).toBe('No-go');
+    expect(result.score).toBeLessThanOrEqual(49);
+  });
+
+  it('prevents missing weather and cold water from producing an affirmative rating', () => {
+    const now = new Date('2026-05-10T12:00:00Z');
+    const gauge = {
+      ...makeGauge(500, 'steady', 0),
+      observedAt: '2026-05-10T11:00:00Z',
+      waterTempF: 40,
+    };
+
+    const missingWeather = scoreRiverCondition({ river: baseRiver, gauge, weather: null, now });
+    expect(missingWeather.score).toBeLessThanOrEqual(74);
+    expect(missingWeather.rating).toBe('Fair');
+    expect(missingWeather.scoreBreakdown.capReasons).toContain(
+      "Weather data is unavailable, so today's score is limited to 74 or lower."
+    );
+
+    const coldWater = scoreRiverCondition({
+      river: baseRiver,
+      gauge,
+      weather: { ...weather, observedAt: '2026-05-10T11:15:00Z' },
+      now,
+    });
+    expect(coldWater.score).toBeLessThanOrEqual(74);
+    expect(coldWater.rating).toBe('Fair');
+    expect(coldWater.scoreBreakdown.temperatureExplanation).toContain('Water temperature is about 40 degrees F.');
+  });
+
+  it("recomputes tomorrow from forecast conditions instead of carrying today's weather score", () => {
+    const now = new Date('2026-05-10T12:00:00Z');
+    const gauge = { ...makeGauge(500, 'steady', 0), observedAt: '2026-05-10T11:00:00Z' };
+    const clearToday = { ...weather, observedAt: '2026-05-10T11:15:00Z' };
+    const stormyToday = {
+      ...clearToday,
+      next12hStormRisk: true,
+      next12hPrecipProbabilityMax: 100,
+      next12hPrecipitationIn: 1,
+      next12hPrecipStartsInHours: 1,
+      rainTimingLabel: 'Imminent' as const,
+    };
+
+    const clearResult = scoreRiverCondition({ river: baseRiver, gauge, weather: clearToday, now });
+    const stormyResult = scoreRiverCondition({ river: baseRiver, gauge, weather: stormyToday, now });
+    const clearTomorrow = clearResult.outlooks.find((outlook) => outlook.id === 'tomorrow');
+    const stormyTomorrow = stormyResult.outlooks.find((outlook) => outlook.id === 'tomorrow');
+
+    expect(clearResult.score).not.toBe(stormyResult.score);
+    expect(clearTomorrow?.score).toBe(stormyTomorrow?.score);
+    expect(clearTomorrow?.rating).toBe(stormyTomorrow?.rating);
   });
 
   it('marks missing gauge data as offline instead of treating it as a normal low-confidence score', () => {
@@ -596,6 +653,54 @@ describe('scoreRiverCondition', () => {
     expect(highShoulder.gaugeBand).toBe('high-shoulder');
     expect(highShoulder.score).toBeLessThan(ideal.score);
   expect(highShoulder.rating === 'Fair' || highShoulder.rating === 'No-go').toBe(true);
+  });
+
+  it('keeps gauge quality continuous across normal and collapsed threshold boundaries', () => {
+    const now = new Date('2026-05-10T12:00:00Z');
+    const scoreAt = (river: River, current: number) => scoreRiverCondition({
+      river,
+      gauge: { ...makeGauge(current, 'steady', 0), observedAt: '2026-05-10T11:40:00Z' },
+      weather: { ...weather, observedAt: '2026-05-10T11:45:00Z' },
+      now,
+    }).riverQuality;
+    const collapsed: River = {
+      ...baseRiver,
+      profile: { ...baseRiver.profile, tooLow: 300, tooHigh: 700 },
+    };
+    const epsilon = 0.001;
+
+    for (const [river, boundary] of [
+      [baseRiver, 220],
+      [baseRiver, 300],
+      [baseRiver, 700],
+      [baseRiver, 900],
+      [collapsed, 300],
+      [collapsed, 700],
+    ] as const) {
+      expect(Math.abs(scoreAt(river, boundary - epsilon) - scoreAt(river, boundary))).toBeLessThanOrEqual(1);
+      expect(Math.abs(scoreAt(river, boundary + epsilon) - scoreAt(river, boundary))).toBeLessThanOrEqual(1);
+    }
+  });
+
+  it('penalizes a rapid rise more than a mild rise at the same gauge position', () => {
+    const now = new Date('2026-05-10T12:00:00Z');
+    const scoreRising = (delta24h: number, changePercent24h: number) => scoreRiverCondition({
+      river: baseRiver,
+      gauge: {
+        ...makeGauge(500, 'rising', delta24h),
+        changePercent24h,
+        observedAt: '2026-05-10T11:40:00Z',
+      },
+      weather: { ...weather, observedAt: '2026-05-10T11:45:00Z' },
+      now,
+    });
+
+    const mild = scoreRising(35, 8);
+    const rapid = scoreRising(200, 40);
+    expect(rapid.riverQuality).toBeLessThan(mild.riverQuality);
+    expect(rapid.factors.find((factor) => factor.id === 'trend')?.detail).toContain('rapid change');
+    expect(rapid.outlooks.find((outlook) => outlook.id === 'tomorrow')?.score)
+      .toBeLessThan(mild.outlooks.find((outlook) => outlook.id === 'tomorrow')?.score ?? Infinity);
   });
 
   it('exposes threshold evidence quality as an explainable factor', () => {
@@ -729,9 +834,9 @@ describe('scoreRiverCondition', () => {
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.score).toBeGreaterThanOrEqual(75);
-    expect(result.score).toBeLessThanOrEqual(82);
-    expect(result.rating).toBe('Good');
+    expect(result.score).toBeLessThanOrEqual(74);
+    expect(result.rating).toBe('Fair');
+    expect(result.readiness.status).toBe('verify');
     expect(result.confidence.label).toBe('Medium');
     expect(result.explanation).toContain('minimum level');
   });
@@ -764,6 +869,7 @@ describe('scoreRiverCondition', () => {
 
     expect(result.gaugeBand).toBe('too-low');
     expect(result.rating).toBe('No-go');
+    expect(result.readiness.status).toBe('skip');
   });
 
   it('withholds weekend outlooks for minimum-only rivers even when today is scoreable', () => {
@@ -795,6 +901,37 @@ describe('scoreRiverCondition', () => {
     const weekend = result.outlooks.find((outlook) => outlook.id === 'weekend');
     expect(weekend?.availability).toBe('withheld');
     expect(weekend?.explanation).toContain('low-water mark');
+  });
+
+  it('uses the active fallback gauge kind when computing evidence strength', () => {
+    const river: River = {
+      ...baseRiver,
+      fallbackGaugeSources: [{ ...baseRiver.gaugeSource, id: 'proxy-fallback', kind: 'proxy' }],
+    };
+    const result = scoreRiverCondition({
+      river,
+      gauge: { ...makeGauge(500, 'steady', 0), sourceId: 'proxy-fallback', observedAt: '2026-05-10T11:00:00Z' },
+      weather: { ...weather, observedAt: '2026-05-10T11:15:00Z' },
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    expect(result.confidence.reasons).not.toContain('Direct gauge available.');
+    expect(result.confidence.warnings).toContain('Using a nearby gauge instead of one on this reach.');
+  });
+
+  it('returns directional outlook ranges instead of false point precision', () => {
+    const result = scoreRiverCondition({
+      river: baseRiver,
+      gauge: { ...makeGauge(500, 'steady', 0), observedAt: '2026-05-10T11:00:00Z' },
+      weather: { ...weather, observedAt: '2026-05-10T11:15:00Z' },
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+    const tomorrow = result.outlooks.find((outlook) => outlook.id === 'tomorrow');
+
+    expect(tomorrow).toMatchObject({ availability: 'available', direction: expect.any(String) });
+    expect(tomorrow?.scoreRange?.min).toBeLessThan(tomorrow?.score ?? 0);
+    expect(tomorrow?.scoreRange?.max).toBeGreaterThanOrEqual(tomorrow?.score ?? 0);
+    expect(tomorrow?.scoreRange?.max).toBeLessThanOrEqual(100);
   });
 });
 
@@ -945,7 +1082,11 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
 
     const result = scoreRiverCondition({
       river: riceCreek as River,
-      gauge: makeRiverGauge(riceCreek as River, 6.47, 'steady', 0.02),
+      gauge: {
+        ...makeRiverGauge(riceCreek as River, 6.47, 'steady', 0.02),
+        observedAt: '2026-07-21T11:00:00Z',
+        waterTempObservedAt: '2026-07-21T11:00:00Z',
+      },
       weather: {
         ...weather,
         observedAt: '2026-07-21T11:00:00Z',
@@ -1231,9 +1372,8 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.score).toBeGreaterThanOrEqual(75);
-    expect(result.score).toBeLessThanOrEqual(82);
-    expect(result.rating).toBe('Good');
+    expect(result.score).toBeLessThanOrEqual(74);
+    expect(result.rating).toBe('Fair');
   });
 
   it('keeps the downstream Black Hawk reach inside the official DNR range with a high-confidence but conservative call', () => {
@@ -1269,9 +1409,8 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
 
     expect(result.gaugeBand).toBe('minimum-met');
     expect(result.outlooks.find((outlook) => outlook.id === 'weekend')?.availability).toBe('withheld');
-    expect(result.score).toBeGreaterThanOrEqual(75);
-    expect(result.score).toBeLessThanOrEqual(82);
-    expect(result.rating).toBe('Good');
+    expect(result.score).toBeLessThanOrEqual(74);
+    expect(result.rating).toBe('Fair');
   });
 
   it('treats Kickapoo in the 70 to 100 cfs sweet spot as ideal while keeping the route guarded', () => {
@@ -1305,8 +1444,8 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.rating).toBe('Good');
-    expect(result.score).toBeLessThanOrEqual(82);
+    expect(result.rating).toBe('Fair');
+    expect(result.score).toBeLessThanOrEqual(74);
     expect(result.outlooks.find((outlook) => outlook.id === 'weekend')?.availability).toBe('withheld');
   });
 });

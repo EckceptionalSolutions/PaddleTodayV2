@@ -1,4 +1,5 @@
 import {
+  callStateForDecision,
   formatRouteSegmentLabel,
   routeSegmentSummary,
   type RiverAlertThreshold,
@@ -140,16 +141,17 @@ export default function SavedScreen() {
       {activeTab === 'routes' && savedSummaries.length > 0 ? (
         <>
           <View style={styles.statusBoard}>
-            <StatusTile label="Ready" value={savedGroups.ready.length} tone={styles.statusReady} />
+            <StatusTile label="Paddle" value={savedGroups.paddle.length} tone={styles.statusPaddle} />
             <StatusTile label="Watch" value={savedGroups.watch.length} tone={styles.statusWatch} />
+            <StatusTile label="No call" value={savedGroups.unavailable.length} tone={styles.statusUnavailable} />
             <StatusTile label="Skip" value={savedGroups.skip.length} tone={styles.statusSkip} />
           </View>
 
           <SavedRouteGroup
-            title="Ready to consider"
-            subtitle="Saved routes with Good or Strong calls."
-            rivers={savedGroups.ready}
-            empty="No saved route is ready right now."
+            title="Paddle today"
+            subtitle="Saved routes with a current Paddle call."
+            rivers={savedGroups.paddle}
+            empty="No saved route has a Paddle call right now."
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
@@ -159,6 +161,15 @@ export default function SavedScreen() {
             subtitle="Saved routes that need a closer look."
             rivers={savedGroups.watch}
             empty="No saved route is in the maybe range."
+            isSaved={isSaved}
+            onToggleSaved={toggleSavedRiver}
+            onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
+          />
+          <SavedRouteGroup
+            title="Call unavailable"
+            subtitle="Saved routes that need current evidence before PaddleToday can make a call."
+            rivers={savedGroups.unavailable}
+            empty="Every saved route has a current call."
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
@@ -413,19 +424,14 @@ function SavedRouteGroup({
 function groupSavedRoutes(rivers: RiverSummaryApiItem[]) {
   return rivers.reduce(
     (groups, river) => {
-      if (river.rating === 'Strong' || river.rating === 'Good') {
-        groups.ready.push(river);
-      } else if (river.rating === 'Fair') {
-        groups.watch.push(river);
-      } else {
-        groups.skip.push(river);
-      }
+      groups[callStateForDecision(river.rating, river.readiness.status)].push(river);
 
       return groups;
     },
     {
-      ready: [] as RiverSummaryApiItem[],
+      paddle: [] as RiverSummaryApiItem[],
       watch: [] as RiverSummaryApiItem[],
+      unavailable: [] as RiverSummaryApiItem[],
       skip: [] as RiverSummaryApiItem[],
     }
   );
@@ -530,20 +536,25 @@ const styles = StyleSheet.create({
   },
   statusBoard: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.sm,
   },
   statusTile: {
-    flex: 1,
+    flexGrow: 1,
+    flexBasis: '45%',
     borderRadius: radius.md,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.md,
     gap: 3,
   },
-  statusReady: {
+  statusPaddle: {
     backgroundColor: '#E0EFE9',
   },
   statusWatch: {
     backgroundColor: '#F3E8CC',
+  },
+  statusUnavailable: {
+    backgroundColor: '#E7E5E0',
   },
   statusSkip: {
     backgroundColor: '#F2DDD6',

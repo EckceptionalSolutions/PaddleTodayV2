@@ -87,6 +87,9 @@ export default function WeekendScreen() {
     .filter((river) => !shownSlugs.has(river.river.slug))
     .filter((river) => river.weekend.rating === 'Fair')
     .slice(0, 5);
+  const skipList = inRangeRivers
+    .filter((river) => river.weekend.rating === 'No-go')
+    .slice(0, 5);
   const weekendMapRoutes = uniqueWeekendRoutes(
     weekendFilter === 'day-trips'
       ? [...topPicks, ...lowerCommitment, ...expandedPicks]
@@ -101,6 +104,7 @@ export default function WeekendScreen() {
               ...expandedPicks,
               ...campingFriendlyRoutes,
               ...watchList,
+              ...skipList,
             ]
   );
   const weekendMapPoints = weekendRouteMapPoints(weekendMapRoutes);
@@ -191,13 +195,13 @@ export default function WeekendScreen() {
             <Text style={styles.heroLabel} numberOfLines={compactHeader ? 2 : 1}>
               {location ? `Near ${location.label}` : hasWeekendPlan ? (weekendQuery.data?.label ?? 'Weekend outlook') : 'Across available routes'}
             </Text>
-            <Text style={styles.heroFreshness}>{location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast included' : 'No clean plan'}</Text>
+            <Text style={styles.heroFreshness}>{location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast included' : 'No Paddle plan'}</Text>
           </View>
 
           <View style={styles.snapshotRow}>
-            <SnapshotStat label="Strong" value={inRangeRivers.filter((river) => river.weekend.rating === 'Strong').length} tone={styles.snapshotStrong} />
-            <SnapshotStat label="Good" value={inRangeRivers.filter((river) => river.weekend.rating === 'Good').length} tone={styles.snapshotGood} />
+            <SnapshotStat label="Paddle" value={inRangeRivers.filter((river) => river.weekend.rating === 'Strong' || river.weekend.rating === 'Good').length} tone={styles.snapshotStrong} />
             <SnapshotStat label="Watch" value={nearbyWatch.length + watchList.length} tone={styles.snapshotWatch} />
+            <SnapshotStat label="Skip" value={inRangeRivers.filter((river) => river.weekend.rating === 'No-go').length} tone={styles.snapshotNoGo} />
           </View>
 
           {!hasWeekendPlan && featured ? (
@@ -206,7 +210,7 @@ export default function WeekendScreen() {
               onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: featured.river.slug } })}
               android_ripple={{ color: colors.canvasMuted }}
             >
-              <Text style={styles.featuredLabel}>{expandedPicks.length > 0 ? 'Next closest option' : 'No clean weekend plan'}</Text>
+              <Text style={styles.featuredLabel}>{expandedPicks.length > 0 ? 'Next closest option' : 'No Paddle weekend plan'}</Text>
               <Text style={styles.featuredName}>{featured.river.name}</Text>
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
               <View style={styles.featuredFacts}>
@@ -216,8 +220,8 @@ export default function WeekendScreen() {
               </View>
               <Text style={styles.featuredSummary}>
                 {expandedPicks.length > 0
-                  ? 'No Good routes are inside your selected range. This is the best option after expanding the drive.'
-                  : 'No Good routes are inside your selected range. Recheck nearby watch routes before planning.'}
+                  ? 'No Paddle routes are inside your selected range. This is the best option after expanding the drive.'
+                  : 'No Paddle routes are inside your selected range. Recheck nearby Watch routes before planning.'}
               </Text>
             </Pressable>
           ) : !featured ? (
@@ -260,7 +264,7 @@ export default function WeekendScreen() {
       {(weekendFilter === 'all' || weekendFilter === 'day-trips') && topPicks.length > 0 ? (
         <SectionCard
           title={location ? 'Best near you' : 'Best weekend'}
-          subtitle={location ? 'Good weekend calls with drive time included.' : 'Good weekend options.'}
+          subtitle={location ? 'Paddle this weekend options with drive time included.' : 'Paddle this weekend options.'}
         >
           <View style={styles.list}>
             {topPicks.map((river) => (
@@ -309,7 +313,7 @@ export default function WeekendScreen() {
       {(weekendFilter === 'all' || weekendFilter === 'day-trips') && expandedPicks.length > 0 ? (
         <SectionCard
           title="Expand the drive"
-          subtitle={`No Good routes inside ${rangeFreshnessLabel(distanceLimit)}. These are farther options.`}
+          subtitle={`No Paddle routes inside ${rangeFreshnessLabel(distanceLimit)}. These are farther options.`}
         >
           <View style={styles.list}>
             {expandedPicks.map((river) => renderWeekendCard(river))}
@@ -320,7 +324,7 @@ export default function WeekendScreen() {
       {(weekendFilter === 'all' || weekendFilter === 'camping') && campingFriendlyRoutes.length > 0 ? (
         <SectionCard
           title="Camping-friendly"
-          subtitle="Good weekend routes with camping nearby or along the way."
+          subtitle="Paddle this weekend routes with camping nearby or along the way."
         >
           <View style={styles.list}>
             {campingFriendlyRoutes.map((river) => renderWeekendCard(river))}
@@ -346,6 +350,17 @@ export default function WeekendScreen() {
           ) : (
             <Text style={styles.emptyText}>No weekend routes are in the maybe range right now.</Text>
           )}
+        </SectionCard>
+      ) : null}
+
+      {weekendFilter === 'all' && skipList.length > 0 ? (
+        <SectionCard
+          title="Skip this weekend"
+          subtitle="These routes are below the current launch threshold."
+        >
+          <View style={styles.list}>
+            {skipList.map((river) => renderWeekendCard(river))}
+          </View>
         </SectionCard>
       ) : null}
 
@@ -490,7 +505,7 @@ function WeekendFilters({
           <RouteTypeChip label="All" value={dayTrips + campingRoutes + rechecks} active={selectedRouteType === 'all'} onPress={() => onSelectRouteType('all')} />
           <RouteTypeChip label="Day trips" value={dayTrips} active={selectedRouteType === 'day-trips'} onPress={() => onSelectRouteType('day-trips')} />
           <RouteTypeChip label="Camping" value={campingRoutes} active={selectedRouteType === 'camping'} onPress={() => onSelectRouteType('camping')} />
-          <RouteTypeChip label="Rechecks" value={rechecks} active={selectedRouteType === 'rechecks'} onPress={() => onSelectRouteType('rechecks')} />
+          <RouteTypeChip label="Watch" value={rechecks} active={selectedRouteType === 'rechecks'} onPress={() => onSelectRouteType('rechecks')} />
         </View>
       </View>
     </View>
@@ -551,7 +566,7 @@ function WeekendPlanLanes({
         <PlanLane label="All" value={dayTrips + campingRoutes + rechecks} active={selected === 'all'} onPress={() => onSelect('all')} />
         <PlanLane label="Day trips" value={dayTrips} active={selected === 'day-trips'} onPress={() => onSelect('day-trips')} />
         <PlanLane label="Camping" value={campingRoutes} active={selected === 'camping'} onPress={() => onSelect('camping')} />
-        <PlanLane label="Rechecks" value={rechecks} active={selected === 'rechecks'} onPress={() => onSelect('rechecks')} />
+        <PlanLane label="Watch" value={rechecks} active={selected === 'rechecks'} onPress={() => onSelect('rechecks')} />
       </View>
     </View>
   );
@@ -591,7 +606,7 @@ function uniqueWeekendRoutes(rivers: WeekendSummaryApiItem[]) {
 function weekendFilterLabel(filter: WeekendFilter) {
   if (filter === 'day-trips') return 'day trip';
   if (filter === 'camping') return 'camping-friendly';
-  if (filter === 'rechecks') return 'recheck';
+  if (filter === 'rechecks') return 'watch';
   return 'weekend';
 }
 
@@ -1051,6 +1066,9 @@ const styles = StyleSheet.create({
   },
   snapshotWatch: {
     backgroundColor: '#F3E8CC',
+  },
+  snapshotNoGo: {
+    backgroundColor: '#F2DDD6',
   },
   snapshotValue: {
     color: colors.text,

@@ -113,21 +113,21 @@ const trackedRiverCount = riverGroups.length;
                 <span class="score-filter__label" id="explore-score-filter-label">Scores</span>
                 <div class="score-filter__options">
                   <button class="score-filter__option score-filter__option--active" type="button" data-filter-rating-button="" aria-pressed="true">
-                    Good + Strong
+                    Paddle routes
                   </button>
                   <button class="score-filter__option" type="button" data-filter-rating-button="all" aria-pressed="false">All</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Strong" aria-pressed="false">Strong</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Good" aria-pressed="false">Good</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Fair" aria-pressed="false">Fair</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="No-go" aria-pressed="false">No-go</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Strong" aria-pressed="false">Strong conditions</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Good" aria-pressed="false">Good conditions</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Fair" aria-pressed="false">Watch closely</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="No-go" aria-pressed="false">Skip</button>
                 </div>
                 <select class="sr-only" data-filter-rating aria-label="Show scores">
-                  <option value="">Good and Strong</option>
+                  <option value="">Paddle routes</option>
                   <option value="all">All scores</option>
-                  <option value="Strong">Strong only</option>
-                  <option value="Good">Good only</option>
-                  <option value="Fair">Fair: tradeoffs</option>
-                  <option value="No-go">No-go only</option>
+                  <option value="Strong">Strong conditions only</option>
+                  <option value="Good">Good conditions only</option>
+                  <option value="Fair">Watch closely</option>
+                  <option value="No-go">Skip only</option>
                 </select>
               </div>
 
@@ -223,7 +223,7 @@ const trackedRiverCount = riverGroups.length;
             mobileLayout="list-map"
             eyebrow="Map view"
             title="Explore supported rivers"
-            lede="Good and Strong routes are shown first. Zoom in to move from zone scores to individual route scores, or reveal lower-scoring routes with the filters."
+            lede="Paddle routes are shown first, with Strong and Good conditions distinguished by color and score. Zoom in to move from zone scores to individual route scores, or reveal Watch and Skip routes with the filters."
             showResults={true}
             showRiverLegend={true}
             resultsTitle="Ranked results"

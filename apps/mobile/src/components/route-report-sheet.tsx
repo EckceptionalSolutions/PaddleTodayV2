@@ -32,6 +32,9 @@ interface RouteReportSheetProps {
   email: string;
   tripDate: string;
   sentiment: CreateRouteContributionRequest['tripSentiment'];
+  observedWaterLevel: NonNullable<CreateRouteContributionRequest['scoringOutcome']>['observedWaterLevel'] | '';
+  tripCompletion: NonNullable<CreateRouteContributionRequest['scoringOutcome']>['tripCompletion'] | '';
+  overallVerdict: NonNullable<CreateRouteContributionRequest['scoringOutcome']>['overallVerdict'] | '';
   report: string;
   notes: string;
   photos: SelectedReportPhoto[];
@@ -45,6 +48,9 @@ interface RouteReportSheetProps {
   onEmailChange: (value: string) => void;
   onTripDateChange: (value: string) => void;
   onSentimentChange: (value: CreateRouteContributionRequest['tripSentiment']) => void;
+  onObservedWaterLevelChange: (value: NonNullable<CreateRouteContributionRequest['scoringOutcome']>['observedWaterLevel'] | '') => void;
+  onTripCompletionChange: (value: NonNullable<CreateRouteContributionRequest['scoringOutcome']>['tripCompletion'] | '') => void;
+  onOverallVerdictChange: (value: NonNullable<CreateRouteContributionRequest['scoringOutcome']>['overallVerdict'] | '') => void;
   onReportChange: (value: string) => void;
   onNotesChange: (value: string) => void;
   onPickPhotos: () => void;
@@ -60,6 +66,9 @@ export function RouteReportSheet({
   email,
   tripDate,
   sentiment,
+  observedWaterLevel,
+  tripCompletion,
+  overallVerdict,
   report,
   notes,
   photos,
@@ -73,6 +82,9 @@ export function RouteReportSheet({
   onEmailChange,
   onTripDateChange,
   onSentimentChange,
+  onObservedWaterLevelChange,
+  onTripCompletionChange,
+  onOverallVerdictChange,
   onReportChange,
   onNotesChange,
   onPickPhotos,
@@ -164,6 +176,42 @@ export function RouteReportSheet({
                 onLayout={(event) => recordInputOffset('tripDate', event)}
               />
               <SentimentPicker value={sentiment ?? ''} onChange={onSentimentChange} />
+              <ChoicePicker
+                label="Observed water level"
+                value={observedWaterLevel}
+                options={[
+                  { value: 'too-low', label: 'Too low' },
+                  { value: 'low', label: 'Low' },
+                  { value: 'ideal', label: 'Ideal' },
+                  { value: 'high', label: 'High' },
+                  { value: 'unsafe', label: 'Unsafe' },
+                  { value: 'unknown', label: 'Unknown' },
+                ]}
+                onChange={onObservedWaterLevelChange}
+              />
+              <ChoicePicker
+                label="Trip outcome"
+                value={tripCompletion}
+                options={[
+                  { value: 'completed', label: 'Completed' },
+                  { value: 'shortened', label: 'Shortened' },
+                  { value: 'aborted', label: 'Aborted' },
+                  { value: 'not-launched', label: 'No launch' },
+                ]}
+                onChange={onTripCompletionChange}
+              />
+              <ChoicePicker
+                label="Overall verdict"
+                value={overallVerdict}
+                options={[
+                  { value: 'excellent', label: 'Excellent' },
+                  { value: 'good', label: 'Good' },
+                  { value: 'fair', label: 'Fair' },
+                  { value: 'poor', label: 'Poor' },
+                  { value: 'unsafe', label: 'Unsafe' },
+                ]}
+                onChange={onOverallVerdictChange}
+              />
               <TextInput
                 multiline
                 placeholder="What did you see? Access, wood, level, crowding, pace, or anything useful."
@@ -311,6 +359,40 @@ function SentimentPicker({
           </Pressable>
         );
       })}
+    </View>
+  );
+}
+
+function ChoicePicker<T extends string>({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: T | '';
+  options: ReadonlyArray<{ value: T; label: string }>;
+  onChange: (value: T | '') => void;
+}) {
+  return (
+    <View style={styles.choiceGroup}>
+      <Text style={styles.choiceLabel}>{label} *</Text>
+      <View style={styles.sentimentRow}>
+        {options.map((option) => {
+          const selected = value === option.value;
+          return (
+            <Pressable
+              key={option.value}
+              style={[styles.sentimentChip, selected ? styles.sentimentChipSelected : null]}
+              onPress={() => onChange(option.value)}
+            >
+              <Text style={[styles.sentimentChipText, selected ? styles.sentimentChipTextSelected : null]}>
+                {option.label}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
     </View>
   );
 }
@@ -492,6 +574,14 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
     lineHeight: 17,
+  },
+  choiceGroup: {
+    gap: spacing.xs,
+  },
+  choiceLabel: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
   },
   sentimentRow: {
     flexDirection: 'row',

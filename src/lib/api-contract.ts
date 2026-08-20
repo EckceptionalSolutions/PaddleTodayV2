@@ -58,6 +58,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
     sources: summarySourceBadges(result),
     score: result.score,
     rating: result.rating,
+    readiness: result.readiness,
     gaugeBandLabel: result.gaugeBandLabel,
     explanation: result.explanation,
     confidence: {
@@ -77,7 +78,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       shortExplanation: shortCardExplanation(result),
       rawSignalLine: rawSignalLine(result),
       gaugeNow: gaugeValueText(result),
-      confidenceText: `${result.confidence.label} (${result.confidence.score}/100)`,
+      confidenceText: `Evidence ${result.confidence.label} (${result.confidence.score}/100)`,
       freshnessText: compactFreshnessText(result),
       primaryFactor: thresholdModelFactor?.value ?? thresholdEvidenceFactor?.value ?? 'Evidence unavailable',
       secondaryFactor:
@@ -230,6 +231,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
     sources: summarySourceBadges(result),
     score: result.score,
     rating: result.rating,
+    readiness: result.readiness,
     gaugeBand: result.gaugeBand,
     gaugeBandLabel: result.gaugeBandLabel,
     explanation: result.explanation,
@@ -336,6 +338,11 @@ export function serializePlanningRoute(route: River, weather: RiverScoreResult['
     sources: [],
     score: 0,
     rating: 'No-go',
+    readiness: {
+      status: 'withheld',
+      label: 'Withheld',
+      reason: 'This route uses a proxy gauge and does not receive same-day launch readiness.',
+    },
     gaugeBand: 'unknown',
     gaugeBandLabel: 'Not scored',
     explanation: 'This route is documented for planning, but Paddle Today does not issue a same-day score because its gauge is a proxy for this reach.',

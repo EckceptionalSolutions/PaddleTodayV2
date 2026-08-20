@@ -1,4 +1,4 @@
-import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import { callStateForDecision, type RiverSummaryApiItem } from '@paddletoday/api-contract';
 
 export interface RiverRouteGroupMeta {
   routeCount: number;
@@ -6,7 +6,7 @@ export interface RiverRouteGroupMeta {
 
 export function matchingRiverReadiness(routes: RiverSummaryApiItem[]) {
   return {
-    readyCount: routes.filter((route) => route.rating === 'Strong' || route.rating === 'Good').length,
+    readyCount: routes.filter((route) => callStateForDecision(route.rating, route.readiness?.status) === 'paddle').length,
     matchingRouteCount: routes.length,
   };
 }

@@ -13,7 +13,8 @@ import {
 } from './map-runtime.js';
 
 export function featuredRouteLineColor(rating) {
-  if (rating === 'Strong' || rating === 'Good') return '#2c8a54';
+  if (rating === 'Strong') return '#2c8a54';
+  if (rating === 'Good') return '#3d9a83';
   if (rating === 'Fair') return '#ad752c';
   if (rating === 'No-go') return '#bb5840';
   return '#1e7397';

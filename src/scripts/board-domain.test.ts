@@ -150,6 +150,8 @@ describe('board filter domain', () => {
   it('treats all as a sentinel while preserving default paddleable filtering', () => {
     expect(matchesBoardRatingFilter('Fair', { paddleable: true, rating: '' })).toBe(false);
     expect(matchesBoardRatingFilter('Good', { paddleable: true, rating: '' })).toBe(true);
+    expect(matchesBoardRatingFilter('Good', { paddleable: true, rating: '', readiness: { status: 'skip' } })).toBe(false);
+    expect(matchesBoardRatingFilter('Good', { paddleable: true, rating: '', readiness: { status: 'verify' } })).toBe(false);
     expect(matchesBoardRatingFilter('Fair', { paddleable: true, rating: 'all' })).toBe(true);
     expect(matchesBoardRatingFilter('Good', { rating: 'Strong' })).toBe(false);
     expect(matchesBoardRatingFilter('Strong', {

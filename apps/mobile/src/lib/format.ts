@@ -1,6 +1,13 @@
 import {
+  callLabelForDecision,
+  callLabelForRating,
+  callStateForDecision,
+  callStateForRating,
+  qualityTierLabel,
   ratingDetailMessage,
   ratingVerdictLabel,
+  type CallContext,
+  type DecisionReadinessStatus,
   type GaugeUnit,
   type ScoreRating,
 } from '@paddletoday/api-contract';
@@ -65,6 +72,25 @@ export function formatTemperature(value: number | null | undefined, empty = 'No 
 export function verdictForRating(rating: ScoreRating) {
   return ratingVerdictLabel(rating);
 }
+
+export function callForRating(rating: ScoreRating, context: CallContext = 'today', compact = false) {
+  return callLabelForRating(rating, context, compact);
+}
+
+export function callForDecision(
+  rating: ScoreRating,
+  readiness: DecisionReadinessStatus,
+  context: CallContext = 'today',
+  compact = false
+) {
+  return callLabelForDecision(rating, readiness, context, compact);
+}
+
+export function qualityForRating(rating: ScoreRating) {
+  return qualityTierLabel(rating);
+}
+
+export { callStateForDecision, callStateForRating };
 
 export function detailMessageForRating(rating: ScoreRating) {
   return ratingDetailMessage(rating);

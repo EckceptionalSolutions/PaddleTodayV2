@@ -24,11 +24,11 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
-import { RatingPill, ratingColors } from '../components/rating-pill';
+import { QualityPill, ratingColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
-import { normalizeApiText, verdictForRating } from '../lib/format';
+import { callForDecision, callStateForDecision, normalizeApiText, qualityForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
 import { type ExploreIntentId } from '../lib/explore-intents';
 import { photoForRiver } from '../lib/route-photos';
@@ -61,7 +61,7 @@ const modeLabels: Record<BoardMode, string> = {
   best: 'Recommended',
   closest: 'Closest',
   score: 'Score ranking',
-  certain: 'Confidence first',
+  certain: 'Evidence first',
 };
 
 const stateAbbreviations: Record<string, string> = {
@@ -383,7 +383,7 @@ function BoardHero({
               <Text style={styles.freshness}>Score, reliability, and drive time</Text>
             </View>
             <View style={styles.liveBadge}>
-              <Text style={styles.liveBadgeText}>{snapshot.paddleable} ready</Text>
+              <Text style={styles.liveBadgeText}>{snapshot.paddleable} routes to paddle</Text>
             </View>
           </View>
 
@@ -392,7 +392,7 @@ function BoardHero({
               <View style={styles.heroScoreRow}>
                 <View style={[styles.scoreOrb, { backgroundColor: ratingColors(headline.rating).backgroundColor }]}>
                   <Text style={[styles.heroVerdictText, { color: ratingColors(headline.rating).textColor }]}>
-                    {verdictForRating(headline.rating)}
+                    {callForDecision(headline.rating, headline.readiness.status)}
                   </Text>
                   <Text style={[styles.heroVerdictMeta, { color: ratingColors(headline.rating).textColor }]}>Score {headline.score}</Text>
                 </View>
@@ -403,7 +403,7 @@ function BoardHero({
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
                 <Text style={styles.headlineReach} numberOfLines={1}>
                   {routeCount > 1
-                    ? `${routeChoiceLabelForMode(mode)}: ${routeReachWithState(headline)} · ${headline.rating}`
+                    ? `${routeChoiceLabelForMode(mode)}: ${routeReachWithState(headline)} · ${qualityForRating(headline.rating)}`
                     : routeReachWithState(headline)}
                 </Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
@@ -448,8 +448,9 @@ function BoardHero({
       <View style={styles.snapshotSummary}>
         <Text style={styles.snapshotContext}>{snapshotContext}</Text>
         <View style={styles.snapshotRow}>
-          <SnapshotPill label="Clean" value={snapshot.paddleable} tone={styles.snapshotStrong} onPress={() => onOpenStatus('clean-now')} />
+          <SnapshotPill label="Paddle" value={snapshot.paddleable} tone={styles.snapshotStrong} onPress={() => onOpenStatus('clean-now')} />
           <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} onPress={() => onOpenStatus('watch')} />
+          <SnapshotPill label="No call" value={snapshot.unavailable} tone={styles.snapshotUnavailable} onPress={() => onOpenStatus('no-call')} />
           <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} onPress={() => onOpenStatus('skip')} />
         </View>
       </View>
@@ -527,7 +528,7 @@ function RiverImageCard({
         <View style={styles.imageCardOverlay}>
           <View style={styles.imageCardTop}>
             <View style={styles.imageScore}>
-              <Text style={styles.imageVerdictText}>{verdictForRating(river.rating)}</Text>
+              <Text style={styles.imageVerdictText}>{callForDecision(river.rating, river.readiness.status)}</Text>
               <Text style={styles.imageScoreLabel}>Score {river.score}</Text>
             </View>
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
@@ -639,7 +640,7 @@ function CompactRiverRow({
         <Text style={styles.quickReason} numberOfLines={1}>{homeFactLine(river)}</Text>
       </View>
       <View style={styles.quickActions}>
-        <RatingPill rating={river.rating} />
+        <QualityPill rating={river.rating} />
         <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
       </View>
     </Pressable>
@@ -704,7 +705,7 @@ function ExploreActionStrip({
             void Promise.resolve(onUseLocation()).finally(() => onOpenIntent('best-nearby'));
           }}
         />
-        <ExploreActionChip label="Clean now" icon="check-circle-outline" onPress={() => onOpenIntent('clean-now')} />
+        <ExploreActionChip label="Paddle now" icon="check-circle-outline" onPress={() => onOpenIntent('clean-now')} />
         <ExploreActionChip label="Camping" icon="tent" onPress={() => onOpenIntent('camping')} />
         <ExploreActionChip label="Quick float" icon="timer-outline" onPress={() => onOpenIntent('quick-float')} />
         <ExploreActionChip label="Full day" icon="sun-clock-outline" onPress={() => onOpenIntent('full-day')} />
@@ -942,7 +943,7 @@ function RouteSearchModal({
                       <View style={styles.knownSearchCopy}>
                         <View style={styles.knownSearchTopLine}>
                           <Text style={styles.knownSearchName} numberOfLines={1}>{river.river.name}</Text>
-                          <RatingPill rating={river.rating} />
+                          <QualityPill rating={river.rating} />
                         </View>
                         <Text style={styles.knownSearchMeta} numberOfLines={1}>
                           {[
@@ -1275,8 +1276,10 @@ function sectionSubtitleForMode(mode: BoardMode) {
 
 function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
   if (!headline) return 'Today';
-  if (headline.rating === 'No-go') return isNearbyPick(headline) ? 'Best recheck nearby' : 'Best recheck today';
-  if (headline.rating === 'Fair') return isNearbyPick(headline) ? 'Watch nearby' : 'Watch closely';
+  const call = callStateForDecision(headline.rating, headline.readiness.status);
+  if (call === 'skip') return isNearbyPick(headline) ? 'Best recheck nearby' : 'Best recheck today';
+  if (call === 'unavailable') return 'Call unavailable';
+  if (call === 'watch') return isNearbyPick(headline) ? 'Watch nearby' : 'Watch closely';
   if (mode === 'closest') return 'Best nearby';
   if (mode === 'score') return 'Best conditions';
   if (mode === 'certain') return 'Most reliable pick';
@@ -1556,10 +1559,12 @@ const styles = StyleSheet.create({
   },
   snapshotRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.sm,
   },
   snapshotPill: {
-    flex: 1,
+    flexGrow: 1,
+    flexBasis: '45%',
     borderRadius: radius.md,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.sm,
@@ -1576,6 +1581,9 @@ const styles = StyleSheet.create({
   },
   snapshotFair: {
     backgroundColor: '#F3E8CC',
+  },
+  snapshotUnavailable: {
+    backgroundColor: '#E7E5E0',
   },
   snapshotNoGo: {
     backgroundColor: '#F2DDD6',

@@ -1,5 +1,6 @@
 import {
   buildSourceStrengthViewModel,
+  callStateForDecision,
   friendlyCapReason,
   signedPoints,
   type RiverDetailApiResult,
@@ -12,10 +13,11 @@ import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
+import { QualityPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
-import { normalizeApiText, verdictForRating } from '../lib/format';
+import { callForDecision, normalizeApiText, qualityForRating } from '../lib/format';
 import { resolveApiUrl } from '../lib/api-base-url';
 import { photoForRiver } from '../lib/route-photos';
 import { routePreviewFactLine } from '../lib/route-facts';
@@ -477,7 +479,10 @@ function RouteChoiceCard({
             <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
           {recommended ? <Text style={styles.recommendationReason}>{recommendationReason(route)}</Text> : null}
-          <Text style={styles.routeVerdict}>{route.river.scoreEligibility === 'planning' ? 'Not scored today' : verdictForRating(route.rating)}</Text>
+          <View style={styles.routeCallRow}>
+            <Text style={styles.routeVerdict}>{route.river.scoreEligibility === 'planning' ? 'Planning only' : callForDecision(route.rating, route.readiness.status)}</Text>
+            {route.river.scoreEligibility !== 'planning' ? <QualityPill rating={route.rating} /> : null}
+          </View>
           <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
           <Text style={styles.routeMeta} numberOfLines={2}>
             {groupedReachCount} {groupedReachCount === 1 ? 'route uses' : 'routes share'} these conditions · {routeMetaLine(route)}
@@ -607,7 +612,7 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
         markerAccessibilityLabel: `${route.river.reach}, score ${route.score}`,
         routeCount: 1,
         spanSegments: span ? [span] : [],
-        meta: [route.river.reach, `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
+        meta: [route.river.reach, `${route.score} · ${callForDecision(route.rating, route.readiness.status)} · ${qualityForRating(route.rating)}`].filter(Boolean).join(' - '),
       };
     });
   }
@@ -631,7 +636,7 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
       meta: [
         `${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`,
         accessPointCountLabel(route),
-        `${route.score} ${route.rating}`,
+        `${route.score} · ${callForDecision(route.rating, route.readiness.status)} · ${qualityForRating(route.rating)}`,
       ]
         .filter(Boolean)
         .join(' - '),
@@ -728,28 +733,42 @@ function routeStatusSummary(routes: RiverDetailApiResult[]) {
         summary.planning += 1;
         return summary;
       }
-      if (route.rating === 'Strong' || route.rating === 'Good') {
+      const call = callStateForDecision(route.rating, route.readiness.status);
+      if (call === 'paddle') {
         summary.paddleable += 1;
-      } else if (route.rating === 'Fair') {
+      } else if (call === 'watch') {
         summary.watch += 1;
+      } else if (call === 'unavailable') {
+        summary.unavailable += 1;
       } else {
         summary.skip += 1;
       }
       return summary;
     },
-    { paddleable: 0, watch: 0, skip: 0, planning: 0 }
+    { paddleable: 0, watch: 0, unavailable: 0, skip: 0, planning: 0 }
   );
 }
 
-function hubStatusLine(summary: { paddleable: number; watch: number; skip: number; planning: number }, _total: number) {
+function hubStatusLine(summary: { paddleable: number; watch: number; unavailable: number; skip: number; planning: number }, _total: number) {
   const planning = summary.planning > 0 ? ` · ${summary.planning} planning` : '';
-  return `Today: ${summary.paddleable} good · ${summary.watch} watch · ${summary.skip} skip${planning}`;
+  const unavailable = summary.unavailable > 0 ? ` · ${summary.unavailable} no call` : '';
+  return `Today: ${summary.paddleable} paddle · ${summary.watch} watch${unavailable} · ${summary.skip} skip${planning}`;
 }
 
 function compareBestRoute(left: RiverDetailApiResult, right: RiverDetailApiResult) {
   if (left.river.scoreEligibility === 'planning') return 1;
   if (right.river.scoreEligibility === 'planning') return -1;
+  const callDifference = decisionCallRank(right) - decisionCallRank(left);
+  if (callDifference !== 0) return callDifference;
   return right.score - left.score || right.confidence.score - left.confidence.score || comparableDistance(left) - comparableDistance(right);
+}
+
+function decisionCallRank(route: RiverDetailApiResult) {
+  const call = callStateForDecision(route.rating, route.readiness.status);
+  if (call === 'paddle') return 3;
+  if (call === 'watch') return 2;
+  if (call === 'unavailable') return 1;
+  return 0;
 }
 
 function sortedRoutes(routes: RiverDetailApiResult[], sortMode: SortMode) {
@@ -831,7 +850,7 @@ function recommendationReason(route: RiverDetailApiResult) {
     route.gaugeBandLabel ? normalizeApiText(route.gaugeBandLabel) : null,
     route.weather?.windMph ? `${Math.round(route.weather.windMph)} mph wind` : null,
     route.confidence?.label ? `${route.confidence.label} confidence` : null,
-  ].filter(Boolean).join(' Â· ');
+  ].filter(Boolean).join(' · ');
 }
 
 function scoreBreakdownRows(breakdown: ScoreBreakdown) {
@@ -1247,6 +1266,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 18,
     fontWeight: '900',
+  },
+  routeCallRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
   },
   routeMeta: {
     color: colors.textMuted,

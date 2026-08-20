@@ -92,7 +92,7 @@ function textBody(alert: RiverThresholdAlert, snapshot: RiverDetailSnapshot) {
     '',
     `Current call: ${snapshot.result.rating} (${snapshot.result.score})`,
     `Summary: ${snapshot.result.explanation}`,
-    `Data confidence: ${dataConfidenceLabel(snapshot.result.confidence.label)}`,
+    `Evidence strength: ${dataConfidenceLabel(snapshot.result.confidence.label)}`,
   ];
 
   if (bestWindowText(snapshot)) {

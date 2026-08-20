@@ -165,8 +165,8 @@ const routeSeoTitle = `${river.name} Paddle Conditions, Water Levels & Route Inf
 const routeSeoDescription = `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
 const routeIntro = `Check current paddling conditions for this ${river.name} route, including water level, recent gauge trend, weather, and route details.`;
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
-const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, data confidence, access details, and today's paddle score before you drive.`;
-const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, confidence, access, and a clear go / watch / skip call.`;
+const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, evidence strength, access details, and today's paddle score before you drive.`;
+const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, evidence strength, access, and a clear paddle call.`;
 const approvedRoutePhotos = getApprovedRoutePhotos(river.slug);
 const routeSocialCard = getRouteSocialCard(river.slug);
 const routeShareCardHref = routeSocialCard?.src ?? '/brand/paddle-today-share-card-v2-1200x630.png';
@@ -551,7 +551,7 @@ const routeFaqStructuredData = {
         </aside>
       ) : null}
       <aside class="river-call-panel">
-        <p class="eyebrow">Today&apos;s score</p>
+        <p class="eyebrow">Trip quality</p>
         <div class="river-call-panel__scoreline">
           <div class="score-orb score-orb--featured" aria-label="Live score loading">
             <span class="score-orb__score" data-field="score">--</span>
@@ -1421,26 +1421,26 @@ const routeFaqStructuredData = {
           <summary class="river-accordion__summary">
             <span>
               <span class="eyebrow section-label">Why this score</span>
-              <strong>Today&apos;s data confidence is {` `}<span data-field="confidence-detail-label">checking</span></strong>
+              <strong>Today&apos;s evidence strength is {` `}<span data-field="confidence-detail-label">checking</span></strong>
             </span>
           </summary>
           <div class="river-accordion__body">
             <p class="muted confidence-detail__intro">
-          Data confidence mostly comes down to three things: how direct the gauge is, how clear the range is, and how fresh the data is.
+          Evidence strength mostly comes down to three things: how direct the active gauge is, how clear the range is, and how fresh the data is.
             </p>
 
           <div class="confidence-detail__groups">
             <section class="confidence-detail__group">
               <span class="eyebrow section-label">Why</span>
               <ul class="confidence-rationale" data-confidence-reasons>
-              <li>Checking data confidence notes.</li>
+              <li>Checking evidence-strength notes.</li>
               </ul>
             </section>
 
             <section class="confidence-detail__group" data-confidence-warnings-group hidden>
               <span class="eyebrow section-label">Watch for</span>
               <ul class="confidence-rationale confidence-rationale--warnings" data-confidence-warnings>
-              <li>Checking data confidence cautions.</li>
+              <li>Checking evidence cautions.</li>
               </ul>
             </section>
           </div>
@@ -1525,7 +1525,7 @@ const routeFaqStructuredData = {
                 <td>{highThresholdValue}</td>
               </tr>
               <tr>
-                <td>Data confidence behind the range</td>
+                <td>Evidence strength behind the range</td>
                 <td>{thresholdConfidenceLabel}</td>
               </tr>
               <tr>
@@ -1875,6 +1875,44 @@ const routeFaqStructuredData = {
                   </select>
                 </label>
               </div>
+
+              <div class="route-photo-form__grid route-photo-form__grid--meta">
+                <label>
+                  Observed water level *
+                  <select name="observedWaterLevel" data-route-report-water-level>
+                    <option value="">Select one</option>
+                    <option value="too-low">Too low</option>
+                    <option value="low">Low but usable</option>
+                    <option value="ideal">Ideal</option>
+                    <option value="high">High</option>
+                    <option value="unsafe">Unsafe</option>
+                    <option value="unknown">Could not tell</option>
+                  </select>
+                </label>
+
+                <label>
+                  Trip outcome *
+                  <select name="tripCompletion" data-route-report-completion>
+                    <option value="">Select one</option>
+                    <option value="completed">Completed</option>
+                    <option value="shortened">Shortened</option>
+                    <option value="aborted">Aborted after starting</option>
+                    <option value="not-launched">Did not launch</option>
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                Overall verdict *
+                <select name="overallVerdict" data-route-report-verdict>
+                  <option value="">Select one</option>
+                  <option value="excellent">Excellent</option>
+                  <option value="good">Good</option>
+                  <option value="fair">Fair</option>
+                  <option value="poor">Poor</option>
+                  <option value="unsafe">Unsafe</option>
+                </select>
+              </label>
 
               <label>
                 Condition report

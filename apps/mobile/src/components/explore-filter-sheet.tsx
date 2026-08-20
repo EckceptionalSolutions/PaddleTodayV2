@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
-import type { PaddleLengthFilter as SharedPaddleLengthFilter, RouteType, ScoreRating } from '@paddletoday/api-contract';
+import { callStateForDecision, type DecisionReadinessStatus, type PaddleLengthFilter as SharedPaddleLengthFilter, type RouteType, type ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -10,7 +10,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 export type DifficultyFilter = 'any' | 'easy' | 'easy-moderate' | 'moderate' | 'hard';
 export type RouteTypeFilter = 'non-whitewater' | 'whitewater' | 'all';
-export type StatusFilter = 'any' | 'clean' | 'watch' | 'skip';
+export type StatusFilter = 'any' | 'clean' | 'watch' | 'no-call' | 'skip';
 export type RatingFilter = 'any' | ScoreRating;
 export type DistanceFilter = 'any' | '50' | '100' | '150' | '200';
 export type PaddleTimeFilter = 'any' | 'up-to-3' | '3-to-5' | '5-to-7' | 'full-day' | '7-plus';
@@ -57,6 +57,7 @@ const statusOptions: Array<{ value: StatusFilter; label: string }> = [
   { value: 'any', label: 'Any call' },
   { value: 'clean', label: 'Clean' },
   { value: 'watch', label: 'Watch' },
+  { value: 'no-call', label: 'No call' },
   { value: 'skip', label: 'Skip' },
 ];
 
@@ -117,32 +118,38 @@ const callQualityOptions: Array<{
     selected: (filters) => filters.status === 'any' && filters.rating === 'any',
   },
   {
-    value: 'good-plus',
-    label: 'Good+',
+    value: 'paddle',
+    label: 'Paddle',
     apply: (filters) => ({ ...filters, status: 'clean', rating: 'any' }),
     selected: (filters) => filters.status === 'clean' && filters.rating === 'any',
   },
   {
     value: 'strong',
-    label: 'Strong',
+    label: 'Strong conditions',
     apply: (filters) => ({ ...filters, status: 'any', rating: 'Strong' }),
     selected: (filters) => filters.rating === 'Strong',
   },
   {
     value: 'good',
-    label: 'Good',
+    label: 'Good conditions',
     apply: (filters) => ({ ...filters, status: 'any', rating: 'Good' }),
     selected: (filters) => filters.rating === 'Good',
   },
   {
     value: 'fair',
-    label: 'Fair',
+    label: 'Watch',
     apply: (filters) => ({ ...filters, status: 'watch', rating: 'any' }),
     selected: (filters) => filters.status === 'watch' && filters.rating === 'any',
   },
   {
+    value: 'no-call',
+    label: 'No call',
+    apply: (filters) => ({ ...filters, status: 'no-call', rating: 'any' }),
+    selected: (filters) => filters.status === 'no-call' && filters.rating === 'any',
+  },
+  {
     value: 'no-go',
-    label: 'No-go',
+    label: 'Skip',
     apply: (filters) => ({ ...filters, status: 'skip', rating: 'any' }),
     selected: (filters) => filters.status === 'skip' && filters.rating === 'any',
   },
@@ -619,10 +626,14 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
   const labels: string[] = [];
   if (filters.query.trim()) labels.push(`Search: ${filters.query.trim()}`);
   if (filters.state) labels.push(filters.state);
-  if (filters.status === 'clean') labels.push('Good and Strong');
-  if (filters.status === 'watch') labels.push('Fair');
-  if (filters.status === 'skip') labels.push('No-go');
-  if (filters.rating !== 'any') labels.push(filters.rating);
+  if (filters.status === 'clean') labels.push('Paddle');
+  if (filters.status === 'watch') labels.push('Watch');
+  if (filters.status === 'no-call') labels.push('No call');
+  if (filters.status === 'skip') labels.push('Skip');
+  if (filters.rating === 'Strong') labels.push('Strong conditions');
+  if (filters.rating === 'Good') labels.push('Good conditions');
+  if (filters.rating === 'Fair') labels.push('Watch');
+  if (filters.rating === 'No-go') labels.push('Skip');
   if (filters.difficulty === 'easy-moderate') {
     labels.push('Easy/Moderate');
   } else if (filters.difficulty !== 'any') {
@@ -670,11 +681,13 @@ export function difficultyMatches(difficulty: 'easy' | 'moderate' | 'hard', filt
   return difficulty === filter;
 }
 
-export function statusMatches(rating: ScoreRating, filter: StatusFilter) {
+export function statusMatches(rating: ScoreRating, readiness: DecisionReadinessStatus, filter: StatusFilter) {
   if (filter === 'any') return true;
-  if (filter === 'clean') return rating === 'Strong' || rating === 'Good';
-  if (filter === 'watch') return rating === 'Fair';
-  return rating === 'No-go';
+  const call = callStateForDecision(rating, readiness);
+  if (filter === 'clean') return call === 'paddle';
+  if (filter === 'watch') return call === 'watch';
+  if (filter === 'no-call') return call === 'unavailable';
+  return call === 'skip';
 }
 
 export function paddleTimeMatches(label: string, filter: PaddleTimeFilter, campingClassification?: string | null) {

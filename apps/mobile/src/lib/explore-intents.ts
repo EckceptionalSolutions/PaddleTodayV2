@@ -6,6 +6,7 @@ export type ExploreIntentId =
   | 'best-nearby'
   | 'clean-now'
   | 'watch'
+  | 'no-call'
   | 'skip'
   | 'quick-float'
   | 'full-day'
@@ -15,6 +16,7 @@ const exploreIntentIds = new Set<ExploreIntentId>([
   'best-nearby',
   'clean-now',
   'watch',
+  'no-call',
   'skip',
   'quick-float',
   'full-day',
@@ -70,6 +72,16 @@ export function filtersForExploreIntent(
     };
   }
 
+  if (intent === 'no-call') {
+    return {
+      ...base,
+      sort: context.locationReady ? 'nearest' : 'best',
+      distance: context.locationReady ? '100' : 'any',
+      status: 'no-call',
+      rating: 'any',
+    };
+  }
+
   if (intent === 'quick-float') {
     return {
       ...base,
@@ -107,8 +119,9 @@ export function filtersForExploreIntent(
 
 export function labelForExploreIntent(intent: ExploreIntentId) {
   if (intent === 'best-nearby') return 'Best nearby';
-  if (intent === 'clean-now') return 'Clean routes';
+  if (intent === 'clean-now') return 'Paddle routes';
   if (intent === 'watch') return 'Watch routes';
+  if (intent === 'no-call') return 'Routes without a call';
   if (intent === 'skip') return 'Skip routes';
   if (intent === 'quick-float') return 'Quick floats';
   if (intent === 'camping') return 'Camping routes';
@@ -118,9 +131,10 @@ export function labelForExploreIntent(intent: ExploreIntentId) {
 export function descriptionForExploreIntent(intent: ExploreIntentId, locationReady: boolean) {
   const suffix = locationReady ? ' near you' : '';
   if (intent === 'best-nearby') return `Nearby routes sorted by drive time${suffix}.`;
-  if (intent === 'clean-now') return `Strong and Good routes${suffix}.`;
+  if (intent === 'clean-now') return `Paddle today routes${suffix}, with Strong and Good conditions ranked by score.`;
   if (intent === 'watch') return `Routes to watch${suffix}.`;
-  if (intent === 'skip') return `No-go routes to check again later${suffix}.`;
+  if (intent === 'no-call') return `Routes that need current evidence before PaddleToday can make a call${suffix}.`;
+  if (intent === 'skip') return `Skip routes${suffix} for a clear reason to hold off.`;
   if (intent === 'quick-float') return `Easy or moderate routes under three hours${suffix}.`;
   if (intent === 'camping') return `Routes with camping support${suffix}.`;
   return 'Full-day single-day routes sorted by score.';

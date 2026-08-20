@@ -209,6 +209,24 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     slugPrefix: 'north-raccoon-river-',
   },
   {
+    corridorId: 'in-wabash-wells-county',
+    label: 'Wells County Wabash River access corridor',
+    continuityStatus: 'verified',
+    canonicalSlug: 'wabash-river-linn-grove-hale-street',
+    slugs: [
+      'wabash-river-linn-grove-hale-street',
+      'wabash-river-linn-grove-white-bridge',
+      'wabash-river-vera-cruz-hale-street',
+      'wabash-river-vera-cruz-kehoe-park',
+    ],
+    segmentEdges: [
+      { fromId: 'linn-grove-park', toId: 'vera-cruz-paddlesports-launch', status: 'verified' },
+      { fromId: 'vera-cruz-paddlesports-launch', toId: 'white-bridge-picnic-area', status: 'verified' },
+      { fromId: 'white-bridge-picnic-area', toId: 'kehoe-park', status: 'verified' },
+      { fromId: 'kehoe-park', toId: 'hale-street-access', status: 'verified' },
+    ],
+  },
+  {
     corridorId: 'tx-village-creek-paddling-trail',
     label: 'Village Creek Paddling Trail multi-endpoint corridor',
     continuityStatus: 'verified',

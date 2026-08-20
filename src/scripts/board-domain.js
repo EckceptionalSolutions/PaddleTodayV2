@@ -3,6 +3,7 @@ import {
   compareTodayConfidenceStatusScore,
   compareTodayLowestRisk,
   compareTodayStatusThenScore,
+  callStateForDecision,
   distancePenalty,
   estimateTravelMinutes,
 } from '@paddletoday/api-contract';
@@ -108,6 +109,7 @@ export function matchesBoardRatingFilter(
   {
     paddleable = false,
     rating = '',
+    readiness = undefined,
     visibleRatings = null,
   } = {},
 ) {
@@ -118,7 +120,7 @@ export function matchesBoardRatingFilter(
     paddleable
     && rating !== 'all'
     && !rating
-    && !['Strong', 'Good'].includes(resultRating)
+    && callStateForDecision(resultRating, readiness?.status) !== 'paddle'
   ) {
     return false;
   }
@@ -141,6 +143,7 @@ export function matchesBoardRouteFilters(
 ) {
   if (!matchesBoardRatingFilter(result?.rating, {
     ...filters,
+    readiness: result?.readiness,
     visibleRatings,
   })) {
     return false;
@@ -305,7 +308,7 @@ export function createBoardDisplayItemBuilder({
         totalRouteCount,
         matchingRouteCount: routes.length,
         paddleableRouteCount: routes.filter(
-          (result) => ['Strong', 'Good'].includes(result.rating),
+          (result) => callStateForDecision(result.rating, result.readiness?.status) === 'paddle',
         ).length,
         representativeMode: representative.mode,
         distanceMiles: distanceMilesValue,

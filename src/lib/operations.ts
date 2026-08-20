@@ -8,6 +8,7 @@ import {
   selectGaugeReviewCandidates,
   type StateGaugeCoverage,
 } from './gauge-coverage';
+import type { RouteOpportunity } from './route-opportunities';
 
 type CanonicalState = { id: string; name: string; frontierTier: number; frontierLabel: string };
 type Task = {
@@ -23,6 +24,7 @@ type Task = {
   inventoryId?: string;
   gaugeKeys?: string[];
   discoveryComplete?: boolean;
+  routeOpportunity?: boolean;
 };
 
 type OverlapReviewItem = {
@@ -92,6 +94,12 @@ export function rankGaugeStateCoverage<T extends {
       const done = researchStatus === 'saturated' || researchStatus === 'research_complete';
       const frontierTier = state.frontierTier ?? 99;
       const unresolvedRouteCapable = state.gaugeCoverage.unresolvedRouteCapableGaugeCount ?? state.gaugeCoverage.uncoveredRouteCapableGaugeCount;
+      const uncoveredRouteCapable = state.gaugeCoverage.uncoveredRouteCapableGaugeCount;
+      // Completion answers “have we adjudicated the gauge network?” while
+      // expansion answers “could additional route work still be worthwhile?”
+      // Keep these separate so a state cannot look exhausted merely because
+      // every opportunity is currently blocked or awaiting a better package.
+      const routeExpansionStatus = uncoveredRouteCapable > 0 ? 'more_routes_possible' : 'fully_covered';
       const completionGap = state.gaugeCoverage.unreviewedGaugeCount + unresolvedRouteCapable;
       const researchPriorityScore = (100 - Math.min(frontierTier, 99)) * 1_000_000
         - completionGap * 1_000
@@ -104,6 +112,8 @@ export function rankGaugeStateCoverage<T extends {
         done,
         frontierTier,
         frontierLabel: state.frontierLabel ?? 'Unranked frontier',
+        routeExpansionStatus,
+        routeExpansionGaugeCount: uncoveredRouteCapable,
         completionGap,
         researchPriorityScore,
       };
@@ -141,7 +151,7 @@ const controlState = JSON.parse(
 const runHistory = JSON.parse(
   readFileSync(resolve(process.cwd(), 'docs/operations/runs.json'), 'utf8')
 ) as {
-  runs?: Array<{ id: string; kind: string; startedAt: string; status: string; taskId?: string; workerRole?: string; summary?: string }>;
+  runs?: Array<{ id: string; kind: string; startedAt: string; completedAt?: string; status: string; taskId?: string; workerRole?: string; summary?: string }>;
 };
 
 const overlapQueue = (() => {
@@ -153,6 +163,19 @@ const overlapQueue = (() => {
 })();
 
 const gaugeCoverageArtifacts = loadGaugeCoverageArtifacts();
+
+const routeOpportunityQueue = (() => {
+  try {
+    return JSON.parse(readFileSync(resolve(process.cwd(), 'docs/operations/route-opportunity-queue.json'), 'utf8')) as {
+      generatedAt?: string;
+      maxPerState?: number;
+      maxGlobal?: number;
+      opportunities?: RouteOpportunity[];
+    };
+  } catch {
+    return { generatedAt: null, maxPerState: 5, maxGlobal: 20, opportunities: [] as RouteOpportunity[] };
+  }
+})();
 
 function classifyBlocker(text: string) {
   const value = text.toLowerCase();
@@ -185,6 +208,21 @@ function getOperationsTelemetry() {
     .filter((run) => routeWorkKinds(run))
     .slice()
     .sort((left, right) => Date.parse(right.startedAt) - Date.parse(left.startedAt));
+  const latestRouteRun = chronologicalRouteRuns[0] ?? null;
+  const latestRouteRunAt = latestRouteRun?.completedAt ?? latestRouteRun?.startedAt ?? null;
+  const routeWorkerCadence = latestRouteRun
+    ? {
+        latestRunAt: latestRouteRunAt,
+        expectedIntervalMinutes: 30,
+        elapsedMinutes: latestRouteRunAt ? Math.max(0, Math.round((Date.now() - Date.parse(latestRouteRunAt)) / 60000)) : null,
+        status: latestRouteRunAt && Date.now() - Date.parse(latestRouteRunAt) <= 45 * 60000 ? 'on_schedule' : 'overdue',
+      }
+    : {
+        latestRunAt: null,
+        expectedIntervalMinutes: 30,
+        elapsedMinutes: null,
+        status: 'no_run_recorded',
+      };
   let consecutiveNoAddRuns = 0;
   for (const run of chronologicalRouteRuns) {
     if (run.status.includes('blocked') || run.status.includes('no_add')) consecutiveNoAddRuns += 1;
@@ -212,6 +250,7 @@ function getOperationsTelemetry() {
       routesAddedLast24h: recentRouteRuns.filter((run) => run.status === 'route_added' || run.kind === 'route_implementation').length,
       noAddRunsLast24h: recentRouteRuns.filter((run) => run.status.includes('blocked') || run.status.includes('no_add')).length,
     },
+    routeWorkerCadence,
     saturationDossiers: stateRegistry.canonicalStates.map((state) => {
       const stateTasks = taskRegistry.tasks.filter((task) => task.kind === 'state_coverage' && taskStateId(task) === state.id);
       const row = stateTasks.find((task) => task.discoveryComplete === true)
@@ -241,6 +280,13 @@ function getOperationsTelemetry() {
       openItems: (overlapQueue.items ?? []).filter((item) => !['rejected', 'implemented'].includes(item.status)).length,
       highConfidenceItems: (overlapQueue.items ?? []).filter((item) => item.priority === 'high' && item.status === 'new').length,
       items: (overlapQueue.items ?? []).slice(0, 12),
+    },
+    routeOpportunities: {
+      generatedAt: routeOpportunityQueue.generatedAt ?? null,
+      ready: (routeOpportunityQueue.opportunities ?? []).filter((item) => item.status === 'ready').length,
+      inProgress: (routeOpportunityQueue.opportunities ?? []).filter((item) => item.status === 'in_progress').length,
+      blocked: (routeOpportunityQueue.opportunities ?? []).filter((item) => item.status === 'blocked').length,
+      items: (routeOpportunityQueue.opportunities ?? []).slice(0, 12),
     },
   };
 }
@@ -400,6 +446,12 @@ export function getOperationsSnapshot() {
     stateResearchRanking: rankedStates,
     legacyStateResearchRanking: legacyRankedStates,
     gaugeReviewQueue,
+    routeOpportunityQueue: {
+      generatedAt: routeOpportunityQueue.generatedAt ?? null,
+      maxPerState: routeOpportunityQueue.maxPerState ?? 5,
+      maxGlobal: routeOpportunityQueue.maxGlobal ?? 20,
+      opportunities: routeOpportunityQueue.opportunities ?? [],
+    },
     tasks: taskRegistry.tasks,
     automations: automationRegistry,
     controlPlane: {

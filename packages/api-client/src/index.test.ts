@@ -106,6 +106,12 @@ describe('@paddletoday/api-client', () => {
         contributorEmail: 'test@example.com',
         tripReport: 'Good level with clear access.',
         reviewConsent: true,
+        scoringOutcome: {
+          schemaVersion: 1,
+          observedWaterLevel: 'ideal',
+          tripCompletion: 'completed',
+          overallVerdict: 'good',
+        },
         files: [],
       });
 
@@ -133,6 +139,12 @@ describe('@paddletoday/api-client', () => {
         contributorEmail: 'test@example.com',
         tripReport: 'Good level with clear access.',
         reviewConsent: true,
+        scoringOutcome: {
+          schemaVersion: 1,
+          observedWaterLevel: 'ideal',
+          tripCompletion: 'completed',
+          overallVerdict: 'good',
+        },
         files: [],
       })
     ).resolves.toMatchObject({

@@ -43,8 +43,9 @@ import {
   mixedResultsTitle,
 } from './board-copy.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
-import { ratingDisplayLabel } from './ui-taxonomy.js';
+import { conditionTierDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import {
+  callStateForDecision,
   compareTodayAlphabetically as compareAZ,
   compareTodayConfidenceStatusScore as compareConfidence,
   compareTodayLowestRisk as compareLowestRisk,
@@ -255,6 +256,7 @@ const homeStrongCount = document.querySelector('[data-home-strong-count]');
 const homeGoodCount = document.querySelector('[data-home-good-count]');
 const homeMixedCount = document.querySelector('[data-home-mixed-count]');
 const homeNoGoCount = document.querySelector('[data-home-no-go-count]');
+const homeUnavailableCount = document.querySelector('[data-home-unavailable-count]');
 const homeTrackedCounts = Array.from(document.querySelectorAll('[data-home-tracked-count]'));
 
 const summaryHeadline = document.querySelector('[data-summary-headline]');
@@ -1036,7 +1038,7 @@ function buildRouteMapItems(allResults, filteredResults, options = {}) {
         allRiverRoutes: allByRiver.get(groupKey) ?? routes,
         totalRouteCount,
         matchingRouteCount: routes.length,
-        paddleableRouteCount: routes.filter((result) => ['Strong', 'Good'].includes(result.rating)).length,
+        paddleableRouteCount: routes.filter((result) => callStateForDecision(result.rating, result.readiness?.status) === 'paddle').length,
         representativeMode: 'route',
         distanceMiles: distanceMilesValue,
         travelMinutes,
@@ -1102,10 +1104,12 @@ function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = 
 
 function updateHeroCallMix(results) {
   const totalCount = Array.isArray(results) ? results.length : 0;
-  const strongCount = results.filter((result) => result.rating === 'Strong').length;
-  const goodCount = results.filter((result) => result.rating === 'Good').length;
-  const noGoCount = results.filter((result) => result.rating === 'No-go').length;
-  const mixedCount = Math.max(0, totalCount - strongCount - goodCount - noGoCount);
+  const callFor = (result) => callStateForDecision(result.rating, result.readiness?.status);
+  const strongCount = results.filter((result) => result.rating === 'Strong' && callFor(result) === 'paddle').length;
+  const goodCount = results.filter((result) => result.rating === 'Good' && callFor(result) === 'paddle').length;
+  const mixedCount = results.filter((result) => callFor(result) === 'watch').length;
+  const unavailableCount = results.filter((result) => callFor(result) === 'unavailable').length;
+  const noGoCount = results.filter((result) => callFor(result) === 'skip').length;
 
   if (homeStrongCount instanceof HTMLElement) {
     homeStrongCount.textContent = String(strongCount);
@@ -1121,6 +1125,10 @@ function updateHeroCallMix(results) {
 
   if (homeNoGoCount instanceof HTMLElement) {
     homeNoGoCount.textContent = String(noGoCount);
+  }
+
+  if (homeUnavailableCount instanceof HTMLElement) {
+    homeUnavailableCount.textContent = String(unavailableCount);
   }
 
   for (const countNode of homeTrackedCounts) {
@@ -1408,7 +1416,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       : 'Best fit based on your location.';
   }
   setText(document, 'featured-score', String(item.cardRoute.score));
-  setText(document, 'featured-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData, compact: true }));
+  setText(document, 'featured-rating', conditionTierDisplayLabel(item.cardRoute.rating));
   setText(document, 'featured-verdict', recommendationVerdict(item));
     setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady, latestResults));
     renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
@@ -1979,7 +1987,7 @@ function buildExploreFilterPills() {
 
   if (activeFilters.paddleable && !activeFilters.rating) {
     pills.push({
-      label: 'Strong + Good',
+      label: 'Paddle routes',
       tone: 'filter',
     });
   }
@@ -3044,7 +3052,7 @@ function summaryMapOverviewStatus(items) {
     (total, item) => total + (item.matchingRouteCount ?? 1),
     0
   );
-  const ratingCopy = activeFilters.paddleable ? 'Good and Strong' : 'all';
+  const ratingCopy = activeFilters.paddleable ? 'Paddle routes' : 'all';
   return `Showing ${routeCount} ${ratingCopy} ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'}. Zoom in to see individual route scores.`;
 }
 

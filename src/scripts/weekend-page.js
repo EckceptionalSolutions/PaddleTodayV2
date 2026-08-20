@@ -13,7 +13,12 @@ import {
 } from './map-runtime.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
-import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
+import {
+  callDisplayLabel,
+  confidenceDisplayLabel,
+  conditionTierDisplayLabel,
+  ratingDisplayLabel,
+} from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { createBoardLocationService } from './board-location-service.js';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
@@ -500,10 +505,7 @@ function weekendWeatherBadgeMarkup(item) {
 }
 
 function weekendVerdict(item) {
-  if (item.weekend.rating === 'Strong') return 'Top weekend pick';
-  if (item.weekend.rating === 'Good') return 'Good weekend pick';
-  if (item.weekend.rating === 'Fair') return 'Possible with tradeoffs';
-  return 'No weekend pick';
+  return callDisplayLabel(item.weekend.rating, { context: 'weekend' });
 }
 
 function regionStateText(item) {
@@ -608,15 +610,15 @@ function weekendExplanationText(item) {
 }
 
 function slotLabel(index) {
-  if (index === 0) return 'Top weekend pick';
-  if (index === 1) return 'Another good pick';
-  if (index === 2) return 'Good backup';
-  return 'Another pick';
+  if (index === 0) return 'Paddle this weekend';
+  if (index === 1) return 'Another Paddle option';
+  if (index === 2) return 'Paddle backup';
+  return 'Paddle option';
 }
 
 function watchSlotLabel(index) {
-  if (index === 0) return 'Tradeoff route';
-  return 'Also has tradeoffs';
+  if (index === 0) return 'Watch closely';
+  return 'Also worth watching';
 }
 
 function weekendDateRangeText(label) {
@@ -767,7 +769,7 @@ function renderFeatured(
 ) {
   if (!item) {
     updateFeaturedGallery(null);
-    setText(featuredLabel, 'Top weekend pick');
+    setText(featuredLabel, 'Paddle this weekend');
     setText(featuredState, 'Conservative planning mode');
     setText(
       featuredName,
@@ -777,12 +779,12 @@ function renderFeatured(
       featuredReach,
       worthWatchingCount > 0
         ? 'A few tradeoff routes are worth re-checking, but none are strong enough to recommend yet.'
-        : 'Forecast confidence is still too low to surface a confident shortlist.'
+        : 'Forecast evidence is still too weak to surface a reliable shortlist.'
     );
-    setText(featuredVerdict, worthWatchingCount > 0 ? 'Tradeoff routes to re-check' : 'Not shaping up yet');
+    setText(featuredVerdict, worthWatchingCount > 0 ? 'Watch closely before committing' : 'Not shaping up yet');
     setText(featuredScore, '--');
     setText(featuredRating, 'Not enough data');
-    setText(featuredConfidence, 'Forecast confidence building');
+    setText(featuredConfidence, 'Forecast evidence building');
     setText(featuredCurrent, 'Check again later');
     if (featuredWeather instanceof HTMLElement) {
       featuredWeather.hidden = true;
@@ -798,7 +800,7 @@ function renderFeatured(
       featuredSignal,
       worthWatchingCount > 0
         ? `${worthWatchingCount} ${worthWatchingCount === 1 ? 'tradeoff route is' : 'tradeoff routes are'} worth re-checking`
-        : 'Forecast confidence still building'
+        : 'Forecast evidence still building'
     );
     setText(
       featuredExplanation,
@@ -839,10 +841,10 @@ function renderFeatured(
     hasWeekendPlan
       ? userLocation
         ? 'Best nearby'
-        : 'Top weekend pick'
+        : 'Paddle this weekend'
       : hasExpandedPicks
         ? 'Next closest option'
-        : 'No clean weekend plan',
+        : 'No Paddle plan yet',
   );
   updateFeaturedGallery(item);
   setText(featuredState, userLocation ? `Near ${userLocation.label}` : item.weekend.label);
@@ -853,7 +855,7 @@ function renderFeatured(
     hasWeekendPlan ? weekendVerdict(item) : 'Recheck before planning',
   );
   setText(featuredScore, String(item.weekend.score));
-  setText(featuredRating, ratingDisplayLabel(item.weekend.rating, { compact: true }));
+  setText(featuredRating, conditionTierDisplayLabel(item.weekend.rating));
   setText(featuredConfidence, confidenceDisplayLabel(item.weekend.confidence));
   setText(featuredCurrent, `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`);
   if (featuredWeather instanceof HTMLElement) {
@@ -918,7 +920,7 @@ function createWeekendCard(item, index, options = {}) {
   }
   setText(card.querySelector('[data-field="card-verdict"]'), weekendVerdict(item));
   setText(card.querySelector('[data-field="score"]'), String(item.weekend.score));
-  setText(card.querySelector('[data-field="rating"]'), ratingDisplayLabel(item.weekend.rating, { compact: true }));
+  setText(card.querySelector('[data-field="rating"]'), conditionTierDisplayLabel(item.weekend.rating));
   setText(card.querySelector('[data-field="meta-line"]'), '');
   setText(card.querySelector('[data-field="card-summary-main"]'), item.weekend.summary);
 
@@ -1070,7 +1072,7 @@ function createWeekendResultRow(item) {
       <span class="weekend-result-row__reach">${escapeHtml(item.river.reach)}</span>
       <span class="weekend-result-row__meta">${escapeHtml(weekendResultMeta(item) || 'Weekend route')}</span>
     </span>
-    <span class="weekend-result-row__rating">${escapeHtml(ratingDisplayLabel(item.weekend.rating, { compact: true }))}</span>
+    <span class="weekend-result-row__rating">${escapeHtml(conditionTierDisplayLabel(item.weekend.rating))}</span>
   `;
   select.addEventListener('click', () => {
     updateWeekendMapSelection(item.river.slug);
@@ -1154,7 +1156,7 @@ function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false }
     weekendEmptyCopy,
     hasWithheld
       ? 'Current river shape and forecast confidence are still too low to surface a confident weekend pick.'
-      : 'Forecast confidence is still too low to recommend weekend picks.'
+      : 'Forecast evidence is still too weak to recommend weekend picks.'
   );
 }
 

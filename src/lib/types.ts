@@ -7,6 +7,7 @@ import type {
   RiverAccessPoint,
   CampingClassification,
   RiverOutlook,
+  RiverReadinessResult,
   RouteType,
   RouteSafetyProfile,
   ScoreBreakdown,
@@ -39,6 +40,7 @@ export type {
   RiverHistoryResponse,
   RiverHistorySnapshot,
   RiverOutlook,
+  RiverReadinessResult,
   RouteType,
   RouteSafetyProfile,
   ScoreBreakdown,
@@ -203,6 +205,7 @@ export interface RiverScoreResult {
   riverQuality: number;
   score: number;
   rating: ScoreRating;
+  readiness: RiverReadinessResult;
   gaugeBand: GaugeBand | 'unavailable';
   gaugeBandLabel: string;
   explanation: string;

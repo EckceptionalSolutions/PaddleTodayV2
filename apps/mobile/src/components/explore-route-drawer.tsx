@@ -11,6 +11,7 @@ import { Animated, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, 
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { openExternalUrl } from '../lib/external-links';
 import { routeDecisionLine } from '../lib/route-facts';
+import { callForDecision, qualityForRating } from '../lib/format';
 import { RoutePhotoCard } from './route-photo-card';
 import { ratingColors } from './rating-pill';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -77,9 +78,7 @@ export function ExploreRouteDrawer({
           </View>
           <View style={styles.mapPreviewCopy}>
             <Text style={styles.mapPreviewLabel} selectable={false}>
-              {routeCount > 1 && !selectedRiver.selectedSegment
-                ? `Best matching route · ${selectedRiver.rating}`
-                : selectedRiver.rating}
+              {`${callForDecision(selectedRiver.rating, selectedRiver.readiness.status)} · ${qualityForRating(selectedRiver.rating)}`}
             </Text>
             <Text style={styles.mapPreviewTitle} numberOfLines={1} selectable={false}>
               {selectedRiver.river.name}

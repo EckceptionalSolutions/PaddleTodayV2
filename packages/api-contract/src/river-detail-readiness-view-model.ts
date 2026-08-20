@@ -1,9 +1,9 @@
 import type {
-  ChecklistStatus,
   LiveDataStatus,
   RiverDetailApiResult,
   WeatherSnapshot,
 } from './index';
+import { callLabelForDecision, type DecisionCallLabel } from './today-board';
 
 export type RiverWeatherRiskState = 'calm' | 'wind' | 'rain' | 'cold' | 'storm';
 
@@ -19,8 +19,8 @@ export interface RiverWeatherViewModel {
 }
 
 export interface RiverReadinessViewModel {
-  verdict: ChecklistStatus;
-  verdictLabel: 'Go' | 'Watch' | 'Skip';
+  verdict: 'go' | 'watch' | 'withheld' | 'skip';
+  verdictLabel: DecisionCallLabel;
   summary: string;
   note: string;
   effectiveLiveData: LiveDataStatus;
@@ -153,7 +153,14 @@ export function effectiveRiverLiveData(
   };
 }
 
-function readinessVerdict(result: Pick<RiverDetailApiResult, 'checklist'>, liveData: LiveDataStatus) {
+function readinessVerdict(result: Pick<RiverDetailApiResult, 'checklist' | 'readiness'>, liveData: LiveDataStatus) {
+  if (result.readiness) {
+    return result.readiness.status === 'ready'
+      ? 'go'
+      : result.readiness.status === 'verify'
+        ? 'watch'
+        : result.readiness.status;
+  }
   if (liveData.overall === 'offline') return 'skip';
   if (result.checklist.some((item) => item.status === 'skip')) return 'skip';
   if (liveData.overall === 'degraded') return 'watch';
@@ -161,9 +168,10 @@ function readinessVerdict(result: Pick<RiverDetailApiResult, 'checklist'>, liveD
   return 'go';
 }
 
-function readinessSummary(verdict: ChecklistStatus) {
+function readinessSummary(verdict: RiverReadinessViewModel['verdict']) {
   if (verdict === 'go') return 'Conditions look good right now.';
   if (verdict === 'watch') return 'Conditions are workable, but something still needs a second look.';
+  if (verdict === 'withheld') return 'A same-day call is unavailable until current evidence is available.';
   return 'Today does not look like a clean go.';
 }
 
@@ -188,12 +196,14 @@ export function buildRiverReadinessViewModel(
 ): RiverReadinessViewModel {
   const effectiveLiveData = effectiveRiverLiveData(result, options);
   const verdict = readinessVerdict(result, effectiveLiveData);
+  const readinessStatus = result.readiness?.status
+    ?? (verdict === 'go' ? 'ready' : verdict === 'watch' ? 'verify' : verdict);
 
   return {
     verdict,
-    verdictLabel: verdict === 'go' ? 'Go' : verdict === 'watch' ? 'Watch' : 'Skip',
+    verdictLabel: callLabelForDecision(result.rating, readinessStatus),
     summary: readinessSummary(verdict),
-    note: result.checklist.find((item) => item.status !== 'go')?.detail ?? effectiveLiveData.summary,
+    note: result.readiness?.reason ?? result.checklist.find((item) => item.status !== 'go')?.detail ?? effectiveLiveData.summary,
     effectiveLiveData,
     weather: buildRiverWeatherViewModel(result.weather),
     accessLabel: accessLabel(result),

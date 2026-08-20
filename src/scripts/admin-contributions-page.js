@@ -23,6 +23,7 @@ const routeAuditsPanel = document.querySelector('[data-admin-route-audits]');
 const routeAuditsStatus = document.querySelector('[data-admin-route-audits-status]');
 const routeAuditList = document.querySelector('[data-admin-route-audit-list]');
 const scoringDebugPanel = document.querySelector('[data-admin-scoring-debug]');
+const calibrationPanel = document.querySelector('[data-admin-calibration]');
 const sectionNav = document.querySelector('[data-admin-section-nav]');
 const tabButtons = Array.from(document.querySelectorAll('[data-admin-tab-target]'));
 const tabPanels = Array.from(document.querySelectorAll('[data-admin-tab-panel]'));
@@ -95,6 +96,24 @@ function contributionCardMarkup(submission) {
   const metaLine = [submission.trip?.date, submission.trip?.sentiment, submission.contributor?.email].filter(Boolean).join(' / ');
   const reviewLine = submission.reviewedAt ? `Reviewed ${new Date(submission.reviewedAt).toLocaleString()}` : 'Pending review';
   const kind = submissionKind(submission);
+  const outcome = submission.scoringOutcome && typeof submission.scoringOutcome === 'object'
+    ? submission.scoringOutcome
+    : null;
+  const outcomeSummary = outcome
+    ? [
+        `Observed: ${outcome.observedWaterLevel}`,
+        `Trip: ${outcome.tripCompletion}`,
+        `Verdict: ${outcome.overallVerdict}`,
+        typeof outcome.appScore === 'number' ? `App: ${outcome.appScore}${outcome.appRating ? ` ${outcome.appRating}` : ''}` : '',
+        typeof outcome.appConfidence === 'number' ? `Evidence: ${outcome.appConfidence}` : '',
+      ].filter(Boolean).join(' / ')
+    : '';
+  const outcomeDetails = outcome
+    ? [
+        Array.isArray(outcome.hazards) && outcome.hazards.length ? `Hazards: ${outcome.hazards.join(', ')}` : '',
+        Array.isArray(outcome.reasonCodes) && outcome.reasonCodes.length ? `Reasons: ${outcome.reasonCodes.join(', ')}` : '',
+      ].filter(Boolean).join(' · ')
+    : '';
 
   return `
     <article class="admin-submission-card" data-submission-id="${submission.id}">
@@ -112,6 +131,7 @@ function contributionCardMarkup(submission) {
 
       ${report ? `<div class="admin-submission-card__block"><h3>Trip report</h3><p>${escapeHtml(report)}</p></div>` : ''}
       ${notes ? `<div class="admin-submission-card__block"><h3>Notes</h3><p>${escapeHtml(notes)}</p></div>` : ''}
+      ${outcomeSummary ? `<div class="admin-submission-card__block"><h3>Scoring outcome</h3><p>${escapeHtml(outcomeSummary)}</p>${outcomeDetails ? `<p class="muted">${escapeHtml(outcomeDetails)}</p>` : ''}</div>` : ''}
 
       ${photos.length ? `
         <div class="admin-submission-card__block">
@@ -479,6 +499,37 @@ async function loadSubmissions() {
   );
 }
 
+async function loadCalibrationMetrics() {
+  if (!(calibrationPanel instanceof HTMLElement)) return;
+  const response = await fetch('/api/admin/scoring-calibration', { headers: { accept: 'application/json' } });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(payload?.message || 'Could not load calibration metrics.');
+  const metrics = payload?.metrics ?? {};
+  setText('[data-calibration-sample]', metrics.comparableOutcomes ?? 0);
+  setText('[data-calibration-approved]', `${metrics.approvedOutcomes ?? 0} approved outcomes`);
+  setText('[data-calibration-agreement]', typeof metrics.agreementRate === 'number' ? `${metrics.agreementRate}%` : '--');
+  setText('[data-calibration-unsafe-misses]', metrics.unsafeFalseNegatives ?? 0);
+  setText('[data-calibration-false-positives]', metrics.safetyFalsePositives ?? 0);
+  setText('[data-calibration-incomplete]', metrics.incompleteSnapshots ?? 0);
+  setText('[data-calibration-warning]', metrics.sampleWarning ?? 'Sample size is large enough for routine calibration review.');
+  setText('[data-calibration-status]', `Updated from ${metrics.totalOutcomes ?? 0} submitted outcomes.`);
+  setText('[data-calibration-models]', groupMetricText(metrics.byThresholdModel));
+  setText('[data-calibration-sources]', groupMetricText(metrics.bySourceStrength));
+  const matrix = calibrationPanel.querySelector('[data-calibration-confusion]');
+  if (matrix instanceof HTMLElement) {
+    matrix.innerHTML = Object.entries(metrics.confusionMatrix ?? {}).flatMap(([rating, verdicts]) =>
+      Object.entries(verdicts ?? {}).filter(([, count]) => Number(count) > 0).map(([verdict, count]) =>
+        `<span>${escapeHtml(rating)} → ${escapeHtml(verdict)}: ${Number(count)}</span>`
+      )
+    ).join('') || '<span>No approved comparable outcomes yet.</span>';
+  }
+}
+
+function groupMetricText(groups) {
+  if (!Array.isArray(groups) || groups.length === 0) return 'No samples';
+  return groups.map((group) => `${group.key}: ${group.sampleSize} (${group.agreementRate ?? '--'}%)`).join(' · ');
+}
+
 function bindCardActions() {
   if (!(list instanceof HTMLElement)) return;
   const cards = Array.from(list.querySelectorAll('[data-submission-id]'));
@@ -511,7 +562,7 @@ function bindCardActions() {
             throw new Error(payload?.message || 'Could not review submission.');
           }
           setStatus(statusNode, action === 'approve' ? 'Approved.' : 'Rejected.', 'success');
-          await loadSubmissions();
+          await Promise.all([loadSubmissions(), loadCalibrationMetrics()]);
         } catch (error) {
           setStatus(statusNode, error instanceof Error ? error.message : 'Could not review submission.', 'error');
         } finally {
@@ -539,7 +590,7 @@ async function refreshAdminState() {
   }
 
   if (authenticated) {
-    await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests(), loadRouteAudits()]);
+    await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests(), loadRouteAudits(), loadCalibrationMetrics()]);
     setActiveAdminTab(activeAdminTab);
   }
 }
@@ -572,7 +623,7 @@ if (loginForm instanceof HTMLFormElement && passwordInput instanceof HTMLInputEl
 
 if (refreshButton instanceof HTMLButtonElement) {
   refreshButton.addEventListener('click', async () => {
-    await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests(), loadRouteAudits()]);
+    await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests(), loadRouteAudits(), loadCalibrationMetrics()]);
   });
 }
 

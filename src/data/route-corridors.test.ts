@@ -17,6 +17,11 @@ describe('route corridor registry', () => {
       continuityStatus: 'verified',
       canonicalSlug: 'village-creek-fm418-state-park',
     });
+    expect(corridorForSlug('wabash-river-linn-grove-hale-street')).toMatchObject({
+      corridorId: 'in-wabash-wells-county',
+      continuityStatus: 'verified',
+      canonicalSlug: 'wabash-river-linn-grove-hale-street',
+    });
   });
 
   it('only assigns explicit access edges to canonical routes', () => {

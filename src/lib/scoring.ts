@@ -11,6 +11,7 @@ import type {
   LiveDataStatus,
   River,
   RiverOutlook,
+  RiverReadinessResult,
   RiverScoreResult,
   ScoreFactor,
   ScoreImpact,
@@ -21,7 +22,12 @@ import { buildSourceStrengthViewModel } from '@paddletoday/api-contract';
 import { staleMinutesForGaugeProvider } from './source-adapters';
 
 const WEATHER_STALE_MINUTES = 180;
-const MINIMUM_ONLY_SCORE_CAP = 82;
+const MINIMUM_ONLY_SCORE_CAP = 74;
+
+interface ScoreLimit {
+  limit: number;
+  reason: string;
+}
 
 export function scoreRiverCondition(args: {
   river: River;
@@ -63,6 +69,13 @@ export function scoreRiverCondition(args: {
     weatherAssessment.points +
     temperatureAssessment.points +
     comfortAssessment.points;
+  const safetyScoreLimits = buildSafetyScoreLimits({
+    river: args.river,
+    gauge: args.gauge,
+    liveData,
+    dnrInterpretation: dnrInterpretationAssessment.value,
+    hasDnrInterpretation: dnrInterpretationAssessment.hasInterpretation,
+  });
   const scoreBreakdown = buildScoreBreakdown({
     river: args.river,
     weather: args.weather,
@@ -77,6 +90,7 @@ export function scoreRiverCondition(args: {
     rainExplanation: weatherAssessment.rainDetail,
     comfortExplanation: comfortAssessment.detail,
     rawTripScore,
+    additionalScoreLimits: safetyScoreLimits,
   });
   const score = scoreBreakdown.finalScore;
   const rating = ratingFromScore(score);
@@ -94,14 +108,30 @@ export function scoreRiverCondition(args: {
     trendAssessment,
     liveData,
   });
+  const readiness = computeReadiness({
+    river: args.river,
+    gauge: args.gauge,
+    gaugeBand: gaugeAssessment.band,
+    liveData,
+    checklist,
+    safetyScoreLimits,
+    dnrInterpretation: dnrInterpretationAssessment.value,
+    hasDnrInterpretation: dnrInterpretationAssessment.hasInterpretation,
+  });
   const outlooks = buildOutlooks({
     river: args.river,
     gauge: args.gauge,
     weather: args.weather,
     confidence,
     liveData,
-    currentScore: score,
+    currentRiverQuality: riverQuality,
     gaugeBand: gaugeAssessment.band,
+    safetyScoreCap: forecastSafetyScoreCap({
+      river: args.river,
+      gauge: args.gauge,
+      dnrInterpretation: dnrInterpretationAssessment.value,
+      hasDnrInterpretation: dnrInterpretationAssessment.hasInterpretation,
+    }),
   });
 
   const factors: ScoreFactor[] = [
@@ -191,6 +221,7 @@ export function scoreRiverCondition(args: {
     riverQuality,
     score,
     rating,
+    readiness,
     gaugeBand: gaugeAssessment.band,
     gaugeBandLabel: gaugeBandLabel(gaugeAssessment.band),
     explanation: buildExplanation({
@@ -247,6 +278,7 @@ function scoreWithoutGauge(args: {
     rainExplanation: weatherAssessment.rainDetail,
     comfortExplanation: comfortAssessment.detail,
     rawTripScore,
+    additionalScoreLimits: [],
   });
   const score = scoreBreakdown.finalScore;
   const confidence = computeConfidence({
@@ -261,6 +293,11 @@ function scoreWithoutGauge(args: {
     riverQuality,
     score,
     rating: ratingFromScore(score),
+    readiness: {
+      status: 'withheld',
+      label: 'Withheld',
+      reason: 'A current gauge reading is required before Paddle Today issues launch readiness.',
+    },
     gaugeBand: 'unavailable',
     gaugeBandLabel: 'Unavailable',
     explanation: `${args.river.name} cannot be scored confidently right now. ${args.liveData.summary}`,
@@ -358,7 +395,7 @@ function assessGauge(river: River, gauge: GaugeReading): {
     }
 
     if (current < minimum) {
-      const points = clamp(18 - ((minimum - current) / Math.max(minimum, 1)) * 34, 0, 18);
+      const points = clamp(45 - ((minimum - current) / Math.max(Math.abs(minimum), 1)) * 45, 0, 45);
       return {
         points,
         impact: 'negative',
@@ -369,10 +406,10 @@ function assessGauge(river: River, gauge: GaugeReading): {
     }
 
     const marginAboveMinimum = (current - minimum) / Math.max(minimum, 1);
-    const marginBonus = clamp(marginAboveMinimum * 12, 0, 12);
+    const marginBonus = clamp(marginAboveMinimum * 27, 0, 27);
 
     return {
-      points: 60 + marginBonus,
+      points: 45 + marginBonus,
       impact: 'warning',
       detail: `Above the known low-water mark of ${formatGauge(minimum, gauge.unit)} ${gauge.unit}, but there is not enough guidance yet to say what the upper end should be for this reach.`,
       band: 'minimum-met',
@@ -396,7 +433,13 @@ function assessGauge(river: River, gauge: GaugeReading): {
   }
 
   if (current < tooLow) {
-    const points = clamp(18 - ((tooLow - current) / Math.max(tooLow, 1)) * 34, 0, 18);
+    const collapsedLowShoulder = tooLow === idealMin;
+    const lowAnchor = collapsedLowShoulder ? 72 : 30;
+    const lowScale = Math.max(
+      (idealMax - idealMin) * (collapsedLowShoulder ? 0.25 : 1),
+      gauge.unit === 'ft' ? 0.1 : 10,
+    );
+    const points = clamp(lowAnchor - ((tooLow - current) / lowScale) * lowAnchor, 0, lowAnchor);
     return {
       points,
       impact: 'negative',
@@ -409,7 +452,7 @@ function assessGauge(river: River, gauge: GaugeReading): {
   if (current < idealMin) {
     const ratio = (current - tooLow) / Math.max(idealMin - tooLow, 0.01);
     return {
-      points: 30 + clamp(ratio, 0, 1) * 28,
+      points: 30 + clamp(ratio, 0, 1) * 42,
       impact: 'warning',
       detail: `Below the preferred range, but still above the hard low mark. It's probably still paddleable, just not in its best band of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}.`,
       band: 'low-shoulder',
@@ -447,7 +490,7 @@ function assessGauge(river: River, gauge: GaugeReading): {
   if (current <= tooHigh) {
     const ratio = (current - idealMax) / Math.max(tooHigh - idealMax, 0.01);
     return {
-      points: 58 - clamp(ratio, 0, 1) * 28,
+      points: 72 - clamp(ratio, 0, 1) * 42,
       impact: 'warning',
       detail: 'Above the preferred window, but still below the hard high threshold. The current is starting to get pushier than the sweet spot.',
       band: 'high-shoulder',
@@ -455,7 +498,13 @@ function assessGauge(river: River, gauge: GaugeReading): {
     };
   }
 
-  const points = clamp(18 - ((current - tooHigh) / Math.max(tooHigh, 1)) * 30, 0, 18);
+  const collapsedHighShoulder = tooHigh === idealMax;
+  const highAnchor = collapsedHighShoulder ? 72 : 30;
+  const highScale = Math.max(
+    (idealMax - idealMin) * (collapsedHighShoulder ? 0.25 : 1),
+    gauge.unit === 'ft' ? 0.1 : 10,
+  );
+  const points = clamp(highAnchor - ((current - tooHigh) / highScale) * highAnchor, 0, highAnchor);
   return {
     points,
     impact: 'negative',
@@ -484,112 +533,156 @@ function assessTrend(
 
   const delta = gauge.delta24h;
   const formattedDelta = `${delta >= 0 ? '+' : ''}${formatGauge(delta, gauge.unit)} ${gauge.unit} over the last 24h`;
+  const magnitude = trendMagnitudeForRiver(river, gauge);
+  const magnitudeDetail =
+    magnitude === 'rapid'
+      ? 'This is a rapid change relative to the configured river range.'
+      : magnitude === 'notable'
+        ? 'This is a meaningful change relative to the configured river range.'
+        : '';
+  const finish = (points: number, impact: ScoreImpact, detail: string) => ({
+    points,
+    impact,
+    detail: `${detail} ${magnitudeDetail}`.trim(),
+  });
+
+  if (gauge.trend === 'steady') {
+    const points = steadyTrendPoints(river, gauge, band);
+    return finish(
+      points,
+      points >= 6 ? 'positive' : 'neutral',
+      `${formattedDelta}. The river is holding steady${band === 'ideal' ? ' in the target range' : ''}.`,
+    );
+  }
 
   if (band === 'ideal') {
-    if (gauge.trend === 'steady') {
-      return {
-        points: 8,
-        impact: 'positive',
-        detail: `${formattedDelta}. It's holding steady in the target range, which is a good sign.`,
-      };
-    }
-
-    if (gauge.trend === 'rising' && river.profile.rainfallSensitivity === 'high') {
-      return {
-        points: -2,
-        impact: 'warning',
-        detail: `${formattedDelta}. The river is still in range, but a quick rise lowers confidence on a rain-sensitive reach.`,
-      };
+    if (gauge.trend === 'rising') {
+      const points = magnitude === 'rapid'
+        ? -6
+        : magnitude === 'notable'
+          ? river.profile.rainfallSensitivity === 'high' ? -4 : -2
+          : river.profile.rainfallSensitivity === 'high' ? -2 : 4;
+      return finish(
+        points,
+        points < 0 ? 'warning' : 'neutral',
+        `${formattedDelta}. The river is still in range, but rising water deserves more caution as the change accelerates.`,
+      );
     }
 
     if (gauge.trend === 'falling') {
-      return {
-        points: 3,
-        impact: 'neutral',
-        detail: `${formattedDelta}. Still in range, but keep an eye on whether it keeps dropping.`,
-      };
+      const points = magnitude === 'rapid' ? -2 : magnitude === 'notable' ? 1 : 3;
+      return finish(points, points < 0 ? 'warning' : 'neutral', `${formattedDelta}. Still in range, but keep an eye on whether it keeps dropping.`);
     }
 
-    return {
-      points: 4,
-      impact: 'neutral',
-      detail: `${formattedDelta}. The trend is noticeable but not yet a strong problem.`,
-    };
+    return finish(0, 'neutral', `${formattedDelta}. The trend direction is not reliable enough to adjust the score.`);
   }
 
   if (band === 'minimum-met') {
-    if (gauge.trend === 'steady') {
-      return {
-        points: 2,
-        impact: 'neutral',
-        detail: `${formattedDelta}. The river is above the minimum level and not changing much.`,
-      };
-    }
-
-    if (gauge.trend === 'rising' && river.profile.rainfallSensitivity === 'high') {
-      return {
-        points: -4,
-        impact: 'warning',
-        detail: `${formattedDelta}. The river is above the minimum level, but rising water adds uncertainty because we have less guidance on the high side.`,
-      };
+    if (gauge.trend === 'rising') {
+      const points = magnitude === 'rapid'
+        ? -10
+        : magnitude === 'notable'
+          ? -5
+          : river.profile.rainfallSensitivity === 'high' ? -4 : 0;
+      return finish(points, points < 0 ? 'warning' : 'neutral', `${formattedDelta}. The river is above the minimum level, but rising water adds uncertainty because we have less guidance on the high side.`);
     }
 
     if (gauge.trend === 'falling') {
-      return {
-        points: -3,
-        impact: 'warning',
-        detail: `${formattedDelta}. The river is above the minimum for now, but falling water can quickly turn this into a scrape-heavy day.`,
-      };
+      const points = magnitude === 'rapid' ? -10 : magnitude === 'notable' ? -6 : -3;
+      return finish(points, 'warning', `${formattedDelta}. The river is above the minimum for now, but falling water can quickly turn this into a scrape-heavy day.`);
     }
 
-    return {
-      points: 0,
-      impact: 'neutral',
-      detail: `${formattedDelta}. The river is above the minimum level, but we still have less guidance on the high side.`,
-    };
+    return finish(0, 'neutral', `${formattedDelta}. The river is above the minimum level, but we still have less guidance on the high side.`);
   }
 
   if (band === 'low-shoulder' || band === 'too-low') {
     if (gauge.trend === 'rising') {
-      return {
-        points: 7,
-        impact: 'positive',
-        detail: `${formattedDelta}. Rising water helps when the river is still on the low side.`,
-      };
+      const rapidPoints = river.profile.rainfallSensitivity === 'high' ? -6 : -2;
+      const points = magnitude === 'rapid' ? rapidPoints : magnitude === 'notable' ? 3 : 7;
+      return finish(points, points < 0 ? 'warning' : 'positive', `${formattedDelta}. Rising water helps a low river only while the rate of change remains manageable.`);
     }
 
     if (gauge.trend === 'falling') {
-      return {
-        points: -8,
-        impact: 'negative',
-        detail: `${formattedDelta}. Falling from an already low position pushes this farther from the target band.`,
-      };
+      const points = magnitude === 'rapid' ? -16 : magnitude === 'notable' ? -11 : -8;
+      return finish(points, 'negative', `${formattedDelta}. Falling from an already low position pushes this farther from the target band.`);
     }
   }
 
   if (band === 'high-shoulder' || band === 'too-high') {
     if (gauge.trend === 'falling') {
-      return {
-        points: 7,
-        impact: 'positive',
-        detail: `${formattedDelta}. Falling water helps when the river is above its preferred band.`,
-      };
+      const points = magnitude === 'rapid' ? 1 : magnitude === 'notable' ? 4 : 7;
+      return finish(points, 'positive', `${formattedDelta}. Falling water helps a high river, although a rapid change still adds uncertainty.`);
     }
 
     if (gauge.trend === 'rising') {
-      return {
-        points: -8,
-        impact: 'negative',
-        detail: `${formattedDelta}. Rising from an already high position is a bad sign.`,
-      };
+      const points = magnitude === 'rapid' ? -16 : magnitude === 'notable' ? -11 : -8;
+      return finish(points, 'negative', `${formattedDelta}. Rising from an already high position is a bad sign.`);
     }
   }
 
-  return {
-    points: 0,
-    impact: 'neutral',
-    detail: formattedDelta,
-  };
+  return finish(0, 'neutral', formattedDelta);
+}
+
+function steadyTrendPoints(river: River, gauge: GaugeReading, band: GaugeBand): number {
+  if (band === 'ideal') return 8;
+  if (band === 'minimum-met') return 2;
+
+  const { thresholdModel, tooLow, idealMin, idealMax, tooHigh } = river.profile;
+  if (thresholdModel === 'minimum-only') {
+    const minimum = typeof tooLow === 'number' ? tooLow : idealMin;
+    if (band === 'too-low' && typeof minimum === 'number') {
+      return Math.round(clamp(2 - ((minimum - gauge.current) / Math.max(Math.abs(minimum), 1)) * 2, 0, 2));
+    }
+    return 0;
+  }
+
+  if (
+    typeof tooLow !== 'number' ||
+    typeof idealMin !== 'number' ||
+    typeof idealMax !== 'number' ||
+    typeof tooHigh !== 'number'
+  ) {
+    return 0;
+  }
+
+  if (band === 'low-shoulder') {
+    return Math.round(clamp((gauge.current - tooLow) / Math.max(idealMin - tooLow, 0.01), 0, 1) * 8);
+  }
+  if (band === 'high-shoulder') {
+    return Math.round(clamp((tooHigh - gauge.current) / Math.max(tooHigh - idealMax, 0.01), 0, 1) * 8);
+  }
+
+  const idealWidth = idealMax - idealMin;
+  if (band === 'too-low' && tooLow === idealMin) {
+    const scale = Math.max(idealWidth * 0.25, gauge.unit === 'ft' ? 0.1 : 10);
+    return Math.round(clamp(1 - (tooLow - gauge.current) / scale, 0, 1) * 8);
+  }
+  if (band === 'too-high' && tooHigh === idealMax) {
+    const scale = Math.max(idealWidth * 0.25, gauge.unit === 'ft' ? 0.1 : 10);
+    return Math.round(clamp(1 - (gauge.current - tooHigh) / scale, 0, 1) * 8);
+  }
+
+  return 0;
+}
+
+function trendMagnitudeForRiver(river: River, gauge: GaugeReading): 'mild' | 'notable' | 'rapid' {
+  const absoluteDelta = Math.abs(gauge.delta24h ?? 0);
+  const percentChange = typeof gauge.changePercent24h === 'number' && Number.isFinite(gauge.changePercent24h)
+    ? Math.abs(gauge.changePercent24h) / 100
+    : 0;
+  const rangeWidth =
+    river.profile.thresholdModel === 'two-sided' &&
+    typeof river.profile.idealMin === 'number' &&
+    typeof river.profile.idealMax === 'number'
+      ? Math.abs(river.profile.idealMax - river.profile.idealMin)
+      : typeof river.profile.tooLow === 'number'
+        ? Math.max(Math.abs(river.profile.tooLow), 1)
+        : Math.max(Math.abs(gauge.current), 1);
+  const rangeFraction = absoluteDelta / Math.max(rangeWidth, 0.01);
+
+  if (percentChange >= 0.25 || rangeFraction >= 0.35) return 'rapid';
+  if (percentChange >= 0.12 || rangeFraction >= 0.15) return 'notable';
+  return 'mild';
 }
 
 function assessDnrInterpretation(
@@ -603,7 +696,9 @@ function assessDnrInterpretation(
   hasInterpretation: boolean;
 } {
   const label = normalizeDnrInterpretation(gauge.gaugeInterpretation);
-  const isDnrGauge = river.gaugeSource.provider === 'mn_dnr' || gauge.sourceId.startsWith('mn-dnr-');
+  const activeGaugeSource = [river.gaugeSource, ...(river.fallbackGaugeSources ?? [])]
+    .find((source) => source.id === gauge.sourceId);
+  const isDnrGauge = activeGaugeSource?.provider === 'mn_dnr' || gauge.sourceId.startsWith('mn-dnr-');
 
   if (!isDnrGauge || !label) {
     return {
@@ -995,14 +1090,15 @@ function assessTemperatureAdjustment(
   return {
     points,
     impact: points <= -8 ? 'negative' : points < 0 ? 'warning' : 'neutral',
-    detail:
+    detail: `${
       points < 0
         ? temp < 35
           ? `Air temperature is near freezing at ${Math.round(temp)} degrees F, which makes today a much tougher call${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
           : temp >= 50 && temp < 65
             ? `Air temperature is ${Math.round(temp)} degrees F, which is cool but still workable${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
             : `Air temperature is ${Math.round(temp)} degrees F, which makes today less appealing${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
-        : `Air temperature is ${Math.round(temp)} degrees F and looks fine for today.`,
+        : `Air temperature is ${Math.round(temp)} degrees F and looks fine for today.`
+    }${waterDetail}`.trim(),
   };
 }
 
@@ -1055,6 +1151,74 @@ function assessComfortAdjustment(
   };
 }
 
+function buildSafetyScoreLimits(args: {
+  river: River;
+  gauge: GaugeReading;
+  liveData: LiveDataStatus;
+  dnrInterpretation: string;
+  hasDnrInterpretation: boolean;
+}): ScoreLimit[] {
+  const limits: ScoreLimit[] = [];
+  const dnrInterpretation = args.hasDnrInterpretation ? args.dnrInterpretation.toLowerCase() : '';
+
+  if (args.river.profile.thresholdModel === 'minimum-only') {
+    limits.push({
+      limit: MINIMUM_ONLY_SCORE_CAP,
+      reason: `This route has minimum-only gauge guidance, so today's score is limited to ${MINIMUM_ONLY_SCORE_CAP} or lower.`,
+    });
+  }
+
+  if (dnrInterpretation === 'scrapable' || dnrInterpretation === 'very high') {
+    limits.push({
+      limit: 49,
+      reason: `The current MN DNR ${args.dnrInterpretation} interpretation limits today's score to 49 until conditions are verified.`,
+    });
+  }
+
+  if (args.liveData.gauge.state === 'stale') {
+    limits.push({
+      limit: 49,
+      reason: "Stale gauge data limits today's score to 49 until a current river reading is available.",
+    });
+  }
+
+  if (args.liveData.weather.state === 'stale' || args.liveData.weather.state === 'unavailable') {
+    limits.push({
+      limit: 74,
+      reason: `Weather data is ${args.liveData.weather.state}, so today's score is limited to 74 or lower.`,
+    });
+  }
+
+  if (typeof args.gauge.waterTempF === 'number' && args.gauge.waterTempF < 45) {
+    limits.push({
+      limit: 74,
+      reason: `Water temperature below 45 degrees F limits today's score to 74 or lower.`,
+    });
+  }
+
+  return limits;
+}
+
+function forecastSafetyScoreCap(args: {
+  river: River;
+  gauge: GaugeReading;
+  dnrInterpretation: string;
+  hasDnrInterpretation: boolean;
+}): number {
+  let cap = args.river.profile.thresholdModel === 'minimum-only' ? MINIMUM_ONLY_SCORE_CAP : 100;
+  const dnrInterpretation = args.hasDnrInterpretation ? args.dnrInterpretation.toLowerCase() : '';
+
+  if (dnrInterpretation === 'scrapable' || dnrInterpretation === 'very high') {
+    cap = Math.min(cap, 49);
+  }
+
+  if (typeof args.gauge.waterTempF === 'number' && args.gauge.waterTempF < 45) {
+    cap = Math.min(cap, 74);
+  }
+
+  return cap;
+}
+
 function pleasantDayBonus(args: {
   river: River;
   weather: WeatherSnapshot | null;
@@ -1093,6 +1257,7 @@ function buildScoreBreakdown(args: {
   rainExplanation: string;
   comfortExplanation: string;
   rawTripScore: number;
+  additionalScoreLimits: ScoreLimit[];
 }): RiverScoreResult['scoreBreakdown'] {
   let finalScore = Math.round(args.rawTripScore);
   const capReasons: string[] = [];
@@ -1126,11 +1291,8 @@ function buildScoreBreakdown(args: {
     applyScoreLimit(65, "Heavy rain or storms likely soon limit today's score to 65 or lower.");
   }
 
-  if (args.river.profile.thresholdModel === 'minimum-only') {
-    applyScoreLimit(
-      MINIMUM_ONLY_SCORE_CAP,
-      `This route has minimum-only gauge guidance, so today's score is limited to ${MINIMUM_ONLY_SCORE_CAP} or lower.`
-    );
+  for (const scoreLimit of args.additionalScoreLimits) {
+    applyScoreLimit(scoreLimit.limit, scoreLimit.reason);
   }
 
   finalScore = clamp(finalScore, 0, 100);
@@ -1218,7 +1380,11 @@ function computeConfidence(args: {
   const reasons: string[] = [];
   const warnings: string[] = [];
 
-  if (args.gauge && args.river.gaugeSource.kind === 'direct') {
+  const activeGaugeSource = args.gauge
+    ? [args.river.gaugeSource, ...(args.river.fallbackGaugeSources ?? [])].find((source) => source.id === args.gauge?.sourceId)
+    : undefined;
+
+  if (args.gauge && activeGaugeSource?.kind === 'direct') {
     score += 0.25;
     reasons.push('Direct gauge available.');
   } else if (args.gauge) {
@@ -1315,6 +1481,62 @@ function computeConfidence(args: {
   };
 }
 
+function computeReadiness(args: {
+  river: River;
+  gauge: GaugeReading;
+  gaugeBand: GaugeBand;
+  liveData: LiveDataStatus;
+  checklist: DecisionChecklistItem[];
+  safetyScoreLimits: ScoreLimit[];
+  dnrInterpretation: string;
+  hasDnrInterpretation: boolean;
+}): RiverReadinessResult {
+  if (args.liveData.gauge.state !== 'live') {
+    return {
+      status: 'withheld',
+      label: 'Withheld',
+      reason: 'The gauge is missing or stale, so launch readiness is withheld until it is refreshed.',
+    };
+  }
+
+  const dnrInterpretation = args.hasDnrInterpretation ? args.dnrInterpretation.toLowerCase() : '';
+  const activeGaugeSource = [args.river.gaugeSource, ...(args.river.fallbackGaugeSources ?? [])]
+    .find((source) => source.id === args.gauge.sourceId);
+  if (
+    args.gaugeBand === 'too-high' ||
+    args.gaugeBand === 'too-low' ||
+    dnrInterpretation === 'very high' ||
+    dnrInterpretation === 'scrapable' ||
+    args.checklist.some((item) => item.status === 'skip')
+  ) {
+    return {
+      status: 'skip',
+      label: 'Skip',
+      reason: args.checklist.find((item) => item.status === 'skip')?.detail ?? 'A current safety or flow signal is outside the runnable window.',
+    };
+  }
+
+  if (
+    args.river.profile.thresholdModel === 'minimum-only' ||
+    activeGaugeSource?.kind === 'proxy' ||
+    args.liveData.weather.state !== 'live' ||
+    args.safetyScoreLimits.length > 0 ||
+    args.checklist.some((item) => item.status === 'watch')
+  ) {
+    return {
+      status: 'verify',
+      label: 'Verify',
+      reason: args.safetyScoreLimits[0]?.reason ?? args.checklist.find((item) => item.status === 'watch')?.detail ?? 'One or more conditions need a direct check before launch.',
+    };
+  }
+
+  return {
+    status: 'ready',
+    label: 'Ready',
+    reason: 'Current gauge, weather, and route checks support launch readiness.',
+  };
+}
+
 function buildDecisionChecklist(args: {
   river: River;
   gauge: GaugeReading;
@@ -1382,8 +1604,9 @@ function buildOutlooks(args: {
   weather: WeatherSnapshot | null;
   confidence: ConfidenceResult;
   liveData: LiveDataStatus;
-  currentScore: number;
+  currentRiverQuality: number;
   gaugeBand: GaugeBand;
+  safetyScoreCap: number;
 }): RiverOutlook[] {
   return [
     buildOutlook({
@@ -1393,8 +1616,9 @@ function buildOutlooks(args: {
       gauge: args.gauge,
       confidence: args.confidence,
       liveData: args.liveData,
-      currentScore: args.currentScore,
+      currentRiverQuality: args.currentRiverQuality,
       gaugeBand: args.gaugeBand,
+      safetyScoreCap: args.safetyScoreCap,
       minConfidence: 55,
       requireTwoSided: false,
     }),
@@ -1405,8 +1629,9 @@ function buildOutlooks(args: {
       gauge: args.gauge,
       confidence: args.confidence,
       liveData: args.liveData,
-      currentScore: args.currentScore,
+      currentRiverQuality: args.currentRiverQuality,
       gaugeBand: args.gaugeBand,
+      safetyScoreCap: args.safetyScoreCap,
       minConfidence: 68,
       requireTwoSided: true,
     }),
@@ -1422,6 +1647,8 @@ function buildOfflineOutlooks(): RiverOutlook[] {
       score: null,
       rating: null,
       confidence: null,
+      direction: 'uncertain',
+      scoreRange: null,
       explanation: 'Tomorrow is hidden because the direct gauge is unavailable right now.',
     },
     {
@@ -1431,6 +1658,8 @@ function buildOfflineOutlooks(): RiverOutlook[] {
       score: null,
       rating: null,
       confidence: null,
+      direction: 'uncertain',
+      scoreRange: null,
       explanation: 'Weekend needs a current gauge read and enough confidence before the app extends the call.',
     },
   ];
@@ -1443,8 +1672,9 @@ function buildOutlook(args: {
   gauge: GaugeReading;
   confidence: ConfidenceResult;
   liveData: LiveDataStatus;
-  currentScore: number;
+  currentRiverQuality: number;
   gaugeBand: GaugeBand;
+  safetyScoreCap: number;
   minConfidence: number;
   requireTwoSided: boolean;
 }): RiverOutlook {
@@ -1458,11 +1688,13 @@ function buildOutlook(args: {
       score: null,
       rating: null,
       confidence: null,
+      direction: 'uncertain',
+      scoreRange: null,
       explanation: `${label} is hidden because forecast coverage for that window is unavailable.`,
     };
   }
 
-  if (args.liveData.overall === 'offline') {
+  if (args.liveData.gauge.state !== 'live') {
     return {
       id: args.id,
       label,
@@ -1470,7 +1702,9 @@ function buildOutlook(args: {
       score: null,
       rating: null,
       confidence: null,
-      explanation: `${label} is hidden because the live river read is offline.`,
+      direction: 'uncertain',
+      scoreRange: null,
+      explanation: `${label} is hidden because a current river reading is unavailable.`,
     };
   }
 
@@ -1482,6 +1716,8 @@ function buildOutlook(args: {
       score: null,
       rating: null,
       confidence: null,
+      direction: 'uncertain',
+      scoreRange: null,
       explanation: `${label} is hidden because this reach only has a low-water mark, not a full working range.`,
     };
   }
@@ -1494,16 +1730,33 @@ function buildOutlook(args: {
       score: null,
       rating: null,
       confidence: null,
-      explanation: `${label} is hidden because today's confidence is only ${args.confidence.score}/100.`,
+      direction: 'uncertain',
+      scoreRange: null,
+      explanation: `${label} is hidden because today's evidence strength is only ${args.confidence.score}/100.`,
     };
   }
 
-  let projectedScore = args.currentScore;
-  projectedScore += trendAdjustmentForOutlook(args.gaugeBand, args.gauge, args.id);
+  let projectedScore = args.currentRiverQuality;
+  projectedScore += trendAdjustmentForOutlook(args.river, args.gaugeBand, args.gauge, args.id);
   projectedScore += weatherAdjustmentForWindow(args.window, args.id);
+  projectedScore += temperatureAdjustmentForWindow(args.window);
+  projectedScore += routeAdjustmentForWindow(args.river, args.window);
 
-  const scoreCap = args.river.profile.thresholdModel === 'minimum-only' ? MINIMUM_ONLY_SCORE_CAP : 100;
+  const scoreCap = Math.min(
+    args.river.profile.thresholdModel === 'minimum-only' ? MINIMUM_ONLY_SCORE_CAP : 100,
+    args.safetyScoreCap
+  );
   projectedScore = clamp(Math.round(projectedScore), 0, scoreCap);
+  const directionDelta = projectedScore - args.currentRiverQuality;
+  const direction: RiverOutlook['direction'] =
+    args.confidence.label === 'Low'
+      ? 'uncertain'
+      : directionDelta >= 5
+        ? 'improving'
+        : directionDelta <= -5
+          ? 'worsening'
+          : 'stable';
+  const uncertainty = outlookUncertainty(args.id, args.confidence.label, args.river, args.gauge);
 
   return {
     id: args.id,
@@ -1512,35 +1765,59 @@ function buildOutlook(args: {
     score: projectedScore,
     rating: ratingFromScore(projectedScore),
     confidence: args.id === 'weekend' && args.confidence.label === 'High' ? 'Medium' : args.confidence.label,
+    direction,
+    scoreRange: {
+      min: clamp(projectedScore - uncertainty, 0, scoreCap),
+      max: clamp(projectedScore + uncertainty, 0, scoreCap),
+    },
     explanation: outlookExplanation(args.window, args.gaugeBand, args.gauge, args.id),
   };
 }
 
+function outlookUncertainty(
+  id: 'tomorrow' | 'weekend',
+  evidence: ConfidenceLabel,
+  river: River,
+  gauge: GaugeReading
+): number {
+  const horizon = id === 'weekend' ? 10 : 6;
+  const evidencePenalty = evidence === 'Low' ? 8 : evidence === 'Medium' ? 4 : 0;
+  const trendPenalty = gauge.trend === 'unknown' ? 4 : trendMagnitudeForRiver(river, gauge) === 'rapid' ? 3 : 0;
+  return horizon + evidencePenalty + trendPenalty;
+}
+
 function trendAdjustmentForOutlook(
+  river: River,
   band: GaugeBand,
   gauge: GaugeReading,
   windowId: 'tomorrow' | 'weekend'
 ): number {
   const multiplier = windowId === 'weekend' ? 1.5 : 1;
+  const magnitude = trendMagnitudeForRiver(river, gauge);
+  const harmfulMultiplier = magnitude === 'rapid' ? 2 : magnitude === 'notable' ? 1.4 : 1;
+  const helpfulMultiplier = magnitude === 'rapid' ? 0.25 : magnitude === 'notable' ? 0.65 : 1;
 
   if (gauge.trend === 'rising') {
     if (band === 'too-low' || band === 'low-shoulder' || band === 'minimum-met') {
-      return Math.round(6 * multiplier);
+      if (magnitude === 'rapid') {
+        return river.profile.rainfallSensitivity === 'high' ? Math.round(-6 * multiplier) : Math.round(-2 * multiplier);
+      }
+      return Math.round(6 * multiplier * helpfulMultiplier);
     }
     if (band === 'high-shoulder' || band === 'too-high') {
-      return Math.round(-8 * multiplier);
+      return Math.round(-8 * multiplier * harmfulMultiplier);
     }
-    return Math.round(-2 * multiplier);
+    return Math.round(-2 * multiplier * harmfulMultiplier);
   }
 
   if (gauge.trend === 'falling') {
     if (band === 'high-shoulder' || band === 'too-high') {
-      return Math.round(6 * multiplier);
+      return Math.round(6 * multiplier * helpfulMultiplier);
     }
     if (band === 'too-low' || band === 'low-shoulder' || band === 'minimum-met') {
-      return Math.round(-6 * multiplier);
+      return Math.round(-6 * multiplier * harmfulMultiplier);
     }
-    return Math.round(-2 * multiplier);
+    return Math.round(-2 * multiplier * harmfulMultiplier);
   }
 
   return band === 'ideal' ? 2 : 0;
@@ -1568,6 +1845,49 @@ function weatherAdjustmentForWindow(window: ForecastWindow, windowId: 'tomorrow'
   }
 
   return points;
+}
+
+function temperatureAdjustmentForWindow(window: ForecastWindow): number {
+  const temperature = window.temperatureHighF;
+  if (typeof temperature !== 'number') {
+    return 0;
+  }
+
+  return temperature < 35
+    ? -12
+    : temperature < 50
+      ? -6
+      : temperature < 65
+        ? -1
+        : temperature <= 85
+          ? 0
+          : temperature <= 92
+            ? -4
+            : -8;
+}
+
+function routeAdjustmentForWindow(river: River, window: ForecastWindow): number {
+  const startMonth = Number(window.startDate.slice(5, 7));
+  const inSeason = Number.isInteger(startMonth) && river.profile.seasonMonths.includes(startMonth);
+  let points = inSeason ? 0 : -4;
+
+  if (river.profile.difficulty === 'hard') {
+    points -= 6;
+  }
+
+  const pleasant =
+    inSeason &&
+    river.profile.difficulty !== 'hard' &&
+    typeof window.temperatureHighF === 'number' &&
+    window.temperatureHighF >= 65 &&
+    window.temperatureHighF <= 82 &&
+    (window.windMphMax ?? Infinity) <= 10 &&
+    (window.precipProbabilityMax ?? Infinity) < 20 &&
+    !window.stormRisk &&
+    window.weatherCode !== null &&
+    [0, 1, 2].includes(window.weatherCode);
+
+  return points + (pleasant ? 8 : 0);
 }
 
 function outlookExplanation(
@@ -1738,8 +2058,8 @@ function buildExplanation(args: {
           : `The gauge reads ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but this route still needs a manual level check.`;
 
   const confidenceSentence = normalizedConfidenceNotes
-    ? `Confidence in today's call is ${args.confidence.label.toLowerCase()}. ${normalizedConfidenceNotes}`
-    : `Confidence in today's call is ${args.confidence.label.toLowerCase()} because the available source quality and live data coverage are only moderate.`;
+    ? `Evidence strength for today's call is ${args.confidence.label.toLowerCase()}. ${normalizedConfidenceNotes}`
+    : `Evidence strength for today's call is ${args.confidence.label.toLowerCase()} because the available source quality and live data coverage are only moderate.`;
   const trendSentence = /[.!?]$/.test(args.trendAssessment.detail)
     ? args.trendAssessment.detail
     : `${args.trendAssessment.detail}.`;

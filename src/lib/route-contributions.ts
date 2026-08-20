@@ -15,6 +15,8 @@ import {
   isNumber,
   isString,
 } from './json-guards';
+import type { ScoringOutcomeObservationInput } from '@paddletoday/api-contract';
+import { parseScoringOutcomeObservation } from './scoring-outcomes';
 
 const DEFAULT_CONTRIBUTIONS_DIR = '.local';
 const ROUTE_CONTRIBUTIONS_PREFIX = cleanPathSegment(process.env.ROUTE_CONTRIBUTIONS_BLOB_PREFIX || 'route-contributions');
@@ -54,6 +56,7 @@ export interface RouteContributionSubmission {
     report: string;
   };
   notes: string;
+  scoringOutcome?: ScoringOutcomeObservationInput;
   rightsConfirmed: boolean;
   reviewConsent: boolean;
   files: RouteContributionStoredFile[];
@@ -145,6 +148,7 @@ function isRouteContributionSubmission(value: unknown): value is RouteContributi
     isString(value.trip.sentiment) &&
     isString(value.trip.report) &&
     isString(value.notes) &&
+    (value.scoringOutcome === undefined || parseScoringOutcomeObservation(value.scoringOutcome).ok) &&
     isBoolean(value.rightsConfirmed) &&
     isBoolean(value.reviewConsent) &&
     isArrayOf(value.files, isRouteContributionStoredFile) &&
@@ -210,6 +214,7 @@ export async function createRouteContributionSubmission(args: {
   contributor: RouteContributionSubmission['contributor'];
   trip: RouteContributionSubmission['trip'];
   notes: string;
+  scoringOutcome?: ScoringOutcomeObservationInput;
   rightsConfirmed: boolean;
   reviewConsent: boolean;
   files: Array<{
@@ -251,6 +256,7 @@ export async function createRouteContributionSubmission(args: {
     contributor: args.contributor,
     trip: args.trip,
     notes: args.notes,
+    ...(args.scoringOutcome ? { scoringOutcome: args.scoringOutcome } : {}),
     rightsConfirmed: args.rightsConfirmed,
     reviewConsent: args.reviewConsent,
     files: storedFiles,
