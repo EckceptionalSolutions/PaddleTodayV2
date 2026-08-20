@@ -8,6 +8,7 @@ import {
   fitMapBounds,
   waitForMapReady,
   markerClassForRating,
+  mapCallLabelForRating,
   scoreZoneRouteLabel,
   syncActualRiverLayer,
   syncGeoJsonOverlay,
@@ -845,7 +846,7 @@ function routePopupMarkup(route) {
       ${facts ? `<p class="score-map-popup__summary">${escapeHtml(facts)}</p>` : ''}
       ${isPlanningRoute(route)
         ? '<p class="score-map-popup__summary">Planning route · not scored because the available gauge is a proxy for this reach.</p>'
-        : `<div class="score-map-popup__scoreline"><span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span><p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route))}</p></div><p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>`}
+        : `<div class="score-map-popup__scoreline"><span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span><p class="score-map-popup__verdict">${escapeHtml(mapCallLabelForRating(route.rating))}</p></div><p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>`}
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
   `;

@@ -16,6 +16,8 @@ type Props = {
   ogType?: string;
   twitterCard?: 'summary' | 'summary_large_image';
   bodyClass?: string;
+  headerTitle?: string;
+  headerBlurb?: string;
 };
 
 const {
@@ -32,6 +34,8 @@ const {
   ogType = 'website',
   twitterCard = 'summary_large_image',
   bodyClass = '',
+  headerTitle = 'Find the best paddle near you today',
+  headerBlurb = 'Live score, water level, and weather.',
 } =
   Astro.props as Props;
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
@@ -151,7 +155,7 @@ const appDownloadConfigJson = JSON.stringify({
           />
           <div class="brand__copy brand__copy--with-wordmark">
             <span class="brand__eyebrow">Paddle Today</span>
-            <span class="brand__title">Find the best paddle near you today</span>
+            <span class="brand__title">{headerTitle}</span>
           </div>
         </a>
 
@@ -186,7 +190,7 @@ const appDownloadConfigJson = JSON.stringify({
             </a>
           </div>
           <p class="site-header__blurb">
-            Live score, water level, and weather.
+            {headerBlurb}
           </p>
           <p class="site-header__freshness" data-home-freshness-wrap hidden>
             <span class="site-header__freshness-item">Data refreshes every 30 minutes.</span>

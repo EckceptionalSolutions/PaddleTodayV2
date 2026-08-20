@@ -4,8 +4,8 @@ import {
   routesForRiverItem,
 } from '../lib/river-coverage.js';
 import { isGroupedItem, joinWithBullet } from './board-domain.js';
-import { recommendationVerdict } from './board-presenters.js';
 import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { mapCallLabelForRating } from './map-runtime.js';
 
 export function createBoardMapModel({
   groupRouteQualifier = 'shown',
@@ -39,7 +39,7 @@ export function createBoardMapModel({
 
   const mapMarkerContext = (item) => {
     if (!isGroupedItem(item)) {
-      return recommendationVerdict(item);
+      return mapCallLabelForRating(item.cardRoute.rating);
     }
 
     const routes = routesForRiverItem(item);

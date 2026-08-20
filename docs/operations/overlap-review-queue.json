@@ -234,7 +234,13 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-20T17:01:12.15Z",
+      "taskId": "overlap-review-4442a7fcea5b",
+      "completedAt": "2026-08-20T17:01:12.15Z",
+      "reviewRunId": "independent-verifier-beaver-dam-20260820115118",
+      "status": "implemented",
+      "resolution": "Verified wi-beaver-dam-cotton-mill-lowell as a four-point core access corridor; preserved both distinct route cards and excluded the unverified Meadow Road alternate from corridor edges.",
+      "gatekeeperId": "gatekeeper-20260820170112"
     },
     {
       "id": "overlap-review-3ca16cfe387a",
@@ -968,7 +974,6 @@
       "category": "localized_crossing_review",
       "proposedModel": "geometry_review",
       "priority": "high",
-      "status": "new",
       "routes": [
         "beaver-dam-river-cotton-mill-county-j",
         "beaver-dam-river-county-s-lowell"
@@ -982,7 +987,13 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-20T17:01:12.15Z",
+      "taskId": "overlap-review-4442a7fcea5b",
+      "completedAt": "2026-08-20T17:01:12.15Z",
+      "reviewRunId": "independent-verifier-beaver-dam-20260820115118",
+      "status": "implemented",
+      "resolution": "Verified wi-beaver-dam-cotton-mill-lowell as a four-point core access corridor; preserved both distinct route cards and excluded the unverified Meadow Road alternate from corridor edges.",
+      "gatekeeperId": "gatekeeper-20260820170112"
     },
     {
       "id": "overlap-review-47a9b946e656",

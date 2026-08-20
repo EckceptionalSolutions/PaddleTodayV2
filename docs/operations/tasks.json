@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T16:30:43.737Z",
+  "updatedAt": "2026-08-20T17:16:35.997Z",
   "tasks": [
     {
       "id": "geographic-gauge-frontier-workflow",
@@ -1158,13 +1158,13 @@
       "frontierTier": 1,
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:05116150",
-        "usgs:05116500",
-        "usgs:05117500",
-        "usgs:05117600",
-        "usgs:05119410"
+        "usgs:06329590",
+        "usgs:06330000",
+        "usgs:06330110",
+        "usgs:06331000",
+        "usgs:06331680"
       ],
-      "summary": "North Dakota provider-baseline gauge review is in progress. Recent bounded batches have closed reviewed Red River / Wild Rice / Antelope / Sheyenne / Mauvais Coulee / Devils Lake basin coulee, creek, Valley City, Fort Ransom, Lisbon, Kindred, Horace, West Fargo, Maple, Apple, Bear, Beaver, Big Muddy, Heart, Sweetbriar, Missouri, Hay Creek, Cannonball, and Cedar gauges with durable covered, blocked, screened-out, or stale dispositions; continue with the next queued unreviewed gauges and only promote routes that clear endpoint, threshold, safety, camping, coordinate, image, and geometry gates.",
+      "summary": "Queued for the next North Dakota provider-baseline gauge batch. Recent bounded batches have closed reviewed Red River / Wild Rice / Antelope / Sheyenne / Mauvais Coulee / Devils Lake basin coulee, creek, Valley City, Fort Ransom, Lisbon, Kindred, Horace, West Fargo, Maple, Apple, Bear, Beaver, Big Muddy, Heart, Sweetbriar, Missouri, Hay Creek, Cannonball, and Cedar gauges with durable covered, blocked, screened-out, or stale dispositions; continue with the next queued unreviewed gauges and only promote routes that clear endpoint, threshold, safety, camping, coordinate, image, and geometry gates.",
       "evidence": [
         "2026-08-15T03:35:00.000Z: route-worker-202608150335-nd-red-wild-rice-gauge-no-add screened USGS 05051500, 0505152130, 05051522, 05051600, and 05052000. No route cleared the full scored-route gates; no route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
         "docs/operations/gauge-inventory.json",
@@ -1236,14 +1236,29 @@
         "https://files.dnr.state.mn.us/maps/canoe_routes/redriver6.pdf",
         "https://www.fws.gov/refuge/upper-souris/visit-us/trails",
         "https://www.govinfo.gov/content/pkg/GOVPUB-I49-PURL-gpo122815/pdf/GOVPUB-I49-PURL-gpo122815.pdf",
-        "https://www.parkrec.nd.gov/paddling"
+        "2026-08-20T16:53:08.578Z: supervisor supervisor-20260820T165308Z inspected the latest ND worker pointer route-worker-202608201147-nd-souris-wintering-willow-deep-no-add. No active worker process or stale in_progress lane was found; the task remains ready and the worker-reported passed status is preserved, but the referenced worker/gatekeeper records are absent from runs.json, so no gatekeeper closure or pointer rewrite was fabricated. No route package omission, policy override, workOrder:null dead end, or GitHub runner failure was found.",
+        "https://www.parkrec.nd.gov/paddling",
+        "2026-08-20T16:47:48.907Z: route-worker-202608201147-nd-souris-wintering-willow-deep-no-add screened usgs:05120000, usgs:05120500, usgs:05122000, usgs:05123400, and usgs:05123510. Verendrye Souris and Bantry Souris were blocked/route_capable; Wintering, Willow Creek, and Deep River were screened_out/not_paddle_relevant. No route package artifacts changed; next ND rotation continues with the next unreviewed provider-baseline gauges.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05120000,05120500,05122000,05123400,05123510&parameterCd=00060,00065&siteStatus=all",
+        "https://www.fws.gov/refuge/j-clark-salyer/visit-us",
+        "https://www.fws.gov/refuge/j-clark-salyer/visit-us/trails",
+        "https://www.fws.gov/rivers/carp/sites/default/files/documents/2024-05/2021-j-clark-salyer-nwr-fishing-information_508.pdf",
+        "2026-08-20T17:16:35.997Z: route-worker-202608201716-nd-westhope-buford-no-add screened USGS 05124000, 06329610, 06329620, 06329640, and 06329650. Westhope Souris was blocked/route_capable because the official J. Clark Salyer trail lacks a selected-gauge numeric threshold and verified endpoint coordinate package; Cartwright/Buford Yellowstone and Missouri gauges were stale_or_unsupported/route_capable because provider support is stage-only or invalid and no station-specific scored route package cleared. No route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05124000,06329610,06329620,06329640,06329650&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06329610/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06329620/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06329640/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06329650/",
+        "https://gf.nd.gov/boating/access",
+        "https://gf.nd.gov/sites/default/files/2025-04/ndo-mar-apr-2025.pdf",
+        "https://www.dwr.nd.gov/pdfs/navigating_sovereign_lands_waters.pdf"
       ],
       "routeAdded": false,
-      "lastSupervisorRunId": "supervisor-20260820T155237Z",
-      "updatedAt": "2026-08-20T16:24:32.685Z",
-      "lastRunId": "route-worker-202608201118-nd-des-lacs-souris-bonnes-no-add",
-      "latestRunId": "route-worker-202608201118-nd-des-lacs-souris-bonnes-no-add",
-      "latestGatekeeperId": "gatekeeper-20260820162715",
+      "lastSupervisorRunId": "supervisor-20260820T165308Z",
+      "updatedAt": "2026-08-20T17:16:35.997Z",
+      "lastRunId": "route-worker-202608201716-nd-westhope-buford-no-add",
+      "latestRunId": "route-worker-202608201716-nd-westhope-buford-no-add",
+      "latestGatekeeperId": "gatekeeper-20260820172925",
       "workerValidationStatus": "passed"
     },
     {
@@ -1962,21 +1977,79 @@
     {
       "id": "overlap-review-4442a7fcea5b",
       "title": "Review route consolidation candidate: Wisconsin · beaver-dam-river-cotton-mill-county-j ↔ beaver-dam-river-county-s-lowell",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Verify endpoint order, river continuity, access legality, and whether the routes are genuinely distinct before proposing a family model. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Completed independent review of the Beaver Dam River overlap family. Verified the core Cotton Mill Park, County Road S / Leipsig, County Road J, and Lowell dam access chain, recorded wi-beaver-dam-cotton-mill-lowell as a verified corridor model, preserved both distinct route cards, and documented the unverified Meadow Road alternate.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
-        "docs/operations/overlap-consolidation-summary.md"
+        "tmp/route-overlap-audit.md",
+        "docs/operations/overlap-consolidation-summary.md",
+        "src/data/route-corridors.ts",
+        "docs/corridor-review-ledger.json",
+        "src/data/routes/wisconsin.ts",
+        "src/data/trip-details/wisconsin.ts",
+        "src/data/generated/route-access-registry.json",
+        "docs/route-coordinate-river-audit.json",
+        "docs/route-coordinate-suggestions.json",
+        "docs/route-coordinate-authoritative-evidence.json",
+        "docs/route-safety-audit.json",
+        "public/data/canonical-river-geometries/routes/beaver-dam-river-cotton-mill-county-j.json",
+        "public/data/canonical-river-geometries/states/wisconsin.json",
+        "https://www.co.dodge.wi.gov/trails-waterways/waterways",
+        "https://www.ci.beaverdam.wi.gov/facilities/facility/details/Cotton-Mill-Park-4",
+        "https://milespaddled.com/beaver-dam-river-iii/",
+        "https://milespaddled.com/beaver-dam-river-ii/",
+        "https://www.wisconsinrivertrips.com/segments/beaver-dam-river",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05425912/",
+        "npm run routes:audit",
+        "npm run routes:audit:corridors",
+        "npm run routes:safety:audit",
+        "npm run routes:audit:overlap",
+        "npm run routes:audit:coordinates",
+        "npm run routes:geometries:audit"
       ],
       "routeSlugs": [
         "beaver-dam-river-cotton-mill-county-j",
         "beaver-dam-river-county-s-lowell"
       ],
-      "sourceFindingId": "overlap-review-4442a7fcea5b"
+      "sourceFindingId": "overlap-review-4442a7fcea5b",
+      "updatedAt": "2026-08-20T17:01:12.15Z",
+      "lastRunId": "independent-verifier-beaver-dam-20260820115118",
+      "latestRunId": "independent-verifier-beaver-dam-20260820115118",
+      "blockers": [],
+      "familyModel": {
+        "corridorId": "wi-beaver-dam-cotton-mill-lowell",
+        "model": "verified_multi_endpoint_corridor",
+        "canonicalSlug": "beaver-dam-river-cotton-mill-county-j",
+        "preserveRouteCards": true,
+        "routeSlugs": [
+          "beaver-dam-river-cotton-mill-county-j",
+          "beaver-dam-river-county-s-lowell"
+        ],
+        "accessOrder": [
+          "cotton-mill-park",
+          "county-road-s-leipsig-beaver-dam",
+          "county-road-j-landing",
+          "river-street-dam-lowell-beaver-dam"
+        ]
+      },
+      "validation": {
+        "status": "passed",
+        "corridorModelRecorded": true,
+        "routeRecordsChanged": false,
+        "rollback": "No route records were deleted, merged, retired, or rewritten. Revert this run by removing the wi-beaver-dam-cotton-mill-lowell corridor and ledger entries, restoring this task/queue item to ready/new, removing the Beaver Dam summary section, and removing this run entry.",
+        "gatekeeperId": "gatekeeper-20260820170112",
+        "gates": {
+          "evidence": "passed",
+          "safety": "passed",
+          "verification": "passed",
+          "tests": "passed",
+          "rollback": "passed"
+        }
+      }
     },
     {
       "id": "overlap-review-056e52a4e9a3",

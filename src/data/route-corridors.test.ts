@@ -22,6 +22,11 @@ describe('route corridor registry', () => {
       continuityStatus: 'verified',
       canonicalSlug: 'wabash-river-linn-grove-hale-street',
     });
+    expect(corridorForSlug('beaver-dam-river-county-s-lowell')).toMatchObject({
+      corridorId: 'wi-beaver-dam-cotton-mill-lowell',
+      continuityStatus: 'verified',
+      canonicalSlug: 'beaver-dam-river-cotton-mill-county-j',
+    });
   });
 
   it('only assigns explicit access edges to canonical routes', () => {

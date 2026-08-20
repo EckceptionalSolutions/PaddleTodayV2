@@ -65901,7 +65901,675 @@
         "usgs:05119410"
       ],
       "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260820163156",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T16:31:06.385Z",
+      "completedAt": "2026-08-20T16:31:56.142Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "supervisor-20260820T165308Z",
+      "kind": "route_worker_supervisor",
+      "startedAt": "2026-08-20T16:53:08.578Z",
+      "completedAt": "2026-08-20T16:53:08.578Z",
+      "status": "completed_with_frontier_preservation",
+      "taskId": "nd-gauge-review-batch",
+      "summary": "Inspected the latest ND hourly worker pointer and preserved the ready frontier. The worker-reported pass remains unclosed because its worker and gatekeeper records are absent from runs.json; no active claim, no-work dead end, route-package omission, policy override, or GitHub runner failure was found.",
+      "actions": [
+        "Classified the latest ND worker as gauge-disposition/no-add work: usgs:05120000 and usgs:05120500 blocked/route_capable; usgs:05122000, usgs:05123400, and usgs:05123510 screened_out/not_paddle_relevant.",
+        "Preserved nd-gauge-review-batch in ready and did not invent a gatekeeper record or clear the worker pointer.",
+        "No route or product artifacts changed."
+      ]
+    },
+    {
+      "id": "gatekeeper-20260820163238",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T16:31:58.513Z",
+      "completedAt": "2026-08-20T16:32:38.234Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260820165334",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-20T16:53:34.318Z",
+      "status": "planned",
+      "taskId": "nd-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05120000",
+        "usgs:05120500",
+        "usgs:05122000",
+        "usgs:05123400",
+        "usgs:05123510"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "gatekeeper-20260820165417",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T16:53:37.862Z",
+      "completedAt": "2026-08-20T16:54:17.003Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260820165447",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T16:54:11.937Z",
+      "completedAt": "2026-08-20T16:54:47.540Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260820165557",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T16:55:23.726Z",
+      "completedAt": "2026-08-20T16:55:57.342Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-beaver-dam-20260820115118",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "kind": "consolidation_review",
+      "taskId": "overlap-review-4442a7fcea5b",
+      "workerRole": "independent-verifier",
+      "status": "completed",
+      "startedAt": "2026-08-20T16:51:18.000Z",
+      "completedAt": "2026-08-20T17:01:12.15Z",
+      "localRunTime": "2026-08-20 11:51 CDT",
+      "routeSlugs": [
+        "beaver-dam-river-cotton-mill-county-j",
+        "beaver-dam-river-county-s-lowell"
+      ],
+      "familyModel": {
+        "corridorId": "wi-beaver-dam-cotton-mill-lowell",
+        "model": "verified_multi_endpoint_corridor",
+        "canonicalSlug": "beaver-dam-river-cotton-mill-county-j",
+        "accessOrder": [
+          "cotton-mill-park",
+          "county-road-s-leipsig-beaver-dam",
+          "county-road-j-landing",
+          "river-street-dam-lowell-beaver-dam"
+        ],
+        "segmentEdges": [
+          "cotton-mill-park->county-road-s-leipsig-beaver-dam",
+          "county-road-s-leipsig-beaver-dam->county-road-j-landing",
+          "county-road-j-landing->river-street-dam-lowell-beaver-dam"
+        ],
+        "preserveRouteCards": true
+      },
+      "independentReview": {
+        "endpointOrder": "passed: source and trip-detail evidence place County Road S upstream of County Road J, followed downstream by River Street Dam / Lowell.",
+        "riverContinuity": "passed: overlap crossing is the expected shared Beaver Dam River reach; NHD and canonical geometry evidence support the core chain.",
+        "accessLegality": "passed for core chain; Meadow Road remains a road-bridge alternate with no authoritative access candidate and a stored coordinate 2,490 ft from the river, so it is excluded from verified edges.",
+        "gaugeReach": "passed: both cards use direct USGS 05425912 and the guarded 30-140 cfs window.",
+        "campingLogistics": "passed: both are no-camping day routes but remain distinct at 5.5-5.8 mi versus 11.25 mi, with different shuttle, flatwater/impoundment, wind, fatigue, and take-out handling.",
+        "hazards": "passed: route-specific dam-release, moving-water, strainer, bridge, wood, low-water, private-bank, wind, water-quality, fatigue, and mandatory-dam-take-out hazards remain visible.",
+        "coordinates": "passed for Cotton Mill, County S, County J, and Lowell core endpoints; Meadow Road remains an explicit coordinate/access exception.",
+        "geometry": "passed: canonical geometry audit 951/952 matched; upper Beaver Dam route asset present, lower route has no standalone asset in the current corpus, and no geometry changed.",
+        "routeSpecificEvidence": "passed: both route cards and trip-details packages were preserved without deletion, merge, retirement, or silent rewrite."
+      },
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "tmp/route-overlap-audit.md",
+        "docs/operations/overlap-consolidation-summary.md",
+        "src/data/route-corridors.ts",
+        "docs/corridor-review-ledger.json",
+        "src/data/routes/wisconsin.ts",
+        "src/data/trip-details/wisconsin.ts",
+        "src/data/generated/route-access-registry.json",
+        "docs/route-coordinate-river-audit.json",
+        "docs/route-coordinate-suggestions.json",
+        "docs/route-coordinate-authoritative-evidence.json",
+        "docs/route-safety-audit.json",
+        "public/data/canonical-river-geometries/routes/beaver-dam-river-cotton-mill-county-j.json",
+        "https://www.co.dodge.wi.gov/trails-waterways/waterways",
+        "https://www.ci.beaverdam.wi.gov/facilities/facility/details/Cotton-Mill-Park-4",
+        "https://milespaddled.com/beaver-dam-river-iii/",
+        "https://milespaddled.com/beaver-dam-river-ii/",
+        "https://www.wisconsinrivertrips.com/segments/beaver-dam-river",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05425912/"
+      ],
+      "validation": {
+        "status": "passed",
+        "commands": [
+          "passed: npm run routes:audit",
+          "passed: npm run routes:audit:corridors",
+          "passed: npm run routes:safety:audit",
+          "passed: npm run routes:audit:overlap",
+          "passed: npm run routes:audit:coordinates; Meadow Road known failure recorded",
+          "passed: npm run routes:geometries:audit",
+          "passed: npx vitest run src/data/route-corridors.test.ts",
+          "passed: npm run typecheck:routes",
+          "passed: npm run operations:verify with gatekeeper-20260820170112",
+          "passed: git diff --check; unrelated pre-existing working-tree modifications preserved"
+        ],
+        "gatekeeperId": "gatekeeper-20260820170112"
+      },
+      "rollbackEvidence": "No route records were deleted, merged, retired, or silently rewritten. Revert by removing the wi-beaver-dam-cotton-mill-lowell corridor/ledger/summary entries, restoring task and queue metadata to ready/new, and removing this run entry.",
+      "summary": "Completed Beaver Dam River consolidation review with a verified four-point corridor model and both distinct route cards preserved."
+    },
+    {
+      "id": "route-worker-202608201147-nd-souris-wintering-willow-deep-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "startedAt": "2026-08-20T16:47:48.907Z",
+      "completedAt": "2026-08-20T16:56:23.748Z",
+      "status": "blocked_no_route_added_validation_passed",
+      "taskId": "nd-gauge-review-batch",
+      "workerRole": "hourly-route-worker",
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "summary": "Screened five North Dakota gauges and added no route. Verendrye Souris and Bantry Souris remained route-capable blockers; Wintering, Willow Creek, and Deep River were screened out.",
+      "workOrder": {
+        "claimedTaskId": "nd-gauge-review-batch",
+        "gaugeKeys": [
+          "usgs:05120000",
+          "usgs:05120500",
+          "usgs:05122000",
+          "usgs:05123400",
+          "usgs:05123510"
+        ],
+        "note": "No route implementation WIP was active; the bounded five-candidate gauge review stayed within the geographic frontier."
+      },
+      "candidatesScreened": [
+        {
+          "candidateId": "nd-souris-verendrye-usgs-05120000-20260820",
+          "status": "blocked_route_package",
+          "blocker": "Live 16.0 cfs / 3.56 ft, but no Verendrye-specific endpoint, threshold, camping, safety, coordinate, image, or geometry package."
+        },
+        {
+          "candidateId": "nd-wintering-river-karlsruhe-usgs-05120500-20260820",
+          "status": "screened_out_not_paddle_relevant",
+          "blocker": "No valid current discharge and no supported public Wintering River point-to-point paddling package."
+        },
+        {
+          "candidateId": "nd-souris-bantry-usgs-05122000-20260820",
+          "status": "blocked_route_package",
+          "blocker": "Official J. Clark Salyer canoe trail exists, but no accepted 05122000 threshold or defensible endpoint coordinate package."
+        },
+        {
+          "candidateId": "nd-willow-creek-willow-city-usgs-05123400-20260820",
+          "status": "screened_out_not_paddle_relevant",
+          "blocker": "No supported public Willow Creek route; downstream Souris trail evidence does not transfer to this tributary gauge."
+        },
+        {
+          "candidateId": "nd-deep-river-upham-usgs-05123510-20260820",
+          "status": "screened_out_not_paddle_relevant",
+          "blocker": "0.02 cfs and no supported public Deep River point-to-point paddling package."
+        }
+      ],
+      "routeAdded": false,
+      "slug": null,
+      "artifactsChanged": {
+        "routeData": false,
+        "tripDetails": false,
+        "imageAuditRow": false,
+        "canonicalGeometry": false,
+        "coordinatePackage": false,
+        "campingPackage": false,
+        "safetyPackage": false
+      },
+      "gallery": {
+        "status": "not_started_no_route_added",
+        "detail": "No candidate cleared the route package gates; no image-audit row changed."
+      },
+      "camping": {
+        "status": "blocked_before_route_package",
+        "detail": "J. Clark Salyer refuge camping prohibition was recorded for the Bantry trail; no legal overnight camping was inferred elsewhere."
+      },
+      "safety": {
+        "status": "blocked_before_route_package",
+        "detail": "Souris water-control/floodplain hazards, low flow, and unverified access prevented a route-specific safety package."
+      },
+      "geometry": {
+        "status": "not_run_no_route_added",
+        "detail": "No endpoints or route data changed."
+      },
+      "coordinates": {
+        "status": "not_run_no_route_added",
+        "detail": "No endpoint package was accepted; no coordinate correction was promoted."
+      },
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260820115623",
+        "commands": [
+          "JSON parse",
+          "npm run operations:gauges:check",
+          "npm run routes:audit",
+          "npm run gallery:audit",
+          "npm run routes:safety:audit",
+          "npm run routes:geometries:audit",
+          "npm run routes:audit:overlap",
+          "npm run routes:audit:coordinates:suggestions",
+          "npm run routes:audit:coordinates",
+          "npm run typecheck:routes",
+          "npm run operations:gates:test",
+          "npm run typecheck",
+          "npm run build",
+          "npm run operations:verify",
+          "git diff --check"
+        ],
+        "detail": "All required checks passed. Gauge coverage 4299/4299; route audit 785; gallery 325 images; safety 0 issues; geometry 951/952 matched; coordinate audit retained only the existing 38-failure/152-suspicious/5-unknown corpus; typechecks, build, operations gates, and operations verification passed."
+      },
+      "nextCandidateRotation": [
+        "Next North Dakota rotation: usgs:05124000, usgs:06329610, usgs:06329620, usgs:06329640, and usgs:06329650.",
+        "Retry Souris only with station-specific threshold, endpoints, camping/safety, coordinates, image, and geometry evidence.",
+        "Do not retry Wintering, Willow Creek, or Deep River without a new public paddling package."
+      ]
+    },
+    {
+      "id": "gatekeeper-20260820115623",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T16:55:50.000Z",
+      "completedAt": "2026-08-20T16:56:23.748Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260820170112",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T17:00:38.406Z",
+      "completedAt": "2026-08-20T17:01:12.150Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "orchestrator-20260820171635",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-20T17:16:35.997Z",
+      "status": "planned",
+      "taskId": "nd-gauge-review-batch",
+      "workerRole": "gauge-coverage",
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05124000",
+        "usgs:06329610",
+        "usgs:06329620",
+        "usgs:06329640",
+        "usgs:06329650"
+      ],
+      "summary": "critical priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608201716-nd-westhope-buford-no-add",
+      "automationId": "paddletoday-hourly-route-worker",
+      "kind": "gauge_review_no_add",
+      "role": "route-worker",
+      "startedAt": "2026-08-20T17:16:35.997Z",
+      "completedAt": "2026-08-20T17:29:25.903Z",
+      "status": "blocked_no_route_added_validation_passed",
+      "taskId": "nd-gauge-review-batch",
+      "workerRole": "hourly-route-worker",
+      "stateId": "ND",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "summary": "Screened five North Dakota gauges and added no route. Westhope Souris remained a threshold/endpoint blocker; the four Buford-area Yellowstone/Missouri gauges were stale or unsupported because current provider support is stage-only or invalid.",
+      "workOrder": {
+        "claimedTaskId": "nd-gauge-review-batch",
+        "gaugeKeys": [
+          "usgs:05124000",
+          "usgs:06329610",
+          "usgs:06329620",
+          "usgs:06329640",
+          "usgs:06329650"
+        ],
+        "note": "No route implementation WIP was active; the bounded five-candidate gauge review stayed within the geographic frontier."
+      },
+      "candidatesScreened": [
+        {
+          "candidateId": "nd-souris-westhope-usgs-05124000-20260820",
+          "status": "blocked_route_package",
+          "blocker": "40.0 cfs / 6.05 ft live, but the J. Clark Salyer trail lacks a selected-gauge numeric threshold and verified endpoint coordinate package."
+        },
+        {
+          "candidateId": "nd-yellowstone-cartwright-usgs-06329610-20260820",
+          "status": "stale_or_unsupported",
+          "blocker": "62.33 ft stage-only; no product-supported discharge or accepted stage threshold and no station-specific route package."
+        },
+        {
+          "candidateId": "nd-yellowstone-buford-usgs-06329620-20260820",
+          "status": "stale_or_unsupported",
+          "blocker": "Current stage was invalid -999999 and the provider is stage-only; Buford access context did not clear a scored route package."
+        },
+        {
+          "candidateId": "nd-missouri-buford-usgs-06329640-20260820",
+          "status": "stale_or_unsupported",
+          "blocker": "6.56 ft stage-only; no product-supported discharge or station-tied threshold and no named point-to-point paddle package."
+        },
+        {
+          "candidateId": "nd-missouri-buford-usgs-06329650-20260820",
+          "status": "stale_or_unsupported",
+          "blocker": "14.27 ft stage-only; no product-supported discharge or station-specific route package."
+        }
+      ],
+      "routeAdded": false,
+      "slug": null,
+      "artifactsChanged": {
+        "routeData": false,
+        "tripDetails": false,
+        "imageAuditRow": false,
+        "canonicalGeometry": false,
+        "coordinatePackage": false,
+        "campingPackage": false,
+        "safetyPackage": false
+      },
+      "gallery": {
+        "status": "not_started_no_route_added",
+        "detail": "No candidate cleared the route package gates; no image-audit row changed."
+      },
+      "camping": {
+        "status": "blocked_before_route_package",
+        "detail": "Refuge camping prohibition was recorded for Westhope; Sundheim Park has no overnight camping; no camping was inferred elsewhere."
+      },
+      "safety": {
+        "status": "blocked_before_route_package",
+        "detail": "Souris water-control/floodplain hazards and large-river Buford navigation hazards lacked route-specific packages."
+      },
+      "geometry": {
+        "status": "not_run_no_route_added",
+        "detail": "No endpoints or route data changed."
+      },
+      "coordinates": {
+        "status": "not_run_no_route_added",
+        "detail": "No endpoint package was accepted; no coordinate correction was promoted."
+      },
+      "validation": {
+        "status": "passed",
+        "gatekeeperId": "gatekeeper-20260820172925",
+        "commands": [
+          "JSON parse",
+          "npm run operations:gauges:check",
+          "npm run routes:audit",
+          "npm run gallery:audit",
+          "npm run routes:safety:audit",
+          "npm run routes:geometries:audit",
+          "npm run routes:audit:overlap",
+          "npm run routes:audit:coordinates:suggestions",
+          "npm run routes:audit:coordinates",
+          "npm run typecheck:routes",
+          "npm run operations:gates:test",
+          "npm run typecheck",
+          "npm run build",
+          "npm run operations:verify",
+          "git diff --check"
+        ],
+        "detail": "All required checks passed. Gauge coverage 4299/4299; route audit 785; gallery 325 images; safety 0 issues; geometry 951/952 matched; coordinate audit retained the existing 38-failure/152-suspicious/5-unknown corpus; typechecks, build, operations gates, operations verification, and git diff check passed. The standalone typecheck:mobile alias does not exist; mobile typecheck ran inside typecheck/build as @paddletoday/mobile tsc."
+      },
+      "nextCandidateRotation": [
+        "Continue the North Dakota provider-baseline queue after 06329650; next rotation should be selected by operations:plan from the remaining unreviewed ND coverage gauges.",
+        "Retry Westhope only with selected-gauge threshold and exact endpoint water-entry evidence.",
+        "Retry Buford-area stage-only candidates only after product-supported discharge or an approved stage adapter plus station-specific route evidence."
+      ]
+    },
+    {
+      "id": "gatekeeper-20260820172638",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T17:25:54.045Z",
+      "completedAt": "2026-08-20T17:26:38.992Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260820172925",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-20T17:28:46.194Z",
+      "completedAt": "2026-08-20T17:29:25.903Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-2026-08-14 records 4299 gauges across 18 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
     }
   ],
-  "updatedAt": "2026-08-20T16:24:32.685Z"
+  "updatedAt": "2026-08-20T17:29:25.903Z"
 }

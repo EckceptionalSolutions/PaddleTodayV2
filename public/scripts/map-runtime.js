@@ -527,6 +527,15 @@ export function markerClassForRating(rating, confidenceLabel) {
   ].join(' ');
 }
 
+// Map tooltips describe the score tier itself. Readiness warnings remain visible
+// in route cards and detail pages, but a Fair score should not be relabeled as
+// Skip merely because a separate launch-readiness gate is active.
+export function mapCallLabelForRating(rating, context = 'today') {
+  if (rating === 'Fair') return 'Watch closely';
+  if (rating === 'No-go') return context === 'weekend' ? 'Skip this weekend' : 'Skip today';
+  return context === 'weekend' ? 'Paddle this weekend' : 'Paddle today';
+}
+
 export function scoreZoneRouteLabel(routeCount, route) {
   if (routeCount !== 1) {
     return `${routeCount} routes in this score zone`;

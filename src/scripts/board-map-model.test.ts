@@ -62,6 +62,14 @@ describe('board map model', () => {
     );
   });
 
+  it('uses the score-tier call in map tooltips', () => {
+    const model = createBoardMapModel();
+    expect(model.mapMarkerContext({
+      ...route,
+      cardRoute: { ...route.cardRoute, score: 65, rating: 'Fair', readiness: { status: 'skip' } },
+    })).toBe('Watch closely');
+  });
+
   it('formats featured access captions consistently', () => {
     expect(featuredMapCaptionText([
       { kind: 'putIn', name: 'River Park' },

@@ -3505,7 +3505,10 @@ html body.page-weekend .weekend-result-row--active {
 
 html body.page-weekend .weekend-result-row__select {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "score body"
+    ". rating";
   gap: 0.58rem;
   align-items: center;
   min-width: 0;
@@ -3530,6 +3533,7 @@ html body.page-weekend .weekend-result-row__select:focus-visible {
 }
 
 html body.page-weekend .weekend-result-row__score {
+  grid-area: score;
   width: 2.45rem;
   min-width: 2.45rem;
   height: 2.45rem;
@@ -3538,6 +3542,7 @@ html body.page-weekend .weekend-result-row__score {
 }
 
 html body.page-weekend .weekend-result-row__body {
+  grid-area: body;
   display: grid;
   min-width: 0;
   gap: 0.12rem;
@@ -3565,6 +3570,8 @@ html body.page-weekend .weekend-result-row__meta {
 }
 
 html body.page-weekend .weekend-result-row__rating {
+  grid-area: rating;
+  justify-self: start;
   align-self: center;
   color: var(--river-deep);
   font-size: 0.67rem;

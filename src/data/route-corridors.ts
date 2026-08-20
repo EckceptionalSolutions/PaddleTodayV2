@@ -209,6 +209,13 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     slugPrefix: 'north-raccoon-river-',
   },
   {
+    corridorId: 'wi-beaver-dam-cotton-mill-lowell',
+    label: 'Beaver Dam River Cotton Mill-to-Lowell corridor',
+    continuityStatus: 'verified',
+    canonicalSlug: 'beaver-dam-river-cotton-mill-county-j',
+    slugs: ['beaver-dam-river-cotton-mill-county-j', 'beaver-dam-river-county-s-lowell'],
+  },
+  {
     corridorId: 'in-wabash-wells-county',
     label: 'Wells County Wabash River access corridor',
     continuityStatus: 'verified',

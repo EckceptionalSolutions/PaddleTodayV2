@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-08-20T10:49:05.908Z.
+Generated 2026-08-20T17:00:26.028Z.
 
-- Defined corridors: 22
-- Routes covered by a corridor definition: 168
-- Remaining multi-route families: 132
+- Defined corridors: 23
+- Routes covered by a corridor definition: 170
+- Remaining multi-route families: 131
 
 ## Defined corridors
 
@@ -30,6 +30,7 @@ Generated 2026-08-20T10:49:05.908Z.
 | mn-minnesota-river-condition-family | Minnesota River condition family | condition-family | 19 | 0 |
 | wi-wisconsin-river-condition-family | Wisconsin River condition family | condition-family | 12 | 0 |
 | ia-north-raccoon-condition-family | North Raccoon River condition family | condition-family | 11 | 0 |
+| wi-beaver-dam-cotton-mill-lowell | Beaver Dam River Cotton Mill-to-Lowell corridor | verified | 2 | 0 |
 | in-wabash-wells-county | Wells County Wabash River access corridor | verified | 4 | 4 |
 | tx-village-creek-paddling-trail | Village Creek Paddling Trail multi-endpoint corridor | verified | 8 | 4 |
 
@@ -92,6 +93,6 @@ Generated 2026-08-20T10:49:05.908Z.
 | Wisconsin | Milwaukee River | 6 |
 | Wisconsin | Pine River | 6 |
 | Iowa | South Skunk River | 6 |
-| Additional families omitted | See route data and overlap audit | 92 |
+| Additional families omitted | See route data and overlap audit | 91 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.
