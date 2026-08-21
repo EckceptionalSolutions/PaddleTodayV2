@@ -24,6 +24,10 @@ const APP_DOWNLOAD_DISMISSED_KEY = 'paddleTodayAppPromptDismissedAt';
 const APP_DOWNLOAD_DISMISS_DAYS = 30;
 const APP_DOWNLOAD_EXCLUDED_PATHS = ['/admin/', '/privacy/', '/terms/'];
 
+function isRouteDetailPath(path) {
+  return /^\/rivers\/[^/]+\/?$/.test(path);
+}
+
 function renderFavoritesNav() {
   if (!(favoritesLink instanceof HTMLAnchorElement)) {
     return;
@@ -356,7 +360,10 @@ function bindAppDownloadPrompt() {
   }
 
   const path = window.location.pathname;
-  if (APP_DOWNLOAD_EXCLUDED_PATHS.some((excludedPath) => path === excludedPath || path.startsWith(excludedPath))) {
+  if (
+    isRouteDetailPath(path) ||
+    APP_DOWNLOAD_EXCLUDED_PATHS.some((excludedPath) => path === excludedPath || path.startsWith(excludedPath))
+  ) {
     return;
   }
 

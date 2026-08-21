@@ -1,0 +1,15 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<div
+  class:list={["route-weather-day-strip", compact && "route-weather-day-strip--compact"]}
+  data-weather-day-strip
+  aria-live="polite"
+>
+  <p class="route-weather-day-strip__loading muted">Loading today&apos;s forecast.</p>
+</div>

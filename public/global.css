@@ -4371,6 +4371,424 @@ html body.page-weekend .weekend-map-empty__card h3 {
   font-weight: 700;
 }
 
+/* Route-detail overview pass: keep the decision, evidence, and trip basics together. */
+.page-route-detail .site-header {
+  padding-top: 0.8rem;
+  padding-bottom: 0.55rem;
+}
+
+.page-route-detail .site-header__blurb {
+  display: none;
+}
+
+.page-route-detail .river-detail__layout {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.7rem;
+}
+
+.page-route-detail .river-detail__section-nav {
+  position: sticky;
+  top: 0.55rem;
+  z-index: 8;
+}
+
+.page-route-detail .river-detail__section-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.48rem;
+  overflow-x: auto;
+  border-radius: 16px;
+  scrollbar-width: thin;
+}
+
+.page-route-detail .river-detail__section-nav-label {
+  flex: 0 0 auto;
+  margin: 0 0.2rem 0 0.35rem;
+}
+
+.page-route-detail .river-detail__section-link {
+  flex: 0 0 auto;
+  min-height: 2.1rem;
+  padding: 0.34rem 0.68rem;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.page-route-detail .river-detail__hero {
+  grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr);
+  gap: 1.15rem;
+}
+
+.page-route-detail .river-detail__hero-main {
+  gap: 0.72rem;
+}
+
+.page-route-detail .river-detail__hero-side {
+  gap: 0.62rem;
+}
+
+.page-route-detail .route-seo-intro {
+  max-width: 48ch;
+  margin: 0.1rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.route-overview-photo {
+  display: grid;
+  gap: 0.48rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-soft);
+}
+
+.route-overview-photo img {
+  display: block;
+  width: 100%;
+  height: clamp(10rem, 19vw, 18rem);
+  object-fit: cover;
+  background: rgba(231, 240, 244, 0.88);
+}
+
+.route-overview-photo figcaption {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0 0.78rem 0.72rem;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.route-overview-photo__label {
+  color: var(--river-deep);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.route-overview-explanation,
+.river-detail__gauge-note-details,
+.route-safety-card__details {
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.route-overview-explanation > summary,
+.river-detail__gauge-note-details > summary,
+.route-safety-card__details > summary {
+  cursor: pointer;
+  padding: 0.58rem 0.72rem;
+  color: var(--river-deep);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.route-overview-explanation .river-detail__summary,
+.river-detail__gauge-note-details > p,
+.route-safety-card__details .route-safety-card__notes {
+  margin: 0;
+  padding: 0 0.72rem 0.68rem;
+}
+
+.route-overview-explanation .river-detail__summary {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.route-overview-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.route-overview-facts > div {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+  padding: 0.68rem 0.72rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 14px;
+  background: rgba(244, 249, 251, 0.72);
+}
+
+.route-overview-facts span {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.route-overview-facts strong {
+  overflow-wrap: anywhere;
+  font-size: 0.82rem;
+  line-height: 1.22;
+}
+
+.page-route-detail .river-detail__gauge-note {
+  gap: 0.35rem;
+  padding: 0.72rem;
+}
+
+.page-route-detail .river-detail__gauge-note > p {
+  margin: 0;
+}
+
+.page-route-detail .river-detail__gauge-note-summary {
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.page-route-detail .route-safety-card {
+  gap: 0.52rem;
+}
+
+.route-safety-card__status {
+  flex: 0 0 auto;
+  color: var(--river-deep);
+  font-size: 0.82rem;
+}
+
+.route-safety-card__critical {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.route-safety-card__details {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.page-route-detail .river-detail__hero-map-shell {
+  display: none;
+}
+
+.page-route-detail .route-conversion-card {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  padding: 0.72rem;
+}
+
+.page-route-detail .route-conversion-card__copy p {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .page-route-detail .site-header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.58rem 0 0.45rem;
+  }
+
+  .page-route-detail .brand {
+    gap: 0.48rem;
+  }
+
+  .page-route-detail .brand__logo {
+    width: 4.25rem;
+  }
+
+  .page-route-detail .brand__copy {
+    gap: 0.08rem;
+  }
+
+  .page-route-detail .brand__eyebrow {
+    font-size: 0.66rem;
+  }
+
+  .page-route-detail .brand__title {
+    max-width: 18ch;
+    font-size: 0.86rem;
+    line-height: 1.08;
+  }
+
+  .page-route-detail .site-header__meta {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .page-route-detail .site-header__topline {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .page-route-detail .site-header__search {
+    width: auto;
+    min-height: 2.15rem;
+    padding-inline: 0.62rem;
+  }
+
+  .page-route-detail .site-header__search-label--full,
+  .page-route-detail .site-header__nav-link:nth-child(n + 3),
+  .page-route-detail .site-header__action,
+  .page-route-detail .site-header__freshness {
+    display: none;
+  }
+
+  .page-route-detail .site-header__nav {
+    gap: 0.25rem;
+  }
+
+  .page-route-detail .site-header__nav-link {
+    min-height: 2.15rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.74rem;
+  }
+
+  .page-route-detail .river-detail__hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "side"
+      "main";
+  }
+
+  .page-route-detail .river-detail__hero-side {
+    grid-area: side;
+    position: relative;
+    top: auto;
+  }
+
+  .page-route-detail .river-detail__hero-main {
+    grid-area: main;
+  }
+
+  .page-route-detail .river-call-panel__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .page-route-detail .site-header {
+    display: flex;
+    align-items: center;
+    gap: 0.58rem;
+    padding: 0.45rem 0 0.35rem;
+  }
+
+  .page-route-detail .brand {
+    gap: 0.42rem;
+  }
+
+  .page-route-detail .brand__logo {
+    width: 3.7rem;
+  }
+
+  .page-route-detail .brand__copy {
+    gap: 0.05rem;
+  }
+
+  .page-route-detail .brand__eyebrow {
+    font-size: 0.62rem;
+  }
+
+  .page-route-detail .brand__title {
+    max-width: 15ch;
+    font-size: 0.76rem;
+    line-height: 1.05;
+  }
+
+  .page-route-detail .site-header__meta {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .page-route-detail .site-header__topline {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .page-route-detail .site-header__search {
+    width: auto;
+    min-height: 2.15rem;
+    padding-inline: 0.55rem;
+  }
+
+  .page-route-detail .site-header__search-label--full,
+  .page-route-detail .site-header__nav-link:nth-child(n + 3),
+  .page-route-detail .site-header__action,
+  .page-route-detail .site-header__freshness {
+    display: none;
+  }
+
+  .page-route-detail .site-header__nav {
+    gap: 0.2rem;
+  }
+
+  .page-route-detail .site-header__nav-link {
+    min-height: 2.15rem;
+    padding: 0.24rem 0.46rem;
+    font-size: 0.72rem;
+  }
+
+  .page-route-detail .river-detail__section-nav {
+    top: 0.25rem;
+  }
+
+  .page-route-detail .river-detail__section-nav-inner {
+    padding: 0.25rem;
+  }
+
+  .page-route-detail .river-detail__section-nav-label {
+    display: none;
+  }
+
+  .page-route-detail .river-detail__hero {
+    gap: 0.72rem;
+    padding: 0.82rem;
+  }
+
+  .page-route-detail .river-detail__hero-top {
+    gap: 0.12rem;
+  }
+
+  .page-route-detail .river-detail__title {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+  }
+
+  .page-route-detail .river-detail__reach {
+    font-size: 0.86rem;
+  }
+
+  .page-route-detail .route-seo-intro {
+    font-size: 0.82rem;
+  }
+
+  .route-overview-photo img {
+    height: clamp(11rem, 42vw, 18rem);
+  }
+
+  .route-overview-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-route-detail .river-call-panel {
+    padding: 0.86rem;
+  }
+
+  .page-route-detail .river-call-panel__statement {
+    font-size: 1.12rem;
+  }
+
+  .page-route-detail .route-conversion-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-route-detail .route-conversion-card__button {
+    justify-self: start;
+  }
+}
+
 .score-map-popup__actions {
   display: grid;
   gap: 0.34rem;
@@ -5584,14 +6002,24 @@ html body.page-weekend .weekend-map-empty__card h3 {
   line-height: 1.48;
 }
 
-.river-detail__chapter-head--today {
+.river-detail__chapter-head--conditions {
   margin-top: 0.45rem;
   padding-top: 0.7rem;
 }
 
-.river-detail__chapter-head--today::before {
+.river-detail__chapter-head--conditions::before {
   background:
     linear-gradient(90deg, rgba(35, 130, 90, 0.08), rgba(35, 130, 90, 0.26) 16%, rgba(16, 35, 45, 0.04) 72%, transparent);
+}
+
+.river-detail__chapter-head--overview {
+  margin-top: 0.45rem;
+  padding-top: 0.7rem;
+}
+
+.river-detail__chapter-head--overview::before {
+  background:
+    linear-gradient(90deg, rgba(30, 115, 151, 0.08), rgba(30, 115, 151, 0.26) 16%, rgba(16, 35, 45, 0.04) 72%, transparent);
 }
 
 .river-detail__chapter-head--plan::before {
@@ -23509,5 +23937,2055 @@ html body.page-explore .river-grid--explore-list .river-card--compact {
     min-height: 2.32rem;
     padding-inline: 0.42rem;
     font-size: 0.7rem;
+  }
+}
+
+/* Route decision dashboard: prioritize today's water, weather, location, and trip shape. */
+html body.page-route-detail [data-river-detail] .river-detail__hero {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "main"
+    "side";
+  gap: 0.9rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-main,
+html body.page-route-detail [data-river-detail] .river-detail__hero-side {
+  min-width: 0;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-main {
+  grid-area: main;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-side {
+  grid-area: side;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-side--sticky {
+  position: static;
+  top: auto;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.78rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(240, 248, 249, 0.96), rgba(255, 252, 246, 0.9)),
+    rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 38px rgba(16, 35, 45, 0.07);
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__heading h2,
+html body.page-route-detail [data-river-detail] .route-live-support-panel__heading h2 {
+  margin: 0.08rem 0 0;
+  font-family: var(--serif);
+  color: var(--ink);
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__heading h2 {
+  font-size: clamp(1.22rem, 2vw, 1.55rem);
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__grid {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.76fr) minmax(19rem, 1.08fr) minmax(21rem, 1.25fr);
+  gap: 0.62rem;
+  align-items: stretch;
+}
+
+html body.page-route-detail [data-river-detail] .route-today-score,
+html body.page-route-detail [data-river-detail] .planning-status-card--overview {
+  min-height: 15.5rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-today-score {
+  align-content: start;
+  gap: 0.58rem !important;
+  padding: 0.82rem !important;
+  border-radius: 19px !important;
+  box-shadow: none;
+}
+
+html body.page-route-detail [data-river-detail] .route-today-score .score-orb--featured {
+  width: 6.7rem;
+  height: 6.7rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-today-score .score-orb__score {
+  font-size: 2.05rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-today-score .river-call-panel__scoreline {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 0.65rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-today-score .river-call-panel__statement {
+  font-size: 1.02rem !important;
+  line-height: 1.2 !important;
+}
+
+html body.page-route-detail [data-river-detail] .route-current-conditions {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.62rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card {
+  display: grid;
+  align-content: start;
+  gap: 0.34rem;
+  min-width: 0;
+  padding: 0.78rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card--gauge {
+  border-color: rgba(39, 110, 126, 0.2);
+  background: linear-gradient(135deg, rgba(230, 244, 246, 0.92), rgba(255, 255, 255, 0.86));
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card--weather {
+  border-color: rgba(173, 117, 44, 0.18);
+  background: linear-gradient(135deg, rgba(255, 247, 229, 0.92), rgba(255, 255, 255, 0.88));
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__label {
+  color: var(--river-deep);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.45rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__source {
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__interpretation:not([hidden]) {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0.04rem 0 0;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid rgba(35, 130, 90, 0.22);
+  border-radius: 999px;
+  background: rgba(232, 247, 237, 0.78);
+  color: var(--river-deep);
+  font-size: 0.7rem;
+  font-weight: 850;
+  line-height: 1.15;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.55rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__value-row strong,
+html body.page-route-detail [data-river-detail] .route-condition-card > strong {
+  font-family: var(--serif);
+  font-size: 1.28rem;
+  line-height: 1.08;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__value-row > span {
+  color: var(--river-deep);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-align: right;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card p,
+html body.page-route-detail [data-river-detail] .route-condition-card small,
+html body.page-route-detail [data-river-detail] .route-condition-card dl,
+html body.page-route-detail [data-river-detail] .route-condition-card dd {
+  margin: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card p,
+html body.page-route-detail [data-river-detail] .route-condition-card small {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  line-height: 1.32;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__details {
+  display: grid;
+  gap: 0.22rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__details > div {
+  display: grid;
+  grid-template-columns: 4.3rem minmax(0, 1fr);
+  gap: 0.4rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__details dt {
+  color: var(--muted);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card__details dd {
+  overflow-wrap: anywhere;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  line-height: 1.25;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-map-shell {
+  display: grid !important;
+  min-width: 0;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-map-frame {
+  height: 100%;
+  min-height: 15.5rem;
+  padding: 0.5rem;
+  border-radius: 19px;
+  box-shadow: none;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-map {
+  min-height: 11.6rem;
+  height: 100%;
+  border-radius: 15px;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-map-copy {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  min-height: 2.3rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-map-status {
+  font-size: 0.7rem;
+  line-height: 1.22;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-facts {
+  grid-column: 1 / -1;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-facts > div {
+  min-height: 4.7rem;
+  padding: 0.62rem 0.72rem;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-facts strong {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-support {
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.9fr) minmax(0, 1.1fr);
+  gap: 0.72rem;
+  align-items: start;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-support__details {
+  display: grid;
+  gap: 0.58rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-photo img {
+  height: clamp(13rem, 20vw, 18rem);
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__hero-side {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.62rem !important;
+  align-items: start;
+}
+
+html body.page-route-detail [data-river-detail] .route-live-support-panel {
+  display: grid;
+  grid-template-columns: minmax(16rem, 1fr) minmax(14rem, 0.8fr) minmax(15rem, 0.9fr);
+  gap: 0.58rem;
+  padding: 0.72rem;
+  border: 1px solid rgba(16, 35, 45, 0.09);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+html body.page-route-detail [data-river-detail] .route-live-support-panel__heading {
+  grid-column: 1 / -1;
+}
+
+html body.page-route-detail [data-river-detail] .route-live-support-panel__heading h2 {
+  font-size: 1rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-live-support-panel .route-conversion-card,
+html body.page-route-detail [data-river-detail] .route-live-support-panel .river-score-tooltip,
+html body.page-route-detail [data-river-detail] .route-live-support-panel__meta {
+  align-self: stretch;
+  margin: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-live-support-panel__meta {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+html body.page-route-detail [data-river-detail] .route-live-support-panel > .river-link--wide {
+  grid-column: 3;
+  align-self: end;
+}
+
+@media (max-width: 1050px) {
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard__grid {
+    grid-template-columns: minmax(15rem, 0.85fr) minmax(18rem, 1.15fr);
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map-shell {
+    grid-column: 1 / -1;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map-frame {
+    min-height: 13.5rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map {
+    min-height: 10rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-live-support-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body.page-route-detail [data-river-detail] .route-live-support-panel__meta,
+  html body.page-route-detail [data-river-detail] .route-live-support-panel > .river-link--wide {
+    grid-column: auto;
+  }
+}
+
+/* Route-detail split hero: route context on the left, today's decision on the right. */
+@media (min-width: 901px) {
+  html body.page-route-detail [data-river-detail] .river-detail__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(22rem, 0.82fr);
+    gap: 0.78rem 0.9rem;
+    align-items: start;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-main {
+    display: contents;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-warning {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-top {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-primary {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard {
+    position: sticky;
+    top: 4.35rem;
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    align-self: start;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-support {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-side {
+    grid-column: 1 / -1;
+    grid-row: 5;
+  }
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-primary {
+  display: grid;
+  gap: 0.62rem;
+  min-width: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-primary .river-detail__hero-map-frame {
+  min-height: 21.5rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-primary .river-detail__hero-map {
+  min-height: 17.5rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-primary .route-overview-facts {
+  grid-column: auto;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.55rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-today-score {
+  display: grid;
+  grid-template-columns: 6.35rem minmax(0, 1fr);
+  gap: 0.45rem 0.72rem !important;
+  align-items: center;
+  min-height: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-today-score > .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-today-score .river-call-panel__scoreline {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-today-score > .river-call-panel__statement {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-current-conditions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: none;
+  gap: 0.55rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-condition-card {
+  min-height: 0;
+  padding: 0.72rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-gauge-band--compact,
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-weather-day-strip--compact {
+  margin-top: 0.15rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard .planning-status-card--overview {
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  html body.page-route-detail [data-river-detail] .river-detail__hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-main {
+    display: grid;
+    gap: 0.62rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-top {
+    order: 1;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard {
+    position: static;
+    order: 2;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-primary {
+    order: 3;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-support {
+    order: 4;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-current-conditions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-primary .river-detail__hero-map-frame {
+    min-height: 17rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-primary .river-detail__hero-map {
+    min-height: 13rem;
+  }
+}
+
+@media (max-width: 560px) {
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard .route-today-score {
+    grid-template-columns: 5.7rem minmax(0, 1fr);
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-primary .river-detail__hero-map-frame {
+    min-height: 11.3rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-primary .river-detail__hero-map {
+    min-height: 8rem;
+  }
+}
+
+/* Route condition visuals: one gauge language and one forecast language throughout. */
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__grid {
+  grid-template-columns:
+    minmax(12rem, 0.72fr)
+    minmax(13.5rem, 0.9fr)
+    minmax(15rem, 1fr)
+    minmax(18rem, 1.25fr);
+}
+
+html body.page-route-detail [data-river-detail] .route-current-conditions {
+  display: contents;
+}
+
+html body.page-route-detail [data-river-detail] .route-condition-card {
+  min-height: 15.5rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band {
+  display: grid;
+  gap: 0.58rem;
+  min-width: 0;
+  padding: 0.78rem;
+  border: 1px solid rgba(16, 35, 45, 0.09);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band[hidden] {
+  display: none;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.7rem;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__head strong {
+  color: var(--river-deep);
+  font-size: 0.82rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__track {
+  position: relative;
+  height: 0.82rem;
+  overflow: visible;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(191, 126, 93, 0.42),
+    rgba(226, 191, 112, 0.38) 30%,
+    rgba(226, 191, 112, 0.38) 70%,
+    rgba(191, 126, 93, 0.42)
+  );
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__usable {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  min-width: 0.5rem;
+  border: 1px solid rgba(31, 104, 91, 0.3);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #a9d1c4, #79b3a2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__marker {
+  position: absolute;
+  top: 50%;
+  width: 0.7rem;
+  height: 1.45rem;
+  margin-left: -0.35rem;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: var(--river-deep);
+  box-shadow: 0 2px 6px rgba(16, 35, 45, 0.25);
+  transform: translateY(-50%);
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__marker--good {
+  background: #2f806d;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__marker--watch {
+  background: #b27a29;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__marker--skip {
+  background: #a55242;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__labels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.63rem;
+  font-weight: 750;
+  line-height: 1.18;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__labels span:nth-child(2) {
+  color: var(--river-deep);
+  text-align: center;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band__labels span:last-child {
+  text-align: right;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band--compact {
+  gap: 0.36rem;
+  margin-top: auto;
+  padding: 0.48rem 0.5rem 0.4rem;
+  border-radius: 13px;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band--compact .route-gauge-band__head {
+  display: none;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band--compact .route-gauge-band__track {
+  height: 0.7rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-gauge-band--compact .route-gauge-band__labels {
+  font-size: 0.57rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.42rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day-strip__loading {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day {
+  display: grid;
+  justify-items: center;
+  gap: 0.18rem;
+  min-width: 0;
+  padding: 0.48rem 0.3rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day--clear {
+  background: rgba(255, 248, 225, 0.86);
+  color: #9b6b20;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day--rain,
+html body.page-route-detail [data-river-detail] .route-weather-day--storm {
+  background: rgba(229, 241, 247, 0.9);
+  color: #276b88;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day--cold {
+  background: rgba(234, 243, 247, 0.9);
+  color: #426d7e;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day__time,
+html body.page-route-detail [data-river-detail] .route-weather-day__rain {
+  overflow: hidden;
+  max-width: 100%;
+  font-size: 0.64rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day__icon {
+  display: grid;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day__temperature {
+  color: var(--ink);
+  font-size: 0.78rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact {
+  gap: 0.28rem;
+  margin-top: auto;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact .route-weather-day {
+  gap: 0.1rem;
+  padding: 0.28rem 0.14rem;
+  border-radius: 10px;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact .route-weather-day__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact .route-weather-day__time,
+html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact .route-weather-day__rain {
+  font-size: 0.54rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact .route-weather-day__temperature {
+  font-size: 0.67rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__conditions-details {
+  margin-top: 0.15rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-visual-panel--gauge,
+html body.page-route-detail [data-river-detail] .river-visual-panel--weather {
+  align-content: start;
+  gap: 0.72rem;
+}
+
+html body.page-route-detail [data-river-detail] .weather-hourly-disclosure {
+  overflow: hidden;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+html body.page-route-detail [data-river-detail] .weather-hourly-disclosure > summary {
+  cursor: pointer;
+  padding: 0.68rem 0.78rem;
+  color: var(--river-deep);
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+html body.page-route-detail [data-river-detail] .weather-hourly-disclosure .weather-visual {
+  padding: 0 0.65rem 0.65rem;
+}
+
+/* The lower detail chapter reads in the same order as its heading: gauge first, weather second. */
+html body.page-route-detail [data-river-detail] .river-why-panel__visuals {
+  grid-template-areas:
+    "gauge gauge"
+    "weather weather";
+}
+
+@media (max-width: 980px) {
+  html body.page-route-detail [data-river-detail] .river-why-panel__visuals {
+    grid-template-areas:
+      "gauge"
+      "weather";
+  }
+}
+
+@media (max-width: 1050px) {
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body.page-route-detail [data-river-detail] .route-today-score {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-current-conditions {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-row: 2;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map-shell {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-condition-card {
+    min-height: 0;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-facts {
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-route-detail [data-river-detail] .route-today-score,
+  html body.page-route-detail [data-river-detail] .route-current-conditions,
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map-shell,
+  html body.page-route-detail [data-river-detail] .route-overview-facts {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-condition-card {
+    min-height: 0;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-gauge-band--compact,
+  html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact {
+    margin-top: 0.18rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-weather-day {
+    padding-inline: 0.22rem;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-route-detail [data-river-detail] .river-detail__hero {
+    padding: 0.72rem !important;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-title-block {
+    display: grid;
+    gap: 0.14rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-seo-intro {
+    max-width: none;
+    margin-top: 0.2rem;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard {
+    gap: 0.5rem;
+    padding: 0.58rem;
+    border-radius: 19px;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard__heading h2 {
+    font-size: 1.16rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-today-score,
+  html body.page-route-detail [data-river-detail] .planning-status-card--overview {
+    min-height: 0;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-today-score {
+    grid-template-columns: 5.7rem minmax(0, 1fr);
+    align-items: center;
+    padding: 0.65rem !important;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-today-score > .eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-today-score .river-call-panel__scoreline {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-today-score > .river-call-panel__statement {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-today-score .score-orb--featured {
+    width: 5.7rem;
+    height: 5.7rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-today-score .score-orb__score {
+    font-size: 1.8rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-current-conditions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    gap: 0.5rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact .route-weather-day:nth-child(4) {
+    display: none;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-weather-day-strip--compact .route-weather-day__icon {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-condition-card {
+    min-height: 8.5rem;
+    padding: 0.62rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-condition-card__value-row {
+    display: grid;
+    gap: 0.16rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-condition-card__value-row > span {
+    text-align: left;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-condition-card__details > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-condition-card__details dt {
+    display: none;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map-shell {
+    grid-column: auto;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map-frame {
+    min-height: 11.3rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map {
+    min-height: 8rem !important;
+  }
+
+  html body.page-route-detail [data-river-detail] .river-detail__hero-map-copy {
+    display: flex !important;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-facts > div {
+    min-height: 4.35rem;
+    padding: 0.55rem 0.6rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-support,
+  html body.page-route-detail [data-river-detail] .river-detail__hero-side,
+  html body.page-route-detail [data-river-detail] .route-live-support-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-photo img {
+    height: 12rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-live-support-panel > .river-link--wide {
+    grid-column: auto;
+  }
+}
+
+/* Keep the split decision rail stacked after every responsive dashboard rule. */
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Route-detail density pass: bring the actual route decision into view sooner. */
+.page-route-detail .river-detail {
+  gap: 0.58rem;
+}
+
+.page-route-detail .river-detail__group-link {
+  margin-bottom: 0.15rem;
+}
+
+.page-route-detail .route-seo-intro {
+  max-width: 62ch;
+}
+
+.page-route-detail .route-safety-card__details-body {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0 0.72rem 0.68rem;
+}
+
+.page-route-detail .route-safety-card__details-body .route-safety-card__critical,
+.page-route-detail .route-safety-card__details-body .route-safety-card__notes {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 981px) {
+  .page-route-detail .site-header {
+    padding: 0.55rem 0.78rem;
+  }
+
+  .page-route-detail .brand {
+    gap: 0.68rem;
+  }
+
+  .page-route-detail .brand__logo {
+    width: 7.4rem;
+  }
+
+  .page-route-detail .brand__copy {
+    gap: 0.16rem;
+  }
+
+  .page-route-detail .brand__eyebrow {
+    font-size: 0.66rem;
+  }
+
+  .page-route-detail .brand__title {
+    max-width: 20ch;
+    font-size: 0.96rem;
+    line-height: 1.08;
+  }
+}
+
+/* Keep the decision first, then let the supporting gauge history arrive after the trip plan. */
+html body.page-route-detail [data-river-detail] .river-detail__content > * {
+  order: 50;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__hero {
+  order: 1;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > [data-detail-fetch-banner] {
+  order: 2;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--conditions {
+  order: 8;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--overview {
+  order: 3;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > #quick-facts {
+  order: 4;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > #route-outlook {
+  order: 5;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--plan {
+  order: 6;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > #access-plan {
+  order: 7;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > #river-conditions {
+  order: 8;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > #route-gallery {
+  order: 9;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--understand {
+  order: 10;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > [data-detail-status-banner] {
+  order: 11;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > #why-this-call {
+  order: 12;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > .route-community {
+  order: 13;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--contribute {
+  order: 14;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-photo img {
+  height: clamp(10rem, 18vw, 16rem);
+}
+
+@media (max-width: 760px) {
+  html body.page-route-detail [data-river-detail] .route-overview-photo img {
+    height: 10.5rem;
+  }
+}
+
+/* Final hierarchy pass: surface trip facts, tighten planning copy, and make
+   the two access maps read as orientation vs. segment planning. */
+html body.page-route-detail [data-river-detail] .route-overview-trip-fit {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-top: 0.02rem;
+  padding-top: 0.58rem;
+  border-top: 1px solid rgba(16, 35, 45, 0.1);
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-trip-fit > div {
+  display: grid;
+  min-width: 0;
+  gap: 0.16rem;
+  padding: 0.5rem 0.58rem 0.54rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-trip-fit span {
+  color: var(--river-deep);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-trip-fit strong {
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  line-height: 1.18;
+}
+
+html body.page-route-detail [data-river-detail] .outlook-grid {
+  gap: 0.68rem;
+}
+
+html body.page-route-detail [data-river-detail] .outlook-card {
+  gap: 0.24rem;
+  min-height: 0;
+  padding: 0.78rem 0.9rem;
+}
+
+html body.page-route-detail [data-river-detail] .outlook-card__direction {
+  color: var(--river-deep);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+html body.page-route-detail [data-river-detail] .outlook-card p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 0.16rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 0.86rem;
+  line-height: 1.34;
+}
+
+html body.page-route-detail [data-river-detail] .river-launch-plan__hero {
+  padding: 0.72rem 0.9rem 0.78rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-launch-plan__copy {
+  gap: 0.52rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-launch-plan__map-shell {
+  display: grid;
+  gap: 0.3rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-launch-plan__map-label {
+  margin: 0;
+  color: var(--river-deep);
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card {
+  min-height: 0;
+  padding: 0.86rem 0.95rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.34rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card__actions .river-link--inline,
+html body.page-route-detail [data-river-detail] .river-access-card__actions .river-inline-button {
+  width: fit-content;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-alert {
+  border-color: rgba(30, 115, 151, 0.18);
+  background: linear-gradient(135deg, rgba(237, 247, 250, 0.9), rgba(255, 255, 255, 0.84));
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-alert .route-conversion-card__kicker {
+  color: var(--river-deep);
+}
+
+@media (max-width: 760px) {
+  html body.page-route-detail [data-river-detail] .route-overview-trip-fit {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__live-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin: 0.18rem 0 0;
+  color: var(--muted);
+  font-size: 0.66rem;
+  line-height: 1.2;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__live-meta span:first-child {
+  color: var(--river-deep);
+  font-weight: 800;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__live-meta time {
+  white-space: nowrap;
+}
+
+/* Put the location check ahead of the contextual photo in the hero. */
+@media (min-width: 901px) {
+  html body.page-route-detail [data-river-detail] .route-overview-primary {
+    grid-row: 3 !important;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-support {
+    grid-row: 4 !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html body.page-route-detail [data-river-detail] .route-overview-primary {
+    order: 3 !important;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-support {
+    order: 4 !important;
+  }
+}
+
+/* Keep the expanded decision explanation useful without making it a wall of copy. */
+html body.page-route-detail [data-river-detail] .river-detail__decision-summary-more {
+  margin-top: 0.35rem;
+  border-top: 1px solid rgba(16, 35, 45, 0.1);
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__decision-summary-more > summary {
+  cursor: pointer;
+  padding: 0.42rem 0;
+  color: var(--river-deep);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__decision-summary-more .compact-list {
+  margin: 0 0 0.35rem;
+  padding-left: 1rem;
+  font-size: 0.78rem;
+}
+
+/* Quick facts are reference information, so let status colors belong to the live cards. */
+html body.page-route-detail [data-river-detail] .river-quick-facts__grid .snapshot-card {
+  border-color: rgba(16, 35, 45, 0.1);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: none;
+}
+
+/* A failed refresh should not become a second hero competing with the decision card. */
+html body.page-route-detail [data-river-detail] [data-detail-fetch-banner]:not([hidden]) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.55rem 0.75rem;
+  padding: 0.58rem 0.75rem;
+}
+
+html body.page-route-detail [data-river-detail] [data-detail-fetch-banner]:not([hidden]) .status-banner__body p {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  html body.page-route-detail [data-river-detail] [data-detail-fetch-banner]:not([hidden]) {
+    grid-template-columns: 1fr auto;
+  }
+
+  html body.page-route-detail [data-river-detail] [data-detail-fetch-banner]:not([hidden]) .status-banner__body {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Give an empty gallery a compact, intentional placeholder instead of a large blank panel. */
+html body.page-route-detail [data-river-detail] .route-gallery__empty {
+  grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 1.28fr);
+  align-items: center;
+  gap: 1rem;
+  min-height: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery__empty-art {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 10rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-gallery__empty-art img {
+  min-height: 10rem;
+}
+
+@media (max-width: 700px) {
+  html body.page-route-detail [data-river-detail] .route-gallery__empty {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Wide route scaffold: a quiet chapter rail, focused content column, and one decision rail. */
+@media (min-width: 1181px) {
+  .page-route-detail .river-detail__layout {
+    grid-template-columns: 9.6rem minmax(0, 1fr);
+    gap: 0.82rem;
+  }
+
+  .page-route-detail .river-detail__section-nav--desktop {
+    position: sticky;
+    top: 0.55rem;
+    align-self: start;
+  }
+
+  .page-route-detail .river-detail__section-nav--desktop .river-detail__section-nav-inner {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    padding: 0.52rem;
+  }
+
+  .page-route-detail .river-detail__section-nav--desktop .river-detail__section-nav-label {
+    margin: 0.15rem 0.42rem 0.3rem;
+    font-size: 0.6rem;
+  }
+
+  .page-route-detail .river-detail__section-nav--desktop .river-detail__section-link {
+    display: block;
+    width: 100%;
+    min-height: 1.8rem;
+    padding: 0.38rem 0.48rem;
+    border-radius: 9px;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .page-route-detail .river-detail__hero-side {
+    display: contents;
+  }
+
+  .page-route-detail .river-detail__hero-top {
+    padding-right: 10rem;
+  }
+
+  .page-route-detail .route-action-bar--rail {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+    align-self: start;
+    z-index: 4;
+    margin-top: 0.05rem;
+    padding: 0.18rem;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .page-route-detail .route-action-bar--rail .route-action-bar__row {
+    justify-content: flex-end;
+  }
+
+  .page-route-detail .route-action-bar--rail .route-action-button {
+    min-height: 1.9rem;
+    padding: 0.3rem 0.56rem;
+    font-size: 0.72rem;
+  }
+
+  .page-route-detail .route-live-support-panel {
+    grid-column: 1 / -1;
+    grid-row: 5;
+  }
+
+  .page-route-detail .route-decision-dashboard {
+    border-radius: 20px;
+  }
+
+  .page-route-detail .route-decision-dashboard .route-today-score {
+    border: 0 !important;
+    border-bottom: 1px solid rgba(16, 35, 45, 0.1) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    padding: 0 0 0.78rem !important;
+  }
+
+  .page-route-detail .route-decision-dashboard .route-condition-card {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0.7rem 0;
+  }
+
+  .page-route-detail .route-decision-dashboard .route-condition-card--weather {
+    border-top: 1px solid rgba(16, 35, 45, 0.1);
+  }
+
+  .page-route-detail .route-overview-support__details {
+    align-content: start;
+  }
+
+  .page-route-detail .route-overview-support__kicker {
+    margin: 0 0 -0.1rem;
+    font-size: 0.66rem;
+  }
+}
+
+@media (min-width: 1181px) {
+  html body.page-route-detail [data-river-detail] .river-detail__hero-side {
+    display: contents;
+  }
+}
+
+/* Keep the decision rail focused on the complete paddle-day decision. */
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit,
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-signal,
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness {
+  border-top: 1px solid rgba(16, 35, 45, 0.1);
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.42rem 0.72rem;
+  padding: 0.76rem 0 0.16rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit > div {
+  display: grid;
+  min-width: 0;
+  gap: 0.1rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit span,
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-label,
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness > span {
+  color: var(--ink-muted);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit strong {
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  line-height: 1.22;
+  overflow-wrap: anywhere;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-signal {
+  display: grid;
+  gap: 0.42rem;
+  padding: 0.7rem 0 0.12rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-head strong {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-align: right;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-signal--caution .route-decision-dashboard__safety-head strong,
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-signal--warning .route-decision-dashboard__safety-head strong {
+  color: #8a5a14;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-chips span {
+  border: 1px solid rgba(138, 90, 20, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 249, 231, 0.78);
+  color: #795218;
+  font-size: 0.62rem;
+  line-height: 1.15;
+  padding: 0.22rem 0.42rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-summary {
+  color: var(--ink-muted);
+  font-size: 0.7rem;
+  line-height: 1.35;
+  margin: 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.42rem;
+  color: var(--ink-muted);
+  font-size: 0.61rem;
+  line-height: 1.3;
+  padding: 0.62rem 0 0;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness strong {
+  color: var(--ink-soft);
+  font-size: 0.65rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness small {
+  margin-left: auto;
+  font-size: 0.61rem;
+}
+
+@media (min-width: 1181px) {
+  html body.page-route-detail [data-river-detail] .river-detail__hero {
+    grid-template-rows: max-content minmax(0, max-content) auto;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit {
+    gap: 0.32rem 0.56rem;
+    padding-top: 0.64rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard__safety-signal {
+    padding-top: 0.6rem;
+  }
+
+  /* Keep the right-hand decision rail out of the left content row sizing. */
+  html body.page-route-detail [data-river-detail] .river-detail__hero {
+    position: relative;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard {
+    position: absolute;
+    top: 1.72rem;
+    right: 0;
+    width: 100%;
+    z-index: 3;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness small {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard {
+    position: static;
+    width: auto;
+  }
+}
+
+/* The route context below the map reads as one continuous brief. */
+@media (min-width: 901px) {
+  html body.page-route-detail [data-river-detail] .route-overview-support {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.78rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-photo,
+  html body.page-route-detail [data-river-detail] .route-overview-support__details {
+    min-width: 0;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-photo img {
+    height: clamp(15rem, 25vw, 20rem);
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-support__details {
+    gap: 0.68rem;
+  }
+}
+
+/* Keep the score explanation attached to the score that it explains. */
+html body.page-route-detail [data-river-detail] .route-today-score__breakdown {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 0.08rem;
+  border-color: rgba(16, 35, 45, 0.1);
+  background: rgba(255, 255, 255, 0.54);
+}
+
+html body.page-route-detail [data-river-detail] .route-today-score__breakdown .river-score-tooltip__summary {
+  padding: 0.52rem 0.66rem;
+  color: var(--river-deep);
+  font-size: 0.74rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-today-score__breakdown .river-score-tooltip__summary::after {
+  width: 1.3rem;
+  height: 1.3rem;
+  font-size: 0.88rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-alert {
+  gap: 0.62rem;
+  padding: 0.74rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-alert .route-conversion-card__button {
+  width: fit-content;
+  min-width: 8rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-source {
+  justify-self: start;
+  margin-top: -0.1rem;
+  font-size: 0.74rem;
+}
+
+@media (min-width: 1181px) {
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard {
+    right: 0.55rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-alert {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+}
+
+/* Give the right rail a real stack, then let the left route brief finish with its map. */
+html body.page-route-detail [data-river-detail] .route-decision-rail {
+  min-width: 0;
+}
+
+@media (min-width: 901px) {
+  html body.page-route-detail [data-river-detail] .route-decision-rail {
+    grid-column: 2;
+    grid-row: 2 / span 3;
+    display: grid;
+    align-content: start;
+    gap: 0.72rem;
+    min-width: 0;
+    position: sticky;
+    top: 4.35rem;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-rail .route-decision-dashboard {
+    position: static;
+    width: auto;
+    right: auto;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-rail .route-overview-alert {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-support {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-primary {
+    grid-column: 1;
+    grid-row: 4;
+  }
+}
+
+@media (max-width: 900px) {
+  html body.page-route-detail [data-river-detail] .route-decision-rail {
+    display: grid;
+    gap: 0.62rem;
+    order: 2;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-rail .route-decision-dashboard,
+  html body.page-route-detail [data-river-detail] .route-decision-rail .route-overview-alert {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-rail .route-decision-dashboard {
+    order: 1;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-rail .route-overview-alert {
+    order: 2;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-support {
+    order: 3;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-overview-primary {
+    order: 4;
+  }
+}
+
+/* Final route-detail styling pass: quieter chrome, clearer section hierarchy. */
+html body.page-route-detail [data-river-detail] .route-decision-dashboard {
+  border-color: rgba(16, 35, 45, 0.14);
+  box-shadow: 0 18px 42px rgba(16, 35, 45, 0.09);
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__heading {
+  padding-bottom: 0.18rem;
+  border-bottom: 1px solid rgba(16, 35, 45, 0.08);
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-support__details {
+  gap: 0.72rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-support__kicker {
+  color: var(--river-deep);
+  letter-spacing: 0.13em;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-explanation,
+html body.page-route-detail [data-river-detail] .river-detail__gauge-note {
+  border-color: rgba(30, 115, 151, 0.14);
+  background: rgba(250, 253, 253, 0.9);
+}
+
+html body.page-route-detail [data-river-detail] .river-detail__gauge-note-label {
+  color: var(--river-deep);
+}
+
+html body.page-route-detail [data-river-detail] .route-safety-card {
+  box-shadow: 0 8px 22px rgba(138, 90, 20, 0.06);
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-source {
+  border: 1px solid rgba(30, 115, 151, 0.14);
+  border-radius: 999px;
+  background: rgba(239, 248, 250, 0.78);
+  padding: 0.48rem 0.75rem;
+  text-decoration: none;
+}
+
+html body.page-route-detail [data-river-detail] .route-overview-source:hover {
+  background: rgba(230, 244, 246, 0.96);
+}
+
+@media (max-width: 560px) {
+  html body.page-route-detail [data-river-detail] .route-today-score .river-call-panel__statement {
+    padding-left: 0.16rem;
+    font-size: 0.94rem !important;
+  }
+
+  html body.page-route-detail [data-river-detail] .route-decision-dashboard__heading {
+    align-items: flex-start;
+  }
+}
+
+/* Freshness is two labeled fields, not a run-on sentence. */
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.18rem 0.42rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness small {
+  grid-column: 1 / -1;
+  margin-left: 0;
+  padding-top: 0.08rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__freshness small span {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+/* Make compact route facts scan as label/value pairs. */
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit {
+  gap: 0.42rem;
+  padding-top: 0.72rem;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit > div {
+  gap: 0.18rem;
+  padding: 0.42rem 0.48rem 0.46rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.46);
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit span {
+  color: var(--river-deep);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+}
+
+html body.page-route-detail [data-river-detail] .route-decision-dashboard__trip-fit strong {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+/* Keep the detailed history available without repeating the top-of-page read. */
+html body.page-route-detail [data-river-detail] .river-conditions-disclosure {
+  overflow: hidden;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 16px;
+  background: rgba(248, 251, 251, 0.72);
+}
+
+html body.page-route-detail [data-river-detail] .river-conditions-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.72rem 0.82rem;
+  color: var(--river-deep);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 800;
+  list-style: none;
+}
+
+html body.page-route-detail [data-river-detail] .river-conditions-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+html body.page-route-detail [data-river-detail] .river-conditions-disclosure > summary::before {
+  content: "▸";
+  margin-right: 0.34rem;
+  color: var(--river);
+}
+
+html body.page-route-detail [data-river-detail] .river-conditions-disclosure[open] > summary::before {
+  content: "▾";
+}
+
+html body.page-route-detail [data-river-detail] .river-conditions-disclosure > summary .river-detail__disclosure-hint {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+html body.page-route-detail [data-river-detail] .river-conditions-disclosure > .river-detail__conditions-details {
+  padding: 0.1rem 0.62rem 0.62rem;
+}
+
+/* Access and shuttle: make the endpoints feel like a route, not two generic cards. */
+html body.page-route-detail [data-river-detail] .river-launch-plan__hero {
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid rgba(30, 115, 151, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(237, 247, 249, 0.92), rgba(255, 252, 246, 0.86));
+}
+
+html body.page-route-detail [data-river-detail] .river-launch-plan__copy h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+html body.page-route-detail [data-river-detail] .river-access-grid {
+  position: relative;
+  gap: 1rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-access-grid::before {
+  content: "";
+  position: absolute;
+  top: 1.32rem;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(35, 130, 90, 0.45), rgba(30, 115, 151, 0.45));
+  pointer-events: none;
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card {
+  position: relative;
+  z-index: 1;
+  gap: 0.52rem;
+  min-height: 11rem;
+  padding: 1rem 1.05rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 22px rgba(16, 35, 45, 0.05);
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card--put-in {
+  border-top: 4px solid rgba(35, 130, 90, 0.7);
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card--take-out {
+  border-top: 4px solid rgba(30, 115, 151, 0.7);
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card__eyebrow {
+  color: var(--river-deep);
+  font-size: 0.64rem;
+  font-weight: 850;
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card .river-logistics__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-access-card strong {
+  font-family: var(--serif);
+  font-size: 1.06rem;
+}
+
+html body.page-route-detail [data-river-detail] .river-access-planner-disclosure {
+  border-color: rgba(30, 115, 151, 0.16);
+  background: rgba(248, 251, 251, 0.72);
+}
+
+html body.page-route-detail [data-river-detail] .river-access-planner {
+  border-color: rgba(30, 115, 151, 0.12);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+@media (max-width: 760px) {
+  html body.page-route-detail [data-river-detail] .river-access-grid::before {
+    top: 25%;
+    bottom: 25%;
+    left: 1.35rem;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, rgba(35, 130, 90, 0.45), rgba(30, 115, 151, 0.45));
+  }
+}
+
+/* Keep the route header aligned with the shared site-header shell. */
+@media (min-width: 981px) {
+  .page-route-detail .site-header {
+    padding: 0.72rem 1rem;
+  }
+
+  .page-route-detail .site-header__blurb {
+    display: block;
+  }
+
+  .page-route-detail .brand {
+    gap: 0.9rem;
+  }
+
+  .page-route-detail .brand__logo {
+    width: min(180px, 36vw);
+  }
+
+  .page-route-detail .brand__copy {
+    gap: 0.28rem;
+  }
+
+  .page-route-detail .brand__eyebrow {
+    font-size: 0.76rem;
+  }
+
+  .page-route-detail .brand__title {
+    max-width: 24ch;
+    font-size: 1.12rem;
+    line-height: 1.05;
+  }
+}
+
+/* Final route-page image height override. */
+html body.page-route-detail [data-river-detail] .route-overview-photo img {
+  height: clamp(10rem, 18vw, 16rem);
+}
+
+@media (max-width: 760px) {
+  html body.page-route-detail [data-river-detail] .route-overview-photo img {
+    height: 10.5rem;
   }
 }

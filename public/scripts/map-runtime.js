@@ -67,7 +67,7 @@ export const MAP_VIEWPORT_PROFILES = Object.freeze({
       compact: Object.freeze({ top: 24, right: 24, bottom: 24, left: 24 }),
       wide: Object.freeze({ top: 42, right: 42, bottom: 42, left: 42 }),
     }),
-    maxZoom: 10.2,
+    maxZoom: 9.8,
     duration: 650,
   }),
   riverGroupResults: Object.freeze({
@@ -88,10 +88,10 @@ export const MAP_VIEWPORT_PROFILES = Object.freeze({
   }),
   detailHero: Object.freeze({
     padding: Object.freeze({
-      compact: Object.freeze({ top: 34, right: 34, bottom: 34, left: 34 }),
-      wide: Object.freeze({ top: 34, right: 34, bottom: 34, left: 34 }),
+      compact: Object.freeze({ top: 46, right: 46, bottom: 46, left: 46 }),
+      wide: Object.freeze({ top: 46, right: 46, bottom: 46, left: 46 }),
     }),
-    maxZoom: 11.2,
+    maxZoom: 10.2,
     duration: 0,
   }),
   detailAccess: Object.freeze({

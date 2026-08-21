@@ -1,0 +1,27 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<div
+  class:list={["route-gauge-band", compact && "route-gauge-band--compact"]}
+  data-gauge-band-visual
+  hidden
+>
+  <div class="route-gauge-band__head">
+    <span data-gauge-band-status>Checking gauge band</span>
+    <strong data-gauge-band-current>--</strong>
+  </div>
+  <div class="route-gauge-band__track" aria-hidden="true">
+    <span class="route-gauge-band__usable" data-gauge-band-usable></span>
+    <span class="route-gauge-band__marker" data-gauge-band-marker></span>
+  </div>
+  <div class="route-gauge-band__labels" aria-hidden="true">
+    <span data-gauge-band-low>Low</span>
+    <span data-gauge-band-target>Target</span>
+    <span data-gauge-band-high>High</span>
+  </div>
+</div>

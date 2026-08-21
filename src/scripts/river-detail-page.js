@@ -91,6 +91,8 @@ const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
 const detailJumpLinks = Array.from(root.querySelectorAll('[data-detail-jump]'));
 const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
+const weatherDayStrips = Array.from(root.querySelectorAll('[data-weather-day-strip]'));
+const gaugeBandVisuals = Array.from(root.querySelectorAll('[data-gauge-band-visual]'));
 const historyBars = root.querySelector('[data-history-bars]');
 const historyPanel = root.querySelector('[data-history-panel]');
 const alertDialog = root.querySelector('[data-alert-dialog]');
@@ -1450,25 +1452,21 @@ function setupDetailSectionNav() {
     }
   }
 
+  const syncActiveDetailSection = () => {
+    const topOffset = Math.max(detailScrollOffset(), 24) + 12;
+    const orderedSections = detailSections
+      .map((section) => ({ section, rect: section.getBoundingClientRect() }))
+      .filter(({ rect }) => rect.height > 0)
+      .sort((left, right) => left.rect.top - right.rect.top);
+    const passedSections = orderedSections.filter(({ rect }) => rect.top <= topOffset);
+    const activeSection = passedSections.at(-1)?.section ?? orderedSections[0]?.section;
+    if (activeSection instanceof HTMLElement) {
+      setActiveDetailSection(activeSection.dataset.detailNavGroup || activeSection.dataset.detailSection || '');
+    }
+  };
+
   const observer = new IntersectionObserver(
-    (entries) => {
-      const visibleSections = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((left, right) => right.intersectionRatio - left.intersectionRatio);
-
-      if (visibleSections.length === 0) {
-        return;
-      }
-
-      const activeId = visibleSections[0].target.getAttribute('data-detail-section');
-      if (activeId) {
-        const activeKey =
-          visibleSections[0].target instanceof HTMLElement
-            ? visibleSections[0].target.dataset.detailNavGroup || activeId
-            : activeId;
-        setActiveDetailSection(activeKey);
-      }
-    },
+    () => syncActiveDetailSection(),
     {
       rootMargin: '-18% 0px -55% 0px',
       threshold: [0.15, 0.35, 0.6],
@@ -1478,6 +1476,10 @@ function setupDetailSectionNav() {
   for (const section of detailSections) {
     observer.observe(section);
   }
+
+  window.addEventListener('scroll', syncActiveDetailSection, { passive: true });
+  window.addEventListener('resize', syncActiveDetailSection);
+  syncActiveDetailSection();
 }
 
 function setupDetailJumpLinks() {
@@ -1551,6 +1553,15 @@ function decisionLabel(input) {
     return callLabelForDecision(rating, readiness);
   }
   return callDisplayLabel(rating, { liveData: typeof input === 'string' ? null : input?.liveData });
+}
+
+function collapseLowerScoreDetails() {
+  const lowerScoreDetails = root.querySelectorAll('#why-this-call .river-accordion');
+  for (const detail of lowerScoreDetails) {
+    if (detail instanceof HTMLDetailsElement) {
+      detail.open = false;
+    }
+  }
 }
 
 function liveWarningLabel(liveData) {
@@ -2377,6 +2388,67 @@ function hourlyWeatherIconMarkup(condition) {
   return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v3"></path><path d="M12 18.5v3"></path><path d="M2.5 12h3"></path><path d="M18.5 12h3"></path><path d="m4.9 4.9 2.1 2.1"></path><path d="m17 17 2.1 2.1"></path><path d="m19.1 4.9-2.1 2.1"></path><path d="m7 17-2.1 2.1"></path></svg>';
 }
 
+function representativeForecastPoints(weather, count = 4) {
+  const points = Array.isArray(weather?.todayHourly) ? weather.todayHourly.filter(Boolean) : [];
+  if (points.length <= count) {
+    return points;
+  }
+
+  const indexes = Array.from({ length: count }, (_, index) =>
+    Math.round((index * (points.length - 1)) / Math.max(count - 1, 1)),
+  );
+  return [...new Set(indexes)].map((index) => points[index]).filter(Boolean);
+}
+
+function renderWeatherDayStrips(weather) {
+  const points = representativeForecastPoints(weather);
+
+  for (const strip of weatherDayStrips) {
+    if (!(strip instanceof HTMLElement)) continue;
+    strip.replaceChildren();
+
+    if (points.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'route-weather-day-strip__loading muted';
+      empty.textContent = "Today's forecast icons are unavailable.";
+      strip.append(empty);
+      continue;
+    }
+
+    const fragment = document.createDocumentFragment();
+    for (const point of points) {
+      const tone = weatherConditionTone(point.conditionLabel ?? point.weatherCode);
+      const article = document.createElement('article');
+      article.className = `route-weather-day route-weather-day--${tone}`;
+
+      const time = document.createElement('span');
+      time.className = 'route-weather-day__time';
+      time.textContent = point.label || 'Later';
+
+      const icon = document.createElement('span');
+      icon.className = 'route-weather-day__icon';
+      icon.innerHTML = hourlyWeatherIconMarkup(point.conditionLabel ?? point.weatherCode);
+
+      const temperature = document.createElement('strong');
+      temperature.className = 'route-weather-day__temperature';
+      temperature.textContent = formatTemperature(point.temperatureF);
+
+      const rain = document.createElement('span');
+      rain.className = 'route-weather-day__rain';
+      rain.textContent = formatRainChance(point.precipProbability);
+
+      article.setAttribute(
+        'aria-label',
+        `${time.textContent}, ${weatherConditionShortLabel(point.conditionLabel ?? point.weatherCode)}, ${temperature.textContent}, ${rain.textContent}`,
+      );
+      article.append(time, icon, temperature, rain);
+      fragment.append(article);
+    }
+
+    strip.append(fragment);
+  }
+}
+
 function formatTemperature(value) {
   return typeof value === 'number' ? `${Math.round(value)}\u00B0F` : '--';
 }
@@ -2399,6 +2471,141 @@ function formatGaugeMetric(value, unit, fallback = 'Unavailable') {
   }
 
   return `${Math.round(value).toLocaleString('en-US')} ${unit}`;
+}
+
+function gaugeBandVisualModel(result) {
+  const gauge = result?.gauge;
+  const profile = result?.river?.profile;
+  const unit = gauge?.unit || result?.river?.gaugeSource?.unit;
+
+  if (!gauge || typeof gauge.current !== 'number' || !profile || !unit) {
+    return null;
+  }
+
+  const createScale = (rawMin, rawMax) => {
+    const span = Math.max(rawMax - rawMin, unit === 'ft' ? 0.5 : 25);
+    const domainMin = rawMin - span * 0.06;
+    const domainMax = rawMax + span * 0.06;
+    const domain = Math.max(domainMax - domainMin, unit === 'ft' ? 0.5 : 25);
+    return {
+      domainMin,
+      domainMax,
+      percent(value) {
+        return clamp(((value - domainMin) / domain) * 100, 0, 100);
+      },
+    };
+  };
+
+  const markerTone = ['too-low', 'too-high'].includes(result.gaugeBand)
+    ? 'skip'
+    : ['low-shoulder', 'high-shoulder', 'minimum-met'].includes(result.gaugeBand)
+      ? 'watch'
+      : 'good';
+
+  if (
+    profile.thresholdModel === 'two-sided' &&
+    typeof profile.idealMin === 'number' &&
+    typeof profile.idealMax === 'number' &&
+    profile.idealMax > profile.idealMin
+  ) {
+    const idealSpan = Math.max(profile.idealMax - profile.idealMin, unit === 'ft' ? 0.5 : 25);
+    const lowEdge =
+      typeof profile.tooLow === 'number' && profile.tooLow < profile.idealMin
+        ? profile.tooLow
+        : profile.idealMin - idealSpan * 0.75;
+    const highEdge =
+      typeof profile.tooHigh === 'number' && profile.tooHigh > profile.idealMax
+        ? profile.tooHigh
+        : profile.idealMax + idealSpan * 0.75;
+    const scale = createScale(
+      Math.min(lowEdge, profile.idealMin, gauge.current),
+      Math.max(highEdge, profile.idealMax, gauge.current),
+    );
+    const usableStart = scale.percent(profile.idealMin);
+    const usableEnd = scale.percent(profile.idealMax);
+
+    return {
+      currentPercent: scale.percent(gauge.current),
+      usableStart,
+      usableWidth: Math.max(usableEnd - usableStart, 8),
+      currentLabel: formatGaugeMetric(gauge.current, unit),
+      statusLabel: result.gaugeBandLabel || 'Current gauge band',
+      lowLabel: 'Below target',
+      targetLabel: `${formatGaugeMetric(profile.idealMin, unit)}–${formatGaugeMetric(profile.idealMax, unit)}`,
+      highLabel: 'Above target',
+      markerTone,
+      ariaLabel: `Current gauge ${formatGaugeMetric(gauge.current, unit)}. Preferred band ${formatGaugeMetric(profile.idealMin, unit)} to ${formatGaugeMetric(profile.idealMax, unit)}.`,
+    };
+  }
+
+  if (profile.thresholdModel === 'minimum-only' && typeof profile.tooLow === 'number') {
+    const floor = profile.tooLow;
+    const referenceSpan = Math.max(
+      Math.abs(gauge.current - floor),
+      Math.abs(floor) * 0.5,
+      unit === 'ft' ? 1 : 100,
+    );
+    const lowEdge = Math.min(gauge.current, floor - referenceSpan * 0.55);
+    const highEdge = Math.max(gauge.current, floor + referenceSpan * 1.45);
+    const scale = createScale(lowEdge, highEdge);
+    const usableStart = scale.percent(floor);
+
+    return {
+      currentPercent: scale.percent(gauge.current),
+      usableStart,
+      usableWidth: Math.max(100 - usableStart, 12),
+      currentLabel: formatGaugeMetric(gauge.current, unit),
+      statusLabel: result.gaugeBandLabel || 'Minimum met',
+      lowLabel: 'Below floor',
+      targetLabel: `Floor ${formatGaugeMetric(floor, unit)}`,
+      highLabel: 'Above floor',
+      markerTone,
+      ariaLabel: `Current gauge ${formatGaugeMetric(gauge.current, unit)}. Minimum paddling floor ${formatGaugeMetric(floor, unit)}.`,
+    };
+  }
+
+  return null;
+}
+
+function renderGaugeBandVisuals(result) {
+  const model = gaugeBandVisualModel(result);
+
+  for (const visual of gaugeBandVisuals) {
+    if (!(visual instanceof HTMLElement)) continue;
+
+    visual.hidden = !model;
+    if (!model) continue;
+
+    const usable = visual.querySelector('[data-gauge-band-usable]');
+    const marker = visual.querySelector('[data-gauge-band-marker]');
+    const status = visual.querySelector('[data-gauge-band-status]');
+    const current = visual.querySelector('[data-gauge-band-current]');
+    const low = visual.querySelector('[data-gauge-band-low]');
+    const target = visual.querySelector('[data-gauge-band-target]');
+    const high = visual.querySelector('[data-gauge-band-high]');
+
+    if (usable instanceof HTMLElement) {
+      usable.style.left = `${model.usableStart}%`;
+      usable.style.width = `${model.usableWidth}%`;
+    }
+    if (marker instanceof HTMLElement) {
+      marker.style.left = `${model.currentPercent}%`;
+      marker.classList.remove(
+        'route-gauge-band__marker--good',
+        'route-gauge-band__marker--watch',
+        'route-gauge-band__marker--skip',
+      );
+      marker.classList.add(`route-gauge-band__marker--${model.markerTone}`);
+    }
+    if (status instanceof HTMLElement) status.textContent = model.statusLabel;
+    if (current instanceof HTMLElement) current.textContent = model.currentLabel;
+    if (low instanceof HTMLElement) low.textContent = model.lowLabel;
+    if (target instanceof HTMLElement) target.textContent = model.targetLabel;
+    if (high instanceof HTMLElement) high.textContent = model.highLabel;
+
+    visual.setAttribute('role', 'img');
+    visual.setAttribute('aria-label', model.ariaLabel);
+  }
 }
 
 function gaugeSourceDisplay(result) {
@@ -2571,13 +2778,27 @@ function renderDecisionSummary(result) {
   const beforeCommitting = result.liveData?.overall === 'live'
     ? 'Refresh this page, scan access notes, and confirm the route still matches your skill, boat, and shuttle plan.'
     : 'Refresh this page and open the source link before relying on this route call.';
+  const visibleWhy = why.slice(0, 1);
+  const visibleWatchouts = watchouts.slice(0, 1);
+  const additionalContext = [...why.slice(1), ...watchouts.slice(1)].slice(0, 4);
+  const moreContext = additionalContext.length > 0
+    ? `
+      <details class="river-detail__decision-summary-more">
+        <summary>More context</summary>
+        <ul class="compact-list">
+          ${additionalContext.map((sentence) => `<li>${escapeHtml(sentence)}</li>`).join('')}
+        </ul>
+      </details>
+    `
+    : '';
 
   summary.innerHTML = `
     <div class="river-detail__decision-summary">
       <p><strong>Today's call:</strong> ${escapeHtml(todaysCall)} <span class="river-detail__decision-score">${escapeHtml(scoreLine)}</span></p>
-      ${why.length > 0 ? `<p><strong>${whyLabel}:</strong> ${escapeHtml(why.join(' '))}</p>` : ''}
-      ${watchouts.length > 0 ? `<p><strong>What to watch:</strong> ${escapeHtml(watchouts.slice(0, 3).join(' '))}</p>` : ''}
+      ${visibleWhy.length > 0 ? `<p><strong>${whyLabel}:</strong> ${escapeHtml(visibleWhy.join(' '))}</p>` : ''}
+      ${visibleWatchouts.length > 0 ? `<p><strong>What to watch:</strong> ${escapeHtml(visibleWatchouts.join(' '))}</p>` : ''}
       <p><strong>Before committing:</strong> ${escapeHtml(beforeCommitting)}</p>
+      ${moreContext}
     </div>
   `;
 }
@@ -3352,6 +3573,7 @@ async function renderDetailHeroMap(result = null) {
   }
 
   const points = activeAccessPoints();
+  const fullRoutePoints = fullRouteAccessPoints();
   detailHeroMapShell.hidden = points.length === 0;
 
   if (!points.length) {
@@ -3397,6 +3619,16 @@ async function renderDetailHeroMap(result = null) {
       });
 
       detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
+      // Keep the complete river corridor visible as context, then emphasize
+      // the currently selected segment on top of it (matching the access map).
+      syncAccessRouteLine(
+        detailHeroMapRuntime,
+        'detail-hero-full-route-line',
+        'detail-hero-full-route-line',
+        fullRoutePoints,
+        result,
+        { lineWidth: 6, lineOpacity: 0.28 },
+      );
       syncAccessRouteLine(
         detailHeroMapRuntime,
         'detail-hero-route-line',
@@ -3405,6 +3637,16 @@ async function renderDetailHeroMap(result = null) {
         result,
         { lineWidth: 3, lineOpacity: 0.8 },
       );
+      loadCanonicalRiverRouteLine(slug, fullRoutePoints, { stateName: riverContext.state })
+        .then((routeLine) => {
+          if (detailHeroMapRuntime && routeLine && renderVersion === detailHeroMapRenderVersion) {
+            syncRouteGeoJsonLine(detailHeroMapRuntime, 'detail-hero-full-route-line', 'detail-hero-full-route-line', routeLine, result, {
+              lineWidth: 6,
+              lineOpacity: 0.28,
+            });
+          }
+        })
+        .catch((error) => console.warn('Canonical hero full-route geometry unavailable.', error));
       loadCanonicalRiverRouteLine(slug, points, { stateName: riverContext.state })
         .then((routeLine) => {
           if (detailHeroMapRuntime && routeLine && renderVersion === detailHeroMapRenderVersion) {
@@ -3414,7 +3656,7 @@ async function renderDetailHeroMap(result = null) {
             });
           }
         })
-        .catch((error) => console.warn('Canonical hero river geometry unavailable.', error));
+        .catch((error) => console.warn('Canonical hero selected-route geometry unavailable.', error));
 
     const bounds = new maplibregl.LngLatBounds();
     for (const point of points) {
@@ -4118,6 +4360,7 @@ function renderWeatherVisual(weather) {
     setFieldGroupHidden('weather-wind', true);
     setFieldGroupHidden('rain', true);
     setFieldGroupHidden('weather-rain', true);
+    renderWeatherDayStrips(null);
     renderHourlyWeather(null);
     return;
   }
@@ -4153,6 +4396,7 @@ function renderWeatherVisual(weather) {
       weather.recentRain24hIn == null &&
       weather.recentRain72hIn == null
   );
+  renderWeatherDayStrips(weather);
   renderHourlyWeather(weather);
 }
 
@@ -4222,6 +4466,17 @@ function renderDetailResult(result) {
   setText('flow-band', result.gaugeBandLabel);
   setText('primary-gauge-label', sourceDisplay.primaryMetricLabel || 'Current gauge');
   setText('secondary-gauge-label', sourceDisplay.secondaryMetricLabel || 'Secondary gauge metric');
+  setText('top-gauge-source', sourceDisplay.shortLabel || sourceDisplay.label || 'Gauge source');
+  const gaugeInterpretation = result.gauge?.gaugeInterpretation?.trim();
+  const topGaugeInterpretation = setText(
+    'top-gauge-interpretation',
+    sourceDisplay.interpretationLabel && gaugeInterpretation
+      ? `${sourceDisplay.interpretationLabel}: ${gaugeInterpretation}`
+      : '',
+  );
+  if (topGaugeInterpretation instanceof HTMLElement) {
+    topGaugeInterpretation.hidden = !(sourceDisplay.interpretationLabel && gaugeInterpretation);
+  }
   setText('gauge-now', gaugePrimaryValue(result));
   setText('discharge-now', gaugeSecondaryValue(result));
   setText(
@@ -4259,6 +4514,7 @@ function renderDetailResult(result) {
   setFieldGroupHidden('level', false);
   setFieldGroupHidden('trend', false);
 
+  renderGaugeBandVisuals(result);
   renderDetailBanner(result);
   renderLaunchReadiness(result);
   renderGaugeChart(result);
@@ -4447,6 +4703,11 @@ async function loadDetail({ silent = false } = {}) {
     }
 
     setText('flow-band', 'No reading');
+    setText('top-gauge-source', 'No live source');
+    const unavailableGaugeInterpretation = setText('top-gauge-interpretation', '');
+    if (unavailableGaugeInterpretation instanceof HTMLElement) {
+      unavailableGaugeInterpretation.hidden = true;
+    }
     setText('gauge-now', 'No reading');
     setText('discharge-now', 'No reading');
     setText('observed-at', 'No reading');
@@ -4761,6 +5022,7 @@ updateApprovedRoutePhoto(0);
 bindApprovedRouteGallery();
 setupDetailSectionNav();
 setupDetailJumpLinks();
+collapseLowerScoreDetails();
 bindAlertForm();
 bindRouteActions();
 bindRouteReportCtas();
