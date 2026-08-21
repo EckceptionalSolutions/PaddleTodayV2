@@ -90109,11 +90109,11 @@
       "stateId": "KS",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:06814000",
-        "usgs:06818300",
-        "usgs:06820475",
-        "usgs:06827000",
-        "usgs:06845110"
+        "usgs:07145500",
+        "usgs:07145600",
+        "usgs:07145700",
+        "usgs:07146500",
+        "usgs:07146800"
       ],
       "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
@@ -91121,7 +91121,2186 @@
         "usgs:06884025"
       ],
       "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212130-ks-gauge-review-batch-12",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T21:30:00Z",
+      "completedAt": "2026-08-21T21:30:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-12",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06879810",
+        "usgs:06879815",
+        "usgs:06879820",
+        "usgs:06882510",
+        "usgs:06884025"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212130-ks-gauge-review-batch-12",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T21:30:00Z",
+      "completedAt": "2026-08-21T21:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-12",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212130-ks-gauge-review-batch-12",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T21:30:00Z",
+      "completedAt": "2026-08-21T21:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-12",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821213000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T21:30:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-13",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06884200",
+        "usgs:06884400",
+        "usgs:06884700",
+        "usgs:06885500",
+        "usgs:06887000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821192631",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:26:31.801Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-13",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06884200",
+        "usgs:06884400",
+        "usgs:06884700",
+        "usgs:06885500",
+        "usgs:06887000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212145-ks-gauge-review-batch-13",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T21:45:00Z",
+      "completedAt": "2026-08-21T21:45:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-13",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06884200",
+        "usgs:06884400",
+        "usgs:06884700",
+        "usgs:06885500",
+        "usgs:06887000"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212145-ks-gauge-review-batch-13",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T21:45:00Z",
+      "completedAt": "2026-08-21T21:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-13",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212145-ks-gauge-review-batch-13",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T21:45:00Z",
+      "completedAt": "2026-08-21T21:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-13",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821214500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T21:45:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-14",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06888000",
+        "usgs:06888350",
+        "usgs:06888500",
+        "usgs:06888700",
+        "usgs:06889000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821192755",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:27:55.307Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-14",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06888000",
+        "usgs:06888350",
+        "usgs:06888500",
+        "usgs:06888700",
+        "usgs:06889000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212200-ks-gauge-review-batch-14",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T22:00:00Z",
+      "completedAt": "2026-08-21T22:00:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-14",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06888000",
+        "usgs:06888350",
+        "usgs:06888500",
+        "usgs:06888700",
+        "usgs:06889000"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212200-ks-gauge-review-batch-14",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T22:00:00Z",
+      "completedAt": "2026-08-21T22:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-14",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212200-ks-gauge-review-batch-14",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T22:00:00Z",
+      "completedAt": "2026-08-21T22:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-14",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821220000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T22:00:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-15",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06889110",
+        "usgs:06889200",
+        "usgs:06889500",
+        "usgs:06889585",
+        "usgs:06889630"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821192921",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:29:21.790Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-15",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06889110",
+        "usgs:06889200",
+        "usgs:06889500",
+        "usgs:06889585",
+        "usgs:06889630"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212215-ks-gauge-review-batch-15",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T22:15:00Z",
+      "completedAt": "2026-08-21T22:15:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-15",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06889110",
+        "usgs:06889200",
+        "usgs:06889500",
+        "usgs:06889585",
+        "usgs:06889630"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212215-ks-gauge-review-batch-15",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T22:15:00Z",
+      "completedAt": "2026-08-21T22:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-15",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212215-ks-gauge-review-batch-15",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T22:15:00Z",
+      "completedAt": "2026-08-21T22:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-15",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821221500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T22:15:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-16",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06890100",
+        "usgs:06890900",
+        "usgs:06891000",
+        "usgs:06891080",
+        "usgs:06891200"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821193044",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:30:44.925Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-16",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06890100",
+        "usgs:06890900",
+        "usgs:06891000",
+        "usgs:06891080",
+        "usgs:06891200"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212230-ks-gauge-review-batch-16",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T22:30:00Z",
+      "completedAt": "2026-08-21T22:30:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-16",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06890100",
+        "usgs:06890900",
+        "usgs:06891000",
+        "usgs:06891080",
+        "usgs:06891200"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212230-ks-gauge-review-batch-16",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T22:30:00Z",
+      "completedAt": "2026-08-21T22:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-16",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212230-ks-gauge-review-batch-16",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T22:30:00Z",
+      "completedAt": "2026-08-21T22:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-16",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821223000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T22:30:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-17",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06891260",
+        "usgs:06891500",
+        "usgs:06891850",
+        "usgs:06892000",
+        "usgs:06892360"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821193208",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:32:08.628Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-17",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06891260",
+        "usgs:06891500",
+        "usgs:06891850",
+        "usgs:06892000",
+        "usgs:06892360"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212245-ks-gauge-review-batch-17",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T22:45:00Z",
+      "completedAt": "2026-08-21T22:45:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-17",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06891260",
+        "usgs:06891500",
+        "usgs:06891850",
+        "usgs:06892000",
+        "usgs:06892360"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212245-ks-gauge-review-batch-17",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T22:45:00Z",
+      "completedAt": "2026-08-21T22:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-17",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212245-ks-gauge-review-batch-17",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T22:45:00Z",
+      "completedAt": "2026-08-21T22:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-17",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821224500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T22:45:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-18",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06892493",
+        "usgs:06892494",
+        "usgs:06892495",
+        "usgs:06892513",
+        "usgs:06892518"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821193333",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:33:33.735Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-18",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06892493",
+        "usgs:06892494",
+        "usgs:06892495",
+        "usgs:06892513",
+        "usgs:06892518"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212300-ks-gauge-review-batch-18",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T23:00:00Z",
+      "completedAt": "2026-08-21T23:00:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-18",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06892493",
+        "usgs:06892494",
+        "usgs:06892495",
+        "usgs:06892513",
+        "usgs:06892518"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212300-ks-gauge-review-batch-18",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T23:00:00Z",
+      "completedAt": "2026-08-21T23:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-18",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212300-ks-gauge-review-batch-18",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T23:00:00Z",
+      "completedAt": "2026-08-21T23:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-18",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821230000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T23:00:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-19",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06892900",
+        "usgs:06892950",
+        "usgs:06893080",
+        "usgs:06893100",
+        "usgs:06893300"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821193457",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:34:57.569Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-19",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06892900",
+        "usgs:06892950",
+        "usgs:06893080",
+        "usgs:06893100",
+        "usgs:06893300"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212315-ks-gauge-review-batch-19",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T23:15:00Z",
+      "completedAt": "2026-08-21T23:15:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-19",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06892900",
+        "usgs:06892950",
+        "usgs:06893080",
+        "usgs:06893100",
+        "usgs:06893300"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212315-ks-gauge-review-batch-19",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T23:15:00Z",
+      "completedAt": "2026-08-21T23:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-19",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212315-ks-gauge-review-batch-19",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T23:15:00Z",
+      "completedAt": "2026-08-21T23:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-19",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821231500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T23:15:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-20",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06893350",
+        "usgs:06893390",
+        "usgs:06910800",
+        "usgs:06911000",
+        "usgs:06911490"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821193624",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:36:24.697Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-20",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06893350",
+        "usgs:06893390",
+        "usgs:06910800",
+        "usgs:06911000",
+        "usgs:06911490"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212330-ks-gauge-review-batch-20",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T23:30:00Z",
+      "completedAt": "2026-08-21T23:30:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-20",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06893350",
+        "usgs:06893390",
+        "usgs:06910800",
+        "usgs:06911000",
+        "usgs:06911490"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212330-ks-gauge-review-batch-20",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T23:30:00Z",
+      "completedAt": "2026-08-21T23:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-20",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212330-ks-gauge-review-batch-20",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T23:30:00Z",
+      "completedAt": "2026-08-21T23:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-20",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821233000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T23:30:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-21",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06911900",
+        "usgs:06912500",
+        "usgs:06913000",
+        "usgs:06913500",
+        "usgs:06914000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821193758",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:37:58.582Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-21",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06911900",
+        "usgs:06912500",
+        "usgs:06913000",
+        "usgs:06913500",
+        "usgs:06914000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608212345-ks-gauge-review-batch-21",
+      "kind": "route_worker",
+      "startedAt": "2026-08-21T23:45:00Z",
+      "completedAt": "2026-08-21T23:45:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-21",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06911900",
+        "usgs:06912500",
+        "usgs:06913000",
+        "usgs:06913500",
+        "usgs:06914000"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608212345-ks-gauge-review-batch-21",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-21T23:45:00Z",
+      "completedAt": "2026-08-21T23:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-21",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608212345-ks-gauge-review-batch-21",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-21T23:45:00Z",
+      "completedAt": "2026-08-21T23:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-21",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260821234500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T23:45:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-22",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06914500",
+        "usgs:06914950",
+        "usgs:06914990",
+        "usgs:06915000",
+        "usgs:06915800"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821193924",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:39:24.267Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-22",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06914500",
+        "usgs:06914950",
+        "usgs:06914990",
+        "usgs:06915000",
+        "usgs:06915800"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220000-ks-gauge-review-batch-22",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T00:00:00Z",
+      "completedAt": "2026-08-22T00:00:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-22",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06914500",
+        "usgs:06914950",
+        "usgs:06914990",
+        "usgs:06915000",
+        "usgs:06915800"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220000-ks-gauge-review-batch-22",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T00:00:00Z",
+      "completedAt": "2026-08-22T00:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-22",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220000-ks-gauge-review-batch-22",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T00:00:00Z",
+      "completedAt": "2026-08-22T00:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-22",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822000000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T00:00:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-23",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06916600",
+        "usgs:06917000",
+        "usgs:06917240",
+        "usgs:06917500",
+        "usgs:07137500"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821194052",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:40:52.163Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-23",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06916600",
+        "usgs:06917000",
+        "usgs:06917240",
+        "usgs:06917500",
+        "usgs:07137500"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220015-ks-gauge-review-batch-23",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T00:15:00Z",
+      "completedAt": "2026-08-22T00:15:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-23",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06916600",
+        "usgs:06917000",
+        "usgs:06917240",
+        "usgs:06917500",
+        "usgs:07137500"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220015-ks-gauge-review-batch-23",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T00:15:00Z",
+      "completedAt": "2026-08-22T00:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-23",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220015-ks-gauge-review-batch-23",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T00:15:00Z",
+      "completedAt": "2026-08-22T00:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-23",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822001500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T00:15:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-24",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07138000",
+        "usgs:07138020",
+        "usgs:07138070",
+        "usgs:07139000",
+        "usgs:07139500"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821194221",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:42:21.099Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-24",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07138000",
+        "usgs:07138020",
+        "usgs:07138070",
+        "usgs:07139000",
+        "usgs:07139500"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220030-ks-gauge-review-batch-24",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T00:30:00Z",
+      "completedAt": "2026-08-22T00:30:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-24",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07138000",
+        "usgs:07138020",
+        "usgs:07138070",
+        "usgs:07139000",
+        "usgs:07139500"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220030-ks-gauge-review-batch-24",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T00:30:00Z",
+      "completedAt": "2026-08-22T00:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-24",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220030-ks-gauge-review-batch-24",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T00:30:00Z",
+      "completedAt": "2026-08-22T00:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-24",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822003000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T00:30:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-25",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07140850",
+        "usgs:07140880",
+        "usgs:07140890",
+        "usgs:07140900",
+        "usgs:07141000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821194345",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:43:45.679Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-25",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07140850",
+        "usgs:07140880",
+        "usgs:07140890",
+        "usgs:07140900",
+        "usgs:07141000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220045-ks-gauge-review-batch-25",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T00:45:00Z",
+      "completedAt": "2026-08-22T00:45:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-25",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07140850",
+        "usgs:07140880",
+        "usgs:07140890",
+        "usgs:07140900",
+        "usgs:07141000"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220045-ks-gauge-review-batch-25",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T00:45:00Z",
+      "completedAt": "2026-08-22T00:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-25",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220045-ks-gauge-review-batch-25",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T00:45:00Z",
+      "completedAt": "2026-08-22T00:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-25",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822004500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T00:45:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-26",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07141200",
+        "usgs:07141220",
+        "usgs:07141300",
+        "usgs:07141780",
+        "usgs:07141900"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821194513",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:45:13.914Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-26",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07141200",
+        "usgs:07141220",
+        "usgs:07141300",
+        "usgs:07141780",
+        "usgs:07141900"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220100-ks-gauge-review-batch-26",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T01:00:00Z",
+      "completedAt": "2026-08-22T01:00:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-26",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07141200",
+        "usgs:07141220",
+        "usgs:07141300",
+        "usgs:07141780",
+        "usgs:07141900"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220100-ks-gauge-review-batch-26",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T01:00:00Z",
+      "completedAt": "2026-08-22T01:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-26",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220100-ks-gauge-review-batch-26",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T01:00:00Z",
+      "completedAt": "2026-08-22T01:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-26",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822010000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T01:00:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-27",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07142019",
+        "usgs:07142300",
+        "usgs:07142575",
+        "usgs:07142680",
+        "usgs:07143300"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821194642",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:46:42.477Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-27",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07142019",
+        "usgs:07142300",
+        "usgs:07142575",
+        "usgs:07142680",
+        "usgs:07143300"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220115-ks-gauge-review-batch-27",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T01:15:00Z",
+      "completedAt": "2026-08-22T01:15:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-27",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07142019",
+        "usgs:07142300",
+        "usgs:07142575",
+        "usgs:07142680",
+        "usgs:07143300"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220115-ks-gauge-review-batch-27",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T01:15:00Z",
+      "completedAt": "2026-08-22T01:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-27",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220115-ks-gauge-review-batch-27",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T01:15:00Z",
+      "completedAt": "2026-08-22T01:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-27",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822011500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T01:15:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-28",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07143310",
+        "usgs:07143330",
+        "usgs:07143375",
+        "usgs:07143665",
+        "usgs:07143672"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821194806",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:48:06.788Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-28",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07143310",
+        "usgs:07143330",
+        "usgs:07143375",
+        "usgs:07143665",
+        "usgs:07143672"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220130-ks-gauge-review-batch-28",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T01:30:00Z",
+      "completedAt": "2026-08-22T01:30:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-28",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07143310",
+        "usgs:07143330",
+        "usgs:07143375",
+        "usgs:07143665",
+        "usgs:07143672"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220130-ks-gauge-review-batch-28",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T01:30:00Z",
+      "completedAt": "2026-08-22T01:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-28",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220130-ks-gauge-review-batch-28",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T01:30:00Z",
+      "completedAt": "2026-08-22T01:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-28",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822013000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T01:30:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-29",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144050",
+        "usgs:07144100",
+        "usgs:07144200",
+        "usgs:07144201",
+        "usgs:07144300"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821194933",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:49:33.022Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-29",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144050",
+        "usgs:07144100",
+        "usgs:07144200",
+        "usgs:07144201",
+        "usgs:07144300"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220145-ks-gauge-review-batch-29",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T01:45:00Z",
+      "completedAt": "2026-08-22T01:45:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-29",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144050",
+        "usgs:07144100",
+        "usgs:07144200",
+        "usgs:07144201",
+        "usgs:07144300"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220145-ks-gauge-review-batch-29",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T01:45:00Z",
+      "completedAt": "2026-08-22T01:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-29",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220145-ks-gauge-review-batch-29",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T01:45:00Z",
+      "completedAt": "2026-08-22T01:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-29",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822014500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T01:45:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-30",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144301",
+        "usgs:07144470",
+        "usgs:07144480",
+        "usgs:07144486",
+        "usgs:07144490"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821195059",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:50:59.248Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-30",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144301",
+        "usgs:07144470",
+        "usgs:07144480",
+        "usgs:07144486",
+        "usgs:07144490"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220200-ks-gauge-review-batch-30",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T02:00:00Z",
+      "completedAt": "2026-08-22T02:00:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-30",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144301",
+        "usgs:07144470",
+        "usgs:07144480",
+        "usgs:07144486",
+        "usgs:07144490"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted."
+    },
+    {
+      "id": "independent-verifier-202608220200-ks-gauge-review-batch-30",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T02:00:00Z",
+      "completedAt": "2026-08-22T02:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-30",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable blocked dispositions and confirmed no route data changed."
+    },
+    {
+      "id": "gatekeeper-202608220200-ks-gauge-review-batch-30",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T02:00:00Z",
+      "completedAt": "2026-08-22T02:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-30",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822020000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T02:00:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-31",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144550",
+        "usgs:07144570",
+        "usgs:07144780",
+        "usgs:07144910",
+        "usgs:07145200"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821195226",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:52:26.285Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-31",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144550",
+        "usgs:07144570",
+        "usgs:07144780",
+        "usgs:07144910",
+        "usgs:07145200"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220215-ks-gauge-review-batch-31",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T02:15:00Z",
+      "completedAt": "2026-08-22T02:15:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-31",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144550",
+        "usgs:07144570",
+        "usgs:07144780",
+        "usgs:07144910",
+        "usgs:07145200"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. Durable blocked dispositions recorded; no route promoted because the strict evidence package was incomplete."
+    },
+    {
+      "id": "independent-verifier-202608220215-ks-gauge-review-batch-31",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T02:15:00Z",
+      "completedAt": "2026-08-22T02:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-31",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable Kansas dispositions and confirmed route data was unchanged."
+    },
+    {
+      "id": "gatekeeper-202608220215-ks-gauge-review-batch-31",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T02:15:00Z",
+      "completedAt": "2026-08-22T02:15:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-31",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822021500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T02:15:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-32",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07145500",
+        "usgs:07145600",
+        "usgs:07145700",
+        "usgs:07146500",
+        "usgs:07146800"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821195503",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:55:03.873Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-32",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07145500",
+        "usgs:07145600",
+        "usgs:07145700",
+        "usgs:07146500",
+        "usgs:07146800"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220230-ks-gauge-review-batch-32",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T02:30:00Z",
+      "completedAt": "2026-08-22T02:30:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-32",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07145500",
+        "usgs:07145600",
+        "usgs:07145700",
+        "usgs:07146500",
+        "usgs:07146800"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. Durable blocked dispositions recorded; no route promoted because the strict evidence package was incomplete."
+    },
+    {
+      "id": "independent-verifier-202608220230-ks-gauge-review-batch-32",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T02:30:00Z",
+      "completedAt": "2026-08-22T02:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-32",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable Kansas dispositions and confirmed route data was unchanged."
+    },
+    {
+      "id": "gatekeeper-202608220230-ks-gauge-review-batch-32",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T02:30:00Z",
+      "completedAt": "2026-08-22T02:30:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-32",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822023000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T02:30:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-33",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07147070",
+        "usgs:07147190",
+        "usgs:07147800",
+        "usgs:07147900",
+        "usgs:07149000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821195708",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:57:08.023Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-32",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07145500",
+        "usgs:07145600",
+        "usgs:07145700",
+        "usgs:07146500",
+        "usgs:07146800"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821195800",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:58:00.128Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-32",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07145500",
+        "usgs:07145600",
+        "usgs:07145700",
+        "usgs:07146500",
+        "usgs:07146800"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821195814",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:58:14.769Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-33",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07147070",
+        "usgs:07147190",
+        "usgs:07147800",
+        "usgs:07147900",
+        "usgs:07149000"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220245-ks-gauge-review-batch-33",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T02:45:00Z",
+      "completedAt": "2026-08-22T02:45:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-33",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07147070",
+        "usgs:07147190",
+        "usgs:07147800",
+        "usgs:07147900",
+        "usgs:07149000"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. Durable blocked dispositions recorded; no route promoted because the strict evidence package was incomplete."
+    },
+    {
+      "id": "independent-verifier-202608220245-ks-gauge-review-batch-33",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T02:45:00Z",
+      "completedAt": "2026-08-22T02:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-33",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable Kansas dispositions and confirmed route data was unchanged."
+    },
+    {
+      "id": "gatekeeper-202608220245-ks-gauge-review-batch-33",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T02:45:00Z",
+      "completedAt": "2026-08-22T02:45:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-33",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822024500",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T02:45:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-34",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07151500",
+        "usgs:07156900",
+        "usgs:07157500",
+        "usgs:07157740",
+        "usgs:07157940"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821195953",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T19:59:53.602Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-34",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07151500",
+        "usgs:07156900",
+        "usgs:07157500",
+        "usgs:07157740",
+        "usgs:07157940"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608220300-ks-gauge-review-batch-34",
+      "kind": "route_worker",
+      "startedAt": "2026-08-22T03:00:00Z",
+      "completedAt": "2026-08-22T03:00:00Z",
+      "status": "completed",
+      "taskId": "ks-gauge-review-batch-34",
+      "workerRole": "state-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07151500",
+        "usgs:07156900",
+        "usgs:07157500",
+        "usgs:07157740",
+        "usgs:07157940"
+      ],
+      "dispositions": {
+        "blocked": 5,
+        "screened_out": 0,
+        "covered": 0,
+        "stale_or_unsupported": 0
+      },
+      "routesAdded": 0,
+      "summary": "Reviewed five Kansas gauges. Durable blocked dispositions recorded; no route promoted because the strict evidence package was incomplete."
+    },
+    {
+      "id": "independent-verifier-202608220300-ks-gauge-review-batch-34",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-22T03:00:00Z",
+      "completedAt": "2026-08-22T03:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-34",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "ledger": "passed",
+        "evidence": "passed",
+        "routeDataUnchanged": "passed"
+      },
+      "summary": "Verified five durable Kansas dispositions and confirmed route data was unchanged."
+    },
+    {
+      "id": "gatekeeper-202608220300-ks-gauge-review-batch-34",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-22T03:00:00Z",
+      "completedAt": "2026-08-22T03:00:00Z",
+      "status": "passed",
+      "taskId": "ks-gauge-review-batch-34",
+      "workerRole": "gatekeeper",
+      "checks": {
+        "evidence": "passed",
+        "safety": "passed",
+        "independentVerification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
+    },
+    {
+      "id": "orchestrator-20260822030000",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-22T03:00:00Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-35",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07165750",
+        "usgs:07166500",
+        "usgs:07167500",
+        "usgs:07169500",
+        "usgs:07169800"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260821200125",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-21T20:01:25.288Z",
+      "status": "planned",
+      "taskId": "ks-gauge-review-batch-35",
+      "workerRole": "gauge-coverage",
+      "stateId": "KS",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07165750",
+        "usgs:07166500",
+        "usgs:07167500",
+        "usgs:07169500",
+        "usgs:07169800"
+      ],
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     }
   ],
-  "updatedAt": "2026-08-21T21:15:00Z"
+  "updatedAt": "2026-08-22T02:30:00Z"
 }

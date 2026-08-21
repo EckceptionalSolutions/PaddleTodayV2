@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-21T19:25:00.859Z",
+  "updatedAt": "2026-08-21T20:01:25.288Z",
   "tasks": [
     {
       "id": "geographic-gauge-frontier-workflow",
@@ -10650,7 +10650,7 @@
     {
       "id": "ks-gauge-review-batch-12",
       "title": "Continue Kansas provider-baseline gauge dispositions",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "state_coverage",
       "owner": "gauge-coverage",
       "priority": "high",
@@ -10670,6 +10670,673 @@
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/state-registry.json",
         "frontier-condition:KS has 153 unreviewed eligible gauges after batch 11"
+      ],
+      "lastRunId": "route-worker-202608212130-ks-gauge-review-batch-12",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212130-ks-gauge-review-batch-12",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-13",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06884200",
+        "usgs:06884400",
+        "usgs:06884700",
+        "usgs:06885500",
+        "usgs:06887000"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 148 unreviewed eligible gauges after batch 12"
+      ],
+      "lastRunId": "route-worker-202608212145-ks-gauge-review-batch-13",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212145-ks-gauge-review-batch-13",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-14",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06888000",
+        "usgs:06888350",
+        "usgs:06888500",
+        "usgs:06888700",
+        "usgs:06889000"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 143 unreviewed eligible gauges after batch 13"
+      ],
+      "lastRunId": "route-worker-202608212200-ks-gauge-review-batch-14",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212200-ks-gauge-review-batch-14",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-15",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06889110",
+        "usgs:06889200",
+        "usgs:06889500",
+        "usgs:06889585",
+        "usgs:06889630"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 138 unreviewed eligible gauges after batch 14"
+      ],
+      "lastRunId": "route-worker-202608212215-ks-gauge-review-batch-15",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212215-ks-gauge-review-batch-15",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-16",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06890100",
+        "usgs:06890900",
+        "usgs:06891000",
+        "usgs:06891080",
+        "usgs:06891200"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 133 unreviewed eligible gauges after batch 15"
+      ],
+      "lastRunId": "route-worker-202608212230-ks-gauge-review-batch-16",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212230-ks-gauge-review-batch-16",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-17",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06891260",
+        "usgs:06891500",
+        "usgs:06891850",
+        "usgs:06892000",
+        "usgs:06892360"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 128 unreviewed eligible gauges after batch 16"
+      ],
+      "lastRunId": "route-worker-202608212245-ks-gauge-review-batch-17",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212245-ks-gauge-review-batch-17",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-18",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06892493",
+        "usgs:06892494",
+        "usgs:06892495",
+        "usgs:06892513",
+        "usgs:06892518"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 123 unreviewed eligible gauges after batch 17"
+      ],
+      "lastRunId": "route-worker-202608212300-ks-gauge-review-batch-18",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212300-ks-gauge-review-batch-18",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-19",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06892900",
+        "usgs:06892950",
+        "usgs:06893080",
+        "usgs:06893100",
+        "usgs:06893300"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 118 unreviewed eligible gauges after batch 18"
+      ],
+      "lastRunId": "route-worker-202608212315-ks-gauge-review-batch-19",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212315-ks-gauge-review-batch-19",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-20",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06893350",
+        "usgs:06893390",
+        "usgs:06910800",
+        "usgs:06911000",
+        "usgs:06911490"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 113 unreviewed eligible gauges after batch 19"
+      ],
+      "lastRunId": "route-worker-202608212330-ks-gauge-review-batch-20",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212330-ks-gauge-review-batch-20",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-21",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06911900",
+        "usgs:06912500",
+        "usgs:06913000",
+        "usgs:06913500",
+        "usgs:06914000"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 108 unreviewed eligible gauges after batch 20"
+      ],
+      "lastRunId": "route-worker-202608212345-ks-gauge-review-batch-21",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608212345-ks-gauge-review-batch-21",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-22",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06914500",
+        "usgs:06914950",
+        "usgs:06914990",
+        "usgs:06915000",
+        "usgs:06915800"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 103 unreviewed eligible gauges after batch 21"
+      ],
+      "lastRunId": "route-worker-202608220000-ks-gauge-review-batch-22",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220000-ks-gauge-review-batch-22",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-23",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06916600",
+        "usgs:06917000",
+        "usgs:06917240",
+        "usgs:06917500",
+        "usgs:07137500"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 98 unreviewed eligible gauges after batch 22"
+      ],
+      "lastRunId": "route-worker-202608220015-ks-gauge-review-batch-23",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220015-ks-gauge-review-batch-23",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-24",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07138000",
+        "usgs:07138020",
+        "usgs:07138070",
+        "usgs:07139000",
+        "usgs:07139500"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 93 unreviewed eligible gauges after batch 23"
+      ],
+      "lastRunId": "route-worker-202608220030-ks-gauge-review-batch-24",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220030-ks-gauge-review-batch-24",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-25",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07140850",
+        "usgs:07140880",
+        "usgs:07140890",
+        "usgs:07140900",
+        "usgs:07141000"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 88 unreviewed eligible gauges after batch 24"
+      ],
+      "lastRunId": "route-worker-202608220045-ks-gauge-review-batch-25",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220045-ks-gauge-review-batch-25",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-26",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07141200",
+        "usgs:07141220",
+        "usgs:07141300",
+        "usgs:07141780",
+        "usgs:07141900"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 83 unreviewed eligible gauges after batch 25"
+      ],
+      "lastRunId": "route-worker-202608220100-ks-gauge-review-batch-26",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220100-ks-gauge-review-batch-26",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-27",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07142019",
+        "usgs:07142300",
+        "usgs:07142575",
+        "usgs:07142680",
+        "usgs:07143300"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 78 unreviewed eligible gauges after batch 26"
+      ],
+      "lastRunId": "route-worker-202608220115-ks-gauge-review-batch-27",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220115-ks-gauge-review-batch-27",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-28",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07143310",
+        "usgs:07143330",
+        "usgs:07143375",
+        "usgs:07143665",
+        "usgs:07143672"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 73 unreviewed eligible gauges after batch 27"
+      ],
+      "lastRunId": "route-worker-202608220130-ks-gauge-review-batch-28",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220130-ks-gauge-review-batch-28",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-29",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144050",
+        "usgs:07144100",
+        "usgs:07144200",
+        "usgs:07144201",
+        "usgs:07144300"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 68 unreviewed eligible gauges after batch 28"
+      ],
+      "lastRunId": "route-worker-202608220145-ks-gauge-review-batch-29",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220145-ks-gauge-review-batch-29",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-30",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144301",
+        "usgs:07144470",
+        "usgs:07144480",
+        "usgs:07144486",
+        "usgs:07144490"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 63 unreviewed eligible gauges after batch 29"
+      ],
+      "lastRunId": "route-worker-202608220200-ks-gauge-review-batch-30",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220200-ks-gauge-review-batch-30",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-31",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07144550",
+        "usgs:07144570",
+        "usgs:07144780",
+        "usgs:07144910",
+        "usgs:07145200"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 58 unreviewed eligible gauges after batch 30"
+      ],
+      "lastRunId": "route-worker-202608220215-ks-gauge-review-batch-31",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220215-ks-gauge-review-batch-31",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-32",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07145500",
+        "usgs:07145600",
+        "usgs:07145700",
+        "usgs:07146500",
+        "usgs:07146800"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 53 unreviewed eligible gauges after batch 31"
+      ],
+      "lastRunId": "route-worker-202608220230-ks-gauge-review-batch-32",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220230-ks-gauge-review-batch-32",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-33",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07147070",
+        "usgs:07147190",
+        "usgs:07147800",
+        "usgs:07147900",
+        "usgs:07149000"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 48 unreviewed eligible gauges after batch 32"
+      ],
+      "lastRunId": "route-worker-202608220245-ks-gauge-review-batch-33",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220245-ks-gauge-review-batch-33",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-34",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07151500",
+        "usgs:07156900",
+        "usgs:07157500",
+        "usgs:07157740",
+        "usgs:07157940"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 43 unreviewed eligible gauges after batch 33"
+      ],
+      "lastRunId": "route-worker-202608220300-ks-gauge-review-batch-34",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608220300-ks-gauge-review-batch-34",
+      "resultSummary": "Reviewed five Kansas gauges. All five received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
+    },
+    {
+      "id": "ks-gauge-review-batch-35",
+      "title": "Continue Kansas provider-baseline gauge dispositions",
+      "lane": "ready",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "high",
+      "stateId": "KS",
+      "frontierTier": 3,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:07165750",
+        "usgs:07166500",
+        "usgs:07167500",
+        "usgs:07169500",
+        "usgs:07169800"
+      ],
+      "summary": "Continue Kansas in bounded five-gauge reviews with strict evidence gates and durable no-add dispositions when route evidence is incomplete.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:KS has 38 unreviewed eligible gauges after batch 34"
       ]
     },
     {
