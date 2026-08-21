@@ -148,11 +148,17 @@ const appDownloadConfigJson = JSON.stringify({
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="/">
-          <img
-            class="brand__logo"
-            src="/brand/paddle-today-logo-transparent-512.png"
-            alt="Paddle Today"
-          />
+          <picture>
+            <source srcset="/brand/paddle-today-logo-180.webp" type="image/webp" />
+            <img
+              class="brand__logo"
+              src="/brand/paddle-today-logo-transparent-512.png"
+              alt="Paddle Today"
+              width="180"
+              height="180"
+              decoding="async"
+            />
+          </picture>
           <div class="brand__copy brand__copy--with-wordmark">
             <span class="brand__eyebrow">Paddle Today</span>
             <span class="brand__title">{headerTitle}</span>
@@ -209,7 +215,10 @@ const appDownloadConfigJson = JSON.stringify({
           &times;
         </button>
         <div class="app-download-prompt__icon" aria-hidden="true">
-          <img src="/brand/paddle-today-logo-transparent-512.png" alt="" />
+          <picture>
+            <source srcset="/brand/paddle-today-logo-180.webp" type="image/webp" />
+            <img src="/brand/paddle-today-logo-transparent-512.png" alt="" width="180" height="180" decoding="async" />
+          </picture>
         </div>
         <div class="app-download-prompt__copy">
           <div class="app-download-prompt__headline">

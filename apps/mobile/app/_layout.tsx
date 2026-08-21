@@ -152,6 +152,12 @@ const styles = StyleSheet.create({
 function redirectFromNotification(data: unknown) {
   const url = notificationUrl(data);
   if (url) {
+    if (data && typeof data === 'object' && 'notificationType' in data) {
+      const notificationType = (data as { notificationType?: unknown }).notificationType;
+      if (notificationType === 'nearby_today' || notificationType === 'weekend_outlook') {
+        trackAppEvent('area_notification_opened', { notification_type: notificationType });
+      }
+    }
     router.push(url as never);
   }
 }

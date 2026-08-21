@@ -357,3 +357,182 @@ Created 2026-06-08 for the `nebraska-route-additions` automation.
 - No route was added. Platte, Niobrara, and Elkhorn remain `threshold_weak` because no source-backed numeric paddling thresholds tied to the selected product-supported gauges surfaced. Calamus remains blocked by stale gauge data, no selected short public day reach, and no numeric thresholds. Missouri National Recreational River remains `research_later` because no Nebraska-side public day reach with private-paddlecraft thresholds surfaced.
 - Kearney Water Trail remains the closest lead but stays `no_live_gauge`: City/NGPC route context and 180-250 cfs local flow guidance are strong, but the direct live gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr`. USGS `06770200` Platte near Kearney is current but remains an unacceptable mainstem proxy for the canal/Turkey Creek water trail.
 - No app route data, trip details, route gallery, or image-audit rows changed.
+## 2026-08-20 18:48 Controller-led gauge review
+
+- Reviewed five previously unreviewed tier-1 Nebraska gauges from provider-baseline-2026-08-14: USGS 06453600 Ponca Creek at Verdel, 06453620 Missouri River below Ponca Creek, 06454100 Niobrara at Agate, 06460800 Niobrara at Borman Bridge, and 06461080 Niobrara at Cornell Bridge.
+- Recorded durable dispositions: 06453600, 06453620, 06460800, and 06461080 are `blocked/route_capable` because no station-specific runnable threshold and complete endpoint, access, safety, camping, coordinate, geometry, and image package cleared. 06454100 is `screened_out/not_paddle_relevant` because it is seasonal/upstream of the public scenic access system and currently reports equipment malfunction.
+- Official sources confirmed real paddling context at the Niobrara scenic river, Borman Bridge, Cornell/Fort Niobrara launch, and Nebraska water-trail system, but the quality bar was not met. No route, trip detail, geometry, gallery, or image-audit row was added.
+- Gatekeeper passed for evidence, safety, independent verification, tests/build, and rollback. Retry only with materially new manager-grade threshold and complete route-package evidence.
+
+## 2026-08-21 Second Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06461500 Niobrara River near Sparks, 06463500 Long Pine Creek near Riverview, 06463720 Niobrara River at Mariaville, 06465500 Niobrara River near Verdel, and 06465520 Niobrara River below Soldier Creek.
+- 06461500, 06463500, 06463720, and 06465500 are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. 06465520 is `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available for a live route threshold.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twelfth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06769525 Elm Creek near Elm Creek, 06770200 Platte River near Kearney, 06770500 Platte River near Grand Island, 06772100 Wood River at Grand Island, and 06772775 Warm Slough near Central City.
+- All five are `blocked/route_capable`: current discharge is published, with Warm Slough effectively at zero flow, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Thirteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06772898 Silver Creek at Mile 4 near Silver Creek, 06773500 Prairie Creek near Silver Creek, 06774000 Platte River near Duncan, 06775500 Middle Loup River at Dunning, and 06775900 Dismal River near Thedford.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Fourteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06777495 Middle Loup River near Gates, 06781600 South Loup River at Arnold, 06781900 South Loup River at Pressey WMA, 06784000 South Loup River at Saint Michael, and 06785000 Middle Loup River at Saint Paul.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Fifteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06785500 North Loup River at Brewster, 06786000 North Loup River at Taylor, 06790500 North Loup River near Saint Paul, 06792000 Cedar River near Fullerton, and 06794000 Beaver Creek at Genoa.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Sixteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06794650 Clear Creek west of the Polk County line, 06794700 Platte River near Schuyler, 06795500 Shell Creek near Columbus, 06796000 Platte River at North Bend, and 06796450 Platte River near Fremont.
+- Three are `blocked/route_capable` because current discharge is published but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. Two are `stale_or_unsupported/route_capable` because the current page exposes gage height without a supported live 00060 discharge parameter.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Seventeenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06796500 Platte River near Leshara, 06796550 Platte River near Venice, 06797500 Elkhorn River at Ewing, 06799000 Elkhorn River at Norfolk, and 06799100 North Fork Elkhorn River near Pierce.
+- Four are `blocked/route_capable` because current discharge is published but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. One is `stale_or_unsupported/route_capable` because the current page exposes gage height without a supported live 00060 discharge parameter.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Eighteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06799315 Elkhorn River at Pilger, 06799350 Elkhorn River at West Point, 06799445 Logan Creek at Wakefield, 06799500 Logan Creek near Uehling, and 06800000 Maple Creek near Nickerson.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Nineteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06800500 Elkhorn River at Waterloo, 06801000 Platte River near Ashland, 06803000 Salt Creek at Roca, 06803080 Salt Creek at Pioneers Boulevard, and 06803093 Haines Branch at SW 56th Street.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twentieth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06803170 Middle Creek at SW 63rd Street, 06803300 Antelope Creek at 27th Street, 06803420 North Oak Creek near Touhy, 06803430 North Oak Creek at Valparaiso, and 06803486 Oak Creek at Air Park Road.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twenty-First Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06803495 Salt Creek at Innovation Campus, 06803500 Salt Creek at 27th Street, 06803502 Deadmans Run at 38th Street, 06803510 Little Salt Creek near Lincoln, and 06803513 Salt Creek at 70th Street.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twenty-Second Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06803520 Stevens Creek near Lincoln, 06803530 Rock Creek near Ceresco, 06803555 Salt Creek at Greenwood, 06803960 Wahoo Creek at South Chestnut Street, and 06804000 Wahoo Creek at Ithaca.
+- Four are `blocked/route_capable` because current discharge is published but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. One is `stale_or_unsupported/route_capable` because the current page exposes gage height without a supported live 00060 discharge parameter.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twenty-Third Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06804700 Wahoo Creek at Ashland, 06805000 Salt Creek near Ashland, 06805515 Buffalo Creek near Springfield, 06805530 Springfield Creek at Springfield, and 06805570 Platte River at La Platte.
+- One is `blocked/route_capable` because current discharge is published but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. Four are `stale_or_unsupported/route_capable` because the current page exposes gage height without a supported live 00060 discharge parameter.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twenty-Fourth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06806500 Weeping Water Creek at Union, 06807000 Missouri River at Nebraska City, 06810070 Missouri River at Brownville, 06811500 Little Nemaha River at Auburn, and 06813500 Missouri River at Rulo.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access and takeout evidence was incomplete; Missouri River gauges also require navigation-hazard and route-safety review.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twenty-Fifth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06814500 North Fork Big Nemaha River at Humboldt, 06815000 Big Nemaha River at Falls City, 06821500 Arikaree River at Haigler, 06823000 North Fork Republican River at the Colorado-Nebraska line, and 06823500 Buffalo Creek near Haigler.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. The three western gauges also have low current flow, which is not a strong promotion signal.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twenty-Sixth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06824000 Rock Creek at Parks, 06824500 Republican River at Benkelman, 06827500 South Fork Republican River near Benkelman, 06828500 Republican River at Stratton, and 06834000 Frenchman Creek at Palisade.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. Current flow was low or zero at all five gauges, so none was a strong promotion candidate.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twenty-Seventh Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06835500 Frenchman Creek at Culbertson, 06836500 Driftwood Creek near McCook, 06837000 Republican River at McCook, 06838000 Red Willow Creek near Red Willow, and 06844500 Republican River near Orleans.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. Current flow was low or near zero at all five gauges.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Twenty-Eighth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06847000 Beaver Creek near Beaver City, 06847500 Sappa Creek near Stamford, 06853020 Republican River at Guide Rock, 06880800 West Fork Big Blue River near Dorchester, and 06881000 Big Blue River near Crete.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. The first three also had low or zero current flow.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the final five residual NE gauges.
+
+## 2026-08-21 Twenty-Ninth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06881380 Turkey Creek near DeWitt, 06882000 Big Blue River at Barneston, 06883000 Little Blue River near Deweese, 06883530 Little Blue River at County Line, and 06884000 Little Blue River near Fairbury.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. Little Blue River near Deweese also had low current flow.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Nebraska now has durable dispositions for all 147 eligible gauges.
+
+## 2026-08-21 Final Bounded Discovery Sweep
+
+- Screened five distinct Nebraska families outside the already represented route cards: Turkey Creek, Big Blue River, Little Blue River, Missouri tributary access corridors, and Republican tributary reaches.
+- No new strong scored route was found. Candidates were duplicates of reviewed gauge families or failed one or more endpoint, access/takeout, threshold, camping, navigation/hazard, safety, coordinate, geometry, or image gates. No route was promoted.
+
+## 2026-08-21 Eleventh Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06768000 Platte River near Overton, 06768020 Spring Creek near Overton, 06768025 Platte River South Channel near Cottonwood Ranch, 06768035 Platte River Mid-Channel near Cottonwood Ranch, and 06769000 Buffalo Creek near Overton.
+- All five are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Tenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06610798 Papillion Creek at Harlan Lewis Road, 06680500 North Platte River at Scottsbluff, 06762500 Lodgepole Creek at Bushnell, 06764880 South Platte River at Roscoe, and 06767970 Platte River J-2 outflow near Overton.
+- 06610798 is `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available. 06680500 is `stale_or_unsupported/route_capable` because its latest instantaneous discharge observation was stale (2026-07-14). 06762500, 06764880, and 06767970 are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Ninth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06610785 West Papillion Creek at Millard, 06610786 South Papillion Creek near Gretna, 06610788 South Papillion Creek at Chalco, 06610793 West Papillion Creek at Papillion, and 06610795 Papillion Creek at Fort Crook.
+- 06610785, 06610788, 06610793, and 06610795 are `blocked/route_capable`: current discharge is effectively zero and independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. 06610786 is `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Eighth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06610760 Cole Creek at Blondo Street, 06610765 Little Papillion Creek at Ak-Sar-Ben, 06610770 Big Papillion Creek at Q Street, 06610773 West Papillion Creek at Elkhorn, and 06610780 West Papillion Creek at Pacific Street.
+- 06610765 and 06610770 are `blocked/route_capable`: current discharge is effectively zero and independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. 06610760, 06610773, and 06610780 are `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Seventh Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06610720 Big Papillion Creek near Bennington, 06610732 Big Papillion Creek at Fort Street, 06610740 Big Papillion Creek at Pacific Street, 06610742 Thomas Creek near Bennington, and 06610750 Little Papillion Creek at Irvington.
+- 06610720, 06610732, and 06610750 are `blocked/route_capable`: current discharge is effectively zero and independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. 06610740 and 06610742 are `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Sixth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06610490 Missouri River at Highway 92 at Omaha, 06610670 Missouri River at Highway 370 at Bellevue, 06610685 Offutt Ditch near Offutt AFB, 06610705 Big Papillion Creek near Blair, and 06610710 Big Papillion Creek near Kennard.
+- All five are `stale_or_unsupported/route_capable`: the current pages did not expose a supported 00060 discharge parameter for a live route threshold.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Fifth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06601000 Omaha Creek at Homer, 06601085 North Blackbird Creek at Macy, 06601095 South Blackbird Creek near Macy, 06601100 Blackbird Creek near Macy, and 06610000 Missouri River at Omaha.
+- 06601085, 06601095, and 06601100 are `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available. 06601000 and 06610000 are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Fourth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06478522 Bow Creek near Wynot, 06478523 Missouri River near St. James, 06478526 Missouri River near Maskell, 06486000 Missouri River at Sioux City, and 06600900 South Omaha Creek at Walthill.
+- 06478523 and 06478526 are `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available. 06478522, 06486000, and 06600900 are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.
+
+## 2026-08-21 Third Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06466000 Niobrara River at Niobrara, 06466010 Missouri River at Niobrara, 06466400 Bazile Creek at Center, 06466470 Howe Creek below Walker Draw, and 06466500 Bazile Creek near Niobrara.
+- 06466000 and 06466010 are `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available. 06466400, 06466470, and 06466500 are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, trip detail, geometry, gallery, or image-audit row was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual NE gauges.

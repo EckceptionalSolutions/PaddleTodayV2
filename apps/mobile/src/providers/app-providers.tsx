@@ -8,6 +8,7 @@ import { AppState } from 'react-native';
 import { useEffect, useState } from 'react';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import { AlertPreferencesProvider } from './alert-preferences-provider';
+import { AreaNotificationPreferencesProvider } from './area-notification-preferences-provider';
 import { SavedRiversProvider } from './saved-rivers-provider';
 import { StoredLocationProvider } from '../hooks/use-stored-location';
 import { QUERY_CACHE_STORAGE_KEY, queryCacheBuster } from '../lib/query-cache';
@@ -79,9 +80,11 @@ export function AppProviders({ children }: PropsWithChildren) {
       }}
     >
       <AlertPreferencesProvider>
-        <StoredLocationProvider>
-          <SavedRiversProvider>{children}</SavedRiversProvider>
-        </StoredLocationProvider>
+        <AreaNotificationPreferencesProvider>
+          <StoredLocationProvider>
+            <SavedRiversProvider>{children}</SavedRiversProvider>
+          </StoredLocationProvider>
+        </AreaNotificationPreferencesProvider>
       </AlertPreferencesProvider>
     </PersistQueryClientProvider>
   );

@@ -24,6 +24,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
+import { AreaNotificationCard } from '../components/area-notification-card';
 import { QualityPill, ratingColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -215,6 +216,7 @@ export default function HomeScreen() {
           onUseLocation={() => void requestLocation()}
           onSetLocation={() => setLocationSearchOpen(true)}
         />
+        <AreaNotificationCard location={location} />
         {locationOutOfRange ? (
           <OutOfRangeState
             locationLabel={location?.label ?? 'your area'}

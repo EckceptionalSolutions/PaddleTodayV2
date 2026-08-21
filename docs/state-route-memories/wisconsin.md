@@ -16,6 +16,30 @@
 - No route was added; no route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed. Next Wisconsin rotation should resume after `usgs:05427910`, with South Fork Pheasant Branch / Yahara Madison-McFarland / Swan Creek candidates unless the planner selects differently.
 # Wisconsin Route Memory
 
+## 2026-08-20 America/Chicago Prescott / USGS 05344500 bounded review
+
+- Completed the controller-led review for `usgs:05344500` and added no route.
+- Prescott sources confirm Lake Street canoe/kayak access, the Front Street public boat launch, and the St. Croix–Mississippi confluence as a boating destination; the launch has fees, trailer-only parking and no-overnight rules.
+- No station-specific threshold, selected endpoint pair and distance, main-channel/confluence hazard package, camping/logistics, coordinates, geometry, or rights-clean image decision cleared. The gauge remains a durable `blocked_route_capable` opportunity and should only be retried on materially new manager-backed evidence.
+
+## 2026-08-20 America/Chicago Milwaukee River mouth / USGS 04087170 bounded review
+
+- Completed the controller-led review for `usgs:04087170` and added no route.
+- Milwaukee Urban Water Trail sources confirm the estuary is paddleable with designated access; trail guidance says Waubedonia is the only camping location and warns that water-access-only sites are not launch/take-out sites.
+- No station-specific threshold, selected endpoint pair and distance, harbor/Lake Michigan safety package, camping/logistics, coordinates, geometry, or rights-clean image decision cleared. The gauge remains a durable `blocked_route_capable` opportunity and should only be retried on materially new manager-backed evidence.
+
+## 2026-08-20 America/Chicago Menomonee 16th Street / USGS 04087142 bounded review
+
+- Completed the controller-led review for `usgs:04087142` and added no route.
+- Milwaukee County and the Milwaukee Urban Water Trail confirm legal canoe/kayak access on the Menomonee River with designated launches; the City confirms river traffic remains open during the 16th Street Bridge project.
+- No station-specific threshold, selected gauge-linked endpoint pair and distance, urban/industrial hazard package, route logistics, coordinates, geometry, or rights-clean image decision cleared. The gauge remains a durable `blocked_route_capable` opportunity and should only be retried on materially new manager-backed evidence.
+
+## 2026-08-20 America/Chicago Menominee / USGS 04066003 bounded review
+
+- Completed the controller-led review for `usgs:04066003` and added no route.
+- Wisconsin DNR confirms public launches at Quiver Falls, Saler Landing and Pemene Landing, four reservable Wisconsin canoe campsites, and a mandatory Pemene Falls portage. American Whitewater confirms the gauge-matched Quiver/Pemene whitewater reaches.
+- No station-linked threshold model, selected endpoint pair and distance, expert skill/portage/exit package, route-linked camping sequence, coordinates, geometry, or rights-clean image decision cleared. The gauge remains a durable `blocked_route_capable` opportunity and should only be retried on materially new manager-backed evidence.
+
 ## 2026-08-14 America/Chicago Menominee / Peshtigo / Oconto gauge screen
 
 - Screened the next Wisconsin frontier batch claimed by `orchestrator-20260814222314`: `usgs:04066003`, `usgs:04067500`, `usgs:04069416`, `usgs:04069500`, and `usgs:04071000`.
@@ -664,3 +688,8 @@ Wisconsin remains mature and heavily implemented. The latest 2026-07-17 08:17 Am
 - Safety/logistics added: downstream-only Clarks Mills Dam launch discipline, Lower Cato Falls scout/portage posture, boulder ledges, I-43 Class I-II rapid complex, strainers, fast rises, private-bank limits, manure-runoff/water-quality caveats, cold-water exposure, public-access footing/roadside-parking checks, no on-route camping, and no informal continuation past selected endpoints.
 - No route-gallery assets were added. Bounded MRW / City / County / WRT / Miles Paddled / AW / USGS / Commons / same-route image review found route/context imagery but no clearly rights-clean exact-route paddling asset selected for local reuse; three no-image rows were added to the image audit.
 - Reviewed but did not add or revive: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already live; Black Earth Creek Cross Plains-to-Salmo Pond remains obstruction-blocked; Fox River Swan-Lake-to-Portage, Wolf Pearson-to-Lily, and Flambeau Highway-W-to-Hervas are already live; Flambeau upper North Fork stayed out because the strongest WTG source says there is no usable direct gauge for that upper reach.
+## 2026-08-20 Merrill opportunity review
+
+- Completed `route-worker-202608202315-wi-merrill-no-add` as a controller-led bounded route-research assignment for `usgs:05395000`; no route was added.
+- Fresh official sources reconfirm Merrill-area Great Pinery Heritage Waterway segments, public landings, and portage context, but no 05395000-tied numeric threshold ladder or fully validated selected segment with access, camping, dam/portage safety, coordinate, image, and geometry evidence cleared.
+- Durable disposition remains `blocked/route_capable`. Retry only with materially new manager-grade threshold and complete route-package evidence.

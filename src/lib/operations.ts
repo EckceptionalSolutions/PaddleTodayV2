@@ -293,8 +293,8 @@ function getOperationsTelemetry() {
 
 const automationRegistry = [
   { id: 'paddletoday-operations-orchestrator', name: 'PaddleToday Operations Orchestrator', schedule: 'Every two hours', status: 'enabled', owner: 'orchestrator' },
-  { id: 'paddletoday-hourly-route-worker', name: 'PaddleToday Route Worker', schedule: 'Every 30 minutes', status: 'enabled', owner: 'route-implementation' },
-  { id: 'paddletoday-route-worker-supervisor', name: 'PaddleToday Route Worker Supervisor', schedule: 'Every hour', status: 'enabled', owner: 'orchestrator' },
+  { id: 'paddletoday-hourly-route-worker', name: 'PaddleToday Route Worker (controller-led)', schedule: 'Controller-led (on demand)', status: 'paused', owner: 'orchestrator' },
+  { id: 'paddletoday-route-worker-supervisor', name: 'PaddleToday Route Worker Supervisor', schedule: 'Controller-led (on demand)', status: 'paused', owner: 'orchestrator' },
   { id: 'paddletoday-route-overlap-auditor', name: 'PaddleToday Route Overlap Auditor', schedule: 'Every six hours', status: 'enabled', owner: 'independent-verifier' },
   { id: 'paddletoday-consolidation-reviewer', name: 'PaddleToday Consolidation Reviewer', schedule: 'Every six hours', status: 'enabled', owner: 'independent-verifier' },
   { id: 'paddletoday-daily-operations-report', name: 'PaddleToday Daily Operations Report', schedule: 'Daily at 20:00', status: 'enabled', owner: 'product-analysis' },

@@ -1,4 +1,6 @@
 import type {
+  AreaNotificationSubscriptionInput,
+  AreaNotificationSubscriptionPatch,
   CreateAppFeedbackRequest,
   CreateRiverAlertRequest,
   CreateRiverRequestRequest,
@@ -80,6 +82,18 @@ export function useRouteCommunityQuery(slug: string) {
 export function useCreateRiverAlertMutation() {
   return useMutation({
     mutationFn: (input: CreateRiverAlertRequest) => apiClient.createRiverAlert(input),
+  });
+}
+
+export function useCreateAreaNotificationSubscriptionMutation() {
+  return useMutation({
+    mutationFn: (input: AreaNotificationSubscriptionInput) => apiClient.createAreaNotificationSubscription(input),
+  });
+}
+
+export function useUpdateAreaNotificationSubscriptionMutation() {
+  return useMutation({
+    mutationFn: (input: AreaNotificationSubscriptionPatch) => apiClient.updateAreaNotificationSubscription(input),
   });
 }
 

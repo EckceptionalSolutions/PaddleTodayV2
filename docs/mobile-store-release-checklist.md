@@ -38,11 +38,13 @@ Production API note: the desktop web app already uses the production PaddleToday
 - [x] Add public terms and safety page at `/terms/`.
 - [x] Link privacy and terms pages from the site footer.
 - [x] Add iOS and Android permission copy for location and photo selection.
+- [x] Update iOS notification permission copy for route and nearby opportunity alerts.
 - [ ] Owner/legal review of `/privacy/` and `/terms/` before submission.
 - [x] Draft Apple privacy nutrition label and Google Play Data Safety worksheet in `docs/mobile-store-privacy-worksheet.md`.
 - [ ] Complete Apple privacy nutrition labels in App Store Connect after owner/legal review.
 - [ ] Complete Google Play Data Safety form after owner/legal review.
 - [x] Confirm alert creation API is live in production and represented in privacy copy.
+- [ ] Confirm area notification API, selected-location storage, and production feature flag with the exact submitted build.
 - [x] Configure Firebase Analytics and Crashlytics for preview/production native builds.
 - [x] Keep development builds and Expo Go observability as no-op.
 - [ ] Add Firebase iOS and Android native config files before preview/production builds.
@@ -75,6 +77,7 @@ Production API note: the desktop web app already uses the production PaddleToday
 - [x] Decide Saved remains device-local for MVP in `docs/mobile-saved-rivers-mvp-decision.md`.
 - [x] Decide whether alerts are MVP-ready or should be clearly scoped as local preferences until backend delivery is complete.
 - [ ] Confirm alert email delivery with production email provider in a real preview build.
+- [ ] Confirm nearby Today and Weekend push delivery, receipt reconciliation, and DeviceNotRegistered deactivation in a real preview build.
 - [ ] Confirm route report submission behavior with a real TestFlight/Play internal build.
 - [x] Confirm route report API availability and image attachment contract for MVP.
 - [x] Review empty states for no saved rivers and filtered route views.
@@ -84,6 +87,7 @@ Production API note: the desktop web app already uses the production PaddleToday
 
 - [x] Add Firebase Analytics and Crashlytics dependencies.
 - [x] Wire privacy-compatible event hooks for core funnels: app open, route open, save, directions, report started/submitted, alert creation, API diagnostic.
+- [x] Wire privacy-compatible area-notification lifecycle and open events without coordinates or push tokens.
 - [x] Decide Firebase Analytics and Crashlytics are the preferred low-cost provider in `docs/mobile-analytics-mvp-decision.md`.
 - [ ] Create Firebase project and add native app config files.
 - [x] Add a production API health check that mobile QA can verify quickly.

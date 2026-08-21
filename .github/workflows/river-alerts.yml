@@ -38,6 +38,7 @@ jobs:
           ALERTS_REPLY_TO_EMAIL: ${{ vars.ALERTS_REPLY_TO_EMAIL || 'river-alerts@paddletoday.com' }}
           ALERTS_SIGNING_SECRET: ${{ secrets.ALERTS_SIGNING_SECRET }}
           ACS_EMAIL_CONNECTION_STRING: ${{ secrets.ACS_EMAIL_CONNECTION_STRING }}
+          AREA_NOTIFICATIONS_ENABLED: ${{ vars.AREA_NOTIFICATIONS_ENABLED || 'false' }}
         run: |
           if [ -z "$RIVER_SNAPSHOT_CONTAINER_SAS_URL" ]; then
             echo "RIVER_SNAPSHOT_CONTAINER_SAS_URL is not configured."
@@ -65,6 +66,7 @@ jobs:
           fi
 
           npm run alerts:evaluate
+          npm run area-notifications:evaluate
 
       - name: Reconcile Expo push receipts
         if: ${{ always() }}

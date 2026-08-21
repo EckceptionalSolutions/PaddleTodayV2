@@ -78,6 +78,7 @@
     "history:snapshot": "tsx src/server/history-snapshot.ts",
     "snapshots:refresh": "tsx src/server/river-snapshot.ts",
     "alerts:evaluate": "tsx src/server/alerts-evaluate.ts",
+    "area-notifications:evaluate": "tsx src/server/area-notifications-evaluate.ts",
     "alerts:reconcile-push": "tsx src/server/alerts-reconcile-push.ts",
     "start": "tsx src/server/api-server.ts --static dist",
     "test": "npm run typecheck && npm run scoring:sensitivity:check && vitest run && npm run test --workspace @paddletoday/api-contract",

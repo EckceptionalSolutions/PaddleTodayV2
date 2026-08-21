@@ -26,14 +26,33 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
   },
   {
     corridorId: 'mn-little-fork-fiedler-lofgren',
-    label: 'Little Fork Fiedler-to-Lofgren corridor',
+    label: 'Little Fork Map 2 access corridor',
     continuityStatus: 'verified',
-    slugs: ['little-fork-river-fiedler-lofgren-park', 'little-fork-river-fiedler-devereaux', 'little-fork-river-devereaux-lofgren-park'],
+    slugs: [
+      'little-fork-river-dentaybow-fiedler',
+      'little-fork-river-dentaybow-devereaux',
+      'little-fork-river-fiedler-devereaux',
+      'little-fork-river-fiedler-lofgren-park',
+      'little-fork-river-devereaux-lofgren-park',
+      'little-fork-river-lofgren-kuttes',
+    ],
     canonicalSlug: 'little-fork-river-fiedler-lofgren-park',
     segmentEdges: [
       { fromId: 'fiedler', toId: 'devereaux', status: 'verified' },
       { fromId: 'devereaux', toId: 'lofgren-park', status: 'verified' },
     ],
+  },
+  {
+    corridorId: 'mn-little-fork-map-1',
+    label: 'Little Fork Map 1 access corridor',
+    continuityStatus: 'verified',
+    slugs: [
+      'little-fork-river-veterans-park-highway-73',
+      'little-fork-river-highway-73-samuelson',
+      'little-fork-river-highway-73-silverdale',
+      'little-fork-river-samuelson-silverdale',
+    ],
+    canonicalSlug: 'little-fork-river-highway-73-silverdale',
   },
   {
     corridorId: 'mn-pomme-de-terre-lower',
@@ -214,6 +233,24 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     continuityStatus: 'verified',
     canonicalSlug: 'beaver-dam-river-cotton-mill-county-j',
     slugs: ['beaver-dam-river-cotton-mill-county-j', 'beaver-dam-river-county-s-lowell'],
+  },
+  {
+    corridorId: 'ky-goose-creek-lower-manchester',
+    label: 'Lower Manchester Goose Creek access corridor',
+    continuityStatus: 'verified',
+    canonicalSlug: 'goose-creek-jacks-laurel-branch',
+    slugs: [
+      'goose-creek-jacks-tobacco-road',
+      'goose-creek-jacks-dump-hollow',
+      'goose-creek-tobacco-road-dump-hollow',
+      'goose-creek-dump-hollow-laurel-branch',
+      'goose-creek-jacks-laurel-branch',
+    ],
+    segmentEdges: [
+      { fromId: 'jacks-bowling-branch-bridge-access', toId: 'tobacco-road-bridge-ramp', status: 'verified' },
+      { fromId: 'tobacco-road-bridge-ramp', toId: 'dump-hollow-ford-road', status: 'verified' },
+      { fromId: 'dump-hollow-ford-road', toId: 'laurel-branch-road-access', status: 'verified' },
+    ],
   },
   {
     corridorId: 'in-wabash-wells-county',

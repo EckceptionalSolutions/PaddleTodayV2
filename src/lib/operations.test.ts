@@ -22,7 +22,7 @@ describe('operations snapshot', () => {
   it('keeps Texas in review until the discovery sweep completes', () => {
     const snapshot = getOperationsSnapshot();
     const texas = snapshot.states.find((state) => state.id === 'TX');
-    expect(texas).toMatchObject({ planning: 0, legacySaturation: 'not_started' });
+    expect(texas).toMatchObject({ planning: 0, legacySaturation: 'saturated' });
     expect(texas?.saturation).toBe('gauge_review_in_progress');
     expect(texas?.scored ?? 0).toBeGreaterThanOrEqual(16);
   });

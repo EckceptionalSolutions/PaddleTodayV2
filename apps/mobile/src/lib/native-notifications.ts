@@ -3,6 +3,7 @@ import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
 
 const RIVER_ALERTS_CHANNEL_ID = 'river-alerts';
+export const AREA_NOTIFICATIONS_CHANNEL_ID = 'nearby-opportunities';
 
 export interface NativeNotificationRegistration {
   ok: boolean;
@@ -26,6 +27,14 @@ export function configureNativeNotifications() {
 }
 
 export async function registerForRiverAlertPushNotifications(): Promise<NativeNotificationRegistration> {
+  return registerForPushNotifications(RIVER_ALERTS_CHANNEL_ID, 'River alerts');
+}
+
+export async function registerForAreaNotificationPushNotifications(): Promise<NativeNotificationRegistration> {
+  return registerForPushNotifications(AREA_NOTIFICATIONS_CHANNEL_ID, 'Nearby paddle opportunities');
+}
+
+async function registerForPushNotifications(channelId: string, channelName: string): Promise<NativeNotificationRegistration> {
   try {
     if (Platform.OS === 'web') {
       return {
@@ -36,8 +45,8 @@ export async function registerForRiverAlertPushNotifications(): Promise<NativeNo
     }
 
     if (Platform.OS === 'android') {
-      await Notifications.setNotificationChannelAsync(RIVER_ALERTS_CHANNEL_ID, {
-        name: 'River alerts',
+      await Notifications.setNotificationChannelAsync(channelId, {
+        name: channelName,
         importance: Notifications.AndroidImportance.DEFAULT,
       });
     }

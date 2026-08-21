@@ -135,7 +135,11 @@ async function main() {
   const bounded = items.slice(0, 40);
   const tasks = JSON.parse(await readFile(tasksPath, 'utf8')) as TasksFile;
   const existing = new Map(tasks.tasks.map((task) => [String(task.id), task]));
-  const highCandidates = bounded.filter((candidate) => candidate.priority === 'high');
+  // Only open findings may consume the bounded auto-created-task budget. Completed,
+  // rejected, and already-implemented queue items must not crowd out fresh work.
+  const highCandidates = bounded.filter((candidate) => (
+    candidate.priority === 'high' && (candidate.status === 'new' || candidate.status === 'reviewing')
+  ));
   const villageCreek = highCandidates.find((candidate) => candidate.group.toLowerCase().includes('village-creek'));
   const selectedHigh = highCandidates.slice(0, 6);
   if (villageCreek && !selectedHigh.includes(villageCreek)) selectedHigh[selectedHigh.length - 1] = villageCreek;
@@ -163,7 +167,7 @@ async function main() {
   await writeFile(queuePath, JSON.stringify({ version: 1, generatedAt: now, source: 'npm run routes:audit:overlap', limits: { maxOpenItems: 40, maxAutoCreatedTasks: 6 }, items: bounded }, null, 2) + '\n');
 
   const runs = JSON.parse(await readFile(runsPath, 'utf8')) as RunsFile;
-  runs.runs.push({ id: `overlap-auditor-${now.replace(/[-:.TZ]/g, '').slice(0, 14)}`, kind: 'route_overlap_audit', startedAt: now, completedAt: now, status: 'completed', automationId: 'paddletoday-route-overlap-auditor', findings: rows.length, reviewItems: bounded.length, autoCreatedTasks: bounded.filter((candidate) => candidate.taskId).length, summary: `Persisted ${bounded.length} bounded deduplicated consolidation review items; high-confidence items remain verifier-gated.` });
+  runs.runs.push({ id: `overlap-auditor-${now.replace(/[-:.TZ]/g, '').slice(0, 14)}`, kind: 'route_overlap_audit', startedAt: now, completedAt: now, status: 'completed', automationId: 'paddletoday-route-overlap-auditor', findings: rows.length, reviewItems: bounded.length, autoCreatedTasks: selectedHigh.length, summary: `Persisted ${bounded.length} bounded deduplicated consolidation review items; ${selectedHigh.length} open high-confidence items are verifier-gated.` });
   runs.updatedAt = now;
   await writeFile(runsPath, JSON.stringify(runs, null, 2) + '\n');
   console.log(JSON.stringify({ findings: rows.length, reviewItems: bounded.length, autoCreatedTasks: selectedHigh.length }));

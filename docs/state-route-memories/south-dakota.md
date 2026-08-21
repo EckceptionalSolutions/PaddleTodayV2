@@ -1,5 +1,88 @@
 # South Dakota Route Memory
 
+## 2026-08-21 Gauge review: thirteenth bounded batch
+
+- Reviewed `usgs:06430800`, `06430850`, `06431500`, `06433000`, and `06434505`.
+- Little Spearfish Creek and Spearfish Creek at Spearfish remain durable `blocked` / `route_capable` opportunities pending public endpoints, station-specific thresholds, and complete access/safety/logistics packages.
+- Redwater River above Belle Fourche is `stale_or_unsupported` because the current monitoring page has no supported data; Annie Creek and the Belle Fourche inlet canal were `screened_out` for very low flow or irrigation-canal conditions.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: twelfth bounded batch
+
+- Reviewed `usgs:06425500`, `06428500`, `06429997`, `06430500`, and `06430770`.
+- Belle Fourche River at the Wyoming–South Dakota line and Redwater Creek at the state line remain durable `blocked` / `route_capable` opportunities pending cross-state endpoints, thresholds, and access/safety/logistics packages.
+- Elk Creek near Elm Springs and Spearfish Creek near Lead are `stale_or_unsupported` because current gauge support is unavailable or discontinued; Murray Ditch was `screened_out` as an irrigation ditch without a public paddle corridor.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: eleventh bounded batch
+
+- Reviewed `usgs:06422500`, `06423010`, `06423500`, `06425050`, and `06425100`.
+- Boxelder Creek near Nemo and Cheyenne River near Wasta remain durable `blocked` / `route_capable` pending public endpoints, station-specific thresholds, and complete access/safety/logistics packages.
+- Boxelder Creek near Rapid City is `stale_or_unsupported` because the current supported series is stage-only; Stagebarn Canyon Creek and Elk Creek were `screened_out` for very low flow/small tributary conditions and no supported public paddle corridor.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: tenth bounded batch
+
+- Reviewed `usgs:06413620`, `06414000`, `06416000`, `06418800`, and `06421500`.
+- Rapid Creek at Rapid City, above the WRF, and near Farmingdale remain durable `blocked` / `route_capable` opportunities pending public endpoints, station-specific thresholds, and complete access/safety/logistics packages.
+- Rapid Creek below Hawthorn Ditch is `stale_or_unsupported` because USGS identifies it as seasonal stage/precipitation only; South Canyon was `screened_out` as a small tributary without a supported public paddle corridor.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: ninth bounded batch
+
+- Reviewed `usgs:06412220`, `06412250`, `06412500`, `06412580`, and `06412810`.
+- Rapid Creek above Canyon Lake remains durable `blocked` / `route_capable` pending public endpoints, station-specific runnable thresholds, and a complete access/safety/logistics package.
+- Victoria Creek above/below Victoria Dam, Wild Irishman Gulch, and Cleghorn Springs were `screened_out` as small tributary/spring or stage-only sites without supported public paddle corridors.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: eighth bounded batch
+
+- Reviewed `usgs:06410500`, `06411500`, `06411900`, `06412000`, and `06412200` on Rapid Creek.
+- Rapid Creek above Pactola, below Pactola Dam, and above Victoria Creek remain durable `blocked` / `route_capable` pending public endpoints, station-specific runnable thresholds, and complete access/safety/logistics packages.
+- The Johnson Siding and Big Bend gauges are `stale_or_unsupported` because current supported observations are unavailable; they remain route-capable opportunities for a future data refresh.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: seventh bounded batch
+
+- Reviewed `usgs:06407500`, `06408650`, `06408700`, `06409000`, and `06410000`.
+- Spring Creek near Keystone, Cheyenne River near Scenic, and Castle Creek below Deerfield Dam remain durable `blocked` / `route_capable` pending current data, station-specific thresholds, public endpoints, and complete access/safety/logistics packages.
+- Rhoads Fork and Castle Creek above Deerfield Reservoir were `screened_out` for low-flow creek conditions and lack of a supported public paddle corridor.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: sixth bounded batch
+
+- Reviewed `usgs:06406000`, `06406500`, `06406700`, `06406740`, and `06406760`.
+- Battle Creek at and below Hermosa remain durable `blocked` / `route_capable` pending station-specific thresholds, endpoints, and complete safety/logistics packages.
+- Spring Creek at Oreville is `stale_or_unsupported` because only old stage data were available; Sunday Gulch and Reno Gulch were `screened_out` as small stage-only tributaries without supported public paddle corridors.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: fifth bounded batch
+
+- Reviewed `usgs:06403700`, `06403810`, `06403850`, `06404000`, and `06404998`.
+- Cheyenne River at Red Shirt and Battle Creek above Keystone remain durable `blocked` / `route_capable`; both lack a validated endpoint/threshold package, and the latter has stale stage-only observations.
+- Grizzly Bear Creek, Battle Creek near Keystone, and Grace Coolidge Creek were durably `screened_out` because they are stage-only/very low-flow or small-creek gauges without a supported public paddle corridor.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-21 Gauge review: fourth bounded batch
+
+- Reviewed `usgs:06401500`, `06402000`, `06402500`, `06402600`, and `06403300`.
+- Cheyenne below Angostura, Fall River at Hot Springs, and Cheyenne near Buffalo Gap remain durable `blocked` / `route_capable`; no station-specific threshold, named public endpoint pair, dam/access safety package, and complete logistics/geometry/image evidence cleared.
+- Beaver Creek near Buffalo Gap and French Creek above Fairburn were durably `screened_out` because observed flows are low and no supported public creek corridor or endpoint package surfaced.
+- No route was added. The next SD batch remains bounded and queued.
+
+## 2026-08-20 Gauge review: third bounded batch
+
+- Reviewed `usgs:06360500`, `06361000`, `06395000`, `06400000`, and `06400875`.
+- Moreau River Whitehorse, Moreau River Promise, and Cheyenne River Edgemont remain durable `blocked` / `route_capable`: plausible named-river opportunities, but no station-specific threshold, validated endpoint pair, and complete access/safety/logistics/geometry/image package cleared.
+- Hat Creek near Edgemont and Horsehead Creek at Oelrichs were durably `screened_out` as unsupported low-flow/creek opportunities with no product-ready public paddle corridor.
+- No speculative route was added. The next SD batch remains bounded and queued for later controller execution.
+
+## 2026-08-20 Gauge review: second bounded batch
+
+- Reviewed `usgs:06355500`, `06356500`, `06357600`, `06357800`, and `06359500`.
+- All five remain durable `blocked` / `route_capable`: named rivers and live or historical USGS observations make them plausible opportunities, but no station-specific paddling threshold, validated public endpoint pair, access/safety package, camping/logistics, canonical geometry, or rights-clean image package cleared the quality bar.
+- No speculative route was added. Keep these records as actionable follow-up opportunities if endpoint/threshold evidence improves.
+
 Last summarized: 2026-08-09.
 
 ## Current Inventory
@@ -438,3 +521,125 @@ South Dakota has sparse coverage and a small candidate base. It is not exhausted
 - Big Sioux Recreation Area North-to-Madison Street is access/duplicate blocked: the blog fragment is not manager-backed, the current GFP layer has already confirmed Big Sioux Recreation Area North as Parking No / Launch No, Madison Street is not a manager-backed public landing, and the route overlaps the shipped Big Sioux Recreation Area South corridor without a distinct threshold or safety package.
 - Split Rock Creek-to-Big Sioux confluence is route-shape/threshold blocked: the visible source is an old event/blog shuttle fragment, current USGS `06482610` was only 7.44 cfs / 1.70 ft on 2026-08-08 19:45 CDT, below the 4.5 ft floor, and no public downstream endpoint pair, camping legality, confluence/no-extension safety package, or separate threshold model surfaced beyond the existing verified Split Rock Park-to-Palisades card.
 - No image, route geometry, coordinate implementation, route data, trip-detail, or image-audit work was reached because all five candidates failed earlier gates. Next rotation should avoid these residual recreation-area/blog fragments unless a manager-grade source publishes endpoints, thresholds, camping, safety, and supported live gauge/discharge evidence; the South Dakota board likely needs a new official source or expansion target if no distinct candidate remains.
+## 2026-08-20 18:54 Controller-led gauge review
+
+- Reviewed five previously unreviewed tier-1 South Dakota gauges from provider-baseline-2026-08-14: USGS 05050000 Bois de Sioux near White Rock, 05290000 Little Minnesota near Peever, 05291000 Whetstone near Big Stone City, 06334500 Little Missouri at Camp Crook, and 06354881 Oak Creek near Rattlesnake Butte.
+- Recorded durable dispositions: 05050000, 05291000, and 06334500 are `blocked/route_capable` because no station-specific runnable threshold and complete public endpoint, access, safety, camping, coordinate, geometry, and image package cleared. 05290000 is `stale_or_unsupported/not_paddle_relevant` because the current USGS page has no data package. 06354881 is `screened_out/not_paddle_relevant` because no public paddling corridor was found and USGS warns about beaver-related discharge errors.
+- Official USGS/NWS evidence confirmed live or historical hydrology but did not meet the publication bar. No route, trip detail, geometry, gallery, or image-audit row was added.
+- Gatekeeper passed for evidence, safety, independent verification, tests/build, and rollback. Retry only with materially new manager-grade route evidence.
+
+## 2026-08-21 Fourteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06436000 Belle Fourche River near Fruitdale and 06436170/06436180/06436198 Whitewood Creek gauges; each has official live discharge/gage-height evidence but no verified public launch/takeout corridor or route-specific access package, so each remains `blocked/route_capable`.
+- USGS 06436190 Whitewood Creek near Whitewood is `stale_or_unsupported/route_capable`: the official monitoring page reports no continuous, daily, or field measurement data and therefore cannot support a live route threshold.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Fifteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06437000 Belle Fourche River near Sturgis and 06437020 Bear Butte Creek near Deadwood; both have live discharge/gage-height evidence but no verified public launch/takeout corridor or route-specific safety package, so both remain `blocked/route_capable`.
+- USGS 06437200 Bear Butte Creek near Galena, 06437300 Bear Butte Creek at Avalanche Road, and 06437330 Vanocker Creek near Sturgis are `stale_or_unsupported/route_capable`: the official evidence is seasonal/stage-only or currently unavailable and cannot support a live discharge threshold.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Sixteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06437360 Deadman Gulch, 06438000 Belle Fourche near Elm Springs, 06438500 Cheyenne River near Plainview, 06439000 Cherry Creek near Plainview, and 06439500 Cheyenne River near Eagle Butte.
+- 06438500 and 06439000 remain `blocked/route_capable`: both have official discharge/gage evidence, but lack a verified public endpoint and route-specific safety package; Cherry Creek was also at 0 cfs in the reviewed observation.
+- 06437360, 06438000, and 06439500 are `stale_or_unsupported/route_capable` because the official pages expose stage-only, unavailable, or stale discharge support and cannot establish a live route threshold.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Seventeenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06440000 Missouri River at Pierre, 06440200 South Fork Bad River near Cottonwood, 06441000 Bad River near Midland, 06441500 Bad River near Fort Pierre, and 06441590 Missouri River at LaFramboise Island.
+- 06440200 and 06441500 remain `blocked/route_capable`: live discharge exists, but no verified public endpoint/access package cleared; 06441500 also carries a USGS beaver-activity warning affecting discharge reliability.
+- 06440000, 06441000, and 06441590 are `stale_or_unsupported/route_capable` because they are stage-only, discontinued, or lack current discharge support for a live threshold.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Eighteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06441592 Missouri River below LaFramboise Island, 06441595 Missouri River at Farm Island, 06442130 Cedar Creek near Presho, 06442600 Medicine Creek near Lower Brule, and 06442900 Elm Creek near Gann Valley.
+- All five are `stale_or_unsupported/route_capable`: the Missouri gauges are stage-only/stale, Cedar Creek has no current measurement package, and Medicine/Elm Creek lack current discharge observations sufficient for a live threshold.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Nineteenth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06445685 White River near the Nebraska-South Dakota line, 06445980 White Clay Creek near Oglala, 06446000 White River near Oglala, 06446100 Wounded Knee Creek, and 06446500 White River near Interior.
+- All five are `stale_or_unsupported/route_capable`: each lacks a current supported discharge threshold, is stage-only, or has observations too stale to support a live route decision. No public endpoint/safety package justified promotion.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twentieth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06446700 Bear In The Lodge Creek, 06447000 White River near Kadoka, 06447230 Black Pipe Creek, 06447450 White River near White River, and 06447500 Little White River near Martin.
+- All five are `stale_or_unsupported/route_capable`: the official pages expose no current live discharge package, or observations are stale (Black Pipe Creek has no observations newer than August 18, 2025), so none can support a current route threshold.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-First Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06449000 Lake Creek below Refuge, 06449100 Little White River near Vetal, 06449500 Little White River near Rosebud, 06450500 Little White River below White River, and 06452000 White River near Oacoma.
+- 06449000, 06449100, and 06449500 are `stale_or_unsupported/route_capable` because their latest discharge observations were July 18, May 5, and August 3, respectively. 06450500 and 06452000 have current discharge observations but remain `blocked/route_capable` pending verified public endpoint, access/takeout, and route-safety evidence.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-Second Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06452320 Platte Creek, 06453020 Missouri River below Greenwood, 06463900, 06463990, and 06464100 Keya Paha River stations.
+- 06452320 and 06453020 are `stale_or_unsupported/route_capable`: Platte Creek's latest discharge was August 3, while Missouri River below Greenwood exposes gage height but no discharge parameter. 06463900, 06463990, and 06464100 have current observations but remain `blocked/route_capable` pending verified public endpoint, access/takeout, and route-safety evidence.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-Third Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06464500 Keya Paha River at Wewela, 06466700 Lewis and Clark Lake at Springfield, 06467500 Missouri River at Yankton, 06471000 James River at Columbia, and 06471065 Elm River near Frederick.
+- 06464500 and 06471000 are `blocked/route_capable`: current discharge is available, but public endpoint/access and route-safety evidence was not verified. 06466700, 06467500, and 06471065 are `stale_or_unsupported/route_capable` because the stations expose only stage/level data rather than the required live discharge threshold.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-Fourth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06471500 Elm River at Westport, 06471510 Elm River near Ordway, 06471770 Moccasin Creek at Aberdeen, 06471800 Foot Creek near Aberdeen, and 06471875 Moccasin Creek near Aberdeen.
+- 06471500 and 06471800 are `blocked/route_capable`: current discharge is available, but public endpoint/access and route-safety evidence was not verified. 06471510, 06471770, and 06471875 are `stale_or_unsupported/route_capable` because they expose stage/level only or lack a usable discharge parameter.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-Fifth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06472000 James River near Stratford, 06473000 James River at Ashton, 06475000 James River near Redfield, 06476000 James River at Huron, and 06477000 James River near Yankton.
+- All five are `blocked/route_capable`: current discharge observations were available, but public endpoint/access and route-safety evidence was not verified for a launchable route corridor.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-Sixth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06477500 Firesteel Creek near Mount Vernon, 06478000 James River near Mitchell, 06478500 James River near Scotland, 06478513 James River at Scotland, and 06478600 East Fork Vermillion River near Parker.
+- All five are `blocked/route_capable`: current discharge observations were available, but public endpoint/access and route-safety evidence was not verified. 06478000 also carries a USGS measurement-quality warning for low unit discharges.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-Seventh Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06478690 Vermillion River, 06479010 Vermillion River near Vermillion, 06479215 Big Sioux River near Florence, 06479438 Big Sioux River near Watertown, and 06479452 Big Sioux River at Lake Kampeska.
+- 06478690, 06479010, 06479215, and 06479438 are `blocked/route_capable`: current discharge is available, but public endpoint/access and route-safety evidence was not verified. 06479452 is `stale_or_unsupported/route_capable`: it is a high-flow, gage-height-only station with no discharge parameter.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-Eighth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06479490 Big Sioux River near Watertown, 06479498 South Branch Tributary Mud Creek, 06479500 Big Sioux River at Watertown, 06479512 Big Sioux River at Broadway, and 06479515 Big Sioux River near Watertown.
+- 06479500 is `blocked/route_capable`: current discharge is available, but public endpoint/access and route-safety evidence was not verified. The other four are `stale_or_unsupported/route_capable` because they expose stage/level only and no supported discharge parameter.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Twenty-Ninth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06479520 Big Sioux River below Watertown, 06479525 Big Sioux River near Castlewood, 06479770 Big Sioux River near Bruce, 06480000 Big Sioux River near Brookings, and 06480650 Flandreau Creek above Flandreau.
+- All five are `blocked/route_capable`: current discharge observations were available, but independently verified public endpoint/access, takeout, and route-safety evidence was not sufficient to promote a route.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review remains bounded to the next five residual SD gauges.
+
+## 2026-08-21 Thirtieth Five-Gauge Controller-Led Review
+
+- No route added. Reviewed USGS 06481000 Big Sioux River near Dell Rapids, 06481400 Big Sioux River below Diversion at Sioux Falls, 06481480 Skunk Creek near Chester, 06481493 Skunk Creek near Hartford, and 06481497 Willow Creek near Crooks.
+- 06481000 and 06481480 are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. 06481400, 06481493, and 06481497 are `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available for a live route threshold.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. Next review is the final bounded batch of three residual SD gauges.
+
+## 2026-08-21 Thirty-First and Final Gauge-Review Batch
+
+- No route added. Reviewed USGS 06482010 Silver Creek at Sioux Falls, 06483950 Big Sioux River near Hawarden, and 06485910 Big Sioux River near Jefferson.
+- 06482010 is `stale_or_unsupported/route_capable` because no supported 00060 discharge parameter was available. 06483950 and 06485910 are `blocked/route_capable`: current discharge is published, but independently verified public endpoint/access, takeout, and route-safety evidence was incomplete.
+- No route, geometry, trip detail, image, or coordinate implementation was added. Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. All SD eligible gauges now have durable dispositions; the next required step is one bounded fresh discovery sweep for any strong additional route candidate.
+
+## 2026-08-21 South Dakota Bounded Fresh Discovery Sweep
+
+- No new route added. The sweep checked official South Dakota GFP paddling and lakeside-access material, the Jay Heath Canoe & Kayak Trail map, SDCKA references, and the existing SD candidate ledger for materially new, strong route families.
+- The only strong official trail evidence was the already represented Jay Heath Big Sioux corridor. Other surfaced leads were duplicate Big Sioux/Vermillion/Black Hills/Missouri families, lake or recreation-area context without a named point-to-point route, or lacked a complete endpoint, gauge-threshold, camping, safety, coordinate, and geometry package.
+- Gatekeeper passed evidence, safety, independent verification, tests/build, and rollback checks. South Dakota now satisfies the gauge-disposition and bounded-discovery conditions for frontier completion; no speculative route was created.

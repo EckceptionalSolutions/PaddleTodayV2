@@ -10,6 +10,9 @@ import type {
   CreateRiverAlertResponse,
   CreateRouteContributionRequest,
   CreateRouteContributionResponse,
+  AreaNotificationSubscriptionInput,
+  AreaNotificationSubscriptionPatch,
+  AreaNotificationSubscriptionResponse,
   RiverDetailResponse,
   RiverGroupResponse,
   RiverGeometryResponse,
@@ -41,7 +44,7 @@ export interface RequestOptions {
 interface JsonRequestOptions extends RequestOptions {
   body?: unknown;
   headers?: HeadersInit;
-  method?: 'GET' | 'POST';
+  method?: 'GET' | 'POST' | 'PATCH';
 }
 
 export interface RiverHistoryRequestOptions extends RequestOptions {
@@ -57,6 +60,14 @@ export interface PaddleTodayApiClient {
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
   getRouteCommunity(slug: string, options?: RequestOptions): Promise<RouteCommunityResponse>;
   createRiverAlert(input: CreateRiverAlertRequest, options?: RequestOptions): Promise<CreateRiverAlertResponse>;
+  createAreaNotificationSubscription(
+    input: AreaNotificationSubscriptionInput,
+    options?: RequestOptions,
+  ): Promise<AreaNotificationSubscriptionResponse>;
+  updateAreaNotificationSubscription(
+    input: AreaNotificationSubscriptionPatch,
+    options?: RequestOptions,
+  ): Promise<AreaNotificationSubscriptionResponse>;
   createAppFeedback(input: CreateAppFeedbackRequest, options?: RequestOptions): Promise<CreateAppFeedbackResponse>;
   createRiverRequest(input: CreateRiverRequestRequest, options?: RequestOptions): Promise<CreateRiverRequestResponse>;
   createRouteReport(input: CreateRouteReportRequest, options?: RequestOptions): Promise<CreateRouteReportResponse>;
@@ -173,6 +184,23 @@ export function createPaddleTodayApiClient(args: {
         method: 'POST',
         body: input,
       });
+    },
+    createAreaNotificationSubscription(input, options) {
+      return requestJson<AreaNotificationSubscriptionResponse>('/api/notification-subscriptions', {
+        ...options,
+        method: 'POST',
+        body: input,
+      });
+    },
+    updateAreaNotificationSubscription(input, options) {
+      return requestJson<AreaNotificationSubscriptionResponse>(
+        `/api/notification-subscriptions/${encodeURIComponent(input.subscriptionId)}`,
+        {
+          ...options,
+          method: 'PATCH',
+          body: input,
+        },
+      );
     },
     getRiverGeometry(slug, options) {
       return requestJson<RiverGeometryResponse>(

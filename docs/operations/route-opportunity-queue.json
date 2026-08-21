@@ -1,29 +1,9 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-20T17:16:35.967Z",
+  "generatedAt": "2026-08-21T13:38:29.224Z",
   "maxPerState": 5,
   "maxGlobal": 20,
   "opportunities": [
-    {
-      "id": "route-opportunity-mn-mn-dnr-54",
-      "taskId": "route-opportunity-mn-mn-dnr-54",
-      "stateId": "MN",
-      "gaugeKey": "mn_dnr:54",
-      "siteName": "South Fork Crow River nr Mayer, MN7",
-      "priority": "high",
-      "score": 100015,
-      "status": "blocked",
-      "routeFamilies": [
-        "South Fork Crow River"
-      ],
-      "blockers": [
-        "No distinct Mayer-area public put-in/take-out pair with defensible water-entry coordinates.",
-        "Existing DNR trip evidence does not establish a new gauge-54 route relationship; new camping, image, geometry, and route-specific safety package remain unresolved."
-      ],
-      "reason": "Fresh DNR data remains live at site 54, 262 cfs in rating band 3. The candidate remains blocked because the official Rick Johnson-to-Lake Rebecca trip is a different downstream reach and the fresh Mayer-area map review still provides no distinct public endpoint pair or complete scored route package.",
-      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
     {
       "id": "route-opportunity-mn-usgs-05062000",
       "taskId": "route-opportunity-mn-usgs-05062000",
@@ -58,6 +38,26 @@
       ],
       "reason": "Fresh review kept USGS 05061000 durable-blocked: current telemetry is live at 8.72 cfs / 3.16 ft, but fresh official/public evidence still does not provide a Hawley-area Buffalo River route package that clears endpoint, threshold, camping, safety, coordinate, image, and geometry gates.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-mn-mn-dnr-54",
+      "taskId": "route-opportunity-mn-mn-dnr-54",
+      "stateId": "MN",
+      "gaugeKey": "mn_dnr:54",
+      "siteName": "South Fork Crow River nr Mayer, MN7",
+      "priority": "high",
+      "score": 100010,
+      "status": "blocked",
+      "routeFamilies": [
+        "South Fork Crow River"
+      ],
+      "blockers": [
+        "No distinct Mayer-area public put-in/take-out pair with defensible water-entry coordinates.",
+        "Existing DNR trip evidence does not establish a new gauge-54 route relationship; new camping, image, geometry, and route-specific safety package remain unresolved."
+      ],
+      "reason": "Fresh DNR data remains live at site 54, 262 cfs in rating band 3. The candidate remains blocked because the official Rick Johnson-to-Lake Rebecca trip is a different downstream reach and the fresh Mayer-area map review still provides no distinct public endpoint pair or complete scored route package.",
+      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
@@ -104,7 +104,7 @@
       "siteName": "Beaver Creek near Grimes, IA",
       "priority": "high",
       "score": 99020,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [],
       "blockers": [
         "promising public Beaver Creek corridor but incomplete selected-route endpoint, threshold, camping, safety, coordinate, image, and geometry package"
@@ -121,7 +121,7 @@
       "siteName": "SHEYENNE R AB SHEYENNE R DIVERSION NR HORACE, ND",
       "priority": "high",
       "score": 99020,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Sheyenne River"
       ],
@@ -142,7 +142,7 @@
       "siteName": "SHEYENNE RIVER AT FORT RANSOM STATE PARK, ND",
       "priority": "high",
       "score": 99020,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Sheyenne River"
       ],
@@ -163,7 +163,7 @@
       "siteName": "SHEYENNE RIVER AT LISBON, ND",
       "priority": "high",
       "score": 99020,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Sheyenne River"
       ],
@@ -184,7 +184,7 @@
       "siteName": "SHEYENNE RIVER NEAR KINDRED, ND",
       "priority": "high",
       "score": 99020,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Sheyenne River"
       ],
@@ -205,7 +205,7 @@
       "siteName": "SHEYENNE RIVER AT CO RD 20 NEAR KLOTEN, ND",
       "priority": "high",
       "score": 99015,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Sheyenne River"
       ],
@@ -225,7 +225,7 @@
       "siteName": "WISCONSIN RIVER AT MERRILL, WI",
       "priority": "high",
       "score": 99010,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Wisconsin River / Great Pinery Heritage Waterway"
       ],
@@ -245,7 +245,7 @@
       "siteName": "Big Bear Creek at Ladora, IA",
       "priority": "high",
       "score": 99005,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [],
       "blockers": [
         "live direct gauge but no manager-backed public route, threshold, camping, safety, coordinate, image, or geometry package"
@@ -262,7 +262,7 @@
       "siteName": "Boyer River at Logan, IA",
       "priority": "high",
       "score": 99005,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Boyer River"
       ],
@@ -283,7 +283,7 @@
       "siteName": "Cedar River at Cedar Falls, IA",
       "priority": "high",
       "score": 99005,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Cedar River"
       ],
@@ -304,7 +304,7 @@
       "siteName": "Cedar River at Vinton, IA",
       "priority": "high",
       "score": 99005,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "Cedar River"
       ],
@@ -325,7 +325,7 @@
       "siteName": "MENOMINEE RIVER BELOW PEMENE CREEK NR PEMBINE, WI",
       "priority": "high",
       "score": 99005,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "menominee-river"
       ],
@@ -345,7 +345,7 @@
       "siteName": "MENOMONEE RIVER AT 16TH STREET AT MILWAUKEE, WI",
       "priority": "high",
       "score": 99005,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "menomonee-river"
       ],
@@ -365,7 +365,7 @@
       "siteName": "MILWAUKEE RIVER AT MOUTH AT MILWAUKEE, WI",
       "priority": "high",
       "score": 99005,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "milwaukee-river"
       ],
@@ -385,7 +385,7 @@
       "siteName": "MISSISSIPPI RIVER AT PRESCOTT, WI",
       "priority": "high",
       "score": 99005,
-      "status": "ready",
+      "status": "completed",
       "routeFamilies": [
         "mississippi-river"
       ],

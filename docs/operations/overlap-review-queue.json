@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-12T14:48:45.399Z",
+  "generatedAt": "2026-08-21T13:36:44.066Z",
   "source": "npm run routes:audit:overlap",
   "limits": {
     "maxOpenItems": 40,
@@ -15,7 +15,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "implemented",
       "routes": [
         "goose-creek-dump-hollow-laurel-branch",
         "goose-creek-jacks-dump-hollow",
@@ -35,7 +35,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z",
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
       "taskId": "overlap-review-056e52a4e9a3"
     },
     {
@@ -46,7 +46,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "implemented",
       "routes": [
         "little-fork-river-dentaybow-devereaux",
         "little-fork-river-dentaybow-fiedler",
@@ -71,7 +71,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z",
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
       "taskId": "overlap-review-087c65e2fffa"
     },
     {
@@ -82,7 +82,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "bayou-deview-apple-lake-bank-of-brinkley",
         "bayou-deview-benson-creek-apple-lake",
@@ -106,44 +106,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z",
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
       "taskId": "overlap-review-12c53ec187ea"
-    },
-    {
-      "id": "overlap-review-1b59e0d14146",
-      "fingerprint": "1b59e0d14146",
-      "state": "Texas",
-      "group": "Texas · colorado-river-fishermans-park-lost-pines ↔ colorado-river-fm973-little-webberville ↔ colorado-river-horseshoe-utley-bridge +7",
-      "category": "route_family_overlap",
-      "proposedModel": "route_family_multi_endpoint",
-      "priority": "high",
-      "status": "new",
-      "routes": [
-        "colorado-river-fishermans-park-lost-pines",
-        "colorado-river-fm973-little-webberville",
-        "colorado-river-horseshoe-utley-bridge",
-        "colorado-river-little-webberville-big-webberville",
-        "colorado-river-lost-pines-riverbend-park",
-        "colorado-river-plum-park-buffalo-trail",
-        "colorado-river-riverbend-park-plum-park",
-        "colorado-river-texas-river-school-little-webberville",
-        "colorado-river-utley-bridge-fishermans-park",
-        "colorado-river-webberville-utley-bridge"
-      ],
-      "findingTypes": [
-        "access_chain_contains",
-        "contained_connector",
-        "near_collinear_overlap",
-        "shared_endpoint"
-      ],
-      "findingCount": 15,
-      "maxSeverity": 88,
-      "recommendation": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit.",
-      "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
-      "source": "routes:audit:overlap",
-      "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z",
-      "taskId": "overlap-review-1b59e0d14146"
     },
     {
       "id": "overlap-review-2e5c2cc16c10",
@@ -153,7 +117,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "green-river-american-legion-glenview-road",
         "green-river-american-legion-greensburg",
@@ -201,7 +165,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z",
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
       "taskId": "overlap-review-2e5c2cc16c10"
     },
     {
@@ -212,7 +176,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "turkey-river-big-spring-elkader",
         "turkey-river-clermont-gilbertson",
@@ -234,13 +198,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-20T17:01:12.15Z",
-      "taskId": "overlap-review-4442a7fcea5b",
-      "completedAt": "2026-08-20T17:01:12.15Z",
-      "reviewRunId": "independent-verifier-beaver-dam-20260820115118",
-      "status": "implemented",
-      "resolution": "Verified wi-beaver-dam-cotton-mill-lowell as a four-point core access corridor; preserved both distinct route cards and excluded the unverified Meadow Road alternate from corridor edges.",
-      "gatekeeperId": "gatekeeper-20260820170112"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-32a77c1a0da7"
     },
     {
       "id": "overlap-review-3ca16cfe387a",
@@ -250,7 +209,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "loup-river-columbus-adm-access",
         "loup-river-george-syas-adm-access",
@@ -271,7 +230,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-3ca16cfe387a"
     },
     {
       "id": "overlap-review-57e5a049c099",
@@ -281,7 +241,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "south-fork-kentucky-river-rocky-branch-fish-creek",
         "south-fork-kentucky-river-rocky-branch-kay-wood"
@@ -298,7 +258,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-57e5a049c099"
     },
     {
       "id": "overlap-review-581fa280035b",
@@ -308,7 +269,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "crow-wing-river-andersons-crossing-cottingham",
         "crow-wing-river-huntersville-stigmans-mound",
@@ -331,7 +292,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-581fa280035b"
     },
     {
       "id": "overlap-review-65a6197881b6",
@@ -341,7 +303,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "st-louis-river-county-road-29-floodwood",
         "st-louis-river-county-road-95-forbes",
@@ -363,7 +325,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-65a6197881b6"
     },
     {
       "id": "overlap-review-6897b69715ad",
@@ -373,7 +336,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "chippewa-river-county-a-highway-8",
         "chippewa-river-county-d-highway-8",
@@ -392,7 +355,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-6897b69715ad"
     },
     {
       "id": "overlap-review-6b111537f987",
@@ -402,7 +366,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "north-fork-maquoketa-river-cascade-caven",
         "north-fork-maquoketa-river-cascade-d61",
@@ -423,7 +387,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-6b111537f987"
     },
     {
       "id": "overlap-review-7e351dd16b94",
@@ -433,7 +398,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "levisa-fork-airport-boat-ramp",
         "levisa-fork-cedar-creek-thompson-road",
@@ -458,7 +423,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-7e351dd16b94"
     },
     {
       "id": "overlap-review-91073a0cd9d1",
@@ -468,7 +434,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "cumberland-river-longbottom-cumberland-falls",
         "cumberland-river-longbottom-thunderstruck",
@@ -494,7 +460,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-91073a0cd9d1"
     },
     {
       "id": "overlap-review-9f79f9e8998f",
@@ -527,12 +494,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z",
-      "taskId": "overlap-review-9f79f9e8998f",
-      "completedAt": "2026-08-14T21:28:06.000Z",
-      "reviewRunId": "independent-verifier-village-creek-20260814212340",
-      "resolution": "Verified existing tx-village-creek-paddling-trail corridor model; preserved all eight distinct route cards.",
-      "gatekeeperId": "gatekeeper-20260814212806"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-9f79f9e8998f"
     },
     {
       "id": "overlap-review-a34d78c7f515",
@@ -542,7 +505,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "susquehanna-river-canal-park-test-track",
         "susquehanna-river-canal-park-wetlands",
@@ -577,7 +540,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-a34d78c7f515"
     },
     {
       "id": "overlap-review-a5b7c424422d",
@@ -587,7 +551,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "crooked-creek-lower-pyatt-kelleys-slab",
         "crooked-creek-lower-pyatt-mark-oliver",
@@ -608,7 +572,45 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-a5b7c424422d"
+    },
+    {
+      "id": "overlap-review-a60c10df80eb",
+      "fingerprint": "a60c10df80eb",
+      "state": "Texas",
+      "group": "Texas · colorado-river-fishermans-park-lost-pines ↔ colorado-river-fm973-little-webberville ↔ colorado-river-horseshoe-utley-bridge +8",
+      "category": "route_family_overlap",
+      "proposedModel": "route_family_multi_endpoint",
+      "priority": "high",
+      "status": "verified",
+      "routes": [
+        "colorado-river-fishermans-park-lost-pines",
+        "colorado-river-fm973-little-webberville",
+        "colorado-river-horseshoe-utley-bridge",
+        "colorado-river-little-webberville-big-webberville",
+        "colorado-river-lost-pines-riverbend-park",
+        "colorado-river-plum-park-buffalo-trail",
+        "colorado-river-riverbend-park-plum-park",
+        "colorado-river-texas-river-school-fm973",
+        "colorado-river-texas-river-school-little-webberville",
+        "colorado-river-utley-bridge-fishermans-park",
+        "colorado-river-webberville-utley-bridge"
+      ],
+      "findingTypes": [
+        "access_chain_contains",
+        "contained_connector",
+        "near_collinear_overlap",
+        "shared_endpoint"
+      ],
+      "findingCount": 17,
+      "maxSeverity": 88,
+      "recommendation": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit.",
+      "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "source": "routes:audit:overlap",
+      "firstSeenAt": "2026-08-21T12:56:45.089Z",
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-a60c10df80eb"
     },
     {
       "id": "overlap-review-a6118bc3fe1b",
@@ -638,11 +640,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z",
-      "implementedAt": "2026-08-15T03:25:08.000Z",
-      "resolution": "Verified Wells County Wabash multi-endpoint corridor model in src/data/route-corridors.ts; preserved all four route cards.",
-      "corridorId": "in-wabash-wells-county",
-      "completedRunId": "independent-verifier-wabash-20260815032508"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z"
     },
     {
       "id": "overlap-review-aa793ba1b116",
@@ -652,7 +650,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "buffalo-river-erbie-hasty",
         "buffalo-river-erbie-pruitt",
@@ -686,7 +684,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-aa793ba1b116"
     },
     {
       "id": "overlap-review-b40481702b1e",
@@ -696,7 +695,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "mississippi-river-aitkin-highway-6",
         "mississippi-river-kimball-aitkin-campground",
@@ -723,7 +722,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-b40481702b1e"
     },
     {
       "id": "overlap-review-c9b643d4f409",
@@ -733,7 +733,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "north-fork-kentucky-river-douthitt-park-roy-spencer",
         "north-fork-kentucky-river-hazard-city-ramp-perry-county-park",
@@ -753,7 +753,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-c9b643d4f409"
     },
     {
       "id": "overlap-review-cbd2cb921f88",
@@ -763,7 +764,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "barren-river-beech-bend-james-r-hines",
         "barren-river-beech-bend-lonnie-white",
@@ -788,7 +789,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-cbd2cb921f88"
     },
     {
       "id": "overlap-review-d93e4e1d1b50",
@@ -798,7 +800,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "san-antonio-river-cr125-helton-nature-park",
         "san-antonio-river-river-crossing-helton"
@@ -815,7 +817,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-d93e4e1d1b50"
     },
     {
       "id": "overlap-review-dbd5660f250f",
@@ -825,7 +828,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "south-llano-river-cupgrass-junction-city-park",
         "south-llano-river-cupgrass-state-park",
@@ -845,7 +848,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-dbd5660f250f"
     },
     {
       "id": "overlap-review-f061be3d5b7d",
@@ -855,7 +859,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "pomme-de-terre-river-larson-appleton",
         "pomme-de-terre-river-pomme-1-appleton"
@@ -872,7 +876,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-f061be3d5b7d"
     },
     {
       "id": "overlap-review-0284d49cb5d9",
@@ -897,7 +902,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-20T10:51:59.002Z",
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
       "taskId": "overlap-review-0284d49cb5d9"
     },
     {
@@ -908,7 +913,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "upper-cumberland-river-4-mile-artemus",
         "upper-cumberland-river-4-mile-barbourville",
@@ -933,7 +938,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-129ef46da8ae"
     },
     {
       "id": "overlap-review-1b117ee62838",
@@ -943,7 +949,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "buck-creek-bent-road-poplarville-road",
         "buck-creek-rainey-road-bent-road",
@@ -964,7 +970,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-1b117ee62838"
     },
     {
       "id": "overlap-review-4442a7fcea5b",
@@ -974,6 +981,7 @@
       "category": "localized_crossing_review",
       "proposedModel": "geometry_review",
       "priority": "high",
+      "status": "implemented",
       "routes": [
         "beaver-dam-river-cotton-mill-county-j",
         "beaver-dam-river-county-s-lowell"
@@ -987,13 +995,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-20T17:01:12.15Z",
-      "taskId": "overlap-review-4442a7fcea5b",
-      "completedAt": "2026-08-20T17:01:12.15Z",
-      "reviewRunId": "independent-verifier-beaver-dam-20260820115118",
-      "status": "implemented",
-      "resolution": "Verified wi-beaver-dam-cotton-mill-lowell as a four-point core access corridor; preserved both distinct route cards and excluded the unverified Meadow Road alternate from corridor edges.",
-      "gatekeeperId": "gatekeeper-20260820170112"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-4442a7fcea5b"
     },
     {
       "id": "overlap-review-47a9b946e656",
@@ -1003,7 +1006,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "floyds-fork-broad-run-valley-cliffside",
         "floyds-fork-cane-run-broad-run-valley",
@@ -1039,7 +1042,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-47a9b946e656"
     },
     {
       "id": "overlap-review-6825d8b571cd",
@@ -1049,7 +1053,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "jacks-fork-river-alley-spring-chilton",
         "jacks-fork-river-bay-creek-alley-spring",
@@ -1079,7 +1083,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-6825d8b571cd"
     },
     {
       "id": "overlap-review-94125f286c97",
@@ -1089,7 +1094,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "current-river-akers-ferry-pulltite",
         "current-river-big-spring-cataract",
@@ -1117,7 +1122,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-94125f286c97"
     },
     {
       "id": "overlap-review-b9a08e387cd7",
@@ -1127,7 +1133,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "eleven-point-river-cane-bluff-greer-crossing",
         "eleven-point-river-cane-bluff-narrows",
@@ -1162,7 +1168,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-b9a08e387cd7"
     },
     {
       "id": "overlap-review-f573a7ada45c",
@@ -1172,7 +1179,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "sauk-river-eagle-heims-mill",
         "sauk-river-eagle-knights-of-columbus",
@@ -1202,7 +1209,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-f573a7ada45c"
     },
     {
       "id": "overlap-review-60bc069f3ee6",
@@ -1212,7 +1220,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "verified",
       "routes": [
         "conodoguinet-creek-good-hope-acri-meadow",
         "conodoguinet-creek-vincent-difilippo-acri-meadow",
@@ -1232,7 +1240,8 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:45:31.943Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "taskId": "overlap-review-60bc069f3ee6"
     },
     {
       "id": "overlap-review-0ef2045f8733",
@@ -1262,7 +1271,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z"
     },
     {
       "id": "overlap-review-7116e0e41d3a",
@@ -1292,7 +1301,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z"
     },
     {
       "id": "overlap-review-c4e35fdb7ee6",
@@ -1326,7 +1335,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z"
     },
     {
       "id": "overlap-review-0152b47fdf25",
@@ -1354,7 +1363,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z"
     },
     {
       "id": "overlap-review-0ff82916c9e9",
@@ -1380,7 +1389,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-12T14:48:45.399Z"
+      "lastSeenAt": "2026-08-21T13:36:44.066Z"
     }
   ]
 }

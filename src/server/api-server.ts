@@ -36,6 +36,7 @@ import {
   handleAdminStats,
 } from './routes/admin';
 import { handleRiverAlertCreate, handleRiverAlertUnsubscribe } from './routes/alerts';
+import { handleAreaNotificationCreate, handleAreaNotificationPatch } from './routes/area-notifications';
 import { handleRiverGeometry } from './routes/river-geometry';
 import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snapshots';
 import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-key';
@@ -206,6 +207,10 @@ function handleOptions(pathname: string, response: Parameters<typeof sendEmpty>[
     return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept');
   }
 
+  if (pathname === '/api/notification-subscriptions' || pathname.startsWith('/api/notification-subscriptions/')) {
+    return sendCorsOptions(response, 'POST, PATCH, OPTIONS', 'content-type, accept');
+  }
+
   if (pathname === '/api/history/snapshot' || pathname === '/api/snapshots/refresh') {
     return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept, authorization, x-history-token');
   }
@@ -331,6 +336,21 @@ async function handleWriteRoutes(
 
   if (pathname === '/api/alerts/unsubscribe' && request.method === 'POST') {
     return handleRiverAlertUnsubscribe(request, response, requestId, includeBody);
+  }
+
+  if (pathname === '/api/notification-subscriptions' && request.method === 'POST') {
+    return handleAreaNotificationCreate(request, response, requestId, includeBody);
+  }
+
+  const areaNotificationMatch = pathname.match(/^\/api\/notification-subscriptions\/([^/]+)$/);
+  if (areaNotificationMatch && request.method === 'PATCH') {
+    return handleAreaNotificationPatch(
+      request,
+      response,
+      requestId,
+      includeBody,
+      decodeURIComponent(areaNotificationMatch[1]),
+    );
   }
 
   if (pathname === '/api/history/snapshot' && request.method === 'POST') {

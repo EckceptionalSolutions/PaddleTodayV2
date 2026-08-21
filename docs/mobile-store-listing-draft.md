@@ -24,6 +24,7 @@ Key features:
 - River detail pages with structured summaries, route facts, logistics, access notes, hazards, and recent condition context.
 - Saved rivers kept on your device for quick repeat checks.
 - Optional location support for nearby recommendations and distance-aware filters.
+- Optional nearby Today and Weekend alerts for routes that look good around a selected planning location.
 - Route request and support links for missing routes, corrections, and feedback.
 
 PaddleToday is a planning aid, not a substitute for field judgment. River conditions, weather, access, hazards, and closures can change quickly. Always check official sources, local rules, current weather, route access, group ability, and safety equipment before launching.
@@ -38,7 +39,7 @@ paddling, canoe, kayak, river, water level, river conditions, trip planning, map
 
 ## Release Notes
 
-New Today page, faster route search, improved Explore filters, supported-river browsing, additional Mississippi River coverage, and smaller usability fixes for planning from current river conditions.
+New nearby Today and Weekend alerts, faster route search, improved Explore filters, supported-river browsing, additional Mississippi River coverage, and smaller usability fixes for planning from current river conditions.
 
 ## Support URL
 

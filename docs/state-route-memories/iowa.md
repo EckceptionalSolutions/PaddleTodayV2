@@ -1,5 +1,17 @@
 # Iowa Route Memory
 
+## 2026-08-20 America/Chicago Vinton / USGS 05464315 bounded review
+
+- Refreshed the controller-led review for `usgs:05464315` and added no route.
+- Fresh official sources identify Vinton-area Cedar River access candidates including Dudgeon Lake Wildlife Area, Hoefle-Dulin Recreation Area, Benton City-Fry, Milroy, and Wyman Memorial Park; Hoefle-Dulin and Benton City-Fry also document camping/access details.
+- No 05464315-specific numeric threshold, selected point-to-point segment and distance, complete hazard/exit package, endpoint coordinates, gauge-linked geometry, or rights-clean image decision cleared. The gauge remains a durable `blocked_route_capable` opportunity and should only be retried on materially new manager-backed evidence.
+
+## 2026-08-20 America/Chicago Cedar Falls / USGS 05463050 bounded review
+
+- Completed the controller-led review for `usgs:05463050` and added no route.
+- Iowa DNR confirms a real Cedar Falls/Waterloo paddling corridor with public accesses, the Cedar Valley Paddlers Trail, two downtown dams with portages, a hazardous wing dam, and rapids/low-water hazards.
+- No gauge-specific numeric threshold, selected endpoint pair and distance, current access/camping terms, complete safety/exit package, endpoint coordinates, gauge-linked geometry, or rights-clean image decision cleared. The gauge remains a durable `blocked_route_capable` opportunity and should only be retried on materially new manager-backed evidence.
+
 ## 2026-08-14 America/Chicago bounded discovery sweep
 
 - Completed the active `ia-bounded-discovery-sweep` and added no route. Screened five distinct Iowa route-capable families: `ia-discovery-boone-goldfield-20260815-0305`, `ia-discovery-little-sioux-correctionville-20260815-0305`, `ia-discovery-cedar-creek-bussey-20260815-0305`, `ia-discovery-chariton-rathbun-moulton-20260815-0305`, and `ia-discovery-south-fork-iowa-new-providence-20260815-0305`.
@@ -488,3 +500,13 @@ Iowa remains mature overall. The current dirty-checkout exported inventory is 13
 - Reopen Iowa only for focused runs where an official access chain, live same-river gauge support, and route-specific threshold evidence all improve materially.
 - Prefer genuinely new river coverage over more Turkey / Maquoketa / Upper Iowa continuations unless a missing public segment is unusually strong.
 
+## 2026-08-20 Big Bear Creek / Ladora opportunity review
+
+- Completed `route-worker-202608202318-ia-big-bear-ladora-no-add` as a controller-led bounded route-research assignment for `usgs:05453000`; no route was added.
+- Fresh official data confirm a live Big Bear Creek gage at the County Highway V52 bridge south of Ladora, but no public point-to-point paddle corridor, 05453000-tied threshold, legal access/camping terms, safety package, or selected endpoint coordinate/image/geometry package cleared.
+- Durable disposition remains `blocked/route_capable`. Retry only with materially new manager-grade route evidence.
+## 2026-08-20 Boyer River / Logan opportunity review
+
+- Completed `route-worker-202608202320-ia-boyer-logan-no-add` as a controller-led bounded route-research assignment for `usgs:06609500`; no route was added.
+- Fresh official Iowa DNR sources confirm broader Boyer River reaches and the designated Dunlap-to-Missouri segment, but no Logan-specific public endpoint pair, 06609500-tied threshold, access/camping terms, safety package, or selected endpoint coordinate/image/geometry package cleared.
+- Durable disposition remains `blocked/route_capable`. Retry only with materially new manager-grade Logan route evidence.

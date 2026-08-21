@@ -37,6 +37,7 @@ export type RouteHazard =
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type RiverAlertDeliveryMethod = 'email' | 'push';
+export type AreaNotificationType = 'nearby_today' | 'weekend_outlook';
 export type GaugeBand =
   | 'ideal'
   | 'low-shoulder'
@@ -46,6 +47,46 @@ export type GaugeBand =
   | 'too-high'
   | 'unknown'
   | 'unavailable';
+
+export interface AreaNotificationSubscriptionInput {
+  expoPushToken: string;
+  latitude: number;
+  longitude: number;
+  locationLabel: string;
+  maxTravelMinutes: number;
+  timeZone: string;
+  todayEnabled: boolean;
+  weekendEnabled: boolean;
+}
+
+export interface AreaNotificationSubscriptionPatch {
+  subscriptionId: string;
+  managementToken: string;
+  expoPushToken?: string;
+  latitude?: number;
+  longitude?: number;
+  locationLabel?: string;
+  maxTravelMinutes?: number;
+  timeZone?: string;
+  todayEnabled?: boolean;
+  weekendEnabled?: boolean;
+  isActive?: boolean;
+}
+
+export interface AreaNotificationSubscriptionResponse {
+  requestId: string;
+  ok: true;
+  created: boolean;
+  subscription: {
+    id: string;
+    managementToken: string;
+    locationLabel: string;
+    maxTravelMinutes: number;
+    todayEnabled: boolean;
+    weekendEnabled: boolean;
+    isActive: boolean;
+  };
+}
 export type ScoreImpact = 'positive' | 'neutral' | 'negative' | 'warning';
 export type ChecklistStatus = 'go' | 'watch' | 'skip';
 export type OutlookAvailability = 'available' | 'withheld';

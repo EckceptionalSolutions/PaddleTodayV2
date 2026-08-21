@@ -27,6 +27,21 @@ describe('route corridor registry', () => {
       continuityStatus: 'verified',
       canonicalSlug: 'beaver-dam-river-cotton-mill-county-j',
     });
+    expect(corridorForSlug('goose-creek-jacks-laurel-branch')).toMatchObject({
+      corridorId: 'ky-goose-creek-lower-manchester',
+      continuityStatus: 'verified',
+      canonicalSlug: 'goose-creek-jacks-laurel-branch',
+    });
+    expect(corridorForSlug('little-fork-river-lofgren-kuttes')).toMatchObject({
+      corridorId: 'mn-little-fork-fiedler-lofgren',
+      continuityStatus: 'verified',
+      canonicalSlug: 'little-fork-river-fiedler-lofgren-park',
+    });
+    expect(corridorForSlug('little-fork-river-veterans-park-highway-73')).toMatchObject({
+      corridorId: 'mn-little-fork-map-1',
+      continuityStatus: 'verified',
+      canonicalSlug: 'little-fork-river-highway-73-silverdale',
+    });
   });
 
   it('only assigns explicit access edges to canonical routes', () => {

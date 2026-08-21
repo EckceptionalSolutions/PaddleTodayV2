@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T17:16:35.997Z",
+  "updatedAt": "2026-08-21T13:38:29.263Z",
   "tasks": [
     {
       "id": "geographic-gauge-frontier-workflow",
@@ -18,6 +18,31 @@
         "src/lib/operations-orchestrator.ts",
         "scripts/operations-plan.ts",
         "npm run operations:verify"
+      ]
+    },
+    {
+      "id": "mi-gauge-review-batch",
+      "title": "Review Michigan provider-baseline gauges",
+      "lane": "ready",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "critical",
+      "stateId": "MI",
+      "frontierTier": 2,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04001000",
+        "usgs:04031000",
+        "usgs:04032150",
+        "usgs:040325155",
+        "usgs:04033000"
+      ],
+      "summary": "Begin the Michigan frontier with one bounded five-gauge disposition batch. Preserve covered, blocked, screened_out, and stale_or_unsupported outcomes; add a scored route only if the complete endpoint, live-gauge threshold, access/safety, camping/logistics, coordinate, image, and geometry gates clear.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:MI has 215 unreviewed eligible gauges and is the next frontier after tier 1 completion"
       ]
     },
     {
@@ -1038,7 +1063,7 @@
       "id": "sd-mnrr-gavins-point-release-adapter-evidence",
       "title": "Verify Gavins Point release adapter evidence",
       "lane": "completed",
-      "kind": "route_research",
+      "kind": "state_coverage",
       "owner": "route-research",
       "priority": "high",
       "summary": "Completed narrow adapter/accessibility decision. Official USACE NWDM/CDA exposes machine-readable hourly Gavins Point Flow-Out cfs and Yankton Flow cfs, but PaddleToday currently supports only USGS and MN DNR gauge providers; MNRR 59-mile candidates remain blocked until a USACE/NWDM adapter is implemented and route gates are rerun. The 39-mile Fort Randall reach still needs a separate Fort Randall release-source decision.",
@@ -1150,7 +1175,7 @@
     {
       "id": "nd-gauge-review-batch",
       "title": "Review North Dakota provider-baseline gauges",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "state_coverage",
       "owner": "gauge-coverage",
       "priority": "critical",
@@ -1158,13 +1183,11 @@
       "frontierTier": 1,
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:06329590",
-        "usgs:06330000",
-        "usgs:06330110",
-        "usgs:06331000",
-        "usgs:06331680"
+        "usgs:06471200",
+        "usgs:464703100464600"
       ],
-      "summary": "Queued for the next North Dakota provider-baseline gauge batch. Recent bounded batches have closed reviewed Red River / Wild Rice / Antelope / Sheyenne / Mauvais Coulee / Devils Lake basin coulee, creek, Valley City, Fort Ransom, Lisbon, Kindred, Horace, West Fargo, Maple, Apple, Bear, Beaver, Big Muddy, Heart, Sweetbriar, Missouri, Hay Creek, Cannonball, and Cedar gauges with durable covered, blocked, screened-out, or stale dispositions; continue with the next queued unreviewed gauges and only promote routes that clear endpoint, threshold, safety, camping, coordinate, image, and geometry gates.",
+      "lastRunId": "route-worker-202608202217-nd-maple-drain-no-add",
+      "summary": "North Dakota's frozen provider-baseline gauge queue is durably adjudicated. Maple River at the ND-SD state line remains blocked on a station-specific route package; the Wachter Avenue drain is screened out as non-paddle-relevant. The bounded ND discovery sweep is complete with no additional strong scored route.",
       "evidence": [
         "2026-08-15T03:35:00.000Z: route-worker-202608150335-nd-red-wild-rice-gauge-no-add screened USGS 05051500, 0505152130, 05051522, 05051600, and 05052000. No route cleared the full scored-route gates; no route data, trip details, image audit row, endpoint coordinates, camping package, safety package, canonical geometry, or route order changed.",
         "docs/operations/gauge-inventory.json",
@@ -1251,27 +1274,98 @@
         "https://waterdata.usgs.gov/monitoring-location/USGS-06329650/",
         "https://gf.nd.gov/boating/access",
         "https://gf.nd.gov/sites/default/files/2025-04/ndo-mar-apr-2025.pdf",
-        "https://www.dwr.nd.gov/pdfs/navigating_sovereign_lands_waters.pdf"
+        "https://www.dwr.nd.gov/pdfs/navigating_sovereign_lands_waters.pdf",
+        "2026-08-20T17:48:39.377Z: route-worker-202608201748-nd-williston-tobacco-no-add screened USGS 06329590, 06330000, 06330110, 06331000, and 06331680. Fairview Yellowstone and both Williston Missouri gauges were stale_or_unsupported/route_capable because current provider support is stage-only and no station-specific scored route package cleared; Little Muddy below Cow Creek was blocked/route_capable because the official six-mile canoe trail has named White Bridge/Thompson's Landing access but no selected-gauge numeric threshold or complete endpoint/safety/camping/image/coordinate/geometry package; Tobacco Garden Creek was screened_out/not_paddle_relevant because official access is reservoir-bay boating/camping rather than a public gauged-creek paddle. No route package artifacts changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06329590,06330000,06330110,06331000,06331680&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06329590/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06330110/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06331680/",
+        "https://gf.nd.gov/boating/access",
+        "https://gf.nd.gov/sites/default/files/publications/nd-fishing-guide-2024-26.pdf",
+        "https://www.ndtourism.com/articles/adventures-north-dakota",
+        "https://cms3.revize.com/revize/williston/%28Final%29Williston%20Comp%20Plan_20170531_rfs.pdf",
+        "https://www.parkrec.nd.gov/paddling",
+        "2026-08-20T17:55:24.381Z: supervisor supervisor-20260820T175524Z ran npm run operations:verify for route-worker-202608201748-nd-williston-tobacco-no-add. All required evidence, safety, independent verification, tests/build, and rollback checks passed via gatekeeper-20260820175524; closed the worker validation_pending metadata to passed without adding a route or changing the ready ND frontier. Next bounded gauges remain usgs:06332000, usgs:06332190, usgs:06332523, usgs:06332770, and usgs:06335500.",
+        "2026-08-20T18:18:53.968Z: route-worker-202608201818-nd-white-earth-shell-little-missouri-no-add screened five distinct ND gauges in planner order and added no route. White Earth 06332000 (1.38 cfs / 0.16 ft) and 06332190 (7.23 cfs / 8.90 ft) were blocked/route_capable for missing station-specific public route, threshold, camping, safety, image, coordinate, and geometry packages; East Fork Shell Creek 06332523 (1.62 cfs / 5.33 ft) and Deepwater Creek 06332770 (0.00 cfs / 5.61 ft) were screened_out/not_paddle_relevant because official evidence did not identify public point-to-point creek paddles; Little Missouri Marmarth 06335500 (25.1 cfs / 0.94 ft) was blocked/route_capable because NPS confirms only a remote 117.5-mile family, its numeric threshold is tied to Medora, and no bounded Marmarth endpoint/camping/safety/coordinate/geometry package cleared. No route package artifacts changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06332000,06332190,06332523,06332770,06335500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.parkrec.nd.gov/paddling",
+        "https://www.swc.nd.gov/info_edu/reports_and_publications/archived_prelim_engineering_reports/pdfs/east_branch_shell_creek.pdf",
+        "https://gf.nd.gov/wma-listing",
+        "https://www.nps.gov/thro/planyourvisit/canoeing-kayaking.htm",
+        "https://npshistory.com/publications/thro/brochures/river-float-trips.pdf",
+        "https://deq.nd.gov/publications/WQ/3_WM/River-Stream/RiverFactSheets/LittleMoFactsheet.pdf",
+        "2026-08-20T18:28:29.743Z: operations:plan repeated the already-closed 06332000/06332190/06332523/06332770/06335500 pointer; advanced the ready task's bounded next rotation from the ledger's remaining unreviewed ND queue to usgs:06335750, usgs:06336600, usgs:06337000, usgs:06337200, and usgs:06337300. No known blocker was retried.",
+        "2026-08-20T18:48:04.000Z: route-worker-202608201846-nd-deep-little-missouri-no-add screened USGS 06335750, 06336600, 06337000, 06337200, and 06337300. Deep Creek, Beaver Creek, and Cherry Creek were screened_out/not_paddle_relevant; Little Missouri near Watford City and above the mouth near Oakdale were blocked/route_capable because NPS confirms the remote Long X Bridge-to-Lost Bridge family and lists the Watford gauge, but no accepted station-tied threshold or bounded endpoint/camping/safety/coordinate/image/geometry package cleared. No route package artifacts changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06335750,06336600,06337000,06337200,06337300&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.nps.gov/thro/planyourvisit/canoeing-kayaking.htm",
+        "https://www.parkrec.nd.gov/paddling",
+        "https://gf.nd.gov/boating/access",
+        "2026-08-20T18:54:07.140Z: supervisor supervisor-20260820T185407Z inspected the latest hourly frontier records. route-worker-202608201818-nd-white-earth-shell-little-missouri-no-add is completed gauge-disposition/no-add with passed gatekeeper gatekeeper-20260820182559; the newer task-board evidence for route-worker-202608201846-nd-deep-little-missouri-no-add is not yet represented as an authoritative worker record in runs.json, so its real claim remains preserved and unclosed. No active WIP, no-work dead end, omitted route package, policy override, or GitHub runner failure was found. operations:plan -- --record selected this existing bounded ND task for usgs:06335750, usgs:06336600, usgs:06337000, usgs:06337200, and usgs:06337300.",
+        "2026-08-20T18:55:27.251Z: supervisor supervisor-20260820T185407Z closed route-worker-202608201846-nd-deep-little-missouri-no-add validation metadata after the authoritative worker record arrived and gatekeeper-20260820185527 passed. No route was added; the ready ND frontier remains on usgs:06335750, usgs:06336600, usgs:06337000, usgs:06337200, and usgs:06337300.",
+        "2026-08-20T19:19:12.608Z: route-worker-202608201919-nd-stanton-knife-spring-no-add screened five distinct ND gauges in provider order and added no route. Missouri above Stanton 06339010 was stale_or_unsupported/route_capable because telemetry is stage-only; Knife River at Manning 06339100 and near Golden Valley 06339500 were blocked/route_capable because historical/general canoeing context did not clear current station-specific threshold, endpoint, camping, safety, image, coordinate, or geometry gates; Crooked Creek 06339200 and Spring Creek 06340000 were screened_out/not_paddle_relevant because no supported public point-to-point creek paddle package surfaced. No route package artifacts changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06339010,06339100,06339200,06339500,06340000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06339010/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06339500/",
+        "https://www.usgs.gov/media/images/knife-river-manning-nd",
+        "https://home.nps.gov/knri/index.htm",
+        "https://www.parkrec.nd.gov/paddling",
+        "https://gf.nd.gov/boating/access",
+        "2026-08-20T19:24:10.454Z: gatekeeper-20260820192410 passed JSON parse, gauge coverage, route/gallery/safety/geometry/overlap/coordinate audits, route/full/mobile typechecks, operations gates, production build, operations verification, and git diff check. Coordinate audit retained the existing 38-failure/152-suspicious/5-unknown corpus; no endpoint changed. Next ND rotation is usgs:06340010, usgs:06340500, usgs:06340700, usgs:06340900, and usgs:06341000.",
+        "2026-08-20T19:47:18.038Z: route-worker-202608201947-nd-beulah-hazen-missouri-no-add screened five distinct ND gauges in provider order and added no route. Knife River near Beulah 06340010 and at Hazen 06340500 were blocked/route_capable because public Knife River paddling context lacked a station-tied threshold and complete selected endpoint/safety/camping/image/coordinate/geometry package; Missouri near Stanton 06340700, near Hensler 06340900, and at Washburn 06341000 were stale_or_unsupported/route_capable because current provider support is stage-only. No route package artifacts changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06340010,06340500,06340700,06340900,06341000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://www.visitbeulah.com/outdoor-fun/on-or-in-the-water/",
+        "https://www.ndtourism.com/beulah/attractions-entertainment/family-fun/riverside-park",
+        "https://www.parkrec.nd.gov/cross-ranch-state-park",
+        "2026-08-20T19:47:18.038Z: next ND rotation is usgs:06342020, usgs:06342100, usgs:06342260, usgs:06342450, and usgs:06342500; retry Knife only with fresh station-specific threshold/endpoint evidence and retry Missouri only after supported discharge or an approved stage adapter.",
+        "2026-08-20T19:47:18.038Z: run validation is pending; no route data, trip details, image-audit row, camping/safety package, endpoint coordinates, canonical geometry, or route order changed.",
+        "2026-08-20T19:53:23.775Z: supervisor supervisor-20260820T195323Z inspected the newer task-board pointer route-worker-202608201947-nd-beulah-hazen-missouri-no-add. Its worker and gatekeeper records are absent from runs.json and validation remains pending, so the real claim and ready lane were preserved without fabricated closure or pointer rewind. The latest authoritative completed run remains route-worker-202608201919-nd-stanton-knife-spring-no-add via gatekeeper-20260820192410; no route package artifacts changed.",
+        "2026-08-20T19:54:12.000Z: supervisor repaired the stale planner pointer after operations:plan selected the already-screened 06340010/06340500/06340700/06340900/06341000 batch. Advanced this same bounded ND task to the next unreviewed rotation: usgs:06342020, usgs:06342100, usgs:06342260, usgs:06342450, and usgs:06342500; no new task, route, or package artifact was created.",
+        "2026-08-20T19:55:02.803Z: post-repair operations verification made route-worker-202608201947-nd-beulah-hazen-missouri-no-add authoritative with passed gatekeeper-20260820195352; its no-route gauge-disposition result is now validation-passed. No route package artifacts changed; the ready task remains on usgs:06342020, usgs:06342100, usgs:06342260, usgs:06342450, and usgs:06342500.",
+        "2026-08-20T20:18:34.524Z: route-worker-202608202018-nd-missouri-square-burnt-no-add screened five distinct ND gauges from the frozen inventory in provider order: 06342020 and 06342470 were stale_or_unsupported/route_capable because telemetry is stage-only; 06342260 Square Butte Creek and 06342450 Burnt Creek were screened_out/not_paddle_relevant because no supported public point-to-point creek route surfaced; 06342500 Missouri at Bismarck was blocked/route_capable because public ramps and camping context lacked a station-tied threshold and complete endpoint/camping/safety/image/coordinate/geometry package. No route package artifacts changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06342020,06342260,06342450,06342470,06342500&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06342500/",
+        "https://www.bisparks.org/facilities/boat-ramps-fishing/",
+        "https://gf.nd.gov/regulations/boating",
+        "2026-08-20T20:18:34.524Z: next ND rotation is the next unreviewed provider-baseline batch after 06342500; retry Bismarck Missouri only with a 06342500-tied threshold and complete route package, and retry stage-only Missouri only after supported discharge or an approved stage adapter.",
+        "2026-08-20T20:18:34.524Z: run validation is pending; no route data, trip details, image-audit row, camping/safety package, endpoint coordinates, canonical geometry, or route order changed.",
+        "2026-08-20T20:24:45.571Z: gatekeeper-20260820202445 passed JSON parse, gauge coverage, route/gallery/safety/geometry/overlap/coordinate audits, route/full/mobile typechecks, operations gates, production build, operations verification, and git diff check. Coordinate audit retained the existing 38-failure/152-suspicious/5-unknown corpus; no endpoint changed.",
+        "2026-08-20T20:24:45.571Z: route-worker-202608202018-nd-missouri-square-burnt-no-add is validation-passed with no route added; the ready ND frontier advances to the next unreviewed provider-baseline gauges after 06342500.",
+        "2026-08-20T20:57:04.363Z: supervisor supervisor-20260820T205704Z reconciled the stale planner pointer after the gauge ledger dispositioned the post-06342500 ND sequence. Preserved this ready lane and advanced the same bounded task to the first five remaining ND-owned inventory records: usgs:05062130, usgs:05064500, usgs:06468170, usgs:06468250, and usgs:06469400. The two Red River records are retained because the frozen inventory assigns them to ND coverage; no route, policy, or active claim was overridden.",
+        "2026-08-20T21:02:24.904Z: route-worker-202608202100-nd-heart-green-porcupine-no-add screened usgs:06343000, usgs:06344600, usgs:06345500, usgs:06345780, and usgs:06354815. Durable dispositions: Heart South Heart, Heart Richardton, and Heart above Lake Tschida blocked/route_capable; Green New Hradec and Porcupine Fort Yates screened_out/not_paddle_relevant. No route was added; the authoritative next queue remains usgs:05062130, usgs:05064500, usgs:06468170, usgs:06468250, and usgs:06469400. Gatekeeper gatekeeper-20260820210224 passed.",
+        "2026-08-20T21:48:22.469Z: route-worker-202608202148-nd-james-pipestem-no-add screened usgs:06469500, usgs:06470000, usgs:06470425, usgs:06470500, and usgs:06470878. Durable dispositions: Pipestem Buchanan screened_out/not_paddle_relevant; James Jamestown and LaMoure and the state line blocked/route_capable; James Adrian stale_or_unsupported/route_capable. No route was added; the next ND-owned queue is usgs:06471200 and usgs:464703100464600.",
+        "2026-08-20T21:54:54.948Z: supervisor supervisor-20260820T215454Z inspected the latest ND no-add frontier evidence and preserved the real pending worker claim route-worker-202608202148-nd-james-pipestem-no-add because its worker/gatekeeper record is not yet present in runs.json. No stale active lane, workOrder:null dead end, omitted route package, policy override, or route-worker failure was found. operations:plan -- --record selected this existing bounded task for usgs:06471200 and usgs:464703100464600; no duplicate task or frontier advance was created.",
+        "2026-08-20T22:03:17.026Z: gatekeeper-20260820220317 passed JSON parse, gauge coverage, route/gallery/safety/geometry/overlap/coordinate audits, route/full/mobile typechecks, operations gates, production build, operations verification, and git diff check. Coordinate audit retained the existing 38-failure/152-suspicious/5-unknown corpus; no endpoint changed. route-worker-202608202148-nd-james-pipestem-no-add is now validation-passed with no route added.",
+        "2026-08-20T22:17:34.864Z: route-worker-202608202217-nd-maple-drain-no-add screened the final two ND-owned provider-baseline records. Maple River 06471200 is blocked/route_capable because no station-specific public route, threshold, endpoints, camping, safety, image, coordinates, or geometry package cleared; Wachter Avenue Drain 464703100464600 is screened_out/not_paddle_relevant as seasonal stage-only urban drainage. No route package artifacts changed.",
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06471200,464703100464600&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06471200/",
+        "https://waterdata.usgs.gov/monitoring-location/464703100464600/statistics/",
+        "https://www.fws.gov/refuge/maple-river",
+        "https://www.parkrec.nd.gov/paddling"
       ],
+      "updatedAt": "2026-08-20T22:24:33.000Z",
+      "latestRunId": "route-worker-202608202217-nd-maple-drain-no-add",
       "routeAdded": false,
-      "lastSupervisorRunId": "supervisor-20260820T165308Z",
-      "updatedAt": "2026-08-20T17:16:35.997Z",
-      "lastRunId": "route-worker-202608201716-nd-westhope-buford-no-add",
-      "latestRunId": "route-worker-202608201716-nd-westhope-buford-no-add",
-      "latestGatekeeperId": "gatekeeper-20260820172925",
-      "workerValidationStatus": "passed"
+      "latestGatekeeperId": "gatekeeper-20260820222719",
+      "workerValidationStatus": "passed",
+      "validationClosedBy": "gatekeeper-202608211313",
+      "lastSupervisorRunId": "supervisor-20260820T215454Z",
+      "validationStatus": "passed",
+      "resultSummary": "Reconciled the final two ND-owned provider-baseline gauges against the authoritative ledger and completed bounded-discovery evidence; Maple River remains blocked and Wachter Avenue Drain remains screened out. No route was added."
     },
     {
       "id": "nd-bounded-discovery-sweep",
       "title": "Run bounded North Dakota discovery sweep before completion",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "state_coverage",
       "owner": "gauge-coverage",
       "priority": "high",
       "stateId": "ND",
       "frontierTier": 1,
-      "discoveryComplete": false,
-      "summary": "After all eligible North Dakota gauges receive durable dispositions, screen a bounded set of distinct public river and gauge families for one additional strong scored route. Do not force a route; record each candidate disposition and decisive blocker.",
+      "discoveryComplete": true,
+      "discoveryCompletedAt": "2026-08-20T22:48:41Z",
+      "lastRunId": "route-worker-202608201748-nd-bounded-discovery-no-add",
+      "latestRunId": "route-worker-202608201748-nd-bounded-discovery-no-add",
+      "summary": "Completed the bounded North Dakota discovery sweep without adding a route. Five distinct public river and gauge families were screened; each failed at least one scored-route threshold, access, camping, safety, coordinate, geometry, image, or provider-support gate. North Dakota remains complete on durable gauge dispositions with no additional strong scored route found.",
       "evidence": [
         "docs/operations/gauge-inventory.json",
         "docs/operations/gauge-review-ledger.json",
@@ -1279,12 +1373,21 @@
         "docs/route-candidate-ledger.json",
         "docs/state-route-memories/north-dakota.md"
       ],
-      "routeAdded": false
+      "routeAdded": false,
+      "candidatesScreened": [
+        "usgs:05058650",
+        "usgs:05117500",
+        "usgs:06341000",
+        "usgs:05082500",
+        "usgs:05099400"
+      ],
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820225505"
     },
     {
       "id": "tx-bounded-discovery-sweep",
       "title": "Run bounded Texas discovery sweep before saturation",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "state_coverage",
       "owner": "state-coverage",
       "priority": "high",
@@ -2054,11 +2157,11 @@
     {
       "id": "overlap-review-056e52a4e9a3",
       "title": "Review route consolidation candidate: Kentucky · goose-creek-dump-hollow-laurel-branch ↔ goose-creek-jacks-dump-hollow ↔ goose-creek-jacks-laurel-branch +2",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: implemented. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
@@ -2076,11 +2179,11 @@
     {
       "id": "overlap-review-087c65e2fffa",
       "title": "Review route consolidation candidate: Minnesota · little-fork-river-dentaybow-devereaux ↔ little-fork-river-dentaybow-fiedler ↔ little-fork-river-devereaux-lofgren-park +7",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: implemented. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
@@ -2103,11 +2206,11 @@
     {
       "id": "overlap-review-12c53ec187ea",
       "title": "Review route consolidation candidate: Arkansas · bayou-deview-apple-lake-bank-of-brinkley ↔ bayou-deview-benson-creek-apple-lake ↔ bayou-deview-benson-creek-bank-of-brinkley +6",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
@@ -2129,11 +2232,11 @@
     {
       "id": "overlap-review-1b59e0d14146",
       "title": "Review route consolidation candidate: Texas · colorado-river-fishermans-park-lost-pines ↔ colorado-river-fm973-little-webberville ↔ colorado-river-horseshoe-utley-bridge +7",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
@@ -2151,16 +2254,20 @@
         "colorado-river-utley-bridge-fishermans-park",
         "colorado-river-webberville-utley-bridge"
       ],
-      "sourceFindingId": "overlap-review-1b59e0d14146"
+      "sourceFindingId": "overlap-review-1b59e0d14146",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211252-tx-colorado-river-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211252",
+      "resultSummary": "Independent verifier confirmed the ten Texas Colorado River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
     },
     {
       "id": "overlap-review-2e5c2cc16c10",
       "title": "Review route consolidation candidate: Kentucky · green-river-american-legion-glenview-road ↔ green-river-american-legion-greensburg ↔ green-river-american-legion-lynn-camp-creek +29",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
@@ -2205,11 +2312,11 @@
     {
       "id": "overlap-review-32a77c1a0da7",
       "title": "Review route consolidation candidate: Iowa · turkey-river-big-spring-elkader ↔ turkey-river-clermont-gilbertson ↔ turkey-river-elkader-garber +4",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
@@ -2233,47 +2340,11 @@
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "critical",
-      "summary": "Verified Village Creek as an already-implemented multi-endpoint corridor with five ordered public access points from FM 418 through TX 327, Baby Galvez, US 96, and Village Creek State Park. Retained all eight route cards because distance, shuttle, bailout, camping, and state-park logistics differ by pair.",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: implemented. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
-        "tmp/route-overlap-audit.md",
-        "docs/operations/overlap-consolidation-summary.md",
-        "src/data/route-corridors.ts",
-        "docs/corridor-review-ledger.json",
-        "docs/route-corridor-migration.md",
-        "src/data/route-corridors.test.ts",
-        "src/data/routes/texas.ts",
-        "src/data/trip-details/texas.ts",
-        "docs/route-coordinate-river-audit.json",
-        "docs/route-safety-audit.json",
-        "docs/route-safety-audit.md",
-        "public/data/canonical-river-geometries/routes/village-creek-fm418-sh327.json",
-        "public/data/canonical-river-geometries/routes/village-creek-sh327-baby-galvez.json",
-        "public/data/canonical-river-geometries/routes/village-creek-fm418-baby-galvez.json",
-        "public/data/canonical-river-geometries/routes/village-creek-baby-galvez-us-96.json",
-        "public/data/canonical-river-geometries/routes/village-creek-sh327-us-96.json",
-        "public/data/canonical-river-geometries/routes/village-creek-us-96-state-park.json",
-        "public/data/canonical-river-geometries/routes/village-creek-baby-galvez-state-park.json",
-        "public/data/canonical-river-geometries/routes/village-creek-fm418-state-park.json",
-        "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
-        "https://www.nps.gov/bith/planyourvisit/paddling-trails.htm",
-        "https://www.nps.gov/places/village-creek-fm-418-boat-launch.htm",
-        "https://www.nps.gov/places/village-creek-tx-327-boat-launch.htm",
-        "https://www.nps.gov/places/village-creek-baby-galvez-road-boat-launch.htm",
-        "https://www.nps.gov/places/village-creek-us-96-boat-launch.htm",
-        "https://tpwd.texas.gov/state-parks/village-creek",
-        "https://tpwd.texas.gov/state-parks/village-creek/trails-info",
-        "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
-        "https://theworld.com/~reichert/riverflo.htm",
-        "npm run routes:audit:corridors",
-        "npm run routes:audit",
-        "npm run routes:audit:coordinates",
-        "npm run routes:geometries:audit",
-        "npm run routes:safety:audit",
-        "npm run routes:audit:overlap",
-        "npx vitest run src/data/route-corridors.test.ts",
-        "npm run operations:verify"
+        "docs/operations/overlap-consolidation-summary.md"
       ],
       "routeSlugs": [
         "village-creek-baby-galvez-state-park",
@@ -2285,15 +2356,7 @@
         "village-creek-sh327-us-96",
         "village-creek-us-96-state-park"
       ],
-      "sourceFindingId": "overlap-review-9f79f9e8998f",
-      "updatedAt": "2026-08-14T21:28:06.000Z",
-      "completedAt": "2026-08-14T21:23:40.917Z",
-      "lastRunId": "independent-verifier-village-creek-20260814212340",
-      "blockers": [],
-      "validation": {
-        "status": "passed",
-        "gatekeeperId": "gatekeeper-20260814212806"
-      }
+      "sourceFindingId": "overlap-review-9f79f9e8998f"
     },
     {
       "id": "mn-fresh-discovery-sweep-20260814",
@@ -3330,11 +3393,11 @@
     {
       "id": "route-opportunity-ia-usgs-05481950",
       "title": "Investigate route opportunity: Beaver Creek near Grimes, IA",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05481950 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Official Johnston and ICON sources confirm the public Beaver Creek corridor and existing 50 cfs minimum, but no station-specific high-water threshold or complete selected endpoint, distance, camping, safety, coordinate, image, and geometry package cleared the gates. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3347,16 +3410,19 @@
         "usgs:05481950"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202255-ia-beaver-grimes-opportunity-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820225505"
     },
     {
       "id": "route-opportunity-nd-usgs-05059300",
       "title": "Investigate route opportunity: SHEYENNE R AB SHEYENNE R DIVERSION NR HORACE, ND",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05059300 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Fresh official review confirms the gauge is above the Horace flood diversion; no public paddling endpoint pair, station-tied threshold, legal access/camping terms, or infrastructure-specific safety, coordinate, image, and geometry package cleared. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3369,16 +3435,19 @@
         "usgs:05059300"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202258-nd-horace-diversion-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820225827"
     },
     {
       "id": "route-opportunity-nd-usgs-05058650",
       "title": "Investigate route opportunity: SHEYENNE RIVER AT FORT RANSOM STATE PARK, ND",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05058650 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Fort Ransom State Park paddling, camping, and official Sheyenne flow bands are confirmed, but the likely Sportsman Landing take-out is above the dam and lacks accepted coordinates and a safe dam-adjacent take-out/portage package. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3391,16 +3460,19 @@
         "usgs:05058650"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202301-nd-fort-ransom-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820230635"
     },
     {
       "id": "route-opportunity-nd-usgs-05058700",
       "title": "Investigate route opportunity: SHEYENNE RIVER AT LISBON, ND",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05058700 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Official sources confirm the Lisbon/Sandager Park segment and below-Lisbon-Dam put-in, but no accepted 05058700-tied threshold adapter, endpoint coordinate pair, current dam-portage, camping, safety, image, or geometry package cleared. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3413,16 +3485,19 @@
         "usgs:05058700"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202306-nd-lisbon-sheyenne-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820230920"
     },
     {
       "id": "route-opportunity-nd-usgs-05059000",
       "title": "Investigate route opportunity: SHEYENNE RIVER NEAR KINDRED, ND",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05059000 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Official sources confirm a live Kindred gauge and broader Sheyenne paddling, but no distinct Kindred endpoint pair, 05059000-tied threshold adapter, current access/camping/safety package, or route-specific coordinate/image/geometry evidence cleared beyond existing Grassland route coverage. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3435,16 +3510,19 @@
         "usgs:05059000"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202309-nd-kindred-sheyenne-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820231203"
     },
     {
       "id": "route-opportunity-nd-usgs-05056770",
       "title": "Investigate route opportunity: SHEYENNE RIVER AT CO RD 20 NEAR KLOTEN, ND",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05056770 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Official evidence confirms a real Sheyenne reach and live gauge, but no Kloten/County Road 20 endpoint pair, 05056770-tied threshold model, access/camping, safety, coordinate, image, or geometry package cleared. Existing Grassland routes and Baldhill-based thresholds do not cover this provider key. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3457,16 +3535,19 @@
         "usgs:05056770"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202312-nd-kloten-cr20-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820231450"
     },
     {
       "id": "route-opportunity-wi-usgs-05395000",
       "title": "Investigate route opportunity: WISCONSIN RIVER AT MERRILL, WI",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05395000 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Official Merrill/Great Pinery sources confirm public waterway segments and landings, but no 05395000-tied numeric threshold ladder or fully validated single segment with camping, dam/portage safety, coordinates, image, and geometry evidence cleared. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3479,16 +3560,19 @@
         "usgs:05395000"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202315-wi-merrill-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820231738"
     },
     {
       "id": "route-opportunity-ia-usgs-05453000",
       "title": "Investigate route opportunity: Big Bear Creek at Ladora, IA",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05453000 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Official data confirm a live Big Bear Creek gage at the V52 bridge, but no public point-to-point corridor, 05453000-tied threshold, legal access/camping, safety, coordinate, image, or geometry package cleared. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3501,16 +3585,19 @@
         "usgs:05453000"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202318-ia-big-bear-ladora-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820232019"
     },
     {
       "id": "route-opportunity-ia-usgs-06609500",
       "title": "Investigate route opportunity: Boyer River at Logan, IA",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:06609500 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded research completed without adding a route. Iowa DNR confirms broader Boyer River reaches, but no Logan-specific public endpoint pair, 06609500-tied threshold, access/camping, safety, coordinate, image, or geometry package cleared. Retry only with materially new manager-grade evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3523,16 +3610,19 @@
         "usgs:06609500"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202320-ia-boyer-logan-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820232301"
     },
     {
       "id": "route-opportunity-ia-usgs-05463050",
       "title": "Investigate route opportunity: Cedar River at Cedar Falls, IA",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05463050 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded review completed: official sources confirm a real Cedar Valley paddling corridor, but no 05463050-specific threshold and complete endpoint/access/safety/camping/coordinate/geometry package cleared. No route added.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3545,16 +3635,19 @@
         "usgs:05463050"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202323-ia-cedar-falls-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820232714"
     },
     {
       "id": "route-opportunity-ia-usgs-05464315",
       "title": "Investigate route opportunity: Cedar River at Vinton, IA",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05464315 is route-capable but currently blocked. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded review refreshed official Vinton access and camping evidence, but no 05464315-specific threshold and complete endpoint/distance/safety/coordinate/geometry package cleared. No route added.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3567,16 +3660,19 @@
         "usgs:05464315"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202327-ia-vinton-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820232952"
     },
     {
       "id": "route-opportunity-wi-usgs-04066003",
       "title": "Investigate route opportunity: MENOMINEE RIVER BELOW PEMENE CREEK NR PEMBINE, WI",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:04066003 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded review confirmed official launches, campsites and mandatory portage, but no complete expert-whitewater threshold, endpoint/distance, safety, coordinate/geometry and image package cleared. No route added.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3589,16 +3685,19 @@
         "usgs:04066003"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202330-wi-menominee-pemene-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820233200"
     },
     {
       "id": "route-opportunity-wi-usgs-04087142",
       "title": "Investigate route opportunity: MENOMONEE RIVER AT 16TH STREET AT MILWAUKEE, WI",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:04087142 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded review confirmed urban water-trail relevance and designated accesses, but no 04087142-specific threshold and complete endpoint/hazard/access/coordinate/geometry/image package cleared. No route added.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3611,16 +3710,19 @@
         "usgs:04087142"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202332-wi-menomonee-16th-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820233429"
     },
     {
       "id": "route-opportunity-wi-usgs-04087170",
       "title": "Investigate route opportunity: MILWAUKEE RIVER AT MOUTH AT MILWAUKEE, WI",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:04087170 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded review confirmed estuary paddling and designated access, but no 04087170-specific threshold and complete endpoint/harbor-safety/camping/coordinate/geometry/image package cleared. No route added.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3633,16 +3735,104 @@
         "usgs:04087170"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202334-wi-milwaukee-mouth-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820233620"
+    },
+    {
+      "id": "ne-gauge-review-batch",
+      "title": "Review Nebraska gauge disposition batch",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Controller-led bounded Nebraska review completed for five gauges. Four route-capable gauges remain explicitly blocked on threshold and complete route packages; the seasonal Agate gauge was screened out as not paddle relevant. No route was added.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE has 145 eligible gauges without durable dispositions"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06453600",
+        "usgs:06453620",
+        "usgs:06454100",
+        "usgs:06460800",
+        "usgs:06461080"
+      ],
+      "frontierTier": 1,
+      "lastRunId": "route-worker-202608202344-ne-niobrara-batch-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820234800"
+    },
+    {
+      "id": "sd-gauge-review-batch",
+      "title": "Review South Dakota gauge disposition batch",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Controller-led bounded South Dakota review completed for five gauges. Three route-capable gauges remain explicitly blocked, one unsupported historical gauge was marked stale, and one remote creek was screened out. No route was added.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD has 153 eligible gauges without durable dispositions"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:05050000",
+        "usgs:05290000",
+        "usgs:05291000",
+        "usgs:06334500",
+        "usgs:06354881"
+      ],
+      "frontierTier": 1,
+      "lastRunId": "route-worker-202608202350-sd-gauge-batch-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820235400"
+    },
+    {
+      "id": "sd-gauge-review-batch-2",
+      "title": "Review South Dakota gauge disposition batch 2",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five eligible gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD still has 148 eligible gauges without durable dispositions"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06355500",
+        "usgs:06356500",
+        "usgs:06357600",
+        "usgs:06357800",
+        "usgs:06359500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lane": "completed",
+      "lastRunId": "route-worker-202608202358-sd-gauge-batch2-no-add",
+      "latestGatekeeperId": "gatekeeper-20260820235830",
+      "resultSummary": "Reviewed all five gauges. All were durable blocked route-capable dispositions; no route met the threshold, endpoint, safety, logistics, geometry, and image gates. SD frontier gap is now 143 eligible gauges without durable dispositions."
     },
     {
       "id": "route-opportunity-wi-usgs-05344500",
       "title": "Investigate route opportunity: MISSISSIPPI RIVER AT PRESCOTT, WI",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "high",
-      "summary": "usgs:05344500 is route-capable but currently blocked. Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates. This is a bounded research task, not permission to publish a route.",
+      "summary": "Controller-led bounded review confirmed public Prescott access and confluence boating, but no 05344500-specific threshold and complete endpoint/navigation-safety/camping/coordinate/geometry/image package cleared. No route added.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
@@ -3655,7 +3845,2517 @@
         "usgs:05344500"
       ],
       "frontierTier": 1,
-      "routeOpportunity": true
+      "routeOpportunity": true,
+      "lastRunId": "route-worker-202608202336-wi-prescott-no-add",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260820233812"
+    },
+    {
+      "id": "sd-gauge-review-batch-3",
+      "title": "Review South Dakota gauge disposition batch 3",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 2"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06360500",
+        "usgs:06361000",
+        "usgs:06395000",
+        "usgs:06400000",
+        "usgs:06400875"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-20260820235850-sd-gauge-batch3-no-add",
+      "latestGatekeeperId": "gatekeeper-20260820235858",
+      "resultSummary": "Reviewed all five gauges: three durable blocked route-capable dispositions and two screened_out not-paddle-relevant dispositions. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-4",
+      "title": "Review South Dakota gauge disposition batch 4",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 3"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06401500",
+        "usgs:06402000",
+        "usgs:06402500",
+        "usgs:06402600",
+        "usgs:06403300"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210002-sd-gauge-batch4-no-add",
+      "latestGatekeeperId": "gatekeeper-20260821000235",
+      "resultSummary": "Reviewed all five gauges: three durable blocked route-capable dispositions and two screened_out not-paddle-relevant dispositions. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-5",
+      "title": "Review South Dakota gauge disposition batch 5",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 4"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06403700",
+        "usgs:06403810",
+        "usgs:06403850",
+        "usgs:06404000",
+        "usgs:06404998"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210005-sd-gauge-batch5-no-add",
+      "latestGatekeeperId": "gatekeeper-20260821000515",
+      "resultSummary": "Reviewed all five gauges: two durable blocked route-capable dispositions and three screened_out not-paddle-relevant dispositions. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-6",
+      "title": "Review South Dakota gauge disposition batch 6",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 5"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06406000",
+        "usgs:06406500",
+        "usgs:06406700",
+        "usgs:06406740",
+        "usgs:06406760"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210007-sd-gauge-batch6-no-add",
+      "latestGatekeeperId": "gatekeeper-20260821000725",
+      "resultSummary": "Reviewed all five gauges: two durable blocked route-capable dispositions, one stale_or_unsupported disposition, and two screened_out not-paddle-relevant dispositions. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-7",
+      "title": "Review South Dakota gauge disposition batch 7",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 6"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06407500",
+        "usgs:06408650",
+        "usgs:06408700",
+        "usgs:06409000",
+        "usgs:06410000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210009-sd-gauge-batch7-no-add",
+      "latestGatekeeperId": "gatekeeper-20260821000940",
+      "resultSummary": "Reviewed all five gauges: three durable blocked route-capable dispositions and two screened_out not-paddle-relevant dispositions. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-8",
+      "title": "Review South Dakota gauge disposition batch 8",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 7"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06410500",
+        "usgs:06411500",
+        "usgs:06411900",
+        "usgs:06412000",
+        "usgs:06412200"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210012-sd-gauge-batch8-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210012",
+      "resultSummary": "Reviewed all five gauges: three blocked route-capable dispositions and two stale_or_unsupported route-capable dispositions. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-9",
+      "title": "Review South Dakota gauge disposition batch 9",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 8"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06412220",
+        "usgs:06412250",
+        "usgs:06412500",
+        "usgs:06412580",
+        "usgs:06412810"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210016-sd-gauge-batch9-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210016",
+      "resultSummary": "Reviewed all five gauges: one blocked route-capable Rapid Creek opportunity and four screened_out not-paddle-relevant tributary/spring gauges. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-10",
+      "title": "Review South Dakota gauge disposition batch 10",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 9"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06413620",
+        "usgs:06414000",
+        "usgs:06416000",
+        "usgs:06418800",
+        "usgs:06421500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210018-sd-gauge-batch10-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210018",
+      "resultSummary": "Reviewed all five gauges: three blocked route-capable Rapid Creek opportunities, one stale_or_unsupported seasonal gauge, and one screened_out tributary. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-11",
+      "title": "Review South Dakota gauge disposition batch 11",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 10"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06422500",
+        "usgs:06423010",
+        "usgs:06423500",
+        "usgs:06425050",
+        "usgs:06425100"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210021-sd-gauge-batch11-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210021",
+      "resultSummary": "Reviewed all five gauges: two blocked route-capable opportunities, one stale_or_unsupported gauge, and two screened_out tributary/low-flow gauges. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-12",
+      "title": "Review South Dakota gauge disposition batch 12",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 11"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06425500",
+        "usgs:06428500",
+        "usgs:06429997",
+        "usgs:06430500",
+        "usgs:06430770"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210023-sd-gauge-batch12-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210023",
+      "resultSummary": "Reviewed all five gauges: two blocked route-capable opportunities, two stale_or_unsupported gauges, and one screened_out irrigation ditch. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-13",
+      "title": "Review South Dakota gauge disposition batch 13",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 12"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06430800",
+        "usgs:06430850",
+        "usgs:06431500",
+        "usgs:06433000",
+        "usgs:06434505"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210026-sd-gauge-batch13-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210026",
+      "resultSummary": "Reviewed all five gauges: two blocked route-capable opportunities, one stale_or_unsupported gauge, and two screened_out low-flow/canal sites. No route met the full evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-14",
+      "title": "Review South Dakota gauge disposition batch 14",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 13"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06436000",
+        "usgs:06436170",
+        "usgs:06436180",
+        "usgs:06436190",
+        "usgs:06436198"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210034-sd-gauge-batch14-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210034",
+      "resultSummary": "Reviewed five South Dakota gauges. Four remain route-capable but blocked by unverified public access or takeout evidence, one is stale_or_unsupported because the official page has no current data, and no route cleared evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-15",
+      "title": "Review South Dakota gauge disposition batch 15",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 14"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06437000",
+        "usgs:06437020",
+        "usgs:06437200",
+        "usgs:06437300",
+        "usgs:06437330"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210035-sd-gauge-batch15-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210035",
+      "resultSummary": "Reviewed five South Dakota gauges. Two remain route-capable but blocked by unverified public access or takeout evidence, and three are stale_or_unsupported because they are stage-only or lack current discharge support. No route cleared evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-16",
+      "title": "Review South Dakota gauge disposition batch 16",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 15"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06437360",
+        "usgs:06438000",
+        "usgs:06438500",
+        "usgs:06439000",
+        "usgs:06439500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210036-sd-gauge-batch16-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210036",
+      "resultSummary": "Reviewed five South Dakota gauges. Two remain route-capable but blocked by access, low-flow, or large-river safety evidence gaps, and three are stale_or_unsupported because current discharge support is unavailable or stale. No route cleared evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-17",
+      "title": "Review South Dakota gauge disposition batch 17",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 16"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06440000",
+        "usgs:06440200",
+        "usgs:06441000",
+        "usgs:06441500",
+        "usgs:06441590"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210039-sd-gauge-batch17-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210039",
+      "resultSummary": "Reviewed five South Dakota gauges. Two remain route-capable but blocked by access, endpoint, or data-quality evidence gaps, and three are stale_or_unsupported because they are stage-only or discontinued. No route cleared evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-18",
+      "title": "Review South Dakota gauge disposition batch 18",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 17"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06441592",
+        "usgs:06441595",
+        "usgs:06442130",
+        "usgs:06442600",
+        "usgs:06442900"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210043-sd-gauge-batch18-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210043",
+      "resultSummary": "Reviewed five South Dakota gauges. All five are stale_or_unsupported because they are stage-only, discontinued, lack current observations, or otherwise cannot support a current live route threshold. No route cleared evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-19",
+      "title": "Review South Dakota gauge disposition batch 19",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 18"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06445685",
+        "usgs:06445980",
+        "usgs:06446000",
+        "usgs:06446100",
+        "usgs:06446500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210044-sd-gauge-batch19-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210044",
+      "resultSummary": "Reviewed five South Dakota gauges. All five are stale_or_unsupported because they lack current discharge support, are stage-only, or have no current live threshold package. No route cleared evidence and safety gates."
+    },
+    {
+      "id": "sd-gauge-review-batch-20",
+      "title": "Review South Dakota gauge disposition batch 20",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 19"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06446700",
+        "usgs:06447000",
+        "usgs:06447230",
+        "usgs:06447450",
+        "usgs:06447500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210048-sd-gauge-batch20-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210048",
+      "resultSummary": "Reviewed all five assigned gauges. All were durable stale_or_unsupported dispositions because current live discharge data was unavailable or stale; no route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-21",
+      "title": "Review South Dakota gauge disposition batch 21",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 20"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06449000",
+        "usgs:06449100",
+        "usgs:06449500",
+        "usgs:06450500",
+        "usgs:06452000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210052-sd-gauge-batch21-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210052",
+      "resultSummary": "Reviewed five South Dakota gauges. Three were stale_or_unsupported and two were blocked despite current discharge because endpoint, access, and route-safety evidence was incomplete; no route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-22",
+      "title": "Review South Dakota gauge disposition batch 22",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 21"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06452320",
+        "usgs:06453020",
+        "usgs:06463900",
+        "usgs:06463990",
+        "usgs:06464100"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210055-sd-gauge-batch22-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210055",
+      "resultSummary": "Reviewed five South Dakota gauges. Two were stale_or_unsupported and three were blocked despite current observations because endpoint, access, and route-safety evidence was incomplete; no route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-23",
+      "title": "Review South Dakota gauge disposition batch 23",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 22"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06464500",
+        "usgs:06466700",
+        "usgs:06467500",
+        "usgs:06471000",
+        "usgs:06471065"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210057-sd-gauge-batch23-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210057",
+      "resultSummary": "Reviewed five South Dakota gauges. Two were blocked despite current discharge and three were stale_or_unsupported because only stage data was available; no route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-24",
+      "title": "Review South Dakota gauge disposition batch 24",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 23"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06471500",
+        "usgs:06471510",
+        "usgs:06471770",
+        "usgs:06471800",
+        "usgs:06471875"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210059-sd-gauge-batch24-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210059",
+      "resultSummary": "Reviewed five South Dakota gauges. Two were blocked with current discharge but incomplete access/safety evidence; three were stale_or_unsupported because no usable discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-25",
+      "title": "Review South Dakota gauge disposition batch 25",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 24"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06472000",
+        "usgs:06473000",
+        "usgs:06475000",
+        "usgs:06476000",
+        "usgs:06477000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210102-sd-gauge-batch25-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210102",
+      "resultSummary": "Reviewed five South Dakota gauges. All had current discharge observations but remained blocked because public endpoint, access, and route-safety evidence was incomplete; no route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-26",
+      "title": "Review South Dakota gauge disposition batch 26",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 25"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06477500",
+        "usgs:06478000",
+        "usgs:06478500",
+        "usgs:06478513",
+        "usgs:06478600"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210104-sd-gauge-batch26-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210104",
+      "resultSummary": "Reviewed five South Dakota gauges. All were blocked because current discharge evidence did not come with verified public endpoint/access and route-safety packages; one also carried a measurement-quality warning. No route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-27",
+      "title": "Review South Dakota gauge disposition batch 27",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 26"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06478690",
+        "usgs:06479010",
+        "usgs:06479215",
+        "usgs:06479438",
+        "usgs:06479452"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210106-sd-gauge-batch27-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210106",
+      "resultSummary": "Reviewed five South Dakota gauges. Four were blocked despite current discharge because access and route-safety evidence was incomplete; one was stale_or_unsupported as a high-flow, gage-height-only station. No route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-28",
+      "title": "Review South Dakota gauge disposition batch 28",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 27"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06479490",
+        "usgs:06479498",
+        "usgs:06479500",
+        "usgs:06479512",
+        "usgs:06479515"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210108-sd-gauge-batch28-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210108",
+      "resultSummary": "Reviewed five South Dakota gauges. One was blocked despite current discharge; four were stale_or_unsupported because no usable discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-29",
+      "title": "Review South Dakota gauge disposition batch 29",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 28"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06479520",
+        "usgs:06479525",
+        "usgs:06479770",
+        "usgs:06480000",
+        "usgs:06480650"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210111-sd-gauge-batch29-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210111",
+      "resultSummary": "Reviewed five South Dakota gauges. All five have current discharge, but each remains blocked because access/takeout and route-safety evidence is incomplete. No route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-30",
+      "title": "Review South Dakota gauge disposition batch 30",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded South Dakota frontier review with the next five unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 29"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06481000",
+        "usgs:06481400",
+        "usgs:06481480",
+        "usgs:06481493",
+        "usgs:06481497"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210114-sd-gauge-batch30-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210114",
+      "resultSummary": "Reviewed five South Dakota gauges. Two were blocked despite current discharge; three were stale_or_unsupported because no supported 00060 discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "sd-gauge-review-batch-31",
+      "title": "Review South Dakota gauge disposition batch 31",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Close the remaining bounded South Dakota gauge review with the final unreviewed gauges. Record durable dispositions and promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:SD remains after batch 30"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06482010",
+        "usgs:06483950",
+        "usgs:06485910"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210115-sd-gauge-batch31-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210115",
+      "resultSummary": "Reviewed the final three South Dakota gauges. One was stale_or_unsupported and two were blocked despite current discharge; no route was promoted."
+    },
+    {
+      "id": "sd-fresh-discovery-sweep-01",
+      "title": "Run bounded South Dakota fresh route discovery sweep",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "route-research",
+      "priority": "high",
+      "summary": "Perform one bounded, state-wide discovery sweep for strong scored South Dakota route opportunities after all eligible gauges receive durable dispositions. Do not add speculative routes; record candidates and explicit no-op findings.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "docs/operations/state-registry.json",
+        "frontier-condition:SD has no unreviewed eligible gauges after batch 31"
+      ],
+      "stateId": "SD",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [],
+      "frontierTier": 1,
+      "routeOpportunity": true,
+      "discoveryComplete": true,
+      "discoveryCompletedAt": "2026-08-21T01:18:00Z",
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210118-sd-fresh-discovery-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210118",
+      "resultSummary": "Bounded state-wide discovery sweep found no new strong scored route. Official GFP and Jay Heath sources confirm the existing Big Sioux trail; other surfaced leads were lake/recreation-area context, duplicates of reviewed corridors, or lacked complete endpoint, gauge-threshold, camping, safety, coordinate, and geometry evidence. No route was promoted.",
+      "metadataReconciledAt": "2026-08-21T13:33:30.8812456Z"
+    },
+    {
+      "id": "ne-gauge-review-batch-02",
+      "title": "Review Nebraska gauge disposition batch 02",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Begin the next bounded Nebraska frontier review with five unreviewed gauges after South Dakota reached durable-disposition and discovery completion. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE has remaining unreviewed eligible gauges after the initial batch"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06461500",
+        "usgs:06463500",
+        "usgs:06463720",
+        "usgs:06465500",
+        "usgs:06465520"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210120-ne-gauge-batch02-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210120",
+      "resultSummary": "Reviewed five Nebraska gauges. Four were blocked despite current discharge and one was stale_or_unsupported because no supported 00060 discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-03",
+      "title": "Review Nebraska gauge disposition batch 03",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 02"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06466000",
+        "usgs:06466010",
+        "usgs:06466400",
+        "usgs:06466470",
+        "usgs:06466500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210122-ne-gauge-batch03-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210122",
+      "resultSummary": "Reviewed five Nebraska gauges. Two were stale_or_unsupported because no supported 00060 discharge parameter was available; three were blocked despite current discharge because access/takeout and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-04",
+      "title": "Review Nebraska gauge disposition batch 04",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 03"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06478522",
+        "usgs:06478523",
+        "usgs:06478526",
+        "usgs:06486000",
+        "usgs:06600900"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210125-ne-gauge-batch04-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210125",
+      "resultSummary": "Reviewed five Nebraska gauges. Two were stale_or_unsupported because no supported 00060 discharge parameter was available; three were blocked despite current discharge because access/takeout and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-05",
+      "title": "Review Nebraska gauge disposition batch 05",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 04"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06601000",
+        "usgs:06601085",
+        "usgs:06601095",
+        "usgs:06601100",
+        "usgs:06610000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210127-ne-gauge-batch05-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210127",
+      "resultSummary": "Reviewed five Nebraska gauges. Three were stale_or_unsupported because no supported 00060 discharge parameter was available; two were blocked despite current discharge because access/takeout and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-06",
+      "title": "Review Nebraska gauge disposition batch 06",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 05"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06610490",
+        "usgs:06610670",
+        "usgs:06610685",
+        "usgs:06610705",
+        "usgs:06610710"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210129-ne-gauge-batch06-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210129",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were stale_or_unsupported because no supported 00060 discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-07",
+      "title": "Review Nebraska gauge disposition batch 07",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 06"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06610720",
+        "usgs:06610732",
+        "usgs:06610740",
+        "usgs:06610742",
+        "usgs:06610750"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210131-ne-gauge-batch07-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210131",
+      "resultSummary": "Reviewed five Nebraska gauges. Three were blocked despite current near-zero discharge because access/takeout and route-safety evidence was incomplete; two were stale_or_unsupported because no supported 00060 discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-08",
+      "title": "Review Nebraska gauge disposition batch 08",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 07"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06610760",
+        "usgs:06610765",
+        "usgs:06610770",
+        "usgs:06610773",
+        "usgs:06610780"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210133-ne-gauge-batch08-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210133",
+      "resultSummary": "Reviewed five Nebraska gauges. Three were blocked at effectively zero current discharge because access/takeout and route-safety evidence was incomplete; two were stale_or_unsupported because no supported 00060 discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-09",
+      "title": "Review Nebraska gauge disposition batch 09",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 08"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06610785",
+        "usgs:06610786",
+        "usgs:06610788",
+        "usgs:06610793",
+        "usgs:06610795"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608210135-ne-gauge-batch09-no-add",
+      "latestGatekeeperId": "gatekeeper-202608210135",
+      "resultSummary": "Reviewed five Nebraska gauges. Four were blocked at effectively zero current discharge because access/takeout and route-safety evidence was incomplete; one was stale_or_unsupported because no supported 00060 discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-10",
+      "title": "Review Nebraska gauge disposition batch 10",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 09"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06610798",
+        "usgs:06680500",
+        "usgs:06762500",
+        "usgs:06764880",
+        "usgs:06767970"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211210-ne-gauge-batch10-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211210",
+      "resultSummary": "Reviewed five Nebraska gauges. Two were stale_or_unsupported (one lacked discharge; one had a stale latest observation) and three were blocked despite current discharge because access/takeout and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-11",
+      "title": "Review Nebraska gauge disposition batch 11",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 10"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06768000",
+        "usgs:06768020",
+        "usgs:06768025",
+        "usgs:06768035",
+        "usgs:06769000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211212-ne-gauge-batch11-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211212",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-12",
+      "title": "Review Nebraska gauge disposition batch 12",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 11"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06769525",
+        "usgs:06770200",
+        "usgs:06770500",
+        "usgs:06772100",
+        "usgs:06772775"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211214-ne-gauge-batch12-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211214",
+      "resultSummary": "Reviewed five Nebraska gauges. Four were blocked despite current discharge because access/takeout and route-safety evidence was incomplete; one was blocked at effectively zero discharge with the same evidence gaps. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-13",
+      "title": "Review Nebraska gauge disposition batch 13",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 12"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06772898",
+        "usgs:06773500",
+        "usgs:06774000",
+        "usgs:06775500",
+        "usgs:06775900"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211216-ne-gauge-batch13-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211216",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-14",
+      "title": "Review Nebraska gauge disposition batch 14",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 13"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06777495",
+        "usgs:06781600",
+        "usgs:06781900",
+        "usgs:06784000",
+        "usgs:06785000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211219-ne-gauge-batch14-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211219",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-15",
+      "title": "Review Nebraska gauge disposition batch 15",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 14"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06785500",
+        "usgs:06786000",
+        "usgs:06790500",
+        "usgs:06792000",
+        "usgs:06794000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211221-ne-gauge-batch15-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211221",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-16",
+      "title": "Review Nebraska gauge disposition batch 16",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 15"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06794650",
+        "usgs:06794700",
+        "usgs:06795500",
+        "usgs:06796000",
+        "usgs:06796450"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211223-ne-gauge-batch16-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211223",
+      "resultSummary": "Reviewed five Nebraska gauges. Three were blocked despite current discharge because access/takeout and route-safety evidence was incomplete; two were stale_or_unsupported because no supported live discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-17",
+      "title": "Review Nebraska gauge disposition batch 17",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 16"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06796500",
+        "usgs:06796550",
+        "usgs:06797500",
+        "usgs:06799000",
+        "usgs:06799100"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211225-ne-gauge-batch17-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211225",
+      "resultSummary": "Reviewed five Nebraska gauges. Four were blocked despite current discharge because access/takeout and route-safety evidence was incomplete; one was stale_or_unsupported because no supported live discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-18",
+      "title": "Review Nebraska gauge disposition batch 18",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 17"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06799315",
+        "usgs:06799350",
+        "usgs:06799445",
+        "usgs:06799500",
+        "usgs:06800000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211226-ne-gauge-batch18-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211226",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-19",
+      "title": "Review Nebraska gauge disposition batch 19",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 18"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06800500",
+        "usgs:06801000",
+        "usgs:06803000",
+        "usgs:06803080",
+        "usgs:06803093"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211228-ne-gauge-batch19-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211228",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-20",
+      "title": "Review Nebraska gauge disposition batch 20",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 19"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06803170",
+        "usgs:06803300",
+        "usgs:06803420",
+        "usgs:06803430",
+        "usgs:06803486"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211229-ne-gauge-batch20-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211229",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-21",
+      "title": "Review Nebraska gauge disposition batch 21",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 20"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06803495",
+        "usgs:06803500",
+        "usgs:06803502",
+        "usgs:06803510",
+        "usgs:06803513"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211231-ne-gauge-batch21-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211231",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-22",
+      "title": "Review Nebraska gauge disposition batch 22",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 21"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06803520",
+        "usgs:06803530",
+        "usgs:06803555",
+        "usgs:06803960",
+        "usgs:06804000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211233-ne-gauge-batch22-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211233",
+      "resultSummary": "Reviewed five Nebraska gauges. Four were blocked despite current discharge because access/takeout and route-safety evidence was incomplete; one was stale_or_unsupported because no supported live discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-23",
+      "title": "Review Nebraska gauge disposition batch 23",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 22"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06804700",
+        "usgs:06805000",
+        "usgs:06805515",
+        "usgs:06805530",
+        "usgs:06805570"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211234-ne-gauge-batch23-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211234",
+      "resultSummary": "Reviewed five Nebraska gauges. One was blocked despite current discharge because access/takeout and route-safety evidence was incomplete; four were stale_or_unsupported because no supported live discharge parameter was available. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-24",
+      "title": "Review Nebraska gauge disposition batch 24",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 23"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06806500",
+        "usgs:06807000",
+        "usgs:06810070",
+        "usgs:06811500",
+        "usgs:06813500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211236-ne-gauge-batch24-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211236",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because access/takeout and route-safety evidence was incomplete, with additional navigation hazard review required on Missouri River gauges. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-25",
+      "title": "Review Nebraska gauge disposition batch 25",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 24"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06814500",
+        "usgs:06815000",
+        "usgs:06821500",
+        "usgs:06823000",
+        "usgs:06823500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211238-ne-gauge-batch25-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211238",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete; three also had low current flow. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-26",
+      "title": "Review Nebraska gauge disposition batch 26",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 25"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06824000",
+        "usgs:06824500",
+        "usgs:06827500",
+        "usgs:06828500",
+        "usgs:06834000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211239-ne-gauge-batch26-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211239",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because access/takeout and route-safety evidence was incomplete; all five also had low or zero current flow. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-27",
+      "title": "Review Nebraska gauge disposition batch 27",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 26"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06835500",
+        "usgs:06836500",
+        "usgs:06837000",
+        "usgs:06838000",
+        "usgs:06844500"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211241-ne-gauge-batch27-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211241",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because access/takeout and route-safety evidence was incomplete; all five also had low or near-zero current flow. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-28",
+      "title": "Review Nebraska gauge disposition batch 28",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Continue the bounded Nebraska frontier review with the next five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 27"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06847000",
+        "usgs:06847500",
+        "usgs:06853020",
+        "usgs:06880800",
+        "usgs:06881000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211243-ne-gauge-batch28-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211243",
+      "resultSummary": "Reviewed five Nebraska gauges. All five were blocked despite current discharge because access/takeout and route-safety evidence was incomplete; three also had low or zero current flow. No route was promoted."
+    },
+    {
+      "id": "ne-gauge-review-batch-29",
+      "title": "Review Nebraska gauge disposition batch 29",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "high",
+      "summary": "Complete the bounded Nebraska inventory review with the final five unreviewed gauges. Promote only routes that clear the full evidence and safety gates.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/state-registry.json",
+        "frontier-gap:NE remains after batch 28"
+      ],
+      "stateId": "NE",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:06881380",
+        "usgs:06882000",
+        "usgs:06883000",
+        "usgs:06883530",
+        "usgs:06884000"
+      ],
+      "frontierTier": 1,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608211244-ne-gauge-batch29-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211244",
+      "resultSummary": "Reviewed the final five Nebraska gauges. All five were blocked despite current discharge because independently verified public endpoint/access, takeout, and route-safety evidence was incomplete. No route was promoted."
+    },
+    {
+      "id": "ne-bounded-discovery-sweep-01",
+      "title": "Run Nebraska final bounded discovery sweep",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "state-coverage",
+      "priority": "critical",
+      "stateId": "NE",
+      "frontierTier": 1,
+      "inventoryId": "provider-baseline-2026-08-14",
+      "summary": "Screen a bounded set of distinct Nebraska public water-trail and river families after all 147 eligible gauges have durable dispositions. Do not add a route unless the full scored-route evidence and safety gates clear.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/gate-policy.json",
+        "docs/operations/state-registry.json",
+        "docs/state-route-memories/nebraska.md",
+        "https://outdoornebraska.gov/parks/explore-trails/water-trails/"
+      ],
+      "gaugeKeys": [],
+      "validationStatus": "passed",
+      "discoveryComplete": true,
+      "discoveryCompletedAt": "2026-08-21T12:45:00Z",
+      "lastRunId": "route-worker-202608211245-ne-bounded-discovery-no-add",
+      "latestGatekeeperId": "gatekeeper-202608211245",
+      "routeAdded": false,
+      "candidatesScreened": [
+        "turkey_creek",
+        "big_blue_river",
+        "little_blue_river",
+        "missouri_tributary_access",
+        "republican_tributary_reaches"
+      ],
+      "resultSummary": "Final bounded Nebraska discovery sweep screened five distinct public water-trail and river families after all 147 gauge reviews. No new strong scored route cleared the full endpoint, access/takeout, threshold, camping, safety, coordinate, geometry, and image gates."
+    },
+    {
+      "id": "overlap-review-3ca16cfe387a",
+      "title": "Review route consolidation candidate: Nebraska · loup-river-columbus-adm-access ↔ loup-river-george-syas-adm-access ↔ loup-river-george-syas-columbus +3",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "loup-river-columbus-adm-access",
+        "loup-river-george-syas-adm-access",
+        "loup-river-george-syas-columbus",
+        "loup-river-george-syas-monroe",
+        "loup-river-monroe-adm-access",
+        "loup-river-monroe-columbus"
+      ],
+      "sourceFindingId": "overlap-review-3ca16cfe387a",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211257-ne-loup-river-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211257",
+      "resultSummary": "Independent verifier confirmed the six Nebraska Loup River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-57e5a049c099",
+      "title": "Review route consolidation candidate: Kentucky · south-fork-kentucky-river-rocky-branch-fish-creek ↔ south-fork-kentucky-river-rocky-branch-kay-wood",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "south-fork-kentucky-river-rocky-branch-fish-creek",
+        "south-fork-kentucky-river-rocky-branch-kay-wood"
+      ],
+      "sourceFindingId": "overlap-review-57e5a049c099",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211258-ky-south-fork-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211258",
+      "resultSummary": "Independent verifier confirmed the two Kentucky South Fork Kentucky River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-581fa280035b",
+      "title": "Review route consolidation candidate: Minnesota · crow-wing-river-andersons-crossing-cottingham ↔ crow-wing-river-huntersville-stigmans-mound ↔ crow-wing-river-mary-brown-cottingham +4",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "crow-wing-river-andersons-crossing-cottingham",
+        "crow-wing-river-huntersville-stigmans-mound",
+        "crow-wing-river-mary-brown-cottingham",
+        "crow-wing-river-mary-brown-frames-landing",
+        "crow-wing-river-mary-brown-stigmans-mound",
+        "crow-wing-river-stigmans-mound-cottingham",
+        "crow-wing-river-stigmans-mound-little-white-dog"
+      ],
+      "sourceFindingId": "overlap-review-581fa280035b",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211300-mn-crow-wing-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211300",
+      "resultSummary": "Independent verifier confirmed the seven Minnesota Crow Wing River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-65a6197881b6",
+      "title": "Review route consolidation candidate: Minnesota · st-louis-river-county-road-29-floodwood ↔ st-louis-river-county-road-95-forbes ↔ st-louis-river-county-road-95-zim +4",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "st-louis-river-county-road-29-floodwood",
+        "st-louis-river-county-road-95-forbes",
+        "st-louis-river-county-road-95-zim",
+        "st-louis-river-floodwood-paupores",
+        "st-louis-river-forbes-toivola",
+        "st-louis-river-forbes-zim",
+        "st-louis-river-toivola-floodwood"
+      ],
+      "sourceFindingId": "overlap-review-65a6197881b6",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211301-mn-st-louis-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211301",
+      "resultSummary": "Independent verifier confirmed the seven Minnesota St. Louis River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-6897b69715ad",
+      "title": "Review route consolidation candidate: Wisconsin · chippewa-river-county-a-highway-8 ↔ chippewa-river-county-d-highway-8 ↔ chippewa-river-county-d-imalone +1",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "chippewa-river-county-a-highway-8",
+        "chippewa-river-county-d-highway-8",
+        "chippewa-river-county-d-imalone",
+        "chippewa-river-highway-8-flambeau-river"
+      ],
+      "sourceFindingId": "overlap-review-6897b69715ad",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211302-wi-chippewa-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211302",
+      "resultSummary": "Independent verifier confirmed the four Wisconsin Chippewa River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-6b111537f987",
+      "title": "Review route consolidation candidate: Iowa · north-fork-maquoketa-river-cascade-caven ↔ north-fork-maquoketa-river-cascade-d61 ↔ north-fork-maquoketa-river-cascade-ozark +3",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "north-fork-maquoketa-river-cascade-caven",
+        "north-fork-maquoketa-river-cascade-d61",
+        "north-fork-maquoketa-river-cascade-ozark",
+        "north-fork-maquoketa-river-d61-caven",
+        "north-fork-maquoketa-river-d61-ozark",
+        "north-fork-maquoketa-river-ozark-caven"
+      ],
+      "sourceFindingId": "overlap-review-6b111537f987",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211303-ia-north-fork-maquoketa-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211303",
+      "resultSummary": "Independent verifier confirmed the six Iowa North Fork Maquoketa River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-7e351dd16b94",
+      "title": "Review route consolidation candidate: Kentucky · levisa-fork-airport-boat-ramp ↔ levisa-fork-cedar-creek-thompson-road ↔ levisa-fork-island-creek-cedar-creek +6",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "levisa-fork-airport-boat-ramp",
+        "levisa-fork-cedar-creek-thompson-road",
+        "levisa-fork-island-creek-cedar-creek",
+        "levisa-fork-island-creek-thompson-road",
+        "levisa-fork-jubilee-cedar-creek",
+        "levisa-fork-jubilee-island-creek",
+        "levisa-fork-jubilee-thompson-road",
+        "levisa-fork-prestonsburg-airport",
+        "levisa-fork-prestonsburg-boat-ramp"
+      ],
+      "sourceFindingId": "overlap-review-7e351dd16b94",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211305-ky-levisa-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211305",
+      "resultSummary": "Independent verifier confirmed the nine Kentucky Levisa Fork routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-91073a0cd9d1",
+      "title": "Review route consolidation candidate: Kentucky · cumberland-river-longbottom-cumberland-falls ↔ cumberland-river-longbottom-thunderstruck ↔ cumberland-river-redbird-cumberland-falls +7",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "cumberland-river-longbottom-cumberland-falls",
+        "cumberland-river-longbottom-thunderstruck",
+        "cumberland-river-redbird-cumberland-falls",
+        "cumberland-river-redbird-longbottom",
+        "cumberland-river-redbird-thunderstruck",
+        "cumberland-river-thunderstruck-cumberland-falls",
+        "upper-cumberland-river-williamsburg-cumberland-falls",
+        "upper-cumberland-river-williamsburg-longbottom",
+        "upper-cumberland-river-williamsburg-redbird",
+        "upper-cumberland-river-williamsburg-thunderstruck"
+      ],
+      "sourceFindingId": "overlap-review-91073a0cd9d1",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211306-ky-cumberland-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211306",
+      "resultSummary": "Independent verifier confirmed the ten Kentucky Cumberland River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-a34d78c7f515",
+      "title": "Review route consolidation candidate: Pennsylvania · susquehanna-river-canal-park-test-track ↔ susquehanna-river-canal-park-wetlands ↔ susquehanna-river-hornbrook-terrytown +16",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "susquehanna-river-canal-park-test-track",
+        "susquehanna-river-canal-park-wetlands",
+        "susquehanna-river-hornbrook-terrytown",
+        "susquehanna-river-hornbrook-towanda",
+        "susquehanna-river-hornbrook-wysox-township-park",
+        "susquehanna-river-pfbc-bloomsburg-montgomery-park",
+        "susquehanna-river-pfbc-danville-shikellamy-west",
+        "susquehanna-river-pfbc-danville-wrays",
+        "susquehanna-river-sayre-towanda",
+        "susquehanna-river-sayre-wysox-township-park",
+        "susquehanna-river-test-track-danville",
+        "susquehanna-river-test-track-indian-head",
+        "susquehanna-river-towanda-laceyville",
+        "susquehanna-river-towanda-terrytown",
+        "susquehanna-river-ulster-bridge-terrytown",
+        "susquehanna-river-ulster-bridge-towanda",
+        "susquehanna-river-ulster-bridge-wysox-township-park",
+        "susquehanna-river-wetlands-bloomsburg",
+        "susquehanna-river-wysox-township-park-terrytown"
+      ],
+      "sourceFindingId": "overlap-review-a34d78c7f515",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211307-pa-susquehanna-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211307",
+      "resultSummary": "Independent verifier confirmed the 19 Pennsylvania Susquehanna River routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-a5b7c424422d",
+      "title": "Review route consolidation candidate: Arkansas · crooked-creek-lower-pyatt-kelleys-slab ↔ crooked-creek-lower-pyatt-mark-oliver ↔ crooked-creek-lower-pyatt-snow +3",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "crooked-creek-lower-pyatt-kelleys-slab",
+        "crooked-creek-lower-pyatt-mark-oliver",
+        "crooked-creek-lower-pyatt-snow",
+        "crooked-creek-mark-oliver-kelleys-slab",
+        "crooked-creek-snow-kelleys-slab",
+        "crooked-creek-snow-mark-oliver"
+      ],
+      "sourceFindingId": "overlap-review-a5b7c424422d",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211308-ar-crooked-creek-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211308",
+      "resultSummary": "Independent verifier confirmed the six Arkansas Crooked Creek routes form a selectable multi-endpoint corridor family with shared river continuity, explicit endpoint order, and preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-a60c10df80eb",
+      "title": "Review route consolidation candidate: Texas · colorado-river-fishermans-park-lost-pines ↔ colorado-river-fm973-little-webberville ↔ colorado-river-horseshoe-utley-bridge +8",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "colorado-river-fishermans-park-lost-pines",
+        "colorado-river-fm973-little-webberville",
+        "colorado-river-horseshoe-utley-bridge",
+        "colorado-river-little-webberville-big-webberville",
+        "colorado-river-lost-pines-riverbend-park",
+        "colorado-river-plum-park-buffalo-trail",
+        "colorado-river-riverbend-park-plum-park",
+        "colorado-river-texas-river-school-fm973",
+        "colorado-river-texas-river-school-little-webberville",
+        "colorado-river-utley-bridge-fishermans-park",
+        "colorado-river-webberville-utley-bridge"
+      ],
+      "sourceFindingId": "overlap-review-a60c10df80eb",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211310-tx-colorado-river-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211310",
+      "resultSummary": "Independent verifier confirmed the 11-route Texas Colorado River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-aa793ba1b116",
+      "title": "Review route consolidation candidate: Arkansas · buffalo-river-erbie-hasty ↔ buffalo-river-erbie-pruitt ↔ buffalo-river-kyles-landing-hasty +15",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "buffalo-river-erbie-hasty",
+        "buffalo-river-erbie-pruitt",
+        "buffalo-river-kyles-landing-hasty",
+        "buffalo-river-kyles-landing-pruitt",
+        "buffalo-river-ozark-hasty",
+        "buffalo-river-ozark-pruitt",
+        "buffalo-river-ponca-erbie",
+        "buffalo-river-ponca-hasty",
+        "buffalo-river-ponca-kyles-landing",
+        "buffalo-river-ponca-ozark",
+        "buffalo-river-ponca-pruitt",
+        "buffalo-river-ponca-steel-creek",
+        "buffalo-river-pruitt-hasty",
+        "buffalo-river-steel-creek-erbie",
+        "buffalo-river-steel-creek-hasty",
+        "buffalo-river-steel-creek-pruitt",
+        "buffalo-river-tyler-bend-gilbert",
+        "buffalo-river-tyler-bend-grinders-ferry"
+      ],
+      "sourceFindingId": "overlap-review-aa793ba1b116",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211311-ar-buffalo-river-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211311",
+      "resultSummary": "Independent verifier confirmed the 18-route Arkansas Buffalo River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-b40481702b1e",
+      "title": "Review route consolidation candidate: Minnesota · mississippi-river-aitkin-highway-6 ↔ mississippi-river-kimball-aitkin-campground ↔ mississippi-river-leech-lake-schoolcraft +9",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "mississippi-river-aitkin-highway-6",
+        "mississippi-river-kimball-aitkin-campground",
+        "mississippi-river-leech-lake-schoolcraft",
+        "mississippi-river-lum-park-kiwanis",
+        "mississippi-river-pike-creek-royalton",
+        "mississippi-river-royalton-sartell",
+        "mississippi-river-royalton-stearns-county-park",
+        "mississippi-river-schoolcraft-number-10",
+        "mississippi-river-schoolcraft-sylvan",
+        "mississippi-river-steamboat-blackberry-bridge",
+        "mississippi-river-steamboat-county-road-72",
+        "mississippi-river-trommald-lum-park"
+      ],
+      "sourceFindingId": "overlap-review-b40481702b1e",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211315-mn-mississippi-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211315",
+      "resultSummary": "Independent verifier confirmed the 12-route Minnesota Mississippi River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-c9b643d4f409",
+      "title": "Review route consolidation candidate: Kentucky · north-fork-kentucky-river-douthitt-park-roy-spencer ↔ north-fork-kentucky-river-hazard-city-ramp-perry-county-park ↔ north-fork-kentucky-river-roy-spencer-beattyville +2",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "north-fork-kentucky-river-douthitt-park-roy-spencer",
+        "north-fork-kentucky-river-hazard-city-ramp-perry-county-park",
+        "north-fork-kentucky-river-roy-spencer-beattyville",
+        "north-fork-kentucky-river-watts-hazard-city-ramp",
+        "north-fork-kentucky-river-watts-perry-county-park"
+      ],
+      "sourceFindingId": "overlap-review-c9b643d4f409",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211317-ky-north-fork-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211317",
+      "resultSummary": "Independent verifier confirmed the five-route Kentucky North Fork Kentucky River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-cbd2cb921f88",
+      "title": "Review route consolidation candidate: Kentucky · barren-river-beech-bend-james-r-hines ↔ barren-river-beech-bend-lonnie-white ↔ barren-river-james-r-hines-lonnie-white +7",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "barren-river-beech-bend-james-r-hines",
+        "barren-river-beech-bend-lonnie-white",
+        "barren-river-james-r-hines-lonnie-white",
+        "barren-river-martinsville-potter-combs",
+        "barren-river-state-street-beech-bend",
+        "barren-river-state-street-james-r-hines",
+        "barren-river-state-street-lonnie-white",
+        "barren-river-tailwater-martinsville",
+        "barren-river-vpa-3-martinsville",
+        "barren-river-vpa-3-potter-combs"
+      ],
+      "sourceFindingId": "overlap-review-cbd2cb921f88",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211318-ky-barren-river-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211318",
+      "resultSummary": "Independent verifier confirmed the 10-route Kentucky Barren River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-d93e4e1d1b50",
+      "title": "Review route consolidation candidate: Texas · san-antonio-river-cr125-helton-nature-park ↔ san-antonio-river-river-crossing-helton",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "san-antonio-river-cr125-helton-nature-park",
+        "san-antonio-river-river-crossing-helton"
+      ],
+      "sourceFindingId": "overlap-review-d93e4e1d1b50",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211319-tx-san-antonio-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211319",
+      "resultSummary": "Independent verifier confirmed the two-route Texas San Antonio River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-dbd5660f250f",
+      "title": "Review route consolidation candidate: Texas · south-llano-river-cupgrass-junction-city-park ↔ south-llano-river-cupgrass-state-park ↔ south-llano-river-flatrock-lane-junction-city-park +2",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "south-llano-river-cupgrass-junction-city-park",
+        "south-llano-river-cupgrass-state-park",
+        "south-llano-river-flatrock-lane-junction-city-park",
+        "south-llano-river-state-park-flatrock-lane",
+        "south-llano-river-state-park-junction-city-park"
+      ],
+      "sourceFindingId": "overlap-review-dbd5660f250f",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211320-tx-south-llano-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211320",
+      "resultSummary": "Independent verifier confirmed the five-route Texas South Llano River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-f061be3d5b7d",
+      "title": "Review route consolidation candidate: Minnesota · pomme-de-terre-river-larson-appleton ↔ pomme-de-terre-river-pomme-1-appleton",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "pomme-de-terre-river-larson-appleton",
+        "pomme-de-terre-river-pomme-1-appleton"
+      ],
+      "sourceFindingId": "overlap-review-f061be3d5b7d",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211321-mn-pomme-de-terre-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211321",
+      "resultSummary": "Independent verifier confirmed the two-route Minnesota Pomme de Terre River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-129ef46da8ae",
+      "title": "Review route consolidation candidate: Kentucky · upper-cumberland-river-4-mile-artemus ↔ upper-cumberland-river-4-mile-barbourville ↔ upper-cumberland-river-artemus-barbourville +7",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "upper-cumberland-river-4-mile-artemus",
+        "upper-cumberland-river-4-mile-barbourville",
+        "upper-cumberland-river-artemus-barbourville",
+        "upper-cumberland-river-varilla-4-mile",
+        "upper-cumberland-river-varilla-artemus",
+        "upper-cumberland-river-varilla-barbourville",
+        "upper-cumberland-river-williamsburg-cumberland-falls",
+        "upper-cumberland-river-williamsburg-longbottom",
+        "upper-cumberland-river-williamsburg-redbird",
+        "upper-cumberland-river-williamsburg-thunderstruck"
+      ],
+      "sourceFindingId": "overlap-review-129ef46da8ae",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211322-ky-upper-cumberland-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211322",
+      "resultSummary": "Independent verifier confirmed the 10-route Kentucky Upper Cumberland River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-1b117ee62838",
+      "title": "Review route consolidation candidate: Kentucky · buck-creek-bent-road-poplarville-road ↔ buck-creek-rainey-road-bent-road ↔ buck-creek-rainey-road-poplarville-road +3",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "buck-creek-bent-road-poplarville-road",
+        "buck-creek-rainey-road-bent-road",
+        "buck-creek-rainey-road-poplarville-road",
+        "buck-creek-rainey-road-stab-road",
+        "buck-creek-stab-road-bent-road",
+        "buck-creek-stab-road-poplarville-road"
+      ],
+      "sourceFindingId": "overlap-review-1b117ee62838",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211323-ky-buck-creek-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211323",
+      "resultSummary": "Independent verifier confirmed the six-route Kentucky Buck Creek family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-47a9b946e656",
+      "title": "Review route consolidation candidate: Kentucky · floyds-fork-broad-run-valley-cliffside ↔ floyds-fork-cane-run-broad-run-valley ↔ floyds-fork-cane-run-cliffside +18",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "floyds-fork-broad-run-valley-cliffside",
+        "floyds-fork-cane-run-broad-run-valley",
+        "floyds-fork-cane-run-cliffside",
+        "floyds-fork-cane-run-seaton-valley",
+        "floyds-fork-creekside-broad-run-valley",
+        "floyds-fork-creekside-cane-run",
+        "floyds-fork-creekside-cliffside",
+        "floyds-fork-creekside-fisherville",
+        "floyds-fork-creekside-seaton-valley",
+        "floyds-fork-fisherville-broad-run-valley",
+        "floyds-fork-fisherville-cane-run",
+        "floyds-fork-fisherville-cliffside",
+        "floyds-fork-fisherville-seaton-valley",
+        "floyds-fork-north-beckley-broad-run-valley",
+        "floyds-fork-north-beckley-cane-run",
+        "floyds-fork-north-beckley-cliffside",
+        "floyds-fork-north-beckley-creekside",
+        "floyds-fork-north-beckley-fisherville",
+        "floyds-fork-north-beckley-seaton-valley",
+        "floyds-fork-seaton-valley-broad-run-valley",
+        "floyds-fork-seaton-valley-cliffside"
+      ],
+      "sourceFindingId": "overlap-review-47a9b946e656",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211325-ky-floyds-fork-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211325",
+      "resultSummary": "Independent verifier confirmed the 21-route Kentucky Floyds Fork family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-6825d8b571cd",
+      "title": "Review route consolidation candidate: Missouri · jacks-fork-river-alley-spring-chilton ↔ jacks-fork-river-bay-creek-alley-spring ↔ jacks-fork-river-bay-creek-chilton +12",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "jacks-fork-river-alley-spring-chilton",
+        "jacks-fork-river-bay-creek-alley-spring",
+        "jacks-fork-river-bay-creek-chilton",
+        "jacks-fork-river-blue-spring-alley-spring",
+        "jacks-fork-river-blue-spring-bay-creek",
+        "jacks-fork-river-blue-spring-chilton",
+        "jacks-fork-river-blue-spring-rymers",
+        "jacks-fork-river-buck-hollow-rymers",
+        "jacks-fork-river-highway-17-alley-spring",
+        "jacks-fork-river-highway-17-bay-creek",
+        "jacks-fork-river-highway-17-blue-spring",
+        "jacks-fork-river-highway-17-chilton",
+        "jacks-fork-river-rymers-alley-spring",
+        "jacks-fork-river-rymers-bay-creek",
+        "jacks-fork-river-rymers-chilton"
+      ],
+      "sourceFindingId": "overlap-review-6825d8b571cd",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211326-mo-jacks-fork-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211326",
+      "resultSummary": "Independent verifier confirmed the 15-route Missouri Jacks Fork River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-94125f286c97",
+      "title": "Review route consolidation candidate: Missouri · current-river-akers-ferry-pulltite ↔ current-river-big-spring-cataract ↔ current-river-big-spring-gooseneck +10",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "current-river-akers-ferry-pulltite",
+        "current-river-big-spring-cataract",
+        "current-river-big-spring-gooseneck",
+        "current-river-cataract-gooseneck",
+        "current-river-cedar-grove-akers",
+        "current-river-cedar-grove-pulltite",
+        "current-river-van-buren-big-spring",
+        "current-river-van-buren-cataract",
+        "current-river-van-buren-gooseneck",
+        "current-river-waymeyer-big-spring",
+        "current-river-waymeyer-cataract",
+        "current-river-waymeyer-gooseneck",
+        "current-river-waymeyer-van-buren"
+      ],
+      "sourceFindingId": "overlap-review-94125f286c97",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211327-mo-current-river-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211327",
+      "resultSummary": "Independent verifier confirmed the 13-route Missouri Current River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-b9a08e387cd7",
+      "title": "Review route consolidation candidate: Missouri · eleven-point-river-cane-bluff-greer-crossing ↔ eleven-point-river-cane-bluff-narrows ↔ eleven-point-river-cane-bluff-riverton +17",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "eleven-point-river-cane-bluff-greer-crossing",
+        "eleven-point-river-cane-bluff-narrows",
+        "eleven-point-river-cane-bluff-riverton",
+        "eleven-point-river-cane-bluff-turner-mill",
+        "eleven-point-river-cane-bluff-whitten",
+        "eleven-point-river-greer-crossing-narrows",
+        "eleven-point-river-greer-crossing-riverton",
+        "eleven-point-river-greer-crossing-turner-mill",
+        "eleven-point-river-greer-crossing-turner-mill-south",
+        "eleven-point-river-greer-crossing-whitten",
+        "eleven-point-river-riverton-narrows",
+        "eleven-point-river-thomasville-cane-bluff",
+        "eleven-point-river-thomasville-greer-crossing",
+        "eleven-point-river-thomasville-turner-mill-south",
+        "eleven-point-river-thomasville-whitten",
+        "eleven-point-river-turner-mill-south-narrows",
+        "eleven-point-river-turner-mill-south-riverton",
+        "eleven-point-river-turner-mill-south-whitten",
+        "eleven-point-river-whitten-narrows",
+        "eleven-point-river-whitten-riverton"
+      ],
+      "sourceFindingId": "overlap-review-b9a08e387cd7",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211328-mo-eleven-point-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211328",
+      "resultSummary": "Independent verifier confirmed the 20-route Missouri Eleven Point River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-f573a7ada45c",
+      "title": "Review route consolidation candidate: Minnesota · sauk-river-eagle-heims-mill ↔ sauk-river-eagle-knights-of-columbus ↔ sauk-river-eagle-miller-landing +12",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "sauk-river-eagle-heims-mill",
+        "sauk-river-eagle-knights-of-columbus",
+        "sauk-river-eagle-miller-landing",
+        "sauk-river-frogtown-eagle-park",
+        "sauk-river-frogtown-heims-mill",
+        "sauk-river-frogtown-knights-of-columbus",
+        "sauk-river-frogtown-miller-landing",
+        "sauk-river-frogtown-rockville",
+        "sauk-river-knights-of-columbus-heims-mill",
+        "sauk-river-miller-landing-heims-mill",
+        "sauk-river-miller-landing-knights-of-columbus",
+        "sauk-river-pineview-heims-mill",
+        "sauk-river-rockville-heims-mill",
+        "sauk-river-rockville-knights-of-columbus",
+        "sauk-river-rockville-miller-landing"
+      ],
+      "sourceFindingId": "overlap-review-f573a7ada45c",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211329-mn-sauk-river-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211329",
+      "resultSummary": "Independent verifier confirmed the 15-route Minnesota Sauk River family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
+    },
+    {
+      "id": "overlap-review-60bc069f3ee6",
+      "title": "Review route consolidation candidate: Pennsylvania · conodoguinet-creek-good-hope-acri-meadow ↔ conodoguinet-creek-vincent-difilippo-acri-meadow ↔ conodoguinet-creek-vincent-difilippo-good-hope +3",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: verified. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "conodoguinet-creek-good-hope-acri-meadow",
+        "conodoguinet-creek-vincent-difilippo-acri-meadow",
+        "conodoguinet-creek-vincent-difilippo-good-hope",
+        "conodoguinet-creek-willow-mill-acri-meadow",
+        "conodoguinet-creek-willow-mill-good-hope",
+        "conodoguinet-creek-willow-mill-vincent-difilippo"
+      ],
+      "sourceFindingId": "overlap-review-60bc069f3ee6",
+      "validationStatus": "passed",
+      "lastRunId": "independent-verifier-202608211330-pa-conodoguinet-no-change",
+      "latestGatekeeperId": "gatekeeper-202608211330",
+      "resultSummary": "Independent verifier confirmed the six-route Pennsylvania Conodoguinet Creek family as selectable endpoint pairs with preserved per-route access, gauge, logistics, and safety records. No destructive consolidation was performed."
     }
   ]
 }

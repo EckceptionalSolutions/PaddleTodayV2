@@ -51,6 +51,6 @@ Do not add paid or higher-disclosure analytics features yet:
 - push notification tracking,
 - precise location analytics.
 
-Those would create extra implementation, data safety, and privacy-policy work without being required for the first release.
+Those would create extra implementation, data safety, and privacy-policy work without being required for the first release. The area-notification rollout is an explicit exception: it records notification lifecycle events without coordinates or precise location values so notification usefulness and opt-out rates can be measured.
 
 Never attach feedback text, feedback reply email, or other free-form user input to Firebase events.

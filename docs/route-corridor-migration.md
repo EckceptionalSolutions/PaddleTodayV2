@@ -1,17 +1,18 @@
 # Route corridor migration inventory
 
-Generated 2026-08-20T17:00:26.028Z.
+Generated 2026-08-21T12:14:20.867Z.
 
-- Defined corridors: 23
-- Routes covered by a corridor definition: 170
-- Remaining multi-route families: 131
+- Defined corridors: 25
+- Routes covered by a corridor definition: 182
+- Remaining multi-route families: 130
 
 ## Defined corridors
 
 | Corridor | Label | Continuity | Matching routes | Verified edges |
 | --- | --- | --- | ---: | ---: |
 | mn-cannon-lower | Lower Cannon River access corridor | verified | 3 | 4 |
-| mn-little-fork-fiedler-lofgren | Little Fork Fiedler-to-Lofgren corridor | verified | 3 | 2 |
+| mn-little-fork-fiedler-lofgren | Little Fork Map 2 access corridor | verified | 6 | 2 |
+| mn-little-fork-map-1 | Little Fork Map 1 access corridor | verified | 4 | 0 |
 | mn-pomme-de-terre-lower | Lower Pomme de Terre access corridor | verified | 2 | 2 |
 | mn-mississippi-royalton-sartell | Mississippi Royalton-to-Sartell access corridor | verified | 2 | 3 |
 | mn-big-fork-lower | Lower Big Fork River condition family | condition-family | 3 | 0 |
@@ -31,6 +32,7 @@ Generated 2026-08-20T17:00:26.028Z.
 | wi-wisconsin-river-condition-family | Wisconsin River condition family | condition-family | 12 | 0 |
 | ia-north-raccoon-condition-family | North Raccoon River condition family | condition-family | 11 | 0 |
 | wi-beaver-dam-cotton-mill-lowell | Beaver Dam River Cotton Mill-to-Lowell corridor | verified | 2 | 0 |
+| ky-goose-creek-lower-manchester | Lower Manchester Goose Creek access corridor | verified | 5 | 3 |
 | in-wabash-wells-county | Wells County Wabash River access corridor | verified | 4 | 4 |
 | tx-village-creek-paddling-trail | Village Creek Paddling Trail multi-endpoint corridor | verified | 8 | 4 |
 
@@ -93,6 +95,6 @@ Generated 2026-08-20T17:00:26.028Z.
 | Wisconsin | Milwaukee River | 6 |
 | Wisconsin | Pine River | 6 |
 | Iowa | South Skunk River | 6 |
-| Additional families omitted | See route data and overlap audit | 91 |
+| Additional families omitted | See route data and overlap audit | 90 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

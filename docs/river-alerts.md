@@ -8,6 +8,8 @@ Paddle Today supports simple route alerts for threshold crossings:
 Paddle Today can send email alerts and phone push alerts for named route pages. It does not send on every score change.
 Every alert email includes a signed unsubscribe link, so users can turn off an email alert without creating an account.
 
+The mobile app also supports separately opted-in area notifications for nearby Today and Weekend opportunities. Area notifications use the user's selected planning location and travel range, are evaluated by `npm run area-notifications:evaluate`, and are disabled by default in production until `AREA_NOTIFICATIONS_ENABLED=true` is configured.
+
 ## How it works
 
 1. A user submits an email or phone alert from a river detail page.

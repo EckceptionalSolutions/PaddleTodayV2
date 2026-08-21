@@ -11,7 +11,7 @@ Primary references:
 
 | Data | Source | Leaves Device? | Linked To User? | Purpose | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Approximate/precise location | Device permission | No direct app upload for current features; used locally for distance-aware sorting | No | App functionality | Location is requested only when the user chooses location/nearest features. Route distances are computed in app. |
+| Approximate/precise location | Device permission | Yes, only after the user opts in to nearby notifications; otherwise used locally for distance-aware sorting | Not intentionally linked to an account | App functionality / notifications | The selected planning location and alert range are stored server-side only to match nearby Today and Weekend opportunities. Background location is not used. |
 | Saved rivers | User action | No | No | App functionality | Stored locally with AsyncStorage. No account sync. |
 | Alert email | User input | Yes, POST to `/api/alerts`; also stored locally for form reuse | Yes | App functionality / communications | Used to deliver threshold alert emails. Emails include unsubscribe links. |
 | Route request reply email | User input, optional | Yes, POST to `/api/river-request` | Yes if provided | App functionality / support | Optional follow-up address for route requests. |
@@ -22,7 +22,7 @@ Primary references:
 | Route report text/notes | User input | Yes, POST to `/api/route-photo-submissions` | Could be linked through submission metadata | App functionality / content moderation | Reviewed before publishing. |
 | Route report photos | User-selected media | Yes, only if user adds photos | Could be linked through submission metadata | App functionality / content moderation | Photo access is requested only when the user taps Add. Rights confirmation required. |
 | Crash/error diagnostics | Firebase Crashlytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | App code avoids sending email, names, report text, and photo contents to Firebase. Route slugs/status may appear. |
-| Product events | Firebase Analytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | Includes app open, route open, save toggle, directions, report, alert, diagnostic, feedback prompt/submission category, and store-review events. Feedback text and email are excluded. Advertising-oriented collection is disabled in `apps/mobile/firebase.json`. |
+| Product events | Firebase Analytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | Includes app open, route open, save toggle, directions, report, route-alert and area-notification lifecycle events, diagnostic, feedback prompt/submission category, and store-review events. Feedback text, email, coordinates, and push tokens are excluded. Advertising-oriented collection is disabled in `apps/mobile/firebase.json`. |
 | API request logs | Production API/hosting | Yes, server-side | Potentially via IP/request metadata | App functionality / security / diagnostics | Covered by web/API hosting operations. |
 
 ## Apple App Privacy Draft
@@ -63,8 +63,8 @@ Likely disclose for Firebase-enabled preview/production builds:
 Likely disclose:
 
 - Location -> Precise Location or Coarse Location
-  - Purpose: App Functionality.
-  - Mark not linked if the app continues to use it only on-device for sorting/filtering and does not upload coordinates.
+  - Purpose: App Functionality and notifications.
+  - Required: No; only the selected planning location is uploaded when nearby notifications are enabled.
 
 Question for final review: Apple may still consider permissioned location "collected" depending on how the form interprets on-device use. If no coordinates leave the device, document the rationale before submission.
 
@@ -91,7 +91,7 @@ Likely disclose:
   - Collected: only when permission is granted.
   - Purpose: App functionality.
   - Required: No, user can use app without location.
-  - Processed ephemerally/on device for current app features; verify final answer in Play Console wording.
+- The app does not collect background location or location history. Verify the final Play Console wording against the selected-location subscription behavior.
 - Personal info -> Email address
   - Alert emails, route requests, route report follow-up.
   - Purpose: App functionality, Developer communications.
@@ -139,6 +139,8 @@ Current policy page: `/privacy/`.
 Before submission, verify it explicitly covers:
 
 - Location permission and on-device nearby sorting.
+- Selected planning location and travel range stored for opted-in nearby notifications.
+- Nearby notification controls, push-token handling, and notification analytics without precise coordinates in events.
 - Saved rivers stored on device.
 - Alert emails and unsubscribe.
 - Route requests and route reports.
