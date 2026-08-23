@@ -15,6 +15,9 @@ for (const review of ledger.reviews) {
   if (review.status === 'blocked' && review.blockers.length === 0) {
     issues.push(`${review.key} is blocked without a blocker category.`);
   }
+  if (review.status === 'blocked' && !['candidate', 'research_needed', 'existing_route_gap', 'deferred'].includes(review.routeReadiness)) {
+    issues.push(`${review.key} has blocked status with incompatible ${review.routeReadiness} route readiness.`);
+  }
 }
 
 for (const stateId of inventory.statesBaselined) {

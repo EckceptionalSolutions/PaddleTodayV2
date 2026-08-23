@@ -34,6 +34,9 @@
     "reviewStatus": {
       "enum": ["unreviewed", "researching", "covered", "blocked", "screened_out", "stale_or_unsupported"]
     },
+    "routeReadiness": {
+      "enum": ["unreviewed", "published", "candidate", "research_needed", "existing_route_gap", "deferred", "screened_out", "unsupported"]
+    },
     "eligibility": {
       "enum": ["unknown", "route_capable", "not_paddle_relevant"]
     },
@@ -58,10 +61,11 @@
     },
     "review": {
       "type": "object",
-      "required": ["key", "status", "eligibility", "relationship", "checkedAt", "decisionReason", "decisionSource", "routeSlugs", "scoredRouteSlugs", "routeFamilies", "blockers", "evidence"],
+      "required": ["key", "status", "routeReadiness", "eligibility", "relationship", "checkedAt", "decisionReason", "decisionSource", "routeSlugs", "scoredRouteSlugs", "routeFamilies", "blockers", "evidence"],
       "properties": {
         "key": { "$ref": "#/$defs/gaugeKey" },
         "status": { "$ref": "#/$defs/reviewStatus" },
+        "routeReadiness": { "$ref": "#/$defs/routeReadiness" },
         "eligibility": { "$ref": "#/$defs/eligibility" },
         "relationship": { "$ref": "#/$defs/relationship" },
         "checkedAt": { "type": ["string", "null"], "format": "date-time" },

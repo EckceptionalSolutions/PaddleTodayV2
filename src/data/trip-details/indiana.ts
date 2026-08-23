@@ -2,6 +2,90 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const indianaRiverTripDetails: Record<string, RiverTripDetails> = {
+  "west-fork-white-river-henderson-ford-paragon": {
+    "putIn": {"id": "white-river-henderson-ford-access", "name": "Henderson Ford Public Access", "latitude": 39.49870436, "longitude": -86.35706695},
+    "takeOut": {"id": "white-river-burnett-landing-paragon", "name": "Burnett Landing at Paragon", "latitude": 39.434075, "longitude": -86.44855},
+    "logistics": {
+      "distanceLabel": "About 23.5 miles",
+      "estimatedPaddleTime": "About 10–12 hours; plan a full day and conservative portage time",
+      "shuttle": "Stage Burnett Landing first, then drive to Henderson Ford. Verify access, parking, signage, and the current condition of the dam-portage line before launching.",
+      "permits": "No route-specific permit is identified. Follow Indiana boating/PFD rules, DNR access rules, and posted site restrictions.",
+      "camping": "Day trip only. No legal on-route camping was verified between Henderson Ford and Paragon.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Long downstream moving-water route with one mandatory dam portage. Use the named public endpoints and make a same-day flow, wood, weather, and access call.",
+      "accessCaveats": ["Henderson Ford is a DNR-managed public access; verify current ramp and parking condition.", "Burnett Landing is a DNR Paragon access; do not substitute the former Martinsville SR-39 access or private shoreline.", "Indiana Outfitters notes that older access descriptions can change; verify current public signage before travel."],
+      "watchFor": ["Centerton stage below 4.7 ft, rising water, muddy current, flood conditions, and floating wood.", "Dam hydraulics, strainers, bridge current, cold water, private banks, thunderstorms, and a missed Paragon take-out."]
+    }
+  },
+  "west-fork-white-river-gosport-spencer": {
+    "putIn": {"id": "white-river-gosport-public-access", "name": "Gosport Public Access Site", "latitude": 39.35047, "longitude": -86.65877},
+    "takeOut": {"id": "white-river-spencer-public-fishing", "name": "Spencer Public Fishing Site", "latitude": 39.26096, "longitude": -86.798301},
+    "logistics": {
+      "distanceLabel": "About 11 miles",
+      "estimatedPaddleTime": "About 5 to 5.5 hours; local low-water report was 2 hours 45 minutes",
+      "shuttle": "Stage the Spencer Public Fishing Site vehicle first, then drive to Gosport. Verify both ramps, parking, and current access notices from land before launching.",
+      "permits": "No route-specific permit was identified. Follow Indiana boating/PFD rules, DNR access rules, and posted site restrictions.",
+      "camping": "Day trip only. McCormick's Creek State Park is nearby, but no legal on-route camping or overnight landing was verified between Gosport and Spencer.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Use the named Gosport and Spencer public sites for an 11-mile downstream trip; treat this as a full-day moving-water route and make a same-day wood, flow, and access call.",
+      "accessCaveats": ["Indiana DNR documents both endpoints with boat-ramp access; verify current condition and parking on arrival.", "The reach has limited confirmed intermediate exits; do not rely on private banks for planned landings.", "Do not substitute the former Martinsville SR-39 access or informal shoreline entries without separate verification."],
+      "watchFor": ["Spencer stage below 3.2 ft or above 3.5 ft, rising water, muddy current, flood conditions, and floating wood.", "Down trees, strainers, bridge current, cold water, private banks, thunderstorms, and a missed Spencer take-out."]
+    }
+  },
+  "west-fork-white-river-mounds-perkinsville": {
+    "putIn": {"id": "white-river-mounds-state-park-canoe", "name": "Mounds State Park Canoe Launch", "latitude": 40.106063, "longitude": -85.624296},
+    "takeOut": {"id": "white-river-perkinsville-public-access", "name": "IDNR Perkinsville Public Access Site", "latitude": 40.142819, "longitude": -85.858558},
+    "logistics": {
+      "distanceLabel": "About 13 miles",
+      "estimatedPaddleTime": "About 3–5 hours, depending on flow, stops, and scouting",
+      "shuttle": "Stage the Perkinsville vehicle only after Madison County/IDNR confirms that the 2026 construction closure has ended and the access is open. Do not substitute a private bank or the SR-13 bridge.",
+      "permits": "No route-specific permit was identified. Follow Indiana DNR boating and PFD rules, Mounds State Park rules, and all posted construction/access notices.",
+      "camping": "Mounds State Park has campground facilities near the canoe launch; no legal on-route camping was verified at Perkinsville. Treat this as a daylight trip.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Public Mounds State Park launch to the IDNR Perkinsville access on the White River. Confirm the take-out reopening and field-verify the endpoint before launching.",
+      "accessCaveats": ["Mounds lists a canoe launch and campground; confirm seasonal gate hours, parking, and the carry to the river.", "Perkinsville is an official public access at 9509 W 280 N, but the site was closed for improvements during 2026 construction. Confirm current status before travel.", "Indiana DNR warns that riverbanks are generally private; use only named public access and do not trespass.", "The Perkinsville coordinate is a nearby documented river/access point pending field verification after reopening."],
+      "watchFor": ["Discharge below 250 or above 400 cfs, stage above 10 ft, rising water, muddy current, and floating wood.", "Strainers, bridge current, private banks, cold water, thunderstorms, and an unavailable or unfinished Perkinsville landing."]
+    }
+  },
+  "maumee-river-kreager-moser": {
+    "putIn": {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0892, "longitude": -85.0407},
+    "takeOut": {"id": "maumee-moser-park-canoe-launch", "name": "Moser Park Canoe Launch", "latitude": 41.07339, "longitude": -85.021895},
+    "logistics": {
+      "distanceLabel": "About 5 river miles",
+      "estimatedPaddleTime": "About 2 hr to 3 hr 30 min",
+      "shuttle": "Stage the Moser Park take-out, then drive back to the Kreager Park / North River Road ramp. Inspect the Moser canoe-launch area and current parking before leaving a vehicle.",
+      "permits": "No route-specific permit is identified. Follow Indiana boating and PFD rules, New Haven and Fort Wayne park rules, and posted access restrictions.",
+      "camping": "Day trip only. Moser and Kreager provide park amenities, but no legal on-route camping was verified for this reach.",
+      "campingClassification": "none",
+      "summary": "Launch at Kreager Park and finish at New Haven's Moser Park canoe launch. Use USGS 04183000, a conservative 950-2,800 cfs community window, and same-day checks for flooding, debris, landing conditions, and urban advisories.",
+      "accessCaveats": ["Moser is documented as a city-managed canoe launch, but the landing should be checked from land before launch.", "The corridor has limited confirmed intermediate exits; plan the full shuttle and do not use private banks.", "Maumee Pathway flooding or closures are a warning to reassess river access and footing."],
+      "watchFor": ["Discharge below 950 or above 2,800 cfs, rising water, muddy current, floating wood, and flood conditions.", "Private banks, cold water, thunderstorms, limited exits, and a missed Moser take-out."]
+    }
+  },
+  "maumee-river-niagara-kreager": {
+    "putIn": {"id": "maumee-niagara-drive-access", "name": "Anthony Boulevard / Niagara Drive Access", "latitude": 41.0821, "longitude": -85.1128},
+    "takeOut": {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0892, "longitude": -85.0407},
+    "logistics": {
+      "distanceLabel": "Nearly 4 river miles",
+      "estimatedPaddleTime": "About 1 hr 30 min to 2 hr",
+      "shuttle": "Stage the Kreager Park / North River Road take-out, then drive to the Anthony Boulevard / Niagara Drive access. Confirm the steep gravel put-in and current parking/signage before unloading.",
+      "permits": "No route-specific permit is identified in the published Fort Wayne water-trail guidance. Follow Indiana boating and PFD rules, city park rules, and posted access restrictions.",
+      "camping": "Day trip only. No overnight stop is part of this urban reach; use the named public ramps and arrange any camping separately.",
+      "campingClassification": "none",
+      "summary": "Put in below Hosey Dam at the Anthony Boulevard / Niagara Drive access and paddle nearly four miles downstream to the public Kreager Park / North River Road ramp. Use USGS 04182950, the conservative 950-2,800 cfs community window, and a same-day check for ramp footing, current, debris, and urban advisories.",
+      "accessCaveats": [
+        "Hosey Dam is upstream of the named put-in; never attempt to run the dam or approach its boil/current line.",
+        "The Niagara Drive gravel ramp is steep. Carry boats with care and do not substitute an unverified shoreline entry.",
+        "Kreager Park is across North River Road from the public boat ramp. Use the signed ramp and do not assume every Rivergreenway bank is a legal take-out.",
+        "Urban stormwater and combined-sewer concerns make current advisories relevant after heavy rain."
+      ],
+      "watchFor": [
+        "Discharge below about 950 cfs, above about 2,800 cfs, rapidly rising or muddy water, and floating debris.",
+        "The Hosey Dam hazard, steep carry-down, slick ramp footing, bridge traffic, and limited intermediate exits.",
+        "Thunderstorms, cold water, private shoreline, and current city or water-quality advisories."
+      ]
+    }
+  },
   "big-pine-creek-450-harrison-twin-bridges": {
     "putIn": {
       "id": "450-harrison-bridge-access-point",
@@ -472,6 +556,90 @@ export const indianaRiverTripDetails: Record<string, RiverTripDetails> = {
         "segmentKind": "creek",
         "note": "Public City of Anderson park finish at the named boat-ramp area."
       }
+    ]
+  },
+  "east-fork-white-river-columbus-azalia": {
+    "putIn": {
+      "id": "columbus-dnr-east-fork-ramp",
+      "name": "Columbus DNR boat ramp",
+      "latitude": 39.1987,
+      "longitude": -85.9255
+    },
+    "takeOut": {
+      "id": "azalia-dnr-county-road-800-south",
+      "name": "Azalia DNR Public Access Site / County Road 800 South",
+      "latitude": 39.0850524,
+      "longitude": -85.8602589
+    },
+    "logistics": {
+      "distanceLabel": "About 11.5 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr depending on flow, stops, and channel conditions",
+      "shuttle": "Stage the Azalia take-out first, then drive to the Columbus DNR ramp. The Hoosier Canoe & Kayak Club describes an approximately 20-mile road shuttle.",
+      "permits": "No route-specific permit was identified. Follow current Indiana DNR access rules, boating regulations, and PFD requirements.",
+      "camping": "Treat this as a daylight day trip. No route camping package was verified and private-bank camping is not supported.",
+      "campingClassification": "none",
+      "summary": "Launch at the Columbus DNR ramp and finish at the Azalia DNR access beside County Road 800 South. Use the direct Columbus gauge and the conservative 320 cfs minimum-only reference, then make a same-day call on rising water, debris, and traffic.",
+      "accessCaveats": [
+        "The club places the Columbus ramp 500 feet downstream of the SR 46 bridge; confirm current DNR signage, parking, and ramp before launching.",
+        "The Azalia access is beside the County Road 800 South bridge; confirm current access and parking before leaving a vehicle.",
+        "Do not treat informal sandbars or private banks as legal take-outs."
+      ],
+      "watchFor": [
+        "Rapidly rising or muddy water",
+        "Floating debris and strainers after storms",
+        "Airboats and motorboats",
+        "Shallow split channels and sandbars",
+        "Cut banks and riprap"
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "columbus-dnr-east-fork-ramp",
+        "name": "Columbus DNR boat ramp",
+        "latitude": 39.1987,
+        "longitude": -85.9255,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Map anchor based on USGS station location and club directions placing the ramp 500 feet downstream of SR 46; field-verify."
+      },
+      {
+        "id": "azalia-dnr-county-road-800-south",
+        "name": "Azalia DNR Public Access Site / County Road 800 South",
+        "latitude": 39.0850524,
+        "longitude": -85.8602589,
+        "mileFromStart": 11.5,
+        "segmentKind": "creek",
+        "note": "Coordinate anchored by the USGS County Road 800 South site."
+      }
+    ]
+  },
+  "iroquois-river-lairds-landing-newton-fairgrounds": {
+    "putIn": {"id": "lairds-landing-iroquois", "name": "Laird's Landing", "latitude": 40.934255, "longitude": -87.127682},
+    "takeOut": {"id": "newton-county-fairgrounds-iroquois", "name": "Newton County Fairgrounds bridge access", "latitude": 40.820833, "longitude": -87.464333},
+    "logistics": {
+      "distanceLabel": "About 32 mi",
+      "estimatedPaddleTime": "About 8 to 13 hours at the published slow-to-fast pace; plan a full daylight window and conservative turnaround policy",
+      "shuttle": "Stage the Newton County Fairgrounds finish first, then return to Laird's Landing. Confirm both access points, parking, fairgrounds operations, and a current vehicle shuttle because the route has no assumed public intermediate take-outs.",
+      "permits": "No route-specific permit was identified. Follow Indiana boating/PFD rules, current county access signs, and the named public-access boundaries; do not use private highlighted take-outs without permission.",
+      "camping": "The Newton County Fairgrounds has nearby camping context, but confirm current fairgrounds availability and launch/parking terms before relying on it. Treat the river route itself as a daylight trip with no on-water camping.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Long one-way Upper Iroquois run using the only designated public endpoints listed by the watershed canoe chart.",
+      "accessCaveats": [
+        "The canoe chart identifies Laird's Landing and Newton Fairgrounds as the only designated public access points; other chart entries are private/permission-only or mile markers.",
+        "The fairgrounds bridge is a committed finish near Kentland. Confirm current boat-launch, parking, and event-season restrictions before leaving a vehicle.",
+        "Local watershed materials warn of E. coli/nutrient concerns and limited access; do not swim or drink from the river and check current advisories.",
+        "The guide warns of rapid rises, logjams, and changing conditions. A 32-mile run should not be launched late or without a reliable bailout/emergency plan."
+      ],
+      "watchFor": [
+        "USGS stage below 3.75 ft (low-water gray), 6–12 ft (yellow experienced-only), or above 12 ft (red danger)",
+        "Rapid storm rises, fresh logjams, bridge debris, muddy water, and cold water",
+        "Private banks and missing the designated public finish",
+        "Water-quality advisories and insufficient daylight for the full one-way distance"
+      ]
+    },
+    "accessPoints": [
+      {"id": "lairds-landing-iroquois", "name": "Laird's Landing", "latitude": 40.934255, "longitude": -87.127682, "mileFromStart": 0, "segmentKind": "creek", "note": "Designated public upstream access."},
+      {"id": "newton-county-fairgrounds-iroquois", "name": "Newton County Fairgrounds bridge access", "latitude": 40.820833, "longitude": -87.464333, "mileFromStart": 32, "segmentKind": "creek", "note": "Designated public finish per the canoe chart; confirm current fairgrounds access."}
     ]
   }
 };

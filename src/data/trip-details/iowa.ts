@@ -2,6 +2,61 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
+  "cedar-river-moscow-saulsbury": {
+    "putIn": {
+      "id": "jack-shuger-memorial-park",
+      "name": "Jack Shuger Memorial Park boat ramp, Moscow",
+      "latitude": 41.5746407,
+      "longitude": -91.0854616
+    },
+    "takeOut": {
+      "id": "saulsbury-bridge-recreation-area",
+      "name": "Saulsbury Bridge Recreation Area",
+      "latitude": 41.4968182,
+      "longitude": -91.1676373
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 9 river miles",
+      "estimatedPaddleTime": "About 3 to 5 hours, longer with low water, wind, sandbars, or scouting",
+      "shuttle": "Muscatine County Conservation offers a canoe shuttle from Saulsbury to Jack Shuger for qualifying group reservations; kayakers must arrange their own vehicle shuttle.",
+      "permits": "No route-specific paddling permit is known. Follow Muscatine County park rules, Iowa boating/PFD requirements, and posted access hours.",
+      "camping": "Saulsbury Bridge Recreation Area provides documented endpoint camping. Do not assume legal camping on private banks or sandbars between the named parks.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A county-supported Cedar River day float with developed ramps at both ends, a documented shuttle option, and camping at Saulsbury.",
+      "accessCaveats": [
+        "Jack Shuger is a developed county park with a heavily used Cedar River ramp; use the marked ramp and obey the 6:00 a.m. to 10:30 p.m. operating window.",
+        "Saulsbury is the named public finish and campground. Confirm reservation, gate, and seasonal facility status before committing to an overnight plan.",
+        "Endpoint coordinates are public-address anchors rather than survey-grade water-edge points; walk the ramp and landing before launching.",
+        "The county's 6–10 ft guidance is an operating range for rentals, not a guarantee that every local obstruction or weather condition is safe."
+      ],
+      "watchFor": [
+        "Strainers, floating debris, and bridge approaches after rain or rising water.",
+        "Fast current and difficult landings above the county's 10 ft guidance; shallow or dragging conditions below 6 ft.",
+        "Private banks and limited intermediate exits; stay within the named public access corridor.",
+        "Cold water, wind exposure, and changing floodplain conditions even when the gauge is inside the operating range."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "jack-shuger-memorial-park",
+        "name": "Jack Shuger Memorial Park boat ramp, Moscow",
+        "latitude": 41.5746407,
+        "longitude": -91.0854616,
+        "mileFromStart": 0,
+        "segmentKind": "transition",
+        "note": "Default put-in; Muscatine County documents a Cedar River boat ramp, restrooms, shelter, and park access."
+      },
+      {
+        "id": "saulsbury-bridge-recreation-area",
+        "name": "Saulsbury Bridge Recreation Area",
+        "latitude": 41.4968182,
+        "longitude": -91.1676373,
+        "mileFromStart": 9,
+        "segmentKind": "transition",
+        "note": "Default take-out and endpoint campground; use the marked public landing."
+      }
+    ]
+  },
   "north-raccoon-river-vogel-riverview": {
     "putIn": {
       "id": "vogel-access",

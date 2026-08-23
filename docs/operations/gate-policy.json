@@ -29,6 +29,16 @@
       "stale_or_unsupported": "Gauge identity, telemetry, or provider support is not reliable enough for a current decision; reopen only after fresh provider evidence.",
       "researching_or_unreviewed": "Temporary states that prevent state completion."
     },
+    "routeReadinessDefinitions": {
+      "published": "A scored route directly uses the gauge and passes publication gates.",
+      "candidate": "Existing route-family or direct-corridor evidence makes this a plausible route-development candidate.",
+      "research_needed": "The gauge is route-capable, but the existing review does not yet establish a distinct route candidate.",
+      "existing_route_gap": "The reach is already represented or provider-equivalent; the remaining work is gauge integration or coverage accounting, not a duplicate route.",
+      "deferred": "The review names an explicit retry condition or requires materially new external evidence.",
+      "screened_out": "The reviewed gauge is not paddle-relevant under the supported product model.",
+      "unsupported": "Gauge identity or telemetry is stale or unsupported.",
+      "unreviewed": "No durable gauge review has been completed."
+    },
     "legacyRouteInventoryRatio": "migration_diagnostic_only",
     "planningRoutesCountTowardSaturation": false,
     "coverageCompleteIsNotSaturated": true,

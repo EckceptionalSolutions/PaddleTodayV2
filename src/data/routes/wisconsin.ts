@@ -3,6 +3,412 @@ import type { River } from '../../lib/types';
 
 export const wisconsinRoutes: River[] = [
   {
+    "id": "black-river-hwy-53-hwy-35",
+    "slug": "black-river-hwy-53-hwy-35",
+    "name": "Black River",
+    "reach": "Highway 53/93 Landing to Highway 35 Landing",
+    "aliases": ["Black River Hwy 53 to Hwy 35", "Black River Galesville downstream section", "Van Loon Island Black River paddle"],
+    "state": "Wisconsin",
+    "region": "Lower Black River",
+    "routeType": "recreational",
+    "summary": "An 8-mile lower Black River run from the Highway 53/93 landing to the Highway 35 landing through the Van Loon island and sandbank corridor near Galesville.",
+    "statusText": "Use direct USGS 05382000 near Galesville. A documented paddle at 380 cfs called the river a little too shallow, so treat 380 cfs as a conservative minimum-only reference; no high-water ceiling is claimed because the lower Black forks, rises rapidly, and is partly regulated upstream.",
+    "latitude": 44.060278,
+    "longitude": -91.287222,
+    "gaugeSource": {
+      "id": "usgs-05382000", "provider": "usgs", "siteId": "05382000", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct",
+      "siteName": "Black River near Galesville, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05382000/",
+      "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05382000/all-graphs/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only", "tooLow": 380,
+      "thresholdSource": {"label": "Wisconsin River Trips Black River Hwy 53 to Hwy 35 report", "url": "https://www.wisconsinrivertrips.com/segments/black-river/hwy-53", "provider": "manual"},
+      "thresholdSourceStrength": "community", "rainfallSensitivity": "high",
+      "seasonMonths": [4,5,6,7,8,9,10],
+      "seasonNotes": "Spring through fall is the practical window. The lower Black is sandy and braided, and the documented source notes that summer low water can close a side channel and create hang-ups. Check same-day gauge, trend, weather, and daylight.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Moving water with a major island fork, sandbars, high sandy banks, side channels, and logjams near the lower third. The distance is short, but endpoint descents and channel choices require competent boat control.",
+      "confidenceNotes": "High confidence for a distinct route add: Wisconsin River Trips documents the exact 8-mile Highway 53/93-to-Highway 35 segment, public landing descriptions, the direct Galesville gauge, and observed low-water behavior. Wisconsin DNR independently confirms maintained access at the Highway 53 bridge and recreational canoe/kayak use. Existing Black River routes are upstream of Melrose/North Bend, so this lower corridor is not a duplicate. The 380 cfs reference is conservative community guidance rather than an agency-certified floor; no high-water cutoff is invented."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "strainers", "fast_rise", "private_banks", "remote"],
+      "safetyNotes": [
+        "The river forks about a half mile after the Highway 53/93 start around Van Loon Island. Follow the documented main channel and scout the split; low water can close the left channel with a sandbar.",
+        "The source describes large sandbanks, side channels, and logjams near the lower third. Wear a properly fitted PFD, carry a whistle and communication device, and do not attempt to force a blocked channel.",
+        "Use only the named public Highway 53/93 and Highway 35 landings. The banks are not a general public rest area; follow posted access and landowner rules.",
+        "A rapidly rising gauge, flood warning, severe weather, fresh wood, or unclear landing conditions overrides the score."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "accessPoints": [
+      {"id":"black-river-hwy-53-93-landing","name":"Highway 53/93 landing","latitude":44.060278,"longitude":-91.287222,"mileFromStart":0,"segmentKind":"creek","note":"Wisconsin DNR confirms DOT-maintained Highway 53 access; the trip report notes parking, a steep descent, and no bathrooms."},
+      {"id":"black-river-hwy-35-landing","name":"Highway 35 landing","latitude":44.00041,"longitude":-91.32658,"mileFromStart":8,"segmentKind":"creek","note":"Public landing near the Van Loon Wildlife Area; confirm practical river-edge access and current parking signs."}
+    ],
+    "evidenceNotes": [
+      {"label":"Route-specific paddle report","value":"Highway 53/93 landing to Highway 35 landing — 8 mi","note":"Wisconsin River Trips documents the exact segment, endpoints, observed flow, channel split, low-water behavior, sandbanks, and logjams.","sourceUrl":"https://www.wisconsinrivertrips.com/segments/black-river/hwy-53"},
+      {"label":"Official access context","value":"Wisconsin DNR and DOT maintain Highway 53 access; DNR maintains lower Black River access","note":"Wisconsin DNR identifies canoe/kayak use and maintained access at the Highway 53 bridge, Van Loon, North Bend, and Melrose.","sourceUrl":"https://dnr.wisconsin.gov/topic/Watersheds/basins/bbt/black/blackriver.html"},
+      {"label":"Direct live gauge","value":"USGS 05382000 near Galesville","note":"USGS station has a long record and telemetered discharge data near the Highway 53 reach.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/USGS-05382000/"},
+      {"label":"Flow guidance","value":"380 cfs conservative minimum-only reference","note":"The route report describes 380 cfs as a little too shallow; use it as a conservative minimum-only screen, not a guarantee or high-water limit.","sourceUrl":"https://www.wisconsinrivertrips.com/segments/black-river/hwy-53"},
+      {"label":"Distinctness check","value":"Lower Highway 53-to-35 corridor is separate from existing Black River routes upstream of Melrose and North Bend","note":"Existing app routes cover upstream Lower Black reaches; this downstream island and sandbank segment is a distinct access pair and gauge context.","sourceUrl":"https://www.wisconsinrivertrips.com/segments/black-river/hwy-53"},
+      {"label":"Image decision","value":"No third-party image bundled","note":"The route uses linked public agency and trip-report sources only; no unlicensed promotional image is copied into the product."}
+    ],
+    "sourceLinks": [
+      {"label":"Wisconsin River Trips Black River Hwy 53 to Hwy 35","url":"https://www.wisconsinrivertrips.com/segments/black-river/hwy-53","provider":"manual"},
+      {"label":"Wisconsin DNR Black River watershed","url":"https://dnr.wisconsin.gov/topic/Watersheds/basins/bbt/black/blackriver.html","provider":"local"},
+      {"label":"USGS 05382000 monitoring location","url":"https://waterdata.usgs.gov/monitoring-location/USGS-05382000/","provider":"usgs"}
+    ]
+  },
+  {
+    "id": "la-crosse-river-hwy-bb-angelo-wayside",
+    "slug": "la-crosse-river-hwy-bb-angelo-wayside",
+    "name": "La Crosse River",
+    "reach": "County Highway BB gauge to Angelo Wayside County Park",
+    "aliases": [
+      "La Crosse River - Fort McCoy / Angelo",
+      "Hwy BB to Angelo Wayside"
+    ],
+    "state": "Wisconsin",
+    "region": "Western Wisconsin",
+    "summary": "A quiet upper La Crosse River day from the public County Highway BB bridge to Monroe County's Angelo Wayside canoe-access park. The route ends at the public wayside before the Angelo Pond dam, avoiding the dam portage while preserving the documented 5.3-mile paddle.",
+    "statusText": "Use the direct La Crosse River at County Highway BB gauge. A conservative same-river proxy from Wisconsin River Trips treats about 135 cfs as the low-water floor and 155 cfs as the upper end of the documented comfortable range; recheck wood and the take-out before launch.",
+    "latitude": 44.0002778,
+    "longitude": -90.7244444,
+    "routeType": "recreational",
+    "gaugeSource": {
+      "id": "usgs-05382267",
+      "provider": "usgs",
+      "siteId": "05382267",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "La Crosse River at County Trunk Highway BB near Tomah, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05382267/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "access_uncertain",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This route ends at Angelo Wayside County Park before the Angelo Pond dam. Do not continue toward the dam or attempt an improvised portage from the water.",
+        "Wisconsin River Trips reports a clean, sandy 5.3-mile segment but warns that the Angelo flowage is shallow and silted. Treat the final approach and take-out as a deliberate landing, not a beach anywhere along the bank.",
+        "Upper Fort McCoy sections are not part of this route. Use only the public County Highway BB bridge access and Monroe County's named Angelo Wayside access; banks between them are private or restricted."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 135,
+      "idealMax": 155,
+      "tooLow": 135,
+      "tooHigh": 200,
+      "thresholdSource": {
+        "label": "Wisconsin River Trips La Crosse River Fort McCoy segment (Sparta-gauge proxy)",
+        "url": "https://www.wisconsinrivertrips.com/segments/la-crosse-river/fort-mccoy",
+        "provider": "wisconsin_river_trips"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The direct BB gauge is at the put-in; the published 135-155 cfs guidance comes from the downstream Sparta gauge, so use it as a conservative same-river guide rather than a station-specific guarantee. Stand down for rapidly rising water, fresh wood, or unclear access.",
+      "difficulty": "easy",
+      "difficultyNotes": "Mostly calm moving water with a few riffles; the principal hazards are strainers, shallow silted water near Angelo Pond, cold water, and the need to end before the dam.",
+      "confidenceNotes": "Strong enough for a guarded add: the direct USGS station is at the County Highway BB put-in; Wisconsin River Trips documents the exact BB-to-Angelo segment, mileage, water character, and the Angelo Pond hazard; Monroe County documents Angelo Wayside as a public boat/canoe-access park; and Wisconsin DNR documents the small boat landing and dam-created pond. The numeric band is explicitly labeled a same-river Sparta-gauge proxy, not a direct station-specific paddling study."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Exact route report",
+        "value": "County Highway BB to Angelo Wayside, 5.3 miles",
+        "note": "Wisconsin River Trips documents the BB bridge start, Angelo Wayside finish, sandy water, and the silted Angelo flowage.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/la-crosse-river/fort-mccoy"
+      },
+      {
+        "label": "Live gauge",
+        "value": "USGS 05382267 at County Trunk Highway BB",
+        "note": "The direct station provides current discharge and stage at the route put-in.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05382267/"
+      },
+      {
+        "label": "Conservative water band",
+        "value": "135-155 cfs; 200 cfs stand-down",
+        "note": "Wisconsin River Trips describes 135 cfs as low and avoids above roughly 155 cfs for this reach; the app labels this as a downstream Sparta-gauge proxy and does not imply a direct station-specific study.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/la-crosse-river/fort-mccoy"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Angelo Wayside County Park canoe-launch parking",
+        "note": "Monroe County lists the park's boat launch, canoe-launch parking, picnic area, and seasonal restrooms at Highway 21 and County Highway I.",
+        "sourceUrl": "https://www.co.monroe.wi.us/departments/forestry-parks/angelo-wayside-county-park"
+      },
+      {
+        "label": "Dam and water-safety context",
+        "value": "End before Angelo Pond dam; small, shallow impoundment",
+        "note": "Wisconsin DNR documents the dam-created Angelo Pond and small boat landing; the route deliberately stops at the public wayside instead of requiring a dam portage.",
+        "sourceUrl": "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=14028"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Wisconsin River Trips La Crosse River - Fort McCoy",
+        "url": "https://www.wisconsinrivertrips.com/segments/la-crosse-river/fort-mccoy",
+        "provider": "wisconsin_river_trips"
+      },
+      {
+        "label": "Monroe County Angelo Wayside County Park",
+        "url": "https://www.co.monroe.wi.us/departments/forestry-parks/angelo-wayside-county-park",
+        "provider": "local"
+      },
+      {
+        "label": "Wisconsin DNR Angelo Pond water detail",
+        "url": "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=14028",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05382267 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05382267/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "yahara-river-babcock-fish-camp",
+    "slug": "yahara-river-babcock-fish-camp",
+    "name": "Yahara River",
+    "reach": "Babcock County Park to Fish Camp County Park",
+    "aliases": [
+      "Yahara River Babcock to Fish Camp",
+      "Lower Yahara Babcock-Fish Camp Water Trail"
+    ],
+    "state": "Wisconsin",
+    "region": "South Central Wisconsin",
+    "routeType": "recreational",
+    "summary": "A 4.25-mile beginner-friendly, slow-no-wake Yahara water-trail route from Babcock County Park on Lake Waubesa to the accessible canoe launch at Fish Camp County Park on Lake Kegonsa.",
+    "statusText": "Use direct USGS 05429510 at the Exchange Street bridge as a live flow and stage context check. A documented McFarland paddle was completed around 350 cfs; use 350 cfs as a conservative minimum-only reference, not a guarantee. The corridor is lake-influenced and can remain navigable lower, but locks, wind, algae, wakes, and same-day access conditions control the decision.",
+    "latitude": 43.0069444,
+    "longitude": -89.3072222,
+    "gaugeSource": {
+      "id": "usgs-05429510",
+      "provider": "usgs",
+      "siteId": "05429510",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Yahara River at Exchange Street Bridge at McFarland, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05429510/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?site_no=05429510"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 350,
+      "tooLow": 350,
+      "thresholdSource": {
+        "label": "Quiet Paddling Wisconsin McFarland-to-Fish Camp observed flow",
+        "url": "https://quietpaddlingwisconsin.com/2020/05/22/jaeger-park-to-fish-camp-county-park/",
+        "provider": "manual"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "low",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Year-round slow-no-wake water-trail use is documented, but spring cold water, storms, wind, algae, lake levels, and seasonal lock or launch conditions can materially change the experience.",
+      "difficulty": "easy",
+      "difficultyNotes": "Flatwater and slow current make this a novice-friendly corridor, but the route crosses lake-influenced water, requires a Babcock lock/portage decision, and has exposure to wind, wakes, and changing launch conditions.",
+      "confidenceNotes": "High confidence for a distinct route add: Dane County documents the exact 4.25-mile Babcock-to-Fish Camp paddle with named public launches and beginner difficulty; the official Babcock and Fish Camp maps document canoe access, camping at Babcock, the lock/portage, and the 4-mile corridor; USGS 05429510 is the direct Exchange Street discharge/stage station in the route reach; and existing Yahara scored routes begin far downstream at the Fulton gauge, so this upper lake-influenced corridor is not a duplicate. The 350 cfs value is an observed community reference from the adjacent McFarland gauge family and is intentionally presented as a conservative minimum-only screen rather than a calibrated hard floor.",
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["dam", "low_water", "cold_water", "fast_rise", "private_banks", "urban_water_quality"],
+      "safetyNotes": [
+        "Babcock Lock and dam are a hard route boundary. Use the documented canoe portage when the lock is closed; never approach the dam or spillway in a boat.",
+        "The route is exposed to wind, wakes, storms, and lake traffic. Wear a properly fitted PFD and carry a whistle, phone, and a way to exit at the named parks.",
+        "The direct Exchange Street gauge is useful context, but the documented 350 cfs level is not a guarantee. Inspect water, algae, floating debris, lock status, and launch conditions before departure.",
+        "Stay within public access areas and do not use private residential banks as rest stops. Fish Camp has a dedicated canoe/kayak launch; Babcock has a public boat launch and campground facilities."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "accessPoints": [
+      {
+        "id": "yahara-babcock-county-park",
+        "name": "Babcock County Park boat launch",
+        "latitude": 43.0069444,
+        "longitude": -89.3072222,
+        "mileFromStart": 0,
+        "segmentKind": "lake",
+        "note": "Named public launch at 2909 US Highway 51; use the marked canoe access and follow the Babcock lock/portage signs."
+      },
+      {
+        "id": "yahara-fish-camp-canoe-launch",
+        "name": "Fish Camp County Park canoe/kayak launch",
+        "latitude": 42.982164,
+        "longitude": -89.263114,
+        "mileFromStart": 4.25,
+        "segmentKind": "lake",
+        "note": "Named accessible canoe/kayak launch at 3359 Fish Camp Road; no on-route camping is assumed."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route-specific public program",
+        "value": "Babcock County Park to Fish Camp County Park, about 4.25 mi",
+        "note": "Dane County Parks documents the exact route, named boat/canoe launches, beginner difficulty, shuttle, and PFD requirement.",
+        "sourceUrl": "https://www.danecountyparks.com/Event/Detail/1557"
+      },
+      {
+        "label": "Public endpoint and camping evidence",
+        "value": "Babcock launch/campground to Fish Camp accessible canoe launch",
+        "note": "Official Dane County maps document Babcock's boat launch, campground, canoe portage, and Fish Camp's separate canoe/kayak launch; Babcock camping is an option before or after the day route, not on-route camping.",
+        "sourceUrl": "https://www.danecountyparks.com/documents/PDFs/Maps/Babcock-Overview-Web.pdf"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 05429510 at Exchange Street bridge, McFarland",
+        "note": "Dane County hydrology documentation identifies 05429510 as the Exchange Street discharge/stage station in the route reach; use the live station for current context and trend.",
+        "sourceUrl": "https://apps.dnr.wi.gov/swims/Documents/DownloadDocument?id=54594440"
+      },
+      {
+        "label": "Conservative minimum-only reference",
+        "value": "350 cfs observed McFarland paddle level",
+        "note": "Quiet Paddling Wisconsin reports a successful Jaeger Park-to-Fish Camp paddle at about 350 cfs. This is an observed community reference, not a hard safety guarantee or a full station-specific ladder.",
+        "sourceUrl": "https://quietpaddlingwisconsin.com/2020/05/22/jaeger-park-to-fish-camp-county-park/"
+      },
+      {
+        "label": "Distinctness check",
+        "value": "Upper Babcock-to-Fish Camp water trail is separate from existing lower Yahara routes",
+        "note": "Existing scored Yahara routes use the Fulton 05430175 gauge from Highway N/Highway 59 downstream; this route ends at Fish Camp before that corridor and uses direct 05429510.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/yahara-river"
+      }
+    ],
+    "sourceLinks": [
+      {"label": "Dane County Paddle in the Parks", "url": "https://www.danecountyparks.com/Event/Detail/1557", "provider": "local"},
+      {"label": "Babcock County Park map", "url": "https://www.danecountyparks.com/documents/PDFs/Maps/Babcock-Overview-Web.pdf", "provider": "local"},
+      {"label": "Fish Camp County Park", "url": "https://www.danecountyparks.com/park/FishCamp", "provider": "local"},
+      {"label": "USGS 05429510 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05429510/", "provider": "usgs"},
+      {"label": "Dane County hydrology documentation", "url": "https://apps.dnr.wi.gov/swims/Documents/DownloadDocument?id=54594440", "provider": "local"},
+      {"label": "Quiet Paddling Wisconsin McFarland route", "url": "https://quietpaddlingwisconsin.com/2020/05/22/jaeger-park-to-fish-camp-county-park/", "provider": "manual"},
+      {"label": "Wisconsin River Trips Yahara overview", "url": "https://www.wisconsinrivertrips.com/segments/yahara-river", "provider": "wisconsin_river_trips"}
+    ]
+  },
+  {
+    "id": "tomorrow-river-nelsonville-amherst",
+    "slug": "tomorrow-river-nelsonville-amherst",
+    "name": "Tomorrow River",
+    "reach": "Rising Star Mill, Nelsonville to Amherst Dam",
+    "aliases": [
+      "Tomorrow River Nelsonville to Amherst",
+      "Tomorrow River Rising Star Mill to Amherst Dam"
+    ],
+    "state": "Wisconsin",
+    "region": "Central Wisconsin",
+    "routeType": "recreational",
+    "summary": "A 6.5-mile Tomorrow River paddle from the public Rising Star Mill landing in Nelsonville to the downtown Amherst dam take-out, with clear water, quick riffles, a narrow channel, and a short flowage finish.",
+    "statusText": "Use the direct USGS 04080798 Tomorrow River near Nelsonville gauge. Miles Paddled recorded a runnable 33.5 cfs trip on this corridor; treat 33.5 cfs as a conservative minimum-only reference, not a guarantee of safe passage, and skip the route when the river is rising, visibly obstructed, or the dam take-out is unavailable.",
+    "latitude": 44.49393,
+    "longitude": -89.3109,
+    "gaugeSource": {
+      "id": "usgs-04080798",
+      "provider": "usgs",
+      "siteId": "04080798",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Tomorrow River near Nelsonville, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04080798/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?site_no=04080798"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 33.5,
+      "thresholdSource": {
+        "label": "Miles Paddled Tomorrow River recorded paddling level",
+        "url": "https://milespaddled.com/tomorrow-river/",
+        "provider": "miles_paddled"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Spring through fall is the practical season. Spring-fed levels are often stable, but storms, drought, fallen trees, cold water, and the Amherst dam can change the route quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "A beginner-friendly riffle run with a narrow channel and occasional quick current, but paddlers must manage shallow rocks, strainers, private banks, and a mandatory stop at the Amherst dam.",
+      "confidenceNotes": "High confidence for a guarded direct-gauge add: Miles Paddled documents the exact 6.5-mile route, named endpoints, coordinates, observed 33.5 cfs level, and shuttle context; Portage County confirms Tomorrow River public access; USGS 04080798 is the direct live Nelsonville-area station; existing Crystal coverage uses a different proxy corridor and does not duplicate this Tomorrow River reach."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["strainers", "low_water", "dam", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "Inspect the narrow upper channel and all bridge approaches from land when possible; the source describes quick current, shallow sections, and possible obstructions.",
+        "Take out above the Amherst dam at the named downtown public area. Do not run, line, or portage the dam without a separate plan and current local confirmation.",
+        "Stay within the public river corridor and use only the named landing and take-out. Carry a properly fitted PFD, whistle, phone, and a way to exit if trees or rising water block the channel.",
+        "Cold spring-fed water and private banks make an accidental swim consequential; do not treat the minimum-only gauge reference as a safety guarantee."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "accessPoints": [
+      {
+        "id": "tomorrow-river-rising-star-mill",
+        "name": "Rising Star Mill landing, Nelsonville",
+        "latitude": 44.49393,
+        "longitude": -89.3109,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Named public landing documented by the route source; confirm parking, event activity, and launch conditions before departure."
+      },
+      {
+        "id": "tomorrow-river-amherst-dam",
+        "name": "Amherst downtown dam take-out",
+        "latitude": 44.45143,
+        "longitude": -89.28334,
+        "mileFromStart": 6.5,
+        "segmentKind": "creek",
+        "note": "Mandatory take-out above the Amherst dam; do not continue downstream without a separate route and portage plan."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route-specific trip report",
+        "value": "Rising Star Mill to Amherst Dam, 6.5 mi",
+        "note": "Miles Paddled documents both endpoint pairs, GPS coordinates, route distance, difficulty, and the 33.5 cfs observed paddling level.",
+        "sourceUrl": "https://milespaddled.com/tomorrow-river/"
+      },
+      {
+        "label": "Public access context",
+        "value": "Tomorrow River Wayside and Portage County access network",
+        "note": "Portage County identifies public Tomorrow River access, including Tomorrow River Wayside on Highway Q near Nelsonville; the route's named Rising Star Mill landing is corroborated by the route source and local visitor materials.",
+        "sourceUrl": "https://www.co.portage.wi.gov/325/Park-Trail-Maps"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 04080798 Tomorrow River near Nelsonville",
+        "note": "USGS publishes continuous discharge and gage-height telemetry for the direct station near Nelsonville.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04080798/"
+      },
+      {
+        "label": "Minimum-only threshold",
+        "value": "33.5 cfs observed trip level",
+        "note": "Use this as a conservative low-water screen only; it is an observed community trip level, not a full ideal/high ladder or guarantee of safe conditions.",
+        "sourceUrl": "https://milespaddled.com/tomorrow-river/"
+      }
+    ],
+    "sourceLinks": [
+      {"label": "Miles Paddled Tomorrow River", "url": "https://milespaddled.com/tomorrow-river/", "provider": "miles_paddled"},
+      {"label": "Portage County park and trail maps", "url": "https://www.co.portage.wi.gov/325/Park-Trail-Maps", "provider": "local"},
+      {"label": "USGS Tomorrow River near Nelsonville", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04080798/", "provider": "usgs"},
+      {"label": "Stevens Point Area paddling routes", "url": "https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/spacvb/SPACVB_PPH_2022_Final_Web_Version_8271dd22-9755-49b4-b3e1-b804e348a684.pdf", "provider": "local"}
+    ]
+  },
+  {
     "id": "wolf-river-pearson-lily",
     "slug": "wolf-river-pearson-lily",
     "name": "Wolf River",
@@ -23296,5 +23702,945 @@ export const wisconsinRoutes: River[] = [
         "provider": "usgs"
       }
     ]
+  },
+  {
+    "id": "horicon-marsh-greenhead-nebraska",
+    "slug": "horicon-marsh-greenhead-nebraska",
+    "name": "Horicon Marsh Paddle Trail",
+    "reach": "Green Head Boat Landing to North Nebraska Street Boat Landing",
+    "aliases": [
+      "Horicon Marsh Green Head to Nebraska Street",
+      "Horicon Marsh Canoe Trail"
+    ],
+    "state": "Wisconsin",
+    "region": "Southern Wisconsin",
+    "routeType": "recreational",
+    "summary": "Six-and-a-half to seven-and-a-half mile marsh paddle from the Green Head Boat Landing through the Horicon Marsh State Wildlife Area to the public North Nebraska Street Boat Landing in Horicon.",
+    "statusText": "Use USGS 05424057 Rock River at Horicon. A documented trip was completed at 40 cfs but was shallow; check the live gauge, wind, floating cattail mats, seasonal closures, and the Horicon dam warning before launching.",
+    "latitude": 43.5054167,
+    "longitude": -88.5920278,
+    "gaugeSource": {
+      "id": "usgs-05424057-discharge",
+      "provider": "usgs",
+      "siteId": "05424057",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Rock River at Horicon, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05424057/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?site_no=05424057"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "fast_rise",
+        "flash_flood",
+        "urban_water_quality",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Paddle only in the Horicon Marsh State Wildlife Area; the Horicon National Wildlife Refuge portion is closed to paddling.",
+        "Floating cattail mats can block or alter the marked route. Confirm the route and launch status with current DNR or marsh information before departure.",
+        "Wind exposure is substantial across open marsh and lake sections; motorboats use the marsh. The Horicon city dam has dangerous currents and a high-voltage electric fish barrier—stay away.",
+        "The route ends at North Nebraska Street Boat Landing; use the documented shuttle plan and do not assume overnight parking or camping at either endpoint."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 40,
+      "thresholdSource": {
+        "label": "Wisconsin River Trips Horicon Marsh gauge observation",
+        "url": "https://www.wisconsinrivertrips.com/segments/rock-river-east-branch/horicon-marsh",
+        "provider": "wisconsin_river_trips"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Spring through fall is practical, but marsh access, nesting restrictions, cattail mats, wind, and water levels can change the route. Treat 40 cfs as a conservative documented minimum-only reference, not an ideal range.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Flatwater and slow current are interrupted by a long exposed marsh crossing, navigation choices, wind, motorboat wakes, and potentially shallow muddy sections.",
+      "confidenceNotes": "Confidence is good for a conservative route add: Wisconsin DNR and Friends of Horicon Marsh document the public trail and restrictions, DNR event materials document the 6.5-mile Green Head-to-Nebraska route and shuttle, Wisconsin River Trips records a direct-gauge 40-cfs trip observation, and endpoint coordinates are source-backed."
+    },
+    "accessPoints": [
+      {
+        "id": "horicon-marsh-green-head-landing",
+        "name": "Green Head Boat Landing",
+        "latitude": 43.5054167,
+        "longitude": -88.5920278,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Public launch at N8600 Green Head Road; DNR event materials provide the GPS position and a shuttle-oriented start window."
+      },
+      {
+        "id": "horicon-marsh-nebraska-street-landing",
+        "name": "North Nebraska Street Boat Landing",
+        "latitude": 43.45514,
+        "longitude": -88.63936,
+        "mileFromStart": 6.5,
+        "segmentKind": "creek",
+        "note": "Public DNR/North Nebraska Street landing at the southwest edge of the marsh and the documented end of the paddle trail."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Exact route",
+        "value": "Green Head Boat Landing to North Nebraska Street Boat Landing, 6.5-7.5 mi",
+        "note": "Wisconsin DNR and Friends of Horicon Marsh document the marked marsh paddle trail, public endpoints, approximate length, and shuttle arrangement.",
+        "sourceUrl": "https://dnr.wisconsin.gov/events/109106"
+      },
+      {
+        "label": "Minimum-only floor",
+        "value": "40 cfs documented trip level",
+        "note": "Wisconsin River Trips records a direct Rock River at Horicon trip at 40 cfs and describes shallow conditions; the app uses this as a conservative minimum-only reference.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/rock-river-east-branch/horicon-marsh"
+      },
+      {
+        "label": "Marsh restrictions and hazards",
+        "value": "State wildlife area only; refuge closed; cattail mats and dam hazard",
+        "note": "Wisconsin DNR documents the wildlife-area boundary, floating cattail mats, seasonal rookery closure, motorboat traffic, and the dangerous Horicon dam/electric fish barrier.",
+        "sourceUrl": "https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/horicon/canoeing.html"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 05424057",
+        "note": "USGS operates Rock River at Horicon with continuous discharge and gage-height data.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05424057/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Wisconsin DNR Horicon Marsh canoeing",
+        "url": "https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/horicon/canoeing.html",
+        "provider": "local"
+      },
+      {
+        "label": "Wisconsin DNR Horicon Marsh Paddle",
+        "url": "https://dnr.wisconsin.gov/events/109106",
+        "provider": "local"
+      },
+      {
+        "label": "Friends of Horicon Marsh route map",
+        "url": "https://horiconmarsh.org/visit/maps-points-of-interest/",
+        "provider": "local"
+      },
+      {
+        "label": "Wisconsin River Trips Horicon Marsh",
+        "url": "https://www.wisconsinrivertrips.com/segments/rock-river-east-branch/horicon-marsh",
+        "provider": "wisconsin_river_trips"
+      },
+      {
+        "label": "USGS 05424057 Rock River at Horicon",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05424057/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "rock-river-centerway-afton",
+    "slug": "rock-river-centerway-afton",
+    "name": "Rock River",
+    "reach": "Janesville Centerway Dam portage to Afton Road Boat Launch",
+    "aliases": [
+      "Rock River - Centerway Dam to Afton",
+      "Janesville Centerway Dam to Afton Boat Launch"
+    ],
+    "state": "Wisconsin",
+    "region": "Southern Wisconsin",
+    "routeType": "recreational",
+    "summary": "Short, fast-moving Rock River reach from the public Centerway Dam portage launch through Janesville's riverfront to the Afton Road Boat Launch.",
+    "statusText": "Use USGS 05430500 Rock River at Afton. Wisconsin River Trips documented a 2,350-cfs / 5.04-ft trip level; treat that as a conservative minimum-only reference, and do not launch when the gauge-linked Rock County slow-no-wake rule is active above 6.5 ft.",
+    "latitude": 42.685,
+    "longitude": -89.0255556,
+    "gaugeSource": {
+      "id": "usgs-05430500",
+      "provider": "usgs",
+      "siteId": "05430500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Rock River at Afton, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05430500/",
+      "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05430500/all-graphs"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "fast_rise",
+      "strainers",
+        "urban_water_quality",
+        "flash_flood",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Put in only below Centerway Dam using the public portage path; never run the dam or approach the powerhouse outlets.",
+        "Wisconsin River Trips reports fast current, narrow gaps, strainers, and dangerous pillow currents at bridge structures on this reach.",
+        "Rock County's gauge-linked slow-no-wake rule applies downstream from Indianford Dam above 6.5 feet at USGS 05430500; treat that as a high-water stop signal for this short route.",
+        "The route passes the Evonik chemical plant; remain in the channel, obey posted warnings, and do not land on restricted industrial property."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 2350,
+      "thresholdSource": {
+        "label": "Wisconsin River Trips Janesville Rock River gauge observation",
+        "url": "https://www.wisconsinrivertrips.com/segments/rock-river/janesville",
+        "provider": "wisconsin_river_trips"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall is practical. The route source's 2,350-cfs observation is used conservatively as a minimum-only reference; rising water, heavy rain, bridge current, and the Rock County 6.5-ft slow-no-wake rule require a no-launch decision.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Only 2.9 miles, but fast current below the dam, bridge-pillar hazards, strainers, industrial shoreline, and limited bailout choices make this unsuitable for an unprepared beginner.",
+      "confidenceNotes": "Confidence is sufficient for a conservative scored add: Rock County's official access inventory names and locates the Centerway Dam portage and Afton Road Boat Launch; Wisconsin River Trips documents the exact 2.9-mile route, public portage launch, Afton finish, fast-current hazards, and a 2,350-cfs / 5.04-ft trip observation; USGS provides the direct live Afton gauge. The threshold remains minimum-only and community-sourced rather than a complete official ladder."
+    },
+    "accessPoints": [
+      {
+        "id": "rock-river-centerway-dam-portage",
+        "name": "Centerway Dam public portage launch",
+        "latitude": 42.685,
+        "longitude": -89.0255556,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Public portage/put-in below Centerway Dam; Rock County's access inventory identifies this as a dam portage and take-out right."
+      },
+      {
+        "id": "rock-river-afton-road-launch",
+        "name": "Afton Road Boat Launch",
+        "latitude": 42.6675,
+        "longitude": -89.0461111,
+        "mileFromStart": 2.9,
+        "segmentKind": "creek",
+        "note": "Developed small-watercraft launch in the Rock River Parkway; Rock County's access inventory provides the endpoint coordinates."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Exact route",
+        "value": "Centerway Dam to Afton, 2.9 mi",
+        "note": "Wisconsin River Trips documents the exact Janesville Centerway Dam-to-Afton Boat Launch trip, public portage launch, route length, and finish.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/rock-river/janesville"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "42.6850,-89.0256 to 42.6675,-89.0461",
+        "note": "Rock County's official Rock River Water Trail inventory identifies Centerway Dam and Afton Road Boat Launch with DMS coordinates and access notes.",
+        "sourceUrl": "https://www.co.rock.wi.us/home/showpublisheddocument/278/637756795587170000"
+      },
+      {
+        "label": "Minimum-only gauge reference",
+        "value": "2,350 cfs / 5.04 ft observation",
+        "note": "Wisconsin River Trips records the trip at 2,350 cfs / 5.04 ft and describes the current as fast; PaddleToday uses this as a conservative minimum-only reference, not an ideal range.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/rock-river/janesville"
+      },
+      {
+        "label": "Gauge-linked high-water policy",
+        "value": "Slow-no-wake above 6.5 ft",
+        "note": "Rock County applies a gauge-linked slow-no-wake rule downstream from Indianford Dam when USGS 05430500 exceeds 6.5 ft; this is used as a no-launch caution, not a paddling-quality threshold.",
+        "sourceUrl": "https://www.co.rock.wi.us/departments/sheriff-s-office/recreational-patrol/slow-no-wake"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 05430500 Rock River at Afton",
+        "note": "USGS operates the direct Afton station and exposes continuous stage/discharge graphs.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05430500/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Wisconsin River Trips Janesville Rock River",
+        "url": "https://www.wisconsinrivertrips.com/segments/rock-river/janesville",
+        "provider": "wisconsin_river_trips"
+      },
+      {
+        "label": "Rock River Water Trail access inventory",
+        "url": "https://www.co.rock.wi.us/home/showpublisheddocument/278/637756795587170000",
+        "provider": "local"
+      },
+      {
+        "label": "Janesville boat launches",
+        "url": "https://www.janesvillewi.gov/departments-services/public-works/parks-division/boat-launches",
+        "provider": "local"
+      },
+      {
+        "label": "Rock County slow-no-wake rule",
+        "url": "https://www.co.rock.wi.us/departments/sheriff-s-office/recreational-patrol/slow-no-wake",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05430500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05430500/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "fox-river-waterford-burlington",
+    "slug": "fox-river-waterford-burlington",
+    "name": "Fox River",
+    "reach": "Village Hall Park, Waterford to Riverside Park, Burlington",
+    "aliases": [
+      "Fox River Waterford to Burlington",
+      "Waterford Rochester Burlington Fox River"
+    ],
+    "state": "Wisconsin",
+    "region": "Southeastern Wisconsin",
+    "routeType": "recreational",
+    "summary": "A public-access Fox River water-trail reach from Village Hall Park in Waterford to Riverside Park in Burlington, with portages around the Waterford and Rochester dams and a direct Rochester live gauge.",
+    "statusText": "Use the Fox River at Rochester gauge. Miles Paddled reports 4.1 ft for this reach and warns that below 4 ft shallow sections may require scraping or walking; make a visual call for wind, dam conditions, and current before launch.",
+    "latitude": 42.76385,
+    "longitude": -88.21319,
+    "gaugeSource": {
+      "id": "usgs-05544475",
+      "provider": "usgs",
+      "siteId": "05544475",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Fox River at Rochester, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05544475/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05544475"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["dam", "low_water", "fast_rise", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "Portage the Waterford and Rochester dams using the public launch/portage facilities; never approach the dam faces or outflows.",
+        "The Waterford-to-Burlington reach is exposed to wind and slow-water conditions. Check the forecast and make a same-day visual inspection before unloading.",
+        "Riverside Park is the planned take-out; do not continue downstream without a separate route and dam review."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 4,
+      "idealMax": 4.1,
+      "tooLow": 4,
+      "thresholdSource": {
+        "label": "Miles Paddled Fox River II trip report",
+        "url": "https://milespaddled.com/fox-river-ii-illinois-tributary/",
+        "provider": "miles_paddled"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.7,
+      "seasonMonths": [5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through fall is practical. The minimum-only 4-ft reference is a scrape/walk warning, not a guarantee of safe conditions; dams, wind, traffic, and rapid rain response still control the go/no-go decision.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Flatwater with two mandatory dam portages, shallow sections, wind exposure, and limited bailout choices. Not a beginner route when wind is strong or the gauge is falling below the minimum reference.",
+      "confidenceNotes": "Confidence is sufficient for a conservative scored add: Waterford officially documents the canoe/kayak launches and safe portage facilities around both dams; Fabulous Fox publishes the corridor map and itinerary context; Miles Paddled documents the exact Waterford-to-Burlington reach, public endpoints, 4.1-ft trip level, and below-4-ft shallow-water warning; and USGS 05544475 is the direct live Rochester gauge immediately downstream of the Rochester Dam."
+    },
+    "accessPoints": [
+      {
+        "id": "fox-river-village-hall-park-waterford",
+        "name": "Village Hall Park canoe/kayak launch",
+        "latitude": 42.76385,
+        "longitude": -88.21319,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Waterford identifies Village Hall Park as a public canoe/kayak launch above the Waterford Dam."
+      },
+      {
+        "id": "fox-river-riverside-park-burlington",
+        "name": "Riverside Park, Burlington",
+        "latitude": 42.68199,
+        "longitude": -88.26979,
+        "mileFromStart": 12.5,
+        "segmentKind": "creek",
+        "note": "Miles Paddled identifies Riverside Park as the public take-out for the Waterford-to-Burlington reach."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Exact route and level reference",
+        "value": "Waterford to Burlington; 4.1 ft observed, below 4 ft shallow",
+        "note": "Miles Paddled documents the exact reach, public endpoints, and the conservative minimum-only gauge reference.",
+        "sourceUrl": "https://milespaddled.com/fox-river-ii-illinois-tributary/"
+      },
+      {
+        "label": "Dam portage access",
+        "value": "Waterford and Rochester public canoe/kayak launches",
+        "note": "Waterford's official access page identifies launches above and below both dams and describes the completed public portage facilities.",
+        "sourceUrl": "https://www.waterfordwi.gov/386/Fox-River-Access"
+      },
+      {
+        "label": "Water-trail corridor",
+        "value": "Waterford/Rochester/Burlington map and itineraries",
+        "note": "Fabulous Fox Water Trail publishes the corridor map, access sites, and portage context for this reach.",
+        "sourceUrl": "https://fabulousfoxwatertrail.org/printable-maps/"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 05544475 Fox River at Rochester",
+        "note": "USGS operates the direct gage-height telemetry station 0.4 miles downstream of Rochester Dam.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05544475/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Miles Paddled Fox River II trip report",
+        "url": "https://milespaddled.com/fox-river-ii-illinois-tributary/",
+        "provider": "miles_paddled"
+      },
+      {
+        "label": "Waterford Fox River access",
+        "url": "https://www.waterfordwi.gov/386/Fox-River-Access",
+        "provider": "local"
+      },
+      {
+        "label": "Fabulous Fox Water Trail printable maps",
+        "url": "https://fabulousfoxwatertrail.org/printable-maps/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05544475 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05544475/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "fox-river-frame-park-greenway-waukesha",
+    "slug": "fox-river-frame-park-greenway-waukesha",
+    "name": "Fox River",
+    "reach": "Frame Park, Waukesha to Fox River Greenway",
+    "aliases": [
+      "Fox River Frame Park to Greenway",
+      "Fox River Waukesha Greenway",
+      "Waukesha Fox River Water Trail"
+    ],
+    "state": "Wisconsin",
+    "region": "Southeastern Wisconsin",
+    "routeType": "recreational",
+    "summary": "A public Fabulous Fox Water Trail reach from Frame Park through downtown Waukesha and the Fox River Sanctuary to the Fox River Greenway, with a mandatory Barstow Dam portage and a direct Waukesha live gauge.",
+    "statusText": "Use USGS 05543830 at Waukesha as a conservative minimum-only check. American Whitewater lists 107 cfs as low runnable for the downtown reach; below that, shallow rocky water and the dam portage make a visual go/no-go call essential.",
+    "latitude": 43.00654422,
+    "longitude": -88.24212779,
+    "gaugeSource": {
+      "id": "usgs-05543830",
+      "provider": "usgs",
+      "siteId": "05543830",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Fox River at Waukesha, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05543830/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05543830"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["dam", "low_water", "fast_rise", "cold_water", "strainers", "access_uncertain", "private_banks"],
+      "safetyNotes": [
+        "Frame Park is above Barstow Dam; portage on the marked river-walk carry and put in below the dam. Never approach the dam face or outflow.",
+        "Downtown Waukesha has narrow rock-lined banks, bridges, a short tunnel, and limited bailout choices; inspect the tunnel for wood before continuing.",
+        "Fox River Greenway is the planned take-out. Confirm park access, parking, and same-day conditions before unloading; obey PFD and boating rules."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 107,
+      "idealMax": 107,
+      "tooLow": 107,
+      "thresholdSource": {
+        "label": "American Whitewater Fox River Waukesha reach",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/4576/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.2,
+      "seasonMonths": [5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through fall is practical. The 107-cfs reference is a conservative low-runnable signal for the downtown reach, not a guarantee of safe conditions; dam hydraulics, wood, bridge/tunnel clearance, cold water, and rapid rain response still control the go/no-go decision.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Short urban-to-wetland reach with one mandatory dam portage, shallow rocky downtown water, bridges/tunnel, and limited bailout choices. The Fox River Greenway segment is easier after the city reach.",
+      "confidenceNotes": "Confidence is sufficient for a conservative scored add: Fabulous Fox documents the exact Frame Park-to-Greenway corridor and public access; Waukesha County documents the Frame Park launch; American Whitewater supplies the direct gauge relationship, a 107-cfs low-runnable reference, and downtown hazards; and USGS operates the live 05543830 station one mile downstream of Barstow Dam."
+    },
+    "accessPoints": [
+      {
+        "id": "fox-river-frame-park-waukesha",
+        "name": "Frame Park boat launch",
+        "latitude": 43.00654422,
+        "longitude": -88.24212779,
+        "mileFromStart": 0,
+        "segmentKind": "lake",
+        "note": "Developed public launch at Frame Park above Barstow Dam; portage on the marked river walk before entering the downstream Fox River."
+      },
+      {
+        "id": "fox-river-greenway-waukesha",
+        "name": "Fox River Greenway access",
+        "latitude": 42.9777,
+        "longitude": -88.2646,
+        "mileFromStart": 4.4,
+        "segmentKind": "creek",
+        "note": "Fabulous Fox identifies this gravel launch as the take-out approximately 300 feet north of the STH 59 bridge."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Exact water-trail corridor",
+        "value": "Frame Park/Barstow Dam to Fox River Greenway, about 4–4.5 miles",
+        "note": "Fabulous Fox publishes the route, portage instruction, access alternatives, and take-out.",
+        "sourceUrl": "https://fabulousfoxwatertrail.org/itineraries/"
+      },
+      {
+        "label": "Direct live gauge and low-runnable reference",
+        "value": "USGS 05543830; 107 cfs low runnable for the downtown Waukesha reach",
+        "note": "American Whitewater ties the direct Waukesha gauge to the downtown reach and publishes the conservative low-runnable reference.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/4576/main"
+      },
+      {
+        "label": "Public launch and park logistics",
+        "value": "Frame Park developed launch; Fox River Greenway gravel take-out",
+        "note": "Waukesha County and Fabulous Fox document the public endpoint access and parking/fee context.",
+        "sourceUrl": "https://www.waukeshacounty.gov/parks-and-land-use/parks-and-recreation/parks-and-trails/fox-river-park/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "USGS 05543830 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05543830/",
+        "provider": "usgs"
+      },
+      {
+        "label": "American Whitewater Waukesha reach",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/4576/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "Fabulous Fox Water Trail itineraries",
+        "url": "https://fabulousfoxwatertrail.org/itineraries/",
+        "provider": "local"
+      },
+      {
+        "label": "Waukesha County Fox River Park",
+        "url": "https://www.waukeshacounty.gov/parks-and-land-use/parks-and-recreation/parks-and-trails/fox-river-park/",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "south-fork-flambeau-county-w-county-m",
+    "slug": "south-fork-flambeau-county-w-county-m",
+    "name": "South Fork Flambeau River",
+    "reach": "County W Bridge Landing to County M Wayside Landing",
+    "aliases": [
+      "South Fork Flambeau - County W to County M",
+      "Flambeau South Fork FS2",
+      "CTH W to CTH M South Fork Flambeau"
+    ],
+    "state": "Wisconsin",
+    "region": "Northwoods Wisconsin",
+    "summary": "A 7.4-mile South Fork Flambeau whitewater reach from the County W bridge landing to County M Wayside, with named Class II-III rapids and a direct USGS gauge near the upper landing.",
+    "statusText": "Use the direct South Fork Flambeau gauge. American Whitewater reports 227 cfs as below its recommended flow at the listed reach; treat 227 cfs as a conservative minimum-only screen, not a guarantee of safe passage. Little Falls lies downstream of this segment; scout every rapid and do not continue beyond the take-out without a separate plan.",
+    "latitude": 45.70357,
+    "longitude": -90.61622,
+    "routeType": "whitewater",
+    "gaugeSource": {
+      "id": "usgs-05359500",
+      "provider": "usgs",
+      "siteId": "05359500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "South Fork Flambeau River Near Phillips, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05359500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["whitewater", "mandatory_takeout", "remote"],
+      "safetyNotes": [
+        "This is a moving-water route rated Class II(III); the South Fork includes named Carpenters, Cornsheller, Big Bull and Bergeron rapids. Scout unfamiliar rapids and match the run to the group's skills.",
+        "Little Falls is a downstream Class V hazard and is not part of this County W-to-County M route. Take out at County M Wayside; do not continue downstream without a separate, expert-level plan.",
+        "American Whitewater and Wisconsin Trail Guide identify the direct South Fork gauge and seasonal variability. Wear a Coast Guard-approved life jacket, check weather and current conditions, and expect cold, remote water with limited exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 227,
+      "thresholdSource": {
+        "label": "American Whitewater recommended-flow screen for CTH W to Skinner Creek / South Fork Flambeau",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2295/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Wisconsin DNR identifies early spring through mid-June as the seasonal peak; Wisconsin Trail Guide says late spring through June is usually best, with more fluctuation and scrappier late-summer rapids.",
+      "difficulty": "hard",
+      "difficultyNotes": "American Whitewater rates the adjacent CTH W to Skinner Creek reach Class II(III); this shortened County W-to-County M segment retains the named Class II-III rapids and is for prepared moving-water paddlers, not casual flatwater users.",
+      "confidenceNotes": "High confidence in route identity, direct gauge linkage, named public endpoints, and hazard character: Wisconsin DNR lists the South Fork forest paddling corridor and County W landing, Wisconsin Trail Guide publishes WGS84 coordinates and the 7.4-mile County W-to-County M map, American Whitewater ties the reach to USGS 05359500 and reports the 227 cfs low-runnable screen. No rights-restricted image is required; the route uses source links and coordinates only."
+    },
+    "putIn": {
+      "id": "county-w-bridge",
+      "name": "County W Bridge Landing",
+      "latitude": 45.70357,
+      "longitude": -90.61622
+    },
+    "takeOut": {
+      "id": "county-m-wayside",
+      "name": "County M Wayside Landing",
+      "latitude": 45.65787,
+      "longitude": -90.73591
+    },
+    "evidenceNotes": [
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 05359500 South Fork Flambeau River near Phillips",
+        "note": "USGS reports continuous discharge and stage telemetry at the South Fork station near County Highway W.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05359500"
+      },
+      {
+        "label": "Named public endpoints",
+        "value": "County W Bridge Landing to County M Wayside Landing",
+        "note": "Wisconsin DNR lists the established South Fork landing corridor; Wisconsin Trail Guide publishes WGS84 endpoint coordinates and the 7.4-mile FS2 map.",
+        "sourceUrl": "https://wisconsintrailguide.com/paddle/pdf/map-flambeauSouth2.pdf"
+      },
+      {
+        "label": "Flow screen",
+        "value": "227 cfs minimum-only screen",
+        "note": "American Whitewater displays the direct gauge and marks 227 cfs as below recommended on the adjacent CTH W-to-Skinner reach; Paddle Today uses this conservatively as a minimum-only screen.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2295/main"
+      },
+      {
+        "label": "Hazards and camping",
+        "value": "Class II-III rapids; no South Fork canoe camp on this segment",
+        "note": "DNR and Wisconsin Trail Guide identify named rapids, seasonal variability, and the downstream Little Falls hazard; DNR's camping page lists canoe camps below the forks rather than on this South Fork segment.",
+        "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/camping"
+      },
+      {
+        "label": "Image rights",
+        "value": "No third-party image added",
+        "note": "The route is documented with official/source links and defensible coordinates; no image asset is required for publication.",
+        "sourceUrl": "https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Wisconsin DNR Paddling the Flambeau River",
+        "url": "https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater South Fork Flambeau CTH W to Skinner Creek",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2295/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "Wisconsin Trail Guide South Fork FS2 map",
+        "url": "https://wisconsintrailguide.com/paddle/pdf/map-flambeauSouth2.pdf",
+        "provider": "wisconsin_trail_guide"
+      },
+      {
+        "label": "Wisconsin Trail Guide South Fork FS2 guide",
+        "url": "https://wisconsintrailguide.com/paddle/pdf/guide-flambeauSouth2.pdf",
+        "provider": "wisconsin_trail_guide"
+      },
+      {
+        "label": "USGS 05359500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05359500/",
+        "provider": "usgs"
+      }
+    ],
+    "scoreEligibility": "scored"
+  },
+  {
+    "id": "fox-river-sunset-kimberly-lutz-appleton",
+    "slug": "fox-river-sunset-kimberly-lutz-appleton",
+    "name": "Fox River",
+    "reach": "Sunset Park, Kimberly to Lutz Park, Appleton",
+    "aliases": [
+      "Appleton Locks Paddle",
+      "Fox River Kimberly to Appleton",
+      "Sunset Park to Lutz Park Fox River"
+    ],
+    "state": "Wisconsin",
+    "region": "Fox Cities Wisconsin",
+    "summary": "A guarded urban Fox River locks-and-portage route from Sunset Park in Kimberly to the accessible kayak launch at Lutz Park in Appleton, using the direct Appleton gauge and a conservative high-flow cutoff.",
+    "statusText": "Use the direct Fox River at Appleton gauge. Northeast Wisconsin Paddlers uses 6,000 cfs as a conservative safety limit for the Appleton Locks paddle; portage the locks unless current authority and conditions explicitly support passage, and never approach dam draws or outflows.",
+    "latitude": 44.2735557,
+    "longitude": -88.3457597,
+    "routeType": "recreational",
+    "gaugeSource": {
+      "id": "usgs-04084445",
+      "provider": "usgs",
+      "siteId": "04084445",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Fox River at Appleton, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04084445/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04084445"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["dam", "mandatory_takeout", "fast_rise", "cold_water", "private_banks", "access_uncertain"],
+      "safetyNotes": [
+        "Treat the four Appleton-area locks and associated dams as mandatory portage hazards unless the Fox River Navigational System Authority confirms lawful passage and current operations for the craft and date.",
+        "Do not approach dam faces, intakes, spillways, or drawdown currents. The 6,000 cfs screen is conservative and does not certify safe passage.",
+        "Wear a Coast Guard-approved PFD, scout every portage, and confirm both parks, construction, parking, and shuttle conditions before launch."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 0,
+      "idealMax": 6000,
+      "tooHigh": 6000,
+      "thresholdSource": {
+        "label": "Northeast Wisconsin Paddlers Appleton Locks flow safety limit",
+        "url": "https://newp.club/hov-locks-paddle/",
+        "provider": "manual"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 1.3,
+      "seasonMonths": [5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through fall is practical when locks/parks are operating and the same-day gauge is below the conservative high-flow screen; cold water and changing lock operations remain material.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Flatwater with urban boat traffic and multiple mandatory portages around locks/dams. The route is not a casual continuous float and requires a shuttle, scouting, and comfort carrying a boat.",
+      "confidenceNotes": "High confidence in route identity and endpoints: Lutz Park and Sunset Park are named public kayak/boat launches, NEWP documents the Appleton Locks paddle and its 6,000 cfs safety limit, and USGS 04084445 is the direct Appleton station at Lutz Park. The route is scored conservatively with the high-flow screen only; local visual checks and lock authority override it."
+    },
+    "accessPoints": [
+      {
+        "id": "fox-river-sunset-park-kimberly",
+        "name": "Sunset Park Boat Launch, Kimberly",
+        "latitude": 44.2735557,
+        "longitude": -88.3457597,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Fox Cities identifies Sunset Park as a public kayak-accessible boat launch on W Kimberly Ave."
+      },
+      {
+        "id": "fox-river-lutz-park-appleton",
+        "name": "Lutz Park ADA kayak launch, Appleton",
+        "latitude": 44.2496192,
+        "longitude": -88.421527,
+        "mileFromStart": 6.8,
+        "segmentKind": "creek",
+        "note": "Fox Cities identifies Lutz Park as a public boat launch and ADA kayak launch; USGS 04084445 is at the south end of Lutz Park."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Named public endpoints",
+        "value": "Sunset Park Boat Launch, Kimberly to Lutz Park ADA kayak launch, Appleton",
+        "note": "Fox Cities lists both public kayak/boat launch facilities and their street locations.",
+        "sourceUrl": "https://www.foxcities.org/directory/sunset-park-boat-launch/"
+      },
+      {
+        "label": "Appleton endpoint access",
+        "value": "Lutz Park, 1320 S Lutz Dr, Appleton",
+        "note": "Fox Cities describes Lutz Park's boat launch and ADA kayak launch; the USGS station is at the south end of the park.",
+        "sourceUrl": "https://www.foxcities.org/directory/lutz-park/"
+      },
+      {
+        "label": "High-flow safety screen",
+        "value": "6,000 cfs maximum-only conservative screen",
+        "note": "Northeast Wisconsin Paddlers moved or shortened the Appleton Locks paddle when flow exceeded 6,000 cfs because dam draws became hazardous.",
+        "sourceUrl": "https://newp.club/hov-locks-paddle/"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 04084445 Fox River at Appleton",
+        "note": "USGS operates the continuous discharge and stage station at Lutz Park.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04084445/"
+      },
+      {
+        "label": "Lock and portage context",
+        "value": "Four Appleton locks; portage unless current authority confirms passage",
+        "note": "The Fox River Navigational System Authority publishes lock operations and boating rules; paddlers must follow current notices and never approach dam hazards.",
+        "sourceUrl": "https://foxlocks.org/wp-content/uploads/2023/02/2023-Lock-Season-jc1.pdf"
+      },
+      {
+        "label": "Image rights",
+        "value": "No third-party image added",
+        "note": "Route publication relies on official/source links and coordinates; no image asset is required.",
+        "sourceUrl": "https://www.foxcities.org/directory/lutz-park/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Lutz Park",
+        "url": "https://www.foxcities.org/directory/lutz-park/",
+        "provider": "local"
+      },
+      {
+        "label": "Sunset Park Boat Launch",
+        "url": "https://www.foxcities.org/directory/sunset-park-boat-launch/",
+        "provider": "local"
+      },
+      {
+        "label": "Appleton Locks flow safety context",
+        "url": "https://newp.club/hov-locks-paddle/",
+        "provider": "manual"
+      },
+      {
+        "label": "Fox River Navigational System lock season",
+        "url": "https://foxlocks.org/wp-content/uploads/2023/02/2023-Lock-Season-jc1.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 04084445 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04084445/",
+        "provider": "usgs"
+      }
+    ],
+    "scoreEligibility": "scored"
+  },
+  {
+    "id": "fox-river-landing-road-riverside-berlin",
+    "slug": "fox-river-landing-road-riverside-berlin",
+    "name": "Fox River",
+    "reach": "Landing Road access to Riverside Park, Berlin",
+    "aliases": [
+      "Upper Fox Berlin Landing Road paddle",
+      "Landing Road to Riverside Park Berlin",
+      "Fox River Berlin town paddle"
+    ],
+    "state": "Wisconsin",
+    "region": "Upper Fox River Wisconsin",
+    "summary": "A short, public-access Upper Fox River day route from the DNR-listed Landing Road access south of Berlin to the City of Berlin's Riverside Park boat launch, using the direct Berlin gauge.",
+    "statusText": "Use USGS 04073500 Fox River at Berlin. Wisconsin River Trips describes Landing Road to Riverside Park as a 3.4-mile simple downtown section; use the conservative 350 cfs minimum screen, and cancel for rising/high water, flooding, debris, or unsafe dam/bridge conditions.",
+    "latitude": 43.9471591,
+    "longitude": -88.9668741,
+    "routeType": "recreational",
+    "gaugeSource": {
+      "id": "usgs-04073500",
+      "provider": "usgs",
+      "siteId": "04073500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Fox River at Berlin, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04073500/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04073500"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["fast_rise", "flash_flood", "cold_water", "private_banks", "access_uncertain"],
+      "safetyNotes": [
+        "The direct gauge is 0.4 miles downstream of the former Berlin government dam; never approach dam remnants, bridge piers, outfalls, or flooded banks.",
+        "Treat 350 cfs as a conservative low-water screen only. Rising water, heavy rain, flood warnings, debris, ice, and local current override the screen.",
+        "Confirm the Landing Road access and Riverside Park launch are open and legal on the day of travel; wear a Coast Guard-approved PFD and plan a vehicle shuttle."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 500,
+      "tooLow": 350,
+      "thresholdSource": {
+        "label": "Upper Fox Berlin paddling reference and USGS historical minimum",
+        "url": "https://www.wisconsinrivertrips.com/segments/fox-river",
+        "provider": "manual"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 1.2,
+      "seasonMonths": [5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through fall is practical. The 350 cfs screen is conservative and derived from the USGS station's documented historical low range; it is not an agency-certified paddling limit.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short, slow-water urban reach with a vehicle shuttle and changing access conditions. Expect current, bridge hazards, private banks, and cold water; do not treat the route as a guaranteed beginner float.",
+      "confidenceNotes": "High confidence in route identity and public endpoints: Wisconsin DNR lists Landing Road access south of Berlin and Berlin Lock public access, the City of Berlin documents Riverside Park's boat launch and camping, Wisconsin River Trips documents the exact 3.4-mile Landing Road-to-Riverside reach, and USGS 04073500 directly measures the corridor. The minimum-only flow screen is conservative community guidance, not a guarantee of safe conditions."
+    },
+    "accessPoints": [
+      {
+        "id": "fox-river-landing-road-berlin",
+        "name": "Fox River Access at Landing Road south of Berlin",
+        "latitude": 43.9471591,
+        "longitude": -88.9668741,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Wisconsin DNR's water-access inventory names Fox River access at Landing Road south of Berlin. Coordinates are anchored to the public Landing Road endpoint and should be checked against current landing signage."
+      },
+      {
+        "id": "fox-river-riverside-park-berlin",
+        "name": "Riverside Park Boat Launch, Berlin",
+        "latitude": 43.9781339,
+        "longitude": -88.9502913,
+        "mileFromStart": 3.4,
+        "segmentKind": "creek",
+        "note": "The City of Berlin documents Riverside Park's public Fox River boat launch at 161 W Waushara Street."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Exact route and distance",
+        "value": "Landing Road to Riverside Park in Berlin, 3.4 miles",
+        "note": "Wisconsin River Trips identifies the named section and describes it as a simple downtown reach.",
+        "sourceUrl": "https://www.wisconsinrivertrips.com/segments/fox-river"
+      },
+      {
+        "label": "Landing Road access",
+        "value": "Fox River access at Landing Road south of Berlin",
+        "note": "Wisconsin DNR's watershed access inventory identifies this named public access location.",
+        "sourceUrl": "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=5774139"
+      },
+      {
+        "label": "Riverside Park endpoint",
+        "value": "161 W Waushara Street, Berlin; public boat launch and campground",
+        "note": "The City of Berlin documents the park's Fox River access, boat launch, facilities, and address.",
+        "sourceUrl": "https://cityofberlin.net/parks-and-recreation/"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 04073500 Fox River at Berlin",
+        "note": "USGS reports continuous discharge and gage-height telemetry at the Berlin station.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04073500/"
+      },
+      {
+        "label": "Conservative flow screen",
+        "value": "350 cfs minimum-only screen; no invented high-flow cutoff",
+        "note": "The screen reflects the station's documented historical low-flow range and the route source's observed Berlin reference flows; rising/flood conditions require a same-day visual decision.",
+        "sourceUrl": "https://pubs.usgs.gov/wdr/1971/wi-71-1-2/report.pdf"
+      },
+      {
+        "label": "Image rights",
+        "value": "No third-party image added",
+        "note": "Publication relies on official access sources, coordinates, and canonical geometry rather than an unlicensed image asset."
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Wisconsin River Trips Fox River overview",
+        "url": "https://www.wisconsinrivertrips.com/segments/fox-river",
+        "provider": "manual"
+      },
+      {
+        "label": "Wisconsin DNR Berlin watershed access inventory",
+        "url": "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=5774139",
+        "provider": "local"
+      },
+      {
+        "label": "City of Berlin parks and recreation",
+        "url": "https://cityofberlin.net/parks-and-recreation/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 04073500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04073500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS historical station report",
+        "url": "https://pubs.usgs.gov/wdr/1971/wi-71-1-2/report.pdf",
+        "provider": "usgs"
+      }
+    ],
+    "scoreEligibility": "scored"
   }
 ];

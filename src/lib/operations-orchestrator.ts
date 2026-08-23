@@ -12,6 +12,7 @@ export type OperationsTask = {
   gaugeKeys?: string[];
   frontierTier?: number;
   routeOpportunity?: boolean;
+  routeOpportunityScore?: number;
 };
 
 export type WorkOrder = {
@@ -27,18 +28,47 @@ export type WorkOrder = {
 
 const priorityRank: Record<string, number> = { critical: 0, high: 1, medium: 2, low: 3 };
 
+// Within a frontier tier, finish the user's stated geographic sequence rather
+// than falling back to alphabetical task titles (which previously let SD/NE
+// jump ahead of Wisconsin). Unknown/later states remain deterministic but rank
+// after the explicitly managed frontier.
+const geographicStateRank: Record<string, number> = {
+  MN: 0,
+  WI: 1,
+  IA: 2,
+  ND: 3,
+  SD: 4,
+  NE: 5,
+};
+
 function rankTask(task: OperationsTask) {
-  const frontierRank = task.kind === 'state_coverage' || task.routeOpportunity
+  const isDiscoverySweep = task.id.includes('bounded-discovery-sweep');
+  const frontierRank = isDiscoverySweep || task.kind === 'state_coverage' || task.routeOpportunity
     ? (task.frontierTier ?? 50)
     : 99;
-  const kindRank = task.kind === 'state_coverage' ? 0 : task.kind === 'route_research' ? 1 : task.kind === 'consolidation_review' ? 2 : 3;
-  return [frontierRank, priorityRank[task.priority] ?? 9, kindRank, task.title];
+  const stateRank = frontierRank < 99
+    ? (geographicStateRank[task.stateId ?? ''] ?? 50)
+    : 50;
+  const kindRank = isDiscoverySweep ? -1
+    : task.kind === 'state_coverage' ? 0
+      : task.kind === 'route_implementation' ? 1
+        : task.kind === 'route_research' ? 2
+          : task.kind === 'consolidation_review' ? 3 : 4;
+  const opportunityRank = task.routeOpportunity && task.routeOpportunityScore !== undefined
+    ? -task.routeOpportunityScore
+    : 0;
+  return [frontierRank, priorityRank[task.priority] ?? 9, stateRank, kindRank, opportunityRank, task.title];
 }
 
 function compareTasks(left: OperationsTask, right: OperationsTask) {
   const a = rankTask(left);
   const b = rankTask(right);
-  return a[0] - b[0] || a[1] - b[1] || String(a[2]).localeCompare(String(b[2]));
+  return a[0] - b[0]
+    || a[1] - b[1]
+    || a[2] - b[2]
+    || a[3] - b[3]
+    || a[4] - b[4]
+    || String(a[5]).localeCompare(String(b[5]));
 }
 
 export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
@@ -95,6 +125,8 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
         ? 'product-implementation'
         : task.kind === 'demand'
           ? 'demand-triage'
+          : task.kind === 'route_implementation'
+            ? 'route-implementation'
           : task.kind === 'consolidation_review'
             ? 'independent-verifier'
           : 'route-research';
@@ -103,7 +135,7 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
     taskId: task.id,
     workerRole,
     rationale: `${task.priority} priority ${task.kind} task selected from the ${task.lane} lane; WIP policy permits assignment.`,
-    requiredGates: task.kind === 'route_research' && task.routeOpportunity
+    requiredGates: (task.kind === 'route_research' || task.kind === 'route_implementation') && task.routeOpportunity
       ? [
           'gauge disposition and actionable blocker recorded',
           'named public endpoints and defensible coordinates',

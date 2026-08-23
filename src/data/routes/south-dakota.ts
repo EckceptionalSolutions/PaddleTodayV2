@@ -1841,5 +1841,119 @@ export const southDakotaRoutes: River[] = [
         "provider": "local"
       }
     ]
+  },
+  {
+    "id": "spearfish-creek-city-park-jorgensen",
+    "slug": "spearfish-creek-city-park-jorgensen",
+    "name": "Spearfish Creek",
+    "reach": "Spearfish City Park to Jorgensen Park",
+    "state": "South Dakota",
+    "region": "Black Hills",
+    "routeType": "whitewater",
+    "summary": "A short, technical Spearfish Creek town run from the city park access through the creek corridor to Jorgensen Park. Treat the route as a conditional Class II reach with a park waterfall, low-head structures, cold water, and changing access conditions.",
+    "statusText": "Use USGS 06431500 at Spearfish. A conservative 50 cfs minimum-only screen is supported by current paddling guidance; below that, expect shallow water and scraping. Scout the park waterfall, ledges, fences, and take-out before committing.",
+    "latitude": 44.494,
+    "longitude": -103.864,
+    "gaugeSource": {
+      "id": "usgs-06431500",
+      "provider": "usgs",
+      "siteId": "06431500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Spearfish Creek at Spearfish, SD",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-06431500/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06431500"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["strainers", "urban_water_quality"],
+      "safetyNotes": [
+        "The City Park waterfall and other ledges require scouting and may require a portage; do not run an unfamiliar drop.",
+        "American Whitewater describes this as a Class II town section and reports the Spearfish City Campground to Old US 14 reach as 3.3 miles; local conditions can change the runnable corridor.",
+        "Use the 50 cfs minimum-only screen conservatively. Rising water can increase hydraulics and debris; falling water can expose rocks and force walking.",
+        "South Dakota GFP warns that fences cross navigable streams. Stop and portage or turn around at any unscouted wire, dam, or private-bank obstruction."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 50,
+      "thresholdSource": {
+        "label": "RiverScout Spearfish Creek conditions",
+        "url": "https://riverscout.app/rivers/south-dakota/spearfish-creek",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Spring and rain-driven rises can change this small creek quickly. Shoulder-season water is cold; confirm access, weather, and local conditions before launch.",
+      "difficulty": "moderate",
+      "difficultyNotes": "American Whitewater rates the town section Class II, but the park waterfall, low-head structures, narrow banks, and limited bailout options make this unsuitable for casual beginners without a competent scouting plan.",
+      "confidenceNotes": "This route clears the evidence bar as a conditional addition: American Whitewater names the town reach, endpoints, distance, difficulty, and direct USGS gauge; the City of Spearfish confirms creek access at City Park and Jorgensen Park; Visit Spearfish documents local paddlers putting in through the city park corridor and exiting near Jorgensen Park. The 50 cfs floor is minimum-only community guidance, not an official operating band, so the route keeps conservative language and prominent hazards."
+    },
+    "putIn": {
+      "name": "Spearfish City Park creek access",
+      "latitude": 44.4829812,
+      "longitude": -103.86117
+    },
+    "takeOut": {
+      "name": "Jorgensen Park creek access",
+      "latitude": 44.5048079,
+      "longitude": -103.8663964
+    },
+    "evidenceNotes": [
+      {
+        "label": "Named route reach",
+        "value": "Spearfish City Campground / City Park to Old US Hwy 14 / Jorgensen Park corridor",
+        "note": "American Whitewater identifies the Spearfish town section as a 3.3-mile Class II reach; Visit Spearfish describes kayakers putting in by the city park and exiting near Jorgensen Park.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/3959/main"
+      },
+      {
+        "label": "Public put-in",
+        "value": "Spearfish City Park creek access",
+        "note": "The City of Spearfish lists creek access at City Park, 420 N Canyon Street.",
+        "sourceUrl": "https://www.spearfish.gov/798/Spearfish-City-Park"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Jorgensen Park creek access",
+        "note": "The City of Spearfish lists creek access and a recreation path at Jorgensen Park on North Canyon Street.",
+        "sourceUrl": "https://www.spearfish.gov/802/Jorgensen-Park"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 06431500",
+        "note": "USGS publishes direct discharge and gage-height observations for Spearfish Creek at Spearfish.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06431500"
+      },
+      {
+        "label": "Minimum-only flow screen",
+        "value": "50 cfs conservative floor",
+        "note": "RiverScout reports an optimal 50–300 cfs window. The app uses only the 50 cfs lower bound and does not infer an upper runnable limit.",
+        "sourceUrl": "https://riverscout.app/rivers/south-dakota/spearfish-creek"
+      },
+      {
+        "label": "Hazard and route context",
+        "value": "Class II town reach with waterfall and ledges",
+        "note": "American Whitewater describes the town section, waterfall concerns, and low-head structures; scout all features and portage when needed.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/3959/main"
+      },
+      {
+        "label": "Rights-clean image decision",
+        "value": "Use public-domain USGS gage imagery only; no third-party route photo selected",
+        "note": "The route package does not copy a commercial or user photo. A public-domain USGS streamgage image is available if a route image is later needed.",
+        "sourceUrl": "https://www.usgs.gov/media/images/spearfish-creek-spearfish-sd-usgs-streamgage-06431500"
+      }
+    ],
+    "sourceLinks": [
+      {"label": "American Whitewater Spearfish Creek town section", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/3959/main", "provider": "local"},
+      {"label": "USGS 06431500 Spearfish Creek at Spearfish", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06431500/", "provider": "usgs"},
+      {"label": "USGS current conditions", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06431500", "provider": "usgs"},
+      {"label": "City of Spearfish City Park", "url": "https://www.spearfish.gov/798/Spearfish-City-Park", "provider": "local"},
+      {"label": "City of Spearfish Jorgensen Park", "url": "https://www.spearfish.gov/802/Jorgensen-Park", "provider": "local"},
+      {"label": "Visit Spearfish creek guide", "url": "https://visitspearfish.com/things-to-do/spearfish-creek", "provider": "local"},
+      {"label": "South Dakota GFP paddling safety", "url": "https://gfp.sd.gov/paddling/", "provider": "local"}
+    ]
   }
 ];

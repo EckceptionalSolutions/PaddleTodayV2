@@ -602,10 +602,6 @@ function supportingNote(route) {
 function signalIconMarkup(kind) {
   switch (kind) {
     case 'gauge':
-      const cleanRowLabel = active
-        ? '<span class="route-choice__on-map">On map</span>'
-        : `${escapeHtml(route.state)} · ${escapeHtml(route.region)}`;
-
       return `
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 15c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
@@ -1472,7 +1468,7 @@ function renderRouteList(routes) {
             data-analytics-source="river_hub"
           >
             <span class="route-choice__copy">
-              <span class="route-choice__eyebrow">${cleanRowLabel}</span>
+              <span class="route-choice__eyebrow">${rowLabel}</span>
               ${bestMatch ? '<span class="route-choice__recommended">Recommended today</span>' : ''}
               ${bestMatch ? `<span class="route-choice__recommendation-reason">${escapeHtml(conditionsLine(route))}</span>` : ''}
               <strong class="route-choice__title">${escapeHtml(route.reach)}</strong>

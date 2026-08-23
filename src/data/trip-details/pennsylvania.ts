@@ -1933,5 +1933,105 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default full-corridor take-out."
       }
     ]
+  },
+  "youghiogheny-river-connellsville-dawson": {
+    "putIn": {
+      "id": "yough-river-park-connellsville",
+      "name": "Yough River Park, Connellsville surfaced ramp",
+      "latitude": 40.020833,
+      "longitude": -79.597222
+    },
+    "takeOut": {
+      "id": "river-road-dawson",
+      "name": "River Road, Dawson unimproved access",
+      "latitude": 40.0453,
+      "longitude": -79.6562
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 5.4 river miles",
+      "estimatedPaddleTime": "About 3-4 on-water hours, longer with stops and shuttle logistics",
+      "shuttle": "Use two vehicles or arrange a shuttle; verify both access points before launch.",
+      "permits": "Follow Pennsylvania Fish and Boat Commission registration and launch-permit rules and all posted local access rules.",
+      "camping": "Nearby Great Allegheny Passage facilities may support an overnight; verify current rules and availability.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Family-oriented moving-water float with a surfaced Connellsville ramp and unimproved Dawson take-out.",
+      "accessCaveats": ["Dawson access is unimproved; verify carry distance, parking, and closure signs."],
+      "watchFor": ["changing reservoir-regulated flow", "bridge structures", "strainers and debris", "cold water"]
+    }
+  },
+  "youghiogheny-river-dawson-port-vue": {
+    "putIn": {
+      "id": "river-road-dawson",
+      "name": "River Road, Dawson unimproved access",
+      "latitude": 40.0453,
+      "longitude": -79.6562
+    },
+    "takeOut": {
+      "id": "pfbc-port-vue-mckeesport",
+      "name": "PFBC Port Vue Launch, Atlantic Avenue, McKeesport",
+      "latitude": 40.352222,
+      "longitude": -79.871389
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 38 river miles (multi-day staged corridor)",
+      "estimatedPaddleTime": "Full day for strong paddlers or a multi-day itinerary",
+      "shuttle": "Use a two-vehicle shuttle or arrange a commercial shuttle; intermediate exits are available.",
+      "permits": "Follow Pennsylvania Fish and Boat Commission registration and launch-permit rules and all posted water-trail requirements.",
+      "camping": "RoundBottom and other Great Allegheny Passage facilities may support staged overnight planning; verify current rules.",
+      "campingClassification": "overnight_capable",
+      "summary": "Long northern Youghiogheny water-trail itinerary with multiple intermediate access and camping options.",
+      "accessCaveats": ["Dawson is unimproved; verify parking and carry distance.", "Do not substitute private banks for named access."],
+      "watchFor": ["rapidly changing flow", "bridge and rail crossings", "strainers", "cold water", "urban confluence"]
+    }
+  },
+  "youghiogheny-river-middle-ramcat-ohiopyle": {
+    "putIn": {
+      "id": "ramcat-access-ohiopyle",
+      "name": "Ramcat Launch, Ohiopyle State Park",
+      "latitude": 39.8975,
+      "longitude": -79.4936
+    },
+    "takeOut": {
+      "id": "ohiopyle-state-park-visitor-center",
+      "name": "Ohiopyle State Park take-out",
+      "latitude": 39.866528,
+      "longitude": -79.493395
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 9.5 river miles",
+      "estimatedPaddleTime": "About 4-6 hours including scouting and portage decisions",
+      "shuttle": "Arrange a shuttle between Ramcat and Ohiopyle; follow park access directions.",
+      "permits": "Follow Pennsylvania boating rules, PFD requirements, and Ohiopyle State Park launch/parking rules.",
+      "camping": "Ohiopyle State Park and Kentuck Campground provide nearby camping; verify reservations and seasonal operations.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Intermediate Middle Yough moving-water route from Ramcat to Ohiopyle with park-based logistics.",
+      "accessCaveats": ["Inspect Ramcat parking and carry route before launch.", "Portage all documented dams and hazards; do not run Ohiopyle Falls."],
+      "watchFor": ["whitewater", "cold water", "strainers", "park traffic"]
+    }
+  },
+  "blacklick-creek-route-259-saylor-park": {
+    "putIn": {
+      "id": "blacklick-creek-heshbon-ghost-town-trail",
+      "name": "Ghost Town Trail Heshbon access near PA 259 bridge",
+      "latitude": 40.47345,
+      "longitude": -79.09512
+    },
+    "takeOut": {
+      "id": "blacklick-creek-saylor-park",
+      "name": "Saylor Park / Blacklick take-out",
+      "latitude": 40.478162,
+      "longitude": -79.187222
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 6.8 river miles",
+      "estimatedPaddleTime": "About 3-5 on-water hours, plus scouting and shuttle time",
+      "shuttle": "Arrange a two-vehicle shuttle; verify current trail and road access at both ends.",
+      "permits": "Follow Pennsylvania Fish and Boat Commission registration/launch-permit rules and all posted Ghost Town Trail and local access rules.",
+      "camping": "No on-route campsite verified; plan as a day run and arrange separate lodging or legal camping.",
+      "campingClassification": "none",
+      "summary": "Technical Blacklick Creek day run with documented Heshbon access, Saylor Park finish, and conservative flow guidance.",
+      "accessCaveats": ["Verify the Heshbon gate, carry, parking, and Saylor Park creek-side access before launch.", "Do not use private mine property or unlisted banks."],
+      "watchFor": ["Auld's Run", "Jacks Rock and wood", "strainers", "mine-influenced tributaries", "cold water"]
+    }
   }
 };

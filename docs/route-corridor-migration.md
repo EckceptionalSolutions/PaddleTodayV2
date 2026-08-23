@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-08-21T12:14:20.867Z.
+Generated 2026-08-23T14:00:49.004Z.
 
 - Defined corridors: 25
-- Routes covered by a corridor definition: 182
-- Remaining multi-route families: 130
+- Routes covered by a corridor definition: 183
+- Remaining multi-route families: 134
 
 ## Defined corridors
 
@@ -25,7 +25,7 @@ Generated 2026-08-21T12:14:20.867Z.
 | wi-turtle-creek-upper | Turtle Creek upper wildlife-area corridor | verified | 2 | 3 |
 | ia-middle-river-water-trail | Middle River water-trail corridor | partial | 4 | 2 |
 | ia-upper-iowa-cattle-malanaphy | Upper Iowa Cattle Creek-Malanaphy corridor | verified | 2 | 3 |
-| ia-cedar-river-condition-family | Cedar River condition family | condition-family | 25 | 0 |
+| ia-cedar-river-condition-family | Cedar River condition family | condition-family | 26 | 0 |
 | mn-crow-wing-condition-family | Crow Wing River condition family | partial | 12 | 6 |
 | ia-des-moines-condition-family | Des Moines River condition family | condition-family | 18 | 0 |
 | mn-minnesota-river-condition-family | Minnesota River condition family | condition-family | 19 | 0 |
@@ -45,11 +45,11 @@ Generated 2026-08-21T12:14:20.867Z.
 | 3 | Minnesota | Rum River | 10 |
 | 4 | Iowa | Maquoketa River | 9 |
 | 5 | Iowa | Wapsipinicon River | 8 |
-| 6 | Wisconsin | Namekagon River | 7 |
-| 7 | Minnesota | North Fork Crow River | 7 |
-| 8 | Minnesota | St. Croix River | 7 |
-| 9 | Wisconsin | Baraboo River | 6 |
-| 10 | Iowa | Boone River | 6 |
+| 6 | Wisconsin | Fox River | 7 |
+| 7 | Wisconsin | Namekagon River | 7 |
+| 8 | Minnesota | North Fork Crow River | 7 |
+| 9 | Minnesota | St. Croix River | 7 |
+| 10 | Wisconsin | Baraboo River | 6 |
 
 ## Remaining dense families
 
@@ -77,6 +77,7 @@ Generated 2026-08-21T12:14:20.867Z.
 | Kentucky | Tradewater River | 9 |
 | Iowa | Wapsipinicon River | 8 |
 | Texas | Brazos River | 7 |
+| Wisconsin | Fox River | 7 |
 | Texas | Guadalupe River | 7 |
 | Wisconsin | Namekagon River | 7 |
 | Minnesota | North Fork Crow River | 7 |
@@ -94,7 +95,6 @@ Generated 2026-08-21T12:14:20.867Z.
 | Wisconsin | Mecan River | 6 |
 | Wisconsin | Milwaukee River | 6 |
 | Wisconsin | Pine River | 6 |
-| Iowa | South Skunk River | 6 |
-| Additional families omitted | See route data and overlap audit | 90 |
+| Additional families omitted | See route data and overlap audit | 94 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

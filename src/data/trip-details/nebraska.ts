@@ -2,6 +2,66 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
+  "logan-creek-pender-oakland": {
+    "putIn": {"id":"pender-logan-creek-canoe-access","name":"Pender Logan Creek canoe access (east side of town)","latitude":42.113332,"longitude":-96.712814},
+    "takeOut": {"id":"oakland-logan-creek-canoe-access","name":"Oakland Logan Creek canoe access","latitude":41.8263,"longitude":-96.4931},
+    "logistics": {
+      "distanceLabel":"About 32 river miles; verify the active channel and current water-trail map",
+      "estimatedPaddleTime":"About 8 to 12 hours at ordinary current, longer with low-water dragging, scouting, wind, breaks, or a slower group",
+      "shuttle":"Stage the Oakland finish first, then drive back to the Pender east-side canoe access. Treat this as a full-day shuttle and confirm current road, parking, and river-edge access before launching.",
+      "permits":"No route-specific private-paddling permit is identified by the cited public sources. Follow Nebraska boating and PFD rules, posted access restrictions, and current seasonal advisories.",
+      "camping":"Daylight-only planning is preferred. Do not camp on private banks, sandbars, or the stream bed without permission; confirm any town campground or lodging separately before treating it as route support.",
+      "campingClassification":"nearby_basecamp",
+      "summary":"Launch at the Pender canoe access and finish at the Oakland canoe access on the designated Logan Creek water trail. This is a committed shuttle with Bancroft as a named public intermediate access; plan daylight, food, water, and a conservative turnaround option.",
+      "accessCaveats":["The official map identifies the Pender and Oakland canoe-access sites, but practical water-edge conditions and parking can change; inspect both endpoints before committing.","Bancroft access is described north of Highway 16 on County Road 24, directly north of Ru-De’s Mini Mart. Verify legal approach, parking, and landing before relying on it as a bailout.","Most intervening banks are private. Remain in the channel and use only named public access unless permission or an emergency requires otherwise.","The Wakefield gauge supplies direct live context but cannot certify every upstream reach; local rain, wood, and channel changes can dominate."],
+      "watchFor":["Discharge below the conservative 55 cfs reference, when shallow-channel uncertainty and dragging become more likely.","Strainers, fresh wood, fast rises, private-bank constraints, storms, and missed daylight.","Unclear Pender, Bancroft, or Oakland access, changed road conditions, or inability to reach the take-out safely."]
+    }
+  },
+  "platte-river-north-bend-valley": {
+    "putIn": {"id":"north-bend-highway-79-bridge","name":"Nebraska 79 bridge south of North Bend","latitude":41.45295,"longitude":-96.77601},
+    "takeOut": {"id":"platte-river-landing-highway-64","name":"Platte River Landing at Nebraska 64","latitude":41.31893,"longitude":-96.40321},
+    "logistics": {
+      "distanceLabel":"About 24 river miles",
+      "estimatedPaddleTime":"About 8 to 12 hours in ordinary conditions, longer with low-water dragging, wind, scouting, breaks, or a slower group",
+      "shuttle":"Stage the Platte River Landing finish first, then drive back to the Highway 79 bridge south of North Bend. Treat this as a full-day shuttle and confirm the current ramp, parking, and seasonal access conditions before launching.",
+      "permits":"No route-specific private paddling permit is identified for the named public endpoints. Follow Nebraska boating and PFD rules, Papio/NGPC park rules, posted access restrictions, and current water-trail advisories.",
+      "camping":"Treat this as a daylight run. Platte River Landing has public park facilities, but Hormel Park is currently closed and no intervening camping is assumed. Do not camp on private banks, sandbars, or the stream bed without permission.",
+      "campingClassification":"endpoint_campground",
+      "summary":"Launch at the Nebraska 79 bridge south of North Bend and finish at Platte River Landing on Nebraska 64. The official trail is a long committed day with Hormel Park as a currently closed intermediate landmark; plan daylight, food, water, shuttle support, and a conservative turnaround plan.",
+      "accessCaveats":["The official trail identifies the Highway 79 launch, but the north-side dirt-road approach and short south-side portage can change; inspect the launch before committing.","Hormel Park’s boat ramp is currently closed after flood damage. Do not use it as a bailout or take-out unless the managing NRD confirms reopening.","Platte River Landing is a named public finish, but practical ramp, parking, and seasonal hours can change; follow Papio NRD signs on arrival.","Most intervening banks are private. Remain in the channel and use only named public access except for emergency portage."],
+      "watchFor":["Discharge below the conservative 5,000 cfs reference, especially when sandbars and shallow braided channels make progress uncertain.","Bridge pilings, strainers, fresh wood, rapidly rising water, flood warnings, strong crosswinds, and severe weather.","Hormel Park closure, changed road access, missing daylight, or inability to reach the Platte River Landing take-out safely."]
+    }
+  },
+  "north-loup-river-burwell-ord": {
+    "putIn": {"id":"burwell-riverside-park","name":"Burwell Riverside Park","latitude":41.78900058,"longitude":-99.134},
+    "takeOut": {"id":"anderson-island-ord","name":"Anderson Island, Ord","latitude":41.604454,"longitude":-98.9178651},
+    "logistics": {
+      "distanceLabel":"About 18.5 mi",
+      "estimatedPaddleTime":"About 7 to 10 hours in ordinary conditions, longer with low-water walking, scouting, wind, breaks, or a slower group",
+      "shuttle":"Stage the Anderson Island finish first, then drive back to Riverside Park in Burwell. Treat the route as a full-day shuttle and confirm current road, parking, and river-edge access conditions before launching.",
+      "permits":"No route-specific private paddling permit is identified by the cited public sources. Follow Nebraska boating and PFD rules, park rules, posted access restrictions, and current seasonal advisories.",
+      "camping":"Anderson Island provides public camping and river access near the finish. Burwell Riverside Park is the published start. Do not treat intervening private banks, sandbars, or the stream bed as campsites without permission.",
+      "campingClassification":"endpoint_campground",
+      "summary":"Launch at Burwell Riverside Park and finish at city-owned Anderson Island in Ord. The official trail is a committed day with one potential intermediate access at the Elyria county bridge; plan daylight, food, water, a real shuttle, and a conservative turnaround option.",
+      "accessCaveats":["Nebraska Game and Parks identifies Riverside Park as the start and Anderson Island as the finish, but practical water-edge conditions can change; inspect both endpoints on the day of launch.","The Elyria county bridge is the only potential intermediate access named by the official trail material. Verify legal approach, parking, and landing before relying on it.","Most intervening banks are private. Remain in the channel and use only named public access unless permission or an emergency requires otherwise.","The downstream USGS gauge is direct live context but cannot certify upstream conditions; irrigation diversions and local rain can change the Burwell reach."],
+      "watchFor":["Discharge below the conservative 275 cfs reference, especially summer irrigation periods when walking and channel hunting become more likely.","The 18-24 inch low rapids and fast water near the start; scout and wear a PFD.","Strainers, fresh wood, private-bank constraints, storms, rising water, and missed daylight.","Unclear Anderson Island or Riverside Park access, road closures, or a changed intermediate bridge approach."]
+    }
+  },
+  "elkhorn-river-wisner-west-point": {
+    "putIn": {"id":"wisner-river-park-boat-dock","name":"Wisner River Park boat dock","latitude":41.9796,"longitude":-96.9158},
+    "takeOut": {"id":"neligh-park-west-point-river-access","name":"Neligh Park, West Point","latitude":41.8426,"longitude":-96.7170},
+    "logistics": {
+      "distanceLabel":"About 15 river miles; verify the active channel and current water-trail map",
+      "estimatedPaddleTime":"About 5 to 8 hours at ordinary current, longer with low-water dragging, wind, scouting, or a slow group",
+      "shuttle":"Stage the vehicle at Neligh Park in West Point, then drive back to the Wisner River Park boat dock. Confirm current city access, parking, and seasonal conditions before launching.",
+      "permits":"No separate private-paddling permit is identified by the cited public access sources. Follow Nebraska boating and PFD rules, local park rules, and any posted water-trail advisories.",
+      "camping":"Wisner River Park and Neligh Park both document campground facilities. Reserve or confirm current site availability before treating either endpoint as an overnight base; do not camp on private banks, sandbars, or the stream bed without permission.",
+      "campingClassification":"endpoint_campground",
+      "summary":"Use Wisner River Park as the public launch and Neligh Park as the public West Point finish. This is a long Lower Elkhorn water-trail segment, so plan a full daylight window, shuttle, food and water, and a conservative turnaround or bailout plan.",
+      "accessCaveats":["Wisner River Park's city page documents a boat dock but does not promise a specific river-stage operating window; inspect the dock and approach before launching.","Neligh Park is a public campground and park, but the practical water-edge landing may not be identical to the campground coordinate. Confirm the legal take-out on arrival and follow posted park boundaries.","The route is bounded by named public endpoints, but most intervening banks are private. Do not land, camp, or portage on private property without permission except where emergency safety requires it.","The 575 cfs floor is community guidance. A rising river, flood warning, high wind, fresh wood, or poor daylight plan overrides the score."],
+      "watchFor":["Discharge below 575 cfs, when shallow-channel uncertainty and dragging become more likely.","Rapidly rising water, flood warnings, or discharge materially above the community guidance band; no official high-water cfs ceiling is claimed.","Strainers, downed trees, debris and channel changes after spring floods or storms.","Strong crosswinds and long exposed reaches.","Missing the West Point take-out or attempting an unplanned private-bank landing."]
+    }
+  },
   "platte-river-schramm-louisville": {
     "putIn": {
       "id": "schramm-park-sra-canoe-kayak-access",
@@ -360,5 +420,32 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Best second checkpoint and fallback finish before the final 4.5-mile ADM continuation."
       }
     ]
+  },
+  "niobrara-river-fort-niobrara-smith-falls": {
+    "putIn": {"id":"fort-niobrara-nwr-launch","name":"Fort Niobrara NWR Launch Site near Cornell Bridge","latitude":42.893222,"longitude":-100.476967},
+    "takeOut": {"id":"nichols-landing-smith-falls","name":"Nichols Landing, Smith Falls State Park","latitude":42.887811,"longitude":-100.315761},
+    "logistics": {
+      "distanceLabel":"About 10–12 river miles; verify the active channel and current outfitter map",
+      "estimatedPaddleTime":"About 3 to 4 hours at ordinary flow, longer with scouting, portage, wind, or a slow group",
+      "shuttle":"Stage the take-out at Nichols Landing / Smith Falls State Park, then use an outfitter shuttle or drive back to the Fort Niobrara NWR launch near Cornell Bridge. Confirm current launch access, parking, and park passes before committing.",
+      "permits":"A $1 launch fee applies at Fort Niobrara NWR; Nebraska State Park vehicle/day permits apply at Smith Falls State Park. Follow NPS, USFWS, Nebraska boating, PFD, and posted river regulations.",
+      "camping":"Smith Falls State Park provides endpoint camping and facilities. Private outfitters also operate campgrounds along the corridor; reserve or confirm current availability. Do not camp or land on private banks without permission.",
+      "campingClassification":"endpoint_campground",
+      "summary":"Use the Fort Niobrara NWR launch for the NPS-recommended day float to Nichols Landing at Smith Falls. Build a daylight plan around the current flow band, shuttle timing, route scouting, and a conservative portage plan.",
+      "accessCaveats":[
+        "The Fort Niobrara launch is popular and may be busy; NPS/USFWS ask private parties to stage efficiently and respect outfitter lanes.",
+        "Nichols Landing is a sand landing with a sandy approach; confirm current access, park pass, and landing conditions on arrival.",
+        "The direct Sparks gauge supports the official flow bands, but no gauge can guarantee obstacle-free passage. Scout rapids and wood and follow all posted closures or portage instructions.",
+        "Most intervening banks are private or managed refuge/state lands. Stay within public access rules and do not improvise landings or camping.",
+        "Smith Falls is a waterfall attraction immediately near the landing; stay on the designated landing/trail system and do not approach falls from the river."
+      ],
+      "watchFor":[
+        "Discharge below 340 cfs, which the official study classifies as unboatable for the studied recreation reach.",
+        "Flows 340–460 cfs, which may be boatable but lower quality with more shallow-water stops; use a conservative craft and inspect the route.",
+        "Flows above 1,200 cfs, which the official study classifies as high and outside its acceptable boating band; do not treat the route as a casual float.",
+        "Rapid rises, storms, thunderstorms, strainers, short rapids, and any temporary closure or landing damage.",
+        "Missing the Smith Falls take-out or attempting to continue downstream without a separately reviewed endpoint and hazard package."
+      ]
+    }
   }
 };

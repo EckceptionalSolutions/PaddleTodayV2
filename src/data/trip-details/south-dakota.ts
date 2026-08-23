@@ -601,5 +601,38 @@ export const southDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "GFP CanoeTrails FeatureServer access record OID 59; Parking Yes, Launch Yes, rock launch surface inside Palisades State Park."
       }
     ]
+  },
+  "spearfish-creek-city-park-jorgensen": {
+    "putIn": {
+      "name": "Spearfish City Park creek access",
+      "latitude": 44.4829812,
+      "longitude": -103.86117
+    },
+    "takeOut": {
+      "name": "Jorgensen Park creek access",
+      "latitude": 44.5048079,
+      "longitude": -103.8663964
+    },
+    "logistics": {
+      "distanceLabel": "About 3.3 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 3 hr depending on level, scouting, portages, and obstructions",
+      "shuttle": "Stage the Jorgensen Park take-out first, then launch at the signed creek access near Spearfish City Park. Confirm current park hours, landing conditions, and any event or construction closures.",
+      "permits": "No route-specific paddling permit is known. Follow City of Spearfish park rules and posted access restrictions.",
+      "camping": "Endpoint camping only at the Spearfish City Campground; do not infer creek-bank camping or overnight access from the city park corridor.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Use the Spearfish Creek town section only as a conditional, scouted Class II run. The direct USGS gauge and public city-park creek access make it searchable, but the park waterfall, low-head structures, fences, cold water, and limited bailout options require a conservative go/no-go decision.",
+      "accessCaveats": [
+        "City Park and Jorgensen Park list creek access, but landing space and bank conditions can change; use signed access and do not cross private property.",
+        "The City Park waterfall and other ledges require scouting and may require a portage. Never assume a feature is runnable from a web description.",
+        "Spearfish Creek can be diverted or altered by upstream infrastructure; use the direct gauge and local conditions rather than relying on seasonal averages.",
+        "This route does not authorize continuation into Spearfish Canyon or downstream farmland; those reaches need separate access and hazard review."
+      ],
+      "watchFor": [
+        "Shallow scraping below the 50 cfs minimum-only screen.",
+        "The City Park waterfall, low-head structures, ledges, fences, strainers, and narrow banks.",
+        "Cold water, fast rain-driven rises, and changing bridge or landing conditions.",
+        "Private banks and limited bailout points downstream of the parks."
+      ]
+    }
   }
 };

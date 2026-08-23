@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-14T01:24:30.674Z",
+  "generatedAt": "2026-08-21T23:48:43.259Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 1600,
-    "currentRouteCount": 782,
+    "totalLedgerCandidates": 1926,
+    "currentRouteCount": 785,
     "leadCount": 283,
     "discoveryFocusStates": [
       "Illinois",
@@ -244,14 +244,97 @@
       "blocked_recheck": 16
     },
     "byStatus": {
-      "blocked": 79,
+      "blocked_stale_or_incomplete_route_package": 1,
+      "blocked_threshold_access_safety_package": 1,
+      "blocked_threshold_endpoint_safety_package": 2,
+      "blocked_current_flow_and_dam_release_package": 1,
+      "blocked_threshold_endpoint_package": 1,
+      "screened_out_not_paddle_relevant": 34,
+      "blocked_route_capable_gauge": 47,
+      "screened_out_not_paddle_relevant_gauge": 25,
+      "blocked_threshold_package": 4,
+      "stale_or_unsupported_route_capable_gauge": 3,
+      "blocked_route_capable_provider_equivalence": 4,
+      "blocked_route_capable_gauge_cluster": 2,
+      "blocked_takeout_parking_low_flow_package": 1,
+      "blocked_threshold_dam_takeout_safety": 1,
+      "blocked_missing_route_thresholds": 1,
+      "blocked_section_threshold_camping_package": 1,
+      "blocked_launch_takeout_dam_safety": 1,
+      "blocked_expedition_distance_policy": 1,
+      "blocked_private_member_access_play_spot": 1,
+      "blocked_unsupported_lake_spillway_model_high_consequence": 1,
+      "blocked_threshold_endpoint_camping_package": 1,
+      "blocked_below_floor_access_dam_camping": 1,
+      "blocked_no_fresh_nonduplicate_official_route": 1,
+      "blocked_duplicates_closures_coastal_condition_model": 1,
+      "blocked_existing_coverage_no_new_segment": 1,
+      "blocked_loop_shape_threshold_package": 1,
+      "blocked_recorded_endpoint_threshold_route_shape": 1,
+      "blocked_coastal_threshold_model_safety_package": 1,
+      "blocked_coastal_bay_threshold_model": 1,
+      "blocked_roundtrip_route_shape_bridge_portage_threshold": 1,
+      "blocked_open_bay_shipping_channel_threshold_safety": 1,
+      "blocked_below_floor_access_camping_coordinate_package": 1,
+      "blocked_below_floor_safety_camping_package": 1,
+      "blocked_below_floor_dam_access_camping_safety": 1,
+      "blocked_below_floor_endpoint_camping_safety": 1,
+      "blocked_below_floor_strainer_dam_safety_package": 1,
+      "blocked_below_floor_dam_post_flood_safety_package": 1,
+      "blocked_threshold_access_camping_safety_package": 1,
+      "blocked_placeholder_thresholds_dam_release_access_camping": 1,
+      "blocked_threshold_endpoint_camping_safety_package": 6,
+      "blocked_endpoint_access_camping_safety_current_gauge_package": 1,
+      "blocked_unofficial_steep_access_camping_coordinate_package": 1,
+      "blocked_public_endpoint_camping_coordinate_package": 2,
+      "blocked_below_floor_public_access_camping_package": 1,
+      "blocked_below_floor_access_dam_safety_package": 1,
+      "blocked_below_floor_expedition_camping_takeout_package": 1,
+      "blocked_below_floor_public_putin_camping_package": 1,
+      "blocked_loop_emergency_access_threshold_current_flow": 1,
+      "blocked_zero_flow_and_no_threshold_package": 1,
+      "blocked_no_lower_nueces_threshold_camping_package": 1,
+      "blocked_no_direct_discharge_and_below_floor_proxy": 1,
+      "blocked_no_selected_public_point_to_point_package": 1,
+      "blocked_coordinate_gate_after_attempted_implementation": 1,
+      "blocked_low_head_dam_and_us183_coordinate_gate": 1,
+      "blocked_no_portage_bay_city_dam": 1,
+      "blocked_unimproved_steep_putin_and_incomplete_route_package": 1,
+      "blocked_steep_access_no_camping_threshold_package": 1,
+      "blocked_no_fresh_distinct_candidate": 2,
+      "blocked_coastal_tidal_or_duplicate_source_family": 1,
+      "blocked_same_access_or_implemented_source_family": 1,
+      "blocked_duplicate_or_public_putin_not_cleared": 1,
+      "blocked_no_implementation_ready_texas_lead": 1,
+      "blocked_below_floor_expedition_package": 1,
+      "blocked_takeout_camping_safety_package": 2,
+      "blocked_flood_closure_route_shape_package": 1,
+      "blocked_roundtrip_below_floor": 1,
+      "blocked_lake_level_below_spillway_whitewater_safety": 1,
+      "blocked": 119,
+      "route_shape_live_threshold_blocked": 1,
+      "route_shape_access_live_threshold_blocked": 1,
+      "same_access_backwater_threshold_blocked": 1,
+      "public_takeout_threshold_safety_blocked": 1,
+      "lake_reservoir_route_model_blocked": 1,
+      "threshold_model_blocked": 1,
+      "gauge_threshold_model_blocked": 1,
+      "current_access_closure_blocked": 3,
+      "reservoir_lake_loop_product_model_blocked": 1,
+      "coastal_shallow_bay_loop_product_model_blocked": 1,
+      "coastal_lake_marsh_route_choice_blocked": 1,
+      "coastal_multi_route_product_model_blocked": 2,
+      "coastal_loop_route_choice_product_model_blocked": 1,
+      "added": 767,
+      "blocked_duplicate_closure_not_retried": 1,
+      "blocked_route_shape_and_gauge": 1,
+      "blocked_loop_stage_only_dam_threshold": 1,
       "blocked_stale_discharge_no_threshold": 1,
       "blocked_below_floor_access_camping_package": 5,
       "blocked_below_floor_upstream_connector": 1,
       "blocked_same_access_route_choice_no_threshold": 1,
       "blocked_below_floor_confluence_takeout_package": 1,
       "blocked_endpoint_access_dam_safety_camping": 1,
-      "blocked_takeout_camping_safety_package": 1,
       "blocked_below_floor_flow": 3,
       "blocked_below_floor_flow_access_camping_package": 1,
       "blocked_below_floor_access_dam_safety": 1,
@@ -301,7 +384,6 @@
       "blocked_current_beta_poor_access_camping_safety": 1,
       "blocked_current_beta_access_camping_threshold": 1,
       "blocked_live_gauge_access_camping_package": 1,
-      "blocked_threshold_package": 1,
       "blocked_stale_or_below_floor_gauge": 1,
       "blocked_access_camping_safety_package": 1,
       "blocked_selected_route_access_threshold": 1,
@@ -319,7 +401,6 @@
       "putin_access_blocked": 1,
       "access_camping_package_blocked": 3,
       "stale_lease_access_blocked": 4,
-      "added": 765,
       "threshold_access_camping_safety_blocked": 1,
       "blocked_route_choice_reservoir_no_threshold_model": 1,
       "blocked_loop_out_and_back_no_threshold_model": 1,
@@ -390,7 +471,6 @@
       "coastal_product_model_blocked": 1,
       "coastal_loop_product_model_blocked": 1,
       "tidal_loop_product_model_blocked": 1,
-      "coastal_multi_route_product_model_blocked": 1,
       "coastal_marsh_product_model_blocked": 1,
       "official_source_threshold_blocked": 1,
       "route_shape_blocked": 2,
@@ -439,7 +519,7 @@
       "research_later": 51,
       "no_live_gauge": 95,
       "planning_only": 2,
-      "implemented": 84,
+      "implemented": 85,
       "needs_manual_coordinates": 1,
       "blocked_until_date": 19,
       "rejected": 16,
@@ -491,7 +571,35 @@
       "blocked_access_distance_package": 1,
       "blocked_private_lease_access_package": 1,
       "blocked_duplicate_too_short_connector": 1,
-      "blocked_coastal_transition_live_discharge_threshold": 1
+      "blocked_coastal_transition_live_discharge_threshold": 1,
+      "blocked_duplicate_contained_private_livery_endpoint_package": 1,
+      "blocked_coastal_tidal_threshold_model": 1,
+      "blocked_lake_arm_route_choice_threshold_model": 1,
+      "blocked_current_access_page_missing_closure_not_cleared": 1,
+      "blocked_endpoint_coordinate_access_package": 1,
+      "blocked_duplicate_existing_route": 1,
+      "blocked_active_closure_and_below_floor": 1,
+      "blocked_active_putin_closure_duplicate_family": 1,
+      "blocked_single_access_route_shape_camping_package": 1,
+      "blocked_placeholder_thresholds_and_access_package": 1,
+      "blocked_big_river_route_package": 1,
+      "stale_or_unsupported_not_paddle_relevant": 3,
+      "blocked_provider_equivalence_threshold_duplicate": 1,
+      "covered_existing_scored_route_no_duplicate": 1,
+      "stale_or_unsupported_backwater_route_package": 1,
+      "blocked_route_package_threshold_access": 5,
+      "blocked_endpoint_coordinate_package": 1,
+      "blocked_endpoint_coordinate_safety_package": 1,
+      "blocked_station_threshold_route_package": 2,
+      "stale_or_unsupported_stage_only_route_package": 1,
+      "blocked_diversion_safety_route_package": 1,
+      "blocked_route_capable_station_package": 9,
+      "blocked_route_package": 20,
+      "blocked_threshold_access_package": 2,
+      "stale_or_unsupported_route_capable": 10,
+      "stale_or_unsupported": 7,
+      "blocked_route_capable": 2,
+      "blocked_threshold_route_package": 1
     }
   },
   "lanes": {
@@ -1765,6 +1873,60 @@
         "discoveryTier": "supported_midwest"
       },
       {
+        "candidateId": "sd-james-river-highway-access-family",
+        "lane": "fresh_source_discovery",
+        "priority": 100,
+        "state": "SD",
+        "river": "James River",
+        "route": "South Dakota highway-access family",
+        "currentStatus": "research_later",
+        "lastReviewed": "2026-08-07",
+        "reviewCount": 3,
+        "duplicateRisk": false,
+        "blocker": "2026-08-07 02:43 America/Chicago / 2026-08-07 07:43 UTC bounded South Dakota baseline review preserved research_later. USGS Water Services IV for 06478000 James River near Mitchell returned product-ready current values of 436 cfs / 11.51 ft at 2026-08-07 01:45 CDT plus a 24-hour discharge/stage series. Sioux Empire Paddlers supports only broad James River spring/early-summer paddling and access near US/SD highways,...",
+        "retryCondition": "Retry only if a manager, SDCKA/Jay Heath source, Sioux Empire Paddlers, RiverScout/onWater with corroboration, Davison/Hanson County, or another credible source publishes a specific James River day reach with named public endpoints, water-entry coordinates, route distance, camping/overnight guidance, safety caveats, and numeric gauge-tied thresholds for a product-fetchable James River gauge such as USGS 06478000.",
+        "gauge": {
+          "quality": "product_live_but_threshold_unselected",
+          "id": "06478000",
+          "provider": "USGS",
+          "notes": "USGS 06478000 James River near Mitchell returned product-ready current discharge/stage during the 2026-08-07 review, but no numeric paddling threshold model tied to this route was found."
+        },
+        "thresholdSupport": {
+          "strength": "none_yet",
+          "notes": "No numeric paddling floor, ideal range, or high-water cutoff tied to USGS 06478000 was found; 2008 trip-day depth observations are anecdotal and not a reusable threshold model."
+        },
+        "endpoints": {
+          "putIn": "State Highway 38 bridge east of Mitchell / blog-described public access point, not manager-backed by name",
+          "takeOut": "258th Street bridge area, not manager-backed by name",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because the bridge endpoints are not yet supported by manager-backed public launch/landing coordinates."
+        },
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "sd-james-river-fisher-grove-redfield-family",
+        "lane": "fresh_source_discovery",
+        "priority": 100,
+        "state": "SD",
+        "river": "James River",
+        "route": "Fisher Grove / Redfield James River family",
+        "currentStatus": "research_later",
+        "lastReviewed": "2026-08-07",
+        "reviewCount": 1,
+        "duplicateRisk": false,
+        "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found useful public-access and camping context but not a route-ready package. South Dakota GFP confirms Fisher Grove State Park has James River access for canoeing and kayaking plus 22 electrical campsites, and USGS Water Services IV for 06475000 James River near Redfield returned product-live values of 616 cfs / 6.26 ft at...",
+        "retryCondition": "Retry only if a public manager or credible route source publishes a Fisher Grove-area James River day reach with named public endpoints, distance, coordinates, camping treatment, safety caveats, and numeric thresholds tied to USGS 06475000 or another product-supported James gauge.",
+        "camping": {
+          "status": "endpoint_basecamp_supported_but_not_route",
+          "notes": "Fisher Grove campground is source-backed, but no point-to-point route was added and camping is not enough to infer route legality or shape."
+        },
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
         "candidateId": "sd-white-river-interior-badlands-family",
         "lane": "fresh_source_discovery",
         "priority": 100,
@@ -1955,60 +2117,6 @@
         },
         "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family in this adjacent expansion state, then seed or strengthen the ledger candidate.",
         "discoveryTier": "adjacent_expansion"
-      },
-      {
-        "candidateId": "sd-james-river-fisher-grove-redfield-family",
-        "lane": "fresh_source_discovery",
-        "priority": 96,
-        "state": "SD",
-        "river": "James River",
-        "route": "Fisher Grove / Redfield James River family",
-        "currentStatus": "research_later",
-        "lastReviewed": "2026-08-07",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found useful public-access and camping context but not a route-ready package. South Dakota GFP confirms Fisher Grove State Park has James River access for canoeing and kayaking plus 22 electrical campsites, and USGS Water Services IV for 06475000 James River near Redfield returned product-live values of 616 cfs / 6.26 ft at...",
-        "retryCondition": "Retry only if a public manager or credible route source publishes a Fisher Grove-area James River day reach with named public endpoints, distance, coordinates, camping treatment, safety caveats, and numeric thresholds tied to USGS 06475000 or another product-supported James gauge.",
-        "camping": {
-          "status": "endpoint_basecamp_supported_but_not_route",
-          "notes": "Fisher Grove campground is source-backed, but no point-to-point route was added and camping is not enough to infer route legality or shape."
-        },
-        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "sd-james-river-highway-access-family",
-        "lane": "fresh_source_discovery",
-        "priority": 92,
-        "state": "SD",
-        "river": "James River",
-        "route": "South Dakota highway-access family",
-        "currentStatus": "research_later",
-        "lastReviewed": "2026-08-07",
-        "reviewCount": 3,
-        "duplicateRisk": false,
-        "blocker": "2026-08-07 02:43 America/Chicago / 2026-08-07 07:43 UTC bounded South Dakota baseline review preserved research_later. USGS Water Services IV for 06478000 James River near Mitchell returned product-ready current values of 436 cfs / 11.51 ft at 2026-08-07 01:45 CDT plus a 24-hour discharge/stage series. Sioux Empire Paddlers supports only broad James River spring/early-summer paddling and access near US/SD highways,...",
-        "retryCondition": "Retry only if a manager, SDCKA/Jay Heath source, Sioux Empire Paddlers, RiverScout/onWater with corroboration, Davison/Hanson County, or another credible source publishes a specific James River day reach with named public endpoints, water-entry coordinates, route distance, camping/overnight guidance, safety caveats, and numeric gauge-tied thresholds for a product-fetchable James River gauge such as USGS 06478000.",
-        "gauge": {
-          "quality": "product_live_but_threshold_unselected",
-          "id": "06478000",
-          "provider": "USGS",
-          "notes": "USGS 06478000 James River near Mitchell returned product-ready current discharge/stage during the 2026-08-07 review, but no numeric paddling threshold model tied to this route was found."
-        },
-        "thresholdSupport": {
-          "strength": "none_yet",
-          "notes": "No numeric paddling floor, ideal range, or high-water cutoff tied to USGS 06478000 was found; 2008 trip-day depth observations are anecdotal and not a reusable threshold model."
-        },
-        "endpoints": {
-          "putIn": "State Highway 38 bridge east of Mitchell / blog-described public access point, not manager-backed by name",
-          "takeOut": "258th Street bridge area, not manager-backed by name",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because the bridge endpoints are not yet supported by manager-backed public launch/landing coordinates."
-        },
-        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
-        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mn-vermilion-river-twomile-creek-access-eightmile-creek-access",
@@ -4775,6 +4883,146 @@
         "discoveryTier": "supported_midwest"
       },
       {
+        "candidateId": "sd-big-sioux-newton-hills-fairview",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "SD",
+        "river": "Big Sioux River",
+        "route": "Newton Hills State Park to Fairview",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-08-07",
+        "reviewCount": 1,
+        "duplicateRisk": false,
+        "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official endpoints but not a scoreable threshold package. Sioux Empire Paddlers lists Newton Hills to Fairview as a Big Sioux Circuit route, and SD GFP CanoeTrails marks Newton Hills State Park and Fairview as Parking Yes / Launch Yes / Camping No with concrete/rock launch surfaces and coordinates. USGS 06485500 at Akr...",
+        "retryCondition": "Retry only if a credible route source publishes Newton-Hills-to-Fairview threshold guidance tied to a product-supported Big Sioux gauge plus route-specific safety/camping handling.",
+        "camping": {
+          "status": "none_or_nearby_basecamp_unresolved",
+          "notes": "GFP access records for Newton Hills and Fairview are Camping No. Nearby park camping was not treated as route camping for an unqualified route."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "sd-big-sioux-fairview-oak-ridge",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "SD",
+        "river": "Big Sioux River",
+        "route": "Fairview to Oak Ridge Public Water Access",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-08-07",
+        "reviewCount": 1,
+        "duplicateRisk": false,
+        "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official launch-supported endpoints but no defensible scoring model. Sioux Empire Paddlers lists Fairview to Oak Ridge PWA as a Big Sioux Circuit route, and SD GFP CanoeTrails marks both Fairview and Oak Ridge Public Water Access as Parking Yes / Launch Yes / Camping No with rock/concrete launch surfaces and coordinate...",
+        "retryCondition": "Retry only if a credible route source publishes Fairview-to-Oak-Ridge gauge guidance tied to a product-supported Big Sioux gauge and clears camping/safety details.",
+        "camping": {
+          "status": "none",
+          "notes": "GFP marks both Fairview and Oak Ridge Public Water Access as Camping No; no informal or private-bank camping is inferred."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "sd-moreau-river-little-moreau-rec-area-family",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "SD",
+        "river": "Moreau River",
+        "route": "Little Moreau Recreation Area family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-08-07",
+        "reviewCount": 1,
+        "duplicateRisk": false,
+        "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found public recreation and gauge context but no route-ready scoring model. South Dakota GFP lists Little Moreau Recreation Area with canoeing, kayaking, boat ramps, vault toilets, and five first-come campsites. USGS Water Services IV returned 0.00 cfs / 1.33 ft for 06360500 Moreau River near Whitehorse at 2026-08-07 20:30 M...",
+        "retryCondition": "Retry only if GFP, a tribal/public manager, or a credible route source publishes a specific Moreau day reach with legal endpoints, route distance, camping handling, safety caveats, and numeric thresholds tied to a product-supported Moreau gauge.",
+        "camping": {
+          "status": "endpoint_basecamp_supported_but_not_route",
+          "notes": "Little Moreau Recreation Area has five first-come campsites, but no point-to-point route was added and no informal river camping is inferred."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "sd-james-river-island-riverside-st-helena",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "SD",
+        "river": "Missouri River",
+        "route": "Riverside Park to St. Helena / James River Island family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-08-08",
+        "reviewCount": 1,
+        "duplicateRisk": false,
+        "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the NPS James River Island / Riverside-to-St. Helena family after NPS acquired James River Island and noted nearby public launches. No route was added: NPS access records support Riverside Park at river mile 805 and St. Helena at river mile 798, and NPS says James River Island is accessible by kayak/canoe with nearb...",
+        "retryCondition": "Retry only if NPS publishes route-specific James River Island paddling rules/compendium details plus a selected public endpoint pair, camping legality, safety package, and a supported live discharge/threshold source.",
+        "gauge": {
+          "quality": "no_product_live_selected",
+          "id": "06467500 stage-only fallback rejected",
+          "provider": "USGS",
+          "notes": "No scoreable discharge threshold source was selected for this island-access family."
+        },
+        "thresholdSupport": {
+          "strength": "not_found_for_selected_reach",
+          "notes": "No route-specific numeric model tied to a supported live gauge surfaced."
+        },
+        "endpoints": {
+          "putIn": "Riverside Park",
+          "takeOut": "St. Helena River Access / James River Island access family",
+          "coordinatesPresent": true,
+          "putInCoordinates": {
+            "latitude": 42.866055555556,
+            "longitude": -97.384527777778
+          },
+          "takeOutCoordinates": {
+            "latitude": 42.850555555556,
+            "longitude": -97.269805555556
+          },
+          "coordinateSource": "NPS MNRR river access point waypoints converted from DMS."
+        },
+        "camping": {
+          "status": "unknown",
+          "notes": "NPS references James River Island compendium rules, but this run did not capture route-specific camping legality; no camping is inferred."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "sd-big-sioux-settlers-canoe-access-oak-ridge",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "SD",
+        "river": "Big Sioux River",
+        "route": "Settlers Canoe Access / Fairview to Oak Ridge Public Water Access",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-08-08",
+        "reviewCount": 1,
+        "duplicateRisk": false,
+        "blocker": "2026-08-08 17:57 America/Chicago / 2026-08-08 22:57 UTC bounded South Dakota baseline screened the Settlers Canoe Access / Fairview-to-Oak-Ridge lead after a fresh county access page surfaced. No route was added: MyCountyParks supports Settlers Canoe Access as a public canoe/small-boat ramp 0.25 mi north of Fairview, and the GFP Jay Heath layer supports downstream Oak Ridge as a launch-supported access, but the cand...",
+        "retryCondition": "Retry only if Sioux County, South Dakota GFP, Sioux Empire Paddlers, or another route manager publishes a Fairview/Settlers-to-Oak-Ridge route package with numeric gauge thresholds, camping treatment, hazards, and gauge applicability.",
+        "gauge": {
+          "quality": "product_live_but_gauge_applicability_blocked",
+          "id": "06485500",
+          "provider": "USGS",
+          "notes": "Akron gauge is live but downstream and already used for lower Big Sioux cards; no accepted threshold relationship cleared for Settlers/Fairview-to-Oak-Ridge."
+        },
+        "thresholdSupport": {
+          "strength": "not_found_for_selected_reach",
+          "notes": "No numeric paddling floor/range specific to the Settlers/Fairview-to-Oak-Ridge reach surfaced."
+        },
+        "endpoints": {
+          "putIn": "Settlers Canoe Access / Fairview",
+          "takeOut": "Oak Ridge Public Water Access",
+          "coordinatesPresent": true,
+          "coordinateSource": "MyCountyParks access context plus South Dakota GFP CanoeTrails access anchors; not implemented because threshold/gauge applicability failed."
+        },
+        "camping": {
+          "status": "not_reached",
+          "notes": "Access sources do not clear route publication; no route camping package was implemented."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
         "candidateId": "tn-stones-river-thompson-lane-nice-mill",
         "lane": "threshold_discovery",
         "priority": 100,
@@ -4975,6 +5223,37 @@
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
+        "candidateId": "sd-boxelder-creek-nemo-family",
+        "lane": "threshold_discovery",
+        "priority": 98,
+        "state": "SD",
+        "river": "Boxelder Creek",
+        "route": "Nemo / lower Boxelder Creek family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-08-08",
+        "reviewCount": 1,
+        "duplicateRisk": false,
+        "blocker": "2026-08-08 13:56 America/Chicago / 2026-08-08 18:56 UTC bounded South Dakota baseline review screened a Boxelder Creek Nemo / lower creek family lead. No route was added: USGS Water Services returned 06422500 Boxelder Creek near Nemo at 0.20 cfs / 1.12 ft at 2026-08-08 12:45 MDT and 06425500 Boxelder Creek near Rapid City at 0.23 cfs / 3.48 ft at 2026-08-08 12:00 MDT, while 06425100 discharge was stale to 2026-06-19...",
+        "retryCondition": "Retry only if Black Hills National Forest, South Dakota GFP, a local route manager, American Whitewater, or a public access authority publishes a specific Boxelder Creek paddle route with public endpoints, camping rules, safety/egress handling, and numeric thresholds tied to a product-supported gauge.",
+        "gauge": {
+          "quality": "partial_current",
+          "id": "06422500",
+          "provider": "USGS",
+          "notes": "Gauge data was available, but discharge was essentially dry and no scoreable route threshold package surfaced."
+        },
+        "thresholdSupport": {
+          "strength": "not_found_for_selected_reach",
+          "notes": "No public numeric paddling model surfaced for a selected Boxelder Creek reach."
+        },
+        "endpoints": {
+          "putIn": null,
+          "takeOut": null,
+          "coordinatesPresent": false
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "ar-spring-river-mammoth-spring-hardy",
@@ -5255,86 +5534,6 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "sd-james-river-island-riverside-st-helena",
-        "lane": "threshold_discovery",
-        "priority": 96,
-        "state": "SD",
-        "river": "Missouri River",
-        "route": "Riverside Park to St. Helena / James River Island family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-08-08",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the NPS James River Island / Riverside-to-St. Helena family after NPS acquired James River Island and noted nearby public launches. No route was added: NPS access records support Riverside Park at river mile 805 and St. Helena at river mile 798, and NPS says James River Island is accessible by kayak/canoe with nearb...",
-        "retryCondition": "Retry only if NPS publishes route-specific James River Island paddling rules/compendium details plus a selected public endpoint pair, camping legality, safety package, and a supported live discharge/threshold source.",
-        "gauge": {
-          "quality": "no_product_live_selected",
-          "id": "06467500 stage-only fallback rejected",
-          "provider": "USGS",
-          "notes": "No scoreable discharge threshold source was selected for this island-access family."
-        },
-        "thresholdSupport": {
-          "strength": "not_found_for_selected_reach",
-          "notes": "No route-specific numeric model tied to a supported live gauge surfaced."
-        },
-        "endpoints": {
-          "putIn": "Riverside Park",
-          "takeOut": "St. Helena River Access / James River Island access family",
-          "coordinatesPresent": true,
-          "putInCoordinates": {
-            "latitude": 42.866055555556,
-            "longitude": -97.384527777778
-          },
-          "takeOutCoordinates": {
-            "latitude": 42.850555555556,
-            "longitude": -97.269805555556
-          },
-          "coordinateSource": "NPS MNRR river access point waypoints converted from DMS."
-        },
-        "camping": {
-          "status": "unknown",
-          "notes": "NPS references James River Island compendium rules, but this run did not capture route-specific camping legality; no camping is inferred."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "sd-big-sioux-settlers-canoe-access-oak-ridge",
-        "lane": "threshold_discovery",
-        "priority": 96,
-        "state": "SD",
-        "river": "Big Sioux River",
-        "route": "Settlers Canoe Access / Fairview to Oak Ridge Public Water Access",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-08-08",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "2026-08-08 17:57 America/Chicago / 2026-08-08 22:57 UTC bounded South Dakota baseline screened the Settlers Canoe Access / Fairview-to-Oak-Ridge lead after a fresh county access page surfaced. No route was added: MyCountyParks supports Settlers Canoe Access as a public canoe/small-boat ramp 0.25 mi north of Fairview, and the GFP Jay Heath layer supports downstream Oak Ridge as a launch-supported access, but the cand...",
-        "retryCondition": "Retry only if Sioux County, South Dakota GFP, Sioux Empire Paddlers, or another route manager publishes a Fairview/Settlers-to-Oak-Ridge route package with numeric gauge thresholds, camping treatment, hazards, and gauge applicability.",
-        "gauge": {
-          "quality": "product_live_but_gauge_applicability_blocked",
-          "id": "06485500",
-          "provider": "USGS",
-          "notes": "Akron gauge is live but downstream and already used for lower Big Sioux cards; no accepted threshold relationship cleared for Settlers/Fairview-to-Oak-Ridge."
-        },
-        "thresholdSupport": {
-          "strength": "not_found_for_selected_reach",
-          "notes": "No numeric paddling floor/range specific to the Settlers/Fairview-to-Oak-Ridge reach surfaced."
-        },
-        "endpoints": {
-          "putIn": "Settlers Canoe Access / Fairview",
-          "takeOut": "Oak Ridge Public Water Access",
-          "coordinatesPresent": true,
-          "coordinateSource": "MyCountyParks access context plus South Dakota GFP CanoeTrails access anchors; not implemented because threshold/gauge applicability failed."
-        },
-        "camping": {
-          "status": "not_reached",
-          "notes": "Access sources do not clear route publication; no route camping package was implemented."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
         "candidateId": "mo-black-river-lesterville-route-k",
         "lane": "threshold_discovery",
         "priority": 95,
@@ -5403,61 +5602,41 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "sd-big-sioux-newton-hills-fairview",
+        "candidateId": "sd-big-sioux-canton-newton-hills",
         "lane": "threshold_discovery",
         "priority": 94,
         "state": "SD",
         "river": "Big Sioux River",
-        "route": "Newton Hills State Park to Fairview",
+        "route": "Canton City Park to Newton Hills State Park",
         "currentStatus": "threshold_weak",
         "lastReviewed": "2026-08-07",
         "reviewCount": 1,
         "duplicateRisk": false,
-        "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official endpoints but not a scoreable threshold package. Sioux Empire Paddlers lists Newton Hills to Fairview as a Big Sioux Circuit route, and SD GFP CanoeTrails marks Newton Hills State Park and Fairview as Parking Yes / Launch Yes / Camping No with concrete/rock launch surfaces and coordinates. USGS 06485500 at Akr...",
-        "retryCondition": "Retry only if a credible route source publishes Newton-Hills-to-Fairview threshold guidance tied to a product-supported Big Sioux gauge plus route-specific safety/camping handling.",
+        "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found useful route/access evidence but did not clear publication. Sioux Empire Paddlers lists Canton to Newton Hills as a Big Sioux Circuit route, Jay Heath/SouthDakotaKayak documents a 9-mile Canton-to-Newton-Hills paddle with a public access across from Newton Hills Trail Camp, and SD GFP CanoeTrails marks Canton City Park...",
+        "retryCondition": "Retry only if SD GFP, Sioux Empire Paddlers, SDCKA/Jay Heath sources, a park manager, or another credible route source publishes Canton-to-Newton-Hills gauge guidance and current low-head-dam/debris safety handling tied to a product-supported gauge.",
         "camping": {
           "status": "none_or_nearby_basecamp_unresolved",
-          "notes": "GFP access records for Newton Hills and Fairview are Camping No. Nearby park camping was not treated as route camping for an unqualified route."
+          "notes": "GFP access records for Canton City Park and Newton Hills State Park are Camping No. Newton Hills has separate park campground context nearby, but no route package was added and no informal river camping is inferred."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "sd-big-sioux-fairview-oak-ridge",
+        "candidateId": "sd-big-sioux-us-18-canton-city-park",
         "lane": "threshold_discovery",
         "priority": 94,
         "state": "SD",
         "river": "Big Sioux River",
-        "route": "Fairview to Oak Ridge Public Water Access",
+        "route": "US Hwy 18 to Canton City Park",
         "currentStatus": "threshold_weak",
         "lastReviewed": "2026-08-07",
         "reviewCount": 1,
         "duplicateRisk": false,
-        "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official launch-supported endpoints but no defensible scoring model. Sioux Empire Paddlers lists Fairview to Oak Ridge PWA as a Big Sioux Circuit route, and SD GFP CanoeTrails marks both Fairview and Oak Ridge Public Water Access as Parking Yes / Launch Yes / Camping No with rock/concrete launch surfaces and coordinate...",
-        "retryCondition": "Retry only if a credible route source publishes Fairview-to-Oak-Ridge gauge guidance tied to a product-supported Big Sioux gauge and clears camping/safety details.",
+        "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found a shorter public-access split inside the already blocked Klondike-to-Canton family, but the threshold/gauge gate remains unresolved. SD GFP CanoeTrails marks US Hwy 18 and Canton City Park as Parking Yes / Launch Yes / Camping No with coordinates, and Boundless Adventures describes a 4.7-mile Sunnyside / US Hwy 18-to-C...",
+        "retryCondition": "Retry only if a credible route source publishes US-Hwy-18-to-Canton threshold guidance tied to a product-supported Big Sioux gauge plus complete safety/camping treatment.",
         "camping": {
           "status": "none",
-          "notes": "GFP marks both Fairview and Oak Ridge Public Water Access as Camping No; no informal or private-bank camping is inferred."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "sd-moreau-river-little-moreau-rec-area-family",
-        "lane": "threshold_discovery",
-        "priority": 94,
-        "state": "SD",
-        "river": "Moreau River",
-        "route": "Little Moreau Recreation Area family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-08-07",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found public recreation and gauge context but no route-ready scoring model. South Dakota GFP lists Little Moreau Recreation Area with canoeing, kayaking, boat ramps, vault toilets, and five first-come campsites. USGS Water Services IV returned 0.00 cfs / 1.33 ft for 06360500 Moreau River near Whitehorse at 2026-08-07 20:30 M...",
-        "retryCondition": "Retry only if GFP, a tribal/public manager, or a credible route source publishes a specific Moreau day reach with legal endpoints, route distance, camping handling, safety caveats, and numeric thresholds tied to a product-supported Moreau gauge.",
-        "camping": {
-          "status": "endpoint_basecamp_supported_but_not_route",
-          "notes": "Little Moreau Recreation Area has five first-come campsites, but no point-to-point route was added and no informal river camping is inferred."
+          "notes": "GFP marks both US Hwy 18 and Canton City Park Camping No; no private-bank or informal camping is inferred."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "supported_midwest"
@@ -5553,37 +5732,6 @@
         "discoveryTier": "undercovered_supported_midwest"
       },
       {
-        "candidateId": "sd-boxelder-creek-nemo-family",
-        "lane": "threshold_discovery",
-        "priority": 92,
-        "state": "SD",
-        "river": "Boxelder Creek",
-        "route": "Nemo / lower Boxelder Creek family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-08-08",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "2026-08-08 13:56 America/Chicago / 2026-08-08 18:56 UTC bounded South Dakota baseline review screened a Boxelder Creek Nemo / lower creek family lead. No route was added: USGS Water Services returned 06422500 Boxelder Creek near Nemo at 0.20 cfs / 1.12 ft at 2026-08-08 12:45 MDT and 06425500 Boxelder Creek near Rapid City at 0.23 cfs / 3.48 ft at 2026-08-08 12:00 MDT, while 06425100 discharge was stale to 2026-06-19...",
-        "retryCondition": "Retry only if Black Hills National Forest, South Dakota GFP, a local route manager, American Whitewater, or a public access authority publishes a specific Boxelder Creek paddle route with public endpoints, camping rules, safety/egress handling, and numeric thresholds tied to a product-supported gauge.",
-        "gauge": {
-          "quality": "partial_current",
-          "id": "06422500",
-          "provider": "USGS",
-          "notes": "Gauge data was available, but discharge was essentially dry and no scoreable route threshold package surfaced."
-        },
-        "thresholdSupport": {
-          "strength": "not_found_for_selected_reach",
-          "notes": "No public numeric paddling model surfaced for a selected Boxelder Creek reach."
-        },
-        "endpoints": {
-          "putIn": null,
-          "takeOut": null,
-          "coordinatesPresent": false
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
         "candidateId": "tx-colorado-river-bastrop-el-camino-real",
         "lane": "threshold_discovery",
         "priority": 91,
@@ -5652,46 +5800,6 @@
         "duplicateRisk": false,
         "blocker": "2026-08-08 19:18 America/Chicago / 2026-08-09 00:18 UTC bounded South Dakota baseline review screened the Travel South Dakota/Pierre Dam Run lead from Oahe Dam to LaFramboise Causeway. No route was added: Travel South Dakota names the scenic paddle and LaFramboise/Oahe/Farm Island pages support paddling context, while USGS Water Services returned stage-only Missouri River data at 06441590 LaFramboise Island (24.50 f...",
         "retryCondition": "Retry only if Visit Pierre, South Dakota GFP, USACE, USGS, or another manager-grade source publishes exact public Dam Run endpoints, release/discharge or stage thresholds tied to a product-supported gauge, camping rules, and big-river safety guidance.",
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "sd-big-sioux-canton-newton-hills",
-        "lane": "threshold_discovery",
-        "priority": 88,
-        "state": "SD",
-        "river": "Big Sioux River",
-        "route": "Canton City Park to Newton Hills State Park",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-08-07",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found useful route/access evidence but did not clear publication. Sioux Empire Paddlers lists Canton to Newton Hills as a Big Sioux Circuit route, Jay Heath/SouthDakotaKayak documents a 9-mile Canton-to-Newton-Hills paddle with a public access across from Newton Hills Trail Camp, and SD GFP CanoeTrails marks Canton City Park...",
-        "retryCondition": "Retry only if SD GFP, Sioux Empire Paddlers, SDCKA/Jay Heath sources, a park manager, or another credible route source publishes Canton-to-Newton-Hills gauge guidance and current low-head-dam/debris safety handling tied to a product-supported gauge.",
-        "camping": {
-          "status": "none_or_nearby_basecamp_unresolved",
-          "notes": "GFP access records for Canton City Park and Newton Hills State Park are Camping No. Newton Hills has separate park campground context nearby, but no route package was added and no informal river camping is inferred."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "sd-big-sioux-us-18-canton-city-park",
-        "lane": "threshold_discovery",
-        "priority": 88,
-        "state": "SD",
-        "river": "Big Sioux River",
-        "route": "US Hwy 18 to Canton City Park",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-08-07",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found a shorter public-access split inside the already blocked Klondike-to-Canton family, but the threshold/gauge gate remains unresolved. SD GFP CanoeTrails marks US Hwy 18 and Canton City Park as Parking Yes / Launch Yes / Camping No with coordinates, and Boundless Adventures describes a 4.7-mile Sunnyside / US Hwy 18-to-C...",
-        "retryCondition": "Retry only if a credible route source publishes US-Hwy-18-to-Canton threshold guidance tied to a product-supported Big Sioux gauge plus complete safety/camping treatment.",
-        "camping": {
-          "status": "none",
-          "notes": "GFP marks both US Hwy 18 and Canton City Park Camping No; no private-bank or informal camping is inferred."
-        },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "supported_midwest"
       },
@@ -13867,6 +13975,120 @@
       "discoveryTier": "supported_midwest"
     },
     {
+      "candidateId": "sd-james-river-highway-access-family",
+      "lane": "fresh_source_discovery",
+      "priority": 100,
+      "state": "SD",
+      "river": "James River",
+      "route": "South Dakota highway-access family",
+      "currentStatus": "research_later",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 3,
+      "duplicateRisk": false,
+      "blocker": "2026-08-07 02:43 America/Chicago / 2026-08-07 07:43 UTC bounded South Dakota baseline review preserved research_later. USGS Water Services IV for 06478000 James River near Mitchell returned product-ready current values of 436 cfs / 11.51 ft at 2026-08-07 01:45 CDT plus a 24-hour discharge/stage series. Sioux Empire Paddlers supports only broad James River spring/early-summer paddling and access near US/SD highways,...",
+      "retryCondition": "Retry only if a manager, SDCKA/Jay Heath source, Sioux Empire Paddlers, RiverScout/onWater with corroboration, Davison/Hanson County, or another credible source publishes a specific James River day reach with named public endpoints, water-entry coordinates, route distance, camping/overnight guidance, safety caveats, and numeric gauge-tied thresholds for a product-fetchable James River gauge such as USGS 06478000.",
+      "gauge": {
+        "quality": "product_live_but_threshold_unselected",
+        "id": "06478000",
+        "provider": "USGS",
+        "notes": "USGS 06478000 James River near Mitchell returned product-ready current discharge/stage during the 2026-08-07 review, but no numeric paddling threshold model tied to this route was found."
+      },
+      "thresholdSupport": {
+        "strength": "none_yet",
+        "notes": "No numeric paddling floor, ideal range, or high-water cutoff tied to USGS 06478000 was found; 2008 trip-day depth observations are anecdotal and not a reusable threshold model."
+      },
+      "endpoints": {
+        "putIn": "State Highway 38 bridge east of Mitchell / blog-described public access point, not manager-backed by name",
+        "takeOut": "258th Street bridge area, not manager-backed by name",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because the bridge endpoints are not yet supported by manager-backed public launch/landing coordinates."
+      },
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "sd-big-sioux-newton-hills-fairview",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "SD",
+      "river": "Big Sioux River",
+      "route": "Newton Hills State Park to Fairview",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "duplicateRisk": false,
+      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official endpoints but not a scoreable threshold package. Sioux Empire Paddlers lists Newton Hills to Fairview as a Big Sioux Circuit route, and SD GFP CanoeTrails marks Newton Hills State Park and Fairview as Parking Yes / Launch Yes / Camping No with concrete/rock launch surfaces and coordinates. USGS 06485500 at Akr...",
+      "retryCondition": "Retry only if a credible route source publishes Newton-Hills-to-Fairview threshold guidance tied to a product-supported Big Sioux gauge plus route-specific safety/camping handling.",
+      "camping": {
+        "status": "none_or_nearby_basecamp_unresolved",
+        "notes": "GFP access records for Newton Hills and Fairview are Camping No. Nearby park camping was not treated as route camping for an unqualified route."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "sd-big-sioux-fairview-oak-ridge",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "SD",
+      "river": "Big Sioux River",
+      "route": "Fairview to Oak Ridge Public Water Access",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "duplicateRisk": false,
+      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official launch-supported endpoints but no defensible scoring model. Sioux Empire Paddlers lists Fairview to Oak Ridge PWA as a Big Sioux Circuit route, and SD GFP CanoeTrails marks both Fairview and Oak Ridge Public Water Access as Parking Yes / Launch Yes / Camping No with rock/concrete launch surfaces and coordinate...",
+      "retryCondition": "Retry only if a credible route source publishes Fairview-to-Oak-Ridge gauge guidance tied to a product-supported Big Sioux gauge and clears camping/safety details.",
+      "camping": {
+        "status": "none",
+        "notes": "GFP marks both Fairview and Oak Ridge Public Water Access as Camping No; no informal or private-bank camping is inferred."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "sd-james-river-fisher-grove-redfield-family",
+      "lane": "fresh_source_discovery",
+      "priority": 100,
+      "state": "SD",
+      "river": "James River",
+      "route": "Fisher Grove / Redfield James River family",
+      "currentStatus": "research_later",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "duplicateRisk": false,
+      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found useful public-access and camping context but not a route-ready package. South Dakota GFP confirms Fisher Grove State Park has James River access for canoeing and kayaking plus 22 electrical campsites, and USGS Water Services IV for 06475000 James River near Redfield returned product-live values of 616 cfs / 6.26 ft at...",
+      "retryCondition": "Retry only if a public manager or credible route source publishes a Fisher Grove-area James River day reach with named public endpoints, distance, coordinates, camping treatment, safety caveats, and numeric thresholds tied to USGS 06475000 or another product-supported James gauge.",
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "Fisher Grove campground is source-backed, but no point-to-point route was added and camping is not enough to infer route legality or shape."
+      },
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "sd-moreau-river-little-moreau-rec-area-family",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "SD",
+      "river": "Moreau River",
+      "route": "Little Moreau Recreation Area family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-08-07",
+      "reviewCount": 1,
+      "duplicateRisk": false,
+      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found public recreation and gauge context but no route-ready scoring model. South Dakota GFP lists Little Moreau Recreation Area with canoeing, kayaking, boat ramps, vault toilets, and five first-come campsites. USGS Water Services IV returned 0.00 cfs / 1.33 ft for 06360500 Moreau River near Whitehorse at 2026-08-07 20:30 M...",
+      "retryCondition": "Retry only if GFP, a tribal/public manager, or a credible route source publishes a specific Moreau day reach with legal endpoints, route distance, camping handling, safety caveats, and numeric thresholds tied to a product-supported Moreau gauge.",
+      "camping": {
+        "status": "endpoint_basecamp_supported_but_not_route",
+        "notes": "Little Moreau Recreation Area has five first-come campsites, but no point-to-point route was added and no informal river camping is inferred."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
       "candidateId": "sd-white-river-interior-badlands-family",
       "lane": "fresh_source_discovery",
       "priority": 100,
@@ -13884,6 +14106,86 @@
         "notes": "No route-specific public camping or overnight legality surfaced for a White River paddle reach; nearby private campground context was not treated as route camping."
       },
       "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "sd-james-river-island-riverside-st-helena",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "SD",
+      "river": "Missouri River",
+      "route": "Riverside Park to St. Helena / James River Island family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-08-08",
+      "reviewCount": 1,
+      "duplicateRisk": false,
+      "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the NPS James River Island / Riverside-to-St. Helena family after NPS acquired James River Island and noted nearby public launches. No route was added: NPS access records support Riverside Park at river mile 805 and St. Helena at river mile 798, and NPS says James River Island is accessible by kayak/canoe with nearb...",
+      "retryCondition": "Retry only if NPS publishes route-specific James River Island paddling rules/compendium details plus a selected public endpoint pair, camping legality, safety package, and a supported live discharge/threshold source.",
+      "gauge": {
+        "quality": "no_product_live_selected",
+        "id": "06467500 stage-only fallback rejected",
+        "provider": "USGS",
+        "notes": "No scoreable discharge threshold source was selected for this island-access family."
+      },
+      "thresholdSupport": {
+        "strength": "not_found_for_selected_reach",
+        "notes": "No route-specific numeric model tied to a supported live gauge surfaced."
+      },
+      "endpoints": {
+        "putIn": "Riverside Park",
+        "takeOut": "St. Helena River Access / James River Island access family",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.866055555556,
+          "longitude": -97.384527777778
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.850555555556,
+          "longitude": -97.269805555556
+        },
+        "coordinateSource": "NPS MNRR river access point waypoints converted from DMS."
+      },
+      "camping": {
+        "status": "unknown",
+        "notes": "NPS references James River Island compendium rules, but this run did not capture route-specific camping legality; no camping is inferred."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "sd-big-sioux-settlers-canoe-access-oak-ridge",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "SD",
+      "river": "Big Sioux River",
+      "route": "Settlers Canoe Access / Fairview to Oak Ridge Public Water Access",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-08-08",
+      "reviewCount": 1,
+      "duplicateRisk": false,
+      "blocker": "2026-08-08 17:57 America/Chicago / 2026-08-08 22:57 UTC bounded South Dakota baseline screened the Settlers Canoe Access / Fairview-to-Oak-Ridge lead after a fresh county access page surfaced. No route was added: MyCountyParks supports Settlers Canoe Access as a public canoe/small-boat ramp 0.25 mi north of Fairview, and the GFP Jay Heath layer supports downstream Oak Ridge as a launch-supported access, but the cand...",
+      "retryCondition": "Retry only if Sioux County, South Dakota GFP, Sioux Empire Paddlers, or another route manager publishes a Fairview/Settlers-to-Oak-Ridge route package with numeric gauge thresholds, camping treatment, hazards, and gauge applicability.",
+      "gauge": {
+        "quality": "product_live_but_gauge_applicability_blocked",
+        "id": "06485500",
+        "provider": "USGS",
+        "notes": "Akron gauge is live but downstream and already used for lower Big Sioux cards; no accepted threshold relationship cleared for Settlers/Fairview-to-Oak-Ridge."
+      },
+      "thresholdSupport": {
+        "strength": "not_found_for_selected_reach",
+        "notes": "No numeric paddling floor/range specific to the Settlers/Fairview-to-Oak-Ridge reach surfaced."
+      },
+      "endpoints": {
+        "putIn": "Settlers Canoe Access / Fairview",
+        "takeOut": "Oak Ridge Public Water Access",
+        "coordinatesPresent": true,
+        "coordinateSource": "MyCountyParks access context plus South Dakota GFP CanoeTrails access anchors; not implemented because threshold/gauge applicability failed."
+      },
+      "camping": {
+        "status": "not_reached",
+        "notes": "Access sources do not clear route publication; no route camping package was implemented."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"
     },
     {
@@ -14229,6 +14531,37 @@
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
+      "candidateId": "sd-boxelder-creek-nemo-family",
+      "lane": "threshold_discovery",
+      "priority": 98,
+      "state": "SD",
+      "river": "Boxelder Creek",
+      "route": "Nemo / lower Boxelder Creek family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-08-08",
+      "reviewCount": 1,
+      "duplicateRisk": false,
+      "blocker": "2026-08-08 13:56 America/Chicago / 2026-08-08 18:56 UTC bounded South Dakota baseline review screened a Boxelder Creek Nemo / lower creek family lead. No route was added: USGS Water Services returned 06422500 Boxelder Creek near Nemo at 0.20 cfs / 1.12 ft at 2026-08-08 12:45 MDT and 06425500 Boxelder Creek near Rapid City at 0.23 cfs / 3.48 ft at 2026-08-08 12:00 MDT, while 06425100 discharge was stale to 2026-06-19...",
+      "retryCondition": "Retry only if Black Hills National Forest, South Dakota GFP, a local route manager, American Whitewater, or a public access authority publishes a specific Boxelder Creek paddle route with public endpoints, camping rules, safety/egress handling, and numeric thresholds tied to a product-supported gauge.",
+      "gauge": {
+        "quality": "partial_current",
+        "id": "06422500",
+        "provider": "USGS",
+        "notes": "Gauge data was available, but discharge was essentially dry and no scoreable route threshold package surfaced."
+      },
+      "thresholdSupport": {
+        "strength": "not_found_for_selected_reach",
+        "notes": "No public numeric paddling model surfaced for a selected Boxelder Creek reach."
+      },
+      "endpoints": {
+        "putIn": null,
+        "takeOut": null,
+        "coordinatesPresent": false
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
       "candidateId": "ar-spring-river-mammoth-spring-hardy",
       "lane": "threshold_discovery",
       "priority": 97,
@@ -14539,106 +14872,6 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "sd-james-river-fisher-grove-redfield-family",
-      "lane": "fresh_source_discovery",
-      "priority": 96,
-      "state": "SD",
-      "river": "James River",
-      "route": "Fisher Grove / Redfield James River family",
-      "currentStatus": "research_later",
-      "lastReviewed": "2026-08-07",
-      "reviewCount": 1,
-      "duplicateRisk": false,
-      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found useful public-access and camping context but not a route-ready package. South Dakota GFP confirms Fisher Grove State Park has James River access for canoeing and kayaking plus 22 electrical campsites, and USGS Water Services IV for 06475000 James River near Redfield returned product-live values of 616 cfs / 6.26 ft at...",
-      "retryCondition": "Retry only if a public manager or credible route source publishes a Fisher Grove-area James River day reach with named public endpoints, distance, coordinates, camping treatment, safety caveats, and numeric thresholds tied to USGS 06475000 or another product-supported James gauge.",
-      "camping": {
-        "status": "endpoint_basecamp_supported_but_not_route",
-        "notes": "Fisher Grove campground is source-backed, but no point-to-point route was added and camping is not enough to infer route legality or shape."
-      },
-      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "sd-james-river-island-riverside-st-helena",
-      "lane": "threshold_discovery",
-      "priority": 96,
-      "state": "SD",
-      "river": "Missouri River",
-      "route": "Riverside Park to St. Helena / James River Island family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-08-08",
-      "reviewCount": 1,
-      "duplicateRisk": false,
-      "blocker": "2026-08-08 12:55 America/Chicago / 2026-08-08 17:55 UTC bounded South Dakota baseline review screened the NPS James River Island / Riverside-to-St. Helena family after NPS acquired James River Island and noted nearby public launches. No route was added: NPS access records support Riverside Park at river mile 805 and St. Helena at river mile 798, and NPS says James River Island is accessible by kayak/canoe with nearb...",
-      "retryCondition": "Retry only if NPS publishes route-specific James River Island paddling rules/compendium details plus a selected public endpoint pair, camping legality, safety package, and a supported live discharge/threshold source.",
-      "gauge": {
-        "quality": "no_product_live_selected",
-        "id": "06467500 stage-only fallback rejected",
-        "provider": "USGS",
-        "notes": "No scoreable discharge threshold source was selected for this island-access family."
-      },
-      "thresholdSupport": {
-        "strength": "not_found_for_selected_reach",
-        "notes": "No route-specific numeric model tied to a supported live gauge surfaced."
-      },
-      "endpoints": {
-        "putIn": "Riverside Park",
-        "takeOut": "St. Helena River Access / James River Island access family",
-        "coordinatesPresent": true,
-        "putInCoordinates": {
-          "latitude": 42.866055555556,
-          "longitude": -97.384527777778
-        },
-        "takeOutCoordinates": {
-          "latitude": 42.850555555556,
-          "longitude": -97.269805555556
-        },
-        "coordinateSource": "NPS MNRR river access point waypoints converted from DMS."
-      },
-      "camping": {
-        "status": "unknown",
-        "notes": "NPS references James River Island compendium rules, but this run did not capture route-specific camping legality; no camping is inferred."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "sd-big-sioux-settlers-canoe-access-oak-ridge",
-      "lane": "threshold_discovery",
-      "priority": 96,
-      "state": "SD",
-      "river": "Big Sioux River",
-      "route": "Settlers Canoe Access / Fairview to Oak Ridge Public Water Access",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-08-08",
-      "reviewCount": 1,
-      "duplicateRisk": false,
-      "blocker": "2026-08-08 17:57 America/Chicago / 2026-08-08 22:57 UTC bounded South Dakota baseline screened the Settlers Canoe Access / Fairview-to-Oak-Ridge lead after a fresh county access page surfaced. No route was added: MyCountyParks supports Settlers Canoe Access as a public canoe/small-boat ramp 0.25 mi north of Fairview, and the GFP Jay Heath layer supports downstream Oak Ridge as a launch-supported access, but the cand...",
-      "retryCondition": "Retry only if Sioux County, South Dakota GFP, Sioux Empire Paddlers, or another route manager publishes a Fairview/Settlers-to-Oak-Ridge route package with numeric gauge thresholds, camping treatment, hazards, and gauge applicability.",
-      "gauge": {
-        "quality": "product_live_but_gauge_applicability_blocked",
-        "id": "06485500",
-        "provider": "USGS",
-        "notes": "Akron gauge is live but downstream and already used for lower Big Sioux cards; no accepted threshold relationship cleared for Settlers/Fairview-to-Oak-Ridge."
-      },
-      "thresholdSupport": {
-        "strength": "not_found_for_selected_reach",
-        "notes": "No numeric paddling floor/range specific to the Settlers/Fairview-to-Oak-Ridge reach surfaced."
-      },
-      "endpoints": {
-        "putIn": "Settlers Canoe Access / Fairview",
-        "takeOut": "Oak Ridge Public Water Access",
-        "coordinatesPresent": true,
-        "coordinateSource": "MyCountyParks access context plus South Dakota GFP CanoeTrails access anchors; not implemented because threshold/gauge applicability failed."
-      },
-      "camping": {
-        "status": "not_reached",
-        "notes": "Access sources do not clear route publication; no route camping package was implemented."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
       "candidateId": "mo-black-river-lesterville-route-k",
       "lane": "threshold_discovery",
       "priority": 95,
@@ -14707,61 +14940,41 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "sd-big-sioux-newton-hills-fairview",
+      "candidateId": "sd-big-sioux-canton-newton-hills",
       "lane": "threshold_discovery",
       "priority": 94,
       "state": "SD",
       "river": "Big Sioux River",
-      "route": "Newton Hills State Park to Fairview",
+      "route": "Canton City Park to Newton Hills State Park",
       "currentStatus": "threshold_weak",
       "lastReviewed": "2026-08-07",
       "reviewCount": 1,
       "duplicateRisk": false,
-      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official endpoints but not a scoreable threshold package. Sioux Empire Paddlers lists Newton Hills to Fairview as a Big Sioux Circuit route, and SD GFP CanoeTrails marks Newton Hills State Park and Fairview as Parking Yes / Launch Yes / Camping No with concrete/rock launch surfaces and coordinates. USGS 06485500 at Akr...",
-      "retryCondition": "Retry only if a credible route source publishes Newton-Hills-to-Fairview threshold guidance tied to a product-supported Big Sioux gauge plus route-specific safety/camping handling.",
+      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found useful route/access evidence but did not clear publication. Sioux Empire Paddlers lists Canton to Newton Hills as a Big Sioux Circuit route, Jay Heath/SouthDakotaKayak documents a 9-mile Canton-to-Newton-Hills paddle with a public access across from Newton Hills Trail Camp, and SD GFP CanoeTrails marks Canton City Park...",
+      "retryCondition": "Retry only if SD GFP, Sioux Empire Paddlers, SDCKA/Jay Heath sources, a park manager, or another credible route source publishes Canton-to-Newton-Hills gauge guidance and current low-head-dam/debris safety handling tied to a product-supported gauge.",
       "camping": {
         "status": "none_or_nearby_basecamp_unresolved",
-        "notes": "GFP access records for Newton Hills and Fairview are Camping No. Nearby park camping was not treated as route camping for an unqualified route."
+        "notes": "GFP access records for Canton City Park and Newton Hills State Park are Camping No. Newton Hills has separate park campground context nearby, but no route package was added and no informal river camping is inferred."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "sd-big-sioux-fairview-oak-ridge",
+      "candidateId": "sd-big-sioux-us-18-canton-city-park",
       "lane": "threshold_discovery",
       "priority": 94,
       "state": "SD",
       "river": "Big Sioux River",
-      "route": "Fairview to Oak Ridge Public Water Access",
+      "route": "US Hwy 18 to Canton City Park",
       "currentStatus": "threshold_weak",
       "lastReviewed": "2026-08-07",
       "reviewCount": 1,
       "duplicateRisk": false,
-      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found official launch-supported endpoints but no defensible scoring model. Sioux Empire Paddlers lists Fairview to Oak Ridge PWA as a Big Sioux Circuit route, and SD GFP CanoeTrails marks both Fairview and Oak Ridge Public Water Access as Parking Yes / Launch Yes / Camping No with rock/concrete launch surfaces and coordinate...",
-      "retryCondition": "Retry only if a credible route source publishes Fairview-to-Oak-Ridge gauge guidance tied to a product-supported Big Sioux gauge and clears camping/safety details.",
+      "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found a shorter public-access split inside the already blocked Klondike-to-Canton family, but the threshold/gauge gate remains unresolved. SD GFP CanoeTrails marks US Hwy 18 and Canton City Park as Parking Yes / Launch Yes / Camping No with coordinates, and Boundless Adventures describes a 4.7-mile Sunnyside / US Hwy 18-to-C...",
+      "retryCondition": "Retry only if a credible route source publishes US-Hwy-18-to-Canton threshold guidance tied to a product-supported Big Sioux gauge plus complete safety/camping treatment.",
       "camping": {
         "status": "none",
-        "notes": "GFP marks both Fairview and Oak Ridge Public Water Access as Camping No; no informal or private-bank camping is inferred."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "sd-moreau-river-little-moreau-rec-area-family",
-      "lane": "threshold_discovery",
-      "priority": 94,
-      "state": "SD",
-      "river": "Moreau River",
-      "route": "Little Moreau Recreation Area family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-08-07",
-      "reviewCount": 1,
-      "duplicateRisk": false,
-      "blocker": "2026-08-07 21:52 America/Chicago / 2026-08-08 02:52 UTC bounded South Dakota baseline review found public recreation and gauge context but no route-ready scoring model. South Dakota GFP lists Little Moreau Recreation Area with canoeing, kayaking, boat ramps, vault toilets, and five first-come campsites. USGS Water Services IV returned 0.00 cfs / 1.33 ft for 06360500 Moreau River near Whitehorse at 2026-08-07 20:30 M...",
-      "retryCondition": "Retry only if GFP, a tribal/public manager, or a credible route source publishes a specific Moreau day reach with legal endpoints, route distance, camping handling, safety caveats, and numeric thresholds tied to a product-supported Moreau gauge.",
-      "camping": {
-        "status": "endpoint_basecamp_supported_but_not_route",
-        "notes": "Little Moreau Recreation Area has five first-come campsites, but no point-to-point route was added and no informal river camping is inferred."
+        "notes": "GFP marks both US Hwy 18 and Canton City Park Camping No; no private-bank or informal camping is inferred."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"
@@ -14855,71 +15068,6 @@
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
-      "candidateId": "sd-boxelder-creek-nemo-family",
-      "lane": "threshold_discovery",
-      "priority": 92,
-      "state": "SD",
-      "river": "Boxelder Creek",
-      "route": "Nemo / lower Boxelder Creek family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-08-08",
-      "reviewCount": 1,
-      "duplicateRisk": false,
-      "blocker": "2026-08-08 13:56 America/Chicago / 2026-08-08 18:56 UTC bounded South Dakota baseline review screened a Boxelder Creek Nemo / lower creek family lead. No route was added: USGS Water Services returned 06422500 Boxelder Creek near Nemo at 0.20 cfs / 1.12 ft at 2026-08-08 12:45 MDT and 06425500 Boxelder Creek near Rapid City at 0.23 cfs / 3.48 ft at 2026-08-08 12:00 MDT, while 06425100 discharge was stale to 2026-06-19...",
-      "retryCondition": "Retry only if Black Hills National Forest, South Dakota GFP, a local route manager, American Whitewater, or a public access authority publishes a specific Boxelder Creek paddle route with public endpoints, camping rules, safety/egress handling, and numeric thresholds tied to a product-supported gauge.",
-      "gauge": {
-        "quality": "partial_current",
-        "id": "06422500",
-        "provider": "USGS",
-        "notes": "Gauge data was available, but discharge was essentially dry and no scoreable route threshold package surfaced."
-      },
-      "thresholdSupport": {
-        "strength": "not_found_for_selected_reach",
-        "notes": "No public numeric paddling model surfaced for a selected Boxelder Creek reach."
-      },
-      "endpoints": {
-        "putIn": null,
-        "takeOut": null,
-        "coordinatesPresent": false
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "sd-james-river-highway-access-family",
-      "lane": "fresh_source_discovery",
-      "priority": 92,
-      "state": "SD",
-      "river": "James River",
-      "route": "South Dakota highway-access family",
-      "currentStatus": "research_later",
-      "lastReviewed": "2026-08-07",
-      "reviewCount": 3,
-      "duplicateRisk": false,
-      "blocker": "2026-08-07 02:43 America/Chicago / 2026-08-07 07:43 UTC bounded South Dakota baseline review preserved research_later. USGS Water Services IV for 06478000 James River near Mitchell returned product-ready current values of 436 cfs / 11.51 ft at 2026-08-07 01:45 CDT plus a 24-hour discharge/stage series. Sioux Empire Paddlers supports only broad James River spring/early-summer paddling and access near US/SD highways,...",
-      "retryCondition": "Retry only if a manager, SDCKA/Jay Heath source, Sioux Empire Paddlers, RiverScout/onWater with corroboration, Davison/Hanson County, or another credible source publishes a specific James River day reach with named public endpoints, water-entry coordinates, route distance, camping/overnight guidance, safety caveats, and numeric gauge-tied thresholds for a product-fetchable James River gauge such as USGS 06478000.",
-      "gauge": {
-        "quality": "product_live_but_threshold_unselected",
-        "id": "06478000",
-        "provider": "USGS",
-        "notes": "USGS 06478000 James River near Mitchell returned product-ready current discharge/stage during the 2026-08-07 review, but no numeric paddling threshold model tied to this route was found."
-      },
-      "thresholdSupport": {
-        "strength": "none_yet",
-        "notes": "No numeric paddling floor, ideal range, or high-water cutoff tied to USGS 06478000 was found; 2008 trip-day depth observations are anecdotal and not a reusable threshold model."
-      },
-      "endpoints": {
-        "putIn": "State Highway 38 bridge east of Mitchell / blog-described public access point, not manager-backed by name",
-        "takeOut": "258th Street bridge area, not manager-backed by name",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because the bridge endpoints are not yet supported by manager-backed public launch/landing coordinates."
-      },
-      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
-      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "tx-colorado-river-bastrop-el-camino-real",
@@ -15019,46 +15167,6 @@
       "duplicateRisk": false,
       "blocker": "2026-08-08 19:18 America/Chicago / 2026-08-09 00:18 UTC bounded South Dakota baseline review screened the Travel South Dakota/Pierre Dam Run lead from Oahe Dam to LaFramboise Causeway. No route was added: Travel South Dakota names the scenic paddle and LaFramboise/Oahe/Farm Island pages support paddling context, while USGS Water Services returned stage-only Missouri River data at 06441590 LaFramboise Island (24.50 f...",
       "retryCondition": "Retry only if Visit Pierre, South Dakota GFP, USACE, USGS, or another manager-grade source publishes exact public Dam Run endpoints, release/discharge or stage thresholds tied to a product-supported gauge, camping rules, and big-river safety guidance.",
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "sd-big-sioux-canton-newton-hills",
-      "lane": "threshold_discovery",
-      "priority": 88,
-      "state": "SD",
-      "river": "Big Sioux River",
-      "route": "Canton City Park to Newton Hills State Park",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-08-07",
-      "reviewCount": 1,
-      "duplicateRisk": false,
-      "blocker": "2026-08-07 19:52 America/Chicago / 2026-08-08 00:52 UTC bounded South Dakota baseline review found useful route/access evidence but did not clear publication. Sioux Empire Paddlers lists Canton to Newton Hills as a Big Sioux Circuit route, Jay Heath/SouthDakotaKayak documents a 9-mile Canton-to-Newton-Hills paddle with a public access across from Newton Hills Trail Camp, and SD GFP CanoeTrails marks Canton City Park...",
-      "retryCondition": "Retry only if SD GFP, Sioux Empire Paddlers, SDCKA/Jay Heath sources, a park manager, or another credible route source publishes Canton-to-Newton-Hills gauge guidance and current low-head-dam/debris safety handling tied to a product-supported gauge.",
-      "camping": {
-        "status": "none_or_nearby_basecamp_unresolved",
-        "notes": "GFP access records for Canton City Park and Newton Hills State Park are Camping No. Newton Hills has separate park campground context nearby, but no route package was added and no informal river camping is inferred."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "sd-big-sioux-us-18-canton-city-park",
-      "lane": "threshold_discovery",
-      "priority": 88,
-      "state": "SD",
-      "river": "Big Sioux River",
-      "route": "US Hwy 18 to Canton City Park",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-08-07",
-      "reviewCount": 1,
-      "duplicateRisk": false,
-      "blocker": "2026-08-07 20:58 America/Chicago / 2026-08-08 01:58 UTC bounded South Dakota baseline review found a shorter public-access split inside the already blocked Klondike-to-Canton family, but the threshold/gauge gate remains unresolved. SD GFP CanoeTrails marks US Hwy 18 and Canton City Park as Parking Yes / Launch Yes / Camping No with coordinates, and Boundless Adventures describes a 4.7-mile Sunnyside / US Hwy 18-to-C...",
-      "retryCondition": "Retry only if a credible route source publishes US-Hwy-18-to-Canton threshold guidance tied to a product-supported Big Sioux gauge plus complete safety/camping treatment.",
-      "camping": {
-        "status": "none",
-        "notes": "GFP marks both US Hwy 18 and Canton City Park Camping No; no private-bank or informal camping is inferred."
-      },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"
     },

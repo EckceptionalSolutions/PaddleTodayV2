@@ -246,7 +246,8 @@ function enrichRiver(river: River): River {
   const logistics = enriched.logistics
     ? {
         ...enriched.logistics,
-        campingClassification: classifyCamping(enriched.logistics.camping),
+        campingClassification:
+          enriched.logistics.campingClassification ?? classifyCamping(enriched.logistics.camping),
       }
     : undefined;
 

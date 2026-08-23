@@ -3,6 +3,137 @@ import type { River } from '../../lib/types';
 
 export const iowaRoutes: River[] = [
   {
+    "id": "cedar-river-moscow-saulsbury",
+    "slug": "cedar-river-moscow-saulsbury",
+    "name": "Cedar River",
+    "reach": "Jack Shuger Memorial Park, Moscow to Saulsbury Bridge Recreation Area",
+    "state": "Iowa",
+    "region": "Southeast Iowa",
+    "routeType": "recreational",
+    "summary": "A county-supported Cedar River float from the Jack Shuger Memorial Park boat ramp in Moscow to Saulsbury Bridge Recreation Area near Muscatine. The county offers a roughly nine-mile canoe trip and shuttle, with camping at the finish.",
+    "statusText": "Use USGS 05465000 near Conesville and the county's 6–10 ft operating guidance. Do not launch during a rapid rise, flood conditions, severe wind, or when wood and bridge approaches cannot be safely assessed.",
+    "latitude": 41.5746407,
+    "longitude": -91.0854616,
+    "gaugeSource": {
+      "id": "usgs-05465000",
+      "provider": "usgs",
+      "siteId": "05465000",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Cedar River near Conesville, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05465000/",
+      "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/05465000/all-graphs/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "The county float guide says rental trips are normally not offered when the Cedar River at Conesville is above 10 feet or below 6 feet. Treat that as operating guidance, not a guarantee of safe conditions.",
+        "Inspect both named ramps and the river from land before launching. Rising water, recent storms, trees, debris, and bridge approaches can make the reach unsafe even inside the county range.",
+        "Use only the public Jack Shuger and Saulsbury accesses. Do not camp, stop, or cross on private banks between them; Saulsbury provides the documented camping endpoint.",
+        "Wear a properly fitted PFD, carry a whistle and communication device, and follow Iowa boating rules. Exit before the Saulsbury landing if conditions deteriorate."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "tooLow": 6,
+      "idealMin": 6,
+      "idealMax": 10,
+      "tooHigh": 10,
+      "thresholdSource": {
+        "label": "Muscatine County Cedar River canoe-trip operating guidance",
+        "url": "https://www.mycountyparks.com/county/Muscatine/Park/Saulsbury-Bridge-Recreation-Area/Facility/Cedar-River-Canoe-Trips",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the practical season for this county float. Water levels, wind, storms, and debris change quickly; use the live gauge and a same-day visual check.",
+      "difficulty": "easy",
+      "difficultyNotes": "A county-supported flatwater float with developed ramps and a campground endpoint, but moving water, floodplain wood, private banks, and limited intermediate exits warrant caution.",
+      "confidenceNotes": "High confidence for a guarded route addition: Muscatine County documents the named ramps, an approximately nine-mile canoe trip, a shuttle option, camping at Saulsbury, and a 6–10 ft Conesville operating range. USGS 05465000 provides direct stage and discharge telemetry in the corridor."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route and shuttle",
+        "value": "Approximately 9 river miles; Jack Shuger to Saulsbury",
+        "note": "Muscatine County Conservation describes canoe trips from Jack Shuger Memorial Park in Moscow to Saulsbury Bridge Recreation Area and provides a county shuttle for groups.",
+        "sourceUrl": "https://muscatinecountyconservation.com/wp-content/uploads/2024/01/cedar_river_float_trips_24.pdf"
+      },
+      {
+        "label": "Public put-in",
+        "value": "Jack Shuger Memorial Park, 1515 Cedar Street, Moscow",
+        "note": "Muscatine County lists a heavily used Cedar River boat ramp, restrooms, shelter, and park hours.",
+        "sourceUrl": "https://www.muscatinecountyiowa.gov/conservation/parks/jack_shuger_memorial_park/"
+      },
+      {
+        "label": "Public take-out and camping",
+        "value": "Saulsbury Bridge Recreation Area, 2007 Saulsbury Road",
+        "note": "The county float guide identifies Saulsbury as the finish and documents camping and restrooms at the endpoint.",
+        "sourceUrl": "https://muscatinecountyconservation.com/wp-content/uploads/2024/01/cedar_river_float_trips_24.pdf"
+      },
+      {
+        "label": "Gauge operating range",
+        "value": "6–10 ft stage at USGS 05465000 near Conesville",
+        "note": "Muscatine County says rentals are typically not offered when the Conesville gauge is below 6 ft or above 10 ft. This is a local operating threshold, not an official safety certification.",
+        "sourceUrl": "https://www.mycountyparks.com/county/Muscatine/Park/Saulsbury-Bridge-Recreation-Area/Facility/Cedar-River-Canoe-Trips"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 05465000 Cedar River near Conesville",
+        "note": "USGS provides discharge and gage-height telemetry for the Cedar River corridor; check same-day conditions before launch.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05465000/"
+      },
+      {
+        "label": "Image decision",
+        "value": "No third-party image bundled",
+        "note": "The route uses linked county, Iowa DNR, and USGS sources without copying an unlicensed promotional image."
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Muscatine County Cedar River float trips",
+        "url": "https://muscatinecountyconservation.com/wp-content/uploads/2024/01/cedar_river_float_trips_24.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Jack Shuger Memorial Park",
+        "url": "https://www.muscatinecountyiowa.gov/conservation/parks/jack_shuger_memorial_park/",
+        "provider": "local"
+      },
+      {
+        "label": "McKeown Bridge River Access",
+        "url": "https://www.muscatinecountyiowa.gov/conservation/parks/mckeown_bridge_river_access/",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR Cedar River access guidance",
+        "url": "https://www.iowadnr.gov/things-do/fishing/where-fish/rivers-streams",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05465000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05465000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "des-moines-river-deer-creek-hydro-electric",
     "slug": "des-moines-river-deer-creek-hydro-electric",
     "name": "Des Moines River",

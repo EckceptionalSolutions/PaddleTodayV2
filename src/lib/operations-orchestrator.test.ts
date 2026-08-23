@@ -78,6 +78,15 @@ describe('operations orchestrator', () => {
     expect(order?.workerRole).toBe('route-research');
   });
 
+  it('uses the managed geographic sequence within a frontier tier', () => {
+    const order = selectNextWorkOrder([
+      task({ id: 'sd-opportunity', kind: 'route_research', routeOpportunity: true, stateId: 'SD', frontierTier: 1, priority: 'critical' }),
+      task({ id: 'wi-opportunity', kind: 'route_research', routeOpportunity: true, stateId: 'WI', frontierTier: 1, priority: 'critical' }),
+      task({ id: 'ia-opportunity', kind: 'route_research', routeOpportunity: true, stateId: 'IA', frontierTier: 1, priority: 'critical' }),
+    ]);
+    expect(order?.taskId).toBe('wi-opportunity');
+  });
+
   it('limits active consolidation reviews to two', () => {
     const order = selectNextWorkOrder([
       task({ id: 'active-a', kind: 'consolidation_review', lane: 'in_progress' }),

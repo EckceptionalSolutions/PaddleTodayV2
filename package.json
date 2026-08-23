@@ -63,6 +63,7 @@
     "operations:gauges": "tsx scripts/generate-gauge-coverage.ts",
     "operations:gauges:refresh": "tsx scripts/generate-gauge-coverage.ts --refresh-providers",
     "operations:gauges:check": "tsx scripts/check-gauge-coverage.ts",
+    "operations:gauges:classify": "tsx scripts/classify-gauge-route-readiness.ts",
     "operations:freshness": "tsx scripts/operations-freshness-report.ts",
     "operations:adoption": "tsx scripts/operations-adoption-report.ts",
     "alert:mock-email": "tsx scripts/send-mock-river-alert.ts",

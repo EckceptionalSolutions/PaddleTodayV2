@@ -11,6 +11,16 @@ export type GaugeReviewStatus =
 
 export type GaugeEligibility = 'unknown' | 'route_capable' | 'not_paddle_relevant';
 export type GaugeRelationship = 'none' | 'direct' | 'proxy' | 'mixed';
+export type GaugeRouteReadiness =
+  | 'unreviewed'
+  | 'published'
+  | 'candidate'
+  | 'implementation_ready'
+  | 'research_needed'
+  | 'existing_route_gap'
+  | 'deferred'
+  | 'screened_out'
+  | 'unsupported';
 
 export interface GaugeInventoryEntry {
   key: string;
@@ -36,6 +46,7 @@ export interface GaugeInventoryArtifact {
 export interface GaugeReviewEntry {
   key: string;
   status: GaugeReviewStatus;
+  routeReadiness: GaugeRouteReadiness;
   eligibility: GaugeEligibility;
   relationship: GaugeRelationship;
   checkedAt: string | null;
@@ -46,6 +57,40 @@ export interface GaugeReviewEntry {
   routeFamilies: string[];
   blockers: string[];
   evidence: string[];
+}
+
+const existingRouteGapPattern = /provider-equivalent to (?:(?:a|the) )?covered|provider-equivalent same-reach scored|same-reach scored route already exists|existing scored route uses equivalent|already represented by (?:a |the )?scored|already powers the scored|exact corridor is already represented|corresponds to existing scored routes|co-located [^.]{0,80}existing scored|existing route packages already carry|gauge integration task/i;
+const deferredPattern = /retry only (?:if|when|with)|materially new evidence|public access (?:is )?prohibited|private-only access|permit prohibition/i;
+
+/**
+ * Adds a practical route-development label without discarding the durable gauge
+ * review disposition. The classification is intentionally conservative: only
+ * structural route evidence promotes a blocked gauge to candidate, and a gauge
+ * is never screened out by text inference alone.
+ */
+export function classifyGaugeRouteReadiness(
+  review: Omit<GaugeReviewEntry, 'routeReadiness'> | GaugeReviewEntry,
+): GaugeRouteReadiness {
+  if (review.routeReadiness === 'implementation_ready') return 'implementation_ready';
+  if (review.status === 'covered') return 'published';
+  if (review.status === 'screened_out') return 'screened_out';
+  if (review.status === 'stale_or_unsupported') return 'unsupported';
+  if (review.status === 'unreviewed') return 'unreviewed';
+  if (review.status === 'researching') return 'research_needed';
+
+  const reviewText = [...review.blockers, review.decisionReason].join(' ');
+  if (existingRouteGapPattern.test(reviewText)) return 'existing_route_gap';
+  if (deferredPattern.test(reviewText)) return 'deferred';
+  if (
+    review.routeSlugs.length > 0
+    || review.routeFamilies.length > 0
+    || review.relationship === 'direct'
+    || review.relationship === 'mixed'
+    || (review.relationship as string) === 'corridor_gauge'
+  ) {
+    return 'candidate';
+  }
+  return 'research_needed';
 }
 
 export interface GaugeReviewLedgerArtifact {
@@ -125,6 +170,15 @@ export function validateGaugeCoverageArtifacts(
     }
     if (review.status === 'screened_out' && review.eligibility !== 'not_paddle_relevant') {
       issues.push(`Screened-out gauge ${review.key} must be marked not_paddle_relevant.`);
+    }
+    if (!review.routeReadiness) {
+      issues.push(`Gauge review ${review.key} has no route-readiness classification.`);
+    }
+    if (review.status === 'covered' && review.routeReadiness !== 'published') {
+      issues.push(`Covered gauge ${review.key} must have published route readiness.`);
+    }
+    if (review.status === 'screened_out' && review.routeReadiness !== 'screened_out') {
+      issues.push(`Screened-out gauge ${review.key} must have screened-out route readiness.`);
     }
   }
 

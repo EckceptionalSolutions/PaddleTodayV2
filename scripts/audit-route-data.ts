@@ -160,7 +160,7 @@ for (const route of rivers) {
     addIssue(route, 'Incomplete', 'Missing logistics', route.id, 'High');
   } else if (routeMiles === null) {
     addIssue(route, 'Distance', 'Distance label does not contain parseable mileage', distanceLabel ?? '', 'Medium');
-  } else if (routeMiles <= 0 || routeMiles > 35) {
+  } else if (routeMiles <= 0 || (routeMiles > 35 && !/multi[- ]day|staged|sectioned/i.test(distanceLabel ?? ''))) {
     addIssue(route, 'Distance', 'Route mileage is outside expected day-route bounds', distanceLabel ?? '', 'Medium');
   }
 

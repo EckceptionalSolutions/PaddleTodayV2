@@ -145,6 +145,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'big-sucker-creek-county-33-lake-superior': [bigSuckerCreekMinnesotaPhoto],
   'pigeon-river-old-highway-61-highway-61': [pigeonRiverMinnesotaPhoto],
   'pigeon-river-partridge-falls-old-highway-61': [upperPigeonRiverMinnesotaPhoto],
+  'platte-river-honor-upper': [
+    {
+      id: 'platte-river-sleeping-bear-commons',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Platte%20River%20%288ace9b67-6c34-4bfe-9b2d-a6c84d072faf%29.jpg?width=1600',
+      alt: 'Visitors float on the Platte River in Sleeping Bear Dunes National Lakeshore, Michigan.',
+      caption: 'Platte River in Sleeping Bear Dunes National Lakeshore',
+      credit: 'Spencer Grady-Pawl / National Park Service via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
   'devil-track-river-lake-maple-hill': [devilTrackLakeMinnesotaPhoto],
   'devil-track-river-maple-hill-lake-superior': [lowerDevilTrackMinnesotaPhoto],
   'cascade-river-grade-cascade-road': [cascadeRiverMinnesotaPhoto],
@@ -1934,6 +1944,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 4.0',
     },
   ],
+  'kishwaukee-river-marengo-siems-hwy23': [
+    {
+      id: 'kishwaukee-river-state-fish-wildlife-commons-context',
+      src: '/gallery/kishwaukee-river-hickory-bills-distillery/kishwaukee-river-state-fish-wildlife-area.jpg',
+      alt: 'A low bridge crosses the Kishwaukee River in a wooded state fish and wildlife area corridor.',
+      caption: 'Kishwaukee River context; photographed in the state fish and wildlife area',
+      credit: 'Prburley via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 4.0',
+    },
+  ],
   'clinton-river-budd-macarthur': [
     {
       id: 'clinton-river-macomb-county-commons',
@@ -3057,6 +3077,140 @@ const approvedRiverFallbackRouteById: Record<string, string> = {
   'wisconsin-river': 'wisconsin-river-blue-river-boscobel',
 };
 
+// River-level context images are used only when no route-specific or dedicated
+// river-group image exists. Captions deliberately identify the image as
+// context when it was taken elsewhere on the same river.
+const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
+  'cass-river': {
+    id: 'cass-river-frankenmuth-bavarian-belle-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Bavarian%20Belle.jpg?width=1600',
+    alt: 'A tour boat travels on the Cass River in Frankenmuth, Michigan.',
+    caption: 'Cass River at Frankenmuth',
+    credit: 'Rmhermen via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+  },
+  'east-fork-white-river': {
+    id: 'east-fork-white-river-columbus-historical-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Construction%20of%20the%20water%20filter%20in%20Columbus%2C%20Indiana.jpg?width=1600',
+    alt: 'A historical view of the East Fork White River at the Second Street Bridge in Columbus, Indiana.',
+    caption: 'East Fork White River at Columbus; historical river context',
+    credit: 'Unknown author via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'elkhorn-river': {
+    id: 'elkhorn-river-neligh-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Elkhorn%20River%20%28southeast%20of%20Neligh%2C%20Nebraska%2C%20USA%29%20%2820033558145%29.jpg?width=1600',
+    alt: 'The Elkhorn River flows beneath a bridge near Neligh, Nebraska.',
+    caption: 'Elkhorn River near Neligh; river-level context',
+    credit: 'James St. John via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'horicon-marsh-paddle-trail': {
+    id: 'horicon-marsh-wetland-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dawn%20Patrol%20Horicon%20Marsh%20Wisconsin%20%2829563659%29.jpeg?width=1600',
+    alt: 'Birds fly over the open wetlands of Horicon Marsh in Wisconsin.',
+    caption: 'Horicon Marsh wetland context',
+    credit: 'Charles Skip Martin via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 3.0',
+  },
+  'iroquois-river': {
+    id: 'iroquois-river-usgs-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Iroquois%20River.jpg?width=1600',
+    alt: 'The Iroquois River in Newton County, Indiana.',
+    caption: 'Iroquois River in Newton County',
+    credit: 'U.S. Geological Survey via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'kalamazoo-river': {
+    id: 'kalamazoo-river-saugatuck-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kalamazoo%20River.jpg?width=1600',
+    alt: 'The Kalamazoo River at Saugatuck, Michigan.',
+    caption: 'Kalamazoo River at Saugatuck; river-level context',
+    credit: 'Terry Johnston via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'looking-glass-river': {
+    id: 'looking-glass-river-kayak-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/From%20kayak.jpg?width=1600',
+    alt: 'A view from a kayak on the Looking Glass River in Michigan.',
+    caption: 'Looking Glass River from a kayak',
+    credit: 'Fergu186 via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'middle-fork-vermilion-river': {
+    id: 'middle-fork-vermilion-river-forest-preserve-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Middle%20Fork%20of%20the%20Vermilion%20River%20within%20the%20Middle%20Fork%20River%20Forest%20Preserve%201.jpg?width=1600',
+    alt: 'The Middle Fork of the Vermilion River runs through the Middle Fork River Forest Preserve in Illinois.',
+    caption: 'Middle Fork Vermilion River forest preserve context',
+    credit: 'Pngdeity via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 4.0',
+  },
+  'niobrara-river': {
+    id: 'niobrara-river-spencer-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Niobrara%20River%20%28southeast%20of%20Spencer%2C%20Nebraska%2C%20USA%29%20%2824503631460%29.jpg?width=1600',
+    alt: 'The Niobrara River flows past rocky banks near Spencer, Nebraska.',
+    caption: 'Niobrara River near Spencer; river-level context',
+    credit: 'James St. John via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'north-loup-river': {
+    id: 'north-loup-river-ord-aerial-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/2022-03-24%2017%2037%2036%20UTC%20minus%205%20View%20down%20from%20an%20airplane%20across%20western%20Greeley%20County%20and%20eastern%20Valley%20County%20in%20Nebraska%2C%20with%20the%20North%20Loup%20River%2C%20town%20of%20Ord%20%28center%20left%29%20and%20town%20of%20North%20Loup%20%28lower%20center%29%20all%20visible.jpg?width=1600',
+    alt: 'An aerial view shows the North Loup River and Ord, Nebraska.',
+    caption: 'North Loup River near Ord; aerial river context',
+    credit: 'Famartin via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+  },
+  'muskegon-river': {
+    id: 'muskegon-river-big-rapids-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Muskegon%20River.jpg?width=1600',
+    alt: 'The Muskegon River at Big Rapids, Michigan.',
+    caption: 'Muskegon River at Big Rapids; river-level context',
+    credit: 'Mojnsen via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+  },
+  'pere-marquette-river': {
+    id: 'pere-marquette-river-fall-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pere%20Marquette%20River%20in%20Fall%20Manistee%20National%20Forest.JPG?width=1600',
+    alt: 'The Pere Marquette River runs through Manistee National Forest in autumn.',
+    caption: 'Pere Marquette River in Manistee National Forest; river-level context',
+    credit: 'Yetiwriter via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'pigeon-river-ottawa': {
+    id: 'pigeon-river-hemlock-crossing-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pigeon%20River%20Ottawa%20County%20Michigan.jpg?width=1600',
+    alt: 'The Pigeon River as viewed from a pedestrian bridge in Hemlock Crossing Park, Ottawa County, Michigan.',
+    caption: 'Pigeon River at Hemlock Crossing Park; river-level context',
+    credit: 'Tim Kiser via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 4.0',
+  },
+  'paw-paw-river': {
+    id: 'paw-paw-river-watervliet-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Paw%20Paw%20River%20PA210041.jpg?width=1600',
+    alt: 'The Paw Paw River near Watervliet, Michigan.',
+    caption: 'Paw Paw River near Watervliet; river-level context',
+    credit: 'Chris Light via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+  },
+  'red-cedar-river-east-lansing': {
+    id: 'red-cedar-river-msu-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Red%20Cedar%20River%20Michigan%20State%20University%2027%20October%202014.jpg?width=1600',
+    alt: 'The Red Cedar River viewed from a pedestrian bridge at Michigan State University in East Lansing.',
+    caption: 'Red Cedar River at Michigan State University',
+    credit: 'Tim Kiser via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC0',
+  },
+  'spearfish-creek': {
+    id: 'spearfish-creek-city-park-gage-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/United%20States%20Geological%20Survey_stream_gaging_station_along_Spearfish_Creek_at_City%20Park%20in%20Spearfish%2C%20South%20Dakota.jpg?width=1600',
+    alt: 'A USGS stream-gaging station stands along Spearfish Creek at City Park in Spearfish, South Dakota.',
+    caption: 'Spearfish Creek at City Park',
+    credit: 'Mr. Satterly via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: WTFPL',
+  },
+};
+
 function stablePhotoIndex(key: string, length: number): number {
   if (length <= 1) {
     return 0;
@@ -3091,6 +3245,19 @@ export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto
       caption: `${riverPhoto.caption} river-level photo`,
       credit: riverPhoto.credit,
       takenLabel: riverPhoto.licenseLabel,
+      isPlaceholder: false,
+      sourceKind: 'river',
+    };
+  }
+
+  const riverContextPhoto = route.riverId
+    ? approvedRiverContextPhotosByRiverId[route.riverId]
+    : undefined;
+  if (riverContextPhoto) {
+    return {
+      ...riverContextPhoto,
+      id: `river-context-${route.riverId}-${riverContextPhoto.id}`,
+      caption: `${riverContextPhoto.caption} river-level context`,
       isPlaceholder: false,
       sourceKind: 'river',
     };

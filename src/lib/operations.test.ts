@@ -19,11 +19,11 @@ describe('operations snapshot', () => {
     expect(snapshot.totals.scored + snapshot.totals.planning).toBe(snapshot.totals.inventory);
   });
 
-  it('keeps Texas in review until the discovery sweep completes', () => {
+  it('requires a discovery sweep after Texas gauge review completes', () => {
     const snapshot = getOperationsSnapshot();
     const texas = snapshot.states.find((state) => state.id === 'TX');
     expect(texas).toMatchObject({ planning: 0, legacySaturation: 'saturated' });
-    expect(texas?.saturation).toBe('gauge_review_in_progress');
+    expect(texas?.saturation).toBe('discovery_sweep_required');
     expect(texas?.scored ?? 0).toBeGreaterThanOrEqual(16);
   });
 
@@ -34,7 +34,7 @@ describe('operations snapshot', () => {
     expect(utah).toMatchObject({ planning: 0, legacySaturation: 'saturated' });
     expect(utah?.saturation).not.toBe('saturated');
     expect(utah?.scored ?? 0).toBeGreaterThanOrEqual(3);
-    expect(rankedUtah?.researchStatus).toBe('gauge_review_in_progress');
+    expect(rankedUtah?.researchStatus).toBe('discovery_sweep_required');
     expect(rankedUtah?.done).toBe(false);
   });
 

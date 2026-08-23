@@ -3,6 +3,363 @@ import type { River } from '../../lib/types';
 
 export const indianaRoutes: River[] = [
   {
+    "id": "west-fork-white-river-henderson-ford-paragon",
+    "slug": "west-fork-white-river-henderson-ford-paragon",
+    "name": "White River",
+    "reach": "Henderson Ford Public Access to Burnett Landing at Paragon",
+    "aliases": ["West Fork White River - Henderson Ford to Paragon", "Henderson Ford White River paddle", "Paragon White River float"],
+    "state": "Indiana",
+    "region": "South Central Indiana",
+    "routeType": "recreational",
+    "summary": "A documented 23.5-mile West Fork White River float from the Henderson Ford public access to Burnett Landing at Paragon. Indiana Outfitters describes one dam requiring a portage and reports a fast Martinsville-to-Paragon trip at about 4.7 ft on the Centerton gauge.",
+    "statusText": "Use direct USGS 03354000 near Centerton as a live check. Treat 4.7 ft as a community-observed minimum-only reference, not a universal safe level; do not launch during rising, muddy, flood, or debris-heavy conditions. Portage the dam and use only named public access.",
+    "latitude": 39.49870436,
+    "longitude": -86.35706695,
+    "gaugeSource": {"id": "usgs-03354000", "provider": "usgs", "siteId": "03354000", "metric": "gage_height_ft", "unit": "ft", "kind": "direct", "siteName": "White River near Centerton, IN", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03354000/"},
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["fast_rise", "strainers", "low_head_dam", "private_banks", "access_uncertain", "cold_water"],
+      "safetyNotes": [
+        "Indiana Outfitters reports a fast Martinsville-to-Paragon trip at about 4.7 ft on the Centerton gauge; use this as local trip evidence, not a guaranteed safe operating band.",
+        "The Henderson Ford-to-Paragon reach is about 23.5 miles and includes a dam several feet high; portage is recommended and high water makes the dam area especially swift.",
+        "Use only Henderson Ford public access and Burnett Landing at Paragon. Indiana DNR warns that riverbanks are generally private and informal landings may trespass.",
+        "Do not launch into rising, muddy, debris-heavy, or flood conditions; USGS flood stages are not navigation guidance.",
+        "This is a long moving-water commitment with limited confirmed exits; stage a shuttle, wear PFDs, and carry rescue and communication gear."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 4.7,
+      "thresholdSource": {"label": "Indiana Outfitters Centerton-gauge trip report", "url": "https://www.indianaoutfitters.com/data_white_w.html", "provider": "local"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through fall is practical, but rainfall can raise the White River rapidly and move wood into the channel.",
+      "difficulty": "hard",
+      "difficultyNotes": "A 23.5-mile moving-water day with a mandatory dam portage, limited exits, private banks, and a full shuttle; not a casual float.",
+      "confidenceNotes": "The direct USGS station, official DNR identification of Henderson Ford and Burnett Landing, current public-ramp coordinates, and an exact outfitter reach description support a guarded minimum-only add. The 4.7-ft floor is community trip evidence rather than an official manager rule."
+    },
+    "putIn": {"name": "Henderson Ford Public Access", "latitude": 39.49870436, "longitude": -86.35706695},
+    "takeOut": {"name": "Burnett Landing at Paragon", "latitude": 39.434075, "longitude": -86.44855},
+    "logistics": {
+      "distanceLabel": "About 23.5 miles",
+      "estimatedPaddleTime": "About 10–12 hours; plan a full day and conservative portage time",
+      "shuttle": "Stage the Burnett Landing vehicle first, then drive to Henderson Ford. Confirm both access sites, parking, and current notices from land before launching.",
+      "permits": "No route-specific permit was identified. Follow Indiana boating/PFD rules, DNR access rules, and posted site restrictions.",
+      "camping": "Day trip only. No legal on-route camping was verified between Henderson Ford and Paragon; arrange nearby lodging or camping separately.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Use the named Henderson Ford and Burnett Landing endpoints for a long downstream moving-water trip; make a same-day flow, wood, weather, and dam-portage call.",
+      "accessCaveats": ["Henderson Ford is a DNR-managed public access; confirm current ramp and parking condition.", "Burnett Landing is documented by Indiana DNR at Paragon; do not substitute the former Martinsville SR-39 access or private shoreline.", "Indiana Outfitters warns that access descriptions are old and may change; verify current signage and public status before travel."],
+      "watchFor": ["Centerton stage below 4.7 ft, rising water, muddy current, flood conditions, and floating wood.", "The dam and its swift water, strainers, bridge current, cold water, private banks, thunderstorms, and a missed Paragon take-out."]
+    },
+    "accessPoints": [
+      {"id": "white-river-henderson-ford-access", "name": "Henderson Ford Public Access", "latitude": 39.49870436, "longitude": -86.35706695, "mileFromStart": 0, "segmentKind": "creek", "note": "DNR-managed public access identified by current ramp documentation; verify current signage, parking, and carry."},
+      {"id": "white-river-burnett-landing-paragon", "name": "Burnett Landing at Paragon", "latitude": 39.434075, "longitude": -86.44855, "mileFromStart": 23.5, "segmentKind": "creek", "note": "Indiana DNR Paragon survey documents Burnett Landing and a boat ramp; verify current landing condition."}
+    ],
+    "evidenceNotes": [
+      {"label": "Direct live gauge", "value": "USGS 03354000 White River near Centerton", "note": "USGS provides continuous discharge and gage-height data at the Centerton station.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03354000"},
+      {"label": "Minimum-only paddling reference", "value": "About 4.7 ft stage", "note": "Indiana Outfitters reports a fast Martinsville-to-Paragon trip at about 4.7 ft on the Centerton gauge; this is community trip evidence, not an official safety threshold.", "sourceUrl": "https://www.indianaoutfitters.com/data_white_w.html"},
+      {"label": "Named public endpoints", "value": "Henderson Ford Public Access to Burnett Landing at Paragon", "note": "INDOT identifies the Henderson Ford White River public access as IDNR-managed, and the DNR Paragon survey identifies Burnett Landing with GPS coordinates and a boat ramp.", "sourceUrl": "https://www.in.gov/indot/projects/i69/files/I69S6FEIS_Ch8_Section4f.pdf"},
+      {"label": "Route length and hazards", "value": "About 23.5 miles / 10–12 hours / one dam portage", "note": "Indiana Outfitters documents the reach length, estimated duration, dam portage, and high-water warning.", "sourceUrl": "https://www.indianaoutfitters.com/white_river_w.html"}
+    ],
+    "sourceLinks": [
+      {"label": "USGS 03354000 current conditions", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03354000", "provider": "usgs"},
+      {"label": "Indiana Outfitters White River guide", "url": "https://www.indianaoutfitters.com/white_river_w.html", "provider": "local"},
+      {"label": "Indiana Outfitters live-flow trip report", "url": "https://www.indianaoutfitters.com/data_white_w.html", "provider": "local"},
+      {"label": "Indiana DNR Paragon access survey", "url": "https://www.in.gov/dnr/fish-and-wildlife/files/fmp/fw-2021-OSR_Angler-51_WF_White_Rv_2020_Survey-Paragon_1_site_20WR0044.pdf", "provider": "local"},
+      {"label": "INDOT Henderson Ford public access reference", "url": "https://www.in.gov/indot/projects/i69/files/I69S6FEIS_Ch8_Section4f.pdf", "provider": "local"},
+      {"label": "Indiana river rights and usage", "url": "https://secure.in.gov/dnr/state-parks/recreation/water-trails/river-rights-and-usage/", "provider": "local"}
+    ]
+  },
+  {
+    "id": "west-fork-white-river-gosport-spencer",
+    "slug": "west-fork-white-river-gosport-spencer",
+    "name": "White River",
+    "reach": "Gosport Public Access to Spencer Public Fishing Site",
+    "aliases": ["West Fork White River - Gosport to Spencer", "Gosport to Spencer White River paddle", "Spencer Public Access White River"],
+    "state": "Indiana",
+    "region": "South Central Indiana",
+    "routeType": "recreational",
+    "summary": "A documented 11-mile West Fork White River trip from the Gosport Public Access Site to the Spencer Public Fishing Site. Pathfinder Outfitters lists the reach at about 5.5 hours, while Indiana Outfitters reports a low-water Spencer stage of about 3.2 ft for a two-hour-forty-five-minute trip with little paddling.",
+    "statusText": "Use direct USGS 03357000 at Spencer. Local trip reports support about 3.2 ft as a known low-water runnable observation and describe 3.5 ft as a faster, easier float; treat that as community guidance, not a guaranteed safe range. Expect down trees/debris, moving water, limited exits, and a committed shuttle.",
+    "latitude": 39.35047,
+    "longitude": -86.65877,
+    "gaugeSource": {"id": "usgs-03357000", "provider": "usgs", "siteId": "03357000", "metric": "gage_height_ft", "unit": "ft", "kind": "direct", "siteName": "White River at Spencer, IN", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03357000/"},
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["fast_rise", "strainers", "private_banks", "access_uncertain", "cold_water"],
+      "safetyNotes": [
+        "Indiana Outfitters reports a 3.2-ft Spencer-gauge trip with little paddling and a 3.5-ft trip as a swift, easier float; use these as local observations rather than a universal safe operating band.",
+        "Pathfinder Outfitters describes Gosport-to-Spencer as a 5.5-hour, 11-mile trip with numerous down trees and debris; scout and portage hazards rather than forcing a line.",
+        "Use only the named Gosport and Spencer public access sites. Indiana DNR warns that most riverbanks are private and informal landings may trespass.",
+        "Do not launch during rising, muddy, debris-heavy, or flood conditions; the USGS flood-inundation materials are not navigation guidance.",
+        "This is a moving-water commitment with limited confirmed intermediate exits; stage the shuttle and carry required safety gear."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3.2,
+      "idealMax": 3.5,
+      "tooLow": 3.2,
+      "tooHigh": 3.5,
+      "thresholdSource": {"label": "Indiana Outfitters Spencer gauge trip reports", "url": "https://www.indianaoutfitters.com/data_white_w.html", "provider": "local"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through fall is the practical window, but storms can rapidly raise this reach and move wood into the channel.",
+      "difficulty": "moderate",
+      "difficultyNotes": "A long moving-water day with down trees/debris, sandbars, limited exits, and a full vehicle shuttle. Pathfinder rates the trip challenge 3 and recommends age 14+.",
+      "confidenceNotes": "The direct USGS stage feed, DNR GPS/access documentation for both endpoints, Pathfinder's exact 11-mile trip, and Indiana Outfitters' Spencer-stage observations support a guarded add. Thresholds remain community observations, not an official manager rule."
+    },
+    "putIn": {"name": "Gosport Public Access Site", "latitude": 39.35047, "longitude": -86.65877},
+    "takeOut": {"name": "Spencer Public Fishing Site", "latitude": 39.26096, "longitude": -86.798301},
+    "logistics": {
+      "distanceLabel": "About 11 miles",
+      "estimatedPaddleTime": "About 5 to 5.5 hours; local low-water report was 2 hours 45 minutes",
+      "shuttle": "Stage the Spencer Public Fishing Site vehicle first, then drive to the Gosport Public Access Site. Confirm both ramps, parking, and current notices from land before launching.",
+      "permits": "No route-specific permit was identified. Follow Indiana boating/PFD rules, DNR access rules, and posted site restrictions.",
+      "camping": "Day trip only. McCormick's Creek State Park is near the corridor, but no legal on-route camping or overnight landing was verified between Gosport and Spencer.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Use the named Gosport and Spencer public sites for an 11-mile downstream trip; treat this as a full-day moving-water route and make a same-day wood, flow, and access call.",
+      "accessCaveats": ["Indiana DNR lists Gosport and Spencer access with boat ramps; verify current ramp condition and parking on arrival.", "The Gosport-to-Spencer reach has limited confirmed intermediate exits; do not rely on private banks for an emergency landing unless necessary for safety.", "Do not substitute the former Martinsville SR-39 access or informal shoreline entries without separate verification."],
+      "watchFor": ["Spencer stage below 3.2 ft or above 3.5 ft, rising water, muddy current, flood conditions, and floating wood.", "Down trees, strainers, bridge current, cold water, private banks, thunderstorms, and a missed Spencer take-out."]
+    },
+    "accessPoints": [
+      {"id": "white-river-gosport-public-access", "name": "Gosport Public Access Site", "latitude": 39.35047, "longitude": -86.65877, "mileFromStart": 0, "segmentKind": "creek", "note": "Indiana DNR survey identifies the Gosport access and GPS coordinates; verify current parking and ramp condition."},
+      {"id": "white-river-spencer-public-fishing", "name": "Spencer Public Fishing Site", "latitude": 39.26096, "longitude": -86.798301, "mileFromStart": 11, "segmentKind": "creek", "note": "Indiana DNR survey identifies the Spencer public boat ramp and GPS coordinates; verify current landing and parking."}
+    ],
+    "evidenceNotes": [
+      {"label": "Direct live gauge", "value": "USGS 03357000 White River at Spencer", "note": "USGS provides continuous discharge and gage-height data at the Spencer station.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03357000"},
+      {"label": "Paddling threshold", "value": "About 3.2–3.5 ft stage", "note": "Indiana Outfitters reports 3.2 ft as a successful low-water Gosport-to-Spencer trip and 3.5 ft as a faster float; this is community trip evidence, not an official safety rule.", "sourceUrl": "https://www.indianaoutfitters.com/data_white_w.html"},
+      {"label": "Named public endpoints", "value": "Gosport Public Access to Spencer Public Fishing Site", "note": "Indiana DNR survey sheets document both locations, boat-ramp amenities, and coordinates.", "sourceUrl": "https://www.in.gov/dnr/fish-and-wildlife/files/fmp/fw-2021-OSR_Angler-52_WF_White_Rv_2020_Survey-Gosport_site_20WR0046.pdf"},
+      {"label": "Route length and logistics", "value": "About 11 miles / 5.5 hours", "note": "Pathfinder Outfitters publishes the exact Gosport-to-Spencer trip length, duration, and down-tree/debris caution.", "sourceUrl": "https://www.pathfinderoutfitters.com/trips-west-fork-white-river/"}
+    ],
+    "sourceLinks": [
+      {"label": "USGS 03357000 current conditions", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03357000", "provider": "usgs"},
+      {"label": "Indiana DNR Gosport access", "url": "https://www.in.gov/dnr/fish-and-wildlife/files/fmp/fw-2021-OSR_Angler-52_WF_White_Rv_2020_Survey-Gosport_site_20WR0046.pdf", "provider": "local"},
+      {"label": "Indiana DNR Spencer access", "url": "https://www.in.gov/dnr/fish-and-wildlife/files/fmp/fw-2021-OSR_Angler-53_WF_White_Rv_2020_Survey-Spencer_site_20WR047.pdf", "provider": "local"},
+      {"label": "Indiana Outfitters live-flow trip reports", "url": "https://www.indianaoutfitters.com/data_white_w.html", "provider": "local"},
+      {"label": "Pathfinder Outfitters Gosport-to-Spencer trip", "url": "https://www.pathfinderoutfitters.com/trips-west-fork-white-river/", "provider": "local"},
+      {"label": "Indiana river rights and usage", "url": "https://www.in.gov/dnr/state-parks/recreation/water-trails/river-rights-and-usage/", "provider": "local"}
+    ]
+  },
+  {
+    "id": "west-fork-white-river-mounds-perkinsville",
+    "slug": "west-fork-white-river-mounds-perkinsville",
+    "name": "White River",
+    "reach": "Mounds State Park Canoe Launch to Perkinsville Public Access",
+    "aliases": ["West Fork White River - Mounds to Perkinsville", "Anderson White River paddle", "Mounds State Park to Perkinsville"],
+    "state": "Indiana",
+    "region": "East Central Indiana",
+    "routeType": "recreational",
+    "summary": "A documented moving-water day from the public Mounds State Park canoe launch through Anderson and downstream to the IDNR Perkinsville Public Access Site. The Hoosier Canoe & Kayak Club describes the Anderson-to-Perkinsville trip at about 10 miles; this Mounds extension is roughly 13 river miles and uses the same conservative 250–400 cfs window on the Anderson gauge.",
+    "statusText": "Use USGS 03348000 at Anderson. The documented paddle window is about 250–400 cfs; Anderson prohibits recreational watercraft above 10 ft on its automated White River gage. Perkinsville access is temporarily closed for improvements during the 2026 construction period—confirm reopening before staging a vehicle.",
+    "latitude": 40.106063,
+    "longitude": -85.624296,
+    "gaugeSource": {"id": "usgs-03348000", "provider": "usgs", "siteId": "03348000", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "White River at Anderson, IN", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03348000/"},
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["fast_rise", "strainers", "low_head_dam", "private_banks", "access_uncertain"],
+      "safetyNotes": [
+        "The Hoosier Canoe & Kayak Club describes this reach as moving water and cancels below about 250 cfs; use the 250–400 cfs range as conservative community guidance, not a guarantee of safe conditions.",
+        "Anderson municipal code prohibits recreational watercraft when its automated White River gage exceeds 10 ft. Do not launch into rising, muddy, debris-heavy, or rapidly changing water.",
+        "The Perkinsville Public Access Site is undergoing improvements and was announced closed to vehicles, boaters, anglers, and visitors during construction. Confirm current reopening with Madison County Parks/IDNR before using it as a take-out.",
+        "Use only the named public park/access endpoints. Indiana DNR warns that most riverbanks are private; do not trespass for informal landings.",
+        "The route is distinct from the downstream Canoe Country-to-Edgewater route and does not authorize running any dam or unverified portage."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 250,
+      "idealMax": 400,
+      "tooLow": 250,
+      "tooHigh": 400,
+      "thresholdSource": {"label": "Hoosier Canoe & Kayak Club Anderson-to-Perkinsville paddle guidance", "url": "https://www.hoosiercanoeclub.org/RiverPadCalendar?EventListViewMode=1&EventViewMode=1", "provider": "local"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Spring through fall is practical, but storms can create rapid rises, muddy current, and floating debris. Recheck the live gauge and local weather immediately before launch.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Moving water, a roughly 10-mile commitment, limited confirmed intermediate exits, private banks, and possible wood require competent boat control and a complete shuttle.",
+      "confidenceNotes": "The direct USGS gauge, municipal 10-ft boating rule, named Mounds canoe launch, and club-published 250–400 cfs trip window support a guarded add. The Perkinsville endpoint is an official IDNR access site but its coordinates are represented by the nearby documented Perkinsville river sampling/access area and should be field-verified after construction reopens."
+    },
+    "putIn": {"name": "Mounds State Park Canoe Launch", "latitude": 40.106063, "longitude": -85.624296},
+    "takeOut": {"name": "IDNR Perkinsville Public Access Site", "latitude": 40.142819, "longitude": -85.858558},
+    "logistics": {
+      "distanceLabel": "About 13 miles",
+      "estimatedPaddleTime": "About 3–5 hours, depending on flow, stops, and scouting",
+      "shuttle": "Stage a vehicle at the Perkinsville Public Access Site only after confirming the construction closure has ended and the ramp/parking are open; otherwise do not launch this one-way route.",
+      "permits": "No route-specific permit was identified. Follow Indiana DNR boating/PFD rules, Mounds State Park rules, posted access restrictions, and current construction notices.",
+      "camping": "Mounds State Park has a campground near the canoe launch; no on-route camping or overnight landing was verified at Perkinsville. Treat this as a daylight trip.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at the public Mounds State Park canoe launch and finish at the IDNR Perkinsville access after confirming the site has reopened.",
+      "accessCaveats": ["Mounds State Park lists a canoe launch and campground; confirm seasonal gate, parking, and carry distance.", "The Perkinsville site is an official public access at 9509 W 280 N but was closed for 2026 improvements; confirm reopening before travel.", "Do not use the SR-13 bridge, private banks, or informal shoreline as substitutes without separate access verification.", "The take-out coordinate is a nearby documented Perkinsville river/access point and should be field-verified after construction."],
+      "watchFor": ["Discharge below 250 or above 400 cfs, stage above 10 ft, rising water, muddy current, and floating wood.", "Strainers, bridge current, private banks, cold water, thunderstorms, and a closed or unfinished Perkinsville landing."]
+    },
+    "accessPoints": [
+      {"id": "white-river-mounds-state-park-canoe", "name": "Mounds State Park Canoe Launch", "latitude": 40.106063, "longitude": -85.624296, "mileFromStart": 0, "segmentKind": "creek", "note": "Public state-park canoe launch; coordinate from Indiana stream-habitat documentation; verify carry path and current park access."},
+      {"id": "white-river-perkinsville-public-access", "name": "IDNR Perkinsville Public Access Site", "latitude": 40.142819, "longitude": -85.858558, "mileFromStart": 10, "segmentKind": "creek", "note": "Official public access near 9509 W 280 N; temporarily closed for improvements in 2026 and coordinate requires field verification after reopening."}
+    ],
+    "evidenceNotes": [
+      {"label": "Direct live gauge", "value": "USGS 03348000 White River at Anderson", "note": "USGS provides continuous discharge and gage-height data at the Anderson station.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03348000"},
+      {"label": "Paddling threshold", "value": "About 250–400 cfs", "note": "Hoosier Canoe & Kayak Club documents the Anderson-to-Perkinsville paddle and says the trip is canceled below about 250–400 cfs conditions; this route adds the upstream Mounds launch.", "sourceUrl": "https://www.hoosiercanoeclub.org/RiverPadCalendar?EventListViewMode=1&EventViewMode=1"},
+      {"label": "Municipal safety ceiling", "value": "No recreational watercraft above 10 ft", "note": "Anderson municipal code ties its boating restriction to the automated White River gage.", "sourceUrl": "https://codelibrary.amlegal.com/codes/andersonin/latest/anderson_in/0-0-0-13155"},
+      {"label": "Public endpoints", "value": "Mounds State Park to Perkinsville Public Access", "note": "Indiana DNR documents the Mounds canoe launch; Madison County documents the IDNR Perkinsville access site and its temporary construction closure.", "sourceUrl": "https://www.in.gov/dnr/state-parks/parks-lakes/mounds-state-park/"},
+      {"label": "Endpoint coordinates", "value": "40.106063, -85.624296 to 40.142819, -85.858558", "note": "Mounds coordinate is published in Indiana stream-habitat documentation; the Perkinsville coordinate is a nearby documented river/access sample point and requires field verification after reopening.", "sourceUrl": "https://twoforksfishing.com/wp-content/uploads/2019/07/west-fork-white-river-2011-research-report.pdf"}
+    ],
+    "sourceLinks": [
+      {"label": "USGS 03348000 current conditions", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03348000", "provider": "usgs"},
+      {"label": "Mounds State Park", "url": "https://www.in.gov/dnr/state-parks/parks-lakes/mounds-state-park/", "provider": "local"},
+      {"label": "Mounds State Park map", "url": "https://www.in.gov/dnr/state-parks/files/mounds_trail.pdf", "provider": "local"},
+      {"label": "Hoosier Canoe & Kayak Club trip guidance", "url": "https://www.hoosiercanoeclub.org/RiverPadCalendar?EventListViewMode=1&EventViewMode=1", "provider": "local"},
+      {"label": "Anderson watercraft ordinance", "url": "https://codelibrary.amlegal.com/codes/andersonin/latest/anderson_in/0-0-0-13155", "provider": "local"},
+      {"label": "Perkinsville access project", "url": "https://www.madisoncountyparksandrecreation.com/projects", "provider": "local"},
+      {"label": "Indiana river rights and usage", "url": "https://www.in.gov/dnr/state-parks/recreation/water-trails/river-rights-and-usage/", "provider": "local"}
+    ]
+  },
+  {
+    "id": "maumee-river-kreager-moser",
+    "slug": "maumee-river-kreager-moser",
+    "name": "Maumee River",
+    "reach": "Kreager Park / North River Road Boat Ramp to Moser Park Canoe Launch",
+    "aliases": ["Maumee River - Kreager Park to Moser Park", "New Haven Maumee paddle", "Maumee Pathway downstream reach"],
+    "state": "Indiana",
+    "region": "Northeast Indiana",
+    "routeType": "recreational",
+    "summary": "Downstream Maumee River reach from the public Kreager Park / North River Road ramp into New Haven's Moser Park canoe launch. The New Haven watershed plan identifies Moser as a city-managed canoe launch, while the Maumee Pathway and local park sources document the distinct Kreager-to-Moser corridor; USGS 04183000 provides the New Haven live check.",
+    "statusText": "Use USGS 04183000 at New Haven. Apply the conservative Maumee paddling window of roughly 950-2,800 cfs from RiverScout as community guidance only; check for rising water, debris, flooding, and current access conditions before committing to this longer downstream segment.",
+    "latitude": 41.0892,
+    "longitude": -85.0407,
+    "gaugeSource": {"id": "usgs-04183000", "provider": "usgs", "siteId": "04183000", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Maumee River at New Haven, IN", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04183000/"},
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["fast_rise", "urban_water_quality", "access_uncertain", "private_banks", "cold_water"],
+      "safetyNotes": [
+        "Launch only at the public Kreager Park / North River Road ramp and take out at the named Moser Park canoe launch; do not treat every Rivergreenway shoreline as a legal access.",
+        "This is a longer downstream reach with limited confirmed intermediate exits. Stage the shuttle and inspect the Moser landing from land before launching.",
+        "The Maumee Pathway corridor is flood-prone. Trail closure or flood conditions are a useful warning that river access and footing may also be compromised.",
+        "Urban and agricultural runoff can affect water quality. Check current advisories after heavy rain and avoid contact with visibly contaminated water."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "tooLow": 950,
+      "idealMin": 950,
+      "idealMax": 2800,
+      "tooHigh": 2800,
+      "thresholdSource": {"label": "RiverScout Maumee River paddling guidance", "url": "https://riverscout.app/rivers/indiana/maumee-river", "provider": "manual"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through early fall is the practical window. Storm runoff, flooding, and upstream regulation can change the New Haven reach quickly.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Moving-water recreational reach with a longer shuttle and fewer verified exits than the Fort Wayne segment. Treat it as a committed day route rather than a casual park float.",
+      "confidenceNotes": "Endpoint distinctness is strong enough for publication: New Haven's watershed plan explicitly identifies Moser Park as a city-managed canoe launch, the Maumee Pathway sources connect Kreager and Moser, and the New Haven USGS station is direct telemetry for this downstream corridor. The flow band remains community guidance rather than an official manager safety limit."
+    },
+    "accessPoints": [
+      {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0892, "longitude": -85.0407, "mileFromStart": 0, "segmentKind": "creek", "note": "Public concrete boat ramp across North River Road from Kreager Park."},
+      {"id": "maumee-moser-park-canoe-launch", "name": "Moser Park Canoe Launch", "latitude": 41.07339, "longitude": -85.021895, "mileFromStart": 5, "segmentKind": "creek", "note": "City-managed canoe launch identified in the Upper Maumee watershed plan; inspect current landing and parking before launch."}
+    ],
+    "evidenceNotes": [
+      {"label": "Distinct public endpoint pair", "value": "Kreager Park to Moser Park", "note": "The Maumee Pathway follows the river from Kreager Park to Moser Park, and the Upper Maumee watershed plan identifies one canoe launch at Moser Park managed by New Haven.", "sourceUrl": "https://dam.assets.ohio.gov/image/upload/epa.ohio.gov/Portals/35/nps/WAPs/MaumeeRUpper.pdf"},
+      {"label": "Moser city facility", "value": "Moser Park, 601 W Main Street, New Haven", "note": "New Haven Parks identifies the public park, hours, restrooms, and facility location used for the downstream take-out context.", "sourceUrl": "https://newhavenparks.recdesk.com/Community/Facility/Detail?facilityId=18"},
+      {"label": "Direct live gauge", "value": "USGS 04183000 at New Haven", "note": "USGS provides direct discharge and gage-height telemetry for the downstream New Haven corridor.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04183000"},
+      {"label": "Paddling flow guidance", "value": "About 950-2,800 cfs", "note": "RiverScout publishes a practical Maumee paddling window; Paddle Today preserves it as community guidance and not an official safety limit.", "sourceUrl": "https://riverscout.app/rivers/indiana/maumee-river"},
+      {"label": "Corridor continuity", "value": "Maumee Pathway continues east from Kreager to Moser", "note": "City and regional trail sources document the connected river corridor and public destinations.", "sourceUrl": "https://www.indianatrails.com/the-rivergreenway"},
+      {"label": "Endpoint coordinates", "value": "41.0892,-85.0407 to 41.07339,-85.021895", "note": "Kreager is the city boat-ramp location; Moser is a map-reviewed city park/canoe-launch pin and should be checked against current landing signage.", "sourceUrl": "https://newhavenparks.recdesk.com/Community/Facility/Detail?facilityId=18"}
+    ],
+    "sourceLinks": [
+      {"label": "Upper Maumee watershed plan", "url": "https://dam.assets.ohio.gov/image/upload/epa.ohio.gov/Portals/35/nps/WAPs/MaumeeRUpper.pdf", "provider": "local"},
+      {"label": "New Haven Moser Park facility", "url": "https://newhavenparks.recdesk.com/Community/Facility/Detail?facilityId=18", "provider": "local"},
+      {"label": "Indiana Trails Rivergreenway", "url": "https://www.indianatrails.com/the-rivergreenway", "provider": "local"},
+      {"label": "USGS 04183000 current conditions", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04183000", "provider": "usgs"},
+      {"label": "USGS 04183000 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04183000/", "provider": "usgs"},
+      {"label": "RiverScout Maumee guidance", "url": "https://riverscout.app/rivers/indiana/maumee-river", "provider": "manual"}
+    ]
+  },
+  {
+    "id": "maumee-river-niagara-kreager",
+    "slug": "maumee-river-niagara-kreager",
+    "name": "Maumee River",
+    "reach": "Anthony Boulevard / Niagara Drive Access to Kreager Park Boat Ramp",
+    "aliases": [
+      "Maumee River - Niagara Drive to Kreager Park",
+      "Fort Wayne Maumee River paddle",
+      "Anthony Boulevard Bridge to North River Road"
+    ],
+    "state": "Indiana",
+    "region": "Northeast Indiana",
+    "routeType": "recreational",
+    "summary": "Nearly four-mile Fort Wayne Maumee River paddle from the public Anthony Boulevard/Niagara Drive access below Hosey Dam to the North River Road boat ramp across from Kreager Park. Fort Wayne's visitor water-trail guide names the reach and the city identifies both public Maumee access points; USGS 04182950 provides the direct live check.",
+    "statusText": "Use USGS 04182950 at Coliseum Boulevard. RiverScout's published Maumee guidance treats roughly 950-2,800 cfs as the practical paddling window; treat that as conservative community guidance, not a guarantee, and skip the steep ramp, dam tailwater, or rising/muddy current when conditions are poor.",
+    "latitude": 41.0821,
+    "longitude": -85.1128,
+    "gaugeSource": {
+      "id": "usgs-04182950",
+      "provider": "usgs",
+      "siteId": "04182950",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Maumee River at Coliseum Blvd at Fort Wayne, IN",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04182950/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_head_dam", "access_uncertain", "fast_rise", "urban_water_quality", "private_banks"],
+      "safetyNotes": [
+        "Put in only downstream of Hosey Dam at the named Anthony Boulevard/Niagara Drive access. Low-head dams are not runnable; do not approach or attempt to paddle over Hosey Dam.",
+        "The visitor guide describes the Niagara Drive gravel ramp as steep. Carry boats carefully, confirm footing, and use a shuttle rather than improvising a bank entry.",
+        "Use the named Kreager Park / North River Road ramp for the take-out. Do not assume Rivergreenway banks or private shoreline are legal intermediate exits.",
+        "Fort Wayne water-quality planning documents identify combined-sewer and storm-runoff concerns in the urban corridor. Check current city advisories and avoid paddling after sewage or major-storm alerts."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "tooLow": 950,
+      "idealMin": 950,
+      "idealMax": 2800,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "RiverScout Maumee River paddling guidance",
+        "url": "https://riverscout.app/rivers/indiana/maumee-river",
+        "provider": "manual"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through early fall is the practical window. Urban runoff, thunderstorms, and upstream regulation can change conditions quickly; use the live gauge and a same-day visual check.",
+      "difficulty": "easy",
+      "difficultyNotes": "A short urban flatwater reach with straightforward downstream travel once below the dam, but the steep gravel put-in, dam hazard, moving current, and limited legal exits make it a caution-rated route rather than a casual shoreline launch.",
+      "confidenceNotes": "The route identity and endpoints are strong: Visit Fort Wayne names the Anthony Boulevard/Niagara Drive start, nearly four-mile downstream distance, and Kreager Park finish; Fort Wayne Parks identifies the two public Maumee access points; and the USGS Coliseum station is a direct live gauge near the corridor. The flow band is intentionally labeled community guidance because no manager-published route-specific cfs band was found."
+    },
+    "accessPoints": [
+      {"id": "maumee-niagara-drive-access", "name": "Anthony Boulevard / Niagara Drive Access", "latitude": 41.0821, "longitude": -85.1128, "mileFromStart": 0, "segmentKind": "creek", "note": "Public Fort Wayne Maumee access below Hosey Dam; visitor guidance describes a steep gravel ramp."},
+      {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0892, "longitude": -85.0407, "mileFromStart": 4, "segmentKind": "creek", "note": "Public concrete boat ramp across North River Road from Kreager Park."}
+    ],
+    "evidenceNotes": [
+      {"label": "Named route and public endpoints", "value": "Anthony Boulevard / Niagara Drive to Kreager Park, nearly 4 mi", "note": "Visit Fort Wayne's paddling guide names the downstream-of-Hosey-Dam Niagara Drive access, approximate distance, and Kreager Park finish.", "sourceUrl": "https://www.visitfortwayne.com/things-to-do/parks-and-outdoors/kayaking-canoeing/"},
+      {"label": "City access inventory", "value": "Two public Maumee access points", "note": "Fort Wayne Parks lists North River Road Trailhead and Boat Ramp across from Kreager Park and the access just east of North Anthony Boulevard along Niagara Drive.", "sourceUrl": "https://www.cityoffortwayne.in.gov/1278/Rivergreenway"},
+      {"label": "Direct live gauge", "value": "USGS 04182950 at Coliseum Boulevard", "note": "USGS provides current discharge and gage height for the nearby Maumee corridor.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04182950"},
+      {"label": "Paddling flow guidance", "value": "About 950-2,800 cfs", "note": "RiverScout publishes a practical paddling window for the Maumee; Paddle Today preserves it as community guidance and does not represent it as an official safety limit.", "sourceUrl": "https://riverscout.app/rivers/indiana/maumee-river"},
+      {"label": "Ramp and dam caveat", "value": "Steep gravel put-in below Hosey Dam", "note": "Visit Fort Wayne warns that the Niagara Drive gravel ramp is steep; the start is downstream of the Hosey Dam.", "sourceUrl": "https://www.visitfortwayne.com/things-to-do/parks-and-outdoors/kayaking-canoeing/"},
+      {"label": "Endpoint coordinates", "value": "41.0821,-85.1128 to 41.0892,-85.0407", "note": "Coordinates are map-reviewed pins for the named Niagara Drive access and Kreager Park/North River Road ramp; confirm current launch signage on arrival.", "sourceUrl": "https://www.cityoffortwayne.in.gov/images/stories/Utilities/docs/boatramps.pdf"}
+    ],
+    "sourceLinks": [
+      {"label": "Visit Fort Wayne paddling guide", "url": "https://www.visitfortwayne.com/things-to-do/parks-and-outdoors/kayaking-canoeing/", "provider": "local"},
+      {"label": "Fort Wayne Rivergreenway access inventory", "url": "https://www.cityoffortwayne.in.gov/1278/Rivergreenway", "provider": "local"},
+      {"label": "Fort Wayne boat-ramp map", "url": "https://www.cityoffortwayne.in.gov/images/stories/Utilities/docs/boatramps.pdf", "provider": "local"},
+      {"label": "USGS 04182950 current conditions", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04182950", "provider": "usgs"},
+      {"label": "USGS 04182950 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04182950/", "provider": "usgs"},
+      {"label": "RiverScout Maumee guidance", "url": "https://riverscout.app/rivers/indiana/maumee-river", "provider": "manual"}
+    ]
+  },
+  {
     "id": "big-pine-creek-450-harrison-twin-bridges",
     "slug": "big-pine-creek-450-harrison-twin-bridges",
     "name": "Big Pine Creek",
@@ -149,6 +506,76 @@ export const indianaRoutes: River[] = [
         "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=033356848",
         "provider": "usgs"
       }
+    ]
+  },
+  {
+    "id": "iroquois-river-lairds-landing-newton-fairgrounds",
+    "slug": "iroquois-river-lairds-landing-newton-fairgrounds",
+    "name": "Iroquois River",
+    "reach": "Laird's Landing to Newton County Fairgrounds",
+    "aliases": ["Iroquois River - Laird's Landing to Newton Fairgrounds", "Upper Iroquois River 32-mile public-access run"],
+    "state": "Indiana",
+    "region": "Northwest Indiana",
+    "routeType": "recreational",
+    "summary": "Long Upper Iroquois River run from the only designated public upstream access at Laird's Landing to the Newton County Fairgrounds bridge access. The Jasper County SWCD canoe chart supplies the named endpoints, 32-mile distance, and a field-verified stage rating tied to the Foresman USGS sentry gauge.",
+    "statusText": "Use USGS 05524500 near Foresman. The local field-verified guide rates 3.75–6.00 ft as family-safe green water, 6.00–12.00 ft as experienced-only caution, above 12 ft as red/danger, and below 3.75 ft as low-water gray. Recheck logjams, rapid rises, water quality, and the committed 32-mile shuttle before launching.",
+    "latitude": 40.934255,
+    "longitude": -87.127682,
+    "gaugeSource": {
+      "id": "usgs-05524500",
+      "provider": "usgs",
+      "siteId": "05524500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Iroquois River near Foresman, IN",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05524500",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05524500"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["fast_rise", "low_water", "urban_water_quality", "private_banks", "remote"],
+      "safetyNotes": [
+        "The local guide reports rapid rises after storms and a history of logjams; contact the Jasper/Newton SWCD or county surveyor for current obstruction information before committing to the long run.",
+        "Use only Laird's Landing and Newton County Fairgrounds as the designated public access points. The canoe chart marks intermediate take-outs as private or permission-only, and State Line is only a mile marker.",
+        "The watershed page warns of elevated E. coli and nutrient concerns. Treat this as a paddle route, not a swimming or drinking-water opportunity, and check current local advisories.",
+        "At 32 miles this is a daylight-committed outing with limited legal exits; stage the fairgrounds finish and confirm parking, access, and camping terms before launch."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3.75,
+      "idealMax": 6,
+      "tooLow": 3.1,
+      "tooHigh": 12,
+      "thresholdSource": {"label": "Jasper County SWCD Iroquois stream-gage canoe guide", "url": "https://static.wixstatic.com/media/631975_05c46f4db35845dc97b547ba02833a24~mv2.jpg/v1/crop/x_0%2Cy_0%2Cw_629%2Ch_474/fill/w_1200%2Ch_900%2Cal_c%2Cq_90/2015-Stream-Gage-Canoe-Guide-e1433179544.jpg", "provider": "local"},
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through early fall is practical, but storm runoff can change the stage quickly and the guide notes that levels fall slowly below the 5-ft mark.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Mostly flatwater but unusually long and committing, with logjam, low-water, private-bank, water-quality, and shuttle constraints.",
+      "confidenceNotes": "Confidence is good for a conservative publication: the local watershed organization ties the live Foresman gauge to a color-coded canoe rating based on three years of field events, its canoe chart names the public endpoints and distance, and an independent water-quality study places the fairgrounds bridge downstream of the gauge. No intermediate private take-outs are treated as public."
+    },
+    "accessPoints": [
+      {"id": "lairds-landing-iroquois", "name": "Laird's Landing", "latitude": 40.934255, "longitude": -87.127682, "mileFromStart": 0, "segmentKind": "creek", "note": "Designated public Iroquois River access on IN 114."},
+      {"id": "newton-county-fairgrounds-iroquois", "name": "Newton County Fairgrounds bridge access", "latitude": 40.820833, "longitude": -87.464333, "mileFromStart": 32, "segmentKind": "creek", "note": "Designated public finish identified by the Jasper County SWCD canoe chart; fairgrounds camping/boat-launch context requires current confirmation."}
+    ],
+    "evidenceNotes": [
+      {"label": "Named public endpoints and distance", "value": "Laird's Landing to Newton County Fairgrounds, 32 mi", "note": "The Upper Iroquois River Canoe Distances chart identifies these as the only designated public access points and lists the 32-mile route distance.", "sourceUrl": "https://www.jaspercountyswcd.org/_files/ugd/631975_cc7a4e8930834884af3ba8b0f47c12ac.pdf"},
+      {"label": "Station-specific stage thresholds", "value": "3.75–6.00 ft green; 6.00–12.00 ft yellow; >12 ft red; 3.10–3.75 ft gray", "note": "The Jasper County SWCD guide says the ratings were field verified from three years of paddling events and measurements and directs paddlers to the Rensselaer/Foresman USGS graphs.", "sourceUrl": "https://static.wixstatic.com/media/631975_05c46f4db35845dc97b547ba02833a24~mv2.jpg/v1/crop/x_0%2Cy_0%2Cw_629%2Ch_474/fill/w_1200%2Ch_900%2Cal_c%2Cq_90/2015-Stream-Gage-Canoe-Guide-e1433179544.jpg"},
+      {"label": "Direct live gauge", "value": "USGS 05524500 Iroquois River near Foresman", "note": "USGS provides current stage and discharge for the exact station named by the local canoe guide.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05524500"},
+      {"label": "Endpoint coordinates", "value": "Laird's Landing 40.934255,-87.127682; fairgrounds bridge 40.820833,-87.464333", "note": "Laird's Landing coordinates are independently published with the public access listing; the fairgrounds bridge coordinate is from the published water-quality study's IR07 site.", "sourceUrl": "https://commons.wikimedia.org/wiki/Category%3ALaird%27s_Landing"},
+      {"label": "Water-quality and access caveat", "value": "No swimming/drinking; intermediate exits may be private", "note": "The watershed organization documents E. coli/nutrient concerns and limited recreational access; use only the named endpoints and check current advisories.", "sourceUrl": "https://www.jaspercountyswcd.org/uiwi-our-efforts-mobile"}
+    ],
+    "sourceLinks": [
+      {"label": "Jasper County SWCD canoe distances chart", "url": "https://www.jaspercountyswcd.org/_files/ugd/631975_cc7a4e8930834884af3ba8b0f47c12ac.pdf", "provider": "local"},
+      {"label": "Jasper County SWCD stream-gage canoe guide", "url": "https://static.wixstatic.com/media/631975_05c46f4db35845dc97b547ba02833a24~mv2.jpg/v1/crop/x_0%2Cy_0%2Cw_629%2Ch_474/fill/w_1200%2Ch_900%2Cal_c%2Cq_90/2015-Stream-Gage-Canoe-Guide-e1433179544.jpg", "provider": "local"},
+      {"label": "USGS 05524500 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05524500", "provider": "usgs"},
+      {"label": "Jasper County SWCD watershed recreation and safety page", "url": "https://www.jaspercountyswcd.org/uiwi-our-efforts-mobile", "provider": "local"},
+      {"label": "Iroquois River water-quality study sites", "url": "https://citeseerx.ist.psu.edu/document?doi=4b2bc84cd8f043139578c86da0860c335429af04&repid=rep1&type=pdf", "provider": "local"},
+      {"label": "Laird's Landing public-access coordinates", "url": "https://commons.wikimedia.org/wiki/Category%3ALaird%27s_Landing", "provider": "local"}
     ]
   },
   {
@@ -1258,5 +1685,84 @@ export const indianaRoutes: River[] = [
         "provider": "usgs"
       }
     ]
-  }
+  },
+  {
+    "id": "east-fork-white-river-columbus-azalia",
+    "slug": "east-fork-white-river-columbus-azalia",
+    "name": "East Fork White River",
+    "reach": "Columbus DNR ramp to Azalia Public Access Site",
+    "aliases": ["East Fork White River - Columbus to Azalia", "East Fork White River Columbus-Azalia"],
+    "state": "Indiana",
+    "region": "South Central Indiana",
+    "routeType": "recreational",
+    "summary": "Sandy 11.5-mile East Fork White River day from the Columbus DNR ramp to the DNR access beside County Road 800 South at Azalia. The Hoosier Canoe & Kayak Club has repeatedly run this exact section, and the direct Columbus USGS gauge has documented successful canoe conditions around 320 cfs.",
+    "statusText": "Use the East Fork White River at Columbus gauge. Around 320 cfs is a conservative minimum-only floor supported by a documented canoe trip with adequate main-channel depth; do not launch when the river is muddy, rapidly rising, debris-heavy, or substantially above the group's moving-water comfort because no upper cutoff is published.",
+    "latitude": 39.1987,
+    "longitude": -85.9255,
+    "gaugeSource": {
+      "id": "usgs-03364000",
+      "provider": "usgs",
+      "siteId": "03364000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "East Fork White River at Columbus, IN",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03364000/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["fast_rise", "low_water", "strainers", "access_uncertain", "private_banks"],
+      "safetyNotes": [
+        "Moving water has long sandbars, changing channels, cut banks, riprap, and occasional motorboat or airboat traffic. Stay in the navigable main channel and keep clear of powered traffic.",
+        "The route ends at Azalia before the Rockford dam described in downstream reports. Do not continue downstream without separately researching the dam and portage; never run the dam.",
+        "Use only the named Columbus DNR ramp and Azalia DNR access. Banks away from those sites may be private, and low-water bars or changing channels can make shoreline landings difficult.",
+        "The latest implementation check returned 7,800 cfs and 3.60 ft (provisional), well above the documented low-water reference; treat that as a no-go until flow and hazards are reassessed."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 320,
+      "thresholdSource": {"label": "IndianaOutfitters East Fork White River streamflow reports", "url": "https://www.indianaoutfitters.com/data_white_e.html", "provider": "local"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Spring through fall is practical, but storms can produce rapid rises, muddy water, floating debris, and stronger current before local access conditions are obvious.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Mostly easy moving water for experienced flatwater paddlers, but the 11.5-mile length, changing channels, powered traffic, cut banks, and limited shore options require competent boat control and a full shuttle plan.",
+      "confidenceNotes": "The exact section and endpoints are documented by the Hoosier Canoe & Kayak Club, IndianaOutfitters provides a direct same-gauge 320-cfs successful canoe observation, USGS 03364000 is a direct live gauge, and the route ends before the downstream Rockford dam. Confidence remains conservative because the floor is community evidence, the Columbus endpoint is an anchored map coordinate, and no upper recreational cutoff is published."
+    },
+    "putIn": {"name": "Columbus DNR boat ramp, East Fork White River", "latitude": 39.1987, "longitude": -85.9255},
+    "takeOut": {"name": "Azalia DNR Public Access Site at County Road 800 South", "latitude": 39.0850524, "longitude": -85.8602589},
+    "logistics": {
+      "distanceLabel": "11.5 miles",
+      "estimatedPaddleTime": "About 3–5 hours, depending on flow and stops",
+      "shuttle": "The club describes an approximately 20-mile road shuttle; verify both access sites and vehicle security before launch.",
+      "permits": "No special route permit was identified; follow current Indiana DNR access rules, boating regulations, and PFD requirements.",
+      "camping": "No route camping package was verified; treat this as a day trip and do not camp on private banks.",
+      "campingClassification": "none",
+      "summary": "Named one-way day float from Columbus to Azalia with a straightforward shuttle.",
+      "accessCaveats": ["The club places the Columbus ramp 500 feet downstream of the SR 46 bridge; confirm current DNR signage, parking, and ramp.", "The Azalia access is beside County Road 800 South; confirm current access and parking with Indiana DNR.", "Do not assume informal sandbars or private banks are legal take-outs."],
+      "watchFor": ["rapidly rising or muddy water", "floating debris", "airboats and motorboats", "shallow split channels", "cut banks and riprap"]
+    },
+    "accessPoints": [
+      {"id": "east-fork-white-columbus-dnr", "name": "Columbus DNR boat ramp", "latitude": 39.1987, "longitude": -85.9255, "mileFromStart": 0, "segmentKind": "creek", "note": "Map anchor based on USGS station location and club directions placing ramp 500 feet downstream of SR 46; field-verify."},
+      {"id": "east-fork-white-azalia-dnr", "name": "Azalia DNR Public Access Site / County Road 800 South", "latitude": 39.0850524, "longitude": -85.8602589, "mileFromStart": 11.5, "segmentKind": "creek", "note": "Coordinate anchored by USGS County Road 800 South site."}
+    ],
+    "evidenceNotes": [
+      {"label": "Exact named route", "value": "Columbus DNR ramp to Azalia DNR access, 11.5 miles", "note": "The July 2025 Hoosier Canoe & Kayak Club event documents this exact section, distance, and endpoints.", "sourceUrl": "https://hoosiercanoeclub.org/event-6042765"},
+      {"label": "Direct live gauge", "value": "USGS 03364000 East Fork White River at Columbus", "note": "USGS provides continuous discharge and stage; implementation check returned 7,800 cfs and 3.60 ft at 2026-08-22 23:00 EDT, provisional.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03364000/"},
+      {"label": "Conservative low-water floor", "value": "320 cfs minimum-only", "note": "IndianaOutfitters reports a successful canoe trip when the Columbus gauge read about 320 cfs with plenty of main-channel depth. This is a conservative reference, not a guarantee or upper band.", "sourceUrl": "https://www.indianaoutfitters.com/data_white_e.html"},
+      {"label": "Endpoint coordinates", "value": "Columbus 39.1987,-85.9255; Azalia 39.0850524,-85.8602589", "note": "Columbus is an explicit map anchor from the station and club's 500-foot-downstream description; Azalia is tied to the USGS County Road 800 South coordinate.", "sourceUrl": "https://www.waterqualitydata.us/provider/NWIS/USGS-IN/USGS-390506085513701/"},
+      {"label": "Downstream hazard boundary", "value": "Rockford dam is downstream of Azalia", "note": "The route ends upstream of the dangerous dam identified in downstream trip reports; do not extend without a separate portage package.", "sourceUrl": "https://www.indianaoutfitters.com/Trip_Reports/white_river/east_fork/azalia_to_bell_ford_7-22-2007/index.htm"}
+    ],
+    "sourceLinks": [
+      {"label": "Hoosier Canoe & Kayak Club Columbus to Azalia float", "url": "https://hoosiercanoeclub.org/event-6042765", "provider": "local"},
+      {"label": "IndianaOutfitters East Fork streamflow data", "url": "https://www.indianaoutfitters.com/data_white_e.html", "provider": "local"},
+      {"label": "IndianaOutfitters East Fork trip report and hazards", "url": "https://www.indianaoutfitters.com/Trip_Reports/white_river/east_fork/azalia_to_bell_ford_7-22-2007/index.htm", "provider": "local"},
+      {"label": "USGS 03364000 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03364000/", "provider": "usgs"},
+      {"label": "USGS Azalia County Road 800 South coordinate", "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-IN/USGS-390506085513701/", "provider": "usgs"},
+      {"label": "Indiana DNR public access map", "url": "https://secure.in.gov/dnr/fish-and-wildlife/fishing/where-to-fish-interactive-map/", "provider": "local"}
+    ]
+  },
 ];

@@ -4,6 +4,7 @@ import { routeInventory, rivers } from '../src/data/rivers';
 import { unavailableGaugeKeys } from '../src/data/route-publication';
 import {
   validateGaugeCoverageArtifacts,
+  classifyGaugeRouteReadiness,
   type GaugeInventoryArtifact,
   type GaugeInventoryEntry,
   type GaugeRelationship,
@@ -93,6 +94,7 @@ for (const filename of await readdir(operationsDir)) {
       reviewsByKey.set(key, {
         key,
         status: 'researching',
+        routeReadiness: 'research_needed',
         eligibility: routeSlugs.length > 0 ? 'route_capable' : 'unknown',
         relationship: relationshipForRoutes(key, routeSlugs),
         checkedAt: audit.liveGaugeCheck?.checkedAt ?? null,
@@ -138,6 +140,7 @@ for (const key of inventoryByKey.keys()) {
   reviewsByKey.set(key, {
     key,
     status: 'unreviewed',
+    routeReadiness: 'unreviewed',
     eligibility: 'unknown',
     relationship: 'none',
     checkedAt: null,
@@ -165,7 +168,9 @@ const inventory: GaugeInventoryArtifact = {
 const ledger: GaugeReviewLedgerArtifact = {
   version: 1,
   updatedAt: generatedAt,
-  reviews: [...reviewsByKey.values()].sort((left, right) => left.key.localeCompare(right.key)),
+  reviews: [...reviewsByKey.values()]
+    .map((review) => ({ ...review, routeReadiness: classifyGaugeRouteReadiness(review) }))
+    .sort((left, right) => left.key.localeCompare(right.key)),
 };
 
 const issues = validateGaugeCoverageArtifacts(inventory, ledger);
@@ -220,6 +225,7 @@ function addRouteGauge(route: River, source: RiverGaugeSource, fallback: boolean
   reviewsByKey.set(key, {
     key,
     status: strongerStatus(existing?.status, status),
+    routeReadiness: existing?.routeReadiness ?? (status === 'covered' ? 'published' : status === 'unreviewed' ? 'unreviewed' : status === 'stale_or_unsupported' ? 'unsupported' : 'research_needed'),
     eligibility: existing?.eligibility === 'route_capable' ? 'route_capable' : eligibility,
     relationship,
     checkedAt: existing?.checkedAt ?? (status === 'unreviewed' ? null : generatedAt),

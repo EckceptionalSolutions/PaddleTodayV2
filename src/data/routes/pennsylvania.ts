@@ -5638,5 +5638,610 @@ export const pennsylvaniaRoutes: River[] = [
         "provider": "usgs"
       }
     ]
+  },
+  {
+    "id": "youghiogheny-river-connellsville-dawson",
+    "slug": "youghiogheny-river-connellsville-dawson",
+    "name": "Youghiogheny River",
+    "reach": "Connellsville River Park to River Road, Dawson",
+    "aliases": [
+      "Lower Yough Northern Water Trail",
+      "Youghiogheny River - Connellsville to Dawson",
+      "Connellsville to Dawson family float"
+    ],
+    "state": "Pennsylvania",
+    "region": "Laurel Highlands",
+    "summary": "A 5.4-mile, family-oriented lower Yough float from the surfaced Yough River Park ramp under the US 119 bridge in Connellsville to the unimproved River Road access beneath the Dawson road bridge. The Great Allegheny Passage parallels the reach and provides emergency egress, while PFBC and the Mountain Watershed Association identify the corridor as part of the northern Youghiogheny Water Trail.",
+    "statusText": "Use the direct USGS Connellsville gauge. American Whitewater describes this reach as Class I-II and medium runnable at 2,100 cfs; conservative local guide data places the broader Connellsville-to-Dawson corridor around 1,350-2,580 cfs. Check same-day flow, weather, water temperature, and local trail/access notices before launching.",
+    "latitude": 40.020833,
+    "longitude": -79.597222,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "This is a moving-water route, not a lake float. Wear a properly fitted PFD, keep boats clear of bridge piers and strainers, and scout any unusually high or debris-laden flow before committing.",
+        "The Dawson take-out is an unimproved river-left access under the road bridge with shared Great Allegheny Passage parking; confirm the walking carry, parking conditions, and any local closures on arrival.",
+        "PFBC guidance requires a wearable PFD on all boats and additional cold-weather PFD-wear requirements from November 1 through April 30. Follow posted water-trail and rail-trail rules.",
+        "The gauge is regulated by upstream reservoirs, but releases and rainfall can still change current and water level quickly; do not treat the threshold as a substitute for visual assessment."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-03082500",
+      "provider": "usgs",
+      "siteId": "03082500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Youghiogheny River at Connellsville, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03082500/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 1350,
+      "tooLow": 1350,
+      "thresholdSource": {
+        "label": "American Whitewater and Western Pennsylvania river guide flow guidance",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/11677/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "seasonNotes": "The water trail is usable across much of the warm season, but cold water, reservoir releases, rainfall, and late-season weather require same-day judgment. Camping and services are available along the broader Great Allegheny Passage corridor, subject to current site rules.",
+      "difficulty": "easy",
+      "difficultyNotes": "American Whitewater rates the 5.4-mile reach Class I-II. Small rapids and current remain present, and the route should not be treated as risk-free for children or inexperienced paddlers without appropriate supervision.",
+      "confidenceNotes": "Confidence is sufficient for publication: American Whitewater directly names the Connellsville River Park-to-Dawson reach and ties it to USGS 03082500; PFBC and Mountain Watershed Association identify the northern Youghiogheny Water Trail; PFBC publishes the Connellsville ramp and Dawson access context; and independent launch sources provide practical endpoint coordinates. The minimum-only threshold is intentionally conservative because the strongest sources describe runnable conditions but do not publish a formal upper limit for this family float."
+    },
+    "putIn": {
+      "id": "yough-river-park-connellsville",
+      "name": "Yough River Park, Connellsville surfaced ramp",
+      "latitude": 40.020833,
+      "longitude": -79.597222
+    },
+    "takeOut": {
+      "id": "river-road-dawson",
+      "name": "River Road, Dawson unimproved access",
+      "latitude": 40.0453,
+      "longitude": -79.6562
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 5.4 river miles",
+      "estimatedPaddleTime": "About 3-4 on-water hours, longer with stops and shuttle logistics",
+      "shuttle": "Use two vehicles or arrange a shuttle. The Great Allegheny Passage parallels the reach and can support emergency egress, but it is not a substitute for a vehicle shuttle.",
+      "permits": "Follow Pennsylvania Fish and Boat Commission registration/launch-permit rules and all posted city, water-trail, and Great Allegheny Passage requirements.",
+      "camping": "Camping and hiker-biker facilities are available at selected Great Allegheny Passage sites near the broader Youghiogheny Water Trail; verify current campground rules and availability before planning an overnight trip.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Plan as a family-oriented moving-water float with a surfaced city ramp, an unimproved Dawson take-out, and a short vehicle shuttle.",
+      "accessCaveats": [
+        "The Dawson access is unimproved and shares parking with the Great Allegheny Passage; verify carry distance, parking, and any closure signs on arrival.",
+        "Do not use unlisted private banks or rail-trail property as substitute launch points."
+      ],
+      "watchFor": [
+        "rapidly changing reservoir-regulated flow",
+        "bridge piers and low-clearance structures",
+        "strainers and debris after storms",
+        "cold water",
+        "Great Allegheny Passage and road crossings"
+      ]
+    },
+    "evidenceNotes": [
+      {
+        "label": "Direct route and gauge",
+        "value": "Connellsville River Park to River Road, Dawson; USGS 03082500",
+        "note": "American Whitewater identifies this exact 5.4-mile reach and direct Connellsville gauge; the USGS station provides current discharge, stage, and NAVD88 stream level.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/11677/main"
+      },
+      {
+        "label": "Public endpoints",
+        "value": "Yough River Park surfaced ramp; Dawson unimproved access",
+        "note": "PFBC identifies Yough River Park as a surfaced ramp at 40°01'15 N, 79°35'50 W; the Water Trail map identifies Dawson as river-left under the road bridge, and independent launch data places the access near 40.0453, -79.6562.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/yough/yough_north_map.pdf"
+      },
+      {
+        "label": "Threshold and current conditions",
+        "value": "Conservative minimum-only guidance: 1,350 cfs; AW reported 2,100 cfs medium runnable",
+        "note": "American Whitewater reports this reach medium runnable at 2,100 cfs; the Western Pennsylvania river guide lists the broader South Connellsville-to-Dawson corridor around 1,350-2,580 cfs. The product uses the lower value as a conservative minimum and does not assert an unsupported upper limit.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03082500"
+      },
+      {
+        "label": "Water trail, camping, and safety",
+        "value": "PFBC northern Youghiogheny Water Trail and Great Allegheny Passage",
+        "note": "PFBC and Mountain Watershed Association identify the water trail, access ownership, camping symbols, and trail services; the map warns that PFDs are required and cold-weather wear rules apply.",
+        "sourceUrl": "https://mtwatershed.com/wp-content/uploads/2022/08/YRtrailmapSectionC.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "American Whitewater Connellsville to Dawson",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/11677/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "USGS 03082500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03082500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "PFBC Youghiogheny northern water-trail map",
+        "url": "https://pfbc.pa.gov/watertrails/yough/yough_north_map.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Mountain Watershed Association water-trail map",
+        "url": "https://mtwatershed.com/wp-content/uploads/2022/08/YRtrailmapSectionC.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "PFBC water-trail guides",
+        "url": "https://pfbc.pa.gov/WaterTrail.htm",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "youghiogheny-river-dawson-port-vue",
+    "slug": "youghiogheny-river-dawson-port-vue",
+    "name": "Youghiogheny River",
+    "reach": "River Road, Dawson to Port Vue Launch, McKeesport (multi-day corridor)",
+    "aliases": [
+      "Lower Yough Northern Water Trail",
+      "Youghiogheny River - Dawson to McKeesport",
+      "Dawson to Port Vue family float"
+    ],
+    "state": "Pennsylvania",
+    "region": "Laurel Highlands",
+    "summary": "A long, 38-mile multi-day Class I-II northern Yough water-trail corridor from the River Road access in Dawson to the PFBC Port Vue/McKeesport ramp. The reach has multiple documented intermediate access and camping points, including RoundBottom, Smithton Beach, Cedar Creek Park, West Newton, Sutersville, Buena Vista, and Boston.",
+    "statusText": "Use the direct USGS Sutersville gauge. American Whitewater lists this 38-mile reach as Class I-II and medium runnable at about 2,370 cfs. This is a full-day or multi-day undertaking; check same-day flow, weather, water temperature, access notices, and the PFBC launch-permit rules before committing.",
+    "latitude": 40.0453,
+    "longitude": -79.6562,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "This is a long moving-water route with changing current, bridge structures, strainers, and urban/industrial river margins. Wear a properly fitted PFD and plan intermediate exits rather than treating the 38 miles as one uninterrupted day trip.",
+        "The Dawson start is an unimproved access beneath the road bridge; the Port Vue/McKeesport finish is a PFBC ramp. Confirm parking, carry distance, permits, and any closure or construction notices at both ends.",
+        "PFBC identifies multiple access sites and hazard markers on the northern Youghiogheny Water Trail. Respect private access labels, railroad and road crossings, and all posted boating restrictions near the mouth.",
+        "The gauge is regulated by upstream reservoirs, but releases, rainfall, and debris can still change conditions quickly. The American Whitewater flow reference is a planning threshold, not a safety guarantee."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-03083500",
+      "provider": "usgs",
+      "siteId": "03083500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Youghiogheny River at Sutersville, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03083500/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 1500,
+      "tooLow": 1500,
+      "thresholdSource": {
+        "label": "American Whitewater Dawson to Port Vue reach",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/11740/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10, 11],
+      "seasonNotes": "The northern water trail is usable across much of the warm season, but cold water, reservoir releases, rainfall, debris, and late-season weather require same-day judgment. RoundBottom and other Great Allegheny Passage facilities support staged or overnight planning subject to current rules.",
+      "difficulty": "easy",
+      "difficultyNotes": "American Whitewater rates the 38-mile reach Class I-II. Its length, moving current, access logistics, and changing urban/river conditions make it substantially more demanding logistically than a short family float.",
+      "confidenceNotes": "Confidence is sufficient for publication: American Whitewater directly names the 38-mile Dawson-to-Port Vue reach and ties it to USGS 03083500; PFBC publishes the Sutersville and McKeesport ramps and intermediate access table; the PFBC and Mountain Watershed Association maps document the water trail, camping/access context, and hazards. The product uses a conservative minimum-only threshold because AW supplies the medium-runnable reference but no formal upper limit."
+    },
+    "putIn": {
+      "id": "river-road-dawson",
+      "name": "River Road, Dawson unimproved access",
+      "latitude": 40.0453,
+      "longitude": -79.6562
+    },
+    "takeOut": {
+      "id": "pfbc-port-vue-mckeesport",
+      "name": "PFBC Port Vue Launch, Atlantic Avenue, McKeesport",
+      "latitude": 40.352222,
+      "longitude": -79.871389
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 38 river miles (multi-day staged corridor)",
+      "estimatedPaddleTime": "Full day for strong paddlers or a multi-day itinerary with planned intermediate exits",
+      "shuttle": "Use a two-vehicle shuttle or arrange a commercial shuttle. Intermediate access at McKee Road, Smithton Beach, Cedar Creek Park, West Newton, Sutersville, Buena Vista, and Boston allows shorter staged trips.",
+      "permits": "Follow Pennsylvania Fish and Boat Commission registration and launch-permit rules, PFBC access-site rules, and all posted Great Allegheny Passage and local-park requirements.",
+      "camping": "RoundBottom hiker-biker campground and other Great Allegheny Passage facilities are documented along the corridor; verify current reservations, camping rules, and access before planning an overnight trip.",
+      "campingClassification": "overnight_capable",
+      "summary": "Plan as a long northern Yough water-trail itinerary with a documented unimproved Dawson start, a surfaced Port Vue finish, and multiple intermediate access/camping options.",
+      "accessCaveats": [
+        "Dawson access is unimproved and must be confirmed on arrival; do not substitute unlisted private banks.",
+        "PFBC identifies access-site types and permit requirements; confirm current parking and closure notices at every intended stop.",
+        "The Port Vue/McKeesport ramp is near the Yough-Monongahela urban confluence; follow local slow/no-wake and traffic rules."
+      ],
+      "watchFor": [
+        "rapidly changing reservoir-regulated flow",
+        "bridge piers and road/rail crossings",
+        "strainers and debris after storms",
+        "cold water and long self-rescue distances",
+        "urban/industrial river margins near McKeesport"
+      ]
+    },
+    "evidenceNotes": [
+      {
+        "label": "Direct route and gauge",
+        "value": "River Road, Dawson to Port Vue Launch, McKeesport; USGS 03083500",
+        "note": "American Whitewater identifies this exact 38-mile reach, names the intermediate access points, and ties it directly to the Sutersville gauge.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/11740/main"
+      },
+      {
+        "label": "Public endpoints",
+        "value": "River Road, Dawson unimproved access; PFBC Port Vue/McKeesport surfaced ramp",
+        "note": "PFBC's northern water-trail map identifies the Dawson/Sutersville/Port Vue access context and publishes endpoint coordinates; the Dawson coordinate is retained from the existing verified Dawson package.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/yough/yough_north_map.pdf"
+      },
+      {
+        "label": "Threshold and current conditions",
+        "value": "Conservative minimum-only guidance: 1,500 cfs; AW reports about 2,370 cfs medium runnable",
+        "note": "American Whitewater provides the station-specific medium-runnable reference for this reach. The product intentionally omits an unsupported upper limit and requires same-day visual assessment.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03083500"
+      },
+      {
+        "label": "Water trail, camping, and safety",
+        "value": "PFBC northern Youghiogheny Water Trail, Great Allegheny Passage, and RoundBottom campground",
+        "note": "PFBC and Mountain Watershed Association maps document the access-site table, camping symbols, permit/PFD context, and hazards along the corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/yough/yough_north_guide.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "American Whitewater Dawson to Port Vue",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/11740/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "USGS 03083500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03083500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "PFBC Youghiogheny northern water-trail map",
+        "url": "https://pfbc.pa.gov/watertrails/yough/yough_north_map.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "PFBC northern water-trail guide",
+        "url": "https://pfbc.pa.gov/watertrails/yough/yough_north_guide.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Mountain Watershed Association section D map",
+        "url": "https://mtwatershed.com/wp-content/uploads/2022/08/YRtrailmapSectionD.pdf",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "youghiogheny-river-middle-ramcat-ohiopyle",
+    "slug": "youghiogheny-river-middle-ramcat-ohiopyle",
+    "name": "Youghiogheny River",
+    "reach": "Middle Yough: Ramcat Launch to Ohiopyle Middle Yough Take-out",
+    "aliases": [
+      "Middle Yough",
+      "Confluence to Ohiopyle",
+      "Youghiogheny River - Ramcat to Ohiopyle"
+    ],
+    "state": "Pennsylvania",
+    "region": "Laurel Highlands",
+    "summary": "A roughly 9-10-mile Class I-II Middle Yough run from the state-park Ramcat launch near Confluence to the regulated Middle Yough take-out upstream of Ohiopyle's bike-trail bridge. This is a distinct beginner/intermediate corridor with named park access, not the Lower Yough whitewater reach.",
+    "statusText": "Use the direct USGS 03081000 stage gauge below Confluence. Conservative local guidance places the Middle Yough around 1.8 ft and above; check current stage, releases, water temperature, park rules, and same-day hazards. At higher water the Class II character becomes substantially more forceful.",
+    "latitude": 39.82632,
+    "longitude": -79.37891,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "cold_water",
+        "dam_release"
+      ],
+      "safetyNotes": [
+        "The Middle Yough has Class I-II rapids, including Ramcat, but changing release and rainfall conditions can make waves and hydraulics much stronger. Wear a properly fitted PFD and use a craft appropriate to current conditions.",
+        "Pennsylvania regulations require launch at Ramcat and take-out only at the designated Middle Yough take-out upstream of the bike-trail bridge; do not run downstream into Ohiopyle Falls or the Lower Yough from this route.",
+        "Water is cold and self-rescue can be difficult. Follow park instructions, carry communication and emergency gear, and check current closures and outfitter/park notices.",
+        "The direct gauge is below Confluence and flow is affected by upstream reservoir releases; the threshold is a planning aid, not a safety guarantee."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-03081000",
+      "provider": "usgs",
+      "siteId": "03081000",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Youghiogheny River below Confluence, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03081000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 1.8,
+      "tooLow": 1.8,
+      "thresholdSource": {
+        "label": "Canoe Draft western Pennsylvania gauge guide",
+        "url": "https://canoedraft.shaw-weil.com/gauge/",
+        "provider": "manual"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10, 11],
+      "seasonNotes": "The state-park corridor is primarily a warm-season run, but reservoir releases, rainfall, cold water, and changing park operations require same-day checks.",
+      "difficulty": "easy",
+      "difficultyNotes": "DCNR describes the Middle Yough as Class I-II and suitable for beginning whitewater kayakers or experienced canoeists. The route is not a flatwater beginner guarantee; Ramcat and higher water require active boat control.",
+      "confidenceNotes": "Confidence is sufficient for publication: DCNR and Pennsylvania regulations define the exact Ramcat-to-Middle-Yough-take-out corridor and its launch restrictions; the Ohiopyle park map publishes Ramcat and park coordinates; American Whitewater documents the distinct Middle Yough reach and direct Confluence gauge context; and independent water-trail material supports the 9-10-mile itinerary."
+    },
+    "putIn": {
+      "id": "ramcat-launch",
+      "name": "Ramcat Launch, Ohiopyle State Park",
+      "latitude": 39.82632,
+      "longitude": -79.37891
+    },
+    "takeOut": {
+      "id": "middle-yough-ohiopyle-takeout",
+      "name": "Middle Yough Boater Take-out and Trailhead, Ohiopyle",
+      "latitude": 39.868889,
+      "longitude": -79.486944
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 9-10 river miles",
+      "estimatedPaddleTime": "About 3-5 hours on water, plus shuttle and park logistics",
+      "shuttle": "Leave a vehicle at the designated Middle Yough take-out and shuttle to Ramcat, or use a licensed outfitter. Do not substitute the Lower Yough or Bruner Run take-out.",
+      "permits": "Follow Pennsylvania State Park and Fish and Boat Commission launch, registration, and watercraft rules. State regulations restrict launch and take-out to the designated Middle Yough sites.",
+      "camping": "Kentuck Campground and Ohiopyle basecamp facilities are nearby; verify current reservations and rules before planning an overnight trip.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Plan as a regulated state-park Middle Yough run with a fixed Ramcat launch, fixed Ohiopyle take-out, and an organized shuttle.",
+      "accessCaveats": [
+        "Ramcat is a state-park launch with parking and access rules; verify current park notices before arrival.",
+        "The Middle Yough take-out is upstream of the bike-trail bridge; downstream continuation enters different regulated and more difficult reaches.",
+        "Do not use informal riverbank access as a substitute for the designated launch or take-out."
+      ],
+      "watchFor": [
+        "Ramcat and Drake rapids",
+        "rapid release or rainfall changes",
+        "cold water and long swims",
+        "bike-trail bridge and downstream no-go boundary",
+        "strainers and bridge/shore hazards"
+      ]
+    },
+    "evidenceNotes": [
+      {
+        "label": "Direct route and gauge",
+        "value": "Ramcat Launch to Middle Yough Take-out; USGS 03081000",
+        "note": "DCNR and Pennsylvania regulations define the route boundaries; American Whitewater identifies the distinct Middle Yough reach and Confluence gauge context; USGS provides the direct stage and discharge series.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03081000/"
+      },
+      {
+        "label": "Public endpoints and geometry",
+        "value": "Ramcat Launch 39.82632,-79.37891; Middle Yough take-out 39.868889,-79.486944",
+        "note": "The Ohiopyle State Park map publishes Ramcat coordinates and identifies the Middle Yough boater take-out; independent access documentation confirms the take-out location.",
+        "sourceUrl": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=3849767&ViewerMode=2&action=PDFStream&chksum=&docID=1737407&docName=OHIO_ParkMap&nativeExt=pdf&overlay=0&revision=2"
+      },
+      {
+        "label": "Threshold and safety rules",
+        "value": "Conservative minimum-only stage guidance: 1.8 ft; designated launch/take-out rules",
+        "note": "Canoe Draft provides the station-specific planning range; DCNR and Pennsylvania regulations define the Middle Yough class, permitted endpoints, and downstream boundary. The product omits an unsupported upper threshold.",
+        "sourceUrl": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/whitewater-boating"
+      },
+      {
+        "label": "Camping and route context",
+        "value": "Ohiopyle State Park, Kentuck Campground, and Middle Yough water trail",
+        "note": "Park maps and water-trail materials document nearby camping, trailhead logistics, and the distinct Middle Yough corridor.",
+        "sourceUrl": "https://mtwatershed.com/wp-content/uploads/2022/08/YRtrailmapSectionA.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "USGS 03081000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03081000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "PA DCNR Middle Yough boating guidance",
+        "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/whitewater-boating",
+        "provider": "local"
+      },
+      {
+        "label": "PA whitewater boating regulations",
+        "url": "https://www.law.cornell.edu/regulations/pennsylvania/17-Pa-Code-SS-11-220",
+        "provider": "local"
+      },
+      {
+        "label": "Ohiopyle State Park map",
+        "url": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=3849767&ViewerMode=2&action=PDFStream&chksum=&docID=1737407&docName=OHIO_ParkMap&nativeExt=pdf&overlay=0&revision=2",
+        "provider": "local"
+      },
+      {
+        "label": "American Whitewater Middle Yough reports",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1686/reports",
+        "provider": "american_whitewater"
+      }
+    ]
+  },
+  {
+    "id": "blacklick-creek-route-259-saylor-park",
+    "slug": "blacklick-creek-route-259-saylor-park",
+    "name": "Blacklick Creek",
+    "reach": "PA 259 Heshbon to Saylor Park",
+    "aliases": [
+      "Blacklick Creek - Route 259 to Saylor Park",
+      "Blacklick Creek Heshbon to Blacklick",
+      "Blacklick Creek Chestnut Ridge whitewater"
+    ],
+    "state": "Pennsylvania",
+    "region": "Indiana County",
+    "summary": "A 6.8-mile Class II-III(IV) Blacklick Creek reach from the Ghost Town Trail access near the PA 259 bridge at Heshbon to the Saylor Park/Blacklick take-out. American Whitewater ties the named corridor directly to USGS 03042000 and documents the access, rapids, portage options, and current hazards.",
+    "statusText": "Use USGS 03042000 discharge. American Whitewater reports approximately 780 cfs as close to a minimum fun level and about 1,000 cfs as a good level; verify current discharge, strainers, acid-mine drainage conditions, and legal access before launching. This is an advanced moving-water route, not a casual float.",
+    "latitude": 40.47345,
+    "longitude": -79.09512,
+    "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "urban_water_quality",
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "American Whitewater rates the reach Class II-III(IV), with ledges, boulder gardens, Auld's Run, and documented entrapment hazards around Jacks Rock and wood. Scout major features and portage when conditions or debris make the line uncertain.",
+        "The Heshbon put-in is described from the Ghost Town Trail beyond a gate; verify current landowner, trail, gate, parking, and carry rules before using it. Do not use private banks or the old dam at the gauge as a substitute launch.",
+        "Blacklick has a coal-mining and acid-mine-drainage history. Avoid contact with discolored tributary discharges and follow current local water-quality advisories. Wear a properly fitted PFD and use a whitewater-capable boat and helmet.",
+        "The gauge is downstream/near the route corridor but not a safety guarantee. Flow, debris, mine releases, and weather can change rapidly; visually inspect the reach and never rely on a numeric threshold alone."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-03042000",
+      "provider": "usgs",
+      "siteId": "03042000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Blacklick Creek at Josephine, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03042000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 1000,
+      "tooLow": 780,
+      "thresholdSource": {
+        "label": "American Whitewater Blacklick Creek flow guidance",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1582/main",
+        "provider": "american_whitewater"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "seasonNotes": "The reach is most likely to have runnable water during spring and rainfall events. Cold water, high flows, debris, and rapidly changing mine-influenced tributary conditions require same-day assessment.",
+      "difficulty": "hard",
+      "difficultyNotes": "Class II-III(IV) whitewater with a steep technical section, short pools, wood/strainer exposure, and a documented III+ feature at Auld's Run. Suitable only for experienced paddlers with appropriate craft and rescue skills.",
+      "confidenceNotes": "Publication confidence is sufficient but intentionally conservative: American Whitewater names the exact 6.8-mile reach, direct USGS gauge, endpoint logistics, and hazards; the Ghost Town Trail access is corroborated by regional trail material; and independent watershed/DEP sources establish the Saylor Park and Heshbon locations. Thresholds remain community-derived and are presented as planning guidance, not a safety guarantee."
+    },
+    "putIn": {
+      "id": "blacklick-creek-heshbon-ghost-town-trail",
+      "name": "Ghost Town Trail Heshbon access near PA 259 bridge",
+      "latitude": 40.47345,
+      "longitude": -79.09512
+    },
+    "takeOut": {
+      "id": "blacklick-creek-saylor-park",
+      "name": "Saylor Park / Blacklick take-out",
+      "latitude": 40.478162,
+      "longitude": -79.187222
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 6.8 river miles",
+      "estimatedPaddleTime": "About 3-5 on-water hours, plus scouting, shuttle, and possible portage time",
+      "shuttle": "Arrange a two-vehicle shuttle. The Ghost Town Trail and local roads provide the approach, but do not assume every trail segment or bridge is a legal boat access point.",
+      "permits": "Follow Pennsylvania Fish and Boat Commission registration/launch-permit requirements and all posted Indiana County, Ghost Town Trail, and access-owner rules.",
+      "camping": "No on-route campsite was verified. Treat this as a day run and arrange lodging or camping separately; confirm current park and trail rules before planning an overnight.",
+      "campingClassification": "none",
+      "summary": "Plan as a technical day-run with a documented Heshbon access and Saylor Park finish, conservative flow guidance, and a shuttle arranged before launch.",
+      "accessCaveats": [
+        "American Whitewater describes driving to a gate to unload at the Heshbon access and parking back at the gravel lot; verify the gate and carry arrangement has not changed.",
+        "The Saylor Park area provides parking and trail access, but creek-side carry/launch conditions and current public access must be confirmed on arrival.",
+        "Do not use the Josephine gauge structure, private mine property, or unlisted riverbank as a launch or take-out."
+      ],
+      "watchFor": [
+        "Auld's Run and other ledges",
+        "Jacks Rock undercut and documented wood",
+        "strainers after storms",
+        "acid-mine-drainage tributaries and discolored water",
+        "cold water and changing flow",
+        "road, trail, and coal-truck crossings"
+      ]
+    },
+    "evidenceNotes": [
+      {
+        "label": "Direct route and gauge",
+        "value": "PA 259 Heshbon to Saylor Park; USGS 03042000",
+        "note": "American Whitewater names this 6.8-mile reach, rates it Class II-III(IV), and ties it directly to Blacklick Creek at Josephine.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1582/main"
+      },
+      {
+        "label": "Public endpoint support",
+        "value": "Ghost Town Trail Heshbon access and Saylor Park/Blacklick finish",
+        "note": "AW documents the Heshbon access and Saylor Park take-out; the Heshbon access location is corroborated by the regional trail waymark and the Saylor Park coordinate by the Ohio River Trail Council and DEP watershed records.",
+        "sourceUrl": "https://www.waymarking.com/waymarks/WMF7HT"
+      },
+      {
+        "label": "Threshold and live conditions",
+        "value": "Conservative minimum-only planning guidance: 780 cfs; good level around 1,000 cfs",
+        "note": "AW trip reports identify approximately 780 cfs as close to a minimum fun level and 1,000 cfs as a good level. The product uses these community references conservatively and requires current USGS discharge plus visual inspection.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03042000"
+      },
+      {
+        "label": "Hazards and corridor condition",
+        "value": "Technical ledges, wood, mine legacy, and rapidly changing conditions",
+        "note": "AW documents Auld's Run, Jacks Rock, undercut/wood hazards, and changing access; the watershed association documents acid-mine-drainage history and difficult lower access.",
+        "sourceUrl": "https://blacklickcreekwatershed.org/bcwa-history/about-blacklick-creek-watershed/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "American Whitewater Blacklick Creek route",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1582/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "USGS 03042000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03042000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Ghost Town Trail Heshbon access",
+        "url": "https://www.waymarking.com/waymarks/WMF7HT",
+        "provider": "local"
+      },
+      {
+        "label": "Saylor Park coordinate and trail context",
+        "url": "https://ohiorivertrail.org/attachments/Directors%20Information/268_ORTC%20Ghost%20Town%20Trail%20Ride%202012.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Blacklick Creek watershed access and condition context",
+        "url": "https://blacklickcreekwatershed.org/bcwa-history/about-blacklick-creek-watershed/",
+        "provider": "local"
+      }
+    ]
   }
 ];

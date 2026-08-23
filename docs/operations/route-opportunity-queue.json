@@ -1,400 +1,412 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-21T20:01:25.262Z",
+  "generatedAt": "2026-08-23T23:34:46.591Z",
   "maxPerState": 5,
   "maxGlobal": 20,
   "opportunities": [
     {
-      "id": "route-opportunity-mn-usgs-05062000",
-      "taskId": "route-opportunity-mn-usgs-05062000",
-      "stateId": "MN",
-      "gaugeKey": "usgs:05062000",
-      "siteName": "BUFFALO RIVER NEAR DILWORTH, MN",
-      "priority": "high",
-      "score": 100010,
-      "status": "blocked",
+      "id": "route-opportunity-ut-usgs-10224000",
+      "taskId": "route-opportunity-ut-usgs-10224000",
+      "stateId": "UT",
+      "gaugeKey": "usgs:10224000",
+      "siteName": "SEVIER RIVER NEAR LYNNDYL, UT",
+      "priority": "medium",
+      "score": 96030,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 80,
+        "evidenceCompleteness": 20,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "in_progress",
+      "routeReadiness": "research_needed",
       "routeFamilies": [],
       "blockers": [
-        "No supported Dilworth-area public Buffalo River put-in/take-out pair.",
-        "No station-specific numeric paddling guidance or complete camping/safety/coordinate package."
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Fresh review kept USGS 05062000 durable-blocked: telemetry is live at 24.2 cfs / 2.57 ft, but no official/public Dilworth-area Buffalo River route package clears endpoint, threshold, camping, safety, coordinate, image, and geometry gates.",
+      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-mn-usgs-05061000",
-      "taskId": "route-opportunity-mn-usgs-05061000",
-      "stateId": "MN",
-      "gaugeKey": "usgs:05061000",
-      "siteName": "BUFFALO RIVER NEAR HAWLEY, MN",
-      "priority": "high",
-      "score": 100010,
-      "status": "blocked",
+      "id": "route-opportunity-pa-usgs-03015500",
+      "taskId": "route-opportunity-pa-usgs-03015500",
+      "stateId": "PA",
+      "gaugeKey": "usgs:03015500",
+      "siteName": "Brokenstraw Creek at Youngsville, PA",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
       "routeFamilies": [],
       "blockers": [
-        "No supported Hawley-area public Buffalo River put-in/take-out pair.",
-        "Sabin backwater telemetry cannot supply a clean threshold proxy; remaining access and route-quality gates are unresolved."
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Fresh review kept USGS 05061000 durable-blocked: current telemetry is live at 8.72 cfs / 3.16 ft, but fresh official/public evidence still does not provide a Hawley-area Buffalo River route package that clears endpoint, threshold, camping, safety, coordinate, image, and geometry gates.",
+      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-mn-mn-dnr-54",
-      "taskId": "route-opportunity-mn-mn-dnr-54",
-      "stateId": "MN",
-      "gaugeKey": "mn_dnr:54",
-      "siteName": "South Fork Crow River nr Mayer, MN7",
-      "priority": "high",
-      "score": 100010,
-      "status": "blocked",
-      "routeFamilies": [
-        "South Fork Crow River"
-      ],
-      "blockers": [
-        "No distinct Mayer-area public put-in/take-out pair with defensible water-entry coordinates.",
-        "Existing DNR trip evidence does not establish a new gauge-54 route relationship; new camping, image, geometry, and route-specific safety package remain unresolved."
-      ],
-      "reason": "Fresh DNR data remains live at site 54, 262 cfs in rating band 3. The candidate remains blocked because the official Rick Johnson-to-Lake Rebecca trip is a different downstream reach and the fresh Mayer-area map review still provides no distinct public endpoint pair or complete scored route package.",
-      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-mn-usgs-05064000",
-      "taskId": "route-opportunity-mn-usgs-05064000",
-      "stateId": "MN",
-      "gaugeKey": "usgs:05064000",
-      "siteName": "WILD RICE RIVER AT HENDRUM, MN",
-      "priority": "high",
-      "score": 100005,
-      "status": "blocked",
+      "id": "route-opportunity-pa-usgs-03048900",
+      "taskId": "route-opportunity-pa-usgs-03048900",
+      "stateId": "PA",
+      "gaugeKey": "usgs:03048900",
+      "siteName": "Buffalo Creek at Iron Bridge, PA",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
       "routeFamilies": [],
       "blockers": [
-        "No Hendrum-area public endpoint pair or station-specific threshold package.",
-        "Twin Valley evidence was not extended downstream by inference; camping, safety, coordinate, image, and geometry gates remain unresolved."
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Fresh review kept USGS 05064000 durable-blocked: current telemetry is live at 15.8 cfs / 2.77 ft, but Twin Valley route evidence remains a separate reach and does not establish a Hendrum-specific endpoint, threshold, camping, safety, coordinate, image, or geometry package.",
+      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-mn-usgs-05062500",
-      "taskId": "route-opportunity-mn-usgs-05062500",
-      "stateId": "MN",
-      "gaugeKey": "usgs:05062500",
-      "siteName": "WILD RICE RIVER AT TWIN VALLEY, MN",
-      "priority": "high",
-      "score": 100005,
-      "status": "blocked",
+      "id": "route-opportunity-pa-usgs-03085250",
+      "taskId": "route-opportunity-pa-usgs-03085250",
+      "stateId": "PA",
+      "gaugeKey": "usgs:03085250",
+      "siteName": "Chartiers Creek at Canonsburg, PA",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
       "routeFamilies": [],
       "blockers": [
-        "CR29 river-side put-in and parking/arrival point require current access confirmation.",
-        "Heiberg water-entry/take-out coordinate above the dam is not published authoritatively; no coordinates were inferred from third-party map anchors."
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Fresh review kept USGS 05062500 blocked: current telemetry is 27.0 cfs / 1.61 ft and the public route/camping evidence remains real, but CR29 access and authoritative water-entry coordinates still require manager confirmation or field scouting.",
-      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
+      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ia-usgs-05481950",
-      "taskId": "route-opportunity-ia-usgs-05481950",
-      "stateId": "IA",
-      "gaugeKey": "usgs:05481950",
-      "siteName": "Beaver Creek near Grimes, IA",
-      "priority": "high",
-      "score": 99020,
-      "status": "completed",
+      "id": "route-opportunity-pa-usgs-03085500",
+      "taskId": "route-opportunity-pa-usgs-03085500",
+      "stateId": "PA",
+      "gaugeKey": "usgs:03085500",
+      "siteName": "Chartiers Creek at Carnegie, PA",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
       "routeFamilies": [],
       "blockers": [
-        "promising public Beaver Creek corridor but incomplete selected-route endpoint, threshold, camping, safety, coordinate, image, and geometry package"
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "USGS 05481950 is product-live on the Johnston Beaver Creek water-trail corridor and same-run Water Services returned 484 cfs / 5.44 ft at 2026-08-14 18:15 CDT. Iowa DNR supports a 50 cfs minimum and Johnston/ICON confirm public access at NW 70th Avenue and Lew Clarkson Park, but the current package still lacks a selected scored endpoint pair with route distance, downstream status, camping/no-camping terms, current logjam/safety handling, defensible high-water treatment, precise endpoint coordinates, rights-clean image decision, and canonical geometry.",
+      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-nd-usgs-05059300",
-      "taskId": "route-opportunity-nd-usgs-05059300",
-      "stateId": "ND",
-      "gaugeKey": "usgs:05059300",
-      "siteName": "SHEYENNE R AB SHEYENNE R DIVERSION NR HORACE, ND",
-      "priority": "high",
-      "score": 99020,
-      "status": "completed",
-      "routeFamilies": [
-        "Sheyenne River"
-      ],
-      "blockers": [
-        "Official Horace / West Fargo evidence is flood-diversion infrastructure, not a public paddling route package.",
-        "No manager-backed endpoint pair, normal public launch/landing terms, or diversion safety handling surfaced.",
-        "Station-specific thresholds, camping/access, image, coordinate, and geometry gates remain unresolved."
-      ],
-      "reason": "USGS 05059300 is product-live above the Sheyenne River Diversion near Horace, but reviewed official sources frame this area as flood-diversion infrastructure rather than a public water-trail reach. West Fargo documents diversion channels, levees, diversion structures, pumping stations, and a 4,600 cfs design discharge; no public paddling endpoint pair, station-specific threshold model, camping/access terms, safety package, image decision, coordinates, or geometry cleared.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-nd-usgs-05058650",
-      "taskId": "route-opportunity-nd-usgs-05058650",
-      "stateId": "ND",
-      "gaugeKey": "usgs:05058650",
-      "siteName": "SHEYENNE RIVER AT FORT RANSOM STATE PARK, ND",
-      "priority": "high",
-      "score": 99020,
-      "status": "completed",
-      "routeFamilies": [
-        "Sheyenne River"
-      ],
-      "blockers": [
-        "Sportsman Landing is a dock above a dam and requires strong source-backed take-out and safety handling before publication.",
-        "No accepted public numeric coordinate package for the Fort Ransom State Park launch and Sportsman Landing take-out cleared this run.",
-        "Camping/access, safety, image, coordinate, and geometry gates remain unresolved for a scored route."
-      ],
-      "reason": "USGS 05058650 is product-live at Fort Ransom State Park, and official Sheyenne sources identify the Fort Ransom State Park-to-Fort Ransom/Sportsman Landing segment, but publication still fails the route gates. The take-out is a dock above a dam, the Fort Ransom/Sportsman Landing package lacks accepted source-backed endpoint coordinates and dam-adjacent safety handling, and no complete camping/image/coordinate/geometry package cleared.",
-      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-nd-usgs-05058700",
-      "taskId": "route-opportunity-nd-usgs-05058700",
-      "stateId": "ND",
-      "gaugeKey": "usgs:05058700",
-      "siteName": "SHEYENNE RIVER AT LISBON, ND",
-      "priority": "high",
-      "score": 99020,
-      "status": "completed",
-      "routeFamilies": [
-        "Sheyenne River"
-      ],
-      "blockers": [
-        "No selected Lisbon public endpoint pair with source-backed coordinates and route distance cleared.",
-        "No station-specific numeric paddling thresholds tied to USGS 05058700 cleared; published flow bands are framed around Baldhill Dam streamflow.",
-        "Lisbon dam/portage, camping/access, safety, image, coordinate, and geometry gates remain unresolved."
-      ],
-      "reason": "USGS 05058700 is product-live at Lisbon and the broader Sheyenne River Water Trail is paddle-relevant, but the reviewed official sources do not provide a Lisbon-gauge scored route package. North Dakota Tourism notes a Lisbon dam portage at Sandager Park, while Valley City Tourism says the Baldhill Dam streamflow indicates conditions along most of the river; no 05058700-specific threshold model, selected endpoint coordinates, camping/access terms, safety package, image decision, or geometry cleared.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-nd-usgs-05059000",
-      "taskId": "route-opportunity-nd-usgs-05059000",
-      "stateId": "ND",
-      "gaugeKey": "usgs:05059000",
-      "siteName": "SHEYENNE RIVER NEAR KINDRED, ND",
-      "priority": "high",
-      "score": 99020,
-      "status": "completed",
-      "routeFamilies": [
-        "Sheyenne River"
-      ],
-      "blockers": [
-        "No selected Kindred public endpoint pair and route distance package surfaced.",
-        "No station-specific numeric paddling thresholds tied to USGS 05059000 cleared; existing supported routes use the Baldhill Dam gauge package.",
-        "Camping/access, safety, image, coordinate, and geometry gates remain unresolved."
-      ],
-      "reason": "USGS 05059000 is product-live near Kindred and the Sheyenne remains paddle-relevant, but official route evidence did not produce a Kindred-specific scored route package. Existing Sheyenne National Grassland routes use the accepted Baldhill Dam gauge package and Grassland endpoint chain; no distinct Kindred endpoint pair, station-specific thresholds, camping/access terms, safety package, image decision, coordinates, or geometry cleared for this provider key.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-nd-usgs-05056770",
-      "taskId": "route-opportunity-nd-usgs-05056770",
-      "stateId": "ND",
-      "gaugeKey": "usgs:05056770",
-      "siteName": "SHEYENNE RIVER AT CO RD 20 NEAR KLOTEN, ND",
-      "priority": "high",
-      "score": 99015,
-      "status": "completed",
-      "routeFamilies": [
-        "Sheyenne River"
-      ],
-      "blockers": [
-        "Broader Sheyenne River Water Trail evidence does not select a Kloten / County Road 20 point-to-point route.",
-        "No station-specific public endpoint pair, numeric paddling thresholds, camping/access terms, safety package, image, coordinates, or geometry cleared for USGS 05056770."
-      ],
-      "reason": "USGS 05056770 is Sheyenne River at County Road 20 near Kloten. Same-run USGS data were product-live at 219 cfs / 32.05 ft at 2026-08-15 00:00 CDT, and official sources confirm the broader Sheyenne River Water Trail, but the reviewed evidence did not produce a Kloten- or County Road 20-specific public endpoint pair, station-specific threshold model, camping/access terms, safety package, rights-clean image decision, coordinates, or geometry. Existing supported Sheyenne route packages use USGS 05058000 below Baldhill Dam for the Valley City and Grassland corridors; that does not cover this upstream provider key under provider:siteId completion accounting.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-wi-usgs-05395000",
-      "taskId": "route-opportunity-wi-usgs-05395000",
-      "stateId": "WI",
-      "gaugeKey": "usgs:05395000",
-      "siteName": "WISCONSIN RIVER AT MERRILL, WI",
-      "priority": "high",
-      "score": 99010,
-      "status": "completed",
-      "routeFamilies": [
-        "Wisconsin River / Great Pinery Heritage Waterway"
-      ],
-      "blockers": [
-        "station-specific numeric thresholds tied to USGS 05395000 are not validated",
-        "selected segment still needs full camping, dam/portage safety, coordinate, image, and geometry package"
-      ],
-      "reason": "USGS 05395000 is active at Merrill and Great Pinery Heritage Waterway pages publish named Wisconsin River segments, endpoint coordinates, Merrill-area landings, and portage context. Same-run USGS data were current at 1060 cfs / 4.04 ft, but the evidence still lacks a source-backed numeric station-threshold ladder and a fully validated PaddleToday camping, dam/portage safety, coordinate, image, and geometry package for one selected segment.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-ia-usgs-05453000",
-      "taskId": "route-opportunity-ia-usgs-05453000",
-      "stateId": "IA",
-      "gaugeKey": "usgs:05453000",
-      "siteName": "Big Bear Creek at Ladora, IA",
-      "priority": "high",
-      "score": 99005,
-      "status": "completed",
+      "id": "route-opportunity-pa-usgs-03015000",
+      "taskId": "route-opportunity-pa-usgs-03015000",
+      "stateId": "PA",
+      "gaugeKey": "usgs:03015000",
+      "siteName": "Conewango Creek at Russell, PA",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
       "routeFamilies": [],
       "blockers": [
-        "live direct gauge but no manager-backed public route, threshold, camping, safety, coordinate, image, or geometry package"
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "USGS 05453000 is a live 189-square-mile Big Bear Creek station at Ladora with same-run discharge/stage of 207 cfs / 12.13 ft at 2026-08-14 18:00 CDT. The creek is physically route-capable, but available evidence is gauge/watershed context only; no selected public endpoint pair, numeric paddling thresholds, camping/access terms, safety package, coordinates, image decision, or geometry package cleared.",
+      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ia-usgs-06609500",
-      "taskId": "route-opportunity-ia-usgs-06609500",
-      "stateId": "IA",
-      "gaugeKey": "usgs:06609500",
-      "siteName": "Boyer River at Logan, IA",
-      "priority": "high",
-      "score": 99005,
-      "status": "completed",
-      "routeFamilies": [
-        "Boyer River"
-      ],
+      "id": "route-opportunity-ut-usgs-10131000",
+      "taskId": "route-opportunity-ut-usgs-10131000",
+      "stateId": "UT",
+      "gaugeKey": "usgs:10131000",
+      "siteName": "CHALK CREEK AT COALVILLE, UT",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
       "blockers": [
-        "No station-specific named public endpoint pair has been validated for the Logan gauge reach.",
-        "No gauge-tied paddling threshold interpretation is established for this route package.",
-        "Camping, hazard, image, coordinate, and canonical river-line evidence remains incomplete."
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "USGS 06609500 is the live Boyer River at Logan station, and official Iowa sources confirm a real Boyer River corridor with public river access and primary-contact recreation designation. The bounded review did not validate a station-specific paired endpoint, threshold interpretation, camping and hazard package, or canonical river geometry at the gauge. It remains route-capable but blocked rather than publishing a speculative route.",
+      "reason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ia-usgs-05463050",
-      "taskId": "route-opportunity-ia-usgs-05463050",
-      "stateId": "IA",
-      "gaugeKey": "usgs:05463050",
-      "siteName": "Cedar River at Cedar Falls, IA",
-      "priority": "high",
-      "score": 99005,
-      "status": "completed",
-      "routeFamilies": [
-        "Cedar River"
-      ],
+      "id": "route-opportunity-ut-usgs-10194200",
+      "taskId": "route-opportunity-ut-usgs-10194200",
+      "stateId": "UT",
+      "gaugeKey": "usgs:10194200",
+      "siteName": "CLEAR CREEK ABOVE DIVERSIONS, NEAR SEVIER, UT",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
       "blockers": [
-        "Cedar Falls/Waterloo Cedar River route package needs selected public endpoints and gauge-tied route geometry.",
-        "Cedar River Water Trail documents downtown Cedar Falls and Waterloo dams/portages that require route-specific safety handling.",
-        "No station-specific threshold, camping/no-camping, coordinate, image, and geometry package cleared for this gauge."
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "USGS 05463050 is live on the Cedar River at Cedar Falls, and Cedar River Water Trail sources establish a real paddling corridor with public access plus Cedar Falls/Waterloo dam and portage hazards. The bounded review did not validate a station-specific endpoint pair, route distance, numeric threshold interpretation, camping/no-camping package, safety handling, rights-clean image decision, endpoint coordinates, or gauge-linked geometry for a scored route.",
+      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ia-usgs-05464315",
-      "taskId": "route-opportunity-ia-usgs-05464315",
-      "stateId": "IA",
-      "gaugeKey": "usgs:05464315",
-      "siteName": "Cedar River at Vinton, IA",
-      "priority": "high",
-      "score": 99005,
-      "status": "completed",
-      "routeFamilies": [
-        "Cedar River"
-      ],
+      "id": "route-opportunity-ut-usgs-10242000",
+      "taskId": "route-opportunity-ut-usgs-10242000",
+      "stateId": "UT",
+      "gaugeKey": "usgs:10242000",
+      "siteName": "COAL CREEK NEAR CEDAR CITY, UT",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
       "blockers": [
-        "Cedar River at Vinton needs a selected station-specific public endpoint pair and route distance.",
-        "No numeric paddling threshold interpretation tied to USGS 05464315 cleared.",
-        "Camping/no-camping, safety, coordinate, image, and geometry packages remain incomplete."
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "USGS 05464315 is live on the Cedar River at Vinton, and the Cedar River is an established Iowa water-trail family. No Vinton-station route was promoted because a selected public endpoint pair, station-specific threshold model, camping/no-camping terms, Vinton-area hazards and access handling, endpoint coordinates, rights-clean image decision, and gauge-linked geometry were not validated in this bounded pass.",
+      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-wi-usgs-04066003",
-      "taskId": "route-opportunity-wi-usgs-04066003",
-      "stateId": "WI",
-      "gaugeKey": "usgs:04066003",
-      "siteName": "MENOMINEE RIVER BELOW PEMENE CREEK NR PEMBINE, WI",
-      "priority": "high",
-      "score": 99005,
-      "status": "completed",
-      "routeFamilies": [
-        "menominee-river"
-      ],
+      "id": "route-opportunity-ut-usgs-10146400",
+      "taskId": "route-opportunity-ut-usgs-10146400",
+      "stateId": "UT",
+      "gaugeKey": "usgs:10146400",
+      "siteName": "CURRANT CREEK NEAR MONA, UT",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
       "blockers": [
-        "Quiver/Pemene Falls require explicit expert-whitewater and portage treatment",
-        "no product route package currently covers the gauge-matched recreation-area reaches"
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Wisconsin DNR documents canoe launches and campsites in the Menominee River State Recreation Area, and American Whitewater ties this gauge to Quiver/Pemene Falls reaches; no product route package currently resolves whitewater skill limits, portages, and camping endpoints.",
-      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
+      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-wi-usgs-04087142",
-      "taskId": "route-opportunity-wi-usgs-04087142",
-      "stateId": "WI",
-      "gaugeKey": "usgs:04087142",
-      "siteName": "MENOMONEE RIVER AT 16TH STREET AT MILWAUKEE, WI",
-      "priority": "high",
-      "score": 99005,
-      "status": "completed",
-      "routeFamilies": [
-        "menomonee-river"
-      ],
+      "id": "route-opportunity-tx-usgs-08039100",
+      "taskId": "route-opportunity-tx-usgs-08039100",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08039100",
+      "siteName": "Ayish Bayou nr San Augustine, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "in_progress",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
       "blockers": [
-        "no product route package currently covers the 16th Street gauge reach",
-        "urban/industrial hazards and exact access endpoints require dedicated route research"
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "The Milwaukee Urban Water Trail explicitly supports canoe/kayak travel on the Menomonee River and the 16th Street reach; no product route package currently resolves the gauged urban endpoints, industrial hazards, and access details.",
-      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
+      "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-wi-usgs-04087170",
-      "taskId": "route-opportunity-wi-usgs-04087170",
-      "stateId": "WI",
-      "gaugeKey": "usgs:04087170",
-      "siteName": "MILWAUKEE RIVER AT MOUTH AT MILWAUKEE, WI",
-      "priority": "high",
-      "score": 99005,
-      "status": "completed",
-      "routeFamilies": [
-        "milwaukee-river"
-      ],
+      "id": "route-opportunity-tx-usgs-08037060",
+      "taskId": "route-opportunity-tx-usgs-08037060",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08037060",
+      "siteName": "Banita Ck at W Austin St, Nacogdoches, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
       "blockers": [
-        "no product route package currently covers the mouth/estuary gauge reach",
-        "harbor traffic, wind, and Lake Michigan exposure require explicit safety/access treatment"
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "The Milwaukee Urban Water Trail explicitly supports paddling on the Milwaukee River estuary and this mouth gauge; no product route package currently resolves launch/exit points, harbor traffic, and Lake Michigan exposure.",
-      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
+      "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-wi-usgs-05344500",
-      "taskId": "route-opportunity-wi-usgs-05344500",
-      "stateId": "WI",
-      "gaugeKey": "usgs:05344500",
-      "siteName": "MISSISSIPPI RIVER AT PRESCOTT, WI",
-      "priority": "high",
-      "score": 99005,
-      "status": "completed",
-      "routeFamilies": [
-        "mississippi-river"
-      ],
+      "id": "route-opportunity-tx-usgs-08433000",
+      "taskId": "route-opportunity-tx-usgs-08433000",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08433000",
+      "siteName": "Barrilla Draw nr Saragosa, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
       "blockers": [
-        "no product route package currently covers the Prescott gauge reach",
-        "main-channel navigation, wind, and confluence safety require dedicated endpoint research"
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Prescott and regional public agencies document canoe/kayak access at the St. Croix–Mississippi confluence and Upper Mississippi backwaters; no product route package currently resolves navigation-channel hazards, wind, and exact public endpoints for this active gauge.",
-      "nextEvidenceAction": "Verify a named public put-in/take-out pair, access rules, and defensible endpoint coordinates.",
+      "reason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08155400",
+      "taskId": "route-opportunity-tx-usgs-08155400",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08155400",
+      "siteName": "Barton Ck abv Barton Spgs at Austin, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08155300",
+      "taskId": "route-opportunity-tx-usgs-08155300",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08155300",
+      "siteName": "Barton Ck at Loop 360, Austin, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     }
   ]

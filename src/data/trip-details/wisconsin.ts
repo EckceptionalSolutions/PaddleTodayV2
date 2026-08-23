@@ -2,6 +2,148 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
+  "black-river-hwy-53-hwy-35": {
+    "putIn": {"id":"black-river-hwy-53-93-landing","name":"Highway 53/93 landing","latitude":44.060278,"longitude":-91.287222},
+    "takeOut": {"id":"black-river-hwy-35-landing","name":"Highway 35 landing","latitude":44.00041,"longitude":-91.32658},
+    "logistics": {
+      "distanceLabel":"About 8 mi",
+      "estimatedPaddleTime":"About 3 to 5 hours in ordinary conditions, longer with low-water scouting, channel choices, wood, wind, breaks, or a slower group",
+      "shuttle":"Stage the Highway 35 finish first, then drive back to the Highway 53/93 landing. Confirm current parking, steep access, and river-edge conditions at both landings before launching.",
+      "permits":"No route-specific private paddling permit is identified by the cited sources. Follow Wisconsin boating and PFD rules, posted landing rules, DOT/DNR access signs, and any current flood or closure notices.",
+      "camping":"Treat this as a daylight route with no on-route camping assumption. Use a separately verified campground or managed basecamp; do not camp on river banks, sandbars, or wildlife-area land without permission.",
+      "campingClassification":"none",
+      "summary":"Use the named Highway 53/93 and Highway 35 landings for an 8-mile lower Black River run. Plan a daylight window, a real shuttle, footwear for the steep put-in, and a conservative turnaround if the channel split or lower-third wood becomes difficult.",
+      "accessCaveats":["The Highway 53/93 landing has a steep gravel descent and no bathrooms according to the route report; inspect the carry and landing before committing.","The Highway 35 landing is a practical public endpoint but river-edge conditions and parking rules can change. Follow current signs and do not block the highway access.","The route forks around Van Loon Island and includes side channels and sandbars. Stay in the documented main channel and do not assume every branch is navigable at current flow.","The 380 cfs minimum is community observation, not a safety certification. Rising water, flood warnings, wood, storms, or unclear take-out conditions override the score."] ,
+      "watchFor":["Discharge at or below about 380 cfs, when sandbars, shallow side channels, and hang-ups become more likely.","The Van Loon Island fork and a closed or shallow side channel.","Logjams in the lower third, high sandy banks, strainers, strong wind, and private-bank constraints.","Rapid rises or regulated watershed changes after storms; inspect the live gauge trend before launching."]
+    }
+  },
+  "yahara-river-babcock-fish-camp": {
+    "putIn": {
+      "id": "yahara-babcock-county-park",
+      "name": "Babcock County Park boat launch",
+      "latitude": 43.0069444,
+      "longitude": -89.3072222
+    },
+    "takeOut": {
+      "id": "yahara-fish-camp-canoe-launch",
+      "name": "Fish Camp County Park canoe/kayak launch",
+      "latitude": 42.982164,
+      "longitude": -89.263114
+    },
+    "logistics": {
+      "distanceLabel": "About 4.25 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr",
+      "shuttle": "Stage the Fish Camp County Park take-out first, then shuttle to the Babcock County Park boat launch. Dane County's paddle program describes the named launch and park staging sequence.",
+      "permits": "No route-specific paddling permit is documented. Follow Dane County launch rules, Wisconsin boating/PFD requirements, posted lock and portage signs, and any current lake or park notices.",
+      "camping": "Babcock County Park has a campground; no overnight camping along the water trail or at Fish Camp is assumed. Treat this as a day route with optional pre/post-trip camping at Babcock by reservation or current park rules.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A short, accessible Yahara water-trail day from Babcock to Fish Camp. It is flat and slow but lake-influenced, with the Babcock lock/portage, wind, wakes, cold water, and same-day launch conditions more important than a narrow flow window.",
+      "accessCaveats": [
+        "Use the marked public boat/canoe launch at Babcock and the dedicated accessible canoe/kayak launch at Fish Camp; do not launch from residential or private shoreline.",
+        "Check Babcock lock status and portage conditions before launch. Never approach the dam or spillway.",
+        "Fish Camp's canoe launch and park maps can change; confirm current parking, restrooms, fees, and launch availability before staging vehicles."
+      ],
+      "watchFor": [
+        "Flow below the 350 cfs conservative observed reference, wind, wakes, algae, floating debris, and cold water.",
+        "Babcock lock/dam, shallow or obstructed channel edges, private residential banks, and rapid weather changes.",
+        "No-wake boating rules, park hours, camping rules, and any seasonal closure or water-quality advisory."
+      ]
+    },
+    "accessPoints": [
+      {"id": "yahara-babcock-county-park", "name": "Babcock County Park boat launch", "latitude": 43.0069444, "longitude": -89.3072222, "mileFromStart": 0, "segmentKind": "lake", "note": "Named public put-in."},
+      {"id": "yahara-fish-camp-canoe-launch", "name": "Fish Camp County Park canoe/kayak launch", "latitude": 42.982164, "longitude": -89.263114, "mileFromStart": 4.25, "segmentKind": "lake", "note": "Named accessible public take-out."}
+    ]
+  },
+  "tomorrow-river-nelsonville-amherst": {
+    "putIn": {
+      "id": "tomorrow-river-rising-star-mill",
+      "name": "Rising Star Mill landing, Nelsonville",
+      "latitude": 44.49393,
+      "longitude": -89.3109
+    },
+    "takeOut": {
+      "id": "tomorrow-river-amherst-dam",
+      "name": "Amherst downtown dam take-out",
+      "latitude": 44.45143,
+      "longitude": -89.28334
+    },
+    "logistics": {
+      "distanceLabel": "About 6.5 mi",
+      "estimatedPaddleTime": "About 2 hr to 4 hr depending on current and the flowage finish",
+      "shuttle": "Stage the Amherst dam take-out first, then shuttle to the Rising Star Mill landing in Nelsonville. Miles Paddled describes a roughly six-mile bike or car shuttle; verify parking and landing conditions before launch.",
+      "permits": "No route-specific paddling permit is documented. Use only the named public landing and take-out, follow Wisconsin boating/PFD rules, and obey local parking and dam-area signs.",
+      "camping": "No legal on-route camping is documented. Treat this as a day trip and arrange overnight lodging separately.",
+      "campingClassification": "none",
+      "summary": "A clear-water Tomorrow River day from Nelsonville to Amherst, ending above the Amherst dam. The direct gauge and route-specific observed level support a conservative low-water screen, but the narrow channel, cold water, and mandatory dam take-out require same-day inspection.",
+      "accessCaveats": [
+        "Rising Star Mill and the Amherst take-out are named route endpoints, but confirm current parking, landing, and event conditions before launching.",
+        "The Amherst dam is a hard route boundary. Do not continue downstream or attempt an improvised portage.",
+        "The source's upper access descriptions include steep or awkward launches; use a stable entry and do not slide into fast current."
+      ],
+      "watchFor": [
+        "Flow below the 33.5 cfs observed trip level, shallow rocks, and boat scraping.",
+        "Strainers, tight bends, bridge approaches, cold water, private banks, and rising water after storms.",
+        "The Amherst dam and the loss of current in the lower flowage near the take-out."
+      ]
+    },
+    "accessPoints": [
+      {"id": "tomorrow-river-rising-star-mill", "name": "Rising Star Mill landing, Nelsonville", "latitude": 44.49393, "longitude": -89.3109, "mileFromStart": 0, "segmentKind": "creek", "note": "Named public put-in."},
+      {"id": "tomorrow-river-amherst-dam", "name": "Amherst downtown dam take-out", "latitude": 44.45143, "longitude": -89.28334, "mileFromStart": 6.5, "segmentKind": "creek", "note": "Mandatory take-out above the dam."}
+    ]
+  },
+  "horicon-marsh-greenhead-nebraska": {
+    "putIn": {
+      "id": "horicon-marsh-green-head-landing",
+      "name": "Green Head Boat Landing",
+      "latitude": 43.5054167,
+      "longitude": -88.5920278
+    },
+    "takeOut": {
+      "id": "horicon-marsh-nebraska-street-landing",
+      "name": "North Nebraska Street Boat Landing",
+      "latitude": 43.45514,
+      "longitude": -88.63936
+    },
+    "logistics": {
+      "distanceLabel": "About 6.5 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr",
+      "shuttle": "Use the documented shuttle from North Nebraska Street Boat Landing back to Green Head Boat Landing; confirm current event or outfitter arrangements before launch.",
+      "permits": "No route-specific paddling permit is documented. Follow Wisconsin DNR wildlife-area rules, boating/PFD requirements, posted launch rules, and any current marsh closures.",
+      "camping": "No camping at the route endpoints or along the marked paddle trail is assumed.",
+      "campingClassification": "none",
+      "summary": "A marked 6.5-mile Horicon Marsh paddle through the state wildlife area, ending at North Nebraska Street in Horicon. The route is flat but exposed, navigation-sensitive, and dependent on water level, wind, floating vegetation, and current marsh restrictions.",
+      "accessCaveats": [
+      "The Horicon National Wildlife Refuge portion is closed to paddling; remain in the state wildlife area route.",
+      "Green Head and Nebraska Street access can change with marsh conditions, vegetation mats, or management decisions; verify current status.",
+      "Do not approach the Horicon dam or electric fish barrier, and do not assume overnight parking or camping."
+      ],
+      "watchFor": [
+      "Water below the documented 40-cfs trip level may be shallow and muddy; rising water, wind, or floating cattail mats can also make the route unsafe or impassable.",
+      "Wind exposure, motorboat wakes, heat, lack of shade, and navigation errors in canals and marsh channels.",
+      "Seasonal rookery restrictions, refuge boundary, route markers, and the Horicon city dam downstream of the landing."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "horicon-marsh-green-head-landing",
+        "name": "Green Head Boat Landing",
+        "latitude": 43.5054167,
+        "longitude": -88.5920278,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Public launch at N8600 Green Head Road."
+      },
+      {
+        "id": "horicon-marsh-nebraska-street-landing",
+        "name": "North Nebraska Street Boat Landing",
+        "latitude": 43.45514,
+        "longitude": -88.63936,
+        "mileFromStart": 6.5,
+        "segmentKind": "creek",
+        "note": "Public landing at the southwest edge of the marsh."
+      }
+    ]
+  },
   "wolf-river-pearson-lily": {
     "putIn": {
       "name": "County Highway A access near Pearson",
@@ -2270,6 +2412,61 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "Undertows, drop-offs, poison ivy on islands, and shoreline strainers during high water."
       ]
     }
+  },
+  "la-crosse-river-hwy-bb-angelo-wayside": {
+    "putIn": {
+      "id": "la-crosse-river-county-highway-bb",
+      "name": "County Highway BB La Crosse River gauge / public bridge access",
+      "latitude": 44.0002778,
+      "longitude": -90.7244444
+    },
+    "takeOut": {
+      "id": "angelo-wayside-county-park",
+      "name": "Angelo Wayside County Park canoe-launch parking",
+      "latitude": 43.96738,
+      "longitude": -90.76515
+    },
+    "logistics": {
+      "distanceLabel": "About 5.3 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr, longer with scouting or low water",
+      "shuttle": "Stage the Angelo Wayside County Park take-out first, then drive to the public County Highway BB bridge access. Confirm parking and the carry to water at both endpoints before launching.",
+      "permits": "No route-specific paddling permit is known. Use only public bridge/park access, follow Wisconsin boating and PFD rules, and obey any posted Monroe County parking or access restrictions.",
+      "camping": "Treat this as a no-camping day route. Angelo Wayside is a day-use county park; do not assume private banks, Fort McCoy property, or the pond shoreline are legal overnight stops.",
+      "campingClassification": "none",
+      "summary": "Launch at the public County Highway BB bridge near the direct USGS gauge and take out at Monroe County's Angelo Wayside canoe-access park. End before the Angelo Pond dam; do not continue into the impoundment or attempt a spontaneous dam portage.",
+      "accessCaveats": [
+        "The BB start is a bridge access, not a developed ramp; inspect the shoulder, carry, and traffic conditions before leaving a vehicle.",
+        "Monroe County lists Angelo Wayside canoe-launch parking, but the route ends at the public park before the dam. Confirm the water-level landing and carry on arrival.",
+        "Fort McCoy and intervening private banks are not alternate access. Do not exit except at the named endpoints or in an emergency.",
+        "Angelo Pond is listed as impaired for PFOS-contaminated fish tissue; avoid treating the pond as a fishing or swimming destination and follow current Wisconsin fish-advisory guidance."
+      ],
+      "watchFor": [
+        "Fresh strainers and fast rises after rain, especially on the upper narrow channel.",
+        "Shallow, silty water as the route approaches Angelo Pond.",
+        "The Angelo Pond dam and any temptation to continue beyond the named take-out.",
+        "Cold water, traffic at the bridge access, and private or restricted banks."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "la-crosse-river-county-highway-bb",
+        "name": "County Highway BB La Crosse River gauge / public bridge access",
+        "latitude": 44.0002778,
+        "longitude": -90.7244444,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; inspect the bridge shoulder and carry before launching."
+      },
+      {
+        "id": "angelo-wayside-county-park",
+        "name": "Angelo Wayside County Park canoe-launch parking",
+        "latitude": 43.96738,
+        "longitude": -90.76515,
+        "mileFromStart": 5.3,
+        "segmentKind": "creek",
+        "note": "Default take-out. End at the public wayside before the Angelo Pond dam."
+      }
+    ]
   },
   "la-crosse-river-fishermans-hammer": {
     "putIn": {
@@ -6079,6 +6276,60 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "rock-river-centerway-afton": {
+    "putIn": {
+      "id": "rock-river-centerway-dam-portage",
+      "name": "Centerway Dam public portage launch",
+      "latitude": 42.685,
+      "longitude": -89.0255556
+    },
+    "takeOut": {
+      "id": "rock-river-afton-road-launch",
+      "name": "Afton Road Boat Launch",
+      "latitude": 42.6675,
+      "longitude": -89.0461111
+    },
+    "logistics": {
+      "distanceLabel": "About 2.9 mi",
+      "estimatedPaddleTime": "About 1 hr to 2 hr; longer if scouting or portaging around hazards",
+      "shuttle": "Stage the Afton Road Boat Launch first, then drive to the Centerway Dam portage. Keep the vehicle shuttle short but verify current Janesville access, parking, and construction notices before launch.",
+      "permits": "No route-specific permit is known. Follow Janesville and Rock County launch rules, Wisconsin boating/PFD requirements, posted dam and industrial-property warnings, and any current closure notices.",
+      "camping": "No camping is documented at either endpoint or on this urban Janesville reach. Treat it as a day route only.",
+      "campingClassification": "none",
+      "summary": "Put in below Centerway Dam via the public portage path and take out at Afton Road Boat Launch. This is a short route with unusually strong current and urban/industrial hazards; the direct Afton gauge is used conservatively.",
+      "accessCaveats": [
+        "The Centerway Dam portage is the required put-in; never run the dam or launch near the powerhouse outlets.",
+        "Rock County's access inventory describes Afton Road as a small-watercraft launch with parking but no camping or restroom service.",
+        "The route passes public riverfront and industrial shoreline; do not land on restricted property or improvise a take-out at bridge or plant structures.",
+        "Confirm the Afton launch and Centerway portage remain open before leaving; flooding, construction, or events can change access."
+      ],
+      "watchFor": [
+        "Fast current below Centerway Dam, narrow bridge gaps, strainers, and pillow currents at bridge pillars.",
+        "Evonik chemical-plant shoreline, fences, restricted areas, and limited bailout options.",
+        "High or rising water; do not launch when the Afton gauge is above the 6.5-ft slow-no-wake trigger or when local warnings are posted."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "rock-river-centerway-dam-portage",
+        "name": "Centerway Dam public portage launch",
+        "latitude": 42.685,
+        "longitude": -89.0255556,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Public portage/put-in below Centerway Dam."
+      },
+      {
+        "id": "rock-river-afton-road-launch",
+        "name": "Afton Road Boat Launch",
+        "latitude": 42.6675,
+        "longitude": -89.0461111,
+        "mileFromStart": 2.9,
+        "segmentKind": "creek",
+        "note": "Developed small-watercraft take-out in the Rock River Parkway."
+      }
+    ]
+  },
   "rock-river-willow-street-johnson-creek": {
     "putIn": {
       "id": "rock-river-willow-street-watertown",
@@ -8401,5 +8652,269 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out; Village of Albany and WRT both support this as a public boat-launch area above Albany Dam."
       }
     ]
+  },
+  "fox-river-waterford-burlington": {
+    "putIn": {
+      "id": "fox-river-village-hall-park-waterford",
+      "name": "Village Hall Park canoe/kayak launch",
+      "latitude": 42.76385,
+      "longitude": -88.21319
+    },
+    "takeOut": {
+      "id": "fox-river-riverside-park-burlington",
+      "name": "Riverside Park, Burlington",
+      "latitude": 42.68199,
+      "longitude": -88.26979
+    },
+    "logistics": {
+      "distanceLabel": "About 12.5 mi",
+      "estimatedPaddleTime": "About 5 hr to 7 hr, longer with two dam portages and wind",
+      "shuttle": "Stage Riverside Park in Burlington, then return to Village Hall Park. Plan extra time for the Waterford and Rochester portages and do not count on a quick turnaround at either dam.",
+      "permits": "No route-specific paddling permit is documented. Follow Wisconsin boating/PFD rules, posted park rules, and all dam-closure or launch signage.",
+      "camping": "Treat this as a day route. No on-route public camping is documented; arrange separate legal lodging or campground plans.",
+      "campingClassification": "none",
+      "summary": "Paddle the public Fox River water-trail corridor from Waterford to Burlington. The reach is flatwater and scenic but requires two formal dam portages, a minimum-only 4-ft gauge check, and a conservative wind/current call.",
+      "accessCaveats": [
+        "Village Hall Park is the public put-in above Waterford Dam; do not approach the dam face or use the outflow.",
+        "Portage Waterford and Rochester dams at the public facilities identified by Waterford; inspect carries and keep boats clear of active boat traffic.",
+        "Riverside Park is the planned take-out in Burlington. Confirm parking/launch conditions and do not continue beyond the planned endpoint without separate route research."
+      ],
+      "watchFor": [
+        "Gauge below 4 ft, shallow scraping, wind against the long flatwater reach, rising water after rain, and cold-water conditions.",
+        "Dam hydraulics, bridge/boat traffic, private banks, and limited legal bailout options.",
+        "Water-quality or debris changes after heavy rain; same-day visual checks override the community threshold reference."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fox-river-village-hall-park-waterford",
+        "name": "Village Hall Park canoe/kayak launch",
+        "latitude": 42.76385,
+        "longitude": -88.21319,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Official Waterford launch above the Waterford Dam."
+      },
+      {
+        "id": "fox-river-riverside-park-burlington",
+        "name": "Riverside Park, Burlington",
+        "latitude": 42.68199,
+        "longitude": -88.26979,
+        "mileFromStart": 12.5,
+        "segmentKind": "creek",
+        "note": "Miles Paddled take-out for the Waterford-to-Burlington reach."
+      }
+    ]
+  },
+  "fox-river-frame-park-greenway-waukesha": {
+    "putIn": {
+      "id": "fox-river-frame-park-waukesha",
+      "name": "Frame Park boat launch",
+      "latitude": 43.00654422,
+      "longitude": -88.24212779
+    },
+    "takeOut": {
+      "id": "fox-river-greenway-waukesha",
+      "name": "Fox River Greenway access",
+      "latitude": 42.9777,
+      "longitude": -88.2646
+    },
+    "logistics": {
+      "distanceLabel": "About 4–4.5 mi",
+      "estimatedPaddleTime": "About 1–2 hr, plus the Barstow Dam portage",
+      "shuttle": "Stage a vehicle at Fox River Greenway, then launch from Frame Park. If conditions are high or the dam portage is unsuitable, use a documented below-dam alternative only after confirming access.",
+      "permits": "Frame Park requires applicable Waukesha County park access/parking payment. Follow posted park rules, Wisconsin boating/PFD requirements, and all dam warnings.",
+      "camping": "Treat this as a day route. No on-route public camping is documented; arrange separate legal lodging or campground plans.",
+      "campingClassification": "none",
+      "summary": "Paddle the documented Fabulous Fox Water Trail from Frame Park through downtown Waukesha and the Fox River Sanctuary to the Fox River Greenway. The route requires a Barstow Dam portage and a conservative 107-cfs minimum-only check.",
+      "accessCaveats": [
+        "Frame Park is above Barstow Dam; portage on the marked river walk and never run the dam or its outflow.",
+        "The downtown reach has narrow rock-lined banks, multiple bridges, a short tunnel, and limited bailout choices. Inspect the tunnel for wood before continuing.",
+        "Fox River Greenway is the planned take-out. Confirm parking, launch condition, and same-day water/safety conditions before unloading."
+      ],
+      "watchFor": [
+        "Gauge below 107 cfs, shallow rocky water, fast water after rain, cold water, bridge/tunnel wood, and difficult exits.",
+        "Urban foot and vehicle traffic, private banks, and the mandatory Barstow Dam portage.",
+        "The threshold is a conservative low-runnable reference, not a safety guarantee; visual inspection controls the launch decision."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fox-river-frame-park-waukesha",
+        "name": "Frame Park boat launch",
+        "latitude": 43.00654422,
+        "longitude": -88.24212779,
+        "mileFromStart": 0,
+        "segmentKind": "lake",
+        "note": "Developed launch above Barstow Dam; portage before downstream entry."
+      },
+      {
+        "id": "fox-river-greenway-waukesha",
+        "name": "Fox River Greenway access",
+        "latitude": 42.9777,
+        "longitude": -88.2646,
+        "mileFromStart": 4.4,
+        "segmentKind": "creek",
+        "note": "Fabulous Fox take-out on the east bank north of the STH 59 bridge."
+      }
+    ]
+  },
+  "fox-river-sunset-kimberly-lutz-appleton": {
+    "putIn": {
+      "id": "fox-river-sunset-park-kimberly",
+      "name": "Sunset Park Boat Launch, Kimberly",
+      "latitude": 44.2735557,
+      "longitude": -88.3457597
+    },
+    "takeOut": {
+      "id": "fox-river-lutz-park-appleton",
+      "name": "Lutz Park ADA kayak launch, Appleton",
+      "latitude": 44.2496192,
+      "longitude": -88.421527
+    },
+    "logistics": {
+      "distanceLabel": "About 6.8 mi, route-plan approximate",
+      "estimatedPaddleTime": "About 4 to 7 hours including lock portages, scouting, and shuttle",
+      "shuttle": "Stage the vehicle at Lutz Park, then shuttle to Sunset Park in Kimberly. Confirm construction, parking, and launch conditions at both parks before unloading.",
+      "permits": "No route-specific paddling permit is documented. Follow Wisconsin boating/PFD rules, posted park rules, Fox River Navigational System Authority notices, and all lock/dam signage.",
+      "camping": "Treat this as an urban day route. No on-route public camping is documented; arrange separate legal lodging or campground plans.",
+      "campingClassification": "none",
+      "summary": "Paddle the Fox River from Sunset Park in Kimberly to Lutz Park in Appleton with mandatory lock/dam portages unless current authority confirms passage. Use the direct Appleton gauge and a conservative 6,000 cfs maximum-only screen.",
+      "accessCaveats": [
+        "Sunset Park and Lutz Park are named public launch facilities, but confirm seasonal hours, construction, parking, and ramp conditions before departure.",
+        "Portage the Appleton locks and dams unless the current lock authority explicitly confirms lawful passage for the craft and date; never approach dam faces, intakes, or outflows.",
+        "This route ends at Lutz Park. Do not continue downstream or into Lake Winnebago without a separate route and water-traffic review."
+      ],
+      "watchFor": [
+        "Appleton gauge above 6,000 cfs, rising trend, fast current, dam draw, lock closure, cold water, heavy boat traffic, and storm debris.",
+        "Urban access changes, portage obstructions, and private-bank sections; same-day visual checks override the community flow screen."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fox-river-sunset-park-kimberly",
+        "name": "Sunset Park Boat Launch, Kimberly",
+        "latitude": 44.2735557,
+        "longitude": -88.3457597,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Fox Cities identifies the public kayak-accessible boat launch on W Kimberly Ave."
+      },
+      {
+        "id": "fox-river-lutz-park-appleton",
+        "name": "Lutz Park ADA kayak launch, Appleton",
+        "latitude": 44.2496192,
+        "longitude": -88.421527,
+        "mileFromStart": 6.8,
+        "segmentKind": "creek",
+        "note": "Fox Cities identifies Lutz Park as a public boat launch and ADA kayak launch; the direct USGS gauge is at the south end of the park."
+      }
+    ]
+  },
+  "fox-river-landing-road-riverside-berlin": {
+    "putIn": {
+      "id": "fox-river-landing-road-berlin",
+      "name": "Fox River Access at Landing Road south of Berlin",
+      "latitude": 43.9471591,
+      "longitude": -88.9668741
+    },
+    "takeOut": {
+      "id": "fox-river-riverside-park-berlin",
+      "name": "Riverside Park Boat Launch, Berlin",
+      "latitude": 43.9781339,
+      "longitude": -88.9502913
+    },
+    "logistics": {
+      "distanceLabel": "3.4 mi",
+      "estimatedPaddleTime": "About 2 to 3 hours, depending on current, stops, and shuttle",
+      "shuttle": "Stage at Riverside Park and shuttle to the Landing Road access south of Berlin. Confirm the road endpoint, parking, and launch signage before leaving a vehicle.",
+      "permits": "No route-specific paddling permit is documented. Follow Wisconsin boating/PFD rules, City of Berlin park rules, DNR access rules, and all posted landing signs.",
+      "camping": "Riverside Park has a documented campground, but this route is a day route; reserve separately and do not assume overnight camping at the Landing Road access.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Paddle the short Upper Fox River reach from the DNR-listed Landing Road access to Riverside Park in Berlin. Use the direct Berlin gauge and the conservative 350 cfs minimum-only screen; the route source describes the section as a simple downtown paddle.",
+      "accessCaveats": [
+        "Landing Road access is named in the DNR inventory, but its endpoint is adjacent to private properties; use only the signed public access and do not stage on private drives or banks.",
+        "Riverside Park is a public boat-launch endpoint with seasonal campground and park operations; confirm hours, events, parking, and water access before departure.",
+        "The direct gauge lies downstream of the former Berlin dam; never approach dam remnants, bridge piers, outfalls, flooded banks, or fast water during rising conditions."
+      ],
+      "watchFor": [
+        "Berlin gauge below 350 cfs, a rising hydrograph, flood warnings, rain, debris, ice, or unsafe current",
+        "Private-bank boundaries, bridge traffic, changing launch conditions, and urban event congestion",
+        "Cold water and limited bailout options; same-day visual checks override the conservative flow screen"
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fox-river-landing-road-berlin",
+        "name": "Fox River Access at Landing Road south of Berlin",
+        "latitude": 43.9471591,
+        "longitude": -88.9668741,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "DNR-listed Landing Road access; verify current public signage and launch footing."
+      },
+      {
+        "id": "fox-river-riverside-park-berlin",
+        "name": "Riverside Park Boat Launch, Berlin",
+        "latitude": 43.9781339,
+        "longitude": -88.9502913,
+        "mileFromStart": 3.4,
+        "segmentKind": "creek",
+        "note": "City of Berlin public boat launch at 161 W Waushara Street."
+      }
+    ]
+  },
+  "south-fork-flambeau-county-w-county-m": {
+    "putIn": {
+      "id": "county-w-bridge",
+      "name": "County W Bridge Landing",
+      "latitude": 45.70357,
+      "longitude": -90.61622
+    },
+    "takeOut": {
+      "id": "county-m-wayside",
+      "name": "County M Wayside Landing",
+      "latitude": 45.65787,
+      "longitude": -90.73591
+    },
+    "logistics": {
+      "distanceLabel": "7.4 mi",
+      "estimatedPaddleTime": "About 3 to 5 hours for a prepared moving-water group, depending on flow, scouting, and stops",
+      "shuttle": "Use the rural County W to County M road shuttle; verify the landing entrances and parking before leaving a vehicle.",
+      "permits": "No route-specific paddling permit is listed. Follow Wisconsin DNR state-forest landing rules and the Flambeau River glass-container restriction.",
+      "camping": "There are no state-forest canoe camps on this South Fork segment. Plan it as a day run; canoe camps exist below the forks on other reaches and should not be inferred as overnight access here.",
+      "summary": "Launch at the County W Bridge Landing and take out at County M Wayside after the 7.4-mile FS2 reach. The route includes Carpenters, Cornsheller, Big Bull, and Bergeron rapids; Little Falls is downstream beyond the take-out.",
+      "accessCaveats": [
+        "County W is a hand-carry landing immediately below the bridge; use the signed landing entrance and do not assume bridge-bank access elsewhere.",
+        "County M Wayside is the documented take-out for FS2; take out there before the downstream South Fork hazards unless separately qualified and equipped.",
+        "The direct gauge is near the upper corridor, but actual rapids and debris can vary after rain; inspect conditions locally before launching."
+      ],
+      "watchFor": [
+        "Carpenters Rapids, Cornsheller Rapids, Big Bull Rapids, and Bergeron Rapids; scout unfamiliar lines.",
+        "Cold water, remote shoreline, wood, changing channels, and limited quick exits.",
+        "Little Falls and stronger downstream South Fork hazards beyond County M; do not continue accidentally."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "county-w-bridge",
+        "name": "County W Bridge Landing",
+        "latitude": 45.70357,
+        "longitude": -90.61622,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Hand-carry landing on river left immediately below the County W bridge."
+      },
+      {
+        "id": "county-m-wayside",
+        "name": "County M Wayside Landing",
+        "latitude": 45.65787,
+        "longitude": -90.73591,
+        "mileFromStart": 7.4,
+        "segmentKind": "creek",
+        "note": "Documented FS2 take-out and wayside access."
+      }
+    ],
+    "continuityStatus": "verified"
   }
 };
