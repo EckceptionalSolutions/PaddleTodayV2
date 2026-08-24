@@ -507,7 +507,7 @@
     {
       "key": "mn_dnr:158",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "eligibility": "not_paddle_relevant",
       "relationship": "direct",
       "checkedAt": "2026-08-22T15:00:00Z",
       "decisionReason": "Fresh DNR Otter Tail map and USACE Orwell Lake review confirms gauge 158 is below a major dam. DNR identifies Orwell Lake facilities but not a recommended below-dam paddling section; USACE documents tailwater bank fishing/day use and lake boat access, not a validated below-dam watercraft endpoint. Existing recommended Otter Tail sections are already covered with the Elizabeth gauge package. No route added; preserve blocked/no-add.",
@@ -530,7 +530,7 @@
         "https://www.mvp.usace.army.mil/Portals/57/docs/Public%20Affairs/Brochure/Recreation/2020_Orwell_Lake_Brochure_Web.pdf",
         "src/data/routes/minnesota.ts"
       ],
-      "routeReadiness": "candidate"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "mn_dnr:159",
@@ -583,7 +583,7 @@
     {
       "key": "mn_dnr:167",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "eligibility": "not_paddle_relevant",
       "relationship": "direct",
       "checkedAt": "2026-08-22T12:50:00.000Z",
       "decisionReason": "Fresh review of the official Pine River water-trail page and map confirms gauge 167 at Mission/CSAH 11, but identifies no DNR-recommended one-way section or verified public launch/take-out pair around the station. The existing Pine route packages use stronger access evidence and the Jenkins gauge. Keep this candidate deferred and blocked; adding a Mission route would be speculative until a named public endpoint pair and route-specific threshold package are established.",
@@ -604,7 +604,7 @@
         "https://www.dnr.state.mn.us/state-water-trails/pine-river/segments-maps.html",
         "https://files.dnr.state.mn.us/maps/canoe_routes/pine.pdf"
       ],
-      "routeReadiness": "candidate"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "mn_dnr:168",
@@ -804,7 +804,8 @@
     {
       "key": "mn_dnr:189",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "direct",
       "checkedAt": "2026-08-14T14:26:26-05:00",
       "decisionReason": "MN DNR site 189 is the Red River of the North at Oslo, river mile 274.5, and the DNR feed was fresh during this run. The Red River State Water Trail is paddle-relevant, but this Oslo provider key remains blocked because no Oslo-specific scored route package with selected endpoints, numeric station thresholds, camping/no-camping terms, safety handling, endpoint coordinates, image decision, and geometry cleared; the same-location USGS Oslo gauge was already blocked as stage-only/current-provider incomplete.",
@@ -826,13 +827,13 @@
         "https://www.dnr.state.mn.us/fisheries/red-river-access.html",
         "https://waterdata.usgs.gov/monitoring-location/USGS-05083500/"
       ],
-      "routeReadiness": "candidate"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "mn_dnr:191",
       "status": "screened_out",
-      "routeReadiness": "candidate",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "proxy",
       "checkedAt": "2026-08-14T11:18:29.828Z",
       "decisionReason": "MN DNR gauge 191 is referenced only as proxy evidence for the Red River of the North route candidate; it has no scored direct route and is not eligible for covered status without a direct route package.",
@@ -854,7 +855,8 @@
     {
       "key": "mn_dnr:194",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "direct",
       "checkedAt": "2026-08-22T15:10:00.000Z",
       "decisionReason": "Fresh Redwood Map 3 review confirmed the Russell reach is mapped but lacks a recommended endpoint/threshold/camping/safety/coordinate/image/geometry package. Preserve as explicitly blocked.",
@@ -875,12 +877,13 @@
         "https://waterdata.usgs.gov/monitoring-location/05316500/",
         "https://www.dnr.state.mn.us/water_access/index.html"
       ],
-      "routeReadiness": "candidate"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "mn_dnr:195",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "direct",
       "checkedAt": "2026-08-22T13:50:00.000Z",
       "decisionReason": "Official DNR Map 3 confirms the Redwood River corridor and access landmarks, but no recommended day-trip package or station-specific threshold tied to DNR 195 cleared the quality bar. Existing Vesta-to-Wabasso coverage remains the stronger package; preserve this as an explicit blocked opportunity rather than publish a speculative long rural reach.",
@@ -902,7 +905,7 @@
         "https://www.dnr.state.mn.us/river_levels/index.html",
         "src/data/routes/minnesota.ts"
       ],
-      "routeReadiness": "candidate"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "mn_dnr:196",
@@ -930,9 +933,9 @@
     },
     {
       "key": "mn_dnr:197",
-      "status": "blocked",
-      "eligibility": "route_capable",
-      "relationship": "direct",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "none",
       "checkedAt": "2026-08-14T19:35:00-05:00",
       "decisionReason": "MN DNR gauge 197 is the Root River/Pilot Mound water-trail gauge family already represented by the scored Root River Parsley-to-Moens route using equivalent USGS 05383950 telemetry. DNR Root Map 1 and the river-level system provide the corridor and gauge context, but no distinct provider-specific route package would add endpoint, threshold, camping, safety, or geometry value.",
       "decisionSource": "manual_gauge_review",
@@ -952,7 +955,7 @@
         "https://waterdata.usgs.gov/monitoring-location/USGS-05383950/",
         "src/data/routes/minnesota.ts"
       ],
-      "routeReadiness": "existing_route_gap"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "mn_dnr:20",
@@ -1294,7 +1297,7 @@
         "https://www.dnr.state.mn.us/safety/boatwater/nowake/index.html identifies the Stillwater gauge and the 683.0 ft slow-no-wake rule for the lower St. Croix.",
         "https://www.dnr.state.mn.us/areas/fisheries/eastmetro/rivers/stcroixlower.html lists public lower St. Croix access at St. Croix Crossing, Boom Site, St. Croix Bluffs, and Andersen Windows, but does not establish a new route package tied to site 235."
       ],
-      "routeReadiness": "candidate"
+      "routeReadiness": "published"
     },
     {
       "key": "mn_dnr:236",
@@ -1345,7 +1348,7 @@
         "https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html identifies the Scanlon-to-Thomson corridor, expert-only rapids, dams, and the St. Louis National Water Trail context.",
         "https://files.dnr.state.mn.us/maps/canoe_routes/stlouis3.pdf places Scanlon carry-in access at RM 33.3, the river-level gauge at RM 33.0, Scanlon Dam at RM 33.7, Thomson Dam at RM 29.7, and warns of Class IV-V rapids and no portage."
       ],
-      "routeReadiness": "candidate"
+      "routeReadiness": "published"
     },
     {
       "key": "mn_dnr:24",
@@ -2619,7 +2622,7 @@
         "https://files.dnr.state.mn.us/maps/water_access/counties/blueearth_faribault.pdf identifies a Big Cobb River (Co. Rd. 16) carry-in public-water-access site.",
         "https://www.weather.gov/media/ncrfc/web/papers/nwsli_mn.pdf identifies BFRM5/Big Cobb River near Beauford 4NW and coordinates the monitoring site."
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "mn_dnr:38",
@@ -8799,21 +8802,23 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T09:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608250900-pa-gauge-review-batch-49",
+      "decisionReason": "No-add after bounded Oswayo Creek review: USGS confirms a live gauge at Shinglehouse, but research found no station-specific paddling threshold, named public launch/takeout pair, or official water-trail/access package for the gauged reach. Preserve as blocked rather than infer access from a highway bridge.",
+      "decisionSource": "route-worker-202608241000-pa-03010655-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_station_specific_paddling_threshold",
+        "no_lawful_named_public_endpoint_pair",
+        "no_official_paddling_access_package"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03010655",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03010655/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03010655",
+        "https://www.cattco.org/sites/default/files/slides/guidebook_-_volume_4.pdf",
+        "https://pa.water.usgs.gov/apps/recharge/station_nwis/03010655_nwis.html"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:03010955",
@@ -8885,23 +8890,25 @@
       "key": "usgs:03015000",
       "status": "blocked",
       "eligibility": "route_capable",
-      "relationship": "none",
+      "relationship": "direct",
       "checkedAt": "2026-08-25T09:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608250930-pa-gauge-review-batch-50",
+      "decisionReason": "Conewango Creek has an official 13.5-mile Pennsylvania water trail with named public access points and the Russell USGS gauge, but the bounded review did not find a station-specific numeric paddling threshold. Preserve as a high-quality blocked opportunity until a defensible minimum/maximum flow rule is sourced.",
+      "decisionSource": "route-worker-202608240210-pa-03015000-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": ["Conewango Creek Water Trail"],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_station_specific_numeric_paddling_threshold",
+        "verify current endpoint status and permit/registration requirements before publishing"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03015000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03015000/",
+        "https://www.pfbc.pa.gov/watertrails/conewango/conewango_text.pdf",
+        "https://trails.dcnr.pa.gov/trails/trail/trailview?trailkey=365",
+        "https://paddleconewango.com/trips/",
+        "https://warrencountypa.gov/DocumentCenter/View/2267/Warren-County-Parks-Recreation-and-Greenways-Plan-June-2021"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "candidate"
     },
     {
       "key": "usgs:03015310",
@@ -8930,9 +8937,9 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T09:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608250930-pa-gauge-review-batch-50",
+      "checkedAt": "2026-08-23T16:20:00Z",
+      "decisionReason": "The bounded review confirmed a documented 12-mile Garland–Youngsville corridor and a two-mile continuation toward Buckaloons, but did not establish a named public Garland launch, station-specific paddling threshold, or complete access/safety package. Preserve this as a ranked blocked opportunity rather than force a route.",
+      "decisionSource": "route-worker-202608231620-pa-usgs-03015500",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -8943,7 +8950,9 @@
       ],
       "evidence": [
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=03015500",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/03015500/",
+        "https://cms5.revize.com/revize/northwest/Document_Center/Community%20Development/Greenways%20Block%20Grant%20Program/GW%20Update%20and%20Appendices.pdf",
+        "https://www.recreation.gov/camping/campgrounds/232003"
       ],
       "routeReadiness": "research_needed"
     },
@@ -8975,21 +8984,23 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T10:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251000-pa-gauge-review-batch-51",
+      "decisionReason": "No-add after bounded Tionesta Creek review: the gauge and paddling threshold are documented, but the Forest County greenways plan says the Sheffield/Lynch access ownership status is unknown and recommends only exploring feasibility of a water trail. No lawful named public endpoint pair tied to the gauge was verified, so this remains blocked.",
+      "decisionSource": "route-worker-202608240930-pa-03017500-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "endpoint_ownership_unknown",
+        "no_lawful_named_public_endpoint_pair",
+        "water_trail_not_formally_established"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03017500",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03017500/",
+        "https://canoedraft.shaw-weil.com/river/Tionesta%20Creek.php",
+        "https://cms5.revize.com/revize/northwest/Document_Center/Community%20Development/Greenways%20Block%20Grant%20Program/Regional%20Greenways%20Plan%20Links/Forest_County_-_Greenway_Plan_-_01-25-10_-_Final%5B1%5D.pdf",
+        "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2022.pdf"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:03020000",
@@ -9030,30 +9041,36 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03020500",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03020500/",
+        "https://friendsocsp.org/activities/boat/boat.html",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/oil-creek-state-park",
+        "https://venangocountypa.gov/DocumentCenter/View/2509",
+        "https://pubs.usgs.gov/wdr/2002/pa-02-3/pdfs/03020500.pdf"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:03021350",
       "status": "blocked",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T10:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251000-pa-gauge-review-batch-51",
+      "relationship": "proxy",
+      "checkedAt": "2026-08-23T20:00:00Z",
+      "decisionReason": "USGS 03021350 is a live gauge at Tanner Road near Wattsburg, but the official water-trail access package begins downstream at Union City Dam and does not establish a public endpoint pair tied to the station. The gauge is not accepted as a direct proxy for a distinct scored route without station-specific threshold mapping and a legal upper-corridor launch.",
+      "decisionSource": "route-worker-202608232000-pa-03021350-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": ["french-creek-water-trail"],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "USGS station is at Tanner Road near Wattsburg, not a named public paddling endpoint.",
+        "PFBC upper-trail access package begins downstream at Union City Dam; no legal launch/take-out pair tied to this station was verified.",
+        "No station-specific threshold mapping was established for an upper Wattsburg reach.",
+        "Do not publish a route from a gauge-only or private/bridge access assumption."
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03021350",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03021350/",
+        "https://pa.water.usgs.gov/apps/recharge/station_nwis/03021350_nwis.html",
+        "https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf",
+        "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"
       ],
       "routeReadiness": "research_needed"
     },
@@ -9081,47 +9098,42 @@
     },
     {
       "key": "usgs:03021520",
-      "status": "blocked",
+      "status": "covered",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T10:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251030-pa-gauge-review-batch-52",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "relationship": "direct",
+      "checkedAt": "2026-08-23T19:50:00Z",
+      "decisionReason": "PFBC's official upper French Creek map names the below-dam Union City launch and downstream Routes 6N/19 access, while the official French Creek guide documents the 3-5 ft ideal band and direct Union City gauge context. The dam exclusion and strainer hazards are explicitly guarded in the route package.",
+      "decisionSource": "route-worker-202608231950-pa-03021520-review",
+      "routeSlugs": ["french-creek-union-city-dam-route-6n-19"],
+      "scoredRouteSlugs": ["french-creek-union-city-dam-route-6n-19"],
+      "routeFamilies": ["french-creek-water-trail"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03021520",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03021520/",
+        "https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf",
+        "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "published"
     },
     {
       "key": "usgs:03021890",
-      "status": "blocked",
+      "status": "covered",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T10:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251030-pa-gauge-review-batch-52",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "relationship": "direct",
+      "checkedAt": "2026-08-23T17:00:00Z",
+      "decisionReason": "French Creek Conservancy's official paddling guide names the Cambridge Springs, Conneauttee, and downstream public accesses, publishes a conservative 3-5 ft ideal water-level band and a 2-5 ft operational envelope, and explicitly ties the Cambridge Springs gauge 03021890 to the corridor.",
+      "decisionSource": "route-worker-202608231700-pa-03021890-review",
+      "routeSlugs": ["french-creek-cambridge-springs-conneautee"],
+      "scoredRouteSlugs": ["french-creek-cambridge-springs-conneautee"],
+      "routeFamilies": ["french-creek-water-trail"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03021890",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03021890/",
+        "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf",
+        "https://www.frenchcreekconservancy.org/",
         "docs/midwest-route-automation-memory.md"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "published"
     },
     {
       "key": "usgs:03022540",
@@ -9191,25 +9203,23 @@
     },
     {
       "key": "usgs:03024000",
-      "status": "blocked",
+      "status": "covered",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T11:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251100-pa-gauge-review-batch-53",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "relationship": "direct",
+      "checkedAt": "2026-08-23T19:45:00Z",
+      "decisionReason": "Official French Creek Paddling Guide and Pennsylvania Fish and Boat water-trail map name the Cochranton Borough to Utica reach, provide public access coordinates, document 3-5 ft ideal water level and hazards, and tie the Utica gauge directly to French Creek conditions.",
+      "decisionSource": "route-worker-202608231945-pa-03024000-review",
+      "routeSlugs": ["french-creek-cochranton-utica"],
+      "scoredRouteSlugs": ["french-creek-cochranton-utica"],
+      "routeFamilies": ["french-creek-water-trail"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03024000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03024000/",
+        "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf",
+        "https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf",
+        "https://waterlandlife.org/watershed-conservation/canoe-access-development-fund-cadf/utica-access/"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "published"
     },
     {
       "key": "usgs:03025500",
@@ -9444,47 +9454,43 @@
     },
     {
       "key": "usgs:03031882",
-      "status": "blocked",
+      "status": "covered",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T12:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251200-pa-gauge-review-batch-55",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "checkedAt": "2026-08-24T12:00:00Z",
+      "decisionReason": "A complete, distinct route evidence package cleared the prior blockers: official PA Angler & Boater names the New Bethlehem-to-Climax float and 2.7 ft to below 6 ft window; RVTA publishes matching public access coordinates and logistics; USGS 03031882 provides direct telemetry.",
+      "decisionSource": "route-worker-202608241200-pa-03031882-implementation",
+      "routeSlugs": ["redbank-creek-new-bethlehem-climax"],
+      "scoredRouteSlugs": ["redbank-creek-new-bethlehem-climax"],
+      "routeFamilies": ["redbank-creek"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03031882",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03031882/",
+        "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf",
+        "https://www.redbankvalleytrails.org/parking/",
+        "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "covered"
     },
     {
       "key": "usgs:03032500",
-      "status": "blocked",
+      "status": "covered",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T12:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251200-pa-gauge-review-batch-55",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "checkedAt": "2026-08-24T13:00:00Z",
+      "decisionReason": "A distinct 4.5-mile Climax-to-Saint Charles Road corridor cleared the research blockers: the official PA guide names the continuation and take-out, RVTA supplies the 2.8 ft conservative minimum and access/logistics context, USGS 03032500 provides direct telemetry, and endpoint coordinates/curated geometry were independently checked. Road-crossing parking remains an explicit same-day caveat.",
+      "decisionSource": "route-worker-202608241300-pa-03032500-implementation",
+      "routeSlugs": ["redbank-creek-climax-st-charles"],
+      "scoredRouteSlugs": ["redbank-creek-climax-st-charles"],
+      "routeFamilies": ["redbank-creek"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03032500",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03032500/",
+        "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf",
+        "https://www.redbankvalleytrails.org/parking/",
+        "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "covered"
     },
     {
       "key": "usgs:03033000",
@@ -9536,8 +9542,8 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T12:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251230-pa-gauge-review-batch-56",
+      "decisionReason": "No-add after bounded research: USGS provides direct discharge telemetry and CanoeDraft documents the Punxsutawney-to-Lower-Valier corridor plus a speculative 2.2 ft floor, but the endpoint descriptions are bridges/roadside or private/tough access rather than a verified named public launch-and-takeout pair. The stronger dam-release reach has a station-specific 2.8–3.9 ft band but its McCrea Furnace put-in explicitly requires respecting private property. Preserve blocked until lawful public endpoints are established.",
+      "decisionSource": "route-worker-202608240400-pa-03034000-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -9548,31 +9554,38 @@
       ],
       "evidence": [
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=03034000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03034000",
+        "https://canoedraft.shaw-weil.com/river/Mahoning%20Creek.php",
+        "https://ohiorivertrail.org/attachments/Directors%20Information/119_Canoeable%20Streams%20in%20Western%20Pennsylvania.pdf",
+        "https://www.lrd.usace.army.mil/Missions/Recreation/Display/Article/3641321/mahoning-creek-lake/"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:03034500",
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T12:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251230-pa-gauge-review-batch-56",
+      "checkedAt": "2026-08-23T21:40:00Z",
+      "decisionReason": "No-add for now: CanoeDraft and the Western Pennsylvania canoe guide document multiple canoeable Little Mahoning Creek segments tied to the McCormick gauge and a 3.0 ft minimum, and Old Smicksburg Park provides a public canoe/kayak launch. However, no second named public take-out with defensible coordinates was verified; bridge access requires permission and the 2026 access-grant project is not documented as complete.",
+      "decisionSource": "route-worker-202608232140-pa-03034500-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_named_public_takeout_with_defensible_coordinates",
+        "bridge_access_requires_permission",
+        "new_access_grant_not_verified_as_complete"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03034500",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03034500",
+        "https://indianacountyparks.org/our-parks/old-smicksburg-park/",
+        "https://indianacountyparks.org/our-parks/old-smicksburg-park/directions-old-smicksburg-park/",
+        "https://canoedraft.shaw-weil.com/gauge/",
+        "https://ohiorivertrail.org/attachments/Directors%20Information/119_Canoeable%20Streams%20in%20Western%20Pennsylvania.pdf",
+        "https://waterlandlife.org/watershed-conservation/canoe-access-development-fund-cadf/"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03036000",
@@ -9691,20 +9704,22 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T13:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251300-pa-gauge-review-batch-57",
+      "checkedAt": "2026-08-23T21:15:00Z",
+      "decisionReason": "USGS confirms a live station and public records describe limited access activity, but the bounded review found no named, coordinate-backed public put-in/take-out reach or source-backed paddling threshold. Preserve as an explicit blocked opportunity rather than force a route.",
+      "decisionSource": "route-worker-202608232115-pa-03038000-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": ["Crooked Creek at Idaho"],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
+        "no_named_public_endpoint_pair_with_defensible_coordinates",
+        "no_source_backed_paddling_threshold",
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03038000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03038000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03038000",
+        "https://pasteelhead.wildapricot.org/Crooked-Creek-Stream-Access-Project",
+        "https://pubs.usgs.gov/wdr/wdr-pa-03-3/WDR-PA-03-3.pdf"
       ],
       "routeReadiness": "research_needed"
     },
@@ -9713,20 +9728,23 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T13:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251300-pa-gauge-review-batch-57",
+      "checkedAt": "2026-08-23T20:45:00Z",
+      "decisionReason": "Crooked Creek Lake has public launch and camping evidence, but the gauge is downstream of the dam and the bounded review found no defensible point-to-point paddling reach tied to this station. Preserve as an explicit blocked opportunity rather than misclassify lake access as a river route.",
+      "decisionSource": "route-worker-202608232045-pa-03039000-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": ["Crooked Creek Lake recreation area"],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_station_tied_point_to_point_river_reach",
+        "dam_and_lake_access_are_not_a_scored_river_route",
+        "no_source_backed_paddling_threshold_for_a_route_reach"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03039000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03039000/",
+        "https://waterdata.usgs.gov/nwis/uv/?referred_module=sw&site_no=03039000",
+        "https://www.recreation.gov/camping/campgrounds/255176",
+        "https://corpslakes.erdc.dren.mil/visitors/projects.cfm?ID=H404280",
+        "https://pubs.usgs.gov/wsp/1725/report.pdf"
       ],
       "routeReadiness": "research_needed"
     },
@@ -9872,7 +9890,8 @@
     {
       "key": "usgs:03041029",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-24T01:00:00Z",
       "decisionReason": "USGS 03041029 has live discharge, but the station-specific Minersville reach lacks a named public paddle endpoint pair in the reviewed evidence. The Kiski-Conemaugh water-trail access sites and canoe launches are downstream in the Johnstown-to-Seward/Conemaugh Lake corridor, so using them with this gauge would be an unsupported proxy. Preserve as durable no-add.",
@@ -9891,7 +9910,7 @@
         "https://mainlinecanalgreenway.org/wp-content/uploads/2015/06/access.pdf",
         "https://mainlinecanalgreenway.org/experiencing-the-greenway/traveling-by-boat/kiski-conemaugh-water-trail/"
       ],
-      "routeReadiness": "no_add"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03041500",
@@ -9919,8 +9938,8 @@
       "routeReadiness": "blocked"
     },
   {
-    "key": "usgs:03042000",
-    "status": "blocked",
+      "key": "usgs:03042000",
+      "status": "covered",
       "eligibility": "route_capable",
       "relationship": "none",
     "checkedAt": "2026-08-23T19:00:00Z",
@@ -10039,69 +10058,69 @@
     },
     {
       "key": "usgs:03045000",
-      "status": "blocked",
+      "status": "covered",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T14:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251430-pa-gauge-review-batch-60",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "relationship": "direct",
+      "checkedAt": "2026-08-24T01:45:00Z",
+      "decisionReason": "Route added: PFBC names a distinct roughly seven-mile Ligonier Nature Trail-to-Kingston segment on the Loyalhanna Creek Water Trail, publishes named access coordinates, and explicitly recommends a 250 cfs minimum at direct USGS 03045000. The route ends above the Kingston dam spillway and remains a guarded direct-gauge route with explicit whitewater and dam safety caveats.",
+      "decisionSource": "route-worker-202608240145-pa-03045000-implementation",
+      "routeSlugs": ["loyalhanna-creek-ligonier-nature-trail-kingston"],
+      "scoredRouteSlugs": ["loyalhanna-creek-ligonier-nature-trail-kingston"],
+      "routeFamilies": ["Loyalhanna Creek Water Trail"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03045000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03045000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03045000",
+        "https://www.pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1631/main"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "published"
     },
     {
       "key": "usgs:03045010",
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T14:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251430-pa-gauge-review-batch-60",
+      "checkedAt": "2026-08-24T02:20:00Z",
+      "decisionReason": "A distinct lower Loyalhanna corridor is documented by the Cardinal Park-to-Gray Wing sojourn and the PFBC access map, but USGS 03045010 provides live gage height rather than a station-specific paddling threshold. The official 250 cfs rule is tied to the Kingston station 03045000, which already powers the scored Ligonier-to-Kingston route; publishing a Latrobe route with that threshold would be an unsupported transfer. Preserve as a ranked blocked opportunity and consolidate until a Latrobe-specific flow rule is sourced.",
+      "decisionSource": "route-worker-202608240220-pa-03045010-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": ["Loyalhanna Creek Water Trail lower corridor"],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "latrobe_station_has_no_station_specific_paddling_threshold",
+        "official_250_cfs_rule_belongs_to_kingston_station_03045000",
+        "consolidate_until_threshold_transfer_is_defensible"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03045010",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03045010",
+        "https://pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf",
+        "https://latroberecreation.org/event/11th-annual-loyalhanna-sojourn/",
+        "https://loyalhannawatershed.org/images/Documents/Annual_Report_2020a.pdf",
+        "https://ohiorivertrail.org/attachments/Directors%20Information/119_Canoeable%20Streams%20in%20Western%20Pennsylvania.pdf"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03047000",
-      "status": "blocked",
+      "status": "covered",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T14:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251430-pa-gauge-review-batch-60",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "relationship": "direct",
+      "checkedAt": "2026-08-24T02:45:00Z",
+      "decisionReason": "Route added: CanoeDraft documents the distinct four-mile Loyalhanna Dam-to-Saltsburg release run and a 1,040–1,770 cfs band tied to USGS 03047000. PFBC/USACE materials name Tailwater Access and Saltsburg Rivers Edge Park and explain the gate/advance-arrangement constraint. Keep the route guarded as advanced dam-release whitewater.",
+      "decisionSource": "route-worker-202608240245-pa-03047000-implementation",
+      "routeSlugs": ["loyalhanna-creek-tailwater-saltsburg-rivers-edge"],
+      "scoredRouteSlugs": ["loyalhanna-creek-tailwater-saltsburg-rivers-edge"],
+      "routeFamilies": ["Loyalhanna Creek Water Trail tailwater"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03047000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03047000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03047000",
+        "https://canoedraft.shaw-weil.com/river/Loyalhanna%20Creek.php",
+        "https://www.loyalhannawatershed.org/images/Documents/LoyalWaterTrailGuide.pdf",
+        "https://pfbc.pa.gov/spbtregsx.htm"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "published"
     },
     {
       "key": "usgs:03048500",
@@ -10133,9 +10152,9 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T15:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251500-pa-gauge-review-batch-61",
+      "checkedAt": "2026-08-23T18:20:00Z",
+      "decisionReason": "The station is a valid live USGS gauge, but the bounded review found no public access at or near the Iron Bridge reach. A watershed plan identifies only road crossings and the Freeport PFBC launch, which reaches the short inundated lower section rather than the gauged reach. Preserve as a durable no-add unless a public upstream endpoint and route-specific threshold are found.",
+      "decisionSource": "route-worker-202608231820-pa-usgs-03048900",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -10146,7 +10165,9 @@
       ],
       "evidence": [
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=03048900",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03048900",
+        "https://buffalocreekcoalition.org/wp-content/uploads/2023/03/Section-5-Cultural-Resources.pdf",
+        "https://www.pa.gov/agencies/fishandboat/conservation/land-and-access-management/public-private-access"
       ],
       "routeReadiness": "research_needed"
     },
@@ -10294,23 +10315,23 @@
       "key": "usgs:03049800",
       "status": "blocked",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T15:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251530-pa-gauge-review-batch-62",
-      "routeSlugs": [],
+      "relationship": "proxy",
+      "checkedAt": "2026-08-23T23:20:00Z",
+      "decisionReason": "Added a high-quality planning route for the documented North Park Lake-to-Allison Park reach. CanoeDraft supplies the six-point-six-mile corridor, named access contexts, hazards, and a 2.2 ft minimum/3 ft ideal upper reference tied to USGS 03049800. Because the gauge is downstream near Etna and the Duncan Avenue ballfield coordinate is an approximate public anchor, keep this route proxy/planning-only and exclude it from scored coverage.",
+      "decisionSource": "route-worker-202608232320-pa-03049800-implementation",
+      "routeSlugs": ["little-pine-creek-north-park-lake-allison-park"],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "routeFamilies": ["Little Pine Creek"],
+      "blockers": ["downstream_proxy_gauge", "approximate_public_ballfield_anchor", "seasonal_high_water_only"],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03049800",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03049800",
+        "https://waterdata.usgs.gov/monitoring-location/03049800/",
+        "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php",
+        "https://canoedraft.shaw-weil.com/gauge/",
+        "https://www.alleghenycounty.us/parks/activities/boating/north-park",
+        "https://www.hampton-pa.gov/DocumentCenter/View/1135/Pine-Creek-Cleanup-Day-PDF"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "candidate"
     },
     {
       "key": "usgs:03049807",
@@ -10318,21 +10339,24 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T15:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251530-pa-gauge-review-batch-62",
+      "decisionReason": "No-add after bounded Pine Creek Etna review: American Whitewater documents a North Park Lake-to-Etna paddle and the USGS gauge is live, but the source describes a user-reported takeout above Burger King Falls, strainers, pollution, and a potentially hazardous falls; no named lawful public takeout paired to the gauge or station-specific safety threshold was established.",
+      "decisionSource": "route-worker-202608241030-pa-03049807-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_named_lawful_public_takeout",
+        "no_station_specific_safety_threshold",
+        "urban_hazard_and_pollution_evidence_incomplete"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03049807",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/03049807/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03049807",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1651/main",
+        "https://www.alleghenycounty.us/files/assets/county/v/1/parks/north-park/north-park-map.pdf",
+        "https://www.alleghenycounty.us/Parks-and-Events/Parks/North-Park"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:03049819",
@@ -10602,7 +10626,7 @@
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=03074500",
         "docs/midwest-route-automation-memory.md"
       ],
-      "routeReadiness": "unsupported"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03074998",
@@ -10632,7 +10656,8 @@
     {
       "key": "usgs:03075000",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-24T00:40:00Z",
       "decisionReason": "USGS 03075000 resolves to Monongahela River at Charleroi, not Elizabeth. The candidate therefore does not provide the advertised Elizabeth coverage and overlaps the already-reviewed Charleroi pool gauges, including 03074998. Screen out as a wrong-site/duplicate opportunity; no route added.",
@@ -10654,7 +10679,7 @@
         "https://monrivertowns.com/elizabeth/",
         "https://www.usgs.gov/centers/pennsylvania-water-science-center/updating-pennsylvania-streamgage-datums"
       ],
-      "routeReadiness": "unsupported"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03075070",
@@ -10710,18 +10735,14 @@
       "key": "usgs:03079000",
       "status": "blocked",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T17:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251730-pa-gauge-review-batch-66",
-      "routeSlugs": [],
+      "relationship": "proxy",
+      "checkedAt": "2026-08-23T20:40:00Z",
+      "decisionReason": "Route added: DCNR names a six-mile Beach Area-to-King's Covered Bridge water trail; King's Bridge has USGS mapping-grade coordinates; the live Ursina gauge and station-specific 2.2 ft CanoeDraft floor support a conservative proxy minimum-only route.",
+      "decisionSource": "route-worker-202608232040-pa-03080000-implementation",
+      "routeSlugs": ["laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge"],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "routeFamilies": ["laurel-hill-creek"],
+      "blockers": [],
       "evidence": [
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=03079000",
         "docs/midwest-route-automation-memory.md"
@@ -10732,23 +10753,21 @@
       "key": "usgs:03080000",
       "status": "blocked",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T17:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251730-pa-gauge-review-batch-66",
-      "routeSlugs": [],
+      "relationship": "proxy",
+      "checkedAt": "2026-08-23T20:40:00Z",
+      "decisionReason": "Route added: DCNR names a six-mile Beach Area-to-King's Covered Bridge water trail; King's Bridge has USGS mapping-grade coordinates; the live Ursina gauge and station-specific 2.2 ft CanoeDraft floor support a conservative proxy minimum-only route.",
+      "decisionSource": "route-worker-202608232040-pa-03080000-implementation",
+      "routeSlugs": ["laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge"],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "routeFamilies": ["Laurel Hill Creek"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03080000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03080000/",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-hill-state-park/boating",
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-PA/USGS-03079744/",
+        "https://canoedraft.shaw-weil.com/gauge/"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "candidate"
     },
     {
       "key": "usgs:03081000",
@@ -11030,9 +11049,9 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T18:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251830-pa-gauge-review-batch-68",
+      "checkedAt": "2026-08-23T22:20:00Z",
+      "decisionReason": "A Chartiers Greenway page documents canoe outings and several conceptual corridors, but it also states that access is rocky, muddy, steep, slippery, often private, and that water pollution can exceed safe limits. The gauge provides stage only; no station-specific paddling threshold or current maintained endpoint pair was established. Preserve as a durable no-add.",
+      "decisionSource": "route-worker-202608232220-pa-usgs-03085250",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -11043,7 +11062,9 @@
       ],
       "evidence": [
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=03085250",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03085250",
+        "https://www.chartiersgreenway.net/canoe_body.htm",
+        "https://www.pa.gov/agencies/fishandboat/conservation/land-and-access-management/public-private-access"
       ],
       "routeReadiness": "research_needed"
     },
@@ -11052,9 +11073,9 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T18:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608251830-pa-gauge-review-batch-68",
+      "checkedAt": "2026-08-24T00:20:00Z",
+      "decisionReason": "Chartiers Greenway and local planning documents describe canoe corridors, but the Carnegie launch was still described as planned or in-progress rather than a verified maintained public endpoint. Existing access is rocky, muddy, or private, and no station-specific paddling threshold was found. Preserve as a durable no-add.",
+      "decisionSource": "route-worker-202608240020-pa-usgs-03085500",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -11065,14 +11086,18 @@
       ],
       "evidence": [
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=03085500",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03085500",
+        "https://www.chartiersgreenway.net/canoe_body.htm",
+        "https://www.carnegieborough.com/documents/Heidelberg%20Carnegie%20Scott%20Plan%20February%202012%20with%20Appendices.pdf",
+        "https://www.pa.gov/agencies/fishandboat/conservation/land-and-access-management/public-private-access"
       ],
       "routeReadiness": "research_needed"
     },
     {
       "key": "usgs:03085730",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-25T19:00:00Z",
       "decisionReason": "The upper-pool gauge is inside the Emsworth lock-and-dam hazard area and does not provide a distinct route corridor beyond the already reviewed Pittsburgh/Three Rivers pool opportunities. Public access documentation covers the broader pool, not a separate safe upper-pool route; consolidate rather than duplicate.",
@@ -11149,7 +11174,8 @@
     {
       "key": "usgs:03086000",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-25T19:00:00Z",
       "decisionReason": "03086000 is effectively colocated with the already reviewed 03086001 lower-pool station and serves the same Sewickley/Three Rivers launch corridor. The extra discharge parameter does not create a distinct route; consolidate to avoid duplicate coverage.",
@@ -11639,20 +11665,28 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T20:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608252000-pa-gauge-review-batch-71",
+      "checkedAt": "2026-08-23T20:15:00Z",
+      "decisionReason": "Connoquenessing Creek has a documented 6.4-mile RR-bridge-to-Rock-Point reach with gauge-linked stage guidance and public launch names, but the bounded review did not establish authoritative endpoint coordinates and exact station-to-reach mapping. Preserve as an explicit blocked opportunity rather than force a route.",
+      "decisionSource": "route-worker-202608232015-pa-03106000-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": [
+        "Connoquenessing Creek RR bridge on South River Road to Rock Point",
+        "Connoquenessing Creek State Route 68 to State Route 528",
+        "Connoquenessing Creek State Route 528 to Zelienople"
+      ],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
+        "no_authoritative_endpoint_coordinates",
+        "station_to_reach_mapping_requires_verification",
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03106000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03106000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03106000",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1599/main",
+        "https://www.wildwaterwaysconservancy.org/recreational-opportunities.html",
+        "https://canoedraft.shaw-weil.com/gauge/",
+        "https://lawrencecountypa.gov/getmedia/0d12ee7c-2776-425f-9aae-3850b1ab9cb6/Lawrence-County-Greenways-Plan-Update_AdoptedJune62017Compressed.pdf"
       ],
       "routeReadiness": "research_needed"
     },
@@ -11662,8 +11696,8 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T20:00:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608252000-pa-gauge-review-batch-71",
+      "decisionReason": "No-add after bounded research: USGS provides direct discharge and stage telemetry near Portersville, but the station is on the Muddy Creek tributary feeding Lake Arthur. Moraine sources document lake boating and park launches, not a distinct station-gauged creek route; no named public launch/takeout pair or station-specific runnable threshold was found for the creek.",
+      "decisionSource": "route-worker-202608240800-pa-03106300-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -11673,10 +11707,12 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03106300",
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=03106300",
-        "docs/midwest-route-automation-memory.md"
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/moraine-state-park",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/moraine-state-park/maps"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:03106500",
@@ -11727,20 +11763,29 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T20:30:00Z",
-      "decisionReason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "decisionSource": "route-worker-202608252030-pa-gauge-review-batch-72",
+      "checkedAt": "2026-08-23T19:30:00Z",
+      "decisionReason": "Raccoon Creek has three named canoe-guide reaches tied to USGS 03108000 with stage guidance, but the bounded review did not establish a public, coordinate-backed endpoint pair for a complete reach. Preserve as an explicit blocked opportunity rather than force a route.",
+      "decisionSource": "route-worker-202608231930-pa-03108000-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": [
+        "Raccoon Creek Raccoon to Murdocksville",
+        "Raccoon Creek Murdocksville to State Route 151",
+        "Raccoon Creek State Route 151 to State Route 18"
+      ],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_public_endpoint_pair_with_defensible_coordinates",
+        "guide_stage_rule_needs_station_specific_mapping_verification",
+        "seasonal_high_water_and_access_conditions_need_route_specific_package"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=03108000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03108000/",
+        "https://waterdata.usgs.gov/nwis/uv/?referred_module=sw&site_no=03108000",
+        "https://canoedraft.shaw-weil.com/gauge/",
+        "https://cdn.outerspatial.com/uploads/media_file/uploaded_file/2239/3876_218_ORTC_ORWT_Map_Page_2013_Edition.pdf",
+        "https://www.beavercountypa.gov/getmedia/1ed39429-57c2-4dfa-9884-0b247e28c1c9/Greenway_trail_plan.pdf",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/raccoon-creek-state-park/boating",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/raccoon-creek-state-park/stay"
       ],
       "routeReadiness": "research_needed"
     },
@@ -20979,7 +21024,8 @@
     {
       "key": "usgs:03332349",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-23T22:58:00Z",
       "decisionReason": "The station is a Big Monon drainage-ditch gauge near Medaryville, not a documented recreational corridor. Indiana drainage records describe a managed ditch network, while the only boating reference concerns navigable Big Monon Creek west of Lake Shafer, not this station reach. No named public endpoint pair or route-specific safety package is available; no route should be forced.",
@@ -20998,7 +21044,7 @@
         "https://www.law.cornell.edu/regulations/indiana/312-IAC-5-7-14",
         "https://www.waterqualitydata.us/provider/NWIS/USGS-IN/USGS-405208086464401/"
       ],
-      "routeReadiness": "unsupported"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03332555",
@@ -22787,7 +22833,8 @@
     {
       "key": "usgs:03352972",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-24T04:45:00Z",
       "decisionReason": "Pogue's Run above dam is flood-control infrastructure in an urban creek with culverted/tunneled reaches, documented low/no-flow conditions, and no public water-trail endpoint pair. Indy Parks documents a land greenway, not a paddling route. No route should be forced.",
@@ -22808,12 +22855,13 @@
         "https://pubs.usgs.gov/wri/wri034331/pdf/wri034331.pdf",
         "https://pubs.usgs.gov/sir/2015/5051/pdf/sir2015-5051.pdf"
       ],
-      "routeReadiness": "unsupported"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03352988",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-24T05:30:00Z",
       "decisionReason": "Pogue's Run at Vermont Street is a short urban monitoring reach with culverted/tunneled segments and documented shallow or dry conditions. The public Pogue's Run sources identify a greenway trail, not a named water-trail endpoint pair; the live-condition page provides no launch notes or verified safe-flow range. No route was published.",
@@ -22834,7 +22882,7 @@
         "https://pubs.usgs.gov/wri/wri034331/pdf/wri034331.pdf",
         "https://kayaklove.com/spots/pogues-run-at-vermont-street-indianapolis-in"
       ],
-      "routeReadiness": "unsupported"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03353000",
@@ -22866,7 +22914,8 @@
     {
       "key": "usgs:03353120",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-24T04:00:00Z",
       "decisionReason": "Pleasant Run at Arlington has live discharge and stage, but reviewed official Indianapolis sources document the Pleasant Run Greenway as a land trail rather than a canoe route. Public White River canoe launches are on the White River, not Pleasant Run, and the available live-condition page has no launch notes or verified safe-flow range. Preserve as durable no-add.",
@@ -22887,7 +22936,7 @@
         "https://kayaklove.com/spots/pleasant-run-at-arlington-av-indianapolis-in",
         "https://pubs.usgs.gov/sir/2014/5242/pdf/sir2014-5242.pdf"
       ],
-      "routeReadiness": "unsupported"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:033531908",
@@ -23243,7 +23292,8 @@
     {
       "key": "usgs:03353626",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-23T22:00:00Z",
       "decisionReason": "USGS 03353626 is State Ditch at Mars Hill, an urban canal/drainage reach. The official station provides gage-height telemetry and field measurements but no daily discharge series, and reviewed sources provide no named public paddle corridor, paired endpoints, or route-specific safety package. Preserve as a durable no-add; do not force a route from the existence of a gauge.",
@@ -23262,12 +23312,13 @@
         "https://geo.mytopo.com/feature/indiana/marion/canal/444086/state-ditch/",
         "https://pubs.usgs.gov/publication/ofr97327"
       ],
-      "routeReadiness": "no_add"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03353633",
       "status": "screened_out",
-      "eligibility": "route_capable",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-24T03:15:00Z",
       "decisionReason": "The station is Derbyshire Creek above McFarland Road in an urban Southport tributary reach. Available inventory identifies gage-height telemetry only; reviewed public sources provide no named Derbyshire Creek paddle corridor or paired endpoints. Southport Park is adjacent to Little Buck Creek, not this station reach. Preserve as durable no-add.",
@@ -23287,7 +23338,7 @@
         "https://www.in.gov/dnr/state-parks/recreation/water-trails/",
         "https://www.in.gov/dnr/state-parks/recreation/water-trails/river-rights-and-usage/"
       ],
-      "routeReadiness": "unsupported"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:03353638",
@@ -38607,8 +38658,11 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=04212895",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-04212895/",
+        "https://waterdata.usgs.gov/nwis/uv/?referred_module=sw&site_no=04212895",
+        "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/pfbc-by-region/pfbc-lakes/lake-erie/conneautcreek.pdf",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4649/main",
+        "https://www.pa.gov/agencies/dcnr/recreation/what-to-do/kayaking-and-canoeing"
       ],
       "routeReadiness": "research_needed"
     },
@@ -99565,9 +99619,9 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T10:10:00Z",
-      "decisionReason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
-      "decisionSource": "route-worker-202608251010-ut-gauge-review-batch-20",
+      "checkedAt": "2026-08-24T15:00:00Z",
+      "decisionReason": "No-add after bounded research: USGS provides direct stage/discharge telemetry for this newly installed Salt Creek station, and Utah DWR confirms Salt Creek as a public-access water, but no named public paddle endpoint pair or station-specific runnable threshold was found. The available Honeyville planning material discusses a proposed trail/fisher access rather than a verified paddle corridor.",
+      "decisionSource": "route-worker-202608241500-ut-10125850-no-add",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -99577,8 +99631,10 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=10125850",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=10125850",
+        "https://waterdata.usgs.gov/monitoring-location/10125850/",
+        "https://wildlife.utah.gov/streamaccess",
+        "https://www.utah.gov/pmn/files/990157.pdf"
       ],
       "routeReadiness": "research_needed"
     },
@@ -99777,9 +99833,9 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T11:10:00Z",
-      "decisionReason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
-      "decisionSource": "route-worker-202608251110-ut-gauge-review-batch-22",
+      "checkedAt": "2026-08-23T20:20:00Z",
+      "decisionReason": "A community route description documents a 15-mile Chalk Creek run and a 200 cfs minimum, but its Blonquist Lane and Snyder Lane bridge endpoints require roadside parking and respect for private ranch land. No public, maintained launch/take-out pair or defensible legal-access package was established. Preserve as a durable no-add unless public access changes materially.",
+      "decisionSource": "route-worker-202608232020-ut-usgs-10131000",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -99790,7 +99846,9 @@
       ],
       "evidence": [
         "https://waterdata.usgs.gov/nwis/inventory/?site_no=10131000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=10131000",
+        "https://www.riverbrain.com/runs/138",
+        "https://wildlife.utah.gov/streamaccess"
       ],
       "routeReadiness": "research_needed"
     },
@@ -99849,22 +99907,25 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T11:40:00Z",
-      "decisionReason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
-      "decisionSource": "route-worker-202608251140-ut-gauge-review-batch-23",
+      "checkedAt": "2026-08-24T01:25:00Z",
+      "decisionReason": "Lost Creek State Park provides a named public reservoir boat ramp and primitive camping, but the reviewed opportunity is a reservoir route while USGS 10133000 is the Lost Creek stream station at Devils Slide downstream of the reservoir. No station-specific paddling threshold or lawful named endpoint pair for the gauged creek reach was found. Preserve as durable no-add rather than imply that the stream gauge controls reservoir conditions.",
+      "decisionSource": "route-worker-202608240125-ut-10133000-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": ["Lost Creek Reservoir / Lost Creek"],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "gauge_is_downstream_of_reservoir_opportunity",
+        "no_station_specific_paddling_threshold",
+        "no_named_public_endpoint_pair_for_gauged_creek_reach"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=10133000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10133000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=10133000",
+        "https://stateparks.utah.gov/parks/lost-creek/",
+        "https://stateparks.utah.gov/parks/lost-creek/frequently-asked-questions/",
+        "https://www.usgs.gov/media/images/lost-creek-at-devils-slide-utah"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:10133550",
@@ -99898,8 +99959,8 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T11:40:00Z",
-      "decisionReason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
-      "decisionSource": "route-worker-202608251140-ut-gauge-review-batch-23",
+      "decisionReason": "No-add after bounded research: USGS provides direct low-flow telemetry, but McLeod Creek is represented locally as a trail corridor and urban/open-space creek rather than a documented paddle reach. No named public paddle launch/takeout pair or station-specific runnable threshold was found; do not convert bike/walking trail access into a water route.",
+      "decisionSource": "route-worker-202608240700-ut-10133600-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -99909,10 +99970,13 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=10133600",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/ut/nwis/uv/?site_no=10133600",
+        "https://waterdata.usgs.gov/monitoring-location/10133601/",
+        "https://www.parkcity.org/about-us/getting-around/open-space-trails",
+        "https://basinrecreationutah.gov/location-details/city-tour/",
+        "https://wildlife.utah.gov/streamaccess"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:10133650",
@@ -99988,19 +100052,22 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T12:10:00Z",
-      "decisionReason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
-      "decisionSource": "route-worker-202608251210-ut-gauge-review-batch-24",
+      "checkedAt": "2026-08-23T16:20:00Z",
+      "decisionReason": "Bounded review found a documented East Canyon State Park paddling loop on the reservoir, but the creek gauge is not a station-tied proxy for that lake route and no creek endpoint pair or station-specific paddling threshold was established.",
+      "decisionSource": "route-worker-202608231620-ut-10134500-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "gauge_not_tied_to_documented_reservoir_route",
+        "no_named_public_endpoint_pair_with_defensible_coordinates",
+        "no_source_backed_paddling_threshold",
+        "proxy_route_requires_separate_lake_gauge_or_station_model"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=10134500",
+        "https://waterdata.usgs.gov/nwis/uv?site_no=10134500",
+        "https://www.alltrails.com/trail/us/utah/east-canyon-paddling-route",
+        "https://stateparks.utah.gov/parks/east-canyon/",
         "docs/midwest-route-automation-memory.md"
       ],
       "routeReadiness": "research_needed"
@@ -100082,15 +100149,16 @@
       "routeReadiness": "research_needed"
     },
   {
-    "key": "usgs:10137300",
-    "status": "screened_out",
-    "eligibility": "route_capable",
+      "key": "usgs:10137300",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
     "relationship": "proxy",
     "checkedAt": "2026-08-23T23:05:00Z",
     "decisionReason": "The South Fork Ogden corridor is already represented by the scored South Fork Ogden River Willows-to-Magpie route, which uses the active nearby USGS 10137500 gauge. USGS 10137300 is a short-lived/limited station below Causey Reservoir and does not establish a distinct public endpoint pair or separate route. Causey Reservoir itself is a documented non-motorized paddle destination, but its lake access and safety rules do not create a new river route tied to this gauge.",
     "decisionSource": "route-worker-202608232305-ut-10137300-no-add",
-    "routeSlugs": ["south-fork-ogden-river-willows-magpie"],
-    "scoredRouteSlugs": ["south-fork-ogden-river-willows-magpie"],
+    "routeSlugs": [],
+    "scoredRouteSlugs": [],
     "routeFamilies": ["south-fork-ogden-river"],
     "blockers": [
       "existing_route_covers_corridor",
@@ -100279,21 +100347,23 @@
       "key": "usgs:10141450",
       "status": "blocked",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-25T13:10:00Z",
-      "decisionReason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
-      "decisionSource": "route-worker-202608251310-ut-gauge-review-batch-26",
+      "relationship": "direct",
+      "checkedAt": "2026-08-23T20:20:00Z",
+      "decisionReason": "USGS 10141450 is a live Kays Creek gauge near Layton, but current official sources document a city trail corridor and urban drainage/pond context rather than a named public point-to-point paddle route. No station-specific paddling threshold or legal water-entry package was verified; preserve as explicit no-add.",
+      "decisionSource": "route-worker-202608232020-ut-10141450-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "No named public put-in/take-out pair for paddling was verified.",
+        "No station-specific paddling threshold or conservative minimum-only source was established.",
+        "Layton city trail information is not a water-trail access package.",
+        "Official watershed context indicates the creek terminates in impounded ponds/diffuse flow rather than a documented paddle corridor."
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/nwis/inventory/?site_no=10141450",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10141450/",
+        "https://www.laytoncityutah.gov/LC/Parks/Trails",
+        "https://ugspub.nr.utah.gov/publications/reports_of_investigations/ri-289.pdf"
       ],
       "routeReadiness": "research_needed"
     },
@@ -100346,9 +100416,9 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T13:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251340-ut-gauge-review-batch-27",
+      "checkedAt": "2026-08-23T15:00:00Z",
+      "decisionReason": "Bounded review found a genuine lower Diamond Fork/Spanish Fork boating opportunity, but the gauge is upstream of the documented lower access and no station-specific paddling threshold or coordinate-backed endpoint pair ties this gauge to a publishable corridor.",
+      "decisionSource": "route-worker-202608231500-ut-10149400-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -100368,20 +100438,23 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T13:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251340-ut-gauge-review-batch-27",
+      "checkedAt": "2026-08-23T21:45:00Z",
+      "decisionReason": "Currant Creek has a live USGS gauge and an 11-mile angler-access easement, but the bounded review found no documented paddle corridor or source-backed paddling threshold; available evidence is fishing/access oriented and typical flows are very low. Preserve as an explicit blocked opportunity rather than force a route.",
+      "decisionSource": "route-worker-202608232145-ut-10146400-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": ["Currant Creek angler-access easement"],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
+        "no_documented_paddle_corridor",
+        "no_source_backed_paddling_threshold",
+        "angler_access_is_not_paddle_access",
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10146400",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10146400/",
+        "https://waterdata.usgs.gov/ut/nwis/uv/?site_no=10146400",
+        "https://www.mitigationcommission.gov/angler/angler_currant.htm",
+        "https://juab.is/play/boating-paddling/"
       ],
       "routeReadiness": "research_needed"
     },
@@ -100441,12 +100514,16 @@
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
+        "gauge_not_tied_to_documented_paddle_corridor",
+        "no_named_public_endpoint_pair_with_defensible_coordinates",
+        "no_source_backed_paddling_threshold",
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
         "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10149400",
+        "https://www.mitigationcommission.gov/angler/angler_dfork.htm",
+        "https://www.utahvalley.com/listing/kayaking-on-the-spanish-fork-river/87/",
+        "https://wildlife.utah.gov/streamaccess",
         "docs/midwest-route-automation-memory.md"
       ],
       "routeReadiness": "research_needed"
@@ -100477,21 +100554,23 @@
       "key": "usgs:10153100",
       "status": "blocked",
       "eligibility": "route_capable",
-      "relationship": "none",
-  "checkedAt": "2026-08-24T01:00:00Z",
-  "decisionReason": "This is a distinct upper/middle Provo corridor with a live USGS gauge and an American Whitewater reach record. The reach has meaningful hazard and access signals, but the documented put-in includes no-parking/no-trespass constraints and the evidence does not establish a durable public endpoint pair or a product-safe threshold policy. Preserve as a blocked route opportunity rather than publishing from trip reports alone.",
-  "decisionSource": "route-worker-202608240100-ut-10154200-woodland-review",
+      "relationship": "direct",
+      "checkedAt": "2026-08-23T20:10:00Z",
+      "decisionReason": "USGS 10153100 is a live direct gauge on lower Hobble Creek at 1650 West, but the bounded review found no named public point-to-point paddle corridor or station-specific threshold. Springville's public park information does not establish a launch/take-out pair, and trip-report or whitewater references are insufficient for a scored route. Preserve as explicit no-add.",
+      "decisionSource": "route-worker-202608232010-ut-10153100-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "No named public put-in/take-out pair tied to the gauge was verified.",
+        "No station-specific paddling threshold or conservative minimum-only source was established.",
+        "Springville park information is recreation context, not a documented water-trail endpoint package.",
+        "Do not publish from trip reports or whitewater references without durable public access and safety evidence."
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10153100",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10153100/",
+        "https://www.springvilleutah.gov/parks-recreation/parks/city-parks/hobble-creek/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4564/main"
       ],
       "routeReadiness": "research_needed"
     },
@@ -100621,20 +100700,24 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T14:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251440-ut-gauge-review-batch-29",
+      "checkedAt": "2026-08-23T22:15:00Z",
+      "decisionReason": "Daniels Creek has a live gauge, but the station is immediately downstream of a culvert at Charleston and records extremely small, often zero flows. The bounded review found no documented paddle corridor or source-backed paddling threshold; preserve as blocked rather than force a route.",
+      "decisionSource": "route-worker-202608232215-ut-10157500-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "routeFamilies": ["Daniels Creek at Charleston stream access"],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
+        "no_documented_paddle_corridor",
+        "no_source_backed_paddling_threshold",
+        "very_low_or_zero_flow_and_culvert_setting",
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10157500",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/10157500/",
+        "https://waterdata.usgs.gov/ut/nwis/uv/?site_no=10157500",
+        "https://pubs.usgs.gov/wdr/WDRUT02/PDF/ADRUT02.pdf",
+        "https://wildlife.utah.gov/streamaccess",
+        "https://www.gohebervalley.com/daniels-creek/52/"
       ],
       "routeReadiness": "research_needed"
     },
@@ -100692,19 +100775,22 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T15:10:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251510-ut-gauge-review-batch-30",
+      "checkedAt": "2026-08-23T15:20:00Z",
+      "decisionReason": "Bounded review found Dry Creek is documented as a small Alpine trail/stream and the gauge has no documented paddle corridor, named public endpoint pair, or station-specific paddling threshold; preserve as a no-add outcome.",
+      "decisionSource": "route-worker-202608231520-ut-10165600-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_documented_paddle_corridor",
+        "no_named_public_endpoint_pair_with_defensible_coordinates",
+        "no_source_backed_paddling_threshold",
+        "small_creek_or_trail_setting"
       ],
       "evidence": [
         "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10165600",
+        "https://www.alpineut.gov/DocumentCenter/View/179/Trail-Use-Map---November-10-2020-PDF",
+        "https://wildlife.utah.gov/streamaccess",
         "docs/midwest-route-automation-memory.md"
       ],
       "routeReadiness": "research_needed"
@@ -100781,21 +100867,23 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T15:10:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251510-ut-gauge-review-batch-30",
+      "decisionReason": "No-add after identity-corrected review: USGS 10172200 is Red Butte Creek at Fort Douglas near Salt Lake City, not Virgin River. It is a small hydrologic benchmark upstream of Red Butte Reservoir; authoritative watershed sources describe restricted/research-only access and no public paddle corridor. Preserve as blocked and do not infer a route from the gauge alone.",
+      "decisionSource": "route-worker-202608241100-ut-10172200-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "gauge_identity_corrected_from_queue_label",
+        "restricted_or_research_only_access",
+        "no_public_paddle_corridor_or_threshold"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10172200",
-        "docs/midwest-route-automation-memory.md"
+        "https://water.usgs.gov/nwc/NWC/sw/man/S10172200.html",
+        "https://pubs.usgs.gov/circ/1999/circ1173/circ1173d/chapter11.html",
+        "https://www.saltlakecounty.gov/globalassets/1-site-files/watershed/resources/watershed-plans/208areawtrmgmtplan1978.pdf",
+        "https://www.neonscience.org/field-sites/redb"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:10172600",
@@ -100846,9 +100934,9 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T15:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251540-ut-gauge-review-batch-31",
+      "checkedAt": "2026-08-23T21:10:00Z",
+      "decisionReason": "No-add: Lee Creek near Magna is documented as a small stream/drainage and the official Magna planning material identifies a natural area and pedestrian trail context, not a named public paddle corridor. No lawful endpoint pair or station-specific paddling threshold was found.",
+      "decisionSource": "route-worker-202608232110-ut-10172640-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -100858,10 +100946,12 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10172640",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=10172640",
+        "https://www.usgs.gov/media/images/leecreek310172640",
+        "https://magna.utah.gov/sites/default/files/fileattachments/council/meeting/3422/20-12-03_magna-report-vs_3.pdf",
+        "https://wildlife.utah.gov/streamaccess"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:10172700",
@@ -100890,19 +100980,21 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T15:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251540-ut-gauge-review-batch-31",
+      "checkedAt": "2026-08-23T16:40:00Z",
+      "decisionReason": "Bounded review found Faust Creek has very low recorded flows and no documented paddle corridor, public endpoint pair, or station-specific paddling threshold; preserve as an explicit no-add outcome.",
+      "decisionSource": "route-worker-202608231640-ut-10172727-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_documented_paddle_corridor",
+        "no_named_public_endpoint_pair_with_defensible_coordinates",
+        "no_source_backed_paddling_threshold",
+        "very_low_flow_small_creek_setting"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10172727",
+        "https://pubs.usgs.gov/wdr/2005/wdr-ut-05/PDF/10GreatBasin.pdf",
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-UT/USGS-10172727/",
         "docs/midwest-route-automation-memory.md"
       ],
       "routeReadiness": "research_needed"
@@ -100912,19 +101004,21 @@
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T16:10:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251610-ut-gauge-review-batch-32",
+      "checkedAt": "2026-08-23T16:00:00Z",
+      "decisionReason": "Bounded review confirms the live gauge, but South Willow Creek near Grantsville has no documented paddle corridor, named public endpoint pair, or station-specific paddling threshold; preserve as an explicit no-add outcome.",
+      "decisionSource": "route-worker-202608231600-ut-10172800-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_documented_paddle_corridor",
+        "no_named_public_endpoint_pair_with_defensible_coordinates",
+        "no_source_backed_paddling_threshold",
+        "small_creek_or_trail_setting"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10172800",
+        "https://waterdata.usgs.gov/nwis/uv/?site_no=10172800",
+        "https://pubs.usgs.gov/sir/2006/5315/sir2006-5315_appendices/pdf/sir2006-5315_appendices.pdf",
         "docs/midwest-route-automation-memory.md"
       ],
       "routeReadiness": "research_needed"
@@ -100968,7 +101062,9 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10172952",
+        "https://waterdata.usgs.gov/nwis/uv/?site_no=10172800",
+        "https://pubs.usgs.gov/sir/2006/5315/sir2006-5315_appendices/pdf/sir2006-5315_appendices.pdf",
+        "https://wildlife.utah.gov/streamaccess",
         "docs/midwest-route-automation-memory.md"
       ],
       "routeReadiness": "research_needed"
@@ -100979,8 +101075,8 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T16:10:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251610-ut-gauge-review-batch-32",
+      "decisionReason": "No-add after bounded research: USGS confirms a direct discharge/gage-height station, but Mammoth Creek is a high-elevation, small stream and the review found no named public paddle launch/takeout pair. Available reach descriptions are road/bridge or informal access, and no station-specific runnable threshold is published; preserve blocked rather than infer a route from nearby lakes or the Sevier River.",
+      "decisionSource": "route-worker-202608240500-ut-10173450-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -100990,10 +101086,12 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10173450",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=10173450",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10173450/",
+        "https://pubs.usgs.gov/wdr/2004/wdr-ut-04/PDF/11Sevier_Lake.pdf",
+        "https://www.topozone.com/utah/garfield-ut/stream/mammoth-creek-9/"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
   "key": "usgs:10174500",
@@ -101068,34 +101166,33 @@
     },
     {
       "key": "usgs:10194200",
-      "status": "blocked",
+      "status": "covered",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T16:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251640-ut-gauge-review-batch-33",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
+      "checkedAt": "2026-08-24T01:10:00Z",
+      "decisionReason": "Published Clear Creek Fish Creek Confluence to Clear Creek Road after verifying named endpoint coordinates, direct USGS gauge support, route-specific minimum flow guidance, access/safety caveats, and duplicate absence.",
+      "decisionSource": "route-worker-202608240110-ut-usgs-10194200",
+      "routeSlugs": ["clear-creek-fish-creek-confluence-clear-creek-road"],
+      "scoredRouteSlugs": ["clear-creek-fish-creek-confluence-clear-creek-road"],
+      "routeFamilies": ["Clear Creek Utah"],
+      "blockers": [],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10194200",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10194200/",
+        "https://www.riverbrain.com/runs/139",
+        "https://www.riverbrain.com/accesses/209",
+        "https://www.riverbrain.com/accesses/210",
+        "https://wildlife.utah.gov/streamaccess"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "published"
     },
     {
       "key": "usgs:10205030",
       "status": "blocked",
       "eligibility": "route_capable",
       "relationship": "none",
-      "checkedAt": "2026-08-25T16:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251640-ut-gauge-review-batch-33",
+      "checkedAt": "2026-08-24T14:00:00Z",
+      "decisionReason": "No-add after bounded research: USGS confirms direct discharge and gage-height telemetry at Salina Creek near Emery, but no named public paddle endpoint pair or station-specific runnable threshold was found. The station is a remote high-elevation stream site; nearby Emery County boating material describes separate Muddy Creek and reservoir opportunities, not this gauge corridor.",
+      "decisionSource": "route-worker-202608241400-ut-10205030-no-add",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -101106,7 +101203,8 @@
       ],
       "evidence": [
         "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10205030",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/10205030/",
+        "https://emerycounty.squarespace.com/boat"
       ],
       "routeReadiness": "research_needed"
     },
@@ -101116,8 +101214,8 @@
       "eligibility": "route_capable",
       "relationship": "none",
       "checkedAt": "2026-08-25T16:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251640-ut-gauge-review-batch-33",
+      "decisionReason": "No-add after bounded research: USGS confirms a direct stream gauge below Dugway Creek, but the high-elevation 26.4-square-mile creek has no verified named public paddle endpoint pair or station-specific runnable threshold. The station is near a trail bridge and powerplant, while Utah access law requires avoiding trespass on private streambeds; nearby reservoirs and the San Pitch/Sevier systems are separate corridors.",
+      "decisionSource": "route-worker-202608240600-ut-10215900-review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
@@ -101127,10 +101225,12 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10215900",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10215900/",
+        "https://waterdata.usgs.gov/ut/nwis/uv/?site_no=10215900",
+        "https://pubs.usgs.gov/wdr/WDRUT03/pdf/WDR_UT03_part3.pdf",
+        "https://wildlife.utah.gov/streamaccess"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "blocked"
     },
     {
       "key": "usgs:10217000",
@@ -101249,25 +101349,26 @@
     },
     {
       "key": "usgs:10242000",
-      "status": "blocked",
-      "eligibility": "route_capable",
+      "status": "screened_out",
+      "eligibility": "not_paddle_relevant",
       "relationship": "none",
       "checkedAt": "2026-08-25T17:40:00Z",
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "route-worker-202608251740-ut-gauge-review-batch-35",
+      "decisionReason": "Official Cedar City sources document Coal Creek Trail and urban creek amenities, but no named public paddle endpoint pair or station-specific paddling threshold was found. The USGS record is useful for hydrology, while the reviewed corridor is not a supported scored-route opportunity; preserve as durable no-add.",
+      "decisionSource": "route-worker-202608240210-ut-10242000-no-add",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "no_named_public_paddle_endpoint_pair",
+        "no_station_specific_paddling_threshold",
+        "official_sources describe a trail/urban creek rather than a supported paddle corridor"
       ],
       "evidence": [
-        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10242000",
-        "docs/midwest-route-automation-memory.md"
+        "https://waterdata.usgs.gov/ut/nwis/uv/?site_no=10242000",
+        "https://www.cedarcityut.gov/629/Coal-Creek-Trail",
+        "https://pubs.usgs.gov/sir/2005/5170/PDF/SIR2005_5170.pdf"
       ],
-      "routeReadiness": "research_needed"
+      "routeReadiness": "screened_out"
     },
     {
       "key": "usgs:371016082381001",

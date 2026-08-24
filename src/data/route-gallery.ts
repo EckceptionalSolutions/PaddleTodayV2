@@ -3075,6 +3075,8 @@ const approvedRiverFallbackRouteById: Record<string, string> = {
   'village-creek': 'village-creek-fm418-sh327',
   'volga-river': 'volga-river-mederville-littleport',
   'wisconsin-river': 'wisconsin-river-blue-river-boscobel',
+  'white-river-indiana': 'west-fork-white-river-barlow-mcculloch',
+  'youghiogheny-river': 'youghiogheny-river-lower-yough-ohiopyle-bruner-run',
 };
 
 // River-level context images are used only when no route-specific or dedicated

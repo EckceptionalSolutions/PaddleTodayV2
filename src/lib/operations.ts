@@ -202,7 +202,10 @@ function getOperationsTelemetry() {
     return counts;
   }, {});
   const cutoff = Date.now() - 24 * 60 * 60 * 1000;
-  const routeWorkKinds = (run: { kind: string }) => run.kind === 'route_implementation' || run.kind.includes('route_worker') || run.kind === 'route_planning_review';
+  const routeWorkKinds = (run: { kind?: string; type?: string }) => {
+    const runKind = run.kind ?? run.type ?? '';
+    return runKind === 'route_implementation' || runKind.includes('route_worker') || runKind === 'route-planning-review' || runKind === 'route_planning_review';
+  };
   const recentRouteRuns = runs.filter((run) => Date.parse(run.startedAt) >= cutoff && routeWorkKinds(run));
   const chronologicalRouteRuns = runs
     .filter((run) => routeWorkKinds(run))

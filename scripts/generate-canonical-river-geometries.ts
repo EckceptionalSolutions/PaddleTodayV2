@@ -429,8 +429,8 @@ async function main() {
   const metadata = {
     routeCount: routes.length,
     matchedRouteCount: features.length,
-    networkTracedRouteCount: features.filter((feature) => feature.properties.traceMode === 'network-traced').length,
-    namedFallbackRouteCount: features.filter((feature) => feature.properties.traceMode === 'named-fallback').length,
+    networkTracedRouteCount: features.filter((feature) => feature.properties.source === 'USGS NHD Flowline' && feature.properties.traceMode === 'network-traced').length,
+    namedFallbackRouteCount: features.filter((feature) => feature.properties.source === 'USGS NHD Flowline' && feature.properties.traceMode === 'named-fallback').length,
     curatedRouteCount: features.filter((feature) => feature.properties.source !== 'USGS NHD Flowline').length,
     unmatchedRouteIds,
     routeDataFingerprint: sourceFingerprint,

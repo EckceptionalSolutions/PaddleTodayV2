@@ -1132,7 +1132,17 @@ const routeOrder = [
   "youghiogheny-river-connellsville-dawson",
   "youghiogheny-river-dawson-port-vue",
   "youghiogheny-river-middle-ramcat-ohiopyle",
-  "blacklick-creek-route-259-saylor-park"
+  "blacklick-creek-route-259-saylor-park",
+  "clear-creek-fish-creek-confluence-clear-creek-road",
+  "french-creek-cambridge-springs-conneautee",
+  "french-creek-cochranton-utica",
+  "french-creek-union-city-dam-route-6n-19",
+  "redbank-creek-new-bethlehem-climax",
+  "redbank-creek-climax-st-charles",
+  "little-pine-creek-north-park-lake-allison-park",
+  "loyalhanna-creek-ligonier-nature-trail-kingston",
+  "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+  "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge"
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-23T23:34:46.626Z",
+  "updatedAt": "2026-08-24T02:10:07.745Z",
   "tasks": [
     {
       "id": "route-opportunity-ut-usgs-10023000",
@@ -53191,7 +53191,7 @@
     {
       "id": "route-opportunity-ut-usgs-10219000",
       "title": "Investigate route opportunity: SEVIER RIVER NEAR JUAB, UT",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
@@ -53214,7 +53214,7 @@
     {
       "id": "route-opportunity-ut-usgs-10183500",
       "title": "Investigate route opportunity: SEVIER RIVER NEAR KINGSTON, UT",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
@@ -53284,7 +53284,7 @@
     {
       "id": "route-opportunity-tx-usgs-08037060",
       "title": "Investigate route opportunity: Banita Ck at W Austin St, Nacogdoches, TX",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
@@ -53355,7 +53355,7 @@
     {
       "id": "route-opportunity-tx-usgs-08433000",
       "title": "Investigate route opportunity: Barrilla Draw nr Saragosa, TX",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
@@ -53401,9 +53401,9 @@
     {
       "id": "route-opportunity-tx-usgs-08155400",
       "title": "Investigate route opportunity: Barton Ck abv Barton Spgs at Austin, TX",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
-      "owner": "route-research",
+      "owner": "route-implementation",
       "priority": "medium",
       "summary": "usgs:08155400 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
       "evidence": [
@@ -53783,16 +53783,20 @@
     {
       "id": "route-opportunity-pa-usgs-03015500",
       "title": "Investigate route opportunity: Brokenstraw Creek at Youngsville, PA",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:03015500 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "No-add for now: bounded research confirmed a documented Garland–Youngsville/Buckaloons corridor, but no named public Garland launch or station-specific threshold. Reopen only if those evidence gaps materially change; do not force a route.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:03015500",
-        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+        "corridor:Northwest Pennsylvania Greenways Plan documents 12 miles Garland to Youngsville and two miles toward Buckaloons",
+        "endpoint:Buckaloons is an official Forest Service/Recreation.gov public recreation area",
+        "blocker:no_named_public_garland_launch",
+        "blocker:no_station_specific_paddling_threshold",
+        "blocker:incomplete_access_safety_package"
       ],
       "stateId": "PA",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -53801,7 +53805,7 @@
       ],
       "frontierTier": 5,
       "routeOpportunity": true,
-      "routeOpportunityScore": 95630
+      "routeOpportunityScore": 95680
     },
     {
       "id": "route-opportunity-ut-usgs-10133980",
@@ -53882,16 +53886,18 @@
     {
       "id": "route-opportunity-pa-usgs-03048900",
       "title": "Investigate route opportunity: Buffalo Creek at Iron Bridge, PA",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:03048900 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "No-add: the bounded review found no public access at the Iron Bridge reach; the only PFBC launch identified is at Freeport below the gauged section. Reopen only with a public upstream endpoint and route-specific threshold.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:03048900",
-        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+        "blocker:no_public_access_at_or_near_iron_bridge_reach",
+        "blocker:freeport_launch_is_below_gauged_section",
+        "blocker:no_station_specific_paddling_threshold"
       ],
       "stateId": "PA",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -53905,16 +53911,18 @@
     {
       "id": "route-opportunity-pa-usgs-03085250",
       "title": "Investigate route opportunity: Chartiers Creek at Canonsburg, PA",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:03085250 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "No-add: Chartiers Greenway documents canoe corridors but also reports rocky/private access, rapid level changes, and water-quality concerns. The gauge exposes stage only and no current maintained endpoint pair or station-specific threshold was found.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:03085250",
-        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+        "blocker:no_current_maintained_public_endpoint_pair",
+        "blocker:water_quality_and_private_access_concerns",
+        "blocker:no_station_specific_paddling_threshold"
       ],
       "stateId": "PA",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -53928,16 +53936,18 @@
     {
       "id": "route-opportunity-pa-usgs-03085500",
       "title": "Investigate route opportunity: Chartiers Creek at Carnegie, PA",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:03085500 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "No-add: the Carnegie launch remains planned/in-progress rather than verified open, current access is rocky/private, and no station-specific threshold was found. Reopen only after public launch confirmation and complete route evidence.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:03085500",
-        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+        "blocker:carnegie_launch_not_verified_open",
+        "blocker:current_access_rocky_or_private",
+        "blocker:no_station_specific_paddling_threshold"
       ],
       "stateId": "PA",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -53951,16 +53961,19 @@
     {
       "id": "route-opportunity-ut-usgs-10131000",
       "title": "Investigate route opportunity: CHALK CREEK AT COALVILLE, UT",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:10131000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "No-add: a community route description supplies a 200 cfs minimum but relies on roadside/private-ranch bridge access. No maintained public launch/take-out pair or legal-access package was found. Reopen only if access materially changes.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:10131000",
-        "blocker:No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review."
+        "threshold:RiverBrain reports 200 cfs minimum, but this is community guidance",
+        "blocker:no_maintained_public_endpoint_pair",
+        "blocker:private_ranch_and_roadside_access_constraints",
+        "blocker:legal_access_not_confirmed"
       ],
       "stateId": "UT",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -53974,16 +53987,18 @@
     {
       "id": "route-opportunity-ut-usgs-10194200",
       "title": "Investigate route opportunity: CLEAR CREEK ABOVE DIVERSIONS, NEAR SEVIER, UT",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:10194200 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Published clear-creek-fish-creek-confluence-clear-creek-road after passing evidence, access, safety, duplicate, verification, route audit, typecheck, build, and rollback gates.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:10194200",
-        "blocker:Gauge is known from route or audit evidence but has not been durably adjudicated."
+        "route:clear-creek-fish-creek-confluence-clear-creek-road",
+        "gate:route_audit_typecheck_operations_gates_passed",
+        "gate:independent_verification_and_rollback_passed"
       ],
       "stateId": "UT",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -53997,16 +54012,16 @@
     {
       "id": "route-opportunity-ut-usgs-10242000",
       "title": "Investigate route opportunity: COAL CREEK NEAR CEDAR CITY, UT",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:10242000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "Durable no-add: official Cedar City/USGS sources did not establish a named public paddle endpoint pair or station-specific threshold for Coal Creek near Cedar City.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
-        "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:10242000",
-        "blocker:Gauge is known from route or audit evidence but has not been durably adjudicated."
+        "no-add:no_named_public_paddle_endpoint_pair",
+        "no-add:no_station_specific_paddling_threshold"
       ],
       "stateId": "UT",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -54020,16 +54035,17 @@
     {
       "id": "route-opportunity-pa-usgs-03015000",
       "title": "Investigate route opportunity: Conewango Creek at Russell, PA",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:03015000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "High-quality route opportunity remains blocked: Conewango Creek has an official water trail and named access sources tied to USGS 03015000, but a station-specific numeric paddling threshold is still missing.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:03015000",
-        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+        "https://www.pfbc.pa.gov/watertrails/conewango/conewango_text.pdf",
+        "blocker:no_station_specific_numeric_paddling_threshold"
       ],
       "stateId": "PA",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -54043,21 +54059,1467 @@
     {
       "id": "route-opportunity-ut-usgs-10146400",
       "title": "Investigate route opportunity: CURRANT CREEK NEAR MONA, UT",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "usgs:10146400 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "summary": "usgs:10146400 has live data and an 11-mile angler-access easement, but no documented paddle corridor or source-backed paddling threshold. Keep blocked; angler access is not treated as paddle access.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:10146400",
-        "blocker:Gauge is known from route or audit evidence but has not been durably adjudicated."
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10146400/",
+        "https://www.mitigationcommission.gov/angler/angler_currant.htm",
+        "blocker:no_documented_paddle_corridor",
+        "blocker:angler_access_is_not_paddle_access"
       ],
       "stateId": "UT",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
         "usgs:10146400"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-04212895",
+      "title": "Investigate route opportunity: Conneaut Creek at Dickonsburg, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:04212895 remains a route-capable opportunity, but the bounded review did not establish a named public endpoint pair with defensible coordinates or a station-specific paddling threshold. Keep blocked; reopen only when those evidence gaps materially change.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:04212895",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-04212895/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4649/main",
+        "blocker:no_named_public_endpoint_pair_with_defensible_coordinates",
+        "blocker:no_station_specific_numeric_paddling_threshold"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:04212895"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95705
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03106000",
+      "title": "Investigate route opportunity: Connoquenessing Creek near Zelienople, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03106000 has a documented 6.4-mile reach, gauge-linked stage guidance, and named public launches, but authoritative endpoint coordinates and station-to-reach mapping were not verified. Keep blocked until those gaps are resolved.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03106000",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1599/main",
+        "https://www.wildwaterwaysconservancy.org/recreational-opportunities.html",
+        "blocker:no_authoritative_endpoint_coordinates",
+        "blocker:station_to_reach_mapping_requires_verification"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03106000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10157500",
+      "title": "Investigate route opportunity: DANIELS CREEK AT CHARLESTON, UT",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10157500 has live data, but the station is downstream of a culvert and records extremely small or zero flows. No documented paddle corridor or paddling threshold was found; keep blocked.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10157500",
+        "https://waterdata.usgs.gov/monitoring-location/10157500/",
+        "https://pubs.usgs.gov/wdr/WDRUT02/PDF/ADRUT02.pdf",
+        "blocker:no_documented_paddle_corridor",
+        "blocker:very_low_or_zero_flow_and_culvert_setting"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10157500"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03039000",
+      "title": "Investigate route opportunity: Crooked Creek at Crooked Creek Dam near Ford City",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03039000 has public lake launch/camping evidence, but the gauge is downstream of the dam and no station-tied point-to-point river reach was established. Keep blocked; do not convert lake access into a scored river route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03039000",
+        "https://www.recreation.gov/camping/campgrounds/255176",
+        "https://corpslakes.erdc.dren.mil/visitors/projects.cfm?ID=H404280",
+        "blocker:no_station_tied_point_to_point_river_reach",
+        "blocker:dam_and_lake_access_are_not_a_scored_river_route"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03039000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03038000",
+      "title": "Investigate route opportunity: Crooked Creek at Idaho, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03038000 has live data and limited access-project evidence, but no named coordinate-backed public endpoint pair or paddling threshold was established. Keep blocked until a complete route package exists.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03038000",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03038000/",
+        "https://pasteelhead.wildapricot.org/Crooked-Creek-Stream-Access-Project",
+        "blocker:no_named_public_endpoint_pair_with_defensible_coordinates",
+        "blocker:no_source_backed_paddling_threshold"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03038000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10149400",
+      "title": "Investigate route opportunity: DIAMOND FORK ABV RED HOLLOW NR THISTLE, UT",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10149400 is blocked after bounded review: lower Diamond Fork/Spanish Fork boating is documented, but this upstream gauge is not tied to a coordinate-backed endpoint pair or station-specific paddling threshold. Keep as an explicit no-add outcome; retry only if station-to-corridor evidence changes.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10149400",
+        "blocker:Gauge is not tied to the documented paddle corridor; no station-specific threshold or endpoint pair was verified."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10149400"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10165600",
+      "title": "Investigate route opportunity: DRY CREEK AT 300 N, AT ALPINE, UT",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10165600 is blocked after bounded review: Dry Creek is documented as a small Alpine trail/stream setting, with no documented paddle corridor, endpoint pair, or paddling threshold. Preserve as an explicit no-add outcome; retry only if materially stronger boating evidence appears.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10165600",
+        "blocker:No documented paddle corridor, station-specific threshold, or coordinate-backed endpoint pair was verified."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10165600"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03072000",
+      "title": "Investigate route opportunity: Dunkard Creek at Shannopin, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03072000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03072000",
+        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03072000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03108000",
+      "title": "Investigate route opportunity: Raccoon Creek at Moffatts Mill, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03108000 has three named canoe-guide reaches and stage guidance, but no complete public, coordinate-backed endpoint pair was established. Keep blocked; reopen only when access coordinates and station mapping are verified.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03108000",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03108000/",
+        "https://canoedraft.shaw-weil.com/gauge/",
+        "blocker:no_public_endpoint_pair_with_defensible_coordinates",
+        "blocker:guide_stage_rule_needs_station_specific_mapping_verification"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03108000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95640
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03021890",
+      "title": "Investigate route opportunity: French Creek at Cambridge Springs, PA",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Implemented French Creek Cambridge Springs to Conneauttee with official endpoint, direct gauge, threshold, safety, access, and NHD geometry evidence; final verifier and gatekeeper passed.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03021890",
+        "candidate:Official French Creek Paddling Guide provides endpoint/access, 3-5 ft ideal water level, 2-5 ft operational envelope, hazards, and public launch context."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03021890"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95865
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03023100",
+      "title": "Investigate route opportunity: French Creek at Meadville, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03023100 remains blocked after bounded review: no named public endpoint, station-specific paddling threshold, or sufficient access/safety package was established. Retry only if materially stronger evidence appears; do not force a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03023100",
+        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03023100"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03024000",
+      "title": "Investigate route opportunity: French Creek at Utica, PA",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Implemented French Creek Cochranton Borough to Utica with official endpoint coordinates, direct USGS gauge, threshold, safety, access, and NHD geometry evidence; verifier and gatekeeper passed.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03024000",
+        "route:french-creek-cochranton-utica",
+        "evidence:official endpoint, direct gauge, threshold, safety, access, camping, image, and geometry package"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03024000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03021520",
+      "title": "Investigate route opportunity: French Creek near Union City, PA",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Implemented French Creek Union City Dam to Routes 6N/19 with official endpoint coordinates, direct USGS gauge, threshold, dam/strainer safety, access, camping, image, and NHD geometry evidence; verifier and gatekeeper passed.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03021520",
+        "route:french-creek-union-city-dam-route-6n-19",
+        "evidence:official endpoint, direct gauge, threshold, safety, access, camping, image, and geometry package"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03021520"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03021350",
+      "title": "Investigate route opportunity: French Creek near Wattsburg, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add for now: USGS 03021350 is at Tanner Road near Wattsburg, but no legal named endpoint pair or station-specific threshold mapping was established. Retry only if a materially stronger public upper-corridor package appears; do not force a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03021350",
+        "blocker:station is not a named public paddling endpoint",
+        "blocker:no legal endpoint pair tied to this station",
+        "blocker:no station-specific threshold mapping"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03021350"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10172952",
+      "title": "Investigate route opportunity: DUNN CREEK NEAR PARK VALLEY, UT",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10172952 is blocked after bounded review: Dunn Creek near Park Valley has no documented paddle corridor, endpoint pair, or station-specific paddling threshold. Preserve as an explicit no-add outcome; retry only if materially stronger boating evidence appears.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10172952",
+        "blocker:No documented paddle corridor, coordinate-backed endpoint pair, or source-backed paddling threshold was verified."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10172952"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10134500",
+      "title": "Investigate route opportunity: EAST CANYON CREEK NEAR MORGAN, UT",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10134500 is blocked after bounded review: East Canyon paddling is documented on the reservoir, but this creek gauge is not a station-tied proxy for that lake route and no creek endpoint pair or paddling threshold was verified.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10134500",
+        "blocker:Gauge-to-reservoir route mapping, endpoint coordinates, and station-specific threshold remain unresolved; preserve as no-add."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10134500"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10172727",
+      "title": "Investigate route opportunity: FAUST CREEK NEAR VERNON, UT",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10172727 is blocked after bounded review: Faust Creek has very low recorded flows and no documented paddle corridor, endpoint pair, or station-specific paddling threshold. Preserve as an explicit no-add outcome.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10172727",
+        "blocker:No documented paddle corridor, coordinate-backed endpoint pair, or source-backed paddling threshold was verified."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10172727"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08155240",
+      "title": "Investigate route opportunity: Barton Ck at Lost Ck Blvd nr Austin, TX",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:08155240 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:08155240",
+        "blocker:Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass."
+      ],
+      "stateId": "TX",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:08155240"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95380
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10153100",
+      "title": "Investigate route opportunity: HOBBLE CREEK AT 1650 WEST AT SPRINGVILLE, UTAH",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add for now: USGS 10153100 has no named public endpoint pair or station-specific paddling threshold; park and trip-report context is insufficient for a scored route. Retry only if materially stronger public corridor evidence appears.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10153100",
+        "blocker:no named public endpoint pair tied to the gauge",
+        "blocker:no station-specific paddling threshold",
+        "blocker:park and trip-report context insufficient for route publication"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10153100"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10172800",
+      "title": "Investigate route opportunity: SOUTH WILLOW CREEK NEAR GRANTSVILLE, UT",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10172800 is blocked after bounded review: South Willow Creek near Grantsville has no documented paddle corridor, endpoint pair, or station-specific paddling threshold. Preserve as an explicit no-add outcome; retry only if materially stronger boating evidence appears.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10172800",
+        "blocker:No documented paddle corridor, coordinate-backed endpoint pair, or source-backed paddling threshold was verified."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10172800"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95640
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10141450",
+      "title": "Investigate route opportunity: KAYS CREEK NEAR LAYTON, UTAH",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add for now: Kays Creek has no named public paddle endpoints or station-specific threshold; current official sources describe trails and urban/pond drainage context, not a scored water route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10141450",
+        "blocker:no named public paddle endpoint pair",
+        "blocker:no station-specific paddling threshold",
+        "blocker:urban/pond drainage context is not a documented paddle corridor"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10141450"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10172640",
+      "title": "Investigate route opportunity: LEE CREEK NEAR MAGNA, UT",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add for now: Lee Creek near Magna is a small stream/drainage with natural-area and pedestrian-trail context, not a documented public paddle corridor. No lawful endpoint pair or station-specific paddling threshold was verified.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10172640",
+        "https://www.usgs.gov/media/images/leecreek310172640",
+        "blocker:no_named_public_paddle_endpoint_pair",
+        "blocker:no_station_specific_paddling_threshold"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10172640"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "lastRunId": "route-worker-202608232110-ut-10172640-review",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608232110-ut-10172640-review",
+      "resultSummary": "No route added; durable screened-out/no-add disposition recorded. Reopen only if materially stronger lawful paddle-corridor evidence appears."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10133000",
+      "title": "Investigate route opportunity: LOST CREEK AT DEVILS SLIDE, UTAH",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No route added: Lost Creek State Park has a public reservoir ramp, but USGS 10133000 is a downstream stream station and no station-specific paddling threshold or named endpoint pair for the gauged creek reach was found.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10133000",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10133000/",
+        "https://stateparks.utah.gov/parks/lost-creek/",
+        "https://stateparks.utah.gov/parks/lost-creek/frequently-asked-questions/",
+        "blocker:gauge-is-downstream-of-reservoir-opportunity",
+        "blocker:no-station-specific-paddling-threshold"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10133000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "lastRunId": "route-worker-202608240125-ut-10133000-review",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608240125-ut-10133000-review",
+      "resultSummary": "No route added; durable screened-out/no-add disposition recorded. Reopen only if a direct stream corridor with station-specific paddling guidance is documented."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03011800",
+      "title": "Investigate route opportunity: Kinzua Creek near Guffey, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03011800 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03011800",
+        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03011800"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03080000",
+      "title": "Investigate route opportunity: Laurel Hill Creek at Ursina, PA",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Route added: Laurel Hill State Park Beach Area to King's Covered Bridge, using the live Ursina gauge as a conservative same-creek proxy with a 2.2 ft minimum-only floor.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03080000",
+        "route:laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-hill-state-park/boating",
+        "https://www.waterqualitydata.us/provider/NWIS/USGS-PA/USGS-03079744/"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03080000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "lastRunId": "route-worker-202608232040-pa-03080000-implementation",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608232040-pa-03080000-implementation",
+      "resultSummary": "Route added and validated with route audit, route-data typecheck, canonical geometry generation/audit, operations gates, and build pending final full build in this pass."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03034500",
+      "title": "Investigate route opportunity: Little Mahoning Creek at McCormick, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add for now: Little Mahoning Creek has documented canoeable segments, a 3.0 ft gauge floor, and an Old Smicksburg Park launch, but no second named public take-out with defensible coordinates was verified. Bridge access requires permission and the new access-grant project is not confirmed complete.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03034500",
+        "https://indianacountyparks.org/our-parks/old-smicksburg-park/",
+        "https://canoedraft.shaw-weil.com/gauge/",
+        "blocker:no_named_public_takeout_with_defensible_coordinates",
+        "blocker:bridge_access_requires_permission",
+        "blocker:new_access_grant_not_verified_as_complete"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03034500"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "lastRunId": "route-worker-202608232140-pa-03034500-review",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608232140-pa-03034500-review",
+      "resultSummary": "No route added; durable screened-out/no-add disposition recorded. Reopen when a second legal public endpoint and completed access project are documented."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08155200",
+      "title": "Investigate route opportunity: Barton Ck at SH 71 nr Oak Hill, TX",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:08155200 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:08155200",
+        "blocker:Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass."
+      ],
+      "stateId": "TX",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:08155200"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95380
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03049800",
+      "title": "Investigate route opportunity: Little Pine Creek near Etna, PA",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Planning route added: North Park Lake to Allison Park on Little Pine Creek, using USGS 03049800 as a downstream proxy with CanoeDraft's 2.2 ft minimum/3 ft ideal upper reference. It is public planning coverage, not a scored route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03049800",
+        "route:little-pine-creek-north-park-lake-allison-park",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03049800",
+        "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php",
+        "https://canoedraft.shaw-weil.com/gauge/",
+        "https://www.alleghenycounty.us/parks/activities/boating/north-park",
+        "https://www.hampton-pa.gov/DocumentCenter/View/1135/Pine-Creek-Cleanup-Day-PDF"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03049800"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "lastRunId": "route-worker-202608232320-pa-03049800-implementation",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608232320-pa-03049800-implementation",
+      "resultSummary": "Planning route added and validated: route audit passed for 849 scored routes, route-data typecheck passed, canonical geometry generation/audit passed (1017/1018; one pre-existing unrelated mismatch), operations gates passed, and full build passed (1203 pages)."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03045000",
+      "title": "Investigate route opportunity: Loyalhanna Creek at Kingston, PA",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Route added: PFBC's Ligonier Nature Trail-to-Kingston Loyalhanna Creek Water Trail segment, using direct USGS 03045000 and PFBC's 250 cfs minimum; Kingston dam spillway is an explicit take-out hazard.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03045000",
+        "route:loyalhanna-creek-ligonier-nature-trail-kingston",
+        "https://www.pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03045000/"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03045000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "lastRunId": "route-worker-202608240145-pa-03045000-implementation",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608240145-pa-03045000-implementation",
+      "resultSummary": "Route added and validated: route audit passed for 850 scored routes, route-data typecheck passed, canonical geometry generation/audit passed (1018/1019; one pre-existing unrelated mismatch), operations gates passed, and full build passed after JSON repair."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03045010",
+      "title": "Investigate route opportunity: Loyalhanna Creek at Latrobe, PA",
+      "lane": "blocked",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No route added: a distinct Latrobe-to-New Alexandria corridor is documented, but USGS 03045010 lacks a station-specific paddling threshold. The official 250 cfs rule belongs to Kingston station 03045000, already used by the scored upstream route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03045010",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03045010",
+        "https://pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf",
+        "https://latroberecreation.org/event/11th-annual-loyalhanna-sojourn/",
+        "blocker:latrobe-station-has-no-station-specific-paddling-threshold",
+        "blocker:official-250-cfs-rule-belongs-to-kingston-station-03045000"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03045010"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "lastRunId": "route-worker-202608240220-pa-03045010-review",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608240220-pa-03045010-review",
+      "resultSummary": "Durable blocked/consolidation outcome recorded; reopen only if Latrobe-specific flow guidance is sourced."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10173450",
+      "title": "Investigate route opportunity: MAMMOTH CREEK ABV WEST HATCH DITCH, NEAR HATCH, UT",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: direct gauge confirmed, but no named public paddle endpoint pair or station-specific runnable threshold was found for this small high-elevation creek.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10173450",
+        "blocker:no_named_public_endpoint_pair",
+        "blocker:no_station_specific_runnable_threshold"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10173450"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608240500-ut-10173450-review",
+      "latestGatekeeperId": "gatekeeper-202608240514-ut-10173450-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10215900",
+      "title": "Investigate route opportunity: MANTI CREEK BLW DUGWAY CREEK, NR MANTI, UT",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: direct gauge confirmed, but no lawful named public paddle endpoint pair or station-specific runnable threshold was found for Manti Creek.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10215900",
+        "blocker:no_named_public_endpoint_pair",
+        "blocker:no_station_specific_runnable_threshold",
+        "blocker:utah_private_streambed_access_constraints"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10215900"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608240600-ut-10215900-review",
+      "latestGatekeeperId": "gatekeeper-202608240614-ut-10215900-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03047000",
+      "title": "Investigate route opportunity: Loyalhanna Creek at Loyalhanna Dam, PA",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Route added: Loyalhanna Dam Tailwater to Saltsburg Rivers Edge, a distinct four-mile dam-release run using direct USGS 03047000 and CanoeDraft's 1,040–1,770 cfs band.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03047000",
+        "route:loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+        "https://canoedraft.shaw-weil.com/river/Loyalhanna%20Creek.php",
+        "https://www.loyalhannawatershed.org/images/Documents/LoyalWaterTrailGuide.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03047000/"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03047000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "lastRunId": "route-worker-202608240245-pa-03047000-implementation",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608240245-pa-03047000-implementation",
+      "resultSummary": "Route added and fully validated: route audit, geometry audit, route typecheck, operations gates, and production build passed."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08078080",
+      "title": "Investigate route opportunity: Bastrop Bayou at CR 288 nr Lake Jackson, TX",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:08078080 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:08078080",
+        "blocker:Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence."
+      ],
+      "stateId": "TX",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:08078080"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95380
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10133600",
+      "title": "Investigate route opportunity: MCLEOD CREEK NEAR PARK CITY, UT",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: direct gauge confirmed, but Park City sources describe McLeod Creek as a trail/open-space corridor, not a documented paddle reach; no named public paddle endpoint pair or station-specific threshold was found.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10133600",
+        "blocker:no_named_public_paddle_endpoint_pair",
+        "blocker:no_station_specific_runnable_threshold",
+        "blocker:trail_access_is_not_water_access"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10133600"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608240700-ut-10133600-review",
+      "latestGatekeeperId": "gatekeeper-202608240714-ut-10133600-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03036000",
+      "title": "Investigate route opportunity: Mahoning Creek at Mahoning Creek Dam, PA",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: Mahoning Creek has a direct USGS gauge and CanoeDraft-listed reaches, but the bounded review found no named public launch/takeout pair for the gauged downstream corridor. Preserve blocked rather than publish a speculative route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03036000",
+        "blocker:no_named_public_endpoint",
+        "blocker:no_complete_route_evidence_package"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03036000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608240330-pa-03036000-review",
+      "latestGatekeeperId": "gatekeeper-202608240330-pa-03036000-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03034000",
+      "title": "Investigate route opportunity: Mahoning Creek at Punxsutawney, PA",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: direct gauge and documented Mahoning corridors were confirmed, but no lawful named public endpoint pair cleared the quality bar; bridge/roadside and private/tough access remain insufficient.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03034000",
+        "blocker:no_named_public_endpoint_pair",
+        "blocker:private_or_roadside_access_not_verified"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03034000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608240400-pa-03034000-review",
+      "latestGatekeeperId": "gatekeeper-202608240414-pa-03034000-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10172200",
+      "title": "Investigate route opportunity: RED BUTTE CREEK AT FORT DOUGLAS, NEAR SLC, UT",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add after identity correction: USGS 10172200 is Red Butte Creek at Fort Douglas, not Virgin River; restricted/research-only access and no public paddle corridor or station-specific threshold were found.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10172200",
+        "blocker:gauge_identity_corrected_from_queue_label",
+        "blocker:restricted_or_research_only_access",
+        "blocker:no_public_paddle_corridor_or_threshold"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10172200"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608241100-ut-10172200-review",
+      "latestGatekeeperId": "gatekeeper-202608241114-ut-10172200-review",
+      "resultSummary": "No-add decision independently verified and gated; queue label corrected and no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03106300",
+      "title": "Investigate route opportunity: Muddy Creek near Portersville, PA",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: direct gauge confirmed, but Moraine sources document Lake Arthur recreation rather than a distinct gauged Muddy Creek paddle route; no named public creek endpoint pair or station-specific threshold was found.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03106300",
+        "blocker:no_named_public_creek_endpoint_pair",
+        "blocker:lake_recreation_is_not_gauged_creek_route",
+        "blocker:no_station_specific_runnable_threshold"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03106300"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608240800-pa-03106300-review",
+      "latestGatekeeperId": "gatekeeper-202608240814-pa-03106300-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03020500",
+      "title": "Investigate route opportunity: Oil Creek at Rouseville, PA",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: Friends of Oil Creek provides a 2.7 ft Rouseville threshold, but explicitly states Oil Creek has no designated boat launch sites; no lawful named public endpoint pair tied to the gauge was verified.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03020500",
+        "blocker:no_designated_public_boat_launch",
+        "blocker:no_lawful_named_public_endpoint_pair",
+        "blocker:roadside_or_bridge_access_not_sufficient_for_route"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03020500"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608240900-pa-03020500-review",
+      "latestGatekeeperId": "gatekeeper-202608240914-pa-03020500-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03010655",
+      "title": "Investigate route opportunity: Oswayo Creek at Shinglehouse, PA",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: live gauge confirmed, but no station-specific paddling threshold, named public launch/takeout pair, or official access package was found for the gauged reach.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03010655",
+        "blocker:no_station_specific_paddling_threshold",
+        "blocker:no_lawful_named_public_endpoint_pair",
+        "blocker:no_official_paddling_access_package"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03010655"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608241000-pa-03010655-review",
+      "latestGatekeeperId": "gatekeeper-202608241014-pa-03010655-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03049807",
+      "title": "Investigate route opportunity: Pine Creek at Grant Avenue at Etna, PA",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: North Park Lake provides a public put-in, but the Etna takeout is only user-described above Burger King Falls; hazards, strainers, pollution, and no station-specific safety threshold prevent a scored route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03049807",
+        "blocker:no_named_lawful_public_takeout",
+        "blocker:no_station_specific_safety_threshold",
+        "blocker:urban_hazard_and_pollution_evidence_incomplete"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03049807"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608241030-pa-03049807-review",
+      "latestGatekeeperId": "gatekeeper-202608241044-pa-03049807-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03031882",
+      "title": "Investigate route opportunity: Redbank Creek at Brookville, PA",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Added the Redbank Creek New Bethlehem-to-Climax scored route using the official PA float window, public endpoint coordinates, direct USGS 03031882 telemetry, and access/safety/logistics evidence.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03031882",
+        "route:redbank-creek-new-bethlehem-climax",
+        "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf",
+        "https://www.redbankvalleytrails.org/parking/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03031882"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03031882"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608241200-pa-03031882-implementation",
+      "latestGatekeeperId": "gatekeeper-202608241214-pa-03031882-implementation",
+      "resultSummary": "Route added, independently verified, and gatekeeper-approved; no duplicate or safety exception identified."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10205030",
+      "title": "Investigate route opportunity: SALINA CREEK NEAR EMERY, UT",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: direct USGS telemetry exists, but bounded research found no named public paddle endpoint pair or station-specific runnable threshold for Salina Creek near Emery.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10205030",
+        "https://waterdata.usgs.gov/monitoring-location/10205030/",
+        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10205030",
+        "blocker:no_named_public_endpoint",
+        "blocker:no_source_backed_threshold",
+        "blocker:insufficient_access_safety_and_route_evidence"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10205030"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608241400-ut-10205030-no-add",
+      "latestGatekeeperId": "gatekeeper-202608241414-ut-10205030-no-add",
+      "resultSummary": "No-add independently verified and gated; preserve the gauge as blocked and do not force a route."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10125850",
+      "title": "Investigate route opportunity: SALT CREEK NEAR HONEYVILLE, UT",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: direct USGS telemetry and general Utah stream-access context exist, but bounded research found no named public paddle endpoint pair or station-specific runnable threshold for Salt Creek near Honeyville.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10125850",
+        "https://waterdata.usgs.gov/monitoring-location/10125850/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=10125850",
+        "https://wildlife.utah.gov/streamaccess",
+        "blocker:no_named_public_endpoint",
+        "blocker:no_source_backed_threshold",
+        "blocker:insufficient_access_safety_and_route_evidence"
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10125850"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608241500-ut-10125850-no-add",
+      "latestGatekeeperId": "gatekeeper-202608241514-ut-10125850-no-add",
+      "resultSummary": "No-add independently verified and gated; preserve the gauge as blocked and do not force a route."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10129900",
+      "title": "Investigate route opportunity: SILVER CREEK NEAR SILVER CREEK JUNCTION, UT",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10129900 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10129900",
+        "blocker:No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10129900"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03032500",
+      "title": "Investigate route opportunity: Redbank Creek at St. Charles, PA",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "medium",
+      "summary": "Added the distinct Redbank Creek Climax-to-Saint Charles Road extension using official route/threshold guidance, direct USGS 03032500 telemetry, public endpoint coordinates, curated geometry, and explicit same-day road-access caveats.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03032500",
+        "route:redbank-creek-climax-st-charles",
+        "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf",
+        "https://www.redbankvalleytrails.org/parking/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03032500"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03032500"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608241300-pa-03032500-implementation",
+      "latestGatekeeperId": "gatekeeper-202608241314-pa-03032500-implementation",
+      "resultSummary": "Route added, independently verified, and gatekeeper-approved; road-crossing take-out remains an explicit same-day access caveat."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03017500",
+      "title": "Investigate route opportunity: Tionesta Creek at Lynch, PA",
+      "lane": "completed",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "No-add: the gauge and 2.8 ft Sheffield-to-Lynch paddling threshold are documented, but the Forest County plan says access ownership is unknown and the water trail is only proposed; no lawful named public endpoint pair was verified.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03017500",
+        "blocker:endpoint_ownership_unknown",
+        "blocker:no_lawful_named_public_endpoint_pair",
+        "blocker:water_trail_not_formally_established"
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03017500"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95650,
+      "validationStatus": "passed",
+      "lastRunId": "route-worker-202608240930-pa-03017500-review",
+      "latestGatekeeperId": "gatekeeper-202608240944-pa-03017500-review",
+      "resultSummary": "No-add decision independently verified and gated; no route added."
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03031624",
+      "title": "Investigate route opportunity: Sandy Lick Creek at Dubois, PA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03031624 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03031624",
+        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03031624"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03106500",
+      "title": "Investigate route opportunity: Slippery Rock Creek at Wurtemburg, PA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03106500 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03106500",
+        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03106500"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03073000",
+      "title": "Investigate route opportunity: South Fork Tenmile Creek at Jefferson, PA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03073000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03073000",
+        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03073000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10156000",
+      "title": "Investigate route opportunity: SNAKE CREEK NEAR CHARLESTON, UT",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10156000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10156000",
+        "blocker:Gauge is known from route or audit evidence but has not been durably adjudicated."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10156000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03084800",
+      "title": "Investigate route opportunity: Thompson Run at Turtle Creek, PA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03084800 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03084800",
+        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03084800"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-pa-usgs-03020000",
+      "title": "Investigate route opportunity: Tionesta Creek at Tionesta Creek Dam, PA",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:03020000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:03020000",
+        "blocker:No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route."
+      ],
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03020000"
+      ],
+      "frontierTier": 5,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 95630
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10150500",
+      "title": "Investigate route opportunity: SPANISH FORK AT CASTILLA, UT",
+      "lane": "ready",
+      "kind": "route_research",
+      "owner": "route-research",
+      "priority": "medium",
+      "summary": "usgs:10150500 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/route-opportunity-queue.json",
+        "gauge:usgs:10150500",
+        "blocker:Current USGS discharge and gage-height data are available, and Utah State Parks documents public Hailstone/Rock Cliff access on Jordanelle and the Provo River. The evidence does not yet establish a distinct named river corridor with a station-specific paddling threshold, legal downstream endpoint pair, seasonal hazard treatment, and route logistics. Preserve as a ranked research opportunity rather than forcing a route."
+      ],
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10150500"
       ],
       "frontierTier": 5,
       "routeOpportunity": true,

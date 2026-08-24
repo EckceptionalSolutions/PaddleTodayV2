@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-23T23:34:46.591Z",
+  "generatedAt": "2026-08-24T02:10:07.709Z",
   "maxPerState": 5,
   "maxGlobal": 20,
   "opportunities": [
@@ -32,11 +32,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03015500",
-      "taskId": "route-opportunity-pa-usgs-03015500",
+      "id": "route-opportunity-pa-usgs-03031624",
+      "taskId": "route-opportunity-pa-usgs-03031624",
       "stateId": "PA",
-      "gaugeKey": "usgs:03015500",
-      "siteName": "Brokenstraw Creek at Youngsville, PA",
+      "gaugeKey": "usgs:03031624",
+      "siteName": "Sandy Lick Creek at Dubois, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -59,11 +59,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03048900",
-      "taskId": "route-opportunity-pa-usgs-03048900",
+      "id": "route-opportunity-pa-usgs-03106500",
+      "taskId": "route-opportunity-pa-usgs-03106500",
       "stateId": "PA",
-      "gaugeKey": "usgs:03048900",
-      "siteName": "Buffalo Creek at Iron Bridge, PA",
+      "gaugeKey": "usgs:03106500",
+      "siteName": "Slippery Rock Creek at Wurtemburg, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -86,11 +86,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03085250",
-      "taskId": "route-opportunity-pa-usgs-03085250",
+      "id": "route-opportunity-pa-usgs-03073000",
+      "taskId": "route-opportunity-pa-usgs-03073000",
       "stateId": "PA",
-      "gaugeKey": "usgs:03085250",
-      "siteName": "Chartiers Creek at Canonsburg, PA",
+      "gaugeKey": "usgs:03073000",
+      "siteName": "South Fork Tenmile Creek at Jefferson, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -113,11 +113,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03085500",
-      "taskId": "route-opportunity-pa-usgs-03085500",
+      "id": "route-opportunity-pa-usgs-03084800",
+      "taskId": "route-opportunity-pa-usgs-03084800",
       "stateId": "PA",
-      "gaugeKey": "usgs:03085500",
-      "siteName": "Chartiers Creek at Carnegie, PA",
+      "gaugeKey": "usgs:03084800",
+      "siteName": "Thompson Run at Turtle Creek, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -140,11 +140,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03015000",
-      "taskId": "route-opportunity-pa-usgs-03015000",
+      "id": "route-opportunity-pa-usgs-03020000",
+      "taskId": "route-opportunity-pa-usgs-03020000",
       "stateId": "PA",
-      "gaugeKey": "usgs:03015000",
-      "siteName": "Conewango Creek at Russell, PA",
+      "gaugeKey": "usgs:03020000",
+      "siteName": "Tionesta Creek at Tionesta Creek Dam, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -167,11 +167,38 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ut-usgs-10131000",
-      "taskId": "route-opportunity-ut-usgs-10131000",
+      "id": "route-opportunity-ut-usgs-10125850",
+      "taskId": "route-opportunity-ut-usgs-10125850",
       "stateId": "UT",
-      "gaugeKey": "usgs:10131000",
-      "siteName": "CHALK CREEK AT COALVILLE, UT",
+      "gaugeKey": "usgs:10125850",
+      "siteName": "SALT CREEK NEAR HONEYVILLE, UT",
+      "priority": "medium",
+      "score": 95630,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "blocked",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "No-add after bounded research: direct USGS telemetry and general Utah stream-access context exist, but no named public paddle endpoint pair or station-specific runnable threshold was found for this newly installed Salt Creek station.",
+      "nextEvidenceAction": null,
+      "retryCondition": "Reopen only if a lawful public endpoint pair and station-specific paddling threshold are documented; do not force a route."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10129900",
+      "taskId": "route-opportunity-ut-usgs-10129900",
+      "stateId": "UT",
+      "gaugeKey": "usgs:10129900",
+      "siteName": "SILVER CREEK NEAR SILVER CREEK JUNCTION, UT",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -194,11 +221,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ut-usgs-10194200",
-      "taskId": "route-opportunity-ut-usgs-10194200",
+      "id": "route-opportunity-ut-usgs-10156000",
+      "taskId": "route-opportunity-ut-usgs-10156000",
       "stateId": "UT",
-      "gaugeKey": "usgs:10194200",
-      "siteName": "CLEAR CREEK ABOVE DIVERSIONS, NEAR SEVIER, UT",
+      "gaugeKey": "usgs:10156000",
+      "siteName": "SNAKE CREEK NEAR CHARLESTON, UT",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -221,11 +248,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ut-usgs-10242000",
-      "taskId": "route-opportunity-ut-usgs-10242000",
+      "id": "route-opportunity-ut-usgs-10150500",
+      "taskId": "route-opportunity-ut-usgs-10150500",
       "stateId": "UT",
-      "gaugeKey": "usgs:10242000",
-      "siteName": "COAL CREEK NEAR CEDAR CITY, UT",
+      "gaugeKey": "usgs:10150500",
+      "siteName": "SPANISH FORK AT CASTILLA, UT",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -243,34 +270,7 @@
         "no_source_backed_threshold",
         "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-ut-usgs-10146400",
-      "taskId": "route-opportunity-ut-usgs-10146400",
-      "stateId": "UT",
-      "gaugeKey": "usgs:10146400",
-      "siteName": "CURRANT CREEK NEAR MONA, UT",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
+      "reason": "Current USGS discharge and gage-height data are available, and Utah State Parks documents public Hailstone/Rock Cliff access on Jordanelle and the Provo River. The evidence does not yet establish a distinct named river corridor with a station-specific paddling threshold, legal downstream endpoint pair, seasonal hazard treatment, and route logistics. Preserve as a ranked research opportunity rather than forcing a route.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
@@ -302,87 +302,6 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-tx-usgs-08037060",
-      "taskId": "route-opportunity-tx-usgs-08037060",
-      "stateId": "TX",
-      "gaugeKey": "usgs:08037060",
-      "siteName": "Banita Ck at W Austin St, Nacogdoches, TX",
-      "priority": "medium",
-      "score": 95380,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 20,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-tx-usgs-08433000",
-      "taskId": "route-opportunity-tx-usgs-08433000",
-      "stateId": "TX",
-      "gaugeKey": "usgs:08433000",
-      "siteName": "Barrilla Draw nr Saragosa, TX",
-      "priority": "medium",
-      "score": 95380,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 20,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-tx-usgs-08155400",
-      "taskId": "route-opportunity-tx-usgs-08155400",
-      "stateId": "TX",
-      "gaugeKey": "usgs:08155400",
-      "siteName": "Barton Ck abv Barton Spgs at Austin, TX",
-      "priority": "medium",
-      "score": 95380,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 20,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
       "id": "route-opportunity-tx-usgs-08155300",
       "taskId": "route-opportunity-tx-usgs-08155300",
       "stateId": "TX",
@@ -406,6 +325,87 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08155240",
+      "taskId": "route-opportunity-tx-usgs-08155240",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08155240",
+      "siteName": "Barton Ck at Lost Ck Blvd nr Austin, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08155200",
+      "taskId": "route-opportunity-tx-usgs-08155200",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08155200",
+      "siteName": "Barton Ck at SH 71 nr Oak Hill, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08078080",
+      "taskId": "route-opportunity-tx-usgs-08078080",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08078080",
+      "siteName": "Bastrop Bayou at CR 288 nr Lake Jackson, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     }

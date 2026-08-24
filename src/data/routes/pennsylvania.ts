@@ -3,6 +3,233 @@ import type { River } from '../../lib/types';
 
 export const pennsylvaniaRoutes: River[] = [
   {
+    "id": "redbank-creek-new-bethlehem-climax",
+    "slug": "redbank-creek-new-bethlehem-climax",
+    "name": "Redbank Creek",
+    "reach": "New Bethlehem Kayak Launch to Climax",
+    "aliases": ["Redbank Creek - New Bethlehem to Climax", "Redbank Creek New Bethlehem kayak launch to Climax", "Redbank Creek Trail Mile 20 to 17"],
+    "state": "Pennsylvania",
+    "region": "Western Pennsylvania",
+    "summary": "A six-mile Redbank Creek float from the public New Bethlehem kayak launch below the dam to the Climax access at Trail Mile 17. The Pennsylvania Angler & Boater guide names the launch and take-out, gives a 2.7–under-6 ft runnable window, and the Redbank Valley Trails Association publishes endpoint coordinates, parking, camping, and access cautions.",
+    "statusText": "Use USGS 03031882 at Brookville as the live gauge. Launch only when the gauge is at least 2.7 ft and below 6 ft, with a stable trend; confirm current access, shuttle, debris, and downstream hazards before putting in.",
+    "latitude": 41.002551,
+    "longitude": -79.337332,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "fast_rise", "strainers", "remote", "cold_water"],
+      "safetyNotes": [
+        "The Pennsylvania Angler & Boater guide recommends at least 2.7 ft and definitely less than 6 ft for an enjoyable Redbank float. Treat this as a conservative station-tied operating window, not a guarantee; stand down for rapidly rising water, debris, or poor visibility.",
+        "Use the named New Bethlehem kayak launch below the dam and the Climax access at Trail Mile 17. Do not launch from private property, block driveways, or improvise roadside access; the Climax parking is very limited.",
+        "The reach includes bridges, strainers, and a narrow valley. Wear a PFD, carry a shuttle plan, and scout conditions. Cell service is limited in parts of the corridor.",
+        "Camping is only permitted in designated areas; Redbank Valley Trails Association identifies nearby designated camping, but this route is a day float and requires a separate logistics plan for overnight use.",
+        "Follow current Pennsylvania Fish and Boat Commission registration/launch-permit rules and local closures."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03031882", "provider": "usgs", "siteId": "03031882", "metric": "gage_height_ft", "unit": "ft", "kind": "direct", "siteName": "Redbank Creek at Brookville, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03031882/"},
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.7,
+      "idealMax": 6,
+      "tooLow": 2.7,
+      "tooHigh": 6,
+      "thresholdSource": {"label": "Pennsylvania Angler & Boater Redbank Creek float window", "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf", "provider": "local"},
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "seasonNotes": "The guide identifies the best float levels generally April–June and September–November; check the live gauge and trend immediately before launch.",
+      "difficulty": "moderate",
+      "difficultyNotes": "A moving-water float with low-water, wood, bridge, and cold-water considerations; suitable only for paddlers who can self-rescue and manage a shuttle.",
+      "confidenceNotes": "High confidence for route identity, public endpoint names, coordinates, threshold, and logistics: the official Pennsylvania Angler & Boater article names New Bethlehem and Climax access, while the Redbank Valley Trails Association publishes matching coordinates, parking, camping, and permit/safety guidance. The route is distinct from any Brookville or lower Redbank opportunity because it uses the named New Bethlehem-to-Climax corridor."
+    },
+    "evidenceNotes": [
+      {"label": "Official route and threshold", "value": "New Bethlehem to Climax; 2.7–under 6 ft", "note": "Pennsylvania Angler & Boater names the New Bethlehem kayak launch, Climax take-out, and the 2.7 ft minimum / under 6 ft window.", "sourceUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf"},
+      {"label": "Endpoint coordinates", "value": "New Bethlehem 41.0024,-79.3322; Climax 40.9859,-79.3751", "note": "Redbank Valley Trails Association publishes the municipal New Bethlehem launch/parking coordinate and the Climax access coordinate near 4365 Climax Road.", "sourceUrl": "https://www.redbankvalleytrails.org/parking/"},
+      {"label": "Live direct gauge", "value": "USGS 03031882 at Brookville", "note": "USGS provides continuous discharge and stage telemetry for the Brookville station; the trail guide explicitly directs paddlers to use this gauge or St. Charles.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03031882"},
+      {"label": "Camping and logistics", "value": "Designated camping near the Redbank Valley Trail; shuttle required", "note": "The Redbank Valley Trails Association map identifies designated camping, trail access, parking, and limited-service/cell-coverage cautions.", "sourceUrl": "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf"}
+    ],
+    "sourceLinks": [
+      {"label": "Pennsylvania Angler & Boater Redbank Creek guide", "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf", "provider": "local"},
+      {"label": "Redbank Valley Trails map and guide", "url": "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf", "provider": "local"},
+      {"label": "Redbank Valley Trails parking/access", "url": "https://www.redbankvalleytrails.org/parking/", "provider": "local"},
+      {"label": "USGS 03031882 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03031882/", "provider": "usgs"},
+      {"label": "PA launch permit rules", "url": "https://www.pa.gov/services/fishandboat/buy-launch-permit", "provider": "local"}
+    ]
+  },
+  {
+    "id": "redbank-creek-climax-st-charles",
+    "slug": "redbank-creek-climax-st-charles",
+    "name": "Redbank Creek",
+    "reach": "Climax to St. Charles Road",
+    "aliases": ["Redbank Creek - Climax to St. Charles", "Redbank Creek Climax Tunnel to St. Charles Road", "Redbank Creek Trail Mile 17 to 12.5"],
+    "state": "Pennsylvania",
+    "region": "Western Pennsylvania",
+    "summary": "A distinct 4.5-mile extension below the existing New Bethlehem-to-Climax float, from the named Climax access at Trail Mile 17 to the Saint Charles Road crossing at Trail Mile 12.5. The official Pennsylvania Angler & Boater guide describes this continuation and ties it to the Saint Charles gauge; the RVTA map documents the public trail/road corridor and low-water caution.",
+    "statusText": "Use USGS 03032500 at St. Charles. The PA guide recommends at least 2.7 ft and definitely less than 6 ft for Redbank Creek; RVTA's current map uses a conservative 2.8 ft minimum. Launch at the named Climax access only when lawful and take out at the Saint Charles Road crossing only after confirming current parking, carry, road, debris, and downstream conditions.",
+    "latitude": 40.985227,
+    "longitude": -79.375191,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "fast_rise", "strainers", "remote", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "Use a conservative minimum of 2.8 ft at USGS 03032500 St. Charles, with the official guide's upper caution at less than 6 ft. These are operating references, not guarantees; stand down for rising water, debris, or poor visibility.",
+        "The guide names Climax as the launch context and Saint Charles Road at Trail Mile 12.5 as the continuation take-out. Verify current lawful parking and carry access at the road crossing; do not block driveways or use private banks.",
+        "Expect a remote moving-water reach with bridges, strainers, cold water, and limited cell service. Wear a PFD, carry a shuttle plan, and scout the take-out before launching.",
+        "Camping is only in designated areas identified by the Redbank Valley Trails Association; this route is a day float and requires a separate overnight logistics plan.",
+        "Follow current Pennsylvania Fish and Boat Commission registration/launch-permit rules and all posted local closures."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03032500", "provider": "usgs", "siteId": "03032500", "metric": "gage_height_ft", "unit": "ft", "kind": "direct", "siteName": "Redbank Creek at St. Charles, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03032500/"},
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.8,
+      "idealMax": 6,
+      "tooLow": 2.8,
+      "tooHigh": 6,
+      "thresholdSource": {"label": "PA Angler & Boater and RVTA Redbank Creek float window", "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf", "provider": "local"},
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "seasonNotes": "Best float levels are generally April–June and September–November; check the live gauge and trend immediately before launch.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Moving-water extension with low-water, wood, bridge, cold-water, remote-access, and shuttle considerations.",
+      "confidenceNotes": "High confidence for the distinct corridor, gauge, and threshold. The official guide explicitly describes the additional 4.5 miles from Climax to Saint Charles Road; USGS provides direct Saint Charles telemetry; RVTA publishes the trail corridor, named Climax access, low-water guidance, and local logistics. Take-out parking remains a same-day verification item rather than an invented guarantee."
+    },
+    "putIn": {"id": "redbank-climax-access", "name": "Climax access at Trail Mile 17", "latitude": 40.985227, "longitude": -79.375191},
+    "takeOut": {"id": "redbank-st-charles-road", "name": "Saint Charles Road crossing at Trail Mile 12.5", "latitude": 40.99465, "longitude": -79.39304},
+    "logistics": {
+      "distanceLabel": "Approximately 4.5 river miles",
+      "estimatedPaddleTime": "About 2–4 on-water hours, plus shuttle and access verification",
+      "shuttle": "Use two vehicles or arrange a shuttle. Scout the Saint Charles Road crossing and parking before launching; do not leave a vehicle on private property or block the road.",
+      "permits": "Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules and all posted local access restrictions.",
+      "camping": "Designated camping is available near the Redbank Valley Trail; verify current rules and availability separately.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Treat this as a distinct downstream extension, not an automatic continuation: confirm both endpoints and shuttle logistics on the day of travel.",
+      "accessCaveats": ["The Saint Charles Road take-out is a road crossing described by the official guide, not a maintained boat ramp; verify lawful parking and carry access before launch.", "Do not use private banks or unlisted roadside pull-offs as substitute access."],
+      "watchFor": ["rapidly rising water", "strainers and bridge approaches", "cold water", "limited cell service", "private-bank and roadside access constraints"]
+    },
+    "evidenceNotes": [
+      {"label": "Official continuation and threshold", "value": "Climax to Saint Charles Road; 2.7–under 6 ft, with 2.8 ft conservative minimum", "note": "PA Angler & Boater names the additional 4.5 miles and Saint Charles Road take-out; RVTA map directs paddlers to at least 2.8 ft at St. Charles or Brookville.", "sourceUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf"},
+      {"label": "Endpoint coordinates", "value": "Climax 40.985227,-79.375191; Saint Charles Road bridge 40.99465,-79.39304", "note": "Climax coordinates are published by RVTA; the Saint Charles Road crossing is the mapped public bridge on T-466/SR 1005 and is cross-checked against the USGS station vicinity.", "sourceUrl": "https://www.redbankvalleytrails.org/parking/"},
+      {"label": "Live direct gauge", "value": "USGS 03032500 at St. Charles", "note": "USGS provides continuous discharge and stage telemetry; the official guide explicitly directs paddlers to monitor the Saint Charles gauge.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03032500"},
+      {"label": "Camping and logistics", "value": "Designated Redbank Valley Trail camping; shuttle required", "note": "RVTA publishes trail, camping, limited cell service, and access cautions; endpoint parking must be verified on arrival.", "sourceUrl": "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf"},
+      {"label": "Image rights decision", "value": "No route-specific image added", "note": "Use existing rights-clean product imagery/default gallery treatment; do not copy source or map images."
+      }
+    ],
+    "sourceLinks": [
+      {"label": "Pennsylvania Angler & Boater Redbank Creek guide", "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf", "provider": "local"},
+      {"label": "Redbank Valley Trails map and guide", "url": "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf", "provider": "local"},
+      {"label": "Redbank Valley Trails parking/access", "url": "https://www.redbankvalleytrails.org/parking/", "provider": "local"},
+      {"label": "USGS 03032500 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03032500/", "provider": "usgs"},
+      {"label": "PA launch permit rules", "url": "https://www.pa.gov/services/fishandboat/buy-launch-permit", "provider": "local"}
+    ]
+  },
+  {
+    "id": "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+    "slug": "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+    "name": "Loyalhanna Creek",
+    "reach": "Loyalhanna Dam Tailwater to Saltsburg Rivers Edge",
+    "aliases": ["Loyalhanna Creek - Dam to Saltsburg", "Loyalhanna Dam tailwater run", "Loyalhanna Creek Water Trail Tailwater to Saltsburg"],
+    "state": "Pennsylvania",
+    "region": "Laurel Highlands",
+    "summary": "A distinct four-mile Loyalhanna Creek dam-release run from the PFBC/USACE Tailwater Access to Saltsburg Rivers Edge Park. CanoeDraft ties the reach to USGS 03047000 and documents a 1,040–1,770 cfs release-dependent band; PFBC names both access contexts and warns that the tailwater gate may require advance Corps arrangements.",
+    "statusText": "Use USGS 03047000 at Loyalhanna Dam. CanoeDraft describes 1,040–1,770 cfs as the documented level band for the four-mile dam-to-Saltsburg run. This is release-dependent advanced whitewater; confirm the Corps gate/release status and take out before launching, and never run the dam or enter the tailrace without lawful access.",
+    "latitude": 40.484444,
+    "longitude": -79.453056,
+    "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["dam", "whitewater", "cold_water", "fast_rise", "access_uncertain"],
+      "safetyNotes": [
+        "This reach depends on releases from Loyalhanna Dam. Confirm the current release schedule, Corps gate status, and water level with the USACE resource manager before driving to the access.",
+        "PFBC identifies Tailwater Access as a path access with advance arrangements needed to drive closer when staff are available. Do not trespass, improvise a dam/tailrace launch, or enter restricted areas.",
+        "CanoeDraft's 1,040–1,770 cfs band is a release-specific paddling reference, not a guarantee. Stand down for rapidly rising water, cold water, debris, or conditions outside the documented band.",
+        "Use the named Saltsburg Rivers Edge take-out and obey current Pennsylvania PFD, permit, navigation, and local access rules."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03047000", "provider": "usgs", "siteId": "03047000", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Loyalhanna Creek at Loyalhanna Dam, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03047000/"},
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 1040,
+      "idealMax": 1770,
+      "tooLow": 1040,
+      "tooHigh": 1770,
+      "thresholdSource": {"label": "CanoeDraft Loyalhanna Dam to Saltsburg release band", "url": "https://canoedraft.shaw-weil.com/river/Loyalhanna%20Creek.php", "provider": "manual"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "low",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "The route is controlled primarily by dam releases rather than rainfall. Verify scheduled release windows, daylight, cold-water risk, and current access conditions.",
+      "difficulty": "hard",
+      "difficultyNotes": "CanoeDraft rates the dam-to-Saltsburg reach as an advanced release-dependent run. Use a whitewater-capable craft, helmet, PFD, rescue plan, and experienced group.",
+      "confidenceNotes": "High confidence for a distinct route package: CanoeDraft names the four-mile dam-to-Saltsburg reach and a station-specific 1,040–1,770 cfs band tied to USGS 03047000; PFBC/USACE materials name Tailwater Access and Saltsburg Rivers Edge coordinates and explain gate/parking constraints. This is separate from the upstream Ligonier-to-Kingston scored route and the lower Latrobe corridor."
+    },
+    "evidenceNotes": [
+      {"label": "Route and threshold", "value": "Loyalhanna Dam to Saltsburg, 4 mi; 1,040–1,770 cfs", "note": "CanoeDraft documents this distinct dam-release reach, its release-dependent behavior, and the station-specific level band.", "sourceUrl": "https://canoedraft.shaw-weil.com/river/Loyalhanna%20Creek.php"},
+      {"label": "Live direct gauge", "value": "USGS 03047000 at Loyalhanna Dam", "note": "USGS provides continuous discharge and stage telemetry for the dam tailwater station.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03047000"},
+      {"label": "Tailwater access", "value": "USACE/PFBC Tailwater Access", "note": "PFBC's water-trail guide names the path access and says advance arrangements may be needed to drive closer when staff are available.", "sourceUrl": "https://www.loyalhannawatershed.org/images/Documents/LoyalWaterTrailGuide.pdf"},
+      {"label": "Public take-out", "value": "Saltsburg Rivers Edge Park", "note": "PFBC names the Saltsburg Rivers Edge Park paved ramp and publishes its approximate coordinates and directions.", "sourceUrl": "https://www.loyalhannawatershed.org/images/Documents/LoyalWaterTrailGuide.pdf"}
+    ],
+    "sourceLinks": [
+      {"label": "CanoeDraft Loyalhanna Creek", "url": "https://canoedraft.shaw-weil.com/river/Loyalhanna%20Creek.php", "provider": "manual"},
+      {"label": "USGS 03047000 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03047000/", "provider": "usgs"},
+      {"label": "Loyalhanna Water Trail access guide", "url": "https://www.loyalhannawatershed.org/images/Documents/LoyalWaterTrailGuide.pdf", "provider": "local"},
+      {"label": "PFBC boating regulations", "url": "https://pfbc.pa.gov/spbtregsx.htm", "provider": "local"}
+    ]
+  },
+  {
+    "id": "loyalhanna-creek-ligonier-nature-trail-kingston",
+    "slug": "loyalhanna-creek-ligonier-nature-trail-kingston",
+    "name": "Loyalhanna Creek",
+    "reach": "Ligonier Nature Trail to Kingston",
+    "aliases": ["Loyalhanna Creek Water Trail - Ligonier to Kingston", "Loyalhanna Creek - Ligonier Nature Trail to Kingston access"],
+    "state": "Pennsylvania",
+    "region": "Laurel Highlands",
+    "summary": "A roughly seven-mile upper Loyalhanna Creek water-trail segment from the named Ligonier Nature Trail access to the Kingston access above the dam spillway. The Pennsylvania Fish and Boat Commission guide names both access points, publishes their coordinates, and recommends a minimum 250 cfs at the direct Kingston USGS gauge.",
+    "statusText": "Use USGS 03045000 at Kingston and the PFBC water-trail guide's 250 cfs minimum as a conservative launch screen. The guide describes whitewater downstream to Kingston and a dam spillway at the Kingston take-out; take out upstream of the spillway and do not run or improvise around the dam.",
+    "latitude": 40.291667,
+    "longitude": -79.338611,
+    "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["low_water", "dam", "whitewater", "strainers", "cold_water"],
+      "safetyNotes": [
+        "PFBC identifies the Ligonier-to-Kingston section as whitewater downstream to Kingston. Use a suitable whitewater-capable craft, PFD, helmet, and competent group; scout before committing.",
+        "The PFBC guide recommends a minimum 250 cfs at USGS 03045000. Treat that as a conservative access/runnable screen, not a guarantee; stand down for rapidly rising water, wood, poor visibility, or unfamiliar flows.",
+        "Kingston access is about 300 feet upstream of the dam spillway. Take out there and portage/avoid the dam; never run the spillway or use an unverified downstream access.",
+        "Confirm current PFBC, DCNR, USACE, parking, permit, and closure rules before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03045000", "provider": "usgs", "siteId": "03045000", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Loyalhanna Creek at Kingston, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03045000/"},
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 250,
+      "thresholdSource": {"label": "PFBC Loyalhanna Creek Water Trail minimum flow", "url": "https://www.pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf", "provider": "local"},
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [3, 4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "The route is most appropriate during the open-water season and adequate-flow windows. Check gauge trend, rainfall, temperature, and access conditions immediately before launch.",
+      "difficulty": "hard",
+      "difficultyNotes": "The official guide identifies whitewater downstream to Kingston and the dam spillway hazard. Treat this as an advanced creek run, not a casual recreational float.",
+      "confidenceNotes": "High confidence for a distinct route add: PFBC names the Loyalhanna Creek Water Trail, publishes named access points and coordinates for Ligonier Nature Trail and Kingston, and explicitly recommends a minimum 250 cfs at the direct Kingston gauge. The route ends above the Kingston dam spillway and is not duplicated by any existing Loyalhanna route in the inventory."
+    },
+    "evidenceNotes": [
+      {"label": "Official route and access", "value": "Ligonier Nature Trail access to Kingston access, about 7 river miles", "note": "PFBC's official Loyalhanna guide lists the access sites, approximate river miles, coordinates, directions, and the Kingston dam-spillway warning.", "sourceUrl": "https://www.pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf"},
+      {"label": "Direct gauge and threshold", "value": "USGS 03045000; minimum 250 cfs", "note": "PFBC explicitly recommends a minimum of 250 cfs at the Kingston USGS gauge for the water trail.", "sourceUrl": "https://www.pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf"},
+      {"label": "Live USGS station", "value": "Loyalhanna Creek at Kingston, PA", "note": "USGS provides the live monitoring location and discharge telemetry for station 03045000.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03045000/"},
+      {"label": "Dam hazard", "value": "Kingston spillway below take-out", "note": "PFBC places the Kingston take-out about 300 feet upstream from the dam spillway and identifies the downstream portage context.", "sourceUrl": "https://www.pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf"}
+    ],
+    "sourceLinks": [
+      {"label": "PFBC Loyalhanna Water Trail guide", "url": "https://www.pfbc.pa.gov/watertrails/loyalhanna/loyalhanna_guide_map.pdf", "provider": "local"},
+      {"label": "USGS 03045000 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03045000/", "provider": "usgs"},
+      {"label": "American Whitewater Loyalhanna section", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1631/main", "provider": "american_whitewater"}
+    ]
+  },
+  {
     "id": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
     "slug": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
     "name": "Youghiogheny River",
@@ -5640,6 +5867,61 @@ export const pennsylvaniaRoutes: River[] = [
     ]
   },
   {
+    "id": "little-pine-creek-north-park-lake-allison-park",
+    "slug": "little-pine-creek-north-park-lake-allison-park",
+    "name": "Little Pine Creek",
+    "reach": "North Park Lake to Allison Park",
+    "aliases": ["Little Pine Creek - North Park Lake to Allison Park", "Pine Creek (Allegheny County) - North Park to Allison Park"],
+    "state": "Pennsylvania",
+    "region": "Allegheny County",
+    "summary": "A 6.6-mile seasonal Little Pine Creek run from the named North Park Lake boat-launch area to the public ballfield/take-out area on Duncan Avenue in Allison Park. CanoeDraft documents the reach and ties its gauge guidance to USGS 03049800; the gauge is downstream near Etna, so this remains a proxy planning route rather than a scored recommendation.",
+    "statusText": "Use USGS 03049800 near Etna as a conservative downstream proxy. CanoeDraft lists 2.2 ft as the minimum and 3.0 ft as an ideal upper reference for the North Park Lake-to-Allison Park reach; the tiny creek is normally runnable only after heavy rain or spring snowmelt. Inspect the entire line, including the old Wildwood Mine dam/spillway, before committing.",
+    "latitude": 40.56033,
+    "longitude": -79.95993,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["low_water", "dam", "whitewater", "strainers", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "CanoeDraft describes Little Pine Creek as a tiny creek that is normally runnable only after heavy rain or spring snowmelt; never treat the proxy gauge as a launch guarantee.",
+        "The North Park-to-Allison Park reach may include an old approximately three-foot dam at the Wildwood Mine area, ledges, wood, narrow channels, and urban/industrial debris. Scout from shore where possible and portage any unsafe feature; do not run a dam.",
+        "Use the named North Park boat-launch area and the public ballfield/take-out area opposite St Ursula Church on Duncan Avenue. Do not use private banks, driveways, or the separate Allison Park-to-Etna take-out described by CanoeDraft.",
+        "Wear a properly fitted PFD and protective clothing for cold water. Check park notices, current gauge, weather, and downstream conditions immediately before launch."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03049800", "provider": "usgs", "siteId": "03049800", "metric": "gage_height_ft", "unit": "ft", "kind": "proxy", "siteName": "Little Pine Creek near Etna, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03049800/"},
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.2,
+      "idealMax": 3,
+      "tooLow": 2.2,
+      "tooHigh": 3,
+      "thresholdSource": {"label": "CanoeDraft Little Pine Creek gauge bands", "url": "https://canoedraft.shaw-weil.com/gauge/", "provider": "manual"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [3, 4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "A narrow seasonal creek; heavy-rain and spring-snowmelt windows are the primary opportunity. Confirm park access and actual water at the put-in.",
+      "difficulty": "hard",
+      "difficultyNotes": "CanoeDraft describes small ledges and possible dam hazards on the upper reach. Treat this as advanced creek boating requiring scouting and a suitable whitewater-capable craft, not a casual flatwater float.",
+      "confidenceNotes": "The route endpoints and six-point-six-mile reach are documented by CanoeDraft; North Park's official page confirms the park boating context and launch area; Hampton Township materials locate the public ballfield opposite St Ursula Church on Duncan Avenue. USGS 03049800 is a downstream proxy near Etna, so the route is planning-only and excluded from scored coverage."
+    },
+    "evidenceNotes": [
+      {"label": "Route and threshold", "value": "North Park Lake to Allison Park, 6.6 mi; 2.2 ft minimum and 3 ft ideal upper reference", "note": "CanoeDraft documents the reach, access context, hazards, seasonal runnable conditions, and station-specific gauge table for USGS 03049800.", "sourceUrl": "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php"},
+      {"label": "Live proxy gauge", "value": "USGS 03049800 Little Pine Creek near Etna", "note": "USGS provides the live stage telemetry and monitoring-location metadata; it is downstream of the reviewed reach.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03049800"},
+      {"label": "North Park boating context", "value": "North Park Lake boat-launch area", "note": "Allegheny County identifies North Park Lake boating and the park location at 303 Pearce Mill Road; follow current park signs and notices for the exact launch.", "sourceUrl": "https://www.alleghenycounty.us/parks/activities/boating/north-park"},
+      {"label": "Allison Park take-out context", "value": "Public ballfield opposite St Ursula Church on Duncan Avenue", "note": "Hampton Township event materials identify the ballfield opposite St Ursula Church off Duncan Avenue; use the public ballfield area only and verify current parking/access.", "sourceUrl": "https://www.hampton-pa.gov/DocumentCenter/View/1135/Pine-Creek-Cleanup-Day-PDF"},
+      {"label": "Hazards", "value": "Old Wildwood Mine dam/spillway and small ledges", "note": "CanoeDraft flags a possible old three-foot dam at Wildwood Mine and other ledges/wood; inspect and portage rather than run unknown features.", "sourceUrl": "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php"}
+    ],
+    "sourceLinks": [
+      {"label": "CanoeDraft Little Pine Creek route", "url": "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php", "provider": "manual"},
+      {"label": "CanoeDraft gauge table", "url": "https://canoedraft.shaw-weil.com/gauge/", "provider": "manual"},
+      {"label": "USGS 03049800 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03049800/", "provider": "usgs"},
+      {"label": "Allegheny County North Park boating", "url": "https://www.alleghenycounty.us/parks/activities/boating/north-park", "provider": "local"},
+      {"label": "Hampton Township ballfield context", "url": "https://www.hampton-pa.gov/DocumentCenter/View/1135/Pine-Creek-Cleanup-Day-PDF", "provider": "local"}
+    ]
+  },
+  {
     "id": "youghiogheny-river-connellsville-dawson",
     "slug": "youghiogheny-river-connellsville-dawson",
     "name": "Youghiogheny River",
@@ -6242,6 +6524,251 @@ export const pennsylvaniaRoutes: River[] = [
         "url": "https://blacklickcreekwatershed.org/bcwa-history/about-blacklick-creek-watershed/",
         "provider": "local"
       }
+    ]
+  },
+  {
+    "id": "french-creek-cambridge-springs-conneautee",
+    "slug": "french-creek-cambridge-springs-conneautee",
+    "name": "French Creek",
+    "reach": "Cambridge Springs to Conneauttee",
+    "aliases": ["French Creek Water Trail - Cambridge Springs to Conneauttee", "French Creek Cambridge Springs Access to Conneauttee Access"],
+    "state": "Pennsylvania",
+    "region": "French Creek Valley",
+    "summary": "A named public-access section of the French Creek Water Trail from Cambridge Springs to Conneauttee access, with mostly flat water, shallow riffles, oxbows, cottages, and woods. The official French Creek Paddling Guide directly ties this corridor to the Cambridge Springs USGS gauge.",
+    "statusText": "Use USGS 03021890 at Cambridge Springs. The French Creek Paddling Guide describes 3-5 ft as ideal and warns that below 2 ft may be too shallow while above 5 ft may be unsafe; check for strainers and scout the Broadford Bridge area.",
+    "latitude": 41.807222,
+    "longitude": -80.043611,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["cold_water", "strainers", "low_water", "private_banks"],
+      "safetyNotes": [
+        "The official guide calls this section mostly flat and shallow with riffles, but specifically warns of strainers at Broadford Bridge and possible portage.",
+        "Use a properly fitted PFD and whistle, check weather and water temperature, and do not launch when the gauge or river conditions exceed the published safe operating guidance.",
+        "Use only the named Cambridge Springs and Conneauttee public access points; do not substitute private banks or bridge shoulders."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-03021890",
+      "provider": "usgs",
+      "siteId": "03021890",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "French Creek at Cambridge Springs, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03021890/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3,
+      "idealMax": 5,
+      "tooLow": 2,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "French Creek Conservancy Paddling Guide water-level guidance",
+        "url": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "The guide recommends checking the gauge, temperature, and weather immediately before launching; cold water and sudden rain can change conditions quickly.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Mostly flat water but shallow riffles, strainers, and bridge hazards require competent boat control, scouting, and portage judgment.",
+      "confidenceNotes": "Confidence is high for endpoint identity, direct gauge mapping, threshold guidance, access, and hazards because the French Creek Conservancy guide documents this exact water trail and names the Cambridge Springs gauge."
+    },
+    "evidenceNotes": [
+      {"label": "Official route and access", "value": "Cambridge Springs access to Conneauttee access", "note": "The French Creek Paddling Guide names both public access points and describes the section as mostly flat, shallow water with riffles and oxbows.", "sourceUrl": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"},
+      {"label": "Direct live gauge", "value": "USGS 03021890 at Cambridge Springs", "note": "The guide lists the Cambridge Springs gauge for French Creek water-level checks.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03021890/"},
+      {"label": "Water-level bands", "value": "3-5 ft ideal; 2-5 ft operating envelope", "note": "The official guide says French Creek is ideal between 3 and 5 ft and warns that under 2 ft may be too shallow and above 5 ft too high.", "sourceUrl": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"},
+      {"label": "Hazards", "value": "Broadford Bridge strainers and possible portage", "note": "Scout ahead for strainers, bridge current, shallow riffles, and changing river conditions.", "sourceUrl": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"}
+    ],
+    "sourceLinks": [
+      {"label": "French Creek Paddling Guide", "url": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf", "provider": "local"},
+      {"label": "USGS 03021890 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03021890/", "provider": "usgs"},
+      {"label": "French Creek Conservancy", "url": "https://www.frenchcreekconservancy.org/", "provider": "local"}
+    ]
+  },
+  {
+    "id": "french-creek-cochranton-utica",
+    "slug": "french-creek-cochranton-utica",
+    "name": "French Creek",
+    "reach": "Cochranton Borough to Utica",
+    "aliases": ["French Creek Water Trail - Cochranton to Utica", "French Creek Cochranton Borough to Utica Access"],
+    "state": "Pennsylvania",
+    "region": "French Creek Valley",
+    "summary": "A documented lower French Creek Water Trail reach from Cochranton Borough to Utica Access, with mostly flat water, islands, riffles, forested views, and a documented approximately eight-mile paddle to the Utica take-out.",
+    "statusText": "Use USGS 03024000 at Utica. The official French Creek guide describes 3-5 ft as ideal and warns that below 2 ft may be too shallow while above 5 ft may be unsafe; scout Saegertown Dam, Mile 19 rapids, and Polly's Rapids and portage when needed.",
+    "latitude": 41.518768,
+    "longitude": -80.053506,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["cold_water", "strainers", "low_water", "dam", "whitewater", "private_banks"],
+      "safetyNotes": [
+        "The official guide describes the reach as mostly flat and slow but warns about Saegertown Dam, Mile 19 rapids, Polly's Rapids, strainers, shallow water, and possible portage.",
+        "Use a properly fitted PFD and whistle, check weather and water temperature, and do not launch when the gauge or river conditions exceed the published safe operating guidance.",
+        "Use only the named Cochranton Borough and Utica public access points; do not substitute private banks or bridge shoulders."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-03024000",
+      "provider": "usgs",
+      "siteId": "03024000",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "French Creek at Utica, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03024000/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3,
+      "idealMax": 5,
+      "tooLow": 2,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "French Creek Conservancy Paddling Guide water-level guidance",
+        "url": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "The guide recommends checking the gauge, temperature, and weather immediately before launching; cold water and sudden rain can change conditions quickly.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Mostly flat water, but the reach includes a dam, borderline Class I rapids, strainers, and possible portage decisions requiring competent boat control and scouting.",
+      "confidenceNotes": "Confidence is high for endpoint identity, direct gauge mapping, threshold guidance, access, and hazards because the French Creek Conservancy guide and PFBC water-trail map document this exact corridor and the Utica gauge."
+    },
+    "evidenceNotes": [
+      {"label": "Official route and access", "value": "Cochranton Borough to Utica Access", "note": "The French Creek Paddling Guide names both access points and describes approximately eight miles to Utica with flat water, islands, riffles, and forested views.", "sourceUrl": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"},
+      {"label": "Direct live gauge", "value": "USGS 03024000 at Utica", "note": "The guide lists the Utica gauge for French Creek water-level checks and the USGS monitoring page provides live gage height.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03024000/"},
+      {"label": "Water-level bands", "value": "3-5 ft ideal; 2-5 ft operating envelope", "note": "The official guide says French Creek is ideal between 3 and 5 ft and warns that under 2 ft may be too shallow and above 5 ft too high.", "sourceUrl": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"},
+      {"label": "Hazards", "value": "Saegertown Dam, Mile 19 rapids, Polly's Rapids, strainers", "note": "Scout hazards ahead and portage whenever passage is uncertain.", "sourceUrl": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"}
+    ],
+    "sourceLinks": [
+      {"label": "French Creek Paddling Guide", "url": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf", "provider": "local"},
+      {"label": "Lower French Creek Water Trail map", "url": "https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf", "provider": "local"},
+      {"label": "USGS 03024000 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03024000/", "provider": "usgs"},
+      {"label": "Utica Access coordinates", "url": "https://waterlandlife.org/watershed-conservation/canoe-access-development-fund-cadf/utica-access/", "provider": "local"}
+    ]
+  },
+  {
+    "id": "french-creek-union-city-dam-route-6n-19",
+    "slug": "french-creek-union-city-dam-route-6n-19",
+    "name": "French Creek",
+    "reach": "Union City Dam to Routes 6N/19",
+    "aliases": ["French Creek Water Trail - Union City Dam to Routes 6N/19", "French Creek Union City Dam to Route 6N/19 access"],
+    "state": "Pennsylvania",
+    "region": "French Creek Upper Water Trail",
+    "summary": "An official upper French Creek Water Trail reach beginning at the below-dam Union City access and continuing to the public access near the US Routes 6N/19 junction, with a remote forested corridor and approximately twelve miles of paddling.",
+    "statusText": "Use USGS 03021520 near Union City. The French Creek guide says 3-5 ft is ideal and warns that below 2 ft may be too shallow while above 5 ft may be unsafe. The Union City Dam is not passable; launch only below it and confirm the downstream access is open.",
+    "latitude": 41.919722,
+    "longitude": -79.901667,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["dam", "cold_water", "strainers", "low_water", "private_banks"],
+      "safetyNotes": [
+        "The Union City Dam is explicitly not passable. Use the mapped below-dam access and never approach or run the dam structure.",
+        "The upper reach is narrow and can accumulate downed trees and strainers; scout ahead and portage whenever passage is uncertain.",
+        "Use only the named Union City Dam and Routes 6N/19 public access points, follow posted parking rules, and do not substitute private banks or bridge shoulders."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-03021520",
+      "provider": "usgs",
+      "siteId": "03021520",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "French Creek near Union City, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03021520/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3,
+      "idealMax": 5,
+      "tooLow": 2,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "French Creek Conservancy Paddling Guide water-level guidance",
+        "url": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "The guide recommends checking the gauge, temperature, and weather immediately before launching; the upper creek is narrower and more sensitive to downed trees and fast changes.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Remote upper corridor with a dam-exclusion requirement, narrow channel, possible strainers, and a long day distance requiring competent boat control and a shuttle.",
+      "confidenceNotes": "Confidence is high for the named upper-trail endpoints, direct Union City gauge association, threshold guidance, and dam hazard because the PFBC upper water-trail map and French Creek guide document this corridor and access pair."
+    },
+    "evidenceNotes": [
+      {"label": "Official route and access", "value": "Union City Dam below-dam access to Routes 6N/19 access", "note": "The PFBC upper water-trail map names the below-dam launch, the Routes 6N/19 access, and approximately twelve miles of downstream trail context.", "sourceUrl": "https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf"},
+      {"label": "Direct live gauge", "value": "USGS 03021520 near Union City", "note": "The station is the direct French Creek gauge for the upper Union City corridor.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03021520/"},
+      {"label": "Water-level bands", "value": "3-5 ft ideal; 2-5 ft operating envelope", "note": "The official guide says French Creek is ideal between 3 and 5 ft and warns that under 2 ft may be too shallow and above 5 ft too high.", "sourceUrl": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf"},
+      {"label": "Dam and strainer hazards", "value": "Union City Dam not passable; scout upper-creek strainers", "note": "The PFBC map marks the dam as not passable and warns that upper French Creek is susceptible to downed trees and changing strainers.", "sourceUrl": "https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf"}
+    ],
+    "sourceLinks": [
+      {"label": "Upper French Creek Water Trail map", "url": "https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf", "provider": "local"},
+      {"label": "French Creek Paddling Guide", "url": "https://www.frenchcreekconservancy.org/wp-content/uploads/2025/06/250420-paddling-guide-625-final-proof.pdf", "provider": "local"},
+      {"label": "USGS 03021520 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03021520/", "provider": "usgs"}
+    ]
+  },
+  {
+    "id": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+    "slug": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+    "name": "Laurel Hill Creek",
+    "reach": "Laurel Hill State Park Beach Area to King's Covered Bridge",
+    "aliases": ["Laurel Hill Creek - Laurel Hill State Park to King's Bridge", "Laurel Hill State Park six-mile water trail", "Laurel Hill Creek - Beach Area to King's Covered Bridge"],
+    "state": "Pennsylvania",
+    "region": "Laurel Highlands",
+    "summary": "A six-mile Laurel Hill Creek water trail from the named canoe/kayak launch in Laurel Hill State Park's Beach Area to the improved take-out at historic King's Covered Bridge. Pennsylvania DCNR names the water trail and both access contexts; the downstream USGS Ursina gauge is used conservatively with a station-specific 2.2 ft minimum from CanoeDraft.",
+    "statusText": "Use the Laurel Hill Creek at Ursina gauge as a conservative same-creek reference. CanoeDraft identifies 2.2 ft as the minimum for the Laurel Hill State Park to Whipkey Dam run; this shorter upstream water-trail card keeps the same minimum-only floor and requires visual inspection because the gauge is downstream of King's Bridge.",
+    "latitude": 39.9375,
+    "longitude": -79.2711111,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "strainers", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "The DCNR route begins at the Beach Area canoe/kayak launch and ends at an improved take-out at King's Covered Bridge; use only those named facilities and verify seasonal access, parking, and take-out conditions before launching.",
+        "The 2.2 ft floor is a conservative minimum, not a guarantee of safe passage. Laurel Hill Creek is narrow and can change quickly after rain; scout wood, bridge approaches, shallow riffles, and any reach that looks different from the guide.",
+        "The Ursina gauge is downstream of King's Bridge and is used as a same-creek proxy. Do not launch on a falling or rapidly rising hydrograph, and wear a PFD in the lake/creek transition and cold spring water.",
+        "Carry the required Pennsylvania boat registration or launch permit and obey all state-park, PFBC, closure, and private-property rules."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03080000", "provider": "usgs", "siteId": "03080000", "metric": "gage_height_ft", "unit": "ft", "kind": "proxy", "siteName": "Laurel Hill Creek at Ursina, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03080000/"},
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 2.2,
+      "thresholdSource": {"label": "CanoeDraft Laurel Hill Creek minimum level", "url": "https://www.canoedraft.shaw-weil.com/gauge/", "provider": "manual"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "The state park water trail is a warm-season route, but spring-fed water remains cold and rainfall can change a narrow creek quickly. Confirm park opening, access, and current gauge conditions immediately before launch.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The named six-mile trail is not presented as whitewater, but the narrow creek, shallow sections, wood, cold water, and downstream proxy gauge make this a moderate route requiring competent boat control and a current visual check.",
+      "confidenceNotes": "Confidence is good for the route shape and access: Pennsylvania DCNR explicitly identifies the Beach Area canoe/kayak launch as part of a six-mile water trail ending at an improved King's Covered Bridge take-out. King's Bridge coordinates are independently published by a USGS water-quality station with mapping-grade GPS. The live USGS Ursina gauge and CanoeDraft's 2.2 ft station-specific floor support only a conservative proxy minimum; no official ideal or high-water band is claimed."
+    },
+    "evidenceNotes": [
+      {"label": "Official route and endpoint names", "value": "Beach Area launch to King's Covered Bridge, six miles", "note": "Pennsylvania DCNR names the additional canoe/kayak launch in Beach Area and says it is part of a six-mile water trail ending at an improved take-out at historic King's Covered Bridge.", "sourceUrl": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-hill-state-park/boating"},
+      {"label": "King's Bridge coordinates", "value": "39.937500, -79.271111", "note": "The USGS Water Quality Portal identifies the named Laurel Hill Creek at King's Bridge site and reports mapping-grade GPS coordinates at the bridge.", "sourceUrl": "https://www.waterqualitydata.us/provider/NWIS/USGS-PA/USGS-03079744/"},
+      {"label": "Live same-creek gauge", "value": "USGS 03080000 at Ursina, PA", "note": "The product uses the live Ursina stage gauge as a downstream same-creek proxy rather than implying that the gauge is at either route endpoint.", "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03080000/"},
+      {"label": "Conservative minimum", "value": "2.2 ft minimum-only", "note": "CanoeDraft maps the Laurel Hill State Park to Whipkey Dam run to USGS 03080000 and identifies 2.2 ft as the minimum; PaddleToday applies it conservatively to this shorter upstream trail and does not claim an ideal/high band.", "sourceUrl": "https://canoedraft.shaw-weil.com/gauge/"},
+      {"label": "Park access and permits", "value": "Beach Area launch; state-park/PFBC permits apply", "note": "DCNR says the Beach Area has a canoe/kayak launch and lists the registration and launch-permit options for non-powered boats.", "sourceUrl": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-hill-state-park/boating"}
+    ],
+    "sourceLinks": [
+      {"label": "DCNR Laurel Hill boating", "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-hill-state-park/boating", "provider": "local"},
+      {"label": "USGS 03080000 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03080000/", "provider": "usgs"},
+      {"label": "USGS King's Bridge coordinates", "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-PA/USGS-03079744/", "provider": "usgs"},
+      {"label": "CanoeDraft Laurel Hill gauge guidance", "url": "https://canoedraft.shaw-weil.com/gauge/", "provider": "manual"},
+      {"label": "PA boat registration and launch rules", "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg", "provider": "local"}
     ]
   }
 ];

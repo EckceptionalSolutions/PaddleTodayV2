@@ -2,6 +2,177 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
+  "redbank-creek-new-bethlehem-climax": {
+    "putIn": {"name": "New Bethlehem kayak launch below the dam", "latitude": 41.0024, "longitude": -79.3322},
+    "takeOut": {"name": "Climax access at Trail Mile 17", "latitude": 40.9859, "longitude": -79.3751},
+    "logistics": {
+      "distanceLabel": "About 6 river mi",
+      "estimatedPaddleTime": "About 3 to 5 on-water hours, plus shuttle and access checks",
+      "shuttle": "Stage Climax first, then use the named New Bethlehem kayak launch. Verify current parking, carry, and closure conditions before launch.",
+      "permits": "Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules and local access signs.",
+      "camping": "Use only designated Redbank Valley Trail camping or nearby lodging; never camp on creek banks or access property.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A named six-mile Redbank Creek float with a public New Bethlehem launch, limited Climax parking, and a same-day gauge check.",
+      "accessCaveats": ["Climax parking is limited; do not block driveways or use private banks.", "The USGS gauge and guide thresholds are operating references, not guarantees; inspect actual water, wood, and current."],
+      "watchFor": ["Low water", "Fast rise and debris", "Strainers and bridges", "Cold water", "Limited cell service"]
+    },
+    "accessPoints": [
+      {"id": "redbank-new-bethlehem-kayak-launch", "name": "New Bethlehem kayak launch below the dam", "latitude": 41.0024, "longitude": -79.3322, "mileFromStart": 0, "segmentKind": "creek", "note": "Named public launch; follow current local parking and access signs."},
+      {"id": "redbank-climax-trail-mile-17", "name": "Climax access at Trail Mile 17", "latitude": 40.9859, "longitude": -79.3751, "mileFromStart": 6, "segmentKind": "creek", "note": "Named guide/RVTA access with limited parking; do not block driveways or ramp."}
+    ]
+  },
+  "redbank-creek-climax-st-charles": {
+    "putIn": {"name": "Climax access at Trail Mile 17", "latitude": 40.9859, "longitude": -79.3751},
+    "takeOut": {"name": "Saint Charles Road crossing at Trail Mile 12.5", "latitude": 40.99465, "longitude": -79.39304},
+    "logistics": {
+      "distanceLabel": "About 4.5 river mi",
+      "estimatedPaddleTime": "About 2 to 4 on-water hours, plus shuttle and access verification",
+      "shuttle": "Scout the Saint Charles Road crossing and parking first, then launch at Climax. Do not leave vehicles on private property or block the road.",
+      "permits": "Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules and all posted local access restrictions.",
+      "camping": "Use only designated Redbank Valley Trail camping or nearby lodging; no on-route bank camping is permitted.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A distinct downstream extension described by the official guide; the Saint Charles Road crossing is a road take-out, not a maintained ramp.",
+      "accessCaveats": ["Verify lawful parking and carry access at the Saint Charles Road crossing on the day of travel.", "Do not substitute private banks or unlisted roadside pull-offs."],
+      "watchFor": ["Low water below 2.8 ft", "Rapid rise and debris", "Strainers and bridge approaches", "Cold water", "Limited cell service", "Private-bank access constraints"]
+    },
+    "accessPoints": [
+      {"id": "redbank-climax-access", "name": "Climax access at Trail Mile 17", "latitude": 40.9859, "longitude": -79.3751, "mileFromStart": 0, "segmentKind": "creek", "note": "Named public access context; verify current parking and carry conditions."},
+      {"id": "redbank-st-charles-road", "name": "Saint Charles Road crossing at Trail Mile 12.5", "latitude": 40.99465, "longitude": -79.39304, "mileFromStart": 4.5, "segmentKind": "creek", "note": "Guide-described road take-out; verify lawful parking and carry access before launch."}
+    ]
+  },
+  "loyalhanna-creek-tailwater-saltsburg-rivers-edge": {
+    "putIn": {"name": "Loyalhanna Dam Tailwater Access-USACE", "latitude": 40.4575, "longitude": -79.450556},
+    "takeOut": {"name": "Saltsburg Rivers Edge Park", "latitude": 40.484444, "longitude": -79.453056},
+    "logistics": {
+      "distanceLabel": "About 4 mi",
+      "estimatedPaddleTime": "About 2 to 4 hr during a confirmed release, depending on current and scouting",
+      "shuttle": "Confirm the dam-release window and access gate with the USACE resource manager, stage Saltsburg Rivers Edge first, and use the PFBC access directions. Do not drive beyond any gate or closure.",
+      "permits": "Follow current USACE/PFBC access arrangements, Pennsylvania boat registration and PFD rules, and Saltsburg parking/take-out requirements.",
+      "camping": "Use only legal managed camping at Loyalhanna Lake or nearby campgrounds; no on-route creek-bank camping is verified.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A release-dependent advanced tailwater run with a controlled-access put-in and named Saltsburg take-out.",
+      "accessCaveats": ["Tailwater access is a path access and may require advance arrangements to drive closer; verify current gate and construction status.", "Do not launch from the dam face, restricted tailrace, or any unmarked private/utility bank.", "The 1,040–1,770 cfs band is community release guidance; verify the actual USGS flow and release trend immediately before launch."],
+      "watchFor": ["Dam-release changes", "Cold water and rapidly rising current", "Whitewater and strainers", "Restricted access/gates", "Navigation and take-out conditions"]
+    },
+    "accessPoints": [
+      {"id": "loyalhanna-tailwater-usace", "name": "Loyalhanna Dam Tailwater Access-USACE", "latitude": 40.4575, "longitude": -79.450556, "mileFromStart": 0, "segmentKind": "creek", "note": "PFBC/USACE path access; advance arrangements may be needed to drive closer."},
+      {"id": "saltsburg-rivers-edge", "name": "Saltsburg Rivers Edge Park", "latitude": 40.484444, "longitude": -79.453056, "mileFromStart": 4, "segmentKind": "creek", "note": "PFBC-named paved ramp and take-out; confirm current parking and local access rules."}
+    ]
+  },
+  "loyalhanna-creek-ligonier-nature-trail-kingston": {
+    "putIn": {"name": "Ligonier Nature Trail access", "latitude": 40.246667, "longitude": -79.2475},
+    "takeOut": {"name": "Kingston access above dam spillway", "latitude": 40.291667, "longitude": -79.338611},
+    "logistics": {
+      "distanceLabel": "About 7 river mi",
+      "estimatedPaddleTime": "About 3 to 5 hr depending on flow, scouting, and portage conditions",
+      "shuttle": "Stage the Kingston access above the spillway first, then use PFBC directions to reach the Ligonier Nature Trail access. Confirm parking, permits, and current closures before launching.",
+      "permits": "Follow current Pennsylvania boat registration, PFBC launch-permit, DCNR/USACE access, and posted parking rules for the named access sites.",
+      "camping": "No on-route camping is verified; use nearby legal managed campgrounds or lodging and never camp on creek banks or access property.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A named PFBC Loyalhanna Creek Water Trail segment with direct USGS flow guidance and a take-out above the Kingston spillway.",
+      "accessCaveats": ["Use the PFBC-named Ligonier Nature Trail access and Kingston access; do not improvise at private banks or bridge shoulders.", "Kingston take-out is upstream of the dam spillway and requires an intentional exit before the hazard.", "The PFBC coordinates are approximate access anchors; follow current signs and access directions on site."],
+      "watchFor": ["Kingston dam spillway", "Whitewater and changing current", "Strainers and cold water", "Low flow below 250 cfs", "Closures, permits, and parking changes"]
+    },
+    "accessPoints": [
+      {"id": "ligonier-nature-trail", "name": "Ligonier Nature Trail access", "latitude": 40.246667, "longitude": -79.2475, "mileFromStart": 0, "segmentKind": "creek", "note": "PFBC water-trail access anchor at approximately river mile 36; follow the guide's directions and current signs."},
+      {"id": "kingston-above-spillway", "name": "Kingston access above dam spillway", "latitude": 40.291667, "longitude": -79.338611, "mileFromStart": 7, "segmentKind": "creek", "note": "PFBC places the take-out about 300 feet upstream from the Kingston dam spillway; exit before the hazard."}
+    ]
+  },
+  "little-pine-creek-north-park-lake-allison-park": {
+    "putIn": {"name": "North Park Lake boat-launch area", "latitude": 40.611005, "longitude": -80.017122},
+    "takeOut": {"name": "Allison Park public ballfield area on Duncan Avenue", "latitude": 40.56033, "longitude": -79.95993},
+    "logistics": {
+      "distanceLabel": "About 6.6 mi",
+      "estimatedPaddleTime": "About 3 to 5 hr when runnable, with extra time for scouting and portages",
+      "shuttle": "Stage the public Duncan Avenue ballfield area first, then use North Park directions to reach the boat-launch area. Verify current parking and access with Allegheny County and Hampton Township before launching.",
+      "permits": "Follow current Allegheny County North Park boating rules, launch/parking signs, and any municipal access restrictions. Do not use private banks or the separate Allison Park-to-Etna take-out described in route guides.",
+      "camping": "No on-route camping is verified; use nearby legal managed lodging or campgrounds and never camp on creek banks or park/private property.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A seasonal, advanced Little Pine Creek planning run with a North Park Lake start and a public Allison Park ballfield-area take-out.",
+      "accessCaveats": ["North Park coordinate is the official park location/boat-launch anchor, not a survey of the exact hand-carry launch.", "The Duncan Avenue coordinate is an approximate public ballfield anchor opposite St Ursula Church; verify current parking and take-out access on site.", "The 03049800 gauge is downstream near Etna; inspect actual water and hazards at the put-in."],
+      "watchFor": ["Old Wildwood Mine dam/spillway and ledges", "Fresh wood and strainers after storms", "Very low water outside heavy-rain/snowmelt windows", "Cold water", "Urban debris and private banks"]
+    },
+    "accessPoints": [
+      {"id": "north-park-lake-boat-launch", "name": "North Park Lake boat-launch area", "latitude": 40.611005, "longitude": -80.017122, "mileFromStart": 0, "segmentKind": "lake", "note": "Official Allegheny County park/boating anchor; follow current signs to the exact launch."},
+      {"id": "allison-park-duncan-ballfield", "name": "Allison Park public ballfield area on Duncan Avenue", "latitude": 40.56033, "longitude": -79.95993, "mileFromStart": 6.6, "segmentKind": "creek", "note": "Approximate public ballfield anchor opposite St Ursula Church; confirm legal parking and take-out conditions before use."}
+    ]
+  },
+  "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge": {
+    "putIn": {"name": "Laurel Hill State Park Beach Area canoe/kayak launch", "latitude": 40.01023, "longitude": -79.2244},
+    "takeOut": {"name": "King's Covered Bridge improved take-out", "latitude": 39.9375, "longitude": -79.2711111},
+    "logistics": {
+      "distanceLabel": "About 6 mi",
+      "estimatedPaddleTime": "About 3 to 5 hr in ordinary conditions, longer with shallow water, scouting, or a carry",
+      "shuttle": "Stage the King's Covered Bridge take-out first, then use the state park directions to reach the Beach Area launch. Confirm seasonal parking, launch, and take-out conditions before starting.",
+      "permits": "Follow current Pennsylvania boat registration, state-park launch-permit, PFBC launch-permit, and posted access rules for non-powered boats.",
+      "camping": "Laurel Hill State Park provides managed camping near the launch; use only reserved legal campsites or nearby lodging and never camp on creek banks or private property.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A named six-mile Laurel Hill Creek water trail with a state-park Beach Area launch and improved King's Covered Bridge take-out.",
+      "accessCaveats": ["The Beach Area coordinate is the official park GPS anchor, not a survey of the exact hand-carry launch; follow park signs to the launch.", "Use the improved King's Covered Bridge take-out and do not improvise on private banks or bridge shoulders.", "The Ursina gauge is downstream; inspect actual water, wood, and current at launch before committing."],
+      "watchFor": ["Shallow riffles below the 2.2 ft proxy floor", "Strainers and fresh wood after rain", "Cold water and fast changes", "Bridge approaches and private banks", "Seasonal park access or closure notices"]
+    },
+    "accessPoints": [
+      {"id": "laurel-hill-beach-area", "name": "Laurel Hill State Park Beach Area canoe/kayak launch", "latitude": 40.01023, "longitude": -79.2244, "mileFromStart": 0, "segmentKind": "creek", "note": "Official DCNR park GPS anchor; follow park signs to the named Beach Area hand-carry launch."},
+      {"id": "kings-covered-bridge", "name": "King's Covered Bridge improved take-out", "latitude": 39.9375, "longitude": -79.2711111, "mileFromStart": 6, "segmentKind": "creek", "note": "Named DCNR take-out; coordinates align with the USGS King's Bridge monitoring site."}
+    ]
+  },
+  "french-creek-union-city-dam-route-6n-19": {
+    "putIn": {"name": "Union City Dam below-dam access", "latitude": 41.919722, "longitude": -79.901667},
+    "takeOut": {"name": "Routes 6N/19 access", "latitude": 41.881944, "longitude": -80.000000},
+    "logistics": {
+      "distanceLabel": "About 12 mi",
+      "estimatedPaddleTime": "About 6 hr to 9 hr in ordinary conditions, longer with scouting, shallow water, or portage",
+      "shuttle": "Stage the downstream Routes 6N/19 access first, then use the mapped gravel-road approach to the below-dam Union City launch. Confirm parking and launch conditions before starting.",
+      "permits": "Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules for the named public accesses.",
+      "camping": "Treat this as a long day paddle; use only legal managed camping or nearby lodging and do not camp on creek banks or private property.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A remote upper French Creek day paddle with a dam-exclusion launch, narrow channel, possible strainers, and a long downstream shuttle.",
+      "accessCaveats": ["The Union City Dam is not passable; launch only at the mapped below-dam access.", "The PFBC map notes gravel-road carry access and parking rules; verify current conditions before launching.", "Use only the named Routes 6N/19 access and respect private property and posted restrictions."],
+      "watchFor": ["Union City Dam structure and restricted upstream area", "Downed trees and strainers in narrow upper channel", "Shallow riffles below 2 ft", "Cold water and sudden rain", "Private banks and bridge abutments"]
+    },
+    "accessPoints": [
+      {"id": "union-city-dam-below", "name": "Union City Dam below-dam access", "latitude": 41.919722, "longitude": -79.901667, "mileFromStart": 0, "segmentKind": "creek", "note": "Mapped below-dam access; dam is not passable."},
+      {"id": "routes-6n-19", "name": "Routes 6N/19 access", "latitude": 41.881944, "longitude": -80.000000, "mileFromStart": 12, "segmentKind": "creek", "note": "Mapped downstream public access near the US Routes 6N/19 junction."}
+    ]
+  },
+  "french-creek-cochranton-utica": {
+    "putIn": {"name": "Cochranton Borough access", "latitude": 41.518768, "longitude": -80.053506},
+    "takeOut": {"name": "Utica Access", "latitude": 41.438719, "longitude": -79.955350},
+    "logistics": {
+      "distanceLabel": "About 8 mi",
+      "estimatedPaddleTime": "About 4 hr to 7 hr in ordinary conditions, longer with scouting, shallow water, or portage",
+      "shuttle": "Stage the Utica take-out first, then drive to the Cochranton Borough access. Confirm both public access areas are open and usable before launching.",
+      "permits": "Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules for the named public accesses.",
+      "camping": "Treat this as a day paddle; use only legal managed camping or nearby lodging and do not camp on creek banks or private property.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A longer lower French Creek Water Trail day paddle with mostly flat water, islands, riffles, and documented dam and rapid hazards.",
+      "accessCaveats": ["Use only the named Cochranton Borough and Utica public accesses.", "Respect posted permits, launch closures, private property, and temporary maintenance restrictions.", "Scout Saegertown Dam, Mile 19 rapids, and Polly's Rapids; portage whenever passage is uncertain."],
+      "watchFor": ["Saegertown Dam and possible portage", "Mile 19 and Polly's Rapids", "Strainers, shallow riffles, and gravel bars below 2 ft", "Sudden rain, cold water, and changing current", "Private banks and non-public bridge shoulders"]
+    },
+    "accessPoints": [
+      {"id": "cochranton-borough", "name": "Cochranton Borough access", "latitude": 41.518768, "longitude": -80.053506, "mileFromStart": 0, "segmentKind": "creek", "note": "Named public access on river left."},
+      {"id": "utica-access", "name": "Utica Access", "latitude": 41.438719, "longitude": -79.955350, "mileFromStart": 8, "segmentKind": "creek", "note": "Named non-motorized public access near Utica Borough."}
+    ]
+  },
+  "french-creek-cambridge-springs-conneautee": {
+    "putIn": {"name": "Cambridge Springs access", "latitude": 41.807222, "longitude": -80.043611},
+    "takeOut": {"name": "Conneauttee access", "latitude": 41.811111, "longitude": -80.078889},
+    "logistics": {
+      "distanceLabel": "About 2 mi",
+      "estimatedPaddleTime": "About 1 hr to 2 hr in ordinary conditions, longer with shallow water, scouting, or a portage",
+      "shuttle": "Stage the Conneauttee take-out first, then drive to the Cambridge Springs access. Confirm both public access areas are open and usable before launching.",
+      "permits": "Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules for the named public accesses.",
+      "camping": "Treat this as a day paddle; the guide identifies nearby parks, facilities, lodging, and restaurants but does not authorize creek-bank camping.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A short, accessible French Creek Water Trail section with mostly flat water, shallow riffles, oxbows, cottages, and woods.",
+      "accessCaveats": ["Use only the named Cambridge Springs and Conneauttee public accesses.", "Respect posted permits, launch closures, private property, and any temporary maintenance restrictions.", "Scout Broadford Bridge and portage if strainers or current make passage unsafe."],
+      "watchFor": ["Strainers at Broadford Bridge", "Shallow riffles and gravel bars below 2 ft", "Sudden rain, cold water, and changing current", "Private banks and non-public bridge shoulders"]
+    },
+    "accessPoints": [
+      {"id": "cambridge-springs", "name": "Cambridge Springs access", "latitude": 41.807222, "longitude": -80.043611, "mileFromStart": 0, "segmentKind": "creek", "note": "Named public launch near Cambridge Springs."},
+      {"id": "conneautee", "name": "Conneauttee access", "latitude": 41.811111, "longitude": -80.078889, "mileFromStart": 2, "segmentKind": "creek", "note": "Named public take-out and access."}
+    ]
+  },
   "susquehanna-river-sayre-towanda": {
     "putIn": {
       "id": "sayre-pfbc",

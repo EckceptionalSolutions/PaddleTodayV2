@@ -723,5 +723,140 @@ export const utahRoutes: River[] = [
         "provider": "local"
       }
     ]
+  },
+  {
+    "id": "clear-creek-fish-creek-confluence-clear-creek-road",
+    "slug": "clear-creek-fish-creek-confluence-clear-creek-road",
+    "name": "Clear Creek",
+    "reach": "Fish Creek Confluence to Clear Creek Road",
+    "aliases": [
+      "Clear Creek near Sevier",
+      "Clear Creek canyon run",
+      "Fish Creek Confluence to I-70 valley"
+    ],
+    "state": "Utah",
+    "region": "Sevier / Fishlake country",
+    "routeType": "whitewater",
+    "summary": "Short, steep Clear Creek Class III- run from the Fish Creek confluence to the Clear Creek Road valley access near I-70. RiverBrain documents the named access pair, coordinates, 2.3-mile length, seasonal window, and a direct 10194200 gauge model.",
+    "statusText": "Use USGS 10194200 at Clear Creek above diversions. RiverBrain lists 200 cfs as the minimum, 300 cfs average, and 600 cfs maximum; the creek is shallow, rocky, fast, and not appropriate for casual low-water paddling.",
+    "latitude": 38.58368158,
+    "longitude": -112.40917126,
+    "gaugeSource": {
+      "id": "usgs-10194200",
+      "provider": "usgs",
+      "siteId": "10194200",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Clear Creek above diversions, near Sevier, UT",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-10194200/"
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "low_water",
+        "strainers",
+        "cold_water",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "RiverBrain describes this as Class III- to III with a 96.9 ft/mile gradient; it is a creek-run whitewater route, not a beginner float.",
+        "Use the 200 cfs minimum-only gate from the route source and scout current wood, fences, diversion structures, and bridge clearances before committing.",
+        "The dirt-lot access points are roadside anchors with no ramp, water, or camping. Confirm current road condition and legal parking, stay on the road corridor, and do not cross private land.",
+        "Clear Creek can become dangerous during snowmelt or heavy rain; cold water and limited eddies make a swim consequential."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 200,
+      "thresholdSource": {
+        "label": "RiverBrain Clear Creek recommended minimum flow",
+        "url": "https://www.riverbrain.com/runs/139",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        5,
+        6
+      ],
+      "seasonNotes": "The documented season is May to June, with snowmelt and rain driving the short runnable window. Check the live gauge trend and road conditions immediately before launch.",
+      "difficulty": "hard",
+      "difficultyNotes": "RiverBrain rates the reach Class III- to III with a steep gradient, shallow rocky bed, quick current, and limited recovery margin.",
+      "confidenceNotes": "Confidence is moderate for a conservative whitewater add: RiverBrain publishes the exact 2.3-mile reach, named access pair, coordinates, vehicle-access notes, seasonal window, and a 200/300/600 cfs gauge model tied to USGS 10194200. Public-agency land confirmation is limited, so the route requires explicit roadside parking and no-trespass caveats."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Live gauge",
+        "value": "USGS 10194200 Clear Creek above diversions",
+        "note": "USGS provides continuous discharge and gage-height data for the direct gauge used by the route source.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-10194200/"
+      },
+      {
+        "label": "Route and endpoints",
+        "value": "Fish Creek Confluence to Clear Creek Road, 2.3 mi",
+        "note": "RiverBrain publishes the named access pair, coordinates, elevations, and all-vehicle roadside descriptions.",
+        "sourceUrl": "https://www.riverbrain.com/runs/139"
+      },
+      {
+        "label": "Threshold",
+        "value": "Minimum 200 cfs; average 300 cfs; maximum 600 cfs",
+        "note": "RiverBrain publishes the route-specific recommended levels tied to USGS 10194200. Treat this as community guidance and require same-day scouting.",
+        "sourceUrl": "https://www.riverbrain.com/runs/139"
+      },
+      {
+        "label": "Access coordinates",
+        "value": "38.58368158, -112.40917126 to 38.58062666, -112.36557195",
+        "note": "RiverBrain publishes both access coordinates; each is a small dirt roadside lot with no ramp, water, or camping.",
+        "sourceUrl": "https://www.riverbrain.com/accesses/209"
+      },
+      {
+        "label": "Access and legal caveat",
+        "value": "Roadside access only; no trespass",
+        "note": "Utah DWR warns that public-water recreation does not authorize walking on private streambeds or crossing posted private land. Confirm parking and road status before launch.",
+        "sourceUrl": "https://wildlife.utah.gov/streamaccess"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "No clearly rights-clean exact-run image was selected during the bounded review.",
+        "sourceUrl": "https://www.riverbrain.com/runs/139"
+      }
+    ],
+    "sourceLinks": [
+        {
+          "label": "RiverBrain Clear Creek run",
+          "url": "https://www.riverbrain.com/runs/139",
+          "provider": "local"
+        },
+        {
+          "label": "RiverBrain Fish Creek Confluence access",
+          "url": "https://www.riverbrain.com/accesses/209",
+          "provider": "local"
+        },
+        {
+          "label": "RiverBrain Clear Creek Road access",
+          "url": "https://www.riverbrain.com/accesses/210",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 10194200 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-10194200/",
+          "provider": "usgs"
+        },
+        {
+          "label": "Utah DWR stream access guidance",
+          "url": "https://wildlife.utah.gov/streamaccess",
+          "provider": "local"
+        },
+        {
+          "label": "Fremont Indian State Park guide",
+          "url": "https://stateparks.utah.gov/wp-content/uploads/sites/13/2020/04/Newspaper-Fremont-Park-Guidewebspread.pdf",
+          "provider": "local"
+        }
+      ]
   }
 ];

@@ -299,5 +299,60 @@ export const utahRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out at the BLM Indian Crossing campground and river access in Browns Park."
       }
     ]
+  },
+  "clear-creek-fish-creek-confluence-clear-creek-road": {
+    "putIn": {
+      "id": "fish-creek-confluence-clear-creek",
+      "name": "Fish Creek Confluence",
+      "latitude": 38.58368158,
+      "longitude": -112.40917126
+    },
+    "takeOut": {
+      "id": "clear-creek-road-access",
+      "name": "Clear Creek Road valley access",
+      "latitude": 38.58062666,
+      "longitude": -112.36557195
+    },
+    "logistics": {
+      "distanceLabel": "About 2.3 mi",
+      "estimatedPaddleTime": "About 30 minutes to 1.5 hours for a prepared advanced whitewater group, with scouting and portage time varying by flow",
+      "shuttle": "Stage the Clear Creek Road dirt-lot take-out first, then drive back to the Fish Creek Confluence access. Both endpoints are roadside dirt-lot anchors with no ramp, water, or camping; confirm road condition and legal parking before launching.",
+      "permits": "No route-specific permit is identified by the route source. Carry required Utah boating safety equipment, wear PFDs, obey posted road and land restrictions, and do not cross private property.",
+      "camping": "No route camping. The access source lists no camping and no water at either endpoint; use established lodging or campgrounds outside the route corridor.",
+      "campingClassification": "none",
+      "summary": "Use the direct USGS 10194200 gauge and the RiverBrain 200 cfs minimum-only gate. This is a short, steep Class III- to III creek run with roadside dirt-lot access, no boat ramps, and no camping.",
+      "accessCaveats": [
+        "RiverBrain publishes the endpoint coordinates and all-vehicle descriptions, but both are small dirt roadside lots rather than maintained boat ramps.",
+        "Confirm current road status and legal parking; Utah DWR prohibits crossing posted private land or walking private streambeds to reach public water.",
+        "Use the signed road corridor and do not infer public access from nearby private parcels, fences, or informal pullouts.",
+        "The route source is community-maintained; same-day visual scouting is required because access, wood, fences, and diversion hazards can change."
+      ],
+      "watchFor": [
+        "Class III- to III gradient, shallow rocks, fast current, and limited recovery margin.",
+        "Wood, fences, diversion structures, bridge clearances, and changing snowmelt or storm flows.",
+        "Cold water and a consequential swim; carry appropriate whitewater equipment and do not run alone.",
+        "Roadside traffic, parking conflicts, and any posted private-land restrictions near the access roads."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fish-creek-confluence-clear-creek",
+        "name": "Fish Creek Confluence",
+        "latitude": 38.58368158,
+        "longitude": -112.40917126,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "RiverBrain put-in anchor; use the small dirt parking lot beside the Fish Creek turnoff and confirm legal parking on arrival."
+      },
+      {
+        "id": "clear-creek-road-access",
+        "name": "Clear Creek Road valley access",
+        "latitude": 38.58062666,
+        "longitude": -112.36557195,
+        "mileFromStart": 2.3,
+        "segmentKind": "creek",
+        "note": "RiverBrain take-out anchor at a small dirt lot between Clear Creek Road and the creek; no ramp, water, or camping."
+      }
+    ]
   }
 };
