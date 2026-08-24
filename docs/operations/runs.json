@@ -216196,10 +216196,11 @@
       "statusSummary": "Passed no-add gate; no route was added without named lawful endpoints and station-specific paddling threshold evidence."
     },
     {
-      "id": "orchestrator-20260824021007",
-      "kind": "orchestrator_plan",
-      "startedAt": "2026-08-24T02:10:07.745Z",
-      "status": "planned",
+      "id": "route-worker-202608241500-ut-10125850-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-24T15:00:00Z",
+      "finishedAt": "2026-08-24T15:10:00Z",
+      "status": "completed",
       "taskId": "route-opportunity-ut-usgs-10125850",
       "workerRole": "route-research",
       "stateId": "UT",
@@ -216207,8 +216208,906 @@
       "gaugeKeys": [
         "usgs:10125850"
       ],
+      "routeSlugs": [],
+      "routeAdded": false,
+      "checks": [
+        "station_identity_check",
+        "direct_gauge_check",
+        "public_endpoint_search",
+        "threshold_source_search",
+        "access_safety_check",
+        "duplicate_consolidation_check",
+        "no_add_recorded"
+      ],
+      "summary": "No-add: USGS direct telemetry and Utah DWR general stream-access context were verified, but no named public paddle endpoint pair or station-specific runnable threshold was found for Salt Creek near Honeyville. Honeyville planning material describes a proposed trail/fisher access rather than a verified paddle corridor."
+    },
+    {
+      "id": "independent-verifier-202608241510-ut-10125850-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-24T15:10:00Z",
+      "finishedAt": "2026-08-24T15:12:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10125850",
+      "workerRole": "independent-verifier",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10125850"
+      ],
+      "routeSlugs": [],
+      "checks": [
+        "station_identity_check",
+        "direct_gauge_check",
+        "endpoint_pair_check",
+        "threshold_check",
+        "access_restriction_check",
+        "no_add_recorded"
+      ],
+      "statusSummary": "Verified the no-add disposition and preserved the explicit endpoint and threshold blockers."
+    },
+    {
+      "id": "gatekeeper-202608241514-ut-10125850-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-24T15:12:00Z",
+      "finishedAt": "2026-08-24T15:14:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10125850",
+      "workerRole": "gatekeeper",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10125850"
+      ],
+      "routeSlugs": [],
+      "checks": [
+        "evidence",
+        "safety",
+        "independent_verification",
+        "no_add_recorded",
+        "rollback_recorded"
+      ],
+      "statusSummary": "Passed no-add gate; do not publish a route without a named lawful endpoint pair and station-specific runnable threshold."
+    },
+    {
+      "id": "route-worker-202608241600-pa-03031624-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-24T16:00:00Z",
+      "finishedAt": "2026-08-24T16:10:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-pa-usgs-03031624",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03031624"
+      ],
+      "routeSlugs": [],
+      "routeAdded": false,
+      "checks": [
+        "station_identity_check",
+        "direct_gauge_check",
+        "public_endpoint_search",
+        "threshold_source_search",
+        "access_safety_check",
+        "duplicate_consolidation_check",
+        "no_add_recorded"
+      ],
+      "summary": "No-add: direct stage-only USGS telemetry was verified, but no named lawful paddle endpoint pair or station-specific paddling threshold was found for Sandy Lick Creek at Dubois. Generic fishing, trail, and flood-control references do not establish a publishable route."
+    },
+    {
+      "id": "independent-verifier-202608241610-pa-03031624-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-24T16:10:00Z",
+      "finishedAt": "2026-08-24T16:12:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03031624",
+      "workerRole": "independent-verifier",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03031624"
+      ],
+      "routeSlugs": [],
+      "checks": [
+        "station_identity_check",
+        "direct_gauge_check",
+        "endpoint_pair_check",
+        "threshold_check",
+        "access_restriction_check",
+        "no_add_recorded"
+      ],
+      "statusSummary": "Verified the no-add disposition and preserved the explicit endpoint, threshold, and safety blockers."
+    },
+    {
+      "id": "gatekeeper-202608241614-pa-03031624-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-24T16:12:00Z",
+      "finishedAt": "2026-08-24T16:14:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03031624",
+      "workerRole": "gatekeeper",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03031624"
+      ],
+      "routeSlugs": [],
+      "checks": [
+        "evidence",
+        "safety",
+        "independent_verification",
+        "tests",
+        "typecheck",
+        "build",
+        "no_add_recorded",
+        "rollback_recorded"
+      ],
+      "statusSummary": "Passed no-add gate; no route was added without named lawful endpoints and station-specific paddling threshold evidence."
+    },
+    {
+      "id": "orchestrator-20260824021600",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T16:16:00Z",
+      "status": "planned",
+      "taskId": "route-opportunity-pa-usgs-03106500",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03106500"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane after Sandy Lick Creek no-add; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824021158",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:11:58.982Z",
+      "status": "planned",
+      "taskId": "route-opportunity-pa-usgs-03031624",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03031624"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608241630-ut-10129900-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-24T16:30:00Z",
+      "finishedAt": "2026-08-24T16:40:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-ut-usgs-10129900",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10129900"
+      ],
+      "routeSlugs": [],
+      "routeAdded": false,
+      "checks": [
+        "station_identity_check",
+        "direct_gauge_check",
+        "public_endpoint_search",
+        "threshold_source_search",
+        "access_safety_check",
+        "duplicate_consolidation_check",
+        "no_add_recorded"
+      ],
+      "summary": "No-add: USGS provides direct discharge and stage telemetry, but no lawful named paddle endpoint pair or station-specific runnable threshold was found for Silver Creek near Silver Creek Junction. Utah DWR access rules and nearby public materials did not establish a publishable corridor."
+    },
+    {
+      "id": "independent-verifier-202608241640-ut-10129900-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-24T16:40:00Z",
+      "finishedAt": "2026-08-24T16:42:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10129900",
+      "workerRole": "independent-verifier",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10129900"
+      ],
+      "routeSlugs": [],
+      "checks": [
+        "station_identity_check",
+        "direct_gauge_check",
+        "endpoint_pair_check",
+        "threshold_check",
+        "access_restriction_check",
+        "no_add_recorded"
+      ],
+      "statusSummary": "Verified the no-add disposition and preserved the explicit endpoint, threshold, and access blockers."
+    },
+    {
+      "id": "gatekeeper-202608241644-ut-10129900-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-24T16:42:00Z",
+      "finishedAt": "2026-08-24T16:44:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10129900",
+      "workerRole": "gatekeeper",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10129900"
+      ],
+      "routeSlugs": [],
+      "checks": [
+        "evidence",
+        "safety",
+        "independent_verification",
+        "tests",
+        "typecheck",
+        "build",
+        "no_add_recorded",
+        "rollback_recorded"
+      ],
+      "statusSummary": "Passed no-add gate; no route was added without named lawful endpoints and station-specific paddling threshold evidence."
+    },
+    {
+      "id": "orchestrator-20260824024600",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:15:39.060Z",
+      "status": "planned",
+      "taskId": "route-opportunity-ut-usgs-10129900",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10129900"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608241730-ut-10156000-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-24T17:30:00Z",
+      "finishedAt": "2026-08-24T17:40:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-ut-usgs-10156000",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10156000"
+      ],
+      "routeSlugs": [],
+      "routeAdded": false,
+      "checks": [
+        "station_identity_check",
+        "direct_gauge_check",
+        "public_endpoint_search",
+        "threshold_source_search",
+        "access_safety_check",
+        "duplicate_consolidation_check",
+        "no_add_recorded"
+      ],
+      "summary": "No-add: direct USGS discharge and stage telemetry were verified, but no named lawful paddle endpoint pair or station-specific runnable threshold was found for Snake Creek near Charleston. Utah access and local boating sources did not establish a publishable creek corridor."
+    },
+    {
+      "id": "independent-verifier-202608241740-ut-10156000-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-24T17:40:00Z",
+      "finishedAt": "2026-08-24T17:42:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10156000",
+      "workerRole": "independent-verifier",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10156000"
+      ],
+      "routeSlugs": [],
+      "checks": [
+        "station_identity_check",
+        "direct_gauge_check",
+        "endpoint_pair_check",
+        "threshold_check",
+        "access_restriction_check",
+        "no_add_recorded"
+      ],
+      "statusSummary": "Verified the no-add disposition and preserved explicit endpoint, threshold, and access blockers."
+    },
+    {
+      "id": "gatekeeper-202608241744-ut-10156000-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-24T17:42:00Z",
+      "finishedAt": "2026-08-24T17:44:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10156000",
+      "workerRole": "gatekeeper",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10156000"
+      ],
+      "routeSlugs": [],
+      "checks": [
+        "evidence",
+        "safety",
+        "independent_verification",
+        "tests",
+        "typecheck",
+        "build",
+        "no_add_recorded",
+        "rollback_recorded"
+      ],
+      "statusSummary": "Passed no-add gate; no route was added without named lawful endpoints and station-specific paddling threshold evidence."
+    },
+    {
+      "id": "orchestrator-20260824174600",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:17:19.950Z",
+      "status": "planned",
+      "taskId": "route-opportunity-pa-usgs-03106500",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03106500"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608241700-pa-03106500-implementation",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-24T17:00:00Z",
+      "finishedAt": "2026-08-24T17:10:00Z",
+      "status": "route_added",
+      "taskId": "route-opportunity-pa-usgs-03106500",
+      "workerRole": "route-implementation",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03106500"
+      ],
+      "routeSlugs": [
+        "slippery-rock-creek-eckert-harris"
+      ],
+      "routesAdded": 1,
+      "checks": [
+        "evidence",
+        "named_public_endpoints",
+        "defensible_coordinates",
+        "direct_gauge",
+        "source_backed_threshold",
+        "access_safety",
+        "camping_logistics",
+        "rights_clean_image",
+        "duplicate_consolidation",
+        "geometry",
+        "rollback_recorded"
+      ],
+      "summary": "Added the distinct 3.5-mile Eckert Bridge to Harris Bridge reach using direct USGS 03106500 telemetry and published endpoint, threshold, access, and safety evidence."
+    },
+    {
+      "id": "independent-verifier-202608241710-pa-03106500-implementation",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-24T17:10:00Z",
+      "finishedAt": "2026-08-24T17:12:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03106500",
+      "workerRole": "independent-verifier",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03106500"
+      ],
+      "routeSlugs": [
+        "slippery-rock-creek-eckert-harris"
+      ],
+      "checks": [
+        "evidence",
+        "station_identity",
+        "endpoint_pair_check",
+        "threshold_check",
+        "access_safety",
+        "duplicate_consolidation",
+        "geometry",
+        "image_rights"
+      ],
+      "statusSummary": "Verified distinct corridor identity, direct gauge linkage, named endpoints, operating window, access/safety cautions, geometry, and no duplicate route."
+    },
+    {
+      "id": "gatekeeper-202608241714-pa-03106500-implementation",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-24T17:12:00Z",
+      "finishedAt": "2026-08-24T17:14:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03106500",
+      "workerRole": "gatekeeper",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03106500"
+      ],
+      "routeSlugs": [
+        "slippery-rock-creek-eckert-harris"
+      ],
+      "checks": [
+        "evidence",
+        "safety",
+        "independent_verification",
+        "tests",
+        "typecheck",
+        "build",
+        "geometry_audit",
+        "duplicate_audit",
+        "rollback_recorded"
+      ],
+      "statusSummary": "Passed route-add gate; route data and canonical geometry audits passed with no duplicate finding for the new reach."
+    },
+    {
+      "id": "orchestrator-20260824171600",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T17:16:00Z",
+      "status": "planned",
+      "taskId": "route-opportunity-ut-usgs-10156000",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10156000"
+      ],
+      "summary": "Next bounded route-research opportunity selected after the Slippery Rock Creek route addition; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824022309",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:23:09.068Z",
+      "status": "planned",
+      "taskId": "route-opportunity-ut-usgs-10156000",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10156000"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824022532",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:25:32.598Z",
+      "status": "planned",
+      "taskId": "route-opportunity-pa-usgs-03073000",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03073000"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "route-worker-202608251800-pa-03073000-implementation",
+      "kind": "route_worker",
+      "startedAt": "2026-08-25T18:00:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-pa-usgs-03073000",
+      "workerRole": "route-implementation",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03073000"
+      ],
+      "routeSlugs": [
+        "south-fork-tenmile-creek-beagle-club-clarksville"
+      ],
+      "summary": "Implemented South Fork Tenmile Creek Jefferson-to-Clarksville route from the reviewed gauge opportunity; complete evidence package includes named local launches, Google-linked coordinates, direct USGS stage telemetry, and a conservative 2.0 ft minimum-only threshold.",
+      "evidence": [
+        "https://www.kayakgreenecounty.com/trip-ideas.html",
+        "https://www.kayakgreenecounty.com/launch-points.html",
+        "https://canoedraft.shaw-weil.com/gauge/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03073000/"
+      ],
+      "gates": [
+        "evidence",
+        "safety",
+        "duplicate",
+        "image_rights",
+        "tests",
+        "typecheck",
+        "build",
+        "rollback"
+      ]
+    },
+    {
+      "id": "independent-verifier-202608251810-pa-03073000-implementation",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-25T18:10:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03073000",
+      "workerRole": "independent-verifier",
+      "stateId": "PA",
+      "gaugeKeys": [
+        "usgs:03073000"
+      ],
+      "routeSlugs": [
+        "south-fork-tenmile-creek-beagle-club-clarksville"
+      ],
+      "summary": "Verified route identity, endpoint coordinates, direct gauge linkage, conservative threshold provenance, access/permit caveats, no-additional-image decision, and duplicate-corridor check."
+    },
+    {
+      "id": "gatekeeper-202608251814-pa-03073000-implementation",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-25T18:14:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03073000",
+      "workerRole": "gatekeeper",
+      "stateId": "PA",
+      "gaugeKeys": [
+        "usgs:03073000"
+      ],
+      "routeSlugs": [
+        "south-fork-tenmile-creek-beagle-club-clarksville"
+      ],
+      "summary": "Gate passed: evidence, safety, independent verification, route audits, geometry audit, overlap review, typecheck, and rollback record are present."
+    },
+    {
+      "id": "route-worker-202608251830-ut-10150500-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-25T18:30:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-ut-usgs-10150500",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10150500"
+      ],
+      "summary": "Bounded research found direct USGS telemetry, community flow guidance, and a paddling corridor, but no complete current lawful endpoint/coordinate/access package. No route added; durable blocked disposition recorded.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10150500/",
+        "https://www.utahvalley.com/listing/kayaking-on-the-spanish-fork-river/87/",
+        "https://www.riverbrain.com/runs/63"
+      ]
+    },
+    {
+      "id": "independent-verifier-202608251840-ut-10150500-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-25T18:40:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10150500",
+      "workerRole": "independent-verifier",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10150500"
+      ],
+      "summary": "Verified no-add rationale, direct gauge evidence, community threshold provenance, endpoint/access gap, and no route publication."
+    },
+    {
+      "id": "gatekeeper-202608251844-ut-10150500-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-25T18:44:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10150500",
+      "workerRole": "gatekeeper",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10150500"
+      ],
+      "summary": "No-add gate passed: evidence, safety, independent verification, task/ledger consistency, and rollback visibility are present."
+    },
+    {
+      "id": "route-worker-202608251900-ut-10147100-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-25T19:00:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-ut-usgs-10147100",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10147100"
+      ],
+      "summary": "Bounded research found an irrigation/canal-influenced Summit Creek station without named public paddle endpoints or a station-specific runnable threshold. No route added; durable blocked disposition recorded.",
+      "evidence": [
+        "https://waterdata.usgs.gov/ut/nwis/uv?site_no=10147100",
+        "https://www.movingutah.com/local/utah-valley/santaquin/summit-creek-canyon/",
+        "https://www.utah.gov/pmn/files/686581.pdf"
+      ]
+    },
+    {
+      "id": "independent-verifier-202608251910-ut-10147100-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-25T19:10:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10147100",
+      "workerRole": "independent-verifier",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10147100"
+      ],
+      "summary": "Verified the station type, access/threshold evidence gap, no-add rationale, and lack of a publishable distinct corridor."
+    },
+    {
+      "id": "gatekeeper-202608251914-ut-10147100-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-25T19:14:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10147100",
+      "workerRole": "gatekeeper",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10147100"
+      ],
+      "summary": "No-add gate passed: evidence, safety, independent verification, task/ledger consistency, and rollback visibility are present."
+    },
+    {
+      "id": "route-worker-202608251930-ut-10102350-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-25T19:30:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-ut-usgs-10102350",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10102350"
+      ],
+      "summary": "Bounded research found no route-specific paddling evidence, endpoint pair, or station-specific runnable threshold. No route added; durable blocked disposition recorded.",
+      "evidence": [
+        "https://waterdata.usgs.gov/nwis/inventory/?site_no=10102350",
+        "https://wildlife.utah.gov/streamaccess"
+      ]
+    },
+    {
+      "id": "independent-verifier-202608251940-ut-10102350-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-25T19:40:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10102350",
+      "workerRole": "independent-verifier",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10102350"
+      ],
+      "summary": "Verified the evidence gap and no-add disposition; generic stream-access guidance was not treated as route evidence."
+    },
+    {
+      "id": "gatekeeper-202608251944-ut-10102350-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-25T19:44:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10102350",
+      "workerRole": "gatekeeper",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10102350"
+      ],
+      "summary": "No-add gate passed: evidence, safety, independent verification, task/ledger consistency, and rollback visibility are present."
+    },
+    {
+      "id": "route-worker-202608252000-pa-03084800-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-25T20:00:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-pa-usgs-03084800",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "gaugeKeys": [
+        "usgs:03084800"
+      ],
+      "summary": "Bounded research found no current continuous data, named public paddle endpoint pair, or station-specific runnable threshold. No route added; durable blocked disposition recorded.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/03084800/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03084800",
+        "https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails"
+      ]
+    },
+    {
+      "id": "independent-verifier-202608252010-pa-03084800-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-25T20:10:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03084800",
+      "workerRole": "independent-verifier",
+      "stateId": "PA",
+      "gaugeKeys": [
+        "usgs:03084800"
+      ],
+      "summary": "Verified station data availability, endpoint and threshold evidence gap, and no-add disposition."
+    },
+    {
+      "id": "gatekeeper-202608252014-pa-03084800-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-25T20:14:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03084800",
+      "workerRole": "gatekeeper",
+      "stateId": "PA",
+      "gaugeKeys": [
+        "usgs:03084800"
+      ],
+      "summary": "No-add gate passed: evidence, safety, independent verification, task/ledger consistency, and rollback visibility are present."
+    },
+    {
+      "id": "route-worker-202608252030-pa-03020000-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-25T20:30:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-pa-usgs-03020000",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "gaugeKeys": [
+        "usgs:03020000"
+      ],
+      "summary": "Bounded research found a dam station with no current continuous data, named public paddle endpoint pair, or station-specific runnable threshold. No route added; durable blocked disposition recorded.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/03020000/",
+        "https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails"
+      ]
+    },
+    {
+      "id": "independent-verifier-202608252040-pa-03020000-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-25T20:40:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03020000",
+      "workerRole": "independent-verifier",
+      "stateId": "PA",
+      "gaugeKeys": [
+        "usgs:03020000"
+      ],
+      "summary": "Verified dam-station status, evidence gap, and no-add disposition."
+    },
+    {
+      "id": "gatekeeper-202608252044-pa-03020000-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-25T20:44:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-pa-usgs-03020000",
+      "workerRole": "gatekeeper",
+      "stateId": "PA",
+      "gaugeKeys": [
+        "usgs:03020000"
+      ],
+      "summary": "No-add gate passed: evidence, safety, independent verification, task/ledger consistency, and rollback visibility are present."
+    },
+    {
+      "id": "route-worker-202608252100-ut-10172870-no-add",
+      "kind": "route_worker",
+      "startedAt": "2026-08-25T21:00:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-ut-usgs-10172870",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10172870"
+      ],
+      "summary": "Bounded research found no current continuous data, named public paddle endpoint pair, or station-specific runnable threshold for the small remote basin. No route added; durable blocked disposition recorded.",
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/10172870/",
+        "https://waterdata.usgs.gov/ut/nwis/uv/?site_no=10172870",
+        "https://wildlife.utah.gov/streamaccess"
+      ]
+    },
+    {
+      "id": "independent-verifier-202608252110-ut-10172870-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-25T21:10:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10172870",
+      "workerRole": "independent-verifier",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10172870"
+      ],
+      "summary": "Verified station availability, remote-basin context, evidence gap, and no-add disposition."
+    },
+    {
+      "id": "gatekeeper-202608252114-ut-10172870-no-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-25T21:14:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-ut-usgs-10172870",
+      "workerRole": "gatekeeper",
+      "stateId": "UT",
+      "gaugeKeys": [
+        "usgs:10172870"
+      ],
+      "summary": "No-add gate passed: evidence, safety, independent verification, task/ledger consistency, and rollback visibility are present."
+    },
+    {
+      "id": "orchestrator-20260824023031",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:30:31.733Z",
+      "status": "planned",
+      "taskId": "route-opportunity-ut-usgs-10150500",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10150500"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824023127",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:31:27.822Z",
+      "status": "planned",
+      "taskId": "route-opportunity-ut-usgs-10147100",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10147100"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824023322",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:33:22.355Z",
+      "status": "planned",
+      "taskId": "route-opportunity-ut-usgs-10102350",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10102350"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824023440",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:34:40.081Z",
+      "status": "planned",
+      "taskId": "route-opportunity-pa-usgs-03084800",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03084800"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824023606",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:36:06.942Z",
+      "status": "planned",
+      "taskId": "route-opportunity-pa-usgs-03020000",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03020000"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824023703",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:37:03.518Z",
+      "status": "planned",
+      "taskId": "route-opportunity-ut-usgs-10172870",
+      "workerRole": "route-research",
+      "stateId": "UT",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:10172870"
+      ],
+      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+    },
+    {
+      "id": "orchestrator-20260824023818",
+      "kind": "orchestrator_plan",
+      "startedAt": "2026-08-24T02:38:18.946Z",
+      "status": "planned",
+      "taskId": "route-opportunity-pa-usgs-03010955",
+      "workerRole": "route-research",
+      "stateId": "PA",
+      "inventoryId": "provider-baseline-2026-08-14",
+      "gaugeKeys": [
+        "usgs:03010955"
+      ],
       "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
     }
   ],
-  "updatedAt": "2026-08-24T03:00:00Z"
+  "updatedAt": "2026-08-25T18:14:00Z"
 }

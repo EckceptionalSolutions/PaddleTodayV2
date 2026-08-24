@@ -1139,6 +1139,8 @@ const routeOrder = [
   "french-creek-union-city-dam-route-6n-19",
   "redbank-creek-new-bethlehem-climax",
   "redbank-creek-climax-st-charles",
+  "slippery-rock-creek-eckert-harris",
+  "south-fork-tenmile-creek-beagle-club-clarksville",
   "little-pine-creek-north-park-lake-allison-park",
   "loyalhanna-creek-ligonier-nature-trail-kingston",
   "loyalhanna-creek-tailwater-saltsburg-rivers-edge",

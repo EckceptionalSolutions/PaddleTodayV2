@@ -2204,5 +2204,43 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": ["Verify the Heshbon gate, carry, parking, and Saylor Park creek-side access before launch.", "Do not use private mine property or unlisted banks."],
       "watchFor": ["Auld's Run", "Jacks Rock and wood", "strainers", "mine-influenced tributaries", "cold water"]
     }
+  },
+  "slippery-rock-creek-eckert-harris": {
+    "putIn": {"name": "Eckert Bridge Access, McConnells Mill State Park", "latitude": 40.9404957, "longitude": -80.1764598},
+    "takeOut": {"name": "Harris Bridge Access, Mountville Road", "latitude": 40.9120075, "longitude": -80.2167279},
+    "logistics": {
+      "distanceLabel": "Approximately 3.5 river miles",
+      "estimatedPaddleTime": "About 2–4 on-water hours, plus shuttle, scouting, and whitewater safety checks",
+      "shuttle": "Stage a vehicle at Harris Bridge before launching at Eckert Bridge; confirm current park road, parking, and bridge access conditions.",
+      "permits": "Follow Pennsylvania Fish and Boat Commission registration/launch-permit rules and all McConnells Mill State Park boating restrictions.",
+      "camping": "No on-route camping verified; arrange separate legal camping or lodging outside the reach.",
+      "campingClassification": "none",
+      "summary": "A documented lower Slippery Rock whitewater reach with named state-park access, direct Wurtemburg gauge guidance, and a short shuttle.",
+      "accessCaveats": ["Eckert and Harris access conditions, parking, and carry paths can change; verify on arrival.", "Do not use private banks, closed roads, or informal roadside pull-offs."],
+      "watchFor": ["Class II–IV rapids", "fast rises", "low-water rock contact", "strainers and bridge hazards", "cold water", "mandatory dam portage in the broader corridor"]
+    },
+    "accessPoints": [
+      {"id": "slippery-rock-eckert-bridge", "name": "Eckert Bridge Access, McConnells Mill State Park", "latitude": 40.9404957, "longitude": -80.1764598, "mileFromStart": 0, "segmentKind": "creek", "note": "Named public park access; verify current parking and carry conditions."},
+      {"id": "slippery-rock-harris-bridge", "name": "Harris Bridge Access, Mountville Road", "latitude": 40.9120075, "longitude": -80.2167279, "mileFromStart": 3.5, "segmentKind": "creek", "note": "Named public park/road access; stage shuttle and verify current take-out conditions."}
+    ]
+  },
+  "south-fork-tenmile-creek-beagle-club-clarksville": {
+    "putIn": {"name": "Beagle Club Road Launch, Jefferson", "latitude": 39.921925, "longitude": -80.082823},
+    "takeOut": {"name": "Clarksville Kayak Launch, Clarksville", "latitude": 39.9723626, "longitude": -80.0462378},
+    "logistics": {
+      "distanceLabel": "Approximately 9 river miles",
+      "estimatedPaddleTime": "About 4–6 on-water hours, plus shuttle and access verification",
+      "shuttle": "Stage the Clarksville take-out first, then launch at Beagle Club Road. Confirm current parking, carry, and road access at both endpoints.",
+      "permits": "Kayak Greene County warns that registration or a launch-use permit may be required; follow current Pennsylvania Fish and Boat Commission rules and all posted access signs.",
+      "camping": "No on-route camping verified; arrange separate legal camping or lodging and never camp on creek banks or access property.",
+      "campingClassification": "none",
+      "summary": "A named nine-mile South Fork Tenmile Creek day run with a direct Jefferson gauge, conservative minimum-only stage screen, and a local launch guide.",
+      "accessCaveats": ["Verify current endpoint parking, carry paths, permits, and closures before launch.", "Do not use private banks, unlisted roadside pull-offs, or fields for access."],
+      "watchFor": ["Low water below 2.0 ft", "Rapid rise and debris", "Strainers and bridge approaches", "Cold water", "Limited or changing access", "Private-bank constraints"]
+    },
+    "accessPoints": [
+      {"id": "tenmile-beagle-club-road", "name": "Beagle Club Road Launch, Jefferson", "latitude": 39.921925, "longitude": -80.082823, "mileFromStart": 0, "segmentKind": "creek", "note": "Named local launch; verify current parking, permit, and carry conditions."},
+      {"id": "tenmile-clarksville-kayak-launch", "name": "Clarksville Kayak Launch, Clarksville", "latitude": 39.9723626, "longitude": -80.0462378, "mileFromStart": 9, "segmentKind": "creek", "note": "Named local take-out; verify current parking and lawful access before staging a shuttle vehicle."}
+    ]
   }
 };

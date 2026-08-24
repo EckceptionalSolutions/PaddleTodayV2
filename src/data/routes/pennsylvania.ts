@@ -6770,5 +6770,114 @@ export const pennsylvaniaRoutes: River[] = [
       {"label": "CanoeDraft Laurel Hill gauge guidance", "url": "https://canoedraft.shaw-weil.com/gauge/", "provider": "manual"},
       {"label": "PA boat registration and launch rules", "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg", "provider": "local"}
     ]
+  },
+  {
+    "id": "slippery-rock-creek-eckert-harris",
+    "slug": "slippery-rock-creek-eckert-harris",
+    "name": "Slippery Rock Creek",
+    "reach": "Eckert Bridge to Harris Bridge",
+    "aliases": ["Slippery Rock Creek - Eckert Bridge to Harris Bridge", "Lower Slippery Rock Creek", "Slippery Rock Creek Lower Run"],
+    "state": "Pennsylvania",
+    "region": "Western Pennsylvania",
+    "summary": "A documented 3.5-mile lower Slippery Rock Creek run from Eckert Bridge to Harris Bridge in McConnells Mill State Park. Pennsylvania DCNR names the reach and endpoints; American Whitewater and local boater guidance tie runnable conditions to the Wurtemburg gauge.",
+    "statusText": "Use USGS 03106500 at Wurtemburg. American Whitewater describes 400–1000 cfs as a strong intermediate window and below 150 cfs as too low; stand down for rising water, wood, bridge hazards, or conditions beyond your skill.",
+    "latitude": 40.9404957,
+    "longitude": -80.1764598,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["whitewater", "low_water", "fast_rise", "strainers", "cold_water", "mandatory_takeout"],
+      "safetyNotes": [
+        "This is a Class II–IV whitewater corridor whose difficulty changes with water level; it is for experienced paddlers with appropriate craft and rescue skills.",
+        "Use the named Eckert Bridge access and Harris Bridge access. The lower run is downstream of the historic mill dam, but the broader corridor includes a mandatory dam portage; never run the dam and obey the park’s 50-foot boil exclusion.",
+        "Treat 400–1000 cfs as an intermediate operating reference and below 150 cfs as too low; higher flows increase difficulty and hazards. These are not guarantees—inspect the live trend, weather, wood, and bridge approaches.",
+        "Spring and fall are the documented boating seasons. Wear a PFD, use a shuttle, and do not attempt the reach alone or in a recreational boat unsuited to moving whitewater.",
+        "No on-route camping was verified for this 3.5-mile reach; use only separately verified legal lodging or camping and follow Pennsylvania launch/registration rules."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03106500", "provider": "usgs", "siteId": "03106500", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Slippery Rock Creek at Wurtemburg, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03106500/"},
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 1000,
+      "tooLow": 150,
+      "tooHigh": 1600,
+      "thresholdSource": {"label": "American Whitewater Lower Slippery Rock gauge guidance", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2504/main", "provider": "american_whitewater"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [3, 4, 5, 6, 9, 10, 11],
+      "seasonNotes": "Pennsylvania DCNR identifies spring and fall as the best boating seasons; shoulder-season rainfall and releases can change difficulty quickly.",
+      "difficulty": "hard",
+      "difficultyNotes": "Experienced whitewater route with Class II–IV conditions, bridge hazards, wood, and a narrow decision window at low or high flow.",
+      "confidenceNotes": "High confidence for route identity, named endpoints, direct gauge, and operating guidance: Pennsylvania DCNR names Rose Point-to-Harris as approximately six miles and explicitly identifies Eckert-to-Harris as an additional 3.5 miles; American Whitewater and Keel Hauler provide matching gauge guidance and endpoint coordinates."
+    },
+    "evidenceNotes": [
+      {"label": "Official route and endpoints", "value": "Eckert Bridge to Harris Bridge, approximately 3.5 miles", "note": "Pennsylvania DCNR’s McConnells Mill boating page explicitly identifies the extension from Eckert Bridge to Harris Bridge.", "sourceUrl": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/mcconnells-mill-state-park/whitewater-boating"},
+      {"label": "Live direct gauge and runnable window", "value": "USGS 03106500; 400–1000 cfs preferred, below 150 cfs too low", "note": "USGS supplies continuous discharge and stage telemetry; American Whitewater publishes the operating guidance for the lower run.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03106500"},
+      {"label": "Endpoint coordinates", "value": "Eckert Bridge 40.940496,-80.176460; Harris Bridge 40.912008,-80.216728", "note": "Keel Hauler publishes the Eckert and Harris bridge coordinates; Harris Bridge coordinates are independently corroborated by topographic mapping.", "sourceUrl": "https://www.keelhauler.org/khcc/slip.pdf"},
+      {"label": "Public access and safety", "value": "McConnells Mill State Park access; Class II–IV; mandatory dam portage in broader corridor", "note": "The Lawrence County water-trails brochure names Eckert and Harris access; DCNR publishes the whitewater and dam warnings.", "sourceUrl": "https://lawrencecountypa.gov/getmedia/5ea2d291-3ef6-4a0d-9cc1-d9ff38f32da4/LCWaterTrailsBrochure.pdf"},
+      {"label": "Image rights decision", "value": "No route-specific image copied", "note": "Use existing rights-clean product imagery/default gallery treatment; do not copy source or map images."}
+    ],
+    "sourceLinks": [
+      {"label": "Pennsylvania DCNR McConnells Mill whitewater boating", "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/mcconnells-mill-state-park/whitewater-boating", "provider": "local"},
+      {"label": "Lawrence County water-trails brochure", "url": "https://lawrencecountypa.gov/getmedia/5ea2d291-3ef6-4a0d-9cc1-d9ff38f32da4/LCWaterTrailsBrochure.pdf", "provider": "local"},
+      {"label": "American Whitewater Lower Slippery Rock", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2504/main", "provider": "american_whitewater"},
+      {"label": "Keel Hauler Slippery Rock guide", "url": "https://www.keelhauler.org/khcc/slip.pdf", "provider": "manual"},
+      {"label": "USGS 03106500 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03106500/", "provider": "usgs"}
+    ]
+  },
+  {
+    "id": "south-fork-tenmile-creek-beagle-club-clarksville",
+    "slug": "south-fork-tenmile-creek-beagle-club-clarksville",
+    "name": "South Fork Tenmile Creek",
+    "reach": "Beagle Club Road Launch to Clarksville Kayak Launch",
+    "aliases": ["Ten Mile Creek South Fork - Jefferson to Clarksville", "Tenmile Creek Beagle Club Road to Clarksville", "South Fork Tenmile Creek Jefferson to Clarksville"],
+    "state": "Pennsylvania",
+    "region": "Southwestern Pennsylvania",
+    "summary": "A documented nine-mile South Fork Tenmile Creek water-trail reach from the named Beagle Club Road launch near Jefferson to the Clarksville Kayak Launch. Kayak Greene County publishes both endpoint names and the trip distance; CanoeDraft identifies the same Jefferson-to-Clarksville reach as canoeable with a conservative 2.0 ft minimum at the direct USGS gauge.",
+    "statusText": "Use USGS 03073000 at Jefferson and treat 2.0 ft as a conservative minimum-only launch screen from the CanoeDraft gauge table. Check the live stage and trend, April–June seasonal guidance, weather, debris, and current access/permit rules before launching.",
+    "latitude": 39.9723626,
+    "longitude": -80.0462378,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "fast_rise", "strainers", "cold_water", "private_banks", "access_uncertain"],
+      "safetyNotes": [
+        "CanoeDraft identifies 2.0 ft at USGS 03073000 as the lowest reported runnable stage for the Jefferson-to-Clarksville reach. This is an old, conservative minimum-only reference rather than a guarantee; stand down for rising water, debris, poor visibility, or unfamiliar conditions.",
+        "Kayak Greene County names Beagle Club Road Launch and Clarksville Kayak Launch and notes that kayak registration or a launch-use permit may be required. Verify current parking, carry paths, permits, and any closure before using either endpoint.",
+        "The reach is moving water with possible strainers, bridge approaches, cold water, and changing access conditions. Wear a PFD, carry a shuttle plan, and do not use private banks or unlisted roadside pull-offs.",
+        "A local trip guide says April through June generally offers the best flow; weather and rainfall can change conditions quickly. Inspect the live gauge trend immediately before launch.",
+        "No on-route camping was verified; use only separately verified legal campgrounds or lodging and follow Pennsylvania Fish and Boat Commission rules."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03073000", "provider": "usgs", "siteId": "03073000", "metric": "gage_height_ft", "unit": "ft", "kind": "direct", "siteName": "South Fork Tenmile Creek at Jefferson, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03073000/"},
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 2,
+      "thresholdSource": {"label": "CanoeDraft Western Pennsylvania gauge table", "url": "https://canoedraft.shaw-weil.com/gauge/", "provider": "manual"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "seasonNotes": "A local Greene County trip guide says April–June generally has the best flow; check stage, trend, rainfall, debris, and access immediately before launch.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Moving-water day run with low-water, fast-rise, wood, bridge, cold-water, shuttle, and access-verification considerations.",
+      "confidenceNotes": "High confidence for a distinct named route, endpoint coordinates, direct live gauge, and conservative minimum-only threshold. Kayak Greene County publishes the nine-mile Beagle Club Road-to-Clarksville trip and both launch names; CanoeDraft maps the same Jefferson-to-Clarksville reach to USGS 03073000 and reports a 2.0 ft minimum. The threshold source is older and community-authored, so it is intentionally modeled as minimum-only rather than an ideal/high band."
+    },
+    "evidenceNotes": [
+      {"label": "Named trip and endpoints", "value": "Beagle Club Road Launch to Clarksville Kayak Launch, 9 miles", "note": "Kayak Greene County lists the nine-mile Tenmile Creek trip and separately lists both launch areas.", "sourceUrl": "https://www.kayakgreenecounty.com/trip-ideas.html"},
+      {"label": "Endpoint coordinates", "value": "Beagle Club Road 39.921925,-80.082823; Clarksville launch vicinity 39.972363,-80.046238", "note": "The launch-point page links named map pins for both endpoints; the links resolve to Google Maps coordinates.", "sourceUrl": "https://www.kayakgreenecounty.com/launch-points.html"},
+      {"label": "Live direct gauge and minimum", "value": "USGS 03073000; 2.0 ft minimum-only", "note": "CanoeDraft maps both Jefferson-to-Clarksville reaches to the direct South Fork Tenmile Creek gauge and reports 2.0 ft as the lowest runnable stage; USGS provides continuous stage telemetry.", "sourceUrl": "https://canoedraft.shaw-weil.com/gauge/"},
+      {"label": "Access, season, and permits", "value": "Kayak Greene County launch guidance; April–June best flow; permit may be required", "note": "The local guide names the launch areas, warns that registration or a launch-use permit may be required, and reports the seasonal flow guidance.", "sourceUrl": "https://www.kayakgreenecounty.com/trip-ideas.html"},
+      {"label": "Image rights decision", "value": "No route-specific image copied", "note": "Use existing rights-clean product imagery/default gallery treatment; do not copy source or map images."}
+    ],
+    "sourceLinks": [
+      {"label": "Kayak Greene County trip ideas", "url": "https://www.kayakgreenecounty.com/trip-ideas.html", "provider": "local"},
+      {"label": "Kayak Greene County launch points", "url": "https://www.kayakgreenecounty.com/launch-points.html", "provider": "local"},
+      {"label": "CanoeDraft Western Pennsylvania gauge table", "url": "https://canoedraft.shaw-weil.com/gauge/", "provider": "manual"},
+      {"label": "USGS 03073000 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03073000/", "provider": "usgs"},
+      {"label": "PFBC special boating regulations", "url": "https://pfbc.pa.gov/spbtregsx.htm", "provider": "local"}
+    ]
   }
 ];

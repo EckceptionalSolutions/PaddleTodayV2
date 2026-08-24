@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-24T02:10:07.709Z",
+  "generatedAt": "2026-08-24T02:38:18.913Z",
   "maxPerState": 5,
   "maxGlobal": 20,
   "opportunities": [
@@ -32,11 +32,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03031624",
-      "taskId": "route-opportunity-pa-usgs-03031624",
+      "id": "route-opportunity-pa-usgs-03010955",
+      "taskId": "route-opportunity-pa-usgs-03010955",
       "stateId": "PA",
-      "gaugeKey": "usgs:03031624",
-      "siteName": "Sandy Lick Creek at Dubois, PA",
+      "gaugeKey": "usgs:03010955",
+      "siteName": "Tunungwant Creek near South Bradford, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -59,11 +59,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03106500",
-      "taskId": "route-opportunity-pa-usgs-03106500",
+      "id": "route-opportunity-pa-usgs-03042500",
+      "taskId": "route-opportunity-pa-usgs-03042500",
       "stateId": "PA",
-      "gaugeKey": "usgs:03106500",
-      "siteName": "Slippery Rock Creek at Wurtemburg, PA",
+      "gaugeKey": "usgs:03042500",
+      "siteName": "Two Lick Creek at Graceton, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -86,11 +86,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03073000",
-      "taskId": "route-opportunity-pa-usgs-03073000",
+      "id": "route-opportunity-pa-usgs-04213152",
+      "taskId": "route-opportunity-pa-usgs-04213152",
       "stateId": "PA",
-      "gaugeKey": "usgs:03073000",
-      "siteName": "South Fork Tenmile Creek at Jefferson, PA",
+      "gaugeKey": "usgs:04213152",
+      "siteName": "Walnut Creek Upstream Pool, near Erie, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -113,11 +113,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03084800",
-      "taskId": "route-opportunity-pa-usgs-03084800",
+      "id": "route-opportunity-pa-usgs-03021410",
+      "taskId": "route-opportunity-pa-usgs-03021410",
       "stateId": "PA",
-      "gaugeKey": "usgs:03084800",
-      "siteName": "Thompson Run at Turtle Creek, PA",
+      "gaugeKey": "usgs:03021410",
+      "siteName": "West Branch French Creek near Lowville, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -140,11 +140,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-pa-usgs-03020000",
-      "taskId": "route-opportunity-pa-usgs-03020000",
+      "id": "route-opportunity-pa-usgs-03022540",
+      "taskId": "route-opportunity-pa-usgs-03022540",
       "stateId": "PA",
-      "gaugeKey": "usgs:03020000",
-      "siteName": "Tionesta Creek at Tionesta Creek Dam, PA",
+      "gaugeKey": "usgs:03022540",
+      "siteName": "Woodcock Creek at Blooming Valley, PA",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -167,65 +167,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ut-usgs-10125850",
-      "taskId": "route-opportunity-ut-usgs-10125850",
+      "id": "route-opportunity-ut-usgs-10172700",
+      "taskId": "route-opportunity-ut-usgs-10172700",
       "stateId": "UT",
-      "gaugeKey": "usgs:10125850",
-      "siteName": "SALT CREEK NEAR HONEYVILLE, UT",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "blocked",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "No-add after bounded research: direct USGS telemetry and general Utah stream-access context exist, but no named public paddle endpoint pair or station-specific runnable threshold was found for this newly installed Salt Creek station.",
-      "nextEvidenceAction": null,
-      "retryCondition": "Reopen only if a lawful public endpoint pair and station-specific paddling threshold are documented; do not force a route."
-    },
-    {
-      "id": "route-opportunity-ut-usgs-10129900",
-      "taskId": "route-opportunity-ut-usgs-10129900",
-      "stateId": "UT",
-      "gaugeKey": "usgs:10129900",
-      "siteName": "SILVER CREEK NEAR SILVER CREEK JUNCTION, UT",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-ut-usgs-10156000",
-      "taskId": "route-opportunity-ut-usgs-10156000",
-      "stateId": "UT",
-      "gaugeKey": "usgs:10156000",
-      "siteName": "SNAKE CREEK NEAR CHARLESTON, UT",
+      "gaugeKey": "usgs:10172700",
+      "siteName": "VERNON CREEK NEAR VERNON, UT",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -248,11 +194,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ut-usgs-10150500",
-      "taskId": "route-opportunity-ut-usgs-10150500",
+      "id": "route-opportunity-ut-usgs-10166430",
+      "taskId": "route-opportunity-ut-usgs-10166430",
       "stateId": "UT",
-      "gaugeKey": "usgs:10150500",
-      "siteName": "SPANISH FORK AT CASTILLA, UT",
+      "gaugeKey": "usgs:10166430",
+      "siteName": "WEST CANYON CREEK NEAR CEDAR FORT, UT",
       "priority": "medium",
       "score": 95630,
       "rankingFactors": {
@@ -270,7 +216,34 @@
         "no_source_backed_threshold",
         "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Current USGS discharge and gage-height data are available, and Utah State Parks documents public Hailstone/Rock Cliff access on Jordanelle and the Provo River. The evidence does not yet establish a distinct named river corridor with a station-specific paddling threshold, legal downstream endpoint pair, seasonal hazard treatment, and route logistics. Preserve as a ranked research opportunity rather than forcing a route.",
+      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10146000",
+      "taskId": "route-opportunity-ut-usgs-10146000",
+      "stateId": "UT",
+      "gaugeKey": "usgs:10146000",
+      "siteName": "SALT CREEK AT NEPHI, UT",
+      "priority": "medium",
+      "score": 95620,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 45,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 15
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Bounded review found a genuine lower Diamond Fork/Spanish Fork boating opportunity, but the gauge is upstream of the documented lower access and no station-specific paddling threshold or coordinate-backed endpoint pair ties this gauge to a publishable corridor.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
@@ -406,6 +379,33 @@
         "insufficient_access_safety_and_route_evidence"
       ],
       "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-ut-usgs-10164500",
+      "taskId": "route-opportunity-ut-usgs-10164500",
+      "stateId": "UT",
+      "gaugeKey": "usgs:10164500",
+      "siteName": "AMERICAN FK AB UPPER POWERPLANT NR AMERICAN FK, UT",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     }
