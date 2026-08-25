@@ -53,3 +53,21 @@ export const cheatRiverRowlesburgPhoto: RouteGalleryPhoto = {
   credit: 'Tim Kiser via Wikimedia Commons',
   takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
 };
+
+export const tygartValleyFallsPhoto: RouteGalleryPhoto = {
+  id: 'tygart-valley-falls-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Valley%20Falls%2C%20Tygart%20River%2C%20near%20Grafton%2C%20W.Va%2C%20by%20Chase%2C%20W.%20M.%20%28William%20M.%29%2C%201818%20-%209-1905.jpg?width=1600',
+  alt: 'Historic view of Valley Falls on the Tygart River near Grafton, West Virginia.',
+  caption: 'Valley Falls on the Tygart River near Grafton',
+  credit: 'William M. Chase / New York Public Library via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
+export const cacaponRoute127Photo: RouteGalleryPhoto = {
+  id: 'cacapon-river-route-127-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cacapon%20River%20West%20Virginia%20Route%20127%20Bridge%20Forks%20of%20Cacapon%20WV%202008%2010%2012%2008.jpg?width=1600',
+  alt: 'The Cacapon River looking north from the Route 127 public access bridge in West Virginia.',
+  caption: 'Cacapon River at the WV 127 public access',
+  credit: 'Justin A. Wilcox via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+};

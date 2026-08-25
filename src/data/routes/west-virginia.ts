@@ -17,6 +17,7 @@ type WestVirginiaRouteSpec = {
   gaugeMetric: 'discharge_cfs' | 'gage_height_ft';
   gaugeUnit: 'cfs' | 'ft';
   gaugeKind?: 'direct' | 'proxy';
+  routeType?: 'whitewater' | 'recreational';
   gaugeDetailUrl: string;
   gaugeHydrographUrl: string;
   putIn: { name: string; latitude: number; longitude: number };
@@ -119,6 +120,40 @@ const cheatSpecs: WestVirginiaRouteSpec[] = [
   },
 ];
 
+// Next strategic tranche: one high-signal technical reach and one lower-consequence
+// water-trail reach. Both have named endpoints and a live same-river USGS screen;
+// the Cacapon gauge is downstream, so the route copy calls that relationship out.
+const strategicNextSpecs: WestVirginiaRouteSpec[] = [
+  {
+    id: 'wv-tygart-valley-falls-hammond', name: 'Tygart Valley River', riverId: 'tygart-valley-river',
+    reach: 'Valley Falls State Park to Hammond / Twist and Shout take-out', region: 'North-central West Virginia / Valley Falls',
+    aliases: ['Valley Falls to Hammond', 'Valley Falls Tygart section'], distance: '1.2 mi', miles: 1.2,
+    classLabel: 'Class II-IV (with Class IV+ features)', gaugeSiteId: '03057000', gaugeSiteName: 'Tygart Valley River at Colfax, WV', gaugeMetric: 'gage_height_ft', gaugeUnit: 'ft',
+    gaugeDetailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03057000/', gaugeHydrographUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03057000',
+    putIn: { name: 'Valley Falls State Park river-right put-in / superintendent office', latitude: 39.38897, longitude: -80.08733 }, takeOut: { name: 'Twist and Shout take-out under the railroad bridge', latitude: 39.40187, longitude: -80.09554 },
+    idealMin: 4, idealMax: 4.9, tooLow: 3.5, tooHigh: 5.5, thresholdLabel: 'American Whitewater Valley Falls guidance: medium runnable near 4.4 ft; community reports warn that consequence rises sharply above about 4.9 ft', thresholdUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2453/main', thresholdProvider: 'american_whitewater', thresholdStrength: 'community', difficulty: 'hard', riskLevel: 'advanced', hazards: ['whitewater', 'fast_rise', 'cold_water', 'access_uncertain'],
+    safetyNotes: ['This is a short but consequential waterfall run: Valley Falls, the second drop, Hamburger Helper, and Twist and Shout require scouting and an expert whitewater team.', 'American Whitewater requires river-right sign-in with Valley Falls State Park personnel; confirm current park permission before launching.', 'The lower take-out is below an active railroad bridge. Do not walk the rail line, and do not continue downstream without a separate access plan.'],
+    sourceLinks: [aw('American Whitewater Valley Falls section', 'https://www.americanwhitewater.org/content/River/view/river-detail/2453/main'), local('West Virginia State Parks Valley Falls activities', 'https://wvstateparks.com/parks/valley-falls-state-park/activities/'), local('Save the Tygart beginner float context', 'https://www.savethetygart.org/boatfloat'), local('Tygart Lake State Park camping', 'https://wvstateparks.com/parks/tygart-lake-state-park/'), ...usgs('03057000', 'Tygart Valley River at Colfax, WV')],
+    evidenceNotes: [{ label: 'Named route corridor', value: 'Valley Falls State Park to Hammond; 1.2 mi; Class II-IV', note: 'American Whitewater documents the gauge, river-right put-in, named hazards, and Twist and Shout take-out.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2453/main' }, { label: 'Access and camping context', value: 'Valley Falls State Park access; nearby Tygart Lake camping', note: 'State-park and campground sources support the access check and nearby-basecamp classification.', sourceUrl: 'https://wvstateparks.com/parks/valley-falls-state-park/activities/' }],
+    campingClassification: 'nearby_basecamp', camping: 'No on-route camping. Use separately verified nearby Tygart Lake or Audra-area camping and confirm seasonal availability.', logisticsSummary: 'Very short, high-consequence Tygart whitewater section with a live Colfax stage gauge and a park-controlled put-in.',
+    accessCaveats: ['Sign in with Valley Falls State Park personnel and confirm current permission, parking, and river-right carry path.', 'Inspect the railroad-bridge take-out before launching; never use the active rail line for the return shuttle.'], watchFor: ['USGS Colfax stage outside the conservative 3.5–5.5 ft screen or a rapidly rising trend.', 'Valley Falls, Hamburger Helper, Twist and Shout, pinning hazards, cold water, and railroad infrastructure.'], seasonNotes: 'Spring through fall when stage and park permission align; September is a shoulder-season option only for a prepared expert team.', difficultyNotes: 'Hard expert whitewater despite the 1.2-mile length; the app deliberately does not label this beginner-friendly.', confidenceNotes: 'High endpoint and hazard confidence from American Whitewater and state-park material; the numeric band is intentionally conservative and community-derived.', shuttle: 'Park at Valley Falls State Park, sign in, and follow the river-right access protocol. Arrange a separate shuttle from the Hammond rail-bridge take-out without walking the tracks.'
+  },
+  {
+    id: 'wv-cacapon-capon-bridge-wv127', name: 'Cacapon River', riverId: 'cacapon-river',
+    reach: 'US 50 at Capon Bridge to WV 127 (Bloomery) Bridge', region: 'Eastern Panhandle / Cacapon Water Trail',
+    aliases: ['Capon Bridge to WV 127', "Caudy's Castle Classic Run"], distance: '11.6 mi', miles: 11.6,
+    classLabel: 'Class II', gaugeSiteId: '01611500', gaugeSiteName: 'Cacapon River near Great Cacapon, WV', gaugeMetric: 'gage_height_ft', gaugeUnit: 'ft', gaugeKind: 'direct',
+    gaugeDetailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01611500/', gaugeHydrographUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01611500',
+    putIn: { name: 'Capon Bridge public access at US 50', latitude: 39.2981, longitude: -78.4351 }, takeOut: { name: 'WV 127 (Bloomery) Bridge public access', latitude: 39.4032, longitude: -78.4174 },
+    idealMin: 3, idealMax: 5.5, tooLow: 2, tooHigh: 6.5, thresholdLabel: 'American Whitewater trip-report screening band at the Great Cacapon gauge: roughly 3–5.5 ft; below 2 ft commonly scrapes or drags', thresholdUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2344/main', thresholdProvider: 'american_whitewater', thresholdStrength: 'community', difficulty: 'moderate', riskLevel: 'caution', hazards: ['whitewater', 'fast_rise', 'low_water', 'cold_water', 'private_banks'],
+    safetyNotes: ['American Whitewater describes three ledges, with the third reaching Class II+/III- character; scout the ledges and keep a conservative line.', 'The Great Cacapon USGS station is downstream of this upper reach; pair the live reading with same-day rainfall, trend, and a visual check at Capon Bridge.', 'Most banks are private. Stay within the channel, use only named public accesses, and do not treat Caudy’s Castle as a legal shore excursion without permission.'],
+    sourceLinks: [aw("American Whitewater Caudy's Castle section", 'https://www.americanwhitewater.org/content/River/view/river-detail/2344/main'), local('Cacapon River Water Trail guide', 'https://diyoutdoors.wvu.edu/files/d/880f944e-a57e-4552-a47d-1816d7bfd8d7/cacapon-water-trail-guide-text-side.pdf'), local('Friends of the Cacapon public access guidance', 'https://cacaponriver.org/promote/river-recreation/'), wvDnr('https://wvdnr.gov/lands-waters/stream-access-points/'), ...usgs('01611500', 'Cacapon River near Great Cacapon, WV')],
+    evidenceNotes: [{ label: 'Named route corridor', value: 'US 50 at Capon Bridge to WV 127 Bridge; 11.6 mi; Class II', note: 'American Whitewater documents the exact public endpoint pair, length, ledges, and Class II+/III- feature.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2344/main' }, { label: 'Water-trail access chain', value: 'Capon Bridge 39.2981,-78.4351 to Rt. 127 Bridge 39.4032,-78.4174', note: 'The Cacapon Water Trail guide publishes the endpoint coordinates and 11.5-mile water-trail mileage.', sourceUrl: 'https://diyoutdoors.wvu.edu/files/d/880f944e-a57e-4552-a47d-1816d7bfd8d7/cacapon-water-trail-guide-text-side.pdf' }],
+    campingClassification: 'nearby_basecamp', camping: 'No public on-route camping is assumed. The water-trail guide notes public and private campgrounds throughout the watershed; reserve a separately verified nearby basecamp.', logisticsSummary: 'Scenic, public-access Cacapon day run combining a strong water-trail endpoint package with three ledges and a downstream live-gauge proxy.',
+    accessCaveats: ['Use the town-maintained Capon Bridge access and the WVDNR Rt. 127 access only after checking parking, ramp, and current notices.', 'Do not use the historic Edwards Run private launch without permission; this route intentionally keeps the public Capon Bridge start.'], watchFor: ['USGS Great Cacapon stage outside the conservative 2–6.5 ft screen, rapid rise, or a mismatch with local visual conditions.', 'Darby’s Nose, Chapel Rock, Caudy’s Castle ledge, wood in bends, private banks, and cold water.'], seasonNotes: 'Best in spring and fall; September can work after rainfall and stage checks, but low water may require dragging and high water changes ledge consequences.', difficultyNotes: 'Moderate Class II moving water with a sticky Class II+/III- ledge; suitable only for paddlers prepared for current, scouting, and self-rescue.', confidenceNotes: 'High access and corridor confidence from the Cacapon Water Trail guide and American Whitewater; threshold is intentionally community-derived and the gauge is a downstream same-river proxy.', shuttle: 'Stage at the WV 127 public access, then drive to the Capon Bridge US 50 access. Confirm both parking areas and the take-out ramp before unloading.'
+  },
+];
+
 function routeAccessPoints(spec: WestVirginiaRouteSpec): RiverRouteAccessPoint[] {
   return [
     { id: `${spec.id}-put-in`, name: spec.putIn.name, latitude: spec.putIn.latitude, longitude: spec.putIn.longitude, mileFromStart: 0, segmentKind: 'transition', note: 'Verified public access named in the research dossier.' },
@@ -153,6 +188,8 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
   };
   const gaugePlanningNote = spec.gaugeSiteId === '03185400'
     ? ' Same-river proxy only: the Thurmond telemetry is not a route-endpoint measurement, so pair it with a same-day visual, rainfall, and access check.'
+    : spec.gaugeSiteId === '01611500'
+      ? ' Downstream same-river proxy: Great Cacapon telemetry is below this upper reach, so pair it with a same-day visual, rainfall, and access check.'
     : '';
   return {
     id: spec.id,
@@ -163,7 +200,7 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
     aliases: spec.aliases,
     state: 'West Virginia',
     region: spec.region,
-    routeType: 'whitewater',
+    routeType: spec.routeType ?? 'whitewater',
     summary: `${spec.name} ${spec.reach} is a ${spec.distance} ${spec.classLabel} run documented by American Whitewater and official access partners.`,
     statusText: `Use USGS ${spec.gaugeSiteId} as the live planning gauge. Recheck current ${spec.gaugeUnit === 'cfs' ? 'discharge' : 'stage'}, trend, rainfall, access, shuttle roads, hazards, and daylight immediately before launch.${gaugePlanningNote}`,
     latitude: (spec.putIn.latitude + spec.takeOut.latitude) / 2,
@@ -181,10 +218,10 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
       rainfallSensitivity: 'high', seasonMonths: [4, 5, 6, 7, 8, 9, 10], seasonNotes: spec.seasonNotes,
       difficulty: spec.difficulty, difficultyNotes: spec.difficultyNotes, confidenceNotes: spec.confidenceNotes,
     },
-    evidenceNotes: [...spec.evidenceNotes, { label: 'Gauge', value: `USGS ${spec.gaugeSiteId} ${spec.gaugeMetric === 'discharge_cfs' ? 'discharge' : 'stage'} telemetry`, note: spec.gaugeSiteId === '03185400' ? 'Official same-river proxy used for the route planning screen; it is not a route-endpoint measurement. Verify current value and trend alongside weather, visual conditions, and access.' : 'Official same-river gauge used for the route planning screen; verify current value and trend before launch.', sourceUrl: spec.gaugeHydrographUrl }],
+    evidenceNotes: [...spec.evidenceNotes, { label: 'Gauge', value: `USGS ${spec.gaugeSiteId} ${spec.gaugeMetric === 'discharge_cfs' ? 'discharge' : 'stage'} telemetry`, note: spec.gaugeSiteId === '03185400' ? 'Official same-river proxy used for the route planning screen; it is not a route-endpoint measurement. Verify current value and trend alongside weather, visual conditions, and access.' : spec.gaugeSiteId === '01611500' ? 'Official downstream same-river proxy used for the upper Cacapon planning screen; verify current value and trend alongside local rainfall and a visual check.' : 'Official same-river gauge used for the route planning screen; verify current value and trend before launch.', sourceUrl: spec.gaugeHydrographUrl }],
     sourceLinks,
     scoreEligibility: 'scored',
   };
 }
 
-export const westVirginiaRoutes: River[] = [...routeSpecs, ...additionalSpecs, ...cheatSpecs].map(makeRoute);
+export const westVirginiaRoutes: River[] = [...routeSpecs, ...additionalSpecs, ...cheatSpecs, ...strategicNextSpecs].map(makeRoute);

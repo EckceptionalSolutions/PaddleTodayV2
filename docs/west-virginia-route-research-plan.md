@@ -6,6 +6,22 @@ Prepared: 2026-08-25
 
 Branch: `codex/west-virginia-research-plan`
 
+## Strategic next tranche (2026-08-25)
+
+The first expansion after the New/Greenbrier/Upper Cheat cohort is deliberately
+small and evidence-led:
+
+| Route | Why it clears the next gate | Remaining operational caveat |
+| --- | --- | --- |
+| Tygart Valley: Valley Falls State Park to Hammond / Twist and Shout | American Whitewater supplies a named 1.2-mile reach, Colfax stage gauge, endpoint protocol, and feature-level hazards; state-park material confirms the managed access context | Short does not mean easy: Valley Falls, Hamburger Helper, and Twist and Shout make this an expert-only whitewater card; the numeric stage band is community-derived and conservative |
+| Cacapon: Capon Bridge to WV 127 (Bloomery) | American Whitewater and the Cacapon Water Trail guide agree on the 11.5–11.6-mile public endpoint pair; WVDNR publishes the access coordinates; Great Cacapon has continuous USGS telemetry | The gauge is downstream of this upper reach and the flow band is community-derived; pair the reading with rainfall, trend, and a local visual check; no public on-route camping is assumed |
+
+These two routes intentionally broaden the product in different directions: one
+adds a high-consequence, gauge-rich specialist reach, while the other adds a
+scenic Class II water-trail route with a stronger public-access and camping
+logistics package. Gauley remains a later release-aware tranche rather than a
+scored route until a supported live release provider is proven.
+
 ## Decision
 
 Research West Virginia gauge-first, but do not treat every gauge as a route lead.
