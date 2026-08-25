@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "state": "West Virginia",
+  "updatedAt": "2026-08-25T12:45:00-05:00",
+  "purpose": "Gauge-first research decisions for the initial West Virginia route cohort. This is a research artifact, not live route data.",
+  "progress": {
+    "priority1GaugesTotal": 24,
+    "priority1GaugesReviewed": 3,
+    "boundedCandidatesScreened": 6,
+    "candidatesWithNumericThresholdDecision": 6,
+    "corridorsWithNumericThresholdDecision": 2,
+    "advancingCandidates": 4
+  },
+  "gaugeDecisions": [
+    {
+      "gaugeKey": "usgs:03184500",
+      "stationName": "New River at Hinton, WV",
+      "parameters": [
+        "discharge",
+        "stage"
+      ],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater ties the gauge directly to its Bluestone-Dam-to-Sandstone reach with a 1.35-5.0 foot runnable range, and NPS confirms multiple public access points within that reach. The selected candidate stops at Hellems Beach and therefore does not cross the mandatory Sandstone Falls portage.",
+      "candidateIds": [
+        "wv-new-tug-creek-hellems"
+      ],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03184500&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2415/main",
+        "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+        "https://www.nps.gov/neri/planyourvisit/whitewater.htm"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:03185400",
+      "stationName": "New River at Thurmond, WV",
+      "parameters": [
+        "discharge",
+        "stage"
+      ],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater publishes gauge-specific numeric ranges for the Sandstone-McCreery, McCreery-Thurmond, Thurmond-Cunard, and Cunard-Fayette Station reaches. NPS independently confirms the named public access chain and distinguishes the intermediate upper river from the advanced/expert river below Thurmond.",
+      "candidateIds": [
+        "wv-new-glade-creek-grandview-sandbar",
+        "wv-new-mccreery-stone-cliff",
+        "wv-new-thurmond-cunard",
+        "wv-new-cunard-fayette-station"
+      ],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03185400&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2416/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2417/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4119/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2418/main",
+        "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+        "https://www.nps.gov/neri/planyourvisit/whitewater.htm",
+        "https://www.nps.gov/neri/planyourvisit/road-and-trail-closures.htm"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:03179000",
+      "stationName": "Bluestone River near Pipestem, WV",
+      "parameters": [
+        "discharge",
+        "stage"
+      ],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. NPS publishes an exact 4-7 foot safe navigation range on the Pipestem gauge and recognizes the Pipestem-to-Bluestone-State-Park paddling corridor. The current candidate remains operationally blocked until the new tram's private-boat carriage policy is explicit.",
+      "candidateIds": [
+        "wv-bluestone-pipestem-bluestone-state-park"
+      ],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03179000&parameterCd=00060,00065&siteStatus=all",
+        "https://www.nps.gov/blue/planyourvisit/paddling-the-bluestone.htm",
+        "https://www.nps.gov/articles/getaway-blue.htm",
+        "https://wvstateparks.com/parks/pipestem-state-park/activities/aerial-tour-at-pipestem-state-park/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/3091/main"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "id": "wv-new-tug-creek-hellems",
+      "river": "New River",
+      "route": "Tug Creek River Access to Hellems Beach",
+      "corridor": "Hinton to Sandstone",
+      "decision": "advance",
+      "gaugeKey": "usgs:03184500",
+      "gaugeRelationship": "same-river upstream direct-adjacent",
+      "distanceMiles": 2.11,
+      "difficulty": "Class II-III",
+      "routeType": "whitewater",
+      "putIn": {
+        "name": "Tug Creek River Access",
+        "manager": "National Park Service",
+        "latitude": 37.698042,
+        "longitude": -80.884106,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "takeOut": {
+        "name": "Hellems Beach River Access",
+        "manager": "National Park Service",
+        "latitude": 37.724596,
+        "longitude": -80.896656,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "threshold": {
+        "decision": "qualified_two_sided",
+        "metric": "stage_ft",
+        "minimum": 1.35,
+        "maximum": 5.0,
+        "source": "American Whitewater reach 2415",
+        "scopeNote": "The threshold is published for the containing Bluestone-Dam-to-Sandstone reach and uses the same Hinton gauge; the selected subreach is downstream of the gauge and ends before Sandstone Falls."
+      },
+      "safety": [
+        "Brooks Falls is a Class III feature with a consequential keeper hole right of the traditional river-left line.",
+        "The NPS characterizes Hinton-to-Thurmond paddling as challenging Class I-III suitable for intermediate whitewater paddlers.",
+        "The route intentionally ends well upstream of Sandstone Falls, which NPS/AW treat as a mandatory portage boundary."
+      ],
+      "camping": {
+        "classification": "nearby_basecamp",
+        "note": "NPS campgrounds exist elsewhere along the upper New River, but no camping is represented as part of this short route."
+      },
+      "closureCheck": "NPS current closure page reviewed 2026-08-25; it did not list Tug Creek or Hellems Beach as closed.",
+      "remainingWork": [
+        "Run coordinate-to-river and official access-registry audits.",
+        "Confirm the short route has enough standalone product value versus serving as an access-planner option."
+      ],
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2415/main",
+        "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+        "https://www.nps.gov/neri/planyourvisit/whitewater.htm",
+        "https://www.nps.gov/neri/planyourvisit/road-and-trail-closures.htm"
+      ]
+    },
+    {
+      "id": "wv-new-glade-creek-grandview-sandbar",
+      "river": "New River",
+      "route": "Glade Creek River Access to Grandview Sandbar",
+      "corridor": "Sandstone to McCreery",
+      "decision": "advance",
+      "gaugeKey": "usgs:03185400",
+      "gaugeRelationship": "same-river downstream proxy within published reach",
+      "distanceMiles": 4.51,
+      "difficulty": "Class II-III",
+      "routeType": "whitewater",
+      "putIn": {
+        "name": "Glade Creek River Access",
+        "manager": "National Park Service",
+        "latitude": 37.82912,
+        "longitude": -81.014533,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "takeOut": {
+        "name": "Grandview Sandbar",
+        "manager": "National Park Service",
+        "latitude": 37.857024,
+        "longitude": -81.053783,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "threshold": {
+        "decision": "qualified_two_sided",
+        "metric": "discharge_cfs",
+        "minimum": 800,
+        "maximum": 17550,
+        "source": "American Whitewater reach 2416",
+        "scopeNote": "AW explicitly identifies Glade Creek to Grandview Sandbar as the popular 4.5-mile trip inside the thresholded containing reach."
+      },
+      "safety": [
+        "Grassy Shoals and Quinnimont are the principal Class III- features on the selected subreach.",
+        "At high water, a swim above the Grandview Sandbar takeout can create a missed-ramp risk.",
+        "The NPS describes the upper New as a large, powerful river even where rapids are easier."
+      ],
+      "camping": {
+        "classification": "endpoint_campground",
+        "note": "NPS lists designated camping at both Glade Creek and Grandview Sandbar; normal campground rules and first-come availability apply."
+      },
+      "closureCheck": "NPS current closure page reviewed 2026-08-25; neither river access was listed as closed. Kates Plateau Trail work does not close the Glade Creek river access.",
+      "remainingWork": [
+        "Run coordinate-to-river and official access-registry audits.",
+        "Decide whether the unusually broad AW upper range needs conservative product calibration below the published maximum."
+      ],
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2416/main",
+        "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+        "https://www.nps.gov/neri/planyourvisit/whitewater.htm",
+        "https://www.nps.gov/neri/planyourvisit/camping.htm",
+        "https://www.nps.gov/neri/planyourvisit/grandview-sandbar-campground.htm",
+        "https://www.nps.gov/neri/planyourvisit/road-and-trail-closures.htm"
+      ]
+    },
+    {
+      "id": "wv-new-mccreery-stone-cliff",
+      "river": "New River",
+      "route": "McCreery River Access to Stone Cliff",
+      "corridor": "Upper New",
+      "decision": "advance",
+      "gaugeKey": "usgs:03185400",
+      "gaugeRelationship": "same-river downstream proxy within published reach",
+      "distanceMiles": 10.88,
+      "difficulty": "Class II-III",
+      "routeType": "whitewater",
+      "putIn": {
+        "name": "McCreery River Access",
+        "manager": "National Park Service",
+        "latitude": 37.848591,
+        "longitude": -81.092046,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "takeOut": {
+        "name": "Stone Cliff",
+        "manager": "National Park Service",
+        "latitude": 37.933013,
+        "longitude": -81.063513,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "threshold": {
+        "decision": "qualified_two_sided",
+        "metric": "stage_ft",
+        "minimum": 1.25,
+        "maximum": 9.75,
+        "source": "American Whitewater reach 2417",
+        "scopeNote": "AW recommends Stone Cliff as the usual takeout within its McCreery-to-Thurmond thresholded reach."
+      },
+      "safety": [
+        "Ledges and Silo are Class III features; Silo has a reported river-right undercut and consequential hydraulics at some levels.",
+        "The NPS rates the upper river as appropriate for intermediate whitewater paddlers, not casual flatwater users.",
+        "The selected Stone Cliff takeout avoids adding a low-value final pool to Thurmond."
+      ],
+      "camping": {
+        "classification": "endpoint_campground",
+        "note": "NPS lists Stone Cliff among its current New River camping areas."
+      },
+      "closureCheck": "NPS current closure page reviewed 2026-08-25; McCreery and Stone Cliff river accesses were not listed as closed.",
+      "remainingWork": [
+        "Run coordinate-to-river and official access-registry audits.",
+        "Calibrate product messaging so a broad runnable range does not imply uniformly beginner-friendly hydraulics."
+      ],
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2417/main",
+        "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+        "https://www.nps.gov/neri/planyourvisit/whitewater.htm",
+        "https://www.nps.gov/neri/planyourvisit/camping.htm",
+        "https://www.nps.gov/neri/planyourvisit/road-and-trail-closures.htm"
+      ]
+    },
+    {
+      "id": "wv-new-thurmond-cunard",
+      "river": "New River",
+      "route": "Thurmond to Cunard",
+      "corridor": "Upper-to-Lower Gorge transition",
+      "decision": "blocked",
+      "blocker": "Published distance conflict and safety-framing conflict must be resolved before implementation.",
+      "gaugeKey": "usgs:03185400",
+      "gaugeRelationship": "direct at put-in",
+      "distanceMiles": null,
+      "distanceEvidence": {
+        "americanWhitewaterReachLengthMiles": 7.2,
+        "americanWhitewaterTakeoutFeatureMiles": 9.4
+      },
+      "difficulty": "Class I-III in AW; below-Thurmond advanced/expert framing in NPS",
+      "routeType": "whitewater",
+      "putIn": {
+        "name": "Thurmond",
+        "manager": "National Park Service",
+        "latitude": 37.954044,
+        "longitude": -81.077362,
+        "coordinateSource": "American Whitewater access feature; NPS confirms the public Thurmond/Dunglen access family"
+      },
+      "takeOut": {
+        "name": "Cunard",
+        "manager": "National Park Service",
+        "latitude": 37.999569,
+        "longitude": -81.022118,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "threshold": {
+        "decision": "qualified_two_sided",
+        "metric": "stage_ft",
+        "minimum": 1.25,
+        "maximum": 9.6,
+        "source": "American Whitewater reach 4119"
+      },
+      "safety": [
+        "Surprise is a Class III rapid with a large hole at some flows.",
+        "NPS says the New River downstream from Thurmond is suitable only for advanced and expert paddlers.",
+        "Cunard Road is steep and partly gravel; it is currently one lane in places and closes seasonally November through March."
+      ],
+      "camping": {
+        "classification": "nearby_basecamp",
+        "note": "NPS lists several nearby New River camps, but no camping is represented as part of this selected reach."
+      },
+      "closureCheck": "NPS reports Cunard Road open as of 2026-08-06, with one-lane delays through October and a planned November-March closure.",
+      "nextAction": "Resolve mileage from an official route line or generated river geometry, then preserve NPS advanced/expert posture even if AW retains a lower reach rating.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4119/main",
+        "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+        "https://www.nps.gov/neri/planyourvisit/whitewater.htm",
+        "https://www.nps.gov/neri/planyourvisit/road-and-trail-closures.htm"
+      ]
+    },
+    {
+      "id": "wv-new-cunard-fayette-station",
+      "river": "New River",
+      "route": "Cunard to Fayette Station",
+      "corridor": "Lower New River Gorge",
+      "decision": "advance",
+      "gaugeKey": "usgs:03185400",
+      "gaugeRelationship": "same-river upstream proxy explicitly correlated by AW",
+      "distanceMiles": 6.84,
+      "difficulty": "Class III-IV",
+      "routeType": "whitewater",
+      "putIn": {
+        "name": "Cunard",
+        "manager": "National Park Service",
+        "latitude": 38.000299,
+        "longitude": -81.022809,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "takeOut": {
+        "name": "Fayette Station",
+        "manager": "National Park Service",
+        "latitude": 38.065996,
+        "longitude": -81.080839,
+        "coordinateSource": "American Whitewater access feature; public-access name independently confirmed by NPS"
+      },
+      "threshold": {
+        "decision": "qualified_two_sided",
+        "metric": "discharge_cfs",
+        "minimum": 500,
+        "maximum": 15250,
+        "source": "American Whitewater reach 2418 secondary USGS correlation",
+        "scopeNote": "AW's primary display gauge is calculated, but the reach also publishes this numeric correlation directly against supported USGS station 03185400."
+      },
+      "safety": [
+        "NPS restricts the below-Thurmond river to advanced and expert paddlers and warns of powerful currents, hydraulics, boulders, and undercut rocks.",
+        "The reach has a substantial recorded accident history and must remain hidden from default recreational discovery.",
+        "Cunard Road is steep, partly gravel, one lane during current work, and seasonally closed November-March."
+      ],
+      "camping": {
+        "classification": "nearby_basecamp",
+        "note": "Brooklyn and other NPS camps can support a trip but are not represented as on-route or endpoint camping."
+      },
+      "closureCheck": "NPS reports Cunard Road open as of 2026-08-06, with one-lane delays through October. Fayette Station was not listed as closed.",
+      "remainingWork": [
+        "Run coordinate-to-river and official access-registry audits.",
+        "Apply advanced/expert-only copy and the repository whitewater discovery filter.",
+        "Review whether the published AW upper range needs a more conservative Paddle Today danger cutoff."
+      ],
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2418/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2418/accidents",
+        "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+        "https://www.nps.gov/neri/planyourvisit/whitewater.htm",
+        "https://www.nps.gov/neri/planyourvisit/road-and-trail-closures.htm"
+      ]
+    },
+    {
+      "id": "wv-bluestone-pipestem-bluestone-state-park",
+      "river": "Bluestone River",
+      "route": "Pipestem Resort State Park to Bluestone State Park",
+      "corridor": "Bluestone National Scenic River",
+      "decision": "blocked",
+      "blocker": "Current official tram material confirms seasonal river access but does not explicitly confirm private kayak/canoe carriage on the replacement gondola.",
+      "gaugeKey": "usgs:03179000",
+      "gaugeRelationship": "direct within route",
+      "distanceMiles": 8.48,
+      "difficulty": "Class I-II below the tram; remote scenic river",
+      "routeType": "whitewater",
+      "putIn": {
+        "name": "Pipestem Resort State Park / Mountain Creek Lodge tram river access",
+        "manager": "West Virginia State Parks",
+        "latitude": 37.537486,
+        "longitude": -81.007857,
+        "coordinateSource": "American Whitewater access feature; NPS and WV State Parks independently confirm tram connection to the Bluestone River"
+      },
+      "takeOut": {
+        "name": "Bluestone State Park / Turnpike Trail river access",
+        "manager": "West Virginia State Parks",
+        "latitude": 37.602247,
+        "longitude": -80.946202,
+        "coordinateSource": "American Whitewater access feature; NPS independently confirms Bluestone State Park as the downstream corridor endpoint"
+      },
+      "threshold": {
+        "decision": "qualified_two_sided",
+        "metric": "stage_ft",
+        "minimum": 4.0,
+        "maximum": 7.0,
+        "source": "National Park Service paddling guidance",
+        "scopeNote": "Use the narrower official NPS 4-7 foot safe-navigation range rather than AW's broader 4-10 foot runnable range."
+      },
+      "safety": [
+        "The river is remote and frequently too low, especially in summer.",
+        "Tram operation is seasonal and weather-dependent, so same-day access confirmation is mandatory.",
+        "The lower miles transition toward Bluestone Lake backwater and require sustained flatwater paddling.",
+        "Camping and fires are prohibited within Bluestone National Scenic River."
+      ],
+      "camping": {
+        "classification": "nearby_basecamp",
+        "note": "NPS prohibits camping in the scenic-river unit but identifies campground/lodging options at Pipestem Resort and Bluestone State Parks."
+      },
+      "closureCheck": "WV State Parks advertises the new tram as operating May-October weather permitting; no explicit boat-cargo policy was found in the current official page.",
+      "nextAction": "Obtain current written confirmation that private paddlecraft can be carried on the tram, including size, fee, reservation, operating-day, and shutdown rules. If not, research Lilly or another official road-access endpoint instead.",
+      "sources": [
+        "https://www.nps.gov/blue/planyourvisit/paddling-the-bluestone.htm",
+        "https://www.nps.gov/articles/getaway-blue.htm",
+        "https://www.nps.gov/blue/planyourvisit/index.htm",
+        "https://wvstateparks.com/parks/pipestem-state-park/activities/aerial-tour-at-pipestem-state-park/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/3091/main"
+      ]
+    }
+  ]
+}
