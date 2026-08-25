@@ -1,366 +1,41 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-24T02:38:18.913Z",
+  "generatedAt": "2026-08-25T02:14:01.524Z",
   "maxPerState": 5,
   "maxGlobal": 20,
   "opportunities": [
     {
-      "id": "route-opportunity-ut-usgs-10224000",
-      "taskId": "route-opportunity-ut-usgs-10224000",
-      "stateId": "UT",
-      "gaugeKey": "usgs:10224000",
-      "siteName": "SEVIER RIVER NEAR LYNNDYL, UT",
+      "id": "route-opportunity-in-usgs-03353603",
+      "taskId": "route-opportunity-in-usgs-03353603",
+      "stateId": "IN",
+      "gaugeKey": "usgs:03353603",
+      "siteName": "NEELD DITCH NEAR MARS HILL, IN",
       "priority": "medium",
-      "score": 96030,
+      "score": 97360,
       "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 80,
-        "evidenceCompleteness": 20,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "in_progress",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-pa-usgs-03010955",
-      "taskId": "route-opportunity-pa-usgs-03010955",
-      "stateId": "PA",
-      "gaugeKey": "usgs:03010955",
-      "siteName": "Tunungwant Creek near South Bradford, PA",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-pa-usgs-03042500",
-      "taskId": "route-opportunity-pa-usgs-03042500",
-      "stateId": "PA",
-      "gaugeKey": "usgs:03042500",
-      "siteName": "Two Lick Creek at Graceton, PA",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-pa-usgs-04213152",
-      "taskId": "route-opportunity-pa-usgs-04213152",
-      "stateId": "PA",
-      "gaugeKey": "usgs:04213152",
-      "siteName": "Walnut Creek Upstream Pool, near Erie, PA",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-pa-usgs-03021410",
-      "taskId": "route-opportunity-pa-usgs-03021410",
-      "stateId": "PA",
-      "gaugeKey": "usgs:03021410",
-      "siteName": "West Branch French Creek near Lowville, PA",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-pa-usgs-03022540",
-      "taskId": "route-opportunity-pa-usgs-03022540",
-      "stateId": "PA",
-      "gaugeKey": "usgs:03022540",
-      "siteName": "Woodcock Creek at Blooming Valley, PA",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "No complete route evidence package was established in the bounded review; preserve as an explicit blocked opportunity rather than force a route.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-ut-usgs-10172700",
-      "taskId": "route-opportunity-ut-usgs-10172700",
-      "stateId": "UT",
-      "gaugeKey": "usgs:10172700",
-      "siteName": "VERNON CREEK NEAR VERNON, UT",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-ut-usgs-10166430",
-      "taskId": "route-opportunity-ut-usgs-10166430",
-      "stateId": "UT",
-      "gaugeKey": "usgs:10166430",
-      "siteName": "WEST CANYON CREEK NEAR CEDAR FORT, UT",
-      "priority": "medium",
-      "score": 95630,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-ut-usgs-10146000",
-      "taskId": "route-opportunity-ut-usgs-10146000",
-      "stateId": "UT",
-      "gaugeKey": "usgs:10146000",
-      "siteName": "SALT CREEK AT NEPHI, UT",
-      "priority": "medium",
-      "score": 95620,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 45,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 15
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Bounded review found a genuine lower Diamond Fork/Spanish Fork boating opportunity, but the gauge is upstream of the documented lower access and no station-specific paddling threshold or coordinate-backed endpoint pair ties this gauge to a publishable corridor.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-tx-usgs-08039100",
-      "taskId": "route-opportunity-tx-usgs-08039100",
-      "stateId": "TX",
-      "gaugeKey": "usgs:08039100",
-      "siteName": "Ayish Bayou nr San Augustine, TX",
-      "priority": "medium",
-      "score": 95380,
-      "rankingFactors": {
-        "frontier": 95,
+        "frontier": 97,
         "searchValue": 20,
         "evidenceCompleteness": 10,
         "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "in_progress",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-tx-usgs-08155300",
-      "taskId": "route-opportunity-tx-usgs-08155300",
-      "stateId": "TX",
-      "gaugeKey": "usgs:08155300",
-      "siteName": "Barton Ck at Loop 360, Austin, TX",
-      "priority": "medium",
-      "score": 95380,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 20,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
+        "effortToClear": 5
       },
       "status": "ready",
       "routeReadiness": "research_needed",
       "routeFamilies": [],
       "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
+        "route endpoint and numeric threshold package incomplete",
+        "access, safety, camping, coordinate, image, and geometry evidence incomplete"
       ],
-      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
+      "reason": "Route endpoint and numeric threshold package incomplete; access, safety, camping, coordinate, image, and geometry evidence incomplete.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-tx-usgs-08155240",
-      "taskId": "route-opportunity-tx-usgs-08155240",
+      "id": "route-opportunity-tx-usgs-08017200",
+      "taskId": "route-opportunity-tx-usgs-08017200",
       "stateId": "TX",
-      "gaugeKey": "usgs:08155240",
-      "siteName": "Barton Ck at Lost Ck Blvd nr Austin, TX",
-      "priority": "medium",
-      "score": 95380,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 20,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-tx-usgs-08155200",
-      "taskId": "route-opportunity-tx-usgs-08155200",
-      "stateId": "TX",
-      "gaugeKey": "usgs:08155200",
-      "siteName": "Barton Ck at SH 71 nr Oak Hill, TX",
-      "priority": "medium",
-      "score": 95380,
-      "rankingFactors": {
-        "frontier": 95,
-        "searchValue": 20,
-        "evidenceCompleteness": 10,
-        "distinctCorridorValue": 35,
-        "effortToClear": 25
-      },
-      "status": "ready",
-      "routeReadiness": "research_needed",
-      "routeFamilies": [],
-      "blockers": [
-        "no_named_public_endpoint",
-        "no_source_backed_threshold",
-        "insufficient_access_safety_and_route_evidence"
-      ],
-      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
-      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
-      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
-    },
-    {
-      "id": "route-opportunity-tx-usgs-08078080",
-      "taskId": "route-opportunity-tx-usgs-08078080",
-      "stateId": "TX",
-      "gaugeKey": "usgs:08078080",
-      "siteName": "Bastrop Bayou at CR 288 nr Lake Jackson, TX",
+      "gaugeKey": "usgs:08017200",
+      "siteName": "Cowleech Fk Sabine Rv at Greenville, TX",
       "priority": "medium",
       "score": 95380,
       "rankingFactors": {
@@ -383,11 +58,11 @@
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     },
     {
-      "id": "route-opportunity-ut-usgs-10164500",
-      "taskId": "route-opportunity-ut-usgs-10164500",
-      "stateId": "UT",
-      "gaugeKey": "usgs:10164500",
-      "siteName": "AMERICAN FK AB UPPER POWERPLANT NR AMERICAN FK, UT",
+      "id": "route-opportunity-tx-usgs-08068025",
+      "taskId": "route-opportunity-tx-usgs-08068025",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08068025",
+      "siteName": "Crystal Ck at FM 1314 nr Conroe, TX",
       "priority": "medium",
       "score": 95380,
       "rankingFactors": {
@@ -405,7 +80,88 @@
         "no_source_backed_threshold",
         "insufficient_access_safety_and_route_evidence"
       ],
-      "reason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
+      "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08180941",
+      "taskId": "route-opportunity-tx-usgs-08180941",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08180941",
+      "siteName": "Culebra Ck in GCSNA nr Helotes, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Potential route-capable gauge reviewed; no named public endpoint, source-backed threshold, or sufficient access and safety evidence was established in this bounded pass.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-07343356",
+      "taskId": "route-opportunity-tx-usgs-07343356",
+      "stateId": "TX",
+      "gaugeKey": "usgs:07343356",
+      "siteName": "Cuthand Ck at FM 910 nr Cuthand, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
+      "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
+      "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
+    },
+    {
+      "id": "route-opportunity-tx-usgs-08068800",
+      "taskId": "route-opportunity-tx-usgs-08068800",
+      "stateId": "TX",
+      "gaugeKey": "usgs:08068800",
+      "siteName": "Cypress Ck at Grant Rd nr Cypress, TX",
+      "priority": "medium",
+      "score": 95380,
+      "rankingFactors": {
+        "frontier": 95,
+        "searchValue": 20,
+        "evidenceCompleteness": 10,
+        "distinctCorridorValue": 35,
+        "effortToClear": 25
+      },
+      "status": "ready",
+      "routeReadiness": "research_needed",
+      "routeFamilies": [],
+      "blockers": [
+        "no_named_public_endpoint",
+        "no_source_backed_threshold",
+        "insufficient_access_safety_and_route_evidence"
+      ],
+      "reason": "Potential gauge reviewed in a bounded state batch; no route was promoted without complete endpoint, threshold, access, safety, and route evidence.",
       "nextEvidenceAction": "Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge.",
       "retryCondition": "Retry only when the listed evidence gap has materially changed; do not force a route or reopen final dispositions automatically."
     }

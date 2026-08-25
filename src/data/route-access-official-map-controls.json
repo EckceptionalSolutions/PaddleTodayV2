@@ -889,6 +889,107 @@
           }
         }
       ]
+    },
+    {
+      "id": "houston_fonde_brays_launch_water_entry",
+      "name": "Houston District I Fonde Park / Lidstone Street canoe-kayak launch",
+      "state": "Texas",
+      "sourceUrl": "https://myemail.constantcontact.com/Inside-District-I-Newsletter.html?aid=LvonBSxYdoA&soid=1116263118642",
+      "sourceType": "official-identity-aerial-derived",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "Houston District I identifies the built Brays Bayou canoe/kayak launch near Fonde Park at 2600 Lidstone Street. The address resolves to the north end of the Lidstone bridge; current Esri World Imagery shows the launch path descending from the Brays Bayou Greenway to the north bank immediately west of that bridge. The stored point uses that visible water-entry end rather than the interior Fonde Park map pin.",
+      "controls": [
+        {
+          "featureId": "fonde-lidstone-brays-water-entry",
+          "name": "Fonde Park canoe/kayak launch",
+          "aliases": [
+            "Fonde launch",
+            "2600 Lidstone Street canoe/kayak launch"
+          ],
+          "waterbody": "Brays Bayou",
+          "latitude": 29.71247,
+          "longitude": -95.3232,
+          "riverMile": 0,
+          "uncertaintyFeet": 60,
+          "matchedRiverDistanceFeet": 9999,
+          "onNhdWaterbody": true,
+          "coordinateText": "North-bank water-entry end of the visible launch path immediately west of the Lidstone Street bridge in current Esri World Imagery"
+        }
+      ]
+    },
+    {
+      "id": "ia_dnr_mahaska_south_skunk_ramp_water_entries",
+      "name": "Iowa DNR Mahaska County South Skunk River public water accesses",
+      "state": "Iowa",
+      "sourceUrl": "https://www.arcgis.com/home/item.html?id=a904e625559d42f48864b6484111a26d",
+      "sourceType": "official-access-inventory",
+      "sourceDocumentDate": "2023-10-17",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "Iowa DNR's statewide public-water-access inventory identifies the Mahaska County Conservation Board Glendale and Rose Hill concrete ramps on the South Skunk River. The stored points are the inventory's water-access geometries, not the erroneous broad Google Maps area anchors previously embedded by the county park pages.",
+      "controls": [
+        {
+          "featureId": "d326d020-f8ed-4ca2-a9b8-611ce8061753",
+          "name": "Glendale Access",
+          "aliases": [
+            "Glendale Access, Mahaska County"
+          ],
+          "waterbody": "South Skunk River",
+          "latitude": 41.34155618206655,
+          "longitude": -92.59437474237431,
+          "riverMile": 0,
+          "uncertaintyFeet": 25,
+          "matchedRiverDistanceFeet": 9999,
+          "onNhdWaterbody": true,
+          "coordinateText": "Iowa DNR GlobalID d326d020-f8ed-4ca2-a9b8-611ce8061753; concrete downstream-facing ramp with parking 66 feet from access"
+        },
+        {
+          "featureId": "a9f9880a-ed5e-4dd5-9036-136a52f2a299",
+          "name": "Rose Hill Access",
+          "aliases": [
+            "Rose Hill Access, Mahaska County"
+          ],
+          "waterbody": "South Skunk River",
+          "latitude": 41.29960369951108,
+          "longitude": -92.4679394698291,
+          "riverMile": 8.1,
+          "uncertaintyFeet": 25,
+          "matchedRiverDistanceFeet": 9999,
+          "onNhdWaterbody": true,
+          "coordinateText": "Iowa DNR GlobalID a9f9880a-ed5e-4dd5-9036-136a52f2a299; 71-foot concrete downstream-facing ramp with parking 20 feet from access"
+        }
+      ]
+    },
+    {
+      "id": "indiana_county_waterworks_two_lick_launch",
+      "name": "Indiana County Parks Waterworks Conservation Area canoe/kayak launch",
+      "state": "Pennsylvania",
+      "sourceUrl": "https://indianacountyparks.org/wp-content/uploads/2023/11/waterworksmap09-22-2010.pdf",
+      "sourceType": "official-site-map-derived",
+      "sourceDocumentDate": "2010-08-22",
+      "sourceSha256": "DFFCFD1DC5918E5750BA8A35B32116F3459C365D6C51FA2B4D305F4D17BD2071",
+      "coordinateRole": "authoritative-water-entry",
+      "method": "Indiana County Parks' site map marks a canoe/kayak launch on the park-side bank of Two Lick Creek. The county directions page supplies the current park pin; the launch point is placed on the corresponding county-map bank position and checked against the USGS NHD Two Lick Creek flowline. This replaces a third-party geotrail coordinate that resolved to a house several miles west of the park.",
+      "controls": [
+        {
+          "featureId": "waterworks-canoe-kayak-launch",
+          "name": "Waterworks Conservation Area canoe/kayak launch",
+          "aliases": [
+            "Waterworks canoe/kayak launch",
+            "Waterworks Conservation Area launch"
+          ],
+          "waterbody": "Two Lick Creek",
+          "latitude": 40.5974,
+          "longitude": -79.12345,
+          "riverMile": 0,
+          "uncertaintyFeet": 75,
+          "matchedRiverDistanceFeet": 9999,
+          "onNhdWaterbody": true,
+          "coordinateText": "County site-map launch symbol transferred from the current county park pin to the adjacent Two Lick Creek bank and checked against NHD hydrography"
+        }
+      ]
     }
   ]
 }

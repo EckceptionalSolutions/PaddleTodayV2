@@ -3,6 +3,67 @@ import type { River } from '../../lib/types';
 
 export const pennsylvaniaRoutes: River[] = [
   {
+    "id": "two-lick-creek-waterworks-saylor-park",
+    "slug": "two-lick-creek-waterworks-saylor-park",
+    "name": "Two Lick Creek",
+    "reach": "Waterworks Conservation Area to Saylor Park",
+    "aliases": ["Two Lick Creek - Waterworks to Saylor Park", "Two Lick Creek Waterworks Conservation Area to Saylor Park"],
+    "state": "Pennsylvania",
+    "region": "Western Pennsylvania",
+    "summary": "A little-over-12-mile Two Lick Creek day paddle from the public Waterworks Conservation Area canoe/kayak launch to the take-out near Saylor Park. Indiana County Parks publishes the endpoint context, a 2.6–4.5 ft operating range at USGS 03042500, and a required portage/exclusion-zone warning near the Homer City feeder dam. The Saylor-area finish is adjacent to the existing Blacklick Creek route, but this is a different upstream corridor and gauge.",
+    "statusText": "Use USGS 03042500 at Graceton. Indiana County Parks recommends 2.6–4.5 ft; verify the trend, debris, portage, exclusion zone, exact Saylor-area landing, and current access before launch. Do not paddle downstream of the old railroad bridge into the no-boating exclusion zone near the Homer City feeder dam.",
+    "latitude": 40.5974,
+    "longitude": -79.12345,
+    "routeType": "recreational",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "fast_rise", "strainers", "low_head_dam", "mandatory_takeout", "cold_water", "access_uncertain", "private_banks"],
+      "safetyNotes": [
+        "Indiana County Parks recommends a 2.6–4.5 ft range at the Graceton gauge; treat it as an operating guide, not a guarantee, and stand down for rising water, debris, or poor visibility.",
+        "Use the named Waterworks Conservation Area canoe/kayak launch and the take-out near Saylor Park. Do not substitute private banks or unverified roadside access.",
+        "The county warns of one portage and an exclusion zone downstream of the old railroad bridge before the low-head feeder dam near Homer City Power Plant; exit before the exclusion zone and never run the dam.",
+        "Wear a properly fitted PFD, scout the channel and wood, and carry a shuttle plan. Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules.",
+        "Waterworks includes an acid-mine-drainage treatment site; use the named launch and follow current county closure/signage guidance rather than entering treatment infrastructure or restricted banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {"id": "usgs-03042500", "provider": "usgs", "siteId": "03042500", "metric": "gage_height_ft", "unit": "ft", "kind": "direct", "siteName": "Two Lick Creek at Graceton, PA", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-03042500/"},
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.6,
+      "idealMax": 4.5,
+      "tooLow": 2.6,
+      "tooHigh": 4.5,
+      "thresholdSource": {"label": "Indiana County Parks Two Lick Creek operating range", "url": "https://indianacountyparks.org/our-parks/waterworks-park/", "provider": "local"},
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "seasonNotes": "County guidance describes the range but not a season-specific guarantee; check stage trend, rainfall, debris, and access immediately before launching.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Moving-water day paddle with shallow/wood hazards, one portage, a downstream no-boating exclusion zone, and a low-head feeder dam hazard.",
+      "confidenceNotes": "High confidence for the distinct route identity and operating guidance: Indiana County Parks names the Waterworks launch, the Saylor Park-area take-out, distance, portage, dam exclusion zone, and a station-specific 2.6–4.5 ft range at USGS 03042500. The Waterworks coordinate is derived from the county park pin and the launch symbol on the county site map, then checked against the Two Lick Creek hydrography; the Saylor coordinate remains a park-area anchor, so confirm the actual downstream landing on arrival and do not use the generated line as navigation. The Saylor-area proximity to Blacklick is a shared-access relationship, not a duplicate route."
+    },
+    "evidenceNotes": [
+      {"label": "Named trip and endpoints", "value": "Waterworks Conservation Area to Saylor Park, a little over 12 river miles", "note": "Indiana County Parks describes the public Waterworks canoe/kayak launch and take-out near Saylor Park.", "sourceUrl": "https://indianacountyparks.org/our-parks/waterworks-park/"},
+      {"label": "Endpoint coordinates", "value": "Waterworks 40.5974,-79.12345; Saylor Park 40.47632,-79.18866", "note": "The Waterworks point is placed at the county-mapped canoe/kayak launch beside the county's current park pin and checked against the Two Lick Creek flowline. Saylor Park remains an access-area anchor rather than a surveyed landing; confirm the downstream carry on arrival.", "sourceUrl": "https://indianacountyparks.org/wp-content/uploads/2023/11/waterworksmap09-22-2010.pdf"},
+      {"label": "Live direct gauge and range", "value": "USGS 03042500; 2.6–4.5 ft", "note": "Indiana County Parks explicitly ties the operating range to the Graceton monitoring gauge; USGS provides continuous stage telemetry.", "sourceUrl": "https://indianacountyparks.org/our-parks/waterworks-park/"},
+      {"label": "Access and hazards", "value": "Public launch, one portage, downstream exclusion zone and feeder dam", "note": "County guidance warns about the old railroad bridge exclusion zone and low-head feeder dam near the Homer City Power Plant.", "sourceUrl": "https://indianacountyparks.org/our-parks/waterworks-park/"},
+      {"label": "Camping", "value": "No on-route camping verified", "note": "Indiana County Parks lists Waterworks as a day-use conservation area with parking, restrooms, and a pavilion, but does not publish a campsite. Treat nearby lodging or a separately verified managed campground as the overnight plan; do not camp at Waterworks, Saylor Park, or on private creek banks.", "sourceUrl": "https://indianacountyparks.org/our-parks/waterworks-park/"},
+      {"label": "Overlap review", "value": "Shared Saylor-area finish with Blacklick Creek; not a duplicate", "note": "The existing Blacklick Creek card starts at PA 259 and ends at Saylor Park, while this card starts at Waterworks and follows the distinct Two Lick corridor. Keep both cards separate; a future selectable corridor model would need a verified on-water connection, separate gauges, and route-specific safety/logistics rather than merging the cards.", "sourceUrl": "https://blacklickcreekwatershed.org/bcwa-history/about-blacklick-creek-watershed/"},
+      {"label": "Image rights decision", "value": "No route-specific image copied", "note": "Indiana County Parks publishes a Waterworks photo gallery, but its reuse license is not established. Keep the rights-clean fallback/default gallery treatment until a licensed or public-domain asset is selected; do not copy county, SmugMug, map, or community images.", "sourceUrl": "https://indianacountyparks.org/our-parks/waterworks-park/waterworks-photo-gallery/"}
+    ],
+    "sourceLinks": [
+      {"label": "Indiana County Parks Waterworks Park", "url": "https://indianacountyparks.org/our-parks/waterworks-park/", "provider": "local"},
+      {"label": "Indiana County Waterworks brochure", "url": "https://indianacountyparks.org/wp-content/uploads/2023/11/waterworksbrochure072009.pdf", "provider": "local"},
+      {"label": "USGS 03042500 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03042500/", "provider": "usgs"},
+      {"label": "Indiana County Waterworks site map", "url": "https://indianacountyparks.org/wp-content/uploads/2023/11/waterworksmap09-22-2010.pdf", "provider": "local"},
+      {"label": "Indiana County Waterworks directions", "url": "https://indianacountyparks.org/our-parks/waterworks-park/directions-waterworks-park/", "provider": "local"},
+      {"label": "Waterworks photo gallery", "url": "https://indianacountyparks.org/our-parks/waterworks-park/waterworks-photo-gallery/", "provider": "local"},
+      {"label": "Saylor Park public park anchor", "url": "https://mapcarta.com/W506884238", "provider": "local"},
+      {"label": "PFBC unpowered boat rules", "url": "https://www.pa.gov/agencies/fishandboat/boating/regulations/unpowered-boat", "provider": "local"}
+    ]
+  },
+  {
     "id": "redbank-creek-new-bethlehem-climax",
     "slug": "redbank-creek-new-bethlehem-climax",
     "name": "Redbank Creek",

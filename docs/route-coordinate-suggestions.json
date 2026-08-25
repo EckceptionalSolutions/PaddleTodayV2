@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T22:51:11.646Z",
-  "registryGeneratedAt": "2026-08-13T14:00:41.254Z",
-  "count": 38,
+  "generatedAt": "2026-08-25T01:57:13.992Z",
+  "registryGeneratedAt": "2026-08-25T01:56:17.545Z",
+  "count": 53,
   "autoApplyEligibleCount": 0,
   "items": [
     {
@@ -1727,6 +1727,292 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "little-pine-creek-north-park-lake-allison-park",
+      "routeName": "Little Pine Creek",
+      "reach": "North Park Lake to Allison Park",
+      "state": "Pennsylvania",
+      "endpoint": "putIn",
+      "endpointName": "North Park Lake boat-launch area",
+      "current": {
+        "latitude": 40.611005,
+        "longitude": -80.017122
+      },
+      "reason": "Endpoint is 15146 ft from Little Pine Creek; the nearest named waterway is North Fork Pine Creek.",
+      "canonicalAccessId": "pennsylvania--north-park-lake-boat-launch-area",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-named-waterway",
+          "name": "North Fork Pine Creek",
+          "latitude": 40.610352,
+          "longitude": -80.018051,
+          "distanceFeet": 350.63946093377996,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": true,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "balanced",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "wrong-waterway-risk",
+              "effect": -35,
+              "detail": "North Fork Pine Creek does not agree with Little Pine Creek.",
+              "source": "conflict"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 351 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 40.61161,
+          "longitude": -80.019391,
+          "distanceFeet": 666.0294852719012,
+          "routeGeometryDistanceFeet": 589.9870224622424,
+          "routeGeometryReliable": true,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 15,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 666 ft from the stored coordinate.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Little Pine Creek",
+          "latitude": 40.570582,
+          "longitude": -80.02959399999999,
+          "distanceFeet": 15146.347007046299,
+          "routeGeometryDistanceFeet": 12872.723558089041,
+          "routeGeometryReliable": true,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 40,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Little Pine Creek.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Little Pine Creek agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 15146 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 12873 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "little-pine-creek-north-park-lake-allison-park",
+      "routeName": "Little Pine Creek",
+      "reach": "North Park Lake to Allison Park",
+      "state": "Pennsylvania",
+      "endpoint": "takeOut",
+      "endpointName": "Allison Park public ballfield area on Duncan Avenue",
+      "current": {
+        "latitude": 40.56033,
+        "longitude": -79.95993
+      },
+      "reason": "Endpoint is 10624 ft from Little Pine Creek; the nearest named waterway is Gourdhead Run.",
+      "canonicalAccessId": "pennsylvania--allison-park-public-ballfield-area-on-duncan-avenue",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Gourdhead Run",
+          "latitude": 40.56026935661749,
+          "longitude": -79.95969822446153,
+          "distanceFeet": 67.94172595554781,
+          "routeGeometryDistanceFeet": 4.802132025361061e-9,
+          "routeGeometryReliable": true,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 5,
+          "accessConfidence": "low",
+          "limitingFactor": "water-location",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "wrong-waterway-risk",
+              "effect": -35,
+              "detail": "Gourdhead Run does not agree with Little Pine Creek.",
+              "source": "conflict"
+            },
+            {
+              "signal": "small-move",
+              "effect": 10,
+              "detail": "Candidate is 68 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 40.557999,
+          "longitude": -79.960183,
+          "distanceFeet": 853.2742374292293,
+          "routeGeometryDistanceFeet": 204.04298668957398,
+          "routeGeometryReliable": true,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 50,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 25,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 853 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-nearby",
+              "effect": 15,
+              "detail": "Candidate is within 204 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Little Pine Creek",
+          "latitude": 40.564655,
+          "longitude": -79.92202199999998,
+          "distanceFeet": 10624.033078929693,
+          "routeGeometryDistanceFeet": 10574.767823956628,
+          "routeGeometryReliable": true,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 40,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Little Pine Creek.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Little Pine Creek agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 10624 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 10575 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "cedar-river-riverwood-state-line",
       "routeName": "Cedar River",
       "reach": "Riverwood Landing to State Line Road",
@@ -1887,6 +2173,191 @@
               "signal": "route-order-plausible",
               "effect": 5,
               "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.33).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "north-loup-river-burwell-ord",
+      "routeName": "North Loup River",
+      "reach": "Riverside Park, Burwell to Anderson Island, Ord",
+      "state": "Nebraska",
+      "endpoint": "accessPoint",
+      "endpointName": "County bridge near Elyria on Nebraska 11",
+      "current": {
+        "latitude": 41.7005,
+        "longitude": -99.045
+      },
+      "reason": "Endpoint is 4591 ft from North Loup River; the nearest named waterway is Taylor-Ord Canal.",
+      "canonicalAccessId": "nebraska--county-bridge-near-elyria-on-nebraska-11",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "Nebraska Game and Parks North Loup canoe trail",
+          "url": "https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_North_Loup_River.pdf",
+          "provider": "local"
+        },
+        {
+          "label": "Nebraska Game and Parks water trails",
+          "url": "https://outdoornebraska.gov/parks/explore-trails/water-trails/",
+          "provider": "local"
+        },
+        {
+          "label": "Ord Anderson Island camping and river access",
+          "url": "https://ordnebraska.com/play/come-visit/camping/",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 06790500 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/06790500/",
+          "provider": "usgs"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Taylor-Ord Canal",
+          "latitude": 41.701351,
+          "longitude": -99.044239,
+          "distanceFeet": 373.2975445910452,
+          "routeGeometryDistanceFeet": 4217.737282984888,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.4490283947452412,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "balanced",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "wrong-waterway-risk",
+              "effect": -35,
+              "detail": "Taylor-Ord Canal does not agree with North Loup River.",
+              "source": "conflict"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 373 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 4218 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.45).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 41.699896,
+          "longitude": -99.04129700000001,
+          "distanceFeet": 1032.4312447358466,
+          "routeGeometryDistanceFeet": 4020.7182369541542,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.45940080758957746,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "balanced",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1032 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 4021 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.46).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "North Loup River",
+          "latitude": 41.710254,
+          "longitude": -99.034352,
+          "distanceFeet": 4590.54497012013,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.44162331431634677,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 85,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to North Loup River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "North Loup River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 4591 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.44).",
               "source": "hydrography"
             }
           ],
@@ -3013,6 +3484,178 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "youghiogheny-river-middle-ramcat-ohiopyle",
+      "routeName": "Youghiogheny River",
+      "reach": "Middle Yough: Ramcat Launch to Ohiopyle Middle Yough Take-out",
+      "state": "Pennsylvania",
+      "endpoint": "putIn",
+      "endpointName": "Ramcat Launch, Ohiopyle State Park",
+      "current": {
+        "latitude": 39.8975,
+        "longitude": -79.4936
+      },
+      "reason": "Endpoint is 3116 ft from Youghiogheny River; the nearest named waterway is Jonathan Run.",
+      "canonicalAccessId": "pennsylvania--ramcat-launch-ohiopyle-state-park",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "USGS 03081000 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03081000/",
+          "provider": "usgs"
+        },
+        {
+          "label": "PA DCNR Middle Yough boating guidance",
+          "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/whitewater-boating",
+          "provider": "local"
+        },
+        {
+          "label": "PA whitewater boating regulations",
+          "url": "https://www.law.cornell.edu/regulations/pennsylvania/17-Pa-Code-SS-11-220",
+          "provider": "local"
+        },
+        {
+          "label": "Ohiopyle State Park map",
+          "url": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=3849767&ViewerMode=2&action=PDFStream&chksum=&docID=1737407&docName=OHIO_ParkMap&nativeExt=pdf&overlay=0&revision=2",
+          "provider": "local"
+        },
+        {
+          "label": "American Whitewater Middle Yough reports",
+          "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1686/reports",
+          "provider": "american_whitewater"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Jonathan Run",
+          "latitude": 39.897419,
+          "longitude": -79.49393400000001,
+          "distanceFeet": 98.04094868627809,
+          "routeGeometryDistanceFeet": 3186.8152996500557,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 5,
+          "accessConfidence": "low",
+          "limitingFactor": "water-location",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "wrong-waterway-risk",
+              "effect": -35,
+              "detail": "Jonathan Run does not agree with Youghiogheny River.",
+              "source": "conflict"
+            },
+            {
+              "signal": "small-move",
+              "effect": 10,
+              "detail": "Candidate is 98 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 3187 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 39.904773,
+          "longitude": -79.488586,
+          "distanceFeet": 3001.5381884645813,
+          "routeGeometryDistanceFeet": 159.6642315706904,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 50,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 25,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 3002 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-nearby",
+              "effect": 15,
+              "detail": "Candidate is within 160 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Youghiogheny River",
+          "latitude": 39.90487,
+          "longitude": -79.487976,
+          "distanceFeet": 3115.533153092176,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Youghiogheny River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Youghiogheny River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 3116 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "cedar-creek-covered-bridge-lions",
       "routeName": "Cedar Creek",
       "reach": "Covered Bridge Park to Grafton Lions Park",
@@ -3359,6 +4002,183 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "maumee-river-kreager-moser",
+      "routeName": "Maumee River",
+      "reach": "Kreager Park / North River Road Boat Ramp to Moser Park Canoe Launch",
+      "state": "Indiana",
+      "endpoint": "takeOut",
+      "endpointName": "Moser Park Canoe Launch",
+      "current": {
+        "latitude": 41.07339,
+        "longitude": -85.021895
+      },
+      "reason": "Endpoint is 2671 ft from Maumee River; the nearest named waterway is Paul Trier Ditch.",
+      "canonicalAccessId": "indiana--moser-park-canoe-launch",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "Upper Maumee watershed plan",
+          "url": "https://dam.assets.ohio.gov/image/upload/epa.ohio.gov/Portals/35/nps/WAPs/MaumeeRUpper.pdf",
+          "provider": "local"
+        },
+        {
+          "label": "New Haven Moser Park facility",
+          "url": "https://newhavenparks.recdesk.com/Community/Facility/Detail?facilityId=18",
+          "provider": "local"
+        },
+        {
+          "label": "Indiana Trails Rivergreenway",
+          "url": "https://www.indianatrails.com/the-rivergreenway",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 04183000 current conditions",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04183000",
+          "provider": "usgs"
+        },
+        {
+          "label": "USGS 04183000 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04183000/",
+          "provider": "usgs"
+        },
+        {
+          "label": "RiverScout Maumee guidance",
+          "url": "https://riverscout.app/rivers/indiana/maumee-river",
+          "provider": "manual"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Paul Trier Ditch",
+          "latitude": 41.073472,
+          "longitude": -85.022791,
+          "distanceFeet": 248.23046958707047,
+          "routeGeometryDistanceFeet": 2526.999052723228,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 5,
+          "accessConfidence": "low",
+          "limitingFactor": "water-location",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "wrong-waterway-risk",
+              "effect": -35,
+              "detail": "Paul Trier Ditch does not agree with Maumee River.",
+              "source": "conflict"
+            },
+            {
+              "signal": "small-move",
+              "effect": 10,
+              "detail": "Candidate is 248 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 2527 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 41.074429,
+          "longitude": -85.022479,
+          "distanceFeet": 411.6689330291912,
+          "routeGeometryDistanceFeet": 2261.4117983315246,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "balanced",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 412 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 2261 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Maumee River",
+          "latitude": 41.079725,
+          "longitude": -85.026763,
+          "distanceFeet": 2670.8627027159587,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Maumee River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Maumee River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2671 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "beaver-dam-river-county-s-lowell",
       "routeName": "Beaver Dam River",
       "reach": "County Road S / Leipsig to River Street Dam / Lowell",
@@ -3596,6 +4416,184 @@
               "signal": "route-order-plausible",
               "effect": 5,
               "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.40).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "niobrara-river-fort-niobrara-smith-falls",
+      "routeName": "Niobrara River",
+      "reach": "Fort Niobrara NWR launch to Nichols Landing, Smith Falls State Park",
+      "state": "Nebraska",
+      "endpoint": "putIn",
+      "endpointName": "Fort Niobrara NWR Launch Site near Cornell Bridge",
+      "current": {
+        "latitude": 42.893222,
+        "longitude": -100.476967
+      },
+      "reason": "Endpoint is 2474 ft from the matched NHD flowline.",
+      "canonicalAccessId": "nebraska--fort-niobrara-nwr-launch-site-near-cornell-bridge",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "NPS Niobrara trip ideas",
+          "url": "https://www.nps.gov/niob/planyourvisit/tripideas.htm",
+          "provider": "nps"
+        },
+        {
+          "label": "Fort Niobrara NWR launch",
+          "url": "https://www.nps.gov/places/fort-niobrara-nwr-launch-site.htm",
+          "provider": "nps"
+        },
+        {
+          "label": "Nichols Landing / Smith Falls",
+          "url": "https://www.nps.gov/places/nichols-landing.htm",
+          "provider": "nps"
+        },
+        {
+          "label": "Nebraska flow and recreation study",
+          "url": "https://govdocs.nebraska.gov/epubs/G1000/B141-2008.pdf",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 06461500 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06461500",
+          "provider": "usgs"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 42.891866,
+          "longitude": -100.468471,
+          "distanceFeet": 2324.039255126192,
+          "routeGeometryDistanceFeet": 3664.936896931976,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "balanced",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2324 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 3665 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Niobrara River",
+          "latitude": 42.896759454636346,
+          "longitude": -100.48486328343762,
+          "distanceFeet": 2473.714034462232,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Niobrara River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Niobrara River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2474 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Niobrara River",
+          "latitude": 42.896759454636346,
+          "longitude": -100.48486328343762,
+          "distanceFeet": 2473.714034462232,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Niobrara River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2474 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
               "source": "hydrography"
             }
           ],
@@ -4209,6 +5207,158 @@
               "signal": "route-order-plausible",
               "effect": 5,
               "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.51).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+      "routeName": "Laurel Hill Creek",
+      "reach": "Laurel Hill State Park Beach Area to King's Covered Bridge",
+      "state": "Pennsylvania",
+      "endpoint": "putIn",
+      "endpointName": "Laurel Hill State Park Beach Area canoe/kayak launch",
+      "current": {
+        "latitude": 40.01023,
+        "longitude": -79.2244
+      },
+      "reason": "Endpoint is 2257 ft from the matched NHD flowline.",
+      "canonicalAccessId": "pennsylvania--laurel-hill-state-park-beach-area-canoe-kayak-launch",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 40.012512,
+          "longitude": -79.221583,
+          "distanceFeet": 1145.7054085037646,
+          "routeGeometryDistanceFeet": 1766.0556631226495,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "balanced",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1146 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 1766 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Laurel Hill Creek",
+          "latitude": 40.007125,
+          "longitude": -79.231387,
+          "distanceFeet": 2257.1939488544376,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Laurel Hill Creek.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Laurel Hill Creek agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2257 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Laurel Hill Creek",
+          "latitude": 40.007125,
+          "longitude": -79.231387,
+          "distanceFeet": 2257.1939488544376,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Laurel Hill Creek agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2257 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
               "source": "hydrography"
             }
           ],
@@ -4841,6 +5991,189 @@
               "signal": "large-move",
               "effect": 0,
               "detail": "Candidate requires moving 2229 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "mississippi-river-piasa-harbor-alton-riverfront",
+      "routeName": "Mississippi River",
+      "reach": "Piasa Harbor to Alton Riverfront",
+      "state": "Illinois",
+      "endpoint": "takeOut",
+      "endpointName": "Alton Riverfront public boat launch",
+      "current": {
+        "latitude": 38.8855000354463,
+        "longitude": -90.1759188990604
+      },
+      "reason": "Endpoint is 1945 ft from the matched NHD flowline.",
+      "canonicalAccessId": "illinois--alton-riverfront-public-boat-launch",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "USGS 05587498 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05587498/",
+          "provider": "usgs"
+        },
+        {
+          "label": "USACE Alton Pool 26 level data",
+          "url": "https://www.mvs-wc.usace.army.mil/trans/mi/mial_30e.html",
+          "provider": "local"
+        },
+        {
+          "label": "Mississippi River Water Trail itinerary",
+          "url": "https://mississippiriverwatertrail.org/great-rivers-rendezvous/",
+          "provider": "local"
+        },
+        {
+          "label": "Mississippi River Water Trail safety",
+          "url": "https://mississippiriverwatertrail.org/safety/",
+          "provider": "local"
+        },
+        {
+          "label": "USACE Rivers Project recreation access",
+          "url": "https://www.mvs.army.mil/Missions/Recreation/Rivers-Project-Office/Recreation/",
+          "provider": "local"
+        },
+        {
+          "label": "USACE Pool 26 access inventory",
+          "url": "https://www.mvs.army.mil/Portals/54/docs/recreation/rivers/MasterPlan/2015MasterPlan/Rivers%20Project%20Master%20Plan%202015%20-%20Pool%2026%20Maps.pdf",
+          "provider": "local"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 38.88467957082328,
+          "longitude": -90.17645187296914,
+          "distanceFeet": 335.4092629513293,
+          "routeGeometryDistanceFeet": 1608.3823220111553,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "balanced",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 335 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 1608 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Mississippi River",
+          "latitude": 38.880845524985986,
+          "longitude": -90.17925697025777,
+          "distanceFeet": 1944.7300286387342,
+          "routeGeometryDistanceFeet": 2.4010660126805305e-9,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Mississippi River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Mississippi River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1945 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Mississippi River",
+          "latitude": 38.880845524985986,
+          "longitude": -90.17925697025777,
+          "distanceFeet": 1944.7300286387342,
+          "routeGeometryDistanceFeet": 2.4010660126805305e-9,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Mississippi River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1945 ft; proximity does not increase confidence.",
               "source": "proximity"
             },
             {
@@ -6055,6 +7388,267 @@
               "signal": "route-order-plausible",
               "effect": 5,
               "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.65).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "platte-river-north-bend-valley",
+      "routeName": "Platte River",
+      "reach": "Nebraska 79 bridge south of North Bend to Platte River Landing",
+      "state": "Nebraska",
+      "endpoint": "accessPoint",
+      "endpointName": "Hormel Park, Fremont (intermediate landmark; ramp closed)",
+      "current": {
+        "latitude": 41.4336,
+        "longitude": -96.5482
+      },
+      "reason": "Endpoint is 1621 ft from the matched NHD flowline.",
+      "canonicalAccessId": "nebraska--hormel-park-fremont-intermediate-landmark-ramp-closed",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "Nebraska Game and Parks Platte River Canoe Trail",
+          "url": "https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_Platte_River.pdf",
+          "provider": "local"
+        },
+        {
+          "label": "Papio NRD river access",
+          "url": "https://www.papionrd.org/recreation/river-access/",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 06796000 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/06796000",
+          "provider": "usgs"
+        },
+        {
+          "label": "Hormel Park closure notice",
+          "url": "https://www.nrdnet.org/rec-area/fremont-hormel-park-boat-ramp-currently-closed",
+          "provider": "local"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [
+        {
+          "provider": "ne_ngpc",
+          "featureId": "232",
+          "name": "Fremont SRA 20",
+          "latitude": 41.43834722200503,
+          "longitude": -96.55152499987403,
+          "distanceFromCurrentFeet": 1956.1075102904929,
+          "distanceFromMatchedRiverPointFeet": 2891.4348312434945,
+          "sourceUrl": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Boating_App_Web_Layers_Boat_Ramps_OPEN_DATA_PORTAL/FeatureServer/0/209",
+          "administrator": "NGPC_SRA",
+          "owner": "NGPC_SRA",
+          "launchMethod": "Public boat ramp",
+          "launchSurface": "Concrete",
+          "parkingLotCount": null,
+          "additionalParkingCount": null,
+          "parkingSurface": null,
+          "waterbody": null,
+          "dock": "Floating",
+          "restroom": "Unknown",
+          "accessibility": "No",
+          "comments": null,
+          "directions": null
+        },
+        {
+          "provider": "ne_ngpc",
+          "featureId": "229",
+          "name": "Fremont SRA 17",
+          "latitude": 41.44040277760314,
+          "longitude": -96.54894444459163,
+          "distanceFromCurrentFeet": 2490.105468212552,
+          "distanceFromMatchedRiverPointFeet": 3751.3131754955707,
+          "sourceUrl": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Boating_App_Web_Layers_Boat_Ramps_OPEN_DATA_PORTAL/FeatureServer/0/206",
+          "administrator": "NGPC_SRA",
+          "owner": "NGPC_SRA",
+          "launchMethod": "Public boat ramp",
+          "launchSurface": "Sand/Gravel",
+          "parkingLotCount": null,
+          "additionalParkingCount": null,
+          "parkingSurface": null,
+          "waterbody": null,
+          "dock": null,
+          "restroom": "Unknown",
+          "accessibility": "No",
+          "comments": null,
+          "directions": null
+        },
+        {
+          "provider": "ne_ngpc",
+          "featureId": "231",
+          "name": "Fremont SRA 19",
+          "latitude": 41.43730833313379,
+          "longitude": -96.54040000018912,
+          "distanceFromCurrentFeet": 2526.1297063516313,
+          "distanceFromMatchedRiverPointFeet": 4122.678602121622,
+          "sourceUrl": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Boating_App_Web_Layers_Boat_Ramps_OPEN_DATA_PORTAL/FeatureServer/0/208",
+          "administrator": "NGPC_SRA",
+          "owner": "NGPC_SRA",
+          "launchMethod": "Public boat ramp",
+          "launchSurface": "Sand/Gravel",
+          "parkingLotCount": null,
+          "additionalParkingCount": null,
+          "parkingSurface": null,
+          "waterbody": null,
+          "dock": null,
+          "restroom": "Unknown",
+          "accessibility": "No",
+          "comments": null,
+          "directions": null
+        }
+      ],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 41.4345779231707,
+          "longitude": -96.54704588475605,
+          "distanceFeet": 476.36321761895454,
+          "routeGeometryDistanceFeet": 2096.38990321809,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.5253443490741382,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "balanced",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 476 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-disagreement",
+              "effect": -20,
+              "detail": "Candidate is 2096 ft from the route's canonical river geometry.",
+              "source": "conflict"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.53).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Platte River",
+          "latitude": 41.43044729573886,
+          "longitude": -96.55237715032328,
+          "distanceFeet": 1621.1830674133773,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.5194533062262083,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 85,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Platte River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Platte River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1621 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.52).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Platte River",
+          "latitude": 41.43044729573886,
+          "longitude": -96.55237715032328,
+          "distanceFeet": 1621.1830674133773,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": 0.5194533062262083,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 75,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Platte River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1621 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.52).",
               "source": "hydrography"
             }
           ],
@@ -8875,6 +10469,360 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "maumee-river-kreager-moser",
+      "routeName": "Maumee River",
+      "reach": "Kreager Park / North River Road Boat Ramp to Moser Park Canoe Launch",
+      "state": "Indiana",
+      "endpoint": "putIn",
+      "endpointName": "Kreager Park / North River Road Boat Ramp",
+      "current": {
+        "latitude": 41.0892,
+        "longitude": -85.0407
+      },
+      "reason": "Endpoint is 1177 ft from the matched NHD flowline.",
+      "canonicalAccessId": "indiana--kreager-park-north-river-road-boat-ramp",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 2,
+      "sourceLinks": [
+        {
+          "label": "Upper Maumee watershed plan",
+          "url": "https://dam.assets.ohio.gov/image/upload/epa.ohio.gov/Portals/35/nps/WAPs/MaumeeRUpper.pdf",
+          "provider": "local"
+        },
+        {
+          "label": "New Haven Moser Park facility",
+          "url": "https://newhavenparks.recdesk.com/Community/Facility/Detail?facilityId=18",
+          "provider": "local"
+        },
+        {
+          "label": "Indiana Trails Rivergreenway",
+          "url": "https://www.indianatrails.com/the-rivergreenway",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 04183000 current conditions",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04183000",
+          "provider": "usgs"
+        },
+        {
+          "label": "USGS 04183000 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04183000/",
+          "provider": "usgs"
+        },
+        {
+          "label": "RiverScout Maumee guidance",
+          "url": "https://riverscout.app/rivers/indiana/maumee-river",
+          "provider": "manual"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 41.088205,
+          "longitude": -85.041791,
+          "distanceFeet": 470.90600356752645,
+          "routeGeometryDistanceFeet": 719.2273104387954,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 15,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 471 ft from the stored coordinate.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Maumee River",
+          "latitude": 41.086291303900495,
+          "longitude": -85.04255368777022,
+          "distanceFeet": 1177.2051628932008,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Maumee River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Maumee River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1177 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Maumee River",
+          "latitude": 41.086291303900495,
+          "longitude": -85.04255368777022,
+          "distanceFeet": 1177.2051628932008,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Maumee River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1177 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "maumee-river-niagara-kreager",
+      "routeName": "Maumee River",
+      "reach": "Anthony Boulevard / Niagara Drive Access to Kreager Park Boat Ramp",
+      "state": "Indiana",
+      "endpoint": "takeOut",
+      "endpointName": "Kreager Park / North River Road Boat Ramp",
+      "current": {
+        "latitude": 41.0892,
+        "longitude": -85.0407
+      },
+      "reason": "Endpoint is 1177 ft from the matched NHD flowline.",
+      "canonicalAccessId": "indiana--kreager-park-north-river-road-boat-ramp",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 2,
+      "sourceLinks": [
+        {
+          "label": "Visit Fort Wayne paddling guide",
+          "url": "https://www.visitfortwayne.com/things-to-do/parks-and-outdoors/kayaking-canoeing/",
+          "provider": "local"
+        },
+        {
+          "label": "Fort Wayne Rivergreenway access inventory",
+          "url": "https://www.cityoffortwayne.in.gov/1278/Rivergreenway",
+          "provider": "local"
+        },
+        {
+          "label": "Fort Wayne boat-ramp map",
+          "url": "https://www.cityoffortwayne.in.gov/images/stories/Utilities/docs/boatramps.pdf",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 04182950 current conditions",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04182950",
+          "provider": "usgs"
+        },
+        {
+          "label": "USGS 04182950 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04182950/",
+          "provider": "usgs"
+        },
+        {
+          "label": "RiverScout Maumee guidance",
+          "url": "https://riverscout.app/rivers/indiana/maumee-river",
+          "provider": "manual"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 41.088205,
+          "longitude": -85.041791,
+          "distanceFeet": 470.90600356752645,
+          "routeGeometryDistanceFeet": 719.2273104387954,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 15,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 471 ft from the stored coordinate.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Maumee River",
+          "latitude": 41.086291303900495,
+          "longitude": -85.04255368777022,
+          "distanceFeet": 1177.2051628932008,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Maumee River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Maumee River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1177 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Maumee River",
+          "latitude": 41.086291303900495,
+          "longitude": -85.04255368777022,
+          "distanceFeet": 1177.2051628932008,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Maumee River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 1177 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "colorado-river-lost-pines-riverbend-park",
       "routeName": "Colorado River",
       "reach": "Lost Pines Recreational Trails to Riverbend Park",
@@ -8935,17 +10883,17 @@
           "latitude": 30.01251252963289,
           "longitude": -97.16087738739502,
           "distanceFeet": 957.6028469902942,
-          "routeGeometryDistanceFeet": null,
-          "routeGeometryReliable": false,
+          "routeGeometryDistanceFeet": 109.89947249682479,
+          "routeGeometryReliable": true,
           "routeAxisFraction": 0.9079073980382608,
           "score": 0,
           "confidence": "none",
-          "waterScore": 20,
-          "waterConfidence": "low",
+          "waterScore": 55,
+          "waterConfidence": "medium",
           "accessScore": 0,
           "accessConfidence": "none",
           "limitingFactor": "access-location",
-          "evidenceScore": 15,
+          "evidenceScore": 35,
           "evidence": [
             {
               "signal": "unnamed-waterbody-only",
@@ -8958,6 +10906,12 @@
               "effect": 0,
               "detail": "Candidate requires moving 958 ft; proximity does not increase confidence.",
               "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 110 ft of the route's canonical river geometry.",
+              "source": "hydrography"
             },
             {
               "signal": "route-order-plausible",
@@ -8974,17 +10928,17 @@
           "latitude": 30.012827,
           "longitude": -97.160858,
           "distanceFeet": 1066.3593102072282,
-          "routeGeometryDistanceFeet": null,
-          "routeGeometryReliable": false,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": true,
           "routeAxisFraction": 0.9073295280529194,
           "score": 0,
           "confidence": "none",
-          "waterScore": 80,
-          "waterConfidence": "medium",
+          "waterScore": 100,
+          "waterConfidence": "high",
           "accessScore": 0,
           "accessConfidence": "none",
           "limitingFactor": "access-location",
-          "evidenceScore": 65,
+          "evidenceScore": 85,
           "evidence": [
             {
               "signal": "intended-river-centerline",
@@ -9005,6 +10959,12 @@
               "source": "proximity"
             },
             {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            },
+            {
               "signal": "route-order-plausible",
               "effect": 5,
               "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.91).",
@@ -9019,17 +10979,17 @@
           "latitude": 30.012827,
           "longitude": -97.160858,
           "distanceFeet": 1066.3593102072282,
-          "routeGeometryDistanceFeet": null,
-          "routeGeometryReliable": false,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": true,
           "routeAxisFraction": 0.9073295280529194,
           "score": 0,
           "confidence": "none",
-          "waterScore": 60,
-          "waterConfidence": "medium",
+          "waterScore": 95,
+          "waterConfidence": "high",
           "accessScore": 0,
           "accessConfidence": "none",
           "limitingFactor": "access-location",
-          "evidenceScore": 55,
+          "evidenceScore": 75,
           "evidence": [
             {
               "signal": "river-name-agreement",
@@ -9048,6 +11008,12 @@
               "effect": 0,
               "detail": "Candidate requires moving 1066 ft; proximity does not increase confidence.",
               "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
             },
             {
               "signal": "route-order-plausible",
@@ -10452,6 +12418,356 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "kishwaukee-river-marengo-siems-hwy23",
+      "routeName": "Kishwaukee River",
+      "reach": "Woodbine Launch to Highway 23 Bridge",
+      "state": "Illinois",
+      "endpoint": "putIn",
+      "endpointName": "Woodbine Launch",
+      "current": {
+        "latitude": 42.2622717,
+        "longitude": -88.5970327
+      },
+      "reason": "Endpoint is 914 ft from the matched NHD flowline.",
+      "canonicalAccessId": "illinois--woodbine-launch",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "USGS 05438170 at Marengo",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05438170/",
+          "provider": "usgs"
+        },
+        {
+          "label": "Paddle On 2026 Marengo paddle",
+          "url": "https://www.paddleonoutfitters.com/current-events/2026/6/13/environment-defenders-kayak-paddle",
+          "provider": "local"
+        },
+        {
+          "label": "Paddle the Kish in Marengo",
+          "url": "https://paddlethekishinmarengo.com/",
+          "provider": "local"
+        },
+        {
+          "label": "Kishwaukee water trail map",
+          "url": "https://www.bccdil.org/wp-content/uploads/2016/05/Kishwaukee_112906_LowRes2-2016_01_19-17_26_45-UTC.pdf",
+          "provider": "local"
+        },
+        {
+          "label": "McHenry County Environmental Defenders paddling guidance",
+          "url": "https://mcdef.org/wp-content/uploads/2025/09/EDMC_Fall_QuarterlyNewsletter_2025.pdf",
+          "provider": "local"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 42.263954,
+          "longitude": -88.596203,
+          "distanceFeet": 653.3346433832561,
+          "routeGeometryDistanceFeet": 351.8293923531106,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 15,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 653 ft from the stored coordinate.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Kishwaukee River",
+          "latitude": 42.263822,
+          "longitude": -88.594374,
+          "distanceFeet": 913.8586626808769,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Kishwaukee River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Kishwaukee River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 914 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Kishwaukee River",
+          "latitude": 42.263822,
+          "longitude": -88.594374,
+          "distanceFeet": 913.8586626808769,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Kishwaukee River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 914 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "niobrara-river-fort-niobrara-smith-falls",
+      "routeName": "Niobrara River",
+      "reach": "Fort Niobrara NWR launch to Nichols Landing, Smith Falls State Park",
+      "state": "Nebraska",
+      "endpoint": "takeOut",
+      "endpointName": "Nichols Landing, Smith Falls State Park",
+      "current": {
+        "latitude": 42.887811,
+        "longitude": -100.315761
+      },
+      "reason": "Endpoint is 910 ft from the matched NHD flowline.",
+      "canonicalAccessId": "nebraska--nichols-landing-smith-falls-state-park",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "NPS Niobrara trip ideas",
+          "url": "https://www.nps.gov/niob/planyourvisit/tripideas.htm",
+          "provider": "nps"
+        },
+        {
+          "label": "Fort Niobrara NWR launch",
+          "url": "https://www.nps.gov/places/fort-niobrara-nwr-launch-site.htm",
+          "provider": "nps"
+        },
+        {
+          "label": "Nichols Landing / Smith Falls",
+          "url": "https://www.nps.gov/places/nichols-landing.htm",
+          "provider": "nps"
+        },
+        {
+          "label": "Nebraska flow and recreation study",
+          "url": "https://govdocs.nebraska.gov/epubs/G1000/B141-2008.pdf",
+          "provider": "local"
+        },
+        {
+          "label": "USGS 06461500 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-06461500",
+          "provider": "usgs"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 42.889974,
+          "longitude": -100.315499,
+          "distanceFeet": 792.2002006007177,
+          "routeGeometryDistanceFeet": 122.9101068734526,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 55,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 35,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 792 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 123 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Niobrara River",
+          "latitude": 42.890255251791366,
+          "longitude": -100.3150811400887,
+          "distanceFeet": 910.0322813354497,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Niobrara River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Niobrara River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 910 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Niobrara River",
+          "latitude": 42.890255251791366,
+          "longitude": -100.3150811400887,
+          "distanceFeet": 910.0322813354497,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Niobrara River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 910 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "sheboygan-river-johnsonville-dassow",
       "routeName": "Sheboygan River",
       "reach": "Johnsonville Fire Department to Dassow Park",
@@ -10762,6 +13078,189 @@
               "signal": "route-order-plausible",
               "effect": 5,
               "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.70).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "kalamazoo-river-comstock-mayors-riverfront",
+      "routeName": "Kalamazoo River",
+      "reach": "Comstock Township DNR Boat Launch to Mayor's Riverfront Park",
+      "state": "Michigan",
+      "endpoint": "takeOut",
+      "endpointName": "Mayor's Riverfront Park Boat Launch",
+      "current": {
+        "latitude": 42.29059,
+        "longitude": -85.56645
+      },
+      "reason": "Endpoint is 888 ft from the matched NHD flowline.",
+      "canonicalAccessId": "michigan--mayor-s-riverfront-park-boat-launch",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "USGS 04106000 current conditions",
+          "url": "https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=04106000",
+          "provider": "usgs"
+        },
+        {
+          "label": "USGS 04106000 monitoring location",
+          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04106000/",
+          "provider": "usgs"
+        },
+        {
+          "label": "RiverScout Kalamazoo River",
+          "url": "https://riverscout.app/rivers/michigan/kalamazoo-river",
+          "provider": "local"
+        },
+        {
+          "label": "DNR Comstock access",
+          "url": "https://www.michiganwatertrails.org/location.asp?aid=5218&ait=av",
+          "provider": "local"
+        },
+        {
+          "label": "Mayor's Riverfront Park access",
+          "url": "https://www.michiganwatertrails.org/location.asp?aid=5219&ait=av",
+          "provider": "local"
+        },
+        {
+          "label": "Discover Kalamazoo access and portage notes",
+          "url": "https://www.discoverkalamazoo.com/blog/post/kayaking-in-kalamazoo-county-mi/",
+          "provider": "local"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 42.2927039179927,
+          "longitude": -85.56540606798468,
+          "distanceFeet": 821.0391812124865,
+          "routeGeometryDistanceFeet": 71.84006553773217,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 55,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 30,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 821 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 72 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Kalamazoo River",
+          "latitude": 42.292934,
+          "longitude": -85.56556099999999,
+          "distanceFeet": 888.14708914507,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Kalamazoo River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Kalamazoo River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 888 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Kalamazoo River",
+          "latitude": 42.292934,
+          "longitude": -85.56556099999999,
+          "distanceFeet": 888.14708914507,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Kalamazoo River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 888 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
               "source": "hydrography"
             }
           ],
@@ -12047,6 +14546,184 @@
               "signal": "large-move",
               "effect": 0,
               "detail": "Candidate requires moving 840 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "platte-river-honor-upper",
+      "routeName": "Platte River",
+      "reach": "Platte River State Forest Campground to Platte River Park",
+      "state": "Michigan",
+      "endpoint": "putIn",
+      "endpointName": "Platte River State Forest Campground river access",
+      "current": {
+        "latitude": 44.64546752,
+        "longitude": -85.978332
+      },
+      "reason": "Endpoint is 836 ft from the matched NHD flowline.",
+      "canonicalAccessId": "michigan--platte-river-state-forest-campground-river-access",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [
+        {
+          "label": "USGS 04126740 current conditions",
+          "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04126740",
+          "provider": "usgs"
+        },
+        {
+          "label": "Michigan DNR Platte River State Forest Campground",
+          "url": "https://www.michigan.gov/recsearch/sfcampgroundsn-z/PlatteRiver",
+          "provider": "local"
+        },
+        {
+          "label": "Upper Platte River paddling guide",
+          "url": "https://michiganriverpaddling.com/2023/06/18/upper-platte-river-honor-perfection/",
+          "provider": "local"
+        },
+        {
+          "label": "Platte River Park launch",
+          "url": "https://www.outdoormichigan.org/feature/15086",
+          "provider": "local"
+        },
+        {
+          "label": "Platte River Park opening",
+          "url": "https://www.restorehonormi.org/post/platte-river-park-grand-opening",
+          "provider": "local"
+        }
+      ],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 44.643492,
+          "longitude": -85.976807,
+          "distanceFeet": 822.2490291939649,
+          "routeGeometryDistanceFeet": 16.304548881310495,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 55,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 30,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 822 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 16 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Platte River",
+          "latitude": 44.643472,
+          "longitude": -85.976748,
+          "distanceFeet": 836.0752107443549,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 100,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Platte River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Platte River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 836 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Platte River",
+          "latitude": 44.643472,
+          "longitude": -85.976748,
+          "distanceFeet": 836.0752107443549,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 70,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Platte River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 836 ft; proximity does not increase confidence.",
               "source": "proximity"
             },
             {

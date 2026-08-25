@@ -16165,5 +16165,393 @@ export const iowaRoutes: River[] = [
         "provider": "usgs"
       }
     ]
+  },
+  {
+    "id": "cedar-river-cedar-bluff-cedar-valley",
+    "slug": "cedar-river-cedar-bluff-cedar-valley",
+    "name": "Cedar River",
+    "reach": "Cedar Bluff River Access to Cedar Valley Park",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "routeType": "recreational",
+    "summary": "A documented 6.5-mile Cedar River canoe reach from Cedar Bluff River Access to Cedar Valley Park, with concrete public ramps and endpoint camping at both county parks.",
+    "statusText": "Use the direct Cedar Bluff gauge. The Cedar River guide gives a conservative 400–13,000 cfs runnable band; scout for wood, shallow gravel, and rising water before launching.",
+    "latitude": 41.788938145933585,
+    "longitude": -91.31405507117562,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "low_water",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "The Cedar River can rise quickly after rain. Check the direct Cedar Bluff gauge immediately before launch and make a visual shoreline inspection of the ramp and first bends.",
+        "Use only the named public Cedar Bluff River Access and Cedar Valley Park ramps; adjacent Cedar River banks remain private outside signed public areas.",
+        "The guide describes a natural river reach with snags and deep holes. Wear a properly fitted PFD, carry a whistle and communication device, and do not paddle high, rising, debris-laden, or flooded water.",
+        "Both county parks have posted hours and camping rules. Do not assume dispersed sandbar camping or riverbank access between the endpoints."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05464780",
+      "provider": "usgs",
+      "siteId": "05464780",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Cedar River at Cedar Bluff, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05464780/",
+      "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05464780/all-graphs/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "tooLow": 400,
+      "idealMin": 400,
+      "idealMax": 13000,
+      "tooHigh": 13000,
+      "thresholdSource": {
+        "label": "Iowa Paddle Cedar River provisional runnable band",
+        "url": "https://iowapaddle.com/rivers/cedar-river",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the practical season. Spring rain and fast rises can make the reach unsafe even while the guide band appears runnable; late-summer low water can expose gravel.",
+      "difficulty": "easy",
+      "difficultyNotes": "A documented flatwater/moving-water canoe reach, but snags, deep holes, shallow gravel, private banks, and rapidly changing water warrant a caution profile.",
+      "confidenceNotes": "Confidence is good for a guarded route addition: Cedar County documents both public ramps and camping, the Cedar River canoe-trail materials identify Cedar Bluff to Cedar Valley as a 6.5-mile reach, and USGS 05464780 is a direct live station at the Cedar Bluff bridge. The runnable band is a conservative Cedar River guide range rather than a manager-issued route-specific certification, so same-day scouting remains mandatory."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Current direct gauge",
+        "value": "USGS 05464780 Cedar River at Cedar Bluff",
+        "note": "USGS provides direct discharge and stage telemetry at the County Highway F28 bridge in Cedar Bluff; check provisional data immediately before launch.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05464780"
+      },
+      {
+        "label": "Threshold band",
+        "value": "400–13,000 cfs provisional runnable band",
+        "note": "Iowa Paddle publishes a Cedar River-wide provisional band, with below 400 cfs treated as too low and above 13,000 cfs as dangerous high water. This is community guidance, not a guarantee of safety for this exact reach.",
+        "sourceUrl": "https://iowapaddle.com/rivers/cedar-river"
+      },
+      {
+        "label": "Route shape",
+        "value": "About 6.5 river miles",
+        "note": "The Hawkeye Area Council canoe-trail materials identify Cedar Bluff to Cedar Valley as a 6.5-mile Cedar River canoe reach; Iowa DNR mapping confirms both access locations on the lower Cedar.",
+        "sourceUrl": "https://hawkeyescouting.org/camping/"
+      },
+      {
+        "label": "Public put-in and camping",
+        "value": "Cedar Bluff River Access, 263 210th St / County Road F28",
+        "note": "Cedar County documents a concrete boat ramp, three primitive campsites, fire rings, picnic tables, and posted park hours.",
+        "sourceUrl": "https://www.mycountyparks.com/County/Cedar/Park/Cedar-Bluff-River-Access"
+      },
+      {
+        "label": "Public take-out and camping",
+        "value": "Cedar Valley Park, Cedar Valley Road / Garfield Avenue",
+        "note": "Cedar County documents a paved Cedar River ramp, electric and primitive camping, restrooms, water, and posted park hours.",
+        "sourceUrl": "https://www.mycountyparks.com/county/Cedar/Park/Cedar-Valley-Park"
+      },
+      {
+        "label": "Image decision",
+        "value": "No third-party image bundled",
+        "note": "The route uses linked county, Iowa DNR, scouting, and USGS evidence without copying an unlicensed promotional image."
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Cedar Bluff River Access",
+        "url": "https://www.mycountyparks.com/County/Cedar/Park/Cedar-Bluff-River-Access",
+        "provider": "local"
+      },
+      {
+        "label": "Cedar Valley Park",
+        "url": "https://www.mycountyparks.com/county/Cedar/Park/Cedar-Valley-Park",
+        "provider": "local"
+      },
+      {
+        "label": "Hawkeye Area Council Cedar River canoe trail",
+        "url": "https://hawkeyescouting.org/camping/",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR lower Cedar map",
+        "url": "https://www.iowadnr.gov/portals/idnr/uploads/riverprograms/map_lowercedar.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa Paddle Cedar River guide",
+        "url": "https://iowapaddle.com/rivers/cedar-river",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05464780 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05464780/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "skunk-river-cottonwood-sycamore",
+    "slug": "skunk-river-cottonwood-sycamore",
+    "name": "Skunk River",
+    "reach": "Cottonwood Loop to Sycamore Loop, Welter Recreation Area",
+    "state": "Iowa",
+    "region": "Southeast Iowa",
+    "routeType": "recreational",
+    "summary": "A short, county-supported Skunk River float from the Cottonwood Loop gravel boat ramp to the developed Sycamore Loop campground at Welter Recreation Area near Augusta.",
+    "statusText": "Use USGS 05474000 at Augusta as a direct live planning signal. Do not launch below the 287 cfs Iowa protected-flow floor, during a rapid rise, or without a same-day visual check; the floor is a regulatory low-flow reference, not a guarantee of floatability or safety.",
+    "latitude": 40.7698244,
+    "longitude": -91.2874296,
+    "gaugeSource": {
+      "id": "usgs-05474000",
+      "provider": "usgs",
+      "siteId": "05474000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Skunk River at Augusta, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05474000/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05474000"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "low_water",
+        "fast_rise",
+        "low_head_dam",
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Iowa's 287 cfs protected-flow value is a water-management floor, not a recreational minimum; inspect depth, wood, current, and the route's old rock-dam remnant before launching.",
+        "The county describes the normal-summer reach as shallow and slow, and warns that the Sycamore campground landing is steep and rocky. Use the marked public ramp/landing only.",
+        "Avoid any old dam, ledge, or obstruction that is not clearly passable at the day's flow; portage or turn back rather than improvising a private-bank exit.",
+        "Wear a properly fitted PFD, carry a whistle and communication device, and follow Iowa boating and PFD rules. Rising water, debris, and local storms can make the direct gauge misleading.",
+        "Cottonwood is day-use only; Sycamore provides the documented endpoint campground. Do not camp on intervening private banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 287,
+      "idealMin": 287,
+      "thresholdSource": {
+        "label": "Iowa Administrative Code protected flow at Skunk River Augusta (minimum-only floor; not a paddling guarantee)",
+        "url": "https://www.legis.iowa.gov/docs/iac/chapter/02-18-2026.567.50.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through early fall is the practical season. The county's paddling material describes normal low-water summer use, but cold water, storms, debris, and seasonal campground closures still require same-day checks.",
+      "difficulty": "easy",
+      "difficultyNotes": "A short flatwater reach with a developed county ramp and campground finish, but shallow water, a rocky landing, strainers, and a historic rock-dam remnant warrant caution and competent boat handling.",
+      "confidenceNotes": "High confidence for a guarded route addition: Des Moines County Conservation documents Cottonwood's gravel boat ramp, Sycamore's developed campground and public access, the loops' 2.5-mile river span, and a direct Skunk River float. USGS 05474000 is the live gauge at Augusta. The 287 cfs value is an official protected-flow reference only; it is intentionally presented as a minimum-only planning floor, not a safe-paddle guarantee."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route and access",
+        "value": "Cottonwood Loop to Sycamore Loop",
+        "note": "Des Moines County Conservation identifies Cottonwood as the upstream day-use boat ramp and Sycamore as the downstream developed loop; the county's float guidance specifically describes putting in at Cottonwood and finishing at the campground area.",
+        "sourceUrl": "https://desmoinescounty.iowa.gov/conservation/parks/welter_recreation_area/"
+      },
+      {
+        "label": "Public put-in",
+        "value": "Cottonwood Loop gravel boat ramp, 18671 Skunk River Road",
+        "note": "The county lists Cottonwood as a day-use river access with a gravel boat ramp and gives the public address and ramp rules.",
+        "sourceUrl": "https://www.desmoinescounty.iowa.gov/conservation/parks/welter_recreation_area/"
+      },
+      {
+        "label": "Public take-out and camping",
+        "value": "Sycamore Loop, 16839 Skunk River Road",
+        "note": "The county identifies Sycamore as the farthest-downstream loop with 18 campsites, restrooms, and a developed landing area; campsites are first-come, first-served and campground dates must be checked.",
+        "sourceUrl": "https://www.desmoinescounty.iowa.gov/conservation/parks/welter_recreation_area/"
+      },
+      {
+        "label": "Direct gauge",
+        "value": "USGS 05474000 Skunk River at Augusta",
+        "note": "USGS publishes continuous discharge and gage-height conditions for the Augusta station; use the live value and trend before launching.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05474000"
+      },
+      {
+        "label": "Minimum-only flow reference",
+        "value": "287 cfs protected flow",
+        "note": "Iowa Administrative Code lists 287 cfs at the Augusta USGS station. This is a regulatory protected-flow floor, not a recreational threshold or guarantee; visual scouting remains mandatory.",
+        "sourceUrl": "https://www.legis.iowa.gov/docs/iac/chapter/02-18-2026.567.50.pdf"
+      },
+      {
+        "label": "Local paddling context",
+        "value": "Normal low-water summer float; about 2.5 river miles between Welter loops",
+        "note": "Des Moines County describes the Skunk as a shallow, slow summer float and identifies Cottonwood-to-Sycamore as the upstream/downstream Welter corridor; its event material also documents longer Cottonwood floats.",
+        "sourceUrl": "https://desmoinescounty.iowa.gov/conservation/blog/beat-the-heat-at-these-local-waters/"
+      },
+      {
+        "label": "Image decision",
+        "value": "No third-party image bundled",
+        "note": "The route uses linked county, USGS, Iowa Code, and safety evidence without copying an unlicensed promotional image."
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Des Moines County Welter Recreation Area",
+        "url": "https://www.desmoinescounty.iowa.gov/conservation/parks/welter_recreation_area/",
+        "provider": "local"
+      },
+      {
+        "label": "Des Moines County local Skunk River paddling context",
+        "url": "https://desmoinescounty.iowa.gov/conservation/blog/beat-the-heat-at-these-local-waters/",
+        "provider": "local"
+      },
+      {
+        "label": "Des Moines County Skunk River Float Adventure",
+        "url": "https://www.mycountyparks.com/County/Des-Moines/Park/Welter-Recreation-Area/Events/29243/Skunk-River-Float-Adventure",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05474000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05474000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Iowa Administrative Code protected flows",
+        "url": "https://www.legis.iowa.gov/docs/iac/chapter/02-18-2026.567.50.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Skunk River Paddlers gauge guidance",
+        "url": "https://www.skunkriverpaddlers.org/river-gauges"
+      },
+      {
+        "label": "Iowa DNR paddling safety and regulations",
+        "url": "https://www.iowadnr.gov/things-do/paddling-river-recreation/safety-regulations",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "south-skunk-river-glendale-rose-hill",
+    "slug": "south-skunk-river-glendale-rose-hill",
+    "name": "South Skunk River",
+    "reach": "Glendale Access to Rose Hill Access",
+    "state": "Iowa",
+    "region": "Southeast Iowa",
+    "routeType": "recreational",
+    "summary": "An approximately 8.1-mile South Skunk River water-trail reach between Mahaska County's concrete Glendale and Rose Hill ramps near Oskaloosa, with camping at both endpoints.",
+    "statusText": "Use direct USGS 05471500 near Oskaloosa. Iowa's 94 cfs protected-flow value is a regulatory minimum-only reference, not a paddling guarantee; inspect the river, weather, wood, and access conditions the same day.",
+    "latitude": 41.34155618206655,
+    "longitude": -92.59437474237431,
+    "gaugeSource": {
+      "id": "usgs-05471500",
+      "provider": "usgs",
+      "siteId": "05471500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "South Skunk River near Oskaloosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05471500/",
+      "hydrographUrl": "https://waterdata.usgs.gov/ia/nwis/uv/?site_no=05471500"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "fast_rise", "strainers", "private_banks", "cold_water"],
+      "safetyNotes": [
+        "The 94 cfs Iowa protected-flow value is a water-management floor, not a recreational minimum; visually inspect depth, current, wood, and bank conditions before launching.",
+        "Iowa DNR describes this reach as two concrete ramps, with camping and picnic facilities at Glendale and no amenities at Rose Hill beyond the small tent-camping area; use only the named public accesses.",
+        "The South Skunk is narrow/shallow in its upper reaches and can rise quickly after rain. Wear a PFD, carry communication and a whistle, and postpone for rising, debris-laden, or flood conditions.",
+        "Respect private property between the endpoints and portage or turn back from any unscouted obstruction rather than improvising a bank exit."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 94,
+      "idealMin": 94,
+      "thresholdSource": {
+        "label": "Iowa Administrative Code protected flow at South Skunk River Oskaloosa (minimum-only floor; not a paddling guarantee)",
+        "url": "https://www.legis.iowa.gov/docs/iac/chapter/02-18-2026.567.50.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [4, 5, 6, 7, 8, 9, 10],
+      "seasonNotes": "Late spring through early fall is the practical season; cold water, storms, debris, and seasonal access changes require same-day checks.",
+      "difficulty": "easy",
+      "difficultyNotes": "A documented flatwater/moving-water reach with concrete ramps and endpoint camping, but shallow water, snags, private banks, and changing flow warrant competent boat handling.",
+      "confidenceNotes": "High confidence for a guarded addition: Iowa DNR documents the Glendale/Rose Hill ramp pair and camping, the Iowa canoe guide documents 8.1 miles between them, and USGS 05471500 is a direct live station at Oskaloosa. The 94 cfs value is intentionally presented only as a protected-flow floor, not as a safe-paddle guarantee."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public put-in and camping",
+        "value": "Glendale Access, 2151 Oxford Ave., Oskaloosa",
+        "note": "Mahaska County Conservation documents the site; Iowa DNR's public-water-access inventory places the concrete ramp at 41.34155618,-92.59437474.",
+        "sourceUrl": "https://www.arcgis.com/home/item.html?id=a904e625559d42f48864b6484111a26d"
+      },
+      {
+        "label": "Public take-out and camping",
+        "value": "Rose Hill Access, 2449 240th St., Rose Hill",
+        "note": "Mahaska County Conservation documents the site; Iowa DNR's public-water-access inventory places the concrete ramp at 41.29960370,-92.46793947.",
+        "sourceUrl": "https://www.arcgis.com/home/item.html?id=a904e625559d42f48864b6484111a26d"
+      },
+      {
+        "label": "Route distance",
+        "value": "Approximately 8.1 river miles",
+        "note": "The Iowa canoe guide lists 8.1 miles from Glendale Access to Rose Hill Access; Iowa DNR identifies the same two-ramp Pella-to-Rose Hill water-trail stretch.",
+        "sourceUrl": "https://www.jasperia.org/files/conservation/list_of_south_skunk_and_north_skunk_accesses_and_distances_76642.pdf"
+      },
+      {
+        "label": "Direct gauge",
+        "value": "USGS 05471500 South Skunk River near Oskaloosa",
+        "note": "USGS publishes continuous discharge and stage telemetry for the station; use live value and trend before launch.",
+        "sourceUrl": "https://waterdata.usgs.gov/ia/nwis/uv/?site_no=05471500"
+      },
+      {
+        "label": "Minimum-only flow reference",
+        "value": "94 cfs protected flow",
+        "note": "Iowa Administrative Code lists 94 cfs at the Oskaloosa station. This is a regulatory protected-flow floor, not a recreational threshold or guarantee; visual scouting remains mandatory.",
+        "sourceUrl": "https://www.legis.iowa.gov/docs/iac/chapter/02-18-2026.567.50.pdf"
+      },
+      {
+        "label": "Safety and water-trail context",
+        "value": "South Skunk River water trail; avoid dams and snags, respect private property",
+        "note": "The Iowa DNR map and safety material identify public accesses, hazards, shallow/narrow sections, and the need to portage dangerous obstructions.",
+        "sourceUrl": "https://www.iowadnr.gov/portals/idnr/uploads/riverprograms/map_skunk%20north%20and%20south.pdf"
+      },
+      {
+        "label": "Image decision",
+        "value": "No third-party image bundled",
+        "note": "The route uses linked county, DNR, USGS, and public-guide evidence without copying an unlicensed promotional image."
+      }
+    ],
+    "sourceLinks": [
+      {"label": "Mahaska County Glendale Access", "url": "https://www.mahaskaconservation.com/parks/glendale_access/", "provider": "local"},
+      {"label": "Mahaska County Rose Hill Access", "url": "https://www.mahaskaconservation.com/parks/rose_hill_access/", "provider": "local"},
+      {"label": "Iowa DNR public water-access inventory", "url": "https://www.arcgis.com/home/item.html?id=a904e625559d42f48864b6484111a26d", "provider": "local"},
+      {"label": "Iowa DNR South Skunk River segment", "url": "https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RSS62", "provider": "local"},
+      {"label": "Iowa South/North Skunk water-trail map", "url": "https://www.iowadnr.gov/portals/idnr/uploads/riverprograms/map_skunk%20north%20and%20south.pdf", "provider": "local"},
+      {"label": "Iowa canoe guide access distances", "url": "https://www.jasperia.org/files/conservation/list_of_south_skunk_and_north_skunk_accesses_and_distances_76642.pdf", "provider": "local"},
+      {"label": "USGS 05471500 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05471500/", "provider": "usgs"},
+      {"label": "Iowa Administrative Code protected flows", "url": "https://www.legis.iowa.gov/docs/iac/chapter/02-18-2026.567.50.pdf", "provider": "local"}
+    ]
   }
 ];

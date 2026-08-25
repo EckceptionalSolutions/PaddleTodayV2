@@ -6580,5 +6580,178 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out at the DNR-documented cement ramp and eddy near De Witt."
       }
     ]
+  },
+  "cedar-river-cedar-bluff-cedar-valley": {
+    "putIn": {
+      "id": "cedar-bluff-river-access",
+      "name": "Cedar Bluff River Access",
+      "latitude": 41.788938145933585,
+      "longitude": -91.31405507117562
+    },
+    "takeOut": {
+      "id": "cedar-valley-park",
+      "name": "Cedar Valley Park paved Cedar River ramp",
+      "latitude": 41.72565331138324,
+      "longitude": -91.24134459921265
+    },
+    "logistics": {
+      "distanceLabel": "About 6.5 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer in low water, wind, or after rain",
+      "shuttle": "Stage a vehicle at Cedar Valley Park, then return to Cedar Bluff River Access. Confirm both park ramps and posted hours before launching.",
+      "permits": "No route-specific paddling permit is known. Use the named county park accesses, follow Iowa boating/PFD rules, and obey Cedar County camping and park postings.",
+      "camping": "Camping is available at both named county endpoints. Cedar Bluff provides three primitive sites; Cedar Valley Park provides electric and primitive campground areas. Do not assume legal camping on private banks or sandbars between them.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Paddle the documented Cedar Bluff-to-Cedar Valley canoe reach on the Cedar River using the direct Cedar Bluff gauge. The route has public ramps and endpoint camping, but same-day wood, depth, and rising-water checks remain necessary.",
+      "accessCaveats": [
+        "The Cedar Bluff coordinate follows the county's public access map pin at the County Road F28 / 210th Street bridge; confirm the concrete ramp and parking on arrival.",
+        "The Cedar Valley coordinate follows the county park map pin near the paved Cedar River ramp; use the signed lower park access rather than quarry-pit areas where boating is not allowed.",
+        "The river is state-owned but adjacent banks are not automatically public. Stay within the river and use only the named public endpoint accesses.",
+        "Both parks have posted hours and camping registration rules; do not launch or camp outside those rules."
+      ],
+      "watchFor": [
+        "Readings below 400 cfs may expose shallow gravel; readings above 13,000 cfs or rapidly rising water can create dangerous current and debris conditions.",
+        "Snags, deep holes, bridge current, cutbanks, floating wood, and cold water after storms.",
+        "Private banks and limited emergency exits between the two county parks."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "cedar-bluff-river-access",
+        "name": "Cedar Bluff River Access",
+        "latitude": 41.788938145933585,
+        "longitude": -91.31405507117562,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Cedar County documents a concrete Cedar River boat ramp and primitive endpoint camping at this public access."
+      },
+      {
+        "id": "cedar-valley-park",
+        "name": "Cedar Valley Park paved Cedar River ramp",
+        "latitude": 41.72565331138324,
+        "longitude": -91.24134459921265,
+        "mileFromStart": 6.5,
+        "segmentKind": "creek",
+        "note": "Cedar County documents a paved Cedar River ramp, campground, restrooms, and water at the lower park."
+      }
+    ]
+  },
+  "skunk-river-cottonwood-sycamore": {
+    "putIn": {
+      "id": "cottonwood-loop-welter",
+      "name": "Cottonwood Loop gravel boat ramp, Welter Recreation Area",
+      "latitude": 40.7698244,
+      "longitude": -91.2874296
+    },
+    "takeOut": {
+      "id": "sycamore-loop-welter",
+      "name": "Sycamore Loop campground landing, Welter Recreation Area",
+      "latitude": 40.7537031,
+      "longitude": -91.2584916
+    },
+    "logistics": {
+      "distanceLabel": "About 2.5 river miles between the Welter Recreation Area loops",
+      "estimatedPaddleTime": "About 1 to 2.5 hours, longer with shallow water, wind, wood, or scouting",
+      "shuttle": "Stage the vehicle at Sycamore Loop first, then drive to the Cottonwood Loop ramp. Confirm both marked access points and the campground landing before unloading.",
+      "permits": "No route-specific paddling permit is known. Follow Des Moines County Conservation park hours and ramp rules, Iowa boating/PFD requirements, and posted seasonal closures.",
+      "camping": "Sycamore Loop has documented first-come, first-served campsites; Cottonwood is day-use only. Confirm campground opening dates, fees, and availability before relying on overnight logistics, and do not camp on intervening private banks.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A short, public-access Skunk River float inside Welter Recreation Area with a gravel upstream ramp and a developed downstream campground finish.",
+      "accessCaveats": [
+        "Cottonwood is a day-use access with a gravel ramp; its posted rules prohibit camping, fires, loitering, and obstructing the ramp.",
+        "Sycamore is the developed downstream loop, but the county describes the riverbank landing as steep and rocky; inspect the landing before committing to the finish.",
+        "The app stores the county-linked Google Maps coordinates as defensible access-area anchors; they are not survey-grade water-edge points.",
+        "The county notes that a historic rock dam remnant can be visible at low water. Portage or turn back from any obstruction that is not clearly safe at the day's flow.",
+        "The direct USGS station is at Augusta, immediately downstream of the Welter corridor; local rain, debris, and shallow conditions can differ from the reported value."
+      ],
+      "watchFor": [
+        "Shallow gravel and dragging risk below the 287 cfs protected-flow reference; the reference is not a recreational guarantee.",
+        "Fast-rising or debris-laden water after storms, especially around outside bends and bridge/landing approaches.",
+        "Historic rock-dam/ledge remnants and strainers; do not run an unscouted obstruction.",
+        "Steep, rocky Sycamore landing and private-bank boundaries outside the named Welter access areas.",
+        "Cold water and limited bailout options on a short but changing floodplain reach."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "cottonwood-loop-welter",
+        "name": "Cottonwood Loop gravel boat ramp, Welter Recreation Area",
+        "latitude": 40.7698244,
+        "longitude": -91.2874296,
+        "mileFromStart": 0,
+        "segmentKind": "transition",
+        "note": "Public day-use upstream put-in identified by Des Moines County Conservation; use the gravel ramp and obey posted loading/parking rules."
+      },
+      {
+        "id": "sycamore-loop-welter",
+        "name": "Sycamore Loop campground landing, Welter Recreation Area",
+        "latitude": 40.7537031,
+        "longitude": -91.2584916,
+        "mileFromStart": 2.5,
+        "segmentKind": "transition",
+        "note": "Public downstream campground endpoint identified by Des Moines County Conservation; confirm the steep/rocky landing and seasonal campground status before launch."
+      }
+    ],
+    "corridorId": "skunk-river-welter-recreation-area",
+    "corridorLabel": "Skunk River Welter Recreation Area",
+    "continuityStatus": "verified"
+  },
+  "south-skunk-river-glendale-rose-hill": {
+    "putIn": {
+      "id": "glendale-access",
+      "name": "Glendale Access, Mahaska County",
+      "latitude": 41.34155618206655,
+      "longitude": -92.59437474237431
+    },
+    "takeOut": {
+      "id": "rose-hill-access",
+      "name": "Rose Hill Access, Mahaska County",
+      "latitude": 41.29960369951108,
+      "longitude": -92.4679394698291
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 8.1 river miles between Glendale Access and Rose Hill Access",
+      "estimatedPaddleTime": "About 3 to 6 hours, depending on flow, shallow water, wind, wood, and scouting",
+      "shuttle": "Stage the vehicle at Rose Hill Access first, then drive to Glendale Access. Confirm both marked concrete ramps and current access conditions before unloading.",
+      "permits": "No route-specific paddling permit is known. Follow Mahaska County Conservation rules, Iowa boating/PFD requirements, and posted seasonal closures.",
+      "camping": "Glendale has documented tent/RV camping and Rose Hill has a small tent-camping area. Confirm fees, opening dates, and availability before relying on overnight logistics; do not camp on intervening private banks.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A documented South Skunk River water-trail reach with concrete public ramps and endpoint camping near Oskaloosa.",
+      "accessCaveats": [
+        "Glendale and Rose Hill are the named public ramps; do not substitute nearby informal banks or the proposed/utility Water Works area.",
+        "The 94 cfs reference is a protected-flow floor, not a safe-paddle minimum. Check the direct USGS gauge, trend, forecast, and the river itself immediately before launching.",
+        "The Iowa DNR map warns about dams, snags, shallow/narrow sections, and private property; portage or turn back from any unscouted obstruction.",
+        "The stored coordinates come from Iowa DNR's public-water-access inventory and identify the concrete ramp points; still confirm current site conditions and posted access on arrival."
+      ],
+      "watchFor": [
+        "Shallow gravel and dragging risk near the minimum-only flow reference.",
+        "Fast-rising or debris-laden water after storms and changing conditions near bridges and bends.",
+        "Snags, dams, and other obstructions; avoid dangerous currents and portage well above any dam.",
+        "Private-bank boundaries and limited bailout options between named endpoints.",
+        "Cold water; wear a properly fitted PFD and carry communication and a whistle."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "glendale-access",
+        "name": "Glendale Access, Mahaska County",
+        "latitude": 41.34155618206655,
+        "longitude": -92.59437474237431,
+        "mileFromStart": 0,
+        "segmentKind": "transition",
+        "note": "Public concrete ramp with parking, picnic use, and documented tent/RV camping."
+      },
+      {
+        "id": "rose-hill-access",
+        "name": "Rose Hill Access, Mahaska County",
+        "latitude": 41.29960369951108,
+        "longitude": -92.4679394698291,
+        "mileFromStart": 8.1,
+        "segmentKind": "transition",
+        "note": "Public concrete ramp with a small documented tent-camping area; confirm landing and seasonal conditions."
+      }
+    ],
+    "corridorId": "south-skunk-river-mahaska-county",
+    "corridorLabel": "South Skunk River Glendale to Rose Hill",
+    "continuityStatus": "verified"
   }
 };

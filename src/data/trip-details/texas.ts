@@ -2,6 +2,249 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
+  "brazos-river-hwy16-fm4-upper-middle": {
+    "putIn": {
+      "id": "brazos-hwy16-bra-area-7",
+      "name": "BRA Brazos River Area #7 / Hwy 16 Bridge",
+      "latitude": 32.8589959,
+      "longitude": -98.4133234
+    },
+    "takeOut": {
+      "id": "brazos-fm4-dark-valley-rochelles",
+      "name": "FM 4 at Dark Valley Creek / Rochelle's Canoe Rental",
+      "latitude": 32.8635157,
+      "longitude": -98.3019558
+    },
+    "logistics": {
+      "distanceLabel": "About 19.5 mi",
+      "estimatedPaddleTime": "About 2 days depending on flow, wind, heat, shallow gravel, rapids, dam releases, and campsite scouting",
+      "shuttle": "This is a point-to-point reach. Arrange the FM 4/Dark Valley take-out and vehicle/equipment shuttle with Rochelle's Canoe Rental before launch; do not assume the bridge is a free public ramp or that an unreserved outfitter landing is available.",
+      "permits": "No separate route permit is identified in the TRPA/BRA package. Follow BRA/TPWD rules, Texas boating and PFD requirements, posted private-property boundaries, and the outfitter's current reservation and fee terms.",
+      "camping": "TRPA describes gravel-bar and island campsites, especially after the first 12-13 miles. BRA says camping is allowed only when confined to the state-owned bed and banks; there are no public campgrounds or facilities along the reach, so carry all water, food, shelter, waste supplies, and emergency gear.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch at the BRA Hwy 16 river access below Possum Kingdom Dam, paddle the 19.5-mile Upper-Middle Brazos reach, and take out at the arranged FM 4/Dark Valley Bridge outfitter endpoint. Check USGS 08089000, dam releases, rainfall, wind, water quality, and current reservation/access terms before committing.",
+      "accessCaveats": [
+        "The Hwy 16 coordinate is a BRA access anchor at the bridge-area river access, not a surveyed wetted-edge coordinate; follow the signed BRA access path and current parking rules.",
+        "The FM 4 coordinate is the bridge/outfitter access anchor. Rochelle's current website describes the trip and shuttle but access is reservation-dependent; confirm the exact landing, fee, parking, and vehicle-staging terms before departure.",
+        "Adjoining river banks are private even though the riverbed and banks are state-owned for lawful recreation. Stay within the bed and banks and do not cross fences, yards, ranch roads, or private campsites.",
+        "The route is remote with limited cell service and no public campgrounds. Carry redundant navigation, water, repair equipment, and an emergency communication plan."
+      ],
+      "watchFor": [
+        "USGS discharge at or below 150 cfs, falling flow, exposed gravel, repeated scraping, or shallow riffles; postpone if the actual reach is lower than the station suggests.",
+        "Rapid rises or swift current from rainfall or Possum Kingdom releases; leave the river or reach a lawful high gravel bar before conditions deteriorate.",
+        "Small rapids, cliffs, strainers, and private-bank hazards; never use a cliff, ranch, or unverified bridge bank as an emergency exit.",
+        "Rochelle's reservation status, FM 4 parking/landing terms, and the availability of a confirmed vehicle/equipment shuttle."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "brazos-hwy16-bra-area-7",
+        "name": "BRA Brazos River Area #7 / Hwy 16 Bridge",
+        "latitude": 32.8589959,
+        "longitude": -98.4133234,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "BRA documents small-boat river access by the Hwy 16 bridge, approximately ten campsites, restrooms, picnic areas, no fee, and year-round operation."
+      },
+      {
+        "id": "brazos-fm4-dark-valley-rochelles",
+        "name": "FM 4 at Dark Valley Creek / Rochelle's Canoe Rental",
+        "latitude": 32.8635157,
+        "longitude": -98.3019558,
+        "mileFromStart": 19.5,
+        "segmentKind": "creek",
+        "note": "TRPA maps the FM 4/Dark Valley Bridge take-out; Rochelle's current trip and location pages describe the adjacent outfitter, reservation, and shuttle relationship. Confirm current terms before launch."
+      }
+    ],
+    "corridorId": "tx-upper-middle-brazos-hwy16-fm4",
+    "corridorLabel": "Upper-Middle Brazos / John Graves Scenic Riverway",
+    "continuityStatus": "verified"
+  },
+  "brazos-river-brazos-park-east-bledsoe-miller": {
+    "putIn": {
+      "id": "brazos-park-east-kayak-ramp",
+      "name": "Brazos Park East Kayak/Canoe Ramp",
+      "latitude": 31.5879,
+      "longitude": -97.1534
+    },
+    "takeOut": {
+      "id": "bledsoe-miller-community-dock",
+      "name": "Bledsoe-Miller Community Center Dock",
+      "latitude": 31.5628,
+      "longitude": -97.1293
+    },
+    "logistics": {
+      "distanceLabel": "About 4.8 mi loop",
+      "estimatedPaddleTime": "About 1 hr to 3 hr depending on water level, flow, wind, and time spent at the turnaround dock",
+      "shuttle": "No shuttle is required for the official loop. Launch and return to Brazos Park East after using Bledsoe-Miller as the documented turnaround/access point; if paddling one-way only, arrange a separate vehicle before departure.",
+      "permits": "No route-specific paddling permit is published. Follow City of Waco park hours and rules, Texas boating/PFD requirements, posted dock restrictions, and any current construction or event closures.",
+      "camping": "No on-route camping is documented. Treat the route as a day-use Waco park paddle and arrange lodging or a separately verified campground as a nearby basecamp.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Brazos Park East, paddle the official Brazos Bridges corridor to the Bledsoe-Miller Community Center Dock, and return to the launch. Check USGS 08096500, BRA release information, rainfall, water quality, and same-day park access before leaving.",
+      "accessCaveats": [
+        "TPWD publishes the Brazos Park East ramp and Bledsoe-Miller dock as access points with coordinates; follow signed paths and current park instructions rather than treating coordinates as a surveyed wetted edge.",
+        "The gauge is downstream of the Waco trail and is used as a same-river proxy. Near the 200 cfs minimum or after rain, inspect the actual trail water and snags rather than relying on the proxy alone.",
+        "The route is in an urban park corridor. Events, maintenance, construction, flooding, and water-quality advisories can change access on the day of travel.",
+        "The official trail is designed for novice paddlers, but carry a float plan, fitted PFD, whistle or horn, water, and a dry phone case; do not use private banks as an unplanned bailout."
+      ],
+      "watchFor": [
+        "Discharge at or below 200 cfs, falling flow, exposed snags, or shallow areas; treat the route as below the conservative floor.",
+        "Heavy rainfall, rising water, releases, strong wind, and temporary water-quality advisories.",
+        "Dock or ramp closures, park events, changing hours, and restricted channel-side paths.",
+        "Private-bank boundaries and the need to return to the named public access rather than improvising a landing."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "brazos-park-east-kayak-ramp",
+        "name": "Brazos Park East Kayak/Canoe Ramp",
+        "latitude": 31.5879,
+        "longitude": -97.1534,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Official TPWD and City of Waco launch and return point for the Brazos Bridges loop."
+      },
+      {
+        "id": "bledsoe-miller-community-dock",
+        "name": "Bledsoe-Miller Community Center Dock",
+        "latitude": 31.5628,
+        "longitude": -97.1293,
+        "mileFromStart": 2.4,
+        "segmentKind": "creek",
+        "note": "Official TPWD turnaround/access dock; return upstream to complete the 4.8-mile loop."
+      },
+      {
+        "id": "mclennan-community-college-boat-ramp",
+        "name": "McLennan Community College Boat Ramp",
+        "latitude": 31.5929,
+        "longitude": -97.1693,
+        "mileFromStart": 1.2,
+        "segmentKind": "creek",
+        "note": "Official alternate access point on the connected Waco paddling-trail system; not required for the Brazos Bridges loop."
+      }
+    ],
+    "corridorId": "tx-brazos-river-waco-brazos-bridges",
+    "corridorLabel": "Waco Brazos Bridges Paddling Trail",
+    "continuityStatus": "verified"
+  },
+  "brays-bayou-fonde-brays-greenway": {
+    "putIn": {
+      "id": "fonde-park-brays-launch",
+      "name": "Fonde Park canoe/kayak launch",
+      "latitude": 29.71247,
+      "longitude": -95.3232
+    },
+    "takeOut": {
+      "id": "brays-greenway-park-brays-launch",
+      "name": "Brays Greenway Park canoe/kayak launch",
+      "latitude": 29.7237,
+      "longitude": -95.2835
+    },
+    "logistics": {
+      "distanceLabel": "About 5.7 mi",
+      "estimatedPaddleTime": "About 2 hr to 4 hr depending on current, portages, bridge/channel conditions, launch status, and construction",
+      "shuttle": "Stage a vehicle at Brays Greenway Park only after confirming current park access and launch conditions, then drive to Fonde Park. Do not leave vehicles in restricted areas or within flood-control/construction zones.",
+      "permits": "No route-specific paddling permit is published. Follow Houston Parks and Recreation hours, posted launch rules, Texas boating/PFD requirements, and any Harris County Flood Control closure or construction notice.",
+      "camping": "No on-route camping is documented. Use urban lodging or separately verified nearby campgrounds; do not camp in parks, on bayou banks, or in the flood-control corridor.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A guarded urban day paddle linking the documented Fonde and Brays Greenway launches. Check the Gessner gauge, NOAA stage, rainfall, water-quality advisories, and same-day construction/access conditions before committing.",
+      "accessCaveats": [
+        "Launch status and park access can change with construction, events, maintenance, and flooding; verify before departure.",
+        "The listed coordinates are public park/launch anchors, not survey-grade wetted-edge points; follow signed paths and use only the designated launch areas.",
+        "The bayou banks and flood-control structures are not general public access; do not climb out except at the named launch areas or a clearly lawful emergency location."
+      ],
+      "watchFor": [
+        "Rising water, rapidly increasing discharge, bridge turbulence, and NOAA action-stage or flood-stage warnings.",
+        "Construction barriers, channel work, debris, fencing, culverts, and blocked or relocated launch paths.",
+        "Urban runoff and bacteria exposure after rainfall; avoid contact and never drink untreated water.",
+        "Heat, traffic, limited shade, and a take-out that may be difficult to recognize from the channel."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fonde-park-brays-launch",
+        "name": "Fonde Park canoe/kayak launch",
+        "latitude": 29.71247,
+        "longitude": -95.3232,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Named public launch documented by Houston District I at 2600 Lidstone Street; the coordinate identifies the visible path to the north bank rather than the interior park pin."
+      },
+      {
+        "id": "brays-greenway-park-brays-launch",
+        "name": "Brays Greenway Park canoe/kayak launch",
+        "latitude": 29.7237,
+        "longitude": -95.2835,
+        "mileFromStart": 5.7,
+        "segmentKind": "creek",
+        "note": "Named public launch at 8001 Hockley Street; verify current opening and channel-side approach before launch."
+      }
+    ],
+    "corridorId": "tx-brays-bayou-fonde-brays-greenway",
+    "corridorLabel": "Brays Bayou urban paddling corridor",
+    "continuityStatus": "verified"
+  },
+  "big-cypress-bayou-lake-o-pines-spillway-jefferson": {
+    "putIn": {
+      "id": "lake-o-pines-spillway-boat-ramp",
+      "name": "Lake O' the Pines Spillway Boat Ramp",
+      "latitude": 32.747756,
+      "longitude": -94.499566
+    },
+    "takeOut": {
+      "id": "jefferson-big-cypress-ramp",
+      "name": "Jefferson Big Cypress Bayou Ramp",
+      "latitude": 32.758287,
+      "longitude": -94.340743
+    },
+    "logistics": {
+      "distanceLabel": "About 16.5 mi",
+      "estimatedPaddleTime": "About 6 hr to 9 hr at ordinary releases; plan a full day because of distance, wood, wind, and the absence of intermediate public access",
+      "shuttle": "Stage the Jefferson take-out first, then drive to the USACE Lake O' the Pines spillway ramp. Do not plan an improvised bailout: TPWD reports no public access along the intervening 16.5-mile reach.",
+      "permits": "No route-specific paddling permit is identified for the two public ramps. Follow USACE, City of Jefferson, Texas boating, PFD, hunting, and posted access rules; check for closures and release notices before launching.",
+      "camping": "Treat this as a day trip. No designated overnight campsite is documented along the route; nearby Lake O' the Pines or Jefferson lodging/campgrounds are separate basecamp options and must not be represented as on-route camping.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Run from the Lake O' the Pines spillway to the Jefferson ramp only when USGS 07346000 is at or above the conservative 40 cfs minimum-only floor and the release trend is stable. The floor is based on TPWD's recommended October baseflow, not a safety guarantee.",
+      "accessCaveats": [
+        "TPWD's 2024 report lists the USACE spillway ramp as public and in good condition but shallow during low flow, and the Jefferson ramp as public and in good condition.",
+        "TPWD reports no public access points between the spillway and Jefferson; carry navigation, repair, hydration, and emergency equipment for a committed reach.",
+        "Lake O' the Pines releases control the reach and can change flow quickly. Check same-day USGS discharge/gage height and any USACE release information immediately before launching.",
+        "The reach has riffles, pools, backwaters, variable depths, and common large woody debris. Scout hazards from shore where possible and do not assume the threshold clears strainers or release hazards.",
+        "Keep to the navigable corridor and named public endpoints. Surrounding banks are private, and TPWD reports water-quality impairments and fish-consumption advisories in the lower Big Cypress/Caddo system.",
+        "This package intentionally has no route-gallery image until a rights-clean, route-specific asset is verified."
+      ],
+      "watchFor": [
+        "USGS discharge below 40 cfs, falling flow, or a shallow spillway ramp; treat the route as below the conservative floor.",
+        "Rapid release-driven rises, high stage, or heavy rain upstream; leave the water and reassess rather than relying on the minimum-only score.",
+        "Large woody debris, strainers, riffles, and changing channel depth through the long unbroken reach.",
+        "Heat, thunderstorms, motorboat traffic downstream, alligators, hunting seasons, and limited cell/access options.",
+        "Private-bank boundaries and the lack of intermediate public bailouts."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "lake-o-pines-spillway-boat-ramp",
+        "name": "Lake O' the Pines Spillway Boat Ramp",
+        "latitude": 32.747756,
+        "longitude": -94.499566,
+        "mileFromStart": 0,
+        "segmentKind": "lake",
+        "note": "USACE public ramp; TPWD reports good condition but shallow during low flow."
+      },
+      {
+        "id": "jefferson-big-cypress-ramp",
+        "name": "Jefferson Big Cypress Bayou Ramp",
+        "latitude": 32.758287,
+        "longitude": -94.340743,
+        "mileFromStart": 16.5,
+        "segmentKind": "creek",
+        "note": "City of Jefferson public ramp and planned take-out."
+      }
+    ],
+    "corridorId": "tx-big-cypress-bayou-lake-o-pines-jefferson",
+    "corridorLabel": "Lower Big Cypress Bayou",
+    "continuityStatus": "verified"
+  },
   "village-creek-fm418-sh327": {
     "putIn": {
       "id": "fm-418-boat-launch",
@@ -1647,6 +1890,62 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 20,
         "segmentKind": "creek",
         "note": "Default downstream take-out and endpoint campground; rounded LCRA coordinate stored as an access anchor and arrival-point offset."
+      }
+    ]
+  },
+  "colorado-river-fm960-hollywood-bottom": {
+    "putIn": {
+      "id": "fm-960-bridge-colorado",
+      "name": "FM 960 Bridge",
+      "latitude": 29.34,
+      "longitude": -96.20
+    },
+    "takeOut": {
+      "id": "hollywood-bottom-park-colorado",
+      "name": "Hollywood Bottom Park",
+      "latitude": 29.16,
+      "longitude": -96.04
+    },
+    "logistics": {
+      "distanceLabel": "About 19 mi",
+      "estimatedPaddleTime": "About 6 hr to 10 hr depending on flow, wind, heat, low-water shallows, stops, and group pace",
+      "shuttle": "Stage Hollywood Bottom Park first, then drive to the FM 960 Bridge access. FM 960 is a TxDOT pedestrian access down a dirt path to a steep river edge rather than a conventional boat ramp; inspect the carry and take-out before committing to the long one-way day.",
+      "permits": "No route-specific public paddling permit is published. Follow Texas boating and PFD rules, use the named public access points, obey posted TxDOT/LCRA/park rules, and check same-day flow, weather, and access conditions before launching.",
+      "camping": "Hollywood Bottom Park permits camping and is the only documented route-camp support in this package. Do not infer legal camping on islands, sandbars, or private banks between FM 960 and Hollywood Bottom.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at the official FM 960 Bridge access and paddle the distinct lower-Colorado reach to LCRA's Hollywood Bottom Park. Use USGS 08162000 at Wharton with a conservative 200 cfs floor, then make a same-day call on steep access, shallow lines, rising water, wind, heat, debris, and private-bank limits.",
+      "accessCaveats": [
+        "LCRA describes FM 960 as an unimproved dirt path to a steep river edge. Carry boats carefully and do not treat the shoulder or private banks as a vehicle ramp or parking entitlement.",
+        "Hollywood Bottom Park is open 24 hours and camping is permitted, but confirm current park conditions and take-out logistics before launch.",
+        "The 200 cfs floor is a conservative community estimate tied to the Wharton gauge, not a go/no-go authority. Below the floor expect shallow or bony lines; high or rising water can increase current and debris hazards.",
+        "This is a long reach with few public exits. Stage the shuttle, leave daylight and weather margin, and do not continue toward downstream dams or private access without a separately verified plan.",
+        "Respect private banks and use only the named public endpoints or lawful hazard exits."
+      ],
+      "watchFor": [
+        "Steep, unimproved FM 960 launch bank and difficult boat carry.",
+        "Low-water shallows, gravel, and scraping near the 200 cfs floor.",
+        "Fast rises after storms or releases, strainers, floating wood, strong wind, heat, and limited shade.",
+        "Private banks, unverified side landings, and any downstream dam or portage situation."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fm-960-bridge-colorado",
+        "name": "FM 960 Bridge",
+        "latitude": 29.34,
+        "longitude": -96.20,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upstream access anchor from LCRA; pedestrian dirt-path access to a steep river edge, not a conventional ramp."
+      },
+      {
+        "id": "hollywood-bottom-park-colorado",
+        "name": "Hollywood Bottom Park",
+        "latitude": 29.16,
+        "longitude": -96.04,
+        "mileFromStart": 19,
+        "segmentKind": "creek",
+        "note": "Default LCRA downstream take-out; 24-hour access with camping permitted."
       }
     ]
   },
@@ -4573,5 +4872,97 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "TRPA map-link access anchor for the downstream public-road-crossing take-out; confirm current roadside parking and bank conditions on arrival."
       }
     ]
+  },
+  "brushy-creek-chisholm-trail-red-bud": {
+    "putIn": {"id": "brushy-chisholm-trail-crossing", "name": "Chisholm Trail Crossing Park", "latitude": 30.51307, "longitude": -97.68939},
+    "takeOut": {"id": "brushy-red-bud-cr122", "name": "Red Bud Lane / CR 122 public access", "latitude": 30.53082, "longitude": -97.61374},
+    "logistics": {
+      "distanceLabel": "About 5.7 mi",
+      "estimatedPaddleTime": "About 2 to 4 hours when the direct gauge is in the documented runnable band; allow extra time for scouting, shallow sections, portage decisions, and urban traffic.",
+      "shuttle": "Stage a vehicle at the Red Bud Lane / CR 122 access only after verifying current construction, parking, and bank conditions, then return to Chisholm Trail Crossing Park. Do not use private low-water crossings or improvised shoreline exits.",
+      "permits": "No route-specific paddling permit is published. Follow City of Round Rock park rules, Texas boating and PFD requirements, posted construction controls, and current access terms.",
+      "camping": "No on-route camping is documented. Treat this as an urban day route and arrange lodging or a separately verified campground; do not camp in city parks, on private banks, or under road bridges.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch below the Chisholm Trail dam at the named city park and take out at the Red Bud Lane / CR 122 public access. Use direct USGS 08105888, recent rain, flash-flood warnings, debris reports, construction notices, and same-day endpoint checks before leaving.",
+      "accessCaveats": [
+        "Chisholm Trail Crossing Park is a public city park at 500 Chisholm Trail Road; put in below the dam only and do not run or approach the deadly hydraulic described by American Whitewater.",
+        "The Red Bud / CR 122 access is a dirt/gravel public access documented by the Brushy Creek RUAA, but current road construction and bank conditions can change. Confirm legal parking and a safe carry before launch.",
+        "American Whitewater and the RUAA identify private-property gaps, strainers, shallow riffles, tunnels, and low-water crossing hazards. Do not treat nearby banks, residences, or low-water crossings as public access.",
+        "Round Rock and Williamson County trail/road projects may change access or traffic around the corridor; obey barricades and posted closures.",
+        "Urban runoff and wastewater influences mean paddlers should avoid contact after heavy rain or any water-quality advisory."
+      ],
+      "watchFor": [
+        "Discharge below about 200 cfs, falling flow, exposed bedrock, scraping, and walking; about 400 cfs is the local fun reference, not a safety guarantee.",
+        "Dam hydraulics at Chisholm Trail Crossing, debris in tunnels, strainers, and rapidly rising water after thunderstorms.",
+        "Construction, traffic, restricted parking, and a changed or blocked Red Bud Lane / CR 122 exit.",
+        "Private banks and the low-water crossing near private property; use only the named endpoints or a clearly lawful emergency location."
+      ]
+    },
+    "accessPoints": [
+      {"id": "brushy-chisholm-trail-crossing", "name": "Chisholm Trail Crossing Park", "latitude": 30.51307, "longitude": -97.68939, "mileFromStart": 0, "segmentKind": "creek", "note": "City of Round Rock park and Brushy Creek RUAA access anchor; put in below the dam only."},
+      {"id": "brushy-red-bud-cr122", "name": "Red Bud Lane / CR 122 public access", "latitude": 30.53082, "longitude": -97.61374, "mileFromStart": 5.7, "segmentKind": "creek", "note": "Brushy Creek RUAA public dirt/gravel access under Red Bud Lane; verify current construction and parking."}
+    ],
+    "corridorId": "tx-brushy-creek-chisholm-red-bud",
+    "corridorLabel": "Brushy Creek Chisholm Trail to Red Bud",
+    "continuityStatus": "verified"
+  },
+  "colorado-river-fm580-colorado-bend": {
+    "putIn": {
+      "id": "fm-580-colorado-river",
+      "name": "FM 580 Colorado River access",
+      "latitude": 31.1004,
+      "longitude": -98.5147
+    },
+    "takeOut": {
+      "id": "colorado-bend-state-park-river",
+      "name": "Colorado Bend State Park river access",
+      "latitude": 31.0183,
+      "longitude": -98.4467
+    },
+    "logistics": {
+      "distanceLabel": "About 14.9 mi",
+      "estimatedPaddleTime": "About 5 to 9 hours depending on flow, wind, heat, shallow sections, stops, and group pace",
+      "shuttle": "Stage the vehicle at Colorado Bend State Park first, then drive back to the FM 580 access near Bend. TPWD describes FM 580 as primitive access without a ramp; inspect the carry and confirm lawful parking before launch.",
+      "permits": "Colorado Bend State Park requires the applicable day-use or camping reservation/fee. Follow Texas boating and PFD rules, posted county/park rules, and current access and closure notices before launching.",
+      "camping": "Colorado Bend State Park is the documented endpoint campground and requires reservation/fee planning. Do not infer legal camping at private fishing camps, islands, sandbars, or other shoreline between FM 580 and the park.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at the TPWD-listed FM 580 access and paddle the distinct 14.9-mile Bend-to-Colorado Bend State Park reach. Use direct USGS 08147000 with a conservative 100 cfs minimum-only screen, then make a same-day call on weather, rising water, debris, shallow lines, primitive access, and park conditions.",
+      "accessCaveats": [
+        "TPWD lists FM 580 as primitive kayak/canoe access with no ramp; carry boats carefully and do not treat shoulders, fences, or private banks as public parking or access.",
+        "Colorado Bend State Park provides the planned public take-out, launch facilities, camping, and day-use access, but reservations, fees, capacity, road flooding, and closures can change.",
+        "The 100 cfs floor is a conservative community planning cue, not a safety certification. Below it expect shallow, rocky, or scrape-prone lines; above it, rising water, debris, and thunderstorms can still make the reach unsafe.",
+        "American Whitewater identifies steep canyon banks, light rapids, private camps, and limited public exits. Leave daylight and weather margin and use only named public endpoints or clearly lawful emergency exits.",
+        "Do not extend the route beyond Colorado Bend State Park or assume access at private camps and shoreline features."
+      ],
+      "watchFor": [
+        "Flow below about 100 cfs, falling water, exposed rocks, shallow riffles, and scraping.",
+        "Rapid rises after storms, debris, strainers, and stronger current around bends or canyon walls.",
+        "Primitive FM 580 carry, park reservation/closure status, limited exits, heat, wind, and fading daylight.",
+        "Private banks and unverified camps or shoreline landings."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fm-580-colorado-river",
+        "name": "FM 580 Colorado River access",
+        "latitude": 31.1004,
+        "longitude": -98.5147,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "TPWD-listed free primitive kayak/canoe launch; no ramp and carry required. Verify parking and the water-entry path before launch."
+      },
+      {
+        "id": "colorado-bend-state-park-river",
+        "name": "Colorado Bend State Park river access",
+        "latitude": 31.0183,
+        "longitude": -98.4467,
+        "mileFromStart": 14.9,
+        "segmentKind": "creek",
+        "note": "TPWD-listed park access with easy launch, day-use fee, and camping; reserve and confirm current conditions."
+      }
+    ],
+    "corridorId": "tx-colorado-fm580-colorado-bend",
+    "corridorLabel": "Colorado River FM 580 to Colorado Bend State Park",
+    "continuityStatus": "verified"
   }
 };

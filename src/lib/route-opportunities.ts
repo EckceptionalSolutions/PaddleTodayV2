@@ -57,6 +57,26 @@ function taskId(stateId: string, gaugeKey: string) {
 
 function isActionable(review: GaugeReviewEntry) {
   if (!['blocked', 'researching'].includes(review.status) || review.eligibility !== 'route_capable') return false;
+  // A worker-recorded no-add is already a durable disposition. Keep it
+  // visible in the ledger, but do not recycle it into the bounded ready queue
+  // unless a later review explicitly changes the disposition.
+  if (review.decisionSource === 'manual_route_worker_no_add') return false;
+  // Worker/verifier records also use a run-specific source id. Once one of
+  // those records ends in no-add, it is a durable disposition until a later
+  // review explicitly changes the ledger entry; do not recycle it merely
+  // because its structural readiness is still `candidate`.
+  if (/no[-_]add/i.test(review.decisionSource)) return false;
+  // A bounded fast screen records a durable no-add in the ledger while keeping
+  // the gauge visible for a future evidence change. Do not recycle those
+  // dispositions into a fresh ready task on the next planner pass.
+  const decisionText = `${review.decisionSource} ${review.decisionReason}`.toLowerCase();
+  if (
+    decisionText.includes('-screen')
+    || decisionText.includes('fast triage')
+    || decisionText.includes('durable blocked/no-add')
+    || decisionText.includes('durable no-add')
+    || decisionText.includes('preserve as a durable no-add')
+  ) return false;
   const readiness = review.routeReadiness ?? classifyGaugeRouteReadiness(review);
   if (readiness !== 'candidate' && readiness !== 'research_needed' && readiness !== 'implementation_ready') return false;
   const blockerText = [...review.blockers, review.decisionReason].join(' ');
@@ -122,7 +142,10 @@ export function buildRouteOpportunityQueue(
     if (!review || !isActionable(review)) return [];
     const stateId = gauge.homeState.toUpperCase();
     const existing = existingByGauge.get(gauge.key);
-    if (existing?.lane === 'blocked' || existing?.lane === 'completed') return [];
+    // A completed or explicitly blocked task is not eligible for automatic
+    // recycling. Reopen it only through a fresh ledger disposition or an
+    // explicit task update; otherwise repeated planner passes create churn.
+    if (existing?.lane === 'completed' || existing?.lane === 'blocked') return [];
     const routeReadiness = review.routeReadiness ?? classifyGaugeRouteReadiness(review);
     if (routeReadiness !== 'candidate' && routeReadiness !== 'research_needed' && routeReadiness !== 'implementation_ready') return [];
     const opportunity: RouteOpportunity = {
@@ -134,7 +157,7 @@ export function buildRouteOpportunityQueue(
       priority: (stateTiers.get(stateId) ?? 99) <= 1 ? 'high' : 'medium',
       score: scoreOpportunity(stateTiers.get(stateId) ?? 99, gauge.siteName, review),
       rankingFactors: rankingFactors(stateTiers.get(stateId) ?? 99, gauge.siteName, review),
-      status: existing?.lane === 'in_progress' ? 'in_progress' : existing?.lane === 'blocked' ? 'blocked' : existing?.lane === 'completed' ? 'completed' : 'ready',
+      status: existing?.lane === 'in_progress' ? 'in_progress' : 'ready',
       routeReadiness,
       routeFamilies: review.routeFamilies,
       blockers: review.blockers,
@@ -167,8 +190,9 @@ export function materializeRouteOpportunityTasks<T extends ExistingTask>(
 ) {
   const currentIds = new Set(queue.opportunities.map((opportunity) => opportunity.taskId));
   const scoreByTaskId = new Map(queue.opportunities.map((opportunity) => [opportunity.taskId, opportunity.score]));
+  const queueStatusByTaskId = new Map(queue.opportunities.map((opportunity) => [opportunity.taskId, opportunity.status]));
   const tasks = existingTasks.map((task) => task.routeOpportunity && currentIds.has(task.id)
-    ? { ...task, routeOpportunityScore: scoreByTaskId.get(task.id) } as T
+    ? { ...task, lane: queueStatusByTaskId.get(task.id) === 'in_progress' ? 'in_progress' : 'ready', routeOpportunityScore: scoreByTaskId.get(task.id) } as T
     : task.routeOpportunity && task.lane === 'ready'
       ? { ...task, lane: 'blocked' } as T
       : task);

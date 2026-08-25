@@ -2,6 +2,25 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
+  "two-lick-creek-waterworks-saylor-park": {
+    "putIn": {"name": "Waterworks Conservation Area canoe/kayak launch", "latitude": 40.5974, "longitude": -79.12345},
+    "takeOut": {"name": "Saylor Park canoe/kayak landing area", "latitude": 40.47632, "longitude": -79.18866},
+    "logistics": {
+      "distanceLabel": "A little over 12 river mi",
+      "estimatedPaddleTime": "About 6 to 9 on-water hours, plus one portage and shuttle",
+      "shuttle": "Stage the Saylor Park landing first, then use the named Waterworks Conservation Area launch. Verify current parking, park hours, access, and any closures before launching.",
+      "permits": "Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules, county park rules, and all posted exclusion-zone signs.",
+      "camping": "Waterworks is documented as a day-use conservation area with parking, restrooms, and a pavilion, not a campground. No on-route camping is verified; use separately verified managed lodging or a legal campground and never camp at Waterworks, Saylor Park, creek banks, or private property.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A long moving-water day paddle with a public Waterworks launch, Saylor Park-area landing, one portage, and a mandatory no-boating exclusion zone before the Homer City feeder dam. The Saylor-area finish is adjacent to the separate Blacklick Creek PA 259-to-Saylor route, not the same runnable reach.",
+      "accessCaveats": ["Use the county-mapped Waterworks canoe/kayak launch; the coordinate is map-derived and should still be confirmed against posted launch signage on arrival.", "The county describes the take-out as near Saylor Park; confirm the actual landing and carry on the day of travel. Do not assume the Blacklick route's Saylor take-out is interchangeable with this route.", "Do not continue into the old railroad bridge exclusion zone or toward the low-head feeder dam.", "No legal on-route camping was verified; the Waterworks pavilion and facilities are day-use amenities, not campsite evidence."],
+      "watchFor": ["Low water below 2.6 ft", "High or rising water above 4.5 ft", "Shallow spots and strainers", "One required portage", "Low-head feeder dam and no-boating exclusion zone", "Cold water", "Limited cell service", "Private banks and unverified Saylor-area landing"]
+    },
+    "accessPoints": [
+      {"id": "two-lick-waterworks-launch", "name": "Waterworks Conservation Area canoe/kayak launch", "latitude": 40.5974, "longitude": -79.12345, "mileFromStart": 0, "segmentKind": "creek", "note": "Named Indiana County Parks public launch. The coordinate is derived from the county park pin and official site-map launch symbol and is checked against the Two Lick Creek flowline; confirm posted access and current park hours."},
+      {"id": "two-lick-saylor-park-landing", "name": "Saylor Park-area landing", "latitude": 40.47632, "longitude": -79.18866, "mileFromStart": 12, "segmentKind": "creek", "note": "County-described take-out near Saylor Park; confirm the actual landing and lawful carry access before launching. This shared park-area endpoint does not make the route a duplicate of Blacklick Creek."}
+    ]
+  },
   "redbank-creek-new-bethlehem-climax": {
     "putIn": {"name": "New Bethlehem kayak launch below the dam", "latitude": 41.0024, "longitude": -79.3322},
     "takeOut": {"name": "Climax access at Trail Mile 17", "latitude": 40.9859, "longitude": -79.3751},

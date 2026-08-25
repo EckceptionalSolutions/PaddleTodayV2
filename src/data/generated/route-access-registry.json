@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-24T01:03:26.892Z",
-  "auditGeneratedAt": "2026-08-24T00:37:27.335Z",
+  "generatedAt": "2026-08-25T02:02:39.311Z",
+  "auditGeneratedAt": "2026-08-25T01:57:13.992Z",
   "summary": {
-    "entryCount": 1646,
-    "repeatedEntryCount": 526,
+    "entryCount": 1685,
+    "repeatedEntryCount": 527,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
-    "derivedWaterEntryCount": 992,
+    "derivedWaterEntryCount": 1006,
     "authoritativeAccessCount": 345,
     "authoritativeWaterEntryCount": 20,
     "areaAnchorOnlyCount": 1,
@@ -11657,6 +11657,169 @@
       ]
     },
     {
+      "id": "iowa--cedar-bluff-river-access",
+      "state": "Iowa",
+      "name": "Cedar Bluff River Access",
+      "aliases": [
+        "Cedar Bluff River Access"
+      ],
+      "sourceIds": [
+        "cedar-bluff-river-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.788938145933585,
+        "longitude": -91.31405507117562
+      },
+      "accessCoordinate": {
+        "latitude": 41.788938145933585,
+        "longitude": -91.31405507117562
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 41.788938145933585,
+        "longitude": -91.31405507117562
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "41.78894,-91.31406",
+          "coordinate": {
+            "latitude": 41.788938145933585,
+            "longitude": -91.31405507117562
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "cedar-river-cedar-bluff-cedar-valley"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-cedar-bluff-cedar-valley",
+          "routeName": "Cedar River",
+          "state": "Iowa",
+          "endpoint": "accessPoint",
+          "sourceId": "cedar-bluff-river-access",
+          "name": "Cedar Bluff River Access",
+          "latitude": 41.788938145933585,
+          "longitude": -91.31405507117562,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 66.72559310266772,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "cedar-river-cedar-bluff-cedar-valley",
+          "routeName": "Cedar River",
+          "state": "Iowa",
+          "endpoint": "putIn",
+          "sourceId": "cedar-bluff-river-access",
+          "name": "Cedar Bluff River Access",
+          "latitude": 41.788938145933585,
+          "longitude": -91.31405507117562,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 66.72559310266772,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "iowa--cedar-valley-park-paved-cedar-river-ramp",
+      "state": "Iowa",
+      "name": "Cedar Valley Park paved Cedar River ramp",
+      "aliases": [
+        "Cedar Valley Park paved Cedar River ramp"
+      ],
+      "sourceIds": [
+        "cedar-valley-park"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.72565331138324,
+        "longitude": -91.24134459921265
+      },
+      "accessCoordinate": {
+        "latitude": 41.72565331138324,
+        "longitude": -91.24134459921265
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "41.72565,-91.24134",
+          "coordinate": {
+            "latitude": 41.72565331138324,
+            "longitude": -91.24134459921265
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "cedar-river-cedar-bluff-cedar-valley"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-cedar-bluff-cedar-valley",
+          "routeName": "Cedar River",
+          "state": "Iowa",
+          "endpoint": "accessPoint",
+          "sourceId": "cedar-valley-park",
+          "name": "Cedar Valley Park paved Cedar River ramp",
+          "latitude": 41.72565331138324,
+          "longitude": -91.24134459921265,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 218.82855458365626,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "cedar-river-cedar-bluff-cedar-valley",
+          "routeName": "Cedar River",
+          "state": "Iowa",
+          "endpoint": "takeOut",
+          "sourceId": "cedar-valley-park",
+          "name": "Cedar Valley Park paved Cedar River ramp",
+          "latitude": 41.72565331138324,
+          "longitude": -91.24134459921265,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 218.82855458365626,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "iowa--chain-lakes-palo-boat-landing",
       "state": "Iowa",
       "name": "Chain Lakes / Palo boat landing",
@@ -12401,6 +12564,86 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 99.2373221001818,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "iowa--cottonwood-loop-gravel-boat-ramp-welter-recreation-area",
+      "state": "Iowa",
+      "name": "Cottonwood Loop gravel boat ramp, Welter Recreation Area",
+      "aliases": [
+        "Cottonwood Loop gravel boat ramp, Welter Recreation Area"
+      ],
+      "sourceIds": [
+        "cottonwood-loop-welter"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.7698244,
+        "longitude": -91.2874296
+      },
+      "accessCoordinate": {
+        "latitude": 40.7698244,
+        "longitude": -91.2874296
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.76982,-91.28743",
+          "coordinate": {
+            "latitude": 40.7698244,
+            "longitude": -91.2874296
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "skunk-river-cottonwood-sycamore"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "skunk-river-cottonwood-sycamore",
+          "routeName": "Skunk River",
+          "state": "Iowa",
+          "endpoint": "accessPoint",
+          "sourceId": "cottonwood-loop-welter",
+          "name": "Cottonwood Loop gravel boat ramp, Welter Recreation Area",
+          "latitude": 40.7698244,
+          "longitude": -91.2874296,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 229.95559328863547,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "skunk-river-cottonwood-sycamore",
+          "routeName": "Skunk River",
+          "state": "Iowa",
+          "endpoint": "putIn",
+          "sourceId": "cottonwood-loop-welter",
+          "name": "Cottonwood Loop gravel boat ramp, Welter Recreation Area",
+          "latitude": 40.7698244,
+          "longitude": -91.2874296,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 229.95559328863547,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -14953,6 +15196,86 @@
           "distanceFeetToMatchedRiver": 92.48516812189787,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "iowa--glendale-access-mahaska-county",
+      "state": "Iowa",
+      "name": "Glendale Access, Mahaska County",
+      "aliases": [
+        "Glendale Access, Mahaska County"
+      ],
+      "sourceIds": [
+        "glendale-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.34155618206655,
+        "longitude": -92.59437474237431
+      },
+      "accessCoordinate": {
+        "latitude": 41.34155618206655,
+        "longitude": -92.59437474237431
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "41.34156,-92.59437",
+          "coordinate": {
+            "latitude": 41.34155618206655,
+            "longitude": -92.59437474237431
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-skunk-river-glendale-rose-hill"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-skunk-river-glendale-rose-hill",
+          "routeName": "South Skunk River",
+          "state": "Iowa",
+          "endpoint": "accessPoint",
+          "sourceId": "glendale-access",
+          "name": "Glendale Access, Mahaska County",
+          "latitude": 41.34155618206655,
+          "longitude": -92.59437474237431,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 136.6610820822439,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
+        },
+        {
+          "routeId": "south-skunk-river-glendale-rose-hill",
+          "routeName": "South Skunk River",
+          "state": "Iowa",
+          "endpoint": "putIn",
+          "sourceId": "glendale-access",
+          "name": "Glendale Access, Mahaska County",
+          "latitude": 41.34155618206655,
+          "longitude": -92.59437474237431,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 136.6610820822439,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         }
       ]
     },
@@ -24596,6 +24919,86 @@
       ]
     },
     {
+      "id": "iowa--rose-hill-access-mahaska-county",
+      "state": "Iowa",
+      "name": "Rose Hill Access, Mahaska County",
+      "aliases": [
+        "Rose Hill Access, Mahaska County"
+      ],
+      "sourceIds": [
+        "rose-hill-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.29960369951108,
+        "longitude": -92.4679394698291
+      },
+      "accessCoordinate": {
+        "latitude": 41.29960369951108,
+        "longitude": -92.4679394698291
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "41.29960,-92.46794",
+          "coordinate": {
+            "latitude": 41.29960369951108,
+            "longitude": -92.4679394698291
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-skunk-river-glendale-rose-hill"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-skunk-river-glendale-rose-hill",
+          "routeName": "South Skunk River",
+          "state": "Iowa",
+          "endpoint": "accessPoint",
+          "sourceId": "rose-hill-access",
+          "name": "Rose Hill Access, Mahaska County",
+          "latitude": 41.29960369951108,
+          "longitude": -92.4679394698291,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 113.166530023218,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
+        },
+        {
+          "routeId": "south-skunk-river-glendale-rose-hill",
+          "routeName": "South Skunk River",
+          "state": "Iowa",
+          "endpoint": "takeOut",
+          "sourceId": "rose-hill-access",
+          "name": "Rose Hill Access, Mahaska County",
+          "latitude": 41.29960369951108,
+          "longitude": -92.4679394698291,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 113.166530023218,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
+        }
+      ]
+    },
+    {
       "id": "iowa--roseman-covered-bridge-access-71",
       "state": "Iowa",
       "name": "Roseman Covered Bridge Access #71",
@@ -27039,6 +27442,86 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 47.61194293497538,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "iowa--sycamore-loop-campground-landing-welter-recreation-area",
+      "state": "Iowa",
+      "name": "Sycamore Loop campground landing, Welter Recreation Area",
+      "aliases": [
+        "Sycamore Loop campground landing, Welter Recreation Area"
+      ],
+      "sourceIds": [
+        "sycamore-loop-welter"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.7537031,
+        "longitude": -91.2584916
+      },
+      "accessCoordinate": {
+        "latitude": 40.7537031,
+        "longitude": -91.2584916
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.75370,-91.25849",
+          "coordinate": {
+            "latitude": 40.7537031,
+            "longitude": -91.2584916
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "skunk-river-cottonwood-sycamore"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "skunk-river-cottonwood-sycamore",
+          "routeName": "Skunk River",
+          "state": "Iowa",
+          "endpoint": "accessPoint",
+          "sourceId": "sycamore-loop-welter",
+          "name": "Sycamore Loop campground landing, Welter Recreation Area",
+          "latitude": 40.7537031,
+          "longitude": -91.2584916,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 161.97435395569235,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "skunk-river-cottonwood-sycamore",
+          "routeName": "Skunk River",
+          "state": "Iowa",
+          "endpoint": "takeOut",
+          "sourceId": "sycamore-loop-welter",
+          "name": "Sycamore Loop campground landing, Welter Recreation Area",
+          "latitude": 40.7537031,
+          "longitude": -91.2584916,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 161.97435395569235,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -95879,6 +96362,86 @@
       ]
     },
     {
+      "id": "pennsylvania--allison-park-public-ballfield-area-on-duncan-avenue",
+      "state": "Pennsylvania",
+      "name": "Allison Park public ballfield area on Duncan Avenue",
+      "aliases": [
+        "Allison Park public ballfield area on Duncan Avenue"
+      ],
+      "sourceIds": [
+        "allison-park-duncan-ballfield"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.56033,
+        "longitude": -79.95993
+      },
+      "accessCoordinate": {
+        "latitude": 40.56033,
+        "longitude": -79.95993
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.56033,-79.95993",
+          "coordinate": {
+            "latitude": 40.56033,
+            "longitude": -79.95993
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "little-pine-creek-north-park-lake-allison-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-pine-creek-north-park-lake-allison-park",
+          "routeName": "Little Pine Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "allison-park-duncan-ballfield",
+          "name": "Allison Park public ballfield area on Duncan Avenue",
+          "latitude": 40.56033,
+          "longitude": -79.95993,
+          "auditSeverity": "failure",
+          "distanceFeetToMatchedRiver": 10624.033078929693,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "little-pine-creek-north-park-lake-allison-park",
+          "routeName": "Little Pine Creek",
+          "state": "Pennsylvania",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Allison Park public ballfield area on Duncan Avenue",
+          "latitude": 40.56033,
+          "longitude": -79.95993,
+          "auditSeverity": "failure",
+          "distanceFeetToMatchedRiver": 10624.033078929693,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "pennsylvania--amity-hall-pfbc-ramp",
       "state": "Pennsylvania",
       "name": "Amity Hall PFBC ramp",
@@ -95985,6 +96548,89 @@
           "longitude": -77.013333,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 299.46788267866873,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--beagle-club-road-launch-jefferson",
+      "state": "Pennsylvania",
+      "name": "Beagle Club Road Launch, Jefferson",
+      "aliases": [
+        "Beagle Club Road Launch, Jefferson"
+      ],
+      "sourceIds": [
+        "tenmile-beagle-club-road"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.921925,
+        "longitude": -80.082823
+      },
+      "accessCoordinate": {
+        "latitude": 39.921925,
+        "longitude": -80.082823
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 39.921925,
+        "longitude": -80.082823
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.92193,-80.08282",
+          "coordinate": {
+            "latitude": 39.921925,
+            "longitude": -80.082823
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-fork-tenmile-creek-beagle-club-clarksville"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-tenmile-creek-beagle-club-clarksville",
+          "routeName": "South Fork Tenmile Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "tenmile-beagle-club-road",
+          "name": "Beagle Club Road Launch, Jefferson",
+          "latitude": 39.921925,
+          "longitude": -80.082823,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 88.94802501121013,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "south-fork-tenmile-creek-beagle-club-clarksville",
+          "routeName": "South Fork Tenmile Creek",
+          "state": "Pennsylvania",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Beagle Club Road Launch, Jefferson",
+          "latitude": 39.921925,
+          "longitude": -80.082823,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 88.94802501121013,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -96281,6 +96927,199 @@
       ]
     },
     {
+      "id": "pennsylvania--clarksville-kayak-launch-clarksville",
+      "state": "Pennsylvania",
+      "name": "Clarksville Kayak Launch, Clarksville",
+      "aliases": [
+        "Clarksville Kayak Launch, Clarksville"
+      ],
+      "sourceIds": [
+        "tenmile-clarksville-kayak-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.9723626,
+        "longitude": -80.0462378
+      },
+      "accessCoordinate": {
+        "latitude": 39.9723626,
+        "longitude": -80.0462378
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.97236,-80.04624",
+          "coordinate": {
+            "latitude": 39.9723626,
+            "longitude": -80.0462378
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-fork-tenmile-creek-beagle-club-clarksville"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-tenmile-creek-beagle-club-clarksville",
+          "routeName": "South Fork Tenmile Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "tenmile-clarksville-kayak-launch",
+          "name": "Clarksville Kayak Launch, Clarksville",
+          "latitude": 39.9723626,
+          "longitude": -80.0462378,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 195.06910126249875,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "south-fork-tenmile-creek-beagle-club-clarksville",
+          "routeName": "South Fork Tenmile Creek",
+          "state": "Pennsylvania",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Clarksville Kayak Launch, Clarksville",
+          "latitude": 39.9723626,
+          "longitude": -80.0462378,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 195.06910126249875,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--climax-access-at-trail-mile-17",
+      "state": "Pennsylvania",
+      "name": "Climax access at Trail Mile 17",
+      "aliases": [
+        "Climax access at Trail Mile 17"
+      ],
+      "sourceIds": [
+        "redbank-climax-access",
+        "redbank-climax-trail-mile-17"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.9859,
+        "longitude": -79.3751
+      },
+      "accessCoordinate": {
+        "latitude": 40.9859,
+        "longitude": -79.3751
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 40.9859,
+        "longitude": -79.3751
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "40.98590,-79.37510",
+          "coordinate": {
+            "latitude": 40.9859,
+            "longitude": -79.3751
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "redbank-creek-climax-st-charles",
+            "redbank-creek-new-bethlehem-climax"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "redbank-creek-climax-st-charles",
+          "routeName": "Redbank Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "redbank-climax-access",
+          "name": "Climax access at Trail Mile 17",
+          "latitude": 40.9859,
+          "longitude": -79.3751,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 223.262850546747,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "redbank-creek-climax-st-charles",
+          "routeName": "Redbank Creek",
+          "state": "Pennsylvania",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Climax access at Trail Mile 17",
+          "latitude": 40.9859,
+          "longitude": -79.3751,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 223.262850546747,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "redbank-creek-new-bethlehem-climax",
+          "routeName": "Redbank Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "redbank-climax-trail-mile-17",
+          "name": "Climax access at Trail Mile 17",
+          "latitude": 40.9859,
+          "longitude": -79.3751,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 223.262850546747,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "redbank-creek-new-bethlehem-climax",
+          "routeName": "Redbank Creek",
+          "state": "Pennsylvania",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Climax access at Trail Mile 17",
+          "latitude": 40.9859,
+          "longitude": -79.3751,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 223.262850546747,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "pennsylvania--cochranton-borough-access",
       "state": "Pennsylvania",
       "name": "Cochranton Borough access",
@@ -96306,9 +97145,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -96339,9 +97178,9 @@
           "name": "Cochranton Borough access",
           "latitude": 41.518768,
           "longitude": -80.053506,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 205.87228867707938,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -96353,9 +97192,9 @@
           "name": "Cochranton Borough access",
           "latitude": 41.518768,
           "longitude": -80.053506,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 205.87228867707938,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -96435,6 +97274,89 @@
           "longitude": -80.078889,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 132.07937957997208,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--eckert-bridge-access-mcconnells-mill-state-park",
+      "state": "Pennsylvania",
+      "name": "Eckert Bridge Access, McConnells Mill State Park",
+      "aliases": [
+        "Eckert Bridge Access, McConnells Mill State Park"
+      ],
+      "sourceIds": [
+        "slippery-rock-eckert-bridge"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.9404957,
+        "longitude": -80.1764598
+      },
+      "accessCoordinate": {
+        "latitude": 40.9404957,
+        "longitude": -80.1764598
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 40.9404957,
+        "longitude": -80.1764598
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.94050,-80.17646",
+          "coordinate": {
+            "latitude": 40.9404957,
+            "longitude": -80.1764598
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "slippery-rock-creek-eckert-harris"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "slippery-rock-creek-eckert-harris",
+          "routeName": "Slippery Rock Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "slippery-rock-eckert-bridge",
+          "name": "Eckert Bridge Access, McConnells Mill State Park",
+          "latitude": 40.9404957,
+          "longitude": -80.1764598,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 18.894857508301094,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "slippery-rock-creek-eckert-harris",
+          "routeName": "Slippery Rock Creek",
+          "state": "Pennsylvania",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Eckert Bridge Access, McConnells Mill State Park",
+          "latitude": 40.9404957,
+          "longitude": -80.1764598,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 18.894857508301094,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -96895,6 +97817,89 @@
       ]
     },
     {
+      "id": "pennsylvania--harris-bridge-access-mountville-road",
+      "state": "Pennsylvania",
+      "name": "Harris Bridge Access, Mountville Road",
+      "aliases": [
+        "Harris Bridge Access, Mountville Road"
+      ],
+      "sourceIds": [
+        "slippery-rock-harris-bridge"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.9120075,
+        "longitude": -80.2167279
+      },
+      "accessCoordinate": {
+        "latitude": 40.9120075,
+        "longitude": -80.2167279
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 40.9120075,
+        "longitude": -80.2167279
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.91201,-80.21673",
+          "coordinate": {
+            "latitude": 40.9120075,
+            "longitude": -80.2167279
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "slippery-rock-creek-eckert-harris"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "slippery-rock-creek-eckert-harris",
+          "routeName": "Slippery Rock Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "slippery-rock-harris-bridge",
+          "name": "Harris Bridge Access, Mountville Road",
+          "latitude": 40.9120075,
+          "longitude": -80.2167279,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 38.87216616678546,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "slippery-rock-creek-eckert-harris",
+          "routeName": "Slippery Rock Creek",
+          "state": "Pennsylvania",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Harris Bridge Access, Mountville Road",
+          "latitude": 40.9120075,
+          "longitude": -80.2167279,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 38.87216616678546,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "pennsylvania--howe-township-park-access",
       "state": "Pennsylvania",
       "name": "Howe Township Park access",
@@ -97096,13 +98101,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryCoordinate": {
+        "latitude": 39.9375,
+        "longitude": -79.2711111
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
@@ -97130,9 +98138,9 @@
           "name": "King's Covered Bridge improved take-out",
           "latitude": 39.9375,
           "longitude": -79.2711111,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 55.47862383983341,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -97144,9 +98152,92 @@
           "name": "King's Covered Bridge improved take-out",
           "latitude": 39.9375,
           "longitude": -79.2711111,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 55.47862383983341,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--kingston-access-above-dam-spillway",
+      "state": "Pennsylvania",
+      "name": "Kingston access above dam spillway",
+      "aliases": [
+        "Kingston access above dam spillway"
+      ],
+      "sourceIds": [
+        "kingston-above-spillway"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.291667,
+        "longitude": -79.338611
+      },
+      "accessCoordinate": {
+        "latitude": 40.291667,
+        "longitude": -79.338611
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 40.291667,
+        "longitude": -79.338611
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.29167,-79.33861",
+          "coordinate": {
+            "latitude": 40.291667,
+            "longitude": -79.338611
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "loyalhanna-creek-ligonier-nature-trail-kingston"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "loyalhanna-creek-ligonier-nature-trail-kingston",
+          "routeName": "Loyalhanna Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "kingston-above-spillway",
+          "name": "Kingston access above dam spillway",
+          "latitude": 40.291667,
+          "longitude": -79.338611,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 36.7304674526866,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "loyalhanna-creek-ligonier-nature-trail-kingston",
+          "routeName": "Loyalhanna Creek",
+          "state": "Pennsylvania",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Kingston access above dam spillway",
+          "latitude": 40.291667,
+          "longitude": -79.338611,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 36.7304674526866,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -97511,9 +98602,9 @@
           "name": "Laurel Hill State Park Beach Area canoe/kayak launch",
           "latitude": 40.01023,
           "longitude": -79.2244,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "failure",
+          "distanceFeetToMatchedRiver": 2257.1939488544376,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -97525,9 +98616,9 @@
           "name": "Laurel Hill State Park Beach Area canoe/kayak launch",
           "latitude": 40.01023,
           "longitude": -79.2244,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "failure",
+          "distanceFeetToMatchedRiver": 2257.1939488544376,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -97728,6 +98819,86 @@
       ]
     },
     {
+      "id": "pennsylvania--ligonier-nature-trail-access",
+      "state": "Pennsylvania",
+      "name": "Ligonier Nature Trail access",
+      "aliases": [
+        "Ligonier Nature Trail access"
+      ],
+      "sourceIds": [
+        "ligonier-nature-trail"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.246667,
+        "longitude": -79.2475
+      },
+      "accessCoordinate": {
+        "latitude": 40.246667,
+        "longitude": -79.2475
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.24667,-79.24750",
+          "coordinate": {
+            "latitude": 40.246667,
+            "longitude": -79.2475
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "loyalhanna-creek-ligonier-nature-trail-kingston"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "loyalhanna-creek-ligonier-nature-trail-kingston",
+          "routeName": "Loyalhanna Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "ligonier-nature-trail",
+          "name": "Ligonier Nature Trail access",
+          "latitude": 40.246667,
+          "longitude": -79.2475,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 175.37214289903852,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "loyalhanna-creek-ligonier-nature-trail-kingston",
+          "routeName": "Loyalhanna Creek",
+          "state": "Pennsylvania",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Ligonier Nature Trail access",
+          "latitude": 40.246667,
+          "longitude": -79.2475,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 175.37214289903852,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "pennsylvania--lower-allen-community-park-launch",
       "state": "Pennsylvania",
       "name": "Lower Allen Community Park launch",
@@ -97834,6 +99005,86 @@
           "longitude": -76.913787,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 80.21903674669714,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--loyalhanna-dam-tailwater-access-usace",
+      "state": "Pennsylvania",
+      "name": "Loyalhanna Dam Tailwater Access-USACE",
+      "aliases": [
+        "Loyalhanna Dam Tailwater Access-USACE"
+      ],
+      "sourceIds": [
+        "loyalhanna-tailwater-usace"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.4575,
+        "longitude": -79.450556
+      },
+      "accessCoordinate": {
+        "latitude": 40.4575,
+        "longitude": -79.450556
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.45750,-79.45056",
+          "coordinate": {
+            "latitude": 40.4575,
+            "longitude": -79.450556
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "loyalhanna-creek-tailwater-saltsburg-rivers-edge"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+          "routeName": "Loyalhanna Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "loyalhanna-tailwater-usace",
+          "name": "Loyalhanna Dam Tailwater Access-USACE",
+          "latitude": 40.4575,
+          "longitude": -79.450556,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 131.95252025377644,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+          "routeName": "Loyalhanna Creek",
+          "state": "Pennsylvania",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Loyalhanna Dam Tailwater Access-USACE",
+          "latitude": 40.4575,
+          "longitude": -79.450556,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 131.95252025377644,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -98442,6 +99693,86 @@
       ]
     },
     {
+      "id": "pennsylvania--new-bethlehem-kayak-launch-below-the-dam",
+      "state": "Pennsylvania",
+      "name": "New Bethlehem kayak launch below the dam",
+      "aliases": [
+        "New Bethlehem kayak launch below the dam"
+      ],
+      "sourceIds": [
+        "redbank-new-bethlehem-kayak-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.0024,
+        "longitude": -79.3322
+      },
+      "accessCoordinate": {
+        "latitude": 41.0024,
+        "longitude": -79.3322
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "41.00240,-79.33220",
+          "coordinate": {
+            "latitude": 41.0024,
+            "longitude": -79.3322
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "redbank-creek-new-bethlehem-climax"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "redbank-creek-new-bethlehem-climax",
+          "routeName": "Redbank Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "redbank-new-bethlehem-kayak-launch",
+          "name": "New Bethlehem kayak launch below the dam",
+          "latitude": 41.0024,
+          "longitude": -79.3322,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 766.0431216387135,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "redbank-creek-new-bethlehem-climax",
+          "routeName": "Redbank Creek",
+          "state": "Pennsylvania",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "New Bethlehem kayak launch below the dam",
+          "latitude": 41.0024,
+          "longitude": -79.3322,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 766.0431216387135,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "pennsylvania--newport-access",
       "state": "Pennsylvania",
       "name": "Newport access",
@@ -98535,6 +99866,86 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 265.4920221694384,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--north-park-lake-boat-launch-area",
+      "state": "Pennsylvania",
+      "name": "North Park Lake boat-launch area",
+      "aliases": [
+        "North Park Lake boat-launch area"
+      ],
+      "sourceIds": [
+        "north-park-lake-boat-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.611005,
+        "longitude": -80.017122
+      },
+      "accessCoordinate": {
+        "latitude": 40.611005,
+        "longitude": -80.017122
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.61100,-80.01712",
+          "coordinate": {
+            "latitude": 40.611005,
+            "longitude": -80.017122
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "little-pine-creek-north-park-lake-allison-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-pine-creek-north-park-lake-allison-park",
+          "routeName": "Little Pine Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "north-park-lake-boat-launch",
+          "name": "North Park Lake boat-launch area",
+          "latitude": 40.611005,
+          "longitude": -80.017122,
+          "auditSeverity": "failure",
+          "distanceFeetToMatchedRiver": 15146.347007046299,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "little-pine-creek-north-park-lake-allison-park",
+          "routeName": "Little Pine Creek",
+          "state": "Pennsylvania",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "North Park Lake boat-launch area",
+          "latitude": 40.611005,
+          "longitude": -80.017122,
+          "auditSeverity": "failure",
+          "distanceFeetToMatchedRiver": 15146.347007046299,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -99599,9 +101010,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -99632,9 +101043,9 @@
           "name": "Routes 6N/19 access",
           "latitude": 41.881944,
           "longitude": -80,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 163.21801811131002,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -99646,9 +101057,172 @@
           "name": "Routes 6N/19 access",
           "latitude": 41.881944,
           "longitude": -80,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 163.21801811131002,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--saint-charles-road-crossing-at-trail-mile-12-5",
+      "state": "Pennsylvania",
+      "name": "Saint Charles Road crossing at Trail Mile 12.5",
+      "aliases": [
+        "Saint Charles Road crossing at Trail Mile 12.5"
+      ],
+      "sourceIds": [
+        "redbank-st-charles-road"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.99465,
+        "longitude": -79.39304
+      },
+      "accessCoordinate": {
+        "latitude": 40.99465,
+        "longitude": -79.39304
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 40.99465,
+        "longitude": -79.39304
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.99465,-79.39304",
+          "coordinate": {
+            "latitude": 40.99465,
+            "longitude": -79.39304
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "redbank-creek-climax-st-charles"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "redbank-creek-climax-st-charles",
+          "routeName": "Redbank Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "redbank-st-charles-road",
+          "name": "Saint Charles Road crossing at Trail Mile 12.5",
+          "latitude": 40.99465,
+          "longitude": -79.39304,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 41.27869373825354,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "redbank-creek-climax-st-charles",
+          "routeName": "Redbank Creek",
+          "state": "Pennsylvania",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Saint Charles Road crossing at Trail Mile 12.5",
+          "latitude": 40.99465,
+          "longitude": -79.39304,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 41.27869373825354,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--saltsburg-rivers-edge-park",
+      "state": "Pennsylvania",
+      "name": "Saltsburg Rivers Edge Park",
+      "aliases": [
+        "Saltsburg Rivers Edge Park"
+      ],
+      "sourceIds": [
+        "saltsburg-rivers-edge"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.484444,
+        "longitude": -79.453056
+      },
+      "accessCoordinate": {
+        "latitude": 40.484444,
+        "longitude": -79.453056
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.48444,-79.45306",
+          "coordinate": {
+            "latitude": 40.484444,
+            "longitude": -79.453056
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "loyalhanna-creek-tailwater-saltsburg-rivers-edge"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+          "routeName": "Loyalhanna Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "saltsburg-rivers-edge",
+          "name": "Saltsburg Rivers Edge Park",
+          "latitude": 40.484444,
+          "longitude": -79.453056,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 185.1115514954935,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+          "routeName": "Loyalhanna Creek",
+          "state": "Pennsylvania",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Saltsburg Rivers Edge Park",
+          "latitude": 40.484444,
+          "longitude": -79.453056,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 185.1115514954935,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -99718,6 +101292,136 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 40.4403957715968,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--saylor-park-canoe-kayak-landing-area",
+      "state": "Pennsylvania",
+      "name": "Saylor Park canoe/kayak landing area",
+      "aliases": [
+        "Saylor Park canoe/kayak landing area"
+      ],
+      "sourceIds": [],
+      "storedAccessCoordinate": {
+        "latitude": 40.47632,
+        "longitude": -79.18866
+      },
+      "accessCoordinate": {
+        "latitude": 40.47632,
+        "longitude": -79.18866
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.47632,-79.18866",
+          "coordinate": {
+            "latitude": 40.47632,
+            "longitude": -79.18866
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "two-lick-creek-waterworks-saylor-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "two-lick-creek-waterworks-saylor-park",
+          "routeName": "Two Lick Creek",
+          "state": "Pennsylvania",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Saylor Park canoe/kayak landing area",
+          "latitude": 40.47632,
+          "longitude": -79.18866,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 2386.2006584943656,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--saylor-park-area-landing",
+      "state": "Pennsylvania",
+      "name": "Saylor Park-area landing",
+      "aliases": [
+        "Saylor Park-area landing"
+      ],
+      "sourceIds": [
+        "two-lick-saylor-park-landing"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.47632,
+        "longitude": -79.18866
+      },
+      "accessCoordinate": {
+        "latitude": 40.47632,
+        "longitude": -79.18866
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.47632,-79.18866",
+          "coordinate": {
+            "latitude": 40.47632,
+            "longitude": -79.18866
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "two-lick-creek-waterworks-saylor-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "two-lick-creek-waterworks-saylor-park",
+          "routeName": "Two Lick Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "two-lick-saylor-park-landing",
+          "name": "Saylor Park-area landing",
+          "latitude": 40.47632,
+          "longitude": -79.18866,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -100794,9 +102498,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -100827,9 +102531,9 @@
           "name": "Union City Dam below-dam access",
           "latitude": 41.919722,
           "longitude": -79.901667,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 123.39705989855126,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -100841,9 +102545,9 @@
           "name": "Union City Dam below-dam access",
           "latitude": 41.919722,
           "longitude": -79.901667,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 123.39705989855126,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -100874,9 +102578,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -100907,9 +102611,9 @@
           "name": "Utica Access",
           "latitude": 41.438719,
           "longitude": -79.95535,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 186.6928339733394,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -100921,9 +102625,9 @@
           "name": "Utica Access",
           "latitude": 41.438719,
           "longitude": -79.95535,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 186.6928339733394,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -101085,6 +102789,89 @@
           "distanceFeetToMatchedRiver": 199.92523761717493,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "pennsylvania--waterworks-conservation-area-canoe-kayak-launch",
+      "state": "Pennsylvania",
+      "name": "Waterworks Conservation Area canoe/kayak launch",
+      "aliases": [
+        "Waterworks Conservation Area canoe/kayak launch"
+      ],
+      "sourceIds": [
+        "two-lick-waterworks-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.5974,
+        "longitude": -79.12345
+      },
+      "accessCoordinate": {
+        "latitude": 40.5974,
+        "longitude": -79.12345
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 40.5974,
+        "longitude": -79.12345
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.59740,-79.12345",
+          "coordinate": {
+            "latitude": 40.5974,
+            "longitude": -79.12345
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "two-lick-creek-waterworks-saylor-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "two-lick-creek-waterworks-saylor-park",
+          "routeName": "Two Lick Creek",
+          "state": "Pennsylvania",
+          "endpoint": "accessPoint",
+          "sourceId": "two-lick-waterworks-launch",
+          "name": "Waterworks Conservation Area canoe/kayak launch",
+          "latitude": 40.5974,
+          "longitude": -79.12345,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 17.21851187806501,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
+        },
+        {
+          "routeId": "two-lick-creek-waterworks-saylor-park",
+          "routeName": "Two Lick Creek",
+          "state": "Pennsylvania",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Waterworks Conservation Area canoe/kayak launch",
+          "latitude": 40.5974,
+          "longitude": -79.12345,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 17.21851187806501,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         }
       ]
     },
@@ -105218,6 +107005,326 @@
       ]
     },
     {
+      "id": "texas--bledsoe-miller-community-center-dock",
+      "state": "Texas",
+      "name": "Bledsoe-Miller Community Center Dock",
+      "aliases": [
+        "Bledsoe-Miller Community Center Dock"
+      ],
+      "sourceIds": [
+        "bledsoe-miller-community-dock"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 31.5628,
+        "longitude": -97.1293
+      },
+      "accessCoordinate": {
+        "latitude": 31.5628,
+        "longitude": -97.1293
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "31.56280,-97.12930",
+          "coordinate": {
+            "latitude": 31.5628,
+            "longitude": -97.1293
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brazos-river-brazos-park-east-bledsoe-miller"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brazos-river-brazos-park-east-bledsoe-miller",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "bledsoe-miller-community-dock",
+          "name": "Bledsoe-Miller Community Center Dock",
+          "latitude": 31.5628,
+          "longitude": -97.1293,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 240.59997452855342,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brazos-river-brazos-park-east-bledsoe-miller",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "takeOut",
+          "sourceId": "bledsoe-miller-community-dock",
+          "name": "Bledsoe-Miller Community Center Dock",
+          "latitude": 31.5628,
+          "longitude": -97.1293,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 240.59997452855342,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--bra-brazos-river-area-7-hwy-16-bridge",
+      "state": "Texas",
+      "name": "BRA Brazos River Area #7 / Hwy 16 Bridge",
+      "aliases": [
+        "BRA Brazos River Area #7 / Hwy 16 Bridge"
+      ],
+      "sourceIds": [
+        "brazos-hwy16-bra-area-7"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 32.8589959,
+        "longitude": -98.4133234
+      },
+      "accessCoordinate": {
+        "latitude": 32.8589959,
+        "longitude": -98.4133234
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "32.85900,-98.41332",
+          "coordinate": {
+            "latitude": 32.8589959,
+            "longitude": -98.4133234
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brazos-river-hwy16-fm4-upper-middle"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brazos-river-hwy16-fm4-upper-middle",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "brazos-hwy16-bra-area-7",
+          "name": "BRA Brazos River Area #7 / Hwy 16 Bridge",
+          "latitude": 32.8589959,
+          "longitude": -98.4133234,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 240.10538400184743,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brazos-river-hwy16-fm4-upper-middle",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "putIn",
+          "sourceId": "brazos-hwy16-bra-area-7",
+          "name": "BRA Brazos River Area #7 / Hwy 16 Bridge",
+          "latitude": 32.8589959,
+          "longitude": -98.4133234,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 240.10538400184743,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--brays-greenway-park-canoe-kayak-launch",
+      "state": "Texas",
+      "name": "Brays Greenway Park canoe/kayak launch",
+      "aliases": [
+        "Brays Greenway Park canoe/kayak launch"
+      ],
+      "sourceIds": [
+        "brays-greenway-park-brays-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 29.7237,
+        "longitude": -95.2835
+      },
+      "accessCoordinate": {
+        "latitude": 29.7237,
+        "longitude": -95.2835
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "29.72370,-95.28350",
+          "coordinate": {
+            "latitude": 29.7237,
+            "longitude": -95.2835
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brays-bayou-fonde-brays-greenway"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brays-bayou-fonde-brays-greenway",
+          "routeName": "Brays Bayou",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "brays-greenway-park-brays-launch",
+          "name": "Brays Greenway Park canoe/kayak launch",
+          "latitude": 29.7237,
+          "longitude": -95.2835,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 224.7153568861337,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brays-bayou-fonde-brays-greenway",
+          "routeName": "Brays Bayou",
+          "state": "Texas",
+          "endpoint": "takeOut",
+          "sourceId": "brays-greenway-park-brays-launch",
+          "name": "Brays Greenway Park canoe/kayak launch",
+          "latitude": 29.7237,
+          "longitude": -95.2835,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 224.7153568861337,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--brazos-park-east-kayak-canoe-ramp",
+      "state": "Texas",
+      "name": "Brazos Park East Kayak/Canoe Ramp",
+      "aliases": [
+        "Brazos Park East Kayak/Canoe Ramp"
+      ],
+      "sourceIds": [
+        "brazos-park-east-kayak-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 31.5879,
+        "longitude": -97.1534
+      },
+      "accessCoordinate": {
+        "latitude": 31.5879,
+        "longitude": -97.1534
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "31.58790,-97.15340",
+          "coordinate": {
+            "latitude": 31.5879,
+            "longitude": -97.1534
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brazos-river-brazos-park-east-bledsoe-miller"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brazos-river-brazos-park-east-bledsoe-miller",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "brazos-park-east-kayak-ramp",
+          "name": "Brazos Park East Kayak/Canoe Ramp",
+          "latitude": 31.5879,
+          "longitude": -97.1534,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 501.33351246350736,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brazos-river-brazos-park-east-bledsoe-miller",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "putIn",
+          "sourceId": "brazos-park-east-kayak-ramp",
+          "name": "Brazos Park East Kayak/Canoe Ramp",
+          "latitude": 31.5879,
+          "longitude": -97.1534,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 501.33351246350736,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "texas--brazos-river-county-park",
       "state": "Texas",
       "name": "Brazos River County Park",
@@ -106157,6 +108264,89 @@
       ]
     },
     {
+      "id": "texas--chisholm-trail-crossing-park",
+      "state": "Texas",
+      "name": "Chisholm Trail Crossing Park",
+      "aliases": [
+        "Chisholm Trail Crossing Park"
+      ],
+      "sourceIds": [
+        "brushy-chisholm-trail-crossing"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 30.51307,
+        "longitude": -97.68939
+      },
+      "accessCoordinate": {
+        "latitude": 30.51307,
+        "longitude": -97.68939
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 30.51307,
+        "longitude": -97.68939
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "30.51307,-97.68939",
+          "coordinate": {
+            "latitude": 30.51307,
+            "longitude": -97.68939
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brushy-creek-chisholm-trail-red-bud"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brushy-creek-chisholm-trail-red-bud",
+          "routeName": "Brushy Creek",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "brushy-chisholm-trail-crossing",
+          "name": "Chisholm Trail Crossing Park",
+          "latitude": 30.51307,
+          "longitude": -97.68939,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 4.638733201867018,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brushy-creek-chisholm-trail-red-bud",
+          "routeName": "Brushy Creek",
+          "state": "Texas",
+          "endpoint": "putIn",
+          "sourceId": "brushy-chisholm-trail-crossing",
+          "name": "Chisholm Trail Crossing Park",
+          "latitude": 30.51307,
+          "longitude": -97.68939,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 4.638733201867018,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "texas--city-park",
       "state": "Texas",
       "name": "City Park",
@@ -106232,6 +108422,86 @@
           "auditSeverity": "suspicious",
           "distanceFeetToMatchedRiver": 421.97763502235995,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--colorado-bend-state-park-river-access",
+      "state": "Texas",
+      "name": "Colorado Bend State Park river access",
+      "aliases": [
+        "Colorado Bend State Park river access"
+      ],
+      "sourceIds": [
+        "colorado-bend-state-park-river"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 31.0183,
+        "longitude": -98.4467
+      },
+      "accessCoordinate": {
+        "latitude": 31.0183,
+        "longitude": -98.4467
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "31.01830,-98.44670",
+          "coordinate": {
+            "latitude": 31.0183,
+            "longitude": -98.4467
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "colorado-river-fm580-colorado-bend"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-fm580-colorado-bend",
+          "routeName": "Colorado River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "colorado-bend-state-park-river",
+          "name": "Colorado Bend State Park river access",
+          "latitude": 31.0183,
+          "longitude": -98.4467,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 190.0926325075127,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-fm580-colorado-bend",
+          "routeName": "Colorado River",
+          "state": "Texas",
+          "endpoint": "takeOut",
+          "sourceId": "colorado-bend-state-park-river",
+          "name": "Colorado Bend State Park river access",
+          "latitude": 31.0183,
+          "longitude": -98.4467,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 190.0926325075127,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -107521,6 +109791,86 @@
       ]
     },
     {
+      "id": "texas--fm-4-at-dark-valley-creek-rochelle-s-canoe-rental",
+      "state": "Texas",
+      "name": "FM 4 at Dark Valley Creek / Rochelle's Canoe Rental",
+      "aliases": [
+        "FM 4 at Dark Valley Creek / Rochelle's Canoe Rental"
+      ],
+      "sourceIds": [
+        "brazos-fm4-dark-valley-rochelles"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 32.8635157,
+        "longitude": -98.3019558
+      },
+      "accessCoordinate": {
+        "latitude": 32.8635157,
+        "longitude": -98.3019558
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "32.86352,-98.30196",
+          "coordinate": {
+            "latitude": 32.8635157,
+            "longitude": -98.3019558
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brazos-river-hwy16-fm4-upper-middle"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brazos-river-hwy16-fm4-upper-middle",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "brazos-fm4-dark-valley-rochelles",
+          "name": "FM 4 at Dark Valley Creek / Rochelle's Canoe Rental",
+          "latitude": 32.8635157,
+          "longitude": -98.3019558,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 141.83672372729472,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brazos-river-hwy16-fm4-upper-middle",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "takeOut",
+          "sourceId": "brazos-fm4-dark-valley-rochelles",
+          "name": "FM 4 at Dark Valley Creek / Rochelle's Canoe Rental",
+          "latitude": 32.8635157,
+          "longitude": -98.3019558,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 141.83672372729472,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "texas--fm-418-boat-launch",
       "state": "Texas",
       "name": "FM 418 Boat Launch",
@@ -107661,6 +110011,89 @@
       ]
     },
     {
+      "id": "texas--fm-580-colorado-river-access",
+      "state": "Texas",
+      "name": "FM 580 Colorado River access",
+      "aliases": [
+        "FM 580 Colorado River access"
+      ],
+      "sourceIds": [
+        "fm-580-colorado-river"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 31.1004,
+        "longitude": -98.5147
+      },
+      "accessCoordinate": {
+        "latitude": 31.1004,
+        "longitude": -98.5147
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 31.1004,
+        "longitude": -98.5147
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "31.10040,-98.51470",
+          "coordinate": {
+            "latitude": 31.1004,
+            "longitude": -98.5147
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "colorado-river-fm580-colorado-bend"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-fm580-colorado-bend",
+          "routeName": "Colorado River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "fm-580-colorado-river",
+          "name": "FM 580 Colorado River access",
+          "latitude": 31.1004,
+          "longitude": -98.5147,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 53.324253168255815,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-fm580-colorado-bend",
+          "routeName": "Colorado River",
+          "state": "Texas",
+          "endpoint": "putIn",
+          "sourceId": "fm-580-colorado-river",
+          "name": "FM 580 Colorado River access",
+          "latitude": 31.1004,
+          "longitude": -98.5147,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 53.324253168255815,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "texas--fm-766-hell-s-gate",
       "state": "Texas",
       "name": "FM 766 (Hell's Gate)",
@@ -107739,6 +110172,86 @@
           "longitude": -97.3177,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 23.810125364520683,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--fm-960-bridge",
+      "state": "Texas",
+      "name": "FM 960 Bridge",
+      "aliases": [
+        "FM 960 Bridge"
+      ],
+      "sourceIds": [
+        "fm-960-bridge-colorado"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 29.34,
+        "longitude": -96.2
+      },
+      "accessCoordinate": {
+        "latitude": 29.34,
+        "longitude": -96.2
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "29.34000,-96.20000",
+          "coordinate": {
+            "latitude": 29.34,
+            "longitude": -96.2
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "colorado-river-fm960-hollywood-bottom"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-fm960-hollywood-bottom",
+          "routeName": "Colorado River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "fm-960-bridge-colorado",
+          "name": "FM 960 Bridge",
+          "latitude": 29.34,
+          "longitude": -96.2,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 127.27698715644459,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-fm960-hollywood-bottom",
+          "routeName": "Colorado River",
+          "state": "Texas",
+          "endpoint": "putIn",
+          "sourceId": "fm-960-bridge-colorado",
+          "name": "FM 960 Bridge",
+          "latitude": 29.34,
+          "longitude": -96.2,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 127.27698715644459,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -107848,6 +110361,86 @@
           "longitude": -97.64,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 510.02267548749984,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--fonde-park-canoe-kayak-launch",
+      "state": "Texas",
+      "name": "Fonde Park canoe/kayak launch",
+      "aliases": [
+        "Fonde Park canoe/kayak launch"
+      ],
+      "sourceIds": [
+        "fonde-park-brays-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 29.71247,
+        "longitude": -95.3232
+      },
+      "accessCoordinate": {
+        "latitude": 29.71247,
+        "longitude": -95.3232
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "29.71247,-95.32320",
+          "coordinate": {
+            "latitude": 29.71247,
+            "longitude": -95.3232
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brays-bayou-fonde-brays-greenway"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brays-bayou-fonde-brays-greenway",
+          "routeName": "Brays Bayou",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "fonde-park-brays-launch",
+          "name": "Fonde Park canoe/kayak launch",
+          "latitude": 29.71247,
+          "longitude": -95.3232,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 700.6420433298923,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brays-bayou-fonde-brays-greenway",
+          "routeName": "Brays Bayou",
+          "state": "Texas",
+          "endpoint": "putIn",
+          "sourceId": "fonde-park-brays-launch",
+          "name": "Fonde Park canoe/kayak launch",
+          "latitude": 29.71247,
+          "longitude": -95.3232,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 700.6420433298923,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
@@ -109068,6 +111661,86 @@
       ]
     },
     {
+      "id": "texas--hollywood-bottom-park",
+      "state": "Texas",
+      "name": "Hollywood Bottom Park",
+      "aliases": [
+        "Hollywood Bottom Park"
+      ],
+      "sourceIds": [
+        "hollywood-bottom-park-colorado"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 29.16,
+        "longitude": -96.04
+      },
+      "accessCoordinate": {
+        "latitude": 29.16,
+        "longitude": -96.04
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "29.16000,-96.04000",
+          "coordinate": {
+            "latitude": 29.16,
+            "longitude": -96.04
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "colorado-river-fm960-hollywood-bottom"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-fm960-hollywood-bottom",
+          "routeName": "Colorado River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "hollywood-bottom-park-colorado",
+          "name": "Hollywood Bottom Park",
+          "latitude": 29.16,
+          "longitude": -96.04,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 132.79332196338493,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-fm960-hollywood-bottom",
+          "routeName": "Colorado River",
+          "state": "Texas",
+          "endpoint": "takeOut",
+          "sourceId": "hollywood-bottom-park-colorado",
+          "name": "Hollywood Bottom Park",
+          "latitude": 29.16,
+          "longitude": -96.04,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 132.79332196338493,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "texas--horseshoe-on-the-colorado",
       "state": "Texas",
       "name": "Horseshoe on the Colorado",
@@ -109240,6 +111913,86 @@
           "longitude": -99.250613,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 968.9680523143943,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--jefferson-big-cypress-bayou-ramp",
+      "state": "Texas",
+      "name": "Jefferson Big Cypress Bayou Ramp",
+      "aliases": [
+        "Jefferson Big Cypress Bayou Ramp"
+      ],
+      "sourceIds": [
+        "jefferson-big-cypress-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 32.758287,
+        "longitude": -94.340743
+      },
+      "accessCoordinate": {
+        "latitude": 32.758287,
+        "longitude": -94.340743
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "32.75829,-94.34074",
+          "coordinate": {
+            "latitude": 32.758287,
+            "longitude": -94.340743
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "big-cypress-bayou-lake-o-pines-spillway-jefferson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-cypress-bayou-lake-o-pines-spillway-jefferson",
+          "routeName": "Big Cypress Bayou",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "jefferson-big-cypress-ramp",
+          "name": "Jefferson Big Cypress Bayou Ramp",
+          "latitude": 32.758287,
+          "longitude": -94.340743,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 141.37737553393163,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "big-cypress-bayou-lake-o-pines-spillway-jefferson",
+          "routeName": "Big Cypress Bayou",
+          "state": "Texas",
+          "endpoint": "takeOut",
+          "sourceId": "jefferson-big-cypress-ramp",
+          "name": "Jefferson Big Cypress Bayou Ramp",
+          "latitude": 32.758287,
+          "longitude": -94.340743,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 141.37737553393163,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -109837,6 +112590,89 @@
           "longitude": -103.78302,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 28.648321846988207,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--lake-o-the-pines-spillway-boat-ramp",
+      "state": "Texas",
+      "name": "Lake O' the Pines Spillway Boat Ramp",
+      "aliases": [
+        "Lake O' the Pines Spillway Boat Ramp"
+      ],
+      "sourceIds": [
+        "lake-o-pines-spillway-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 32.747756,
+        "longitude": -94.499566
+      },
+      "accessCoordinate": {
+        "latitude": 32.747756,
+        "longitude": -94.499566
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 32.747756,
+        "longitude": -94.499566
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "32.74776,-94.49957",
+          "coordinate": {
+            "latitude": 32.747756,
+            "longitude": -94.499566
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "big-cypress-bayou-lake-o-pines-spillway-jefferson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-cypress-bayou-lake-o-pines-spillway-jefferson",
+          "routeName": "Big Cypress Bayou",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "lake-o-pines-spillway-boat-ramp",
+          "name": "Lake O' the Pines Spillway Boat Ramp",
+          "latitude": 32.747756,
+          "longitude": -94.499566,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 91.638570624516,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "big-cypress-bayou-lake-o-pines-spillway-jefferson",
+          "routeName": "Big Cypress Bayou",
+          "state": "Texas",
+          "endpoint": "putIn",
+          "sourceId": "lake-o-pines-spillway-boat-ramp",
+          "name": "Lake O' the Pines Spillway Boat Ramp",
+          "latitude": 32.747756,
+          "longitude": -94.499566,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 91.638570624516,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -110631,6 +113467,72 @@
           "longitude": -96.942685,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 63.68403377512242,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--mclennan-community-college-boat-ramp",
+      "state": "Texas",
+      "name": "McLennan Community College Boat Ramp",
+      "aliases": [
+        "McLennan Community College Boat Ramp"
+      ],
+      "sourceIds": [
+        "mclennan-community-college-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 31.5929,
+        "longitude": -97.1693
+      },
+      "accessCoordinate": {
+        "latitude": 31.5929,
+        "longitude": -97.1693
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "31.59290,-97.16930",
+          "coordinate": {
+            "latitude": 31.5929,
+            "longitude": -97.1693
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "brazos-river-brazos-park-east-bledsoe-miller"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brazos-river-brazos-park-east-bledsoe-miller",
+          "routeName": "Brazos River",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "mclennan-community-college-boat-ramp",
+          "name": "McLennan Community College Boat Ramp",
+          "latitude": 31.5929,
+          "longitude": -97.1693,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 4537.85223337265,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -111599,6 +114501,89 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 61.481632249981594,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "texas--red-bud-lane-cr-122-public-access",
+      "state": "Texas",
+      "name": "Red Bud Lane / CR 122 public access",
+      "aliases": [
+        "Red Bud Lane / CR 122 public access"
+      ],
+      "sourceIds": [
+        "brushy-red-bud-cr122"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 30.53082,
+        "longitude": -97.61374
+      },
+      "accessCoordinate": {
+        "latitude": 30.53082,
+        "longitude": -97.61374
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 30.53082,
+        "longitude": -97.61374
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "30.53082,-97.61374",
+          "coordinate": {
+            "latitude": 30.53082,
+            "longitude": -97.61374
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "brushy-creek-chisholm-trail-red-bud"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "brushy-creek-chisholm-trail-red-bud",
+          "routeName": "Brushy Creek",
+          "state": "Texas",
+          "endpoint": "accessPoint",
+          "sourceId": "brushy-red-bud-cr122",
+          "name": "Red Bud Lane / CR 122 public access",
+          "latitude": 30.53082,
+          "longitude": -97.61374,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 15.980442712571051,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "brushy-creek-chisholm-trail-red-bud",
+          "routeName": "Brushy Creek",
+          "state": "Texas",
+          "endpoint": "takeOut",
+          "sourceId": "brushy-red-bud-cr122",
+          "name": "Red Bud Lane / CR 122 public access",
+          "latitude": 30.53082,
+          "longitude": -97.61374,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 15.980442712571051,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -136005,6 +138990,86 @@
       ]
     },
     {
+      "id": "wisconsin--lower-red-river-park-weed-dam-powerhouse-landing",
+      "state": "Wisconsin",
+      "name": "Lower Red River Park / Weed Dam Powerhouse Landing",
+      "aliases": [
+        "Lower Red River Park / Weed Dam Powerhouse Landing"
+      ],
+      "sourceIds": [
+        "red-river-lower-red-park"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.84168,
+        "longitude": -88.76063
+      },
+      "accessCoordinate": {
+        "latitude": 44.84168,
+        "longitude": -88.76063
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.84168,-88.76063",
+          "coordinate": {
+            "latitude": 44.84168,
+            "longitude": -88.76063
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "red-river-weed-dam-zeimers-falls"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "red-river-weed-dam-zeimers-falls",
+          "routeName": "Red River",
+          "state": "Wisconsin",
+          "endpoint": "accessPoint",
+          "sourceId": "red-river-lower-red-park",
+          "name": "Lower Red River Park / Weed Dam Powerhouse Landing",
+          "latitude": 44.84168,
+          "longitude": -88.76063,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 165.33715636841973,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "red-river-weed-dam-zeimers-falls",
+          "routeName": "Red River",
+          "state": "Wisconsin",
+          "endpoint": "putIn",
+          "sourceId": "red-river-lower-red-park",
+          "name": "Lower Red River Park / Weed Dam Powerhouse Landing",
+          "latitude": 44.84168,
+          "longitude": -88.76063,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 165.33715636841973,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "wisconsin--ludden-lake-boat-ramp",
       "state": "Wisconsin",
       "name": "Ludden Lake Boat Ramp",
@@ -147896,6 +150961,89 @@
           "longitude": -87.87593,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 51.210253634304415,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wisconsin--zeimer-s-falls-landing",
+      "state": "Wisconsin",
+      "name": "Zeimer's Falls Landing",
+      "aliases": [
+        "Zeimer's Falls Landing"
+      ],
+      "sourceIds": [
+        "red-river-zeimers-falls"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.84287,
+        "longitude": -88.72289
+      },
+      "accessCoordinate": {
+        "latitude": 44.84287,
+        "longitude": -88.72289
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 44.84287,
+        "longitude": -88.72289
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.84287,-88.72289",
+          "coordinate": {
+            "latitude": 44.84287,
+            "longitude": -88.72289
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "red-river-weed-dam-zeimers-falls"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "red-river-weed-dam-zeimers-falls",
+          "routeName": "Red River",
+          "state": "Wisconsin",
+          "endpoint": "accessPoint",
+          "sourceId": "red-river-zeimers-falls",
+          "name": "Zeimer's Falls Landing",
+          "latitude": 44.84287,
+          "longitude": -88.72289,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 83.22275494695599,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "red-river-weed-dam-zeimers-falls",
+          "routeName": "Red River",
+          "state": "Wisconsin",
+          "endpoint": "takeOut",
+          "sourceId": "red-river-zeimers-falls",
+          "name": "Zeimer's Falls Landing",
+          "latitude": 44.84287,
+          "longitude": -88.72289,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 83.22275494695599,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }

@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-08-23T14:00:49.004Z.
+Generated 2026-08-25T02:06:10.617Z.
 
 - Defined corridors: 25
-- Routes covered by a corridor definition: 183
-- Remaining multi-route families: 134
+- Routes covered by a corridor definition: 184
+- Remaining multi-route families: 139
 
 ## Defined corridors
 
@@ -25,7 +25,7 @@ Generated 2026-08-23T14:00:49.004Z.
 | wi-turtle-creek-upper | Turtle Creek upper wildlife-area corridor | verified | 2 | 3 |
 | ia-middle-river-water-trail | Middle River water-trail corridor | partial | 4 | 2 |
 | ia-upper-iowa-cattle-malanaphy | Upper Iowa Cattle Creek-Malanaphy corridor | verified | 2 | 3 |
-| ia-cedar-river-condition-family | Cedar River condition family | condition-family | 26 | 0 |
+| ia-cedar-river-condition-family | Cedar River condition family | condition-family | 27 | 0 |
 | mn-crow-wing-condition-family | Crow Wing River condition family | partial | 12 | 6 |
 | ia-des-moines-condition-family | Des Moines River condition family | condition-family | 18 | 0 |
 | mn-minnesota-river-condition-family | Minnesota River condition family | condition-family | 19 | 0 |
@@ -48,8 +48,8 @@ Generated 2026-08-23T14:00:49.004Z.
 | 6 | Wisconsin | Fox River | 7 |
 | 7 | Wisconsin | Namekagon River | 7 |
 | 8 | Minnesota | North Fork Crow River | 7 |
-| 9 | Minnesota | St. Croix River | 7 |
-| 10 | Wisconsin | Baraboo River | 6 |
+| 9 | Iowa | South Skunk River | 7 |
+| 10 | Minnesota | St. Croix River | 7 |
 
 ## Remaining dense families
 
@@ -62,7 +62,7 @@ Generated 2026-08-23T14:00:49.004Z.
 | Missouri | Eleven Point River | 20 |
 | Missouri | Current River | 16 |
 | Missouri | Jacks Fork River | 15 |
-| Texas | Colorado River | 12 |
+| Texas | Colorado River | 13 |
 | Kansas | Kansas River | 11 |
 | Minnesota | St. Louis River | 11 |
 | Kentucky | Barren River | 10 |
@@ -72,15 +72,16 @@ Generated 2026-08-23T14:00:49.004Z.
 | Kentucky | Upper Cumberland River | 10 |
 | Pennsylvania | Yellow Breeches Creek | 10 |
 | Arkansas | Bayou DeView | 9 |
+| Texas | Brazos River | 9 |
 | Kentucky | Levisa Fork | 9 |
 | Iowa | Maquoketa River | 9 |
 | Kentucky | Tradewater River | 9 |
 | Iowa | Wapsipinicon River | 8 |
-| Texas | Brazos River | 7 |
 | Wisconsin | Fox River | 7 |
 | Texas | Guadalupe River | 7 |
 | Wisconsin | Namekagon River | 7 |
 | Minnesota | North Fork Crow River | 7 |
+| Iowa | South Skunk River | 7 |
 | Minnesota | St. Croix River | 7 |
 | Wisconsin | Baraboo River | 6 |
 | Missouri | Big Piney River | 6 |
@@ -94,7 +95,6 @@ Generated 2026-08-23T14:00:49.004Z.
 | Nebraska | Loup River | 6 |
 | Wisconsin | Mecan River | 6 |
 | Wisconsin | Milwaukee River | 6 |
-| Wisconsin | Pine River | 6 |
-| Additional families omitted | See route data and overlap audit | 94 |
+| Additional families omitted | See route data and overlap audit | 99 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

@@ -19,10 +19,10 @@ describe('operations snapshot', () => {
     expect(snapshot.totals.scored + snapshot.totals.planning).toBe(snapshot.totals.inventory);
   });
 
-  it('requires a discovery sweep after Texas gauge review completes', () => {
+  it('requires a discovery sweep after Texas gauge review and keeps proxy routes in planning', () => {
     const snapshot = getOperationsSnapshot();
     const texas = snapshot.states.find((state) => state.id === 'TX');
-    expect(texas).toMatchObject({ planning: 0, legacySaturation: 'saturated' });
+    expect(texas).toMatchObject({ planning: 1, legacySaturation: 'saturated' });
     expect(texas?.saturation).toBe('discovery_sweep_required');
     expect(texas?.scored ?? 0).toBeGreaterThanOrEqual(16);
   });

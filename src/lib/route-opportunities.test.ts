@@ -76,4 +76,37 @@ describe('route opportunity queue', () => {
     const queue = buildRouteOpportunityQueue(inventory, proxyLedger, new Map([['MN', 0], ['TX', 5]]));
     expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
   });
+
+  it('does not recycle durable fast-screen no-add dispositions', () => {
+    const screenedLedger = {
+      ...ledger,
+      reviews: ledger.reviews.map((review) => review.key === 'usgs:1'
+        ? { ...review, decisionSource: 'route-worker-202608241452-tx-1-screen', decisionReason: 'Fast triage found no current public endpoint pair.' }
+        : review),
+    };
+    const queue = buildRouteOpportunityQueue(inventory, screenedLedger, new Map([['MN', 0], ['TX', 5]]));
+    expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
+  });
+
+  it('does not recycle worker-recorded no-add dispositions', () => {
+    const noAddLedger = {
+      ...ledger,
+      reviews: ledger.reviews.map((review) => review.key === 'usgs:1'
+        ? { ...review, decisionSource: 'manual_route_worker_no_add' }
+        : review),
+    };
+    const queue = buildRouteOpportunityQueue(inventory, noAddLedger, new Map([['MN', 0], ['TX', 5]]));
+    expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
+  });
+
+  it('does not recycle run-specific worker no-add sources', () => {
+    const noAddLedger = {
+      ...ledger,
+      reviews: ledger.reviews.map((review) => review.key === 'usgs:1'
+        ? { ...review, decisionSource: 'worker-202608222300-sd-usgs-06476000-no-add' }
+        : review),
+    };
+    const queue = buildRouteOpportunityQueue(inventory, noAddLedger, new Map([['MN', 0], ['TX', 5]]));
+    expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
+  });
 });

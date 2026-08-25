@@ -6,12 +6,12 @@ Each orchestrator pass:
 
 1. Reconciles the task board, run history, route requests, contributions, metrics, and GitHub Actions state.
 2. Prioritizes user demand and scored-route saturation over speculative planning routes.
-3. Selects at most one bounded work order under the deterministic WIP policy.
+3. Selects a bounded work order under the deterministic WIP policy. Route-opportunity passes begin with a five-minute evidence triage; when implementation WIP is clear, up to three same-state candidates may be screened in one pass, with deep research limited to the strongest survivor and at most one route shipped.
 4. Assigns the logical worker role needed for that work order.
 5. Runs evidence, safety, independent-verification, test/build, and rollback gates before any merge recommendation.
 6. Records the result in `docs/operations/tasks.json` and `docs/operations/runs.json`.
 
-Each hourly worker pass claims at most one route task, respects route WIP, finishes Minnesota before expansion, and screens up to five distinct candidates before recording the run as exhausted. It may ship at most one fully evidenced route per pass; blocked candidates should not stop the pass. Every route package must include a gallery-image decision, camping/overnight evidence, practical safety information, canonical river-line geometry when needed, and a coordinate-near-river audit using the repository coordinate workflow. Sparse user feedback is expected; state saturation and high-confidence search coverage supply the baseline route pipeline.
+Each controller-led route pass respects route WIP, finishes Minnesota before expansion, and begins with a fast evidence screen. Up to three distinct same-state candidates may be screened in one bounded pass; decisive blockers are recorded immediately, while only the strongest survivor receives deep research. It may ship at most one fully evidenced route per pass; blocked candidates should not stop the pass. Every route package must include a gallery-image decision, camping/overnight evidence, practical safety information, canonical river-line geometry when needed, and a coordinate-near-river audit using the repository coordinate workflow. Sparse user feedback is expected; state saturation and high-confidence search coverage supply the baseline route pipeline.
 
 The **PaddleToday Route Worker Supervisor** runs every two hours. It reviews hourly worker runs and memory, repairs stale task lanes, distinguishes legitimate policy blocks from accidental no-work dead ends, and creates at most one next bounded ready task when the board is empty. It never clears active claims, overrides policy, or creates speculative route backlogs.
 

@@ -3,6 +3,76 @@ import type { River } from '../../lib/types';
 
 export const wisconsinRoutes: River[] = [
   {
+    "id": "red-river-weed-dam-zeimers-falls",
+    "slug": "red-river-weed-dam-zeimers-falls",
+    "name": "Red River",
+    "reach": "Lower Red River Park to Zeimer's Falls Landing",
+    "aliases": ["Red River R1", "Weed Dam Powerhouse to Zeimer's Falls", "Lower Red River whitewater"],
+    "state": "Wisconsin",
+    "region": "Northeast Wisconsin",
+    "routeType": "whitewater",
+    "summary": "A short, expert-filtered Lower Red River whitewater run from the public Lower Red River Park / Weed Dam Powerhouse access to the Zeimer's Falls landing.",
+    "statusText": "Use the direct Morgan Road gauge. Below 80 cfs is not recommended; 80-150 cfs is low runnable water, 150-500 cfs is the practical intermediate window, and 500-800 cfs brings stronger Class III-IV features. Above 1,000 cfs is not recommended.",
+    "latitude": 44.84168,
+    "longitude": -88.76063,
+    "gaugeSource": {
+      "id": "usgs-04077630",
+      "provider": "usgs",
+      "siteId": "04077630",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Red River at Morgan Road near Morgan, WI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04077630/",
+      "hydrographUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04077630/all-graphs/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 150,
+      "idealMax": 500,
+      "tooLow": 80,
+      "tooHigh": 1000,
+      "thresholdSource": {"label": "Wisconsin Trail Guide Red River R1 flow bands", "url": "https://wisconsintrailguide.com/paddle/red-river.html", "provider": "wisconsin_trail_guide"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [5,6,7,8,9],
+      "seasonNotes": "Run only with a current gauge check, release awareness, daylight, and a same-day visual check at the Weed Dam wall. Run-of-river dam operations can change the reach quickly.",
+      "difficulty": "hard",
+      "difficultyNotes": "Intermediate-to-expert Class III-IV whitewater. This is not a casual float; scout or portage Monastery Falls and Zeimer's Falls and use whitewater-appropriate equipment and rescue skills.",
+      "confidenceNotes": "High confidence for a guarded expert-only add: Wisconsin Trail Guide documents the exact 2.2-mile route, public Lower Red River Park access, Zeimer's Falls landing, WGS84 feature coordinates, and a Morgan Road gauge flow ladder; American Whitewater corroborates the public access and take-out; USGS provides direct discharge telemetry at 04077630."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["whitewater", "dam_release", "strainers", "fast_rise", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "This 2.2-mile route includes Class III-IV Monastery Falls and Class II-III Zeimer's Falls. Scout every major feature and portage from the described riverbank access if the line or group skill is uncertain.",
+        "The Weed Dam release can change the river quickly; below 80 cfs is not recommended, the 80-150 cfs band can be scrappy, and high water makes Monastery and Zeimer's pushy and consequential.",
+        "Stay on the named public Lower Red River Park and Zeimer's Falls access corridors. Private banks border parts of the run; do not use private property for scouting or portage.",
+        "Cold water, strainers, foot entrapment, and remote rescue consequences require PFDs, appropriate craft, a communication plan, and a competent whitewater group."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "accessPoints": [
+      {"id":"red-river-lower-red-park","name":"Lower Red River Park / Weed Dam Powerhouse Landing","latitude":44.84168,"longitude":-88.76063,"mileFromStart":0,"segmentKind":"creek","note":"Public canoe/kayak access immediately below the Weed Dam Powerhouse; hand-carry and trailer staging are described by Wisconsin Trail Guide and American Whitewater."},
+      {"id":"red-river-zeimers-falls","name":"Zeimer's Falls Landing","latitude":44.84287,"longitude":-88.72289,"mileFromStart":2.2,"segmentKind":"creek","note":"Named take-out landing on river left; use the public access path and do not continue downstream without a separate plan."}
+    ],
+    "evidenceNotes": [
+      {"label":"Route-specific guide","value":"Lower Red River Park to Zeimer's Falls — 2.2 mi, Class III-IV","note":"Wisconsin Trail Guide documents the endpoint pair, feature sequence, access, hazards, and flow bands.","sourceUrl":"https://wisconsintrailguide.com/2024/paddle/pdf/guide-red.pdf"},
+      {"label":"Direct live gauge","value":"USGS 04077630 at Morgan Road","note":"USGS provides direct discharge telemetry for the Morgan Road station; use the current reading and trend with an on-site Weed Dam release check.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/USGS-04077630/"},
+      {"label":"Public access corroboration","value":"Gresham Lower Red River Park and Zeimer's access","note":"American Whitewater describes the public put-in and favored Zeimer's take-out; Wisconsin DNR explains public-trust access and permission boundaries.","sourceUrl":"https://www.americanwhitewater.org/project/red-river-wi/"},
+      {"label":"Flow guidance","value":"80 cfs lower floor; 150-500 cfs practical intermediate band; >1,000 cfs not recommended","note":"Community flow ladder from Wisconsin Trail Guide; never treat the range as a guarantee and always scout current features.","sourceUrl":"https://wisconsintrailguide.com/paddle/red-river.html"},
+      {"label":"Endpoint coordinates","value":"44.84168, -88.76063 to 44.84287, -88.72289","note":"WGS84 coordinates are published in the route guide for the Lower Red River Park and Zeimer's Falls access points.","sourceUrl":"https://wisconsintrailguide.com/2024/paddle/pdf/guide-red.pdf"},
+      {"label":"Image decision","value":"No third-party image bundled","note":"Use source links and the route geometry; do not copy promotional imagery without a rights-clean license."}
+    ],
+    "sourceLinks": [
+      {"label":"Wisconsin Trail Guide Red River R1","url":"https://wisconsintrailguide.com/paddle/red-river.html","provider":"wisconsin_trail_guide"},
+      {"label":"Wisconsin Trail Guide Red River guide PDF","url":"https://wisconsintrailguide.com/2024/paddle/pdf/guide-red.pdf","provider":"wisconsin_trail_guide"},
+      {"label":"USGS 04077630 Red River at Morgan Road","url":"https://waterdata.usgs.gov/monitoring-location/USGS-04077630/","provider":"usgs"},
+      {"label":"American Whitewater Lower Red River","url":"https://www.americanwhitewater.org/project/red-river-wi/","provider":"american_whitewater"},
+      {"label":"Wisconsin DNR boat and shore access","url":"https://dnr.wisconsin.gov/topic/lands/boataccess","provider":"local"}
+    ]
+  },
+  {
     "id": "black-river-hwy-53-hwy-35",
     "slug": "black-river-hwy-53-hwy-35",
     "name": "Black River",

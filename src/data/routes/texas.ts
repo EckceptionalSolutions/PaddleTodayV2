@@ -3,6 +3,589 @@ import type { River } from '../../lib/types';
 
 export const texasRoutes: River[] = [
   {
+    "id": "brazos-river-hwy16-fm4-upper-middle",
+    "slug": "brazos-river-hwy16-fm4-upper-middle",
+    "name": "Brazos River",
+    "riverId": "brazos-river",
+    "reach": "Hwy 16 Bridge to FM 4 at Dark Valley Creek",
+    "aliases": [
+      "Upper-Middle Brazos",
+      "Upper-Middle Brazos Hwy 16 to Hwy 4",
+      "John Graves Scenic Riverway Hwy 16 to FM 4"
+    ],
+    "state": "Texas",
+    "region": "Palo Pinto County",
+    "routeType": "recreational",
+    "summary": "Classic 19.5-mile Upper-Middle Brazos canoe-camping reach from the BRA river access below Possum Kingdom Dam at Hwy 16 to the FM 4/Dark Valley Creek take-out served by Rochelle's Canoe Rental. TRPA publishes the route shape, class, flow bands, and endpoint maps; current access requires reservation/shuttle planning at the FM 4 outfitter.",
+    "statusText": "Use direct USGS 08089000 near Palo Pinto. TRPA lists 150 cfs as the minimum, 225-1,500 cfs as ideal, and 5,000 cfs as the maximum. Current readings near the floor mean expect shallow gravel, scraping, and slower travel; check same-day dam releases, rainfall, wind, water quality, and both endpoint terms before committing to this two-day reach.",
+    "latitude": 32.8589959,
+    "longitude": -98.4133234,
+    "putIn": {
+      "name": "BRA Brazos River Area #7 / Hwy 16 Bridge",
+      "latitude": 32.8589959,
+      "longitude": -98.4133234
+    },
+    "takeOut": {
+      "name": "FM 4 at Dark Valley Creek / Rochelle's Canoe Rental",
+      "latitude": 32.8635157,
+      "longitude": -98.3019558
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "low_water",
+        "fast_rise",
+        "dam_release",
+        "private_banks",
+        "remote",
+        "urban_water_quality"
+      ],
+      "safetyNotes": [
+        "TRPA rates the reach Class I-II but describes small rapids, riffles, 100-500 foot cliffs, and a recommended two-day overnight trip. Wear a properly fitted PFD, carry a float plan, and do not attempt cliff or private-bank exits.",
+        "BRA warns that rainfall and upstream releases can produce rapid increases in river level and speed. Check the live gauge, Possum Kingdom release information, rainfall, and weather immediately before launch and during the trip.",
+        "At or near the 150 cfs floor, expect exposed gravel, shallow riffles, scraping, and slower travel. Turn around or postpone if the actual reach is lower, falling quickly, obstructed, or visibly unsafe even when the gauge is above the floor.",
+        "Use the BRA Hwy 16 access and the arranged FM 4/Rochelle's take-out only. Most adjoining banks are private; do not trespass or improvise a landing at a bridge, residence, or ranch road.",
+        "The reach is remote and has limited cell service. Carry redundant navigation, water, repair equipment, emergency communications, and enough daylight margin to reach the arranged take-out or a lawful riverbed campsite."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08089000",
+      "provider": "usgs",
+      "siteId": "08089000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Brazos Rv nr Palo Pinto, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08089000/",
+      "hydrographUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08089000&parameterCd=00060,00065&siteStatus=all"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 225,
+      "idealMax": 1500,
+      "tooLow": 150,
+      "tooHigh": 5000,
+      "thresholdSource": {
+        "label": "Texas Rivers Protection Association Upper-Middle Brazos flow guidance",
+        "url": "https://txrivers.org/discover-texas-rivers/brazos-river/upper-middle-brazos-hwy-16-to-hwy-4-19-5-miles/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 0.35,
+      "seasonMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "seasonNotes": "TRPA describes the reach as year-round, weather/flow permitting; spring and autumn are generally more comfortable, while summer heat and low water can make the two-day trip substantially harder.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Mostly Class I-II water, but this is a remote two-day reach with small rapids, cliffs, variable releases, low-water shallows, private banks, limited services, and an outfitter-dependent take-out.",
+      "confidenceNotes": "Confidence is good for a guarded scored route: TRPA publishes the exact 19.5-mile reach, endpoint maps, numeric flow bands, class, season, and camping context; BRA publishes the Hwy 16 river access, state-owned bed/bank camping rule, private-bank and rapid-rise cautions; Rochelle's current site documents the FM 4 location, the same 19.5-mile trip, shuttle, and take-out relationship; USGS 08089000 is a direct product-live gauge at Palo Pinto. FM 4 access is not a free public ramp claim: users must confirm the outfitter's current reservation/shuttle terms."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route shape and endpoint maps",
+        "value": "Hwy 16 Bridge to FM 4 at Dark Valley Creek, 19.5 mi",
+        "note": "TRPA publishes the named put-in/take-out maps, length, Class I-II rating, canoe/kayak use, and year-round weather/flow caveat.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/brazos-river/upper-middle-brazos-hwy-16-to-hwy-4-19-5-miles/"
+      },
+      {
+        "label": "Hwy 16 public access",
+        "value": "BRA Brazos River Area #7, 200 Red Bluff Road, below Possum Kingdom Dam",
+        "note": "BRA documents small-boat river access by the Hwy 16 bridge, approximately ten campsites, restrooms, picnic areas, no fee, and year-round operation.",
+        "sourceUrl": "https://www.possumkingdomlake.com/visitors/what-to-do/swimming.html?print=1&tmpl=component&type=raw"
+      },
+      {
+        "label": "FM 4 outfitter endpoint",
+        "value": "Rochelle's Canoe Rental adjacent to the Dark Valley Bridge",
+        "note": "Rochelle's current location page gives the FM 4 bridge approach; its trip page identifies the 19.5-mile Hwy 16-to-Dark Valley Bridge trip and vehicle/equipment shuttle. Reserve and confirm current access before travel.",
+        "sourceUrl": "https://www.rochellescanoeandkayakrental.com/trips"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 08089000 at 184 cfs / 1.57 ft on 2026-08-24",
+        "note": "USGS Water Services returned direct discharge and gage-height telemetry for the Palo Pinto station; the reading is above the 150 cfs minimum but below TRPA's ideal band.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08089000&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Route-specific threshold",
+        "value": "150 cfs minimum; 225-1,500 cfs ideal; 5,000 cfs maximum",
+        "note": "TRPA publishes numeric flow guidance tied to this exact reach and gauge references. Treat the floor as a conservative go/no-go screen, not a safety certification.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/brazos-river/upper-middle-brazos-hwy-16-to-hwy-4-19-5-miles/"
+      },
+      {
+        "label": "Camping and legal access",
+        "value": "Riverbed/gravel-bar camping allowed within state-owned bed and banks; no public campgrounds on the reach",
+        "note": "BRA states camping is allowed when confined to the bed and banks and warns about private adjoining property and rapid rises. Rochelle's says there are no parks or public camping facilities; carry all gear and use only lawful riverbed sites.",
+        "sourceUrl": "https://brazos.org/about-us/news/news-room/resource-library/recreation-on-the-brazos-river"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "The implementation ships without a gallery image until a route-specific, rights-clean asset is verified; no third-party image was copied into the repository.",
+        "sourceUrl": "https://txrivers.org/discover-texas-rivers/brazos-river/upper-middle-brazos-hwy-16-to-hwy-4-19-5-miles/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Texas Rivers Protection Association Upper-Middle Brazos",
+        "url": "https://txrivers.org/discover-texas-rivers/brazos-river/upper-middle-brazos-hwy-16-to-hwy-4-19-5-miles/",
+        "provider": "local"
+      },
+      {
+        "label": "BRA Brazos River Area #7 access",
+        "url": "https://www.possumkingdomlake.com/visitors/what-to-do/swimming.html?print=1&tmpl=component&type=raw",
+        "provider": "local"
+      },
+      {
+        "label": "Rochelle's Canoe Rental trip details",
+        "url": "https://www.rochellescanoeandkayakrental.com/trips",
+        "provider": "local"
+      },
+      {
+        "label": "Rochelle's Canoe Rental location",
+        "url": "https://www.rochellescanoeandkayakrental.com/location",
+        "provider": "local"
+      },
+      {
+        "label": "Brazos River Authority recreation and camping guidance",
+        "url": "https://brazos.org/about-us/news/news-room/resource-library/recreation-on-the-brazos-river",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08089000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08089000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08089000 current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08089000&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ],
+    "scoreEligibility": "scored"
+  },
+  {
+    "id": "brazos-river-brazos-park-east-bledsoe-miller",
+    "slug": "brazos-river-brazos-park-east-bledsoe-miller",
+    "name": "Brazos River",
+    "riverId": "brazos-river",
+    "reach": "Brazos Park East to Bledsoe-Miller Community Center Dock",
+    "aliases": [
+      "Brazos Bridges Paddling Trail",
+      "Waco Brazos Bridges",
+      "Brazos Park East to Bledsoe-Miller"
+    ],
+    "state": "Texas",
+    "region": "Waco",
+    "routeType": "recreational",
+    "summary": "Official Waco Brazos Bridges Paddling Trail segment from Brazos Park East Kayak/Canoe Ramp to the Bledsoe-Miller Community Center Dock and back, using the named public access chain published by Texas Parks and Wildlife and the City of Waco.",
+    "statusText": "Use USGS 08096500 at Waco as a same-river downstream flow check. BRA's official paddling chart treats 200 cfs or less as below minimum, 501-1,200 cfs as ideal, and 5,001+ cfs as flood conditions; the gauge is downstream of the Waco trail, so confirm the lake/river reach, releases, water quality, and same-day access before launching.",
+    "latitude": 31.5879,
+    "longitude": -97.1534,
+    "putIn": {
+      "name": "Brazos Park East Kayak/Canoe Ramp",
+      "latitude": 31.5879,
+      "longitude": -97.1534
+    },
+    "takeOut": {
+      "name": "Bledsoe-Miller Community Center Dock",
+      "latitude": 31.5628,
+      "longitude": -97.1293
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "low_water",
+        "fast_rise",
+        "strainers",
+        "urban_water_quality",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "The official Waco trail pages warn that low water can expose snags and high water or heavy rain can create dangerous conditions. Check the live gauge, rainfall, and BRA release information immediately before departure.",
+        "Use only the named Brazos Park East ramp and Bledsoe-Miller dock. Do not climb private banks or leave the navigable corridor except for a clearly lawful hazard portage.",
+        "The Waco trail is a managed urban corridor with changing park hours, events, construction, and water-quality conditions. Confirm current access and avoid contact after heavy rain or advisories.",
+        "Carry a fitted PFD, whistle or horn, phone in a dry case, water, and a float plan. Treat the route as a return-loop or arranged shuttle; do not rely on an improvised shoreline exit."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08096500",
+      "provider": "usgs",
+      "siteId": "08096500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Brazos Rv at Waco, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08096500/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=08096500"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 501,
+      "idealMax": 1200,
+      "tooLow": 200,
+      "tooHigh": 5000,
+      "thresholdSource": {
+        "label": "Brazos River Authority paddling-flow chart",
+        "url": "https://brazos.org/about-us/news/news-room/resource-library/on-the-river",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 0.25,
+      "seasonMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "seasonNotes": "The Waco trail is described as a year-round day-use route, but low water, heavy rainfall, lake releases, wind, and urban runoff can change conditions quickly. The broad BRA bands are planning cues, not a route-specific safety certification.",
+      "difficulty": "easy",
+      "difficultyNotes": "The official trail is designed for novice paddlers and has no required shuttle or portage, but the return-loop distance, possible snags, changing river levels, urban water quality, and proxy gauge require conservative same-day planning.",
+      "confidenceNotes": "Confidence is good for a guarded Waco add: TPWD publishes the exact Brazos Bridges access chain, coordinates, loop distance, float-time range, and safety guidance; the City of Waco corroborates the public ramp, dock, route rules, and water-quality cautions; USGS 08096500 provides current discharge, stage, and long-term statistics on the same Waco Brazos corridor; and BRA publishes numeric paddling bands. The gauge is downstream of the trail segment, so the route explicitly uses proxy language and requires visual confirmation at the trail."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route shape",
+        "value": "Brazos Bridges Paddling Trail, 4.8-mile loop",
+        "note": "TPWD describes the Brazos Bridges trail as a 4.8-mile loop from Brazos Park East Kayak/Canoe Ramp to Bledsoe-Miller Community Center Dock and back.",
+        "sourceUrl": "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/bosque-bluffs-and-brazos-bridges/"
+      },
+      {
+        "label": "Public endpoint coordinates",
+        "value": "Brazos Park East 31.5879,-97.1534; Bledsoe-Miller 31.5628,-97.1293",
+        "note": "TPWD publishes both access coordinates and directions; the City of Waco lists Brazos Park East as a public boat-ramp park.",
+        "sourceUrl": "https://www.waco-texas.com/Departments/Parks-Recreation/River-Activities"
+      },
+      {
+        "label": "Proxy live gauge",
+        "value": "USGS 08096500 at Waco",
+        "note": "USGS provides current discharge and gage height with long-term statistics for the Waco station. The station is downstream of the trail segment, so it is a same-river proxy rather than an exact launch-site sensor.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=08096500"
+      },
+      {
+        "label": "Conservative threshold",
+        "value": "200 cfs minimum; 501-1,200 cfs ideal; 5,001+ cfs flood",
+        "note": "BRA's official public paddling chart supplies the numeric bands used by the route. They are broad corridor guidance and do not override visual checks at the Waco trail.",
+        "sourceUrl": "https://brazos.org/about-us/news/news-room/resource-library/on-the-river"
+      },
+      {
+        "label": "Safety and water quality",
+        "value": "Snags at low water; heavy-rain high-water and runoff warnings",
+        "note": "TPWD and Waco warn about snags, heavy-rain high water, runoff, and undesirable water quality; both recommend current conditions checks.",
+        "sourceUrl": "https://www.waco-texas.com/Departments/Parks-Recreation/River-Activities"
+      },
+      {
+        "label": "Camping decision",
+        "value": "No on-route camping; nearby Waco basecamp only",
+        "note": "The official trail package documents day-use ramps and docks, not overnight riverbank camping. Do not infer camping from city parks or the navigable streambed.",
+        "sourceUrl": "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/bosque-bluffs-and-brazos-bridges/"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "The package ships without a gallery image until a rights-clean, route-specific asset is verified; the USGS station image is public domain but is not a route-context image.",
+        "sourceUrl": "https://www.usgs.gov/media/images/streamflow-gaging-station-08096500-brazos-river-waco"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "TPWD Bosque Bluffs and Brazos Bridges",
+        "url": "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/bosque-bluffs-and-brazos-bridges/",
+        "provider": "local"
+      },
+      {
+        "label": "City of Waco River Activities",
+        "url": "https://www.waco-texas.com/Departments/Parks-Recreation/River-Activities",
+        "provider": "local"
+      },
+      {
+        "label": "Brazos River Authority On The River",
+        "url": "https://brazos.org/about-us/news/news-room/resource-library/on-the-river",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08096500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08096500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08096500 current conditions",
+        "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=08096500",
+        "provider": "usgs"
+      }
+    ],
+    "scoreEligibility": "planning",
+    "scoreEligibilityReason": "proxy_gauge"
+  },
+  {
+    "id": "brays-bayou-fonde-brays-greenway",
+    "slug": "brays-bayou-fonde-brays-greenway",
+    "name": "Brays Bayou",
+    "riverId": "brays-bayou",
+    "reach": "Fonde Park to Brays Greenway Park",
+    "aliases": [
+      "Brays Bayou urban paddle",
+      "Fonde Park to Brays Greenway",
+      "Brays Bayou paddling trail"
+    ],
+    "state": "Texas",
+    "region": "Houston",
+    "routeType": "recreational",
+    "summary": "Urban Brays Bayou day paddle from the documented Fonde Park launch to Brays Greenway Park, using the public launch network developed by Houston Parks and Recreation, the Houston Parks Board, and local partners.",
+    "statusText": "Use USGS 08074810 at Gessner Drive as the direct Brays Bayou flow check. Treat 50 cfs as a conservative minimum-only planning floor derived from the gauge's seasonal low-flow statistics, not as a safety certification. Do not paddle during rising water, flood warnings, active construction closures, or poor water-quality conditions; verify the launch status and channel access on the day of travel.",
+    "latitude": 29.6725,
+    "longitude": -95.5281,
+    "putIn": {
+      "name": "Fonde Park canoe/kayak launch",
+      "latitude": 29.71247,
+      "longitude": -95.3232
+    },
+    "takeOut": {
+      "name": "Brays Greenway Park canoe/kayak launch",
+      "latitude": 29.7237,
+      "longitude": -95.2835
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "flash_flood",
+        "fast_rise",
+        "urban_water_quality",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "Brays Bayou is a flood-control channel. Check the live gauge, rainfall, and National Weather Service stage information immediately before launch; rising water can make bridge openings, current, and eddies hazardous.",
+        "Do not treat the 50 cfs floor as a guarantee of safe passage. Scout bridge approaches, culverts, debris, fencing, and channel work, and turn around if access or conditions differ from the published launch description.",
+        "The launch sites are urban parks with posted hours and local rules. Use only the named public launch areas; do not climb private banks, channel walls, or construction zones.",
+        "Brays Bayou has documented bacteria and urban-runoff concerns. Avoid contact with the water after heavy rain, do not drink it, and follow current local advisories.",
+        "Carry a properly fitted PFD, light, phone in a dry case, and a visible take-out plan. Vehicle staging and park access can change with events, maintenance, or flood-control work."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08074810",
+      "provider": "usgs",
+      "siteId": "08074810",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Brays Bayou at Gessner Dr, Houston, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/08074810/",
+      "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=08074810"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 50,
+      "thresholdSource": {
+        "label": "USGS Brays Bayou at Gessner seasonal low-flow statistics",
+        "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=08074810",
+        "provider": "usgs"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+      ],
+      "seasonNotes": "The bayou is rain- and flood-control sensitive in every season. Use the threshold only as a minimum-only planning cue; avoid rising water, flood stages, and recent heavy rainfall.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The route is a short urban day paddle, but channel walls, bridge approaches, debris, water-quality exposure, traffic at access sites, and rapidly changing flood conditions require deliberate scouting and conservative judgment.",
+      "confidenceNotes": "Confidence is good for a guarded urban route: Houston-area sources document the Fonde and Brays Greenway launch network and the 5.7-mile Brays paddling-trail concept; the Fonde water-entry point is tied to the city's 2600 Lidstone launch address and the visible launch path on current aerial imagery; the direct Gessner gauge is on the same bayou corridor and publishes continuous discharge/stage; and USGS statistics support a conservative 50 cfs minimum-only cue. The threshold is not a paddling certification, and current construction, access, and flood conditions must be checked before every trip."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public launch corridor",
+        "value": "Fonde Park to Brays Greenway Park; about 5.7 mi",
+        "note": "Houston District I identifies the Fonde launch at 2600 Lidstone Street and the Brays Greenway launch at 8001 Hockley Street. The stored Fonde point is the visible water-entry path at the Lidstone site, not the interior Fonde Park map pin.",
+        "sourceUrl": "https://myemail.constantcontact.com/Inside-District-I-Newsletter.html?aid=LvonBSxYdoA&soid=1116263118642"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 08074810 at Gessner Drive",
+        "note": "USGS provides continuous discharge and gage height for the same Brays Bayou corridor; NOAA identifies the gauge and flood-stage impacts at Gessner.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/08074810/"
+      },
+      {
+        "label": "Conservative threshold",
+        "value": "50 cfs minimum-only planning floor",
+        "note": "USGS seasonal statistics show a 51.7 cfs minimum and 68 cfs 25th percentile for the reference date. Paddle Today uses 50 cfs only as a conservative minimum cue, not a safety guarantee or ideal band.",
+        "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=08074810"
+      },
+      {
+        "label": "Flood and stage checks",
+        "value": "Avoid rising water and NWS action stage",
+        "note": "NOAA lists action and flood-stage impacts at Gessner, including bridge overtopping and flooded approaches at higher stages.",
+        "sourceUrl": "https://water.noaa.gov/gauges/08074810"
+      },
+      {
+        "label": "Camping decision",
+        "value": "No route camping; urban basecamp only",
+        "note": "The launch parks and urban greenway are day-use facilities; do not infer overnight camping on the bayou banks or in the channel corridor.",
+        "sourceUrl": "https://houstontx.gov/parks/parksitesA-F.html"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "The route package ships without a gallery image until a rights-clean, route-specific asset is verified.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Brays+Bayou+kayak+Houston"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Houston District I launch notice",
+        "url": "https://myemail.constantcontact.com/Inside-District-I-Newsletter.html?aid=LvonBSxYdoA&soid=1116263118642",
+        "provider": "local"
+      },
+      {
+        "label": "Houston Parks Board Brays Bayou",
+        "url": "https://houstonparksboard.org/brays-bayou/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08074810 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/08074810/",
+        "provider": "usgs"
+      },
+      {
+        "label": "NOAA Gessner gauge and flood impacts",
+        "url": "https://water.noaa.gov/gauges/08074810",
+        "provider": "local"
+      },
+      {
+        "label": "Houston Parks Board launch history",
+        "url": "https://houstonparksboard.org/wp-content/uploads/2022/10/hpb_annual_report_2017.pdf",
+        "provider": "local"
+      }
+    ],
+    "scoreEligibility": "scored"
+  },
+  {
+    "id": "big-cypress-bayou-lake-o-pines-spillway-jefferson",
+    "slug": "big-cypress-bayou-lake-o-pines-spillway-jefferson",
+    "name": "Big Cypress Bayou",
+    "riverId": "big-cypress-bayou",
+    "reach": "Lake O' the Pines Spillway to Jefferson Ramp",
+    "aliases": [
+      "Big Cypress Bayou Spillway to Jefferson",
+      "Lower Big Cypress Bayou",
+      "Lake O' the Pines to Jefferson paddle"
+    ],
+    "state": "Texas",
+    "region": "East Texas",
+    "routeType": "recreational",
+    "summary": "Lower Big Cypress Bayou day trip from the USACE Lake O' the Pines spillway ramp to the City of Jefferson ramp. TPWD documents the 16.5-mile reach, both public endpoints, controlled dam releases, and the direct USGS 07346000 gauge.",
+    "statusText": "Use the Big Cypress Bayou near Jefferson gauge. Treat 40 cfs as a conservative minimum-only planning floor based on TPWD's recommended October baseflow; this is not a safety certification. Releases can change rapidly, the spillway ramp gets shallow at low flow, and large woody debris and limited intermediate access make this an advanced day trip.",
+    "latitude": 32.747756,
+    "longitude": -94.499566,
+    "putIn": {
+      "name": "Lake O' the Pines Spillway Boat Ramp",
+      "latitude": 32.747756,
+      "longitude": -94.499566
+    },
+    "takeOut": {
+      "name": "Jefferson City Ramp",
+      "latitude": 32.758287,
+      "longitude": -94.340743
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "strainers",
+        "low_water",
+        "mandatory_takeout"
+      ],
+      "safetyNotes": [
+        "Lake O' the Pines controls this tailwater. Check the live gauge immediately before launch and again before committing; releases can change flow quickly.",
+        "The spillway ramp is reported shallow during low flow, and TPWD describes large woody debris, riffles, pools, and variable depths throughout the reach. Scout conditions rather than treating the 40 cfs floor as a guarantee.",
+        "There are no public access points along the 16.5-mile stretch between the spillway and Jefferson. Carry enough water, navigation, repair, and emergency supplies for a committed day trip.",
+        "Stay in the navigable corridor and use only the named public endpoints; surrounding banks are private. Follow posted boating, hunting, and alligator-safety guidance.",
+        "TPWD reports historical water-quality impairments and a fish-consumption advisory for portions of Big Cypress Bayou/Caddo Lake; do not drink untreated water and review current advisories."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-07346000",
+      "provider": "usgs",
+      "siteId": "07346000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Big Cypress Bayou nr Jefferson, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-07346000/",
+      "hydrographUrl": "https://waterdata.usgs.gov/tx/nwis/uv/?site_no=07346000"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 40,
+      "thresholdSource": {
+        "label": "TPWD Lower Big Cypress Bayou recommended instream-flow baseflow",
+        "url": "https://tpwd.texas.gov/publications/pwdpubs/media/lake_survey/pwd_rp_t3200_2733_2024.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+      ],
+      "seasonNotes": "The route is a controlled tailwater and can be affected by dam-release schedules in every season. Plan around same-day gauge conditions, weather, and daylight; no upper paddling band is claimed.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The 16.5-mile distance, limited intermediate access, controlled releases, shallow low-flow ramp, and abundant woody debris make this a committed day trip rather than a casual lake paddle.",
+      "confidenceNotes": "Confidence is good for a conservative minimum-only add: TPWD's 2024 Lower Big Cypress Bayou report names the 16.5-mile spillway-to-Jefferson reach, publishes public endpoint coordinates and access managers, ties USGS 07346000 to the reach, and records 21.9-37.4 cfs survey flows alongside a 40 cfs October recommended baseflow. The 40 cfs value is an ecological baseflow proxy, not a route-safety certification, so the product should withhold ideal/upper scoring and require same-day judgment."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and endpoints",
+        "value": "Lake O' the Pines Spillway Boat Ramp to Jefferson City Ramp, 16.5 mi",
+        "note": "TPWD's 2024 Lower Big Cypress Bayou report lists both public access points, coordinates, managers, and the reach between the spillway and Jefferson.",
+        "sourceUrl": "https://tpwd.texas.gov/publications/pwdpubs/media/lake_survey/pwd_rp_t3200_2733_2024.pdf"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 07346000 Big Cypress Bayou near Jefferson",
+        "note": "USGS provides live discharge and gage height for the tailwater immediately below Lake O' the Pines.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-07346000/"
+      },
+      {
+        "label": "Conservative threshold",
+        "value": "40 cfs minimum-only floor",
+        "note": "TPWD records 21.9, 35.8, and 37.4 cfs survey flows and identifies 40 cfs as the recommended October baseflow for a dry or average year. This is used only as a conservative planning floor, not a safety guarantee.",
+        "sourceUrl": "https://tpwd.texas.gov/publications/pwdpubs/media/lake_survey/pwd_rp_t3200_2733_2024.pdf"
+      },
+      {
+        "label": "Access and logistics",
+        "value": "USACE spillway ramp; City of Jefferson take-out; no intermediate public access",
+        "note": "TPWD reports a good spillway ramp, a good Jefferson ramp, and no public access points along the intervening 16.5 miles. Treat the route as a committed day trip with a self-shuttle.",
+        "sourceUrl": "https://tpwd.texas.gov/publications/pwdpubs/media/lake_survey/pwd_rp_t3200_2733_2024.pdf"
+      },
+      {
+        "label": "Camping decision",
+        "value": "No route camping; nearby basecamp only",
+        "note": "No designated overnight site is documented along this reach. Do not infer camping from the lake or private banks; use separately verified nearby lodging/campgrounds only.",
+        "sourceUrl": "https://tpwd.texas.gov/publications/pwdpubs/media/lake_survey/pwd_rp_t3200_2733_2024.pdf"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "The route package ships without a gallery image until a rights-clean, route-specific asset is verified.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Big+Cypress+Bayou+Jefferson+Texas+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "TPWD Lower Big Cypress Bayou 2024 report",
+        "url": "https://tpwd.texas.gov/publications/pwdpubs/media/lake_survey/pwd_rp_t3200_2733_2024.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 07346000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-07346000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "TPWD Old River II / Big Cypress paddling context",
+        "url": "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/old-river-ii/",
+        "provider": "local"
+      }
+    ],
+    "scoreEligibility": "scored"
+  },
+  {
     "id": "guadalupe-river-fm766-sh72",
     "slug": "guadalupe-river-fm766-sh72",
     "name": "Guadalupe River",
@@ -4126,6 +4709,150 @@ export const texasRoutes: River[] = [
         "label": "USGS 08159200 Water Services current values",
         "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08159200&parameterCd=00060,00065&siteStatus=all",
         "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "colorado-river-fm960-hollywood-bottom",
+    "slug": "colorado-river-fm960-hollywood-bottom",
+    "name": "Colorado River",
+    "reach": "FM 960 Bridge to Hollywood Bottom Park",
+    "aliases": [
+      "Wharton Colorado River - FM 960 to Hollywood Bottom",
+      "Lower Colorado - FM 960 to Hollywood Bottom",
+      "Colorado River Wharton County float"
+    ],
+    "state": "Texas",
+    "region": "Prairies and Lakes",
+    "summary": "Lower-Colorado flatwater reach from the official FM 960 Bridge access to LCRA's Hollywood Bottom Park. LCRA publishes both public access points, their coordinates, the 19-mile spacing, Hollywood camping, and the steep-bank and unimproved-access caveats; USGS 08162000 at Wharton provides a direct live condition check.",
+    "statusText": "Use the Colorado River at Wharton gauge. Treat about 200 cfs as the conservative minimum-only floor; below that the reach can become shallow and bony, while rapidly rising or very high water can make the long coastal-plain float pushy and hazardous.",
+    "latitude": 29.25,
+    "longitude": -96.12,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "fast_rise",
+        "strainers",
+        "private_banks",
+        "access_uncertain",
+        "low_water"
+      ],
+      "safetyNotes": [
+        "FM 960 is an unimproved pedestrian access down a dirt path to a steep river edge; inspect the bank and carry boats carefully rather than treating it as a vehicle-access ramp.",
+        "This is a roughly 19-mile one-way lower-Colorado day with limited public exits; stage the Hollywood Bottom take-out, confirm daylight and weather, and do not launch without a shuttle plan.",
+        "LCRA identifies Hollywood Bottom Park as open 24 hours with camping permitted, but do not infer camping or casual stopping rights on private banks, islands, or sandbars between the named endpoints.",
+        "The lower Colorado can rise quickly after rainfall or releases. Use the live gauge as one input, scout conditions, wear a PFD, and stop well before any unsafe bank, obstruction, or rising-water condition."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08162000",
+      "provider": "usgs",
+      "siteId": "08162000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Colorado Rv at Wharton, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08162000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 200,
+      "thresholdSource": {
+        "label": "CanWePaddle Colorado River Wharton conservative runnable range",
+        "url": "https://canwepaddle.com/rivers/texas/colorado-wharton/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 0.35,
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "The Wharton-area lower Colorado can be paddled year-round when flow, weather, access, and shuttle conditions cooperate. Dry periods can push the reach below the conservative floor; storms and releases can raise current, debris, and bank hazards quickly.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The river is generally flatwater, but the 19-mile commitment, steep/unimproved FM 960 access, limited public exits, heat, wind, and private-bank limits make this a moderate logistical day.",
+      "confidenceNotes": "Confidence is sufficient for a conservative add: LCRA publishes the FM 960 Bridge and Hollywood Bottom Park as consecutive public lower-Colorado access points 19 river miles apart, including coordinates, management, access direction, and camping; USGS 08162000 is a direct product-live Wharton gauge; and CanWePaddle publishes an informational 200–7,000 cfs runnable estimate tied to that exact gauge. Paddle Today adopts only the conservative 200 cfs floor and explicitly preserves the source's non-authoritative warning. Existing scored routes cover upstream Smithville/Plum and downstream Columbus/Bay City reaches, so this FM 960-to-Hollywood segment is a distinct corridor rather than a duplicate."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official public endpoint pair",
+        "value": "FM 960 Bridge to Hollywood Bottom Park, 19 river miles",
+        "note": "LCRA's lower-Colorado access sequence identifies FM 960 Bridge and Hollywood Bottom Park as consecutive public access points with 19 miles between them.",
+        "sourceUrl": "https://lcraparks.com/paddle-the-colorado"
+      },
+      {
+        "label": "Defensible access coordinates",
+        "value": "29.34, -96.20 to 29.16, -96.04",
+        "note": "LCRA publishes rounded GPS coordinates for both public access anchors. They are stored as access anchors, not survey-grade wetted-edge launch points.",
+        "sourceUrl": "https://maps.lcra.org/getPDF.aspx?ID=191&MapPath=one_map_4_panel_access.pdf"
+      },
+      {
+        "label": "Direct live gauge",
+        "value": "USGS 08162000 at 233 cfs / 7.53 ft on 2026-08-24 13:15 CDT",
+        "note": "USGS Water Services returned same-day provisional discharge and gage-height values for Colorado River at Wharton, TX.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08162000&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Conservative low-water floor",
+        "value": "200 cfs minimum-only",
+        "note": "CanWePaddle publishes a conservative 200–7,000 cfs estimate for the Wharton section tied to USGS 08162000. Paddle Today uses only the 200 cfs floor and does not treat the estimate as a go/no-go authority.",
+        "sourceUrl": "https://canwepaddle.com/rivers/texas/colorado-wharton/"
+      },
+      {
+        "label": "Access, camping, and safety",
+        "value": "Steep FM 960 dirt-path access; Hollywood Bottom camping permitted",
+        "note": "LCRA identifies FM 960 as a steep-bank unimproved access and Hollywood Bottom as an open 24-hour access with camping permitted. No private-bank or mid-river camping rights are inferred.",
+        "sourceUrl": "https://lcraparks.com/paddle-the-colorado"
+      },
+      {
+        "label": "Distinct corridor and image decision",
+        "value": "Distinct from existing Smithville/Plum and Columbus/Bay City cards; no gallery image selected",
+        "note": "The existing scored route inventory does not contain the FM 960-to-Hollywood reach. A bounded rights review found no clearly rights-clean exact route-context image selected for local reuse, so the route ships without a gallery image until one is verified.",
+        "sourceUrl": "src/data/routes/texas.ts"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "LCRA Paddle the Colorado access sequence",
+        "url": "https://lcraparks.com/paddle-the-colorado",
+        "provider": "local"
+      },
+      {
+        "label": "LCRA lower Colorado access map",
+        "url": "https://maps.lcra.org/getPDF.aspx?ID=191&MapPath=one_map_4_panel_access.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Colorado River Wharton",
+        "url": "https://canwepaddle.com/rivers/texas/colorado-wharton/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08162000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08162000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08162000 Water Services current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08162000&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      },
+      {
+        "label": "TPWD public boater access guidance",
+        "url": "https://tpwd.texas.gov/landwater/water/habitats/rivers/access/",
+        "provider": "local"
       }
     ]
   },
@@ -11911,5 +12638,239 @@ export const texasRoutes: River[] = [
         "provider": "usgs"
       }
     ]
+  },
+  {
+    "id": "brushy-creek-chisholm-trail-red-bud",
+    "slug": "brushy-creek-chisholm-trail-red-bud",
+    "name": "Brushy Creek",
+    "riverId": "brushy-creek",
+    "reach": "Chisholm Trail Crossing Park to Red Bud Lane / CR 122",
+    "aliases": ["Brushy Creek Chisholm Trail to Red Bud", "Round Rock Brushy Creek", "Brushy Creek Class II+"],
+    "state": "Texas",
+    "region": "Round Rock",
+    "routeType": "recreational",
+    "summary": "American Whitewater's 5.7-mile Brushy Creek Class II+ reach from Chisholm Trail Road to CR 122 (Red Bud Lane), using the direct Kenney Fort Boulevard gauge and named public access anchors documented by the City of Round Rock and the Brushy Creek RUAA.",
+    "statusText": "Use direct USGS 08105888 at Kenney Fort Boulevard. American Whitewater's local beta treats about 200 cfs as a scrape-prone floor and about 400 cfs as a fun level; the current reading is below that window, so confirm the live trend, debris, dam hydraulics, and both access points before committing.",
+    "latitude": 30.51307,
+    "longitude": -97.68939,
+    "putIn": {"name": "Chisholm Trail Crossing Park", "latitude": 30.51307, "longitude": -97.68939},
+    "takeOut": {"name": "Red Bud Lane / CR 122 public access", "latitude": 30.53082, "longitude": -97.61374},
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": ["low_water", "fast_rise", "dam", "strainers", "flash_flood", "urban_water_quality", "private_banks", "access_uncertain"],
+      "safetyNotes": [
+        "American Whitewater describes this as Class II+ and warns that the Chisholm Trail dam has a potentially deadly hydraulic even at flows around 400 cfs; put in below the dam only and never run or inspect the hydraulic from a boat.",
+        "About 200 cfs can become scrapey, especially in a canoe, while runoff can raise this urban creek rapidly. Check the direct gauge, rainfall, flash-flood warnings, and debris before launching.",
+        "Use only the named public park and Red Bud/CR 122 access anchors. The RUAA identifies other crossings and private-property gaps; do not improvise a bank exit or use the low-water crossing near private property.",
+        "Expect strainers, wood, shallow spread-out rapids, bridge/tunnel debris, traffic, and changing construction around Red Bud Lane. Wear a properly fitted PFD and carry a float plan and emergency communication plan.",
+        "Urban runoff and wastewater influences are documented in the Brushy Creek watershed. Avoid contact after heavy rain or a water-quality advisory and do not drink untreated water."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08105888",
+      "provider": "usgs",
+      "siteId": "08105888",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Brushy Ck at Kenney Fort Blvd at Round Rock, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/08105888",
+      "hydrographUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08105888&parameterCd=00060,00065&siteStatus=all"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "idealMin": 400,
+      "tooLow": 200,
+      "thresholdSource": {"label": "American Whitewater Brushy Creek reach guidance", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2776/main", "provider": "american_whitewater"},
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 0.1,
+      "seasonMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "seasonNotes": "This urban creek is flow- and rainfall-dependent. American Whitewater's local beta describes the 200 cfs scrape-prone floor and 400 cfs fun level; winter and spring rain windows may be the most practical, but flash flooding and debris can make any season unsafe.",
+      "difficulty": "hard",
+      "difficultyNotes": "Class II+ urban creek with a dam hydraulic, tunnels, shallow spread-out rapids, strainers, and rapidly changing runoff. The route is not a beginner float even when the gauge is above the local minimum.",
+      "confidenceNotes": "Confidence is good for a guarded scored route: American Whitewater publishes the exact reach, mileage, Class II+ rating, direct 08105888 gauge association, endpoint names, hazards, and local flow cues; the City of Round Rock publishes Chisholm Trail Crossing Park; and the Brushy Creek RUAA publishes public Chisholm Trail and Red Bud access coordinates plus private-property and water-access caveats. Current telemetry was available from USGS 08105888 during review."
+    },
+    "evidenceNotes": [
+      {"label": "Route shape and rating", "value": "Chisholm Trail Road to CR 122 / Red Bud Lane, 5.7 mi, Class II+", "note": "American Whitewater lists the named reach, mileage, gradient, gauge, dam/tunnel hazards, and local flow beta.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2776/main"},
+      {"label": "Put-in access", "value": "Chisholm Trail Crossing Park, 500 Chisholm Trail Road; 30.51307, -97.68939", "note": "City of Round Rock publishes the public park and address; the Brushy Creek RUAA records easy water access at Chisholm Trail Road.", "sourceUrl": "https://www.roundrocktexas.gov/park/chisholm-trail-crossing-park/"},
+      {"label": "Take-out access", "value": "Red Bud Lane / CR 122, 30.53082, -97.61374", "note": "The Brushy Creek RUAA records a public dirt/gravel access under Red Bud Lane; verify current construction, parking, and bank conditions before committing.", "sourceUrl": "https://eportfolio.uhcl.edu/environmental-institute/research/publications/documents/10-006-brushy-creek-comp-ruaa-final-report.pdf"},
+      {"label": "Direct live gauge", "value": "USGS 08105888 at Kenney Fort Boulevard", "note": "USGS Water Services returned direct discharge and stage telemetry for the route-associated station during this review.", "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08105888&parameterCd=00060,00065&siteStatus=all"},
+      {"label": "Flow posture", "value": "About 200 cfs scrape-prone floor; about 400 cfs fun local reference", "note": "American Whitewater reports local paddler beta; treat these as conservative planning cues, not a safety certification.", "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2776/main"},
+      {"label": "Camping and image decision", "value": "Urban day route; no on-route camping documented; no gallery image selected", "note": "Use city/urban lodging or a separately verified campground. No third-party image was copied into the repository.", "sourceUrl": "https://www.wilcotx.gov/1288/Brushy-Creek-Regional-Trail"}
+    ],
+    "sourceLinks": [
+      {"label": "American Whitewater Brushy Creek reach", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2776/main", "provider": "american_whitewater"},
+      {"label": "City of Round Rock Chisholm Trail Crossing Park", "url": "https://www.roundrocktexas.gov/park/chisholm-trail-crossing-park/", "provider": "local"},
+      {"label": "Brushy Creek Comprehensive RUAA", "url": "https://eportfolio.uhcl.edu/environmental-institute/research/publications/documents/10-006-brushy-creek-comp-ruaa-final-report.pdf", "provider": "local"},
+      {"label": "Williamson County Brushy Creek Regional Trail", "url": "https://www.wilcotx.gov/1288/Brushy-Creek-Regional-Trail", "provider": "local"},
+      {"label": "USGS 08105888 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/08105888", "provider": "usgs"},
+      {"label": "USGS 08105888 current values", "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08105888&parameterCd=00060,00065&siteStatus=all", "provider": "usgs"}
+    ],
+    "scoreEligibility": "scored"
+  },
+  {
+    "id": "colorado-river-fm580-colorado-bend",
+    "slug": "colorado-river-fm580-colorado-bend",
+    "name": "Colorado River",
+    "riverId": "colorado-river",
+    "reach": "FM 580 Bridge to Colorado Bend State Park",
+    "aliases": [
+      "Bend to Colorado Bend State Park",
+      "Colorado River FM 580 to Colorado Bend",
+      "Colorado Bend 15-mile reach"
+    ],
+    "state": "Texas",
+    "region": "Hill Country",
+    "routeType": "recreational",
+    "summary": "Scenic 14.9-mile Colorado River float from the FM 580 public access near Bend to the Colorado Bend State Park take-out. American Whitewater rates the reach Class I-II, names the direct San Saba gauge, and documents the Bend-to-park route; TPWD identifies the FM 580 and Colorado Bend access points and the park's camping and launch facilities.",
+    "statusText": "Use direct USGS 08147000 near San Saba and treat about 100 cfs as a conservative minimum-only planning floor. Check same-day flow, rainfall, flood alerts, debris, the steep or unimproved FM 580 carry, park reservations/closures, and the route's private-camp and limited-exit constraints before launching.",
+    "latitude": 31.1004,
+    "longitude": -98.5147,
+    "putIn": {
+      "name": "FM 580 Colorado River access",
+      "latitude": 31.1004,
+      "longitude": -98.5147
+    },
+    "takeOut": {
+      "name": "Colorado Bend State Park river access",
+      "latitude": 31.0183,
+      "longitude": -98.4467
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "low_water",
+        "fast_rise",
+        "strainers",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "American Whitewater describes a 14.9-mile Class I-II reach with light rapids and steep canyon banks; scout conditions and carry choices before committing.",
+        "TPWD lists FM 580 as primitive access with no ramp and Colorado Bend State Park as an easy-launch access; inspect both carries and do not assume shoulder parking or private shoreline access.",
+        "Colorado Bend State Park requires the applicable day-use or camping reservation/fee. Do not infer legal camping at private camps, islands, sandbars, or other unlisted shoreline sites.",
+        "Rising water, thunderstorms, debris, heat, and limited public exits can turn this long reach into a serious commitment; leave daylight and weather margin."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-08147000",
+      "provider": "usgs",
+      "siteId": "08147000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Colorado Rv nr San Saba, TX",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08147000/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 100,
+      "thresholdSource": {
+        "label": "Southwest Paddler Colorado River Texas minimum flow",
+        "url": "https://www.southwestpaddler.com/docs/colorado2.html",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "high",
+      "windSensitivity": 0.35,
+      "seasonMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "seasonNotes": "The reach is most practical when the direct gauge is above the conservative floor and weather, park access, and river conditions are stable. Low water can expose rocks and slow travel; storms can rapidly raise flow and debris.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The river is generally Class I-II, but the 14.9-mile commitment, steep banks, limited public exits, light rapids, private camps, and weather sensitivity make this more than a casual short float.",
+      "confidenceNotes": "Confidence is good for a conservative scored route: American Whitewater publishes the named 14.9-mile reach, Class I-II rating, direct USGS 08147000 gauge, access points, and park take-out; TPWD publishes FM 580 and Colorado Bend State Park access, camping, and launch information; and Southwest Paddler provides a conservative 100 cfs minimum-flow reference. The threshold remains minimum-only and community-sourced, so same-day visual and weather checks are mandatory."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route shape and difficulty",
+        "value": "Bend / FM 580 Bridge to Colorado Bend State Park, 14.9 mi, Class I-II",
+        "note": "American Whitewater names the reach, mileage, gradient, difficulty, direct gauge, and route features including FM 580, Gorman Falls, and the park take-out.",
+        "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1805/main"
+      },
+      {
+        "label": "Public put-in access",
+        "value": "FM 580 / Colorado River, 31.1004, -98.5147",
+        "note": "TPWD's Middle Colorado River public-access table identifies FM 580 as a free San Saba County kayak/canoe launch with primitive access and no ramp.",
+        "sourceUrl": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_t3200_1958.pdf"
+      },
+      {
+        "label": "Public take-out and camping",
+        "value": "Colorado Bend State Park, 31.0183, -98.4467",
+        "note": "TPWD identifies the park as a public Colorado River access with camping, day-use fees, and an easy launch; reserve entry/camping and check closures before launch.",
+        "sourceUrl": "https://tpwd.texas.gov/state-parks/colorado-bend"
+      },
+      {
+        "label": "Product-supported live gauge",
+        "value": "USGS 08147000, Colorado Rv nr San Saba",
+        "note": "USGS Water Data for the Nation and Water Services provide the direct discharge and stage source used by the product for this Colorado River reach.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08147000&period=P1D&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Conservative low-water floor",
+        "value": "100 cfs minimum-only",
+        "note": "Southwest Paddler lists a 100 cfs minimum flow for this Colorado River section; Paddle Today uses it only as a conservative low-water screen, not a safety certification.",
+        "sourceUrl": "https://www.southwestpaddler.com/docs/colorado2.html"
+      },
+      {
+        "label": "Safety and logistics",
+        "value": "Long day, limited exits, primitive FM 580 carry, park reservation",
+        "note": "American Whitewater notes steep cliffs and light rapids; TPWD notes the primitive FM 580 carry and park access/camping rules. Private camps and banks are not treated as public access or camping.",
+        "sourceUrl": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_t3200_1958.pdf"
+      },
+      {
+        "label": "Image decision",
+        "value": "No route-gallery image selected",
+        "note": "The bounded review did not identify a clearly rights-clean exact FM 580-to-Colorado Bend paddling image for local reuse; the route ships without a gallery asset.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/Special:Search?search=Colorado+Bend+State+Park+Colorado+River+kayak"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "American Whitewater Bend to Colorado Bend reach",
+        "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1805/main",
+        "provider": "american_whitewater"
+      },
+      {
+        "label": "TPWD Middle Colorado River access table",
+        "url": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_t3200_1958.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "TPWD Colorado Bend State Park",
+        "url": "https://tpwd.texas.gov/state-parks/colorado-bend",
+        "provider": "local"
+      },
+      {
+        "label": "Southwest Paddler Colorado River Texas",
+        "url": "https://www.southwestpaddler.com/docs/colorado2.html",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 08147000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08147000/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 08147000 current values",
+        "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08147000&period=P1D&parameterCd=00060,00065&siteStatus=all",
+        "provider": "usgs"
+      }
+    ],
+    "scoreEligibility": "scored"
   }
 ];

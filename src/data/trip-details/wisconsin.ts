@@ -8916,5 +8916,20 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
     "continuityStatus": "verified"
+  },
+  "red-river-weed-dam-zeimers-falls": {
+    "putIn": {"id":"red-river-lower-red-park","name":"Lower Red River Park / Weed Dam Powerhouse Landing","latitude":44.84168,"longitude":-88.76063},
+    "takeOut": {"id":"red-river-zeimers-falls","name":"Zeimer's Falls Landing","latitude":44.84287,"longitude":-88.72289},
+    "logistics": {
+      "distanceLabel":"2.2 mi",
+      "estimatedPaddleTime":"About 1 to 2 hours, plus scouting and any portage",
+      "shuttle":"Stage the Zeimer's Falls landing first, then drive to the Lower Red River Park / Weed Dam Powerhouse landing. Confirm current parking, hand-carry access, and the landing path before unloading.",
+      "permits":"No route-specific permit is identified for the named public landings. Follow posted village, DNR, boating, PFD, and access rules; do not use private banks or informal launch sites.",
+      "camping":"Short whitewater day route; no on-route camping is assumed. Wisconsin Trail Guide identifies Boulder Lake Campground as a nearby basecamp, but reserve separately and do not camp along the Red River corridor.",
+      "campingClassification":"none",
+      "summary":"Run the named 2.2-mile Lower Red River whitewater section only with a current Morgan Road gauge check, Weed Dam release awareness, a qualified group, and a plan to scout or portage Monastery Falls and Zeimer's Falls.",
+      "accessCaveats":["Lower Red River Park is the public put-in below the Weed Dam Powerhouse; use the maintained access and keep clear of dam infrastructure and swimming areas.","Zeimer's Falls Landing is the planned take-out. Do not continue downstream or use private-bank access if the take-out is missed.","The route guide states that private land borders portions of the run; scouting and portage must stay within lawful exposed-bank/access corridors.","High water, a dam-release horn, rising trend, cold water, wood, or a group without whitewater rescue competence overrides the app score."],
+      "watchFor":["Below 80 cfs, when paddling is not recommended; 80-150 cfs can be low and scrappy.","Monastery Falls (Class III-IV), Zeimer's Falls (Class II-III), narrow chutes, holes, ledges, and foot-entrapment risk.","Rapid change after Weed Dam release, strainers, cold water, and limited bailout options.","Private banks and the need to take out at the named Zeimer's landing."]
+    }
   }
 };
