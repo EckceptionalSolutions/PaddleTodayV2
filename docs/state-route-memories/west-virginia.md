@@ -12,11 +12,11 @@ Use this memory with:
 
 | Goal measure | Current | Target |
 | --- | ---: | ---: |
-| Priority 1 gauges classified | 3 | 24 |
-| Bounded candidates screened | 6 | 12+ |
-| Candidates with numeric threshold decisions | 6 | 8+ |
-| Corridors represented in threshold decisions | 2 | 4+ |
-| Advancing candidates | 4 | Initial cohort of 8-12 |
+| Priority 1 gauges classified | 24 | 24 |
+| Bounded candidates screened | 18 | 12+ |
+| Candidates with numeric threshold decisions | 18 | 8+ |
+| Corridors represented in threshold decisions | 6 | 4+ |
+| Advancing candidates | 12 | Initial cohort of 8-12 |
 
 ## Batch 1: New River and Bluestone
 
@@ -63,10 +63,106 @@ Important route boundaries:
 - Bluestone National Scenic River prohibits camping; nearby state-park camping
   is a basecamp classification only.
 
-## Next Research Rotation
+## Batch 2: Greenbrier and Cheat
 
-Research the Greenbrier River Water Trail next. Its four Priority 1 gauges
-(`03180500`, `03182500`, `03183500`, and `03184000`) can move the goal from two
-to three threshold-qualified corridors while testing a recreational,
-non-gorge access chain. Follow with Upper Cheat or Elk to reach the required
-four-corridor spread.
+Greenbrier gauge decisions:
+
+- `03180500` Durbin: `proxy_only`. AW uses Buckeye for the Durbin-to-Hosterman
+  route; do not substitute Durbin for scoring without calibration.
+- `03182500` Buckeye: `route_capable`.
+- `03183500` Alderson: `route_capable`.
+- `03184000` Hilldale: `route_capable`.
+
+Advancing Greenbrier candidates:
+
+- Spring Creek to Anthony, 7.53 miles, Class I with a standout Class III,
+  Buckeye gauge `3.0-8.4 ft`.
+- Ronceverte City Park to Fort Spring, 8.68 miles, Class I-II, Alderson gauge
+  `2.85-10.0 ft`.
+- Fort Spring to Alderson, 6.3 miles, Class I-II, Alderson gauge
+  `2.85-10.0 ft`.
+- Talcott to Willowwood, 11.09 miles, Class I-II with a standout Class III,
+  Hilldale gauge `1.5-12.5 ft`.
+
+Do not advance Durbin to Hosterman until Hosterman's public boat-access status
+is independently verified. Do not advance Willowwood to Bellepoint until the
+AW/WVDNR name, coordinate, and route-direction conflict is resolved.
+
+Upper Cheat gauge decisions:
+
+- `03069500` Parsons: `route_capable`, with an AW `500-8,000 cfs` range for the
+  containing Seven Islands reach.
+- `0307020015` Rowlesburg: `route_capable`, with an AW `450-10,000 cfs` range
+  for the Narrows.
+- `03070260` Albright: `route_capable`, with an AW `10.7-18.0 ft` range for
+  Cheat Canyon.
+
+Advancing Cheat candidates:
+
+- Holly Meadows Bridge to St. George, 7.95 miles, Class I-II.
+- St. George to Hannahsville Ford, 8.29 miles, Class I-II.
+- Rowlesburg City Park to Preston FOC, 8.0 miles, Class II-III Narrows.
+- Albright FOC to Jenkinsburg Bridge, 9.35 miles, Class III-IV+ Canyon.
+
+The water-trail manager says no access points allow camping. Riverview Lounge
+is private, so both candidate cards that depend on it remain blocked. Keep the
+Narrows out of casual flatwater framing and Cheat Canyon in an advanced/expert
+discovery lane.
+
+## Remaining Priority 1 Gauge Decisions
+
+All remaining Priority 1 stations were classified during the same dated review:
+
+- Elk: `03194700`, `03196600`, `03197000`, and `03197950` are
+  `route_capable`. Webster Springs already has AW `4.5-8.0 ft` guidance; the
+  other three require route-specific threshold work. Mink Shoals is currently
+  listed closed and is not a candidate endpoint.
+- Cacapon: `01611500` is `route_capable`; AW publishes an explicit secondary
+  `550-7,000 cfs` correlation for Capon Bridge to WV 127.
+- Walhonde/Coal: `03198500`, `03199000`, and `03200500` are `route_capable`
+  against the branch-specific routes in the 2026 Coal River Water Trail
+  brochure. Preserve its dam/portage boundaries.
+- West Fork: `03058000`, `03058500`, `03058975`, and `03061000` are
+  `route_capable`. The below-Stonewall gauge is regulated and needs a release
+  model; the other reaches still need numeric threshold qualification.
+- Gauley: `03189100` Craigsville is `route_capable` only for natural-flow
+  reaches upstream of Summersville Lake. `03192000` Belva is `proxy_only` and
+  cannot replace the discontinued below-dam USGS station.
+
+## Gauley Release Decision
+
+Do not add the Upper or Lower Gauley release reaches to the initial scored
+cohort. USACE CWMS publishes official live Summersville outflow, but the app's
+gauge-provider model currently supports only USGS and Minnesota DNR. A safe
+Gauley implementation also needs a current-year primary USACE release
+schedule, cancellation/change handling, and downstream travel-time rules.
+The NPS page available in this review still displays the 2025 schedule.
+
+Planning-only Gauley Season content is acceptable when it is visibly dated and
+linked to the current official USACE schedule. It must not masquerade as live
+Paddle Today scoring.
+
+## Initial Implementation Cohort
+
+The ledger selects 12 dossiers across six corridor groupings:
+
+- four New River routes, including one advanced Lower Gorge route;
+- four Greenbrier routes;
+- two Upper Cheat Water Trail routes;
+- the Cheat Narrows;
+- Cheat Canyon.
+
+Every selected dossier has officially managed or officially listed endpoints,
+a numeric gauge decision, explicit safety notes, and a camping classification.
+All 12 remain `routeType: 'whitewater'` under repository rules because they are
+Class II-or-higher and/or use American Whitewater as the primary threshold
+source. The broad AW runnable maxima still require conservative product
+calibration during data entry; they are not automatic safe maxima.
+
+## Next Implementation Rotation
+
+Implement the lower-consequence cards first: Ronceverte-Fort Spring,
+Fort Spring-Alderson, Holly Meadows-St. George, and St. George-Hannahsville.
+Run the normal coordinate, access-registry, geometry, safety, and publication
+audits as route data is added. Follow with intermediate routes, then add Cunard
+to Fayette Station and Cheat Canyon only with advanced/expert discovery gates.

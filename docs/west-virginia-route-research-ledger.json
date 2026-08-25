@@ -5,11 +5,11 @@
   "purpose": "Gauge-first research decisions for the initial West Virginia route cohort. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 24,
-    "priority1GaugesReviewed": 3,
-    "boundedCandidatesScreened": 6,
-    "candidatesWithNumericThresholdDecision": 6,
-    "corridorsWithNumericThresholdDecision": 2,
-    "advancingCandidates": 4
+    "priority1GaugesReviewed": 24,
+    "boundedCandidatesScreened": 18,
+    "candidatesWithNumericThresholdDecision": 18,
+    "corridorsWithNumericThresholdDecision": 6,
+    "advancingCandidates": 12
   },
   "gaugeDecisions": [
     {
@@ -76,8 +76,285 @@
         "https://wvstateparks.com/parks/pipestem-state-park/activities/aerial-tour-at-pipestem-state-park/",
         "https://www.americanwhitewater.org/content/River/view/river-detail/3091/main"
       ]
+    },
+    {
+      "gaugeKey": "usgs:03180500",
+      "stationName": "Greenbrier River at Durbin, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "proxy_only",
+      "reason": "Fresh discharge and stage are available, but no selected reach has a route-specific numeric relationship to the Durbin station. American Whitewater uses the downstream Buckeye gauge for the Durbin-to-Hosterman reach, so Durbin may corroborate local conditions but must not drive scoring without calibration.",
+      "candidateIds": ["wv-greenbrier-durbin-hosterman"],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03180500&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/3399/main"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:03182500",
+      "stationName": "Greenbrier River at Buckeye, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater publishes Buckeye-stage ranges for multiple upper Greenbrier reaches, including Spring Creek to Anthony, whose endpoints WVDNR independently lists as boat-access sites.",
+      "candidateIds": ["wv-greenbrier-durbin-hosterman", "wv-greenbrier-spring-creek-anthony"],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03182500&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/3399/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4200/main",
+        "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:03183500",
+      "stationName": "Greenbrier River at Alderson, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater publishes a 2.85-10 foot range for the Ronceverte-to-Fort-Spring and Fort-Spring-to-Alderson reaches, and WVDNR lists each selected endpoint as boat access.",
+      "candidateIds": ["wv-greenbrier-ronceverte-fort-spring", "wv-greenbrier-fort-spring-alderson"],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03183500&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4201/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4202/main",
+        "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:03184000",
+      "stationName": "Greenbrier River at Hilldale, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater publishes Hilldale-stage ranges for Talcott to Willowwood and the adjacent lower reach; WVDNR confirms the selected access chain. The lower Willowwood/Bellepoint candidate remains blocked by conflicting endpoint names and coordinates.",
+      "candidateIds": ["wv-greenbrier-talcott-willowwood", "wv-greenbrier-willowwood-bellepoint"],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03184000&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4199/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2383/main",
+        "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:03069500",
+      "stationName": "Cheat River near Parsons, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater directly associates the gauge with the Class I-II Seven Islands reach and publishes a 500-8,000 cfs range. WVDNR and the Upper Cheat River Water Trail independently confirm the public access chain.",
+      "candidateIds": ["wv-cheat-holly-meadows-st-george", "wv-cheat-st-george-hannahsville", "wv-cheat-hannahsville-riverview", "wv-cheat-riverview-rowlesburg"],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03069500&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11739/main",
+        "https://cheatriverwatertrail.org/plan-your-trip/river-access-points/",
+        "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:0307020015",
+      "stationName": "Cheat River below Saltlick Creek at Rowlesburg, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater uses this station as the primary gauge for the Rowlesburg Narrows and publishes a 450-10,000 cfs range. WVDNR lists both Rowlesburg City Park and Preston FOC as boat-access sites.",
+      "candidateIds": ["wv-cheat-rowlesburg-preston-foc"],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=0307020015&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2346/main",
+        "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:03070260",
+      "stationName": "Cheat River at Albright, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater directly associates the station with Cheat Canyon and publishes a 10.7-18 foot range. WVDNR lists both Albright FOC and Jenkinsburg Bridge as boat-access sites; this remains an advanced/expert-only product.",
+      "candidateIds": ["wv-cheat-albright-jenkinsburg"],
+      "sources": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03070260&parameterCd=00060,00065&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2347/main",
+        "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"
+      ]
+    },
+    {
+      "gaugeKey": "usgs:03194700",
+      "stationName": "Elk River below Webster Springs, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater ties the station directly to the 17.5-mile Webster Springs downriver reach and publishes a 4.5-8.0 foot runnable range. This is the strongest threshold-ready Elk backbone station.",
+      "potentialRoutes": ["Webster Springs to Sandy Beach", "Sandy Beach to the CR 7/Clifton Ford bridge"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03194700&parameterCd=00060,00065&siteStatus=all", "https://www.americanwhitewater.org/content/River/view/river-detail/2372/main"]
+    },
+    {
+      "gaugeKey": "usgs:03196600",
+      "stationName": "Elk River at Frametown, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available on the approved Elk River Water Trail. Frametown is an identified river/trail access, so the station can directly support adjacent access-pair research; a route-specific numeric range remains the next threshold gate.",
+      "potentialRoutes": ["Frametown Bridge access pairs on the Elk River Water Trail"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03196600&parameterCd=00060,00065&siteStatus=all", "https://www.elkrivertrail.org/water-trails", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "gaugeKey": "usgs:03197000",
+      "stationName": "Elk River at Queen Shoals, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available at a WV State Parks/WVDNR public launch. The station can directly support King Shoals, Queen Shoals, and Clendenin access-pair research; numeric route thresholds remain unqualified.",
+      "potentialRoutes": ["King Shoals to Queen Shoals", "Queen Shoals to Clendenin"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03197000&parameterCd=00060,00065&siteStatus=all", "https://wvstateparks.getanchor.io/park/elk-river-trail/index.html", "https://www.elkrivertrail.org/water-trails"]
+    },
+    {
+      "gaugeKey": "usgs:03197950",
+      "stationName": "Elk River at Charleston, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available at the downstream end of the approved Elk River Water Trail. State and trail sources identify lower-river launches through Blue Creek and Charleston, making the station direct for urban access-pair research; Mink Shoals is currently marked closed and must not be used.",
+      "potentialRoutes": ["Blue Creek to Charleston access pairs, excluding closed Mink Shoals"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03197950&parameterCd=00060,00065&siteStatus=all", "https://www.elkrivertrail.org/water-trails", "https://wvstateparks.getanchor.io/park/elk-river-trail/index.html", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf"]
+    },
+    {
+      "gaugeKey": "usgs:01611500",
+      "stationName": "Cacapon River near Great Cacapon, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. American Whitewater publishes the station as an explicit secondary correlation for the Capon Bridge-to-WV 127 reach at 550-7,000 cfs, while WVDNR and water-trail sources document public access along the river.",
+      "potentialRoutes": ["Capon Bridge to WV 127/Bloomery Bridge", "lower Cacapon WVDNR access pairs"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01611500&parameterCd=00060,00065&siteStatus=all", "https://www.americanwhitewater.org/content/River/view/river-detail/2344/main", "https://wvdnr.gov/wp-content/uploads/2021/06/WILDfishingGuideD2_WEB.pdf", "https://cacaponriver.org/promote/river-recreation/"]
+    },
+    {
+      "gaugeKey": "usgs:03198500",
+      "stationName": "Big Coal River at Ashford, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. The 2026 Coal River Water Trail brochure publishes a multi-access Big Coal route chain, and American Whitewater links the station to both the Whitesville mainstem reach and upstream Marsh Fork whitewater. Direct mainstem cards should be researched separately from upstream proxy uses.",
+      "potentialRoutes": ["Whitesville to Orgas", "Orgas to John Slack Park", "John Slack Park to Dartmont"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03198500&parameterCd=00060,00065&siteStatus=all", "https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://www.americanwhitewater.org/content/River/view/river-detail/10525/main"]
+    },
+    {
+      "gaugeKey": "usgs:03199000",
+      "stationName": "Little Coal River at Danville, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available within the branch-specific route chain published in the 2026 Coal River Water Trail brochure. Madison, Danville, and downstream public launches make the station direct for bounded Little Coal candidates; numeric thresholds still need qualification.",
+      "potentialRoutes": ["Madison City Park to Danville", "Danville to Donald R. Kuhn access"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03199000&parameterCd=00060,00065&siteStatus=all", "https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "gaugeKey": "usgs:03200500",
+      "stationName": "Coal River at Tornado, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available on the combined Coal River. The 2026 trail brochure publishes public segments through Meadowood Park, Lower Falls, and St. Albans, with an explicit dam/portage warning that must be treated as a hard route boundary.",
+      "potentialRoutes": ["Meadowood Park to Lower Falls", "Lower Falls to St. Albans"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03200500&parameterCd=00060,00065&siteStatus=all", "https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "gaugeKey": "usgs:03058000",
+      "stationName": "West Fork River below Stonewall Jackson Dam near Weston, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available immediately below a WVDNR-listed public tailwater access on the approved West Fork River Water Trail. The station is direct, but any scored route must model regulation and release changes rather than assume natural-flow behavior.",
+      "potentialRoutes": ["Stonewall tailwater to the next verified West Fork public access"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03058000&parameterCd=00060,00065&siteStatus=all", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "gaugeKey": "usgs:03058500",
+      "stationName": "West Fork River at Butcherville, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available on the approved West Fork River Water Trail. The gauge is direct for nearby access-pair research, but public endpoint coordinates and numeric thresholds remain to be joined.",
+      "potentialRoutes": ["Butcherville-area West Fork public access pairs"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03058500&parameterCd=00060,00065&siteStatus=all", "https://diyoutdoors.wvu.edu/canoeing/west-fork-river", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "gaugeKey": "usgs:03058975",
+      "stationName": "West Fork River near Mount Clare, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available on the approved water trail. Current watershed work documents water-trail signage and obstruction checks near Mount Clare, supporting direct local route research; official endpoints and thresholds remain to be joined.",
+      "potentialRoutes": ["Good Hope to West Milford", "Mount Clare-area public access pairs"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03058975&parameterCd=00060,00065&siteStatus=all", "https://guardiansofthewestfork.org/2026/03/04/volunteer-spring-2026/", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "gaugeKey": "usgs:03061000",
+      "stationName": "West Fork River at Enterprise, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available. WVDNR publishes a five-mile Worthington-to-Monongah public float and AW maintains that Class I-II reach; the downstream Enterprise station is a same-river proxy that AW uses for the route and therefore has candidate value, subject to threshold qualification.",
+      "potentialRoutes": ["Worthington City Park to Monongah"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03061000&parameterCd=00060,00065&siteStatus=all", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf", "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-WVR"]
+    },
+    {
+      "gaugeKey": "usgs:03189100",
+      "stationName": "Gauley River near Craigsville, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh discharge and stage are available upstream of Summersville Lake. American Whitewater ties the station directly to Camden-on-Gauley-to-Curtin Bridge and publishes route guidance beginning around 11 feet. This gauge supports natural-flow upper Gauley research only; it must not be used for Gauley Season below the dam.",
+      "potentialRoutes": ["Camden-on-Gauley to Curtin Bridge"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03189100&parameterCd=00060,00065&siteStatus=all", "https://www.americanwhitewater.org/content/River/view/river-detail/3105/main"]
+    },
+    {
+      "gaugeKey": "usgs:03192000",
+      "stationName": "Gauley River above Belva, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "proxy_only",
+      "reason": "Fresh discharge and stage are available far downstream in the Gauley system. The station can corroborate broad lower-river conditions, but it cannot replace the discontinued below-Summersville-Dam USGS station or model the timing and magnitude of scheduled releases through the Upper and Lower Gauley reaches.",
+      "potentialRoutes": [],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03192000&parameterCd=00060,00065&siteStatus=all", "https://www.nps.gov/gari/planyourvisit/whitewater.htm", "https://water.usace.army.mil/overview/lrh/locations/summersville"]
     }
   ],
+  "gauleyLiveProviderDecision": {
+    "decision": "defer_release_dependent_scoring",
+    "decidedAt": "2026-08-25",
+    "liveSource": {
+      "provider": "USACE CWMS Data Dissemination",
+      "project": "Summersville Lake",
+      "metric": "outflow_cfs",
+      "status": "official_live_source_exists_but_adapter_is_unsupported",
+      "source": "https://water.usace.army.mil/overview/lrh/locations/summersville"
+    },
+    "repositoryConstraint": "The application GaugeProvider union and fetch dispatcher currently support only USGS and Minnesota DNR; they do not support USACE CWMS.",
+    "repositoryEvidence": ["src/lib/types.ts", "src/lib/gauges.ts", "src/lib/gauge-coverage.ts"],
+    "releaseModel": "A scheduled release is a time-bounded operating plan, not an ordinary observed-gauge threshold. A future Gauley implementation must combine current USACE outflow, a current-year primary USACE schedule, delay/travel-time rules for lower reaches, cancellation/change handling, and advanced/expert safety gating.",
+    "routeDecision": "Do not include Summersville-Dam-to-Woods-Ferry or the Lower Gauley in the initial scored cohort. The NPS page available during this review still displays the 2025 schedule, so it is not valid as the 2026 schedule source. Permit planning-only release content only when it is visibly dated and linked to the current primary USACE schedule.",
+    "upstreamException": "USGS 03189100 remains route-capable for natural-flow Gauley reaches upstream of Summersville Lake; it is not a release proxy.",
+    "sources": ["https://www.nps.gov/gari/planyourvisit/whitewater.htm", "https://water.usace.army.mil/overview/lrh/locations/summersville", "https://www.americanwhitewater.org/content/River/view/river-detail/2378/main", "https://www.americanwhitewater.org/content/River/view/river-detail/3105/main"]
+  },
+  "initialCohort": {
+    "status": "implementation_dossiers_ready_for_data_entry",
+    "routeCount": 12,
+    "corridorCount": 6,
+    "selectionRule": "Only candidates marked advance, with two official or officially listed endpoints, a numeric gauge decision, explicit safety notes, and a camping classification are included.",
+    "routeIds": [
+      "wv-new-tug-creek-hellems",
+      "wv-new-glade-creek-grandview-sandbar",
+      "wv-new-mccreery-stone-cliff",
+      "wv-new-cunard-fayette-station",
+      "wv-greenbrier-spring-creek-anthony",
+      "wv-greenbrier-ronceverte-fort-spring",
+      "wv-greenbrier-fort-spring-alderson",
+      "wv-greenbrier-talcott-willowwood",
+      "wv-cheat-holly-meadows-st-george",
+      "wv-cheat-st-george-hannahsville",
+      "wv-cheat-rowlesburg-preston-foc",
+      "wv-cheat-albright-jenkinsburg"
+    ],
+    "discoveryMix": {
+      "lower_consequence_moving_water": ["wv-greenbrier-ronceverte-fort-spring", "wv-greenbrier-fort-spring-alderson", "wv-cheat-holly-meadows-st-george", "wv-cheat-st-george-hannahsville"],
+      "intermediate_whitewater": ["wv-new-tug-creek-hellems", "wv-new-glade-creek-grandview-sandbar", "wv-new-mccreery-stone-cliff", "wv-greenbrier-spring-creek-anthony", "wv-greenbrier-talcott-willowwood", "wv-cheat-rowlesburg-preston-foc"],
+      "advanced_expert_filtered": ["wv-new-cunard-fayette-station", "wv-cheat-albright-jenkinsburg"]
+    },
+    "implementationGuardrails": ["All 12 remain routeType whitewater under repository rules because they are Class II-or-higher and/or use American Whitewater as the primary threshold source.", "Do not convert the broad AW runnable maxima directly into Paddle Today safe maxima without the conservative calibration noted in each dossier.", "Re-run current closures, access status, and gauge freshness during the implementation batch; current observations are intentionally not frozen into route data."]
+  },
   "candidates": [
     {
       "id": "wv-new-tug-creek-hellems",
@@ -408,6 +685,230 @@
         "https://wvstateparks.com/parks/pipestem-state-park/activities/aerial-tour-at-pipestem-state-park/",
         "https://www.americanwhitewater.org/content/River/view/river-detail/3091/main"
       ]
+    },
+    {
+      "id": "wv-greenbrier-durbin-hosterman",
+      "river": "Greenbrier River",
+      "route": "Durbin to Hosterman",
+      "corridor": "Upper Greenbrier",
+      "decision": "blocked",
+      "blocker": "The AW route has a numeric Buckeye-gauge range, but the research set does not yet contain independent current proof that Hosterman is an authorized public boat access.",
+      "gaugeKey": "usgs:03182500",
+      "gaugeRelationship": "same-river downstream gauge tied to the reach by AW",
+      "distanceMiles": 7.7,
+      "difficulty": "Class I-II",
+      "routeType": "whitewater",
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 4.5, "maximum": 9.0, "source": "American Whitewater reach 3399"},
+      "nextAction": "Verify Hosterman ownership, parking, and carry-down authorization from a public manager before implementation.",
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/3399/main"]
+    },
+    {
+      "id": "wv-greenbrier-spring-creek-anthony",
+      "river": "Greenbrier River",
+      "route": "Spring Creek to Anthony",
+      "corridor": "Upper-middle Greenbrier",
+      "decision": "advance",
+      "gaugeKey": "usgs:03182500",
+      "gaugeRelationship": "same-river upstream reach tied directly to Buckeye by AW",
+      "distanceMiles": 7.53,
+      "difficulty": "Class I with a standout Class III feature",
+      "routeType": "whitewater",
+      "putIn": {"name": "Spring Creek", "manager": "WVDNR-listed access", "latitude": 37.9514, "longitude": -80.3461, "coordinateSource": "WVDNR District 4 Fishing Guide"},
+      "takeOut": {"name": "Anthony", "manager": "WVDNR-listed access", "latitude": 37.8965, "longitude": -80.3254, "coordinateSource": "WVDNR District 4 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 3.0, "maximum": 8.4, "source": "American Whitewater reach 4200"},
+      "safety": ["The route is mostly easy water but includes a standout Class III feature and therefore must not be framed as uniform flatwater.", "Access conditions can change; WVDNR directs users to confirm current site accessibility."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route or endpoint camping is claimed."},
+      "closureCheck": "Current WVDNR access material was reviewed 2026-08-25 and lists both sites; no separate current closure notice was found. Reconfirm with WVDNR before publication.",
+      "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Identify and name the standout Class III feature in route copy before launch."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/4200/main", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"]
+    },
+    {
+      "id": "wv-greenbrier-ronceverte-fort-spring",
+      "river": "Greenbrier River",
+      "route": "Ronceverte City Park to Fort Spring",
+      "corridor": "Middle Greenbrier",
+      "decision": "advance",
+      "gaugeKey": "usgs:03183500",
+      "gaugeRelationship": "direct same-river gauge at downstream end of the adjacent route chain",
+      "distanceMiles": 8.68,
+      "difficulty": "Class I-II",
+      "routeType": "whitewater",
+      "putIn": {"name": "Ronceverte City Park", "manager": "Municipal/WVDNR-listed access", "latitude": 37.7448, "longitude": -80.4661, "coordinateSource": "WVDNR District 4 Fishing Guide"},
+      "takeOut": {"name": "Fort Spring", "manager": "WVDNR-listed access", "latitude": 37.753, "longitude": -80.5464, "coordinateSource": "WVDNR District 4 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 2.85, "maximum": 10.0, "source": "American Whitewater reach 4201"},
+      "safety": ["Class II riffles become faster and more consequential as flow rises.", "Access conditions can change; WVDNR directs users to confirm current site accessibility."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route or endpoint camping is claimed."},
+      "closureCheck": "Current WVDNR access material was reviewed 2026-08-25 and lists both sites; no separate current closure notice was found. Reconfirm with WVDNR before publication.",
+      "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Calibrate a conservative product danger cutoff within AW's broad upper range."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/4201/main", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"]
+    },
+    {
+      "id": "wv-greenbrier-fort-spring-alderson",
+      "river": "Greenbrier River",
+      "route": "Fort Spring to Alderson",
+      "corridor": "Middle Greenbrier",
+      "decision": "advance",
+      "gaugeKey": "usgs:03183500",
+      "gaugeRelationship": "direct same-river gauge at the takeout community",
+      "distanceMiles": 6.3,
+      "difficulty": "Class I-II",
+      "routeType": "whitewater",
+      "putIn": {"name": "Fort Spring", "manager": "WVDNR-listed access", "latitude": 37.753, "longitude": -80.5464, "coordinateSource": "WVDNR District 4 Fishing Guide"},
+      "takeOut": {"name": "State Route 3 Bridge at Alderson", "manager": "WVDNR-listed access", "latitude": 37.7263, "longitude": -80.6499, "coordinateSource": "WVDNR District 4 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 2.85, "maximum": 10.0, "source": "American Whitewater reach 4202"},
+      "safety": ["The route contains Class II riffles and should retain moving-water framing.", "The selected Alderson coordinate follows WVDNR rather than AW's slightly different town access coordinate."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route or endpoint camping is claimed."},
+      "closureCheck": "Current WVDNR access material was reviewed 2026-08-25 and lists both sites; no separate current closure notice was found. Reconfirm the bridge-side launch before publication.",
+      "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Confirm the exact launch-side parking instructions at the State Route 3 bridge."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/4202/main", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"]
+    },
+    {
+      "id": "wv-greenbrier-talcott-willowwood",
+      "river": "Greenbrier River",
+      "route": "Talcott to Willowwood",
+      "corridor": "Lower Greenbrier",
+      "decision": "advance",
+      "gaugeKey": "usgs:03184000",
+      "gaugeRelationship": "same-river downstream gauge tied directly to the reach by AW",
+      "distanceMiles": 11.09,
+      "difficulty": "Class I-II with a standout Class III feature",
+      "routeType": "whitewater",
+      "putIn": {"name": "Talcott", "manager": "WVDNR-listed access", "latitude": 37.65, "longitude": -80.7511, "coordinateSource": "WVDNR District 4 Fishing Guide"},
+      "takeOut": {"name": "Willowwood", "manager": "WVDNR-listed access", "latitude": 37.6434, "longitude": -80.807, "coordinateSource": "WVDNR District 4 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 1.5, "maximum": 12.5, "source": "American Whitewater reach 4199"},
+      "safety": ["Lindsey Slide is a standout Class III feature and requires moving-water skill.", "AW's published upper range is very broad; product danger calibration must remain conservative."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route or endpoint camping is claimed."},
+      "closureCheck": "Current WVDNR access material was reviewed 2026-08-25 and lists both sites; no separate current closure notice was found. Reconfirm with WVDNR before publication.",
+      "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Set a conservative high-water product boundary after reviewing local safety guidance."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/4199/main", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"]
+    },
+    {
+      "id": "wv-greenbrier-willowwood-bellepoint",
+      "river": "Greenbrier River",
+      "route": "Willowwood to Bellepoint",
+      "corridor": "Greenbrier-New confluence",
+      "decision": "blocked",
+      "blocker": "AW and WVDNR endpoint names and coordinates conflict in a way that may reverse the route direction or place Bellepoint on the New River.",
+      "gaugeKey": "usgs:03184000",
+      "gaugeRelationship": "same-river upstream gauge tied to the reach by AW",
+      "distanceMiles": 5.5,
+      "difficulty": "Class I-II",
+      "routeType": "whitewater",
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 1.5, "maximum": 14.0, "source": "American Whitewater reach 2383"},
+      "nextAction": "Reconcile the route direction and endpoint coordinates against official parcel/access records and a generated river line before implementation.",
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/2383/main", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"]
+    },
+    {
+      "id": "wv-cheat-holly-meadows-st-george",
+      "river": "Cheat River",
+      "route": "Holly Meadows Bridge to St. George",
+      "corridor": "Upper Cheat River Water Trail",
+      "decision": "advance",
+      "gaugeKey": "usgs:03069500",
+      "gaugeRelationship": "direct same-river gauge immediately upstream at Parsons",
+      "distanceMiles": 7.95,
+      "difficulty": "Class I-II",
+      "routeType": "whitewater",
+      "putIn": {"name": "Holly Meadows Bridge", "manager": "West Virginia Division of Highways", "latitude": 39.122, "longitude": -79.675, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "takeOut": {"name": "St. George Bridge", "manager": "West Virginia Division of Highways", "latitude": 39.165, "longitude": -79.707, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 500, "maximum": 8000, "source": "American Whitewater reach 11739"},
+      "safety": ["The river can rise quickly after rain and remains moving water despite its Class I-II rating.", "The water-trail manager says access conditions and regulations can change and must be checked at site kiosks."],
+      "camping": {"classification": "none", "note": "The Upper Cheat River Water Trail states that none of its access points allow camping."},
+      "closureCheck": "The current Upper Cheat access page and WVDNR guide were reviewed 2026-08-25; both endpoints remain listed and no closure was posted in those sources.",
+      "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Choose a conservative high-water cutoff below AW's full published maximum for recreational discovery."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/11739/main", "https://cheatriverwatertrail.org/plan-your-trip/river-access-points/", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"]
+    },
+    {
+      "id": "wv-cheat-st-george-hannahsville",
+      "river": "Cheat River",
+      "route": "St. George to Hannahsville Ford",
+      "corridor": "Upper Cheat River Water Trail",
+      "decision": "advance",
+      "gaugeKey": "usgs:03069500",
+      "gaugeRelationship": "same-river upstream gauge tied directly to the containing AW reach",
+      "distanceMiles": 8.29,
+      "difficulty": "Class I-II",
+      "routeType": "whitewater",
+      "putIn": {"name": "St. George Bridge", "manager": "West Virginia Division of Highways", "latitude": 39.165, "longitude": -79.707, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "takeOut": {"name": "Hannahsville Ford", "manager": "West Virginia Division of Highways", "latitude": 39.245, "longitude": -79.708, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 500, "maximum": 8000, "source": "American Whitewater reach 11739"},
+      "safety": ["Remote segments have no listed cell service at either endpoint.", "The water-trail manager says access conditions and regulations can change and must be checked at site kiosks."],
+      "camping": {"classification": "none", "note": "The Upper Cheat River Water Trail states that none of its access points allow camping."},
+      "closureCheck": "The current Upper Cheat access page and WVDNR guide were reviewed 2026-08-25; both endpoints remain listed and no closure was posted in those sources.",
+      "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Document ford usability at the intended flow bands and after storm events."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/11739/main", "https://cheatriverwatertrail.org/plan-your-trip/river-access-points/", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"]
+    },
+    {
+      "id": "wv-cheat-hannahsville-riverview",
+      "river": "Cheat River",
+      "route": "Hannahsville Ford to Riverview Lounge",
+      "corridor": "Upper Cheat River Water Trail",
+      "decision": "blocked",
+      "blocker": "Riverview Lounge is an acknowledged water-trail access but privately owned; current use terms must be verified before product implementation.",
+      "gaugeKey": "usgs:03069500",
+      "gaugeRelationship": "same-river upstream gauge tied directly to the containing AW reach",
+      "distanceMiles": 12.78,
+      "difficulty": "Class I-II",
+      "routeType": "whitewater",
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 500, "maximum": 8000, "source": "American Whitewater reach 11739"},
+      "nextAction": "Obtain current written public-use, parking, hours, and closure terms from the private access owner.",
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/11739/main", "https://cheatriverwatertrail.org/plan-your-trip/river-access-points/"]
+    },
+    {
+      "id": "wv-cheat-riverview-rowlesburg",
+      "river": "Cheat River",
+      "route": "Riverview Lounge to Rowlesburg City Park",
+      "corridor": "Upper Cheat River Water Trail",
+      "decision": "blocked",
+      "blocker": "The put-in is privately owned and its current public-use terms are not documented in the research set.",
+      "gaugeKey": "usgs:03069500",
+      "gaugeRelationship": "same-river upstream gauge; numeric range applies through the AW reach ending at Riverview, so downstream transfer also needs confirmation",
+      "distanceMiles": 3.3,
+      "difficulty": "Class I-II",
+      "routeType": "whitewater",
+      "threshold": {"decision": "qualified_with_scope_caveat", "metric": "discharge_cfs", "minimum": 500, "maximum": 8000, "source": "American Whitewater reach 11739 plus WVDNR mileage table"},
+      "nextAction": "Verify private put-in terms and confirm that the Parsons-gauge range transfers to the short reach below AW's mapped endpoint.",
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/11739/main", "https://cheatriverwatertrail.org/plan-your-trip/river-access-points/", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"]
+    },
+    {
+      "id": "wv-cheat-rowlesburg-preston-foc",
+      "river": "Cheat River",
+      "route": "Rowlesburg City Park to Preston FOC",
+      "corridor": "Cheat Narrows",
+      "decision": "advance",
+      "gaugeKey": "usgs:0307020015",
+      "gaugeRelationship": "direct same-river gauge at the put-in community",
+      "distanceMiles": 8.0,
+      "difficulty": "Class II-III",
+      "routeType": "whitewater",
+      "putIn": {"name": "Rowlesburg City Park", "manager": "Municipality", "latitude": 39.349, "longitude": -79.671, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "takeOut": {"name": "Preston FOC", "manager": "Friends of the Cheat/WVDNR-listed access", "latitude": 39.431, "longitude": -79.684, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 450, "maximum": 10000, "source": "American Whitewater reach 2346 primary Rowlesburg correlation"},
+      "safety": ["Calamity Rock is a Class III+ outlier with a hazardous pourover hole, especially at higher flows.", "Roadside access does not make the Narrows a casual water-trail segment; moving-water skills and whitewater equipment are required."],
+      "camping": {"classification": "nearby_basecamp", "note": "No route or endpoint camping is claimed."},
+      "closureCheck": "WVDNR and current AW materials were reviewed 2026-08-25; both access sites remain listed and no current closure notice was found.",
+      "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Set a substantially more conservative product high-water cutoff than AW's full runnable maximum."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/2346/main", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"]
+    },
+    {
+      "id": "wv-cheat-albright-jenkinsburg",
+      "river": "Cheat River",
+      "route": "Albright FOC to Jenkinsburg Bridge",
+      "corridor": "Cheat Canyon",
+      "decision": "advance",
+      "gaugeKey": "usgs:03070260",
+      "gaugeRelationship": "direct same-river gauge at Albright",
+      "distanceMiles": 9.35,
+      "difficulty": "Class III-IV+",
+      "routeType": "whitewater",
+      "putIn": {"name": "Albright FOC / Muddy Creek access", "manager": "Friends of the Cheat", "latitude": 39.511, "longitude": -79.648, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "takeOut": {"name": "Jenkinsburg Bridge", "manager": "WVDNR-listed access / WV Land Trust corridor", "latitude": 39.596, "longitude": -79.748, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 10.7, "maximum": 18.0, "source": "American Whitewater reach 2347"},
+      "safety": ["This is committing Class III-IV+ wilderness whitewater with large holes, boulder hazards, and an extensive accident history.", "High Falls, the Coliseum sequence, and other major rapids require expert judgment; this route must remain outside default recreational discovery.", "The takeout trail is steep and shuttle roads may require a high-clearance vehicle."],
+      "camping": {"classification": "nearby_basecamp", "note": "No route or endpoint camping is claimed."},
+      "closureCheck": "WVDNR and current AW materials were reviewed 2026-08-25; both access sites remain listed. Current AW wood alerts must be rechecked immediately before publication and each trip.",
+      "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Apply advanced/expert-only discovery and copy.", "Review current wood alerts immediately before implementation."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/2347/main", "https://www.americanwhitewater.org/content/River/view/river-detail/2347/accidents", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"]
     }
   ]
 }

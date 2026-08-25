@@ -328,3 +328,12 @@ The West Virginia research phase is complete when:
   assumption;
 - the initial implementation cohort is small enough to verify as one state
   launch and diverse enough not to present West Virginia as expert-only.
+
+### Completion record — 2026-08-25
+
+The research phase met these criteria on the dedicated West Virginia branch.
+The [research ledger](./west-virginia-route-research-ledger.json) records 24 of
+24 Priority 1 gauge decisions, 18 bounded candidates, 18 numeric threshold
+decisions across six corridor groupings, and a 12-route initial cohort. It also
+records the explicit decision to defer release-dependent Gauley scoring until
+the application supports USACE CWMS data and a release-aware model.
