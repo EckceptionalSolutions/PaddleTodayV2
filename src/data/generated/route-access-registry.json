@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-25T02:02:39.311Z",
+  "generatedAt": "2026-08-25T20:02:54.777Z",
   "auditGeneratedAt": "2026-08-25T01:57:13.992Z",
   "summary": {
-    "entryCount": 1685,
-    "repeatedEntryCount": 527,
+    "entryCount": 1707,
+    "repeatedEntryCount": 549,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
     "derivedWaterEntryCount": 1006,
@@ -151048,6 +151048,1826 @@
           "coordinateEvidenceRole": null
         }
       ]
+    },
+    {
+      "id": "west-virginia--albright-foc-muddy-creek-access",
+      "state": "West Virginia",
+      "name": "Albright FOC / Muddy Creek access",
+      "aliases": [
+        "Albright FOC / Muddy Creek access"
+      ],
+      "sourceIds": [
+        "wv-cheat-albright-jenkinsburg-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.511,
+        "longitude": -79.648
+      },
+      "accessCoordinate": {
+        "latitude": 39.511,
+        "longitude": -79.648
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.51100,-79.64800",
+          "coordinate": {
+            "latitude": 39.511,
+            "longitude": -79.648
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-cheat-albright-jenkinsburg"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-cheat-albright-jenkinsburg",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-cheat-albright-jenkinsburg-put-in",
+          "name": "Albright FOC / Muddy Creek access",
+          "latitude": 39.511,
+          "longitude": -79.648,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-albright-jenkinsburg",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Albright FOC / Muddy Creek access",
+          "latitude": 39.511,
+          "longitude": -79.648,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--anthony-access",
+      "state": "West Virginia",
+      "name": "Anthony access",
+      "aliases": [
+        "Anthony access"
+      ],
+      "sourceIds": [
+        "wv-greenbrier-spring-creek-anthony-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.8965,
+        "longitude": -80.3254
+      },
+      "accessCoordinate": {
+        "latitude": 37.8965,
+        "longitude": -80.3254
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.89650,-80.32540",
+          "coordinate": {
+            "latitude": 37.8965,
+            "longitude": -80.3254
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-greenbrier-spring-creek-anthony"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-greenbrier-spring-creek-anthony",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-greenbrier-spring-creek-anthony-take-out",
+          "name": "Anthony access",
+          "latitude": 37.8965,
+          "longitude": -80.3254,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-spring-creek-anthony",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Anthony access",
+          "latitude": 37.8965,
+          "longitude": -80.3254,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--cunard-river-access",
+      "state": "West Virginia",
+      "name": "Cunard River Access",
+      "aliases": [
+        "Cunard River Access"
+      ],
+      "sourceIds": [
+        "wv-new-cunard-fayette-station-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.000299,
+        "longitude": -81.022809
+      },
+      "accessCoordinate": {
+        "latitude": 38.000299,
+        "longitude": -81.022809
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.00030,-81.02281",
+          "coordinate": {
+            "latitude": 38.000299,
+            "longitude": -81.022809
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-new-cunard-fayette-station"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-new-cunard-fayette-station",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-new-cunard-fayette-station-put-in",
+          "name": "Cunard River Access",
+          "latitude": 38.000299,
+          "longitude": -81.022809,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-new-cunard-fayette-station",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Cunard River Access",
+          "latitude": 38.000299,
+          "longitude": -81.022809,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--fayette-station-river-access",
+      "state": "West Virginia",
+      "name": "Fayette Station River Access",
+      "aliases": [
+        "Fayette Station River Access"
+      ],
+      "sourceIds": [
+        "wv-new-cunard-fayette-station-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.065996,
+        "longitude": -81.080839
+      },
+      "accessCoordinate": {
+        "latitude": 38.065996,
+        "longitude": -81.080839
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.06600,-81.08084",
+          "coordinate": {
+            "latitude": 38.065996,
+            "longitude": -81.080839
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-new-cunard-fayette-station"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-new-cunard-fayette-station",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-new-cunard-fayette-station-take-out",
+          "name": "Fayette Station River Access",
+          "latitude": 38.065996,
+          "longitude": -81.080839,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-new-cunard-fayette-station",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Fayette Station River Access",
+          "latitude": 38.065996,
+          "longitude": -81.080839,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--fort-spring-access",
+      "state": "West Virginia",
+      "name": "Fort Spring access",
+      "aliases": [
+        "Fort Spring access"
+      ],
+      "sourceIds": [
+        "wv-greenbrier-fort-spring-alderson-put-in",
+        "wv-greenbrier-ronceverte-fort-spring-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.753,
+        "longitude": -80.5464
+      },
+      "accessCoordinate": {
+        "latitude": 37.753,
+        "longitude": -80.5464
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "37.75300,-80.54640",
+          "coordinate": {
+            "latitude": 37.753,
+            "longitude": -80.5464
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "wv-greenbrier-fort-spring-alderson",
+            "wv-greenbrier-ronceverte-fort-spring"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-greenbrier-fort-spring-alderson",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-greenbrier-fort-spring-alderson-put-in",
+          "name": "Fort Spring access",
+          "latitude": 37.753,
+          "longitude": -80.5464,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-fort-spring-alderson",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Fort Spring access",
+          "latitude": 37.753,
+          "longitude": -80.5464,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-ronceverte-fort-spring",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-greenbrier-ronceverte-fort-spring-take-out",
+          "name": "Fort Spring access",
+          "latitude": 37.753,
+          "longitude": -80.5464,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-ronceverte-fort-spring",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Fort Spring access",
+          "latitude": 37.753,
+          "longitude": -80.5464,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--glade-creek-river-access",
+      "state": "West Virginia",
+      "name": "Glade Creek River Access",
+      "aliases": [
+        "Glade Creek River Access"
+      ],
+      "sourceIds": [
+        "wv-new-glade-creek-grandview-sandbar-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.82912,
+        "longitude": -81.014533
+      },
+      "accessCoordinate": {
+        "latitude": 37.82912,
+        "longitude": -81.014533
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.82912,-81.01453",
+          "coordinate": {
+            "latitude": 37.82912,
+            "longitude": -81.014533
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-new-glade-creek-grandview-sandbar"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-new-glade-creek-grandview-sandbar",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-new-glade-creek-grandview-sandbar-put-in",
+          "name": "Glade Creek River Access",
+          "latitude": 37.82912,
+          "longitude": -81.014533,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-new-glade-creek-grandview-sandbar",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Glade Creek River Access",
+          "latitude": 37.82912,
+          "longitude": -81.014533,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--grandview-sandbar-river-access",
+      "state": "West Virginia",
+      "name": "Grandview Sandbar River Access",
+      "aliases": [
+        "Grandview Sandbar River Access"
+      ],
+      "sourceIds": [
+        "wv-new-glade-creek-grandview-sandbar-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.857024,
+        "longitude": -81.053783
+      },
+      "accessCoordinate": {
+        "latitude": 37.857024,
+        "longitude": -81.053783
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.85702,-81.05378",
+          "coordinate": {
+            "latitude": 37.857024,
+            "longitude": -81.053783
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-new-glade-creek-grandview-sandbar"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-new-glade-creek-grandview-sandbar",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-new-glade-creek-grandview-sandbar-take-out",
+          "name": "Grandview Sandbar River Access",
+          "latitude": 37.857024,
+          "longitude": -81.053783,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-new-glade-creek-grandview-sandbar",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Grandview Sandbar River Access",
+          "latitude": 37.857024,
+          "longitude": -81.053783,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--hannahsville-ford-access",
+      "state": "West Virginia",
+      "name": "Hannahsville Ford access",
+      "aliases": [
+        "Hannahsville Ford access"
+      ],
+      "sourceIds": [
+        "wv-cheat-st-george-hannahsville-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.245,
+        "longitude": -79.708
+      },
+      "accessCoordinate": {
+        "latitude": 39.245,
+        "longitude": -79.708
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.24500,-79.70800",
+          "coordinate": {
+            "latitude": 39.245,
+            "longitude": -79.708
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-cheat-st-george-hannahsville"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-cheat-st-george-hannahsville",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-cheat-st-george-hannahsville-take-out",
+          "name": "Hannahsville Ford access",
+          "latitude": 39.245,
+          "longitude": -79.708,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-st-george-hannahsville",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Hannahsville Ford access",
+          "latitude": 39.245,
+          "longitude": -79.708,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--hellems-beach-river-access",
+      "state": "West Virginia",
+      "name": "Hellems Beach River Access",
+      "aliases": [
+        "Hellems Beach River Access"
+      ],
+      "sourceIds": [
+        "wv-new-tug-creek-hellems-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.724596,
+        "longitude": -80.896656
+      },
+      "accessCoordinate": {
+        "latitude": 37.724596,
+        "longitude": -80.896656
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.72460,-80.89666",
+          "coordinate": {
+            "latitude": 37.724596,
+            "longitude": -80.896656
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-new-tug-creek-hellems"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-new-tug-creek-hellems",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-new-tug-creek-hellems-take-out",
+          "name": "Hellems Beach River Access",
+          "latitude": 37.724596,
+          "longitude": -80.896656,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-new-tug-creek-hellems",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Hellems Beach River Access",
+          "latitude": 37.724596,
+          "longitude": -80.896656,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--holly-meadows-bridge-access",
+      "state": "West Virginia",
+      "name": "Holly Meadows Bridge access",
+      "aliases": [
+        "Holly Meadows Bridge access"
+      ],
+      "sourceIds": [
+        "wv-cheat-holly-meadows-st-george-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.122,
+        "longitude": -79.675
+      },
+      "accessCoordinate": {
+        "latitude": 39.122,
+        "longitude": -79.675
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.12200,-79.67500",
+          "coordinate": {
+            "latitude": 39.122,
+            "longitude": -79.675
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-cheat-holly-meadows-st-george"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-cheat-holly-meadows-st-george",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-cheat-holly-meadows-st-george-put-in",
+          "name": "Holly Meadows Bridge access",
+          "latitude": 39.122,
+          "longitude": -79.675,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-holly-meadows-st-george",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Holly Meadows Bridge access",
+          "latitude": 39.122,
+          "longitude": -79.675,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--jenkinsburg-bridge-access",
+      "state": "West Virginia",
+      "name": "Jenkinsburg Bridge access",
+      "aliases": [
+        "Jenkinsburg Bridge access"
+      ],
+      "sourceIds": [
+        "wv-cheat-albright-jenkinsburg-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.596,
+        "longitude": -79.748
+      },
+      "accessCoordinate": {
+        "latitude": 39.596,
+        "longitude": -79.748
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.59600,-79.74800",
+          "coordinate": {
+            "latitude": 39.596,
+            "longitude": -79.748
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-cheat-albright-jenkinsburg"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-cheat-albright-jenkinsburg",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-cheat-albright-jenkinsburg-take-out",
+          "name": "Jenkinsburg Bridge access",
+          "latitude": 39.596,
+          "longitude": -79.748,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-albright-jenkinsburg",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Jenkinsburg Bridge access",
+          "latitude": 39.596,
+          "longitude": -79.748,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--mccreery-river-access",
+      "state": "West Virginia",
+      "name": "McCreery River Access",
+      "aliases": [
+        "McCreery River Access"
+      ],
+      "sourceIds": [
+        "wv-new-mccreery-stone-cliff-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.848591,
+        "longitude": -81.092046
+      },
+      "accessCoordinate": {
+        "latitude": 37.848591,
+        "longitude": -81.092046
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.84859,-81.09205",
+          "coordinate": {
+            "latitude": 37.848591,
+            "longitude": -81.092046
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-new-mccreery-stone-cliff"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-new-mccreery-stone-cliff",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-new-mccreery-stone-cliff-put-in",
+          "name": "McCreery River Access",
+          "latitude": 37.848591,
+          "longitude": -81.092046,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-new-mccreery-stone-cliff",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "McCreery River Access",
+          "latitude": 37.848591,
+          "longitude": -81.092046,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--preston-friends-of-cheat-access",
+      "state": "West Virginia",
+      "name": "Preston Friends of Cheat access",
+      "aliases": [
+        "Preston Friends of Cheat access"
+      ],
+      "sourceIds": [
+        "wv-cheat-rowlesburg-preston-foc-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.431,
+        "longitude": -79.684
+      },
+      "accessCoordinate": {
+        "latitude": 39.431,
+        "longitude": -79.684
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.43100,-79.68400",
+          "coordinate": {
+            "latitude": 39.431,
+            "longitude": -79.684
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-cheat-rowlesburg-preston-foc"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-cheat-rowlesburg-preston-foc",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-cheat-rowlesburg-preston-foc-take-out",
+          "name": "Preston Friends of Cheat access",
+          "latitude": 39.431,
+          "longitude": -79.684,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-rowlesburg-preston-foc",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Preston Friends of Cheat access",
+          "latitude": 39.431,
+          "longitude": -79.684,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--ronceverte-city-park-access",
+      "state": "West Virginia",
+      "name": "Ronceverte City Park access",
+      "aliases": [
+        "Ronceverte City Park access"
+      ],
+      "sourceIds": [
+        "wv-greenbrier-ronceverte-fort-spring-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.7448,
+        "longitude": -80.4661
+      },
+      "accessCoordinate": {
+        "latitude": 37.7448,
+        "longitude": -80.4661
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.74480,-80.46610",
+          "coordinate": {
+            "latitude": 37.7448,
+            "longitude": -80.4661
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-greenbrier-ronceverte-fort-spring"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-greenbrier-ronceverte-fort-spring",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-greenbrier-ronceverte-fort-spring-put-in",
+          "name": "Ronceverte City Park access",
+          "latitude": 37.7448,
+          "longitude": -80.4661,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-ronceverte-fort-spring",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Ronceverte City Park access",
+          "latitude": 37.7448,
+          "longitude": -80.4661,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--rowlesburg-city-park-access",
+      "state": "West Virginia",
+      "name": "Rowlesburg City Park access",
+      "aliases": [
+        "Rowlesburg City Park access"
+      ],
+      "sourceIds": [
+        "wv-cheat-rowlesburg-preston-foc-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.349,
+        "longitude": -79.671
+      },
+      "accessCoordinate": {
+        "latitude": 39.349,
+        "longitude": -79.671
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.34900,-79.67100",
+          "coordinate": {
+            "latitude": 39.349,
+            "longitude": -79.671
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-cheat-rowlesburg-preston-foc"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-cheat-rowlesburg-preston-foc",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-cheat-rowlesburg-preston-foc-put-in",
+          "name": "Rowlesburg City Park access",
+          "latitude": 39.349,
+          "longitude": -79.671,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-rowlesburg-preston-foc",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Rowlesburg City Park access",
+          "latitude": 39.349,
+          "longitude": -79.671,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--spring-creek-access",
+      "state": "West Virginia",
+      "name": "Spring Creek access",
+      "aliases": [
+        "Spring Creek access"
+      ],
+      "sourceIds": [
+        "wv-greenbrier-spring-creek-anthony-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.9514,
+        "longitude": -80.3461
+      },
+      "accessCoordinate": {
+        "latitude": 37.9514,
+        "longitude": -80.3461
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.95140,-80.34610",
+          "coordinate": {
+            "latitude": 37.9514,
+            "longitude": -80.3461
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-greenbrier-spring-creek-anthony"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-greenbrier-spring-creek-anthony",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-greenbrier-spring-creek-anthony-put-in",
+          "name": "Spring Creek access",
+          "latitude": 37.9514,
+          "longitude": -80.3461,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-spring-creek-anthony",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Spring Creek access",
+          "latitude": 37.9514,
+          "longitude": -80.3461,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--st-george-bridge-access",
+      "state": "West Virginia",
+      "name": "St. George Bridge access",
+      "aliases": [
+        "St. George Bridge access"
+      ],
+      "sourceIds": [
+        "wv-cheat-holly-meadows-st-george-take-out",
+        "wv-cheat-st-george-hannahsville-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.165,
+        "longitude": -79.707
+      },
+      "accessCoordinate": {
+        "latitude": 39.165,
+        "longitude": -79.707
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "39.16500,-79.70700",
+          "coordinate": {
+            "latitude": 39.165,
+            "longitude": -79.707
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "wv-cheat-holly-meadows-st-george",
+            "wv-cheat-st-george-hannahsville"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-cheat-holly-meadows-st-george",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-cheat-holly-meadows-st-george-take-out",
+          "name": "St. George Bridge access",
+          "latitude": 39.165,
+          "longitude": -79.707,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-holly-meadows-st-george",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "St. George Bridge access",
+          "latitude": 39.165,
+          "longitude": -79.707,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-st-george-hannahsville",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-cheat-st-george-hannahsville-put-in",
+          "name": "St. George Bridge access",
+          "latitude": 39.165,
+          "longitude": -79.707,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-cheat-st-george-hannahsville",
+          "routeName": "Cheat River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "St. George Bridge access",
+          "latitude": 39.165,
+          "longitude": -79.707,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--state-route-3-bridge-access-at-alderson",
+      "state": "West Virginia",
+      "name": "State Route 3 Bridge access at Alderson",
+      "aliases": [
+        "State Route 3 Bridge access at Alderson"
+      ],
+      "sourceIds": [
+        "wv-greenbrier-fort-spring-alderson-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.7263,
+        "longitude": -80.6499
+      },
+      "accessCoordinate": {
+        "latitude": 37.7263,
+        "longitude": -80.6499
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.72630,-80.64990",
+          "coordinate": {
+            "latitude": 37.7263,
+            "longitude": -80.6499
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-greenbrier-fort-spring-alderson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-greenbrier-fort-spring-alderson",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-greenbrier-fort-spring-alderson-take-out",
+          "name": "State Route 3 Bridge access at Alderson",
+          "latitude": 37.7263,
+          "longitude": -80.6499,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-fort-spring-alderson",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "State Route 3 Bridge access at Alderson",
+          "latitude": 37.7263,
+          "longitude": -80.6499,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--stone-cliff-river-access",
+      "state": "West Virginia",
+      "name": "Stone Cliff River Access",
+      "aliases": [
+        "Stone Cliff River Access"
+      ],
+      "sourceIds": [
+        "wv-new-mccreery-stone-cliff-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.933013,
+        "longitude": -81.063513
+      },
+      "accessCoordinate": {
+        "latitude": 37.933013,
+        "longitude": -81.063513
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.93301,-81.06351",
+          "coordinate": {
+            "latitude": 37.933013,
+            "longitude": -81.063513
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-new-mccreery-stone-cliff"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-new-mccreery-stone-cliff",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-new-mccreery-stone-cliff-take-out",
+          "name": "Stone Cliff River Access",
+          "latitude": 37.933013,
+          "longitude": -81.063513,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-new-mccreery-stone-cliff",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Stone Cliff River Access",
+          "latitude": 37.933013,
+          "longitude": -81.063513,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--talcott-access",
+      "state": "West Virginia",
+      "name": "Talcott access",
+      "aliases": [
+        "Talcott access"
+      ],
+      "sourceIds": [
+        "wv-greenbrier-talcott-willowwood-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.65,
+        "longitude": -80.7511
+      },
+      "accessCoordinate": {
+        "latitude": 37.65,
+        "longitude": -80.7511
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.65000,-80.75110",
+          "coordinate": {
+            "latitude": 37.65,
+            "longitude": -80.7511
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-greenbrier-talcott-willowwood"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-greenbrier-talcott-willowwood",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-greenbrier-talcott-willowwood-put-in",
+          "name": "Talcott access",
+          "latitude": 37.65,
+          "longitude": -80.7511,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-talcott-willowwood",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Talcott access",
+          "latitude": 37.65,
+          "longitude": -80.7511,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--tug-creek-river-access",
+      "state": "West Virginia",
+      "name": "Tug Creek River Access",
+      "aliases": [
+        "Tug Creek River Access"
+      ],
+      "sourceIds": [
+        "wv-new-tug-creek-hellems-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.698042,
+        "longitude": -80.884106
+      },
+      "accessCoordinate": {
+        "latitude": 37.698042,
+        "longitude": -80.884106
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.69804,-80.88411",
+          "coordinate": {
+            "latitude": 37.698042,
+            "longitude": -80.884106
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-new-tug-creek-hellems"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-new-tug-creek-hellems",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-new-tug-creek-hellems-put-in",
+          "name": "Tug Creek River Access",
+          "latitude": 37.698042,
+          "longitude": -80.884106,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-new-tug-creek-hellems",
+          "routeName": "New River",
+          "state": "West Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Tug Creek River Access",
+          "latitude": 37.698042,
+          "longitude": -80.884106,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "west-virginia--willowwood-access",
+      "state": "West Virginia",
+      "name": "Willowwood access",
+      "aliases": [
+        "Willowwood access"
+      ],
+      "sourceIds": [
+        "wv-greenbrier-talcott-willowwood-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.6434,
+        "longitude": -80.807
+      },
+      "accessCoordinate": {
+        "latitude": 37.6434,
+        "longitude": -80.807
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.64340,-80.80700",
+          "coordinate": {
+            "latitude": 37.6434,
+            "longitude": -80.807
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "wv-greenbrier-talcott-willowwood"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-greenbrier-talcott-willowwood",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "wv-greenbrier-talcott-willowwood-take-out",
+          "name": "Willowwood access",
+          "latitude": 37.6434,
+          "longitude": -80.807,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "wv-greenbrier-talcott-willowwood",
+          "routeName": "Greenbrier River",
+          "state": "West Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Willowwood access",
+          "latitude": 37.6434,
+          "longitude": -80.807,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
     }
   ]
-}
+}\n
