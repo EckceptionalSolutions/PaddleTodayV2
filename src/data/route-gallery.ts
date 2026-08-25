@@ -1,4 +1,12 @@
 import { getDedicatedRiverGroupHeroPhoto } from './river-group-hero-photos';
+import {
+  cheatRiverHeadwatersPhoto,
+  cheatRiverRowlesburgPhoto,
+  greenbrierRiverWestVirginiaPhoto,
+  greenbrierTalcottPhoto,
+  newRiverCunardPhoto,
+  newRiverGorgeContextPhoto,
+} from './route-gallery-west-virginia';
 
 export interface RouteGalleryPhoto {
   id: string;
@@ -3032,6 +3040,9 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'wv-new-cunard-fayette-station': [newRiverCunardPhoto],
+  'wv-cheat-rowlesburg-preston-foc': [cheatRiverRowlesburgPhoto],
+  'wv-greenbrier-talcott-willowwood': [greenbrierTalcottPhoto],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
@@ -3211,6 +3222,9 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Mr. Satterly via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: WTFPL',
   },
+  'new-river': newRiverGorgeContextPhoto,
+  'greenbrier-river': greenbrierRiverWestVirginiaPhoto,
+  'cheat-river': cheatRiverHeadwatersPhoto,
 };
 
 function stablePhotoIndex(key: string, length: number): number {
