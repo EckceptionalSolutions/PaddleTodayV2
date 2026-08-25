@@ -151,6 +151,9 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
     accessCaveats: spec.accessCaveats,
     watchFor: spec.watchFor,
   };
+  const gaugePlanningNote = spec.gaugeSiteId === '03185400'
+    ? ' Same-river proxy only: the Thurmond telemetry is not a route-endpoint measurement, so pair it with a same-day visual, rainfall, and access check.'
+    : '';
   return {
     id: spec.id,
     slug: spec.id,
@@ -162,7 +165,7 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
     region: spec.region,
     routeType: 'whitewater',
     summary: `${spec.name} ${spec.reach} is a ${spec.distance} ${spec.classLabel} run documented by American Whitewater and official access partners.`,
-    statusText: `Use USGS ${spec.gaugeSiteId} as the live planning gauge. Recheck current ${spec.gaugeUnit === 'cfs' ? 'discharge' : 'stage'}, trend, rainfall, access, shuttle roads, hazards, and daylight immediately before launch.`,
+    statusText: `Use USGS ${spec.gaugeSiteId} as the live planning gauge. Recheck current ${spec.gaugeUnit === 'cfs' ? 'discharge' : 'stage'}, trend, rainfall, access, shuttle roads, hazards, and daylight immediately before launch.${gaugePlanningNote}`,
     latitude: (spec.putIn.latitude + spec.takeOut.latitude) / 2,
     longitude: (spec.putIn.longitude + spec.takeOut.longitude) / 2,
     putIn: spec.putIn,
@@ -178,7 +181,7 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
       rainfallSensitivity: 'high', seasonMonths: [4, 5, 6, 7, 8, 9, 10], seasonNotes: spec.seasonNotes,
       difficulty: spec.difficulty, difficultyNotes: spec.difficultyNotes, confidenceNotes: spec.confidenceNotes,
     },
-    evidenceNotes: [...spec.evidenceNotes, { label: 'Gauge', value: `USGS ${spec.gaugeSiteId} ${spec.gaugeMetric === 'discharge_cfs' ? 'discharge' : 'stage'} telemetry`, note: 'Official same-river gauge used for the route planning screen; verify current value and trend before launch.', sourceUrl: spec.gaugeHydrographUrl }],
+    evidenceNotes: [...spec.evidenceNotes, { label: 'Gauge', value: `USGS ${spec.gaugeSiteId} ${spec.gaugeMetric === 'discharge_cfs' ? 'discharge' : 'stage'} telemetry`, note: spec.gaugeSiteId === '03185400' ? 'Official same-river proxy used for the route planning screen; it is not a route-endpoint measurement. Verify current value and trend alongside weather, visual conditions, and access.' : 'Official same-river gauge used for the route planning screen; verify current value and trend before launch.', sourceUrl: spec.gaugeHydrographUrl }],
     sourceLinks,
     scoreEligibility: 'scored',
   };
