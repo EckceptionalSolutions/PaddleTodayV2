@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 26 West Virginia route cards:
+The current catalog has 27 West Virginia route cards:
 
 - New River: 4
 - Greenbrier River: 4
@@ -13,10 +13,10 @@ The current catalog has 26 West Virginia route cards:
 - Cacapon River: 1
 - Elk River: 2
 - Big Coal River: 5
-- Coal River: 2
+- Coal River: 3
 - Little Coal River: 3
 
-The research ledger has decisions for 24 priority gauges and 30 bounded route candidates across 7 corridors. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 24 priority gauges and 31 bounded route candidates across 7 corridors. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -33,7 +33,7 @@ A corridor counts as saturated only when it has:
 
 ### Current progress — 2026-08-26
 
-The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order. **Wave 1A and 1C are implemented** as `wv-elk-webster-springs-clifton-ford` and `wv-elk-king-shoals-queen-shoals`; both have distinct public endpoint coordinates, canonical geometry, safety/camping notes, and route-specific images. Wave 1B remains gated on confirming a distinct Sandy Beach endpoint and avoiding duplicate coverage. **Wave 2 B-1 through B-5, L-1/L-2/L-3, and Coal C-2/C-3 are now implemented** as `wv-big-coal-whitesville-orgas`, `wv-big-coal-orgas-john-slack`, `wv-big-coal-john-slack-dartmont`, `wv-big-coal-dartmont-sproul`, `wv-big-coal-sproul-lions-park`, `wv-little-coal-madison-donald-kuhn`, `wv-little-coal-donald-kuhn-waterways`, `wv-little-coal-waterways-corridor-g`, `wv-coal-meadowood-lower-falls`, and `wv-coal-lower-falls-st-albans`; B-1/B-2/B-4/B-5 use the Ashford gauge as an upstream/downstream proxy as labeled, B-3 uses the near-reach Ashford reading, L-1/L-2/L-3 use the Danville gauge (direct for L-1, upstream proxy for L-2/L-3), and C-2/C-3 use the Tornado gauge (same-reach near C-2, upstream proxy for C-3). The route-family screens are conservative USGS-statistics inferences where no official range is published. All ten have Coal River Water Trail access, safety/camping notes, geometry, and image coverage. B-5 preserves the brochure's 4-mile Lock 4 option as a documented decision point while publishing the full 6-mile Alum Creek Lions Club Park variant; C-2/C-3 retain the Upper Falls/Lower Falls boundary and do not imply a dam portage. L-3 uses the WVDNR-listed The Forks of Coal public access because the brochure's printed bridge longitude lands off-channel near Fuquay Creek; the brochure's 12-mile versus approximately 15-mile distance caveat remains visible.
+The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order. **Wave 1A and 1C are implemented** as `wv-elk-webster-springs-clifton-ford` and `wv-elk-king-shoals-queen-shoals`; both have distinct public endpoint coordinates, canonical geometry, safety/camping notes, and route-specific images. Wave 1B remains gated on confirming a distinct Sandy Beach endpoint and avoiding duplicate coverage. **Wave 2 B-1 through B-5, L-1/L-2/L-3/L-4, and Coal C-2/C-3 are now implemented** as `wv-big-coal-whitesville-orgas`, `wv-big-coal-orgas-john-slack`, `wv-big-coal-john-slack-dartmont`, `wv-big-coal-dartmont-sproul`, `wv-big-coal-sproul-lions-park`, `wv-little-coal-madison-donald-kuhn`, `wv-little-coal-donald-kuhn-waterways`, `wv-little-coal-waterways-corridor-g`, `wv-coal-meadowood-lower-falls`, `wv-coal-lower-falls-st-albans`, and `wv-coal-forks-lions-park`; B-1/B-2/B-4/B-5 use the Ashford gauge as an upstream/downstream proxy as labeled, B-3 uses the near-reach Ashford reading, L-1/L-2/L-3 use the Danville gauge (direct for L-1, upstream proxy for L-2/L-3), and C-2/C-3/L-4 use the Tornado gauge (same-reach near C-2, upstream proxy for C-3/L-4). The route-family screens are conservative USGS-statistics inferences where no official range is published. All eleven have Coal River Water Trail access, safety/camping notes, geometry, and image coverage. B-5 preserves the brochure's 4-mile Lock 4 option as a documented decision point while publishing the full 6-mile Alum Creek Lions Club Park variant; C-2/C-3 retain the Upper Falls/Lower Falls boundary and do not imply a dam portage. L-3/L-4 use the WVDNR-listed The Forks of Coal access because the brochure's printed Corridor G longitude lands off-channel near Fuquay Creek; the brochure's distance and Lock 4 decision points remain visible.
 
 ### Wave 1 — Elk River Water Trail (highest information density)
 
@@ -62,7 +62,8 @@ This is the best next multi-corridor expansion after Elk: the 2026 Coal River Wa
 8. **Implemented:** Coal mainstem: Meadowood Park to Lower Falls (`wv-coal-meadowood-lower-falls`), with the Upper Falls Dam hard boundary and direct Tornado gauge.
 9. **Implemented:** Coal mainstem: Lower Falls to St. Albans (`wv-coal-lower-falls-st-albans`), with the lower-river water-quality, traffic, and proxy-gauge caveats.
 10. **Implemented:** Little Coal: Boone County Water Park to The Forks of Coal public access (`wv-little-coal-waterways-corridor-g`), correcting the brochure's off-channel bridge coordinate and retaining the upstream Danville proxy.
-11. Coal system: evaluate Little Coal L-4 or a West Fork River pair after confirming access and threshold evidence.
+11. **Implemented:** Little Coal/Coal confluence: The Forks of Coal to Alum Creek Lions Club Park (`wv-coal-forks-lions-park`), with Lock 4 as an intermediate hazard/decision point.
+12. Coal system: evaluate a West Fork River pair after confirming access and threshold evidence.
 
 Gate: recover exact brochure coordinates, confirm current public parking/land manager, and establish route-specific numeric screens for USGS 03198500, 03199000, and 03200500.
 
@@ -88,4 +89,4 @@ Gate: join the WVDNR coordinates to current water-trail access names, check dams
 
 For each wave, work in this order: (1) endpoint and land-manager verification, (2) gauge-to-reach relationship, (3) numeric threshold, (4) hazards and closures, (5) camping and shuttle, (6) imagery, (7) geometry and generated access registry, and (8) focused route/safety/gallery/TypeScript checks. A candidate that fails an access or threshold gate remains in the ledger as blocked rather than becoming an inferred route.
 
-The next concrete batch is **Little Coal L-4 or a West Fork River pair**, selected after confirming which remaining corridor has the strongest current parking and threshold evidence. Keep the Upper Falls portage boundary explicit for any mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.
+The next concrete batch is **a West Fork River pair**, selected after confirming the Good Hope/West Milford or Worthington/Monongah endpoints and a defensible gauge relationship. Keep the Upper Falls portage boundary explicit for any mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.

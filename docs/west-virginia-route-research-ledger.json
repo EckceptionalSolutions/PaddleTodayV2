@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 30,
-    "candidatesWithNumericThresholdDecision": 30,
+    "boundedCandidatesScreened": 31,
+    "candidatesWithNumericThresholdDecision": 31,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 24
+    "advancingCandidates": 25
   },
   "gaugeDecisions": [
     {
@@ -1149,6 +1149,26 @@
       "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03199000 were reviewed 2026-08-26; confirm the Water Park north ramp, The Forks of Coal carry path and lot, legal vehicle staging, and any campground/road closure day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Danville proxy trend against local rainfall and lower Little Coal conditions before launch.", "Verify reuse terms for the shared Coal River Group Little Coal image."],
       "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/little-coal-river/", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/little-coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03199000/"]
+    },
+    {
+      "id": "wv-coal-forks-lions-park",
+      "river": "Coal River",
+      "route": "The Forks of Coal public access to Alum Creek Lions Club Park",
+      "corridor": "Little Coal River Water Trail / L-4",
+      "decision": "advance",
+      "gaugeKey": "usgs:03200500",
+      "gaugeRelationship": "downstream same-river proxy at Tornado for the Forks–Lions confluence reach",
+      "distanceMiles": 3,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "The Forks of Coal public access", "manager": "WVDNR-listed public access lot; verify carry path and confluence conditions", "latitude": 38.2670, "longitude": -81.8052, "coordinateSource": "WVDNR District 5 Fishing Guide"},
+      "takeOut": {"name": "Alum Creek Lions Club Park public boat access", "manager": "WVDNR-listed public access lot; verify parking and ramp condition", "latitude": 38.2994, "longitude": -81.8108, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 200, "maximum": 5000, "source": "Conservative Coal/Little Coal reuse from USGS 03200500 April–October daily-mean inference: roughly 200 cfs low, 400 cfs planning floor, 2,000 cfs upper planning band, and 5,000 cfs high-water stop; no official L-4 runnable range published"},
+      "safety": ["The Coal River Water Trail brochure names L-4 as a 3-mile Corridor G-to-Lions Park trip with Lock 4 as an intermediate launch/take-out decision. The printed Corridor G coordinate is off-channel near Fuquay Creek, so the product uses WVDNR's The Forks of Coal public access as the auditable start.", "Tornado telemetry is downstream and only a same-river proxy. The confluence, lock structures, shallow riffles, strainers, submerged debris, private banks, and rapid post-rain rises require a visual check and conservative go/no-go decision.", "Wear a fitted PFD, carry a float plan and communications backup, and do not run or approach any low-head/lock structure. Lock 4 is not an automatic bailout; land only at open, signed public properties."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use the Boone County Water Park/Little Coal campground or other verified Coal River lodging as a nearby basecamp; confirm availability, fees, fire rules, water quality, and overnight parking."},
+      "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03200500 were reviewed 2026-08-26; confirm Forks carry path, confluence conditions, Lions Park ramp, Lock 4 hazards, and any event/maintenance closure day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the downstream Tornado proxy trend against local rainfall and confluence conditions before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
+      "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/", "https://diyoutdoors.wvu.edu/canoeing/coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03200500/"]
     }
   ]
 }

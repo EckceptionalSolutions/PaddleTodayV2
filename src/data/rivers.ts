@@ -1182,6 +1182,7 @@ const routeOrder = [
   ,"wv-big-coal-sproul-lions-park"
   ,"wv-coal-meadowood-lower-falls"
   ,"wv-coal-lower-falls-st-albans"
+  ,"wv-coal-forks-lions-park"
   ,"wv-little-coal-madison-donald-kuhn"
   ,"wv-little-coal-donald-kuhn-waterways"
   ,"wv-little-coal-waterways-corridor-g"
