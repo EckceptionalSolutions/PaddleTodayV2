@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 24,
-    "candidatesWithNumericThresholdDecision": 24,
+    "boundedCandidatesScreened": 25,
+    "candidatesWithNumericThresholdDecision": 25,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 18
+    "advancingCandidates": 19
   },
   "gaugeDecisions": [
     {
@@ -1028,6 +1028,26 @@
       "camping": {"classification": "endpoint_campground", "note": "John Slack Park provides endpoint camping/basecamp context for this long float. Verify campsite availability, fees, fire rules, and overnight parking before staging."},
       "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, and USGS 03198500 were reviewed 2026-08-26; confirm current parking, ramp condition, and park/event closures day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Confirm the Ashford near-reach reading against a same-day visual before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
+      "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/big-coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03198500/"]
+    },
+    {
+      "id": "wv-big-coal-dartmont-sproul",
+      "river": "Big Coal River",
+      "route": "Dartmont Park to Sproul Road Launch",
+      "corridor": "Big Coal River Water Trail / B-4",
+      "decision": "advance",
+      "gaugeKey": "usgs:03198500",
+      "gaugeRelationship": "upstream same-river proxy at Ashford for the Dartmont–Sproul reach",
+      "distanceMiles": 6.5,
+      "difficulty": "Class I with mandatory portage",
+      "routeType": "recreational",
+      "putIn": {"name": "Dartmont Park public boat access", "manager": "WVDNR-listed public access lot", "latitude": 38.1892, "longitude": -81.7220, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "takeOut": {"name": "Sproul Road / Brier Creek public pull-off", "manager": "WVDNR-listed public pull-off; verify carry path", "latitude": 38.2411, "longitude": -81.7741, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 400, "maximum": 4000, "source": "Conservative route-family reuse from American Whitewater Big Coal reach 10525; no separate B-4 correlation published"},
+      "safety": ["The Coal River Water Trail brochure names Dartmont to Sproul as B-4, a 6.5-mile Class I trip, and explicitly warns that the left line at the Brier Creek trestle is dangerous; portage right.", "Big Coal rises rapidly after heavy rain and has shallow ripples, strainers, submerged debris, private banks, and limited cell service; carry a float plan, PFD, and communications backup.", "Sproul is a pull-off rather than a developed ramp. Confirm the carry path and shuttle vehicle placement, and do not treat a favorable Ashford reading as permission to run the trestle."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. John Slack Park and Coal River corridor campgrounds provide nearby basecamp options; verify availability, fees, and overnight parking separately."},
+      "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, and USGS 03198500 were reviewed 2026-08-26; confirm Brier Creek trestle condition, Sproul pull-off access, and any road/park closures day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Ashford proxy trend against local water and the trestle before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
       "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/big-coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03198500/"]
     }
   ]

@@ -1178,6 +1178,7 @@ const routeOrder = [
   ,"wv-big-coal-whitesville-orgas"
   ,"wv-big-coal-orgas-john-slack"
   ,"wv-big-coal-john-slack-dartmont"
+  ,"wv-big-coal-dartmont-sproul"
   ,"wv-little-coal-madison-donald-kuhn"
 ];
 
