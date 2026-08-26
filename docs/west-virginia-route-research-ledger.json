@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T17:05:00-05:00",
+  "updatedAt": "2026-08-26T18:05:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
-    "priority1GaugesTotal": 25,
-    "priority1GaugesReviewed": 25,
-    "boundedCandidatesScreened": 38,
-    "candidatesWithNumericThresholdDecision": 38,
-    "corridorsWithNumericThresholdDecision": 10,
-    "advancingCandidates": 33
+    "priority1GaugesTotal": 26,
+    "priority1GaugesReviewed": 26,
+    "boundedCandidatesScreened": 39,
+    "candidatesWithNumericThresholdDecision": 39,
+    "corridorsWithNumericThresholdDecision": 11,
+    "advancingCandidates": 34
   },
   "gaugeDecisions": [
     {
@@ -320,6 +320,16 @@
       "potentialRoutes": [],
       "candidateIds": [],
       "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03192000&parameterCd=00060,00065&siteStatus=all", "https://www.nps.gov/gari/planyourvisit/whitewater.htm", "https://water.usace.army.mil/overview/lrh/locations/summersville"]
+    },
+    {
+      "gaugeKey": "usgs:03202300",
+      "stationName": "Guyandotte River at Pineville, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh continuous and daily discharge/stage are available beside the Pineville access. WVDNR lists Pineville-to-Baileysville as a 13-mile float and the Guyandotte is an approved state water trail; the route-specific 60–2,000 cfs screen is a conservative local inference pending an official runnable range.",
+      "potentialRoutes": ["Pineville public access to Baileysville public access"],
+      "candidateIds": ["wv-guyandotte-pineville-baileysville"],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03202300&parameterCd=00060,00065&siteStatus=all", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://wvdnr.gov/wvdnr-opens-new-public-stream-access-site-in-pineville/"]
     }
   ],
   "gauleyLiveProviderDecision": {
@@ -1322,6 +1332,26 @@
       "closureCheck": "USGS 03058000, WVDNR District 3 access inventory, WVDNR boating, and Guardians West Fork access pages reviewed 2026-08-26; endpoint coordinates now resolve to the distinct Stonewall Tail Waters and Bendale Bridge sites. Confirm exact launch carry, dam exclusion, live release/warning procedure, and any access construction closure before implementation.",
       "remainingWork": ["Confirm USACE/American Water release and warning procedures and define a release-aware threshold adapter.", "Re-run coordinate, safety, imagery, and geometry gates after the operating rule is documented."],
       "sources": ["https://guardiansofthewestfork.org/west-fork-river-access-mile-72-4/", "https://guardiansofthewestfork.org/water-trail/access-mile-15-9/", "https://waterdata.usgs.gov/monitoring-location/USGS-03058000/", "https://www.recreation.gov/gateways/406", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "id": "wv-guyandotte-pineville-baileysville",
+      "river": "Guyandotte River",
+      "route": "Pineville public access to Baileysville public access",
+      "corridor": "Guyandotte River Water Trail / upper Guyandotte",
+      "decision": "advance",
+      "gaugeKey": "usgs:03202300",
+      "gaugeRelationship": "direct same-reach gauge at Pineville beside the put-in",
+      "distanceMiles": 13,
+      "difficulty": "Class I-II",
+      "routeType": "recreational",
+      "putIn": {"name": "Pineville WVDNR public stream access (Willow Street / SR 97)", "manager": "WVDNR/city public stream access; verify ramp, parking, and hours", "latitude": 37.5744, "longitude": -81.5355, "coordinateSource": "WVDNR District 4 access guide; 2024 WVDNR Pineville ramp announcement"},
+      "takeOut": {"name": "Baileysville WVDNR public access", "manager": "WVDNR-listed public access; verify river entry and parking", "latitude": 37.5891667, "longitude": -81.6791667, "coordinateSource": "WVDNR public access inventory / official Baileysville–Guyandotte site coordinate"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 60, "maximum": 2000, "source": "Conservative local inference from USGS 03202300 daily history (2019–2026: about 29 cfs minimum, 95 cfs 25th percentile, 198 cfs median, 685 cfs 90th percentile, 9,710 cfs maximum) and WVDNR’s documented 13-mile float; no official runnable range published"},
+      "safety": ["WVDNR’s District 4 float-trip table lists Pineville to Baileysville as a 13-mile Guyandotte trip, while WVDNR recognizes the Guyandotte as an approved water trail. Class I-II is a planning profile, not a guarantee of hazard-free water.", "Pineville telemetry is directly beside the put-in and is the best live discharge reference for the route. The threshold is a conservative local inference; check trend, rainfall, clarity, debris, and the river visually before committing.", "Wear a fitted PFD and whistle, carry a full float plan, food, water, first aid, repair kit, and communications backup. Keep off private banks and structures, and do not continue downstream into R.D. Bailey backwaters or dam facilities without a separate plan."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use separately verified lodging or campgrounds around Pineville/Baileysville; R.D. Bailey Campground is downstream regional context, not an endpoint claim."},
+      "closureCheck": "WVDNR Pineville access announcement, WVDNR District 4 guide, Guyandotte Water Trail guide, WVDNR boating, WVU DIY Outdoors, and USGS 03202300 reviewed 2026-08-26; confirm Willow Street ramp signage/carry, Baileysville parking and water entry, weather, water quality, and any road or access closure day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits; the WVDNR Baileysville inventory anchor is approximately 600 feet from the generalized NHD centerline and needs local visual confirmation.", "Recheck the direct Pineville discharge trend against local rainfall and river conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a route-specific image if a rights-cleared source becomes available."],
+      "sources": ["https://wvdnr.gov/wvdnr-opens-new-public-stream-access-site-in-pineville/", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Guy_Cover_edit_2-28-21xx-1.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://diyoutdoors.wvu.edu/canoeing/guyandotte-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03202300/", "https://www.recreation.gov/camping/campgrounds/10235835", "https://www.gilbertwv.com/kayaking"]
     }
   ]
 }

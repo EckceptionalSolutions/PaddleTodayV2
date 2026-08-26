@@ -134,3 +134,12 @@ export const gauleyCrupperneckPhoto: RouteGalleryPhoto = {
   credit: 'National Park Service, Gauley River National Recreation Area',
   takenLabel: 'NPS-hosted Gauley River image; verify route-specific reuse terms',
 };
+
+export const guyandotteRiverPhoto: RouteGalleryPhoto = {
+  id: 'guyandotte-river-water-trail-gilbert-wv',
+  src: 'https://images.squarespace-cdn.com/content/v1/5f85bfcbb4fea452a4831700/1603391340819-RT7E4CT97C8OJ3U1HT29/66796584_2313460715559388_912484648351694848_o.jpg',
+  alt: 'Paddlers move through a green, wooded section of the Guyandotte River in West Virginia.',
+  caption: 'Guyandotte River Water Trail paddling context in southern West Virginia',
+  credit: 'Town of Gilbert, West Virginia; verify reuse terms',
+  takenLabel: 'Town of Gilbert route page image; verify reuse terms',
+};

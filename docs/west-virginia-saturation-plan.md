@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 35 West Virginia route cards:
+The current catalog has 36 West Virginia route cards:
 
 - New River: 5
 - Greenbrier River: 5
@@ -17,8 +17,9 @@ The current catalog has 35 West Virginia route cards:
 - Little Coal River: 3
 - West Fork River: 4
 - Gauley River: 1
+- Guyandotte River: 1
 
-The research ledger has decisions for 25 priority gauges and 38 bounded route candidates across 10 corridors; all 38 have numeric threshold decisions and 33 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 26 priority gauges and 39 bounded route candidates across 11 corridors; all 39 have numeric threshold decisions and 34 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -38,6 +39,8 @@ A corridor counts as saturated only when it has:
 The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order. **Wave 1A and 1C are implemented** as `wv-elk-webster-springs-clifton-ford` and `wv-elk-king-shoals-queen-shoals`; both have distinct public endpoint coordinates, canonical geometry, safety/camping notes, and route-specific images. Wave 1B remains gated on confirming a distinct Sandy Beach endpoint and avoiding duplicate coverage. **Wave 2 B-1 through B-5, L-1/L-2/L-3/L-4, and Coal C-2/C-3 are implemented** as `wv-big-coal-whitesville-orgas`, `wv-big-coal-orgas-john-slack`, `wv-big-coal-john-slack-dartmont`, `wv-big-coal-dartmont-sproul`, `wv-big-coal-sproul-lions-park`, `wv-little-coal-madison-donald-kuhn`, `wv-little-coal-donald-kuhn-waterways`, `wv-little-coal-waterways-corridor-g`, `wv-coal-meadowood-lower-falls`, `wv-coal-lower-falls-st-albans`, and `wv-coal-forks-lions-park`; B-1/B-2/B-4/B-5 use the Ashford gauge as an upstream/downstream proxy as labeled, B-3 uses the near-reach Ashford reading, L-1/L-2/L-3 use the Danville gauge (direct for L-1, upstream proxy for L-2/L-3), and C-2/C-3/L-4 use the Tornado gauge (same-reach near C-2, upstream proxy for C-3/L-4). The route-family screens are conservative USGS-statistics inferences where no official range is published. All eleven have Coal River Water Trail access, safety/camping notes, geometry, and image coverage. B-5 preserves the brochure's 4-mile Lock 4 option as a documented decision point while publishing the full 6-mile Alum Creek Lions Club Park variant; C-2/C-3 retain the Upper Falls/Lower Falls boundary and do not imply a dam portage. L-3/L-4 use the WVDNR-listed The Forks of Coal access because the brochure's printed Corridor G longitude lands off-channel near Fuquay Creek; the brochure's distance and Lock 4 decision points remain visible. **Wave 3 Good Hope–West Milford and Worthington–Monongah are now implemented** as `wv-west-fork-good-hope-west-milford` and `wv-west-fork-worthington-monongah`, with Guardians-documented public floats, proxy gauges, safety/camping notes, geometry, and route imagery.
 
 The Wave 3 cohort now also includes the implemented Weston–Jackson’s Mill route (`wv-west-fork-weston-jacksons-mill`) and the Jackson’s Mill–Good Hope route (`wv-west-fork-jacksons-mill-good-hope`). Weston–Jackson’s Mill is a 5.5-mile Guardians-documented float with a no-ramp public-parking carry and direct Weston stage gauge; Jackson’s Mill–Good Hope is 10.6 miles derived from published river-mile references and retains a verify-before-launch mileage note. **The natural-flow Gauley Curtin Bridge–Persinger Creek route is now implemented** as `wv-gauley-curtin-persinger`, with exact WVU access coordinates, direct Craigsville stage/discharge telemetry, high-water Class IV escalation, and NPS imagery; scheduled Upper/Lower Gauley releases remain deferred. **The New River Thurmond–Cunard route is also implemented** as `wv-new-thurmond-cunard`, with geometry resolving the published 7.2-mile reach and an explicit NPS advanced/expert safety boundary. **The lower Greenbrier Willowwood–Bellepoint route is now implemented** as `wv-greenbrier-willowwood-bellepoint`, using WVDNR's official Willowwood Greenbrier and Bellepoint New River access assignments to resolve the confluence ambiguity and AW's 5.4-mile geometry for the route line. **The Elk River Frametown–Duck route is now implemented** as `wv-elk-frametown-duck`, using the direct near-put-in Frametown gauge, WVDNR/Elk River Water Trail endpoints, and a conservative local stage screen that does not transfer the Down Elk whitewater band.
+
+**The Guyandotte Pineville–Baileysville route is now implemented** as `wv-guyandotte-pineville-baileysville`, using the 13-mile WVDNR float listing, the new Willow Street/SR 97 Pineville ramp, a direct Pineville USGS discharge gauge, a conservative local screen, and a regional Guyandotte paddling image. The Baileysville inventory coordinate is an access anchor roughly 600 feet from the generalized NHD centerline, so the card keeps a local visual/carry verification gate rather than silently moving the official coordinate.
 
 ### Wave 1 — Elk River Water Trail (highest information density)
 
@@ -100,6 +103,14 @@ The Thurmond–Cunard gap is now publishable because the public endpoint pair is
 
 1. **Implemented:** Thurmond River Access to Cunard River Access (`wv-new-thurmond-cunard`).
 
+### Wave 7 — Guyandotte River Water Trail
+
+The Guyandotte is the next information-rich southern West Virginia corridor: WVDNR recognizes an approved water trail, publishes a 13-mile Pineville–Baileysville float, and opened a new Pineville gravel ramp in 2024. The Pineville USGS station supplies a direct live discharge screen. The first card uses the public Pineville and Baileysville access anchors and keeps the downstream R.D. Bailey lake/tailwater boundary explicit.
+
+1. **Implemented:** Pineville public access to Baileysville public access (`wv-guyandotte-pineville-baileysville`).
+
+Gate for the next Guyandotte batch: verify the Baileysville carry/parking against the generalized NHD offset, then research the Baileysville–R.D. Bailey campground and lower water-trail pairs with their own endpoint, gauge, water-quality, and dam-boundary evidence. Do not transfer the Pineville screen or the American Whitewater Simon–lake Class III warning without reach-specific calibration.
+
 ## Deliberate deferrals
 
 - **Gauley release-dependent routes:** do not score until a supported live release/CWMS source and an explicit release-window adapter exist.
@@ -112,4 +123,4 @@ The Thurmond–Cunard gap is now publishable because the public endpoint pair is
 
 For each wave, work in this order: (1) endpoint and land-manager verification, (2) gauge-to-reach relationship, (3) numeric threshold, (4) hazards and closures, (5) camping and shuttle, (6) imagery, (7) geometry and generated access registry, and (8) focused route/safety/gallery/TypeScript checks. A candidate that fails an access or threshold gate remains in the ledger as blocked rather than becoming an inferred route.
 
-The next concrete batch is **the Stonewall tailwater only after documenting release operations**. WVDNR's District 3 inventory resolves the public endpoints as Stonewall Tail Waters (39.0038,-80.4738) and Bendale Bridge (39.0290,-80.4737), superseding the erroneous Guardians Bendale coordinate; the candidate remains blocked because a stable public release/warning procedure and release-aware threshold adapter are still missing. Keep the Upper Falls portage boundary explicit for any Coal mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.
+The next concrete batch is **Guyandotte Baileysville–R.D. Bailey campground and lower water-trail pairs**, after resolving the current Baileysville carry offset and obtaining reach-specific access and flow evidence. The implemented Pineville–Baileysville card deliberately stops before the regulated R.D. Bailey lake/tailwater context and does not transfer the nearby Simon–lake Class III warning or its gauge band. Stonewall tailwater remains blocked until a stable public release/warning procedure and release-aware threshold adapter are documented. Keep the Upper Falls portage boundary explicit for any Coal mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.
