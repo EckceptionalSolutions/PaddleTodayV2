@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 23,
-    "candidatesWithNumericThresholdDecision": 23,
+    "boundedCandidatesScreened": 24,
+    "candidatesWithNumericThresholdDecision": 24,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 17
+    "advancingCandidates": 18
   },
   "gaugeDecisions": [
     {
@@ -1009,6 +1009,26 @@
       "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03199000 were reviewed 2026-08-26; confirm current lot access, surface conditions, and closures day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the inferred 80–1,100 cfs screen against local observations before launch.", "Verify reuse terms for the Coal River Group Madison launch image."],
       "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/little-coal-river/", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/little-coal-river", "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03199000"]
+    },
+    {
+      "id": "wv-big-coal-john-slack-dartmont",
+      "river": "Big Coal River",
+      "route": "John Slack Park to Dartmont Park",
+      "corridor": "Big Coal River Water Trail / B-3",
+      "decision": "advance",
+      "gaugeKey": "usgs:03198500",
+      "gaugeRelationship": "same-reach Ashford gauge near the John Slack–Dartmont segment",
+      "distanceMiles": 10.5,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "John Slack Park public boat access", "manager": "WVDNR-listed public access lot", "latitude": 38.1375, "longitude": -81.6464, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "takeOut": {"name": "Dartmont Park public boat access", "manager": "WVDNR-listed public access lot", "latitude": 38.1892, "longitude": -81.7220, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 400, "maximum": 4000, "source": "Conservative route-family reuse from American Whitewater Big Coal reach 10525; no separate B-3 correlation published"},
+      "safety": ["The Coal River Water Trail brochure names John Slack to Dartmont as B-3, a 10.5-mile Class I float; WVDNR independently lists both endpoints as Big Coal public access lots.", "Big Coal has frequent ripples, shallow sections, private banks, rapid rises after heavy rain, and limited cell service; wear a fitted PFD, carry a float plan and communications backup, and scout wood/debris.", "This card ends at Dartmont and should not be treated as permission to continue downstream to Sproul or the Coal mainstem without a separate hazard and access plan."],
+      "camping": {"classification": "endpoint_campground", "note": "John Slack Park provides endpoint camping/basecamp context for this long float. Verify campsite availability, fees, fire rules, and overnight parking before staging."},
+      "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, and USGS 03198500 were reviewed 2026-08-26; confirm current parking, ramp condition, and park/event closures day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Confirm the Ashford near-reach reading against a same-day visual before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
+      "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/big-coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03198500/"]
     }
   ]
 }
