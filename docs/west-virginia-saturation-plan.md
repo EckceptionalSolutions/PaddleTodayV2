@@ -4,15 +4,16 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 14 West Virginia route cards:
+The current catalog has 15 West Virginia route cards:
 
 - New River: 4
 - Greenbrier River: 4
 - Cheat River: 4
 - Tygart Valley River: 1
 - Cacapon River: 1
+- Elk River: 1
 
-The research ledger has decisions for 24 priority gauges and 18 bounded route candidates. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 24 priority gauges and 19 bounded route candidates. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
