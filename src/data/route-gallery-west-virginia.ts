@@ -107,3 +107,12 @@ export const littleCoalRiverPhoto: RouteGalleryPhoto = {
   credit: 'Coal River Group; verify reuse terms',
   takenLabel: 'Coal River Group route page image; verify reuse terms',
 };
+
+export const westForkRiverPhoto: RouteGalleryPhoto = {
+  id: 'west-fork-river-good-hope-guardians',
+  src: 'https://i0.wp.com/guardiansofthewestfork.org/wp-content/uploads/2023/08/img_84701.jpg?fit=1600%2C578&ssl=1',
+  alt: 'The West Fork River near Good Hope and West Milford in north-central West Virginia.',
+  caption: 'West Fork River near the Good Hope–West Milford float',
+  credit: 'Guardians of the West Fork Watershed; verify reuse terms',
+  takenLabel: 'Guardians of the West Fork route image; verify reuse terms',
+};

@@ -1183,6 +1183,7 @@ const routeOrder = [
   ,"wv-coal-meadowood-lower-falls"
   ,"wv-coal-lower-falls-st-albans"
   ,"wv-coal-forks-lions-park"
+  ,"wv-west-fork-good-hope-west-milford"
   ,"wv-little-coal-madison-donald-kuhn"
   ,"wv-little-coal-donald-kuhn-waterways"
   ,"wv-little-coal-waterways-corridor-g"

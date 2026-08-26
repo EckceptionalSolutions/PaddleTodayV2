@@ -12,6 +12,7 @@ import {
   elkRiverWaterTrailPhoto,
   bigCoalRiverPhoto,
   littleCoalRiverPhoto,
+  westForkRiverPhoto,
 } from './route-gallery-west-virginia';
 
 export interface RouteGalleryPhoto {
@@ -3061,6 +3062,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-coal-meadowood-lower-falls': [bigCoalRiverPhoto],
   'wv-coal-lower-falls-st-albans': [bigCoalRiverPhoto],
   'wv-coal-forks-lions-park': [bigCoalRiverPhoto],
+  'wv-west-fork-good-hope-west-milford': [westForkRiverPhoto],
   'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
   'wv-little-coal-donald-kuhn-waterways': [littleCoalRiverPhoto],
   'wv-little-coal-waterways-corridor-g': [littleCoalRiverPhoto],
