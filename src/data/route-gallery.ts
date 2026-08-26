@@ -3057,6 +3057,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-big-coal-orgas-john-slack': [bigCoalRiverPhoto],
   'wv-big-coal-john-slack-dartmont': [bigCoalRiverPhoto],
   'wv-big-coal-dartmont-sproul': [bigCoalRiverPhoto],
+  'wv-big-coal-sproul-lions-park': [bigCoalRiverPhoto],
   'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
   'wv-little-coal-donald-kuhn-waterways': [littleCoalRiverPhoto],
 };

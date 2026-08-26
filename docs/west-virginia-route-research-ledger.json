@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 26,
-    "candidatesWithNumericThresholdDecision": 26,
+    "boundedCandidatesScreened": 27,
+    "candidatesWithNumericThresholdDecision": 27,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 20
+    "advancingCandidates": 21
   },
   "gaugeDecisions": [
     {
@@ -1069,6 +1069,26 @@
       "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03199000 were reviewed 2026-08-26; confirm current access, carry paths, and campground/event closures day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Danville proxy trend against local water before launch.", "Verify reuse terms for the Coal River Group Little Coal image."],
       "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/little-coal-river/", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/little-coal-river", "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03199000"]
+    },
+    {
+      "id": "wv-big-coal-sproul-lions-park",
+      "river": "Big Coal River",
+      "route": "Sproul Road Launch to Alum Creek Lions Club Park",
+      "corridor": "Big Coal River Water Trail / B-5",
+      "decision": "advance",
+      "gaugeKey": "usgs:03198500",
+      "gaugeRelationship": "upstream same-river proxy at Ashford for the Sproul–Alum Creek reach",
+      "distanceMiles": 6,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "Sproul Road / Brier Creek public pull-off", "manager": "WVDNR-listed public pull-off; verify carry path", "latitude": 38.2411, "longitude": -81.7741, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "takeOut": {"name": "Alum Creek Lions Club Park public boat access", "manager": "WVDNR-listed public access; verify parking and ramp condition", "latitude": 38.2994, "longitude": -81.8108, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 400, "maximum": 4000, "source": "Conservative route-family reuse from American Whitewater Big Coal reach 10525; no separate B-5 correlation published"},
+      "safety": ["The Coal River Water Trail brochure describes B-5 as 4 or 6 miles: Lock 4 Launch is the short option and Alum Creek Lions Club Park is the full option.", "Ashford telemetry is upstream and only a same-river proxy; Big Coal rises quickly after rain and conditions can change around the Forks of Coal and lock structures. Pair the gauge with rainfall and a visual check.", "Expect shallow riffles, strainers, submerged debris, private banks, road/rail crossings, and limited cell service. Wear a fitted PFD, carry a float plan and communications backup, and do not treat Lock 4 or an intermediate bank as an automatic bailout."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use verified Coal River corridor campgrounds or lodging near John Slack/Alum Creek as a basecamp; confirm availability, fees, fire rules, and overnight parking separately."},
+      "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03198500 were reviewed 2026-08-26; confirm Sproul carry path, Alum Creek parking/ramp, Lock 4 conditions, and any park/club closure day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Ashford proxy trend against local water and rainfall before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
+      "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/big-coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03198500/"]
     }
   ]
 }
