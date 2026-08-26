@@ -1195,6 +1195,7 @@ const routeOrder = [
   ,"wv-guyandotte-baileysville-rd-bailey-campground"
   ,"wv-guyandotte-branchland-west-hamlin"
   ,"wv-guyandotte-west-hamlin-salt-rock"
+  ,"wv-guyandotte-salt-rock-barboursville"
   ,"wv-new-thurmond-cunard"
   ,"wv-little-coal-madison-donald-kuhn"
   ,"wv-little-coal-donald-kuhn-waterways"

@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 40 West Virginia route cards:
+The current catalog has 41 West Virginia route cards:
 
 - New River: 5
 - Greenbrier River: 5
@@ -17,9 +17,9 @@ The current catalog has 40 West Virginia route cards:
 - Little Coal River: 3
 - West Fork River: 4
 - Gauley River: 1
-- Guyandotte River: 5
+- Guyandotte River: 6
 
-The research ledger has decisions for 28 priority gauges and 43 bounded route candidates across 11 corridors; all 43 have numeric threshold decisions and 38 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 28 priority gauges and 44 bounded route candidates across 11 corridors; all 44 have numeric threshold decisions and 39 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -114,6 +114,7 @@ The Guyandotte is the next information-rich southern West Virginia corridor: WVD
 3. **Implemented:** Mullens public pull-off to Pineville public access (`wv-guyandotte-mullens-pineville`).
 4. **Implemented:** Branchland public access to West Hamlin public concrete ramp (`wv-guyandotte-branchland-west-hamlin`). Map 5 identifies this as Trip 18, a 5.7-mile low-gradient float; USGS 03204000 is a direct stage gauge at the Branchland start. The coordinate audit places the endpoints within the mapped waterbody but 180–219 feet from the generalized NHD flowline, so the physical carries remain a day-of verification item.
 5. **Implemented:** West Hamlin public access to Salt Rock public access (`wv-guyandotte-west-hamlin-salt-rock`). Map 5 identifies this as Trip 19, a 2.8-mile float suitable for most boats; USGS 03204000 is retained as an upstream same-river stage proxy.
+6. **Implemented:** Salt Rock public access to Barboursville Park public access (`wv-guyandotte-salt-rock-barboursville`). Map 5 identifies this as Trip 20, a 16.8-mile hard-paddling day with a steep, slippery Barboursville carry; USGS 03204000 remains an upstream stage proxy.
 
 Gate for the next Guyandotte batch: verify the Baileysville carry/parking against the generalized NHD offset, then research the next lower-water-trail pairs toward West Hamlin, Salt Rock, Barboursville, and the Ohio confluence with their own endpoint, gauge, water-quality, and dam-boundary evidence. Do not transfer the upper-river screens or the American Whitewater Simon–lake Class III warning without reach-specific calibration.
 
@@ -129,4 +130,4 @@ Gate for the next Guyandotte batch: verify the Baileysville carry/parking agains
 
 For each wave, work in this order: (1) endpoint and land-manager verification, (2) gauge-to-reach relationship, (3) numeric threshold, (4) hazards and closures, (5) camping and shuttle, (6) imagery, (7) geometry and generated access registry, and (8) focused route/safety/gallery/TypeScript checks. A candidate that fails an access or threshold gate remains in the ledger as blocked rather than becoming an inferred route.
 
-The next concrete batch is **Guyandotte lower water-trail saturation**, beginning with West Hamlin–Salt Rock and the Logan/Man access chain after reach-specific endpoint and flow evidence is complete. The implemented Pineville–Baileysville card deliberately stops before the regulated R.D. Bailey lake/tailwater context and does not transfer the nearby Simon–lake Class III warning or its gauge band. Stonewall tailwater remains blocked until a stable public release/warning procedure and release-aware threshold adapter are documented. Keep the Upper Falls portage boundary explicit for any Coal mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.
+The next concrete batch is **Guyandotte lower water-trail saturation**, beginning with Barboursville–Farmdale and the Logan/Man access chain after reach-specific endpoint and flow evidence is complete. The implemented Pineville–Baileysville card deliberately stops before the regulated R.D. Bailey lake/tailwater context and does not transfer the nearby Simon–lake Class III warning or its gauge band. Stonewall tailwater remains blocked until a stable public release/warning procedure and release-aware threshold adapter are documented. Keep the Upper Falls portage boundary explicit for any Coal mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.

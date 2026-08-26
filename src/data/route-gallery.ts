@@ -3077,6 +3077,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-guyandotte-baileysville-rd-bailey-campground': [guyandotteRiverPhoto],
   'wv-guyandotte-branchland-west-hamlin': [guyandotteRiverPhoto],
   'wv-guyandotte-west-hamlin-salt-rock': [guyandotteRiverPhoto],
+  'wv-guyandotte-salt-rock-barboursville': [guyandotteRiverPhoto],
   'wv-new-thurmond-cunard': [newRiverGorgeContextPhoto],
   'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
   'wv-little-coal-donald-kuhn-waterways': [littleCoalRiverPhoto],
