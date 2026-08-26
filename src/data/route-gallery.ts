@@ -3053,6 +3053,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-elk-webster-springs-clifton-ford': [elkRiverDownElkPhoto],
   'wv-elk-king-shoals-queen-shoals': [elkRiverWaterTrailPhoto],
   'wv-big-coal-whitesville-orgas': [bigCoalRiverPhoto],
+  'wv-big-coal-orgas-john-slack': [bigCoalRiverPhoto],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

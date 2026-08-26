@@ -1176,6 +1176,7 @@ const routeOrder = [
   "wv-elk-webster-springs-clifton-ford",
   "wv-elk-king-shoals-queen-shoals"
   ,"wv-big-coal-whitesville-orgas"
+  ,"wv-big-coal-orgas-john-slack"
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {

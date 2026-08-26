@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T13:10:00-05:00",
+  "updatedAt": "2026-08-26T14:10:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 21,
-    "candidatesWithNumericThresholdDecision": 21,
+    "boundedCandidatesScreened": 22,
+    "candidatesWithNumericThresholdDecision": 22,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 15
+    "advancingCandidates": 16
   },
   "gaugeDecisions": [
     {
@@ -969,6 +969,26 @@
       "closureCheck": "American Whitewater, Coal River Group fishing guidance, and the 2026 Coal River Water Trail brochure were reviewed 2026-08-26; confirm public signage, parking, hours, and any construction or event conflict day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Verify reuse terms for the West Virginia Explorer Coal River image before broader publication.", "Recheck the Ashford proxy trend against local conditions upstream before launch."],
       "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/10525/main", "https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://coalrivergroup.com/fishing/", "https://waterdata.usgs.gov/monitoring-location/USGS-03198500/", "https://wvexplorer.com/2018/05/26/thousand-kayaks-expected-wv-festival/kayaking-coal-river/"]
+    },
+    {
+      "id": "wv-big-coal-orgas-john-slack",
+      "river": "Big Coal River",
+      "route": "JM Protan Community Center / Orgas to John Slack Park",
+      "corridor": "Big Coal River Water Trail / B-2",
+      "decision": "advance",
+      "gaugeKey": "usgs:03198500",
+      "gaugeRelationship": "downstream same-river proxy at Ashford for the Orgas–John Slack reach",
+      "distanceMiles": 13.25,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "JM Protan Community Center / Orgas access", "manager": "Community access; verify hours and parking", "latitude": 38.063838, "longitude": -81.574858, "coordinateSource": "American Whitewater access point 117688; Coal River Water Trail brochure"},
+      "takeOut": {"name": "John Slack Park public boat access", "manager": "WVDNR-listed public access; verify parking and ramp condition", "latitude": 38.1375, "longitude": -81.6464, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Group"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 400, "maximum": 4000, "source": "Conservative route-family reuse from American Whitewater Big Coal reach 10525; no separate B-2 correlation published"},
+      "safety": ["The Coal River Water Trail brochure lists this as a 13.25-mile Class I float; plan for a full day with limited bailout options.", "Big Coal rises rapidly after heavy rain and has shallow ripples, strainers, submerged sharp objects, and unreliable cell service; carry a float plan and communications backup.", "Most banks are private. Use only the named Orgas and John Slack public properties and scout wood/debris before committing."],
+      "camping": {"classification": "endpoint_campground", "note": "John Slack Park and the surrounding Coal River corridor are the strongest camping/logistics anchor; WVU DIY Outdoors also documents Big Coal camping context. Verify availability, fees, fire rules, and overnight parking."},
+      "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, and WVU DIY Outdoors sources were reviewed 2026-08-26; confirm current parking, ramp condition, camping availability, and event/maintenance closures day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Confirm the Ashford proxy trend against local conditions upstream before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
+      "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/big-coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03198500/"]
     }
   ]
 }
