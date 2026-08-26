@@ -8,7 +8,12 @@ const stateRegistry = JSON.parse(await readFile('docs/operations/state-registry.
 const gaugeInventory = JSON.parse(await readFile('docs/operations/gauge-inventory.json', 'utf8')) as GaugeInventoryArtifact;
 const gaugeLedger = JSON.parse(await readFile('docs/operations/gauge-review-ledger.json', 'utf8')) as GaugeReviewLedgerArtifact;
 const stateTiers = new Map(stateRegistry.canonicalStates.map((state) => [state.id, state.frontierTier]));
-const opportunityQueue = buildRouteOpportunityQueue(gaugeInventory, gaugeLedger, stateTiers, payload.tasks);
+// Durable blocked/stale gauges are retry-only. A future, user-requested retry
+// with materially new evidence can opt into includeDurableRetries explicitly;
+// routine planning must advance geographic expansion instead.
+const opportunityQueue = buildRouteOpportunityQueue(gaugeInventory, gaugeLedger, stateTiers, payload.tasks, 5, 20, {
+  includeDurableRetries: false,
+});
 const materializedTasks = materializeRouteOpportunityTasks(payload.tasks, opportunityQueue, gaugeInventory.inventoryId, stateTiers);
 const enrichedTasks = materializedTasks.map((task) => {
   if (task.kind !== 'state_coverage') return task;

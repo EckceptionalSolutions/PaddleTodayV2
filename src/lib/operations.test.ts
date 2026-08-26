@@ -19,23 +19,25 @@ describe('operations snapshot', () => {
     expect(snapshot.totals.scored + snapshot.totals.planning).toBe(snapshot.totals.inventory);
   });
 
-  it('requires a discovery sweep after Texas gauge review and keeps proxy routes in planning', () => {
+  it('keeps proxy routes in planning after the completed Texas discovery sweep', () => {
     const snapshot = getOperationsSnapshot();
     const texas = snapshot.states.find((state) => state.id === 'TX');
     expect(texas).toMatchObject({ planning: 1, legacySaturation: 'saturated' });
-    expect(texas?.saturation).toBe('discovery_sweep_required');
+    expect(texas?.saturation).toBe('saturated');
+    expect(texas?.discoveryComplete).toBe(true);
     expect(texas?.scored ?? 0).toBeGreaterThanOrEqual(16);
   });
 
-  it('does not let Utah legacy saturation bypass gauge review', () => {
+  it('reports Utah saturated only after its authoritative review and discovery sweep', () => {
     const snapshot = getOperationsSnapshot();
     const utah = snapshot.states.find((state) => state.id === 'UT');
     const rankedUtah = snapshot.stateResearchRanking.find((state) => state.id === 'UT');
     expect(utah).toMatchObject({ planning: 0, legacySaturation: 'saturated' });
-    expect(utah?.saturation).not.toBe('saturated');
+    expect(utah?.saturation).toBe('saturated');
+    expect(utah?.discoveryComplete).toBe(true);
     expect(utah?.scored ?? 0).toBeGreaterThanOrEqual(3);
-    expect(rankedUtah?.researchStatus).toBe('discovery_sweep_required');
-    expect(rankedUtah?.done).toBe(false);
+    expect(rankedUtah?.researchStatus).toBe('saturated');
+    expect(rankedUtah?.done).toBe(true);
   });
 
   it('exposes the route implementation WIP limit and control-plane activity', () => {
@@ -89,13 +91,13 @@ describe('operations snapshot', () => {
     expect(ranked[2].done).toBe(true);
   });
 
-  it('keeps legacy state decisions separate from gauge completeness', () => {
+  it('keeps legacy state decisions visible beside authoritative completed-state decisions', () => {
     const snapshot = getOperationsSnapshot();
-    expect(snapshot.stateResearchRanking.find((state) => state.id === 'TX')?.researchStatus).not.toBe('saturated');
-    expect(snapshot.stateResearchRanking.find((state) => state.id === 'UT')?.researchStatus).not.toBe('saturated');
+    expect(snapshot.stateResearchRanking.find((state) => state.id === 'TX')?.researchStatus).toBe('saturated');
+    expect(snapshot.stateResearchRanking.find((state) => state.id === 'UT')?.researchStatus).toBe('saturated');
     expect(snapshot.legacyStateResearchRanking.length).toBe(snapshot.states.length);
     expect(snapshot.policy.completenessModel).toBe('gauge_network_authoritative_after_bounded_review');
     expect(snapshot.states.find((state) => state.id === 'UT')?.legacySaturation).toBe('saturated');
-    expect(snapshot.states.find((state) => state.id === 'UT')?.saturation).not.toBe('saturated');
+    expect(snapshot.states.find((state) => state.id === 'UT')?.saturation).toBe('saturated');
   });
 });

@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "stateId": "VA",
+  "updatedAt": "2026-08-26T20:33:00.000Z",
+  "phase": "gauge_inventory_review",
+  "corridorWindow": {
+    "status": "complete",
+    "candidateCount": 3,
+    "publishedCount": 3,
+    "routes": [
+      "maury-river-glen-maury-locher",
+      "new-river-austinville-foster-falls",
+      "clinch-river-pucketts-hole-nash-ford"
+    ]
+  },
+  "gaugeBaseline": {
+    "status": "provider_baseline_complete",
+    "inventoryId": "provider-baseline-202608262032",
+    "generatedAt": "2026-08-26T20:32:27.961Z",
+    "provider": "USGS",
+    "freshStreamGaugeCount": 212,
+    "coveredGaugeCount": 5,
+    "blockedGaugeCount": 1,
+    "unreviewedGaugeCount": 206,
+    "reviewPercent": 2.8,
+    "coveredGaugeKeys": [
+      "usgs:02024000",
+      "usgs:03165500",
+      "usgs:03524000",
+      "usgs:02019500",
+      "usgs:01664000"
+    ]
+  },
+  "reviewStrategy": {
+    "method": "river-family and corridor-first triage",
+    "description": "Group fresh gauges by river family, prioritize gauges on named public paddling corridors and larger drainage networks, reuse same-river source findings, and record durable per-gauge outcomes only after corridor and duplicate checks. A gauge name or drainage size alone never qualifies or disqualifies a route.",
+    "completedWindows": [
+      {
+        "id": "va-family-window-01",
+        "gaugeKeys": [
+          "usgs:02019500",
+          "usgs:01629500",
+          "usgs:01664000"
+        ],
+        "outcome": "Published Buchanan-to-Arcadia on USGS 02019500, promoted Remington-to-Kelly's Ford as the next ready candidate on USGS 01664000, and preserved the Luray gauge family as explicit follow-on research because the screened Bixler-to-Bentonville reach uses downstream USGS 01631000."
+      },
+      {
+        "id": "va-family-window-02",
+        "gaugeKeys": [
+          "usgs:01664000"
+        ],
+        "outcome": "Published Rector Tract-to-Kelly's Ford on direct USGS 01664000 after clearing current public access, WMA permit, private-bank, Class II+ safety, camping, coordinate, geometry, image, verification, test, build, and rollback gates."
+      }
+    ],
+    "nextWindow": [
+      {
+        "gaugeKey": "usgs:01629500",
+        "siteName": "South Fork Shenandoah River near Luray, VA",
+        "reason": "Ready next: identify an exact public corridor that is defensibly related to 01629500; do not reuse the downstream Front Royal gauge correlation."
+      }
+    ],
+    "routesPublishedFromGaugeReview": [
+      "james-river-buchanan-arcadia",
+      "rappahannock-river-rector-tract-kellys-ford"
+    ]
+  },
+  "completionRequirements": [
+    "Every Virginia provider-baseline gauge has a durable covered, blocked, screened_out, or stale_or_unsupported disposition.",
+    "Every route-capable gauge is covered by a scored route or has an explicit evidence-backed blocker and retry condition.",
+    "A bounded independent route-first discovery sweep finds no additional strong scored route.",
+    "All published routes pass evidence, safety, independent verification, tests, build, and rollback gates."
+  ]
+}

@@ -1,26 +1,27 @@
 {
   "version": 1,
-  "inventoryId": "provider-baseline-2026-08-14",
-  "generatedAt": "2026-08-25T02:12:43.369Z",
+  "inventoryId": "provider-baseline-202608262032",
+  "generatedAt": "2026-08-26T20:32:27.961Z",
   "scope": "provider_baseline",
   "statesBaselined": [
     "AR",
+    "IA",
     "IL",
     "IN",
-    "IA",
     "KS",
     "KY",
     "MI",
     "MN",
     "MO",
-    "NE",
     "ND",
+    "NE",
     "OH",
     "PA",
     "SD",
     "TN",
     "TX",
     "UT",
+    "VA",
     "WI"
   ],
   "gauges": [
@@ -5636,6 +5637,20 @@
       "lastObservationAt": "2026-08-14T10:15:00+00:00"
     },
     {
+      "key": "usgs:01611500",
+      "provider": "usgs",
+      "siteId": "01611500",
+      "siteName": "Cacapon River near Great Cacapon, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01613050",
       "provider": "usgs",
       "siteId": "01613050",
@@ -5650,6 +5665,2948 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T11:00:00+00:00"
+    },
+    {
+      "key": "usgs:01613900",
+      "provider": "usgs",
+      "siteId": "01613900",
+      "siteName": "HOGUE CREEK NEAR HAYFIELD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:01615000",
+      "provider": "usgs",
+      "siteId": "01615000",
+      "siteName": "OPEQUON CREEK NEAR BERRYVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:01616100",
+      "provider": "usgs",
+      "siteId": "01616100",
+      "siteName": "DRY MARSH RUN NEAR BERRYVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01620500",
+      "provider": "usgs",
+      "siteId": "01620500",
+      "siteName": "NORTH RIVER NEAR STOKESVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:01621050",
+      "provider": "usgs",
+      "siteId": "01621050",
+      "siteName": "MUDDY CREEK AT MOUNT CLINTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01622000",
+      "provider": "usgs",
+      "siteId": "01622000",
+      "siteName": "NORTH RIVER NEAR BURKETOWN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01625000",
+      "provider": "usgs",
+      "siteId": "01625000",
+      "siteName": "MIDDLE RIVER NEAR GROTTOES, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01626000",
+      "provider": "usgs",
+      "siteId": "01626000",
+      "siteName": "SOUTH RIVER NEAR WAYNESBORO, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01626850",
+      "provider": "usgs",
+      "siteId": "01626850",
+      "siteName": "SOUTH RIVER NEAR DOOMS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01627500",
+      "provider": "usgs",
+      "siteId": "01627500",
+      "siteName": "SOUTH RIVER AT HARRISTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01628500",
+      "provider": "usgs",
+      "siteId": "01628500",
+      "siteName": "S F SHENANDOAH RIVER NEAR LYNNWOOD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01629500",
+      "provider": "usgs",
+      "siteId": "01629500",
+      "siteName": "S F SHENANDOAH RIVER NEAR LURAY, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01631000",
+      "provider": "usgs",
+      "siteId": "01631000",
+      "siteName": "S F SHENANDOAH RIVER AT FRONT ROYAL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01632000",
+      "provider": "usgs",
+      "siteId": "01632000",
+      "siteName": "N F SHENANDOAH RIVER AT COOTES STORE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:15:00+00:00"
+    },
+    {
+      "key": "usgs:01632082",
+      "provider": "usgs",
+      "siteId": "01632082",
+      "siteName": "LINVILLE CREEK AT BROADWAY, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:0163287828",
+      "provider": "usgs",
+      "siteId": "0163287828",
+      "siteName": "WAR BRANCH BELOW TRIB NEAR TENTH LEGION, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:25:00+00:00"
+    },
+    {
+      "key": "usgs:01632900",
+      "provider": "usgs",
+      "siteId": "01632900",
+      "siteName": "SMITH CREEK NEAR NEW MARKET, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:01633000",
+      "provider": "usgs",
+      "siteId": "01633000",
+      "siteName": "N F SHENANDOAH RIVER AT MOUNT JACKSON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01634000",
+      "provider": "usgs",
+      "siteId": "01634000",
+      "siteName": "N F SHENANDOAH RIVER NEAR STRASBURG, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:01634500",
+      "provider": "usgs",
+      "siteId": "01634500",
+      "siteName": "CEDAR CREEK NEAR WINCHESTER, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01635500",
+      "provider": "usgs",
+      "siteId": "01635500",
+      "siteName": "PASSAGE CREEK NEAR BUCKTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01636316",
+      "provider": "usgs",
+      "siteId": "01636316",
+      "siteName": "SPOUT RUN AT RT 621 NEAR MILLWOOD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01636690",
+      "provider": "usgs",
+      "siteId": "01636690",
+      "siteName": "PINEY RUN NEAR LOVETTSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01638350",
+      "provider": "usgs",
+      "siteId": "01638350",
+      "siteName": "S F CATOCTIN CREEK AT RT 698 NEAR WATERFORD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01638420",
+      "provider": "usgs",
+      "siteId": "01638420",
+      "siteName": "N F CATOCTIN CREEK AT RT 681 NEAR WATERFORD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01638480",
+      "provider": "usgs",
+      "siteId": "01638480",
+      "siteName": "CATOCTIN CREEK AT TAYLORSTOWN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:01643590",
+      "provider": "usgs",
+      "siteId": "01643590",
+      "siteName": "LIMESTONE BRANCH NEAR LEESBURG, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:01643700",
+      "provider": "usgs",
+      "siteId": "01643700",
+      "siteName": "GOOSE CREEK NEAR MIDDLEBURG, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01643805",
+      "provider": "usgs",
+      "siteId": "01643805",
+      "siteName": "N F GOOSE CREEK AT RT 729 NEAR LINCOLN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01643880",
+      "provider": "usgs",
+      "siteId": "01643880",
+      "siteName": "BEAVERDAM CREEK AT RT 734 NEAR MOUNTVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:50:00+00:00"
+    },
+    {
+      "key": "usgs:01644000",
+      "provider": "usgs",
+      "siteId": "01644000",
+      "siteName": "GOOSE CREEK NEAR LEESBURG, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01644280",
+      "provider": "usgs",
+      "siteId": "01644280",
+      "siteName": "BROAD RUN NEAR LEESBURG, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:40:00+00:00"
+    },
+    {
+      "key": "usgs:01645704",
+      "provider": "usgs",
+      "siteId": "01645704",
+      "siteName": "DIFFICULT RUN ABOVE FOX LAKE NEAR FAIRFAX, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:25:00+00:00"
+    },
+    {
+      "key": "usgs:01645762",
+      "provider": "usgs",
+      "siteId": "01645762",
+      "siteName": "S F LITTLE DIFFICULT RUN ABOVE MOUTH NR VIENNA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:0164578734",
+      "provider": "usgs",
+      "siteId": "0164578734",
+      "siteName": "SNAKEDEN BRANCH ABOVE LAKE AUDUBON AT RESTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:0164579522",
+      "provider": "usgs",
+      "siteId": "0164579522",
+      "siteName": "THE GLADE NEAR HOWLAND DRIVE AT RESTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:01646000",
+      "provider": "usgs",
+      "siteId": "01646000",
+      "siteName": "DIFFICULT RUN NEAR GREAT FALLS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01646305",
+      "provider": "usgs",
+      "siteId": "01646305",
+      "siteName": "DEAD RUN AT WHANN AVENUE NEAR MCLEAN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:25:00+00:00"
+    },
+    {
+      "key": "usgs:01652090",
+      "provider": "usgs",
+      "siteId": "01652090",
+      "siteName": "FOUR MILE RUN AT HWY 29 AT FALLS CHURCH, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01652500",
+      "provider": "usgs",
+      "siteId": "01652500",
+      "siteName": "FOURMILE RUN AT ALEXANDRIA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:01652620",
+      "provider": "usgs",
+      "siteId": "01652620",
+      "siteName": "TRIPPS RUN AT FALLS CHURCH, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01653000",
+      "provider": "usgs",
+      "siteId": "01653000",
+      "siteName": "CAMERON RUN AT ALEXANDRIA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:01654000",
+      "provider": "usgs",
+      "siteId": "01654000",
+      "siteName": "ACCOTINK CREEK NEAR ANNANDALE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01654107",
+      "provider": "usgs",
+      "siteId": "01654107",
+      "siteName": "LONG BRANCH AT OLLEY LANE NR FAIRFAX, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:35:00+00:00"
+    },
+    {
+      "key": "usgs:01654500",
+      "provider": "usgs",
+      "siteId": "01654500",
+      "siteName": "LONG BRANCH NEAR ANNANDALE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:55:00+00:00"
+    },
+    {
+      "key": "usgs:01654670",
+      "provider": "usgs",
+      "siteId": "01654670",
+      "siteName": "ACCOTINK CREEK AT KEENE MILL RD AT SPRINGFIELD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:50:00+00:00"
+    },
+    {
+      "key": "usgs:01656000",
+      "provider": "usgs",
+      "siteId": "01656000",
+      "siteName": "CEDAR RUN NEAR CATLETT, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01656903",
+      "provider": "usgs",
+      "siteId": "01656903",
+      "siteName": "FLATLICK BRANCH ABOVE FROG BRANCH AT CHANTILLY, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:01658500",
+      "provider": "usgs",
+      "siteId": "01658500",
+      "siteName": "S F QUANTICO CREEK NEAR INDEPENDENT HILL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01660400",
+      "provider": "usgs",
+      "siteId": "01660400",
+      "siteName": "AQUIA CREEK NEAR GARRISONVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:01662800",
+      "provider": "usgs",
+      "siteId": "01662800",
+      "siteName": "BATTLE RUN NEAR LAUREL MILLS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01663500",
+      "provider": "usgs",
+      "siteId": "01663500",
+      "siteName": "HAZEL RIVER AT RIXEYVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01664000",
+      "provider": "usgs",
+      "siteId": "01664000",
+      "siteName": "Rappahannock River at Remington, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01665500",
+      "provider": "usgs",
+      "siteId": "01665500",
+      "siteName": "RAPIDAN RIVER NEAR RUCKERSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01666500",
+      "provider": "usgs",
+      "siteId": "01666500",
+      "siteName": "ROBINSON RIVER NEAR LOCUST DALE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01667500",
+      "provider": "usgs",
+      "siteId": "01667500",
+      "siteName": "RAPIDAN RIVER NEAR CULPEPER, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01668000",
+      "provider": "usgs",
+      "siteId": "01668000",
+      "siteName": "RAPPAHANNOCK RIVER NEAR FREDERICKSBURG, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:01669000",
+      "provider": "usgs",
+      "siteId": "01669000",
+      "siteName": "PISCATAWAY CREEK NEAR TAPPAHANNOCK, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01669520",
+      "provider": "usgs",
+      "siteId": "01669520",
+      "siteName": "DRAGON SWAMP AT MASCOT, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:016701405",
+      "provider": "usgs",
+      "siteId": "016701405",
+      "siteName": "N ANNA RIVER AT RT 669 NR MONROVIA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01670200",
+      "provider": "usgs",
+      "siteId": "01670200",
+      "siteName": "PAMUNKEY CREEK AT RT 651 NEAR LAHORE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01670230",
+      "provider": "usgs",
+      "siteId": "01670230",
+      "siteName": "TERRYS RUN NEAR TATUM, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:01670400",
+      "provider": "usgs",
+      "siteId": "01670400",
+      "siteName": "NORTH ANNA RIVER NEAR PARTLOW, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:01671020",
+      "provider": "usgs",
+      "siteId": "01671020",
+      "siteName": "NORTH ANNA RIVER AT HART CORNER NEAR DOSWELL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01671100",
+      "provider": "usgs",
+      "siteId": "01671100",
+      "siteName": "LITTLE RIVER NEAR DOSWELL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01671200",
+      "provider": "usgs",
+      "siteId": "01671200",
+      "siteName": "SOUTH ANNA RIVER NEAR GORDONSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:01672500",
+      "provider": "usgs",
+      "siteId": "01672500",
+      "siteName": "SOUTH ANNA RIVER NEAR ASHLAND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01673000",
+      "provider": "usgs",
+      "siteId": "01673000",
+      "siteName": "PAMUNKEY RIVER NEAR HANOVER, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01673550",
+      "provider": "usgs",
+      "siteId": "01673550",
+      "siteName": "TOTOPOTOMOY CREEK NEAR STUDLEY, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:0167357970",
+      "provider": "usgs",
+      "siteId": "0167357970",
+      "siteName": "MONCUIN CREEK BELOW US HWY 360 NEAR MANQUIN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:15:00+00:00"
+    },
+    {
+      "key": "usgs:01673800",
+      "provider": "usgs",
+      "siteId": "01673800",
+      "siteName": "PO RIVER NEAR SPOTSYLVANIA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01674000",
+      "provider": "usgs",
+      "siteId": "01674000",
+      "siteName": "MATTAPONI RIVER NEAR BOWLING GREEN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:01674182",
+      "provider": "usgs",
+      "siteId": "01674182",
+      "siteName": "POLECAT CREEK AT ROUTE 301 NEAR PENOLA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:01674500",
+      "provider": "usgs",
+      "siteId": "01674500",
+      "siteName": "MATTAPONI RIVER NEAR BEULAHVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02011400",
+      "provider": "usgs",
+      "siteId": "02011400",
+      "siteName": "JACKSON RIVER NEAR BACOVA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02011460",
+      "provider": "usgs",
+      "siteId": "02011460",
+      "siteName": "BACK CREEK NEAR SUNRISE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02011470",
+      "provider": "usgs",
+      "siteId": "02011470",
+      "siteName": "BACK CREEK AT SUNRISE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02011490",
+      "provider": "usgs",
+      "siteId": "02011490",
+      "siteName": "LITTLE BACK CREEK NEAR SUNRISE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02011500",
+      "provider": "usgs",
+      "siteId": "02011500",
+      "siteName": "BACK CREEK NEAR MOUNTAIN GROVE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02011800",
+      "provider": "usgs",
+      "siteId": "02011800",
+      "siteName": "JACKSON RIVER BL GATHRIGHT DAM NR HOT SPGS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02012500",
+      "provider": "usgs",
+      "siteId": "02012500",
+      "siteName": "JACKSON RIVER AT FALLING SPRING, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02013000",
+      "provider": "usgs",
+      "siteId": "02013000",
+      "siteName": "DUNLAP CREEK NEAR COVINGTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02013100",
+      "provider": "usgs",
+      "siteId": "02013100",
+      "siteName": "JACKSON RIVER BL DUNLAP CREEK AT COVINGTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02014000",
+      "provider": "usgs",
+      "siteId": "02014000",
+      "siteName": "POTTS CREEK NEAR COVINGTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02015700",
+      "provider": "usgs",
+      "siteId": "02015700",
+      "siteName": "BULLPASTURE RIVER AT WILLIAMSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02016000",
+      "provider": "usgs",
+      "siteId": "02016000",
+      "siteName": "COWPASTURE RIVER NEAR CLIFTON FORGE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02016500",
+      "provider": "usgs",
+      "siteId": "02016500",
+      "siteName": "JAMES RIVER AT LICK RUN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02017500",
+      "provider": "usgs",
+      "siteId": "02017500",
+      "siteName": "JOHNS CREEK AT NEW CASTLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02018000",
+      "provider": "usgs",
+      "siteId": "02018000",
+      "siteName": "CRAIG CREEK AT PARR, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:02018500",
+      "provider": "usgs",
+      "siteId": "02018500",
+      "siteName": "CATAWBA CREEK NEAR CATAWBA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02019500",
+      "provider": "usgs",
+      "siteId": "02019500",
+      "siteName": "James River at Buchanan, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02020500",
+      "provider": "usgs",
+      "siteId": "02020500",
+      "siteName": "CALFPASTURE RIVER ABOVE MILL CREEK AT GOSHEN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02021500",
+      "provider": "usgs",
+      "siteId": "02021500",
+      "siteName": "MAURY RIVER AT ROCKBRIDGE BATHS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02022500",
+      "provider": "usgs",
+      "siteId": "02022500",
+      "siteName": "KERRS CREEK NEAR LEXINGTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02024000",
+      "provider": "usgs",
+      "siteId": "02024000",
+      "siteName": "Maury River near Buena Vista, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02024750",
+      "provider": "usgs",
+      "siteId": "02024750",
+      "siteName": "JAMES RIVER AT BEDFORD DAM NR MAJOR, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:02024752",
+      "provider": "usgs",
+      "siteId": "02024752",
+      "siteName": "JAMES RIVER AT BLUE RIDGE PKWY NR BIG ISLAND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02024915",
+      "provider": "usgs",
+      "siteId": "02024915",
+      "siteName": "PEDLAR RIVER AT FOREST ROAD NEAR BUENA VISTA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02025500",
+      "provider": "usgs",
+      "siteId": "02025500",
+      "siteName": "JAMES RIVER AT HOLCOMB ROCK, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02025652",
+      "provider": "usgs",
+      "siteId": "02025652",
+      "siteName": "HARRIS CREEK BELOW ROUTE 130 NEAR MONROE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02026000",
+      "provider": "usgs",
+      "siteId": "02026000",
+      "siteName": "JAMES RIVER AT BENT CREEK, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02027000",
+      "provider": "usgs",
+      "siteId": "02027000",
+      "siteName": "TYE RIVER NEAR LOVINGSTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02027500",
+      "provider": "usgs",
+      "siteId": "02027500",
+      "siteName": "PINEY RIVER AT PINEY RIVER, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02028500",
+      "provider": "usgs",
+      "siteId": "02028500",
+      "siteName": "ROCKFISH RIVER NEAR GREENFIELD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02029000",
+      "provider": "usgs",
+      "siteId": "02029000",
+      "siteName": "JAMES RIVER AT SCOTTSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:02030000",
+      "provider": "usgs",
+      "siteId": "02030000",
+      "siteName": "HARDWARE RIVER BL BRIERY RUN NR SCOTTSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02030500",
+      "provider": "usgs",
+      "siteId": "02030500",
+      "siteName": "SLATE RIVER NEAR ARVONIA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:15:00+00:00"
+    },
+    {
+      "key": "usgs:02031000",
+      "provider": "usgs",
+      "siteId": "02031000",
+      "siteName": "MECHUMS RIVER NEAR WHITE HALL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02032250",
+      "provider": "usgs",
+      "siteId": "02032250",
+      "siteName": "MOORMANS RIVER NEAR FREE UNION, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02032515",
+      "provider": "usgs",
+      "siteId": "02032515",
+      "siteName": "S F RIVANNA RIVER NEAR CHARLOTTESVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02032640",
+      "provider": "usgs",
+      "siteId": "02032640",
+      "siteName": "N F RIVANNA RIVER NEAR EARLYSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02034000",
+      "provider": "usgs",
+      "siteId": "02034000",
+      "siteName": "RIVANNA RIVER AT PALMYRA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:02035000",
+      "provider": "usgs",
+      "siteId": "02035000",
+      "siteName": "JAMES RIVER AT CARTERSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02036500",
+      "provider": "usgs",
+      "siteId": "02036500",
+      "siteName": "FINE CREEK AT FINE CREEK MILLS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:0203668750",
+      "provider": "usgs",
+      "siteId": "0203668750",
+      "siteName": "TUCKAHOE CREEK AT RIVER RD AT TUCKAHOE VILLAGE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02037500",
+      "provider": "usgs",
+      "siteId": "02037500",
+      "siteName": "JAMES RIVER NEAR RICHMOND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:00:00+00:00"
+    },
+    {
+      "key": "usgs:0203755233",
+      "provider": "usgs",
+      "siteId": "0203755233",
+      "siteName": "LITTLE WESTHAM CREEK AT UR DRIVE AT RICHMOND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:25:00+00:00"
+    },
+    {
+      "key": "usgs:02037724",
+      "provider": "usgs",
+      "siteId": "02037724",
+      "siteName": "UNNAMED TRIB AT OAKLEYS LN NR RICHMOND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02038730",
+      "provider": "usgs",
+      "siteId": "02038730",
+      "siteName": "FOURMILE CREEK NEAR RICHMOND HEIGHTS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:25:00+00:00"
+    },
+    {
+      "key": "usgs:0203873175",
+      "provider": "usgs",
+      "siteId": "0203873175",
+      "siteName": "FOURMILE CREEK AT KINGSLAND RD NR VARINA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02038850",
+      "provider": "usgs",
+      "siteId": "02038850",
+      "siteName": "HOLIDAY CREEK NEAR ANDERSONVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02039000",
+      "provider": "usgs",
+      "siteId": "02039000",
+      "siteName": "BUFFALO CREEK NEAR HAMPDEN SYDNEY, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02039500",
+      "provider": "usgs",
+      "siteId": "02039500",
+      "siteName": "APPOMATTOX RIVER AT FARMVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:02040000",
+      "provider": "usgs",
+      "siteId": "02040000",
+      "siteName": "APPOMATTOX RIVER AT MATTOAX, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02040892",
+      "provider": "usgs",
+      "siteId": "02040892",
+      "siteName": "APPOMATTOX RIVER AT ROUTE 602 NEAR MANNBORO, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02041000",
+      "provider": "usgs",
+      "siteId": "02041000",
+      "siteName": "DEEP CREEK NEAR MANNBORO, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02041650",
+      "provider": "usgs",
+      "siteId": "02041650",
+      "siteName": "APPOMATTOX RIVER AT MATOACA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02042287",
+      "provider": "usgs",
+      "siteId": "02042287",
+      "siteName": "CHICKAHOMINY RIVER AT CHAMBERLAYNE RD NR ATLEE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02042410",
+      "provider": "usgs",
+      "siteId": "02042410",
+      "siteName": "UPHAM BROOK AT SPRING PK AT RT 161 AT RICHMOND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:25:00+00:00"
+    },
+    {
+      "key": "usgs:0204241133",
+      "provider": "usgs",
+      "siteId": "0204241133",
+      "siteName": "NORTH RUN AT OLD WASHINGTON HWY AT GLEN ALLEN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:0204241200",
+      "provider": "usgs",
+      "siteId": "0204241200",
+      "siteName": "NORTH RUN AT MOUNTAIN ROAD AT GLEN ALLEN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:25:00+00:00"
+    },
+    {
+      "key": "usgs:0204241951",
+      "provider": "usgs",
+      "siteId": "0204241951",
+      "siteName": "NORTH RUN AT HILLIARD RD NEAR RICHMOND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02042426",
+      "provider": "usgs",
+      "siteId": "02042426",
+      "siteName": "UPHAM BROOK NEAR RICHMOND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:25:00+00:00"
+    },
+    {
+      "key": "usgs:02042435",
+      "provider": "usgs",
+      "siteId": "02042435",
+      "siteName": "CHICKAHOMINY RIV AT RT 615 NR HIGHLAND SPGS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:0204244887",
+      "provider": "usgs",
+      "siteId": "0204244887",
+      "siteName": "WHITE OAK SWAMP AT PORTUGEE ROAD NR ELKO, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02042500",
+      "provider": "usgs",
+      "siteId": "02042500",
+      "siteName": "CHICKAHOMINY RIVER NEAR PROVIDENCE FORGE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02044500",
+      "provider": "usgs",
+      "siteId": "02044500",
+      "siteName": "NOTTOWAY RIVER NEAR RAWLINGS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:02045320",
+      "provider": "usgs",
+      "siteId": "02045320",
+      "siteName": "NOTTOWAY RIVER AT ROUTE 609 NEAR MCKENNEY, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02045500",
+      "provider": "usgs",
+      "siteId": "02045500",
+      "siteName": "NOTTOWAY RIVER NEAR STONY CREEK, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02046000",
+      "provider": "usgs",
+      "siteId": "02046000",
+      "siteName": "STONY CREEK NEAR DINWIDDIE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02047000",
+      "provider": "usgs",
+      "siteId": "02047000",
+      "siteName": "NOTTOWAY RIVER NEAR SEBRELL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:02047370",
+      "provider": "usgs",
+      "siteId": "02047370",
+      "siteName": "NOTTOWAY RIVER NEAR RIVERDALE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02047500",
+      "provider": "usgs",
+      "siteId": "02047500",
+      "siteName": "BLACKWATER RIVER NEAR DENDRON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02047783",
+      "provider": "usgs",
+      "siteId": "02047783",
+      "siteName": "BLACKWATER RIVER AT ROUTE 620 NEAR ZUNI, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02049500",
+      "provider": "usgs",
+      "siteId": "02049500",
+      "siteName": "BLACKWATER RIVER NEAR FRANKLIN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02050000",
+      "provider": "usgs",
+      "siteId": "02050000",
+      "siteName": "BLACKWATER RIVER AT HWYS 58/258 AT FRANKLIN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:02051000",
+      "provider": "usgs",
+      "siteId": "02051000",
+      "siteName": "NORTH MEHERRIN RIVER NEAR LUNENBURG, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02051190",
+      "provider": "usgs",
+      "siteId": "02051190",
+      "siteName": "MEHERRIN RIVER AT RT 637 NEAR SOUTH HILL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02051500",
+      "provider": "usgs",
+      "siteId": "02051500",
+      "siteName": "MEHERRIN RIVER NEAR LAWRENCEVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02052000",
+      "provider": "usgs",
+      "siteId": "02052000",
+      "siteName": "MEHERRIN RIVER AT EMPORIA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02052090",
+      "provider": "usgs",
+      "siteId": "02052090",
+      "siteName": "MEHERRIN RIVER NEAR BRYANTS CORNER, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02053730",
+      "provider": "usgs",
+      "siteId": "02053730",
+      "siteName": "GOOSE CREEK AT RT 653 NEAR CROCKETT SPRING, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02053800",
+      "provider": "usgs",
+      "siteId": "02053800",
+      "siteName": "S F ROANOKE RIVER NEAR SHAWSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:02054500",
+      "provider": "usgs",
+      "siteId": "02054500",
+      "siteName": "ROANOKE RIVER AT LAFAYETTE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:02054530",
+      "provider": "usgs",
+      "siteId": "02054530",
+      "siteName": "ROANOKE RIVER AT GLENVAR, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:02055000",
+      "provider": "usgs",
+      "siteId": "02055000",
+      "siteName": "ROANOKE RIVER AT ROANOKE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:02055100",
+      "provider": "usgs",
+      "siteId": "02055100",
+      "siteName": "TINKER CREEK NEAR DALEVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:0205551460",
+      "provider": "usgs",
+      "siteId": "0205551460",
+      "siteName": "LICK RUN ABOVE PATTON AVENUE AT ROANOKE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:0205551614",
+      "provider": "usgs",
+      "siteId": "0205551614",
+      "siteName": "TINKER CREEK ABOVE GLADE CREEK AT ROANOKE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02056000",
+      "provider": "usgs",
+      "siteId": "02056000",
+      "siteName": "ROANOKE RIVER AT NIAGARA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02056650",
+      "provider": "usgs",
+      "siteId": "02056650",
+      "siteName": "BACK CREEK NEAR DUNDEE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:02056900",
+      "provider": "usgs",
+      "siteId": "02056900",
+      "siteName": "BLACKWATER RIVER NEAR ROCKY MOUNT, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02058400",
+      "provider": "usgs",
+      "siteId": "02058400",
+      "siteName": "PIGG RIVER NEAR SANDY LEVEL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02059500",
+      "provider": "usgs",
+      "siteId": "02059500",
+      "siteName": "GOOSE CREEK NEAR HUDDLESTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02060500",
+      "provider": "usgs",
+      "siteId": "02060500",
+      "siteName": "ROANOKE RIVER AT ALTAVISTA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02061500",
+      "provider": "usgs",
+      "siteId": "02061500",
+      "siteName": "BIG OTTER RIVER NEAR EVINGTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02062500",
+      "provider": "usgs",
+      "siteId": "02062500",
+      "siteName": "ROANOKE (STAUNTON) RIVER AT BROOKNEAL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02064000",
+      "provider": "usgs",
+      "siteId": "02064000",
+      "siteName": "FALLING RIVER NEAR NARUNA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:02065500",
+      "provider": "usgs",
+      "siteId": "02065500",
+      "siteName": "CUB CREEK AT PHENIX, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02066000",
+      "provider": "usgs",
+      "siteId": "02066000",
+      "siteName": "ROANOKE (STAUNTON) RIVER AT RANDOLPH, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02069700",
+      "provider": "usgs",
+      "siteId": "02069700",
+      "siteName": "SOUTH MAYO RIVER NEAR NETTLERIDGE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02070000",
+      "provider": "usgs",
+      "siteId": "02070000",
+      "siteName": "NORTH MAYO RIVER NEAR SPENCER, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02071530",
+      "provider": "usgs",
+      "siteId": "02071530",
+      "siteName": "SMITH RIVER AT SMITH RIV CHURCH NR WOOLWINE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02072000",
+      "provider": "usgs",
+      "siteId": "02072000",
+      "siteName": "SMITH RIVER NEAR PHILPOTT, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02072500",
+      "provider": "usgs",
+      "siteId": "02072500",
+      "siteName": "SMITH RIVER AT BASSETT, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02073000",
+      "provider": "usgs",
+      "siteId": "02073000",
+      "siteName": "SMITH RIVER AT MARTINSVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02074500",
+      "provider": "usgs",
+      "siteId": "02074500",
+      "siteName": "SANDY RIVER NEAR DANVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:02074557",
+      "provider": "usgs",
+      "siteId": "02074557",
+      "siteName": "SANDY CREEK BELOW NEAR MOUNT HERMAN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-11T13:50:00+00:00"
+    },
+    {
+      "key": "usgs:02075045",
+      "provider": "usgs",
+      "siteId": "02075045",
+      "siteName": "DAN RIVER AT STP NEAR DANVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02075500",
+      "provider": "usgs",
+      "siteId": "02075500",
+      "siteName": "DAN RIVER AT PACES, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:02076000",
+      "provider": "usgs",
+      "siteId": "02076000",
+      "siteName": "DAN RIVER AT SOUTH BOSTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:0207635085",
+      "provider": "usgs",
+      "siteId": "0207635085",
+      "siteName": "CHERRYSTONE CK BELOW NR CO RD 1444 NR CHATHAM, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-19T11:35:00+00:00"
+    },
+    {
+      "key": "usgs:02077000",
+      "provider": "usgs",
+      "siteId": "02077000",
+      "siteName": "BANISTER RIVER AT HALIFAX, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:00:00+00:00"
+    },
+    {
+      "key": "usgs:02079500",
+      "provider": "usgs",
+      "siteId": "02079500",
+      "siteName": "ROANOKE RIVER AT BUGGS ISLAND, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:02079640",
+      "provider": "usgs",
+      "siteId": "02079640",
+      "siteName": "ALLEN CREEK NEAR BOYDTON, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
     },
     {
       "key": "usgs:03007800",
@@ -6768,6 +9725,62 @@
       "lastObservationAt": "2026-08-14T10:30:00+00:00"
     },
     {
+      "key": "usgs:03057000",
+      "provider": "usgs",
+      "siteId": "03057000",
+      "siteName": "Tygart Valley River at Colfax, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03058020",
+      "provider": "usgs",
+      "siteId": "03058020",
+      "siteName": "West Fork River at Weston, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03058975",
+      "provider": "usgs",
+      "siteId": "03058975",
+      "siteName": "West Fork River near Mount Clare, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03061000",
+      "provider": "usgs",
+      "siteId": "03061000",
+      "siteName": "West Fork River at Enterprise, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:03062998",
       "provider": "usgs",
       "siteId": "03062998",
@@ -6796,6 +9809,48 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:15:00+00:00"
+    },
+    {
+      "key": "usgs:03069500",
+      "provider": "usgs",
+      "siteId": "03069500",
+      "siteName": "Cheat River at Parsons, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:0307020015",
+      "provider": "usgs",
+      "siteId": "0307020015",
+      "siteName": "Cheat River at Rowlesburg, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03070260",
+      "provider": "usgs",
+      "siteId": "03070260",
+      "siteName": "Cheat River at Albright, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:03071600",
@@ -9263,6 +12318,365 @@
       "lastObservationAt": "2026-08-14T10:30:00+00:00"
     },
     {
+      "key": "usgs:03164000",
+      "provider": "usgs",
+      "siteId": "03164000",
+      "siteName": "NEW RIVER NEAR GALAX, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:03165000",
+      "provider": "usgs",
+      "siteId": "03165000",
+      "siteName": "CHESTNUT CREEK AT GALAX, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:03165500",
+      "provider": "usgs",
+      "siteId": "03165500",
+      "siteName": "New River at Ivanhoe, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:20:00+00:00"
+    },
+    {
+      "key": "usgs:03167000",
+      "provider": "usgs",
+      "siteId": "03167000",
+      "siteName": "REED CREEK AT GRAHAMS FORGE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
+    },
+    {
+      "key": "usgs:03168000",
+      "provider": "usgs",
+      "siteId": "03168000",
+      "siteName": "NEW RIVER AT ALLISONIA, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:03170000",
+      "provider": "usgs",
+      "siteId": "03170000",
+      "siteName": "LITTLE RIVER AT GRAYSONTOWN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:03171000",
+      "provider": "usgs",
+      "siteId": "03171000",
+      "siteName": "NEW RIVER AT RADFORD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
+      "key": "usgs:03173000",
+      "provider": "usgs",
+      "siteId": "03173000",
+      "siteName": "WALKER CREEK AT BANE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:03175500",
+      "provider": "usgs",
+      "siteId": "03175500",
+      "siteName": "WOLF CREEK NEAR NARROWS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:03176500",
+      "provider": "usgs",
+      "siteId": "03176500",
+      "siteName": "NEW RIVER AT GLEN LYN, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:03177710",
+      "provider": "usgs",
+      "siteId": "03177710",
+      "siteName": "BLUESTONE RIVER AT FALLS MILLS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:03182500",
+      "provider": "usgs",
+      "siteId": "03182500",
+      "siteName": "Greenbrier River at Buckeye, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03183500",
+      "provider": "usgs",
+      "siteId": "03183500",
+      "siteName": "Greenbrier River at Alderson, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03184000",
+      "provider": "usgs",
+      "siteId": "03184000",
+      "siteName": "Greenbrier River at Hinton, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03184500",
+      "provider": "usgs",
+      "siteId": "03184500",
+      "siteName": "New River at Thurmond, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03185400",
+      "provider": "usgs",
+      "siteId": "03185400",
+      "siteName": "New River at Thurmond, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03189100",
+      "provider": "usgs",
+      "siteId": "03189100",
+      "siteName": "Gauley River near Craigsville, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03194700",
+      "provider": "usgs",
+      "siteId": "03194700",
+      "siteName": "Elk River below Webster Springs, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03196600",
+      "provider": "usgs",
+      "siteId": "03196600",
+      "siteName": "Elk River near Frametown, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03197000",
+      "provider": "usgs",
+      "siteId": "03197000",
+      "siteName": "Elk River at Queen Shoals, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03197950",
+      "provider": "usgs",
+      "siteId": "03197950",
+      "siteName": "Elk River at Charleston, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03198500",
+      "provider": "usgs",
+      "siteId": "03198500",
+      "siteName": "Big Coal River at Ashford, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03199000",
+      "provider": "usgs",
+      "siteId": "03199000",
+      "siteName": "Little Coal River at Danville, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03200500",
+      "provider": "usgs",
+      "siteId": "03200500",
+      "siteName": "Coal River at Tornado, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:03202000",
       "provider": "usgs",
       "siteId": "03202000",
@@ -9279,6 +12693,76 @@
       "lastObservationAt": "2026-08-14T10:30:00+00:00"
     },
     {
+      "key": "usgs:03202300",
+      "provider": "usgs",
+      "siteId": "03202300",
+      "siteName": "Guyandotte River at Pineville, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03202400",
+      "provider": "usgs",
+      "siteId": "03202400",
+      "siteName": "Guyandotte River near Baileysville, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03203000",
+      "provider": "usgs",
+      "siteId": "03203000",
+      "siteName": "Guyandotte River at Man, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03203600",
+      "provider": "usgs",
+      "siteId": "03203600",
+      "siteName": "Guyandotte River at Logan, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:03204000",
+      "provider": "usgs",
+      "siteId": "03204000",
+      "siteName": "Guyandotte River at Branchland, WV",
+      "homeState": "WEST VIRGINIA",
+      "coverageStates": [
+        "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:03205470",
       "provider": "usgs",
       "siteId": "03205470",
@@ -9293,6 +12777,22 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T11:00:00+00:00"
+    },
+    {
+      "key": "usgs:03207800",
+      "provider": "usgs",
+      "siteId": "03207800",
+      "siteName": "LEVISA FORK AT BIG ROCK, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
     },
     {
       "key": "usgs:03207965",
@@ -9324,6 +12824,67 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:45:00+00:00"
+    },
+    {
+      "key": "usgs:03208500",
+      "provider": "usgs",
+      "siteId": "03208500",
+      "siteName": "RUSSELL FORK AT HAYSI, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T18:45:00+00:00"
+    },
+    {
+      "key": "usgs:03208950",
+      "provider": "usgs",
+      "siteId": "03208950",
+      "siteName": "CRANES NEST RIVER NEAR CLINTWOOD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:03209000",
+      "provider": "usgs",
+      "siteId": "03209000",
+      "siteName": "POUND RIVER BELOW FLANNAGAN DAM, NEAR HAYSI, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:30:00+00:00"
+    },
+    {
+      "key": "usgs:03209200",
+      "provider": "usgs",
+      "siteId": "03209200",
+      "siteName": "RUSSELL FORK AT BARTLICK, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:00:00+00:00"
     },
     {
       "key": "usgs:03209325",
@@ -17880,6 +21441,86 @@
       "lastObservationAt": "2026-08-14T10:30:00+00:00"
     },
     {
+      "key": "usgs:03471500",
+      "provider": "usgs",
+      "siteId": "03471500",
+      "siteName": "S F HOLSTON RIVER AT RIVERSIDE, NEAR CHILHOWIE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:44:00+00:00"
+    },
+    {
+      "key": "usgs:03473000",
+      "provider": "usgs",
+      "siteId": "03473000",
+      "siteName": "S F HOLSTON RIVER NEAR DAMASCUS, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:03474000",
+      "provider": "usgs",
+      "siteId": "03474000",
+      "siteName": "M F HOLSTON RIVER AT SEVEN MILE FORD, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:03475000",
+      "provider": "usgs",
+      "siteId": "03475000",
+      "siteName": "M F HOLSTON RIVER NEAR MEADOWVIEW, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:44:00+00:00"
+    },
+    {
+      "key": "usgs:03478400",
+      "provider": "usgs",
+      "siteId": "03478400",
+      "siteName": "BEAVER CREEK AT BRISTOL, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
+    },
+    {
       "key": "usgs:03485500",
       "provider": "usgs",
       "siteId": "03485500",
@@ -17910,6 +21551,38 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:00:00+00:00"
+    },
+    {
+      "key": "usgs:03488000",
+      "provider": "usgs",
+      "siteId": "03488000",
+      "siteName": "N F HOLSTON RIVER NEAR SALTVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:10:00+00:00"
+    },
+    {
+      "key": "usgs:03490000",
+      "provider": "usgs",
+      "siteId": "03490000",
+      "siteName": "N F HOLSTON RIVER NEAR GATE CITY, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T20:15:00+00:00"
     },
     {
       "key": "usgs:03491000",
@@ -18040,6 +21713,38 @@
       "lastObservationAt": "2026-08-14T10:00:00+00:00"
     },
     {
+      "key": "usgs:03524000",
+      "provider": "usgs",
+      "siteId": "03524000",
+      "siteName": "Clinch River at Cleveland, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
+    },
+    {
+      "key": "usgs:03527000",
+      "provider": "usgs",
+      "siteId": "03527000",
+      "siteName": "CLINCH RIVER AT SPEERS FERRY, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:15:00+00:00"
+    },
+    {
       "key": "usgs:03528000",
       "provider": "usgs",
       "siteId": "03528000",
@@ -18054,6 +21759,38 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:15:00+00:00"
+    },
+    {
+      "key": "usgs:03529500",
+      "provider": "usgs",
+      "siteId": "03529500",
+      "siteName": "POWELL RIVER AT BIG STONE GAP, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:15:00+00:00"
+    },
+    {
+      "key": "usgs:03531500",
+      "provider": "usgs",
+      "siteId": "03531500",
+      "siteName": "POWELL RIVER NEAR JONESVILLE, VA",
+      "homeState": "VA",
+      "coverageStates": [
+        "VA"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "provider_inventory",
+      "lastObservationAt": "2026-08-26T19:45:00+00:00"
     },
     {
       "key": "usgs:03532000",

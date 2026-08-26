@@ -1,13 +1,36 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-25T02:06:10.518Z",
-  "routeCount": 866,
-  "issueCount": 0,
+  "generatedAt": "2026-08-26T20:44:55.825Z",
+  "routeCount": 904,
+  "issueCount": 2,
   "summary": {
     "Critical": 0,
-    "High": 0,
-    "Medium": 0,
+    "High": 1,
+    "Medium": 1,
     "Low": 0
   },
-  "issues": []
+  "issues": [
+    {
+      "routeId": "wv-guyandotte-branchland-west-hamlin",
+      "slug": "wv-guyandotte-branchland-west-hamlin",
+      "name": "Guyandotte River",
+      "reach": "Branchland public access to West Hamlin public access",
+      "state": "West Virginia",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "s. Follow current West Virginia boating/PFD rules, posted access rules, and any closure or water-quality notice. No on-route camping is assumed. Use separately verified lodging or campgrounds near Logan, Hamlin, or Huntington; do not camp at the Branchland or"
+    },
+    {
+      "routeId": "wv-guyandotte-branchland-west-hamlin",
+      "slug": "wv-guyandotte-branchland-west-hamlin",
+      "name": "Guyandotte River",
+      "reach": "Branchland public access to West Hamlin public access",
+      "state": "West Virginia",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "elemetry and local conditions. Low-water scraping, strainers, submerged debris, cold water, private banks, changing water quality, and urban/town access traffic. Named route corridor Branchland to West Hamlin; Trip 18; 5.7 mi; no significant rapids Guyandotte"
+    }
+  ]
 }

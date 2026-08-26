@@ -13,6 +13,7 @@ export type OperationsTask = {
   frontierTier?: number;
   routeOpportunity?: boolean;
   routeOpportunityScore?: number;
+  opportunitySource?: 'gauge_queue' | 'corridor_preflight';
 };
 
 export type WorkOrder = {
@@ -88,6 +89,7 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
   const unfinishedFrontierTasks = tasks.filter(
     (task) => (task.kind === 'state_coverage' || task.routeOpportunity)
       && task.lane !== 'completed'
+      && task.lane !== 'done'
       && task.lane !== 'blocked'
       && task.frontierTier !== undefined
   );

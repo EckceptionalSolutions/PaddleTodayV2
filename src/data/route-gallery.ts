@@ -8,24 +8,10 @@ import {
   newRiverGorgeContextPhoto,
   tygartValleyFallsPhoto,
   cacaponRoute127Photo,
-  elkRiverDownElkPhoto,
-  elkRiverWaterTrailPhoto,
-  bigCoalRiverPhoto,
-  littleCoalRiverPhoto,
-  westForkRiverPhoto,
-  westForkWestonPhoto,
-  gauleyCrupperneckPhoto,
-  guyandotteRiverPhoto,
 } from './route-gallery-west-virginia';
+import type { RouteGalleryPhoto } from './route-gallery-types';
 
-export interface RouteGalleryPhoto {
-  id: string;
-  src: string;
-  alt: string;
-  caption: string;
-  credit?: string;
-  takenLabel?: string;
-}
+export type { RouteGalleryPhoto } from './route-gallery-types';
 
 export interface RoutePreviewPhoto extends RouteGalleryPhoto {
   isPlaceholder: boolean;
@@ -3068,46 +3054,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-cacapon-rt127-cacapon-crossing': [cacaponRoute127Photo],
   'wv-cacapon-cacapon-crossing-fishers-ford': [cacaponRoute127Photo],
   'wv-cacapon-fishers-ford-power-plant': [cacaponRoute127Photo],
-  'wv-elk-webster-springs-clifton-ford': [elkRiverDownElkPhoto],
-  'wv-elk-frametown-duck': [elkRiverWaterTrailPhoto],
-  'wv-elk-king-shoals-queen-shoals': [elkRiverWaterTrailPhoto],
-  'wv-elk-queen-shoals-clendenin-north': [elkRiverWaterTrailPhoto],
-  'wv-elk-clendenin-south-blue-creek': [elkRiverWaterTrailPhoto],
-  'wv-elk-blue-creek-charleston': [elkRiverWaterTrailPhoto],
-  'wv-big-coal-whitesville-orgas': [bigCoalRiverPhoto],
-  'wv-big-coal-orgas-john-slack': [bigCoalRiverPhoto],
-  'wv-big-coal-john-slack-dartmont': [bigCoalRiverPhoto],
-  'wv-big-coal-dartmont-sproul': [bigCoalRiverPhoto],
-  'wv-big-coal-sproul-lions-park': [bigCoalRiverPhoto],
-  'wv-coal-meadowood-lower-falls': [bigCoalRiverPhoto],
-  'wv-coal-lower-falls-st-albans': [bigCoalRiverPhoto],
-  'wv-coal-forks-lions-park': [bigCoalRiverPhoto],
-  'wv-west-fork-good-hope-west-milford': [westForkRiverPhoto],
-  'wv-west-fork-worthington-monongah': [westForkRiverPhoto],
-  'wv-west-fork-jacksons-mill-good-hope': [westForkRiverPhoto],
-  'wv-west-fork-weston-jacksons-mill': [westForkWestonPhoto],
-  'wv-gauley-curtin-persinger': [gauleyCrupperneckPhoto],
-  'wv-guyandotte-pineville-baileysville': [guyandotteRiverPhoto],
-  'wv-guyandotte-mullens-pineville': [guyandotteRiverPhoto],
-  'wv-guyandotte-baileysville-rd-bailey-campground': [guyandotteRiverPhoto],
-  'wv-guyandotte-branchland-west-hamlin': [guyandotteRiverPhoto],
-  'wv-guyandotte-west-hamlin-salt-rock': [guyandotteRiverPhoto],
-  'wv-guyandotte-salt-rock-barboursville': [guyandotteRiverPhoto],
-  'wv-guyandotte-barboursville-farmdale': [guyandotteRiverPhoto],
-  'wv-guyandotte-farmdale-ohio': [guyandotteRiverPhoto],
-  'wv-guyandotte-wylo-man': [guyandotteRiverPhoto],
-  'wv-guyandotte-man-earling': [guyandotteRiverPhoto],
-  'wv-guyandotte-earling-three-mile-curve': [guyandotteRiverPhoto],
-  'wv-guyandotte-three-mile-curve-four-seasons': [guyandotteRiverPhoto],
-  'wv-guyandotte-four-seasons-peach-creek': [guyandotteRiverPhoto],
-  'wv-guyandotte-peach-creek-farmers-market': [guyandotteRiverPhoto],
-  'wv-guyandotte-farmers-market-chapmanville': [guyandotteRiverPhoto],
-  'wv-guyandotte-chapmanville-harts': [guyandotteRiverPhoto],
-  'wv-guyandotte-harts-branchland': [guyandotteRiverPhoto],
   'wv-new-thurmond-cunard': [newRiverGorgeContextPhoto],
-  'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
-  'wv-little-coal-donald-kuhn-waterways': [littleCoalRiverPhoto],
-  'wv-little-coal-waterways-corridor-g': [littleCoalRiverPhoto],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

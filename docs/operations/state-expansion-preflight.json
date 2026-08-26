@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-26T19:13:00.935Z",
+  "method": "bounded_corridor_first_preflight",
+  "scoring": {
+    "recognizedCorridorYield": 25,
+    "publicEndpointEvidence": 20,
+    "supportedLiveGaugeDepth": 20,
+    "routeSpecificThresholdEvidence": 15,
+    "geographicAndContentSynergy": 10,
+    "accessAndSafetyManageability": 10
+  },
+  "states": [
+    {
+      "stateId": "VA",
+      "stateName": "Virginia",
+      "score": 91,
+      "activeInstantaneousDischargeSites": 199,
+      "rank": 1,
+      "decision": "selected",
+      "strengths": [
+        "Virginia DWR publishes exact public boating accesses and coordinates.",
+        "Virginia DWR publishes segmented float guides with distances, hazards, and gauge references.",
+        "The Maury guide supplies an explicit low-water condition tied to USGS 02024000.",
+        "Virginia extends the existing Appalachian coverage without duplicating the separate West Virginia work."
+      ],
+      "risks": [
+        "Private banks require explicit no-trespass caveats outside public accesses.",
+        "Broken dams, cold water, and whitewater difficulty require route-specific safety treatment."
+      ],
+      "sources": [
+        "https://dwr.virginia.gov/rivers/",
+        "https://dwr.virginia.gov/boating/access",
+        "https://dwr.virginia.gov/wp-content/uploads/media/Maury-River-Float-Trip-Overall.pdf",
+        "https://dwr.virginia.gov/wp-content/uploads/media/Maury-River-Float-Trip-Lower-Section.pdf",
+        "https://www.dcr.virginia.gov/state-parks/paddling",
+        "https://www.dcr.virginia.gov/state-parks/new-river-trail",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=VA&siteType=ST&siteStatus=active&hasDataTypeCd=iv&parameterCd=00060"
+      ]
+    },
+    {
+      "stateId": "NC",
+      "stateName": "North Carolina",
+      "score": 89,
+      "activeInstantaneousDischargeSites": 249,
+      "rank": 2,
+      "decision": "shortlisted_not_active",
+      "strengths": [
+        "North Carolina manages 250 free boating access areas on more than 100 water bodies.",
+        "The state recognizes multiple long paddle trails including the Roanoke, Dan, Yadkin, Haw, and Deep rivers.",
+        "The Roanoke trail publishes designated access spacing and segment managers."
+      ],
+      "risks": [
+        "Many route details are delegated to partner organizations, increasing source joins.",
+        "Dam releases and lowland threshold guidance require corridor-by-corridor verification."
+      ],
+      "sources": [
+        "https://www.ncwildlife.gov/boating/boating-access-areas",
+        "https://trails.nc.gov/state-trails",
+        "https://trails.nc.gov/state-trails/roanoke-river-state-trail/accesses",
+        "https://www.ncparks.gov/state-parks/lumber-river-state-park",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=NC&siteType=ST&siteStatus=active&hasDataTypeCd=iv&parameterCd=00060"
+      ]
+    },
+    {
+      "stateId": "CO",
+      "stateName": "Colorado",
+      "score": 84,
+      "activeInstantaneousDischargeSites": 358,
+      "rank": 3,
+      "decision": "shortlisted_not_active",
+      "strengths": [
+        "Colorado has the deepest active USGS discharge network in the shortlist.",
+        "The Arkansas Headwaters corridor provides six official sections and more than 25 developed river accesses.",
+        "The Upper Colorado provides developed BLM access and camping."
+      ],
+      "risks": [
+        "A high share of obvious corridors are technical whitewater with seasonal and cold-water risk.",
+        "Private access, drought closures, and release-sensitive conditions raise evidence cost."
+      ],
+      "sources": [
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-river-sections",
+        "https://www.blm.gov/visit/arkansas-headwaters-recreation-area",
+        "https://www.blm.gov/visit/pumphouse-recreation-area",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=CO&siteType=ST&siteStatus=active&hasDataTypeCd=iv&parameterCd=00060"
+      ]
+    },
+    {
+      "stateId": "NY",
+      "stateName": "New York",
+      "score": 82,
+      "activeInstantaneousDischargeSites": 304,
+      "rank": 4,
+      "decision": "shortlisted_not_active",
+      "strengths": [
+        "New York publishes more than 500 public boating access sites.",
+        "The state identifies extensive river and flatwater paddling opportunities and a 50-launch Susquehanna trail project.",
+        "The active USGS discharge network is broad."
+      ],
+      "risks": [
+        "The statewide launch directory is less route-segmented than the Virginia and North Carolina sources.",
+        "A large share of official access inventory is lake, canal, or coastal rather than scored moving-water routes."
+      ],
+      "sources": [
+        "https://dec.ny.gov/things-to-do/paddling",
+        "https://dec.ny.gov/environmental-protection/water",
+        "https://extapps.dec.ny.gov/docs/fish_marine_pdf/nyboatlaunching.pdf",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=NY&siteType=ST&siteStatus=active&hasDataTypeCd=iv&parameterCd=00060"
+      ]
+    }
+  ],
+  "selectedState": "VA",
+  "selectionReason": "Virginia has the strongest immediately publishable evidence chain: exact state-managed endpoints, route segmentation, supported gauges, explicit threshold guidance on the leading corridor, and manageable geographic continuity.",
+  "wipPolicy": {
+    "activeStateCount": 1,
+    "readyRouteResearchCandidates": 3,
+    "routeImplementationsInProgress": 0,
+    "maxRouteImplementationsInProgress": 1
+  }
+}

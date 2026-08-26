@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "auditType": "corridor_first_sanity_sweep",
+  "stateId": "OK",
+  "inventoryId": "provider-baseline-202608260140",
+  "generatedAt": "2026-08-26T12:30:00Z",
+  "method": "Started from named Oklahoma paddling corridors, water trails, parks, and source-family references without using the gauge inventory to select candidates; checked gauge compatibility only after a corridor was identified.",
+  "scope": {
+    "publishedScoredRoutes": 5,
+    "inventoryGauges": 169,
+    "inventoryUnreviewed": 0,
+    "routeOpportunityQueue": 0
+  },
+  "candidates": [
+    {
+      "name": "Spring River Canoe Trail",
+      "disposition": "screened_out",
+      "reason": "Public park ramps and camping are documented, but no authoritative point-to-point endpoint pair or station-specific operating cue was found.",
+      "retryCondition": "Reopen only with authoritative paired public ramp coordinates and a station-specific operating cue for the park reach."
+    },
+    {
+      "name": "Neosho River / Twin Bridges",
+      "disposition": "screened_out",
+      "reason": "Tourism material confirms paddling, but does not provide a complete endpoint, gauge, and threshold package."
+    },
+    {
+      "name": "Salt Creek",
+      "disposition": "blocked",
+      "reason": "Available route data is explicitly speculative and describes limited rural/private access; no product-supported live gauge package was found."
+    },
+    {
+      "name": "Boktuklo Creek",
+      "disposition": "blocked",
+      "reason": "Remote permit-limited reach with incomplete route information and no station-specific threshold package."
+    },
+    {
+      "name": "Clear Creek / Crumb Creek",
+      "disposition": "blocked",
+      "reason": "Technical or high-hazard reaches with private, remote, or unverified access; no safe public endpoint package."
+    },
+    {
+      "name": "Big Creek / Buffalo Creek / Buck Creek / Broken Bow Spillway",
+      "disposition": "blocked",
+      "reason": "Named in whitewater indexes, but no authoritative endpoint, threshold, and live-gauge package cleared the route bar."
+    },
+    {
+      "name": "Oklahoma River / Tulsa Wave",
+      "disposition": "blocked",
+      "reason": "Engineered lock/flume corridor with operating controls that do not match a normal river gauge route."
+    }
+  ],
+  "conclusion": "The corridor-first sanity sweep found no strong additional Oklahoma corridor that clears the publication package. Oklahoma remains saturated for the current source universe: all 169 gauges are durably dispositioned, the five existing scored routes have covered gauge evidence, and no route was added speculatively.",
+  "evidence": [
+    "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-OKL",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/2541/main",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/2574/main",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/4764/main",
+    "https://www.travelok.com/de/listings/view.profile/id.30002",
+    "https://www.grandlake.com/camping-rv-parks--spring-river-canoe-trails-state-park/385",
+    "https://oklahoma.gov/content/dam/ok/en/odot/maps/state/pdfs/2013_OK_State_Map_side.pdf",
+    "https://www.okc.gov/government/maps-3/maps-history/original-maps/oklahoma-river/",
+    "https://waterdata.usgs.gov/ok/nwis/uv/?agency_cd=USGS&site_no=07188000"
+  ],
+  "validation": "JSON parse and gauge-coverage validation passed; prior route-data typecheck, canonical geometry audit, targeted operations tests, and production build artifacts remain the baseline. The targeted Vitest command was attempted but could not start because the existing workspace is missing @jridgewell/sourcemap-codec; no route data or policy changed.",
+  "rollback": "Remove this audit artifact and the linked task/run/gatekeeper metadata without touching published routes or prior gauge dispositions."
+}

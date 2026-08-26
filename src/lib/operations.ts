@@ -99,7 +99,16 @@ export function rankGaugeStateCoverage<T extends {
       // expansion answers “could additional route work still be worthwhile?”
       // Keep these separate so a state cannot look exhausted merely because
       // every opportunity is currently blocked or awaiting a better package.
-      const routeExpansionStatus = uncoveredRouteCapable > 0 ? 'more_routes_possible' : 'fully_covered';
+      // An uncovered route-capable gauge is not necessarily an active expansion
+      // opportunity. Gauges with a durable blocked or stale disposition have
+      // already been adjudicated and should not be presented as work waiting
+      // to be discovered. Keep the actionable count separate from that durable
+      // no-current-route population.
+      const routeExpansionStatus = unresolvedRouteCapable > 0
+        ? 'more_routes_possible'
+        : uncoveredRouteCapable > 0
+          ? 'no_current_route'
+          : 'fully_covered';
       const completionGap = state.gaugeCoverage.unreviewedGaugeCount + unresolvedRouteCapable;
       const researchPriorityScore = (100 - Math.min(frontierTier, 99)) * 1_000_000
         - completionGap * 1_000
@@ -113,7 +122,8 @@ export function rankGaugeStateCoverage<T extends {
         frontierTier,
         frontierLabel: state.frontierLabel ?? 'Unranked frontier',
         routeExpansionStatus,
-        routeExpansionGaugeCount: uncoveredRouteCapable,
+        routeExpansionGaugeCount: unresolvedRouteCapable,
+        routeExpansionBlockedGaugeCount: Math.max(0, uncoveredRouteCapable - unresolvedRouteCapable),
         completionGap,
         researchPriorityScore,
       };
@@ -437,7 +447,9 @@ export function getOperationsSnapshot() {
       scored: rivers.length,
       planning: routeInventory.length - rivers.length,
       knownGauges: gaugeCoverageArtifacts.inventory.gauges.length,
+      eligibleGauges: eligibleGaugeReviews.length,
       reviewedGauges: reviewedGaugeReviews.length,
+      routeCapableGauges: routeCapableGaugeReviews.length,
       coveredGauges: coveredRouteCapableGaugeReviews.length,
       candidateGauges: gaugeReviews.filter((review) => review.routeReadiness === 'candidate').length,
       researchNeededGauges: gaugeReviews.filter((review) => review.routeReadiness === 'research_needed').length,

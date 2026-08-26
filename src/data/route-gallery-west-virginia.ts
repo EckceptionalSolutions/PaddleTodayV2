@@ -1,4 +1,4 @@
-import type { RouteGalleryPhoto } from './route-gallery';
+import type { RouteGalleryPhoto } from './route-gallery-types';
 
 export const newRiverGorgeContextPhoto: RouteGalleryPhoto = {
   id: 'new-river-gorge-national-river-commons',
@@ -70,76 +70,4 @@ export const cacaponRoute127Photo: RouteGalleryPhoto = {
   caption: 'Cacapon River at the WV 127 public access',
   credit: 'Justin A. Wilcox via Wikimedia Commons',
   takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
-};
-
-export const elkRiverDownElkPhoto: RouteGalleryPhoto = {
-  id: 'elk-river-down-elk-wvu-diy-outdoors',
-  src: 'https://diyoutdoors.wvu.edu/files/9306539b-437a-49db-8663-45d82cc12d7f/960x640',
-  alt: 'A kayaker navigates frothy rapids on the Elk River between Bergoo and Webster Springs in West Virginia.',
-  caption: 'Elk River whitewater near the Down Elk corridor',
-  credit: 'West Virginia University DIY Outdoors',
-  takenLabel: 'WVU-hosted route gallery image; verify reuse terms',
-};
-
-export const elkRiverWaterTrailPhoto: RouteGalleryPhoto = {
-  id: 'elk-river-water-trail-wvu-diy-outdoors',
-  src: 'https://diyoutdoors.wvu.edu/files/7dc22d70-5563-47e5-8edc-b29d1aa06a71/960x640?cb=eb54e7c06948b0640a321a5370984545',
-  alt: 'Paddlers move through a calm, wooded section of the Elk River Water Trail in West Virginia.',
-  caption: 'Elk River Water Trail near the King and Queen Shoals corridor',
-  credit: 'West Virginia University DIY Outdoors',
-  takenLabel: 'WVU-hosted route gallery image; verify reuse terms',
-};
-
-export const bigCoalRiverPhoto: RouteGalleryPhoto = {
-  id: 'big-coal-river-wv-explorer',
-  src: 'https://wvexplorer.com/wp-content/uploads/2018/05/Kayaking-Coal-River.jpg',
-  alt: 'Kayakers paddle through a calm, tree-lined section of the Coal River in West Virginia.',
-  caption: 'Coal River paddling near the Big Coal Water Trail',
-  credit: 'Rick Ferris / West Virginia Explorer',
-  takenLabel: 'West Virginia Explorer image; verify reuse terms',
-};
-
-export const littleCoalRiverPhoto: RouteGalleryPhoto = {
-  id: 'little-coal-river-madison-park-coal-river-group',
-  src: 'https://coalrivergroup.com/wp-content/uploads/2025/04/madison-park-launch-site-little-coal-river.png',
-  alt: 'The Madison City Park launch on the Little Coal River in West Virginia.',
-  caption: 'Madison City Park launch on the Little Coal River',
-  credit: 'Coal River Group; verify reuse terms',
-  takenLabel: 'Coal River Group route page image; verify reuse terms',
-};
-
-export const westForkRiverPhoto: RouteGalleryPhoto = {
-  id: 'west-fork-river-good-hope-guardians',
-  src: 'https://i0.wp.com/guardiansofthewestfork.org/wp-content/uploads/2023/08/img_84701.jpg?fit=1600%2C578&ssl=1',
-  alt: 'The West Fork River near Good Hope and West Milford in north-central West Virginia.',
-  caption: 'West Fork River near the Good Hope–West Milford float',
-  credit: 'Guardians of the West Fork Watershed; verify reuse terms',
-  takenLabel: 'Guardians of the West Fork route image; verify reuse terms',
-};
-
-export const westForkWestonPhoto: RouteGalleryPhoto = {
-  id: 'west-fork-river-weston-jacksons-mill-guardians',
-  src: 'https://i0.wp.com/guardiansofthewestfork.org/wp-content/uploads/2023/07/img_8280-1.jpg?fit=1600%2C1200&ssl=1',
-  alt: 'A wooded West Fork River scene from the Weston to Jackson’s Mill corridor in West Virginia.',
-  caption: 'West Fork River riffle-and-pool corridor near Weston and Jackson’s Mill',
-  credit: 'Guardians of the West Fork Watershed; verify reuse terms',
-  takenLabel: 'Guardians Riffles & Pools route image; verify reuse terms',
-};
-
-export const gauleyCrupperneckPhoto: RouteGalleryPhoto = {
-  id: 'gauley-river-crupperneck-nps',
-  src: 'https://www.nps.gov/gari/planyourvisit/images/web_rafters_at_Sweets01_longer.jpg',
-  alt: 'Whitewater rafters navigate the Gauley River in West Virginia.',
-  caption: 'Gauley River whitewater near the natural-flow corridor',
-  credit: 'National Park Service, Gauley River National Recreation Area',
-  takenLabel: 'NPS-hosted Gauley River image; verify route-specific reuse terms',
-};
-
-export const guyandotteRiverPhoto: RouteGalleryPhoto = {
-  id: 'guyandotte-river-water-trail-gilbert-wv',
-  src: 'https://images.squarespace-cdn.com/content/v1/5f85bfcbb4fea452a4831700/1603391340819-RT7E4CT97C8OJ3U1HT29/66796584_2313460715559388_912484648351694848_o.jpg',
-  alt: 'Paddlers move through a green, wooded section of the Guyandotte River in West Virginia.',
-  caption: 'Guyandotte River Water Trail paddling context in southern West Virginia',
-  credit: 'Town of Gilbert, West Virginia; verify reuse terms',
-  takenLabel: 'Town of Gilbert route page image; verify reuse terms',
 };

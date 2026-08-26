@@ -28,9 +28,16 @@ const ledger: GaugeReviewLedgerArtifact = {
 };
 
 describe('route opportunity queue', () => {
-  it('creates bounded actionable research opportunities and excludes permanent blockers', () => {
+  it('keeps durable blockers out of the default expansion queue', () => {
     const queue = buildRouteOpportunityQueue(inventory, ledger, new Map([['MN', 0], ['TX', 5]]), [], 5, 20);
+    expect(queue.opportunities).toHaveLength(0);
+    expect(queue.retryPolicy).toBe('unresolved_only');
+  });
+
+  it('creates bounded retry opportunities only when explicitly requested', () => {
+    const queue = buildRouteOpportunityQueue(inventory, ledger, new Map([['MN', 0], ['TX', 5]]), [], 5, 20, { includeDurableRetries: true });
     expect(queue.opportunities).toHaveLength(2);
+    expect(queue.retryPolicy).toBe('explicit_request_allowed');
     const thresholdOpportunity = queue.opportunities.find((opportunity) => opportunity.gaugeKey === 'usgs:1');
     expect(thresholdOpportunity).toMatchObject({ stateId: 'MN', gaugeKey: 'usgs:1', priority: 'high', status: 'ready', routeReadiness: 'candidate' });
     expect(thresholdOpportunity?.nextEvidenceAction).toContain('threshold');
@@ -44,13 +51,14 @@ describe('route opportunity queue', () => {
       [{ id: 'route-opportunity-mn-usgs-1', lane: 'blocked', kind: 'route_research', gaugeKeys: ['usgs:1'], routeOpportunity: true }],
       5,
       20,
+      { includeDurableRetries: true },
     );
     expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
     expect(queue.opportunities[0].rankingFactors).toMatchObject({ frontier: 100, searchValue: 80 });
   });
 
   it('materializes a route-research task without reopening existing work', () => {
-    const queue = buildRouteOpportunityQueue(inventory, ledger, new Map([['MN', 0], ['TX', 5]]));
+    const queue = buildRouteOpportunityQueue(inventory, ledger, new Map([['MN', 0], ['TX', 5]]), [], 5, 20, { includeDurableRetries: true });
     const tasks = materializeRouteOpportunityTasks([], queue, inventory.inventoryId, new Map([['MN', 0]]));
     expect(tasks.find((task) => task.gaugeKeys?.includes('usgs:1'))).toMatchObject({ kind: 'route_research', lane: 'ready', gaugeKeys: ['usgs:1'], routeOpportunity: true });
     const preserved = materializeRouteOpportunityTasks(tasks, queue, inventory.inventoryId, new Map([['MN', 0]]));
@@ -58,12 +66,31 @@ describe('route opportunity queue', () => {
   });
 
   it('retires a ready generated task when the gauge leaves the actionable queue', () => {
-    const queue = buildRouteOpportunityQueue(inventory, ledger, new Map([['MN', 0], ['TX', 5]]));
+    const queue = buildRouteOpportunityQueue(inventory, ledger, new Map([['MN', 0], ['TX', 5]]), [], 5, 20, { includeDurableRetries: true });
     const tasks = materializeRouteOpportunityTasks([], queue, inventory.inventoryId, new Map([['MN', 0]]));
     const coveredLedger = { ...ledger, reviews: ledger.reviews.map((review) => review.key === 'usgs:1' ? { ...review, status: 'covered' as const } : review) };
     const emptyQueue = buildRouteOpportunityQueue(inventory, coveredLedger, new Map([['MN', 0], ['TX', 5]]));
     const retired = materializeRouteOpportunityTasks(tasks, emptyQueue, inventory.inventoryId, new Map([['MN', 0]]));
     expect(retired.find((task) => task.id === 'route-opportunity-mn-usgs-1')).toMatchObject({ lane: 'blocked' });
+  });
+
+  it('preserves corridor-first opportunities outside the generated gauge queue', () => {
+    const corridorTask = {
+      id: 'va-corridor-maury-glen-maury-locher',
+      lane: 'ready',
+      kind: 'route_research',
+      routeOpportunity: true,
+      opportunitySource: 'corridor_preflight' as const,
+      gaugeKeys: ['usgs:02024000'],
+    };
+    const tasks = materializeRouteOpportunityTasks([corridorTask], {
+      version: 1,
+      generatedAt: '2026-08-26T00:00:00Z',
+      maxPerState: 5,
+      maxGlobal: 20,
+      opportunities: [],
+    }, inventory.inventoryId, new Map([['VA', 6]]));
+    expect(tasks).toEqual([corridorTask]);
   });
 
   it('does not recycle proxy-only route-candidate notes into new research work', () => {
@@ -74,7 +101,7 @@ describe('route opportunity queue', () => {
         : review),
     };
     const queue = buildRouteOpportunityQueue(inventory, proxyLedger, new Map([['MN', 0], ['TX', 5]]));
-    expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
+    expect(queue.opportunities).toHaveLength(0);
   });
 
   it('does not recycle durable fast-screen no-add dispositions', () => {
@@ -85,7 +112,7 @@ describe('route opportunity queue', () => {
         : review),
     };
     const queue = buildRouteOpportunityQueue(inventory, screenedLedger, new Map([['MN', 0], ['TX', 5]]));
-    expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
+    expect(queue.opportunities).toHaveLength(0);
   });
 
   it('does not recycle worker-recorded no-add dispositions', () => {
@@ -96,7 +123,7 @@ describe('route opportunity queue', () => {
         : review),
     };
     const queue = buildRouteOpportunityQueue(inventory, noAddLedger, new Map([['MN', 0], ['TX', 5]]));
-    expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
+    expect(queue.opportunities).toHaveLength(0);
   });
 
   it('does not recycle run-specific worker no-add sources', () => {
@@ -107,6 +134,6 @@ describe('route opportunity queue', () => {
         : review),
     };
     const queue = buildRouteOpportunityQueue(inventory, noAddLedger, new Map([['MN', 0], ['TX', 5]]));
-    expect(queue.opportunities.map((opportunity) => opportunity.gaugeKey)).toEqual(['usgs:4']);
+    expect(queue.opportunities).toHaveLength(0);
   });
 });
