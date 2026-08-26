@@ -3052,6 +3052,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-new-cunard-fayette-station': [newRiverCunardPhoto],
   'wv-cheat-rowlesburg-preston-foc': [cheatRiverRowlesburgPhoto],
   'wv-greenbrier-talcott-willowwood': [greenbrierTalcottPhoto],
+  'wv-greenbrier-willowwood-bellepoint': [greenbrierRiverWestVirginiaPhoto],
   'wv-tygart-valley-falls-hammond': [tygartValleyFallsPhoto],
   'wv-cacapon-capon-bridge-wv127': [cacaponRoute127Photo],
   'wv-elk-webster-springs-clifton-ford': [elkRiverDownElkPhoto],

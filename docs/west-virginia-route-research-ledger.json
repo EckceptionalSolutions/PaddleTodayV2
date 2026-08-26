@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T16:05:00-05:00",
+  "updatedAt": "2026-08-26T16:32:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 25,
     "priority1GaugesReviewed": 25,
     "boundedCandidatesScreened": 38,
     "candidatesWithNumericThresholdDecision": 37,
-    "corridorsWithNumericThresholdDecision": 8,
-    "advancingCandidates": 31
+    "corridorsWithNumericThresholdDecision": 9,
+    "advancingCandidates": 32
   },
   "gaugeDecisions": [
     {
@@ -122,7 +122,7 @@
       "stationName": "Greenbrier River at Hilldale, WV",
       "parameters": ["discharge", "stage"],
       "decision": "route_capable",
-      "reason": "Fresh discharge and stage are available. American Whitewater publishes Hilldale-stage ranges for Talcott to Willowwood and the adjacent lower reach; WVDNR confirms the selected access chain. The lower Willowwood/Bellepoint candidate remains blocked by conflicting endpoint names and coordinates.",
+      "reason": "Fresh discharge and stage are available. American Whitewater publishes Hilldale-stage ranges for Talcott to Willowwood and the adjacent lower reach; WVDNR confirms the selected access chain. The Willowwood/Bellepoint endpoint conflict is resolved by using WVDNR's Greenbrier Willowwood and New River Bellepoint assignments and retaining the confluence boundary in the route card.",
       "candidateIds": ["wv-greenbrier-talcott-willowwood", "wv-greenbrier-willowwood-bellepoint"],
       "sources": [
         "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03184000&parameterCd=00060,00065&siteStatus=all",
@@ -797,15 +797,18 @@
       "river": "Greenbrier River",
       "route": "Willowwood to Bellepoint",
       "corridor": "Greenbrier-New confluence",
-      "decision": "blocked",
-      "blocker": "AW and WVDNR endpoint names and coordinates conflict in a way that may reverse the route direction or place Bellepoint on the New River.",
+      "decision": "advance",
+      "distanceEvidence": {"americanWhitewaterReachLengthMiles": 5.4, "americanWhitewaterTakeoutFeatureMiles": 5.5},
+      "geometryEvidence": {"source": "American Whitewater reach 2383 geometry", "interpretation": "AW's published line runs from the Willowwood bridge area through the Greenbrier–New confluence to the Bellepoint access; the WVDNR site list resolves the endpoint river assignments."},
       "gaugeKey": "usgs:03184000",
       "gaugeRelationship": "same-river upstream gauge tied to the reach by AW",
-      "distanceMiles": 5.5,
+      "distanceMiles": 5.4,
       "difficulty": "Class I-II",
       "routeType": "whitewater",
       "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 1.5, "maximum": 14.0, "source": "American Whitewater reach 2383"},
-      "nextAction": "Reconcile the route direction and endpoint coordinates against official parcel/access records and a generated river line before implementation.",
+      "safety": ["The reach ends at Bellepoint on the New River; do not continue downstream without a separate route and gauge decision.", "Low water exposes shoals while rainfall can raise the lower Greenbrier quickly; verify stage, trend, wood, and water quality."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is claimed; use separately verified Hinton/Bellepoint lodging or campgrounds."},
+      "nextAction": "Run focused coordinate, geometry, and safety audits after implementation.",
       "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/2383/main", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"]
     },
     {

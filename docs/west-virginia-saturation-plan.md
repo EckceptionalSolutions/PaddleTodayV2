@@ -4,10 +4,10 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 33 West Virginia route cards:
+The current catalog has 34 West Virginia route cards:
 
 - New River: 5
-- Greenbrier River: 4
+- Greenbrier River: 5
 - Cheat River: 4
 - Tygart Valley River: 1
 - Cacapon River: 1
@@ -18,7 +18,7 @@ The current catalog has 33 West Virginia route cards:
 - West Fork River: 4
 - Gauley River: 1
 
-The research ledger has decisions for 25 priority gauges and 38 bounded route candidates across 8 corridors; 37 have numeric threshold decisions and 31 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 25 priority gauges and 38 bounded route candidates across 9 corridors; 37 have numeric threshold decisions and 32 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -37,7 +37,7 @@ A corridor counts as saturated only when it has:
 
 The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order. **Wave 1A and 1C are implemented** as `wv-elk-webster-springs-clifton-ford` and `wv-elk-king-shoals-queen-shoals`; both have distinct public endpoint coordinates, canonical geometry, safety/camping notes, and route-specific images. Wave 1B remains gated on confirming a distinct Sandy Beach endpoint and avoiding duplicate coverage. **Wave 2 B-1 through B-5, L-1/L-2/L-3/L-4, and Coal C-2/C-3 are implemented** as `wv-big-coal-whitesville-orgas`, `wv-big-coal-orgas-john-slack`, `wv-big-coal-john-slack-dartmont`, `wv-big-coal-dartmont-sproul`, `wv-big-coal-sproul-lions-park`, `wv-little-coal-madison-donald-kuhn`, `wv-little-coal-donald-kuhn-waterways`, `wv-little-coal-waterways-corridor-g`, `wv-coal-meadowood-lower-falls`, `wv-coal-lower-falls-st-albans`, and `wv-coal-forks-lions-park`; B-1/B-2/B-4/B-5 use the Ashford gauge as an upstream/downstream proxy as labeled, B-3 uses the near-reach Ashford reading, L-1/L-2/L-3 use the Danville gauge (direct for L-1, upstream proxy for L-2/L-3), and C-2/C-3/L-4 use the Tornado gauge (same-reach near C-2, upstream proxy for C-3/L-4). The route-family screens are conservative USGS-statistics inferences where no official range is published. All eleven have Coal River Water Trail access, safety/camping notes, geometry, and image coverage. B-5 preserves the brochure's 4-mile Lock 4 option as a documented decision point while publishing the full 6-mile Alum Creek Lions Club Park variant; C-2/C-3 retain the Upper Falls/Lower Falls boundary and do not imply a dam portage. L-3/L-4 use the WVDNR-listed The Forks of Coal access because the brochure's printed Corridor G longitude lands off-channel near Fuquay Creek; the brochure's distance and Lock 4 decision points remain visible. **Wave 3 Good Hope–West Milford and Worthington–Monongah are now implemented** as `wv-west-fork-good-hope-west-milford` and `wv-west-fork-worthington-monongah`, with Guardians-documented public floats, proxy gauges, safety/camping notes, geometry, and route imagery.
 
-The Wave 3 cohort now also includes the implemented Weston–Jackson’s Mill route (`wv-west-fork-weston-jacksons-mill`) and the Jackson’s Mill–Good Hope route (`wv-west-fork-jacksons-mill-good-hope`). Weston–Jackson’s Mill is a 5.5-mile Guardians-documented float with a no-ramp public-parking carry and direct Weston stage gauge; Jackson’s Mill–Good Hope is 10.6 miles derived from published river-mile references and retains a verify-before-launch mileage note. **The natural-flow Gauley Curtin Bridge–Persinger Creek route is now implemented** as `wv-gauley-curtin-persinger`, with exact WVU access coordinates, direct Craigsville stage/discharge telemetry, high-water Class IV escalation, and NPS imagery; scheduled Upper/Lower Gauley releases remain deferred. **The New River Thurmond–Cunard route is also implemented** as `wv-new-thurmond-cunard`, with geometry resolving the published 7.2-mile reach and an explicit NPS advanced/expert safety boundary.
+The Wave 3 cohort now also includes the implemented Weston–Jackson’s Mill route (`wv-west-fork-weston-jacksons-mill`) and the Jackson’s Mill–Good Hope route (`wv-west-fork-jacksons-mill-good-hope`). Weston–Jackson’s Mill is a 5.5-mile Guardians-documented float with a no-ramp public-parking carry and direct Weston stage gauge; Jackson’s Mill–Good Hope is 10.6 miles derived from published river-mile references and retains a verify-before-launch mileage note. **The natural-flow Gauley Curtin Bridge–Persinger Creek route is now implemented** as `wv-gauley-curtin-persinger`, with exact WVU access coordinates, direct Craigsville stage/discharge telemetry, high-water Class IV escalation, and NPS imagery; scheduled Upper/Lower Gauley releases remain deferred. **The New River Thurmond–Cunard route is also implemented** as `wv-new-thurmond-cunard`, with geometry resolving the published 7.2-mile reach and an explicit NPS advanced/expert safety boundary. **The lower Greenbrier Willowwood–Bellepoint route is now implemented** as `wv-greenbrier-willowwood-bellepoint`, using WVDNR's official Willowwood Greenbrier and Bellepoint New River access assignments to resolve the confluence ambiguity and AW's 5.4-mile geometry for the route line.
 
 ### Wave 1 — Elk River Water Trail (highest information density)
 
@@ -70,6 +70,7 @@ This is the best next multi-corridor expansion after Elk: the 2026 Coal River Wa
 12. **Implemented in Wave 3:** West Fork River: Weston to Jackson’s Mill (`wv-west-fork-weston-jacksons-mill`), Good Hope to West Milford (`wv-west-fork-good-hope-west-milford`), Worthington to Monongah (`wv-west-fork-worthington-monongah`), and Jackson’s Mill to Good Hope (`wv-west-fork-jacksons-mill-good-hope`).
 13. **Implemented in Wave 4:** Natural-flow Gauley River: Curtin Bridge to DNR Persinger Creek (`wv-gauley-curtin-persinger`), with a strict boundary excluding scheduled-release products.
 14. **Implemented in Wave 5:** New River: Thurmond to Cunard (`wv-new-thurmond-cunard`), with generated geometry resolving the 7.2-mile route length and NPS advanced/expert framing.
+15. **Implemented in Wave 6:** Lower Greenbrier: Willowwood to Bellepoint (`wv-greenbrier-willowwood-bellepoint`), with WVDNR endpoint-river reconciliation, AW reach geometry, and a confluence/terminal-New safety boundary.
 
 Gate: recover exact brochure coordinates, confirm current public parking/land manager, and establish route-specific numeric screens for USGS 03198500, 03199000, and 03200500.
 
@@ -103,7 +104,7 @@ The Thurmond–Cunard gap is now publishable because the public endpoint pair is
 - **Gauley release-dependent routes:** do not score until a supported live release/CWMS source and an explicit release-window adapter exist.
 - **Bluestone Pipestem to Bluestone State Park:** blocked until the private-boat carriage policy for the Pipestem tram is explicit.
 - **Upper Greenbrier Durbin to Hosterman:** proxy-only at the available gauge and not ready for a route card.
-- **Greenbrier Willowwood to Bellepoint:** blocked until the confluence/backwater boundary and endpoint access are resolved.
+- **Greenbrier Willowwood to Bellepoint:** resolved and implemented as a confluence route; the card keeps the terminal New River boundary explicit.
 - **Cheat Hannahsville to Riverview and Riverview to Rowlesburg:** blocked until the endpoint/ownership and scope caveats are closed.
 
 ## Working order and review gates
