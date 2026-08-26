@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 29,
-    "candidatesWithNumericThresholdDecision": 29,
+    "boundedCandidatesScreened": 30,
+    "candidatesWithNumericThresholdDecision": 30,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 23
+    "advancingCandidates": 24
   },
   "gaugeDecisions": [
     {
@@ -1129,6 +1129,26 @@
       "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03200500 were reviewed 2026-08-26; confirm Lower Falls carry path, St. Albans parking/egress, water-quality notices, and any event/maintenance closure day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Tornado proxy trend against local rainfall and lower-river visual conditions before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
       "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/", "https://diyoutdoors.wvu.edu/canoeing/coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03200500/"]
+    },
+    {
+      "id": "wv-little-coal-waterways-corridor-g",
+      "river": "Little Coal River",
+      "route": "Boone County Water Park to The Forks of Coal public access",
+      "corridor": "Little Coal River Water Trail / L-3",
+      "decision": "advance",
+      "gaugeKey": "usgs:03199000",
+      "gaugeRelationship": "upstream same-river proxy at Danville for the Boone Water Park–Forks of Coal reach",
+      "distanceMiles": 12,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "Boone County Water Park north public access", "manager": "Coal River Water Trail public access/campground; verify ramp and hours", "latitude": 38.1811, "longitude": -81.8491, "coordinateSource": "Coal River Water Trail brochure; WVDNR Upper Waterways access chain"},
+      "takeOut": {"name": "The Forks of Coal public access", "manager": "WVDNR-listed public access lot; verify carry path and confluence conditions", "latitude": 38.2670, "longitude": -81.8052, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail access chain"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 80, "maximum": 1100, "source": "Conservative Little Coal reuse from USGS 03199000 seasonal statistics: about 80 cfs lower bound, 126 cfs median, 419 cfs 75th percentile, and 1,110 cfs recent maximum; no official L-3 runnable range published"},
+      "safety": ["The Coal River Water Trail brochure names L-3 as a 12-mile Boone County Water Park-to-Corridor G bridge trip and also mentions an approximately 15-mile/4–5-hour drift. Its printed bridge coordinate lands off the Little Coal channel near Fuquay Creek, so the product uses the WVDNR-listed The Forks of Coal public access as the auditable take-out while retaining the named 12-mile route label.", "Danville telemetry is upstream and only a proxy. Little Coal can rise quickly after rain and the lower corridor includes shallow riffles, restoration structures, strainers, submerged debris, private banks, and road/bridge crossings.", "This is a long, low-exit float. Wear a fitted PFD, carry a full float plan, food, water, repair kit, first aid, and communications backup. The Forks of Coal endpoint is a public lot, but keep off adjacent private, railroad, and highway property."],
+      "camping": {"classification": "endpoint_campground", "note": "The Boone County Water Park/Little Coal campground area is the strongest endpoint basecamp context; verify campsite availability, fees, fire rules, gate hours, water quality, and overnight parking."},
+      "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03199000 were reviewed 2026-08-26; confirm the Water Park north ramp, The Forks of Coal carry path and lot, legal vehicle staging, and any campground/road closure day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Danville proxy trend against local rainfall and lower Little Coal conditions before launch.", "Verify reuse terms for the shared Coal River Group Little Coal image."],
+      "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/little-coal-river/", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/little-coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03199000/"]
     }
   ]
 }

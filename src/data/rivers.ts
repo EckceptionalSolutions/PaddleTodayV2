@@ -1184,6 +1184,7 @@ const routeOrder = [
   ,"wv-coal-lower-falls-st-albans"
   ,"wv-little-coal-madison-donald-kuhn"
   ,"wv-little-coal-donald-kuhn-waterways"
+  ,"wv-little-coal-waterways-corridor-g"
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {
