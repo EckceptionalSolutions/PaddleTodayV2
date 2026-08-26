@@ -18,6 +18,7 @@ import { tennesseeRoutes } from './routes/tennessee';
 import { texasRoutes } from './routes/texas';
 import { utahRoutes } from './routes/utah';
 import { wisconsinRoutes } from './routes/wisconsin';
+import { westVirginiaRoutes } from './routes/west-virginia';
 
 const stateRoutes: River[] = [
   ...arkansasRoutes,
@@ -38,6 +39,7 @@ const stateRoutes: River[] = [
   ...texasRoutes,
   ...utahRoutes,
   ...wisconsinRoutes,
+  ...westVirginiaRoutes,
 ];
 const routeBySlug = new Map(stateRoutes.map((route) => [route.slug, route]));
 const routeOrder = [
@@ -1156,7 +1158,19 @@ const routeOrder = [
   "little-pine-creek-north-park-lake-allison-park",
   "loyalhanna-creek-ligonier-nature-trail-kingston",
   "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
-  "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge"
+  "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+  "wv-new-tug-creek-hellems",
+  "wv-new-glade-creek-grandview-sandbar",
+  "wv-new-mccreery-stone-cliff",
+  "wv-new-cunard-fayette-station",
+  "wv-greenbrier-spring-creek-anthony",
+  "wv-greenbrier-ronceverte-fort-spring",
+  "wv-greenbrier-fort-spring-alderson",
+  "wv-greenbrier-talcott-willowwood",
+  "wv-cheat-holly-meadows-st-george",
+  "wv-cheat-st-george-hannahsville",
+  "wv-cheat-rowlesburg-preston-foc",
+  "wv-cheat-albright-jenkinsburg"
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {
