@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T11:45:00-05:00",
+  "updatedAt": "2026-08-26T13:10:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 20,
-    "candidatesWithNumericThresholdDecision": 20,
-    "corridorsWithNumericThresholdDecision": 6,
-    "advancingCandidates": 14
+    "boundedCandidatesScreened": 21,
+    "candidatesWithNumericThresholdDecision": 21,
+    "corridorsWithNumericThresholdDecision": 7,
+    "advancingCandidates": 15
   },
   "gaugeDecisions": [
     {
@@ -949,6 +949,26 @@
       "closureCheck": "WVDNR, State Parks, Elk River Trail Foundation, and the water-trail map were reviewed 2026-08-26; King and Queen Shoals remain listed public accesses. Confirm parking, hours, and surface conditions day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Verify reuse terms for the WVU DIY Outdoors route image before broader publication.", "Recheck the conservative screen against current local flow observations before launch."],
       "sources": ["https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://braxtonwv.org/things-to-do/elk-river-water-trail/map/", "https://wvstateparks.com/parks/elk-river-trail/river-access-points/", "https://www.elkrivertrail.org/water-trails", "https://waterdata.usgs.gov/monitoring-location/USGS-03197000/"]
+    },
+    {
+      "id": "wv-big-coal-whitesville-orgas",
+      "river": "Big Coal River",
+      "route": "Whitesville Public Access to JM Protan Community Center / Orgas",
+      "corridor": "Big Coal River Water Trail / B-1",
+      "decision": "advance",
+      "gaugeKey": "usgs:03198500",
+      "gaugeRelationship": "downstream same-river proxy at Ashford for the Whitesville–Orgas reach",
+      "distanceMiles": 9.22,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "Whitesville Public Access / water intake", "manager": "Coal River Water Trail public access; verify parking and signage", "latitude": 37.9696, "longitude": -81.5302, "coordinateSource": "American Whitewater access point 112403; Coal River Water Trail brochure"},
+      "takeOut": {"name": "JM Protan Community Center / Orgas access", "manager": "Community access; verify hours and parking", "latitude": 38.063838, "longitude": -81.574858, "coordinateSource": "American Whitewater access point 117688; Coal River Water Trail brochure"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 400, "maximum": 4000, "source": "American Whitewater reach 10525 correlation: 400 cfs low runnable, 700 cfs medium, 2,000 cfs high, 4,000 cfs upper end"},
+      "safety": ["American Whitewater rates this as Class I and very easy, but shallow riffles, strainers, submerged sharp objects, and current increase consequence outside the route's flow bands.", "Coal River Group warns that Big Coal can rise rapidly after heavy rain and that the upper river has no cell service; carry a float plan, fitted PFDs, and a non-phone rescue plan.", "Most banks are private. Use only the named public access properties and keep vehicles clear of water-intake, funeral-home, and community-center operations."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is claimed. The Coal River brochure lists nearby Little Coal River Campground, Big Earl's Camping, and regional lodging; verify current availability separately."},
+      "closureCheck": "American Whitewater, Coal River Group fishing guidance, and the 2026 Coal River Water Trail brochure were reviewed 2026-08-26; confirm public signage, parking, hours, and any construction or event conflict day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Verify reuse terms for the West Virginia Explorer Coal River image before broader publication.", "Recheck the Ashford proxy trend against local conditions upstream before launch."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/10525/main", "https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://coalrivergroup.com/fishing/", "https://waterdata.usgs.gov/monitoring-location/USGS-03198500/", "https://wvexplorer.com/2018/05/26/thousand-kayaks-expected-wv-festival/kayaking-coal-river/"]
     }
   ]
 }

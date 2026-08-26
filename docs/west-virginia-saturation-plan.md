@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 16 West Virginia route cards:
+The current catalog has 17 West Virginia route cards:
 
 - New River: 4
 - Greenbrier River: 4
@@ -12,8 +12,9 @@ The current catalog has 16 West Virginia route cards:
 - Tygart Valley River: 1
 - Cacapon River: 1
 - Elk River: 2
+- Big Coal River: 1
 
-The research ledger has decisions for 24 priority gauges and 20 bounded route candidates. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 24 priority gauges and 21 bounded route candidates across 7 corridors. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -30,7 +31,7 @@ A corridor counts as saturated only when it has:
 
 ### Current progress — 2026-08-26
 
-The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order. **Wave 1A and 1C are implemented** as `wv-elk-webster-springs-clifton-ford` and `wv-elk-king-shoals-queen-shoals`; both have a direct 03197000 gauge relationship, distinct public endpoint coordinates, canonical geometry, safety/camping notes, and route-specific images. Wave 1B remains gated on confirming a distinct Sandy Beach endpoint and avoiding duplicate coverage.
+The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order. **Wave 1A and 1C are implemented** as `wv-elk-webster-springs-clifton-ford` and `wv-elk-king-shoals-queen-shoals`; both have distinct public endpoint coordinates, canonical geometry, safety/camping notes, and route-specific images. Wave 1B remains gated on confirming a distinct Sandy Beach endpoint and avoiding duplicate coverage. **Wave 2 B-1 is now implemented** as `wv-big-coal-whitesville-orgas` with the American Whitewater 10525 flow bands, Coal River Water Trail access pair, Ashford gauge proxy, safety/camping notes, and route image.
 
 ### Wave 1 — Elk River Water Trail (highest information density)
 
@@ -49,7 +50,7 @@ Primary sources: [WVDNR water trails](https://wvdnr.gov/lands-waters/boating/), 
 
 This is the best next multi-corridor expansion after Elk: the 2026 Coal River Water Trail brochure identifies a connected Big Coal, Little Coal, and Coal access chain, and the gauge ledger marks Ashford, Danville, and Tornado as route-capable. Prioritize two short, lower-consequence pairs first, then add the dam/portage boundary to every route card.
 
-1. Big Coal: Whitesville to Orgas.
+1. **Implemented:** Big Coal: Whitesville to Orgas (`wv-big-coal-whitesville-orgas`).
 2. Big Coal: Orgas to John Slack Park.
 3. Little Coal: Madison City Park to Danville.
 4. Coal mainstem: Meadowood Park to Lower Falls, only after the portage boundary is mapped.
@@ -78,4 +79,4 @@ Gate: join the WVDNR coordinates to current water-trail access names, check dams
 
 For each wave, work in this order: (1) endpoint and land-manager verification, (2) gauge-to-reach relationship, (3) numeric threshold, (4) hazards and closures, (5) camping and shuttle, (6) imagery, (7) geometry and generated access registry, and (8) focused route/safety/gallery/TypeScript checks. A candidate that fails an access or threshold gate remains in the ledger as blocked rather than becoming an inferred route.
 
-The next concrete batch is **Wave 1B (Sandy Beach to Clifton Ford)**. Do not implement 1B or 1D until the endpoint identity and closure checks are distinct enough to prevent duplicate or closed-access cards.
+The next concrete batch is **Wave 2 B-2 (Orgas to John Slack Park)**. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.

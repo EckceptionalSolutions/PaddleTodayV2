@@ -185,6 +185,25 @@ const elkSaturationSpecs: WestVirginiaRouteSpec[] = [
   },
 ];
 
+// Second saturation-wave route: a named American Whitewater beginner reach
+// corroborated by the Coal River Water Trail brochure and local access guidance.
+const coalSaturationSpecs: WestVirginiaRouteSpec[] = [
+  {
+    id: 'wv-big-coal-whitesville-orgas', name: 'Big Coal River', riverId: 'big-coal-river',
+    reach: 'Whitesville Public Access to JM Protan Community Center / Orgas', region: 'Southern West Virginia / Big Coal Water Trail',
+    aliases: ['Whitesville to Orgas', 'Big Coal B-1', 'Whitesville to JM Protan'], distance: '9.22 mi', miles: 9.22,
+    classLabel: 'Class I', gaugeSiteId: '03198500', gaugeSiteName: 'Big Coal River at Ashford, WV', gaugeMetric: 'discharge_cfs', gaugeUnit: 'cfs', gaugeKind: 'proxy', routeType: 'recreational',
+    gaugeDetailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03198500/', gaugeHydrographUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03198500',
+    putIn: { name: 'Whitesville Public Access / water intake', latitude: 37.9696, longitude: -81.5302 }, takeOut: { name: 'JM Protan Community Center / Orgas access', latitude: 38.063838, longitude: -81.574858 },
+    idealMin: 700, idealMax: 2000, tooLow: 400, tooHigh: 4000, thresholdLabel: 'American Whitewater Big Coal reach 10525 flow bands: 400 cfs low runnable, 700 cfs medium, 2,000 cfs high, 4,000 cfs upper end', thresholdUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10525/main', thresholdProvider: 'american_whitewater', thresholdStrength: 'mixed', difficulty: 'easy', riskLevel: 'caution', hazards: ['low_water', 'fast_rise', 'cold_water', 'remote', 'access_uncertain', 'private_banks'],
+    safetyNotes: ['American Whitewater rates this reach Class I and describes it as very easy, scenic, and suitable for beginners, but its flow bands still change the amount of exposed rock and current.', 'Coal River Group warns that Big Coal can rise rapidly after heavy rain, has shallow ripples, strainers, submerged sharp objects, and no cell service in the upper river; carry a float plan and do not rely on a phone for rescue.', 'Most banks are private. Use only the named public access properties, wear a fitted PFD, and keep vehicles clear of working water-intake, funeral-home, and community-center operations.'],
+    sourceLinks: [aw('American Whitewater Big Coal reach 10525', 'https://www.americanwhitewater.org/content/River/view/river-detail/10525/main'), local('Coal River Water Trail brochure', 'https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf'), local('Coal River Group Big Coal fishing and access guidance', 'https://coalrivergroup.com/fishing/'), ...usgs('03198500', 'Big Coal River at Ashford, WV')],
+    evidenceNotes: [{ label: 'Named route corridor', value: 'Whitesville to JM Protan Community Center / Orgas; 9.22 mi; Class I', note: 'American Whitewater documents the route, mileage, Class I difficulty, and four flow bands; the Coal River brochure independently lists the Whitesville-to-Orgas trip as B-1.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10525/main' }, { label: 'Public access endpoints', value: 'Whitesville 37.9696,-81.5302 to Orgas 38.063838,-81.574858', note: 'American Whitewater publishes endpoint coordinates and the Coal River brochure names the Whitesville water-intake and JM Protan Community Center access context. Confirm parking and signage before unloading.', sourceUrl: 'https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf' }],
+    campingClassification: 'nearby_basecamp', camping: 'No on-route camping is assumed. The Coal River brochure lists nearby Little Coal River Campground, Big Earl\'s Camping, and regional lodging; verify availability and legal access separately.', logisticsSummary: 'Beginner-friendly Big Coal Water Trail reach with a route-specific American Whitewater flow screen and a downstream Ashford gauge proxy.',
+    accessCaveats: ['The brochure describes the Whitesville put-in as behind a funeral home/water intake; treat the coordinate as an access anchor, not permission to use private parking. Confirm current public signage and carry path.', 'The JM Protan Community Center endpoint is a community access; confirm hours, parking, and any event conflicts before staging. Do not substitute an unverified roadside bank.'], watchFor: ['USGS 03198500 discharge outside the 400–4,000 cfs screen, a sharp rise after rain, or a mismatch between Ashford telemetry and local conditions upstream.', 'Shallow riffles, strainers, submerged debris, coal-truck traffic on access roads, private banks, cold water, and no cell service.'], seasonNotes: 'Late spring through fall; September is attractive when the Ashford gauge is stable, recent rain is limited, and both community accesses are open.', difficultyNotes: 'Easy Class I moving water for prepared beginners, with current, shallow sections, and changing hazards that still require a real float plan.', confidenceNotes: 'High corridor and threshold confidence from American Whitewater\'s route-specific correlation and the Coal River brochure; endpoint legality and parking remain day-of checks, and the Ashford gauge is a downstream same-river proxy rather than a route-endpoint reading.', shuttle: 'Stage at the Orgas/JM Protan take-out, then follow WV Route 3/Coal River Road south to Whitesville. Expect isolated stretches and no reliable cell service; arrange the shuttle before launch.'
+  },
+];
+
 function routeAccessPoints(spec: WestVirginiaRouteSpec): RiverRouteAccessPoint[] {
   return [
     { id: `${spec.id}-put-in`, name: spec.putIn.name, latitude: spec.putIn.latitude, longitude: spec.putIn.longitude, mileFromStart: 0, segmentKind: 'transition', note: 'Verified public access named in the research dossier.' },
@@ -221,7 +240,9 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
     ? ' Same-river proxy only: the Thurmond telemetry is not a route-endpoint measurement, so pair it with a same-day visual, rainfall, and access check.'
     : spec.gaugeSiteId === '01611500'
       ? ' Downstream same-river proxy: Great Cacapon telemetry is below this upper reach, so pair it with a same-day visual, rainfall, and access check.'
-    : '';
+      : spec.gaugeSiteId === '03198500'
+        ? ' Downstream same-river proxy: Ashford telemetry is below the Whitesville–Orgas reach, so pair it with a same-day visual, rainfall, and access check.'
+        : '';
   return {
     id: spec.id,
     slug: spec.id,
@@ -255,4 +276,4 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
   };
 }
 
-export const westVirginiaRoutes: River[] = [...routeSpecs, ...additionalSpecs, ...cheatSpecs, ...strategicNextSpecs, ...elkSaturationSpecs].map(makeRoute);
+export const westVirginiaRoutes: River[] = [...routeSpecs, ...additionalSpecs, ...cheatSpecs, ...strategicNextSpecs, ...elkSaturationSpecs, ...coalSaturationSpecs].map(makeRoute);

@@ -10,6 +10,7 @@ import {
   cacaponRoute127Photo,
   elkRiverDownElkPhoto,
   elkRiverWaterTrailPhoto,
+  bigCoalRiverPhoto,
 } from './route-gallery-west-virginia';
 
 export interface RouteGalleryPhoto {
@@ -3051,6 +3052,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-cacapon-capon-bridge-wv127': [cacaponRoute127Photo],
   'wv-elk-webster-springs-clifton-ford': [elkRiverDownElkPhoto],
   'wv-elk-king-shoals-queen-shoals': [elkRiverWaterTrailPhoto],
+  'wv-big-coal-whitesville-orgas': [bigCoalRiverPhoto],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

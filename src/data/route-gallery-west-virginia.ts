@@ -89,3 +89,12 @@ export const elkRiverWaterTrailPhoto: RouteGalleryPhoto = {
   credit: 'West Virginia University DIY Outdoors',
   takenLabel: 'WVU-hosted route gallery image; verify reuse terms',
 };
+
+export const bigCoalRiverPhoto: RouteGalleryPhoto = {
+  id: 'big-coal-river-wv-explorer',
+  src: 'https://wvexplorer.com/wp-content/uploads/2018/05/Kayaking-Coal-River.jpg',
+  alt: 'Kayakers paddle through a calm, tree-lined section of the Coal River in West Virginia.',
+  caption: 'Coal River paddling near the Big Coal Water Trail',
+  credit: 'Rick Ferris / West Virginia Explorer',
+  takenLabel: 'West Virginia Explorer image; verify reuse terms',
+};
