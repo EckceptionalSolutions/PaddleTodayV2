@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T18:05:00-05:00",
+  "updatedAt": "2026-08-26T19:05:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
-    "priority1GaugesTotal": 26,
-    "priority1GaugesReviewed": 26,
-    "boundedCandidatesScreened": 39,
-    "candidatesWithNumericThresholdDecision": 39,
+    "priority1GaugesTotal": 27,
+    "priority1GaugesReviewed": 27,
+    "boundedCandidatesScreened": 40,
+    "candidatesWithNumericThresholdDecision": 40,
     "corridorsWithNumericThresholdDecision": 11,
-    "advancingCandidates": 34
+    "advancingCandidates": 35
   },
   "gaugeDecisions": [
     {
@@ -330,6 +330,16 @@
       "potentialRoutes": ["Pineville public access to Baileysville public access"],
       "candidateIds": ["wv-guyandotte-pineville-baileysville"],
       "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03202300&parameterCd=00060,00065&siteStatus=all", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://wvdnr.gov/wvdnr-opens-new-public-stream-access-site-in-pineville/"]
+    },
+    {
+      "gaugeKey": "usgs:03202400",
+      "stationName": "Guyandotte River near Baileysville, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "Fresh continuous and daily discharge/stage are available near the Baileysville-to-Guyandotte-Campground reach. WVDNR lists the 5.5-mile float and USACE confirms the developed campground and boat-launch context; the route-specific 60–2,500 cfs screen is a conservative local inference pending an official runnable range.",
+      "potentialRoutes": ["Baileysville public access to Guyandotte Campground"],
+      "candidateIds": ["wv-guyandotte-baileysville-rd-bailey-campground"],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03202400&parameterCd=00060,00065&siteStatus=all", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://www.lrd.usace.army.mil/Missions/Recreation/Display/Article/3632879/rd-bailey-lake/", "https://www.americanwhitewater.org/content/River/view/river-detail/2387/main"]
     }
   ],
   "gauleyLiveProviderDecision": {
@@ -1352,6 +1362,26 @@
       "closureCheck": "WVDNR Pineville access announcement, WVDNR District 4 guide, Guyandotte Water Trail guide, WVDNR boating, WVU DIY Outdoors, and USGS 03202300 reviewed 2026-08-26; confirm Willow Street ramp signage/carry, Baileysville parking and water entry, weather, water quality, and any road or access closure day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits; the WVDNR Baileysville inventory anchor is approximately 600 feet from the generalized NHD centerline and needs local visual confirmation.", "Recheck the direct Pineville discharge trend against local rainfall and river conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a route-specific image if a rights-cleared source becomes available."],
       "sources": ["https://wvdnr.gov/wvdnr-opens-new-public-stream-access-site-in-pineville/", "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Guy_Cover_edit_2-28-21xx-1.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://diyoutdoors.wvu.edu/canoeing/guyandotte-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03202300/", "https://www.recreation.gov/camping/campgrounds/10235835", "https://www.gilbertwv.com/kayaking"]
+    },
+    {
+      "id": "wv-guyandotte-baileysville-rd-bailey-campground",
+      "river": "Guyandotte River",
+      "route": "Baileysville public access to Guyandotte Campground",
+      "corridor": "Guyandotte River Water Trail / upper Guyandotte",
+      "decision": "advance",
+      "gaugeKey": "usgs:03202400",
+      "gaugeRelationship": "direct same-reach gauge near Baileysville and the route start",
+      "distanceMiles": 5.5,
+      "difficulty": "Class I-II",
+      "routeType": "recreational",
+      "putIn": {"name": "Baileysville WVDNR public access", "manager": "WVDNR-listed public access; verify river entry and parking", "latitude": 37.5891667, "longitude": -81.6791667, "coordinateSource": "WVDNR public access inventory / official Baileysville–Guyandotte site coordinate"},
+      "takeOut": {"name": "Guyandotte Campground public access", "manager": "USACE campground boat launch; verify day-use take-out permission and parking", "latitude": 37.5978, "longitude": -81.7665, "coordinateSource": "WVDNR District 4 access guide; USACE R.D. Bailey Lake recreation page"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 60, "maximum": 2500, "source": "Conservative local inference from USGS 03202400 daily discharge history (1997–2026: about 30.5 cfs minimum, 105 cfs 25th percentile, 236 cfs median, 893 cfs 90th percentile, 18,100 cfs maximum) and WVDNR’s documented 5.5-mile float; no official runnable range published"},
+      "safety": ["WVDNR lists Baileysville to the USCOE campground as a 5.5-mile Guyandotte trip. American Whitewater describes the nearby first section as flatwater/Class I before a later Class III feature; stop at the campground and do not infer that the full lake reach is covered.", "USGS 03202400 is near Baileysville and directly brackets this reach. The threshold is a conservative local inference; check current discharge, trend, rainfall, clarity, wood, and the campground approach visually.", "Wear a fitted PFD and whistle, carry a float plan, first aid, repair kit, and communications backup. Follow posted federal campground boating, parking, camping, and no-random-camping rules; do not approach R.D. Bailey Dam or tailwater facilities."],
+      "camping": {"classification": "endpoint_campground", "note": "USACE Guyandotte Campground is a developed endpoint camping option with reservations, fees, restrooms/showers, and a camper boat launch; verify current day-use launch permission, reservations, gate hours, and seasonal rules."},
+      "closureCheck": "WVDNR District 4 guide, WVDNR boating, American Whitewater, USACE R.D. Bailey Lake, Recreation.gov, Guyandotte Water Trail, and USGS 03202400 reviewed 2026-08-26; confirm Baileysville carry/parking, campground launch permission, federal closures, weather, and the downstream lake boundary day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits; the Baileysville inventory anchor is approximately 600 feet from the generalized NHD centerline and needs local visual confirmation.", "Recheck the direct Baileysville gauge trend against local rainfall and campground-reach conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a rights-cleared route-specific image if available."],
+      "sources": ["https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://www.americanwhitewater.org/content/River/view/river-detail/2387/main", "https://www.lrd.usace.army.mil/Missions/Recreation/Display/Article/3632879/rd-bailey-lake/", "https://www.recreation.gov/camping/campgrounds/10235835", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Guy_Cover_edit_2-28-21xx-1.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-03202400/", "https://www.gilbertwv.com/kayaking"]
     }
   ]
 }

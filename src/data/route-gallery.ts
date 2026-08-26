@@ -3073,6 +3073,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-west-fork-weston-jacksons-mill': [westForkWestonPhoto],
   'wv-gauley-curtin-persinger': [gauleyCrupperneckPhoto],
   'wv-guyandotte-pineville-baileysville': [guyandotteRiverPhoto],
+  'wv-guyandotte-baileysville-rd-bailey-campground': [guyandotteRiverPhoto],
   'wv-new-thurmond-cunard': [newRiverGorgeContextPhoto],
   'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
   'wv-little-coal-donald-kuhn-waterways': [littleCoalRiverPhoto],
