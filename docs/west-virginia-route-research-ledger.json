@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 28,
-    "candidatesWithNumericThresholdDecision": 28,
+    "boundedCandidatesScreened": 29,
+    "candidatesWithNumericThresholdDecision": 29,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 22
+    "advancingCandidates": 23
   },
   "gaugeDecisions": [
     {
@@ -1108,6 +1108,26 @@
       "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed at either public access. Meadowood is described as a Coal River Group camping/basecamp context, but verify current campsite availability, fees, fire rules, water quality, and overnight parking separately; WVDNR access sites prohibit camping unless specifically posted."},
       "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03200500 were reviewed 2026-08-26; confirm Meadowood carry path, Lower Falls shoulder egress, water-quality notices, and any park closure day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the direct Tornado reading and trend against local rainfall before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
+      "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/", "https://diyoutdoors.wvu.edu/canoeing/coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03200500/"]
+    },
+    {
+      "id": "wv-coal-lower-falls-st-albans",
+      "river": "Coal River",
+      "route": "Lower Falls to St. Albans Coal River Group access",
+      "corridor": "Coal River Water Trail / C-3",
+      "decision": "advance",
+      "gaugeKey": "usgs:03200500",
+      "gaugeRelationship": "upstream same-river proxy at Tornado for the Lower Falls–St. Albans reach",
+      "distanceMiles": 6,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "Lower Falls public pull-off", "manager": "WVDNR-listed public pull-off; verify egress", "latitude": 38.3775, "longitude": -81.8567, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "takeOut": {"name": "St. Albans Coal River Group / Gateway-area public access", "manager": "WVDNR-listed public access lot; verify private-adjacent parking", "latitude": 38.3910, "longitude": -81.8401, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 200, "maximum": 5000, "source": "Conservative route-family reuse of the April–October USGS 03200500 daily-mean inference; Tornado is upstream of this reach and no official C-3 runnable range is published"},
+      "safety": ["The Coal River Water Trail brochure names C-3 as a 6-mile trip from Lower Falls to the St. Albans/Gateway-area access; WVDNR lists both public access points and reports 5.5 miles for the corridor.", "Tornado is upstream of Lower Falls and is only a same-river proxy. Expect rapid rises after rain, shoals, strainers, submerged debris, private banks, road/rail crossings, and changing conditions near the St. Albans urban/industrial corridor.", "Wear a fitted PFD, carry a float plan and communications backup, and stay clear of commercial traffic, bridge structures, and posted restricted areas. Do not continue beyond the named take-out or land on private/industrial banks."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use separately verified Coal River Group/Meadowood-area campgrounds or St. Albans lodging as a basecamp; confirm availability, fees, water-quality notices, and overnight parking."},
+      "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03200500 were reviewed 2026-08-26; confirm Lower Falls carry path, St. Albans parking/egress, water-quality notices, and any event/maintenance closure day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Tornado proxy trend against local rainfall and lower-river visual conditions before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
       "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/", "https://diyoutdoors.wvu.edu/canoeing/coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03200500/"]
     }
   ]
