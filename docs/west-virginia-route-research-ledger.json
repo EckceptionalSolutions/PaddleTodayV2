@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T20:05:00-05:00",
+  "updatedAt": "2026-08-26T21:05:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 27,
     "priority1GaugesReviewed": 27,
-    "boundedCandidatesScreened": 41,
-    "candidatesWithNumericThresholdDecision": 41,
+    "boundedCandidatesScreened": 42,
+    "candidatesWithNumericThresholdDecision": 42,
     "corridorsWithNumericThresholdDecision": 11,
-    "advancingCandidates": 36
+    "advancingCandidates": 37
   },
   "gaugeDecisions": [
     {
@@ -1402,6 +1402,6 @@
       "closureCheck": "WVDNR District 4 guide, WVDNR boating, Guyandotte Water Trail, Upper Guyandotte watershed plan, Twin Falls State Park, and USGS 03202300 reviewed 2026-08-26; confirm Mullens pull-off carry/traffic exposure, Pineville access status, weather, water quality, and any road or access closure day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the downstream Pineville proxy against local upper-river rainfall, debris, and stage conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a rights-cleared upper-Guyandotte image if available."],
       "sources": ["https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Guy_Cover_edit_2-28-21xx-1.pdf", "https://www.nrcs.usda.gov/sites/default/files/2024-09/Upper%20Guyandotte%20Final%20Plan-Environmental%20Assessment.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-03202300/", "https://wvstateparks.com/park/twin-falls-resort-state-park/", "https://www.gilbertwv.com/kayaking"]
-    }
+    },
   ]
 }
