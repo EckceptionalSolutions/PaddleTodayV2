@@ -1175,8 +1175,14 @@ const routeOrder = [
   "wv-cheat-albright-jenkinsburg",
   "wv-tygart-valley-falls-hammond",
   "wv-cacapon-capon-bridge-wv127",
+  "wv-cacapon-rt127-cacapon-crossing",
+  "wv-cacapon-cacapon-crossing-fishers-ford",
+  "wv-cacapon-fishers-ford-power-plant",
   "wv-elk-webster-springs-clifton-ford",
-  "wv-elk-king-shoals-queen-shoals"
+  "wv-elk-king-shoals-queen-shoals",
+  "wv-elk-queen-shoals-clendenin-north",
+  "wv-elk-clendenin-south-blue-creek",
+  "wv-elk-blue-creek-charleston"
   ,"wv-big-coal-whitesville-orgas"
   ,"wv-big-coal-orgas-john-slack"
   ,"wv-big-coal-john-slack-dartmont"
@@ -1198,6 +1204,15 @@ const routeOrder = [
   ,"wv-guyandotte-salt-rock-barboursville"
   ,"wv-guyandotte-barboursville-farmdale"
   ,"wv-guyandotte-farmdale-ohio"
+  ,"wv-guyandotte-wylo-man"
+  ,"wv-guyandotte-man-earling"
+  ,"wv-guyandotte-earling-three-mile-curve"
+  ,"wv-guyandotte-three-mile-curve-four-seasons"
+  ,"wv-guyandotte-four-seasons-peach-creek"
+  ,"wv-guyandotte-peach-creek-farmers-market"
+  ,"wv-guyandotte-farmers-market-chapmanville"
+  ,"wv-guyandotte-chapmanville-harts"
+  ,"wv-guyandotte-harts-branchland"
   ,"wv-new-thurmond-cunard"
   ,"wv-little-coal-madison-donald-kuhn"
   ,"wv-little-coal-donald-kuhn-waterways"
