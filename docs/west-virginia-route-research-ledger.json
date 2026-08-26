@@ -4,8 +4,8 @@
   "updatedAt": "2026-08-26T21:05:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
-    "priority1GaugesTotal": 28,
-    "priority1GaugesReviewed": 28,
+    "priority1GaugesTotal": 30,
+    "priority1GaugesReviewed": 30,
     "boundedCandidatesScreened": 46,
     "candidatesWithNumericThresholdDecision": 46,
     "corridorsWithNumericThresholdDecision": 11,
@@ -350,6 +350,26 @@
       "potentialRoutes": ["Branchland public access to West Hamlin public concrete ramp", "West Hamlin public access to Salt Rock public access", "Salt Rock public access to Barboursville Park public access", "Barboursville Park public access to Farmdale Bridge public access", "Farmdale Bridge public access to Guyandotte–Ohio confluence ramp"],
       "candidateIds": ["wv-guyandotte-branchland-west-hamlin", "wv-guyandotte-west-hamlin-salt-rock", "wv-guyandotte-salt-rock-barboursville", "wv-guyandotte-barboursville-farmdale", "wv-guyandotte-farmdale-ohio"],
       "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03204000&parameterCd=00065&siteStatus=all", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Map5_1-30-212.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "gaugeKey": "usgs:03203000",
+      "stationName": "Guyandotte River at Man, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "USGS provides continuous discharge and stage at Man, with a long historical record. WVDNR District 5 lists the Man Guyandotte public lot, and the Guyandotte Water Trail overview identifies Man as a core paddling community. This gauge is the preferred direct screen for future Man-area access pairs; reach-specific numeric thresholds still require Map 3/4 endpoint calibration.",
+      "potentialRoutes": ["Man to Shawnee Island Park", "Man/Logan access-chain pairs"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03203000&parameterCd=00060,00065&siteStatus=all", "https://waterdata.usgs.gov/monitoring-location/USGS-03203000/", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://guyandottewatertrail.com/"]
+    },
+    {
+      "gaugeKey": "usgs:03203600",
+      "stationName": "Guyandotte River at Logan, WV",
+      "parameters": ["discharge", "stage"],
+      "decision": "route_capable",
+      "reason": "USGS provides continuous discharge and stage at Logan with data extending from 1997 for continuous measurements and daily records back to 1962. WVDNR District 5 lists nearby Man, Shawnee Island Park, Peach Creek, Rocky Creek, Chapmanville, and Harts Creek Guyandotte accesses. This gauge is the preferred direct screen for Logan-area route research; reach-specific numeric thresholds still require Map 3/4 endpoint calibration.",
+      "potentialRoutes": ["Shawnee Island Park to Peach Creek", "Peach Creek to Rocky Creek", "Rocky Creek to Chapmanville", "Chapmanville to Harts Creek"],
+      "candidateIds": [],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03203600&parameterCd=00060,00065&siteStatus=all", "https://waterdata.usgs.gov/monitoring-location/USGS-03203600/", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://guyandottewatertrail.com/"]
     }
   ],
   "gauleyLiveProviderDecision": {

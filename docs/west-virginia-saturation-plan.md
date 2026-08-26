@@ -19,7 +19,7 @@ The current catalog has 43 West Virginia route cards:
 - Gauley River: 1
 - Guyandotte River: 8
 
-The research ledger has decisions for 28 priority gauges and 46 bounded route candidates across 11 corridors; all 46 have numeric threshold decisions and 41 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 30 priority gauges and 46 bounded route candidates across 11 corridors; all 46 have numeric threshold decisions and 41 currently advance. The Man and Logan USGS stations are now explicitly route-capable inventory entries, but their next access pairs remain gated on reach-specific Map 3/4 endpoint and threshold calibration.
 
 ## Saturation definition
 
