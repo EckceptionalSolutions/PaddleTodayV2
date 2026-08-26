@@ -1,15 +1,9 @@
-import { createLeafletMapRuntime } from './map-leaflet-runtime.js';
-
 export const MAP_STYLE_URL = 'https://tiles.openfreemap.org/styles/liberty';
 
 const MAP_SCRIPT_URL = 'https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js';
 const MAP_CSS_URL = 'https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.css';
-const LEAFLET_SCRIPT_URL = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-const LEAFLET_CSS_URL = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
 
 let maplibreLoadPromise = null;
-let leafletLoadPromise = null;
-let leafletRuntime = null;
 
 export const MAP_PROFILES = Object.freeze({
   interactive: Object.freeze({
@@ -141,7 +135,7 @@ function ensureAsset(tagName, attrs) {
       .join('');
     const existing = document.head.querySelector(`${tagName}${selector}`);
     if (existing) {
-      if (tagName.toLowerCase() !== 'script' || window.maplibregl || window.L) {
+      if (tagName.toLowerCase() !== 'script' || window.maplibregl) {
         resolve(existing);
         return;
       }
@@ -173,48 +167,7 @@ function ensureAsset(tagName, attrs) {
   });
 }
 
-export function supportsWebGlMaps(documentObject = globalThis.document) {
-  try {
-    if (new URLSearchParams(globalThis.location?.search ?? '').get('map') === 'raster') {
-      return false;
-    }
-    const canvas = documentObject?.createElement?.('canvas');
-    if (!canvas || typeof canvas.getContext !== 'function') return false;
-    canvas.addEventListener?.('webglcontextcreationerror', (event) => event.preventDefault(), { once: true });
-    const context = canvas.getContext('webgl2', {
-      alpha: true,
-      depth: true,
-      stencil: true,
-      antialias: false,
-      powerPreference: 'high-performance',
-    });
-    context?.getExtension?.('WEBGL_lose_context')?.loseContext?.();
-    return Boolean(context);
-  } catch {
-    return false;
-  }
-}
-
-async function ensureLeafletFallback() {
-  if (leafletRuntime) return leafletRuntime;
-  if (!leafletLoadPromise) {
-    leafletLoadPromise = Promise.all([
-      ensureAsset('link', { rel: 'stylesheet', href: LEAFLET_CSS_URL }),
-      ensureAsset('script', { src: LEAFLET_SCRIPT_URL }),
-    ]).then(() => {
-      if (!window.L) throw new Error('Leaflet fallback failed to load.');
-      leafletRuntime = createLeafletMapRuntime(window.L);
-      return leafletRuntime;
-    });
-  }
-  return leafletLoadPromise;
-}
-
 export async function ensureMapLibre() {
-  if (!supportsWebGlMaps()) {
-    return ensureLeafletFallback();
-  }
-
   if (window.maplibregl) {
     return window.maplibregl;
   }

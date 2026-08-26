@@ -4,7 +4,6 @@ import { resolve } from 'node:path';
 const checkOnly = process.argv.includes('--check');
 const scriptNames = [
   'client-cache.js',
-  'map-leaflet-runtime.js',
   'map-runtime.js',
   'request-guard.js',
   'ui-taxonomy.js',

@@ -30,10 +30,7 @@ const rules = [
   {
     name: 'Map viewport fitting must go through map-runtime',
     pattern: /\.fitBounds\s*\(/g,
-    allowed: new Set([
-      'src/scripts/map-runtime.js',
-      'src/scripts/map-leaflet-runtime.js',
-    ]),
+    allowed: new Set(['src/scripts/map-runtime.js']),
   },
   {
     name: 'Migrated web maps must use shared source and layer lifecycle',

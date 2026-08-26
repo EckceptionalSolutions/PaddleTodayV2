@@ -12,7 +12,6 @@ import {
   removeMapOverlay,
   syncGeoJsonOverlay,
   syncActualRiverLayer,
-  supportsWebGlMaps,
   waitForMapReady,
 } from './map-runtime.js';
 
@@ -175,39 +174,6 @@ describe('createPaddleMap', () => {
       'Unknown map profile'
     );
     expect(() => createPaddleMap(null)).toThrow('MapLibre runtime missing');
-  });
-});
-
-describe('WebGL map support', () => {
-  it('accepts a working WebGL2 context and releases the probe', () => {
-    const loseContext = vi.fn();
-    const getContext = vi.fn(() => ({
-      getExtension: () => ({ loseContext }),
-    }));
-    const documentObject = {
-      createElement: () => ({
-        addEventListener: vi.fn(),
-        getContext,
-      }),
-    };
-
-    expect(supportsWebGlMaps(documentObject)).toBe(true);
-    expect(getContext).toHaveBeenCalledWith('webgl2', expect.objectContaining({
-      powerPreference: 'high-performance',
-    }));
-    expect(loseContext).toHaveBeenCalledOnce();
-  });
-
-  it('uses the fallback path when WebGL2 is blocked or throws', () => {
-    expect(supportsWebGlMaps({
-      createElement: () => ({ addEventListener: vi.fn(), getContext: () => null }),
-    })).toBe(false);
-    expect(supportsWebGlMaps({
-      createElement: () => ({
-        addEventListener: vi.fn(),
-        getContext: () => { throw new Error('GPU sandbox disabled'); },
-      }),
-    })).toBe(false);
   });
 });
 
