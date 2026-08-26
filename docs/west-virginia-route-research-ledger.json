@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 27,
-    "candidatesWithNumericThresholdDecision": 27,
+    "boundedCandidatesScreened": 28,
+    "candidatesWithNumericThresholdDecision": 28,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 21
+    "advancingCandidates": 22
   },
   "gaugeDecisions": [
     {
@@ -1089,6 +1089,26 @@
       "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03198500 were reviewed 2026-08-26; confirm Sproul carry path, Alum Creek parking/ramp, Lock 4 conditions, and any park/club closure day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Ashford proxy trend against local water and rainfall before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
       "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/fishing/", "https://diyoutdoors.wvu.edu/canoeing/big-coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03198500/"]
+    },
+    {
+      "id": "wv-coal-meadowood-lower-falls",
+      "river": "Coal River",
+      "route": "Meadowood Park to Lower Falls",
+      "corridor": "Coal River Water Trail / C-2",
+      "decision": "advance",
+      "gaugeKey": "usgs:03200500",
+      "gaugeRelationship": "same-reach direct gauge at Tornado near the Meadowood put-in",
+      "distanceMiles": 6,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "Meadowood Park public access (below Upper Falls Dam)", "manager": "WVDNR-listed public access lot; unimproved walk-down", "latitude": 38.3393, "longitude": -81.8402, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "takeOut": {"name": "Lower Falls public pull-off", "manager": "WVDNR-listed public pull-off; verify egress", "latitude": 38.3775, "longitude": -81.8567, "coordinateSource": "WVDNR District 5 Fishing Guide; Coal River Water Trail brochure"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 200, "maximum": 5000, "source": "Initial conservative April–October USGS 03200500 daily-mean inference (2010–2026): approximately 200 cfs low, 400 cfs planning floor, 2,000 cfs upper planning band, and 5,000 cfs high-water stop; no official C-2 runnable range published"},
+      "safety": ["The Coal River Water Trail brochure and WVDNR District 5 guide name Meadowood Park to Lower Falls as a 6-mile Coal River trip. Meadowood is an unimproved walk-down below Upper Falls Dam; the dam is upstream and is a hard boundary, not a feature to approach or run.", "The Tornado gauge is near the Meadowood put-in and is the best available same-reach reading, but the lower reach can rise quickly after rain and has shoals, strainers, submerged debris, private banks, and road/rail crossings. Pair telemetry with rainfall and a visual check.", "Coal River Group notes intermittent water-quality concerns and limited cell service. Wear a fitted PFD, carry a float plan and communications backup, and land only at named public properties; do not continue into the Lower Falls-to-St. Albans C-3 segment without a separate plan."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed at either public access. Meadowood is described as a Coal River Group camping/basecamp context, but verify current campsite availability, fees, fire rules, water quality, and overnight parking separately; WVDNR access sites prohibit camping unless specifically posted."},
+      "closureCheck": "Coal River Water Trail, WVDNR District 5, Coal River Group, WVU DIY Outdoors, and USGS 03200500 were reviewed 2026-08-26; confirm Meadowood carry path, Lower Falls shoulder egress, water-quality notices, and any park closure day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the direct Tornado reading and trend against local rainfall before launch.", "Verify reuse terms for the shared West Virginia Explorer Coal River image."],
+      "sources": ["https://coalrivergroup.com/wp-content/uploads/2026/02/CRC-Trails-Brochure.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://coalrivergroup.com/coal-river-water-trail/", "https://diyoutdoors.wvu.edu/canoeing/coal-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03200500/"]
     }
   ]
 }

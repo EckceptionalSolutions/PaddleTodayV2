@@ -1180,6 +1180,7 @@ const routeOrder = [
   ,"wv-big-coal-john-slack-dartmont"
   ,"wv-big-coal-dartmont-sproul"
   ,"wv-big-coal-sproul-lions-park"
+  ,"wv-coal-meadowood-lower-falls"
   ,"wv-little-coal-madison-donald-kuhn"
   ,"wv-little-coal-donald-kuhn-waterways"
 ];
