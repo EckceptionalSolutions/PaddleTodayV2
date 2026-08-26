@@ -27,6 +27,10 @@ A corridor counts as saturated only when it has:
 
 ## Next implementation waves
 
+### Current progress — 2026-08-26
+
+The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order, and **Wave 1A is implemented** as `wv-elk-webster-springs-clifton-ford` with a dedicated 03194700 gauge, AW stage band, public endpoint coordinates, canonical geometry, safety/camping notes, and a route-specific image. Wave 1B and 1C remain gated on distinct lower-end access confirmation and a route-specific recreational threshold.
+
 ### Wave 1 — Elk River Water Trail (highest information density)
 
 The Elk River has an approved water trail, a public-access chain, and four route-capable gauge decisions. The state-park page describes the trail as a 73-mile paddling corridor, while the regional water-trail map publishes public access coordinates. American Whitewater supplies a two-sided stage screen for the technical upper reach.
@@ -73,4 +77,4 @@ Gate: join the WVDNR coordinates to current water-trail access names, check dams
 
 For each wave, work in this order: (1) endpoint and land-manager verification, (2) gauge-to-reach relationship, (3) numeric threshold, (4) hazards and closures, (5) camping and shuttle, (6) imagery, (7) geometry and generated access registry, and (8) focused route/safety/gallery/TypeScript checks. A candidate that fails an access or threshold gate remains in the ledger as blocked rather than becoming an inferred route.
 
-The next concrete batch is **Wave 1A–1C (three Elk routes)**. Do not implement 1B or 1D until the endpoint identity and closure checks are distinct enough to prevent duplicate or closed-access cards.
+The next concrete batch is **Wave 1B–1C (two additional Elk routes)**. Do not implement 1B or 1D until the endpoint identity and closure checks are distinct enough to prevent duplicate or closed-access cards.

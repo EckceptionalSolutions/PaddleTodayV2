@@ -154,6 +154,25 @@ const strategicNextSpecs: WestVirginiaRouteSpec[] = [
   },
 ];
 
+// First saturation-wave route: a named American Whitewater reach with a
+// dedicated live gauge and AW access coordinates at both ends.
+const elkSaturationSpecs: WestVirginiaRouteSpec[] = [
+  {
+    id: 'wv-elk-webster-springs-clifton-ford', name: 'Elk River', riverId: 'elk-river',
+    reach: 'Webster Springs Park to CR 7 / Clifton Ford bridge', region: 'Central West Virginia / Down Elk',
+    aliases: ['Down Elk', 'Webster Springs to CR 7', 'Webster Springs to Clifton Ford'], distance: '17.3 mi', miles: 17.3,
+    classLabel: 'Class II-III', gaugeSiteId: '03194700', gaugeSiteName: 'Elk River below Webster Springs, WV', gaugeMetric: 'gage_height_ft', gaugeUnit: 'ft',
+    gaugeDetailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03194700/', gaugeHydrographUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03194700',
+    putIn: { name: 'Webster Springs Park put-in', latitude: 38.4782, longitude: -80.4161 }, takeOut: { name: 'CR 7 / Clifton Ford bridge take-out', latitude: 38.5972, longitude: -80.4906 },
+    idealMin: 5.1, idealMax: 6.5, tooLow: 4.5, tooHigh: 8, thresholdLabel: 'American Whitewater Down Elk stage range 4.5–8.0 ft', thresholdUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2372/main', thresholdProvider: 'american_whitewater', thresholdStrength: 'official', difficulty: 'moderate', riskLevel: 'caution', hazards: ['whitewater', 'fast_rise', 'low_water', 'cold_water', 'remote', 'access_uncertain'],
+    safetyNotes: ['American Whitewater rates Down Elk Class II-III and describes low-water rock scraping, intermediate flows, and larger waves and hydraulics above 6.6 ft.', 'At low water, boaters commonly shorten the run at Sandy Beach / Clifton Ford; confirm the intended take-out and do not assume every gravel pull-off is public.', 'Moving water, cold water, strainers, and limited exits require a float plan, fitted PFD, and a conservative same-day go/no-go decision.'],
+    sourceLinks: [aw('American Whitewater Down Elk reach 2372', 'https://www.americanwhitewater.org/content/River/view/river-detail/2372/main'), local('WVDNR District 3 public access guide', 'https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf'), local('Elk River Water Trail access map', 'https://braxtonwv.org/things-to-do/elk-river-water-trail/map/'), local('WVU DIY Outdoors Elk River gallery', 'https://diyoutdoors.wvu.edu/whitewater/elk-river-bergoo-to-webster-springs'), ...usgs('03194700', 'Elk River below Webster Springs, WV')],
+    evidenceNotes: [{ label: 'Named route corridor', value: 'Webster Springs Park to CR 7 / Clifton Ford bridge; 17.3 mi; Class II-III', note: 'American Whitewater documents the reach, gauge, distance, stage bands, and low-water shortened-run option.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2372/main' }, { label: 'Public access endpoints', value: 'Webster Springs Park and CR 7 / Clifton Ford bridge coordinates', note: 'American Whitewater publishes exact access coordinates for the put-in and take-out; verify parking and current road conditions at both ends.', sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2372/main' }],
+    campingClassification: 'nearby_basecamp', camping: 'No on-route camping is assumed. Use separately verified lodging or nearby campgrounds in Webster Springs and the Elk River valley.', logisticsSummary: 'Gauge-backed Down Elk run with a broad 4.5–8.0 ft planning band, intermediate Class II-III water, and a long shuttle.',
+    accessCaveats: ['Confirm Webster Springs Park parking and the CR 7 / Clifton Ford take-out before unloading; the lower access is a bridge-side pull-out rather than a developed ramp.', 'At stages below 4.8 ft, re-evaluate the full length and consider the shorter Sandy Beach / Way Down Elk variant described by American Whitewater.'], watchFor: ['USGS 03194700 stage outside 4.5–8.0 ft, a rapidly rising trend, or flood guidance.', 'Low-water scraping, wood, sewer-plant rapid, swinging-bridge rapid, cold water, and difficult bridge-side egress.'], seasonNotes: 'Spring through fall; September can be a good shoulder-season option when the gauge is stable, the road is dry, and recent rain has not changed wood or access conditions.', difficultyNotes: 'Moderate Class II-III moving water. The length and changing stage make this unsuitable for first-time moving-water paddlers.', confidenceNotes: 'High route confidence from an American Whitewater reach, dedicated USGS gauge, and WVDNR access context; endpoint parking and current access conditions still require a day-of check.', shuttle: 'Leave a vehicle at the CR 7 / Clifton Ford bridge take-out, then shuttle to Webster Springs Park. Use the public road network and do not park or walk on private driveways or rail infrastructure.'
+  },
+];
+
 function routeAccessPoints(spec: WestVirginiaRouteSpec): RiverRouteAccessPoint[] {
   return [
     { id: `${spec.id}-put-in`, name: spec.putIn.name, latitude: spec.putIn.latitude, longitude: spec.putIn.longitude, mileFromStart: 0, segmentKind: 'transition', note: 'Verified public access named in the research dossier.' },
@@ -224,4 +243,4 @@ function makeRoute(spec: WestVirginiaRouteSpec): River {
   };
 }
 
-export const westVirginiaRoutes: River[] = [...routeSpecs, ...additionalSpecs, ...cheatSpecs, ...strategicNextSpecs].map(makeRoute);
+export const westVirginiaRoutes: River[] = [...routeSpecs, ...additionalSpecs, ...cheatSpecs, ...strategicNextSpecs, ...elkSaturationSpecs].map(makeRoute);

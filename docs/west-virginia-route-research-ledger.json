@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-25T12:45:00-05:00",
-  "purpose": "Gauge-first research decisions for the initial West Virginia route cohort. This is a research artifact, not live route data.",
+  "updatedAt": "2026-08-26T10:15:00-05:00",
+  "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 18,
-    "candidatesWithNumericThresholdDecision": 18,
+    "boundedCandidatesScreened": 19,
+    "candidatesWithNumericThresholdDecision": 19,
     "corridorsWithNumericThresholdDecision": 6,
-    "advancingCandidates": 12
+    "advancingCandidates": 13
   },
   "gaugeDecisions": [
     {
@@ -909,6 +909,26 @@
       "closureCheck": "WVDNR and current AW materials were reviewed 2026-08-25; both access sites remain listed. Current AW wood alerts must be rechecked immediately before publication and each trip.",
       "remainingWork": ["Run coordinate-to-river and access-registry audits.", "Apply advanced/expert-only discovery and copy.", "Review current wood alerts immediately before implementation."],
       "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/2347/main", "https://www.americanwhitewater.org/content/River/view/river-detail/2347/accidents", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"]
+    },
+    {
+      "id": "wv-elk-webster-springs-clifton-ford",
+      "river": "Elk River",
+      "route": "Webster Springs Park to CR 7 / Clifton Ford bridge",
+      "corridor": "Down Elk / Elk River Water Trail",
+      "decision": "advance",
+      "gaugeKey": "usgs:03194700",
+      "gaugeRelationship": "direct same-reach gauge below Webster Springs and at the mapped CR 7 / Clifton Ford take-out",
+      "distanceMiles": 17.3,
+      "difficulty": "Class II-III",
+      "routeType": "whitewater",
+      "putIn": {"name": "Webster Springs Park", "manager": "Municipality / public access", "latitude": 38.4782, "longitude": -80.4161, "coordinateSource": "American Whitewater access point 109209"},
+      "takeOut": {"name": "CR 7 / Clifton Ford bridge", "manager": "Public bridge-side access; verify parking", "latitude": 38.5972, "longitude": -80.4906, "coordinateSource": "American Whitewater access point 114449"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 4.5, "maximum": 8.0, "source": "American Whitewater reach 2372 / USGS rating table"},
+      "safety": ["American Whitewater rates the reach Class II-III and describes rock scraping at 4.5–5.0 ft, intermediate water at 5.1–6.5 ft, and larger waves and hydraulics at 6.6–8.0 ft.", "The bridge-side take-out and low-water Sandy Beach variant require a visual access check; not every pull-off is a public launch.", "Cold water, wood, fast rises, and limited exits require a float plan and fitted PFD."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is claimed; use separately verified Webster Springs or Elk River valley lodging/campgrounds."},
+      "closureCheck": "American Whitewater, WVDNR District 3 access guidance, and the Elk River Water Trail sources were reviewed 2026-08-26; current parking, road, and bridge-side access still require a day-of check.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Confirm the bridge-side parking and whether the low-water Sandy Beach variant should be a separate route card.", "Verify reuse terms for the WVU DIY Outdoors image before broader publication."],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/2372/main", "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/109209", "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/114449", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://braxtonwv.org/things-to-do/elk-river-water-trail/map/", "https://diyoutdoors.wvu.edu/whitewater/elk-river-bergoo-to-webster-springs"]
     }
   ]
 }

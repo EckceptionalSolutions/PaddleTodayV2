@@ -71,3 +71,12 @@ export const cacaponRoute127Photo: RouteGalleryPhoto = {
   credit: 'Justin A. Wilcox via Wikimedia Commons',
   takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
 };
+
+export const elkRiverDownElkPhoto: RouteGalleryPhoto = {
+  id: 'elk-river-down-elk-wvu-diy-outdoors',
+  src: 'https://diyoutdoors.wvu.edu/files/9306539b-437a-49db-8663-45d82cc12d7f/960x640',
+  alt: 'A kayaker navigates frothy rapids on the Elk River between Bergoo and Webster Springs in West Virginia.',
+  caption: 'Elk River whitewater near the Down Elk corridor',
+  credit: 'West Virginia University DIY Outdoors',
+  takenLabel: 'WVU-hosted route gallery image; verify reuse terms',
+};
