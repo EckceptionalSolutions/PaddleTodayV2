@@ -3079,6 +3079,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-guyandotte-west-hamlin-salt-rock': [guyandotteRiverPhoto],
   'wv-guyandotte-salt-rock-barboursville': [guyandotteRiverPhoto],
   'wv-guyandotte-barboursville-farmdale': [guyandotteRiverPhoto],
+  'wv-guyandotte-farmdale-ohio': [guyandotteRiverPhoto],
   'wv-new-thurmond-cunard': [newRiverGorgeContextPhoto],
   'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
   'wv-little-coal-donald-kuhn-waterways': [littleCoalRiverPhoto],

@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 28,
     "priority1GaugesReviewed": 28,
-    "boundedCandidatesScreened": 45,
-    "candidatesWithNumericThresholdDecision": 45,
+    "boundedCandidatesScreened": 46,
+    "candidatesWithNumericThresholdDecision": 46,
     "corridorsWithNumericThresholdDecision": 11,
-    "advancingCandidates": 40
+    "advancingCandidates": 41
   },
   "gaugeDecisions": [
     {
@@ -347,8 +347,8 @@
       "parameters": ["stage"],
       "decision": "route_capable",
       "reason": "Continuous gage height is available at the Branchland access area. Guyandotte Water Trail Map 5 publishes the Branchland-to-West-Hamlin Trip 18 as a 5.7-mile low-gradient float with no significant rapids, and WVDNR independently lists the Branchland public boat-slide access. The route-specific 3.5–16 ft stage screen is a conservative local inference from the 2012–2026 record; no official runnable range is published.",
-      "potentialRoutes": ["Branchland public access to West Hamlin public concrete ramp", "West Hamlin public access to Salt Rock public access", "Salt Rock public access to Barboursville Park public access", "Barboursville Park public access to Farmdale Bridge public access"],
-      "candidateIds": ["wv-guyandotte-branchland-west-hamlin", "wv-guyandotte-west-hamlin-salt-rock", "wv-guyandotte-salt-rock-barboursville", "wv-guyandotte-barboursville-farmdale"],
+      "potentialRoutes": ["Branchland public access to West Hamlin public concrete ramp", "West Hamlin public access to Salt Rock public access", "Salt Rock public access to Barboursville Park public access", "Barboursville Park public access to Farmdale Bridge public access", "Farmdale Bridge public access to Guyandotte–Ohio confluence ramp"],
+      "candidateIds": ["wv-guyandotte-branchland-west-hamlin", "wv-guyandotte-west-hamlin-salt-rock", "wv-guyandotte-salt-rock-barboursville", "wv-guyandotte-barboursville-farmdale", "wv-guyandotte-farmdale-ohio"],
       "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03204000&parameterCd=00065&siteStatus=all", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Map5_1-30-212.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://wvdnr.gov/lands-waters/boating/"]
     }
   ],
@@ -1492,6 +1492,26 @@
       "closureCheck": "USGS 03204000, Guyandotte Water Trail Map 5, WVDNR District 5 access guide, WVDNR boating, and Guyandotte Water Trail overview reviewed 2026-08-26; confirm Barboursville Park river launch, Farmdale boat-slide carry, bridge traffic, weather, water quality, and any local closure day-of.",
       "remainingWork": ["Coordinate audit places the Farmdale take-out about 105 feet from the generalized NHD flowline while remaining within the mapped waterbody; confirm the Barboursville river launch and Farmdale boat-slide carry visually before launch.", "Recheck the upstream Branchland stage proxy against rainfall, water quality, and lower-river conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a rights-cleared lower-Guyandotte image if available."],
       "sources": ["https://guyandottewatertrail.com/wp-content/uploads/2021/11/Map5_1-30-212.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://guyandottewatertrail.com/", "https://waterdata.usgs.gov/monitoring-location/USGS-03204000/", "https://www.gilbertwv.com/kayaking"]
+    },
+    {
+      "id": "wv-guyandotte-farmdale-ohio",
+      "river": "Guyandotte River",
+      "route": "Farmdale Bridge public access to Guyandotte–Ohio confluence ramp",
+      "corridor": "Guyandotte River Water Trail / lower Guyandotte and Ohio confluence",
+      "decision": "advance",
+      "gaugeKey": "usgs:03204000",
+      "gaugeRelationship": "distant upstream same-river stage proxy at Branchland",
+      "distanceMiles": 7.5,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "Farmdale Bridge WVDNR public access", "manager": "WVDNR-listed Guyandotte boat-slide access; verify carry and traffic exposure", "latitude": 38.4107, "longitude": -82.2968, "coordinateSource": "WVDNR District 5 public access guide / Guyandotte Water Trail Map 5"},
+      "takeOut": {"name": "Guyandotte–Ohio confluence public ramp", "manager": "WVDNR Guyandotte Ramp at the confluence; verify floodwall approach, parking, and navigation conditions", "latitude": 38.4313, "longitude": -82.3907, "coordinateSource": "WVDNR District 5 public access guide / Guyandotte Water Trail Map 5"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "gage_height_ft", "minimum": 3.5, "maximum": 16, "source": "Conservative local planning screen using distant upstream USGS 03204000 Branchland gage-height history (2012–2026: about 3.15 ft minimum, 4.10 ft 25th percentile, 5.03 ft median, 7.07 ft 75th percentile, 10.96 ft 90th percentile, 33.59 ft maximum) and Guyandotte Water Trail Map 5 Trip 22; no official runnable range published"},
+      "safety": ["Guyandotte Water Trail Map 5 names Farmdale Bridge to the Ohio River as Trip 22, 7.5 miles of mostly urban paddling. Treat the route as a moving-water and navigation commitment with road, bridge, floodwall, and commercial traffic—not a recreational lake float.", "The Branchland USGS station is far upstream and is used only as a broad same-river stage proxy. The 3.5–16 ft screen is a conservative local inference; check current trend, rainfall, water quality, debris, and a visual launch scout at Farmdale and the confluence ramp.", "Wear a fitted PFD and whistle, carry a float plan, food, water, first aid, repair kit, spare clothing, and communications backup. End at the Guyandotte Ramp at the confluence; do not enter the Ohio River or approach commercial navigation lanes without a separate navigation plan."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use separately verified lodging or campgrounds in Huntington, Barboursville, or nearby Cabell County; urban access lots are not overnight campsites."},
+      "closureCheck": "USGS 03204000, Guyandotte Water Trail Map 5, WVDNR District 5 access guide, WVDNR boating, USACE Ohio River navigation information, and Guyandotte Water Trail overview reviewed 2026-08-26; confirm Farmdale boat-slide carry, confluence ramp/floodwall approach, navigation notices, weather, water quality, and any local closure day-of.",
+      "remainingWork": ["Coordinate audit places the Farmdale put-in about 105 feet and confluence take-out about 227 feet from the generalized NHD flowline while each remains within the mapped waterbody; confirm the public Farmdale start and confluence ramp/floodwall carry visually before launch.", "Recheck the distant Branchland stage proxy against rainfall, water quality, and lower-river conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a rights-cleared lower-Guyandotte image if available."],
+      "sources": ["https://guyandottewatertrail.com/wp-content/uploads/2021/11/Map5_1-30-212.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://guyandottewatertrail.com/", "https://www.lrd.usace.army.mil/Water-Information/Navigation/Ohio-River/", "https://waterdata.usgs.gov/monitoring-location/USGS-03204000/", "https://www.gilbertwv.com/kayaking"]
     }
   ]
 }

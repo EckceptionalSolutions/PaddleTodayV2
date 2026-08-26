@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 42 West Virginia route cards:
+The current catalog has 43 West Virginia route cards:
 
 - New River: 5
 - Greenbrier River: 5
@@ -17,9 +17,9 @@ The current catalog has 42 West Virginia route cards:
 - Little Coal River: 3
 - West Fork River: 4
 - Gauley River: 1
-- Guyandotte River: 7
+- Guyandotte River: 8
 
-The research ledger has decisions for 28 priority gauges and 45 bounded route candidates across 11 corridors; all 45 have numeric threshold decisions and 40 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 28 priority gauges and 46 bounded route candidates across 11 corridors; all 46 have numeric threshold decisions and 41 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -116,6 +116,7 @@ The Guyandotte is the next information-rich southern West Virginia corridor: WVD
 5. **Implemented:** West Hamlin public access to Salt Rock public access (`wv-guyandotte-west-hamlin-salt-rock`). Map 5 identifies this as Trip 19, a 2.8-mile float suitable for most boats; USGS 03204000 is retained as an upstream same-river stage proxy.
 6. **Implemented:** Salt Rock public access to Barboursville Park public access (`wv-guyandotte-salt-rock-barboursville`). Map 5 identifies this as Trip 20, a 16.8-mile hard-paddling day with a steep, slippery Barboursville carry; USGS 03204000 remains an upstream stage proxy.
 7. **Implemented:** Barboursville Park public access to Farmdale Bridge public access (`wv-guyandotte-barboursville-farmdale`). Map 5 identifies this as Trip 21, a 2.7-mile float ending at a boat-slide access; USGS 03204000 remains an upstream stage proxy.
+8. **Implemented:** Farmdale Bridge public access to the Guyandotte–Ohio confluence ramp (`wv-guyandotte-farmdale-ohio`). Map 5 identifies this as Trip 22, a 7.5-mile mostly urban float; the card ends at the Guyandotte ramp and does not authorize entering the Ohio River navigation channel.
 
 Gate for the next Guyandotte batch: verify the Baileysville carry/parking against the generalized NHD offset, then research the next lower-water-trail pairs toward West Hamlin, Salt Rock, Barboursville, and the Ohio confluence with their own endpoint, gauge, water-quality, and dam-boundary evidence. Do not transfer the upper-river screens or the American Whitewater Simon–lake Class III warning without reach-specific calibration.
 
