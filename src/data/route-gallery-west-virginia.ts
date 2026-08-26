@@ -98,3 +98,12 @@ export const bigCoalRiverPhoto: RouteGalleryPhoto = {
   credit: 'Rick Ferris / West Virginia Explorer',
   takenLabel: 'West Virginia Explorer image; verify reuse terms',
 };
+
+export const littleCoalRiverPhoto: RouteGalleryPhoto = {
+  id: 'little-coal-river-madison-park-coal-river-group',
+  src: 'https://coalrivergroup.com/wp-content/uploads/2025/04/madison-park-launch-site-little-coal-river.png',
+  alt: 'The Madison City Park launch on the Little Coal River in West Virginia.',
+  caption: 'Madison City Park launch on the Little Coal River',
+  credit: 'Coal River Group; verify reuse terms',
+  takenLabel: 'Coal River Group route page image; verify reuse terms',
+};

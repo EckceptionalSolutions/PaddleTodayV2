@@ -11,6 +11,7 @@ import {
   elkRiverDownElkPhoto,
   elkRiverWaterTrailPhoto,
   bigCoalRiverPhoto,
+  littleCoalRiverPhoto,
 } from './route-gallery-west-virginia';
 
 export interface RouteGalleryPhoto {
@@ -3054,6 +3055,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-elk-king-shoals-queen-shoals': [elkRiverWaterTrailPhoto],
   'wv-big-coal-whitesville-orgas': [bigCoalRiverPhoto],
   'wv-big-coal-orgas-john-slack': [bigCoalRiverPhoto],
+  'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
