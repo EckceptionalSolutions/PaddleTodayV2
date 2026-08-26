@@ -1170,7 +1170,10 @@ const routeOrder = [
   "wv-cheat-holly-meadows-st-george",
   "wv-cheat-st-george-hannahsville",
   "wv-cheat-rowlesburg-preston-foc",
-  "wv-cheat-albright-jenkinsburg"
+  "wv-cheat-albright-jenkinsburg",
+  "wv-tygart-valley-falls-hammond",
+  "wv-cacapon-capon-bridge-wv127",
+  "wv-elk-webster-springs-clifton-ford"
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {
