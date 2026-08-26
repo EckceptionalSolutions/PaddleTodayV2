@@ -82,9 +82,9 @@ The West Fork has five route-capable gauges and WVDNR-listed access points, but 
 2. **Implemented:** Good Hope to West Milford (`wv-west-fork-good-hope-west-milford`).
 3. **Implemented:** Worthington City Park to Monongah (`wv-west-fork-worthington-monongah`).
 4. **Implemented:** Jackson’s Mill Public Stream Access to Good Hope (`wv-west-fork-jacksons-mill-good-hope`), with river-mile-derived distance and incomplete-ramp caveat.
-5. Stonewall tailwater to the next verified public access, only with a regulation/release note.
+5. Stonewall tailwater to Bendale Bridge, with WVDNR-resolved endpoints; implementation remains gated on a public release/warning rule.
 
-Gate: join the WVDNR coordinates to current water-trail access names, check dams and portages, and avoid assuming natural-flow behavior below Stonewall Jackson Dam.
+Gate: document the USACE/American Water release and warning procedure, check dams and portages, and avoid assuming natural-flow behavior below Stonewall Jackson Dam. WVDNR now resolves the public endpoints as Stonewall Tail Waters and Bendale Bridge.
 
 ### Wave 4 — Natural-flow Gauley River
 
@@ -111,4 +111,4 @@ The Thurmond–Cunard gap is now publishable because the public endpoint pair is
 
 For each wave, work in this order: (1) endpoint and land-manager verification, (2) gauge-to-reach relationship, (3) numeric threshold, (4) hazards and closures, (5) camping and shuttle, (6) imagery, (7) geometry and generated access registry, and (8) focused route/safety/gallery/TypeScript checks. A candidate that fails an access or threshold gate remains in the ledger as blocked rather than becoming an inferred route.
 
-The next concrete batch is **the Stonewall tailwater only after resolving the Bendale/West Fork access-coordinate conflict and documenting release operations**. Guardians currently publishes an immediate-dam boundary and a Bendale coordinate that conflicts with its separate Shinnston access record, so the tailwater remains blocked rather than inferred. Keep the Upper Falls portage boundary explicit for any Coal mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.
+The next concrete batch is **the Stonewall tailwater only after documenting release operations**. WVDNR's District 3 inventory resolves the public endpoints as Stonewall Tail Waters (39.0038,-80.4738) and Bendale Bridge (39.0290,-80.4737), superseding the erroneous Guardians Bendale coordinate; the candidate remains blocked because a stable public release/warning procedure and release-aware threshold adapter are still missing. Keep the Upper Falls portage boundary explicit for any Coal mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.
