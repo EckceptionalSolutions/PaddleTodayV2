@@ -1183,6 +1183,7 @@ const routeOrder = [
   ,"wv-coal-meadowood-lower-falls"
   ,"wv-coal-lower-falls-st-albans"
   ,"wv-coal-forks-lions-park"
+  ,"wv-west-fork-weston-jacksons-mill"
   ,"wv-west-fork-good-hope-west-milford"
   ,"wv-west-fork-worthington-monongah"
   ,"wv-west-fork-jacksons-mill-good-hope"

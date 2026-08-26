@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T14:35:00-05:00",
+  "updatedAt": "2026-08-26T14:55:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
-    "priority1GaugesTotal": 24,
-    "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 35,
-    "candidatesWithNumericThresholdDecision": 34,
+    "priority1GaugesTotal": 25,
+    "priority1GaugesReviewed": 25,
+    "boundedCandidatesScreened": 36,
+    "candidatesWithNumericThresholdDecision": 35,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 28
+    "advancingCandidates": 29
   },
   "gaugeDecisions": [
     {
@@ -260,6 +260,16 @@
       "potentialRoutes": ["Stonewall tailwater to the next verified West Fork public access"],
       "candidateIds": ["wv-west-fork-stonewall-tailwater-bendale"],
       "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03058000&parameterCd=00060,00065&siteStatus=all", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://wvdnr.gov/lands-waters/boating/"]
+    },
+    {
+      "gaugeKey": "usgs:03058020",
+      "stationName": "West Fork River at Weston, WV",
+      "parameters": ["stage"],
+      "decision": "route_capable",
+      "reason": "Legacy USGS real-time stage is available at Weston through 2026, and Guardians documents a public-parking put-in immediately downstream of Weston Dam for a 5.5-mile float to Jackson’s Mill. This direct stage station supports a conservative flatwater/riffle threshold; the product must retain the no-ramp carry and below-dam boundary.",
+      "potentialRoutes": ["Weston public parking below Weston Dam to Jackson’s Mill"],
+      "candidateIds": ["wv-west-fork-weston-jacksons-mill"],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03058020&parameterCd=00065&siteStatus=all", "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03058020", "https://guardiansofthewestfork.org/2023/07/21/riffles-pools/", "https://wvdnr.gov/lands-waters/boating/"]
     },
     {
       "gaugeKey": "usgs:03058500",
@@ -1209,6 +1219,26 @@
       "closureCheck": "Guardians of the West Fork, WVDNR West Fork Water Trail, American Whitewater, and USGS 03061000 were reviewed 2026-08-26; confirm both access lots, the below-dam boundary, ramp condition, event/maintenance closures, water clarity, and debris day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Enterprise proxy against local Worthington conditions and recent rainfall before launch.", "Verify reuse terms for the Guardians route image."],
       "sources": ["https://guardiansofthewestfork.org/news/page/10/", "https://wvdnr.gov/lands-waters/boating/", "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-WVR", "https://waterdata.usgs.gov/monitoring-location/USGS-03061000/"]
+    },
+    {
+      "id": "wv-west-fork-weston-jacksons-mill",
+      "river": "West Fork River",
+      "route": "Weston public parking below Weston Dam to Jackson’s Mill Public Stream Access",
+      "corridor": "West Fork River Water Trail / Weston–Jackson’s Mill riffle-and-pool float",
+      "decision": "advance",
+      "gaugeKey": "usgs:03058020",
+      "gaugeRelationship": "direct stage station at Weston near the documented put-in",
+      "distanceMiles": 5.5,
+      "difficulty": "Class I-II",
+      "routeType": "recreational",
+      "putIn": {"name": "Weston public parking below Weston Dam near Trans-Allegheny Lunatic Asylum", "manager": "Guardians-documented public parking/carry-down; verify legal staging", "latitude": 39.036797, "longitude": -80.470335, "coordinateSource": "Guardians Riffles & Pools float record"},
+      "takeOut": {"name": "Jackson’s Mill Public Stream Access / paved concrete ramp", "manager": "Guardians-documented public ramp; verify parking and carry", "latitude": 39.095907, "longitude": -80.465556, "coordinateSource": "Guardians Riffles & Pools float record"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "gage_height_ft", "minimum": 6.5, "maximum": 8.5, "source": "Conservative Weston stage screen inferred from USGS 03058020 daily gage-height history (2010–2026: 6.22 ft minimum, 6.70 ft 25th percentile, 6.83 ft median, 7.12 ft 75th percentile, 9.05 ft maximum) and the documented 5.5-mile riffle/pool float; no official runnable range published"},
+      "safety": ["Guardians documents the 5.5-mile Weston-to-Jackson’s Mill float with public parking below Weston Dam and a paved concrete ramp at Jackson’s Mill; the Weston start has no boat ramp and requires a careful carry-down.", "The Weston stage gauge is near the put-in and is direct for this reach, but stage can change quickly after rain. Check trend, rainfall, clarity, debris, and the carry before committing; do not approach, run, or portage Weston Dam.", "Wear a fitted PFD and whistle, carry a float plan, first aid, repair kit, and communications backup. Expect faster water through Weston, alternating pools and riffles, private banks, submerged debris, and limited cell service."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use verified lodging or campgrounds around Weston, Jackson’s Mill, or the wider West Fork corridor; confirm availability, fees, fire rules, water quality, and overnight parking."},
+      "closureCheck": "Guardians of the West Fork, WVDNR West Fork Water Trail, WVU DIY Outdoors, and USGS 03058020 were reviewed 2026-08-26; confirm the no-ramp Weston carry, legal parking, Jackson’s Mill ramp, water clarity, and debris day-of.",
+      "remainingWork": ["Verify the Weston carry-down and below-dam boundary in person or with the access manager.", "Recheck the direct Weston stage trend against local rainfall and river conditions before launch.", "Verify reuse terms for the Guardians Riffles & Pools route image."],
+      "sources": ["https://guardiansofthewestfork.org/2023/07/21/riffles-pools/", "https://guardiansofthewestfork.org/west-fork-river-access-mile-64-4/", "https://wvdnr.gov/lands-waters/boating/", "https://diyoutdoors.wvu.edu/canoeing/west-fork-river", "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03058020"]
     },
     {
       "id": "wv-west-fork-jacksons-mill-good-hope",

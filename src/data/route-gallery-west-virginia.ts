@@ -116,3 +116,12 @@ export const westForkRiverPhoto: RouteGalleryPhoto = {
   credit: 'Guardians of the West Fork Watershed; verify reuse terms',
   takenLabel: 'Guardians of the West Fork route image; verify reuse terms',
 };
+
+export const westForkWestonPhoto: RouteGalleryPhoto = {
+  id: 'west-fork-river-weston-jacksons-mill-guardians',
+  src: 'https://i0.wp.com/guardiansofthewestfork.org/wp-content/uploads/2023/07/img_8280-1.jpg?fit=1600%2C1200&ssl=1',
+  alt: 'A wooded West Fork River scene from the Weston to Jackson’s Mill corridor in West Virginia.',
+  caption: 'West Fork River riffle-and-pool corridor near Weston and Jackson’s Mill',
+  credit: 'Guardians of the West Fork Watershed; verify reuse terms',
+  takenLabel: 'Guardians Riffles & Pools route image; verify reuse terms',
+};
