@@ -3056,6 +3056,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-tygart-valley-falls-hammond': [tygartValleyFallsPhoto],
   'wv-cacapon-capon-bridge-wv127': [cacaponRoute127Photo],
   'wv-elk-webster-springs-clifton-ford': [elkRiverDownElkPhoto],
+  'wv-elk-frametown-duck': [elkRiverWaterTrailPhoto],
   'wv-elk-king-shoals-queen-shoals': [elkRiverWaterTrailPhoto],
   'wv-big-coal-whitesville-orgas': [bigCoalRiverPhoto],
   'wv-big-coal-orgas-john-slack': [bigCoalRiverPhoto],

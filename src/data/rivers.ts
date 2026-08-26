@@ -1168,6 +1168,7 @@ const routeOrder = [
   "wv-greenbrier-fort-spring-alderson",
     "wv-greenbrier-talcott-willowwood",
     "wv-greenbrier-willowwood-bellepoint",
+    "wv-elk-frametown-duck",
   "wv-cheat-holly-meadows-st-george",
   "wv-cheat-st-george-hannahsville",
   "wv-cheat-rowlesburg-preston-foc",

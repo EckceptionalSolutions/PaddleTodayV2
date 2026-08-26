@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T16:32:00-05:00",
+  "updatedAt": "2026-08-26T17:05:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 25,
     "priority1GaugesReviewed": 25,
     "boundedCandidatesScreened": 38,
-    "candidatesWithNumericThresholdDecision": 37,
-    "corridorsWithNumericThresholdDecision": 9,
-    "advancingCandidates": 32
+    "candidatesWithNumericThresholdDecision": 38,
+    "corridorsWithNumericThresholdDecision": 10,
+    "advancingCandidates": 33
   },
   "gaugeDecisions": [
     {
@@ -962,6 +962,26 @@
       "closureCheck": "WVDNR, State Parks, Elk River Trail Foundation, and the water-trail map were reviewed 2026-08-26; King and Queen Shoals remain listed public accesses. Confirm parking, hours, and surface conditions day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Verify reuse terms for the WVU DIY Outdoors route image before broader publication.", "Recheck the conservative screen against current local flow observations before launch."],
       "sources": ["https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://braxtonwv.org/things-to-do/elk-river-water-trail/map/", "https://wvstateparks.com/parks/elk-river-trail/river-access-points/", "https://www.elkrivertrail.org/water-trails", "https://waterdata.usgs.gov/monitoring-location/USGS-03197000/"]
+    },
+    {
+      "id": "wv-elk-frametown-duck",
+      "river": "Elk River",
+      "route": "Frametown Bridge public access to Duck public access",
+      "corridor": "Elk River Water Trail / Frametown–Duck",
+      "decision": "advance",
+      "gaugeKey": "usgs:03196600",
+      "gaugeRelationship": "direct same-river gauge near the Frametown put-in",
+      "distanceMiles": 9,
+      "difficulty": "Class I-II",
+      "routeType": "recreational",
+      "putIn": {"name": "Frametown Bridge public access", "manager": "WVDNR / Elk River Water Trail", "latitude": 38.6353, "longitude": -80.8642, "coordinateSource": "WVDNR District 3 Fishing Guide"},
+      "takeOut": {"name": "Duck public access", "manager": "WVDNR / Elk River Water Trail", "latitude": 38.5827, "longitude": -80.9375, "coordinateSource": "WVDNR District 3 Fishing Guide"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 2, "maximum": 7.5, "source": "Conservative local inference from USGS 03196600 daily stage history and the Elk River Water Trail; no official Frametown–Duck runnable range published"},
+      "safety": ["WVDNR lists Frametown to Duck as a nine-mile Elk River section, and the Elk River Water Trail identifies both as public access sites. The route is calmer than the Down Elk whitewater reach but remains moving water with shoals and changing depth.", "The Frametown gauge is near the put-in and provides a direct stage screen, but the water trail can rise quickly after rain. Pair telemetry with rainfall, clarity, debris, and a same-day visual; do not transfer the Down Elk 4.5–8.0 ft whitewater band to this section.", "Wear a fitted PFD, carry a float plan, whistle, first aid, repair kit, food, water, and communications backup. Stay in the channel, respect private banks, and use only the named public accesses."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed; verify lodging or campground options around Frametown, Gassaway, Duck, or the wider Elk River valley."},
+      "closureCheck": "WVDNR District 3, Visit Braxton, West Virginia State Parks, the Elk River Water Trail guide, and USGS 03196600 were reviewed 2026-08-26; confirm access lots/carries, water clarity, debris, and road conditions day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck direct Frametown stage trend against local rainfall and visual conditions.", "Verify reuse terms for the shared WVU Elk imagery."],
+      "sources": ["https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://braxtonwv.org/things-to-do/elk-river-water-trail/map/", "https://wvstateparks.com/parks/elk-river-trail/river-access-points/", "https://diyoutdoors.wvu.edu/files/d/6097bc04-2c9d-4dc9-8ad4-3be19d026de6/elk-river-water-trail-guide-1.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-03196600/"]
     },
     {
       "id": "wv-big-coal-whitesville-orgas",
