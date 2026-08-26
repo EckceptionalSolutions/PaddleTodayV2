@@ -1180,6 +1180,7 @@ const routeOrder = [
   ,"wv-big-coal-john-slack-dartmont"
   ,"wv-big-coal-dartmont-sproul"
   ,"wv-little-coal-madison-donald-kuhn"
+  ,"wv-little-coal-donald-kuhn-waterways"
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {
