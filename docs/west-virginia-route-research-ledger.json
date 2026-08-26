@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 28,
     "priority1GaugesReviewed": 28,
-    "boundedCandidatesScreened": 42,
-    "candidatesWithNumericThresholdDecision": 42,
+    "boundedCandidatesScreened": 43,
+    "candidatesWithNumericThresholdDecision": 43,
     "corridorsWithNumericThresholdDecision": 11,
-    "advancingCandidates": 37
+    "advancingCandidates": 38
   },
   "gaugeDecisions": [
     {
@@ -347,8 +347,8 @@
       "parameters": ["stage"],
       "decision": "route_capable",
       "reason": "Continuous gage height is available at the Branchland access area. Guyandotte Water Trail Map 5 publishes the Branchland-to-West-Hamlin Trip 18 as a 5.7-mile low-gradient float with no significant rapids, and WVDNR independently lists the Branchland public boat-slide access. The route-specific 3.5–16 ft stage screen is a conservative local inference from the 2012–2026 record; no official runnable range is published.",
-      "potentialRoutes": ["Branchland public access to West Hamlin public concrete ramp"],
-      "candidateIds": ["wv-guyandotte-branchland-west-hamlin"],
+      "potentialRoutes": ["Branchland public access to West Hamlin public concrete ramp", "West Hamlin public access to Salt Rock public access"],
+      "candidateIds": ["wv-guyandotte-branchland-west-hamlin", "wv-guyandotte-west-hamlin-salt-rock"],
       "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03204000&parameterCd=00065&siteStatus=all", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Map5_1-30-212.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://wvdnr.gov/lands-waters/boating/"]
     }
   ],
@@ -1431,6 +1431,26 @@
       "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use separately verified lodging or campgrounds near Logan, Hamlin, or Huntington; do not camp at either access lot without explicit manager permission."},
       "closureCheck": "USGS 03204000, Guyandotte Water Trail Map 5, WVDNR District 5 access guide, WVDNR boating, and Guyandotte Water Trail overview reviewed 2026-08-26; confirm Branchland boat-slide carry, West Hamlin ramp parking/emergency access, weather, water quality, and any local closure day-of.",
       "remainingWork": ["Coordinate audit places the Branchland put-in about 180 feet and West Hamlin take-out about 219 feet from the generalized NHD flowline while each remains within the nearby mapped waterbody; confirm the physical carry and ramp visually before launch.", "Recheck the direct Branchland stage trend against rainfall, water quality, and lower-river conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a rights-cleared lower-Guyandotte image if available."],
+      "sources": ["https://guyandottewatertrail.com/wp-content/uploads/2021/11/Map5_1-30-212.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://guyandottewatertrail.com/", "https://waterdata.usgs.gov/monitoring-location/USGS-03204000/", "https://www.gilbertwv.com/kayaking"]
+    },
+    {
+      "id": "wv-guyandotte-west-hamlin-salt-rock",
+      "river": "Guyandotte River",
+      "route": "West Hamlin public access to Salt Rock public access",
+      "corridor": "Guyandotte River Water Trail / lower Guyandotte",
+      "decision": "advance",
+      "gaugeKey": "usgs:03204000",
+      "gaugeRelationship": "upstream same-river stage proxy at Branchland",
+      "distanceMiles": 2.8,
+      "difficulty": "Class I",
+      "routeType": "recreational",
+      "putIn": {"name": "West Hamlin public concrete ramp", "manager": "Guyandotte Water Trail town ramp behind fire and police departments; verify parking and emergency access", "latitude": 38.287, "longitude": -82.196, "coordinateSource": "Guyandotte Water Trail Map 5"},
+      "takeOut": {"name": "Salt Rock WVDNR public access", "manager": "WVDNR-listed Guyandotte concrete-ramp access; verify carry and parking", "latitude": 38.3107, "longitude": -82.2213, "coordinateSource": "WVDNR District 5 public access guide / Guyandotte Water Trail Map 5"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "gage_height_ft", "minimum": 3.5, "maximum": 16, "source": "Conservative local inference using upstream USGS 03204000 Branchland gage-height history (2012–2026: about 3.15 ft minimum, 4.10 ft 25th percentile, 5.03 ft median, 7.07 ft 75th percentile, 10.96 ft 90th percentile, 33.59 ft maximum) and Guyandotte Water Trail Map 5 Trip 19; no official runnable range published"},
+      "safety": ["Guyandotte Water Trail Map 5 names West Hamlin to Salt Rock as Trip 19, a 2.8-mile float suitable for most boats with about 1.5 feet per mile of drop. Treat this as a low-gradient moving-water description, not a guarantee that strainers, floods, or changing water quality are absent.", "The Branchland USGS station is upstream of this short reach and is used only as a same-river proxy. The 3.5–16 ft screen is a conservative local inference; check current trend, rainfall, water quality, debris, and a visual launch scout at West Hamlin.", "Wear a fitted PFD and whistle, carry a float plan, water, first aid, repair kit, and communications backup. Follow the West Hamlin ramp directions, keep the fire/police access clear, and use only the named public Salt Rock ramp; do not enter private banks."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use separately verified lodging or campgrounds near Hamlin, Huntington, or Barboursville; do not camp at either access lot without explicit manager permission."},
+      "closureCheck": "USGS 03204000, Guyandotte Water Trail Map 5, WVDNR District 5 access guide, WVDNR boating, and Guyandotte Water Trail overview reviewed 2026-08-26; confirm West Hamlin ramp parking/emergency access, Salt Rock carry, weather, water quality, and any local closure day-of.",
+      "remainingWork": ["Coordinate audit places the West Hamlin put-in about 219 feet and Salt Rock take-out about 138 feet from the generalized NHD flowline while each remains within the mapped waterbody; confirm the physical carries and ramp condition visually before launch.", "Recheck the upstream Branchland stage proxy against rainfall, water quality, and lower-river conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a rights-cleared lower-Guyandotte image if available."],
       "sources": ["https://guyandottewatertrail.com/wp-content/uploads/2021/11/Map5_1-30-212.pdf", "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://guyandottewatertrail.com/", "https://waterdata.usgs.gov/monitoring-location/USGS-03204000/", "https://www.gilbertwv.com/kayaking"]
     }
   ]

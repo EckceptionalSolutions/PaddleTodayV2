@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 39 West Virginia route cards:
+The current catalog has 40 West Virginia route cards:
 
 - New River: 5
 - Greenbrier River: 5
@@ -17,9 +17,9 @@ The current catalog has 39 West Virginia route cards:
 - Little Coal River: 3
 - West Fork River: 4
 - Gauley River: 1
-- Guyandotte River: 4
+- Guyandotte River: 5
 
-The research ledger has decisions for 28 priority gauges and 42 bounded route candidates across 11 corridors; all 42 have numeric threshold decisions and 37 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 28 priority gauges and 43 bounded route candidates across 11 corridors; all 43 have numeric threshold decisions and 38 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -113,6 +113,7 @@ The Guyandotte is the next information-rich southern West Virginia corridor: WVD
 2. **Implemented:** Baileysville public access to Guyandotte Campground (`wv-guyandotte-baileysville-rd-bailey-campground`).
 3. **Implemented:** Mullens public pull-off to Pineville public access (`wv-guyandotte-mullens-pineville`).
 4. **Implemented:** Branchland public access to West Hamlin public concrete ramp (`wv-guyandotte-branchland-west-hamlin`). Map 5 identifies this as Trip 18, a 5.7-mile low-gradient float; USGS 03204000 is a direct stage gauge at the Branchland start. The coordinate audit places the endpoints within the mapped waterbody but 180–219 feet from the generalized NHD flowline, so the physical carries remain a day-of verification item.
+5. **Implemented:** West Hamlin public access to Salt Rock public access (`wv-guyandotte-west-hamlin-salt-rock`). Map 5 identifies this as Trip 19, a 2.8-mile float suitable for most boats; USGS 03204000 is retained as an upstream same-river stage proxy.
 
 Gate for the next Guyandotte batch: verify the Baileysville carry/parking against the generalized NHD offset, then research the next lower-water-trail pairs toward West Hamlin, Salt Rock, Barboursville, and the Ohio confluence with their own endpoint, gauge, water-quality, and dam-boundary evidence. Do not transfer the upper-river screens or the American Whitewater Simon–lake Class III warning without reach-specific calibration.
 
