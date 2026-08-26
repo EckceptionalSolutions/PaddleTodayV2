@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T14:10:00-05:00",
+  "updatedAt": "2026-08-26T14:35:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 34,
-    "candidatesWithNumericThresholdDecision": 33,
+    "boundedCandidatesScreened": 35,
+    "candidatesWithNumericThresholdDecision": 34,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 27
+    "advancingCandidates": 28
   },
   "gaugeDecisions": [
     {
@@ -1209,6 +1209,26 @@
       "closureCheck": "Guardians of the West Fork, WVDNR West Fork Water Trail, American Whitewater, and USGS 03061000 were reviewed 2026-08-26; confirm both access lots, the below-dam boundary, ramp condition, event/maintenance closures, water clarity, and debris day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Enterprise proxy against local Worthington conditions and recent rainfall before launch.", "Verify reuse terms for the Guardians route image."],
       "sources": ["https://guardiansofthewestfork.org/news/page/10/", "https://wvdnr.gov/lands-waters/boating/", "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-WVR", "https://waterdata.usgs.gov/monitoring-location/USGS-03061000/"]
+    },
+    {
+      "id": "wv-west-fork-jacksons-mill-good-hope",
+      "river": "West Fork River",
+      "route": "Jackson’s Mill Public Stream Access to Good Hope Public Access",
+      "corridor": "West Fork River Water Trail / Jackson’s Mill–Good Hope",
+      "decision": "advance",
+      "gaugeKey": "usgs:03058975",
+      "gaugeRelationship": "downstream same-river proxy at Mount Clare for the Jackson’s Mill–Good Hope reach",
+      "distanceMiles": 10.6,
+      "difficulty": "Class I-II",
+      "routeType": "recreational",
+      "putIn": {"name": "Jackson’s Mill Public Stream Access", "manager": "Guardians-documented public concrete ramp; verify carry path and staging", "latitude": 39.095631, "longitude": -80.465775, "coordinateSource": "Guardians of the West Fork access mile 64.4"},
+      "takeOut": {"name": "Good Hope Public Access Site behind Hawks Nest Convenience Store", "manager": "Guardians-documented public access; verify carry path and staging", "latitude": 39.176407, "longitude": -80.437942, "coordinateSource": "Guardians of the West Fork six-mile float/access record"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 100, "maximum": 3000, "source": "Conservative West Fork inference reused from USGS 03058975 daily means (2010–2026: 34.7 cfs minimum, 124 cfs 25th percentile, 243 cfs median, 620 cfs 75th percentile, 9,510 cfs maximum); no official Jackson’s Mill–Good Hope runnable range published"},
+      "safety": ["Guardians lists Jackson’s Mill as a concrete public ramp that does not extend fully to water level and identifies Good Hope as the downstream access; the approximately 10.6-mile river-mile span is a longer, lower-exit float.", "Mount Clare telemetry is downstream and only a same-river proxy. The West Fork can be high, muddy, or debris-laden after rain; pair telemetry with a local visual, rainfall, and water-quality check.", "Wear a fitted PFD and whistle, carry a full float plan, food, water, first aid, repair kit, and communications backup. Stay in the channel, respect private banks, and do not substitute unverified roadside carries."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use verified lodging or campgrounds around Weston, West Milford, or Clarksburg; confirm availability, fees, fire rules, water quality, and overnight parking."},
+      "closureCheck": "Guardians of the West Fork, WVDNR West Fork Water Trail, WVU DIY Outdoors, and USGS 03058975 were reviewed 2026-08-26; confirm the Jackson’s Mill ramp/carry, Good Hope staging, road access, water clarity, and debris day-of.",
+      "remainingWork": ["Verify exact float mileage and any intermediate obstruction or bailout before launch.", "Recheck the downstream Mount Clare proxy against local Jackson’s Mill and Good Hope conditions and recent rainfall.", "Verify reuse terms for the shared Guardians West Fork route image."],
+      "sources": ["https://guardiansofthewestfork.org/west-fork-river-access-mile-64-4/", "https://guardiansofthewestfork.org/news/page/10/", "https://wvdnr.gov/lands-waters/boating/", "https://diyoutdoors.wvu.edu/canoeing/west-fork-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03058975/"]
     },
     {
       "id": "wv-west-fork-stonewall-tailwater-bendale",

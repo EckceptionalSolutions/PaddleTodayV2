@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 29 West Virginia route cards:
+The current catalog has 30 West Virginia route cards:
 
 - New River: 4
 - Greenbrier River: 4
@@ -15,9 +15,9 @@ The current catalog has 29 West Virginia route cards:
 - Big Coal River: 5
 - Coal River: 3
 - Little Coal River: 3
-- West Fork River: 2
+- West Fork River: 3
 
-The research ledger has decisions for 24 priority gauges and 34 bounded route candidates across 7 corridors; 33 have numeric threshold decisions and 27 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 24 priority gauges and 35 bounded route candidates across 7 corridors; 34 have numeric threshold decisions and 28 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -35,6 +35,8 @@ A corridor counts as saturated only when it has:
 ### Current progress — 2026-08-26
 
 The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order. **Wave 1A and 1C are implemented** as `wv-elk-webster-springs-clifton-ford` and `wv-elk-king-shoals-queen-shoals`; both have distinct public endpoint coordinates, canonical geometry, safety/camping notes, and route-specific images. Wave 1B remains gated on confirming a distinct Sandy Beach endpoint and avoiding duplicate coverage. **Wave 2 B-1 through B-5, L-1/L-2/L-3/L-4, and Coal C-2/C-3 are implemented** as `wv-big-coal-whitesville-orgas`, `wv-big-coal-orgas-john-slack`, `wv-big-coal-john-slack-dartmont`, `wv-big-coal-dartmont-sproul`, `wv-big-coal-sproul-lions-park`, `wv-little-coal-madison-donald-kuhn`, `wv-little-coal-donald-kuhn-waterways`, `wv-little-coal-waterways-corridor-g`, `wv-coal-meadowood-lower-falls`, `wv-coal-lower-falls-st-albans`, and `wv-coal-forks-lions-park`; B-1/B-2/B-4/B-5 use the Ashford gauge as an upstream/downstream proxy as labeled, B-3 uses the near-reach Ashford reading, L-1/L-2/L-3 use the Danville gauge (direct for L-1, upstream proxy for L-2/L-3), and C-2/C-3/L-4 use the Tornado gauge (same-reach near C-2, upstream proxy for C-3/L-4). The route-family screens are conservative USGS-statistics inferences where no official range is published. All eleven have Coal River Water Trail access, safety/camping notes, geometry, and image coverage. B-5 preserves the brochure's 4-mile Lock 4 option as a documented decision point while publishing the full 6-mile Alum Creek Lions Club Park variant; C-2/C-3 retain the Upper Falls/Lower Falls boundary and do not imply a dam portage. L-3/L-4 use the WVDNR-listed The Forks of Coal access because the brochure's printed Corridor G longitude lands off-channel near Fuquay Creek; the brochure's distance and Lock 4 decision points remain visible. **Wave 3 Good Hope–West Milford and Worthington–Monongah are now implemented** as `wv-west-fork-good-hope-west-milford` and `wv-west-fork-worthington-monongah`, with Guardians-documented public floats, proxy gauges, safety/camping notes, geometry, and route imagery.
+
+The Wave 3 cohort now also includes the implemented Jackson’s Mill Public Stream Access–Good Hope route (`wv-west-fork-jacksons-mill-good-hope`). Its 10.6-mile distance is derived from published Guardians river-mile references; confirm exact float mileage and the incomplete Jackson’s Mill ramp reach before launch.
 
 ### Wave 1 — Elk River Water Trail (highest information density)
 
@@ -64,7 +66,7 @@ This is the best next multi-corridor expansion after Elk: the 2026 Coal River Wa
 9. **Implemented:** Coal mainstem: Lower Falls to St. Albans (`wv-coal-lower-falls-st-albans`), with the lower-river water-quality, traffic, and proxy-gauge caveats.
 10. **Implemented:** Little Coal: Boone County Water Park to The Forks of Coal public access (`wv-little-coal-waterways-corridor-g`), correcting the brochure's off-channel bridge coordinate and retaining the upstream Danville proxy.
 11. **Implemented:** Little Coal/Coal confluence: The Forks of Coal to Alum Creek Lions Club Park (`wv-coal-forks-lions-park`), with Lock 4 as an intermediate hazard/decision point.
-12. **Implemented in Wave 3:** West Fork River: Good Hope to West Milford (`wv-west-fork-good-hope-west-milford`) and Worthington to Monongah (`wv-west-fork-worthington-monongah`).
+12. **Implemented in Wave 3:** West Fork River: Good Hope to West Milford (`wv-west-fork-good-hope-west-milford`), Worthington to Monongah (`wv-west-fork-worthington-monongah`), and Jackson’s Mill to Good Hope (`wv-west-fork-jacksons-mill-good-hope`).
 
 Gate: recover exact brochure coordinates, confirm current public parking/land manager, and establish route-specific numeric screens for USGS 03198500, 03199000, and 03200500.
 
@@ -74,7 +76,8 @@ The West Fork has four route-capable gauges and WVDNR-listed access points, but 
 
 1. **Implemented:** Good Hope to West Milford (`wv-west-fork-good-hope-west-milford`).
 2. **Implemented:** Worthington City Park to Monongah (`wv-west-fork-worthington-monongah`).
-3. Stonewall tailwater to the next verified public access, only with a regulation/release note.
+3. **Implemented:** Jackson’s Mill Public Stream Access to Good Hope (`wv-west-fork-jacksons-mill-good-hope`), with river-mile-derived distance and incomplete-ramp caveat.
+4. Stonewall tailwater to the next verified public access, only with a regulation/release note.
 
 Gate: join the WVDNR coordinates to current water-trail access names, check dams and portages, and avoid assuming natural-flow behavior below Stonewall Jackson Dam.
 
