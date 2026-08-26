@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T15:25:00-05:00",
+  "updatedAt": "2026-08-26T16:05:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 25,
     "priority1GaugesReviewed": 25,
-    "boundedCandidatesScreened": 37,
-    "candidatesWithNumericThresholdDecision": 36,
+    "boundedCandidatesScreened": 38,
+    "candidatesWithNumericThresholdDecision": 37,
     "corridorsWithNumericThresholdDecision": 8,
-    "advancingCandidates": 30
+    "advancingCandidates": 31
   },
   "gaugeDecisions": [
     {
@@ -536,15 +536,15 @@
       "river": "New River",
       "route": "Thurmond to Cunard",
       "corridor": "Upper-to-Lower Gorge transition",
-      "decision": "blocked",
-      "blocker": "Published distance conflict and safety-framing conflict must be resolved before implementation.",
+      "decision": "advance",
       "gaugeKey": "usgs:03185400",
       "gaugeRelationship": "direct at put-in",
-      "distanceMiles": null,
+      "distanceMiles": 7.2,
       "distanceEvidence": {
         "americanWhitewaterReachLengthMiles": 7.2,
         "americanWhitewaterTakeoutFeatureMiles": 9.4
       },
+      "geometryEvidence": {"generatedNetworkLengthMiles": 7.24, "source": "USGS NHD network trace between the published Thurmond and Cunard endpoint coordinates", "interpretation": "The 9.4-mile AW feature-distance reference is downstream context; the endpoint-to-endpoint route geometry supports the 7.2-mile reach length."},
       "difficulty": "Class I-III in AW; below-Thurmond advanced/expert framing in NPS",
       "routeType": "whitewater",
       "putIn": {
@@ -578,7 +578,7 @@
         "note": "NPS lists several nearby New River camps, but no camping is represented as part of this selected reach."
       },
       "closureCheck": "NPS reports Cunard Road open as of 2026-08-06, with one-lane delays through October and a planned November-March closure.",
-      "nextAction": "Resolve mileage from an official route line or generated river geometry, then preserve NPS advanced/expert posture even if AW retains a lower reach rating.",
+      "nextAction": "Run coordinate, safety, imagery, and geometry audits; preserve NPS advanced/expert posture even though AW retains a lower reach rating.",
       "sources": [
         "https://www.americanwhitewater.org/content/River/view/river-detail/4119/main",
         "https://www.nps.gov/neri/planyourvisit/fishing.htm",
