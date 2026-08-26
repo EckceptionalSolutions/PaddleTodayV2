@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T10:15:00-05:00",
+  "updatedAt": "2026-08-26T11:45:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 19,
-    "candidatesWithNumericThresholdDecision": 19,
+    "boundedCandidatesScreened": 20,
+    "candidatesWithNumericThresholdDecision": 20,
     "corridorsWithNumericThresholdDecision": 6,
-    "advancingCandidates": 13
+    "advancingCandidates": 14
   },
   "gaugeDecisions": [
     {
@@ -929,6 +929,26 @@
       "closureCheck": "American Whitewater, WVDNR District 3 access guidance, and the Elk River Water Trail sources were reviewed 2026-08-26; current parking, road, and bridge-side access still require a day-of check.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Confirm the bridge-side parking and whether the low-water Sandy Beach variant should be a separate route card.", "Verify reuse terms for the WVU DIY Outdoors image before broader publication."],
       "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/2372/main", "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/109209", "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/114449", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://braxtonwv.org/things-to-do/elk-river-water-trail/map/", "https://diyoutdoors.wvu.edu/whitewater/elk-river-bergoo-to-webster-springs"]
+    },
+    {
+      "id": "wv-elk-king-shoals-queen-shoals",
+      "river": "Elk River",
+      "route": "King Shoals DNR Access to Queen Shoals DNR Access",
+      "corridor": "Lower Elk / Elk River Water Trail",
+      "decision": "advance",
+      "gaugeKey": "usgs:03197000",
+      "gaugeRelationship": "direct same-river gauge at the Queen Shoals take-out",
+      "distanceMiles": 3.5,
+      "difficulty": "Class I-II",
+      "routeType": "recreational",
+      "putIn": {"name": "King Shoals DNR Access", "manager": "West Virginia Division of Natural Resources", "latitude": 38.504732, "longitude": -81.232135, "coordinateSource": "Elk River Water Trail access map"},
+      "takeOut": {"name": "Queen Shoals DNR Access", "manager": "West Virginia Division of Natural Resources", "latitude": 38.472008, "longitude": -81.283631, "coordinateSource": "Elk River Water Trail access map"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "stage_ft", "minimum": 4.5, "maximum": 8.0, "source": "Conservative inference from WVDNR 3.5-mile float listing, USGS 03197000 stage history, and Elk Water Trail shallow-water guidance; not an official runnable range"},
+      "safety": ["WVDNR lists this as a 3.5-mile float, but the Elk Water Trail is shallow in places and access surfaces may be muddy or slippery.", "Use only the named public sites, wear a fitted PFD, and keep a float plan; downstream banks are not public shore access by default.", "The trail foundation warns that cell service is limited north of Clendenin, so do not rely on a phone as the primary rescue plan."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is claimed; use separately verified lodging or campgrounds around Clendenin, Clay, or the wider Elk River Water Trail."},
+      "closureCheck": "WVDNR, State Parks, Elk River Trail Foundation, and the water-trail map were reviewed 2026-08-26; King and Queen Shoals remain listed public accesses. Confirm parking, hours, and surface conditions day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Verify reuse terms for the WVU DIY Outdoors route image before broader publication.", "Recheck the conservative screen against current local flow observations before launch."],
+      "sources": ["https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf", "https://braxtonwv.org/things-to-do/elk-river-water-trail/map/", "https://wvstateparks.com/parks/elk-river-trail/river-access-points/", "https://www.elkrivertrail.org/water-trails", "https://waterdata.usgs.gov/monitoring-location/USGS-03197000/"]
     }
   ]
 }

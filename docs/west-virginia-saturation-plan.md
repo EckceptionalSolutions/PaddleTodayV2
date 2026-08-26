@@ -4,16 +4,16 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 15 West Virginia route cards:
+The current catalog has 16 West Virginia route cards:
 
 - New River: 4
 - Greenbrier River: 4
 - Cheat River: 4
 - Tygart Valley River: 1
 - Cacapon River: 1
-- Elk River: 1
+- Elk River: 2
 
-The research ledger has decisions for 24 priority gauges and 19 bounded route candidates. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 24 priority gauges and 20 bounded route candidates. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -30,7 +30,7 @@ A corridor counts as saturated only when it has:
 
 ### Current progress — 2026-08-26
 
-The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order, and **Wave 1A is implemented** as `wv-elk-webster-springs-clifton-ford` with a dedicated 03194700 gauge, AW stage band, public endpoint coordinates, canonical geometry, safety/camping notes, and a route-specific image. Wave 1B and 1C remain gated on distinct lower-end access confirmation and a route-specific recreational threshold.
+The two strategic cards already researched (Tygart Valley Falls and upper Cacapon) are now in the public route order. **Wave 1A and 1C are implemented** as `wv-elk-webster-springs-clifton-ford` and `wv-elk-king-shoals-queen-shoals`; both have a direct 03197000 gauge relationship, distinct public endpoint coordinates, canonical geometry, safety/camping notes, and route-specific images. Wave 1B remains gated on confirming a distinct Sandy Beach endpoint and avoiding duplicate coverage.
 
 ### Wave 1 — Elk River Water Trail (highest information density)
 
@@ -40,7 +40,7 @@ The Elk River has an approved water trail, a public-access chain, and four route
 | --- | --- | --- | --- |
 | 1A | Webster Springs Park to Sandy Beach / CR 7 | USGS 03197000, Elk River below Webster Springs | Confirm the exact Sandy Beach/CR 7 public endpoint coordinate and whether the route should use the shorter low-water “Way Down Elk” variant. AW documents 4.5–8.0 ft for Down Elk. |
 | 1B | Sandy Beach to Clifton Ford / CR 7 bridge | USGS 03197000 | Confirm that the endpoint is distinct from 1A, publish the route mileage, and retain the AW low-water shortened-run caveat. |
-| 1C | King Shoals to Queen Shoals | USGS 03197000, Elk River at Queen Shoals | Use the WVDNR access coordinates and the District 3 guide’s 3.5-mile mileage; obtain a route-specific low/high screen rather than borrowing the upper-reach AW range. |
+| 1C | King Shoals to Queen Shoals | USGS 03197000, Elk River at Queen Shoals | **Implemented.** WVDNR supplies the 3.5-mile float listing; the product uses a conservative 4.5–8.0 ft inferred screen and keeps the source caveat visible. |
 | 1D | Queen Shoals to Clendenin public access | USGS 03197000 | Confirm the intended Clendenin access (exclude closed Mink Shoals), endpoint parking hours, and a conservative flatwater threshold from USGS history plus trail guidance. |
 
 Primary sources: [WVDNR water trails](https://wvdnr.gov/lands-waters/boating/), [West Virginia State Parks Elk River Trail](https://wvstateparks.com/park/elk-river-trail/), [Elk River Trail access map](https://braxtonwv.org/things-to-do/elk-river-water-trail/map/), [WVDNR District 3 access guide](https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District3_FishingGuide_WEB.pdf), and [American Whitewater Down Elk](https://www.americanwhitewater.org/content/River/view/river-detail/2372/main).
@@ -78,4 +78,4 @@ Gate: join the WVDNR coordinates to current water-trail access names, check dams
 
 For each wave, work in this order: (1) endpoint and land-manager verification, (2) gauge-to-reach relationship, (3) numeric threshold, (4) hazards and closures, (5) camping and shuttle, (6) imagery, (7) geometry and generated access registry, and (8) focused route/safety/gallery/TypeScript checks. A candidate that fails an access or threshold gate remains in the ledger as blocked rather than becoming an inferred route.
 
-The next concrete batch is **Wave 1B–1C (two additional Elk routes)**. Do not implement 1B or 1D until the endpoint identity and closure checks are distinct enough to prevent duplicate or closed-access cards.
+The next concrete batch is **Wave 1B (Sandy Beach to Clifton Ford)**. Do not implement 1B or 1D until the endpoint identity and closure checks are distinct enough to prevent duplicate or closed-access cards.

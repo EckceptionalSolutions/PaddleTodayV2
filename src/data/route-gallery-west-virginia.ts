@@ -80,3 +80,12 @@ export const elkRiverDownElkPhoto: RouteGalleryPhoto = {
   credit: 'West Virginia University DIY Outdoors',
   takenLabel: 'WVU-hosted route gallery image; verify reuse terms',
 };
+
+export const elkRiverWaterTrailPhoto: RouteGalleryPhoto = {
+  id: 'elk-river-water-trail-wvu-diy-outdoors',
+  src: 'https://diyoutdoors.wvu.edu/files/7dc22d70-5563-47e5-8edc-b29d1aa06a71/960x640?cb=eb54e7c06948b0640a321a5370984545',
+  alt: 'Paddlers move through a calm, wooded section of the Elk River Water Trail in West Virginia.',
+  caption: 'Elk River Water Trail near the King and Queen Shoals corridor',
+  credit: 'West Virginia University DIY Outdoors',
+  takenLabel: 'WVU-hosted route gallery image; verify reuse terms',
+};

@@ -9,6 +9,7 @@ import {
   tygartValleyFallsPhoto,
   cacaponRoute127Photo,
   elkRiverDownElkPhoto,
+  elkRiverWaterTrailPhoto,
 } from './route-gallery-west-virginia';
 
 export interface RouteGalleryPhoto {
@@ -3049,6 +3050,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-tygart-valley-falls-hammond': [tygartValleyFallsPhoto],
   'wv-cacapon-capon-bridge-wv127': [cacaponRoute127Photo],
   'wv-elk-webster-springs-clifton-ford': [elkRiverDownElkPhoto],
+  'wv-elk-king-shoals-queen-shoals': [elkRiverWaterTrailPhoto],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
