@@ -6,10 +6,10 @@
   "progress": {
     "priority1GaugesTotal": 24,
     "priority1GaugesReviewed": 24,
-    "boundedCandidatesScreened": 32,
-    "candidatesWithNumericThresholdDecision": 32,
+    "boundedCandidatesScreened": 33,
+    "candidatesWithNumericThresholdDecision": 33,
     "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 26
+    "advancingCandidates": 27
   },
   "gaugeDecisions": [
     {
@@ -1189,6 +1189,26 @@
       "closureCheck": "Guardians of the West Fork, WVDNR West Fork Water Trail, WVU DIY Outdoors, and USGS 03058975 were reviewed 2026-08-26; confirm both access lots, carry paths, event/maintenance closures, water clarity, and debris day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the downstream Mount Clare proxy against local Good Hope conditions and recent rainfall before launch.", "Verify reuse terms for the Guardians route image."],
       "sources": ["https://guardiansofthewestfork.org/news/page/10/", "https://guardiansofthewestfork.org/the-west-fork-river/", "https://wvdnr.gov/lands-waters/boating/", "https://diyoutdoors.wvu.edu/canoeing/west-fork-river", "https://waterdata.usgs.gov/monitoring-location/USGS-03058975/"]
+    },
+    {
+      "id": "wv-west-fork-worthington-monongah",
+      "river": "West Fork River",
+      "route": "Worthington City Park to Monongah Public Access",
+      "corridor": "West Fork River Water Trail / Worthington–Monongah",
+      "decision": "advance",
+      "gaugeKey": "usgs:03061000",
+      "gaugeRelationship": "upstream same-river proxy at Enterprise for the Worthington–Monongah reach",
+      "distanceMiles": 5,
+      "difficulty": "Class I-II",
+      "routeType": "recreational",
+      "putIn": {"name": "Worthington City Park public access below Worthington Dam", "manager": "Community public access; verify ramp, parking, and dam boundary", "latitude": 39.450509, "longitude": -80.265246, "coordinateSource": "Guardians of the West Fork"},
+      "takeOut": {"name": "Monongah Public Access Site", "manager": "Community public access; verify ramp, parking, and event closures", "latitude": 39.460533, "longitude": -80.215734, "coordinateSource": "Guardians of the West Fork"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 150, "maximum": 5000, "source": "Conservative West Fork discharge inference from USGS 03061000 daily means (2010–2026: 43 cfs minimum, 247 cfs 25th percentile, 595 cfs median, 1,320 cfs 75th percentile, 17,100 cfs maximum) and the documented 5-mile beginner float; no official Worthington runnable range published"},
+      "safety": ["Guardians documents a five-mile Worthington-to-Monongah community float with beginner-friendly flatwater and short riffles. Put in below Worthington Dam only; do not approach or run the dam or any downstream obstruction.", "Enterprise telemetry is upstream and only a same-river proxy. Pair it with a local visual, rainfall, debris, and water-quality check; high or muddy water after rain is a no-go for this beginner route.", "Wear a fitted PFD and whistle, carry a float plan, first aid, repair kit, and communications backup, and land only at the named public park/access properties."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use verified lodging or campgrounds around Fairmont, Worthington, or the wider West Fork corridor; confirm availability, fees, water quality, and overnight parking."},
+      "closureCheck": "Guardians of the West Fork, WVDNR West Fork Water Trail, American Whitewater, and USGS 03061000 were reviewed 2026-08-26; confirm both access lots, the below-dam boundary, ramp condition, event/maintenance closures, water clarity, and debris day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Enterprise proxy against local Worthington conditions and recent rainfall before launch.", "Verify reuse terms for the Guardians route image."],
+      "sources": ["https://guardiansofthewestfork.org/news/page/10/", "https://wvdnr.gov/lands-waters/boating/", "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-WVR", "https://waterdata.usgs.gov/monitoring-location/USGS-03061000/"]
     }
   ]
 }

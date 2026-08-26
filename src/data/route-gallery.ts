@@ -3063,6 +3063,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-coal-lower-falls-st-albans': [bigCoalRiverPhoto],
   'wv-coal-forks-lions-park': [bigCoalRiverPhoto],
   'wv-west-fork-good-hope-west-milford': [westForkRiverPhoto],
+  'wv-west-fork-worthington-monongah': [westForkRiverPhoto],
   'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
   'wv-little-coal-donald-kuhn-waterways': [littleCoalRiverPhoto],
   'wv-little-coal-waterways-corridor-g': [littleCoalRiverPhoto],

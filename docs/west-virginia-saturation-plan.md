@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 28 West Virginia route cards:
+The current catalog has 29 West Virginia route cards:
 
 - New River: 4
 - Greenbrier River: 4
@@ -15,9 +15,9 @@ The current catalog has 28 West Virginia route cards:
 - Big Coal River: 5
 - Coal River: 3
 - Little Coal River: 3
-- West Fork River: 1
+- West Fork River: 2
 
-The research ledger has decisions for 24 priority gauges and 32 bounded route candidates across 7 corridors. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 24 priority gauges and 33 bounded route candidates across 7 corridors. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -90,4 +90,4 @@ Gate: join the WVDNR coordinates to current water-trail access names, check dams
 
 For each wave, work in this order: (1) endpoint and land-manager verification, (2) gauge-to-reach relationship, (3) numeric threshold, (4) hazards and closures, (5) camping and shuttle, (6) imagery, (7) geometry and generated access registry, and (8) focused route/safety/gallery/TypeScript checks. A candidate that fails an access or threshold gate remains in the ledger as blocked rather than becoming an inferred route.
 
-The next concrete batch is **West Fork Worthington to Monongah**, selected after confirming the public endpoints and a defensible Enterprise-gauge relationship. Keep the Upper Falls portage boundary explicit for any mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.
+The next concrete batch is **the remaining West Fork access chain or Stonewall tailwater only after a regulation check**. Keep the Upper Falls portage boundary explicit for any Coal mainstem card. Keep Wave 1B (Sandy Beach to Clifton Ford) gated until the informal Sandy Beach endpoint is proven distinct and publicly usable; do not implement Wave 1D until the intended Clendenin access is verified and not the closed Mink Shoals site.
