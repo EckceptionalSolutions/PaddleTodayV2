@@ -353,3 +353,5 @@ The [research ledger](./west-virginia-route-research-ledger.json) records 24 of
 decisions across six corridor groupings, and a 12-route initial cohort. It also
 records the explicit decision to defer release-dependent Gauley scoring until
 the application supports USACE CWMS data and a release-aware model.
+
+The follow-on saturation work is tracked in the [West Virginia saturation plan](./west-virginia-saturation-plan.md), beginning with three evidence-gated Elk River Water Trail routes.
