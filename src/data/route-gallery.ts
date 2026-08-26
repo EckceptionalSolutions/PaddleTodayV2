@@ -14,6 +14,7 @@ import {
   littleCoalRiverPhoto,
   westForkRiverPhoto,
   westForkWestonPhoto,
+  gauleyCrupperneckPhoto,
 } from './route-gallery-west-virginia';
 
 export interface RouteGalleryPhoto {
@@ -3067,6 +3068,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-west-fork-worthington-monongah': [westForkRiverPhoto],
   'wv-west-fork-jacksons-mill-good-hope': [westForkRiverPhoto],
   'wv-west-fork-weston-jacksons-mill': [westForkWestonPhoto],
+  'wv-gauley-curtin-persinger': [gauleyCrupperneckPhoto],
   'wv-little-coal-madison-donald-kuhn': [littleCoalRiverPhoto],
   'wv-little-coal-donald-kuhn-waterways': [littleCoalRiverPhoto],
   'wv-little-coal-waterways-corridor-g': [littleCoalRiverPhoto],

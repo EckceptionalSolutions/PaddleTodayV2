@@ -1187,6 +1187,7 @@ const routeOrder = [
   ,"wv-west-fork-good-hope-west-milford"
   ,"wv-west-fork-worthington-monongah"
   ,"wv-west-fork-jacksons-mill-good-hope"
+  ,"wv-gauley-curtin-persinger"
   ,"wv-little-coal-madison-donald-kuhn"
   ,"wv-little-coal-donald-kuhn-waterways"
   ,"wv-little-coal-waterways-corridor-g"

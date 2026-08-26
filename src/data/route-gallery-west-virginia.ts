@@ -125,3 +125,12 @@ export const westForkWestonPhoto: RouteGalleryPhoto = {
   credit: 'Guardians of the West Fork Watershed; verify reuse terms',
   takenLabel: 'Guardians Riffles & Pools route image; verify reuse terms',
 };
+
+export const gauleyCrupperneckPhoto: RouteGalleryPhoto = {
+  id: 'gauley-river-crupperneck-nps',
+  src: 'https://www.nps.gov/gari/planyourvisit/images/web_rafters_at_Sweets01_longer.jpg',
+  alt: 'Whitewater rafters navigate the Gauley River in West Virginia.',
+  caption: 'Gauley River whitewater near the natural-flow corridor',
+  credit: 'National Park Service, Gauley River National Recreation Area',
+  takenLabel: 'NPS-hosted Gauley River image; verify route-specific reuse terms',
+};

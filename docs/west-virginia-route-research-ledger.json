@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T14:55:00-05:00",
+  "updatedAt": "2026-08-26T15:25:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 25,
     "priority1GaugesReviewed": 25,
-    "boundedCandidatesScreened": 36,
-    "candidatesWithNumericThresholdDecision": 35,
-    "corridorsWithNumericThresholdDecision": 7,
-    "advancingCandidates": 29
+    "boundedCandidatesScreened": 37,
+    "candidatesWithNumericThresholdDecision": 36,
+    "corridorsWithNumericThresholdDecision": 8,
+    "advancingCandidates": 30
   },
   "gaugeDecisions": [
     {
@@ -306,10 +306,10 @@
       "stationName": "Gauley River near Craigsville, WV",
       "parameters": ["discharge", "stage"],
       "decision": "route_capable",
-      "reason": "Fresh discharge and stage are available upstream of Summersville Lake. American Whitewater ties the station directly to Camden-on-Gauley-to-Curtin Bridge and publishes route guidance beginning around 11 feet. This gauge supports natural-flow upper Gauley research only; it must not be used for Gauley Season below the dam.",
-      "potentialRoutes": ["Camden-on-Gauley to Curtin Bridge"],
-      "candidateIds": [],
-      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03189100&parameterCd=00060,00065&siteStatus=all", "https://www.americanwhitewater.org/content/River/view/river-detail/3105/main"]
+      "reason": "Fresh discharge and stage are available upstream of Summersville Lake. WVU and American Whitewater tie the station directly to the natural-flow Curtin Bridge–Persinger Creek corridor and publish guidance beginning around 11 feet. This gauge supports natural-flow upper Gauley research only; it must not be used for Gauley Season below the dam.",
+      "potentialRoutes": ["Curtin Bridge to DNR Persinger Creek Fishing Access"],
+      "candidateIds": ["wv-gauley-curtin-persinger"],
+      "sources": ["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03189100&parameterCd=00060,00065&siteStatus=all", "https://diyoutdoors.wvu.edu/whitewater/gauley-river-curtin-bridge-to-persinger-creek", "https://www.americanwhitewater.org/content/River/view/river-detail/3105/main"]
     },
     {
       "gaugeKey": "usgs:03192000",
@@ -1219,6 +1219,26 @@
       "closureCheck": "Guardians of the West Fork, WVDNR West Fork Water Trail, American Whitewater, and USGS 03061000 were reviewed 2026-08-26; confirm both access lots, the below-dam boundary, ramp condition, event/maintenance closures, water clarity, and debris day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the upstream Enterprise proxy against local Worthington conditions and recent rainfall before launch.", "Verify reuse terms for the Guardians route image."],
       "sources": ["https://guardiansofthewestfork.org/news/page/10/", "https://wvdnr.gov/lands-waters/boating/", "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-WVR", "https://waterdata.usgs.gov/monitoring-location/USGS-03061000/"]
+    },
+    {
+      "id": "wv-gauley-curtin-persinger",
+      "river": "Gauley River",
+      "route": "Curtin Bridge to DNR Persinger Creek Fishing Access",
+      "corridor": "Natural-flow Gauley River / Crupperneck section",
+      "decision": "advance",
+      "gaugeKey": "usgs:03189100",
+      "gaugeRelationship": "direct stage/discharge station at or immediately downstream of Curtin Bridge",
+      "distanceMiles": 12.4,
+      "difficulty": "Class II-III(IV)",
+      "routeType": "whitewater",
+      "putIn": {"name": "Curtin Bridge / Route 20-55 public river-left access at Cherry confluence", "manager": "American Whitewater/WVU documented access; verify gravel-road parking and private gate", "latitude": 38.2908, "longitude": -80.6411, "coordinateSource": "WVU DIY Outdoors route page"},
+      "takeOut": {"name": "DNR Persinger Creek Fishing Access", "manager": "WVDNR public fishing access; verify ramp, parking, and seasonal closure", "latitude": 38.298767, "longitude": -80.768804, "coordinateSource": "WVU DIY Outdoors route page"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "gage_height_ft", "minimum": 11, "maximum": 15, "source": "American Whitewater reports that the natural-flow reach should not be attempted below approximately 11 ft on the Craigsville gauge and that 11–13 ft is a strong intermediate window; high stages can approach Class IV, so 15 ft is a conservative stop pending an expert visual assessment"},
+      "safety": ["WVU documents the Curtin Bridge–Persinger Creek natural-flow reach as 12.4 miles, Class II-III(IV), with boulder-drop rapids and a high-water Class IV escalation; this is not a beginner trip.", "Craigsville telemetry is at/near Curtin and is direct for the natural-flow corridor. Do not use this card for Summersville Dam releases or the Upper/Lower Gauley; those products require a separate current-year release source and adapter.", "Scout boulder drops and changing lines, wear a fitted PFD and helmet, carry throw bags, rescue hardware, first aid, repair kit, and communications backup, and use a competent group with a float plan. Cold water, strainers, private banks, limited exits, and changing weather remain consequential."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use verified Summersville, Battle Run, or other nearby public/private campgrounds; confirm reservations, fees, fire rules, shuttle parking, and seasonal closures."},
+      "closureCheck": "WVU DIY Outdoors, American Whitewater, NPS Gauley safety material, WVDNR access guidance, and USGS 03189100 were reviewed 2026-08-26; confirm Curtin gravel-road access, Persinger parking/ramp, natural-flow stage, and any private-gate or seasonal restrictions day-of.",
+      "remainingWork": ["Confirm current Curtin and Persinger access conditions and legal parking before launch.", "Recheck the Craigsville stage/trend and recent rainfall; reassess the high-water Class IV escalation with an experienced team.", "Verify reuse terms for the NPS-hosted Gauley image."],
+      "sources": ["https://diyoutdoors.wvu.edu/whitewater/gauley-river-curtin-bridge-to-persinger-creek", "https://www.americanwhitewater.org/content/River/view/river-detail/3105/main", "https://www.nps.gov/gari/planyourvisit/whitewater.htm", "https://wvdnr.gov/wvdnrs-guide-to-public-river-stream-and-lake-access-sites/", "https://waterdata.usgs.gov/monitoring-location/USGS-03189100/"]
     },
     {
       "id": "wv-west-fork-weston-jacksons-mill",
