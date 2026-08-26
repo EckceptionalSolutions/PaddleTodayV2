@@ -103,7 +103,7 @@ The Thurmond–Cunard gap is now publishable because the public endpoint pair is
 ## Deliberate deferrals
 
 - **Gauley release-dependent routes:** do not score until a supported live release/CWMS source and an explicit release-window adapter exist.
-- **Bluestone Pipestem to Bluestone State Park:** blocked until the private-boat carriage policy for the Pipestem tram is explicit.
+- **Bluestone Pipestem to Bluestone State Park:** the State Parks replacement-tram article now confirms a dedicated freight car capable of carrying kayaks, but the route remains blocked until current public booking, size, fee, weather-shutdown, and river-access rules are explicit.
 - **Upper Greenbrier Durbin to Hosterman:** proxy-only at the available gauge and not ready for a route card.
 - **Greenbrier Willowwood to Bellepoint:** resolved and implemented as a confluence route; the card keeps the terminal New River boundary explicit.
 - **Cheat Hannahsville to Riverview and Riverview to Rowlesburg:** blocked until the endpoint/ownership and scope caveats are closed.

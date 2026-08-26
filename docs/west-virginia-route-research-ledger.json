@@ -65,7 +65,7 @@
         "stage"
       ],
       "decision": "route_capable",
-      "reason": "Fresh discharge and stage are available. NPS publishes an exact 4-7 foot safe navigation range on the Pipestem gauge and recognizes the Pipestem-to-Bluestone-State-Park paddling corridor. The current candidate remains operationally blocked until the new tram's private-boat carriage policy is explicit.",
+        "reason": "Fresh discharge and stage are available. NPS publishes an exact 4-7 foot safe navigation range on the Pipestem gauge and recognizes the Pipestem-to-Bluestone-State-Park paddling corridor. West Virginia State Parks now says the replacement tram has a dedicated freight car capable of carrying kayaks, but the candidate remains operationally blocked until public booking, size, fee, and operating rules for private boats are explicit.",
       "candidateIds": [
         "wv-bluestone-pipestem-bluestone-state-park"
       ],
@@ -648,7 +648,7 @@
       "route": "Pipestem Resort State Park to Bluestone State Park",
       "corridor": "Bluestone National Scenic River",
       "decision": "blocked",
-      "blocker": "Current official tram material confirms seasonal river access but does not explicitly confirm private kayak/canoe carriage on the replacement gondola.",
+      "blocker": "West Virginia State Parks now confirms that the replacement tram has a dedicated freight car capable of carrying kayaks, but no current public policy states whether private kayaks/canoes may be booked, what size/fee limits apply, or how weather shutdowns and operating days affect a river launch.",
       "gaugeKey": "usgs:03179000",
       "gaugeRelationship": "direct within route",
       "distanceMiles": 8.48,
@@ -686,13 +686,14 @@
         "classification": "nearby_basecamp",
         "note": "NPS prohibits camping in the scenic-river unit but identifies campground/lodging options at Pipestem Resort and Bluestone State Parks."
       },
-      "closureCheck": "WV State Parks advertises the new tram as operating May-October weather permitting; no explicit boat-cargo policy was found in the current official page.",
-      "nextAction": "Obtain current written confirmation that private paddlecraft can be carried on the tram, including size, fee, reservation, operating-day, and shutdown rules. If not, research Lilly or another official road-access endpoint instead.",
+      "closureCheck": "WV State Parks advertises the new tram as operating May-October weather permitting and separately reports a dedicated freight car capable of carrying kayaks; obtain current operational terms before treating the tram as a public put-in.",
+      "nextAction": "Obtain current written confirmation that private paddlecraft can be carried on the tram, including boat dimensions, fee, reservation, operating-day, weather-shutdown, and river-access rules. If not, research Lilly or another official road-access endpoint instead.",
       "sources": [
         "https://www.nps.gov/blue/planyourvisit/paddling-the-bluestone.htm",
         "https://www.nps.gov/articles/getaway-blue.htm",
         "https://www.nps.gov/blue/planyourvisit/index.htm",
         "https://wvstateparks.com/parks/pipestem-state-park/activities/aerial-tour-at-pipestem-state-park/",
+        "https://wvstateparks.com/reaching-this-lodge-requires-a-ride-through-the-sky-%F0%9F%9A%A1/amp/",
         "https://www.americanwhitewater.org/content/River/view/river-detail/3091/main"
       ]
     },
