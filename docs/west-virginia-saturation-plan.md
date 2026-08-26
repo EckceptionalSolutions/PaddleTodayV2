@@ -4,7 +4,7 @@ Updated 2026-08-26. This is the follow-on plan to the gauge-first research plan 
 
 ## Baseline
 
-The current catalog has 37 West Virginia route cards:
+The current catalog has 38 West Virginia route cards:
 
 - New River: 5
 - Greenbrier River: 5
@@ -17,9 +17,9 @@ The current catalog has 37 West Virginia route cards:
 - Little Coal River: 3
 - West Fork River: 4
 - Gauley River: 1
-- Guyandotte River: 2
+- Guyandotte River: 3
 
-The research ledger has decisions for 27 priority gauges and 40 bounded route candidates across 11 corridors; all 40 have numeric threshold decisions and 35 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
+The research ledger has decisions for 27 priority gauges and 41 bounded route candidates across 11 corridors; all 41 have numeric threshold decisions and 36 currently advance. The next saturation step is therefore not to add arbitrary mileage; it is to turn the remaining route-capable gauges into public-access pairs with an auditable threshold, a safety profile, and complete logistics.
 
 ## Saturation definition
 
@@ -41,6 +41,8 @@ The two strategic cards already researched (Tygart Valley Falls and upper Cacapo
 The Wave 3 cohort now also includes the implemented Weston–Jackson’s Mill route (`wv-west-fork-weston-jacksons-mill`) and the Jackson’s Mill–Good Hope route (`wv-west-fork-jacksons-mill-good-hope`). Weston–Jackson’s Mill is a 5.5-mile Guardians-documented float with a no-ramp public-parking carry and direct Weston stage gauge; Jackson’s Mill–Good Hope is 10.6 miles derived from published river-mile references and retains a verify-before-launch mileage note. **The natural-flow Gauley Curtin Bridge–Persinger Creek route is now implemented** as `wv-gauley-curtin-persinger`, with exact WVU access coordinates, direct Craigsville stage/discharge telemetry, high-water Class IV escalation, and NPS imagery; scheduled Upper/Lower Gauley releases remain deferred. **The New River Thurmond–Cunard route is also implemented** as `wv-new-thurmond-cunard`, with geometry resolving the published 7.2-mile reach and an explicit NPS advanced/expert safety boundary. **The lower Greenbrier Willowwood–Bellepoint route is now implemented** as `wv-greenbrier-willowwood-bellepoint`, using WVDNR's official Willowwood Greenbrier and Bellepoint New River access assignments to resolve the confluence ambiguity and AW's 5.4-mile geometry for the route line. **The Elk River Frametown–Duck route is now implemented** as `wv-elk-frametown-duck`, using the direct near-put-in Frametown gauge, WVDNR/Elk River Water Trail endpoints, and a conservative local stage screen that does not transfer the Down Elk whitewater band.
 
 **The Guyandotte Pineville–Baileysville route is now implemented** as `wv-guyandotte-pineville-baileysville`, using the 13-mile WVDNR float listing, the new Willow Street/SR 97 Pineville ramp, a direct Pineville USGS discharge gauge, a conservative local screen, and a regional Guyandotte paddling image. The Baileysville inventory coordinate is an access anchor roughly 600 feet from the generalized NHD centerline, so the card keeps a local visual/carry verification gate rather than silently moving the official coordinate. **The downstream Baileysville–Guyandotte Campground route is also implemented** as `wv-guyandotte-baileysville-rd-bailey-campground`, using WVDNR’s 5.5-mile float listing, the USGS Baileysville station, USACE developed-camping/boat-launch context, and an explicit stop before R.D. Bailey lake/tailwater hazards.
+
+**The upper Guyandotte Mullens–Pineville route is now implemented** as `wv-guyandotte-mullens-pineville`, using WVDNR’s 11-mile float listing, both public pull-off/access anchors, a downstream Pineville gauge proxy, Class 2+ water-trail context, and the same explicit downstream boundary.
 
 ### Wave 1 — Elk River Water Trail (highest information density)
 
@@ -109,8 +111,9 @@ The Guyandotte is the next information-rich southern West Virginia corridor: WVD
 
 1. **Implemented:** Pineville public access to Baileysville public access (`wv-guyandotte-pineville-baileysville`).
 2. **Implemented:** Baileysville public access to Guyandotte Campground (`wv-guyandotte-baileysville-rd-bailey-campground`).
+3. **Implemented:** Mullens public pull-off to Pineville public access (`wv-guyandotte-mullens-pineville`).
 
-Gate for the next Guyandotte batch: verify the Baileysville carry/parking against the generalized NHD offset, then research Mullens–Pineville and lower water-trail pairs with their own endpoint, gauge, water-quality, and dam-boundary evidence. Do not transfer the Pineville or Baileysville screens, or the American Whitewater Simon–lake Class III warning, without reach-specific calibration.
+Gate for the next Guyandotte batch: verify the Baileysville carry/parking against the generalized NHD offset, then research lower water-trail pairs toward Logan, Man, and Branchland with their own endpoint, gauge, water-quality, and dam-boundary evidence. Do not transfer the upper-river screens or the American Whitewater Simon–lake Class III warning without reach-specific calibration.
 
 ## Deliberate deferrals
 

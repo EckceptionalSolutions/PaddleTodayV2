@@ -1,15 +1,15 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T19:05:00-05:00",
+  "updatedAt": "2026-08-26T20:05:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 27,
     "priority1GaugesReviewed": 27,
-    "boundedCandidatesScreened": 40,
-    "candidatesWithNumericThresholdDecision": 40,
+    "boundedCandidatesScreened": 41,
+    "candidatesWithNumericThresholdDecision": 41,
     "corridorsWithNumericThresholdDecision": 11,
-    "advancingCandidates": 35
+    "advancingCandidates": 36
   },
   "gaugeDecisions": [
     {
@@ -1382,6 +1382,26 @@
       "closureCheck": "WVDNR District 4 guide, WVDNR boating, American Whitewater, USACE R.D. Bailey Lake, Recreation.gov, Guyandotte Water Trail, and USGS 03202400 reviewed 2026-08-26; confirm Baileysville carry/parking, campground launch permission, federal closures, weather, and the downstream lake boundary day-of.",
       "remainingWork": ["Run coordinate-to-river and canonical geometry audits; the Baileysville inventory anchor is approximately 600 feet from the generalized NHD centerline and needs local visual confirmation.", "Recheck the direct Baileysville gauge trend against local rainfall and campground-reach conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a rights-cleared route-specific image if available."],
       "sources": ["https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://www.americanwhitewater.org/content/River/view/river-detail/2387/main", "https://www.lrd.usace.army.mil/Missions/Recreation/Display/Article/3632879/rd-bailey-lake/", "https://www.recreation.gov/camping/campgrounds/10235835", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Guy_Cover_edit_2-28-21xx-1.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-03202400/", "https://www.gilbertwv.com/kayaking"]
+    },
+    {
+      "id": "wv-guyandotte-mullens-pineville",
+      "river": "Guyandotte River",
+      "route": "St Rt 16 Bridge at Mullens to Pineville public access",
+      "corridor": "Guyandotte River Water Trail / upper Guyandotte",
+      "decision": "advance",
+      "gaugeKey": "usgs:03202300",
+      "gaugeRelationship": "downstream same-river proxy at Pineville for the Mullens–Pineville reach",
+      "distanceMiles": 11,
+      "difficulty": "Class II+",
+      "routeType": "recreational",
+      "putIn": {"name": "St Rt 16 Bridge at Mullens WVDNR public pull-off", "manager": "WVDNR-listed public pull-off; verify carry, traffic exposure, and legal parking", "latitude": 37.5627, "longitude": -81.4068, "coordinateSource": "WVDNR District 4 access guide"},
+      "takeOut": {"name": "Pineville WVDNR public stream access (Willow Street / SR 97)", "manager": "WVDNR/city public stream access; verify ramp, parking, and hours", "latitude": 37.5744, "longitude": -81.5355, "coordinateSource": "WVDNR District 4 access guide; 2024 WVDNR Pineville ramp announcement"},
+      "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 60, "maximum": 2000, "source": "Conservative local inference from downstream USGS 03202300 daily history (2019–2026: about 29 cfs minimum, 95 cfs 25th percentile, 198 cfs median, 685 cfs 90th percentile, 9,710 cfs maximum) and WVDNR’s documented 11-mile float; no official runnable range published"},
+      "safety": ["WVDNR lists Mullens to Pineville as an 11-mile Guyandotte float, and the Guyandotte Water Trail guide describes Class 2+ rapids in the upper river. Treat this as moving water with a moderate consequence profile, not a flatwater beginner route.", "Pineville telemetry is downstream and only a same-river proxy. The threshold is a conservative local inference; pair it with local rainfall, trend, clarity, debris scouting, and a visual check at Mullens before launch.", "Wear a fitted PFD and whistle; paddlers should be comfortable with Class II maneuvering and self-rescue. Carry a full float plan, first aid, repair kit, communications backup, and enough food/water for an 11-mile reach. Stay off private banks and do not use bridge shoulders or unmarked roads as bailouts."],
+      "camping": {"classification": "nearby_basecamp", "note": "No on-route camping is assumed. Use separately verified lodging or Twin Falls/Mullens-area camping as a basecamp; confirm current reservations, fees, fire rules, water quality, and overnight parking."},
+      "closureCheck": "WVDNR District 4 guide, WVDNR boating, Guyandotte Water Trail, Upper Guyandotte watershed plan, Twin Falls State Park, and USGS 03202300 reviewed 2026-08-26; confirm Mullens pull-off carry/traffic exposure, Pineville access status, weather, water quality, and any road or access closure day-of.",
+      "remainingWork": ["Run coordinate-to-river and canonical geometry audits.", "Recheck the downstream Pineville proxy against local upper-river rainfall, debris, and stage conditions before launch.", "Verify reuse terms for the Town of Gilbert Guyandotte paddling image and replace it with a rights-cleared upper-Guyandotte image if available."],
+      "sources": ["https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "https://wvdnr.gov/lands-waters/boating/", "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Guy_Cover_edit_2-28-21xx-1.pdf", "https://www.nrcs.usda.gov/sites/default/files/2024-09/Upper%20Guyandotte%20Final%20Plan-Environmental%20Assessment.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-03202300/", "https://wvstateparks.com/park/twin-falls-resort-state-park/", "https://www.gilbertwv.com/kayaking"]
     }
   ]
 }

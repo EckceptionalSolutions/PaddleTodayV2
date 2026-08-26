@@ -1191,6 +1191,7 @@ const routeOrder = [
   ,"wv-west-fork-jacksons-mill-good-hope"
   ,"wv-gauley-curtin-persinger"
   ,"wv-guyandotte-pineville-baileysville"
+  ,"wv-guyandotte-mullens-pineville"
   ,"wv-guyandotte-baileysville-rd-bailey-campground"
   ,"wv-new-thurmond-cunard"
   ,"wv-little-coal-madison-donald-kuhn"
