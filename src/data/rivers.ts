@@ -1196,6 +1196,7 @@ const routeOrder = [
   ,"wv-guyandotte-branchland-west-hamlin"
   ,"wv-guyandotte-west-hamlin-salt-rock"
   ,"wv-guyandotte-salt-rock-barboursville"
+  ,"wv-guyandotte-barboursville-farmdale"
   ,"wv-new-thurmond-cunard"
   ,"wv-little-coal-madison-donald-kuhn"
   ,"wv-little-coal-donald-kuhn-waterways"
