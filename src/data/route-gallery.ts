@@ -141,6 +141,56 @@ const beaverRiverMinnesotaPhoto: RouteGalleryPhoto = {
 };
 
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'james-river-bent-creek-state-park': [
+    {
+      id: 'james-river-state-park-commons',
+      src: '/gallery/james-river-bent-creek-state-park/james-river-state-park.jpg',
+      alt: 'The James River reflects autumn foliage beside a bench at James River State Park.',
+      caption: 'James River at the state-park end of the route',
+      credit: 'Virginia State Parks staff via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'south-fork-shenandoah-newport-white-house': [
+    {
+      id: 'south-fork-shenandoah-rileyville-usgs',
+      src: '/gallery/south-fork-shenandoah-newport-white-house/south-fork-near-rileyville.jpg',
+      alt: 'An aerial view follows the South Fork Shenandoah River near Rileyville with Blue Ridge mountains beyond.',
+      caption: 'South Fork Shenandoah near Rileyville; downstream river context',
+      credit: 'Spencer Tassone / U.S. Geological Survey',
+      takenLabel: 'USGS: CC BY 4.0',
+    },
+  ],
+  'north-fork-shenandoah-meems-chapmans': [
+    {
+      id: 'north-fork-shenandoah-woodstock-commons',
+      src: '/gallery/north-fork-shenandoah-meems-chapmans/north-fork-near-woodstock.jpg',
+      alt: 'The shallow North Fork Shenandoah River flows over a rocky bed near Woodstock, Virginia.',
+      caption: 'North Fork Shenandoah near Woodstock; river-corridor context',
+      credit: 'Antepenultimate via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'hardware-river-route-6-wma-bridge': [
+    {
+      id: 'hardware-river-aqueduct-commons',
+      src: '/gallery/hardware-river-route-6-wma-bridge/hardware-river-aqueduct.jpg',
+      alt: 'The historic stone Hardware River aqueduct spans the wooded river corridor.',
+      caption: 'Hardware River aqueduct; lower-river historic context',
+      credit: 'Redandblue32 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'james-river-pony-pasture-reedy-creek': [
+    {
+      id: 'james-river-reedy-creek-commons',
+      src: '/gallery/james-river-pony-pasture-reedy-creek/james-river-from-reedy-creek.jpg',
+      alt: 'The James River viewed from Reedy Creek with the Virginia War Memorial Carillon in the distance.',
+      caption: 'James River from the Reedy Creek takeout area',
+      credit: 'Sean Dudley via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
   'brule-river-lima-grade-gunflint-trail': [bruleRiverMinnesotaPhoto],
   'brule-river-gunflint-trail-northern-light': [bruleRiverMinnesotaPhoto],
   'brule-river-lima-grade-northern-light': [bruleRiverMinnesotaPhoto],

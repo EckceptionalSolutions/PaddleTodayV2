@@ -9,7 +9,7 @@ const routeAssetDir = path.join(process.cwd(), 'public', 'data', 'canonical-rive
 
 function routeFeature(routeId: string) {
   return JSON.parse(readFileSync(path.join(routeAssetDir, `${routeId}.json`), 'utf8')) as {
-    properties?: { routeId?: string; traceMode?: string; endpointSnapMaxFeet?: number | null };
+    properties?: { routeId?: string; source?: string; traceMode?: string; endpointSnapMaxFeet?: number | null };
     geometry?: { type?: string; coordinates?: unknown[] };
   };
 }
@@ -120,5 +120,64 @@ describe('canonical river geometry asset', () => {
     expect(lengthMiles).toBeLessThan(16);
     expect(distanceMiles(coordinates?.[0] ?? [0, 0], [-96.0206276, 46.3826273])).toBeLessThan(0.03);
     expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], [-95.9809894, 46.2807577])).toBeLessThan(0.03);
+  });
+
+  it('carries the Pony Pasture route through the Manchester Canal to the Reedy Creek ramp', () => {
+    const feature = routeFeature('james-river-pony-pasture-reedy-creek');
+    const putIn: [number, number] = [-77.53012072, 37.55949468];
+    const takeOut: [number, number] = [-77.4694, 37.52439];
+    const routeLine = canonicalRiverRouteLineFromFeature(feature, [
+      { longitude: putIn[0], latitude: putIn[1] },
+      { longitude: takeOut[0], latitude: takeOut[1] },
+    ]);
+    const coordinates = routeLine?.geometry.coordinates as [number, number][] | undefined;
+    const lengthMiles = (coordinates ?? []).slice(1).reduce((sum, coordinate, index) =>
+      sum + distanceMiles(coordinates?.[index] ?? coordinate, coordinate), 0);
+
+    expect(feature.properties?.source).toContain('American Whitewater reach geometry');
+    expect(feature.properties?.endpointSnapMaxFeet).toBeLessThanOrEqual(100);
+    expect(lengthMiles).toBeGreaterThan(4.5);
+    expect(lengthMiles).toBeLessThan(5.2);
+    expect(distanceMiles(coordinates?.[0] ?? [0, 0], putIn)).toBeLessThan(0.03);
+    expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], takeOut)).toBeLessThan(0.03);
+  });
+
+  it('keeps the Iron Gate trace continuous without forcing the shorter published estimate', () => {
+    const feature = routeFeature('james-river-iron-gate-glen-wilton');
+    const putIn: [number, number] = [-79.782778, 37.773889];
+    const takeOut: [number, number] = [-79.815972, 37.750806];
+    const routeLine = canonicalRiverRouteLineFromFeature(feature, [
+      { longitude: putIn[0], latitude: putIn[1] },
+      { longitude: takeOut[0], latitude: takeOut[1] },
+    ]);
+    const coordinates = routeLine?.geometry.coordinates as [number, number][] | undefined;
+    const lengthMiles = (coordinates ?? []).slice(1).reduce((sum, coordinate, index) =>
+      sum + distanceMiles(coordinates?.[index] ?? coordinate, coordinate), 0);
+
+    expect(lengthMiles).toBeGreaterThan(3);
+    expect(lengthMiles).toBeLessThan(3.4);
+    expect(distanceMiles(coordinates?.[0] ?? [0, 0], putIn)).toBeLessThan(0.03);
+    expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], takeOut)).toBeLessThan(0.03);
+  });
+
+  it("maps the full Meems Bottom-to-Chapman's Landing corridor", () => {
+    const feature = routeFeature('north-fork-shenandoah-meems-chapmans');
+    const putIn: [number, number] = [-78.65096625, 38.7066986];
+    const takeOut: [number, number] = [-78.52968681, 38.84543186];
+    const routeLine = canonicalRiverRouteLineFromFeature(feature, [
+      { longitude: putIn[0], latitude: putIn[1] },
+      { longitude: takeOut[0], latitude: takeOut[1] },
+    ]);
+    const coordinates = routeLine?.geometry.coordinates as [number, number][] | undefined;
+    const lengthMiles = (coordinates ?? []).slice(1).reduce((sum, coordinate, index) =>
+      sum + distanceMiles(coordinates?.[index] ?? coordinate, coordinate), 0);
+    const first = coordinates?.[0] ?? [0, 0];
+    const last = coordinates?.at(-1) ?? [0, 0];
+    const forwardError = distanceMiles(first, putIn) + distanceMiles(last, takeOut);
+    const reverseError = distanceMiles(first, takeOut) + distanceMiles(last, putIn);
+
+    expect(lengthMiles).toBeGreaterThan(19.5);
+    expect(lengthMiles).toBeLessThan(21.5);
+    expect(Math.min(forwardError, reverseError)).toBeLessThan(0.06);
   });
 });
