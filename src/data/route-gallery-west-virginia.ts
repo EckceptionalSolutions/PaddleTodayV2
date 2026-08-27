@@ -1,4 +1,4 @@
-import type { RouteGalleryPhoto } from './route-gallery';
+import type { RouteGalleryPhoto } from './route-gallery-types';
 
 export const newRiverGorgeContextPhoto: RouteGalleryPhoto = {
   id: 'new-river-gorge-national-river-commons',

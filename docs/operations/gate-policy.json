@@ -80,6 +80,11 @@
     "discoveryBudget": "bounded by the active state task; stop after the documented candidate budget or when a strong scored route is found",
     "reopenCondition": "new eligible gauge, resumed telemetry, cleared blocker, user demand, provider expansion, retired direct coverage, or fresh manager-grade access, threshold, safety, or route-shape evidence"
   },
+  "routeOpportunityPolicy": {
+    "defaultQueue": "unresolved_route_capable_gauges_only",
+    "durableBlockedOrStaleRetry": "explicit_user_request_and_materially_new_evidence_only",
+    "geographicExpansion": "when the current registered frontier is complete, advance only through an explicit next-state task; do not recycle durable blockers"
+  },
   "workflow": ".github/workflows/operations-gates.yml",
   "humanEscalation": "required_for_policy_change_or_safety_exception"
 }

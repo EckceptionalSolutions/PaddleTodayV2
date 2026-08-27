@@ -46,14 +46,25 @@ const reviewsByKey = new Map<string, GaugeReviewEntry>();
 const stateFips: Record<string, string> = {
   AR: '05', IL: '17', IN: '18', IA: '19', KS: '20', KY: '21', MI: '26', MN: '27',
   MO: '29', NE: '31', ND: '38', OH: '39', PA: '42', SD: '46', TN: '47', TX: '48',
-  UT: '49', WI: '55',
+  UT: '49', VA: '51', WI: '55',
 };
+const providerStateIds = new Set(
+  process.argv
+    .filter((argument) => argument.startsWith('--state='))
+    .flatMap((argument) => argument.slice('--state='.length).split(','))
+    .map((stateId) => stateId.trim().toUpperCase())
+    .filter(Boolean),
+);
 const refreshProviders = process.argv.includes('--refresh-providers');
+const partialProviderRefresh = refreshProviders && providerStateIds.size > 0;
 const existingArtifacts = await loadExistingArtifacts();
 let statesBaselined = refreshProviders ? [] as string[] : existingArtifacts?.inventory.statesBaselined ?? [];
 
-if (!refreshProviders && existingArtifacts) {
-  for (const gauge of existingArtifacts.inventory.gauges.filter((entry) => entry.source === 'provider_inventory')) {
+if ((!refreshProviders || partialProviderRefresh) && existingArtifacts) {
+  for (const gauge of existingArtifacts.inventory.gauges.filter((entry) => (
+    entry.source === 'provider_inventory'
+    && (!partialProviderRefresh || !providerStateIds.has(entry.homeState))
+  ))) {
     mergeInventory(gauge);
     const review = existingArtifacts.ledger.reviews.find((candidate) => candidate.key === gauge.key);
     if (review) reviewsByKey.set(review.key, review);
@@ -114,7 +125,10 @@ for (const filename of await readdir(operationsDir)) {
 }
 
 if (refreshProviders) {
-  statesBaselined = await addProviderGaugeInventory();
+  const refreshedStates = await addProviderGaugeInventory(providerStateIds);
+  statesBaselined = partialProviderRefresh
+    ? unique([...(existingArtifacts?.inventory.statesBaselined ?? []), ...refreshedStates]).sort()
+    : refreshedStates;
 }
 
 const existingManualReviews = existingArtifacts?.ledger.reviews.filter((review) => (
@@ -346,9 +360,10 @@ type OgcFeatureCollection = {
   links?: Array<{ rel?: string; href?: string }>;
 };
 
-async function addProviderGaugeInventory() {
+async function addProviderGaugeInventory(selectedStateIds: Set<string>) {
   const completedStates: string[] = [];
   for (const state of stateRegistry.canonicalStates) {
+    if (selectedStateIds.size > 0 && !selectedStateIds.has(state.id)) continue;
     const fips = stateFips[state.id];
     if (!fips) continue;
     const latestBySite = new Map<string, { metrics: Array<'discharge_cfs' | 'gage_height_ft'>; observedAt?: string }>();
@@ -396,7 +411,7 @@ async function addProviderGaugeInventory() {
     console.log(`USGS provider baseline ${state.id}: ${latestBySite.size} fresh telemetry sites, ${locations.length} stream locations checked.`);
   }
 
-  await addMnDnrProviderInventory();
+  if (selectedStateIds.size === 0 || selectedStateIds.has('MN')) await addMnDnrProviderInventory();
   return completedStates;
 }
 

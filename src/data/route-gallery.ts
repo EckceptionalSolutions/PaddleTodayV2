@@ -9,15 +9,9 @@ import {
   tygartValleyFallsPhoto,
   cacaponRoute127Photo,
 } from './route-gallery-west-virginia';
+import type { RouteGalleryPhoto } from './route-gallery-types';
 
-export interface RouteGalleryPhoto {
-  id: string;
-  src: string;
-  alt: string;
-  caption: string;
-  credit?: string;
-  takenLabel?: string;
-}
+export type { RouteGalleryPhoto } from './route-gallery-types';
 
 export interface RoutePreviewPhoto extends RouteGalleryPhoto {
   isPlaceholder: boolean;
@@ -3043,10 +3037,24 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'wv-new-cunard-fayette-station': [newRiverCunardPhoto],
+  'wv-new-tug-creek-hellems': [newRiverGorgeContextPhoto],
+  'wv-new-glade-creek-grandview-sandbar': [newRiverGorgeContextPhoto],
+  'wv-new-mccreery-stone-cliff': [newRiverGorgeContextPhoto],
   'wv-cheat-rowlesburg-preston-foc': [cheatRiverRowlesburgPhoto],
+  'wv-cheat-holly-meadows-st-george': [cheatRiverHeadwatersPhoto],
+  'wv-cheat-st-george-hannahsville': [cheatRiverHeadwatersPhoto],
+  'wv-cheat-albright-jenkinsburg': [cheatRiverRowlesburgPhoto],
   'wv-greenbrier-talcott-willowwood': [greenbrierTalcottPhoto],
+  'wv-greenbrier-willowwood-bellepoint': [greenbrierRiverWestVirginiaPhoto],
+  'wv-greenbrier-spring-creek-anthony': [greenbrierRiverWestVirginiaPhoto],
+  'wv-greenbrier-ronceverte-fort-spring': [greenbrierRiverWestVirginiaPhoto],
+  'wv-greenbrier-fort-spring-alderson': [greenbrierTalcottPhoto],
   'wv-tygart-valley-falls-hammond': [tygartValleyFallsPhoto],
   'wv-cacapon-capon-bridge-wv127': [cacaponRoute127Photo],
+  'wv-cacapon-rt127-cacapon-crossing': [cacaponRoute127Photo],
+  'wv-cacapon-cacapon-crossing-fishers-ford': [cacaponRoute127Photo],
+  'wv-cacapon-fishers-ford-power-plant': [cacaponRoute127Photo],
+  'wv-new-thurmond-cunard': [newRiverGorgeContextPhoto],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

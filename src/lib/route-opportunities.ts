@@ -37,7 +37,16 @@ export interface RouteOpportunityQueueArtifact {
   generatedAt: string;
   maxPerState: number;
   maxGlobal: number;
+  retryPolicy?: 'unresolved_only' | 'explicit_request_allowed';
   opportunities: RouteOpportunity[];
+}
+
+export interface RouteOpportunityQueueOptions {
+  /**
+   * Durable blocked/stale gauges are not active work by default. A caller may
+   * explicitly opt in when a user-requested retry has materially new evidence.
+   */
+  includeDurableRetries?: boolean;
 }
 
 type ExistingTask = {
@@ -47,7 +56,15 @@ type ExistingTask = {
   gaugeKeys?: string[];
   routeOpportunity?: boolean;
   routeOpportunityScore?: number;
+  opportunitySource?: 'gauge_queue' | 'corridor_preflight';
 };
+
+function isGaugeQueueTask(task: ExistingTask) {
+  // opportunitySource is authoritative for new tasks. The id fallback keeps
+  // historical generated tasks manageable without rewriting the task ledger.
+  return task.routeOpportunity === true
+    && (task.opportunitySource === 'gauge_queue' || task.id.startsWith('route-opportunity-'));
+}
 
 const permanentlyBlocked = /private|prohibit|reservation permit|not paddle relevant|expert whitewater|marine|same-access|out and back|duplicate|overlap|no route corridor|proxy_only|derived_route_inventory|route candidate references this gauge|existing route|provider-equivalent/i;
 
@@ -55,8 +72,9 @@ function taskId(stateId: string, gaugeKey: string) {
   return `route-opportunity-${stateId.toLowerCase()}-${gaugeKey.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()}`;
 }
 
-function isActionable(review: GaugeReviewEntry) {
+function isActionable(review: GaugeReviewEntry, includeDurableRetries = false) {
   if (!['blocked', 'researching'].includes(review.status) || review.eligibility !== 'route_capable') return false;
+  if (review.status === 'blocked' && !includeDurableRetries) return false;
   // A worker-recorded no-add is already a durable disposition. Keep it
   // visible in the ledger, but do not recycle it into the bounded ready queue
   // unless a later review explicitly changes the disposition.
@@ -130,6 +148,7 @@ export function buildRouteOpportunityQueue(
   existingTasks: ExistingTask[] = [],
   maxPerState = 5,
   maxGlobal = 20,
+  options: RouteOpportunityQueueOptions = {},
 ): RouteOpportunityQueueArtifact {
   const existingByGauge = new Map<string, ExistingTask>();
   for (const task of existingTasks) {
@@ -139,7 +158,7 @@ export function buildRouteOpportunityQueue(
   const reviews = new Map(ledger.reviews.map((review) => [review.key, review]));
   const candidates = inventory.gauges.flatMap((gauge) => {
     const review = reviews.get(gauge.key);
-    if (!review || !isActionable(review)) return [];
+    if (!review || !isActionable(review, options.includeDurableRetries === true)) return [];
     const stateId = gauge.homeState.toUpperCase();
     const existing = existingByGauge.get(gauge.key);
     // A completed or explicitly blocked task is not eligible for automatic
@@ -179,7 +198,14 @@ export function buildRouteOpportunityQueue(
     .flat()
     .sort((left, right) => right.score - left.score || left.stateId.localeCompare(right.stateId) || left.siteName.localeCompare(right.siteName))
     .slice(0, maxGlobal);
-  return { version: 1, generatedAt: new Date().toISOString(), maxPerState, maxGlobal, opportunities };
+  return {
+    version: 1,
+    generatedAt: new Date().toISOString(),
+    maxPerState,
+    maxGlobal,
+    retryPolicy: options.includeDurableRetries === true ? 'explicit_request_allowed' : 'unresolved_only',
+    opportunities,
+  };
 }
 
 export function materializeRouteOpportunityTasks<T extends ExistingTask>(
@@ -191,9 +217,9 @@ export function materializeRouteOpportunityTasks<T extends ExistingTask>(
   const currentIds = new Set(queue.opportunities.map((opportunity) => opportunity.taskId));
   const scoreByTaskId = new Map(queue.opportunities.map((opportunity) => [opportunity.taskId, opportunity.score]));
   const queueStatusByTaskId = new Map(queue.opportunities.map((opportunity) => [opportunity.taskId, opportunity.status]));
-  const tasks = existingTasks.map((task) => task.routeOpportunity && currentIds.has(task.id)
+  const tasks = existingTasks.map((task) => isGaugeQueueTask(task) && currentIds.has(task.id)
     ? { ...task, lane: queueStatusByTaskId.get(task.id) === 'in_progress' ? 'in_progress' : 'ready', routeOpportunityScore: scoreByTaskId.get(task.id) } as T
-    : task.routeOpportunity && task.lane === 'ready'
+    : isGaugeQueueTask(task) && task.lane === 'ready'
       ? { ...task, lane: 'blocked' } as T
       : task);
   const existingIds = new Set(tasks.map((task) => task.id));
@@ -221,6 +247,7 @@ export function materializeRouteOpportunityTasks<T extends ExistingTask>(
       frontierTier: stateTiers.get(opportunity.stateId) ?? 99,
       routeOpportunity: true,
       routeOpportunityScore: opportunity.score,
+      opportunitySource: 'gauge_queue',
     } as T);
     existingIds.add(opportunity.taskId);
   }

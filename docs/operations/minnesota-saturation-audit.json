@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-06T22:30:46.000Z",
+  "generatedAt": "2026-08-26T14:10:53.260Z",
   "state": "Minnesota",
-  "decision": "provisionally_saturated",
+  "decision": "saturation_review",
   "rule": "Only scored routes count toward saturation; planning routes are excluded.",
   "totals": {
     "inventory": 258,
@@ -10,19 +10,7 @@
     "proxyPlanning": 107,
     "unavailableDirect": 6
   },
-  "directGaugeProviderRecheck": {
-    "checkedAt": "2026-08-06T19:27:34.000Z",
-    "status": "blocked",
-    "summary": "No unavailable-direct candidate cleared every promotion gate. MN DNR 179 last reported 2026-04-30 09:45 AM, MN DNR 280 last reported 2026-05-20 11:00 AM, USGS 04021960 returned zero current time series, and MN DNR 341 reported 3 ft at 2026-08-06 12:30 PM but remains blocked by the current Stump Lake gauge-applicability rule."
-  },
-  "finalBoundedSweep": {
-    "completedAt": "2026-08-06T22:34:00.000Z",
-    "reviewed": ["otter-tail-river-wannigan-riverside"],
-    "result": "no_scored_route_added",
-    "reason": "Minnesota DNR strongly supports the Wannigan Road to Riverside Park route and its public access chain, but the product-supported Battle Lake gauge is downstream of the Frazee-area reach and the current scored publication gate does not allow proxy promotion.",
-    "nextAction": "Keep Minnesota planning-only candidates bounded and move to the next supported state unless a direct-gauge evidence change or explicit proxy policy decision occurs."
-  },
-  "conclusion": "Minnesota is provisionally saturated for the current direct-gauge scored-route policy: 145 scored routes remain live, 113 planning candidates remain explicitly excluded, and the final bounded sweep found no additional route that clears the scored publication gate.",
+  "conclusion": "Discovery appears provisionally saturated, but Minnesota is not formally saturated until the planning-to-scored conversion review, demand review, and final bounded discovery sweep are complete.",
   "riverGroups": [
     {
       "river": "Mississippi River",
@@ -167,7 +155,7 @@
       "gaugeKind": "proxy",
       "thresholdModel": "two-sided",
       "classification": "proxy_planning_route",
-      "nextAction": "Promotion reviewed 2026-08-06: preserve as planning-only because Redwood Falls site 196 / USGS 05316500 is downstream of Wabasso, Russell/Marshall sites 194/195 and USGS 05315000 are upstream of Vesta, and no product-supported direct gauge exists within the Vesta-to-Wabasso reach."
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
     },
     {
       "slug": "north-fork-zumbro-river-covered-bridge-walking-bridge",
@@ -178,7 +166,7 @@
       "gaugeKind": "proxy",
       "thresholdModel": "two-sided",
       "classification": "proxy_planning_route",
-      "nextAction": "Promotion reviewed 2026-08-06: preserve as planning-only because MN DNR site 311 is fresh but located at river mile 54.7, downstream of Walking Bridge Park river mile 60.1; no product-supported direct gauge exists within the Covered Bridge Park-to-Walking Bridge Park reach."
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
     },
     {
       "slug": "big-fork-river-highway-6-north-johnson",
@@ -189,7 +177,7 @@
       "gaugeKind": "proxy",
       "thresholdModel": "two-sided",
       "classification": "proxy_planning_route",
-      "nextAction": "Promotion reviewed 2026-08-06: preserve as planning-only for scored-route accounting because Craigsville site 281 is fresh but at river mile 91.6, upstream of the Highway 6 North put-in at river mile 75.8; no product-supported direct gauge exists within the Highway-6-North-to-Johnson reach."
+      "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
     },
     {
       "slug": "red-lake-river-smiley-bridge-centennial-park",
@@ -200,7 +188,7 @@
       "gaugeKind": "direct",
       "thresholdModel": "two-sided",
       "classification": "unavailable_direct_gauge",
-      "nextAction": "Provider rechecked 2026-08-06: site 179 remains stale to 2026-04-30 09:45 AM; keep planning-only until fresh product data returns."
+      "nextAction": "Recheck provider availability before considering promotion."
     },
     {
       "slug": "otter-tail-river-wannigan-riverside",
@@ -453,7 +441,7 @@
       "gaugeKind": "direct",
       "thresholdModel": "minimum-only",
       "classification": "unavailable_direct_gauge",
-      "nextAction": "Provider rechecked 2026-08-06: USGS 04021960 returned zero current time series; keep planning-only until product-fetchable current observations return."
+      "nextAction": "Recheck provider availability before considering promotion."
     },
     {
       "slug": "crow-wing-river-huntersville-north-mary-brown",
@@ -970,7 +958,7 @@
       "gaugeKind": "direct",
       "thresholdModel": "two-sided",
       "classification": "unavailable_direct_gauge",
-      "nextAction": "Provider rechecked 2026-08-06: site 341 is fresh, but the Stump Lake stage gauge remains blocked by the current route-applicability rule; needs human/product judgment before promotion."
+      "nextAction": "Recheck provider availability before considering promotion."
     },
     {
       "slug": "mississippi-river-county-road-25-knutson-dam",
@@ -981,7 +969,7 @@
       "gaugeKind": "proxy",
       "thresholdModel": "two-sided",
       "classification": "unavailable_direct_gauge",
-      "nextAction": "Provider rechecked 2026-08-06: site 341 is fresh, but this route is still a proxy/lake-transition card and does not satisfy the direct-gauge promotion gate."
+      "nextAction": "Recheck provider availability before considering promotion."
     },
     {
       "slug": "mississippi-river-iron-bridge-county-road-12-dam",
@@ -992,7 +980,7 @@
       "gaugeKind": "direct",
       "thresholdModel": "two-sided",
       "classification": "unavailable_direct_gauge",
-      "nextAction": "Provider rechecked 2026-08-06: site 341 is fresh, but the Stump Lake stage gauge remains blocked by the current route-applicability rule; needs human/product judgment before promotion."
+      "nextAction": "Recheck provider availability before considering promotion."
     },
     {
       "slug": "minnesota-river-kinney-skalbekken",
@@ -1322,7 +1310,7 @@
       "gaugeKind": "direct",
       "thresholdModel": "two-sided",
       "classification": "unavailable_direct_gauge",
-      "nextAction": "Provider rechecked 2026-08-06: site 280 remains stale to 2026-05-20 11:00 AM; keep planning-only until fresh product data returns."
+      "nextAction": "Recheck provider availability before considering promotion."
     },
     {
       "slug": "vermilion-river-dam-twomile",
@@ -1401,19 +1389,5 @@
       "classification": "proxy_planning_route",
       "nextAction": "Review for a defensible direct gauge; otherwise preserve as planning-only."
     }
-  ],
-  "planningRouteReview": {
-    "checkedAt": "2026-08-06T22:30:46.000Z",
-    "status": "blocked",
-    "slug": "big-fork-river-highway-6-north-johnson",
-    "summary": "Reviewed Minnesota planning route big-fork-river-highway-6-north-johnson for direct-gauge promotion. No route was added or promoted: MN DNR/public-access evidence remains strong for Highway 6 North WAS01792 at river mile 75.8 to Johnson WAS02708 at river mile 67.5, and Craigsville site 281 is fresh with official bands, but the gauge is upstream at river mile 91.6 rather than inside the reviewed reach. Keep the card planning-only for scored-route accounting until a reach-direct gauge or deliberate proxy-publication policy exists.",
-    "evidence": [
-      "MN DNR Big Fork Map 2 places Highway 6 North at river mile 75.8 and Johnson Landing at river mile 67.5, with Reilly Brook/Reilly Creek context and Johnson watercraft-campsite support inside the reach.",
-      "Minnesota public-water-access GIS resolves Highway 6 North / State Hwy 6 (S) WAS01792 at 48.034694214683626, -93.74155634703675 and Johnson WAS02708 at 48.0886283542472, -93.68169266740433.",
-      "MN DNR river-level JSON lists Big Fork Craigsville site 281 at river mile 91.6, 47.953553, -93.754329, upstream of the Highway 6 North put-in.",
-      "MN DNR site 281 was fresh at 4.85 ft on 2026-08-06 15:00 CDT with official 4.0 / 4.5-8.5 / 9.5 ft interpretation bands, but freshness does not make the upstream gauge direct.",
-      "The implemented app record already marks site 281 as proxy for this route, and route-publication keeps proxy routes out of scored Minnesota saturation."
-    ],
-    "nextAction": "Continue the Minnesota planning-to-scored audit with otter-tail-river-wannigan-riverside unless a direct Big Fork gauge or approved proxy-publication policy is added."
-  }
+  ]
 }

@@ -69,6 +69,14 @@ describe('operations orchestrator', () => {
     expect(order?.workerRole).toBe('gauge-coverage');
   });
 
+  it('treats the legacy done lane as terminal when advancing the frontier', () => {
+    const order = selectNextWorkOrder([
+      task({ id: 'pa-finished', stateId: 'PA', frontierTier: 5, lane: 'done', priority: 'critical' }),
+      task({ id: 'va-review', stateId: 'VA', frontierTier: 6, lane: 'ready', priority: 'critical', gaugeKeys: ['usgs:02019500'] }),
+    ]);
+    expect(order).toMatchObject({ taskId: 'va-review', workerRole: 'gauge-coverage', stateId: 'VA' });
+  });
+
   it('keeps a ready route opportunity in the active frontier before later work', () => {
     const order = selectNextWorkOrder([
       task({ id: 'nd-review', stateId: 'ND', frontierTier: 1, priority: 'critical', gaugeKeys: ['usgs:1'] }),

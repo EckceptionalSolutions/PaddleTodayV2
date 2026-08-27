@@ -18,6 +18,7 @@
     { "id": "TN", "name": "Tennessee", "frontierTier": 4, "frontierLabel": "Outer Midwest" },
     { "id": "TX", "name": "Texas", "frontierTier": 5, "frontierLabel": "Distant expansion" },
     { "id": "UT", "name": "Utah", "frontierTier": 5, "frontierLabel": "Distant expansion" },
+    { "id": "VA", "name": "Virginia", "frontierTier": 6, "frontierLabel": "New-state expansion" },
     { "id": "WI", "name": "Wisconsin", "frontierTier": 1, "frontierLabel": "Upper Midwest frontier" }
   ],
   "aliases": {
@@ -38,6 +39,7 @@
     "Tennessee": "TN",
     "Texas": "TX",
     "Utah": "UT",
+    "Virginia": "VA",
     "Wisconsin": "WI"
   }
 }

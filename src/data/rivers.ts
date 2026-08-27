@@ -17,6 +17,7 @@ import { southDakotaRoutes } from './routes/south-dakota';
 import { tennesseeRoutes } from './routes/tennessee';
 import { texasRoutes } from './routes/texas';
 import { utahRoutes } from './routes/utah';
+import { virginiaRoutes } from './routes/virginia';
 import { wisconsinRoutes } from './routes/wisconsin';
 import { westVirginiaRoutes } from './routes/west-virginia';
 
@@ -38,6 +39,7 @@ const stateRoutes: River[] = [
   ...tennesseeRoutes,
   ...texasRoutes,
   ...utahRoutes,
+  ...virginiaRoutes,
   ...wisconsinRoutes,
   ...westVirginiaRoutes,
 ];
@@ -1167,10 +1169,61 @@ const routeOrder = [
   "wv-greenbrier-ronceverte-fort-spring",
   "wv-greenbrier-fort-spring-alderson",
   "wv-greenbrier-talcott-willowwood",
+  "wv-greenbrier-willowwood-bellepoint",
+  "wv-elk-frametown-duck",
   "wv-cheat-holly-meadows-st-george",
   "wv-cheat-st-george-hannahsville",
   "wv-cheat-rowlesburg-preston-foc",
-  "wv-cheat-albright-jenkinsburg"
+  "wv-cheat-albright-jenkinsburg",
+  "wv-tygart-valley-falls-hammond",
+  "wv-cacapon-capon-bridge-wv127",
+  "wv-cacapon-rt127-cacapon-crossing",
+  "wv-cacapon-cacapon-crossing-fishers-ford",
+  "wv-cacapon-fishers-ford-power-plant",
+  "wv-elk-webster-springs-clifton-ford",
+  "wv-elk-king-shoals-queen-shoals",
+  "wv-elk-queen-shoals-clendenin-north",
+  "wv-elk-clendenin-south-blue-creek",
+  "wv-elk-blue-creek-charleston",
+  "wv-big-coal-whitesville-orgas",
+  "wv-big-coal-orgas-john-slack",
+  "wv-big-coal-john-slack-dartmont",
+  "wv-big-coal-dartmont-sproul",
+  "wv-big-coal-sproul-lions-park",
+  "wv-coal-meadowood-lower-falls",
+  "wv-coal-lower-falls-st-albans",
+  "wv-coal-forks-lions-park",
+  "wv-west-fork-weston-jacksons-mill",
+  "wv-west-fork-good-hope-west-milford",
+  "wv-west-fork-worthington-monongah",
+  "wv-west-fork-jacksons-mill-good-hope",
+  "wv-gauley-curtin-persinger",
+  "wv-guyandotte-pineville-baileysville",
+  "wv-guyandotte-mullens-pineville",
+  "wv-guyandotte-baileysville-rd-bailey-campground",
+  "wv-guyandotte-branchland-west-hamlin",
+  "wv-guyandotte-west-hamlin-salt-rock",
+  "wv-guyandotte-salt-rock-barboursville",
+  "wv-guyandotte-barboursville-farmdale",
+  "wv-guyandotte-farmdale-ohio",
+  "wv-guyandotte-wylo-man",
+  "wv-guyandotte-man-earling",
+  "wv-guyandotte-earling-three-mile-curve",
+  "wv-guyandotte-three-mile-curve-four-seasons",
+  "wv-guyandotte-four-seasons-peach-creek",
+  "wv-guyandotte-peach-creek-farmers-market",
+  "wv-guyandotte-farmers-market-chapmanville",
+  "wv-guyandotte-chapmanville-harts",
+  "wv-guyandotte-harts-branchland",
+  "wv-new-thurmond-cunard",
+  "wv-little-coal-madison-donald-kuhn",
+  "wv-little-coal-donald-kuhn-waterways",
+  "wv-little-coal-waterways-corridor-g",
+  "maury-river-glen-maury-locher",
+  "new-river-austinville-foster-falls",
+  "clinch-river-pucketts-hole-nash-ford",
+  "james-river-buchanan-arcadia",
+  "rappahannock-river-rector-tract-kellys-ford",
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {

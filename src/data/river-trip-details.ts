@@ -16,6 +16,7 @@ import { southDakotaRiverTripDetails } from './trip-details/south-dakota';
 import { tennesseeRiverTripDetails } from './trip-details/tennessee';
 import { texasRiverTripDetails } from './trip-details/texas';
 import { utahRiverTripDetails } from './trip-details/utah';
+import { virginiaRiverTripDetails } from './trip-details/virginia';
 import { wisconsinRiverTripDetails } from './trip-details/wisconsin';
 import { westVirginiaRiverTripDetails } from './trip-details/west-virginia';
 import { retiredRiverTripDetails } from './trip-details/retired';
@@ -38,6 +39,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...tennesseeRiverTripDetails,
   ...texasRiverTripDetails,
   ...utahRiverTripDetails,
+  ...virginiaRiverTripDetails,
   ...wisconsinRiverTripDetails,
   ...westVirginiaRiverTripDetails,
   ...retiredRiverTripDetails,

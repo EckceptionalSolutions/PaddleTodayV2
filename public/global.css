@@ -1390,6 +1390,23 @@ a {
   color: var(--rating-no-go);
 }
 
+.operations-pill--more_routes_possible {
+  background: rgba(252, 244, 226, 0.9);
+  color: var(--rating-fair);
+}
+
+.operations-pill--no_current_route {
+  background: rgba(233, 245, 250, 0.9);
+  color: var(--river-deep);
+}
+
+.operations-pill--fully_covered,
+.operations-pill--saturated,
+.operations-pill--research_complete {
+  background: rgba(226, 246, 236, 0.9);
+  color: var(--rating-strong);
+}
+
 .operations-empty {
   margin: 0;
   color: var(--muted);
