@@ -1226,10 +1226,15 @@ const routeOrder = [
   "james-river-iron-gate-glen-wilton",
   "james-river-bent-creek-state-park",
   "rappahannock-river-rector-tract-kellys-ford",
+  "rappahannock-river-motts-run-old-mill",
   "south-fork-shenandoah-newport-white-house",
   "north-fork-shenandoah-meems-chapmans",
   "hardware-river-route-6-wma-bridge",
   "james-river-pony-pasture-reedy-creek",
+  "appomattox-river-farmville-blueway",
+  "appomattox-river-radcliffe-patton-park",
+  "north-river-campground-camp-may-flather",
+  "south-river-waynesboro-ridgeview-basic",
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {

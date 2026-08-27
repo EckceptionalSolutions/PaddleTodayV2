@@ -1,10 +1,10 @@
 {
   "version": 1,
   "stateId": "VA",
-  "updatedAt": "2026-08-26T23:03:00.000Z",
+  "updatedAt": "2026-08-28T10:52:00.000Z",
   "phase": "gauge_inventory_review",
-  "executionStatus": "paused_by_user_after_window_12",
-  "pauseReason": "The user asked to pause after completing the current Richmond gauge window. No window-13 task was opened.",
+  "executionStatus": "active_after_window_46",
+  "pauseReason": "Window 46 retained Difficult Run 01646000 as blocked because access, severity, water-quality, and safe route packaging are unresolved, and screened out Dead Run 01646305 and Four Mile Run 01652090. Continue bounded Virginia gauge-family review.",
   "corridorWindow": {
     "status": "complete",
     "candidateCount": 3,
@@ -21,11 +21,11 @@
     "generatedAt": "2026-08-26T21:39:21.189Z",
     "provider": "USGS",
     "freshStreamGaugeCount": 212,
-    "coveredGaugeCount": 11,
-    "blockedGaugeCount": 16,
-    "screenedOutGaugeCount": 5,
-    "unreviewedGaugeCount": 180,
-    "reviewPercent": 15.1,
+    "coveredGaugeCount": 16,
+    "blockedGaugeCount": 57,
+    "screenedOutGaugeCount": 52,
+    "unreviewedGaugeCount": 81,
+    "reviewPercent": 61.8,
     "coveredGaugeKeys": [
       "usgs:02024000",
       "usgs:03165500",
@@ -37,8 +37,13 @@
       "usgs:02016500",
       "usgs:02026000",
       "usgs:02030000",
-      "usgs:02037500"
-    ]
+      "usgs:02037500",
+      "usgs:02039500",
+      "usgs:01620500",
+      "usgs:01626000",
+      "usgs:01668000"
+    ],
+    "staleOrUnsupportedGaugeCount": 6
   },
   "reviewStrategy": {
     "method": "river-family and corridor-first triage",
@@ -146,23 +151,329 @@
           "usgs:0203755233"
         ],
         "outcome": "Published the Pony Pasture Park-to-Reedy Creek corridor on direct USGS 02037500 with American Whitewater's 3.0 ft low-runnable evidence, a conservative 4.0-7.0 ft ideal band, Richmond's current 9.0 ft expert-only ceiling, the mandatory Reedy Creek takeout, current water-quality/CSO checks, public endpoints, coordinates, geometry, independent verification, tests, build, and rollback. Supplemental review now discloses the park partner's 3.5-mile estimate alongside American Whitewater's 4.5-mile estimate, links Richmond's accessible-takeout documentation and live CSO map, and adds an exact public-domain Reedy Creek image. Tuckahoe Creek is screened out because the current county park prohibits boating and its Wilton launch is only a plan concept. Little Westham Creek is screened out because its official use is a restored campus eco-corridor rather than paddling."
+      },
+      {
+        "id": "va-family-window-13",
+        "gaugeKeys": [
+          "usgs:02037724",
+          "usgs:02038730",
+          "usgs:0203873175"
+        ],
+        "outcome": "Fast-screened the next Richmond-area gauges separately. USGS 02037724 is screened out as an unnamed tributary with no named public paddle corridor or route package. USGS 02038730 and 0203873175 remain route-capable blocked candidates because Henrico documents genuine Four Mile Creek recreation from Deep Bottom Park, but both stations are stage-only and no station-specific paddling threshold, manager-published point-to-point endpoint pair, distinct takeout, or complete safety/access/camping/geometry package was verified. No James River threshold was transferred and no route was published."
+      },
+      {
+        "id": "va-family-window-14",
+        "gaugeKeys": [
+          "usgs:02038850",
+          "usgs:02039000",
+          "usgs:02039500"
+        ],
+        "outcome": "Fast-screened Holiday Creek, Buffalo Creek, and Appomattox River at Farmville. Holiday Creek was screened out because the station is historical/small and no current named public paddle corridor or endpoint package was found. Buffalo Creek remains route-capable but blocked because the Farmville Blueway’s 4–6 ft guidance is published for Appomattox at Farmville, not USGS 02039000, so no threshold was transferred. Published the Town of Farmville’s four-mile Blueway on direct USGS 02039500 with named Wilck’s Lake and Riverside Park endpoints, marked Buffalo Creek portage, documented dam/canal hazards, direct continuous telemetry, station-linked 4–6 ft planning guidance, OSM endpoint anchors, canonical geometry, and rights-clean image fallback."
+      },
+      {
+        "id": "va-family-window-15",
+        "gaugeKeys": [
+          "usgs:01613900",
+          "usgs:01615000",
+          "usgs:01616100"
+        ],
+        "outcome": "Fast-screened the northern Shenandoah Valley gauges separately. Hogue Creek near Hayfield and Dry Marsh Run near Berryville were screened out as small tributary monitoring locations with no named public paddle corridor, verified public endpoint pair, or station-specific recreational threshold. Opequon Creek near Berryville was screened out because the watershed review reports no developed public access points in Virginia; its water-trail material does not establish a lawful Virginia route package. No route was published and no thresholds or access assumptions were transferred."
+      },
+      {
+        "id": "va-family-window-16",
+        "gaugeKeys": [
+          "usgs:01620500",
+          "usgs:01621050",
+          "usgs:01622000"
+        ],
+        "outcome": "Fast-screened North River near Stokesville, Muddy Creek at Mount Clinton, and North River near Burketown. Published the strongest survivor, North River Campground to Camp May Flather, an approximately five-mile Forest Service Segment B corridor on direct USGS 01620500 with American Whitewater flow observations and expert Class II–IV safety handling. Muddy Creek was screened out as a small gauge without a named public paddle package. North River near Burketown remains blocked because the separate Stokesville threshold and endpoint package is not transferable and no distinct Burketown corridor cleared."
+      },
+      {
+        "id": "va-family-window-17",
+        "gaugeKeys": [
+          "usgs:01625000",
+          "usgs:01626000",
+          "usgs:01626850"
+        ],
+        "outcome": "Fast-screened Middle River near Grottoes, South River near Waynesboro, and South River near Dooms. Published the strongest survivor, the City of Waynesboro’s four-mile Ridgeview Park-to-Basic Park Water Trail on direct USGS 01626000 with Virginia DCR’s 2.75–4.0 ft recommended level band and a marked low-head dam portage. Middle River 01625000 was screened out because no named lawful corridor or maintained endpoint pair cleared; South River 01626850 remains blocked because the Dooms/Crimora corridor lacks a station-specific recreational threshold and the Waynesboro band cannot be transferred."
+      },
+      {
+        "id": "va-family-window-18",
+        "gaugeKeys": [
+          "usgs:01627500",
+          "usgs:01632082",
+          "usgs:0163287828"
+        ],
+        "outcome": "Fast-screened South River at Harriston, Linville Creek at Broadway, and War Branch near Tenth Legion. Harriston remains blocked because no lawful maintained endpoint package or station-specific recreational threshold cleared; Augusta County records no readily available Harriston land and surfaced bridge access is closed or prohibited. Linville Creek and War Branch were screened out because no named public paddle corridor, lawful endpoint pair, or station-specific paddling threshold package surfaced. No route was published."
+      },
+      {
+        "id": "va-family-window-19",
+        "gaugeKeys": [
+          "usgs:01632900",
+          "usgs:01634500",
+          "usgs:01635500"
+        ],
+        "outcome": "Fast-screened Smith Creek near New Market, Cedar Creek near Winchester, and Passage Creek near Buckton. Smith Creek was screened out because no named public paddle corridor, lawful endpoint pair, or station-specific threshold package surfaced. Cedar Creek remains blocked because the named Upper Cedar Creek reach relies on house-side/low-water-bridge access without verified public permission and lacks a complete numeric package. Passage Creek remains blocked because the Elizabeth Furnace put-in is public but the Route 55/Waterlick takeout has private-property conflicts and available flow guidance is anecdotal; dam, strainer, and hatchery-road hazards remain unresolved. No route was published."
+      },
+      {
+        "id": "va-family-window-20",
+        "gaugeKeys": [
+          "usgs:01636316",
+          "usgs:01636690",
+          "usgs:01638350"
+        ],
+        "outcome": "Fast-screened Spout Run at Route 621, Piney Run near Lovettsville, and South Fork Catoctin Creek near Waterford. Spout Run and Piney Run were screened out because no named public point-to-point paddle corridor, lawful endpoint pair, or station-specific recreational threshold package surfaced; Maryland Piney Run reservoir evidence was not transferred. South Fork Catoctin Creek remains blocked because Waterford trail context does not establish a public boat endpoint and no station-specific numeric guidance was found. No route was published."
+      },
+      {
+        "id": "va-family-window-21",
+        "gaugeKeys": [
+          "usgs:01638420",
+          "usgs:01638480",
+          "usgs:01643590"
+        ],
+        "outcome": "Fast-screened North Fork Catoctin Creek at Route 681, Catoctin Creek at Taylorstown, and Limestone Branch near Leesburg. North Fork Catoctin and Limestone Branch were screened out because no named public paddle corridor, lawful endpoint pair, and station-specific recreational threshold package cleared. Catoctin Creek at Taylorstown remains route-capable but blocked: American Whitewater documents a Taylorstown-to-Potomac reach with direct telemetry, but its reported put-in is heavily posted and current lawful public access plus a complete current safety/threshold package were not verified. No route was published."
+      },
+      {
+        "id": "va-family-window-22",
+        "gaugeKeys": [
+          "usgs:01643700",
+          "usgs:01643805",
+          "usgs:01643880"
+        ],
+        "outcome": "Fast-screened Goose Creek near Middleburg, North Fork Goose Creek near Lincoln, and Beaverdam Creek near Mountville. North Fork Goose Creek and Beaverdam Creek were screened out because no named public point-to-point paddle corridor, lawful endpoint pair, and station-specific recreational threshold package cleared. Goose Creek near Middleburg remains route-capable but blocked: the strongest named Sycolin-to-Kephart corridor uses a different downstream Goose Creek gauge, includes a dam portage, and still lacks a verified current endpoint/access and station-specific threshold package. No route was published."
+      },
+      {
+        "id": "va-family-window-23",
+        "gaugeKeys": [
+          "usgs:01644000",
+          "usgs:01644280",
+          "usgs:01645704"
+        ],
+        "outcome": "Fast-screened Goose Creek near Leesburg, Broad Run near Leesburg, and Difficult Run above Fox Lake. Broad Run and Difficult Run were screened out because no named public point-to-point paddle corridor, lawful endpoint pair, and station-specific recreational threshold package cleared. Goose Creek near Leesburg remains route-capable but blocked: a named Sycolin-to-Kephart corridor and public county launch evidence exist, but current lawful endpoint pairing, dam-portage treatment, and station-specific threshold evidence are not fully verified. No route was published."
+      },
+      {
+        "id": "va-family-window-24",
+        "gaugeKeys": [
+          "usgs:01645762",
+          "usgs:0164578734",
+          "usgs:0164579522"
+        ],
+        "outcome": "Fast-screened South Fork Little Difficult Run above mouth, Snakeden Branch above Lake Audubon, and The Glade near Howland Drive. All three were screened out: available telemetry or lake recreation references did not establish a named public point-to-point paddle corridor, lawful endpoint pair, and station-specific recreational threshold for the gauged reaches. No route was published."
+      },
+      {
+        "id": "va-family-window-25",
+        "gaugeKeys": [
+          "usgs:01646000",
+          "usgs:01646305",
+          "usgs:01652090"
+        ],
+        "outcome": "Fast-screened Difficult Run near Great Falls, Dead Run at Whann Avenue, and Four Mile Run at Highway 29. Dead Run and Four Mile Run were screened out because no named public point-to-point paddle corridor, lawful endpoint pair, and station-specific recreational threshold package cleared. Difficult Run near Great Falls remains route-capable but blocked: it has direct live telemetry, long record, and nearby whitewater/recreation references, but a verified paddling reach, endpoint/access package, and route-specific safety guidance are still incomplete. No route was published."
+      },
+      {
+        "id": "va-family-window-26",
+        "gaugeKeys": [
+          "usgs:01652500",
+          "usgs:01652620",
+          "usgs:01653000"
+        ],
+        "outcome": "Fast-screened Fourmile Run at Alexandria, Tripps Run, and Cameron Run separately. Fourmile Run remains a blocked route-capable candidate because the official launch is temporarily closed and a station-specific runnable endpoint/threshold/safety package is incomplete. Tripps Run and Cameron Run were screened out with no named public paddle corridor and no route published."
+      },
+      {
+        "id": "va-family-window-27",
+        "gaugeKeys": [
+          "usgs:01654000",
+          "usgs:01654107",
+          "usgs:01654500"
+        ],
+        "outcome": "Fast-screened Accotink Creek near Annandale and two Long Branch stations separately. Accotink remains a blocked route-capable candidate because creek access and station-specific runnable guidance are incomplete; both Long Branch gauges were screened out as urban watershed/trail monitoring reaches with no named public paddle corridor. No route was published."
+      },
+      {
+        "id": "va-family-window-28",
+        "gaugeKeys": [
+          "usgs:01654670",
+          "usgs:01656000",
+          "usgs:01656903"
+        ],
+        "outcome": "Fast-screened Accotink Creek at Keene Mill Road, Cedar Run near Catlett, and Flatlick Branch separately. Accotink remains a blocked route-capable candidate because lawful creek access and station-specific runnable guidance are incomplete. Cedar Run was screened out; Flatlick Branch was marked stale_or_unsupported because current USGS data support is insufficient. No route was published."
+      },
+      {
+        "id": "va-family-window-29",
+        "gaugeKeys": [
+          "usgs:01660400",
+          "usgs:01662800",
+          "usgs:01663500"
+        ],
+        "outcome": "Fast-screened Aquia Creek, Battle Run, and Hazel River separately. Aquia remains a blocked route-capable candidate because the public Widewater launch is a separate downstream reach and station-specific runnable guidance is incomplete. Battle Run was screened out as a non-distinct gauge reference for other reaches; Hazel was marked stale_or_unsupported due insufficient current USGS data support. No route was published."
+      },
+      {
+        "id": "va-family-window-30",
+        "gaugeKeys": [
+          "usgs:01665500",
+          "usgs:01666500",
+          "usgs:01667500"
+        ],
+        "outcome": "Fast-screened Rapidan near Ruckersville, Robinson near Locust Dale, and Rapidan near Culpeper separately. All three remain blocked route-capable candidates because access, station alignment, and/or numeric threshold evidence did not clear the product bar. No route was published."
+      },
+      {
+        "id": "va-family-window-31",
+        "gaugeKeys": [
+          "usgs:01668000",
+          "usgs:01669000",
+          "usgs:01669520"
+        ],
+        "outcome": "Fast-screened the Rappahannock, Piscataway Creek, and Dragon Swamp family separately. Published Motts Run to Old Mill Park on direct 01668000 after the named-endpoint, station-specific flow, access, safety, coordinate, geometry, image, verification, test, build, and rollback gates passed. Piscataway 01669000 was screened out as a monitoring reach without a distinct public paddle corridor; Dragon Swamp 01669520 was marked stale_or_unsupported because current provider data and a named lawful corridor were not available."
+      },
+      {
+        "id": "va-family-window-32",
+        "gaugeKeys": [
+          "usgs:016701405",
+          "usgs:01670200",
+          "usgs:01670230"
+        ],
+        "outcome": "Fast-screened North Anna 016701405, Pamunkey Creek 01670200, and Terrys Run 01670230 separately. No route was published: North Anna lacks a named public corridor and station-specific recreational threshold and is stale_or_unsupported; Pamunkey Creek and Terrys Run lack a named public point-to-point corridor, verified public endpoint pair, and station-specific threshold and are screened_out."
+      },
+      {
+        "id": "va-family-window-33",
+        "gaugeKeys": [
+          "usgs:01670400",
+          "usgs:01671020",
+          "usgs:01671100"
+        ],
+        "outcome": "Fast-screened North Anna 01670400, North Anna 01671020, and Little River 01671100 separately. The Route 1-to-Route 30 North Anna float is a named corridor with direct Hart Corner telemetry, but the documented Route 30 takeout is private and no station-specific numeric paddling band was verified, so both North Anna gauges remain blocked. Little River was screened_out for lack of a distinct public point-to-point route package. No route was published."
+      },
+      {
+        "id": "va-family-window-34",
+        "gaugeKeys": [
+          "usgs:01671200",
+          "usgs:01672500",
+          "usgs:01673000"
+        ],
+        "outcome": "Fast-screened South Anna 01671200, South Anna 01672500, and Pamunkey 01673000 separately. Gordonsville 01671200 was screened_out because no named public point-to-point corridor or verified safe-flow range cleared. South Anna Route 33-to-Route 54 on direct 01672500 is a strong route opportunity with official Ground Squirrel Bridge and Patrick Henry access, but the source package lacks a numeric station-specific paddling band, so it remains blocked. Pamunkey 01673000 remains blocked pending station-specific numeric guidance and exact endpoint alignment. No route was published."
+      },
+      {
+        "id": "va-family-window-35",
+        "gaugeKeys": [
+          "usgs:01673550",
+          "usgs:0167357970",
+          "usgs:01673800"
+        ],
+        "outcome": "Fast-screened Totopotomoy Creek 01673550, Moncuin Creek 0167357970, and Po River 01673800 separately. Each has direct USGS telemetry, but the source review found no current named public point-to-point paddle corridor with a verified endpoint pair and station-specific recreational threshold. Totopotomoy public-land references are not a launch/takeout package; Moncuin's pull-over reference is not a documented public paddling endpoint; Spotsylvania planning materials describe a potential future Po River ramp rather than an existing route. All three were screened_out and no route was published."
+      },
+      {
+        "id": "va-family-window-36",
+        "gaugeKeys": [
+          "usgs:01674000",
+          "usgs:01674182",
+          "usgs:01674500"
+        ],
+        "outcome": "Fast-screened Mattaponi 01674000, Polecat 01674182, and Mattaponi 01674500 separately. The Zoar State Forest-to-Aylett five-mile Mattaponi paddle and downstream public access establish real corridor opportunities, but neither Mattaponi gauge has a verified numeric station-specific recreational threshold and the gauge/route reach alignment remains incomplete. Polecat has no distinct public paddle corridor or endpoint package. 01674000 and 01674500 remain blocked route-capable opportunities; 01674182 was screened_out. No route was published."
+      },
+      {
+        "id": "va-family-window-37",
+        "gaugeKeys": [
+          "usgs:02011400",
+          "usgs:02011460",
+          "usgs:02011470"
+        ],
+        "outcome": "Fast-screened Jackson River 02011400 and Back Creek 02011460/02011470 separately. Jackson's Poor Farm Road-to-Hidden Valley reach is a direct seven-mile Class I-II(III) public-access corridor on the Bacova gauge, but the source only says current flow is below recommended and provides no numeric station-specific band. Back Creek at Sunrise 02011470 supports a documented Pump Storage Lake-to-Blowing Springs high-water gorge segment with public access, but numeric guidance and access/skill constraints remain unresolved. Back Creek near Sunrise 02011460 was screened_out because the discovered corridor uses a different Mountain Grove gauge and requires permission at the put-in. No route was published."
+      },
+      {
+        "id": "va-family-window-38",
+        "gaugeKeys": [
+          "usgs:02011490",
+          "usgs:02011500",
+          "usgs:02011800"
+        ],
+        "outcome": "Fast-screened Little Back Creek 02011490, Back Creek 02011500, and Jackson River 02011800 separately. Little Back Creek was screened_out because no distinct named public point-to-point paddle corridor, lawful endpoint pair, or station-specific recreational threshold was found. Back Creek near Mountain Grove remains route-capable but blocked: American Whitewater documents a Mountain Grove-to-Richardson Gorge corridor and direct gauge, but the primary put-in requires permission and no numeric station-specific threshold was verified. Jackson River below Gathright Dam remains route-capable but blocked: named public-access corridor and direct gauge evidence exist, but no numeric station-specific threshold was verified and dam-release variability needs a current runnable/safety package. No route was published."
+      },
+      {
+        "id": "va-family-window-39",
+        "gaugeKeys": [
+          "usgs:02012500",
+          "usgs:02013000",
+          "usgs:02013100"
+        ],
+        "outcome": "Fast-screened Jackson River at Falling Spring 02012500, Dunlap Creek near Covington 02013000, and Jackson River below Dunlap Creek at Covington 02013100 separately. Falling Spring has direct telemetry and Jackson River paddling context, but public-access/private-property constraints and no numeric station-specific threshold prevented publication. Dunlap Creek has a named Crows Route 311-to-Jackson reach and direct gauge, but access is a documented issue and no lawful endpoint pair or station-specific threshold cleared review. The downstream Jackson gauge supports the named Low Moor-to-James River Rainbow Gap reach and direct city/gauge context, but no numeric station-specific threshold and reach-specific urban/low-bridge hazard package were verified. All three remain blocked route-capable; no route was published."
+      },
+      {
+        "id": "va-family-window-40",
+        "gaugeKeys": [
+          "usgs:02014000",
+          "usgs:02015700",
+          "usgs:02016000"
+        ],
+        "outcome": "Fast-screened Potts Creek 02014000, Bullpasture River 02015700, and Cowpasture River 02016000 separately. Potts Creek has direct telemetry but no distinct named public point-to-point corridor, verified endpoint pair, or station-specific recreational threshold. Bullpasture River has documented public paddling corridors, but the current USGS page exposes no continuous, daily, or field data, so it is stale_or_unsupported until product-supported live telemetry returns. Cowpasture has direct telemetry and multiple public launches, but no complete station-tied endpoint, threshold, safety, and geometry package cleared review. Potts and Cowpasture remain blocked route-capable; Bullpasture is stale_or_unsupported. No route was published."
+      },
+      {
+        "id": "va-family-window-41",
+        "gaugeKeys": [
+          "usgs:02017500",
+          "usgs:02018000",
+          "usgs:02018500"
+        ],
+        "outcome": "Fast-screened Johns Creek 02017500, Craig Creek 02018000, and Catawba Creek 02018500 separately. Johns Creek has a named Route 311 bridge-to-American Whitewater takeout corridor and direct live telemetry, but access/legal sensitivity and no published numeric station-specific runnable threshold prevent publication. Craig Creek has direct telemetry and public recreation references, but no distinct named point-to-point corridor with a lawful endpoint pair and station-specific threshold cleared review, so it was screened_out. Catawba Creek has a named Fincastle-to-James River corridor, direct telemetry, and mapped access points, but the confluence takeout has posted-sign concerns and no numeric station-specific paddling threshold was verified. Johns and Catawba remain blocked route-capable; no route was published."
+      },
+      {
+        "id": "va-family-window-42",
+        "gaugeKeys": [
+          "usgs:02020500",
+          "usgs:02021500",
+          "usgs:02022500"
+        ],
+        "outcome": "Fast-screened Calfpasture 02020500, Maury 02021500, and Kerrs Creek 02022500 separately. Calfpasture has direct telemetry but no distinct station-tied public route package and no basis to transfer Maury thresholds, so it is stale_or_unsupported. Maury has a named Rockbridge Baths-to-Alone Mill corridor, direct telemetry, and public access references, but the threshold and takeout/private-bank safety package remains incomplete, so it is blocked route-capable. Kerrs Creek has direct telemetry but no distinct named public point-to-point corridor and station-specific threshold package, so it was screened_out. No route was published."
+      },
+      {
+        "id": "va-family-window-43",
+        "gaugeKeys": [
+          "usgs:02024915",
+          "usgs:02025652",
+          "usgs:02040000"
+        ],
+        "outcome": "Fast-screened Pedlar 02024915, Harris Creek 02025652, and Appomattox at Mattoax 02040000 separately. Pedlar has a named US 60-to-Lynchburg Reservoir corridor and direct telemetry, but numerous strainers/logjams, a waterfall, and incomplete station-specific threshold/access/safety evidence prevent publication. Harris Creek has a named Route 130-to-James River corridor and direct gauge context, but lawful station-specific endpoints and numeric recreational thresholds remain unverified. Mattoax has current telemetry, but the discovered Appomattox route package uses a different Matoaca gauge and no distinct Mattoax corridor cleared review. Pedlar and Harris remain blocked route-capable; Mattoax was screened_out. No route was published."
+      },
+      {
+        "id": "va-family-window-44",
+        "gaugeKeys": [
+          "usgs:02040892",
+          "usgs:02041000",
+          "usgs:02041650"
+        ],
+        "outcome": "Fast-screened the Appomattox/Deep Creek family separately. Route 602 Appomattox 02040892 was screened_out because no distinct named public corridor, lawful endpoint pair, and station-specific recreational threshold cleared review. Deep Creek near Mannboro 02041000 was screened_out for the same missing route package. Published the seven-mile Radcliffe Conservation Area to Patton Park Appomattox corridor on direct Matoaca gauge 02041650 using FOLAR’s named public float, Chesterfield and Petersburg access evidence, American Whitewater’s station-linked flow and hazard guidance, canonical geometry, and all independent verification, test, build, and rollback gates."
+      },
+      {
+        "id": "va-family-window-45",
+        "gaugeKeys": [
+          "usgs:02042287",
+          "usgs:02042410",
+          "usgs:02042500"
+        ],
+        "outcome": "Fast-screened the Chickahominy/Upham family separately. Chamberlayne Road near Atlee 02042287 and Upham Brook at Spring Park 02042410 were screened_out because no distinct named public paddle corridor, lawful endpoint pair, and station-specific threshold package cleared review. Providence Forge Chickahominy 02042500 remains blocked route_capable: Virginia Water Trails and DWR document public lower-Chickahominy/Morris Creek access and paddling, but a station-specific numeric recreational threshold or validated tide/level operating rule and final endpoint/geometry package are still missing. No route was published."
+      },
+      {
+        "id": "va-family-window-46",
+        "gaugeKeys": [
+          "usgs:01646000",
+          "usgs:01646305",
+          "usgs:01652090"
+        ],
+        "outcome": "Fast-screened the Northern Virginia tributary family separately. Difficult Run 01646000 has a named Old Georgetown Pike-to-Potomac American Whitewater reach and gauge-linked stage/flow observations, but the Class III-IV/V+ hazard profile, infrequent-run wood, water quality, and lawful access/safe-route package prevent publication; it remains blocked route_capable. Dead Run 01646305 and Four Mile Run 01652090 were screened_out because they are urban tributary stations without distinct named public point-to-point paddle corridors, lawful endpoint pairs, or station-specific recreational thresholds. No route was published."
       }
     ],
     "nextWindow": [
       {
-        "gaugeKey": "usgs:02037724",
-        "siteName": "Unnamed tributary at Oakleys Lane near Richmond, VA",
-        "reason": "Next inventory pointer only; no task is open while execution is paused."
+        "gaugeKey": "usgs:02019500",
+        "siteName": "James River at Buchanan, VA",
+        "reason": "Next unreviewed provider-baseline gauge; fast-screen for a distinct named James River corridor not already represented by existing scored routes, lawful endpoints, direct live-gauge support, and station-specific threshold."
       },
       {
-        "gaugeKey": "usgs:02038730",
-        "siteName": "Fourmile Creek near Richmond Heights, VA",
-        "reason": "Next inventory pointer only; no task is open while execution is paused."
+        "gaugeKey": "usgs:02020500",
+        "siteName": "Calfpasture River above Mill Creek at Goshen, VA",
+        "reason": "Next unreviewed provider-baseline gauge; fast-screen for a distinct named Calfpasture corridor, lawful endpoints, direct live-gauge support, and station-specific threshold."
       },
       {
-        "gaugeKey": "usgs:0203873175",
-        "siteName": "Fourmile Creek at Kingsland Road near Varina, VA",
-        "reason": "Next inventory pointer only; no task is open while execution is paused."
+        "gaugeKey": "usgs:02021500",
+        "siteName": "Maury River at Rockbridge Baths, VA",
+        "reason": "Next unreviewed provider-baseline gauge; fast-screen for a distinct named Maury River corridor, lawful endpoints, direct live-gauge support, and station-specific threshold."
       }
     ],
     "routesPublishedFromGaugeReview": [
@@ -173,7 +484,12 @@
       "james-river-iron-gate-glen-wilton",
       "james-river-bent-creek-state-park",
       "hardware-river-route-6-wma-bridge",
-      "james-river-pony-pasture-reedy-creek"
+      "james-river-pony-pasture-reedy-creek",
+      "appomattox-river-farmville-blueway",
+      "appomattox-river-radcliffe-patton-park",
+      "north-river-campground-camp-may-flather",
+      "south-river-waynesboro-ridgeview-basic"
+      ,"rappahannock-river-motts-run-old-mill"
     ]
   },
   "completionRequirements": [
@@ -181,5 +497,14 @@
     "Every route-capable gauge is covered by a scored route or has an explicit evidence-backed blocker and retry condition.",
     "A bounded independent route-first discovery sweep finds no additional strong scored route.",
     "All published routes pass evidence, safety, independent verification, tests, build, and rollback gates."
-  ]
+  ],
+  "nextWindow": {
+    "id": "va-family-window-47",
+    "gaugeKeys": [
+      "usgs:02044500",
+      "usgs:02045320",
+      "usgs:02045500"
+    ],
+    "rationale": "Review the next unreviewed Nottoway River family using fast triage first; require a distinct named public paddle corridor, lawful endpoint pair, direct live-gauge support, and station-specific thresholds before any deep research."
+  }
 }
