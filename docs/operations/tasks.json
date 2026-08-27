@@ -62878,7 +62878,7 @@
     "createdAt": "2026-08-28T10:10:00Z",
     "completedAt": "2026-08-28T10:45:00Z",
     "lastRunId": "state-coverage-202608281045-va-northern-virginia-tributary-family-window-46",
-    "latestGatekeeperId": "gatekeeper-20260827163603",
+    "latestGatekeeperId": "gatekeeper-20260827164951",
     "validationStatus": "passed",
     "resultSummary": "No route published; Difficult Run 01646000 remains blocked route_capable pending lawful access, a safer bounded route variant, and current water-quality/safety controls; Dead Run 01646305 and Four Mile Run 01652090 were screened_out."
   },
