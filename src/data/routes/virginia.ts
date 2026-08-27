@@ -19,9 +19,24 @@ const naturalTunnelUrl = 'https://www.dcr.virginia.gov/state-parks/natural-tunne
 const upperJamesItineraryUrl = 'https://upperjamesriverwatertrail.com/plan-a-trip/suggested-itineraries/';
 const upperJamesFaqUrl = 'https://upperjamesriverwatertrail.com/faqs/';
 const upperJamesMapUrl = 'https://upperjamesriverwatertrail.com/maps/';
+const upperJamesSuggestedFloatsUrl = 'https://upperjamesriverwatertrail.com/plan-a-trip/suggested-floats/';
+const upperJamesAccessPointsUrl = 'https://upperjamesriverwatertrail.com/plan-a-trip/access-points/';
 const jamesAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/5075/main';
 const jamesUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-02019500/';
 const jamesUsgsHydrographUrl = 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02019500';
+const jamesIronGateAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/5023/main';
+const jamesLickRunUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-02016500/';
+const jamesLickRunUsgsHydrographUrl = 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02016500';
+const jamesBentCreekAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/11778/main';
+const jamesBentCreekUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-02026000/';
+const jamesBentCreekUsgsHydrographUrl = 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02026000';
+const jamesDwrAccessUrl = 'https://dwr.virginia.gov/boating/access/?find_by_waterbody=James+River';
+const jamesDwrFeatureUrl = 'https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer/0';
+const jamesRiverStateParkUrl = 'https://www.dcr.virginia.gov/state-parks/james-river';
+const jamesRiverStateParkMapUrl = 'https://www.dcr.virginia.gov/state-parks/document/maps/James-River-Avenza-Map.pdf';
+const jamesRiverStateParkCommonsImageUrl = 'https://commons.wikimedia.org/wiki/File:James_River_State_Park_-_54213393737.jpg';
+const dwrBoatingUseUrl = 'https://dwr.virginia.gov/boating/boaters-guide/enjoying-the-water/';
+const douthatStateParkUrl = 'https://www.dcr.virginia.gov/state-parks/douthat';
 const rappahannockRectorUrl = 'https://www.fauquiercounty.gov/government/departments-h-z/parks-and-recreation/parks/rector-tract-canoe-kayak-launch';
 const rappahannockDwrAccessUrl = 'https://dwr.virginia.gov/boating/access/?find_by_waterbody=Rappahannock+River';
 const rappahannockDwrMapUrl = 'https://dwr.virginia.gov/wp-content/uploads/media/C.F.-Phelps-WMA-Map.pdf';
@@ -30,6 +45,44 @@ const rappahannockAwUrl = 'https://www.americanwhitewater.org/content/River/view
 const rappahannockUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-01664000/';
 const rappahannockUsgsHydrographUrl = 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01664000';
 const shenandoahRiverParkUrl = 'https://www.dcr.virginia.gov/state-parks/shenandoah-river';
+const southForkDwrAccessUrl = 'https://dwr.virginia.gov/boating/access/?find_by_waterbody=S.+Fork+Shenandoah+River';
+const southForkDwrWaterbodyUrl = 'https://dwr.virginia.gov/waterbody/shenandoah-river-south-fork/';
+const southForkDwrSurveyUrl = 'https://dwr.virginia.gov/wp-content/uploads/2016-Angler-Survey-Report.pdf';
+const southForkDwrWildlifeTrailUrl = 'https://dwr.virginia.gov/vbwt/mountain-trail/MDS/';
+const southForkUsgsImageUrl = 'https://www.usgs.gov/media/images/south-fork-shenandoah-river-0';
+const southForkAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/2015/main';
+const southForkUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-01629500/';
+const southForkUsgsHydrographUrl = 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01629500';
+const northForkDwrAccessUrl = 'https://dwr.virginia.gov/boating/access/?find_by_waterbody=N.+Fork+Shenandoah+River';
+const northForkDwrWaterbodyUrl = 'https://dwr.virginia.gov/waterbody/shenandoah-river-north-fork/';
+const northForkDwrFeatureUrl = 'https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer/0';
+const northForkCommonsImageUrl = 'https://commons.wikimedia.org/wiki/File:North_Fork_Shenandoah_River_November_2016.jpg';
+const northForkAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/11682/main';
+const northForkUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-01632000/';
+const northForkUsgsHydrographUrl = 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01632000';
+const dwrAlertsUrl = 'https://dwr.virginia.gov/alerts/';
+const sevenBendsUrl = 'https://www.dcr.virginia.gov/state-parks/seven-bends';
+const sevenBendsTrailGuideUrl = 'https://www.dcr.virginia.gov/state-parks/document/data/trail-guide-sevenbends.pdf';
+const hardwareAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/1940/main';
+const hardwareUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-02030000/';
+const hardwareUsgsHydrographUrl = 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02030000';
+const hardwareDwrWmaUrl = 'https://dwr.virginia.gov/wma/hardware-river/';
+const hardwareDwrMapUrl = 'https://dwr.virginia.gov/wp-content/uploads/media/Hardware-River-WMA-Map.pdf';
+const hardwareDwrAccessUrl = 'https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer/0';
+const hardwareWmaRulesUrl = 'https://dwr.virginia.gov/wp-content/uploads/media/wma-rules.pdf';
+const hardwareCommonsImageUrl = 'https://commons.wikimedia.org/wiki/File:Hardware_River_aqueduct.jpg';
+const richmondJamesAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/1951/main';
+const richmondJamesUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-02037500/';
+const richmondJamesUsgsHydrographUrl = 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02037500';
+const richmondJamesParkUrl = 'https://www.rva.gov/parks-recreation/james-river-park-system';
+const richmondPonyPastureUrl = 'https://jamesriverpark.org/explore-the-park-pony-pasture/';
+const richmondReedyCreekUrl = 'https://jamesriverpark.org/explore-the-park-reedy-creek/';
+const richmondTubingUrl = 'https://jamesriverpark.org/tubing-in-the-james-river-park/';
+const richmondAccessibleTakeoutUrl = 'https://www.rva.gov/sites/default/files/2019-07/Adopted%20Capital%20Improvement%20Plan%20FY2020%20-%202024.pdf';
+const richmondManchesterCanalOsmUrl = 'https://www.openstreetmap.org/way/303497404';
+const richmondJamesWaterQualityUrl = 'https://thejamesriver.org/james-river-watch/';
+const richmondCsoMapUrl = 'https://apps.emnet.net/richmond-pub-map-app/?city=47&config=5c0cacee-7e95-4eea-922d-c736c83eb4b9';
+const richmondReedyCreekCommonsImageUrl = 'https://commons.wikimedia.org/wiki/File:James_River_from_Reedy_Creek_with_Virginia_War_Memorial_Carillon.jpg';
 
 export const virginiaRoutes: River[] = [
   {
@@ -631,6 +684,312 @@ export const virginiaRoutes: River[] = [
     scoreEligibility: 'scored',
   },
   {
+    id: 'james-river-iron-gate-glen-wilton',
+    riverId: 'james-river',
+    slug: 'james-river-iron-gate-glen-wilton',
+    name: 'James River',
+    reach: 'Iron Gate/Lick Run to Glen Wilton',
+    aliases: ['Upper James River Water Trail Section 1', 'Iron Gate to Glen Wilton', 'Lick Run to Glen Wilton'],
+    state: 'Virginia',
+    region: 'Botetourt County / Iron Gate–Glen Wilton',
+    routeType: 'recreational',
+    summary: 'A short Upper James float from the public Iron Gate/Lick Run shoreline access to Glen Wilton. The official water trail lists 2.5 river miles, while the endpoint-snapped canonical and American Whitewater traces measure about 3.2 miles. The water trail documents easy Class I rapids and one Class II rapid, and American Whitewater ties the corridor to direct USGS 02016500 flow.',
+    statusText: 'Use direct USGS 02016500 discharge at Lick Run. American Whitewater publishes a 400–20,000 cfs runnable correlation for its Iron Gate–Glen Wilton reach; that unusually broad range is only a planning screen. The narrower product band is conservative, and rising water, wood, cold water, or poor access can make the route unsuitable at any reading.',
+    latitude: 37.762347,
+    longitude: -79.799375,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'low_water', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'The official water trail describes quick current, several easy Class I rapids, and one Class II rapid. Wear a fitted PFD and use moving-water boat control appropriate to the current conditions.',
+        'American Whitewater’s 400–20,000 cfs correlation is exceptionally broad. It is not a declaration that every reading inside the range is suitable for every paddler; use the narrower product band only as an initial screen.',
+        'American Whitewater notes that the short Lick Run access road is steep and can wash out. Confirm that the public launch, parking, and Glen Wilton takeout are open and usable before unloading or committing to the shuttle.',
+        'The water trail says virtually all riverbank outside named public accesses is private. Stay in the navigable channel, use only verified public landings, and cancel for rapid rise, flood conditions, cold water, thunderstorms, or obstructing wood.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-02016500',
+      provider: 'usgs',
+      siteId: '02016500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'James River at Lick Run, VA',
+      detailUrl: jamesLickRunUsgsDetailUrl,
+      hydrographUrl: jamesLickRunUsgsHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      tooLow: 400,
+      idealMin: 800,
+      idealMax: 5000,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'American Whitewater Iron Gate–Glen Wilton correlation: 400–20,000 cfs at USGS 02016500',
+        url: jamesIronGateAwUrl,
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes: 'Check current discharge and trend, recent and forecast rain, water temperature, debris, daylight, and both formal access points immediately before launch.',
+      difficulty: 'moderate',
+      difficultyNotes: 'The trip is short, but quick current, Class I–II rapids, private banks, and limited legal exits require basic moving-water competence and a reliable shuttle.',
+      confidenceNotes: 'High corridor confidence: the official water trail publishes the exact public endpoint pair, coordinates, a 2.5-mile estimate, typical duration, and difficulty; American Whitewater identifies the direct Lick Run gauge and 400–20,000 cfs limits. Both available endpoint-snapped traces measure about 3.2 miles, so the distance discrepancy is disclosed for trip planning. The 800–5,000 cfs ideal band is a conservative product band inside those limits, not a source-defined guarantee.',
+    },
+    putIn: {
+      name: 'Iron Gate/Lick Run public shoreline access',
+      latitude: 37.773889,
+      longitude: -79.782778,
+    },
+    takeOut: {
+      name: 'Glen Wilton public shoreline access',
+      latitude: 37.750806,
+      longitude: -79.815972,
+    },
+    logistics: {
+      distanceLabel: '2.5 published river miles; endpoint-snapped traces measure about 3.2 miles',
+      estimatedPaddleTime: 'Plan 2–3 hours depending on flow, rapid scouting, access condition, and shuttle timing; the official itinerary estimates 1–2 hours',
+      shuttle: 'Stage the downstream vehicle at Glen Wilton on river right below the Route 622 bridge, then return to the Iron Gate/Lick Run shoreline access below Route 220. Confirm that the steep launch road is passable and keep all roads, ramps, and neighboring property clear.',
+      permits: 'No route-specific permit is published. Follow current Virginia boating and PFD law plus all posted DWR access, parking, fishing-license, and closure rules.',
+      camping: 'No on-route or access-site camping is assumed. Douthat State Park is a separate reservation-based regional basecamp with campsites and cabins; verify current availability and travel time.',
+      campingClassification: 'nearby_basecamp',
+      summary: 'A compact Class I–II public-access float with a short shuttle, direct Lick Run telemetry, private banks, and an access road that requires a same-day condition check.',
+      accessCaveats: [
+        'Use the named Iron Gate/Lick Run and Glen Wilton public shoreline accesses. Do not substitute an unverified roadside pullout or private bank.',
+        'The Lick Run access road is steep and may wash out. Do not attempt it when posted closed, visibly damaged, or unsuitable for the vehicle and trailer.',
+        'DWR boating access facilities are for launching, retrieving, and fishing; camping, loitering, swimming, and public alcohol display are prohibited.',
+      ],
+      watchFor: [
+        'USGS 02016500 below 400 cfs, above 20,000 cfs, rising rapidly, unavailable, or inconsistent with the launch visual',
+        'wood, strainers, shallow rock, quick current, cold water, storms, poor visibility, or insufficient daylight',
+        'a washed-out or closed launch road, obstructed public landing, failed shuttle, or pressure to use private property',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'james-river-iron-gate-lick-run-put-in',
+        name: 'Iron Gate/Lick Run public shoreline access',
+        latitude: 37.773889,
+        longitude: -79.782778,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'Official Upper James River Water Trail shoreline access below Route 220; American Whitewater warns that the short access road is steep and can wash out.',
+      },
+      {
+        id: 'james-river-glen-wilton-take-out',
+        name: 'Glen Wilton public shoreline access',
+        latitude: 37.750806,
+        longitude: -79.815972,
+        mileFromStart: 3.2,
+        segmentKind: 'transition',
+        note: 'Official Upper James River Water Trail shoreline access on river right below the Route 622 bridge.',
+      },
+    ],
+    evidenceNotes: [
+      {
+        label: 'Named public corridor',
+        value: 'Iron Gate/Lick Run to Glen Wilton; 2.5 published miles / about 3.2 mapped miles; Class I–II',
+        note: 'The official water trail publishes the exact itinerary, public endpoints, 2.5-mile estimate, typical duration, quick current, and rapid difficulty. The endpoint-snapped canonical and American Whitewater traces both measure about 3.2 miles, so paddlers should plan for the longer mapped distance.',
+        sourceUrl: upperJamesSuggestedFloatsUrl,
+      },
+      {
+        label: 'Direct gauge and thresholds',
+        value: 'USGS 02016500; American Whitewater 400–20,000 cfs',
+        note: 'American Whitewater ties its Iron Gate–Glen Wilton reach to the Lick Run gauge. The product’s ideal band is deliberately narrower than the published runnable limits.',
+        sourceUrl: jamesIronGateAwUrl,
+      },
+      {
+        label: 'Public access and coordinates',
+        value: 'Iron Gate and Glen Wilton public shoreline accesses',
+        note: 'The water trail’s public-access directory publishes both facility types and exact endpoint coordinates.',
+        sourceUrl: upperJamesAccessPointsUrl,
+      },
+      {
+        label: 'Camping logistics',
+        value: 'No route camping; Douthat State Park regional basecamp',
+        note: 'DWR access sites are not campsites. Douthat is a separate reservable campground/cabin option and is not presented as part of the river corridor.',
+        sourceUrl: douthatStateParkUrl,
+      },
+      {
+        label: 'Rights-clean image decision',
+        value: 'Use the approved PaddleToday route-photo fallback',
+        note: 'No image is copied from the water trail, American Whitewater, USGS, DWR, or Virginia State Parks. Add route-specific imagery only after reuse rights are verified.',
+        sourceUrl: upperJamesSuggestedFloatsUrl,
+      },
+    ],
+    sourceLinks: [
+      { label: 'Upper James River Water Trail suggested floats', url: upperJamesSuggestedFloatsUrl, provider: 'local' },
+      { label: 'Upper James River Water Trail public access points', url: upperJamesAccessPointsUrl, provider: 'local' },
+      { label: 'Upper James River Water Trail maps', url: upperJamesMapUrl, provider: 'local' },
+      { label: 'American Whitewater Iron Gate–Glen Wilton', url: jamesIronGateAwUrl, provider: 'american_whitewater' },
+      { label: 'USGS 02016500 monitoring location', url: jamesLickRunUsgsDetailUrl, provider: 'usgs' },
+      { label: 'USGS 02016500 current conditions', url: jamesLickRunUsgsHydrographUrl, provider: 'usgs' },
+      { label: 'Virginia DWR boating-access use rules', url: dwrBoatingUseUrl, provider: 'local' },
+      { label: 'Virginia DWR alerts', url: dwrAlertsUrl, provider: 'local' },
+      { label: 'Virginia State Parks Douthat', url: douthatStateParkUrl, provider: 'local' },
+    ],
+    scoreEligibility: 'scored',
+  },
+  {
+    id: 'james-river-bent-creek-state-park',
+    riverId: 'james-river',
+    slug: 'james-river-bent-creek-state-park',
+    name: 'James River',
+    reach: 'Bent Creek Boat Ramp to James River State Park',
+    aliases: ['Bent Creek to James River State Park', 'Bent Creek to Canoe Landing', 'Middle James River Bent Creek float'],
+    state: 'Virginia',
+    region: 'Appomattox and Buckingham counties / Bent Creek–Gladstone',
+    routeType: 'recreational',
+    summary: 'A 9.3-mile Class I–II James River float from the maintained Bent Creek public ramp to the public river accesses inside James River State Park. American Whitewater ties the exact corridor to direct USGS 02026000 flow, and Virginia State Parks actively programs the Bent Creek-to-Canoe Landing trip.',
+    statusText: 'Use direct USGS 02026000 discharge at Bent Creek. American Whitewater publishes an 800–6,000 cfs runnable correlation for this exact reach; the product’s narrower ideal band is a conservative planning screen. Rising or flood water, cold water, wood, storms, poor visibility, or a closed park/access can make the route unsuitable at any reading.',
+    latitude: 37.585146,
+    longitude: -78.819467,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'low_water', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'American Whitewater classifies the reach as Class I–II. Wear a fitted PFD, keep the group together, and use moving-water boat control appropriate to the current flow and loaded boat.',
+        'The 800–6,000 cfs correlation is a planning range rather than a universal safety guarantee. Cancel for a rapid rise, flood or severe-weather warning, cold-water exposure, poor visibility, or conditions beyond the group’s ability.',
+        'Use only the maintained Bent Creek ramp and verified state-park landings. Do not treat an informal roadside pullout, island, or private bank as public access or an assumed campsite.',
+        'The full route is a substantial day trip. Confirm the downstream park gate, takeout, daylight, shuttle, water, and communication plan before launching; wood and other debris can change after storms.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-02026000',
+      provider: 'usgs',
+      siteId: '02026000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'James River at Bent Creek, VA',
+      detailUrl: jamesBentCreekUsgsDetailUrl,
+      hydrographUrl: jamesBentCreekUsgsHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      tooLow: 800,
+      idealMin: 1200,
+      idealMax: 4000,
+      tooHigh: 6000,
+      thresholdSource: {
+        label: 'American Whitewater Bent Creek–James River State Park correlation: 800–6,000 cfs at USGS 02026000',
+        url: jamesBentCreekAwUrl,
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes: 'Check current discharge and trend, recent and forecast rain, water temperature, debris, daylight, DWR alerts, and both endpoint facilities immediately before launch.',
+      difficulty: 'moderate',
+      difficultyNotes: 'Mostly easy moving water with Class I–II features, but the 9.3-mile commitment, changing current, limited legal exits, weather exposure, and shuttle make this more than a casual short float.',
+      confidenceNotes: 'High corridor confidence: American Whitewater publishes the exact reach, 9.3-mile distance, Class I–II rating, direct primary gauge, 800–6,000 cfs limits, and endpoint coordinates. DWR independently confirms the maintained Bent Creek public ramp, while Virginia State Parks documents the downstream park and Bent Creek-to-Canoe Landing trip. The 1,200–4,000 cfs ideal band is a conservative product band inside the source limits, not a guarantee.',
+    },
+    putIn: {
+      name: 'Bent Creek public boat ramp',
+      latitude: 37.535621,
+      longitude: -78.827603,
+    },
+    takeOut: {
+      name: 'Park Road river access, James River State Park',
+      latitude: 37.634716,
+      longitude: -78.81133,
+    },
+    logistics: {
+      distanceLabel: '9.3 river miles',
+      estimatedPaddleTime: '4–6+ hours depending on flow, breaks, group pace, takeout choice, and shuttle timing',
+      shuttle: 'Stage the downstream vehicle at the verified Park Road river access inside James River State Park, confirm the park gate and takeout are open, then drive to the maintained Bent Creek ramp at Routes 60 and 26. Canoe Landing is an earlier park access at about river mile 7.4 if its current use is confirmed.',
+      permits: 'No route-specific permit is published. Park admission, parking, rental, program, camping, or reservation fees may apply. Follow current Virginia boating and PFD law plus posted ramp, park, fishing-license, and closure rules.',
+      camping: 'James River State Park offers reservable camping near the downstream end, including the Canoe Landing area. Camping is not assumed at the ramp or on private banks; reserve a legal site and follow current park check-in and occupancy rules.',
+      campingClassification: 'endpoint_campground',
+      summary: 'A full-day Class I–II float with a maintained upstream ramp, two possible state-park landings, direct Bent Creek telemetry, and reservation-based camping at the downstream park.',
+      accessCaveats: [
+        'Bent Creek is a maintained concrete public ramp at Routes 60 and 26. Keep the ramp clear and verify its current status before launch.',
+        'The primary takeout is the Park Road river access at James River State Park. Canoe Landing is an earlier park access, not permission to land or camp elsewhere along the corridor.',
+        'DWR boating access facilities are for launching, retrieving, and fishing; camping, swimming, loitering, and public alcohol display are prohibited at those facilities.',
+      ],
+      watchFor: [
+        'USGS 02026000 below 800 cfs, above 6,000 cfs, rising rapidly, unavailable, or inconsistent with the launch visual',
+        'wood, strainers, shallow rock, stronger current, cold water, thunderstorms, heat, poor visibility, or insufficient daylight',
+        'a closed park gate or landing, obstructed ramp, failed shuttle, inadequate drinking water, or pressure to use private property',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'james-river-bent-creek-put-in',
+        name: 'Bent Creek public boat ramp',
+        latitude: 37.535621,
+        longitude: -78.827603,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'Maintained concrete public ramp at Routes 60 and 26; DWR lists the facility and American Whitewater uses it as the exact reach put-in.',
+      },
+      {
+        id: 'james-river-state-park-canoe-landing',
+        name: 'Canoe Landing, James River State Park',
+        latitude: 37.616269,
+        longitude: -78.817923,
+        mileFromStart: 7.4,
+        segmentKind: 'transition',
+        note: 'Intermediate public state-park river access documented by American Whitewater and used by the park’s Bent Creek-to-Canoe Landing programming; confirm current landing and park access before relying on it.',
+      },
+      {
+        id: 'james-river-state-park-road-take-out',
+        name: 'Park Road river access, James River State Park',
+        latitude: 37.634716,
+        longitude: -78.81133,
+        mileFromStart: 9.3,
+        segmentKind: 'transition',
+        note: 'American Whitewater’s exact reach takeout inside James River State Park. Confirm the park gate, parking, and takeout condition before staging the shuttle.',
+      },
+    ],
+    evidenceNotes: [
+      {
+        label: 'Named public corridor',
+        value: 'Bent Creek Boat Ramp to James River State Park; 9.3 miles; Class I–II',
+        note: 'American Whitewater publishes the exact reach, distance, difficulty, endpoint coordinates, and an intermediate Canoe Landing access.',
+        sourceUrl: jamesBentCreekAwUrl,
+      },
+      {
+        label: 'Direct live gauge and thresholds',
+        value: 'USGS 02026000; American Whitewater 800–6,000 cfs',
+        note: 'American Whitewater identifies the Bent Creek gauge as primary and applies the numeric runnable limits directly to this reach; USGS supplies current discharge and stage.',
+        sourceUrl: jamesBentCreekAwUrl,
+      },
+      {
+        label: 'Public access and park continuity',
+        value: 'Maintained Bent Creek ramp to two James River State Park accesses',
+        note: 'DWR’s current access service confirms Bent Creek; Virginia State Parks documents the park boundary, landings, facilities, and active Bent Creek-to-Canoe Landing programming.',
+        sourceUrl: jamesDwrFeatureUrl,
+      },
+      {
+        label: 'Camping logistics',
+        value: 'Reservable endpoint camping at James River State Park',
+        note: 'Camping is kept within separately managed state-park facilities and is not implied at Bent Creek, islands, or private banks.',
+        sourceUrl: jamesRiverStateParkUrl,
+      },
+      {
+        label: 'Rights-clean image decision',
+        value: 'Approved route-specific James River State Park image',
+        note: 'Virginia State Parks staff released the selected exact-corridor image under CC BY 2.0 on Wikimedia Commons; PaddleToday stores an optimized local copy and preserves attribution.',
+        sourceUrl: jamesRiverStateParkCommonsImageUrl,
+      },
+    ],
+    sourceLinks: [
+      { label: 'American Whitewater Bent Creek–James River State Park', url: jamesBentCreekAwUrl, provider: 'american_whitewater' },
+      { label: 'USGS 02026000 monitoring location', url: jamesBentCreekUsgsDetailUrl, provider: 'usgs' },
+      { label: 'USGS 02026000 current conditions', url: jamesBentCreekUsgsHydrographUrl, provider: 'usgs' },
+      { label: 'Virginia DWR James River public access', url: jamesDwrAccessUrl, provider: 'local' },
+      { label: 'Virginia DWR boating-access use rules', url: dwrBoatingUseUrl, provider: 'local' },
+      { label: 'Virginia DWR alerts', url: dwrAlertsUrl, provider: 'local' },
+      { label: 'Virginia State Parks James River', url: jamesRiverStateParkUrl, provider: 'local' },
+      { label: 'James River State Park map', url: jamesRiverStateParkMapUrl, provider: 'local' },
+    ],
+    scoreEligibility: 'scored',
+  },
+  {
     id: 'rappahannock-river-rector-tract-kellys-ford',
     riverId: 'rappahannock-river',
     slug: 'rappahannock-river-rector-tract-kellys-ford',
@@ -793,6 +1152,534 @@ export const virginiaRoutes: River[] = [
       { label: 'USGS 01664000 monitoring location', url: rappahannockUsgsDetailUrl, provider: 'usgs' },
       { label: 'USGS 01664000 current conditions', url: rappahannockUsgsHydrographUrl, provider: 'usgs' },
       { label: 'Virginia State Parks Shenandoah River', url: shenandoahRiverParkUrl, provider: 'local' },
+    ],
+    scoreEligibility: 'scored',
+  },
+  {
+    id: 'south-fork-shenandoah-newport-white-house',
+    riverId: 'south-fork-shenandoah-river',
+    slug: 'south-fork-shenandoah-newport-white-house',
+    name: 'South Fork Shenandoah River',
+    reach: 'Newport to White House Landing',
+    state: 'Virginia',
+    region: 'Page County / Newport–Luray',
+    routeType: 'whitewater',
+    summary: 'An 8.46-mile Class I–II Page Valley day trip between DWR public accesses. American Whitewater identifies this shorter Newport-to-Luray corridor, its direct Luray gauge, rocky low-water character, wave trains, and Foltz Mill turbine-remnant hazard.',
+    statusText: 'Use direct USGS 01629500 discharge. American Whitewater publishes a 450–2,500 cfs runnable correlation for the encompassing reach; the narrower product band is only a planning screen. Rapid rises, rock, turbine remains, wood, cold water, private banks, and access conditions can make the trip unsuitable.',
+    latitude: 38.614562,
+    longitude: -78.564427,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'whitewater', 'fast_rise', 'low_water', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'Class I and II rapids become rocky and channelized at low water; regular waves and faster current increase consequences at higher water.',
+        'American Whitewater warns of old turbine remains at Foltz Mill and says to avoid the far-left channel. Scout from a legal location when uncertain.',
+        'The 450–2,500 cfs range is not a guarantee. Cancel for rapid rise, warnings, cold water, wood, poor visibility, or conditions beyond the group.',
+        'DWR accesses are for fishing and launching boats. Camping, swimming, public alcohol display, and trespass beyond authorized access are prohibited.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-01629500', provider: 'usgs', siteId: '01629500', metric: 'discharge_cfs', unit: 'cfs', kind: 'direct',
+      siteName: 'South Fork Shenandoah River near Luray, VA', detailUrl: southForkUsgsDetailUrl, hydrographUrl: southForkUsgsHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'two-sided', tooLow: 450, idealMin: 600, idealMax: 1600, tooHigh: 2500,
+      thresholdSource: { label: 'American Whitewater Elkton–Luray correlation: 450–2,500 cfs at USGS 01629500', url: southForkAwUrl, provider: 'american_whitewater' },
+      thresholdSourceStrength: 'mixed', rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes: 'Check flow, trend, rain, water temperature, debris, daylight, and both DWR accesses immediately before launch. Low water exposes rock; high or rising water increases current and waves.',
+      difficulty: 'moderate',
+      difficultyNotes: 'Generally approachable Class I–II moving water, but rocks, wave trains, private banks, and turbine remains require boat control.',
+      confidenceNotes: 'High corridor confidence from DWR’s current access records and coordinates, DWR’s independent 8.5-mile Newport-to-White House survey reach, American Whitewater’s explicit shorter Newport-to-Luray recommendation, direct USGS 01629500 correlation, and current telemetry. The 600–1,600 cfs ideal band is conservative inside published limits.',
+    },
+    putIn: { name: 'Newport DWR shoreline access', latitude: 38.5830538965318, longitude: -78.5943729599809 },
+    takeOut: { name: 'White House DWR concrete ramp', latitude: 38.6460697541098, longitude: -78.5344803091987 },
+    logistics: {
+      distanceLabel: '8.46 river miles', estimatedPaddleTime: '3.5–5 hours',
+      shuttle: 'Stage at White House off Route 646 near U.S. 211, then drive to Newport off Route 340. Verify access, parking, daylight, and closures.',
+      permits: 'No route permit is published. DWR limits boating accesses to fishing and launching boats; follow posted and current Virginia requirements.',
+      camping: 'No on-route or access-site camping. Shenandoah River State Park is a separate reservation-based regional basecamp.',
+      campingClassification: 'nearby_basecamp',
+      summary: 'A half-day public-access self-shuttle with direct Luray telemetry, Class I–II rapids, private banks, and an old-mill hazard.',
+      accessCaveats: ['Verify both DWR accesses and posted restrictions.', 'Camping, swimming, and public alcohol display are prohibited at DWR boating accesses.', 'Use only named public endpoints unless separate permission is obtained.'],
+      watchFor: ['USGS 01629500 outside 450–2,500 cfs or rapidly rising', 'rock, waves, Foltz Mill turbine remains, wood, cold water, or storms', 'closure, crowding, insufficient daylight, or failed shuttle'],
+    },
+    accessPoints: [
+      { id: 'south-fork-shenandoah-newport-put-in', name: 'Newport DWR shoreline access', latitude: 38.5830538965318, longitude: -78.5943729599809, mileFromStart: 0, segmentKind: 'transition' },
+      { id: 'south-fork-shenandoah-white-house-take-out', name: 'White House DWR concrete ramp', latitude: 38.6460697541098, longitude: -78.5344803091987, mileFromStart: 8.46, segmentKind: 'transition' },
+    ],
+    evidenceNotes: [
+      { label: 'Named public corridor', value: 'Newport to White House; 8.46 route miles and 8.5 miles in DWR survey records; Class I–II', sourceUrl: southForkDwrSurveyUrl },
+      { label: 'Direct gauge and thresholds', value: 'USGS 01629500; 450–2,500 cfs', sourceUrl: southForkAwUrl },
+      { label: 'Public access', value: 'DWR Newport shoreline access and White House ramp', sourceUrl: southForkDwrAccessUrl },
+      { label: 'Camping logistics', value: 'No access-site camping; separate regional basecamp', sourceUrl: shenandoahRiverParkUrl },
+      { label: 'Rights-clean image', value: 'USGS South Fork aerial near Rileyville; CC BY 4.0', sourceUrl: southForkUsgsImageUrl },
+    ],
+    sourceLinks: [
+      { label: 'Virginia DWR South Fork access', url: southForkDwrAccessUrl, provider: 'local' },
+      { label: 'Virginia DWR South Fork waterbody guide', url: southForkDwrWaterbodyUrl, provider: 'local' },
+      { label: 'Virginia DWR 2016 Shenandoah angler survey', url: southForkDwrSurveyUrl, provider: 'local' },
+      { label: 'Virginia DWR Daughter of the Stars trail', url: southForkDwrWildlifeTrailUrl, provider: 'local' },
+      { label: 'American Whitewater Elkton–Luray', url: southForkAwUrl, provider: 'american_whitewater' },
+      { label: 'USGS 01629500 monitoring location', url: southForkUsgsDetailUrl, provider: 'usgs' },
+      { label: 'USGS 01629500 current conditions', url: southForkUsgsHydrographUrl, provider: 'usgs' },
+      { label: 'Virginia State Parks Shenandoah River', url: shenandoahRiverParkUrl, provider: 'local' },
+    ],
+    scoreEligibility: 'scored',
+  },
+  {
+    id: 'north-fork-shenandoah-meems-chapmans',
+    riverId: 'north-fork-shenandoah-river',
+    slug: 'north-fork-shenandoah-meems-chapmans',
+    name: 'North Fork Shenandoah River',
+    reach: "Meems Bottom to Chapman's Landing",
+    aliases: [
+      "North Fork Shenandoah Meems Bottom to Chapman's Landing",
+      'North Fork Shenandoah River Mount Jackson to Edinburg',
+      'Meems Bottom to Chapmans Landing',
+    ],
+    state: 'Virginia',
+    region: 'Shenandoah County / Mount Jackson–Edinburg',
+    routeType: 'whitewater',
+    summary: "An approximately 20-mile Class I–II North Fork Shenandoah day trip from DWR's Meems Bottom gravel access to its concrete ramp at Chapman's Landing. American Whitewater publishes a 15-mile VA 730-to-VA 672 reach and a 3.0–6.0 ft correlation at direct USGS 01632000; the mapped DWR ramp is farther downstream than that inventory geometry.",
+    statusText: 'Use direct USGS 01632000 gage height. American Whitewater publishes a 3.0–6.0 ft runnable correlation; the narrower 3.5–5.0 ft product band is a conservative planning screen. Rapid rise, shallow ledges, wood, cold water, harmful algal bloom notices, private banks, and access conditions can make the route unsuitable at any reading.',
+    latitude: 38.776065,
+    longitude: -78.590327,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'whitewater', 'fast_rise', 'low_water', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'American Whitewater rates this reach Class I–II. Shallow ledges and rock become more consequential near the low end, while higher and rising water increases current, wave, and rescue consequences.',
+        "Take out at Chapman's Landing. Virginia DWR places Chapman's Dam about 3 miles downstream and says portaging it is not advised; this route ends at the landing and does not include the dam pool.",
+        'Virginia DWR warns that the North Fork can develop harmful algal blooms or excessive algae. Check current DWR and Virginia Department of Health notices, keep people and pets out of suspect water, and cancel when an advisory applies.',
+        'DWR boating accesses are for fishing and launching boats. Camping, swimming, public alcohol display, informal bank access, and trespass outside authorized areas are prohibited.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-01632000',
+      provider: 'usgs',
+      siteId: '01632000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'North Fork Shenandoah River at Cootes Store, VA',
+      detailUrl: northForkUsgsDetailUrl,
+      hydrographUrl: northForkUsgsHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      tooLow: 3,
+      idealMin: 3.5,
+      idealMax: 5,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'American Whitewater VA 730-to-VA 672 correlation: 3.0–6.0 ft at USGS 01632000',
+        url: northForkAwUrl,
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes: 'Check current stage and trend, recent and forecast rain, water temperature, debris, algae advisories, daylight, and both DWR accesses immediately before launch.',
+      difficulty: 'moderate',
+      difficultyNotes: 'Mostly Class I–II moving water, but the approximately 20-mile mapped commitment, rock, ledges, wood, private banks, and downstream dam boundary require competent boat control, an early start, and a reliable shuttle.',
+      confidenceNotes: "High public-endpoint confidence and moderate distance confidence: American Whitewater publishes a 15-mile VA 730-to-VA 672 inventory reach, direct gauge, and runnable range; DWR's current access inventory and GIS records place Chapman's Landing farther downstream. Canonical hydrography measures about 20.4 river miles between the DWR endpoints, so use 20 miles as a conservative planning estimate. The 3.5–5.0 ft ideal band remains deliberately conservative inside the published limits.",
+    },
+    putIn: {
+      name: 'Meems Bottom DWR gravel access',
+      latitude: 38.7066986,
+      longitude: -78.65096625,
+    },
+    takeOut: {
+      name: "Chapman's Landing DWR concrete ramp",
+      latitude: 38.84543186,
+      longitude: -78.52968681,
+    },
+    logistics: {
+      distanceLabel: 'About 20.4 mapped river miles; American Whitewater lists 15 miles to VA 672 near Edinburg',
+      estimatedPaddleTime: '7–10+ hours depending on stage, scouting, breaks, and shuttle timing; start early and confirm adequate daylight',
+      shuttle: "Stage the downstream vehicle at Chapman's Landing near Edinburg, then drive to Meems Bottom near Mount Jackson. Meems Bottom has limited parking; verify both accesses, posted rules, daylight, and shuttle security before unloading.",
+      permits: 'No route-specific permit is published. Follow current Virginia boating and PFD law plus all posted DWR ramp, parking, fishing-license, and closure requirements.',
+      camping: 'No on-route or access-site camping. Seven Bends State Park is day-use only; Shenandoah River State Park is a separate reservation-based regional basecamp.',
+      campingClassification: 'nearby_basecamp',
+      summary: 'A long Class I–II public-access day float with direct stage telemetry, limited put-in parking, private banks, algae-advisory exposure, and a firm takeout above a downstream dam.',
+      accessCaveats: [
+        "Launch only at DWR's Meems Bottom gravel access and take out at its Chapman's Landing concrete ramp unless another public access or permission is verified.",
+        'Meems Bottom parking is limited. Do not block the access road, shoulder, or neighboring property, and do not assume room for a group shuttle.',
+        'DWR boating accesses prohibit camping, swimming, and public alcohol display. Banks outside named public areas may be private.',
+      ],
+      watchFor: [
+        'USGS 01632000 outside 3.0–6.0 ft, rising rapidly, unavailable, or inconsistent with the launch visual',
+        'shallow ledges, rock, wood, cold water, storms, algae advisories, and insufficient daylight',
+        "missing Chapman's Landing takeout or continuing toward Chapman's Dam without a legal portage plan",
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'north-fork-shenandoah-meems-bottom-put-in',
+        name: 'Meems Bottom DWR gravel access',
+        latitude: 38.7066986,
+        longitude: -78.65096625,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'DWR-maintained public gravel access with limited parking.',
+      },
+      {
+        id: 'north-fork-shenandoah-chapmans-landing-take-out',
+        name: "Chapman's Landing DWR concrete ramp",
+        latitude: 38.84543186,
+        longitude: -78.52968681,
+        mileFromStart: 20.4,
+        segmentKind: 'transition',
+        note: "DWR-owned public concrete ramp. Take out here; DWR places Chapman's Dam about 3 miles downstream and advises against portaging it.",
+      },
+    ],
+    evidenceNotes: [
+      {
+        label: 'Named public corridor',
+        value: "Meems Bottom to Chapman's Landing; about 20.4 mapped river miles; Class I–II",
+        note: "American Whitewater publishes a 15-mile VA 730-to-VA 672 inventory reach and the direct gauge correlation. Its line ends upstream of DWR's current Chapman's Landing coordinate, so the product uses the canonical hydrography measurement between the authoritative DWR endpoints for trip planning.",
+        sourceUrl: northForkAwUrl,
+      },
+      {
+        label: 'Direct gauge and thresholds',
+        value: 'USGS 01632000; 3.0–6.0 ft',
+        note: 'USGS supplies current stage; the product ideal band stays within the American Whitewater runnable limits.',
+        sourceUrl: northForkUsgsDetailUrl,
+      },
+      {
+        label: 'Public access and coordinates',
+        value: "DWR Meems Bottom gravel access and Chapman's Landing concrete ramp",
+        note: "DWR's boating-access inventory and GIS layer establish ownership or maintenance, facility type, and endpoint coordinates.",
+        sourceUrl: northForkDwrFeatureUrl,
+      },
+      {
+        label: 'Safety and camping logistics',
+        value: 'Current algae review; no on-route camping; dam is about 3 miles below takeout',
+        note: "DWR's current North Fork guide warns about summer cyanobacteria and dense algae, identifies private banks and low-water bridges, and says portaging Chapman's Dam is not advised. Seven Bends is day-use only.",
+        sourceUrl: northForkDwrWaterbodyUrl,
+      },
+      {
+        label: 'Rights-clean image decision',
+        value: 'Approved North Fork image near Woodstock',
+        note: 'The selected same-river image is CC BY-SA 4.0 on Wikimedia Commons. It is labeled as downstream river-corridor context rather than exact endpoint documentation.',
+        sourceUrl: northForkCommonsImageUrl,
+      },
+    ],
+    sourceLinks: [
+      { label: 'Virginia DWR North Fork boating access', url: northForkDwrAccessUrl, provider: 'local' },
+      { label: 'Virginia DWR North Fork waterbody guide', url: northForkDwrWaterbodyUrl, provider: 'local' },
+      { label: 'Virginia DWR boating-access GIS layer', url: northForkDwrFeatureUrl, provider: 'local' },
+      { label: 'American Whitewater VA 730 to VA 672 near Edinburg', url: northForkAwUrl, provider: 'american_whitewater' },
+      { label: 'USGS 01632000 monitoring location', url: northForkUsgsDetailUrl, provider: 'usgs' },
+      { label: 'USGS 01632000 current conditions', url: northForkUsgsHydrographUrl, provider: 'usgs' },
+      { label: 'Virginia DWR alerts', url: dwrAlertsUrl, provider: 'local' },
+      { label: 'Virginia State Parks Seven Bends', url: sevenBendsUrl, provider: 'local' },
+      { label: 'Seven Bends trail guide', url: sevenBendsTrailGuideUrl, provider: 'local' },
+      { label: 'Virginia State Parks Shenandoah River', url: shenandoahRiverParkUrl, provider: 'local' },
+    ],
+    scoreEligibility: 'scored',
+  },
+  {
+    id: 'hardware-river-route-6-wma-bridge',
+    riverId: 'hardware-river',
+    slug: 'hardware-river-route-6-wma-bridge',
+    name: 'Hardware River',
+    reach: 'Route 6 access to Hardware River WMA bridge',
+    aliases: ['Hardware River Route 6 to WMA', 'Temperance Wayside to Hardware River WMA', 'Hardware River to James River'],
+    state: 'Virginia',
+    region: 'Fluvanna County / Scottsville-Hardware',
+    routeType: 'whitewater',
+    summary: 'A 6.8-mile Class I-II Hardware River run from the maintained Route 6 ramp to the low-water bridge and parking inside Hardware River Wildlife Management Area. American Whitewater ties the named corridor to direct USGS 02030000 and publishes a 190-7,500 cfs correlation.',
+    statusText: 'Use direct USGS 02030000 discharge below Briery Run. American Whitewater publishes a 190-7,500 cfs runnable correlation for this reach; the narrower product band is a conservative planning screen. Take out at the WMA low-water bridge. Do not continue through the bridge or downstream tree-hazard section without a separately verified current plan.',
+    latitude: 37.762407,
+    longitude: -78.404112,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'low_water', 'cold_water', 'strainers', 'mandatory_takeout', 'private_banks'],
+      safetyNotes: [
+        'American Whitewater classifies the reach as Class I-II. Wear a fitted PFD, keep the group together, and use competent moving-water boat control around ledges, bends, wood, and changing current.',
+        'The 190-7,500 cfs correlation is a planning range, not a safety guarantee. Cancel for rapid rise, flooding, storms, cold-water exposure, poor visibility, or conditions beyond the group\'s skills.',
+        'Take out at the low-water bridge and adjacent WMA parking shown on the official DWR map. American Whitewater\'s last route-specific alert reported bridge damage and fallen trees downstream, so this publication excludes the bridge-to-James continuation.',
+        'Banks outside the Route 6 access and Hardware River WMA may be private. Hunting occurs on the WMA; wear visible colors, check seasons and closures, and follow current access-permit rules.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-02030000',
+      provider: 'usgs',
+      siteId: '02030000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Hardware River below Briery Run near Scottsville, VA',
+      detailUrl: hardwareUsgsDetailUrl,
+      hydrographUrl: hardwareUsgsHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      tooLow: 190,
+      idealMin: 300,
+      idealMax: 1800,
+      tooHigh: 7500,
+      thresholdSource: {
+        label: 'American Whitewater Hardware River correlation: 190-7,500 cfs at USGS 02030000',
+        url: hardwareAwUrl,
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12],
+      seasonNotes: 'Rain-dependent tributary. Check current flow and trend, recent and forecast rain, water temperature, WMA access, hunting activity, wood, daylight, and DWR alerts immediately before launch.',
+      difficulty: 'moderate',
+      difficultyNotes: 'Class I-II moving water, but the narrow rain-driven river, wood exposure, private banks, limited legal exits, and mandatory low-water-bridge takeout require more judgment than a casual flatwater float.',
+      confidenceNotes: 'High corridor confidence: American Whitewater publishes the named 6.8-mile reach, Class I-II rating, direct gauge, endpoint coordinates, and 190-7,500 cfs limits. DWR independently confirms the maintained Route 6 ramp, public WMA, bridge, parking, access rules, and current absence of a Hardware-specific closure. The 300-1,800 cfs ideal band is a conservative product band inside the source limits, not a guarantee.',
+    },
+    putIn: {
+      name: 'Hardware River / Route 6 DWR ramp',
+      latitude: 37.78652872,
+      longitude: -78.40642381,
+    },
+    takeOut: {
+      name: 'Hardware River WMA low-water bridge takeout',
+      latitude: 37.739111,
+      longitude: -78.402964,
+    },
+    logistics: {
+      distanceLabel: '6.8 river miles',
+      estimatedPaddleTime: '3-5 hours depending on flow, wood, scouting, breaks, and shuttle timing',
+      shuttle: 'Stage the downstream vehicle only at the WMA parking beside the low-water bridge shown on the DWR map, then drive to the maintained Route 6 ramp. Inspect the takeout and bridge before launch; do not substitute the James River ramp or an informal roadside pullout.',
+      permits: 'Visitors age 17 and older need a qualifying Virginia fishing, hunting, or trapping license, Virginia boat registration, or DWR Access Permit to enter the WMA unless an exemption applies. Follow current boating, PFD, parking, hunting-season, gate, and closure rules.',
+      camping: 'DWR allows dispersed primitive camping at many WMAs with a current no-cost camping authorization for up to 14 consecutive nights and no more than 14 nights in any 28-day period. Camping is prohibited within 300 feet of a boat ramp or fishing lake and wherever posted. Treat any Hardware WMA stay as a separately verified plan, not on-route or access-site camping.',
+      campingClassification: 'nearby_basecamp',
+      summary: 'A rain-dependent Class I-II tributary run with maintained upstream access, a public WMA bridge takeout, direct telemetry, and a mandatory finish before the unresolved downstream hazard section.',
+      accessCaveats: [
+        'Use the DWR-maintained Route 6 concrete ramp for launch and keep the facility clear. DWR boating accesses are for launching, retrieving, and fishing rather than camping or loitering.',
+        'The route ends at the low-water bridge and adjacent WMA parking. Inspect it before launch and cancel if the bridge, road, gate, parking, or landing is closed, damaged, flooded, obstructed, or unsafe.',
+        'Do not continue under or around the bridge toward the James on this route. The older American Whitewater alert documents bridge damage and downstream fallen trees, and no current authoritative resolution was found.',
+        'Outside the named public facilities and WMA boundary, do not assume riverbank access, portage, parking, or camping permission.',
+      ],
+      watchFor: [
+        'USGS 02030000 below 190 cfs, above 7,500 cfs, rising rapidly, unavailable, or inconsistent with the launch visual',
+        'wood, strainers, shallow rock, blind bends, stronger current, cold water, storms, floodplain inundation, and insufficient daylight',
+        'missed bridge takeout, blocked WMA parking or gate, active hunting, a DWR closure, or pressure to land on private property',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hardware-river-route-6-put-in',
+        name: 'Hardware River / Route 6 DWR ramp',
+        latitude: 37.78652872,
+        longitude: -78.40642381,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'DWR-maintained concrete ramp at Route 6; the DWR access record and American Whitewater endpoint agree within normal map precision.',
+      },
+      {
+        id: 'hardware-river-wma-bridge-take-out',
+        name: 'Hardware River WMA low-water bridge takeout',
+        latitude: 37.739111,
+        longitude: -78.402964,
+        mileFromStart: 6.8,
+        segmentKind: 'transition',
+        note: 'Mandatory takeout at the WMA bridge and parking shown on the official DWR map. This route does not include the bridge-to-James continuation.',
+      },
+    ],
+    evidenceNotes: [
+      {
+        label: 'Named public corridor',
+        value: 'Route 6 to Hardware River WMA bridge; 6.8 miles; Class I-II',
+        note: 'American Whitewater publishes the named Hardware River reach, distance, difficulty, endpoints, and direct gauge correlation; the official WMA map independently establishes the downstream bridge and parking context.',
+        sourceUrl: hardwareAwUrl,
+      },
+      {
+        label: 'Direct live gauge and thresholds',
+        value: 'USGS 02030000; American Whitewater 190-7,500 cfs',
+        note: 'American Whitewater applies the numeric runnable limits directly to this Hardware River reach, while USGS supplies current discharge and stage.',
+        sourceUrl: hardwareUsgsDetailUrl,
+      },
+      {
+        label: 'Public endpoints and mandatory takeout',
+        value: 'DWR Route 6 ramp to DWR Hardware River WMA bridge parking',
+        note: 'DWR\'s current access layer confirms the upstream maintained ramp; the WMA page and official map confirm public management, bridge, parking, boat-ramp context, and access rules downstream.',
+        sourceUrl: hardwareDwrMapUrl,
+      },
+      {
+        label: 'Safety and camping logistics',
+        value: 'Bridge takeout; downstream continuation excluded; WMA authorization and camping limits apply',
+        note: 'The route preserves American Whitewater\'s unresolved bridge/tree warning as a hard route boundary and uses current DWR WMA rules for permits and primitive camping.',
+        sourceUrl: hardwareWmaRulesUrl,
+      },
+      {
+        label: 'Rights-clean image decision',
+        value: 'Approved Hardware River aqueduct image',
+        note: 'The selected exact-named-river historic image is CC BY-SA 4.0 on Wikimedia Commons. It is labeled as lower-river context and does not document either route endpoint.',
+        sourceUrl: hardwareCommonsImageUrl,
+      },
+    ],
+    sourceLinks: [
+      { label: 'American Whitewater Hardware River', url: hardwareAwUrl, provider: 'american_whitewater' },
+      { label: 'USGS 02030000 monitoring location', url: hardwareUsgsDetailUrl, provider: 'usgs' },
+      { label: 'USGS 02030000 current conditions', url: hardwareUsgsHydrographUrl, provider: 'usgs' },
+      { label: 'Virginia DWR Hardware River WMA', url: hardwareDwrWmaUrl, provider: 'local' },
+      { label: 'Virginia DWR Hardware River WMA map', url: hardwareDwrMapUrl, provider: 'local' },
+      { label: 'Virginia DWR boating-access GIS layer', url: hardwareDwrAccessUrl, provider: 'local' },
+      { label: 'Virginia DWR WMA rules', url: hardwareWmaRulesUrl, provider: 'local' },
+      { label: 'Virginia DWR alerts', url: dwrAlertsUrl, provider: 'local' },
+    ],
+    scoreEligibility: 'scored',
+  },
+  {
+    id: 'james-river-pony-pasture-reedy-creek',
+    riverId: 'james-river',
+    slug: 'james-river-pony-pasture-reedy-creek',
+    name: 'James River',
+    reach: 'Pony Pasture Park to Reedy Creek',
+    aliases: ['Upper James into Richmond', 'Pony Pasture to Reedy Creek', 'Richmond Upper James'],
+    state: 'Virginia',
+    region: 'Richmond / James River Park System',
+    routeType: 'whitewater',
+    summary: 'A roughly 3.5–4.5-mile Class I-II urban whitewater run from Pony Pasture Park to the accessible Reedy Creek takeout. The park partner publishes 3.5 miles while American Whitewater publishes 4.5; American Whitewater also supplies the direct Richmond gauge, route geometry, rapids, and runnable correlation, and the City supplies current public-park and high-water rules.',
+    statusText: 'Use direct USGS 02037500 stage. American Whitewater begins its runnable correlation at 3.0 ft and describes 7 ft and under as the normal beginner/intermediate range. The product treats 4.0-7.0 ft as ideal and 9.0 ft as too high for this Class I-II publication because Richmond limits 9 ft and above to experts. Take out at Reedy Creek before the considerably harder Lower James.',
+    latitude: 37.541942,
+    longitude: -77.49976,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'low_water', 'cold_water', 'strainers', 'mandatory_takeout', 'urban_water_quality'],
+      safetyNotes: [
+        'American Whitewater classifies this reach as Class I-II at normal water, with Mitchell\'s Gut at II+ and Pony Pasture increasing to Class III around 7-9 ft. Wear a fitted PFD at every level and use competent moving-water boat control.',
+        'The City of Richmond says only expert paddlers should recreate at 9 ft and above. Cancel this route at or above 9 ft, during a rapid rise, flooding, storms, cold-water exposure, poor visibility, or conditions beyond the group\'s skills.',
+        'Move river right after Mitchell\'s Gut, follow the marked channel, and paddle into Reedy Creek to the platform and stairs. Missing this mandatory takeout commits paddlers to the considerably harder Lower James.',
+        'Check same-day James River Watch bacteria results and Richmond combined-sewer-overflow information, especially after rain. Weekly samples can become stale when weather or infrastructure conditions change.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-02037500',
+      provider: 'usgs',
+      siteId: '02037500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'James River near Richmond, VA',
+      detailUrl: richmondJamesUsgsDetailUrl,
+      hydrographUrl: richmondJamesUsgsHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      tooLow: 3,
+      idealMin: 4,
+      idealMax: 7,
+      tooHigh: 9,
+      thresholdSource: {
+        label: 'American Whitewater direct correlation and Richmond 9-foot expert restriction',
+        url: richmondJamesAwUrl,
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes: 'The reach can run year-round, but current stage and trend, forecast rain, water temperature, bacteria/CSO notices, daylight, park status, and the takeout channel control the launch decision more than the calendar.',
+      difficulty: 'moderate',
+      difficultyNotes: 'Class I-II urban whitewater with a II+ boulder garden, changing channels, stronger features as stage rises, long-swim exposure, bridge-pylon strainers, and a mandatory takeout before the Lower James.',
+      confidenceNotes: 'High corridor confidence: American Whitewater publishes the exact 4.5-mile reach, Class I-II rating, direct USGS 02037500 correlation from 3.0 to 14.5 ft, route geometry, features, and Reedy Creek takeout instructions. The park partner independently estimates Pony Pasture to Reedy Creek at 3.5 miles, so the route discloses the 3.5–4.5-mile source range instead of implying surveyed precision. Richmond confirms the public park system, accessible Reedy Creek takeout, four ramps, current rules, and its 9-foot expert restriction. The narrower 4.0-7.0 ft ideal band and 9.0 ft product ceiling intentionally fit this publication\'s beginner/intermediate use rather than the full expert whitewater correlation.',
+    },
+    putIn: {
+      name: 'Pony Pasture Park canoe and kayak access',
+      latitude: 37.55949468,
+      longitude: -77.53012072,
+    },
+    takeOut: {
+      name: 'Reedy Creek accessible paddle takeout',
+      latitude: 37.52439,
+      longitude: -77.4694,
+    },
+    logistics: {
+      distanceLabel: '4.5 river miles in American Whitewater; 3.5 miles in the park-partner estimate',
+      estimatedPaddleTime: '2-4 hours depending on stage, scouting, play stops, channel choices, and shuttle timing',
+      shuttle: 'Stage the downstream vehicle at Reedy Creek before launch, confirm that the lot and paddle platform are open, then drive to Pony Pasture. Both parks are day-use facilities and parking can fill; do not block gates, grass, roads, or emergency access.',
+      permits: 'No current route-specific permit is published on the City park page. Follow posted City of Richmond park rules and current Virginia boating and PFD law. This publication cancels at 9 ft rather than relying on older high-water permit language.',
+      camping: 'No on-route or access-site camping is assumed. Richmond prohibits tents in city parks without a permit; use a lawful off-route lodging or campground if an overnight is needed.',
+      campingClassification: 'none',
+      summary: 'A compact urban Class I-II run with public endpoints, direct stage telemetry, distinct rapids, and a mandatory marked takeout before the Lower James.',
+      accessCaveats: [
+        'Use the established Pony Pasture canoe/kayak access or another clearly posted legal launch inside the park; do not launch at Z-Dam, where American Whitewater reports no parking.',
+        'Inspect the Reedy Creek takeout before launch. Enter the signed river-right channel after Mitchell\'s Gut and paddle upstream into Reedy Creek to the platform and stairs.',
+        'Park hours are sunrise to sunset. Confirm current closures, water-level restrictions, lot status, and emergency notices before unloading.',
+        'Do not continue into the Lower James unless it is a separately researched trip with the skill, group, rescue, and access plan appropriate for Class III-IV whitewater.',
+      ],
+      watchFor: [
+        'USGS 02037500 below 3 ft, at or above 9 ft, rising rapidly, unavailable, or inconsistent with the launch visual',
+        'Mitchell\'s Gut boulders, stronger waves and holes, bridge-pylon strainers, long swims, cold water, storms, and floating wood',
+        'the Reedy Creek takeout sign and river-right channel, crowded or closed lots, water-quality warnings, or recent combined sewer overflows',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'james-river-pony-pasture-put-in',
+        name: 'Pony Pasture Park canoe and kayak access',
+        latitude: 37.55949468,
+        longitude: -77.53012072,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'Public James River Park System access at Pony Pasture; the coordinate follows the American Whitewater route geometry at the published reach start.',
+      },
+      {
+        id: 'james-river-reedy-creek-take-out',
+        name: 'Reedy Creek accessible paddle takeout',
+        latitude: 37.52439,
+        longitude: -77.4694,
+        mileFromStart: 4.5,
+        segmentKind: 'transition',
+        note: 'Public paddle platform and stairs inside the James River Park System. Enter the signed channel and finish here before the Lower James.',
+      },
+    ],
+    evidenceNotes: [
+      {
+        label: 'Named public corridor',
+        value: 'Pony Pasture Park to Reedy Creek; approximately 3.5–4.5 miles; Class I-II',
+        note: 'The park partner publishes 3.5 miles; American Whitewater publishes 4.5 miles plus the difficulty, route geometry, features, and takeout instructions. Current city and partner pages confirm both public park areas.',
+        sourceUrl: richmondTubingUrl,
+      },
+      {
+        label: 'Direct live gauge and thresholds',
+        value: 'USGS 02037500; AW low-runnable starts at 3.0 ft; product ceiling 9.0 ft',
+        note: 'American Whitewater directly correlates the Richmond station and describes 7 ft and under as the normal beginner/intermediate range. Richmond independently restricts 9 ft and above to experts.',
+        sourceUrl: richmondJamesUsgsDetailUrl,
+      },
+      {
+        label: 'Public endpoints and mandatory takeout',
+        value: 'Pony Pasture canoe access to Reedy Creek accessible platform',
+        note: 'The City identifies Reedy Creek as an accessible takeout, and the park system and its partner document established paddle access. American Whitewater supplies the exact river-right channel and platform approach.',
+        sourceUrl: richmondAccessibleTakeoutUrl,
+      },
+      {
+        label: 'Current urban-water safety layer',
+        value: 'James River Watch bacteria map plus Richmond CSO information',
+        note: 'JRA says conditions can change quickly, weekly bacteria samples can be overtaken by rain or other events, and Richmond paddlers should also review current combined-sewer-overflow releases.',
+        sourceUrl: richmondCsoMapUrl,
+      },
+      {
+        label: 'Rights-clean image decision',
+        value: 'Approved public-domain James River image from Reedy Creek',
+        note: 'The exact takeout-area view is released to the public domain on Wikimedia Commons and stored locally with source credit.',
+        sourceUrl: richmondReedyCreekCommonsImageUrl,
+      },
+    ],
+    sourceLinks: [
+      { label: 'American Whitewater Pony Pasture to Reedy Creek', url: richmondJamesAwUrl, provider: 'american_whitewater' },
+      { label: 'USGS 02037500 monitoring location', url: richmondJamesUsgsDetailUrl, provider: 'usgs' },
+      { label: 'USGS 02037500 current conditions', url: richmondJamesUsgsHydrographUrl, provider: 'usgs' },
+      { label: 'City of Richmond James River Park System', url: richmondJamesParkUrl, provider: 'local' },
+      { label: 'Friends of James River Park Pony Pasture', url: richmondPonyPastureUrl, provider: 'local' },
+      { label: 'Friends of James River Park Reedy Creek', url: richmondReedyCreekUrl, provider: 'local' },
+      { label: 'Friends of James River Park tubing distances', url: richmondTubingUrl, provider: 'local' },
+      { label: 'City of Richmond accessible Reedy Creek takeout plan', url: richmondAccessibleTakeoutUrl, provider: 'local' },
+      { label: 'OpenStreetMap Manchester Canal geometry', url: richmondManchesterCanalOsmUrl, provider: 'manual' },
+      { label: 'James River Watch', url: richmondJamesWaterQualityUrl, provider: 'local' },
+      { label: 'City of Richmond combined sewer overflow map', url: richmondCsoMapUrl, provider: 'local' },
     ],
     scoreEligibility: 'scored',
   },

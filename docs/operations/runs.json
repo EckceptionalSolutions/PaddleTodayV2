@@ -243928,7 +243928,1488 @@
           "detail": "Git repository provides a bounded revert path."
         }
       ]
+    },
+    {
+      "id": "gatekeeper-20260826212322",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T21:22:45.518Z",
+      "completedAt": "2026-08-26T21:23:22.433Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262032 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826212408",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T21:23:32.009Z",
+      "completedAt": "2026-08-26T21:24:08.355Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262032 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-202608262125-va-south-fork-shenandoah-research",
+      "kind": "route_worker",
+      "startedAt": "2026-08-26T20:34:00.000Z",
+      "completedAt": "2026-08-26T21:12:00.000Z",
+      "status": "completed_research_ready",
+      "taskId": "va-corridor-south-fork-shenandoah-luray-family",
+      "workerRole": "route-research",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01629500"
+      ],
+      "routesAdded": 0,
+      "summary": "Cleared Newport-to-White House Landing as an exact 8.46-mile Class I-II South Fork Shenandoah corridor. Virginia DWR confirms both current public accesses and coordinates; American Whitewater explicitly includes the Newport-to-Luray subreach, correlates the encompassing reach directly to USGS 01629500 at 450-2,500 cfs, and identifies the Foltz Mill turbine hazard; access rules, private banks, camping classification, geometry, and fallback-only imagery are explicit."
+    },
+    {
+      "id": "route-worker-202608262125-va-south-fork-shenandoah-implementation",
+      "kind": "route_worker",
+      "startedAt": "2026-08-26T21:12:00.000Z",
+      "completedAt": "2026-08-26T21:24:00.000Z",
+      "status": "implementation_complete",
+      "taskId": "va-implement-south-fork-shenandoah-newport-white-house",
+      "workerRole": "route-implementation",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01629500"
+      ],
+      "routesAdded": 1,
+      "summary": "Implemented south-fork-shenandoah-newport-white-house with direct USGS 01629500 discharge, source-backed 450-2,500 cfs outer limits, a conservative 600-1,600 cfs product ideal band, official DWR endpoints, private-bank and access restrictions, Foltz Mill turbine safety, separate regional-basecamp logistics, fallback-only imagery, and canonical network geometry."
+    },
+    {
+      "id": "independent-verifier-202608262125-va-south-fork-shenandoah",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-26T21:23:00.000Z",
+      "completedAt": "2026-08-26T21:25:00.000Z",
+      "status": "passed_route_scope",
+      "taskId": "va-implement-south-fork-shenandoah-newport-white-house",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01629500"
+      ],
+      "checks": {
+        "evidence": "passed",
+        "access": "passed",
+        "safety": "passed",
+        "gaugeAndThreshold": "passed",
+        "coordinates": "passed",
+        "geometry": "passed",
+        "imageRights": "passed",
+        "duplicateRisk": "passed"
+      },
+      "summary": "Route-scope verification matched the implementation to Virginia DWR, American Whitewater, USGS 01629500, Daughter of Stars guidance, and Virginia State Parks. Newport rates OK in the complete hydrography audit; the official White House ramp is within 38 ft of mapped waterbody and is a non-failing review result; geometry and image-rights posture pass."
+    },
+    {
+      "id": "gatekeeper-202608262125-va-south-fork-shenandoah-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T21:23:00.000Z",
+      "completedAt": "2026-08-26T21:25:00.000Z",
+      "status": "passed",
+      "taskId": "va-implement-south-fork-shenandoah-newport-white-house",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01629500"
+      ],
+      "routesAdded": 1,
+      "summary": "All configured gates passed for Newport-to-White House Landing. Focused Virginia tests are 6/6; the complete repository suite is 486/486 and the API contract is 23/23; 905 route records and 19,132 scoring scenarios pass; typechecks, geometry, gallery, Operations verification, and the 1,298-page build pass. The global coordinate and safety reports retain unrelated pre-existing findings rather than hiding or weakening them.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Virginia DWR, American Whitewater, USGS 01629500, Daughter of Stars guidance, and Virginia State Parks support the route package."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Class I-II character, rocky low-water behavior, medium/high-water waves, Foltz Mill turbine remains, private banks, access restrictions, cold/high/rising water, wood, and legal landing constraints are explicit."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent route-scope review and configured Operations verification pass; the complete 1,180-route coordinate artifact records no route-specific failure."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Focused Virginia tests are 6/6; the repository suite is 486/486; API contract tests are 23/23; 905 route records and 19,132 scoring scenarios, typechecks, geometry, gallery, Operations verification, and the 1,298-page build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes the South Fork route/order and route geometry, then regenerates the Virginia state geometry, canonical manifest, access registry, complete coordinate artifact, and Virginia gauge baseline."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262132-va-shenandoah-family-window-04",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T21:28:00.000Z",
+      "completedAt": "2026-08-26T21:32:00.000Z",
+      "status": "window_complete_implementation_ready",
+      "taskId": "va-state-coverage-shenandoah-family-window-04",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262126",
+      "gaugeKeys": [
+        "usgs:01631000",
+        "usgs:01628500",
+        "usgs:01632000"
+      ],
+      "routesAdded": 0,
+      "summary": "Completed bounded Virginia family window 04. USGS 01632000 cleared a complete direct-gauge Meems Bottom-to-Chapman's Landing package and owns the sole implementation-ready slot. USGS 01631000 remains a viable direct South Fork candidate pending exact public subroute distance and threshold applicability. USGS 01628500 remains blocked pending an exact direct-threshold corridor. Virginia now has 6 covered, 3 explicitly blocked/actionable, and 203 unreviewed gauges."
+    },
+    {
+      "id": "route-worker-202608262132-va-north-fork-shenandoah-research",
+      "kind": "route_worker",
+      "startedAt": "2026-08-26T21:29:00.000Z",
+      "completedAt": "2026-08-26T21:32:00.000Z",
+      "status": "completed_research_ready",
+      "taskId": "va-corridor-north-fork-shenandoah-meems-chapmans",
+      "workerRole": "route-research",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01632000"
+      ],
+      "routesAdded": 0,
+      "summary": "Cleared the exact 15-mile Class I-II Meems Bottom-to-Chapman's Landing route. American Whitewater directly correlates the reach to USGS 01632000 at 3.0-6.0 ft. Current DWR records confirm Meems Bottom gravel access at 38.7066986,-78.65096625 and DWR-owned Chapman's concrete ramp at 38.84543186,-78.52968681. HAB warnings, access-only/private-bank behavior, downstream Chapman's Dam boundary, day-use/no-route-camping classification, coordinates, duplicate risk, and fallback-only imagery are explicit."
+    },
+    {
+      "id": "gatekeeper-20260826213842",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T21:38:06.011Z",
+      "completedAt": "2026-08-26T21:38:42.181Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262126 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-202608262139-va-north-fork-shenandoah-implementation",
+      "kind": "route_worker",
+      "startedAt": "2026-08-26T21:33:00.000Z",
+      "completedAt": "2026-08-26T21:39:00.000Z",
+      "status": "implementation_complete",
+      "taskId": "va-implement-north-fork-shenandoah-meems-chapmans",
+      "workerRole": "route-implementation",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01632000"
+      ],
+      "routesAdded": 1,
+      "summary": "Implemented north-fork-shenandoah-meems-chapmans as a scored 15-mile Class I-II route with direct USGS 01632000 stage, source-backed 3.0-6.0 ft outer limits, a conservative 3.5-5.0 ft product band, authoritative DWR endpoints, HAB/private-bank/access and downstream-dam safety, separate-basecamp logistics, fallback-only imagery, and canonical geometry."
+    },
+    {
+      "id": "independent-verifier-202608262139-va-north-fork-shenandoah",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-26T21:37:00.000Z",
+      "completedAt": "2026-08-26T21:39:00.000Z",
+      "status": "passed_route_scope",
+      "taskId": "va-implement-north-fork-shenandoah-meems-chapmans",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01632000"
+      ],
+      "checks": {
+        "evidence": "passed",
+        "access": "passed",
+        "safety": "passed",
+        "gaugeAndThreshold": "passed",
+        "coordinates": "passed",
+        "geometry": "passed",
+        "imageRights": "passed",
+        "duplicateRisk": "passed"
+      },
+      "summary": "Route-scope verification matched the implementation to American Whitewater's exact reach and 3.0-6.0 ft correlation, USGS 01632000, current DWR boating-access records and GIS coordinates, DWR algae guidance, and Virginia State Parks. The complete coordinate audit records no route failure; Meems Bottom is OK and the authoritative Chapman's ramp is a non-failing review result within 57 ft of mapped waterbody."
+    },
+    {
+      "id": "gatekeeper-202608262139-va-north-fork-shenandoah-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T21:37:00.000Z",
+      "completedAt": "2026-08-26T21:39:00.000Z",
+      "status": "passed",
+      "taskId": "va-implement-north-fork-shenandoah-meems-chapmans",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01632000"
+      ],
+      "routesAdded": 1,
+      "summary": "All configured gates passed for Meems Bottom-to-Chapman's Landing. Focused Virginia tests are 7/7; the complete repository suite is 487/487 and API contract is 23/23; 906 route records and 19,157 scoring scenarios pass; typechecks, geometry, gallery, Operations verification, and the 1,299-page build pass. The global coordinate and safety reports retain unrelated pre-existing findings rather than hiding or weakening them.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "American Whitewater, Virginia DWR access/GIS/alerts, USGS 01632000, and Virginia State Parks support the complete route package."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Class I-II character, low/high/rising-water behavior, rock and wood, cold water, HAB exposure, private banks, access restrictions, and the downstream Chapman's Dam boundary are explicit."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent route-scope review and configured Operations verification pass; the complete 1,181-route/2,734-endpoint coordinate artifact records no route-specific failure."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Focused Virginia tests are 7/7; repository tests are 487/487; API contract tests are 23/23; 906 route records and 19,157 scoring scenarios, typechecks, geometry, gallery, Operations verification, and the 1,299-page production build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes the North Fork route/order and route geometry, then regenerates Virginia state geometry, canonical manifest, access registry, complete coordinate artifact, and Virginia gauge baseline."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262140-va-north-fork-publish-reconcile",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T21:39:00.000Z",
+      "completedAt": "2026-08-26T21:40:00.000Z",
+      "status": "published_next_window_ready",
+      "taskId": "va-implement-north-fork-shenandoah-meems-chapmans",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:01632000"
+      ],
+      "routesAdded": 1,
+      "nextTaskId": "va-state-coverage-north-fork-shenandoah-family-window-05",
+      "summary": "Reconciled USGS 01632000 from blocked candidate to covered/published, restored the durable manual decisions for USGS 01631000 and 01628500 after a provider-refresh reset, and advanced the bounded queue to the two remaining North Fork mainstem gauges. Virginia now has 7 covered, 2 explicitly blocked/actionable, and 203 unreviewed gauges out of 212."
+    },
+    {
+      "id": "gatekeeper-20260826214345",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T21:43:09.960Z",
+      "completedAt": "2026-08-26T21:43:45.610Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826214919",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T21:48:43.261Z",
+      "completedAt": "2026-08-26T21:49:19.159Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262148-va-north-fork-shenandoah-window-05",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T21:44:00.000Z",
+      "completedAt": "2026-08-26T21:48:00.000Z",
+      "status": "window_complete_no_add",
+      "taskId": "va-state-coverage-north-fork-shenandoah-family-window-05",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:01633000",
+        "usgs:01634000"
+      ],
+      "routesAdded": 0,
+      "nextTaskId": "va-state-coverage-james-mainstem-family-window-06",
+      "summary": "Completed the bounded North Fork Shenandoah family screen. USGS 01633000 is an existing-route gap inside the already scored Meems Bottom-to-Chapman's Landing corridor; no distinct public corridor or threshold package tied to that gauge was found. USGS 01634000 remains a blocked candidate: Deer Rapids/Strasburg access and the long American Whitewater reach are real, but the cited runnable range belongs to USGS 01632000 and the long reach retains unresolved dam/portage and legal-access packages. No unsupported gauge substitution was made. Virginia now has 7 covered, 4 explicitly blocked, and 201 unreviewed gauges out of 212."
+    },
+    {
+      "id": "independent-verifier-202608262150-va-north-fork-window-05",
+      "kind": "independent_verification",
+      "startedAt": "2026-08-26T21:48:00.000Z",
+      "completedAt": "2026-08-26T21:50:00.000Z",
+      "status": "passed_no_add_scope",
+      "taskId": "va-state-coverage-north-fork-shenandoah-family-window-05",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01633000",
+        "usgs:01634000"
+      ],
+      "routesAdded": 0,
+      "checks": {
+        "evidence": "passed",
+        "access": "passed",
+        "gaugeAndThreshold": "passed",
+        "duplicateRisk": "passed",
+        "safety": "passed"
+      },
+      "summary": "Independent no-add verification matched the two live USGS gauges against current Virginia DWR North Fork access records and American Whitewater reach 11680. The review confirmed that the available 3.0-6.0 ft correlation is explicitly for USGS 01632000, not 01634000, and that 01633000 does not presently define a distinct route beyond the published Meems-to-Chapman's corridor."
+    },
+    {
+      "id": "gatekeeper-202608262150-va-north-fork-window-05-no-add-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T21:48:00.000Z",
+      "completedAt": "2026-08-26T21:50:00.000Z",
+      "status": "passed",
+      "taskId": "va-state-coverage-north-fork-shenandoah-family-window-05",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:01633000",
+        "usgs:01634000"
+      ],
+      "routesAdded": 0,
+      "summary": "All configured gates passed for the two durable no-add dispositions. The full Operations verification, independent gate tests, typecheck, route audits, and 1,299-page production build pass; no route data changed in this window.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Current USGS monitoring pages, Virginia DWR access/GIS records, and American Whitewater reach 11680 support the recorded dispositions and retry conditions."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "The no-add decision avoids publishing a long corridor before its dam/portage and legal-access package is resolved."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent review confirmed the gauge-correlation mismatch, duplicate-corridor risk, and bounded disposition scope."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Operations verification, gate tests, typecheck, route audits, geometry/gallery validation, and the 1,299-page production build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback restores the two ledger entries, window task, Virginia expansion audit, and these run records; no route implementation requires removal."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826220039",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T22:00:04.393Z",
+      "completedAt": "2026-08-26T22:00:39.572Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262158-va-james-mainstem-window-06",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T21:51:00.000Z",
+      "completedAt": "2026-08-26T21:58:00.000Z",
+      "status": "one_route_published_two_durable_no_add",
+      "taskId": "va-state-coverage-james-mainstem-family-window-06",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02016500",
+        "usgs:02024750",
+        "usgs:02024752"
+      ],
+      "routesAdded": 1,
+      "routeSlug": "james-river-iron-gate-glen-wilton",
+      "nextTaskId": "va-state-coverage-james-mainstem-family-window-07",
+      "summary": "Screened all three gauges separately. USGS 02016500 cleared and produced the scored Iron Gate/Lick Run-to-Glen Wilton route. Stage-only USGS 02024750 at Bedford Dam was screened out because no lawful corridor, portage, and threshold package exists. USGS 02024752 remains explicitly blocked pending an exact public below-dam corridor, station-specific guidance, and complete dam/access safety. Virginia now has 8 covered, 5 blocked, 1 screened out, and 198 unreviewed gauges out of 212."
+    },
+    {
+      "id": "route-implementation-202608262200-va-iron-gate-glen-wilton",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-26T21:54:00.000Z",
+      "completedAt": "2026-08-26T22:00:00.000Z",
+      "status": "published",
+      "taskId": "va-implement-james-river-iron-gate-glen-wilton",
+      "workerRole": "route-implementation",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02016500"
+      ],
+      "routeSlug": "james-river-iron-gate-glen-wilton",
+      "routesAdded": 1,
+      "summary": "Published the 2.5-mile Class I-II Upper James corridor from Iron Gate/Lick Run to Glen Wilton with official public endpoints, direct USGS 02016500 discharge, source-backed 400-20,000 cfs outer limits, conservative product guidance, explicit access/safety/logistics, fallback imagery, and network-traced canonical geometry."
+    },
+    {
+      "id": "independent-verifier-202608262200-va-iron-gate-glen-wilton",
+      "kind": "independent_verification",
+      "startedAt": "2026-08-26T21:58:00.000Z",
+      "completedAt": "2026-08-26T22:00:00.000Z",
+      "status": "passed",
+      "taskId": "va-implement-james-river-iron-gate-glen-wilton",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:02016500"
+      ],
+      "routeSlug": "james-river-iron-gate-glen-wilton",
+      "routesAdded": 1,
+      "checks": {
+        "evidence": "passed",
+        "access": "passed",
+        "gaugeAndThreshold": "passed",
+        "coordinates": "passed",
+        "geometry": "passed",
+        "imageRights": "passed",
+        "duplicateRisk": "passed",
+        "safety": "passed"
+      },
+      "summary": "Independent verification matched the exact corridor and endpoints to the Upper James River Water Trail, the 400-20,000 cfs runnable correlation to American Whitewater and USGS 02016500, and the endpoint coordinates to current hydrography. The complete coordinate report is non-failing for both endpoints, canonical geometry is network-traced, no duplicate scored corridor exists, and fallback-only imagery avoids a rights claim."
+    },
+    {
+      "id": "gatekeeper-202608262200-va-iron-gate-glen-wilton-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T21:58:00.000Z",
+      "completedAt": "2026-08-26T22:00:39.572Z",
+      "status": "passed",
+      "taskId": "va-implement-james-river-iron-gate-glen-wilton",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02016500"
+      ],
+      "routeSlug": "james-river-iron-gate-glen-wilton",
+      "routesAdded": 1,
+      "summary": "All required publication gates passed for james-river-iron-gate-glen-wilton.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Official Upper James corridor and access records, live USGS 02016500 telemetry, and American Whitewater's direct numeric correlation support the route package."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Access-road washout/steepness, private banks, cold or rising water, wood, day-use logistics, and separate camping are explicit; no safety exception was used."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent review passed evidence, access, telemetry, threshold, coordinate, geometry, image-rights, duplicate-risk, and safety checks."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Virginia tests pass 8/8; all 488 repository tests and 23 API contract tests pass; 907 route records and 19,182 scoring scenarios pass; typecheck, route audits, geometry/gallery validation, Operations verification, and the 1,300-page production build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes the Virginia route and river-index records, generated route geometry/access entries, test, ledger/task/audit updates, and these route-specific run records."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826221252",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T22:12:17.349Z",
+      "completedAt": "2026-08-26T22:12:52.541Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262213-va-james-mainstem-window-07",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T22:03:00.000Z",
+      "completedAt": "2026-08-26T22:13:00.000Z",
+      "status": "one_route_published_two_durable_blocked",
+      "taskId": "va-state-coverage-james-mainstem-family-window-07",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02025500",
+        "usgs:02026000",
+        "usgs:02029000"
+      ],
+      "routesAdded": 1,
+      "routeSlug": "james-river-bent-creek-state-park",
+      "nextTaskId": "va-state-coverage-james-tributaries-family-window-08",
+      "summary": "Screened all three gauges separately. USGS 02026000 cleared and produced the scored Bent Creek-to-James River State Park route. USGS 02025500 remains blocked because the 29-mile Snowdon-to-Six Mile reach lacks a current authoritative Six Mile takeout and complete long-route logistics. USGS 02029000 remains blocked because its public Howardsville-to-Scottsville opportunity lacks a station-specific numeric paddling band. Virginia now has 9 covered, 7 blocked, 1 screened out, and 195 unreviewed gauges out of 212."
+    },
+    {
+      "id": "route-implementation-202608262213-va-bent-creek-state-park",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-26T22:04:00.000Z",
+      "completedAt": "2026-08-26T22:13:00.000Z",
+      "status": "published",
+      "taskId": "va-implement-james-river-bent-creek-state-park",
+      "workerRole": "route-implementation",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02026000"
+      ],
+      "routeSlug": "james-river-bent-creek-state-park",
+      "routesAdded": 1,
+      "summary": "Published the 9.3-mile Class I-II James corridor from the maintained Bent Creek ramp to James River State Park with direct USGS 02026000 discharge, source-backed 800-6,000 cfs limits, conservative product guidance, explicit public-access and long-day safety, endpoint camping, fallback imagery, and canonical geometry."
+    },
+    {
+      "id": "independent-verifier-202608262213-va-bent-creek-state-park",
+      "kind": "independent_verification",
+      "startedAt": "2026-08-26T22:10:00.000Z",
+      "completedAt": "2026-08-26T22:13:00.000Z",
+      "status": "passed",
+      "taskId": "va-implement-james-river-bent-creek-state-park",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:02026000"
+      ],
+      "routeSlug": "james-river-bent-creek-state-park",
+      "routesAdded": 1,
+      "checks": {
+        "evidence": "passed",
+        "access": "passed",
+        "gaugeAndThreshold": "passed",
+        "coordinates": "passed",
+        "geometry": "passed",
+        "imageRights": "passed",
+        "duplicateRisk": "passed",
+        "safety": "passed"
+      },
+      "summary": "Independent verification matched the exact 9.3-mile Class I-II corridor and all three access points to American Whitewater, the primary 800-6,000 cfs correlation to live USGS 02026000, the upstream ramp to current DWR access records, and downstream access/camping to James River State Park. Coordinate results are non-failing, canonical geometry is network-traced, no duplicate scored corridor exists, and fallback-only imagery avoids a rights claim."
+    },
+    {
+      "id": "gatekeeper-202608262213-va-bent-creek-state-park-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T22:10:00.000Z",
+      "completedAt": "2026-08-26T22:13:00.000Z",
+      "status": "passed",
+      "taskId": "va-implement-james-river-bent-creek-state-park",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02026000"
+      ],
+      "routeSlug": "james-river-bent-creek-state-park",
+      "routesAdded": 1,
+      "summary": "All required publication gates passed for james-river-bent-creek-state-park.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "American Whitewater's exact corridor and numeric correlation, live USGS telemetry, current DWR access records, and Virginia State Parks sources support the route package."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Class I-II current, rapid rise, cold water, wood, private banks, long-day logistics, park/ramp status, and endpoint camping rules are explicit; no safety exception was used."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent review passed evidence, public access, telemetry, threshold, coordinate, geometry, image-rights, duplicate-risk, camping, and safety checks."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Virginia tests pass 9/9; all 489 repository tests and 23 API contract tests pass; 908 route records and 19,207 scoring scenarios pass; typecheck, route/access/safety/coordinate/geometry/gallery audits, Operations verification, and the 1,301-page production build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes the Virginia route and river-index records, generated geometry/access entries, test, ledger/task/audit updates, and these route-specific run records."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826222137",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T22:21:01.765Z",
+      "completedAt": "2026-08-26T22:21:37.084Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262218-va-james-tributaries-window-08",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T22:13:00.000Z",
+      "completedAt": "2026-08-26T22:18:00.000Z",
+      "status": "three_durable_blocked_no_add",
+      "taskId": "va-state-coverage-james-tributaries-family-window-08",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02027000",
+        "usgs:02027500",
+        "usgs:02028500"
+      ],
+      "routesAdded": 0,
+      "nextTaskId": "va-state-coverage-rivanna-headwaters-family-window-09",
+      "summary": "Fast-screened all three direct-gauge candidates and fully checked the strongest access packages. Upper Tye has direct 250-10,000 cfs guidance but relies on Evergreen Church property; Big Piney has direct 400-2,500 cfs guidance and a National Forest put-in but no manager-confirmed Perkins Mill takeout or lawful low-water-bridge portage package; Upper Rockfish has direct 200-800 cfs guidance and a plausible Wayside endpoint but no manager-confirmed Adial Bridge launch. Virginia DWR's current maintained-access dataset lists none of the three rivers, so all three are durably blocked with material-evidence retry conditions. Virginia now has 9 covered, 10 blocked, 1 screened out, and 192 unreviewed gauges out of 212."
+    },
+    {
+      "id": "independent-verifier-202608262223-va-james-tributaries-window-08",
+      "kind": "independent_verification",
+      "startedAt": "2026-08-26T22:18:00.000Z",
+      "completedAt": "2026-08-26T22:23:00.000Z",
+      "status": "passed_no_add_scope",
+      "taskId": "va-state-coverage-james-tributaries-family-window-08",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:02027000",
+        "usgs:02027500",
+        "usgs:02028500"
+      ],
+      "routesAdded": 0,
+      "checks": {
+        "evidence": "passed",
+        "access": "passed_no_publish",
+        "gaugeAndThreshold": "passed",
+        "duplicateRisk": "passed",
+        "safety": "passed_no_publish"
+      },
+      "summary": "The independent no-add cross-check matched all three named reaches and direct numeric correlations to American Whitewater and live USGS station identities, then separately queried Virginia DWR's current maintained-access service. No Tye, Piney, or Rockfish launch appears there. DWR explicitly says Tye River WMA has no boating access; American Whitewater identifies private-property and hazardous low-water-bridge constraints on Big Piney; and the current evidence does not establish an authoritative Adial Bridge launch for Upper Rockfish. The blocked dispositions are narrower and safer than publishing inferred public access."
+    },
+    {
+      "id": "gatekeeper-202608262218-va-james-tributaries-window-08-no-add-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T22:18:00.000Z",
+      "completedAt": "2026-08-26T22:23:00.000Z",
+      "status": "passed",
+      "taskId": "va-state-coverage-james-tributaries-family-window-08",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02027000",
+        "usgs:02027500",
+        "usgs:02028500"
+      ],
+      "routesAdded": 0,
+      "summary": "All required gates passed for the three durable no-add dispositions; no route data changed in this window.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "American Whitewater reach records, live USGS station identities, Virginia DWR's current access service and Tye WMA page, NPS Appalachian Trail information, and the state Middle James plan support the dispositions and retry conditions."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No route was published across private or unconfirmed access, unresolved low-water-bridge portages, or stale launch-development assumptions; no safety exception was used. The safety audit's existing West Virginia findings are outside this no-route Virginia change."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "The independent no-add cross-check passed evidence, access, direct-gauge correlation, duplicate-risk, and safety scope."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Operations verification and its 12 focused gate tests pass; typecheck, route and geometry audits, all 489 repository tests and 23 API contract tests, 908-route/19,207-scenario sensitivity checks, and the 1,301-page production build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes only the three ledger dispositions, window-08 task completion fields, window-09 ready task, Virginia audit update, and these three run records."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262235-va-rivanna-headwaters-window-09",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T22:18:00.000Z",
+      "completedAt": "2026-08-26T22:35:00.000Z",
+      "status": "one_route_published_two_durable_blocked",
+      "taskId": "va-state-coverage-rivanna-headwaters-family-window-09",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02030000",
+        "usgs:02030500",
+        "usgs:02031000"
+      ],
+      "routesAdded": 1,
+      "routeSlug": "hardware-river-route-6-wma-bridge",
+      "nextTaskId": "va-state-coverage-rivanna-mainstem-family-window-10",
+      "summary": "Screened all three gauges separately. USGS 02030000 cleared and produced the scored Route 6-to-Hardware River WMA bridge route. USGS 02030500 remains blocked because the only DWR Slate result is an off-corridor watershed/lake facility and no exact river corridor or numeric guidance was found. USGS 02031000 remains blocked because seasonal-use context does not establish public endpoints, DWR access, or numeric guidance tied to that station. Virginia now has 10 covered, 12 blocked, 1 screened out, and 189 unreviewed gauges out of 212."
+    },
+    {
+      "id": "route-implementation-202608262235-va-hardware-river",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-26T22:24:00.000Z",
+      "completedAt": "2026-08-26T22:35:00.000Z",
+      "status": "published",
+      "taskId": "va-implement-hardware-river-route-6-wma-bridge",
+      "workerRole": "route-implementation",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02030000"
+      ],
+      "routeSlug": "hardware-river-route-6-wma-bridge",
+      "routesAdded": 1,
+      "summary": "Published the 6.8-mile Class I-II Hardware River corridor from the DWR-maintained Route 6 ramp to the low-water bridge and parking inside Hardware River WMA with direct USGS 02030000 discharge, source-backed 190-7,500 cfs limits, a conservative product band, mandatory takeout, explicit WMA permit/camping and private-bank safety, fallback imagery, and canonical geometry."
+    },
+    {
+      "id": "independent-verifier-202608262235-va-hardware-river",
+      "kind": "independent_verification",
+      "startedAt": "2026-08-26T22:30:00.000Z",
+      "completedAt": "2026-08-26T22:35:00.000Z",
+      "status": "passed",
+      "taskId": "va-implement-hardware-river-route-6-wma-bridge",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:02030000"
+      ],
+      "routeSlug": "hardware-river-route-6-wma-bridge",
+      "routesAdded": 1,
+      "checks": {
+        "evidence": "passed",
+        "access": "passed",
+        "gaugeAndThreshold": "passed",
+        "coordinates": "passed",
+        "geometry": "passed",
+        "imageRights": "passed",
+        "duplicateRisk": "passed",
+        "safety": "passed"
+      },
+      "summary": "Independent verification matched American Whitewater's named 6.8-mile Class I-II reach and 190-7,500 cfs correlation to direct USGS 02030000, then independently matched both endpoints to current DWR access data and the official WMA map. The bridge and adjacent parking are inside the public WMA; both endpoint coordinates are within 8 feet of Hardware River hydrography; canonical geometry is network-traced; no duplicate scored corridor exists; the bridge is a mandatory takeout; and fallback-only imagery avoids a rights claim."
+    },
+    {
+      "id": "gatekeeper-202608262235-va-hardware-river-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T22:30:00.000Z",
+      "completedAt": "2026-08-26T22:40:00.000Z",
+      "status": "passed",
+      "taskId": "va-implement-hardware-river-route-6-wma-bridge",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02030000",
+        "usgs:02030500",
+        "usgs:02031000"
+      ],
+      "routeSlug": "hardware-river-route-6-wma-bridge",
+      "routesAdded": 1,
+      "summary": "All required publication gates passed for Hardware River, and all required durable no-add gates passed for Slate and Mechums.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "American Whitewater's exact Hardware corridor and numeric correlation, live USGS telemetry, current DWR access/WMA records, the official WMA map, current WMA rules, and DWR alerts support the route package. USGS, DWR, James River Association, and Rivanna watershed sources support the two no-add dispositions."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "The Hardware bridge is a mandatory takeout; the unresolved downstream bridge/tree section is excluded. Wood, rapid rise, cold water, private banks, hunting, WMA permits, gates, camping, and closures are explicit. No route was published for Slate or Mechums across missing access/threshold evidence, and no safety exception was used."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent review passed evidence, public access, telemetry, threshold, coordinate, geometry, image-rights, duplicate-risk, camping, and safety checks for Hardware and confirmed the narrower no-add scope for Slate and Mechums."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Virginia tests pass 10/10; all 490 repository tests and 23 API contract tests pass; 909 route records and 19,232 scoring scenarios pass; typecheck, route/access/safety/coordinate/geometry/gallery audits, Operations verification, and the production build pass. Hardware's endpoints are coordinate-audit OK and its canonical geometry is network-traced."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes the Hardware route and river-index records, generated route geometry/access entries, focused test, three ledger dispositions, task/audit updates, and these route-specific run records."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826223701",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T22:36:24.641Z",
+      "completedAt": "2026-08-26T22:37:01.906Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826224423",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T22:43:48.870Z",
+      "completedAt": "2026-08-26T22:44:23.976Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826224459",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T22:44:24.430Z",
+      "completedAt": "2026-08-26T22:44:59.503Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262245-va-rivanna-window-10",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T22:38:00.000Z",
+      "completedAt": "2026-08-26T22:45:00.000Z",
+      "status": "two_durable_blocked_one_screened_out_no_add",
+      "taskId": "va-state-coverage-rivanna-mainstem-family-window-10",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02032250",
+        "usgs:02032515",
+        "usgs:02032640"
+      ],
+      "routesAdded": 0,
+      "nextTaskId": "va-state-coverage-rivanna-james-fine-creek-family-window-11",
+      "summary": "Fast-screened all three Rivanna-family gauges and published no route. Moormans and North Fork Rivanna are documented direct-gauge paddling corridors but remain blocked by current public-access, dam/portage, safety, and exact threshold-package gaps. South Fork Rivanna is screened out because the officially supported opportunity is reservoir recreation rather than a gauge-responsive point-to-point river route. Virginia now has 10 covered, 14 blocked, 2 screened out, and 186 unreviewed gauges out of 212."
+    },
+    {
+      "id": "independent-verifier-202608262245-va-rivanna-window-10",
+      "kind": "independent_verification",
+      "startedAt": "2026-08-26T22:42:00.000Z",
+      "completedAt": "2026-08-26T22:45:00.000Z",
+      "status": "passed_no_add_scope",
+      "taskId": "va-state-coverage-rivanna-mainstem-family-window-10",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:02032250",
+        "usgs:02032515",
+        "usgs:02032640"
+      ],
+      "routesAdded": 0,
+      "checks": {
+        "evidence": "passed",
+        "access": "passed_no_publish",
+        "gaugeAndThreshold": "passed",
+        "duplicateRisk": "passed",
+        "safety": "passed_no_publish"
+      },
+      "summary": "The independent no-add cross-check matched Moormans and North Fork Rivanna to direct USGS gauges and American Whitewater corridors, then checked current RWSA recreation rules, Virginia DWR maintained access, DWR alerts, and Albemarle County's current launch system. Sugar Hollow prohibits boating; no maintained Moormans or North Fork endpoints were found; North Fork's dam portages and minimum stages remain unresolved; and South Fork's supported use is reservoir paddling while official mainstem launches lie below the dam. The durable no-add dispositions are narrower and safer than inferring access or gauge applicability."
+    },
+    {
+      "id": "gatekeeper-202608262245-va-rivanna-window-10-no-add-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T22:42:00.000Z",
+      "completedAt": "2026-08-26T22:45:00.000Z",
+      "status": "passed",
+      "taskId": "va-state-coverage-rivanna-mainstem-family-window-10",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02032250",
+        "usgs:02032515",
+        "usgs:02032640"
+      ],
+      "routesAdded": 0,
+      "summary": "All required gates passed for the three durable no-add dispositions; no route data changed in this window.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Live USGS station identities, current RWSA reservoir and recreation rules, American Whitewater corridor records, Virginia DWR alerts and maintained-access data, and Albemarle County's current river-launch information support each disposition and retry condition."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No route was published across a no-boating reservoir rule, unconfirmed private or road-crossing access, unresolved dam portages, conflicting stage guidance, or current wood/fence hazards. No safety exception was used; the safety audit's two existing West Virginia findings are outside this no-route Virginia change."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent review passed evidence, access, direct-gauge identity, duplicate-risk, and no-publish safety scope."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Operations gate tests pass 12/12; all 490 repository tests and 23 API contract tests pass; 909 route records and 19,232 scoring scenarios pass; typecheck, route and geometry audits, Operations verification, and the 1,302-page production build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes only the three ledger dispositions, window-10 task completion fields, window-11 ready task, Virginia audit update, and these three run records."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826225054",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T22:50:19.521Z",
+      "completedAt": "2026-08-26T22:50:54.254Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262251-va-rivanna-james-fine-creek-window-11",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T22:45:00.000Z",
+      "completedAt": "2026-08-26T22:51:00.000Z",
+      "status": "two_durable_blocked_one_screened_out_no_add",
+      "taskId": "va-state-coverage-rivanna-james-fine-creek-family-window-11",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02034000",
+        "usgs:02035000",
+        "usgs:02036500"
+      ],
+      "routesAdded": 0,
+      "nextTaskId": "va-state-coverage-richmond-transition-family-window-12",
+      "summary": "Fast-screened all three gauges. Crofton-to-Palmyra and Cartersville-to-West View have exact official corridors and current DWR-owned endpoints, but neither has numeric paddling guidance tied to its exact direct gauge and route; both remain high-quality retryable blocked opportunities. Fine Creek has fresh telemetry but no supported public paddling corridor and is screened out. Virginia now has 10 covered, 16 blocked, 3 screened out, and 183 unreviewed gauges out of 212."
+    },
+    {
+      "id": "independent-verifier-202608262251-va-window-11",
+      "kind": "independent_verification",
+      "startedAt": "2026-08-26T22:48:00.000Z",
+      "completedAt": "2026-08-26T22:51:00.000Z",
+      "status": "passed_no_add_scope",
+      "taskId": "va-state-coverage-rivanna-james-fine-creek-family-window-11",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:02034000",
+        "usgs:02035000",
+        "usgs:02036500"
+      ],
+      "routesAdded": 0,
+      "checks": {
+        "evidence": "passed",
+        "access": "passed",
+        "gaugeAndThreshold": "passed_no_publish",
+        "duplicateRisk": "passed",
+        "safety": "passed_no_publish"
+      },
+      "summary": "The independent check matched all four Rivanna and James endpoints to current DWR-owned access records and matched both official float descriptions and direct USGS station identities. It also confirmed that the Palmyra minimum found in American Whitewater trip reports belongs to a different upstream reach, while Cartersville flood and low-flow values are hydrologic limits rather than recreational guidance. No current DWR Fine Creek access or recognized corridor was found. The two blocked and one screened-out dispositions preserve valuable source leads without inventing thresholds."
+    },
+    {
+      "id": "gatekeeper-202608262251-va-window-11-no-add-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T22:48:00.000Z",
+      "completedAt": "2026-08-26T22:51:00.000Z",
+      "status": "passed",
+      "taskId": "va-state-coverage-rivanna-james-fine-creek-family-window-11",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:02034000",
+        "usgs:02035000",
+        "usgs:02036500"
+      ],
+      "routesAdded": 0,
+      "summary": "All required gates passed for the three durable no-add dispositions; no route data changed in this window.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Live USGS metadata, current DWR access records, DWR's official Rivanna and James float descriptions, Goochland County launch guidance, American Whitewater's separate upstream Rivanna correlation, flood-stage sources, and Powhatan/Middle James planning evidence support each disposition and retry condition."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No recreational threshold was inferred from a different corridor, historical hydrologic minima, or flood stage; no route was published without a complete numeric package. No safety exception was used, and the safety audit's two existing West Virginia findings remain visible outside this Virginia no-route change."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent review passed corridor identity, current public access, direct station identity, duplicate-risk, threshold non-transfer, and no-publish safety scope."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Operations gate tests pass 12/12; all 490 repository tests and 23 API contract tests pass; 909 route records and 19,232 scoring scenarios pass; typecheck, route and geometry audits, Operations verification, and the 1,302-page production build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes only the three ledger dispositions, window-11 task completion fields, window-12 ready task, Virginia audit update, and these three run records."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260826230542",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-26T23:05:05.556Z",
+      "completedAt": "2026-08-26T23:05:42.997Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608262139 records 4537 gauges across 19 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "state-coverage-202608262303-va-richmond-window-12",
+      "kind": "state_coverage",
+      "startedAt": "2026-08-26T22:51:00.000Z",
+      "completedAt": "2026-08-26T23:06:00.000Z",
+      "status": "one_covered_two_screened_out_one_route_added",
+      "taskId": "va-state-coverage-richmond-transition-family-window-12",
+      "workerRole": "gauge-coverage",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:0203668750",
+        "usgs:02037500",
+        "usgs:0203755233"
+      ],
+      "routesAdded": 1,
+      "routeSlugs": ["james-river-pony-pasture-reedy-creek"],
+      "nextTaskId": null,
+      "nextQueuePointer": [
+        "usgs:02037724",
+        "usgs:02038730",
+        "usgs:0203873175"
+      ],
+      "summary": "Published Pony Pasture Park-to-Reedy Creek on direct USGS 02037500 after the route cleared all gates. Screened out Tuckahoe Creek because current park rules prohibit boating and its Wilton launch remains only a plan concept. Screened out Little Westham Creek because official use is a restored campus eco-corridor rather than paddling. Virginia now has 11 covered, 16 blocked, 5 screened out, and 180 unreviewed gauges out of 212. The next three inventory records are recorded only as a pointer; execution is paused per the user's instruction and no ready task was created."
+    },
+    {
+      "id": "route-implementation-202608262303-va-usgs-02037500",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-26T22:56:00.000Z",
+      "completedAt": "2026-08-26T23:06:00.000Z",
+      "status": "passed",
+      "taskId": "va-route-implementation-james-pony-pasture-reedy-creek",
+      "workerRole": "route-implementation",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": ["usgs:02037500"],
+      "routesAdded": 1,
+      "routeSlugs": ["james-river-pony-pasture-reedy-creek"],
+      "summary": "Added a scored 4.5-mile Class I-II urban whitewater route with public Pony Pasture and Reedy Creek endpoints, direct Richmond stage, source-backed 3.0 ft low-runnable evidence, a conservative 4.0-7.0 ft ideal band, 9.0 ft product ceiling, mandatory takeout, water-quality checks, no camping assumption, and fallback-only imagery."
+    },
+    {
+      "id": "independent-verifier-202608262303-va-richmond-window-12",
+      "kind": "independent_verification",
+      "startedAt": "2026-08-26T22:59:00.000Z",
+      "completedAt": "2026-08-26T23:06:00.000Z",
+      "status": "passed",
+      "taskId": "va-state-coverage-richmond-transition-family-window-12",
+      "workerRole": "independent-verifier",
+      "stateId": "VA",
+      "gaugeKeys": [
+        "usgs:0203668750",
+        "usgs:02037500",
+        "usgs:0203755233"
+      ],
+      "routesAdded": 1,
+      "checks": {
+        "evidence": "passed",
+        "access": "passed",
+        "gaugeAndThreshold": "passed",
+        "duplicateRisk": "passed",
+        "safety": "passed",
+        "coordinates": "passed"
+      },
+      "summary": "Independent review confirmed American Whitewater's exact corridor, direct 02037500 correlation, route geometry, features, and Reedy Creek mandatory takeout; current Richmond public-park and 9-foot expert-only rules; James River Watch/CSO caveats; and valid water-entry coordinates. It independently preserved the two tributary no-add decisions rather than treating a future launch concept or campus restoration creek as routes."
+    },
+    {
+      "id": "gatekeeper-202608262303-va-richmond-window-12-pass",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-26T23:00:00.000Z",
+      "completedAt": "2026-08-26T23:06:00.000Z",
+      "status": "passed",
+      "taskId": "va-state-coverage-richmond-transition-family-window-12",
+      "workerRole": "gatekeeper",
+      "stateId": "VA",
+      "inventoryId": "provider-baseline-202608262139",
+      "gaugeKeys": [
+        "usgs:0203668750",
+        "usgs:02037500",
+        "usgs:0203755233"
+      ],
+      "routesAdded": 1,
+      "routeSlugs": ["james-river-pony-pasture-reedy-creek"],
+      "summary": "All required gates passed for the Richmond window and its one-route publication. No safety exception or policy change was used; the user's post-task pause was recorded without opening the next task.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "The exact named corridor, public endpoints, direct gauge, numeric correlation, current high-water rule, mandatory takeout, water-quality caveats, camping decision, and image decision are source-backed."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "The route requires a fitted PFD, narrows the ideal band to 4.0-7.0 ft, cancels at Richmond's 9-foot expert threshold, preserves whitewater/strainer/long-swim/urban-water hazards, and makes Reedy Creek a hard takeout. The safety audit's two existing West Virginia findings remain visible and are unrelated."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent review passed evidence, access, gauge/threshold, duplicate, safety, coordinates, and both tributary no-add dispositions."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Focused Virginia tests pass 11/11; Operations gate tests pass 12/12; all 491 repository tests and 23 API tests pass; route audit passes 910 routes; 19,257 scoring scenarios pass; typecheck, generated access, geometry, coordinate, Operations verification, and the 1,303-page production build pass."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Bounded rollback removes only the new Virginia route and test, its route-order/access/geometry generated entries, three ledger dispositions, two completed tasks, Virginia audit update, and these four run records."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-20260826234944-no-work",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-26T23:49:44.990Z",
+      "completedAt": "2026-08-26T23:49:44.990Z",
+      "status": "no_work",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "wipLimit": "passed",
+        "eligibility": "passed",
+        "routeDataUnchanged": "passed",
+        "routeAndTripDetailCorpusRead": "passed",
+        "coordinateGeometrySafetyArtifactsParsed": "passed"
+      },
+      "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 37 materialized consolidation tasks are terminal (36 completed, one blocked), zero reviews are active, and five queue findings remain new medium-priority items without materialized tasks. Read all 21 route modules and 21 trip-detail modules and parsed the coordinate, geometry, safety, access, corridor, and rollback-policy evidence artifacts. No route, corridor, or task record changed in this run."
     }
   ],
-  "updatedAt": "2026-08-26T20:33:00.000Z"
+  "updatedAt": "2026-08-26T23:49:44.990Z"
 }

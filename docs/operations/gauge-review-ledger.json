@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-26T20:32:27.961Z",
+  "updatedAt": "2026-08-26T23:03:00.000Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
@@ -8,7 +8,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -41,7 +41,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -64,7 +64,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -87,7 +87,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -691,7 +691,7 @@
       "routeReadiness": "unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -1671,7 +1671,7 @@
       "routeReadiness": "unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -8744,7 +8744,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -8938,72 +8938,107 @@
     },
     {
       "key": "usgs:01628500",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
-    },
-    {
-      "key": "usgs:01629500",
       "status": "blocked",
       "routeReadiness": "research_needed",
       "eligibility": "route_capable",
-      "relationship": "none",
-      "checkedAt": "2026-08-26T20:33:00.000Z",
-      "decisionReason": "The South Fork Shenandoah near Luray remains an actionable route family, but the first screened Bixler-to-Bentonville corridor uses downstream USGS 01631000. Research must identify a named public endpoint pair and route-specific threshold evidence defensibly tied to 01629500 before this gauge can count as covered.",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:31:00.000Z",
+      "decisionReason": "The South Fork Shenandoah is a named public paddling corridor and USGS 01628500 supplies current direct telemetry near Lynnwood, but the bounded review did not find an exact public endpoint pair with route-specific runnable thresholds explicitly tied to this gauge. Preserve the opportunity without inferring a route or threshold.",
       "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [
-        "South Fork Shenandoah River"
+        "south-fork-shenandoah-river"
       ],
       "blockers": [
-        "No exact public corridor has yet been verified as directly represented by USGS 01629500.",
-        "Do not reuse the downstream USGS 01631000 correlation or thresholds without corridor-specific evidence."
+        "Find an exact named public endpoint pair whose runnable guidance is explicitly correlated to USGS 01628500.",
+        "Verify route distance, access, safety, and threshold applicability without borrowing downstream gauge guidance."
       ],
       "evidence": [
         "https://dwr.virginia.gov/boating/access/?find_by_waterbody=S.+Fork+Shenandoah+River",
-        "https://www.americanwhitewater.org/content/River/view/river-detail/2016/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01628500/"
+      ]
+    },
+    {
+      "key": "usgs:01629500",
+      "status": "covered",
+      "routeReadiness": "published",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:25:00.000Z",
+      "decisionReason": "The published Newport-to-White House Landing route is an exact named public corridor directly represented by USGS 01629500. Virginia DWR confirms both access points, American Whitewater supplies the encompassing Class I-II reach and 450-2,500 cfs correlation, and the route passes evidence, safety, coordinate, geometry, test, build, verification, and rollback gates.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "south-fork-shenandoah-newport-white-house"
+      ],
+      "scoredRouteSlugs": [
+        "south-fork-shenandoah-newport-white-house"
+      ],
+      "routeFamilies": [
+        "south-fork-shenandoah-river"
+      ],
+      "blockers": [],
+      "evidence": [
+        "src/data/routes/virginia.ts",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=S.+Fork+Shenandoah+River",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2015/main",
         "https://waterdata.usgs.gov/monitoring-location/USGS-01629500/"
       ]
     },
     {
       "key": "usgs:01631000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:31:00.000Z",
+      "decisionReason": "American Whitewater directly correlates its Class I-II Bixler's Bridge-to-Bentonville reach to USGS 01631000 at 1.25-3.8 ft, and DWR lists multiple current public South Fork accesses. The candidate remains blocked because the best bounded public subroute still needs an exact source-backed distance and threshold applicability package before implementation.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "south-fork-shenandoah-river"
+      ],
+      "blockers": [
+        "Select an exact current DWR endpoint pair wholly inside the AW reach and verify its river distance.",
+        "Confirm that the 1.25-3.8 ft AW correlation applies to that exact subroute rather than inferring from a downstream anecdotal minimum."
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2016/main",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=S.+Fork+Shenandoah+River",
+        "https://dwr.virginia.gov/vbwt/mountain-trail/MDS/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01631000/"
+      ]
     },
     {
       "key": "usgs:01632000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "routeReadiness": "published",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:39:00.000Z",
+      "decisionReason": "Published north-fork-shenandoah-meems-chapmans as a scored 15-mile Class I-II route after clearing evidence, public-access, HAB/downstream-dam safety, direct-gauge threshold, coordinate, geometry, independent-verification, full-test, production-build, and rollback gates.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "north-fork-shenandoah-meems-chapmans"
+      ],
+      "scoredRouteSlugs": [
+        "north-fork-shenandoah-meems-chapmans"
+      ],
+      "routeFamilies": [
+        "north-fork-shenandoah-river"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "src/data/routes/virginia.ts",
+        "public/data/canonical-river-geometries/routes/north-fork-shenandoah-meems-chapmans.json",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11682/main",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=N.+Fork+Shenandoah+River",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer/0",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01632000/",
+        "https://dwr.virginia.gov/alerts/",
+        "https://www.dcr.virginia.gov/state-parks/seven-bends"
+      ]
     },
     {
       "key": "usgs:01632082",
@@ -9052,33 +9087,56 @@
     },
     {
       "key": "usgs:01633000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
+      "status": "blocked",
+      "routeReadiness": "existing_route_gap",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:47:00.000Z",
+      "decisionReason": "USGS 01633000 is fresh direct North Fork telemetry at Mount Jackson, but the exact corridor around the station is already represented by the scored Meems Bottom-to-Chapman's Landing route. That route's source-backed runnable correlation is explicitly tied to upstream USGS 01632000, and the bounded screen found no separate named public corridor or route-specific numeric guidance tied to 01633000. Do not duplicate the route or substitute gauges without source support.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "north-fork-shenandoah-meems-chapmans"
+      ],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "north-fork-shenandoah-river"
+      ],
+      "blockers": [
+        "Exact corridor is already represented by a scored route using the source-designated USGS 01632000 correlation.",
+        "Retry only if a distinct public endpoint pair and route-specific numeric thresholds explicitly tied to USGS 01633000 are published."
+      ],
+      "evidence": [
+        "src/data/routes/virginia.ts",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11682/main",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=N.+Fork+Shenandoah+River",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01633000/"
+      ]
     },
     {
       "key": "usgs:01634000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:47:00.000Z",
+      "decisionReason": "USGS 01634000 has fresh direct discharge and stage near Strasburg, and DWR confirms public Deer Rapids and Strasburg accesses. American Whitewater names a Class I-II Chapman's Landing-to-Deer Rapids reach, but explicitly correlates its 3.0-6.0 ft runnable range to USGS 01632000 rather than 01634000. No route-specific numeric threshold source tied to 01634000 was found in the bounded screen, so a scored route would require an unsupported gauge substitution.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "north-fork-shenandoah-river"
+      ],
+      "blockers": [
+        "Find route-specific numeric runnable guidance explicitly correlated to USGS 01634000 for an exact public endpoint pair.",
+        "For the long Chapman's-to-Deer Rapids reach, independently clear both dam/portage locations and legal landing constraints before implementation."
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11680/main",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=N.+Fork+Shenandoah+River",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer/0",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01634000/",
+        "https://dwr.virginia.gov/alerts/"
+      ]
     },
     {
       "key": "usgs:01634500",
@@ -9581,7 +9639,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -10095,18 +10153,30 @@
     },
     {
       "key": "usgs:02016500",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "routeReadiness": "published",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:58:00.000Z",
+      "decisionReason": "Published the scored Iron Gate/Lick Run-to-Glen Wilton route after the official Upper James River Water Trail established the exact public endpoint pair, coordinates, 2.5-mile itinerary, and Class I-II character, and American Whitewater explicitly correlated its Iron Gate-Glen Wilton reach to direct USGS 02016500 discharge with 400-20,000 cfs runnable limits.",
+      "decisionSource": "manual_gauge_review",
+      "routeSlugs": [
+        "james-river-iron-gate-glen-wilton"
+      ],
+      "scoredRouteSlugs": [
+        "james-river-iron-gate-glen-wilton"
+      ],
+      "routeFamilies": [
+        "james-river"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "src/data/routes/virginia.ts",
+        "https://upperjamesriverwatertrail.com/plan-a-trip/suggested-floats/",
+        "https://upperjamesriverwatertrail.com/plan-a-trip/access-points/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/5023/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02016500/"
+      ]
     },
     {
       "key": "usgs:02017500",
@@ -10159,7 +10229,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -10227,7 +10297,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -10246,33 +10316,54 @@
     },
     {
       "key": "usgs:02024750",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:58:00.000Z",
+      "decisionReason": "USGS 02024750 is a stage-only station immediately upstream of the Bedford hydroelectric dam headgates. The bounded screen found no named public point-to-point paddling corridor, legal dam portage, paired public endpoints, or route-specific runnable thresholds tied to this station. A dam-monitoring stage alone is not a route opportunity.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "james-river"
+      ],
+      "blockers": [
+        "Station provides gage height only at Bedford Dam and has no accepted route-specific runnable correlation.",
+        "No lawful dam portage and paired public endpoint package was found.",
+        "Retry only if a managing authority publishes a named corridor, legal portage/access plan, and station-specific numeric guidance."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02024750/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02024750",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=James+River"
+      ]
     },
     {
       "key": "usgs:02024752",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T21:58:00.000Z",
+      "decisionReason": "USGS 02024752 supplies fresh direct discharge and stage below Bedford Dam near Big Island, and the broader James corridor is paddle-relevant. The bounded screen did not find a distinct named public endpoint pair with route-specific numeric guidance tied to 02024752, and any route spanning the Snowden/Big Island area must independently resolve Bedford Dam avoidance or portage and legal access. Preserve as a candidate rather than inventing a gauge substitution or corridor.",
+      "decisionSource": "manual_gauge_review",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "james-river"
+      ],
+      "blockers": [
+        "Find an exact public endpoint pair wholly compatible with the station's position below Bedford Dam.",
+        "Find route-specific numeric runnable guidance explicitly correlated to USGS 02024752.",
+        "Independently clear Bedford Dam avoidance or legal portage and all access restrictions before implementation."
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02024752/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02024752",
+        "https://upperjamesriverwatertrail.com/maps/",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=James+River"
+      ]
     },
     {
       "key": "usgs:02024915",
@@ -10291,18 +10382,28 @@
     },
     {
       "key": "usgs:02025500",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:13:00.000Z",
+      "decisionReason": "USGS 02025500 has fresh direct discharge and American Whitewater ties it to the named 29-mile Snowdon-to-Six Mile Class I-II reach with a 724-38,400 cfs correlation. The bounded screen confirmed current public Snowden access but did not find Six Mile in the current Virginia DWR public-access inventory or another authoritative legal takeout package. The unusually long reach also needs current intermediate exits, private-bank constraints, and emergency logistics before publication.",
+      "decisionSource": "manual_gauge_review_202608262213",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "James River"
+      ],
+      "blockers": [
+        "Six Mile takeout is not confirmed in the current Virginia DWR public-access inventory",
+        "29-mile route needs current intermediate public exits, private-bank constraints, and emergency/daylight logistics"
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1950/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02025500/",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=James+River",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer/0"
+      ]
     },
     {
       "key": "usgs:02025652",
@@ -10321,258 +10422,441 @@
     },
     {
       "key": "usgs:02026000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "routeReadiness": "published",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:13:00.000Z",
+      "decisionReason": "The scored Bent Creek-to-James River State Park route uses USGS 02026000 directly. American Whitewater publishes the exact 9.3-mile Class I-II corridor, endpoint coordinates, and 800-6,000 cfs correlation; DWR confirms the maintained Bent Creek ramp and Virginia State Parks confirms the downstream park and Bent Creek-to-Canoe Landing trip.",
+      "decisionSource": "manual_gauge_review_202608262213",
+      "routeSlugs": [
+        "james-river-bent-creek-state-park"
+      ],
+      "scoredRouteSlugs": [
+        "james-river-bent-creek-state-park"
+      ],
+      "routeFamilies": [
+        "James River"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "src/data/routes/virginia.ts",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11778/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02026000/",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=James+River",
+        "https://www.dcr.virginia.gov/state-parks/james-river"
+      ]
     },
     {
       "key": "usgs:02027000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:18:00.000Z",
+      "decisionReason": "USGS 02027000 has fresh direct discharge and American Whitewater ties it to the named 8.8-mile Upper Tye Class III-IV reach with a 250-10,000 cfs correlation. The standard upstream access is Evergreen Church property, while the short downstream option uses Appalachian Trail parking. Current Virginia DWR access records contain no Tye launch, and DWR explicitly says the downstream Tye River WMA has no boating access and warns that a gated road crosses posted private property. The route remains a candidate until both launch and parking permission are authoritative and current.",
+      "decisionSource": "manual_gauge_review_202608262218",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Tye River"
+      ],
+      "blockers": [
+        "No current managing-authority source confirms public boat launching and shuttle parking at the Evergreen Church put-in.",
+        "Virginia DWR lists no maintained Tye River boating access and explicitly says Tye River WMA has no boating access.",
+        "Retry only after a public manager or landowner publishes current launch and parking permission for a complete endpoint pair, followed by full access, whitewater-safety, and logistics review."
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2024/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02027000/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0",
+        "https://dwr.virginia.gov/wma/tye-river/",
+        "https://www.nps.gov/appa/planyourvisit/basicinfo.htm"
+      ]
     },
     {
       "key": "usgs:02027500",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:18:00.000Z",
+      "decisionReason": "USGS 02027500 has fresh direct discharge and American Whitewater ties it to the named 3.5-mile Big Piney Class III-IV reach from a George Washington National Forest sign above Alhambra to VA 827/Perkins Mill Road, with a 400-2,500 cfs correlation. The put-in is described on National Forest land, but no current public manager confirms the Perkins Mill Road takeout or parking. American Whitewater also documents longstanding landowner conflict, shots fired historically, private-land constraints, and multiple low-water bridges with potentially lethal hydraulics. Publishing without authoritative takeout and portage permission would fail access and safety gates.",
+      "decisionSource": "manual_gauge_review_202608262218",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Piney River"
+      ],
+      "blockers": [
+        "No current public manager confirms legal takeout and shuttle parking at VA 827/Perkins Mill Road.",
+        "Portage permission around the low-water bridges is not established, while American Whitewater documents lethal-hydraulic risk and private-land conflict.",
+        "Retry only after authoritative takeout/parking and portage permission exists and a fresh hazard/logistics review clears the corridor."
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1984/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02027500/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0",
+        "https://www.fs.usda.gov/r08/gwj"
+      ]
     },
     {
       "key": "usgs:02028500",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:18:00.000Z",
+      "decisionReason": "USGS 02028500 has fresh direct discharge and American Whitewater ties it to the named 2.8-mile Upper Rockfish Class I-II(III) reach from Adial Bridge to the Nelson County Wayside, with a 200-800 cfs correlation. The Wayside is a plausible public endpoint, but the current Virginia DWR maintained-access dataset contains no Rockfish site and no current public manager confirms boat launching or shuttle parking at Adial Bridge. A 2020 state recreational plan described the Wayside soft launch and other downstream launches as still under development, which is not current proof that a complete endpoint pair opened. The old partial dam, rebar, and wood hazards also require a fresh route package after access clears.",
+      "decisionSource": "manual_gauge_review_202608262218",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Rockfish River"
+      ],
+      "blockers": [
+        "No current managing-authority source confirms public launch and shuttle parking at Adial Bridge.",
+        "Virginia DWR's maintained-access dataset contains no Rockfish River site, and the state plan only documents launch development intent rather than current completion.",
+        "Retry after a public manager confirms a complete endpoint pair; then refresh the partial-dam, rebar, wood, private-bank, and logistics package."
+      ],
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11050/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02028500/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0",
+        "https://www.dcr.virginia.gov/recreational-planning/document/MiddleJamesPlan.pdf"
+      ]
     },
     {
       "key": "usgs:02029000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:13:00.000Z",
+      "decisionReason": "USGS 02029000 supplies fresh direct discharge and stage at Scottsville. Current DWR access records confirm the public Howardsville and Scottsville ramps, and a named roughly 12-mile recreational corridor is documented. The bounded screen did not find a route-specific numeric paddling band explicitly tied to 02029000, so the corridor remains a candidate rather than receiving inferred thresholds.",
+      "decisionSource": "manual_gauge_review_202608262213",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "James River"
+      ],
+      "blockers": [
+        "no route-specific numeric paddling threshold or conservative minimum-only rule tied to USGS 02029000",
+        "full route package still needs current private-bank, safety, time, and camping/logistics evidence"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02029000/",
+        "https://dwr.virginia.gov/boating/access/?find_by_waterbody=James+River",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer/0",
+        "https://thejamesriver.org/james-river-maps/"
+      ]
     },
     {
       "key": "usgs:02030000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "routeReadiness": "published",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:35:00Z",
+      "decisionReason": "Published the exact 6.8-mile Class I-II Route 6-to-Hardware River WMA bridge corridor with direct USGS 02030000 telemetry. American Whitewater supplies the named reach, endpoint coordinates, and 190-7,500 cfs correlation; current DWR records independently confirm the maintained Route 6 ramp, public WMA, bridge, parking, permit rules, and no Hardware-specific closure. The WMA bridge is a mandatory takeout and the unresolved downstream bridge/tree section is excluded.",
+      "decisionSource": "manual_gauge_review_202608262235",
+      "routeSlugs": [
+        "hardware-river-route-6-wma-bridge"
+      ],
+      "scoredRouteSlugs": [
+        "hardware-river-route-6-wma-bridge"
+      ],
+      "routeFamilies": [
+        "Hardware River"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1940/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02030000/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer/0",
+        "https://dwr.virginia.gov/wma/hardware-river/",
+        "https://dwr.virginia.gov/wp-content/uploads/media/Hardware-River-WMA-Map.pdf",
+        "https://dwr.virginia.gov/wp-content/uploads/media/wma-rules.pdf",
+        "src/data/routes/virginia.ts"
+      ]
     },
     {
       "key": "usgs:02030500",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "research_needed",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:35:00Z",
+      "decisionReason": "USGS 02030500 supplies fresh direct discharge and stage on the Slate River near Arvonia, and a James River Association event confirms recreational paddling occurs on the river. The fast screen found no named point-to-point corridor, exact current public river endpoint pair, or route-specific numeric guidance tied to this station. DWR's only Slate result is a concrete ramp for the broader Slate River Watershed at 37.45825407, -78.64267532, well outside the gauged lower-river corridor; it cannot be reused as a Slate River endpoint.",
+      "decisionSource": "manual_gauge_review_202608262235",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Slate River"
+      ],
+      "blockers": [
+        "no named point-to-point paddling corridor with exact public river endpoints",
+        "no route-specific numeric paddling threshold or conservative minimum-only rule tied to USGS 02030500",
+        "DWR Slate River Watershed ramp is not on the lower Slate River corridor and cannot establish access"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02030500/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0/query",
+        "https://thejamesriver.org/picnic-and-paddle/"
+      ]
     },
     {
       "key": "usgs:02031000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "research_needed",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:35:00Z",
+      "decisionReason": "USGS 02031000 supplies fresh direct discharge and stage on the Mechums River near White Hall. Rivanna watershed material exposes the gauge and older planning evidence describes seasonal high-water paddling, but the bounded current screen found no exact named public endpoint pair, no DWR-maintained Mechums access, and no route-specific numeric paddling guidance tied to 02031000. A gauge listing and general high-water use are not enough to publish a safe scored corridor.",
+      "decisionSource": "manual_gauge_review_202608262235",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Mechums River"
+      ],
+      "blockers": [
+        "no exact current public put-in and takeout pair",
+        "no DWR-maintained Mechums River access record",
+        "no route-specific numeric paddling threshold or conservative minimum-only rule tied to USGS 02031000"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02031000/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0/query",
+        "https://www.rivannariver.org/river-access/"
+      ]
     },
     {
       "key": "usgs:02032250",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "research_needed",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:45:00Z",
+      "decisionReason": "USGS 02032250 is a fresh direct gauge for American Whitewater's named 13.6-mile Moormans River corridor from the Charlottesville/Sugar Hollow reservoir area to Free Union, and trip reports provide approximate flow context. The current reservoir manager prohibits boating at Sugar Hollow, however, while lower variants rely on unconfirmed bridge access and private parking. Current reports also document river-wide wood, fences, and access conflict. No current public endpoint pair, lawful portage plan, and exact subreach threshold package cleared, so no route was published.",
+      "decisionSource": "manual_gauge_review_202608262245",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Moormans River"
+      ],
+      "blockers": [
+        "the standard upper put-in conflicts with the current Sugar Hollow no-boating rule",
+        "lower bridge variants lack a manager-confirmed public put-in and takeout pair and include private-parking conflict",
+        "river-wide wood, fences, and portage/access hazards lack a current route-specific safety package",
+        "no source-backed numeric guidance is established for an exact currently lawful subreach"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02032250/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1972/main",
+        "https://www.rivanna.org/reservoirs-and-recreation/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0/query"
+      ]
     },
     {
       "key": "usgs:02032515",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:45:00Z",
+      "decisionReason": "USGS 02032515 is fresh and the South Fork Rivanna Reservoir is officially open to canoeing and kayaking, but the supported use is reservoir/lake recreation rather than a distinct gauge-responsive point-to-point river corridor. Woodburn Road ramp is permanently closed and the remaining Woodlands Road access has very limited parking. Official mainstem Rivanna launches are below the reservoir and dam and should not inherit this upstream gauge without a defensible relationship. Preserve the reservoir as recreational access, but do not force a scored flow route from this gauge.",
+      "decisionSource": "manual_gauge_review_202608262245",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "South Fork Rivanna Reservoir"
+      ],
+      "blockers": [
+        "officially supported paddling is reservoir recreation rather than a point-to-point flow-responsive river corridor",
+        "Woodburn Road ramp is permanently closed and Woodlands Road has very limited parking",
+        "below-dam mainstem Rivanna routes require their own gauge relationship and route-specific threshold package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02032515/",
+        "https://rivannawater.org/drinking-water/south-fork-rivanna-reservoir/",
+        "https://www.rivanna.org/reservoirs-and-recreation/",
+        "https://dwr.virginia.gov/alerts/",
+        "https://www.albemarle.org/government/parks-recreation/parks/boating"
+      ]
     },
     {
       "key": "usgs:02032640",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "research_needed",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:45:00Z",
+      "decisionReason": "USGS 02032640 is a fresh direct gauge for American Whitewater's named North Fork Rivanna corridor from Advance Mills to US 29. The current screen did not establish either road crossing as a maintained public launch, and Virginia DWR's current access inventory has no North Fork site. Two dam portages remain unresolved, including one described as an unsafe ladder or likely trespass, the source disagrees on reach distance, and trip reports conflict materially on minimum stage. No safe exact public corridor and defensible threshold package cleared, so no route was published.",
+      "decisionSource": "manual_gauge_review_202608262245",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "North Fork Rivanna River"
+      ],
+      "blockers": [
+        "Advance Mills and US 29 are not established as a current public launch and takeout pair",
+        "two dam portages lack a manager-confirmed lawful and safe portage package",
+        "the reach source conflicts on distance and reports materially conflicting minimum-stage guidance",
+        "current reports include river-wide wood and steep-bank hazards"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02032640/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2002/main",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0/query",
+        "https://www.albemarle.org/government/parks-recreation/parks/boating"
+      ]
     },
     {
       "key": "usgs:02034000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "research_needed",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:48:00Z",
+      "decisionReason": "USGS 02034000 is a fresh direct gauge at the downstream endpoint of DWR's exact 6.5-mile novice Crofton-to-Palmyra float. Both endpoints remain current DWR-owned concrete ramps and the official float map documents one Class I-II drop. American Whitewater correlates this Palmyra gauge to a different upstream Charlottesville-to-Shadwell reach and reports an approximate minimum there, but the bounded screen found no numeric runnable guidance for the Crofton-to-Palmyra corridor itself. The route is a strong retryable opportunity, but transferring an upstream anecdotal threshold to this distinct lower reach would not meet the route-specific evidence gate.",
+      "decisionSource": "manual_gauge_review_202608262248",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Rivanna River"
+      ],
+      "blockers": [
+        "no source-backed numeric paddling minimum or conservative runnable band tied to the exact Crofton-to-Palmyra float",
+        "the Palmyra-gauge minimum found in American Whitewater trip reports applies to a different upstream corridor and cannot be transferred without corroboration"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02034000/",
+        "https://dwr.virginia.gov/wp-content/uploads/rivanna-river-public-landings-float-map.pdf",
+        "https://dwr.virginia.gov/place/palmyra/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0/query",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2001/main"
+      ]
     },
     {
       "key": "usgs:02035000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "research_needed",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:48:00Z",
+      "decisionReason": "USGS 02035000 is fresh direct telemetry beside DWR's Cartersville launch. Virginia DWR documents an exact 5-mile Cartersville-to-West View float, Goochland County lists both launches and a 2-3 hour canoe time, and the current DWR access dataset confirms both are DWR-owned concrete ramps. The screen found flood-stage and historical hydrology values but no source-backed paddling minimum, maximum, or conservative route-specific rule for this exact float. Hydrologic extremes are not recreational thresholds, so no scored route was published.",
+      "decisionSource": "manual_gauge_review_202608262248",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "James River"
+      ],
+      "blockers": [
+        "no source-backed numeric paddling minimum, maximum, or conservative station rule tied to Cartersville-to-West View",
+        "USGS low-flow statistics and NWS flood stages describe hydrology and flood risk but do not establish recreational suitability"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02035000/",
+        "https://dwr.virginia.gov/place/cartersville/",
+        "https://dwr.virginia.gov/waterbody/james-river-upper-middle/",
+        "https://goochlandva.us/1359/Boat-Launches",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0/query",
+        "https://www.nao-wc.usace.army.mil/nao/CARTERSVILLE.html"
+      ]
     },
     {
       "key": "usgs:02036500",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T22:48:00Z",
+      "decisionReason": "USGS 02036500 is a fresh discharge-and-stage station on a 22.4-square-mile Fine Creek basin, but the bounded route-first and gauge-assisted screen found no named paddling corridor, no public Fine Creek endpoint pair, no DWR-maintained Fine Creek access, and no paddling threshold evidence. Current Powhatan recreation and Middle James planning sources identify nearby James River canoe access and the Fine Creek Mills historic district, not a Fine Creek water trail. This gauge is not a supported scored-route opportunity on current evidence.",
+      "decisionSource": "manual_gauge_review_202608262248",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": [
+        "Fine Creek"
+      ],
+      "blockers": [
+        "no named paddling corridor or public endpoint pair",
+        "no DWR-maintained Fine Creek boating access",
+        "no route-specific numeric paddling guidance"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02036500/",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/MapServer/0/query",
+        "https://www.dcr.virginia.gov/recreational-planning/document/MiddleJamesPlan.pdf",
+        "https://www.powhatanva.gov/DocumentCenter/View/8641/2019-Comprehensive-Plan-Adopted-6-24-2019"
+      ]
     },
     {
       "key": "usgs:0203668750",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T23:03:00.000Z",
+      "decisionReason": "USGS 0203668750 is fresh stage telemetry on Tuckahoe Creek, but Henrico County's current Tuckahoe Creek Park page expressly prohibits boating and swimming. The county master plan depicts a future Wilton Landing paddle-launch concept, not a verified open public endpoint, and the bounded screen found no current named point-to-point corridor or station-specific numeric paddling guidance. Do not convert a future concept or prohibited park reach into a scored route.",
+      "decisionSource": "manual_gauge_review_202608262303",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": ["Tuckahoe Creek"],
+      "blockers": [
+        "current Tuckahoe Creek Park rules prohibit boating",
+        "Wilton Landing paddle access is a plan concept rather than a verified open public endpoint",
+        "no named point-to-point corridor or station-specific numeric paddling guidance"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-0203668750/",
+        "https://henrico.gov/rec/places/tuckahoe-creek-park/",
+        "https://henrico.gov/assets/Tuckahoe_MasterPlan__Wilton_rev052725.pdf"
+      ]
     },
     {
       "key": "usgs:02037500",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "routeReadiness": "published",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T23:03:00.000Z",
+      "decisionReason": "Published the exact 4.5-mile Class I-II Pony Pasture Park-to-Reedy Creek corridor with direct USGS 02037500 stage. American Whitewater supplies the named reach, route geometry, features, mandatory takeout, and a 3.0-14.5 ft runnable correlation; Richmond supplies current public-park rules and limits 9 ft and above to experts. The scored publication narrows the ideal band to 4.0-7.0 ft and cancels at 9.0 ft, includes current James River Watch/CSO checks, and does not continue into the harder Lower James.",
+      "decisionSource": "manual_gauge_review_202608262303",
+      "routeSlugs": ["james-river-pony-pasture-reedy-creek"],
+      "scoredRouteSlugs": ["james-river-pony-pasture-reedy-creek"],
+      "routeFamilies": ["James River"],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1951/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02037500/",
+        "https://www.rva.gov/parks-recreation/james-river-park-system",
+        "https://jamesriverpark.org/explore-the-park-pony-pasture/",
+        "https://jamesriverpark.org/explore-the-park-reedy-creek/",
+        "https://thejamesriver.org/james-river-watch/",
+        "src/data/routes/virginia.ts"
+      ]
     },
     {
       "key": "usgs:0203755233",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-26T23:03:00.000Z",
+      "decisionReason": "USGS 0203755233 is stage-only telemetry on Little Westham Creek inside the University of Richmond campus. The university documents a restored eco-corridor, ADA trail, stream habitat, and education use rather than a public paddling corridor. The creek does not provide a supported endpoint pair or route-specific numeric guidance, so it is not a defensible scored-route opportunity on current evidence.",
+      "decisionSource": "manual_gauge_review_202608262303",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": ["Little Westham Creek"],
+      "blockers": [
+        "officially documented use is an urban stream eco-corridor and trail rather than paddling",
+        "no public point-to-point endpoint pair",
+        "stage-only station has no route-specific numeric paddling guidance"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-0203755233/",
+        "https://www.sustainability.richmond.edu/campus/eco-corridor/index.html"
+      ]
     },
     {
       "key": "usgs:02037724",
@@ -13352,7 +13636,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -13375,7 +13659,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -13398,7 +13682,7 @@
       "routeReadiness": "candidate",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "A route candidate references this gauge but does not clear scored-route publication.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -13422,7 +13706,7 @@
       "routeReadiness": "candidate",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "A route candidate references this gauge but does not clear scored-route publication.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -13501,7 +13785,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -13526,7 +13810,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -13549,7 +13833,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17248,7 +17532,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17391,7 +17675,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17414,7 +17698,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17439,7 +17723,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17463,7 +17747,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17486,7 +17770,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17515,7 +17799,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17538,7 +17822,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17561,7 +17845,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17584,7 +17868,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17609,7 +17893,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17633,7 +17917,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17660,7 +17944,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17685,7 +17969,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17732,7 +18016,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17756,7 +18040,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17779,7 +18063,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17803,7 +18087,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -17834,7 +18118,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -30836,7 +31120,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -31340,7 +31624,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -32756,7 +33040,7 @@
       "routeReadiness": "unsupported",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "The gauge is explicitly recorded as stale, inapplicable, or unavailable to the product.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -46525,7 +46809,7 @@
       "routeReadiness": "candidate",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -46701,7 +46985,7 @@
       "routeReadiness": "candidate",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -48743,7 +49027,7 @@
       "routeReadiness": "candidate",
       "eligibility": "route_capable",
       "relationship": "proxy",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "The gauge appears only as fallback or proxy evidence and needs a direct-corridor disposition.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -49151,7 +49435,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -91851,7 +92135,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "mixed",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [
@@ -95750,7 +96034,7 @@
       "routeReadiness": "published",
       "eligibility": "route_capable",
       "relationship": "direct",
-      "checkedAt": "2026-08-26T20:32:27.961Z",
+      "checkedAt": "2026-08-26T21:39:21.189Z",
       "decisionReason": "At least one scored route uses this gauge directly.",
       "decisionSource": "derived_route_inventory",
       "routeSlugs": [

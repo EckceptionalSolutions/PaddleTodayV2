@@ -1223,7 +1223,13 @@ const routeOrder = [
   "new-river-austinville-foster-falls",
   "clinch-river-pucketts-hole-nash-ford",
   "james-river-buchanan-arcadia",
+  "james-river-iron-gate-glen-wilton",
+  "james-river-bent-creek-state-park",
   "rappahannock-river-rector-tract-kellys-ford",
+  "south-fork-shenandoah-newport-white-house",
+  "north-fork-shenandoah-meems-chapmans",
+  "hardware-river-route-6-wma-bridge",
+  "james-river-pony-pasture-reedy-creek",
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {

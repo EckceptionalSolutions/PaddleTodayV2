@@ -1,8 +1,10 @@
 {
   "version": 1,
   "stateId": "VA",
-  "updatedAt": "2026-08-26T20:33:00.000Z",
+  "updatedAt": "2026-08-26T23:03:00.000Z",
   "phase": "gauge_inventory_review",
+  "executionStatus": "paused_by_user_after_window_12",
+  "pauseReason": "The user asked to pause after completing the current Richmond gauge window. No window-13 task was opened.",
   "corridorWindow": {
     "status": "complete",
     "candidateCount": 3,
@@ -15,20 +17,27 @@
   },
   "gaugeBaseline": {
     "status": "provider_baseline_complete",
-    "inventoryId": "provider-baseline-202608262032",
-    "generatedAt": "2026-08-26T20:32:27.961Z",
+    "inventoryId": "provider-baseline-202608262139",
+    "generatedAt": "2026-08-26T21:39:21.189Z",
     "provider": "USGS",
     "freshStreamGaugeCount": 212,
-    "coveredGaugeCount": 5,
-    "blockedGaugeCount": 1,
-    "unreviewedGaugeCount": 206,
-    "reviewPercent": 2.8,
+    "coveredGaugeCount": 11,
+    "blockedGaugeCount": 16,
+    "screenedOutGaugeCount": 5,
+    "unreviewedGaugeCount": 180,
+    "reviewPercent": 15.1,
     "coveredGaugeKeys": [
       "usgs:02024000",
       "usgs:03165500",
       "usgs:03524000",
       "usgs:02019500",
-      "usgs:01664000"
+      "usgs:01664000",
+      "usgs:01629500",
+      "usgs:01632000",
+      "usgs:02016500",
+      "usgs:02026000",
+      "usgs:02030000",
+      "usgs:02037500"
     ]
   },
   "reviewStrategy": {
@@ -50,18 +59,121 @@
           "usgs:01664000"
         ],
         "outcome": "Published Rector Tract-to-Kelly's Ford on direct USGS 01664000 after clearing current public access, WMA permit, private-bank, Class II+ safety, camping, coordinate, geometry, image, verification, test, build, and rollback gates."
+      },
+      {
+        "id": "va-family-window-03",
+        "gaugeKeys": [
+          "usgs:01629500"
+        ],
+        "outcome": "Published Newport-to-White House Landing on direct USGS 01629500 after finding an exact DWR public endpoint pair within American Whitewater's encompassing Newport-to-Luray subreach. The route cleared source-backed thresholds, access rules, private-bank and Foltz Mill safety, camping, coordinate, geometry, image, independent verification, all tests, build, and rollback gates."
+      },
+      {
+        "id": "va-family-window-04",
+        "gaugeKeys": [
+          "usgs:01631000",
+          "usgs:01628500",
+          "usgs:01632000"
+        ],
+        "outcome": "Screened three Shenandoah gauges separately and published the strongest survivor: a scored Meems Bottom-to-Chapman's Landing route on direct USGS 01632000. Final geometry reconciliation uses about 20.4 mapped river miles between the authoritative DWR endpoints; American Whitewater's 15-mile VA 730-to-VA 672 inventory geometry ends upstream of the current DWR ramp. USGS 01631000 remains a direct South Fork candidate pending exact public subroute distance and threshold applicability. USGS 01628500 remains blocked pending an exact direct-threshold corridor."
+      },
+      {
+        "id": "va-family-window-05",
+        "gaugeKeys": [
+          "usgs:01633000",
+          "usgs:01634000"
+        ],
+        "outcome": "Closed both remaining North Fork mainstem gauges without adding a speculative route. USGS 01633000 is an existing-route gap inside the already scored Meems Bottom-to-Chapman's corridor; its source-backed guidance belongs to USGS 01632000. USGS 01634000 remains a route-capable candidate because public accesses and a named long reach exist, but no numeric runnable guidance tied to 01634000 was found and two dam/portage packages remain unresolved."
+      },
+      {
+        "id": "va-family-window-06",
+        "gaugeKeys": [
+          "usgs:02016500",
+          "usgs:02024750",
+          "usgs:02024752"
+        ],
+        "outcome": "Published the exact 2.5-mile Iron Gate/Lick Run-to-Glen Wilton corridor on direct USGS 02016500 after clearing official public endpoints, American Whitewater's 400-20,000 cfs outer limits, conservative scoring, access-road and private-bank safety, camping, coordinate, geometry, image, verification, test, build, and rollback gates. Screened out stage-only USGS 02024750 at Bedford Dam because no lawful corridor/portage/threshold package exists. Preserved USGS 02024752 as a blocked route-capable candidate pending an exact below-dam public corridor, direct numeric guidance, and complete dam/access safety."
+      },
+      {
+        "id": "va-family-window-07",
+        "gaugeKeys": [
+          "usgs:02025500",
+          "usgs:02026000",
+          "usgs:02029000"
+        ],
+        "outcome": "Published the exact 9.3-mile Bent Creek-to-James River State Park corridor on direct USGS 02026000 after clearing current public endpoints, American Whitewater's 800-6,000 cfs correlation, conservative scoring, park/access safety, endpoint camping, coordinates, geometry, image rights, verification, tests, build, and rollback gates. Preserved USGS 02025500 as blocked because the old 29-mile Snowdon-to-Six Mile reach lacks a current authoritative Six Mile takeout and complete long-route logistics. Preserved USGS 02029000 as blocked because the public Howardsville-to-Scottsville opportunity still lacks a numeric paddling band tied to that station."
+      },
+      {
+        "id": "va-family-window-08",
+        "gaugeKeys": [
+          "usgs:02027000",
+          "usgs:02027500",
+          "usgs:02028500"
+        ],
+        "outcome": "Durably blocked all three documented paddling candidates without publishing a weak-access route. Upper Tye has a direct 250-10,000 cfs correlation but relies on Evergreen Church property for its standard put-in; Big Piney has a direct 400-2,500 cfs correlation and National Forest put-in but lacks a manager-confirmed Perkins Mill takeout and presents unresolved private-land/low-water-bridge portage hazards; Upper Rockfish has a direct 200-800 cfs correlation and plausible Wayside endpoint but lacks a current manager-confirmed Adial Bridge launch. Virginia DWR's maintained-access inventory contains none of the three rivers. Each retry condition requires materially new authoritative access evidence."
+      },
+      {
+        "id": "va-family-window-09",
+        "gaugeKeys": [
+          "usgs:02030000",
+          "usgs:02030500",
+          "usgs:02031000"
+        ],
+        "outcome": "Published the exact 6.8-mile Route 6-to-Hardware River WMA bridge corridor on direct USGS 02030000 after clearing American Whitewater's 190-7,500 cfs correlation, current DWR ramp/WMA/bridge/parking evidence, mandatory bridge takeout, WMA permit and camping rules, coordinates, canonical geometry, and independent verification. Supplemental review added the exact 14-night/300-foot WMA camping limits and a rights-cleared CC BY-SA 4.0 Hardware River aqueduct image. Slate remains blocked because its only DWR result is a separate watershed/lake facility and no exact river corridor or station-specific numeric guidance was found. Mechums remains blocked because seasonal paddling context does not establish an exact public endpoint pair, DWR access, or numeric guidance tied to 02031000."
+      },
+      {
+        "id": "va-family-window-10",
+        "gaugeKeys": [
+          "usgs:02032250",
+          "usgs:02032515",
+          "usgs:02032640"
+        ],
+        "outcome": "Closed the Rivanna headwaters window without forcing a route. Moormans remains route-capable but blocked because the standard Sugar Hollow put-in conflicts with the current no-boating rule and lower variants lack confirmed public endpoints, lawful portages, and an exact numeric package. South Fork Rivanna is screened out because official use is reservoir paddling rather than a gauge-responsive point-to-point route; below-dam mainstem routes require their own gauge relationship. North Fork Rivanna remains route-capable but blocked because neither endpoint is confirmed public, two dam portages are unresolved, the source conflicts on reach distance, and reported minimum stages differ materially."
+      },
+      {
+        "id": "va-family-window-11",
+        "gaugeKeys": [
+          "usgs:02034000",
+          "usgs:02035000",
+          "usgs:02036500"
+        ],
+        "outcome": "Closed two unusually strong access-ready opportunities without weakening the numeric evidence gate. DWR's exact Crofton-to-Palmyra and Cartersville-to-West View floats have current DWR-owned concrete endpoints, but neither has numeric paddling guidance tied to its exact direct gauge and corridor; generic upstream anecdotes, historical low flows, and flood stages were not transferred. Fine Creek is screened out because a fresh small-basin gauge exists but no named paddling corridor, public endpoint pair, DWR access, or threshold evidence was found."
+      },
+      {
+        "id": "va-family-window-12",
+        "gaugeKeys": [
+          "usgs:0203668750",
+          "usgs:02037500",
+          "usgs:0203755233"
+        ],
+        "outcome": "Published the Pony Pasture Park-to-Reedy Creek corridor on direct USGS 02037500 with American Whitewater's 3.0 ft low-runnable evidence, a conservative 4.0-7.0 ft ideal band, Richmond's current 9.0 ft expert-only ceiling, the mandatory Reedy Creek takeout, current water-quality/CSO checks, public endpoints, coordinates, geometry, independent verification, tests, build, and rollback. Supplemental review now discloses the park partner's 3.5-mile estimate alongside American Whitewater's 4.5-mile estimate, links Richmond's accessible-takeout documentation and live CSO map, and adds an exact public-domain Reedy Creek image. Tuckahoe Creek is screened out because the current county park prohibits boating and its Wilton launch is only a plan concept. Little Westham Creek is screened out because its official use is a restored campus eco-corridor rather than paddling."
       }
     ],
     "nextWindow": [
       {
-        "gaugeKey": "usgs:01629500",
-        "siteName": "South Fork Shenandoah River near Luray, VA",
-        "reason": "Ready next: identify an exact public corridor that is defensibly related to 01629500; do not reuse the downstream Front Royal gauge correlation."
+        "gaugeKey": "usgs:02037724",
+        "siteName": "Unnamed tributary at Oakleys Lane near Richmond, VA",
+        "reason": "Next inventory pointer only; no task is open while execution is paused."
+      },
+      {
+        "gaugeKey": "usgs:02038730",
+        "siteName": "Fourmile Creek near Richmond Heights, VA",
+        "reason": "Next inventory pointer only; no task is open while execution is paused."
+      },
+      {
+        "gaugeKey": "usgs:0203873175",
+        "siteName": "Fourmile Creek at Kingsland Road near Varina, VA",
+        "reason": "Next inventory pointer only; no task is open while execution is paused."
       }
     ],
     "routesPublishedFromGaugeReview": [
       "james-river-buchanan-arcadia",
-      "rappahannock-river-rector-tract-kellys-ford"
+      "rappahannock-river-rector-tract-kellys-ford",
+      "south-fork-shenandoah-newport-white-house",
+      "north-fork-shenandoah-meems-chapmans",
+      "james-river-iron-gate-glen-wilton",
+      "james-river-bent-creek-state-park",
+      "hardware-river-route-6-wma-bridge",
+      "james-river-pony-pasture-reedy-creek"
     ]
   },
   "completionRequirements": [

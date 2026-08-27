@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-26T20:44:55.216Z",
-  "auditGeneratedAt": "2026-08-26T20:28:41.742Z",
+  "generatedAt": "2026-08-27T00:58:54.928Z",
+  "auditGeneratedAt": "2026-08-27T00:49:32.189Z",
   "summary": {
-    "entryCount": 1785,
+    "entryCount": 1798,
     "repeatedEntryCount": 557,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
-    "derivedWaterEntryCount": 1052,
+    "derivedWaterEntryCount": 1058,
     "authoritativeAccessCount": 345,
     "authoritativeWaterEntryCount": 20,
     "areaAnchorOnlyCount": 1,
@@ -119765,6 +119765,86 @@
       ]
     },
     {
+      "id": "virginia--bent-creek-public-boat-ramp",
+      "state": "Virginia",
+      "name": "Bent Creek public boat ramp",
+      "aliases": [
+        "Bent Creek public boat ramp"
+      ],
+      "sourceIds": [
+        "james-river-bent-creek-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.535621,
+        "longitude": -78.827603
+      },
+      "accessCoordinate": {
+        "latitude": 37.535621,
+        "longitude": -78.827603
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.53562,-78.82760",
+          "coordinate": {
+            "latitude": 37.535621,
+            "longitude": -78.827603
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "james-river-bent-creek-state-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "james-river-bent-creek-state-park",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "james-river-bent-creek-put-in",
+          "name": "Bent Creek public boat ramp",
+          "latitude": 37.535621,
+          "longitude": -78.827603,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 160.699348663496,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "james-river-bent-creek-state-park",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Bent Creek public boat ramp",
+          "latitude": 37.535621,
+          "longitude": -78.827603,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 160.699348663496,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--big-cedar-creek-confluence",
       "state": "Virginia",
       "name": "Big Cedar Creek confluence",
@@ -119911,6 +119991,152 @@
           "longitude": -79.679444,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 40.73483714803364,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--canoe-landing-james-river-state-park",
+      "state": "Virginia",
+      "name": "Canoe Landing, James River State Park",
+      "aliases": [
+        "Canoe Landing, James River State Park"
+      ],
+      "sourceIds": [
+        "james-river-state-park-canoe-landing"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.616269,
+        "longitude": -78.817923
+      },
+      "accessCoordinate": {
+        "latitude": 37.616269,
+        "longitude": -78.817923
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.61627,-78.81792",
+          "coordinate": {
+            "latitude": 37.616269,
+            "longitude": -78.817923
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "james-river-bent-creek-state-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "james-river-bent-creek-state-park",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "james-river-state-park-canoe-landing",
+          "name": "Canoe Landing, James River State Park",
+          "latitude": 37.616269,
+          "longitude": -78.817923,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 361.9257264330618,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--chapman-s-landing-dwr-concrete-ramp",
+      "state": "Virginia",
+      "name": "Chapman's Landing DWR concrete ramp",
+      "aliases": [
+        "Chapman's Landing DWR concrete ramp"
+      ],
+      "sourceIds": [
+        "north-fork-shenandoah-chapmans-landing-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.84543186,
+        "longitude": -78.52968681
+      },
+      "accessCoordinate": {
+        "latitude": 38.84543186,
+        "longitude": -78.52968681
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.84543,-78.52969",
+          "coordinate": {
+            "latitude": 38.84543186,
+            "longitude": -78.52968681
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "north-fork-shenandoah-meems-chapmans"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-shenandoah-meems-chapmans",
+          "routeName": "North Fork Shenandoah River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "north-fork-shenandoah-chapmans-landing-take-out",
+          "name": "Chapman's Landing DWR concrete ramp",
+          "latitude": 38.84543186,
+          "longitude": -78.52968681,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 107.84628662983587,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "north-fork-shenandoah-meems-chapmans",
+          "routeName": "North Fork Shenandoah River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Chapman's Landing DWR concrete ramp",
+          "latitude": 38.84543186,
+          "longitude": -78.52968681,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 107.84628662983587,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -120080,6 +120306,335 @@
       ]
     },
     {
+      "id": "virginia--glen-wilton-public-shoreline-access",
+      "state": "Virginia",
+      "name": "Glen Wilton public shoreline access",
+      "aliases": [
+        "Glen Wilton public shoreline access"
+      ],
+      "sourceIds": [
+        "james-river-glen-wilton-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.750806,
+        "longitude": -79.815972
+      },
+      "accessCoordinate": {
+        "latitude": 37.750806,
+        "longitude": -79.815972
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.75081,-79.81597",
+          "coordinate": {
+            "latitude": 37.750806,
+            "longitude": -79.815972
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "james-river-iron-gate-glen-wilton"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "james-river-iron-gate-glen-wilton",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "james-river-glen-wilton-take-out",
+          "name": "Glen Wilton public shoreline access",
+          "latitude": 37.750806,
+          "longitude": -79.815972,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 110.6846878913401,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "james-river-iron-gate-glen-wilton",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Glen Wilton public shoreline access",
+          "latitude": 37.750806,
+          "longitude": -79.815972,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 110.6846878913401,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--hardware-river-route-6-dwr-ramp",
+      "state": "Virginia",
+      "name": "Hardware River / Route 6 DWR ramp",
+      "aliases": [
+        "Hardware River / Route 6 DWR ramp"
+      ],
+      "sourceIds": [
+        "hardware-river-route-6-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.78652872,
+        "longitude": -78.40642381
+      },
+      "accessCoordinate": {
+        "latitude": 37.78652872,
+        "longitude": -78.40642381
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 37.78652872,
+        "longitude": -78.40642381
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.78653,-78.40642",
+          "coordinate": {
+            "latitude": 37.78652872,
+            "longitude": -78.40642381
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "hardware-river-route-6-wma-bridge"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "hardware-river-route-6-wma-bridge",
+          "routeName": "Hardware River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "hardware-river-route-6-put-in",
+          "name": "Hardware River / Route 6 DWR ramp",
+          "latitude": 37.78652872,
+          "longitude": -78.40642381,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 7.243306940214606,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "hardware-river-route-6-wma-bridge",
+          "routeName": "Hardware River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Hardware River / Route 6 DWR ramp",
+          "latitude": 37.78652872,
+          "longitude": -78.40642381,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 7.243306940214606,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--hardware-river-wma-low-water-bridge-takeout",
+      "state": "Virginia",
+      "name": "Hardware River WMA low-water bridge takeout",
+      "aliases": [
+        "Hardware River WMA low-water bridge takeout"
+      ],
+      "sourceIds": [
+        "hardware-river-wma-bridge-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.739111,
+        "longitude": -78.402964
+      },
+      "accessCoordinate": {
+        "latitude": 37.739111,
+        "longitude": -78.402964
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 37.739111,
+        "longitude": -78.402964
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.73911,-78.40296",
+          "coordinate": {
+            "latitude": 37.739111,
+            "longitude": -78.402964
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "hardware-river-route-6-wma-bridge"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "hardware-river-route-6-wma-bridge",
+          "routeName": "Hardware River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "hardware-river-wma-bridge-take-out",
+          "name": "Hardware River WMA low-water bridge takeout",
+          "latitude": 37.739111,
+          "longitude": -78.402964,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 1.8198187742680492,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "hardware-river-route-6-wma-bridge",
+          "routeName": "Hardware River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Hardware River WMA low-water bridge takeout",
+          "latitude": 37.739111,
+          "longitude": -78.402964,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 1.8198187742680492,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--iron-gate-lick-run-public-shoreline-access",
+      "state": "Virginia",
+      "name": "Iron Gate/Lick Run public shoreline access",
+      "aliases": [
+        "Iron Gate/Lick Run public shoreline access"
+      ],
+      "sourceIds": [
+        "james-river-iron-gate-lick-run-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.773889,
+        "longitude": -79.782778
+      },
+      "accessCoordinate": {
+        "latitude": 37.773889,
+        "longitude": -79.782778
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 37.773889,
+        "longitude": -79.782778
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.77389,-79.78278",
+          "coordinate": {
+            "latitude": 37.773889,
+            "longitude": -79.782778
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "james-river-iron-gate-glen-wilton"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "james-river-iron-gate-glen-wilton",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "james-river-iron-gate-lick-run-put-in",
+          "name": "Iron Gate/Lick Run public shoreline access",
+          "latitude": 37.773889,
+          "longitude": -79.782778,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 63.49483826090722,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "james-river-iron-gate-glen-wilton",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Iron Gate/Lick Run public shoreline access",
+          "latitude": 37.773889,
+          "longitude": -79.782778,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 63.49483826090722,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--kelly-s-ford-dwr-boat-access",
       "state": "Virginia",
       "name": "Kelly's Ford DWR boat access",
@@ -120240,6 +120795,89 @@
       ]
     },
     {
+      "id": "virginia--meems-bottom-dwr-gravel-access",
+      "state": "Virginia",
+      "name": "Meems Bottom DWR gravel access",
+      "aliases": [
+        "Meems Bottom DWR gravel access"
+      ],
+      "sourceIds": [
+        "north-fork-shenandoah-meems-bottom-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.7066986,
+        "longitude": -78.65096625
+      },
+      "accessCoordinate": {
+        "latitude": 38.7066986,
+        "longitude": -78.65096625
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.7066986,
+        "longitude": -78.65096625
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.70670,-78.65097",
+          "coordinate": {
+            "latitude": 38.7066986,
+            "longitude": -78.65096625
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "north-fork-shenandoah-meems-chapmans"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-shenandoah-meems-chapmans",
+          "routeName": "North Fork Shenandoah River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "north-fork-shenandoah-meems-bottom-put-in",
+          "name": "Meems Bottom DWR gravel access",
+          "latitude": 38.7066986,
+          "longitude": -78.65096625,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 77.02925448721355,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "north-fork-shenandoah-meems-chapmans",
+          "routeName": "North Fork Shenandoah River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Meems Bottom DWR gravel access",
+          "latitude": 38.7066986,
+          "longitude": -78.65096625,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 77.02925448721355,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--miller-s-dam-river-road-access",
       "state": "Virginia",
       "name": "Miller’s Dam / River Road access",
@@ -120392,6 +121030,169 @@
       ]
     },
     {
+      "id": "virginia--newport-dwr-shoreline-access",
+      "state": "Virginia",
+      "name": "Newport DWR shoreline access",
+      "aliases": [
+        "Newport DWR shoreline access"
+      ],
+      "sourceIds": [
+        "south-fork-shenandoah-newport-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.5830538965318,
+        "longitude": -78.5943729599809
+      },
+      "accessCoordinate": {
+        "latitude": 38.5830538965318,
+        "longitude": -78.5943729599809
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.5830538965318,
+        "longitude": -78.5943729599809
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.58305,-78.59437",
+          "coordinate": {
+            "latitude": 38.5830538965318,
+            "longitude": -78.5943729599809
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-fork-shenandoah-newport-white-house"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-shenandoah-newport-white-house",
+          "routeName": "South Fork Shenandoah River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "south-fork-shenandoah-newport-put-in",
+          "name": "Newport DWR shoreline access",
+          "latitude": 38.5830538965318,
+          "longitude": -78.5943729599809,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 69.85808951136073,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "south-fork-shenandoah-newport-white-house",
+          "routeName": "South Fork Shenandoah River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Newport DWR shoreline access",
+          "latitude": 38.5830538965318,
+          "longitude": -78.5943729599809,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 69.85808951136073,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--park-road-river-access-james-river-state-park",
+      "state": "Virginia",
+      "name": "Park Road river access, James River State Park",
+      "aliases": [
+        "Park Road river access, James River State Park"
+      ],
+      "sourceIds": [
+        "james-river-state-park-road-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.634716,
+        "longitude": -78.81133
+      },
+      "accessCoordinate": {
+        "latitude": 37.634716,
+        "longitude": -78.81133
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.63472,-78.81133",
+          "coordinate": {
+            "latitude": 37.634716,
+            "longitude": -78.81133
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "james-river-bent-creek-state-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "james-river-bent-creek-state-park",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "james-river-state-park-road-take-out",
+          "name": "Park Road river access, James River State Park",
+          "latitude": 37.634716,
+          "longitude": -78.81133,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 291.45765809675225,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "james-river-bent-creek-state-park",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Park Road river access, James River State Park",
+          "latitude": 37.634716,
+          "longitude": -78.81133,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 291.45765809675225,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--piggly-wiggly-rapid",
       "state": "Virginia",
       "name": "Piggly Wiggly Rapid",
@@ -120455,6 +121256,89 @@
           "longitude": -77.780658,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 1.1198656245018475,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--pony-pasture-park-canoe-and-kayak-access",
+      "state": "Virginia",
+      "name": "Pony Pasture Park canoe and kayak access",
+      "aliases": [
+        "Pony Pasture Park canoe and kayak access"
+      ],
+      "sourceIds": [
+        "james-river-pony-pasture-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.55949468,
+        "longitude": -77.53012072
+      },
+      "accessCoordinate": {
+        "latitude": 37.55949468,
+        "longitude": -77.53012072
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 37.55949468,
+        "longitude": -77.53012072
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.55949,-77.53012",
+          "coordinate": {
+            "latitude": 37.55949468,
+            "longitude": -77.53012072
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "james-river-pony-pasture-reedy-creek"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "james-river-pony-pasture-reedy-creek",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "james-river-pony-pasture-put-in",
+          "name": "Pony Pasture Park canoe and kayak access",
+          "latitude": 37.55949468,
+          "longitude": -77.53012072,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 2.7506584955865283,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "james-river-pony-pasture-reedy-creek",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Pony Pasture Park canoe and kayak access",
+          "latitude": 37.55949468,
+          "longitude": -77.53012072,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 2.7506584955865283,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -120624,6 +121508,86 @@
       ]
     },
     {
+      "id": "virginia--reedy-creek-accessible-paddle-takeout",
+      "state": "Virginia",
+      "name": "Reedy Creek accessible paddle takeout",
+      "aliases": [
+        "Reedy Creek accessible paddle takeout"
+      ],
+      "sourceIds": [
+        "james-river-reedy-creek-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.52439,
+        "longitude": -77.4694
+      },
+      "accessCoordinate": {
+        "latitude": 37.52439,
+        "longitude": -77.4694
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.52439,-77.46940",
+          "coordinate": {
+            "latitude": 37.52439,
+            "longitude": -77.4694
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "james-river-pony-pasture-reedy-creek"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "james-river-pony-pasture-reedy-creek",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "james-river-reedy-creek-take-out",
+          "name": "Reedy Creek accessible paddle takeout",
+          "latitude": 37.52439,
+          "longitude": -77.4694,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 1469.6085716808623,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "james-river-pony-pasture-reedy-creek",
+          "routeName": "James River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Reedy Creek accessible paddle takeout",
+          "latitude": 37.52439,
+          "longitude": -77.4694,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 1469.6085716808623,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--sandy-beach-rapid",
       "state": "Virginia",
       "name": "Sandy Beach Rapid",
@@ -120687,6 +121651,86 @@
           "longitude": -77.785718,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 2.869019030315451,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--white-house-dwr-concrete-ramp",
+      "state": "Virginia",
+      "name": "White House DWR concrete ramp",
+      "aliases": [
+        "White House DWR concrete ramp"
+      ],
+      "sourceIds": [
+        "south-fork-shenandoah-white-house-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.6460697541098,
+        "longitude": -78.5344803091987
+      },
+      "accessCoordinate": {
+        "latitude": 38.6460697541098,
+        "longitude": -78.5344803091987
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.64607,-78.53448",
+          "coordinate": {
+            "latitude": 38.6460697541098,
+            "longitude": -78.5344803091987
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-fork-shenandoah-newport-white-house"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-shenandoah-newport-white-house",
+          "routeName": "South Fork Shenandoah River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "south-fork-shenandoah-white-house-take-out",
+          "name": "White House DWR concrete ramp",
+          "latitude": 38.6460697541098,
+          "longitude": -78.5344803091987,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 200.6702320316814,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "south-fork-shenandoah-newport-white-house",
+          "routeName": "South Fork Shenandoah River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "White House DWR concrete ramp",
+          "latitude": 38.6460697541098,
+          "longitude": -78.5344803091987,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 200.6702320316814,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
