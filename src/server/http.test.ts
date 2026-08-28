@@ -1,7 +1,7 @@
 import type { ServerResponse } from 'node:http';
 import { gunzipSync } from 'node:zlib';
 import { describe, expect, it, vi } from 'vitest';
-import { sendEmpty, sendJson } from './http';
+import { sendBinary, sendEmpty, sendJson } from './http';
 
 function mockResponse() {
   return {
@@ -43,5 +43,21 @@ describe('server response helpers', () => {
     const result = sendEmpty(response, 204, {});
 
     expect(result).toBe(response);
+  });
+
+  it('preserves headers while omitting the body for HEAD responses', () => {
+    const response = mockResponse();
+    const result = sendBinary(response, 200, Buffer.from('gpx'), 'application/gpx+xml', 'no-store', false, {
+      'content-disposition': 'attachment; filename="route.gpx"',
+      'x-request-id': 'req_binary',
+    });
+
+    expect(result).toBe(response);
+    expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({
+      'content-type': 'application/gpx+xml',
+      'content-disposition': 'attachment; filename="route.gpx"',
+      'x-request-id': 'req_binary',
+    }));
+    expect(response.end).toHaveBeenCalledWith(undefined);
   });
 });

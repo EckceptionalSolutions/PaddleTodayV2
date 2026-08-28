@@ -34,6 +34,7 @@ import {
 } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { getBrowserApiClient } from './browser-api-client.js';
+import { buildFloatPlanMessage } from '@paddletoday/trip-pack';
 
 const root = document.querySelector('[data-river-detail]');
 if (!(root instanceof HTMLElement)) {
@@ -87,6 +88,10 @@ const accessTakeOutLink = root.querySelector('[data-access-takeout-link]');
 const accessDirectionsGoogle = root.querySelector('[data-access-directions-google]');
 const accessDirectionsApple = root.querySelector('[data-access-directions-apple]');
 const accessOpenStreetMap = root.querySelector('[data-access-openstreetmap]');
+const tripGpxLink = root.querySelector('[data-trip-gpx]');
+const tripIcsLink = root.querySelector('[data-trip-ics]');
+const tripShareButton = root.querySelector('[data-trip-share]');
+const tripStatus = root.querySelector('[data-trip-status]');
 const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]'));
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
 const detailJumpLinks = Array.from(root.querySelectorAll('[data-detail-jump]'));
@@ -174,6 +179,8 @@ const riverContext = {
   reach: root.dataset.riverReach ?? 'Reach',
   state: root.dataset.riverState ?? '',
   region: root.dataset.riverRegion ?? '',
+  distanceLabel: root.dataset.riverDistance ?? '',
+  paddleTimeLabel: root.dataset.riverPaddleTime ?? '',
   putIn: {
     name: root.dataset.putInName ?? 'Put-in',
     latitude: Number(root.dataset.putInLatitude),
@@ -3470,6 +3477,7 @@ function initializeAccessPlanner() {
       nextUrl.searchParams.set('takeout', end.id);
     }
     window.history.replaceState({}, '', `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+    syncTripPackLinks();
 
     if (!plannerViewTracked) {
       plannerViewTracked = true;
@@ -4400,6 +4408,83 @@ function renderWeatherVisual(weather) {
   renderHourlyWeather(weather);
 }
 
+function syncTripPackLinks() {
+  const start = activeAccessContext.putIn;
+  const end = activeAccessContext.takeOut;
+  if (!start || !end) return;
+
+  const apiBase = window.location.origin;
+  const gpxUrl = new URL(`/api/rivers/${encodeURIComponent(slug)}/trip.gpx`, apiBase);
+  if (start.id) gpxUrl.searchParams.set('putin', start.id);
+  if (end.id) gpxUrl.searchParams.set('takeout', end.id);
+  const launch = new Date(Date.now() + 60 * 60 * 1000);
+  launch.setMinutes(0, 0, 0);
+  const distance = Number.parseFloat(riverContext.distanceLabel);
+  const times = (riverContext.paddleTimeLabel.match(/\d+(?:\.\d+)?/g) || []).map(Number);
+  const ratio = Number.isFinite(distance) && distance > 0 && Number.isFinite(Number.parseFloat(activeAccessContext.distanceLabel))
+    ? Math.min(1, Math.max(0, Number.parseFloat(activeAccessContext.distanceLabel) / distance))
+    : 1;
+  const expectedMinutes = Math.max(60, Math.round((times[1] || times[0] || 4) * ratio * 60) + 60);
+  const expected = new Date(launch.getTime() + expectedMinutes * 60 * 1000);
+  const icsUrl = new URL(`/api/rivers/${encodeURIComponent(slug)}/trip.ics`, apiBase);
+  if (start.id) icsUrl.searchParams.set('putin', start.id);
+  if (end.id) icsUrl.searchParams.set('takeout', end.id);
+  icsUrl.searchParams.set('start', launch.toISOString());
+  icsUrl.searchParams.set('end', expected.toISOString());
+  if (tripGpxLink instanceof HTMLAnchorElement) tripGpxLink.href = gpxUrl.toString();
+  if (tripIcsLink instanceof HTMLAnchorElement) tripIcsLink.href = icsUrl.toString();
+}
+
+function bindTripPackActions() {
+  syncTripPackLinks();
+  if (tripGpxLink instanceof HTMLAnchorElement) {
+    tripGpxLink.addEventListener('click', async (event) => {
+      event.preventDefault();
+      setElementText(tripStatus, 'Checking for canonical route geometry…');
+      try {
+        const response = await fetch(tripGpxLink.href, { method: 'HEAD' });
+        if (!response.ok) {
+          setElementText(tripStatus, 'GPX is not available for this route yet.');
+          return;
+        }
+        window.location.href = tripGpxLink.href;
+      } catch {
+        setElementText(tripStatus, 'GPX export is unavailable while offline.');
+      }
+    });
+  }
+  if (!(tripShareButton instanceof HTMLButtonElement)) return;
+  tripShareButton.addEventListener('click', async () => {
+    const start = activeAccessContext.putIn;
+    const end = activeAccessContext.takeOut;
+    const launch = new Date(Date.now() + 60 * 60 * 1000);
+    launch.setMinutes(0, 0, 0);
+    const text = buildFloatPlanMessage({
+      routeSlug: slug,
+      riverName: riverContext.name,
+      reach: riverContext.reach,
+      routeUrl: routeShareContext.url,
+      putIn: { name: start?.name ?? 'Check source', latitude: Number(start?.latitude) || 0, longitude: Number(start?.longitude) || 0 },
+      takeOut: { name: end?.name ?? 'Check source', latitude: Number(end?.latitude) || 0, longitude: Number(end?.longitude) || 0 },
+      distanceMiles: Number.parseFloat(activeAccessContext.distanceLabel) || null,
+      launchAt: launch,
+      expectedTakeOutAt: new Date(launch.getTime() + 4 * 60 * 60 * 1000),
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    });
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: `Float plan - ${riverContext.name}`, text });
+      } else {
+        await navigator.clipboard.writeText(text);
+        setElementText(tripStatus, 'Float plan copied to your clipboard.');
+      }
+      trackEvent('Share float plan', plannerAnalyticsProperties());
+    } catch (error) {
+      if (error?.name !== 'AbortError') setElementText(tripStatus, 'Could not open sharing. Copy the route link instead.');
+    }
+  });
+}
+
 function renderDetailResult(result) {
   latestResult = result;
   setDetailLoadingState(false);
@@ -5012,6 +5097,7 @@ function bindRouteActions() {
 bindChartControls();
 bindCopyCoordinateButtons();
 initializeAccessPlanner();
+bindTripPackActions();
 renderActiveAccessContext();
 updateChartButtonStates();
 setupLazyAccessMaps();

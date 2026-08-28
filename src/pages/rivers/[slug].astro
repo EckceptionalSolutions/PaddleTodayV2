@@ -165,6 +165,8 @@ const regionHref = stateGroup ? `/states/${stateGroup.slug}/#region-${slugifyFra
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
+const tripGpxHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.gpx?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
+const tripIcsHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.ics?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
 const routeSeoTitle = `${river.name} Paddle Conditions, Water Levels & Route Info | Paddle Today`;
 const routeSeoDescription = `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
@@ -291,6 +293,8 @@ const routeFaqStructuredData = {
     data-river-reach={river.reach}
     data-river-state={river.state}
     data-river-region={river.region}
+    data-river-distance={river.logistics?.distanceLabel}
+    data-river-paddle-time={river.logistics?.estimatedPaddleTime}
     data-route-score-eligibility={river.scoreEligibility ?? 'scored'}
     data-route-url={routeUrl}
     data-route-share-title={routeShareTitle}
@@ -1329,6 +1333,20 @@ const routeFaqStructuredData = {
         </section>
         </details>
       ) : null}
+
+      <section class="river-trip-pack" data-trip-pack>
+        <div>
+          <p class="eyebrow section-label">Prepare this trip</p>
+          <h3 class="river-subtitle river-subtitle--compact">Take the plan with you</h3>
+          <p class="muted">Download the canonical route, add a calendar hold, or send a simple float plan to your group.</p>
+        </div>
+        <div class="detail-map__links">
+          <a class="river-link river-link--inline river-link--primary" href={tripGpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a>
+          <a class="river-link river-link--inline" href={tripIcsHref} data-trip-ics data-analytics-event="Export calendar">Add to calendar</a>
+          <button class="river-inline-button" type="button" data-trip-share data-analytics-event="Share float plan">Share float plan</button>
+        </div>
+        <p class="muted river-trip-pack__status" data-trip-status aria-live="polite"></p>
+      </section>
 
       <div class="river-launch-plan__body">
         <div class="river-access-grid">

@@ -42,7 +42,7 @@ export async function handleRiverGeometry(
   }, includeBody, 'public, max-age=86400, stale-while-revalidate=604800');
 }
 
-async function loadRouteGeometry(slug: string) {
+export async function loadRouteGeometry(slug: string) {
   if (!/^[a-z0-9-]+$/.test(slug)) return null;
   const existing = geometryPromises.get(slug);
   if (existing) return existing;

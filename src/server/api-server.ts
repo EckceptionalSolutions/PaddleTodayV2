@@ -38,6 +38,7 @@ import {
 import { handleRiverAlertCreate, handleRiverAlertUnsubscribe } from './routes/alerts';
 import { handleAreaNotificationCreate, handleAreaNotificationPatch } from './routes/area-notifications';
 import { handleRiverGeometry } from './routes/river-geometry';
+import { handleRiverTripPack } from './routes/trip-pack';
 import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snapshots';
 import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-key';
 
@@ -123,6 +124,18 @@ const server = createServer(async (request, response) => {
         requestId,
         includeBody,
         decodeURIComponent(geometryMatch[1] || ''),
+      );
+    }
+
+    const tripPackMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/trip\.(gpx|ics)$/);
+    if (tripPackMatch) {
+      return await handleRiverTripPack(
+        requestUrl,
+        response,
+        requestId,
+        includeBody,
+        decodeURIComponent(tripPackMatch[1] || ''),
+        tripPackMatch[2] as 'gpx' | 'ics',
       );
     }
 

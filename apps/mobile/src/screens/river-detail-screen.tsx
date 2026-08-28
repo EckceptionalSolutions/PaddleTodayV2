@@ -58,6 +58,7 @@ import { QualityPill, ratingColors } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
 import { RouteDirectionActions } from '../components/route-direction-actions';
+import { PrepareTripSheet } from '../components/prepare-trip-sheet';
 import { RoutePlotMap, type RoutePlotPoint, type RouteSpanCoordinate } from '../components/route-plot-map';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
@@ -159,6 +160,7 @@ export default function RiverDetailScreen() {
   const [sectionTabsFloating, setSectionTabsFloating] = useState(false);
   const [reportSheetVisible, setReportSheetVisible] = useState(false);
   const [alertSheetVisible, setAlertSheetVisible] = useState(false);
+  const [prepareTripVisible, setPrepareTripVisible] = useState(false);
   const [selectedPutInId, setSelectedPutInId] = useState<string | null>(null);
   const [selectedTakeOutId, setSelectedTakeOutId] = useState<string | null>(null);
 
@@ -969,6 +971,25 @@ export default function RiverDetailScreen() {
                 ) : null}
               </View>
               <RouteDirectionActions putIn={selectedPutIn} takeOut={selectedTakeOut} />
+              <Pressable
+                style={styles.prepareTripButton}
+                onPress={() => {
+                  trackAppEvent('prepare_trip_opened', {
+                    slug: riverSlug,
+                    put_in_id: selectedPutIn?.id,
+                    take_out_id: selectedTakeOut?.id,
+                  });
+                  setPrepareTripVisible(true);
+                }}
+                accessibilityRole="button"
+                accessibilityLabel="Prepare this trip"
+              >
+                <View style={styles.prepareTripButtonCopy}>
+                  <Text style={styles.prepareTripButtonTitle}>Prepare this trip</Text>
+                  <Text style={styles.prepareTripButtonText}>Calendar, GPX route, and a shareable float plan.</Text>
+                </View>
+                <Text style={styles.prepareTripButtonArrow}>›</Text>
+              </Pressable>
               <TripPlanningCard detail={detail} />
               <LogisticsPanel
                 title="Shuttle"
@@ -994,6 +1015,21 @@ export default function RiverDetailScreen() {
           <DetailSectionTabs activeSection={activeSection} onSelect={showSection} />
         </View>
       ) : null}
+
+      <PrepareTripSheet
+        visible={prepareTripVisible}
+        detail={detail}
+        putIn={selectedPutIn}
+        takeOut={selectedTakeOut}
+        accessPoints={accessPoints}
+        onClose={() => setPrepareTripVisible(false)}
+        onAction={(action) => trackAppEvent('prepare_trip_action', {
+          slug: riverSlug,
+          action,
+          put_in_id: selectedPutIn?.id,
+          take_out_id: selectedTakeOut?.id,
+        })}
+      />
 
       <RouteReportSheet
         visible={reportSheetVisible}
@@ -3655,6 +3691,36 @@ const styles = StyleSheet.create({
   },
   accessBlock: {
     gap: spacing.md,
+  },
+  prepareTripButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderRadius: radius.md,
+    backgroundColor: colors.accentSoft,
+    borderWidth: 1,
+    borderColor: '#BFD6CC',
+    padding: spacing.md,
+    gap: spacing.md,
+  },
+  prepareTripButtonCopy: {
+    flex: 1,
+    gap: 3,
+  },
+  prepareTripButtonTitle: {
+    color: colors.accentDeep,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  prepareTripButtonText: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+  },
+  prepareTripButtonArrow: {
+    color: colors.accent,
+    fontSize: 26,
+    fontWeight: '500',
   },
   accessPlanner: {
     borderRadius: radius.md,

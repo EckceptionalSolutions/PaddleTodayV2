@@ -8658,6 +8658,24 @@ html body.page-weekend .weekend-map-empty__card h3 {
   margin: 0;
 }
 
+.river-trip-pack {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(47, 107, 89, 0.2);
+  background: rgba(221, 234, 227, 0.52);
+}
+
+.river-trip-pack p {
+  margin: 0;
+}
+
+.river-trip-pack__status {
+  min-height: 1.2rem;
+}
+
 .river-score-breakdown__summary {
   margin: 1rem 0 0;
 }

@@ -47,14 +47,23 @@ export function sendEmpty(response: ServerResponse, status: number, headers: Rec
   return response;
 }
 
-export function sendBinary(response: ServerResponse, status: number, payload: Buffer, contentType: string, cacheControl = 'no-store') {
+export function sendBinary(
+  response: ServerResponse,
+  status: number,
+  payload: Buffer,
+  contentType: string,
+  cacheControl = 'no-store',
+  includeBody = true,
+  extraHeaders: Record<string, string> = {},
+) {
   response.writeHead(status, {
     'content-type': contentType,
     'content-length': payload.length,
     'cache-control': cacheControl,
     'access-control-allow-origin': '*',
+    ...extraHeaders,
   });
-  response.end(payload);
+  response.end(includeBody ? payload : undefined);
   return response;
 }
 
