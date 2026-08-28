@@ -82,6 +82,11 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
   const activeConsolidationReviews = tasks.filter(
     (task) => task.lane === 'in_progress' && task.kind === 'consolidation_review'
   ).length;
+  const activeCoverageStates = new Set(
+    tasks
+      .filter((task) => task.lane === 'in_progress' && task.kind === 'state_coverage' && task.stateId)
+      .map((task) => task.stateId),
+  );
 
   // Geographic completion is intentionally frontier-first. A preserved
   // discovery task in a distant state must not jump ahead of unfinished
@@ -110,6 +115,13 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
     .filter((task) => (task.kind !== 'state_coverage' && !task.routeOpportunity)
       || activeFrontierTier === undefined
       || (task.frontierTier ?? 50) === activeFrontierTier)
+    // A live state-coverage assignment owns the active state until it is
+    // complete. Without this guard, a proposed task from another state at
+    // the same frontier tier (for example NC while CO is active) can jump
+    // the queue merely because it has a higher priority.
+    .filter((task) => activeCoverageStates.size === 0
+      || !(task.kind === 'state_coverage' || task.routeOpportunity)
+      || activeCoverageStates.has(task.stateId))
     .filter((task) => {
       if (task.kind === 'route_implementation') return activeRouteImplementations < 1;
       if (task.kind === 'product') return activeProductTasks < 3;

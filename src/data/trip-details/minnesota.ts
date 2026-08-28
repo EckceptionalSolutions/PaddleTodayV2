@@ -3348,15 +3348,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Official creek start below Gray's Bay Dam."
       },
       {
-        "id": "jidana-park",
-        "name": "Jidana Park",
-        "latitude": 44.941860141,
-        "longitude": -93.477039156,
-        "mileFromStart": 0.8,
-        "segmentKind": "lake",
-        "note": "Small early access if you want to skip the first headwaters mile."
-      },
-      {
         "id": "minnetonka-civic-center",
         "name": "Minnetonka Civic Center",
         "mileFromStart": 1.6,
@@ -3392,15 +3383,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 5.4,
         "segmentKind": "lake",
         "note": "Roadside access as the creek starts to feel less like the upper headwaters lakes."
-      },
-      {
-        "id": "knollwood-target",
-        "name": "Knollwood Target",
-        "latitude": 44.9473441,
-        "longitude": -93.389443823,
-        "mileFromStart": 6.8,
-        "segmentKind": "transition",
-        "note": "Official parking access, but less clean as a landing than Creekside Park farther downstream."
       },
       {
         "id": "creekside-park",
@@ -4000,15 +3982,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in at DNR Map 1 river mile 123.8."
       },
       {
-        "id": "busticogan-campsite",
-        "name": "Busticogan watercraft campsite",
-        "latitude": 47.8412,
-        "longitude": -93.5192,
-        "mileFromStart": 0.8,
-        "segmentKind": "creek",
-        "note": "Mapped watercraft campsite shortly below Highway 1; approximate coordinates from DNR river-mile context."
-      },
-      {
         "id": "muldoon-rapids-portage",
         "name": "Muldoon Rapids portage",
         "latitude": 47.8788,
@@ -4016,15 +3989,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 8.8,
         "segmentKind": "transition",
         "note": "Class II rapid zone with mapped river-right half-mile portage; approximate coordinates from DNR river-mile context."
-      },
-      {
-        "id": "little-american-falls-portage",
-        "name": "Little American Falls portage",
-        "latitude": 47.9306,
-        "longitude": -93.6368,
-        "mileFromStart": 19,
-        "segmentKind": "transition",
-        "note": "Mandatory Class IV-V falls portage for general paddlers; approximate coordinates from DNR river-mile context."
       },
       {
         "id": "highway-6-south",
@@ -9906,15 +9870,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; public-water-access GIS resolves WAS00462 at DNR river mile 128.7."
-      },
-      {
-        "id": "rum-river-old-whitney-log-dam",
-        "name": "Old Whitney Log Dam area",
-        "latitude": 45.842,
-        "longitude": -93.665,
-        "mileFromStart": 8,
-        "segmentKind": "creek",
-        "note": "Approximate mid-route hazard landmark from the DNR recommended-trip warning; scout/portage as conditions require."
       },
       {
         "id": "rum-river-milaca-dam-site",

@@ -44,8 +44,8 @@ const routesBySlug = new Map(routeInventory.map((route) => [route.slug, route]))
 const inventoryByKey = new Map<string, GaugeInventoryEntry>();
 const reviewsByKey = new Map<string, GaugeReviewEntry>();
 const stateFips: Record<string, string> = {
-  AR: '05', IL: '17', IN: '18', IA: '19', KS: '20', KY: '21', MI: '26', MN: '27',
-  MO: '29', NE: '31', ND: '38', OH: '39', PA: '42', SD: '46', TN: '47', TX: '48',
+  AR: '05', CO: '08', IL: '17', IN: '18', IA: '19', KS: '20', KY: '21', MI: '26', MN: '27',
+  MO: '29', NC: '37', NE: '31', ND: '38', OH: '39', PA: '42', SD: '46', TN: '47', TX: '48',
   UT: '49', VA: '51', WI: '55',
 };
 const providerStateIds = new Set(

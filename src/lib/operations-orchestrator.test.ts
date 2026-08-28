@@ -69,6 +69,16 @@ describe('operations orchestrator', () => {
     expect(order?.workerRole).toBe('gauge-coverage');
   });
 
+  it('keeps proposed work in the active state when another state shares its tier', () => {
+    const order = selectNextWorkOrder([
+      task({ id: 'co-active', kind: 'state_coverage', stateId: 'CO', frontierTier: 6, lane: 'in_progress' }),
+      task({ id: 'nc-proposed', kind: 'state_coverage', stateId: 'NC', frontierTier: 6, priority: 'critical', lane: 'proposed', gaugeKeys: ['usgs:2'] }),
+      task({ id: 'co-next', kind: 'state_coverage', stateId: 'CO', frontierTier: 6, priority: 'high', lane: 'ready', gaugeKeys: ['usgs:3'] }),
+    ]);
+    expect(order?.taskId).toBe('co-next');
+    expect(order?.stateId).toBe('CO');
+  });
+
   it('treats the legacy done lane as terminal when advancing the frontier', () => {
     const order = selectNextWorkOrder([
       task({ id: 'pa-finished', stateId: 'PA', frontierTier: 5, lane: 'done', priority: 'critical' }),

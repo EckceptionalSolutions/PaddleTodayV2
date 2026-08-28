@@ -1,25 +1,53 @@
 {
-  "generatedAt": "2026-08-10T02:54:56.577Z",
+  "generatedAt": "2026-08-28T21:11:41.054Z",
   "audit": {
-    "generatedAt": "2026-08-10T02:52:41.088Z",
-    "routeCount": 971,
-    "endpointCount": 2278,
+    "generatedAt": "2026-08-28T21:11:21.525Z",
+    "routeCount": 1215,
+    "endpointCount": 2785,
     "bySeverity": {
-      "ok": 984,
-      "review": 1111,
-      "suspicious": 141,
-      "failure": 37,
-      "unknown": 5
+      "ok": 1175,
+      "review": 1382,
+      "suspicious": 183,
+      "failure": 36,
+      "unknown": 9
     }
   },
   "triage": {
-    "reviewItemCount": 37,
-    "unresolvedRouteCount": 33,
-    "withheldRouteCount": 33,
-    "publicRouteCount": 702,
-    "holdCoveragePasses": true,
-    "missingFromHold": [],
-    "staleHolds": []
+    "reviewItemCount": 36,
+    "unresolvedRouteCount": 30,
+    "withheldRouteCount": 34,
+    "publicRouteCount": 917,
+    "holdCoveragePasses": false,
+    "missingFromHold": [
+      "blackwater-river-wayside-the-ford",
+      "colorado-river-lost-pines-riverbend-park",
+      "kalamazoo-river-comstock-mayors-riverfront",
+      "kishwaukee-river-marengo-siems-hwy23",
+      "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+      "little-pine-creek-north-park-lake-allison-park",
+      "maumee-river-kreager-moser",
+      "maumee-river-niagara-kreager",
+      "mississippi-river-piasa-harbor-alton-riverfront",
+      "niobrara-river-fort-niobrara-smith-falls",
+      "platte-river-honor-upper"
+    ],
+    "staleHolds": [
+      "badger-mill-creek-old-county-pb-highway-69",
+      "bark-river-bark-river-park-delafield",
+      "big-fork-river-highway-1-highway-6-south",
+      "cedar-creek-covered-bridge-lions",
+      "hay-river-county-ff-highway-25",
+      "la-crosse-river-highway-108-veterans",
+      "lower-colorado-two-rivers-south-canyon",
+      "minnehaha-creek-grays-bay-longfellow-lagoon",
+      "mullet-river-sumac-river-park",
+      "plover-river-hwy-k-jordan-park",
+      "rum-river-wayside-milaca",
+      "sheboygan-river-dassow-river-park",
+      "sheboygan-river-johnsonville-dassow",
+      "turtle-creek-school-section-east-creek",
+      "white-river-park-riverview-park"
+    ]
   },
   "evidence": {
     "osm": {
@@ -31,8 +59,8 @@
       "failedBatchCount": 0
     },
     "authoritative": {
-      "generatedAt": "2026-08-01T21:06:18.101Z",
-      "endpointCount": 9265,
+      "generatedAt": "2026-08-24T01:03:23.191Z",
+      "endpointCount": 9585,
       "providers": [
         {
           "id": "mn_dnr",
@@ -43,7 +71,7 @@
           "coordinateRole": "authoritative-access-anchor",
           "inventoryFetchedAt": "2026-07-31T18:10:00.581Z",
           "inventoryFeatureCount": 2993,
-          "matchedEndpointCount": 614
+          "matchedEndpointCount": 630
         },
         {
           "id": "ia_dnr",
@@ -54,7 +82,7 @@
           "coordinateRole": "authoritative-access-anchor",
           "inventoryFetchedAt": "2026-07-31T18:39:02.142Z",
           "inventoryFeatureCount": 812,
-          "matchedEndpointCount": 296
+          "matchedEndpointCount": 298
         },
         {
           "id": "wi_dnr",
@@ -65,7 +93,7 @@
           "coordinateRole": "authoritative-access-anchor",
           "inventoryFetchedAt": "2026-07-31T18:39:02.352Z",
           "inventoryFeatureCount": 3136,
-          "matchedEndpointCount": 373
+          "matchedEndpointCount": 394
         },
         {
           "id": "pa_pfbc",
@@ -76,7 +104,7 @@
           "coordinateRole": "authoritative-access-anchor",
           "inventoryFetchedAt": "2026-07-31T20:53:27.627Z",
           "inventoryFeatureCount": 1125,
-          "matchedEndpointCount": 114
+          "matchedEndpointCount": 123
         },
         {
           "id": "ky_kdfwr",
@@ -98,7 +126,7 @@
           "coordinateRole": "authoritative-access-anchor",
           "inventoryFetchedAt": "2026-07-31T21:00:45.283Z",
           "inventoryFeatureCount": 338,
-          "matchedEndpointCount": 14
+          "matchedEndpointCount": 19
         },
         {
           "id": "usfs_sheyenne_2019_geopdf",
@@ -496,24 +524,24 @@
     }
   },
   "canonicalRegistry": {
-    "generatedAt": "2026-08-02T00:50:43.957Z",
-    "entryCount": 1374,
-    "repeatedEntryCount": 479,
+    "generatedAt": "2026-08-28T21:11:29.576Z",
+    "entryCount": 1840,
+    "repeatedEntryCount": 557,
     "conflictCount": 0,
-    "distinctLocationNameCount": 3,
-    "derivedWaterEntryCount": 864,
-    "authoritativeAccessCount": 343,
+    "distinctLocationNameCount": 2,
+    "derivedWaterEntryCount": 1077,
+    "authoritativeAccessCount": 345,
     "authoritativeWaterEntryCount": 20,
     "areaAnchorOnlyCount": 1,
     "authoritativeAccessMismatchCount": 0
   },
   "routeGeometry": {
-    "routeCount": 891,
-    "matchedRouteCount": 890,
-    "networkTracedRouteCount": 192,
-    "namedFallbackRouteCount": 698,
-    "curatedRouteCount": 0,
-    "unmatchedRouteCount": 1
+    "routeCount": 1133,
+    "matchedRouteCount": 1131,
+    "networkTracedRouteCount": 227,
+    "namedFallbackRouteCount": 894,
+    "curatedRouteCount": 10,
+    "unmatchedRouteCount": 2
   },
   "automation": {
     "historyUpdatedAt": "2026-08-01T17:12:48.675Z",

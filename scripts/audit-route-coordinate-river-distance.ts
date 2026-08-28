@@ -406,6 +406,7 @@ const acceptedNoFlowlineAccessWaterbodyFeet: Record<string, number> = {
 
 const args = new Set(process.argv.slice(2));
 const shouldRefresh = args.has('--refresh');
+const shouldUseCache = !args.has('--no-cache');
 const routeArg = process.argv.find((arg) => arg.startsWith('--route='));
 const routeFilter = routeArg?.slice('--route='.length);
 const concurrencyArg = process.argv.find((arg) => arg.startsWith('--concurrency='));
@@ -413,7 +414,7 @@ const concurrency = Math.max(1, Math.min(8, Number(concurrencyArg?.slice('--conc
 
 function usage() {
   console.log([
-    'Usage: tsx scripts/audit-route-coordinate-river-distance.ts [--refresh] [--route=<route-id>] [--concurrency=<1-8>]',
+    'Usage: tsx scripts/audit-route-coordinate-river-distance.ts [--refresh] [--no-cache] [--route=<route-id>] [--concurrency=<1-8>]',
     '',
     'Audits put-in and take-out coordinates against USGS NHD named flowlines and waterbody/area polygons.',
     `Writes ${path.relative(root, reportPath)}.`,
@@ -493,10 +494,9 @@ function cacheKey(parts: string[]) {
 }
 
 async function fetchJsonWithCache(key: string, url: string): Promise<ArcGisResponse> {
-  await mkdir(cacheDir, { recursive: true });
   const file = path.join(cacheDir, `${key}.json`);
 
-  if (!shouldRefresh) {
+  if (shouldUseCache && !shouldRefresh) {
     try {
       return JSON.parse(await readFile(file, 'utf8')) as ArcGisResponse;
     } catch {
@@ -504,14 +504,31 @@ async function fetchJsonWithCache(key: string, url: string): Promise<ArcGisRespo
     }
   }
 
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`NHD request failed ${response.status} ${response.statusText}`);
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= 5; attempt += 1) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`NHD request failed ${response.status} ${response.statusText}`);
+      }
+
+      const text = await response.text();
+      if (shouldUseCache) {
+        // The cache can be cleared by another local process while the network
+        // request is in flight. Re-create it immediately before writing.
+        await mkdir(cacheDir, { recursive: true });
+        await writeFile(file, text);
+      }
+      return JSON.parse(text) as ArcGisResponse;
+    } catch (error) {
+      lastError = error;
+      if (attempt < 5) {
+        await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+      }
+    }
   }
 
-  const text = await response.text();
-  await writeFile(file, text);
-  return JSON.parse(text) as ArcGisResponse;
+  throw lastError;
 }
 
 function buildNhdQuery(bounds: ReturnType<typeof routeBounds>, where: string, queryUrl = nhdFlowlineQueryUrl) {

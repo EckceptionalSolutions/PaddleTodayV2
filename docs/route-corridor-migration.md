@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-08-25T02:06:10.617Z.
+Generated 2026-08-27T23:46:16.520Z.
 
 - Defined corridors: 25
 - Routes covered by a corridor definition: 184
-- Remaining multi-route families: 139
+- Remaining multi-route families: 155
 
 ## Defined corridors
 
@@ -60,6 +60,7 @@ Generated 2026-08-25T02:06:10.617Z.
 | Pennsylvania | Susquehanna River | 23 |
 | Kentucky | Floyds Fork | 21 |
 | Missouri | Eleven Point River | 20 |
+| West Virginia | Guyandotte River | 17 |
 | Missouri | Current River | 16 |
 | Missouri | Jacks Fork River | 15 |
 | Texas | Colorado River | 13 |
@@ -91,10 +92,9 @@ Generated 2026-08-25T02:06:10.617Z.
 | Minnesota | Cottonwood River | 6 |
 | Arkansas | Crooked Creek | 6 |
 | Kentucky | Cumberland River | 6 |
+| West Virginia | Elk River | 6 |
 | Kentucky | Kinniconick Creek | 6 |
 | Nebraska | Loup River | 6 |
-| Wisconsin | Mecan River | 6 |
-| Wisconsin | Milwaukee River | 6 |
-| Additional families omitted | See route data and overlap audit | 99 |
+| Additional families omitted | See route data and overlap audit | 115 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

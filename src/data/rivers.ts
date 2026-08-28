@@ -1,6 +1,7 @@
 import type { River } from '../lib/types';
 import { hasQualifyingGauge, isPublicPlanningRoute } from './route-publication';
 import { arkansasRoutes } from './routes/arkansas';
+import { coloradoRoutes } from './routes/colorado';
 import { illinoisRoutes } from './routes/illinois';
 import { indianaRoutes } from './routes/indiana';
 import { iowaRoutes } from './routes/iowa';
@@ -9,6 +10,7 @@ import { kentuckyRoutes } from './routes/kentucky';
 import { michiganRoutes } from './routes/michigan';
 import { minnesotaRoutes } from './routes/minnesota';
 import { missouriRoutes } from './routes/missouri';
+import { northCarolinaRoutes } from './routes/north-carolina';
 import { nebraskaRoutes } from './routes/nebraska';
 import { northDakotaRoutes } from './routes/north-dakota';
 import { ohioRoutes } from './routes/ohio';
@@ -23,6 +25,7 @@ import { westVirginiaRoutes } from './routes/west-virginia';
 
 const stateRoutes: River[] = [
   ...arkansasRoutes,
+  ...coloradoRoutes,
   ...illinoisRoutes,
   ...indianaRoutes,
   ...iowaRoutes,
@@ -31,6 +34,7 @@ const stateRoutes: River[] = [
   ...michiganRoutes,
   ...minnesotaRoutes,
   ...missouriRoutes,
+  ...northCarolinaRoutes,
   ...nebraskaRoutes,
   ...northDakotaRoutes,
   ...ohioRoutes,
@@ -45,6 +49,15 @@ const stateRoutes: River[] = [
 ];
 const routeBySlug = new Map(stateRoutes.map((route) => [route.slug, route]));
 const routeOrder = [
+  "arkansas-river-parkdale-royal-gorge",
+  "arkansas-river-browns-canyon-fishermans-stone",
+  "arkansas-river-pueblo-whitewater-park",
+  "arkansas-river-granite-boat-chute-buena-vista",
+  "upper-colorado-pumphouse-state-bridge",
+  "lower-colorado-two-rivers-south-canyon",
+  "upper-clear-creek-kermits-county-line",
+  "clear-creek-golden-whitewater-park",
+  "cache-la-poudre-fort-collins-shields-legacy",
   "brazos-river-hwy16-fm4-upper-middle",
   "brushy-creek-chisholm-trail-red-bud",
   "brazos-river-brazos-park-east-bledsoe-miller",
@@ -1235,6 +1248,22 @@ const routeOrder = [
   "appomattox-river-radcliffe-patton-park",
   "north-river-campground-camp-may-flather",
   "south-river-waynesboro-ridgeview-basic",
+  "roanoke-river-eastern-montgomery-wayside",
+  "roanoke-river-salem-rotary-wasena",
+  "roanoke-river-niagara-explore-park",
+  "blackwater-river-wayside-the-ford",
+  "staunton-river-long-island-brookneal",
+  "new-river-independence-baywood",
+  "new-river-radford-peppers-ferry",
+  "new-river-rich-creek-glen-lyn",
+  "roanoke-river-gaston-weldon-outtake",
+  "haw-river-saxapahaw-union-bridge",
+  "mayo-river-anglin-business-220",
+  "dan-river-hanging-rock-moratock",
+  "french-broad-river-pisgah-forest-penrose",
+  "neuse-river-falls-dam-thornton",
+  "yadkin-river-ronda-crater-park",
+  "yadkin-river-kerr-scott-smoot-park",
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {

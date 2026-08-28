@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "stateId": "NC",
+  "stateName": "North Carolina",
+  "updatedAt": "2026-08-28T03:29:00.000Z",
+  "phase": "independent_access_first_discovery",
+  "executionStatus": "completed_access_first_window_10_nc_complete_with_deferred_candidates",
+  "selection": {
+    "rank": 2,
+    "score": 89,
+    "reason": "North Carolina was the highest-ranked state outside the existing queue with a bounded official source family: state-designated paddle trails, public boating accesses, and a deep active USGS discharge network. The Roanoke River State Trail supplied the first corridor-first window.",
+    "sources": [
+      "https://trails.nc.gov/state-trails",
+      "https://trails.nc.gov/state-trails/roanoke-river-state-trail",
+      "https://www.ncwildlife.org/boating/boating-access-areas",
+      "https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=NC&siteType=ST&siteStatus=active&hasDataTypeCd=iv&parameterCd=00060"
+    ]
+  },
+  "gaugeBaseline": {
+    "status": "provider_baseline_complete",
+    "inventoryId": "provider-baseline-202608272235",
+    "generatedAt": "2026-08-27T22:35:43.570Z",
+    "provider": "USGS",
+    "freshStreamGaugeCount": 288,
+    "coveredGaugeCount": 4,
+    "blockedGaugeCount": 284,
+    "screenedOutGaugeCount": 0,
+    "unreviewedGaugeCount": 0,
+    "researchingGaugeCount": 0,
+    "reviewPercent": 100,
+    "staleOrUnsupportedGaugeCount": 0
+  },
+  "reviewStrategy": {
+    "method": "corridor-first, then direct-gauge family screening",
+    "description": "Use provider-baseline gauge review for durable dispositions, but keep discovery open: independently sweep official and partner access networks, map them to direct live gauges, screen at most three same-family candidates, and deeply research at most the strongest survivor. Keep stage-only gauges visible as deferred blockers rather than inventing route thresholds.",
+    "completedWindows": [
+      {
+        "id": "nc-roanoke-window-01",
+        "gaugeKeys": ["usgs:02080500", "usgs:02081000", "usgs:02081028"],
+        "outcome": "Published the 6-mile Gaston/Roanoke Rapids Access to Weldon Outtake segment on direct USGS 02080500 using the Roanoke River State Trail, Roanoke River Partners, Dominion Energy release guidance, and a canonical NHD geometry. Deferred the two stage-only downstream gauges because no station-specific paddling threshold supports distinct routes."
+      },
+      {
+        "id": "nc-yadkin-window-02",
+        "gaugeKeys": ["usgs:02111000", "usgs:02112250", "usgs:02115360"],
+        "outcome": "Published the 6.8-mile Ronda Park to Crater Park in Elkin segment on direct USGS 02112250 using the Yadkin River State Trail, Yadkin County access data, NC Wildlife access data, Elkin facility information, Yadkin Riverkeeper operating guidance, and a canonical NHD geometry. Deferred Patterson and Enon as distinct follow-up candidates because the bounded window did not complete separate endpoint and station-tied operating packages."
+      },
+      {
+        "id": "nc-yadkin-window-03",
+        "gaugeKeys": ["usgs:0211139110", "usgs:02112000", "usgs:02116500"],
+        "outcome": "Published the Kerr Scott Tailwater to Smoot Park Class I–II segment on direct USGS 0211139110 using the Yadkin River State Trail designation, documented tailwater and Smoot access, Riverkeeper safety guidance, current telemetry, and a canonical NHD geometry. Deferred Wilkesboro and Yadkin College because the stronger tailwater survivor already covers the verified access chain and no additional distinct station-tied endpoint and hazard package cleared the bounded window."
+      },
+      {
+        "id": "nc-statewide-completion-sweep-04",
+        "gaugeKeys": [],
+        "outcome": "Completed durable disposition of all remaining NC provider-baseline entries. No additional route was published; 278 previously unreviewed stations were marked blocked/deferred with explicit retry conditions requiring a distinct public endpoint pair, station-tied operating guidance, safety evidence, and duplicate-scope clearance."
+      },
+      {
+        "id": "nc-access-first-window-05",
+        "gaugeKeys": ["usgs:02096500", "usgs:02096960", "usgs:02094500"],
+        "outcome": "Published the 5.5-mile Saxapahaw Mill Race to Union Bridge intermediate Haw River Paddle Trail segment on direct USGS 02096500 after verifying the named public endpoint pair, section-specific 2.1–4.0 ft planning band, live telemetry, safety/dam notes, duplicate scope, and canonical NHD geometry. Deferred the Bynum and Reedy Fork candidates because they do not yet have a distinct complete route package."
+      },
+      {
+        "id": "nc-access-first-window-06",
+        "gaugeKeys": ["usgs:02070500", "usgs:02071000", "usgs:03439000"],
+        "outcome": "Published the 10-mile advanced Anglin Mill / Mayo Beach to Business 220 Mayo River run on direct USGS 02070500 after verifying named public endpoints, station-tied 150/250/1,000 cfs planning cues, Boiling Hole and mandatory pre-dam take-out hazards, duplicate scope, and canonical NHD geometry. Deferred the Dan and French Broad candidates for separate route packages."
+      },
+      {
+        "id": "nc-access-first-window-07",
+        "gaugeKeys": ["usgs:02071000", "usgs:03439000", "usgs:03161000"],
+        "outcome": "Published the approximately 5.9-mile Hanging Rock to Moratock Park Class I–II Dan River section on direct USGS 02071000 after verifying the named public endpoint pair, local 150/250/1,000 cfs planning cues, access and moving-water safety notes, duplicate scope, and canonical NHD geometry. Deferred French Broad and New River candidates for separate route packages."
+      },
+      {
+        "id": "nc-access-first-window-08",
+        "gaugeKeys": ["usgs:03439000", "usgs:03161000", "usgs:02087183"],
+        "outcome": "Published the approximately 5.5-mile Pisgah Forest to Penrose French Broad Paddle Trail section on direct USGS 03439000 after verifying named public accesses currently listed open, numeric local flow guidance, obstruction/recovery checks, duplicate scope, and canonical NHD geometry. Deferred New River and Neuse candidates for separate route packages."
+      },
+      {
+        "id": "nc-access-first-window-09",
+        "gaugeKeys": ["usgs:03161000", "usgs:02087183", "usgs:02134500"],
+        "outcome": "Published the 4.7-mile Falls Dam Tailrace to Thornton Road Neuse River section on direct USGS 02087183 after verifying Raleigh's named public paddle-launch chain, official 200 cfs slow-float cue, current Thornton nonmotorized launch notice, downstream closure context, duplicate scope, and canonical NHD geometry. Deferred New River and Lumber because a station-tied section threshold and complete access package still require confirmation."
+      },
+      {
+        "id": "nc-access-first-window-10",
+        "gaugeKeys": ["usgs:03161000", "usgs:02134500"],
+        "outcome": "Completed the final New River/Lumber access-first audit. Confirmed official endpoint networks, route mileage, park status, direct gauges, and independent paddling context, but did not publish either route because neither candidate had a defensible station-tied paddling threshold and complete operating band. Both gauges received durable deferred dispositions with explicit retry conditions; no additional NC route cleared the publication bar in this methodology window."
+      }
+    ]
+  },
+  "corridorWindow": {
+    "status": "completed_with_deferred_candidates",
+    "candidateCount": 7,
+    "publishedCount": 5,
+    "routes": ["roanoke-river-gaston-weldon-outtake", "yadkin-river-ronda-crater-park", "yadkin-river-kerr-scott-smoot-park", "haw-river-saxapahaw-union-bridge", "mayo-river-anglin-business-220", "dan-river-hanging-rock-moratock", "french-broad-river-pisgah-forest-penrose", "neuse-river-falls-dam-thornton"],
+    "nextWindow": null
+  },
+  "independentDiscovery": {
+    "method": "Access-first regional water-trail sweep independent of the provider-baseline gauge-ledger order",
+    "status": "completed_with_deferred_candidates",
+    "finding": "The statewide completion sweep was independently stress-tested with an access-first regional water-trail method. That reopened pass added Haw, Mayo, Dan, French Broad, and Neuse routes. New River State Park and Lumber River State Park were then screened to completion; both have real access networks and direct gauges but lack defensible station-tied paddling thresholds, so they remain explicit retryable deferrals rather than invented score bands.",
+    "candidates": [
+      {
+        "id": "nc-haw-saxapahaw-union-bridge",
+        "priority": "highest",
+        "river": "Haw River",
+        "accesses": "Saxapahaw Mill Race to Union Bridge",
+        "gaugeKeys": ["usgs:02096500"],
+        "evidence": "5.5 miles, intermediate, public endpoint addresses, minimum 2.1 ft and maximum 4.0 ft at Haw River, with a dam warning at the 15-501 take-out.",
+        "sources": ["https://www.hawrivertrail.org/saxapahaw-mill-race-to-union-bridge", "https://www.hawrivertrail.org/river-gauge", "https://waterdata.usgs.gov/monitoring-location/USGS-02096500/"]
+      },
+      {
+        "id": "nc-mayo-anglin-business-220",
+        "priority": "highest",
+        "river": "Mayo River",
+        "accesses": "Anglin Mill / Mayo Beach to Business 220",
+        "gaugeKeys": ["usgs:02070500"],
+        "evidence": "Named state-park access, 10-mile route description, Class II–III upper hazard, mandatory Business 220 take-out before the dam, and published 150/250/1,000 cfs planning cues.",
+        "sources": ["https://www.ncparks.gov/state-parks/mayo-river-state-park", "https://www.piedmonttrails.org/paddlethepiedmont-mayoriver/", "https://waterdata.usgs.gov/monitoring-location/USGS-02070500/"]
+      },
+      {
+        "id": "nc-dan-hanging-rock-moratock",
+        "priority": "high",
+        "river": "Dan River",
+        "accesses": "Hanging Rock to Moratock Park",
+        "gaugeKeys": ["usgs:02071000"],
+        "evidence": "Public access coordinates, 5.9-mile Class I–II segment, shuttle guidance, direct Wentworth gauge family, and 150/250/1,000 cfs regional planning cues.",
+        "sources": ["https://www.danriver.org/our-watershed/trails-and-river-info/river-info", "https://www.piedmonttrails.org/paddlethepiedmont-danriver/", "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02071000"]
+      },
+      {
+        "id": "nc-french-broad-transylvania-brevard",
+        "priority": "high",
+        "river": "French Broad River",
+        "accesses": "Champion Park / Lyons Mountain / Hap Simpson / Pisgah Forest",
+        "gaugeKeys": ["usgs:03439000", "usgs:03443000"],
+        "evidence": "Official state trail, dozens of legally identified access points, current open/closure notes, local low/medium/high flow ratings, and direct Rosman/Blantyre gauges. Post-Helene access verification remains mandatory.",
+        "sources": ["https://trails.nc.gov/state-trails/french-broad-river-state-trail", "https://frenchbroadpaddle.com/en/access-points", "https://frenchbroadpaddle.com/en/flows-gauges"]
+      },
+      {
+        "id": "nc-new-river-state-park",
+        "priority": "high",
+        "river": "New River",
+        "accesses": "Elk Shoals / Wagoner / Riverbend / U.S. 221 / Kings Creek / Alleghany",
+        "gaugeKeys": ["usgs:03161000"],
+        "evidence": "Seven state-park accesses, published segment mileages and paddle times, portage markers, and a direct South Fork New River gauge. Final screening found no defensible station-tied paddling operating band, so the candidate remains retryably deferred.",
+        "sources": ["https://www.ncparks.gov/state-parks/new-river-state-park", "https://www.ncparks.gov/maps/new-river-state-park-map/open", "https://waterdata.usgs.gov/monitoring-location/USGS-03161000/all-graphs/"]
+      },
+      {
+        "id": "nc-neuse-river-blueway",
+        "priority": "medium",
+        "river": "Neuse River",
+        "accesses": "Falls Dam / Thornton Road / River Bend / Buffaloe Road / Anderson Point / Poole Road",
+        "gaugeKeys": ["usgs:02087183"],
+        "evidence": "Published as the 4.7-mile Falls Dam to Thornton section after Raleigh documented the endpoint chain, official 200 cfs slow-float cue, public Thornton launch, and downstream closure context; direct USGS 02087183 is linked.",
+        "sources": ["https://raleighnc.gov/river-access", "https://raleighnc.gov/parks-and-recreation/services/know-you-go-tubing-neuse-river", "https://raleighnc.gov/parks-and-recreation/news/new-thornton-road-boat-launch-now-open", "https://raleighnc.gov/status-alerts/neuse-river-trail-closure-1", "https://waterdata.usgs.gov/monitoring-location/USGS-02087183/"]
+      },
+      {
+        "id": "nc-lumber-river-state-park",
+        "priority": "medium",
+        "river": "Lumber River",
+        "accesses": "Chalk Banks / Boardman / Princess Ann / Fair Bluff",
+        "gaugeKeys": ["usgs:02134500", "usgs:02134170"],
+        "evidence": "Official 115-mile paddle-trail context, public park accesses and primitive campsites, direct Boardman/Lumberton gauges, and current Boardman telemetry. Final screening found access and local flow context but no defensible station-tied operating band, so the candidate remains retryably deferred.",
+        "sources": ["https://www.ncparks.gov/planning-files/general-management-plan-lumber-river-state-park/open", "https://www.ncparks.gov/state-parks/lumber-river-state-park/camping-lumber-river", "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02134500"]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "gaugeKey": "usgs:0211139110",
+      "siteName": "Yadkin River at Kerr Scott Dam Tailwater, NC",
+      "disposition": "covered",
+      "routeReadiness": "published",
+      "reason": "Direct tailwater gauge supports the documented Kerr Scott Tailwater-to-Smoot Park access chain, with public endpoint coordinates, class guidance, safety notes, and a complete route package.",
+      "route": "yadkin-river-kerr-scott-smoot-park",
+      "currentObservation": "317 cfs / 2.02 ft at 2026-08-27 14:45 local time"
+    },
+    {
+      "gaugeKey": "usgs:02112000",
+      "siteName": "Yadkin River at Wilkesboro, NC",
+      "disposition": "blocked",
+      "routeReadiness": "deferred",
+      "reason": "Fast-screened after the stronger direct tailwater survivor; the verified Tailwater-to-Smoot access chain is already represented and no additional distinct station-specific endpoint and threshold package cleared this bounded window.",
+      "retryCondition": "Reopen with a distinct lawful endpoint pair, station-tied operating guidance, and a non-duplicate route shape."
+    },
+    {
+      "gaugeKey": "usgs:02116500",
+      "siteName": "Yadkin River at Yadkin College, NC",
+      "disposition": "blocked",
+      "routeReadiness": "deferred",
+      "reason": "Fast-screened after the stronger upper-Yadkin survivor; the lower reach needs a distinct public endpoint and hazard/portage package before publication.",
+      "retryCondition": "Reopen with a distinct lawful endpoint pair, station-tied operating guidance, and a complete lower-reach hazard package."
+    }
+  ],
+  "evidence": [
+    "docs/operations/gauge-inventory.json",
+    "docs/operations/gauge-review-ledger.json",
+    "src/data/routes/north-carolina.ts",
+    "public/data/canonical-river-geometries/routes/yadkin-river-ronda-crater-park.json",
+    "https://trails.nc.gov/state-trails/yadkin-river-state-trail",
+    "https://www.yadkinriverkeeper.org/yadkin-river-access",
+    "https://www.yadkincountync.gov/414/Yadkin-River-Trail",
+    "https://www.yadkinriverkeeper.org/news/2020/9/16/riverkeeper-offers-guidance-for-safe-paddling",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-0211139110/",
+    "https://nctriadoutdoors.com/places/kerr-scott-dam-tailwater-access/",
+    "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=0211139110&parameterCd=00060,00065&siteStatus=all",
+    "https://www.ncwildlife.org/boating/boating-access-areas"
+  ],
+  "validation": {
+    "evidence": true,
+    "safety": true,
+    "verification": true,
+    "tests": true,
+    "rollback": true,
+    "notes": "All 288 NC inventory entries have durable covered, blocked, or deferred dispositions. Haw window 05, Mayo window 06, Dan window 07, French Broad window 08, and Neuse window 09 passed route, gauge, safety, geometry, access-registry, and rollback checks. Final window 10 screened New River and Lumber and retained both as retryable threshold gaps. The five added routes remain reversible by removing the NC route and trip-detail files, their registry entries, route-scoped geometries, and linked operational records without touching prior state work."
+  }
+}

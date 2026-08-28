@@ -113,7 +113,6 @@ export const nebraskaRoutes: River[] = [
     },
     "accessPoints": [
       {"id":"north-bend-highway-79-bridge","name":"Nebraska 79 bridge south of North Bend","latitude":41.45295,"longitude":-96.77601,"mileFromStart":0,"segmentKind":"creek","note":"Nebraska Game and Parks identifies the upstream/west side of the bridge as the launch; inspect the dirt-road approach and portage distance on arrival."},
-      {"id":"hormel-park-intermediate-landmark","name":"Hormel Park, Fremont (intermediate landmark; ramp closed)","latitude":41.4336,"longitude":-96.5482,"mileFromStart":15,"segmentKind":"creek","note":"Official trail landmark only. The Lower Platte North NRD currently reports the boat ramp destroyed and closed; do not rely on this as an access point until reopening is confirmed."},
       {"id":"platte-river-landing-highway-64","name":"Platte River Landing at Nebraska 64","latitude":41.31893,"longitude":-96.40321,"mileFromStart":24,"segmentKind":"creek","note":"Public Papio NRD landing on the southeast/downstream corner of the Nebraska 64 bridge; confirm current ramp, parking, and seasonal hours."}
     ],
     "evidenceNotes": [
@@ -170,14 +169,13 @@ export const nebraskaRoutes: River[] = [
       "safetyNotes": [
         "Nebraska Game and Parks describes 18-24 inch low rapids and about 300 yards of fast water in the first section. Scout the line, wear a properly fitted PFD, and do not treat the route as flatwater.",
         "The river above Burwell is diverted for irrigation from mid-June through August. Low levels can expose shallow channels and require walking; never use the 275 cfs reference as a guarantee of floatability.",
-        "Use only the named public Riverside Park and Anderson Island endpoints, or verify the Elyria county bridge access before relying on it. Banks and stream-bed stops may require landowner permission.",
+        "Use only the named public Riverside Park and Anderson Island endpoints. Treat the Elyria county bridge as a scouting landmark, not a verified access; banks and stream-bed stops may require landowner permission.",
         "A rapidly rising gauge, flood warning, severe weather, fresh wood, poor daylight, or unclear endpoint access overrides the score and is a no-go."
       ],
       "reviewStatus": "reviewed"
     },
     "accessPoints": [
       {"id":"burwell-riverside-park","name":"Burwell Riverside Park","latitude":41.78900058,"longitude":-99.134,"mileFromStart":0,"segmentKind":"creek","note":"Nebraska Game and Parks identifies Riverside Park as the start of the trail; confirm current launch/parking conditions on arrival."},
-      {"id":"elyria-county-bridge","name":"County bridge near Elyria on Nebraska 11","latitude":41.7005,"longitude":-99.045,"mileFromStart":8,"segmentKind":"creek","note":"Official trail materials identify this as the only potential intermediate access; verify legal approach and landing before use."},
       {"id":"anderson-island-ord","name":"Anderson Island, Ord","latitude":41.604454,"longitude":-98.9178651,"mileFromStart":18.5,"segmentKind":"creek","note":"City-owned public finish just south of the Nebraska 70 bridge with road access to the river edge."}
     ],
     "evidenceNotes": [

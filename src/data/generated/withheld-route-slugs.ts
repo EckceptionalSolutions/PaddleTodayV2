@@ -15,6 +15,7 @@ export const coordinateWithheldRouteSlugs = [
   "hay-river-county-ff-highway-25",
   "la-crosse-river-highway-108-veterans",
   "lemonweir-river-mauston-dam-19th-ave",
+  "lower-colorado-two-rivers-south-canyon",
   "loup-river-george-syas-adm-access",
   "loup-river-george-syas-columbus",
   "loup-river-george-syas-monroe",

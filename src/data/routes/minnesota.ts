@@ -13253,15 +13253,6 @@ export const minnesotaRoutes: River[] = [
         "note": "DNR Map 1 marks the Highway 1 carry-in at Big Fork river mile 123.8."
       },
       {
-        "id": "little-american-falls-portage",
-        "name": "Little American Falls portage",
-        "latitude": 47.9306,
-        "longitude": -93.6368,
-        "mileFromStart": 19,
-        "segmentKind": "transition",
-        "note": "Class IV-V falls with a mapped river-left portage; coordinates are approximate from DNR river-mile context."
-      },
-      {
         "id": "highway-6-south",
         "name": "Highway 6 South / State Hwy 6 Bridge carry-in access",
         "latitude": 47.95302296444459,

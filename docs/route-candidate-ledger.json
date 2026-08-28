@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T22:17:34.864Z",
+  "updatedAt": "2026-08-29T19:15:00Z",
   "notes": "North Dakota gauge review screened the Maple River state-line and Bismarck Wachter Avenue drain records with no route added.",
   "candidates": [
     {
@@ -91350,6 +91350,84 @@
     {"id":"nd-missouri-cross-ranch-usgs-06341000-20260820","candidateId":"nd-missouri-cross-ranch-usgs-06341000-20260820","river":"Missouri River","route":"Washburn to Sanger boat landing / Cross Ranch State Park nine-mile run","state":"ND","status":"stale_or_unsupported_route_capable","screenedAt":"2026-08-20T22:48:41Z","lastReviewed":"2026-08-20","runId":"route-worker-202608201748-nd-bounded-discovery-no-add","gaugeKeys":["usgs:06341000"],"decisiveBlocker":"Fresh USGS 06341000 telemetry was stage-only at 8.79 ft at 2026-08-20 17:15 CDT. North Dakota Parks confirms the named nine-mile Washburn-to-Sanger kayak/canoe run, transport, boat ramp, and Cross Ranch camping, but PaddleToday has no supported discharge metric or accepted stage adapter for current route scoring.","blocker":"Stage-only provider support cannot power the route's current scoring model","gaugeEvidence":"USGS Water Services IV returned stage-only 8.79 ft at 2026-08-20 17:15 CDT for 06341000 Missouri River at Washburn.","thresholdEvidence":"Cross Ranch confirms the run but does not publish a numeric threshold tied to 06341000; no stage adapter is accepted.","endpointEvidence":"Washburn and Sanger are named public access points through the official run/transport description, but no new endpoint package was promoted while the provider gate failed.","campingEvidence":"Cross Ranch confirms standard and primitive campsites, but camping terms do not cure the unsupported current-gauge metric.","safetyEvidence":"Free-flowing Missouri current, wind, boat traffic, and route-specific navigation hazards remain unresolved under stage-only support.","imageDecision":"No image-audit row added because no route was implemented.","geometryDecision":"No canonical geometry generated because no route was implemented.","coordinateDecision":"No endpoint coordinates promoted.","sourceLinks":["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05058650,05117500,06341000,05082500,05099400&parameterCd=00060,00065&siteStatus=all&period=P1D","https://waterdata.usgs.gov/monitoring-location/USGS-06341000/","https://www.parkrec.nd.gov/cross-ranch-state-park","https://www.parkrec.nd.gov/sites/www/files/documents/Cross%20Ranch/crsp_main_map.pdf","https://www.parkrec.nd.gov/paddling"],"routeSlugs":[],"nextAction":"Retry only after supported discharge or an approved stage adapter plus a station-tied threshold and complete endpoint, camping, safety, image, coordinate, and geometry package.","updatedAt":"2026-08-20T22:48:41Z","reviewCount":1},
     {"id":"nd-red-grand-forks-usgs-05082500-20260820","candidateId":"nd-red-grand-forks-usgs-05082500-20260820","river":"Red River of the North","route":"Lincoln Drive Park to LaFave Park / Grand Forks-East Grand Forks two-mile quick trip","state":"ND","status":"blocked_threshold_endpoint_safety_package","screenedAt":"2026-08-20T22:48:41Z","lastReviewed":"2026-08-20","runId":"route-worker-202608201748-nd-bounded-discovery-no-add","gaugeKeys":["usgs:05082500"],"decisiveBlocker":"Fresh USGS 05082500 telemetry was 786 cfs / 15.36 ft at 2026-08-20 16:45 CDT. Minnesota DNR and local Grand Forks sources confirm the named two-mile route and public ramps, but no numeric private-paddlecraft range tied to 05082500 or final source-backed water-entry coordinate package cleared; downstream dam/rapids and border-river hazards remain route-specific.","blocker":"Named public route and live gauge exist, but threshold and final endpoint package remain unresolved","gaugeEvidence":"USGS Water Services IV returned 786 cfs / 15.36 ft at 2026-08-20 16:45 CDT for 05082500 Red River of the North at Grand Forks.","thresholdEvidence":"DNR guidance says to check water levels and warns of low water, flooding, snags, fluctuating levels, muddy banks, and downstream dam/rapids, but supplies no accepted numeric 05082500 route bands.","endpointEvidence":"Lincoln Drive Park and LaFave Park are named public access points, but exact wetted-edge coordinates and arrival offsets were not promoted before the threshold gate cleared.","campingEvidence":"Urban parks and boat ramps do not establish legal overnight route camping; no camping was promoted.","safetyEvidence":"Riverside Dam/Rapids, border-river rules, flooding, snags, motor traffic, and muddy access require a route-specific safety package that did not clear.","imageDecision":"No image-audit row added because no route was implemented.","geometryDecision":"No canonical geometry generated because no route was implemented.","coordinateDecision":"No endpoint coordinates promoted.","sourceLinks":["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05058650,05117500,06341000,05082500,05099400&parameterCd=00060,00065&siteStatus=all&period=P1D","https://waterdata.usgs.gov/monitoring-location/USGS-05082500/","https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html","https://www.dnr.state.mn.us/state-water-trails/red-river/index.html","https://www.visitgrandforks.com/directory/red-river-boat-access/"],"routeSlugs":[],"nextAction":"Retry only if a credible manager publishes numeric 05082500 paddle bands and exact endpoint coordinates/arrival offsets with complete safety, camping, image, and geometry evidence.","updatedAt":"2026-08-20T22:48:41Z","reviewCount":1},
     {"id":"nd-little-south-pembina-walhalla-usgs-05099400-20260820","candidateId":"nd-little-south-pembina-walhalla-usgs-05099400-20260820","river":"Little South Pembina River","route":"99th Street NE to 123rd Avenue bridge reach","state":"ND","status":"blocked_threshold_access_package","screenedAt":"2026-08-20T22:48:41Z","lastReviewed":"2026-08-20","runId":"route-worker-202608201748-nd-bounded-discovery-no-add","gaugeKeys":["usgs:05099400"],"decisiveBlocker":"Fresh USGS 05099400 telemetry was 1.97 cfs / 0.79 ft at 2026-08-20 17:15 CDT, below American Whitewater's documented 100 cfs low-runnable floor. AW identifies the 99th Street NE-to-123rd Avenue family, but bridge-use access is not sufficiently manager-corroborated and the threshold remains community/AW-only.","blocker":"Low current, weak threshold authority, and unconfirmed bridge access prevent route publication","gaugeEvidence":"USGS Water Services IV returned 1.97 cfs / 0.79 ft at 2026-08-20 17:15 CDT for 05099400 Little South Pembina River near Walhalla.","thresholdEvidence":"American Whitewater provides a 100 cfs low-runnable floor, but no official or accepted station-specific low/ideal/high model cleared; current flow is below that floor.","endpointEvidence":"AW supplies feature coordinates for the family, but public-manager confirmation of 99th Street NE and 123rd Avenue water-entry permission and arrival offsets remains incomplete.","campingEvidence":"No legal route camping terms surfaced; no camping was inferred from nearby Pembina recreation context.","safetyEvidence":"Very low flow, bridge access uncertainty, shallow/obstructed channel, and private-land context require route-specific safety treatment that did not clear.","imageDecision":"No image-audit row added because no route was implemented.","geometryDecision":"No canonical geometry generated because no route was implemented.","coordinateDecision":"No endpoint coordinates promoted.","sourceLinks":["https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05058650,05117500,06341000,05082500,05099400&parameterCd=00060,00065&siteStatus=all&period=P1D","https://waterdata.usgs.gov/monitoring-location/USGS-05099400/","https://www.americanwhitewater.org/content/River/view/river-detail/4471/main","https://www.parkrec.nd.gov/paddling","https://www.ndtourism.com/walhalla/attractions-entertainment/family-fun/pembina-river-trail"],"routeSlugs":[],"nextAction":"Retry only after manager-backed bridge access and a defensible threshold plus camping, safety, image, coordinate, and geometry package are available.","updatedAt":"2026-08-20T22:48:41Z","reviewCount":1}
+    ,
+    {
+      "id": "co-purgatoire-thatcher-usgs-07126300-bd06-20260827",
+      "candidateId": "co-purgatoire-thatcher-usgs-07126300-bd06-20260827",
+      "river": "Purgatoire River",
+      "route": "Purgatoire River near Thatcher gauge reach",
+      "state": "CO",
+      "status": "screened_out_not_paddle_relevant",
+      "screenedAt": "2026-08-29T19:15:00Z",
+      "lastReviewed": "2026-08-27",
+      "runId": "route-research-202608291915-co-usgs-07126300-bd06-screened-out",
+      "gaugeKeys": ["usgs:07126300"],
+      "decisiveBlocker": "USGS 07126300 is directly product-live at 0.44 cfs / 1.84 ft at 2026-08-27 22:35 MDT, but no accepted named public Purgatoire paddling corridor or lawful paired endpoints is tied to the Thatcher station. Official watershed planning says river boating is limited by access, private land, and flow; the recognized American Whitewater Purgatoire run is a separate downstream US 350-to-Highway 109 corridor keyed to 07126485.",
+      "blocker": "No named station-tied public paddling corridor, lawful endpoints, or 07126300-specific threshold surfaced",
+      "gaugeEvidence": "USGS Water Services IV returned provisional 0.44 cfs / 1.84 ft at 2026-08-27 22:35 MDT for 07126300 Purgatoire River near Thatcher.",
+      "thresholdEvidence": "No accepted numeric paddling threshold or runnable band tied specifically to 07126300 surfaced; current near-zero flow cannot be treated as route guidance.",
+      "endpointEvidence": "No recognized source names a lawful public Thatcher-area put-in/take-out pair. The USGS station coordinate is monitoring-location metadata, not public water-entry authorization.",
+      "campingEvidence": "No legal route camping or no-camping terms were established; nearby Picketwire/Comanche references describe land access and dinosaur-trackway visits, not river-camping endpoints.",
+      "safetyEvidence": "Watershed material identifies access/private-land and low-flow constraints, but no selected reach has a route-specific hazard, portage, rescue, closure, or emergency package.",
+      "imageDecision": "No image-audit row added because the candidate was screened out before implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted; the gauge coordinate is not a water-entry anchor.",
+      "sourceLinks": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07126300&parameterCd=00060%2C00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07126300/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07126300",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=07126300&siteOutput=expanded&siteStatus=all",
+        "https://www.usbr.gov/watersmart/cwmp/docs/plans/Spanish-Peaks-Purtgatoire-Conservation-District.pdf",
+        "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-COL",
+        "https://cpw.state.co.us/state-wildlife-areas/purgatoire-river-swa",
+        "https://coloradogeologicalsurvey.org/publications/field-trip-dinosaurs-purgatoire-river-trackway-colorado/"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Do not retry unless a current public land manager or permission-cleared recognized paddling source publishes a named Thatcher-area Purgatoire corridor with lawful water-entry endpoints, a threshold calibrated specifically to 07126300, and complete access, safety, camping, coordinates, geometry, and image evidence. Do not substitute the downstream 07126485 AW run, its threshold, Picketwire hiking access, or the gauge coordinate.",
+      "updatedAt": "2026-08-29T19:15:00Z",
+      "reviewCount": 1
+    },
+    {
+      "id": "co-bear-creek-above-lake-usgs-06710605-bd07-20260827",
+      "candidateId": "co-bear-creek-above-lake-usgs-06710605-bd07-20260827",
+      "river": "Bear Creek",
+      "route": "Bear Creek above Bear Creek Lake near Morrison gauge reach",
+      "state": "CO",
+      "status": "screened_out_not_paddle_relevant",
+      "routeReadiness": "screened_out",
+      "screenedAt": "2026-08-29T19:50:00Z",
+      "lastReviewed": "2026-08-27",
+      "runId": "route-research-202608291950-co-usgs-06710605-bd07-screened-out",
+      "gaugeKeys": [
+        "usgs:06710605"
+      ],
+      "decisiveBlocker": "USGS 06710605 is directly live at 2.70 cfs / 3.59 ft on 2026-08-27 01:45 MDT, but no accepted station-tied public paddling corridor, lawful paired endpoints, or 06710605-specific recreational threshold cleared. American Whitewater's named Idledale-to-Morrison reach uses a separate Bear Creek-at-Morrison gauge and informal roadside/Morrison endpoint descriptions; Jefferson County Open Space guidance limits Bear Creek use at Lair o' the Bear to fishing wading and prohibits boating on other Open Space waters.",
+      "blocker": "No named station-tied public paddling corridor, lawful endpoints, or 06710605-specific threshold surfaced",
+      "gaugeEvidence": "USGS Water Services IV returned provisional 2.70 cfs / 3.59 ft at 2026-08-27 01:45 MDT for 06710605 Bear Creek above Bear Creek Lake near Morrison.",
+      "thresholdEvidence": "No accepted numeric paddling threshold or runnable band tied specifically to 06710605 surfaced; American Whitewater's Bear Creek-at-Morrison gauge and flow guidance are not transferable.",
+      "endpointEvidence": "American Whitewater names Idledale and Morrison City Park for an adjacent Bear Creek reach, but its informal pullout/park directions do not establish current manager-authorized public water entry for the 06710605 station reach; Jefferson County Open Space guidance allows Bear Creek wading at Lair o' the Bear for fishing and prohibits boating on other Open Space waters.",
+      "campingEvidence": "No legal route camping or no-camping terms were established for a selected 06710605 route; nearby Bear Creek Lake reservoir boating/camping context was not inferred as creek-route camping.",
+      "safetyEvidence": "AW describes Class III-V whitewater, concrete structures, wood, and private/access hazards on the adjacent Idledale-to-Morrison reach, but no current station-tied hazard, portage, rescue, closure, or emergency package cleared.",
+      "imageDecision": "No image-audit row added because the candidate was screened out before implementation.",
+      "geometryDecision": "No canonical geometry generated because no route was implemented.",
+      "coordinateDecision": "No endpoint coordinates promoted; the gauge coordinate is not a water-entry anchor.",
+      "sourceLinks": [
+        "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06710605&parameterCd=00060%2C00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06710605/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06710605",
+        "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=06710605&siteOutput=expanded&siteStatus=all",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2823/main",
+        "https://www.americanwhitewater.org/content/Gauge2/detail/?id=49674",
+        "https://www.jeffco.us/DocumentCenter/View/23807/Recreation-and-Activity-Management-Guide",
+        "https://www.jeffco.us/1461/Recreation",
+        "https://www.lakewoodco.gov/City-Hall/Departments/Community-Resources/Parks-Forestry-and-Open-Space/A-to-Z-Park-List/Bear-Creek-Lake-Park/Activities-Inside-BCLP"
+      ],
+      "routeSlugs": [],
+      "nextAction": "Do not retry unless a current Jefferson County/Lakewood/other land manager or permission-cleared recognized paddling source establishes an exact named Bear Creek corridor serving USGS 06710605 with lawful public put-in/take-out access, current parking/shuttle/permit/closure and private-bank terms, and a numeric recreational threshold calibrated specifically to 06710605; then verify current low-flow/wood/structure hazards, portage/rescue/emergency logistics, camping/day-use, endpoint coordinates/geometry, and rights-clean imagery. Do not substitute the Bear Creek-at-Morrison gauge, AW's informal Idledale/Morrison access descriptions, Bear Creek Lake reservoir boating, or the gauge coordinate alone.",
+      "retryCondition": "Reopen only if the exact retry condition in nextAction is met.",
+      "updatedAt": "2026-08-29T20:00:00Z",
+      "reviewCount": 1
+    }
   ],
   "entries": [
     {
@@ -176729,5 +176807,37 @@
     {"id":"nd-missouri-cross-ranch-usgs-06341000-20260820","candidateId":"nd-missouri-cross-ranch-usgs-06341000-20260820","river":"Missouri River","route":"Washburn to Sanger boat landing / Cross Ranch State Park nine-mile run","state":"ND","status":"stale_or_unsupported_route_capable","lastReviewed":"2026-08-20","runId":"route-worker-202608201748-nd-bounded-discovery-no-add","gaugeKeys":["usgs:06341000"],"blocker":"06341000 remains stage-only and no accepted stage adapter supports current route scoring.","routeSlugs":[],"nextAction":"Retry only after supported discharge or an approved stage adapter plus a complete route package.","updatedAt":"2026-08-20T22:48:41Z"},
     {"id":"nd-red-grand-forks-usgs-05082500-20260820","candidateId":"nd-red-grand-forks-usgs-05082500-20260820","river":"Red River of the North","route":"Lincoln Drive Park to LaFave Park / Grand Forks-East Grand Forks two-mile quick trip","state":"ND","status":"blocked_threshold_endpoint_safety_package","lastReviewed":"2026-08-20","runId":"route-worker-202608201748-nd-bounded-discovery-no-add","gaugeKeys":["usgs:05082500"],"blocker":"Named public route and live gauge exist, but no numeric 05082500 paddle bands or final endpoint coordinate/safety package cleared.","routeSlugs":[],"nextAction":"Retry only with fresh manager-grade threshold and endpoint package.","updatedAt":"2026-08-20T22:48:41Z"},
     {"id":"nd-little-south-pembina-walhalla-usgs-05099400-20260820","candidateId":"nd-little-south-pembina-walhalla-usgs-05099400-20260820","river":"Little South Pembina River","route":"99th Street NE to 123rd Avenue bridge reach","state":"ND","status":"blocked_threshold_access_package","lastReviewed":"2026-08-20","runId":"route-worker-202608201748-nd-bounded-discovery-no-add","gaugeKeys":["usgs:05099400"],"blocker":"Fresh 1.97 cfs / 0.79 ft is below AW's 100 cfs floor; threshold authority and bridge access remain insufficiently corroborated.","routeSlugs":[],"nextAction":"Retry only after manager-backed access and defensible threshold/package evidence.","updatedAt":"2026-08-20T22:48:41Z"}
+    ,
+    {
+      "id": "co-purgatoire-thatcher-usgs-07126300-bd06-20260827",
+      "candidateId": "co-purgatoire-thatcher-usgs-07126300-bd06-20260827",
+      "river": "Purgatoire River",
+      "route": "Purgatoire River near Thatcher gauge reach",
+      "state": "CO",
+      "status": "screened_out_not_paddle_relevant",
+      "lastReviewed": "2026-08-27",
+      "runId": "route-research-202608291915-co-usgs-07126300-bd06-screened-out",
+      "gaugeKeys": ["usgs:07126300"],
+      "blocker": "No named station-tied public paddling corridor, lawful endpoints, or 07126300-specific threshold surfaced.",
+      "routeSlugs": [],
+      "nextAction": "Do not retry unless a current public land manager or permission-cleared recognized paddling source publishes a named Thatcher-area Purgatoire corridor with lawful water-entry endpoints, a threshold calibrated specifically to 07126300, and complete access, safety, camping, coordinates, geometry, and image evidence. Do not substitute the downstream 07126485 AW run, its threshold, Picketwire hiking access, or the gauge coordinate.",
+      "updatedAt": "2026-08-29T19:15:00Z"
+    },
+    {
+      "id": "co-bear-creek-above-lake-usgs-06710605-bd07-20260827",
+      "candidateId": "co-bear-creek-above-lake-usgs-06710605-bd07-20260827",
+      "river": "Bear Creek",
+      "route": "Bear Creek above Bear Creek Lake near Morrison gauge reach",
+      "state": "CO",
+      "status": "screened_out_not_paddle_relevant",
+      "routeReadiness": "screened_out",
+      "lastReviewed": "2026-08-27",
+      "runId": "route-research-202608291950-co-usgs-06710605-bd07-screened-out",
+      "gaugeKeys": ["usgs:06710605"],
+      "blocker": "No named station-tied public paddling corridor, lawful endpoints, or 06710605-specific threshold surfaced",
+      "routeSlugs": [],
+      "nextAction": "Do not retry unless a current Jefferson County/Lakewood/other land manager or permission-cleared recognized paddling source establishes an exact named Bear Creek corridor serving USGS 06710605 with lawful public put-in/take-out access, current parking/shuttle/permit/closure and private-bank terms, and a numeric recreational threshold calibrated specifically to 06710605; then verify current low-flow/wood/structure hazards, portage/rescue/emergency logistics, camping/day-use, endpoint coordinates/geometry, and rights-clean imagery. Do not substitute the Bear Creek-at-Morrison gauge, AW's informal Idledale/Morrison access descriptions, Bear Creek Lake reservoir boating, or the gauge coordinate alone.",
+      "updatedAt": "2026-08-29T20:00:00Z"
+    }
   ]
 }

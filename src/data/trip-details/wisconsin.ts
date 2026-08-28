@@ -2564,15 +2564,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in for this route."
       },
       {
-        "id": "county-m-former-dam-ledge",
-        "name": "County M former-dam ledge",
-        "latitude": 43.9047,
-        "longitude": -91.0982,
-        "mileFromStart": 2,
-        "segmentKind": "creek",
-        "note": "Approximate class II ledge zone; scout or portage only where legal and practical."
-      },
-      {
         "id": "veterans-memorial-campground-canoe-landing",
         "name": "Veterans Memorial County Park canoe landing",
         "latitude": 43.89187,
@@ -4042,15 +4033,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in from WRT; river-left downstream from the bridge with poison ivy warning."
       },
       {
-        "id": "hay-river-county-n",
-        "name": "County Road N bridge",
-        "latitude": 45.0698,
-        "longitude": -91.9262,
-        "mileFromStart": 4.5,
-        "segmentKind": "creek",
-        "note": "Only mid-route road crossing noted in WRT overview; confirm legality before use."
-      },
-      {
         "id": "hay-river-highway-25-wheeler",
         "name": "Highway 25 at Wheeler take-out",
         "latitude": 45.0487707,
@@ -4102,15 +4084,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from Miles Paddled; launch downstream from PB and park at the Military Ridge Park and Ride."
-      },
-      {
-        "id": "badger-mill-riverside-road",
-        "name": "Riverside Road alternate exit",
-        "latitude": 42.9518,
-        "longitude": -89.5366,
-        "mileFromStart": 5,
-        "segmentKind": "creek",
-        "note": "Approximate alternate exit near the Badger Mill / Sugar River confluence; verify legality before relying on it."
       },
       {
         "id": "badger-mill-highway-69-sugar-river",
@@ -4217,15 +4190,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Walworth County lists a canoe/kayak launch at White River County Park, 6503 Sheridan Springs Road; coordinate is approximate to the named park access."
-      },
-      {
-        "id": "spring-valley-road-lyons-wave",
-        "name": "Spring Valley Road / Lyons Wave scout point",
-        "latitude": 42.6417,
-        "longitude": -88.3637,
-        "mileFromStart": 2.7,
-        "segmentKind": "creek",
-        "note": "Former-dam Class II drop from WRT/AW; scout legally and do not rely on posted dry-land access as the default take-out."
       },
       {
         "id": "riverview-park-mill-street-white-river",
@@ -4385,15 +4349,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Village of Hartland public riverfront park and WRT put-in for the Hartland route."
-      },
-      {
-        "id": "nixon-park-hartland",
-        "name": "Nixon Park / East Park Avenue",
-        "latitude": 43.1051,
-        "longitude": -88.3427,
-        "mileFromStart": 0.9,
-        "segmentKind": "creek",
-        "note": "Downtown Hartland park corridor near early rapids and scout/bailout options."
       },
       {
         "id": "delafield-mill-street-launch",
@@ -4672,15 +4627,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in; WRT calls the northwest side almost under the bridge the best launch option."
       },
       {
-        "id": "blue-river-studnika-road-no-access",
-        "name": "Studnika Road bridge no-access marker",
-        "latitude": 43.1399,
-        "longitude": -90.5097,
-        "mileFromStart": 1,
-        "segmentKind": "creek",
-        "note": "Navigation marker only; WRT says this is not a suitable public access."
-      },
-      {
         "id": "blue-river-forest-road-bridge-access",
         "name": "Forest Road bridge access",
         "latitude": 43.1747426,
@@ -4950,15 +4896,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in; WRT describes good bridge access with a trail and shoulder parking."
       },
       {
-        "id": "highway-14-turtle-creek-bridge",
-        "name": "Highway 14 bridge access",
-        "latitude": 42.6515,
-        "longitude": -88.7169,
-        "mileFromStart": 2.2,
-        "segmentKind": "creek",
-        "note": "Intermediate bridge-area access in the WRT subreach notes."
-      },
-      {
         "id": "highway-c-turtle-creek-bridge",
         "name": "County Highway C bridge access",
         "latitude": 42.6271,
@@ -5199,15 +5136,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; WRT describes a nice launch area by Hwy K but warns parking is poor."
-      },
-      {
-        "id": "sharonwood-lane-plover-access",
-        "name": "Sharonwood Lane access option",
-        "latitude": 44.5947,
-        "longitude": -89.4942,
-        "mileFromStart": 4.7,
-        "segmentKind": "creek",
-        "note": "Optional access just above the final boulder-garden / Jordan Pond approach."
       },
       {
         "id": "jordan-park-canoe-launch",
@@ -5907,15 +5835,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from WRT; launch west of the bridge to avoid the private residence east of the bridge."
-      },
-      {
-        "id": "mullet-river-dam-portage",
-        "name": "Lower Mullet River dam portage",
-        "latitude": 43.7262,
-        "longitude": -87.8314,
-        "mileFromStart": 5.8,
-        "segmentKind": "transition",
-        "note": "Approximate dam-portage zone from the WRT route map and report; scout both banks and expect faster wood below."
       },
       {
         "id": "river-park-sheboygan-falls",
@@ -7633,15 +7552,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in at the county-listed park launch."
       },
       {
-        "id": "robin-court-cedar-creek-access",
-        "name": "Robin Court Cedar Creek access",
-        "latitude": 43.3115,
-        "longitude": -87.9684,
-        "mileFromStart": 2.4,
-        "segmentKind": "creek",
-        "note": "Optional split / bailout access; verify parking and signs first."
-      },
-      {
         "id": "grafton-lions-park-cedar-creek",
         "name": "Grafton Lions Park Cedar Creek access",
         "latitude": 43.3210512,
@@ -7820,24 +7730,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default WRT put-in; carry below the Johnsonville low-head dam before launching."
       },
       {
-        "id": "highway-j-sheboygan-river",
-        "name": "Highway J bridge access",
-        "latitude": 43.781,
-        "longitude": -87.9325,
-        "mileFromStart": 2.4,
-        "segmentKind": "creek",
-        "note": "Alternate access from the WRT overview; verify parking and bank conditions."
-      },
-      {
-        "id": "highway-m-sheboygan-river",
-        "name": "Highway M bridge access",
-        "latitude": 43.7749,
-        "longitude": -87.9105,
-        "mileFromStart": 4.6,
-        "segmentKind": "creek",
-        "note": "Alternate access and low-water bailout near the shallow middle riffles."
-      },
-      {
         "id": "dassow-park-sheboygan-river",
         "name": "Dassow Park river access",
         "latitude": 43.767834,
@@ -7889,15 +7781,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in and shared endpoint with the Johnsonville-to-Dassow card."
-      },
-      {
-        "id": "highway-tt-sheboygan-river",
-        "name": "Highway TT bridge access",
-        "latitude": 43.7509,
-        "longitude": -87.8619,
-        "mileFromStart": 5,
-        "segmentKind": "creek",
-        "note": "Possible midpoint access from the WRT lower-Sheboygan overview; verify roadside legality and landing condition."
       },
       {
         "id": "highway-c-sheboygan-river",

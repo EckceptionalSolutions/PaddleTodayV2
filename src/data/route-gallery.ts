@@ -40,6 +40,60 @@ const placeholderRoutePhotos: RouteGalleryPhoto[] = [
   },
 ];
 
+const upperColoradoPumphouseStateBridgePhoto: RouteGalleryPhoto = {
+  id: 'upper-colorado-pumphouse-state-bridge-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Colorado%20Recreational%20River%2C%20Colorado%2C%20Utah%20%2835842291953%29.jpg?width=1600',
+  alt: 'The Upper Colorado River flows through a scenic recreation corridor in Colorado.',
+  caption: 'Upper Colorado River recreation corridor near the Pumphouse-to-State-Bridge reach',
+  credit: 'Bob Wick / Bureau of Land Management via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 2.0',
+};
+
+const lowerColoradoTwoRiversSouthCanyonPhoto: RouteGalleryPhoto = {
+  id: 'lower-colorado-two-rivers-south-canyon-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Two_Rivers_Park_boat_ramp.JPG?width=1600',
+  alt: 'The Colorado River boat ramp at Two Rivers Park in Glenwood Springs, Colorado.',
+  caption: 'Two Rivers Park boat ramp at the start of the South Canyon reach',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
+const arkansasGraniteBuenaVistaPhoto: RouteGalleryPhoto = {
+  id: 'arkansas-granite-boat-chute-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Granite%20Boat%20Chute%203.JPG?width=1600',
+  alt: 'The recreational channel and fish ladder at Granite Boat Chute on the Arkansas River in Colorado.',
+  caption: 'Granite Boat Chute on the Upper Arkansas River',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
+const arkansasBrownsCanyonPhoto: RouteGalleryPhoto = {
+  id: 'arkansas-browns-canyon-bridge-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Brown%27s%20Canyon%20Bridge.JPG?width=1600',
+  alt: "Brown's Canyon Bridge (Stone Bridge) over the Arkansas River in Colorado.",
+  caption: "Brown's Canyon Bridge at the Stone Bridge end of the Arkansas River reach",
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 3.0',
+};
+
+const arkansasRoyalGorgePhoto: RouteGalleryPhoto = {
+  id: 'arkansas-royal-gorge-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Arkansas_River_%28Royal_Gorge%29.jpg?width=1600',
+  alt: 'The Arkansas River runs through the Royal Gorge in Colorado.',
+  caption: 'Arkansas River in the Royal Gorge',
+  credit: 'Manfred Kopka via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+};
+
+const puebloWhitewaterParkPhoto: RouteGalleryPhoto = {
+  id: 'arkansas-pueblo-whitewater-park-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Whitewater%20Park%20in%20Pueblo%2C%20Colorado%20%2848373397326%29.jpg?width=1600',
+  alt: 'Water rushes through the engineered Whitewater Park in downtown Pueblo, Colorado.',
+  caption: 'Pueblo Whitewater Park on the Arkansas River',
+  credit: 'PEO ACWA via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 2.0',
+};
+
 const bruleRiverMinnesotaPhoto: RouteGalleryPhoto = {
   id: 'brule-river-fall-colors-judge-magney-commons',
   src: '/gallery/brule-river-minnesota/brule-river-fall-colors.jpg',
@@ -141,6 +195,12 @@ const beaverRiverMinnesotaPhoto: RouteGalleryPhoto = {
 };
 
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'arkansas-river-parkdale-royal-gorge': [arkansasRoyalGorgePhoto],
+  'arkansas-river-granite-boat-chute-buena-vista': [arkansasGraniteBuenaVistaPhoto],
+  'arkansas-river-browns-canyon-fishermans-stone': [arkansasBrownsCanyonPhoto],
+  'arkansas-river-pueblo-whitewater-park': [puebloWhitewaterParkPhoto],
+  'upper-colorado-pumphouse-state-bridge': [upperColoradoPumphouseStateBridgePhoto],
+  'lower-colorado-two-rivers-south-canyon': [lowerColoradoTwoRiversSouthCanyonPhoto],
   'james-river-bent-creek-state-park': [
     {
       id: 'james-river-state-park-commons',
@@ -3156,6 +3216,22 @@ const approvedRiverFallbackRouteById: Record<string, string> = {
 // river-group image exists. Captions deliberately identify the image as
 // context when it was taken elsewhere on the same river.
 const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
+  'clear-creek': {
+    id: 'clear-creek-idaho-springs-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Clear_Creek_%28Idaho_Springs%2C_Colorado%2C_USA%29_1_%2821090593198%29.jpg?width=1600',
+    alt: 'Clear Creek flows through Idaho Springs, Colorado, between rocky banks.',
+    caption: 'Clear Creek at Idaho Springs; same-river context',
+    credit: 'James St. John via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'blackwater-river': {
+    id: 'blackwater-river-virginia-canoe-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/BlackwaterRiverCanoe5.jpg?width=1600',
+    alt: 'Canoeists paddle on the Blackwater River in Virginia.',
+    caption: 'Blackwater River canoeing in Virginia; same-river context',
+    credit: 'Rlevse via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
   'cass-river': {
     id: 'cass-river-frankenmuth-bavarian-belle-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Bavarian%20Belle.jpg?width=1600',
@@ -3203,6 +3279,38 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     caption: 'Kalamazoo River at Saugatuck; river-level context',
     credit: 'Terry Johnston via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'cache-la-poudre-river': {
+    id: 'cache-la-poudre-fort-collins-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cache%20La%20Poudre%20River%20as%20it%20flows%20through%20northern%20Fort%20Collins%2C%20Colorado.jpg?width=1600',
+    alt: 'The Cache la Poudre River flows through northern Fort Collins, Colorado.',
+    caption: 'Cache la Poudre River near Fort Collins; same-river context',
+    credit: 'Matthew Trump via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'dan-river': {
+    id: 'dan-river-danville-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dan_River_Danville_Virginia.JPG?width=1600',
+    alt: 'The Dan River at Danville, Virginia.',
+    caption: 'Dan River at Danville; same-river context',
+    credit: 'MarmadukePercy via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'french-broad-river': {
+    id: 'french-broad-morning-paddle-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/2019%20French%20Broad%201%20%2848024024663%29.jpg?width=1600',
+    alt: 'A canoeist paddles on the French Broad River in North Carolina.',
+    caption: 'French Broad River morning paddle; same-river context',
+    credit: 'anoldent via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+  },
+  'haw-river': {
+    id: 'haw-river-bynum-dam-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dam%20at%20Bynum.jpg?width=1600',
+    alt: 'Water flows over the dam on the Haw River at Bynum, North Carolina.',
+    caption: 'Haw River dam at Bynum; same-river context',
+    credit: 'Mx. Granger via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC0',
   },
   'looking-glass-river': {
     id: 'looking-glass-river-kayak-commons',
@@ -3285,6 +3393,46 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     takenLabel: 'Wikimedia Commons: WTFPL',
   },
   'new-river': newRiverGorgeContextPhoto,
+  'neuse-river': {
+    id: 'neuse-river-raleigh-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Neuse%20River%20-%20panoramio%20%281%29.jpg?width=1600',
+    alt: 'The Neuse River near Raleigh, North Carolina.',
+    caption: 'Neuse River near Raleigh; same-river context',
+    credit: 'James Willamor via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'mayo-river': {
+    id: 'mayo-river-us-220-access-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/US%20220%20access%20Mayo%20River%20NC%20SP%209646.jpg?width=1600',
+    alt: 'The Mayo River at the U.S. 220 access in Mayo River State Park, North Carolina.',
+    caption: 'Mayo River State Park U.S. 220 access; same-river context',
+    credit: 'bobistraveling via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'roanoke-river': {
+    id: 'roanoke-river-usgs-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20of%20Roanoke%20River.jpg?width=1600',
+    alt: 'A USGS view of the Roanoke River in Virginia.',
+    caption: 'Roanoke River in Virginia; same-river context',
+    credit: 'U.S. Geological Survey via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'staunton-river': {
+    id: 'staunton-river-brookneal-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Roanoke%20River%20by%20Brookneal.jpg?width=1600',
+    alt: 'The Roanoke River near Brookneal, Virginia, looking toward Cat Rock Sluice.',
+    caption: 'Roanoke River by Brookneal; same-river context for the Staunton reach',
+    credit: 'Nyttend via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'yadkin-river': {
+    id: 'yadkin-river-elkin-noaa-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Yadkin%20River%20Elkin.jpg?width=1600',
+    alt: 'The Yadkin River viewed upstream from Elkin, North Carolina.',
+    caption: 'Yadkin River at Elkin; same-river context',
+    credit: 'NOAA / National Weather Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
   'greenbrier-river': greenbrierRiverWestVirginiaPhoto,
   'cheat-river': cheatRiverHeadwatersPhoto,
   'tygart-valley-river': tygartValleyFallsPhoto,

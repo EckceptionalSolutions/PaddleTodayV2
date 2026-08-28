@@ -2,6 +2,7 @@
   "version": 1,
   "canonicalStates": [
     { "id": "AR", "name": "Arkansas", "frontierTier": 4, "frontierLabel": "Outer Midwest" },
+    { "id": "CO", "name": "Colorado", "frontierTier": 6, "frontierLabel": "New-state expansion" },
     { "id": "IL", "name": "Illinois", "frontierTier": 2, "frontierLabel": "Near frontier" },
     { "id": "IN", "name": "Indiana", "frontierTier": 3, "frontierLabel": "Regional expansion" },
     { "id": "IA", "name": "Iowa", "frontierTier": 1, "frontierLabel": "Upper Midwest frontier" },
@@ -10,6 +11,7 @@
     { "id": "MI", "name": "Michigan", "frontierTier": 2, "frontierLabel": "Near frontier" },
     { "id": "MN", "name": "Minnesota", "frontierTier": 0, "frontierLabel": "Active focus" },
     { "id": "MO", "name": "Missouri", "frontierTier": 3, "frontierLabel": "Regional expansion" },
+    { "id": "NC", "name": "North Carolina", "frontierTier": 6, "frontierLabel": "New-state expansion" },
     { "id": "NE", "name": "Nebraska", "frontierTier": 1, "frontierLabel": "Upper Midwest frontier" },
     { "id": "ND", "name": "North Dakota", "frontierTier": 1, "frontierLabel": "Upper Midwest frontier" },
     { "id": "OH", "name": "Ohio", "frontierTier": 3, "frontierLabel": "Regional expansion" },
@@ -23,6 +25,7 @@
   ],
   "aliases": {
     "Arkansas": "AR",
+    "Colorado": "CO",
     "Illinois": "IL",
     "Indiana": "IN",
     "Iowa": "IA",
@@ -31,6 +34,7 @@
     "Michigan": "MI",
     "Minnesota": "MN",
     "Missouri": "MO",
+    "North Carolina": "NC",
     "Nebraska": "NE",
     "North Dakota": "ND",
     "Ohio": "OH",

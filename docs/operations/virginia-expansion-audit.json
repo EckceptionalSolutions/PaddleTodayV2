@@ -1,10 +1,10 @@
 {
   "version": 1,
   "stateId": "VA",
-  "updatedAt": "2026-08-28T10:52:00.000Z",
-  "phase": "gauge_inventory_review",
-  "executionStatus": "active_after_window_46",
-  "pauseReason": "Window 46 retained Difficult Run 01646000 as blocked because access, severity, water-quality, and safe route packaging are unresolved, and screened out Dead Run 01646305 and Four Mile Run 01652090. Continue bounded Virginia gauge-family review.",
+  "updatedAt": "2026-08-28T16:56:53.000Z",
+  "phase": "complete",
+  "executionStatus": "research_complete",
+  "pauseReason": "Virginia provider-baseline gauges are fully dispositioned, the bounded route-first sweep produced one additional published route, and all publication gates passed. Future work should only reopen on materially new evidence or a new expansion goal.",
   "corridorWindow": {
     "status": "complete",
     "candidateCount": 3,
@@ -17,15 +17,16 @@
   },
   "gaugeBaseline": {
     "status": "provider_baseline_complete",
-    "inventoryId": "provider-baseline-202608262139",
-    "generatedAt": "2026-08-26T21:39:21.189Z",
+    "inventoryId": "provider-baseline-202608271924",
+    "generatedAt": "2026-08-27T19:24:23.599Z",
     "provider": "USGS",
     "freshStreamGaugeCount": 212,
-    "coveredGaugeCount": 16,
-    "blockedGaugeCount": 57,
-    "screenedOutGaugeCount": 52,
-    "unreviewedGaugeCount": 81,
-    "reviewPercent": 61.8,
+    "coveredGaugeCount": 24,
+    "blockedGaugeCount": 104,
+    "screenedOutGaugeCount": 70,
+    "unreviewedGaugeCount": 0,
+    "researchingGaugeCount": 0,
+    "reviewPercent": 100,
     "coveredGaugeKeys": [
       "usgs:02024000",
       "usgs:03165500",
@@ -41,9 +42,17 @@
       "usgs:02039500",
       "usgs:01620500",
       "usgs:01626000",
-      "usgs:01668000"
+      "usgs:01668000",
+      "usgs:02055000",
+      "usgs:02056000",
+      "usgs:02056900",
+      "usgs:02041650",
+      "usgs:02062500",
+      "usgs:03164000",
+      "usgs:03171000",
+      "usgs:03176500"
     ],
-    "staleOrUnsupportedGaugeCount": 6
+    "staleOrUnsupportedGaugeCount": 14
   },
   "reviewStrategy": {
     "method": "river-family and corridor-first triage",
@@ -457,25 +466,261 @@
           "usgs:01652090"
         ],
         "outcome": "Fast-screened the Northern Virginia tributary family separately. Difficult Run 01646000 has a named Old Georgetown Pike-to-Potomac American Whitewater reach and gauge-linked stage/flow observations, but the Class III-IV/V+ hazard profile, infrequent-run wood, water quality, and lawful access/safe-route package prevent publication; it remains blocked route_capable. Dead Run 01646305 and Four Mile Run 01652090 were screened_out because they are urban tributary stations without distinct named public point-to-point paddle corridors, lawful endpoint pairs, or station-specific recreational thresholds. No route was published."
-      }
-    ],
-    "nextWindow": [
-      {
-        "gaugeKey": "usgs:02019500",
-        "siteName": "James River at Buchanan, VA",
-        "reason": "Next unreviewed provider-baseline gauge; fast-screen for a distinct named James River corridor not already represented by existing scored routes, lawful endpoints, direct live-gauge support, and station-specific threshold."
       },
       {
-        "gaugeKey": "usgs:02020500",
-        "siteName": "Calfpasture River above Mill Creek at Goshen, VA",
-        "reason": "Next unreviewed provider-baseline gauge; fast-screen for a distinct named Calfpasture corridor, lawful endpoints, direct live-gauge support, and station-specific threshold."
+        "id": "va-family-window-47",
+        "gaugeKeys": [
+          "usgs:02044500",
+          "usgs:02045320",
+          "usgs:02045500"
+        ],
+        "outcome": "Fast-screened the Nottoway River family separately. Rawlings 02044500 remains blocked route_capable because the Nottoway Falls reach is Class IV, the AW access labels are not a complete current safe-route package, and the gauge is downstream of the falls. Route 609 near McKenney 02045320 remains blocked route_capable because the station is not a confirmed public launch and no station-specific recreational threshold or lawful endpoint pair was verified. Stony Creek 02045500 remains blocked route_capable because the lower Nottoway Blueway has named public-access context but no station-specific paddling threshold and the map mixes existing and planned access. No route was published."
       },
       {
-        "gaugeKey": "usgs:02021500",
-        "siteName": "Maury River at Rockbridge Baths, VA",
-        "reason": "Next unreviewed provider-baseline gauge; fast-screen for a distinct named Maury River corridor, lawful endpoints, direct live-gauge support, and station-specific threshold."
+        "id": "va-family-window-48",
+        "gaugeKeys": [
+          "usgs:02046000",
+          "usgs:02047000",
+          "usgs:02047500"
+        ],
+        "outcome": "Fast-screened the lower Virginia Nottoway/Blackwater family separately. Stony Creek near Dinwiddie 02046000 was screened_out because live telemetry did not resolve a distinct named public point-to-point paddling corridor or station-tied launch pair. Nottoway near Sebrell 02047000 remains blocked route_capable because it is a live direct gauge on a documented scenic/paddling river, but no complete lawful endpoint pair or station-specific recreational threshold cleared review. Blackwater near Dendron 02047500 remains blocked route_capable because the river has named scenic/public-access context, but no complete endpoint pair or station-specific recreational threshold was verified. No route was published."
+      },
+      {
+        "id": "va-family-window-49",
+        "gaugeKeys": [
+          "usgs:02047370",
+          "usgs:02047783",
+          "usgs:02049500"
+        ],
+        "outcome": "Fast-screened the lower Nottoway/Blackwater family separately. Nottoway near Riverdale 02047370 is stale_or_unsupported because the current USGS monitoring page reports no continuous, daily, or field data despite historical observations. Blackwater at Route 620 near Zuni 02047783 and Blackwater near Franklin 02049500 remain blocked route_capable: both have direct telemetry and public river-access context, but no station-specific recreational threshold or complete distinct lawful endpoint/geometry package cleared review. No route was published."
+      },
+      {
+        "id": "va-family-window-50",
+        "gaugeKeys": [
+          "usgs:02050000",
+          "usgs:02051000",
+          "usgs:02052000"
+        ],
+        "outcome": "Fast-screened the Blackwater/Meherrin family separately. Blackwater at Hwys 58/258 at Franklin 02050000 remains blocked route_capable because direct telemetry and Franklin access exist but no station-specific threshold or distinct endpoint/geometry package was established. North Meherrin near Lunenburg 02051000 remains blocked route_capable because the legally designated scenic reach has no verified lawful public endpoint pair or station-specific threshold. Meherrin at Emporia 02052000 remains blocked route_capable because DWR documents public access, but no station-specific threshold or distinct safe route package cleared review. No route was published."
+      },
+      {
+        "id": "va-family-window-51",
+        "gaugeKeys": [
+          "usgs:02051190",
+          "usgs:02051500",
+          "usgs:02052090"
+        ],
+        "outcome": "Fast-screened the Meherrin family separately. Route 637 near South Hill 02051190 and Lawrenceville 02051500 have current direct telemetry but no distinct lawful endpoint pair or station-specific recreational threshold, so both remain blocked route_capable. Bryants Corner 02052090 is stale_or_unsupported because the modern USGS monitoring page reports no current continuous, daily, or field data. No route was published."
+      },
+      {
+        "id": "va-family-window-52",
+        "gaugeKeys": [
+          "usgs:02053730",
+          "usgs:02053800",
+          "usgs:02054500"
+        ],
+        "outcome": "Fast-screened the Roanoke family separately. Goose Creek 02053730 was screened_out because no named public paddling corridor or lawful endpoint package surfaced. South Fork Roanoke 02053800 and Roanoke at Lafayette 02054500 remain blocked route_capable: the Roanoke River Blueway provides public access, hazards, and live-gage context, but the upper-reach 150 cfs guidance is tied to 02054530 Glenvar and cannot be borrowed by inference. No route was published."
+      },
+      {
+        "id": "va-family-window-53",
+        "gaugeKeys": [
+          "usgs:02054530",
+          "usgs:02055000",
+          "usgs:02055100"
+        ],
+        "outcome": "Fast-screened the Roanoke family in parallel. Glenvar 02054530 remains blocked route_capable because a selected subreach still lacks source-verified geometry, route-specific logistics, and image-rights handling. Tinker Creek 02055100 remains blocked route_capable because current telemetry, station-specific numeric guidance, and a complete point-to-point package are unresolved. Walnut Avenue 02055000 cleared bounded deep research: Salem Rotary Park to Wasena Park is a distinct public Blueway corridor with direct 02055000 telemetry, a 120 cfs minimum guideline, documented hazards/portages, canonical geometry, day-use logistics, and a rights-clean fallback decision. One route was published."
+      }
+      ,{
+        "id": "va-family-window-54",
+        "gaugeKeys": [
+          "usgs:0205551460",
+          "usgs:0205551614",
+          "usgs:02056000"
+        ],
+        "outcome": "Fast-screened the next Roanoke/Niagara family in parallel. Lick Run above Patton Avenue 0205551460 was screened_out because no distinct named public paddle corridor or station-specific threshold tied to the small urban tributary was verified. Tinker Creek above Glade Creek 0205551614 was marked stale_or_unsupported because the current USGS monitoring page reports no continuous, daily, or field data. Roanoke River at Niagara 02056000 advanced to the Blue Ridge Parkway Roanoke River Trail to Explore Park/Rutrough Point route: the official Blueway documents the post-portage public endpoints, 3-mile distance, and 150 cfs minimum tied directly to this station, with steep-access and lake-transition caveats. One route was published."
+      },
+      {
+        "id": "va-family-window-55",
+        "gaugeKeys": [
+          "usgs:01658500",
+          "usgs:0204241133",
+          "usgs:0204241200"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. South Fork Quantico Creek 01658500 received a durable blocked/no-add disposition after deep review: American Whitewater names an 8.3-mile Route 619 to Dumfries reach, but no station-specific numeric paddling threshold or authoritative endpoint package was verified, and strainers, a dam portage, a Class IV- chute, and possible park-police/access concerns remain. North Run 0204241133 was screened_out because current USGS data are unavailable and no named public paddle corridor surfaced. North Run 0204241200 was screened_out because its small urban drainage station has no named public point-to-point paddle corridor or supported recreational threshold/access package. No additional route was published."
+      },
+      {
+        "id": "va-family-window-56",
+        "gaugeKeys": [
+          "usgs:02056650",
+          "usgs:02056900",
+          "usgs:02058400"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. Back Creek 02056650 and Pigg River 02058400 received durable blocked/no-add dispositions because their endpoint, threshold, or safety packages remain incomplete. Blackwater River 02056900 cleared deep research and was published as the approximately 12-mile U.S. 220 Wayside Park to The Ford at Round Hill Road Middle Blackwater Blueway on direct USGS 02056900, with Franklin County's 2.2 ft minimum guidance, mandatory dam portage, canonical geometry, and full evidence, safety, verification, test, build, and rollback gates."
+      },
+      {
+        "id": "va-family-window-57",
+        "gaugeKeys": [
+          "usgs:02059500",
+          "usgs:02060500",
+          "usgs:02061500"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. Goose Creek 02059500 and Big Otter 02061500 were screened_out because no current named public paddle corridor, lawful endpoint pair, and station-specific recreational threshold package cleared review. Roanoke/Staunton River 02060500 remains blocked route_capable: DWR documents named Dalton's Landing-to-Altavista and English Park-to-Long Island floats and direct telemetry, but no station-specific recreational threshold was verified. No route was published."
+      },
+      {
+        "id": "va-family-window-58",
+        "gaugeKeys": [
+          "usgs:02062500",
+          "usgs:02064000",
+          "usgs:02065500"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. Falling River 02064000 and Cub Creek 02065500 were screened_out because no current named public paddling corridor, lawful endpoint pair, and station-specific threshold package cleared review. Staunton River 02062500 cleared deep research and was published as the approximately 11-mile Long Island to Brookneal scenic reach with DWR public ramps, direct USGS stage data, local 5 ft minimum screening guidance, and documented Class II–III hazards."
+      },
+      {
+        "id": "va-family-window-59",
+        "gaugeKeys": [
+          "usgs:02066000",
+          "usgs:02069700",
+          "usgs:02070000"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. Randolph 02066000 was deep-reviewed and blocked because no station-specific numeric paddling threshold was found despite a documented Southern Virginia Wild Blueway corridor and DWR endpoints. South Mayo 02069700 and North Mayo 02070000 were blocked because the Virginia endpoint packages remain permission-dependent or unverified; cross-state North Carolina endpoints were not substituted. No route was published."
+      },
+      {
+        "id": "va-family-window-60",
+        "gaugeKeys": [
+          "usgs:02071530",
+          "usgs:02072000",
+          "usgs:02072500"
+        ],
+        "outcome": "Fast-screened three Smith River candidates in parallel. All three received durable blocked route-capable outcomes: 02071530 lacks a lawful public upper-reach endpoint pair; 02072000 is release-sensitive with unresolved current access verification; and 02072500 has address and upper-limit evidence gaps. No route was published."
+      },
+      {
+        "id": "va-family-window-61",
+        "gaugeKeys": [
+          "usgs:02073000",
+          "usgs:02074500",
+          "usgs:02074557"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. 02073000 remains blocked route-capable pending release/access verification; 02074500 remains blocked route-capable because no current lawful endpoint pair or station-specific threshold cleared; and 02074557 was screened out as a small stage-only tributary station with no named route. No route was published."
+      },
+      {
+        "id": "va-family-window-62",
+        "gaugeKeys": [
+          "usgs:02075045",
+          "usgs:02075500",
+          "usgs:02076000"
+        ],
+        "outcome": "Fast-screened three Dan River candidates in parallel. 02075045, 02075500, and 02076000 all received durable blocked route-capable outcomes because their station-specific numeric thresholds and/or current endpoint packages did not clear publication. No route was published."
+      },
+      {
+        "id": "va-family-window-63",
+        "gaugeKeys": [
+          "usgs:02077000",
+          "usgs:02079500",
+          "usgs:02079640"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. 02077000 and 02079500 received durable blocked route-capable outcomes because thresholds and endpoint/safety packages did not clear publication; 02079640 was screened out as a small Allen Creek station with no named public paddling corridor. No route was published."
+      },
+      {
+        "id": "va-family-window-64",
+        "gaugeKeys": [
+          "usgs:02080000",
+          "usgs:02080500",
+          "usgs:02081000"
+        ],
+        "outcome": "Reconciled a stale/misclassified candidate window. 02080000 has no current USGS station record; 02080500 and 02081000 are North Carolina gauges already covered by the North Carolina ledger. No Virginia ledger changes or route publication were made."
+      },
+      {
+        "id": "va-family-window-65",
+        "gaugeKeys": [
+          "usgs:03164000",
+          "usgs:03165000",
+          "usgs:03167000"
+        ],
+        "outcome": "Fast-screened three valid New River family candidates in parallel. 03164000 advanced and was published as new-river-independence-baywood; 03165000 and 03167000 received explicit blocked route-capable outcomes with retry conditions."
+      },
+      {
+        "id": "va-family-window-66",
+        "gaugeKeys": [
+          "usgs:03168000",
+          "usgs:03170000",
+          "usgs:03171000"
+        ],
+        "outcome": "Fast-screened three New River/Little River candidates in parallel. 03171000 advanced and was published as new-river-radford-peppers-ferry; 03168000 and 03170000 received explicit deferred blocked outcomes with retry conditions."
+      },
+      {
+        "id": "va-family-window-67",
+        "gaugeKeys": [
+          "usgs:03173000",
+          "usgs:03175500",
+          "usgs:03176500"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. 03176500 advanced and was published as new-river-rich-creek-glen-lyn; 03173000 and 03175500 received explicit retryable blocked outcomes with flow/access conditions."
+      },
+      {
+        "id": "va-family-window-68",
+        "gaugeKeys": [
+          "usgs:03177710",
+          "usgs:03207800",
+          "usgs:03208500"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. 03177710 was screened out for lacking a qualifying Virginia river corridor and duplicating downstream Bluestone coverage; 03207800 and 03208500 received explicit blocked outcomes with endpoint, threshold, or telemetry retry conditions."
+      },
+      {
+        "id": "va-family-window-69",
+        "gaugeKeys": [
+          "usgs:03208950",
+          "usgs:03209000",
+          "usgs:03209200"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. 03208950 is stale_or_unsupported because its available runnable minimum is not station-linked and exact endpoint/parking proof is incomplete; 03209000 and 03209200 received explicit blocked outcomes for stale discharge telemetry and/or unresolved formal public access. No route was published."
+      },
+      {
+        "id": "va-family-window-70",
+        "gaugeKeys": [
+          "usgs:03471500",
+          "usgs:03473000",
+          "usgs:03474000"
+        ],
+        "outcome": "Fast-screened three Holston candidates in parallel. 03471500 and 03474000 were stale_or_unsupported as keyed because their station identities did not match the supplied corridors. Corrected 03473000 matched the South Fork Holston Damascus–Alvarado corridor but was blocked because formal Route 710/Alvarado takeout proof and an independent station-specific runnable threshold were incomplete. No route was published."
+      },
+      {
+        "id": "va-family-window-71",
+        "gaugeKeys": [
+          "usgs:03475000",
+          "usgs:03478400",
+          "usgs:03488000"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. 03475000 was stale_or_unsupported because DWR documents no public Middle Fork access and no station-specific threshold; 03478400 was screened_out as an urban Beaver Creek dry-dam/fishing setting with no named paddle corridor; 03488000 remains blocked because the strong Clinch Mountain Landing–Hayters Gap corridor lacks formal takeout access proof and current flow is below the 500–3,000 cfs runnable screen. No route was published."
+      },
+      {
+        "id": "va-family-window-72",
+        "gaugeKeys": [
+          "usgs:03490000",
+          "usgs:03527000",
+          "usgs:03529500"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. 03490000 is stale_or_unsupported because no current station-specific recreational threshold was found; 03527000 is blocked by informal Speers Ferry access and incomplete threshold/safety evidence; 03529500 is blocked by unverified public endpoint authorization and current flow below the 480–2,000 cfs runnable screen. No route was published."
+      },
+      {
+        "id": "va-family-window-73",
+        "gaugeKeys": [
+          "usgs:03531500",
+          "usgs:0204241951",
+          "usgs:02042426"
+        ],
+        "outcome": "Fast-screened three Virginia candidates in parallel. 03531500 is blocked because its numeric range is downstream Tennessee race guidance not validated for the Virginia segment; 0204241951 and 02042426 were screened_out for no named public paddle corridor and/or live recreational gauge support. No route was published."
+      },
+      {
+        "id": "va-family-window-74",
+        "gaugeKeys": [
+          "usgs:02042435",
+          "usgs:0204244887",
+          "usgs:0207635085"
+        ],
+        "outcome": "Fast-screened the final three unreviewed provider-baseline gauges in parallel. All three were screened_out: Chickahominy Route 615 has only an informal endpoint and no station-specific recreational threshold; White Oak Swamp has no public paddle corridor/endpoints and stage-only telemetry; Cherrystone Creek has no live discharge, public endpoint pair, or named paddling reach. No route was published."
       }
     ],
+    "nextWindow": [],
     "routesPublishedFromGaugeReview": [
       "james-river-buchanan-arcadia",
       "rappahannock-river-rector-tract-kellys-ford",
@@ -488,8 +733,16 @@
       "appomattox-river-farmville-blueway",
       "appomattox-river-radcliffe-patton-park",
       "north-river-campground-camp-may-flather",
-      "south-river-waynesboro-ridgeview-basic"
-      ,"rappahannock-river-motts-run-old-mill"
+      "south-river-waynesboro-ridgeview-basic",
+      "roanoke-river-salem-rotary-wasena",
+      "roanoke-river-eastern-montgomery-wayside",
+      "rappahannock-river-motts-run-old-mill",
+      "roanoke-river-niagara-explore-park",
+      "blackwater-river-wayside-the-ford",
+      "staunton-river-long-island-brookneal",
+      "new-river-independence-baywood",
+      "new-river-radford-peppers-ferry",
+      "new-river-rich-creek-glen-lyn"
     ]
   },
   "completionRequirements": [
@@ -498,13 +751,5 @@
     "A bounded independent route-first discovery sweep finds no additional strong scored route.",
     "All published routes pass evidence, safety, independent verification, tests, build, and rollback gates."
   ],
-  "nextWindow": {
-    "id": "va-family-window-47",
-    "gaugeKeys": [
-      "usgs:02044500",
-      "usgs:02045320",
-      "usgs:02045500"
-    ],
-    "rationale": "Review the next unreviewed Nottoway River family using fast triage first; require a distinct named public paddle corridor, lawful endpoint pair, direct live-gauge support, and station-specific thresholds before any deep research."
-  }
+  "nextWindow": null
 }

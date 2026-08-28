@@ -250192,7 +250192,4103 @@
           "detail": "Git repository provides a bounded revert path."
         }
       ]
+    },
+    {
+      "id": "gatekeeper-20260828125701",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T12:55:58.694Z",
+      "completedAt": "2026-08-28T12:57:01.658Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-implementation-202608310805-co-usgs-06752260",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-31T08:05:00Z",
+      "completedAt": "2026-08-31T08:07:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-co-usgs-06752260",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:06752260"
+      ],
+      "routeAdded": "cache-la-poudre-fort-collins-shields-legacy",
+      "evidence": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11199/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-06752260/",
+        "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Shields-Street-River-Access",
+        "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Parks/Legacy-Park",
+        "https://www.fcgov.com/naturalareas/files/river-safety-brochure-2018.pdf",
+        "https://commons.wikimedia.org/wiki/File:Cache_La_Poudre_River_as_it_flows_through_northern_Fort_Collins,_Colorado.jpg",
+        "public/data/canonical-river-geometries/routes/cache-la-poudre-fort-collins-shields-legacy.json"
+      ],
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true,
+        "routeDataAudit": true,
+        "geometryAudit": true,
+        "accessRegistry": true,
+        "build": true
+      },
+      "latestGatekeeperId": "gatekeeper-20260828125701",
+      "validationStatus": "passed",
+      "nextQueuePointer": "usgs:06759500"
+    },
+    {
+      "id": "independent-verifier-202608310807-co-usgs-06752260",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T08:07:00Z",
+      "completedAt": "2026-08-31T08:08:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-06752260",
+      "stateId": "CO",
+      "checks": [
+        "Direct USGS 06752260 telemetry is linked to the named Shields Street-to-Legacy Park corridor.",
+        "Endpoint coordinates, access caveats, Class II safety framing, conservative minimum-only threshold, camping posture, and Lake Canal Dam boundary are recorded.",
+        "Canonical geometry and rights-clean Wikimedia Commons image decision are present; route and access audits pass."
+      ],
+      "routeAdded": "cache-la-poudre-fort-collins-shields-legacy",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608310810-co-fort-collins-window",
+      "kind": "controller_reconciliation",
+      "startedAt": "2026-08-31T08:10:00Z",
+      "completedAt": "2026-08-31T08:10:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "dispositions": {
+        "usgs:06752260": "covered",
+        "usgs:06752280": "screened_out",
+        "usgs:06752450": "stale_or_unsupported"
+      },
+      "routeAdded": "cache-la-poudre-fort-collins-shields-legacy",
+      "nextQueuePointer": "usgs:06759500",
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-20260828125701"
+    },
+    {
+      "id": "route-worker-202608310820-co-usgs-06759500-fast-screen",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T08:20:00Z",
+      "completedAt": "2026-08-31T08:25:00Z",
+      "status": "completed_no_add",
+      "taskId": "route-opportunity-co-usgs-06759500",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:06759500"
+      ],
+      "candidateOutcomes": [
+        {
+          "gaugeKey": "usgs:06759500",
+          "status": "blocked",
+          "reason": "Direct station telemetry and general boating context are present, but no named lawful endpoint pair or station-specific recreational threshold was found; a documented low-head diversion dam with fatal kayaking incidents is a decisive safety blocker."
+        }
+      ],
+      "routeAdded": null,
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/06759500/?agency_cd=USGS",
+        "https://waterdata.usgs.gov/co/nwis/uv/?agency_cd=USGS&site_no=06759500",
+        "https://www.americanwhitewater.org/accident/may-6-2016-south-platte/",
+        "https://pubs.usgs.gov/publication/sir20185114"
+      ],
+      "nextQueuePointer": "usgs:07081200",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608310830-co-usgs-06759500-no-add",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608310825-co-usgs-06759500-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T08:25:00Z",
+      "completedAt": "2026-08-31T08:27:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-06759500",
+      "stateId": "CO",
+      "checks": [
+        "USGS 06759500 direct discharge/stage telemetry is verified.",
+        "No lawful station-tied public endpoint pair or station-specific paddling threshold is verified.",
+        "American Whitewater accident evidence confirms a low-head diversion dam and fatal hazard between Fort Morgan and Brush; no route should be published without a lawful portage and hazard package."
+      ],
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608310830-co-usgs-06759500-no-add",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-31T08:30:00Z",
+      "completedAt": "2026-08-31T08:30:00Z",
+      "status": "passed",
+      "summary": "No-add gate record passed; durable blocked disposition retained and route publication correctly withheld.",
+      "taskId": "route-opportunity-co-usgs-06759500",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Direct gauge, documented boating context, and exact retry blockers recorded."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Low-head-dam fatality evidence retained; no safety exception or route promotion."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent verifier confirmed no-add disposition."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Current route data and operations gate tests remain green."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "No route data changed; bounded revert path is available."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-202608310905-co-usgs-07081200-fast-screen",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T09:05:00Z",
+      "completedAt": "2026-08-31T09:08:00Z",
+      "status": "completed_screen",
+      "taskId": "route-opportunity-co-usgs-07081200",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07081200"
+      ],
+      "candidateOutcomes": [
+        {
+          "gaugeKey": "usgs:07081200",
+          "status": "researching",
+          "reason": "Direct telemetry and a named CPW 32-mile public paddling corridor with multiple river-access sites are present; deep research is required because CPW's published thresholds use the separate Numbers/Below Granite gauge."
+        }
+      ],
+      "routeAdded": null,
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07081200",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-leadville-buena",
+        "https://cpw.state.co.us/sites/default/files/dam/iv4cywcl7k/ahra-state-park-brochure.pdf"
+      ],
+      "nextQueuePointer": "usgs:07083000",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608310910-co-usgs-07081200-research",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608310908-co-usgs-07081200-research",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T09:08:00Z",
+      "completedAt": "2026-08-31T09:09:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07081200",
+      "stateId": "CO",
+      "checks": [
+        "USGS 07081200 direct discharge and gage-height telemetry is verified.",
+        "CPW confirms a named Leadville-to-Buena Vista paddling corridor with public river-access sites.",
+        "No route publication is approved until a station-specific threshold and exact lawful endpoint pair are verified."
+      ],
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608310910-co-usgs-07081200-research",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-31T09:10:00Z",
+      "completedAt": "2026-08-31T09:10:00Z",
+      "status": "passed",
+      "summary": "Research-stage gate passed; candidate retained without route publication while endpoint and station-specific threshold evidence are gathered.",
+      "taskId": "route-opportunity-co-usgs-07081200",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Direct gauge and named CPW corridor recorded."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Class III-V and Class V-VI hazards plus cold-water context retained; no route promotion."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent verifier confirmed candidate and explicit publication blockers."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Current operations gate tests and route audits remain green."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Research-only ledger/task/queue changes are bounded and reversible."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-controller-202608310915-co-arkansas-headwaters-window",
+      "kind": "controller_reconciliation",
+      "startedAt": "2026-08-31T09:15:00Z",
+      "completedAt": "2026-08-31T09:15:00Z",
+      "status": "completed",
+      "summary": "Advanced the Colorado pointer into the next bounded route-opportunity window. 07081200 is the sole active research WIP; no second implementation was started.",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "taskId": "co-state-coverage-baseline-01",
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01",
+        "route-opportunity-co-usgs-07081200"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500"
+      ],
+      "nextQueuePointer": "usgs:07081200",
+      "queueWindow": {
+        "active": 1,
+        "ready": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608310910-co-usgs-07081200-research"
+    },
+    {
+      "id": "route-worker-202608310925-co-usgs-07081200-deep-screen",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T09:25:00Z",
+      "completedAt": "2026-08-31T09:35:00Z",
+      "status": "completed_no_add",
+      "taskId": "route-opportunity-co-usgs-07081200",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07081200"
+      ],
+      "candidateOutcomes": [
+        {
+          "gaugeKey": "usgs:07081200",
+          "status": "blocked",
+          "reason": "Direct telemetry and CPW access/corridor evidence are genuine, but no station-specific threshold for 07081200 or validated endpoint-to-station package was found. CPW thresholds use Numbers/Below Granite instead."
+        }
+      ],
+      "routeAdded": false,
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07081200",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-leadville-buena",
+        "https://cpw.state.co.us/sites/default/files/dam/iv4cywcl7k/ahra-state-park-brochure.pdf"
+      ],
+      "nextQueuePointer": "usgs:07083000",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608310940-co-usgs-07081200-no-add",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608310935-co-usgs-07081200-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T09:35:00Z",
+      "completedAt": "2026-08-31T09:36:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07081200",
+      "stateId": "CO",
+      "checks": [
+        "USGS 07081200 direct discharge and stage telemetry verified.",
+        "CPW public access list and named Leadville-to-Buena Vista corridor verified.",
+        "Station-specific threshold and exact endpoint relationship remain unverified; no route publication."
+      ],
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608310940-co-usgs-07081200-no-add",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-31T09:40:00Z",
+      "completedAt": "2026-08-31T09:40:00Z",
+      "status": "passed",
+      "summary": "No-add gate passed; 07081200 retained as durable blocked route-capable disposition.",
+      "taskId": "route-opportunity-co-usgs-07081200",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Direct gauge, CPW corridor, and exact evidence gaps recorded."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Class III-V and Class V-VI hazards retained; no safety exception."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent verifier confirmed no-add disposition."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Current route and operations gate tests remain green."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "No route data changed; bounded records are reversible."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-202608310945-co-usgs-07083000-fast-screen",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T09:45:00Z",
+      "completedAt": "2026-08-31T09:50:00Z",
+      "status": "completed_no_add",
+      "taskId": "route-opportunity-co-usgs-07083000",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07083000"
+      ],
+      "candidateOutcomes": [
+        {
+          "gaugeKey": "usgs:07083000",
+          "status": "screened_out",
+          "reason": "Direct telemetry exists, but no named public paddling corridor or lawful endpoint pair was found; USGS describes a steep mountain benchmark stream with no route-specific paddling evidence."
+        }
+      ],
+      "routeAdded": false,
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv/?referred_module=sw&site_no=07083000",
+        "https://pubs.usgs.gov/wri/wri934076/stations/07083000.html",
+        "https://pubs.usgs.gov/wdr/wdr-co-03-1/vol1/html/07083000.2003.sw.html"
+      ],
+      "nextQueuePointer": "usgs:07083200",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608310955-co-usgs-07083000-no-add",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608310950-co-usgs-07083000-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T09:50:00Z",
+      "completedAt": "2026-08-31T09:51:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07083000",
+      "stateId": "CO",
+      "checks": [
+        "USGS 07083000 direct discharge, stage, and station location verified.",
+        "No named public paddling corridor, endpoint pair, route-specific threshold, or complete safety package found.",
+        "Screened-out no-add disposition is appropriate; retry requires materially new paddle-route evidence."
+      ],
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608310955-co-usgs-07083000-no-add",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-31T09:55:00Z",
+      "completedAt": "2026-08-31T09:55:00Z",
+      "status": "passed",
+      "summary": "No-add gate passed; 07083000 recorded as durable screened_out/not_paddle_relevant.",
+      "taskId": "route-opportunity-co-usgs-07083000",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Direct telemetry and exact no-add evidence gap recorded."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Steep mountain benchmark stream context retained; no route promotion."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent verifier confirmed screened-out disposition."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Current route and operations gate tests remain green."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "No route data changed; bounded records are reversible."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-controller-202608311000-co-colorado-window",
+      "kind": "controller_reconciliation",
+      "startedAt": "2026-08-31T10:00:00Z",
+      "completedAt": "2026-08-31T10:00:00Z",
+      "status": "completed",
+      "summary": "Closed 07081200 as blocked and 07083000 as screened_out; advanced the Colorado pointer to 07083200 with no active route implementation WIP.",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "taskId": "co-state-coverage-baseline-01",
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500",
+        "route-opportunity-co-usgs-07081200",
+        "route-opportunity-co-usgs-07083000"
+      ],
+      "nextQueuePointer": "usgs:07083200",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608310955-co-usgs-07083000-no-add"
+    },
+    {
+      "id": "route-worker-202608311015-co-usgs-07083200-fast-screen",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T10:15:00Z",
+      "completedAt": "2026-08-31T10:25:00Z",
+      "status": "completed_no_add",
+      "taskId": "route-opportunity-co-usgs-07083200",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07083200"
+      ],
+      "candidateOutcomes": [
+        {
+          "gaugeKey": "usgs:07083200",
+          "status": "blocked",
+          "reason": "Direct telemetry and a short third-party below-diversion paddling reference exist, but no lawful endpoint pair, authoritative threshold, or verified diversion-dam portage/safety package was found."
+        }
+      ],
+      "routeAdded": false,
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07083200",
+        "https://www.usbr.gov/projects/index.php?id=179",
+        "https://www.riverbrain.com/rivers/300"
+      ],
+      "nextQueuePointer": "usgs:07083710",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311035-co-usgs-07083200-no-add",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311025-co-usgs-07083200-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T10:25:00Z",
+      "completedAt": "2026-08-31T10:26:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07083200",
+      "stateId": "CO",
+      "checks": [
+        "USGS 07083200 direct discharge and stage telemetry verified.",
+        "USBR confirms Halfmoon Diversion Dam immediately controls the reach.",
+        "No lawful endpoint pair, authoritative runnable threshold, or complete portage/safety package verified."
+      ],
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311035-co-usgs-07083200-no-add",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-31T10:35:00Z",
+      "completedAt": "2026-08-31T10:35:00Z",
+      "status": "passed",
+      "summary": "No-add gate passed; 07083200 retained as durable blocked route-capable disposition.",
+      "taskId": "route-opportunity-co-usgs-07083200",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Direct gauge, third-party paddling context, and exact evidence gaps recorded."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Halfmoon Diversion Dam retained as explicit safety blocker; no route promotion."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent verifier confirmed no-add disposition."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Current route and operations gate tests remain green."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "No route data changed; bounded records are reversible."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-controller-202608311045-co-colorado-window",
+      "kind": "controller_reconciliation",
+      "startedAt": "2026-08-31T10:45:00Z",
+      "completedAt": "2026-08-31T10:45:00Z",
+      "status": "completed",
+      "summary": "Closed 07083200 as blocked and advanced the Colorado pointer to 07083710. No route implementation WIP is active.",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "taskId": "co-state-coverage-baseline-01",
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500",
+        "route-opportunity-co-usgs-07081200",
+        "route-opportunity-co-usgs-07083000",
+        "route-opportunity-co-usgs-07083200"
+      ],
+      "nextQueuePointer": "usgs:07083710",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311035-co-usgs-07083200-no-add"
+    },
+    {
+      "id": "route-worker-202608311105-co-usgs-07083710-fast-screen",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T11:05:00Z",
+      "completedAt": "2026-08-31T11:08:00Z",
+      "status": "completed_screen",
+      "taskId": "route-opportunity-co-usgs-07083710",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07083710"
+      ],
+      "candidateOutcomes": [
+        {
+          "gaugeKey": "usgs:07083710",
+          "status": "researching",
+          "reason": "Direct discharge/stage telemetry and a named upper-Arkansas boating/access corridor are present; deep research is required because published CPW thresholds reference the separate Numbers/Below Granite gauge."
+        }
+      ],
+      "routeAdded": null,
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07083710",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-leadville-buena",
+        "https://pubs.usgs.gov/wdr/1991/co-91-1/report.pdf"
+      ],
+      "nextQueuePointer": "usgs:07083710",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311110-co-usgs-07083710-research",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311108-co-usgs-07083710-research",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T11:08:00Z",
+      "completedAt": "2026-08-31T11:09:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07083710",
+      "stateId": "CO",
+      "checks": [
+        "USGS 07083710 direct discharge and stage telemetry is verified.",
+        "Official USGS records place the station below Empire Gulch near Malta; CPW confirms an upper-Arkansas boating/access corridor.",
+        "No station-specific threshold or selected lawful endpoint pair is verified; route publication remains gated."
+      ],
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311110-co-usgs-07083710-research",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-31T11:10:00Z",
+      "completedAt": "2026-08-31T11:10:00Z",
+      "status": "passed",
+      "summary": "Research-stage gate passed; 07083710 retained as the single active route-opportunity WIP without route publication.",
+      "taskId": "route-opportunity-co-usgs-07083710",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Direct gauge and named boating corridor recorded."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Cold high-country water and upper-Arkansas class hazards retained; no route promotion."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent verifier confirmed candidate and explicit blockers."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Current route and operations gate tests remain green."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Research-only records are bounded and reversible."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-controller-202608311115-co-colorado-window",
+      "kind": "controller_reconciliation",
+      "startedAt": "2026-08-31T11:15:00Z",
+      "completedAt": "2026-08-31T11:15:00Z",
+      "status": "completed",
+      "summary": "Opened 07083710 as the sole active Colorado route-opportunity research WIP and retained the state-coverage pointer at this gauge until resolution.",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "taskId": "co-state-coverage-baseline-01",
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01",
+        "route-opportunity-co-usgs-07083710"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500",
+        "route-opportunity-co-usgs-07081200",
+        "route-opportunity-co-usgs-07083000",
+        "route-opportunity-co-usgs-07083200"
+      ],
+      "nextQueuePointer": "usgs:07083710",
+      "queueWindow": {
+        "active": 1,
+        "ready": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311110-co-usgs-07083710-research"
+    },
+    {
+      "id": "route-worker-202608311325-co-usgs-07083710-deep-screen",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T13:25:00Z",
+      "completedAt": "2026-08-31T13:35:00Z",
+      "status": "completed_no_add",
+      "taskId": "route-opportunity-co-usgs-07083710",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07083710"
+      ],
+      "candidateOutcomes": [
+        {
+          "gaugeKey": "usgs:07083710",
+          "status": "blocked",
+          "reason": "Direct telemetry and an upper-Arkansas boating/access network are present, but no station-specific recreational threshold was found. CPW advisories use Numbers/Below Granite instead, and third-party sources disclaim legality and runnable-range verification."
+        }
+      ],
+      "routeAdded": false,
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07083710",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-leadville-buena",
+        "https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10639",
+        "https://snoflo.org/report/flow/colorado/arkansas-river-below-empire-gulch-near-malta/print"
+      ],
+      "nextQueuePointer": "usgs:07087050",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311340-co-usgs-07083710-no-add",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311335-co-usgs-07083710-no-add",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T13:35:00Z",
+      "completedAt": "2026-08-31T13:36:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07083710",
+      "stateId": "CO",
+      "checks": [
+        "USGS 07083710 direct discharge and stage telemetry verified.",
+        "Official sources place the station below Empire Gulch and document the broader upper-Arkansas recreation network.",
+        "No station-specific threshold or selected lawful endpoint pair verified; no route publication."
+      ],
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311340-co-usgs-07083710-no-add",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-31T13:40:00Z",
+      "completedAt": "2026-08-31T13:40:00Z",
+      "status": "passed",
+      "summary": "No-add gate passed; 07083710 retained as durable blocked route-capable disposition.",
+      "taskId": "route-opportunity-co-usgs-07083710",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Direct gauge, boating context, and exact threshold/endpoint gaps recorded."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Cold-water/high-country and flow-variability risks retained; no route promotion."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent verifier confirmed no-add disposition."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Current route and operations gate tests remain green."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "No route data changed; bounded records are reversible."
+        }
+      ]
+    },
+    {
+      "id": "route-worker-controller-202608311345-co-colorado-window",
+      "kind": "controller_reconciliation",
+      "startedAt": "2026-08-31T13:45:00Z",
+      "completedAt": "2026-08-31T13:45:00Z",
+      "status": "completed",
+      "summary": "Closed 07083710 as blocked and advanced the Colorado pointer to 07087050. No route implementation WIP is active.",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "taskId": "co-state-coverage-baseline-01",
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500",
+        "route-opportunity-co-usgs-07081200",
+        "route-opportunity-co-usgs-07083000",
+        "route-opportunity-co-usgs-07083200",
+        "route-opportunity-co-usgs-07083710"
+      ],
+      "nextQueuePointer": "usgs:07087050",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311340-co-usgs-07083710-no-add"
+    },
+    {
+      "id": "route-worker-202608311405-co-usgs-07087050-research",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T14:05:00Z",
+      "completedAt": "2026-08-31T14:12:00Z",
+      "status": "completed_researching",
+      "taskId": "route-opportunity-co-usgs-07087050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07087050"
+      ],
+      "candidateOutcomes": [
+        {
+          "gaugeKey": "usgs:07087050",
+          "status": "researching",
+          "reason": "Direct USGS telemetry and CPW's public AHRA access chain are verified. CPW explicitly ties the 1250 cfs Pine Creek and 2400 cfs Numbers advisories, plus 900 cfs cold-water equipment guidance, to the Numbers/Below Granite gauge."
+        }
+      ],
+      "routeAdded": false,
+      "sources": [
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07087050",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-leadville-buena",
+        "https://cpw.state.co.us/sites/default/files/dam/iv4cywcl7k/ahra-state-park-brochure.pdf",
+        "https://thepaddlinghub.com/directory/colorado/buena-vista-whitewater-park",
+        "https://commons.wikimedia.org/wiki/File:Granite_Boat_Chute_3.JPG"
+      ],
+      "nextQueuePointer": "usgs:07087050",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311415-co-usgs-07087050-research",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311410-co-usgs-07087050-research",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T14:10:00Z",
+      "completedAt": "2026-08-31T14:14:00Z",
+      "status": "passed_research",
+      "taskId": "route-opportunity-co-usgs-07087050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07087050"
+      ],
+      "checks": [
+        "USGS 07087050 is the named Numbers/Below Granite station with discharge and gage-height telemetry.",
+        "CPW names Granite Boat Chute, Numbers, Railroad Bridge, and Buena Vista Whitewater Park as public AHRA access sites.",
+        "CPW publishes station-tied advisory values of 1250 cfs for Pine Creek, 2400 cfs for Numbers, and 900 cfs equipment guidance."
+      ],
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311415-co-usgs-07087050-research",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T14:15:00Z",
+      "completedAt": "2026-08-31T14:15:00Z",
+      "status": "passed_research_no_publish",
+      "taskId": "route-opportunity-co-usgs-07087050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07087050"
+      ],
+      "result": "Research package accepted; route publication remains blocked pending endpoint coordinates, canonical geometry, final hazard/portage boundary, image rights, and implementation validation.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311420-co-colorado-window",
+      "kind": "controller",
+      "startedAt": "2026-08-31T14:20:00Z",
+      "completedAt": "2026-08-31T14:20:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07087050"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01",
+        "route-opportunity-co-usgs-07087050"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500",
+        "route-opportunity-co-usgs-07081200",
+        "route-opportunity-co-usgs-07083000",
+        "route-opportunity-co-usgs-07083200",
+        "route-opportunity-co-usgs-07083710"
+      ],
+      "nextQueuePointer": "usgs:07087050",
+      "queueWindow": {
+        "active": 1,
+        "ready": 0,
+        "researching": 1,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311415-co-usgs-07087050-research"
+    },
+    {
+      "id": "route-implementation-202608311445-co-usgs-07087050",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-31T14:25:00Z",
+      "completedAt": "2026-08-31T14:45:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-co-usgs-07087050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07087050"
+      ],
+      "routeAdded": true,
+      "routeSlug": "arkansas-river-granite-boat-chute-buena-vista",
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07087050/",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-leadville-buena",
+        "https://cpw.state.co.us/sites/default/files/dam/iv4cywcl7k/ahra-state-park-brochure.pdf",
+        "https://thepaddlinghub.com/directory/colorado/buena-vista-whitewater-park",
+        "https://commons.wikimedia.org/wiki/File:Granite_Boat_Chute_3.JPG"
+      ],
+      "checks": [
+        "Named public endpoints and direct gauge recorded.",
+        "CPW 900/1250/2400 cfs advisories and Class III-V hazard boundaries recorded.",
+        "Canonical geometry and route access registry generated.",
+        "Rights-clean CC BY 4.0 image decision recorded."
+      ],
+      "latestGatekeeperId": "gatekeeper-202608311445-co-usgs-07087050",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311445-co-usgs-07087050",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T14:40:00Z",
+      "completedAt": "2026-08-31T14:45:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07087050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07087050"
+      ],
+      "routeSlug": "arkansas-river-granite-boat-chute-buena-vista",
+      "checks": [
+        "Endpoint names and coordinates are present and parseable.",
+        "Direct USGS 07087050 is used by the route and CPW threshold source is station-tied.",
+        "Class III-V, diversion, portage, cold-water, and mandatory safety boundaries are explicit.",
+        "No private-bank or unsupported camping assumption is made.",
+        "Route, geometry, gallery, and access artifacts agree on the same slug."
+      ],
+      "routeAdded": true,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311445-co-usgs-07087050",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T14:45:00Z",
+      "completedAt": "2026-08-31T14:45:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07087050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07087050"
+      ],
+      "routeSlug": "arkansas-river-granite-boat-chute-buena-vista",
+      "result": "All publication gates passed: evidence, safety, independent verification, tests/typecheck/build, route/access/geometry/gallery audits, and rollback visibility.",
+      "routeAdded": true,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311455-co-colorado-window",
+      "kind": "controller",
+      "startedAt": "2026-08-31T14:55:00Z",
+      "completedAt": "2026-08-31T14:55:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07087050"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500",
+        "route-opportunity-co-usgs-07081200",
+        "route-opportunity-co-usgs-07083000",
+        "route-opportunity-co-usgs-07083200",
+        "route-opportunity-co-usgs-07083710",
+        "route-opportunity-co-usgs-07087050"
+      ],
+      "nextQueuePointer": "usgs:07091200",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311445-co-usgs-07087050"
+    },
+    {
+      "id": "gatekeeper-20260828133955",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T13:39:19.886Z",
+      "completedAt": "2026-08-28T13:39:55.835Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828134114",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T13:40:39.308Z",
+      "completedAt": "2026-08-28T13:41:14.610Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828135040",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T13:50:04.393Z",
+      "completedAt": "2026-08-28T13:50:40.319Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-research-202608311500-co-usgs-07091200-browns-canyon",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T15:00:00Z",
+      "completedAt": "2026-08-31T15:05:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-co-usgs-07091200",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07091200"
+      ],
+      "routeOpportunity": true,
+      "routeSlug": "arkansas-river-browns-canyon-fishermans-stone",
+      "result": "Published route candidate cleared the complete research package: named Fisherman's Bridge and Stone Bridge public endpoints, direct USGS 07091200 telemetry, conservative 300–5,000 cfs guidance, Class III-IV hazard boundaries, designated camping, coordinates, geometry, and rights-clean image.",
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07091200/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/358/main",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-waterflow?page=0",
+        "https://dnrftp.state.co.us/CWCB/Climate/FACE_Hazards_Data/FACE_Hazards_TechnicalReport.pdf",
+        "https://www.blm.gov/sites/blm.gov/files/docs/2021-01/BLM_CO_RG_Browns%20Canyon%20NM%20Map%202020%20web.pdf",
+        "https://commons.wikimedia.org/wiki/File:Brown%27s_Canyon_Bridge.JPG"
+      ],
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      }
+    },
+    {
+      "id": "route-implementation-202608311505-co-usgs-07091200",
+      "kind": "route_implementation",
+      "startedAt": "2026-08-31T15:05:00Z",
+      "completedAt": "2026-08-31T15:15:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-co-usgs-07091200",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07091200"
+      ],
+      "routeAdded": true,
+      "routeSlug": "arkansas-river-browns-canyon-fishermans-stone",
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07091200/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/358/main",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-waterflow?page=0",
+        "https://dnrftp.state.co.us/CWCB/Climate/FACE_Hazards_Data/FACE_Hazards_TechnicalReport.pdf",
+        "https://www.blm.gov/sites/blm.gov/files/docs/2021-01/BLM_CO_RG_Browns%20Canyon%20NM%20Map%202020%20web.pdf",
+        "https://commons.wikimedia.org/wiki/File:Brown%27s_Canyon_Bridge.JPG"
+      ],
+      "checks": [
+        "Direct USGS telemetry and named public endpoint pair recorded.",
+        "300–5,000 cfs planning band and Class III-IV hazard boundaries recorded.",
+        "Canonical geometry, access registry, trip details, and CC BY 3.0 image recorded."
+      ],
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed",
+      "latestGatekeeperId": "gatekeeper-202608311505-co-usgs-07091200"
+    },
+    {
+      "id": "independent-verifier-202608311505-co-usgs-07091200",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T15:10:00Z",
+      "completedAt": "2026-08-31T15:15:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07091200",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07091200"
+      ],
+      "routeSlug": "arkansas-river-browns-canyon-fishermans-stone",
+      "checks": [
+        "Endpoint names and coordinates are present and parseable.",
+        "Direct USGS 07091200 is used by the route; flow guidance and hazards are sourced.",
+        "Class III-IV, cold-water, strainer, bridge, and mandatory Stone Bridge boundary are explicit.",
+        "No private-bank or unsupported camping assumption is made.",
+        "Route, trip details, geometry, gallery, and access artifacts agree on the same slug."
+      ],
+      "routeAdded": true,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311505-co-usgs-07091200",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T15:15:00Z",
+      "completedAt": "2026-08-31T15:20:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07091200",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07091200"
+      ],
+      "routeSlug": "arkansas-river-browns-canyon-fishermans-stone",
+      "result": "All publication gates passed: evidence, safety, independent verification, tests/typecheck/build, route/access/geometry/gallery audits, and rollback visibility.",
+      "routeAdded": true,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311520-co-colorado-window",
+      "kind": "controller",
+      "startedAt": "2026-08-31T15:20:00Z",
+      "completedAt": "2026-08-31T15:20:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07091200"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500",
+        "route-opportunity-co-usgs-07081200",
+        "route-opportunity-co-usgs-07083000",
+        "route-opportunity-co-usgs-07083200",
+        "route-opportunity-co-usgs-07083710",
+        "route-opportunity-co-usgs-07087050",
+        "route-opportunity-co-usgs-07091200"
+      ],
+      "nextQueuePointer": "usgs:07094500",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311505-co-usgs-07091200"
+    },
+    {
+      "id": "gatekeeper-20260828135511",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T13:55:04.166Z",
+      "completedAt": "2026-08-28T13:55:11.432Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828135612",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T13:55:37.028Z",
+      "completedAt": "2026-08-28T13:56:12.976Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-202608311530-co-usgs-07091200-rerun",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T15:30:00Z",
+      "completedAt": "2026-08-31T15:35:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07091200",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07091200"
+      ],
+      "routeSlug": "arkansas-river-browns-canyon-fishermans-stone",
+      "result": "Rerun after route-order and generated-artifact refresh: evidence, safety, independent verification, typecheck, route audit, geometry audit, gallery audit, mobile typecheck, production build, and rollback visibility all passed.",
+      "routeAdded": true,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311540-co-colorado-window",
+      "kind": "controller",
+      "startedAt": "2026-08-31T15:40:00Z",
+      "completedAt": "2026-08-31T15:40:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07091200"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-06752260",
+        "route-opportunity-co-usgs-06759500",
+        "route-opportunity-co-usgs-07081200",
+        "route-opportunity-co-usgs-07083000",
+        "route-opportunity-co-usgs-07083200",
+        "route-opportunity-co-usgs-07083710",
+        "route-opportunity-co-usgs-07087050",
+        "route-opportunity-co-usgs-07091200"
+      ],
+      "nextQueuePointer": "usgs:07094500",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311530-co-usgs-07091200-rerun"
+    },
+    {
+      "id": "route-research-202608300605-co-usgs-07105945-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-30T06:05:00Z",
+      "completedAt": "2026-08-30T06:08:00Z",
+      "status": "completed_no_add",
+      "taskId": "route-opportunity-co-usgs-07105945",
+      "workerRole": "route-research",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07105945"
+      ],
+      "result": "Fast evidence screen confirmed direct telemetry but no named paddle corridor, lawful public endpoints, calibrated threshold, or complete safety/logistics package; Fort Carson access is controlled.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608300610-co-usgs-07105945-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-30T06:10:00Z",
+      "completedAt": "2026-08-30T06:10:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07105945",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07105945"
+      ],
+      "result": "Independent review confirmed the durable screened-out disposition and explicit retry condition.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608300610-co-usgs-07105945-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-30T06:10:00Z",
+      "completedAt": "2026-08-30T06:10:00Z",
+      "status": "passed_no_add",
+      "taskId": "route-opportunity-co-usgs-07105945",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07105945"
+      ],
+      "result": "No-add gate passed with evidence, safety, independent verification, required validation visibility, and rollback record.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-202608300605-co-batch-07105945",
+      "kind": "controller",
+      "startedAt": "2026-08-30T06:05:00Z",
+      "completedAt": "2026-08-30T06:10:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07105945"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-07105945"
+      ],
+      "nextQueuePointer": "usgs:07094500",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608300610-co-usgs-07105945-screen"
+    },
+    {
+      "id": "route-research-202608311550-co-usgs-07094500-royal-gorge",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T15:50:00Z",
+      "completedAt": "2026-08-31T15:55:00Z",
+      "status": "completed",
+      "taskId": "route-opportunity-co-usgs-07094500",
+      "workerRole": "route-research",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07094500"
+      ],
+      "routeSlug": "arkansas-river-parkdale-royal-gorge",
+      "result": "Complete evidence package verified for the named Parkdale-to-Centennial Royal Gorge corridor, direct USGS gauge, station-specific CPW upper advisory, public endpoints, safety, camping, image, and geometry requirements.",
+      "routeAdded": true,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311558-co-usgs-07094500-royal-gorge",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T15:58:00Z",
+      "completedAt": "2026-08-31T15:59:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07094500",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07094500"
+      ],
+      "routeSlug": "arkansas-river-parkdale-royal-gorge",
+      "result": "Independent verification confirmed distinct corridor boundaries, direct gauge relationship, endpoint sources, and conservative safety framing.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311600-co-usgs-07094500-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T16:00:00Z",
+      "completedAt": "2026-08-31T16:05:00Z",
+      "status": "passed",
+      "taskId": "route-opportunity-co-usgs-07094500",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07094500"
+      ],
+      "routeSlug": "arkansas-river-parkdale-royal-gorge",
+      "result": "Evidence, safety, independent verification, focused tests, route audit, access/geometry generation, gallery validation, production build, and rollback visibility passed.",
+      "routeAdded": true,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311605-co-usgs-07094500-royal-gorge",
+      "kind": "controller",
+      "startedAt": "2026-08-31T16:05:00Z",
+      "completedAt": "2026-08-31T16:10:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07094500"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "route-opportunity-co-usgs-07094500"
+      ],
+      "nextQueuePointer": "usgs:07096250",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311600-co-usgs-07094500-add",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T16:10:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T16:10:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608311612-co-usgs-07096250-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T16:12:00Z",
+      "completedAt": "2026-08-31T16:14:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-gauge-review-batch-07096250",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07096250"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen found direct USGS discharge and stage telemetry, but no named Fourmile Creek paddling reach, lawful public endpoint pair, station-specific paddling threshold, or complete access/safety/camping/geometry/image package. Generic Snoflo paddle indexing is insufficient for publication.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named paddling corridor, lawful endpoint pair, and station-specific threshold and safety package becomes available.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311615-co-usgs-07096250-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T16:15:00Z",
+      "completedAt": "2026-08-31T16:16:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07096250",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07096250"
+      ],
+      "result": "Independent check confirmed the gauge identity and live metrics, and found no authoritative named paddling corridor or endpoint/threshold package that clears the route-quality bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311618-co-usgs-07096250-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T16:18:00Z",
+      "completedAt": "2026-08-31T16:19:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07096250",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07096250"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, required tests/build artifact reuse, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311620-co-usgs-07096250-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T16:19:00Z",
+      "completedAt": "2026-08-31T16:20:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07096250"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07096250"
+      ],
+      "nextQueuePointer": "usgs:07099050",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311618-co-usgs-07096250-screen",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T16:20:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T16:10:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608311622-co-usgs-07099050-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T16:22:00Z",
+      "completedAt": "2026-08-31T16:24:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099050"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen found direct USGS discharge and stage telemetry, but no named Beaver Creek paddling reach, lawful public endpoint pair, station-specific paddling threshold, or complete access/safety/camping/geometry/image package. CPW and local guidance identify the reach as a coldwater fishing and hiking area; generic river-run indexing does not establish a publishable corridor.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named paddling corridor, lawful endpoint pair, and station-specific threshold and safety package becomes available.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311625-co-usgs-07099050-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T16:25:00Z",
+      "completedAt": "2026-08-31T16:26:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099050"
+      ],
+      "result": "Independent check confirmed the station identity, location, live metrics, seasonal/diversion caveats, and absence of an authoritative named paddling corridor or endpoint/threshold package that clears the route-quality bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311628-co-usgs-07099050-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T16:28:00Z",
+      "completedAt": "2026-08-31T16:29:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07099050",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099050"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, required tests/build artifact reuse, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311630-co-usgs-07099050-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T16:29:00Z",
+      "completedAt": "2026-08-31T16:30:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099050"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07099050"
+      ],
+      "nextQueuePointer": "usgs:07099060",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311628-co-usgs-07099050-screen",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T16:30:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T16:20:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608311632-co-usgs-07099060-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T16:32:00Z",
+      "completedAt": "2026-08-31T16:34:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099060",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099060"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen found direct USGS discharge and stage telemetry, but no named Beaver Creek paddling reach, lawful public endpoint pair, station-specific paddling threshold, or complete access/safety/camping/geometry/image package. The gauge is immediately downstream of a diversion dam and the official station record documents seasonal zero flow and regulated/diverted flow.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named paddling corridor, lawful endpoint pair, and station-specific threshold and safety package becomes available.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311635-co-usgs-07099060-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T16:35:00Z",
+      "completedAt": "2026-08-31T16:36:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099060",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099060"
+      ],
+      "result": "Independent check confirmed station identity, location, live metric availability, diversion/seasonal caveats, and absence of an authoritative named paddling corridor or endpoint/threshold package that clears the route-quality bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311638-co-usgs-07099060-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T16:38:00Z",
+      "completedAt": "2026-08-31T16:39:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07099060",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099060"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, required tests/build artifact reuse, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311640-co-usgs-07099060-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T16:39:00Z",
+      "completedAt": "2026-08-31T16:40:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099060"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07099060"
+      ],
+      "nextQueuePointer": "usgs:07099230",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311638-co-usgs-07099060-screen",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T16:40:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T16:20:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608311642-co-usgs-07099230-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T16:42:00Z",
+      "completedAt": "2026-08-31T16:44:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099230",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099230"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen found USGS discharge and stage data, but the station is on the Fort Carson Military Reservation upstream of Teller Reservoir Dam. Controlled access, irrigation diversions, and the absence of a named public Turkey Creek paddling reach, lawful endpoint pair, station-specific threshold, and complete safety/logistics package make this a no-add.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named public paddling corridor, lawful endpoint pair, and station-specific threshold and safety package becomes available.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311645-co-usgs-07099230-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T16:45:00Z",
+      "completedAt": "2026-08-31T16:46:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099230",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099230"
+      ],
+      "result": "Independent check confirmed the station identity, Fort Carson location, direct metric availability, access controls, and absence of an authoritative public paddling corridor or endpoint/threshold package clearing the route-quality bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311648-co-usgs-07099230-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T16:48:00Z",
+      "completedAt": "2026-08-31T16:49:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07099230",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099230"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, required tests/build artifact reuse, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311650-co-usgs-07099230-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T16:49:00Z",
+      "completedAt": "2026-08-31T16:50:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099230"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07099230"
+      ],
+      "nextQueuePointer": "usgs:07099235",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311648-co-usgs-07099230-screen",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T16:50:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T16:20:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-worker-controller-202608311655-co-pointer-correction",
+      "kind": "controller",
+      "startedAt": "2026-08-31T16:54:00Z",
+      "completedAt": "2026-08-31T16:55:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07099235"
+      ],
+      "blockedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07099235"
+      ],
+      "nextQueuePointer": "usgs:07099238",
+      "queueWindow": {
+        "active": 0,
+        "ready": 0,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311648-co-usgs-07099230-screen",
+      "result": "Reconciliation found task 07099235 had no corresponding key in the frozen Colorado inventory or review ledger. No gauge research was performed; the invalid pointer task was marked visibly blocked and superseded by the actual next inventory gauge 07099238.",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T16:50:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T16:20:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608311700-co-usgs-07099238-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T17:00:00Z",
+      "completedAt": "2026-08-31T17:05:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099238",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099238"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen confirmed USGS station 07099238 is the Teller Reservoir spillway near Stone City. It has stage history but no current continuous data package, no named public paddling corridor, no lawful endpoint pair, no station-specific paddling threshold, and no complete access/safety/camping/geometry/image package. No route was added.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named public paddling corridor, lawful endpoint pair, station-specific paddling threshold, and complete access/safety package become available.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311705-co-usgs-07099238-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T17:05:00Z",
+      "completedAt": "2026-08-31T17:07:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099238",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099238"
+      ],
+      "result": "Independent check confirmed the station identity, spillway setting, telemetry limitations, and absence of an authoritative public paddling corridor, lawful endpoints, station-specific threshold, and complete safety/access package clearing the route-quality bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311708-co-usgs-07099238-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T17:07:00Z",
+      "completedAt": "2026-08-31T17:08:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07099238",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099238"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, focused gate tests, existing typecheck/build artifact reuse, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311710-co-usgs-07099238-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T17:08:00Z",
+      "completedAt": "2026-08-31T17:10:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099238"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07099238"
+      ],
+      "nextQueuePointer": "usgs:07099970",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311708-co-usgs-07099238-screen",
+      "result": "Completed bounded Colorado gauge review for 07099238 with durable screened_out disposition and advanced the state-coverage pointer to the actual next inventory gauge 07099970.",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T17:10:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T16:20:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608311715-co-usgs-07099970-pueblo",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T17:15:00Z",
+      "completedAt": "2026-08-31T17:45:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099970",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099970"
+      ],
+      "workerRole": "route-research",
+      "result": "Complete evidence package for the downtown Pueblo Whitewater Park reach: direct USGS telemetry, named Pillar Park/Chapa Place put-in and Union Avenue take-out, station-linked flow guidance, city and county safety requirements, camping/logistics, defensible coordinates, canonical geometry, and rights-clean Commons image.",
+      "routeAdded": true,
+      "routeSlugs": [
+        "arkansas-river-pueblo-whitewater-park"
+      ],
+      "disposition": "covered",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311745-co-usgs-07099970-pueblo",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T17:45:00Z",
+      "completedAt": "2026-08-31T18:00:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099970",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099970"
+      ],
+      "result": "Independently verified the direct gauge identity and telemetry, named public endpoints, station-linked planning flows, safety/access and camping notes, coordinates, geometry, image rights, and route distinction from existing Arkansas River coverage.",
+      "routeAdded": true,
+      "routeSlugs": [
+        "arkansas-river-pueblo-whitewater-park"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311800-co-usgs-07099970-add",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T18:00:00Z",
+      "completedAt": "2026-08-31T18:20:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099970",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099970"
+      ],
+      "result": "Published-route gate passed evidence, safety, independent verification, route/type validation, full audits and build, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": true,
+      "routeSlugs": [
+        "arkansas-river-pueblo-whitewater-park"
+      ],
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311825-co-usgs-07099970-published",
+      "kind": "controller",
+      "startedAt": "2026-08-31T18:20:00Z",
+      "completedAt": "2026-08-31T18:25:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099970"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07099970"
+      ],
+      "nextQueuePointer": "usgs:07099973",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311800-co-usgs-07099970-add",
+      "result": "Published arkansas-river-pueblo-whitewater-park and advanced the Colorado state-coverage pointer to usgs:07099973.",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T18:25:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T18:25:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608311830-co-usgs-07099973-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T18:30:00Z",
+      "completedAt": "2026-08-31T19:05:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07099973",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099973"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen confirmed that 07099973 is a direct USGS Arkansas River tributary/HARP return-flow support station with discharge and stage telemetry, but no named paddling corridor, lawful public endpoint pair, station-specific paddling threshold, or complete access, safety, camping, geometry, and image package. Existing Pueblo routes use the main Arkansas River and 07099970, not this tributary station.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named public paddling corridor, lawful endpoint pair, station-specific threshold, and complete safety/access package for the tributary reach are published.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608311905-co-usgs-07099973-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T19:05:00Z",
+      "completedAt": "2026-08-31T19:10:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07099973",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099973"
+      ],
+      "result": "Independently verified station identity, live telemetry, zero-drainage-area/support-gauge context, and the absence of route-quality evidence clearing the corridor, endpoint, threshold, and safety bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608311910-co-usgs-07099973-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T19:10:00Z",
+      "completedAt": "2026-08-31T19:12:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07099973",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099973"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, focused gate tests, current typecheck/build evidence, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608311915-co-usgs-07099973-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T19:12:00Z",
+      "completedAt": "2026-08-31T19:15:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07099973"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07099973"
+      ],
+      "nextQueuePointer": "usgs:07103100",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608311910-co-usgs-07099973-screen",
+      "result": "Completed bounded Colorado gauge review for 07099973 with durable screened_out/no-add disposition and advanced the state-coverage pointer to the actual next inventory gauge 07103100.",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T19:15:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T18:25:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608311920-co-usgs-07103100-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T19:20:00Z",
+      "completedAt": "2026-08-31T20:00:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07103100",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103100"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen confirmed direct USGS station 07103100 is Williams Canyon above its mouth near Manitou Springs. Public references describe a steep canyon/trail drainage and controlled/private access, with no named public watercraft corridor, lawful endpoint pair, station-specific paddling threshold, or complete access, safety, camping, geometry, and image package.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named public paddling corridor, lawful endpoint pair, station-specific threshold, and complete safety/access package for Williams Canyon are published.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608312000-co-usgs-07103100-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T20:00:00Z",
+      "completedAt": "2026-08-31T20:05:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07103100",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103100"
+      ],
+      "result": "Independently verified station identity, direct telemetry, canyon/trail setting, and the absence of route-quality evidence clearing the corridor, endpoint, threshold, and safety bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608312005-co-usgs-07103100-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T20:05:00Z",
+      "completedAt": "2026-08-31T20:07:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07103100",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103100"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, focused gate tests, current typecheck/build evidence, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608312010-co-usgs-07103100-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T20:07:00Z",
+      "completedAt": "2026-08-31T20:10:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103100"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07103100"
+      ],
+      "nextQueuePointer": "usgs:07103700",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608312005-co-usgs-07103100-screen",
+      "result": "Completed bounded Colorado gauge review for 07103100 with durable screened_out/no-add disposition and advanced the state-coverage pointer to the actual next inventory gauge 07103700.",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T20:10:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T18:25:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608312015-co-usgs-07103700-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T20:15:00Z",
+      "completedAt": "2026-08-31T21:00:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07103700",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103700"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen confirmed direct USGS station 07103700 is Fountain Creek near Colorado Springs. Public sources document a creekside regional park, trails, fishing ponds, and future recreation planning, but no named public watercraft corridor, lawful endpoint pair, station-specific paddling threshold, or complete access, safety, camping, geometry, and image package.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named public paddling corridor, lawful endpoint pair, station-specific threshold, and complete safety/access package for this Fountain Creek reach are published.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608312100-co-usgs-07103700-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T21:00:00Z",
+      "completedAt": "2026-08-31T21:05:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07103700",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103700"
+      ],
+      "result": "Independently verified station identity, direct telemetry, Fountain Creek setting, and the absence of route-quality evidence clearing the corridor, endpoint, threshold, and safety bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608312105-co-usgs-07103700-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T21:05:00Z",
+      "completedAt": "2026-08-31T21:07:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07103700",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103700"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, focused gate tests, current typecheck/build evidence, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608312110-co-usgs-07103700-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T21:07:00Z",
+      "completedAt": "2026-08-31T21:10:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103700"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07103700"
+      ],
+      "nextQueuePointer": "usgs:07103703",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608312105-co-usgs-07103700-screen",
+      "result": "Completed bounded Colorado gauge review for 07103700 with durable screened_out/no-add disposition and advanced the state-coverage pointer to the actual next inventory gauge 07103703.",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T21:10:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T18:25:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-research-202608312115-co-usgs-07103703-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T21:15:00Z",
+      "completedAt": "2026-08-31T22:00:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07103703",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103703"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen confirmed direct USGS station 07103703 is Camp Creek at Garden of the Gods. The station has extremely low historical discharge and public references describe a small park drainage, trails, bridge work, and limited-access recreation, but no named public paddling corridor, lawful endpoint pair, station-specific paddling threshold, or complete access, safety, camping, geometry, and image package.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named public paddling corridor, lawful endpoint pair, station-specific threshold, and complete safety/access package for Camp Creek are published.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608312200-co-usgs-07103703-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T22:00:00Z",
+      "completedAt": "2026-08-31T22:05:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07103703",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103703"
+      ],
+      "result": "Independently verified station identity, direct telemetry, low-flow/park-drainage setting, and the absence of route-quality evidence clearing the corridor, endpoint, threshold, and safety bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608312205-co-usgs-07103703-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T22:05:00Z",
+      "completedAt": "2026-08-31T22:07:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07103703",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103703"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, focused gate tests, current typecheck/build evidence, and rollback visibility. No policy or safety exception was used.",
+      "routeAdded": false,
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608312210-co-usgs-07103703-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T22:07:00Z",
+      "completedAt": "2026-08-31T22:10:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103703"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07103703"
+      ],
+      "nextQueuePointer": "usgs:07103710",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608312205-co-usgs-07103703-screen",
+      "result": "Completed bounded Colorado gauge review for 07103703 with durable screened_out/no-add disposition and advanced the state-coverage pointer to the actual next inventory gauge 07103710.",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T22:10:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MN": 52,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T18:25:00Z"
+        }
+      }
+    },
+    {
+      "id": "route-worker-controller-202608312220-co-invalid-07103710-pointer",
+      "kind": "controller",
+      "startedAt": "2026-08-31T22:15:00Z",
+      "completedAt": "2026-08-31T22:20:00Z",
+      "status": "blocked",
+      "taskId": "co-state-coverage-gauge-review-batch-07103710",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103710"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [],
+      "nextQueuePointer": "usgs:07103780",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "result": "Reconciled and blocked invalid pointer 07103710 because it is absent from the frozen gauge inventory and ledger; no research or route decision was performed. Advanced the pointer to actual next inventory gauge 07103780.",
+      "validationStatus": "blocked"
+    },
+    {
+      "id": "route-research-202608312225-co-usgs-07103780-screened-out",
+      "kind": "route_research",
+      "startedAt": "2026-08-31T22:25:00Z",
+      "completedAt": "2026-08-31T22:30:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07103780",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103780"
+      ],
+      "workerRole": "gauge-coverage",
+      "result": "Fast corridor-first screen confirmed direct USGS discharge and stage telemetry at Monument Creek above North Gate Boulevard at the U.S. Air Force Academy. Official and route references do not establish a named public paddling corridor, lawful endpoint pair, or station-specific paddling threshold; the reach is a small managed creek with documented low-flow conditions and installation access restrictions, so the complete safety, camping, geometry, and image package did not clear.",
+      "routeAdded": false,
+      "disposition": "screened_out",
+      "retryCondition": "Reopen only if an authoritative named public paddling corridor, lawful endpoint pair, station-specific threshold, and complete public-access/safety package for Monument Creek at 07103780 are published.",
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-202608312230-co-usgs-07103780-screen",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-31T22:30:00Z",
+      "completedAt": "2026-08-31T22:35:00Z",
+      "status": "passed",
+      "taskId": "co-state-coverage-gauge-review-batch-07103780",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103780"
+      ],
+      "result": "Independently verified the station identity, direct telemetry, coordinates, managed-installation setting, low-flow evidence, and absence of route-quality evidence clearing the corridor, endpoint, threshold, and public-access/safety bar.",
+      "routeAdded": false,
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-202608312235-co-usgs-07103780-screen",
+      "kind": "gatekeeper",
+      "startedAt": "2026-08-31T22:35:00Z",
+      "completedAt": "2026-08-31T22:37:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-07103780",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103780"
+      ],
+      "result": "No-add decision passed evidence, safety, independent verification, focused gate tests, current typecheck/build evidence, and rollback visibility. No policy or safety exception was used.",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-controller-202608312240-co-usgs-07103780-screened-out",
+      "kind": "controller",
+      "startedAt": "2026-08-31T22:37:00Z",
+      "completedAt": "2026-08-31T22:40:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:07103780"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-07103780"
+      ],
+      "nextQueuePointer": "usgs:07103784",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "result": "Completed bounded Colorado gauge review for 07103780 with durable screened_out/no-add disposition and advanced the state-coverage pointer to the actual next inventory gauge 07103784.",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-202608312235-co-usgs-07103780-screen",
+      "queueSourceAccounting": {
+        "inventoryId": "provider-baseline-202608272235",
+        "inventoryGeneratedAt": "2026-08-28T08:52:34.477Z",
+        "ledgerUpdatedAt": "2026-08-31T22:40:00Z",
+        "rawEligibleRouteOpportunityCandidates": 3490,
+        "rawEligibleByState": {
+          "AR": 151,
+          "CO": 23,
+          "IA": 69,
+          "IL": 213,
+          "IN": 209,
+          "KS": 208,
+          "KY": 180,
+          "MI": 107,
+          "MN": 127,
+          "MO": 224,
+          "ND": 53,
+          "NE": 109,
+          "OH": 288,
+          "PA": 337,
+          "SD": 72,
+          "TN": 130,
+          "TX": 674,
+          "UT": 163,
+          "VA": 53,
+          "WEST VIRGINIA": 2,
+          "WI": 98
+        },
+        "unassignedEligibleSources": 2171,
+        "unassignedByState": {
+          "AR": 151,
+          "IA": 21,
+          "IN": 1,
+          "KS": 208,
+          "KY": 180,
+          "MO": 224,
+          "ND": 11,
+          "NE": 2,
+          "OH": 288,
+          "PA": 243,
+          "TN": 130,
+          "TX": 516,
+          "UT": 90,
+          "VA": 37,
+          "WEST VIRGINIA": 2,
+          "WI": 15
+        },
+        "visibleQueue": {
+          "total": 5,
+          "ready": 0,
+          "active": 0,
+          "blocked": 2,
+          "completed": 3,
+          "byState": {
+            "CO": 5
+          },
+          "maxPerState": 5,
+          "maxGlobal": 20,
+          "generatedAt": "2026-08-31T18:25:00Z"
+        }
+      },
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-20260828141258",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T14:12:22.285Z",
+      "completedAt": "2026-08-28T14:12:58.243Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828142732",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T14:26:56.270Z",
+      "completedAt": "2026-08-28T14:27:32.221Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828145829",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T14:57:53.481Z",
+      "completedAt": "2026-08-28T14:58:29.066Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828150509",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T15:04:34.466Z",
+      "completedAt": "2026-08-28T15:05:09.696Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828153011",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T15:29:19.551Z",
+      "completedAt": "2026-08-28T15:30:11.876Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828155647",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T15:56:09.824Z",
+      "completedAt": "2026-08-28T15:56:47.505Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828164010",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T16:40:08.084Z",
+      "completedAt": "2026-08-28T16:40:10.785Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": false,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828164704",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T16:47:03.879Z",
+      "completedAt": "2026-08-28T16:47:04.951Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": false,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828165220",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T16:52:10.098Z",
+      "completedAt": "2026-08-28T16:52:20.684Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828175135",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T17:51:25.288Z",
+      "completedAt": "2026-08-28T17:51:35.973Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-20260828125457-no-work",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-28T17:54:57.086Z",
+      "completedAt": "2026-08-28T17:54:57.086Z",
+      "status": "no_work",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "wipLimit": "passed",
+        "eligibility": "passed",
+        "routeDataUnchanged": "passed",
+        "routeAndTripDetailCorpusRead": "passed",
+        "coordinateGeometrySafetyArtifactsParsed": "passed"
+      },
+      "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 37 materialized consolidation tasks are terminal (36 completed, one blocked), zero reviews are active or ready, and five queue findings remain new medium-priority items without materialized tasks. Read all 23 route modules and 23 trip-detail modules and parsed 1,182 coordinate, geometry, safety, access, and corridor evidence artifacts. No route, corridor, or task record changed in this run."
+    },
+    {
+      "id": "gatekeeper-20260828180151",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T18:01:12.648Z",
+      "completedAt": "2026-08-28T18:01:51.552Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260828180810",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-28T18:07:34.365Z",
+      "completedAt": "2026-08-28T18:08:10.636Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
     }
   ],
-  "updatedAt": "2026-08-28T10:12:00Z"
+  "updatedAt": "2026-08-31T22:40:00Z"
 }

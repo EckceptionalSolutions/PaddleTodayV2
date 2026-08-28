@@ -2176,16 +2176,16 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "youghiogheny-river-middle-ramcat-ohiopyle": {
     "putIn": {
-      "id": "ramcat-access-ohiopyle",
+      "id": "ramcat-launch",
       "name": "Ramcat Launch, Ohiopyle State Park",
-      "latitude": 39.8975,
-      "longitude": -79.4936
+      "latitude": 39.82632,
+      "longitude": -79.37891
     },
     "takeOut": {
-      "id": "ohiopyle-state-park-visitor-center",
-      "name": "Ohiopyle State Park take-out",
-      "latitude": 39.866528,
-      "longitude": -79.493395
+      "id": "middle-yough-ohiopyle-takeout",
+      "name": "Middle Yough Boater Take-out and Trailhead, Ohiopyle",
+      "latitude": 39.868889,
+      "longitude": -79.486944
     },
     "logistics": {
       "distanceLabel": "Approximately 9.5 river miles",
