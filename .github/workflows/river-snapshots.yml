@@ -7,7 +7,9 @@ on:
     types:
       - completed
   schedule:
-    - cron: '*/30 * * * *'
+    # Avoid GitHub Actions' high-load :00/:30 boundaries, where scheduled
+    # events can be delayed or dropped.
+    - cron: '7,37 * * * *'
   workflow_dispatch:
 
 concurrency:
