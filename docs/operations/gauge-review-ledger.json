@@ -88573,33 +88573,59 @@
     },
     {
       "key": "usgs:07103800",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
+      "status": "stale_or_unsupported",
+      "routeReadiness": "unsupported",
       "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "relationship": "direct",
+      "checkedAt": "2026-08-29T02:30:00Z",
+      "decisionReason": "The official modern USGS monitoring-location page for West Monument Creek at USAFA reports no continuous, daily, or field-measurement data types, while the legacy current-conditions record exposes observations only through June 2026. The bounded corridor-first review also found no named public paddling corridor, lawful public endpoint pair, or station-specific recreational threshold; USAFA and Colorado Springs material describes managed trail, reservoir, and creek infrastructure rather than a public watercraft route. The station cannot support current PaddleToday live scoring and no route package clears publication.",
+      "decisionSource": "route-worker-current-continuation-202608290230-co-usgs-07103800-stale-screened-out",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "no current product-supported telemetry",
+        "no named public paddling corridor",
+        "no lawful public endpoint pair",
+        "no station-specific paddling threshold",
+        "managed-installation setting",
+        "no complete safety/access package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07103800/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07103800",
+        "https://www.usafa.edu/visitors/hiking-and-biking-trails/",
+        "https://usafa.org/visit",
+        "https://coloradosprings.gov/system/files/2023-06/pproem_hazard_mitigation_plan_2023_review_final_20230329.pdf"
+      ]
     },
     {
       "key": "usgs:07103960",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-29T03:00:00Z",
+      "decisionReason": "Direct USGS discharge and stage telemetry exists at Kettle Creek above USAF Academy, but the bounded corridor-first review found no named public paddling corridor, lawful public endpoint pair, or station-specific recreational threshold. Official USAFA material describes the installation's nearby creek corridors as hiking and biking terrain with controlled access, while Colorado Springs boating material identifies separate managed lakes rather than a Kettle Creek route. No complete safety, camping, geometry, or image package clears publication.",
+      "decisionSource": "route-worker-current-continuation-202608290300-co-usgs-07103960-screened-out",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "no named public paddling corridor",
+        "no lawful public endpoint pair",
+        "no station-specific paddling threshold",
+        "managed-installation setting",
+        "no complete safety/access package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07103960/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07103960",
+        "https://www.usafa.edu/visitors/hiking-and-biking-trails/",
+        "https://usafa.org/visit",
+        "https://coloradosprings.gov/parks/page/lakes",
+        "https://cpw.state.co.us/boatable-waters"
+      ]
     },
     {
       "key": "usgs:07103965",
