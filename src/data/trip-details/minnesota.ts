@@ -3982,15 +3982,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in at DNR Map 1 river mile 123.8."
       },
       {
-        "id": "muldoon-rapids-portage",
-        "name": "Muldoon Rapids portage",
-        "latitude": 47.8788,
-        "longitude": -93.5965,
-        "mileFromStart": 8.8,
-        "segmentKind": "transition",
-        "note": "Class II rapid zone with mapped river-right half-mile portage; approximate coordinates from DNR river-mile context."
-      },
-      {
         "id": "highway-6-south",
         "name": "Highway 6 South / State Hwy 6 Bridge carry-in access",
         "latitude": 47.95302296444459,
@@ -5695,15 +5686,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in; resolves as WAS00613 at DNR river mile 113.0."
       },
       {
-        "id": "stony-creek-watercraft-campsite",
-        "name": "Stony Creek watercraft campsite",
-        "latitude": 47.208,
-        "longitude": -92.729,
-        "mileFromStart": 14,
-        "segmentKind": "creek",
-        "note": "DNR Map 1 marks this watercraft campsite at river mile 99.0; coordinates are approximate from the mapped river-mile location."
-      },
-      {
         "id": "st-louis-toivola",
         "name": "St. Louis River, Toivola Public Water Access Site",
         "latitude": 47.1672586,
@@ -6119,15 +6101,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; resolves as WAS02216 at Sauk River mile 78.8."
-      },
-      {
-        "id": "melrose-dam-portage",
-        "name": "Melrose Dam portage",
-        "latitude": 45.67646,
-        "longitude": -94.80843,
-        "mileFromStart": 0.4,
-        "segmentKind": "creek",
-        "note": "DNR Map 1 marks Melrose Dam at river mile 78.5 with portage left."
       },
       {
         "id": "oak-township-county-park",
@@ -8719,15 +8692,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; public-water-access GIS resolves WAS00267 at DNR river mile 70.1."
-      },
-      {
-        "id": "riverview-campground-campsite",
-        "name": "Riverview Campground watercraft campsite",
-        "latitude": 43.7168,
-        "longitude": -91.9822,
-        "mileFromStart": 13.6,
-        "segmentKind": "creek",
-        "note": "DNR Map 1 campsite support near river mile 56.5 above the Lanesboro access and dam corridor."
       },
       {
         "id": "root-river-lanesboro-shorefishing-pwa",

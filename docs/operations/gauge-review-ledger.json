@@ -88463,63 +88463,113 @@
     },
     {
       "key": "usgs:07103784",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-29T01:30:00Z",
+      "decisionReason": "Direct USGS discharge and stage telemetry exists at Goat Camp Creek above Reservoir No. 4 at the U.S. Air Force Academy, but the bounded corridor-first screen found no named public paddling corridor, lawful public endpoint pair, or station-specific recreational threshold. Official USAFA material describes Goat Camp Creek as a steep hiking-trail drainage and documents installation access controls; city hazard material identifies the reach as a non-potable reservoir/dam facility. No complete watercraft safety, access, camping, geometry, or image package clears the route bar.",
+      "decisionSource": "route-worker-current-continuation-202608290130-co-usgs-07103784-screened-out",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "no named public paddling corridor",
+        "no lawful public endpoint pair",
+        "no station-specific paddling threshold",
+        "managed-installation and non-potable reservoir setting",
+        "no complete safety/access package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07103784/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07103784",
+        "https://www.usafa.edu/visitors/hiking-and-biking-trails/",
+        "https://usafa.org/visit",
+        "https://coloradosprings.gov/system/files/2023-06/pproem_hazard_mitigation_plan_2023_review_final_20230329.pdf",
+        "https://cpw.state.co.us/boatable-waters"
+      ]
     },
     {
       "key": "usgs:07103791",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-29T02:00:00Z",
+      "decisionReason": "The USGS station is a stage-only gauge on Lehman Run below Stadium Boulevard at USAFA. The bounded corridor-first review found no named public paddling corridor, lawful endpoint pair, or station-specific recreational threshold. Official USAFA material presents the installation's creek corridors as hiking and biking terrain with controlled access, not a watercraft route; no complete safety, camping, geometry, or image package clears publication.",
+      "decisionSource": "route-worker-current-continuation-202608290200-co-usgs-07103791-07103792-07103797-screened-out",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "stage-only station",
+        "no named public paddling corridor",
+        "no lawful public endpoint pair",
+        "no station-specific paddling threshold",
+        "managed-installation access and no complete safety/access package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07103791/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07103791",
+        "https://www.usafa.edu/visitors/hiking-and-biking-trails/",
+        "https://usafa.org/visit",
+        "https://cpw.state.co.us/boatable-waters"
+      ]
     },
     {
       "key": "usgs:07103792",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-29T02:00:00Z",
+      "decisionReason": "The USGS station is the Reservoir No. 1 spillway at Husted Road at USAFA, a managed installation water-control location rather than a named public paddling corridor. No lawful public endpoint pair, station-specific recreational threshold, or complete access, safety, camping, geometry, and image package was found in the bounded review.",
+      "decisionSource": "route-worker-current-continuation-202608290200-co-usgs-07103791-07103792-07103797-screened-out",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "managed reservoir spillway",
+        "no named public paddling corridor",
+        "no lawful public endpoint pair",
+        "no station-specific paddling threshold",
+        "no complete safety/access package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07103792/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07103792",
+        "https://www.usafa.edu/visitors/hiking-and-biking-trails/",
+        "https://usafa.org/visit",
+        "https://coloradosprings.gov/system/files/2023-06/pproem_hazard_mitigation_plan_2023_review_final_20230329.pdf"
+      ]
     },
     {
       "key": "usgs:07103797",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "screened_out",
+      "routeReadiness": "screened_out",
+      "eligibility": "not_paddle_relevant",
+      "relationship": "direct",
+      "checkedAt": "2026-08-29T02:00:00Z",
+      "decisionReason": "Direct USGS discharge and stage telemetry exists below Rampart Reservoir, but the bounded corridor-first review found no named public paddling corridor, lawful public endpoint pair, or station-specific recreational threshold. The station is in a steep, high-elevation reservoir-outlet setting with no current public watercraft route package; official recreation material describes trail and reservoir management rather than a downstream float. No complete safety, access, camping, geometry, or image package clears publication.",
+      "decisionSource": "route-worker-current-continuation-202608290200-co-usgs-07103791-07103792-07103797-screened-out",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
       "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "blockers": [
+        "reservoir-outlet setting",
+        "no named public paddling corridor",
+        "no lawful public endpoint pair",
+        "no station-specific paddling threshold",
+        "no complete safety/access package"
+      ],
+      "evidence": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07103797/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07103797",
+        "https://www.usafa.edu/visitors/hiking-and-biking-trails/",
+        "https://usafa.org/visit",
+        "https://coloradosprings.gov/system/files/2023-06/pproem_hazard_mitigation_plan_2023_review_final_20230329.pdf",
+        "https://cpw.state.co.us/boatable-waters"
+      ]
     },
     {
       "key": "usgs:07103800",

@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-08-28T21:11:41.054Z",
+  "generatedAt": "2026-08-29T01:51:11.856Z",
   "audit": {
-    "generatedAt": "2026-08-28T21:11:21.525Z",
+    "generatedAt": "2026-08-29T01:51:04.756Z",
     "routeCount": 1215,
-    "endpointCount": 2785,
+    "endpointCount": 2773,
     "bySeverity": {
-      "ok": 1175,
-      "review": 1382,
-      "suspicious": 183,
-      "failure": 36,
-      "unknown": 9
+      "ok": 1176,
+      "review": 1379,
+      "suspicious": 180,
+      "failure": 31,
+      "unknown": 7
     }
   },
   "triage": {
-    "reviewItemCount": 36,
-    "unresolvedRouteCount": 30,
+    "reviewItemCount": 31,
+    "unresolvedRouteCount": 27,
     "withheldRouteCount": 34,
     "publicRouteCount": 917,
     "holdCoveragePasses": false,
@@ -33,9 +33,11 @@
     ],
     "staleHolds": [
       "badger-mill-creek-old-county-pb-highway-69",
+      "baraboo-river-north-freedom-giese",
       "bark-river-bark-river-park-delafield",
       "big-fork-river-highway-1-highway-6-south",
       "cedar-creek-covered-bridge-lions",
+      "cedar-river-chain-lakes-ellis-harbor",
       "hay-river-county-ff-highway-25",
       "la-crosse-river-highway-108-veterans",
       "lower-colorado-two-rivers-south-canyon",
@@ -46,6 +48,7 @@
       "sheboygan-river-dassow-river-park",
       "sheboygan-river-johnsonville-dassow",
       "turtle-creek-school-section-east-creek",
+      "upper-iowa-river-iverson-bridge-kumpf",
       "white-river-park-riverview-park"
     ]
   },
@@ -524,12 +527,12 @@
     }
   },
   "canonicalRegistry": {
-    "generatedAt": "2026-08-28T21:11:29.576Z",
-    "entryCount": 1840,
+    "generatedAt": "2026-08-29T01:51:10.396Z",
+    "entryCount": 1828,
     "repeatedEntryCount": 557,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
-    "derivedWaterEntryCount": 1077,
+    "derivedWaterEntryCount": 1079,
     "authoritativeAccessCount": 345,
     "authoritativeWaterEntryCount": 20,
     "areaAnchorOnlyCount": 1,

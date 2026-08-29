@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-28T21:11:29.576Z",
-  "auditGeneratedAt": "2026-08-28T21:11:21.525Z",
+  "generatedAt": "2026-08-29T01:51:10.396Z",
+  "auditGeneratedAt": "2026-08-29T01:51:04.756Z",
   "summary": {
-    "entryCount": 1840,
+    "entryCount": 1828,
     "repeatedEntryCount": 557,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
-    "derivedWaterEntryCount": 1077,
+    "derivedWaterEntryCount": 1079,
     "authoritativeAccessCount": 345,
     "authoritativeWaterEntryCount": 20,
     "areaAnchorOnlyCount": 1,
@@ -13343,7 +13343,7 @@
           "latitude": 42.04980231366407,
           "longitude": -91.77528474862063,
           "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 145.7559002396829,
+          "distanceFeetToMatchedRiver": 145.7559000446032,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
@@ -13357,7 +13357,7 @@
           "latitude": 42.04980231366407,
           "longitude": -91.77528474862063,
           "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 145.7559002396829,
+          "distanceFeetToMatchedRiver": 145.7559000446032,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -15803,12 +15803,12 @@
         "ellis-harbor-boat-launch"
       ],
       "storedAccessCoordinate": {
-        "latitude": 41.9944,
-        "longitude": -91.7086
+        "latitude": 42.00585924,
+        "longitude": -91.69535108
       },
       "accessCoordinate": {
-        "latitude": 41.9944,
-        "longitude": -91.7086
+        "latitude": 42.00585924,
+        "longitude": -91.69535108
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -15818,9 +15818,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -15829,10 +15829,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "41.99440,-91.70860",
+          "key": "42.00586,-91.69535",
           "coordinate": {
-            "latitude": 41.9944,
-            "longitude": -91.7086
+            "latitude": 42.00585924,
+            "longitude": -91.69535108
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -15849,11 +15849,11 @@
           "endpoint": "accessPoint",
           "sourceId": "ellis-harbor-boat-launch",
           "name": "Ellis Harbor public boat launch",
-          "latitude": 41.9944,
-          "longitude": -91.7086,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 4129.705588675425,
-          "endpointOnWaterbody": false,
+          "latitude": 42.00585924,
+          "longitude": -91.69535108,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 462.3290632535542,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -15863,11 +15863,11 @@
           "endpoint": "takeOut",
           "sourceId": "ellis-harbor-boat-launch",
           "name": "Ellis Harbor public boat launch",
-          "latitude": 41.9944,
-          "longitude": -91.7086,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 4129.705588675425,
-          "endpointOnWaterbody": false,
+          "latitude": 42.00585924,
+          "longitude": -91.69535108,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 462.3290632535542,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -20203,12 +20203,12 @@
         "kumpf-access"
       ],
       "storedAccessCoordinate": {
-        "latitude": 43.41165,
-        "longitude": -91.45962
+        "latitude": 43.42727,
+        "longitude": -91.46262
       },
       "accessCoordinate": {
-        "latitude": 43.41165,
-        "longitude": -91.45962
+        "latitude": 43.42727,
+        "longitude": -91.46262
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -20217,22 +20217,25 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryCoordinate": {
+        "latitude": 43.42727,
+        "longitude": -91.46262
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "43.41165,-91.45962",
+          "key": "43.42727,-91.46262",
           "coordinate": {
-            "latitude": 43.41165,
-            "longitude": -91.45962
+            "latitude": 43.42727,
+            "longitude": -91.46262
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -20249,11 +20252,11 @@
           "endpoint": "accessPoint",
           "sourceId": "kumpf-access",
           "name": "Kumpf Access",
-          "latitude": 43.41165,
-          "longitude": -91.45962,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 4359.248643331823,
-          "endpointOnWaterbody": false,
+          "latitude": 43.42727,
+          "longitude": -91.46262,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 34.00885554495828,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -20263,11 +20266,11 @@
           "endpoint": "takeOut",
           "sourceId": "kumpf-access",
           "name": "Kumpf Access",
-          "latitude": 43.41165,
-          "longitude": -91.45962,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 4359.248643331823,
-          "endpointOnWaterbody": false,
+          "latitude": 43.42727,
+          "longitude": -91.46262,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 34.00885554495828,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -63600,72 +63603,6 @@
       ]
     },
     {
-      "id": "minnesota--melrose-dam-portage",
-      "state": "Minnesota",
-      "name": "Melrose Dam portage",
-      "aliases": [
-        "Melrose Dam portage"
-      ],
-      "sourceIds": [
-        "melrose-dam-portage"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 45.67646,
-        "longitude": -94.80843
-      },
-      "accessCoordinate": {
-        "latitude": 45.67646,
-        "longitude": -94.80843
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "45.67646,-94.80843",
-          "coordinate": {
-            "latitude": 45.67646,
-            "longitude": -94.80843
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "sauk-river-mill-pond-oak-township"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "sauk-river-mill-pond-oak-township",
-          "routeName": "Sauk River",
-          "state": "Minnesota",
-          "endpoint": "accessPoint",
-          "sourceId": "melrose-dam-portage",
-          "name": "Melrose Dam portage",
-          "latitude": 45.67646,
-          "longitude": -94.80843,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 138.24570128596878,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
       "id": "minnesota--middle-falls-and-usgs-gauge",
       "state": "Minnesota",
       "name": "Middle Falls and USGS gauge",
@@ -71846,72 +71783,6 @@
       ]
     },
     {
-      "id": "minnesota--muldoon-rapids-portage",
-      "state": "Minnesota",
-      "name": "Muldoon Rapids portage",
-      "aliases": [
-        "Muldoon Rapids portage"
-      ],
-      "sourceIds": [
-        "muldoon-rapids-portage"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 47.8788,
-        "longitude": -93.5965
-      },
-      "accessCoordinate": {
-        "latitude": 47.8788,
-        "longitude": -93.5965
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "47.87880,-93.59650",
-          "coordinate": {
-            "latitude": 47.8788,
-            "longitude": -93.5965
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "big-fork-river-highway-1-highway-6-south"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "big-fork-river-highway-1-highway-6-south",
-          "routeName": "Big Fork River",
-          "state": "Minnesota",
-          "endpoint": "accessPoint",
-          "sourceId": "muldoon-rapids-portage",
-          "name": "Muldoon Rapids portage",
-          "latitude": 47.8788,
-          "longitude": -93.5965,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 117.67133584028774,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
       "id": "minnesota--musclewood-lake-public-water-access-site",
       "state": "Minnesota",
       "name": "Musclewood Lake Public Water Access Site",
@@ -77242,72 +77113,6 @@
       ]
     },
     {
-      "id": "minnesota--riverview-campground-watercraft-campsite",
-      "state": "Minnesota",
-      "name": "Riverview Campground watercraft campsite",
-      "aliases": [
-        "Riverview Campground watercraft campsite"
-      ],
-      "sourceIds": [
-        "riverview-campground-campsite"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 43.7168,
-        "longitude": -91.9822
-      },
-      "accessCoordinate": {
-        "latitude": 43.7168,
-        "longitude": -91.9822
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "43.71680,-91.98220",
-          "coordinate": {
-            "latitude": 43.7168,
-            "longitude": -91.9822
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "root-river-preston-lanesboro"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "root-river-preston-lanesboro",
-          "routeName": "Root River",
-          "state": "Minnesota",
-          "endpoint": "accessPoint",
-          "sourceId": "riverview-campground-campsite",
-          "name": "Riverview Campground watercraft campsite",
-          "latitude": 43.7168,
-          "longitude": -91.9822,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 403.3156932999038,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
       "id": "minnesota--rockford-boat-launch-rockford-public-water-access",
       "state": "Minnesota",
       "name": "Rockford Boat Launch / Rockford public water access",
@@ -77662,7 +77467,7 @@
           "latitude": 43.7175077,
           "longitude": -91.9781076,
           "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 27.06294521752215,
+          "distanceFeetToMatchedRiver": 27.063018850065337,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
@@ -77676,7 +77481,7 @@
           "latitude": 43.7175077,
           "longitude": -91.9781076,
           "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 27.06294521752215,
+          "distanceFeetToMatchedRiver": 27.063018850065337,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -77846,7 +77651,7 @@
           "latitude": 43.6700585,
           "longitude": -92.0888915,
           "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 37.789119558266556,
+          "distanceFeetToMatchedRiver": 37.78911955956382,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
@@ -77860,7 +77665,7 @@
           "latitude": 43.6700585,
           "longitude": -92.0888915,
           "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 37.789119558266556,
+          "distanceFeetToMatchedRiver": 37.78911955956382,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
@@ -82865,72 +82670,6 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 62.15702723158074,
           "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "minnesota--stony-creek-watercraft-campsite",
-      "state": "Minnesota",
-      "name": "Stony Creek watercraft campsite",
-      "aliases": [
-        "Stony Creek watercraft campsite"
-      ],
-      "sourceIds": [
-        "stony-creek-watercraft-campsite"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 47.208,
-        "longitude": -92.729
-      },
-      "accessCoordinate": {
-        "latitude": 47.208,
-        "longitude": -92.729
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "47.20800,-92.72900",
-          "coordinate": {
-            "latitude": 47.208,
-            "longitude": -92.729
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "st-louis-river-zim-toivola"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "st-louis-river-zim-toivola",
-          "routeName": "St. Louis River",
-          "state": "Minnesota",
-          "endpoint": "accessPoint",
-          "sourceId": "stony-creek-watercraft-campsite",
-          "name": "Stony Creek watercraft campsite",
-          "latitude": 47.208,
-          "longitude": -92.729,
-          "auditSeverity": "unknown",
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -93886,10 +93625,10 @@
           "name": "Fort Niobrara NWR Launch Site near Cornell Bridge",
           "latitude": 42.893222,
           "longitude": -100.476967,
-          "auditSeverity": "failure",
+          "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 2473.714034462232,
           "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
+          "coordinateEvidenceRole": "authoritative-water-entry"
         }
       ]
     },
@@ -99670,7 +99409,7 @@
           "latitude": 40.2546304,
           "longitude": -76.9753045,
           "auditSeverity": "suspicious",
-          "distanceFeetToMatchedRiver": 396.00036265379555,
+          "distanceFeetToMatchedRiver": 396.00032973780674,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
@@ -101985,12 +101724,12 @@
         "north-park-lake-boat-launch"
       ],
       "storedAccessCoordinate": {
-        "latitude": 40.611005,
-        "longitude": -80.017122
+        "latitude": 40.60499534620007,
+        "longitude": -80.00685229073453
       },
       "accessCoordinate": {
-        "latitude": 40.611005,
-        "longitude": -80.017122
+        "latitude": 40.60499534620007,
+        "longitude": -80.00685229073453
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -102000,9 +101739,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -102011,10 +101750,10 @@
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "40.61100,-80.01712",
+          "key": "40.60500,-80.00685",
           "coordinate": {
-            "latitude": 40.611005,
-            "longitude": -80.017122
+            "latitude": 40.60499534620007,
+            "longitude": -80.00685229073453
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -102031,12 +101770,12 @@
           "endpoint": "accessPoint",
           "sourceId": "north-park-lake-boat-launch",
           "name": "North Park Lake boat-launch area",
-          "latitude": 40.611005,
-          "longitude": -80.017122,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 15146.347007046299,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
+          "latitude": 40.60499534620007,
+          "longitude": -80.00685229073453,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 14046.826065964184,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         },
         {
           "routeId": "little-pine-creek-north-park-lake-allison-park",
@@ -102045,12 +101784,12 @@
           "endpoint": "putIn",
           "sourceId": null,
           "name": "North Park Lake boat-launch area",
-          "latitude": 40.611005,
-          "longitude": -80.017122,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 15146.347007046299,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
+          "latitude": 40.60499534620007,
+          "longitude": -80.00685229073453,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 14046.826065964184,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         }
       ]
     },
@@ -104679,12 +104418,12 @@
       ],
       "sourceIds": [],
       "storedAccessCoordinate": {
-        "latitude": 40.2576825,
-        "longitude": -77.0209403
+        "latitude": 40.2561,
+        "longitude": -77.0192
       },
       "accessCoordinate": {
-        "latitude": 40.2576825,
-        "longitude": -77.0209403
+        "latitude": 40.2561,
+        "longitude": -77.0192
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -104693,22 +104432,25 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryCoordinate": {
+        "latitude": 40.2561,
+        "longitude": -77.0192
+      },
+      "waterEntryConsensusRouteCount": 3,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 3,
       "routeCount": 3,
       "coordinateVariants": [
         {
-          "key": "40.25768,-77.02094",
+          "key": "40.25610,-77.01920",
           "coordinate": {
-            "latitude": 40.2576825,
-            "longitude": -77.0209403
+            "latitude": 40.2561,
+            "longitude": -77.0192
           },
           "occurrenceCount": 3,
           "routeCount": 3,
@@ -104727,12 +104469,12 @@
           "endpoint": "putIn",
           "sourceId": null,
           "name": "Vincent DiFilippo Nature Preserve launch",
-          "latitude": 40.2576825,
-          "longitude": -77.0209403,
-          "auditSeverity": "suspicious",
-          "distanceFeetToMatchedRiver": 789.4728656105156,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
+          "latitude": 40.2561,
+          "longitude": -77.0192,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 206.33686794721754,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         },
         {
           "routeId": "conodoguinet-creek-vincent-difilippo-good-hope",
@@ -104741,12 +104483,12 @@
           "endpoint": "putIn",
           "sourceId": null,
           "name": "Vincent DiFilippo Nature Preserve launch",
-          "latitude": 40.2576825,
-          "longitude": -77.0209403,
-          "auditSeverity": "suspicious",
-          "distanceFeetToMatchedRiver": 789.4728656105156,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
+          "latitude": 40.2561,
+          "longitude": -77.0192,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 206.33681661743952,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         },
         {
           "routeId": "conodoguinet-creek-willow-mill-vincent-difilippo",
@@ -104755,12 +104497,12 @@
           "endpoint": "takeOut",
           "sourceId": null,
           "name": "Vincent DiFilippo Nature Preserve launch",
-          "latitude": 40.2576825,
-          "longitude": -77.0209403,
-          "auditSeverity": "suspicious",
-          "distanceFeetToMatchedRiver": 789.4728656105156,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
+          "latitude": 40.2561,
+          "longitude": -77.0192,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 206.33686794684766,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         }
       ]
     },
@@ -105256,7 +104998,7 @@
           "latitude": 40.2567096,
           "longitude": -77.0411725,
           "auditSeverity": "suspicious",
-          "distanceFeetToMatchedRiver": 318.78687761824665,
+          "distanceFeetToMatchedRiver": 318.78681885711234,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
@@ -145488,72 +145230,6 @@
       ]
     },
     {
-      "id": "wisconsin--gays-mills-low-head-dam-portage",
-      "state": "Wisconsin",
-      "name": "Gays Mills low-head dam portage",
-      "aliases": [
-        "Gays Mills low-head dam portage"
-      ],
-      "sourceIds": [
-        "gays-mills-dam-portage"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 43.3144,
-        "longitude": -90.8485
-      },
-      "accessCoordinate": {
-        "latitude": 43.3144,
-        "longitude": -90.8485
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "43.31440,-90.84850",
-          "coordinate": {
-            "latitude": 43.3144,
-            "longitude": -90.8485
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "kickapoo-river-highway-b-highway-s"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "kickapoo-river-highway-b-highway-s",
-          "routeName": "Kickapoo River",
-          "state": "Wisconsin",
-          "endpoint": "accessPoint",
-          "sourceId": "gays-mills-dam-portage",
-          "name": "Gays Mills low-head dam portage",
-          "latitude": 43.3144,
-          "longitude": -90.8485,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 165.69690166409958,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
       "id": "wisconsin--germania-marsh-dam-access",
       "state": "Wisconsin",
       "name": "Germania Marsh Dam access",
@@ -145745,7 +145421,7 @@
           "latitude": 43.4681998,
           "longitude": -89.8107236,
           "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 40.5221499876752,
+          "distanceFeetToMatchedRiver": 40.52227557682135,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
@@ -145759,7 +145435,7 @@
           "latitude": 43.4681998,
           "longitude": -89.8107236,
           "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 40.5221499876752,
+          "distanceFeetToMatchedRiver": 40.52227557682135,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -147369,72 +147045,6 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 37.21034175201225,
           "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "wisconsin--highland-drive-columbia-mills-dam-portage",
-      "state": "Wisconsin",
-      "name": "Highland Drive / Columbia Mills Dam portage",
-      "aliases": [
-        "Highland Drive / Columbia Mills Dam portage"
-      ],
-      "sourceIds": [
-        "highland-drive-columbia-mills-dam-portage"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 43.2982,
-        "longitude": -87.9762
-      },
-      "accessCoordinate": {
-        "latitude": 43.2982,
-        "longitude": -87.9762
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "43.29820,-87.97620",
-          "coordinate": {
-            "latitude": 43.2982,
-            "longitude": -87.9762
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "cedar-creek-cedarburg-mill-cth-t"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "cedar-creek-cedarburg-mill-cth-t",
-          "routeName": "Cedar Creek",
-          "state": "Wisconsin",
-          "endpoint": "accessPoint",
-          "sourceId": "highland-drive-columbia-mills-dam-portage",
-          "name": "Highland Drive / Columbia Mills Dam portage",
-          "latitude": 43.2982,
-          "longitude": -87.9762,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 430.44639503698625,
-          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -152117,72 +151727,6 @@
       ]
     },
     {
-      "id": "wisconsin--kohlmeyer-road-bridge",
-      "state": "Wisconsin",
-      "name": "Kohlmeyer Road bridge",
-      "aliases": [
-        "Kohlmeyer Road bridge"
-      ],
-      "sourceIds": [
-        "kohlmeyer-road-bridge"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 43.4862,
-        "longitude": -89.8333
-      },
-      "accessCoordinate": {
-        "latitude": 43.4862,
-        "longitude": -89.8333
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "43.48620,-89.83330",
-          "coordinate": {
-            "latitude": 43.4862,
-            "longitude": -89.8333
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "baraboo-river-north-freedom-giese"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "baraboo-river-north-freedom-giese",
-          "routeName": "Baraboo River",
-          "state": "Wisconsin",
-          "endpoint": "accessPoint",
-          "sourceId": "kohlmeyer-road-bridge",
-          "name": "Kohlmeyer Road bridge",
-          "latitude": 43.4862,
-          "longitude": -89.8333,
-          "auditSeverity": "failure",
-          "distanceFeetToMatchedRiver": 3674.4188124540574,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
       "id": "wisconsin--landing-1-highway-33-and-county-road-p",
       "state": "Wisconsin",
       "name": "Landing 1 / Highway 33 and County Road P",
@@ -152999,72 +152543,6 @@
           "name": "Ludden Lake Boat Ramp",
           "latitude": 42.8417955,
           "longitude": -90.2354632,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "wisconsin--ludden-lake-dam-portage",
-      "state": "Wisconsin",
-      "name": "Ludden Lake dam portage",
-      "aliases": [
-        "Ludden Lake dam portage"
-      ],
-      "sourceIds": [
-        "ludden-lake-dam-portage"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 42.8486,
-        "longitude": -90.2296
-      },
-      "accessCoordinate": {
-        "latitude": 42.8486,
-        "longitude": -90.2296
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "42.84860,-90.22960",
-          "coordinate": {
-            "latitude": 42.8486,
-            "longitude": -90.2296
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "pecatonica-river-mineral-point-ludden-north-oak"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "pecatonica-river-mineral-point-ludden-north-oak",
-          "routeName": "Pecatonica River - Mineral Point Branch",
-          "state": "Wisconsin",
-          "endpoint": "accessPoint",
-          "sourceId": "ludden-lake-dam-portage",
-          "name": "Ludden Lake dam portage",
-          "latitude": 42.8486,
-          "longitude": -90.2296,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": null,
           "endpointOnWaterbody": false,
@@ -155042,72 +154520,6 @@
       ]
     },
     {
-      "id": "wisconsin--nail-factory-dam-portage",
-      "state": "Wisconsin",
-      "name": "Nail Factory Dam portage",
-      "aliases": [
-        "Nail Factory Dam portage"
-      ],
-      "sourceIds": [
-        "nail-factory-dam-portage"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 43.2972,
-        "longitude": -87.9731
-      },
-      "accessCoordinate": {
-        "latitude": 43.2972,
-        "longitude": -87.9731
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "43.29720,-87.97310",
-          "coordinate": {
-            "latitude": 43.2972,
-            "longitude": -87.9731
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "cedar-creek-cedarburg-mill-cth-t"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "cedar-creek-cedarburg-mill-cth-t",
-          "routeName": "Cedar Creek",
-          "state": "Wisconsin",
-          "endpoint": "accessPoint",
-          "sourceId": "nail-factory-dam-portage",
-          "name": "Nail Factory Dam portage",
-          "latitude": 43.2972,
-          "longitude": -87.9731,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 726.7849807974408,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
       "id": "wisconsin--namekagon-dam-landing",
       "state": "Wisconsin",
       "name": "Namekagon Dam Landing",
@@ -155518,7 +154930,7 @@
           "latitude": 43.4567374,
           "longitude": -89.8631649,
           "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 41.3780539165293,
+          "distanceFeetToMatchedRiver": 41.378053918966174,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
@@ -155532,7 +154944,7 @@
           "latitude": 43.4567374,
           "longitude": -89.8631649,
           "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 41.3780539165293,
+          "distanceFeetToMatchedRiver": 41.378053918966174,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
@@ -157676,72 +157088,6 @@
           "longitude": -89.3109,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 22.117854538777067,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "wisconsin--river-bend-dam-portage",
-      "state": "Wisconsin",
-      "name": "River Bend Dam portage",
-      "aliases": [
-        "River Bend Dam portage"
-      ],
-      "sourceIds": [
-        "river-bend-dam-sheboygan"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 43.7287,
-        "longitude": -87.7865
-      },
-      "accessCoordinate": {
-        "latitude": 43.7287,
-        "longitude": -87.7865
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "43.72870,-87.78650",
-          "coordinate": {
-            "latitude": 43.7287,
-            "longitude": -87.7865
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "sheboygan-river-rochester-esslingen"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "sheboygan-river-rochester-esslingen",
-          "routeName": "Sheboygan River",
-          "state": "Wisconsin",
-          "endpoint": "accessPoint",
-          "sourceId": "river-bend-dam-sheboygan",
-          "name": "River Bend Dam portage",
-          "latitude": 43.7287,
-          "longitude": -87.7865,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 183.29182326571123,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -161312,72 +160658,6 @@
       ]
     },
     {
-      "id": "wisconsin--tigerton-dells-scout-corridor",
-      "state": "Wisconsin",
-      "name": "Tigerton Dells scout corridor",
-      "aliases": [
-        "Tigerton Dells scout corridor"
-      ],
-      "sourceIds": [
-        "tigerton-dells-south-branch-embarrass"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 44.7369,
-        "longitude": -89.0404
-      },
-      "accessCoordinate": {
-        "latitude": 44.7369,
-        "longitude": -89.0404
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "44.73690,-89.04040",
-          "coordinate": {
-            "latitude": 44.7369,
-            "longitude": -89.0404
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "embarrass-south-branch-hwy-45-county-m"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "embarrass-south-branch-hwy-45-county-m",
-          "routeName": "Embarrass River - South Branch",
-          "state": "Wisconsin",
-          "endpoint": "accessPoint",
-          "sourceId": "tigerton-dells-south-branch-embarrass",
-          "name": "Tigerton Dells scout corridor",
-          "latitude": 44.7369,
-          "longitude": -89.0404,
-          "auditSeverity": "unknown",
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": false,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
       "id": "wisconsin--tin-can-road-bridge-access",
       "state": "Wisconsin",
       "name": "Tin Can Road bridge access",
@@ -162378,72 +161658,6 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 19.68119889449833,
           "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "wisconsin--walderhaus-dam-portage",
-      "state": "Wisconsin",
-      "name": "Walderhaus Dam portage",
-      "aliases": [
-        "Walderhaus Dam portage"
-      ],
-      "sourceIds": [
-        "walderhaus-dam-sheboygan"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 43.7308,
-        "longitude": -87.7735
-      },
-      "accessCoordinate": {
-        "latitude": 43.7308,
-        "longitude": -87.7735
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "43.73080,-87.77350",
-          "coordinate": {
-            "latitude": 43.7308,
-            "longitude": -87.7735
-          },
-          "occurrenceCount": 1,
-          "routeCount": 1,
-          "routes": [
-            "sheboygan-river-rochester-esslingen"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "sheboygan-river-rochester-esslingen",
-          "routeName": "Sheboygan River",
-          "state": "Wisconsin",
-          "endpoint": "accessPoint",
-          "sourceId": "walderhaus-dam-sheboygan",
-          "name": "Walderhaus Dam portage",
-          "latitude": 43.7308,
-          "longitude": -87.7735,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 202.45440682643533,
-          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]

@@ -4251,8 +4251,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "ellis-harbor-boat-launch",
       "name": "Ellis Harbor public boat launch",
-      "latitude": 41.9944,
-      "longitude": -91.7086
+      "latitude": 42.00585924,
+      "longitude": -91.69535108
     },
     "logistics": {
       "distanceLabel": "About 14 mi",
@@ -4286,11 +4286,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "ellis-harbor-boat-launch",
         "name": "Ellis Harbor public boat launch",
-        "latitude": 41.9944,
-        "longitude": -91.7086,
+        "latitude": 42.00585924,
+        "longitude": -91.69535108,
         "mileFromStart": 14,
         "segmentKind": "creek",
-        "note": "Default Cedar Rapids take-out; City of Cedar Rapids documents a public boat launch and restrooms at Ellis Harbor."
+        "note": "Default Cedar Rapids take-out; Iowa DNR maps Ellis Harbor at 42.00585924, -91.69535108, and the City of Cedar Rapids documents a public boat launch and restrooms there."
       }
     ]
   },
@@ -5225,8 +5225,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "kumpf-access",
       "name": "Kumpf Access",
-      "latitude": 43.41165,
-      "longitude": -91.45962
+      "latitude": 43.42727,
+      "longitude": -91.46262
     },
     "logistics": {
       "distanceLabel": "About 8.5 mi",
@@ -5260,8 +5260,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "kumpf-access",
         "name": "Kumpf Access",
-        "latitude": 43.41165,
-        "longitude": -91.45962,
+        "latitude": 43.42727,
+        "longitude": -91.46262,
         "mileFromStart": 8.5,
         "segmentKind": "creek",
         "note": "Default take-out documented by Miles Paddled and the Upper Iowa guide access chain."

@@ -11046,8 +11046,14 @@ export const iowaRoutes: River[] = [
       {
         "label": "Take-out support",
         "value": "Ellis Harbor public boat launch",
-        "note": "The City of Cedar Rapids says Ellis Harbor is open to the public and has a public boat launch and restrooms.",
+        "note": "The City of Cedar Rapids says Ellis Harbor is open to the public and has a public boat launch and restrooms; Iowa DNR's Ellis Harbor record supplies the mapped water-location coordinate used by the app.",
         "sourceUrl": "https://www.cedar-rapids.org/residents/parks_and_recreation/ellis_harbor.php"
+      },
+      {
+        "label": "Take-out coordinate",
+        "value": "42.00585924, -91.69535108",
+        "note": "Iowa DNR's Ellis Harbor record identifies the named harbor at this coordinate; treat it as the public harbor/launch-area pin rather than a survey of the exact ramp lip.",
+        "sourceUrl": "https://programs.iowadnr.gov/lakemanagement/fishiowa/LakeDetails/ELH57"
       }
     ],
     "sourceLinks": [
@@ -11074,6 +11080,11 @@ export const iowaRoutes: River[] = [
       {
         "label": "City of Cedar Rapids Ellis Harbor",
         "url": "https://www.cedar-rapids.org/residents/parks_and_recreation/ellis_harbor.php",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR Ellis Harbor record",
+        "url": "https://programs.iowadnr.gov/lakemanagement/fishiowa/LakeDetails/ELH57",
         "provider": "local"
       }
     ]
@@ -15533,7 +15544,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Route and coordinates",
         "value": "Iverson Bridge to Kumpf Access",
-        "note": "Miles Paddled Upper Iowa VIII identifies Iverson Bridge Road Access as the put-in and Kumpf Access as the take-out, with GPS coordinates.",
+        "note": "Miles Paddled Upper Iowa VIII identifies Iverson Bridge Road Access as the put-in and Kumpf Access as the take-out, publishing GPS coordinates 43.41256, -91.5769 for Iverson Bridge and 43.42727, -91.46262 for Kumpf Access.",
         "sourceUrl": "https://milespaddled.com/upper-iowa-river-viii/"
       },
       {

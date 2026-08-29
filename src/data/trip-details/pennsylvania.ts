@@ -98,7 +98,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     ]
   },
   "little-pine-creek-north-park-lake-allison-park": {
-    "putIn": {"name": "North Park Lake boat-launch area", "latitude": 40.611005, "longitude": -80.017122},
+    "putIn": {"name": "North Park Lake boat-launch area", "latitude": 40.60499534620007, "longitude": -80.00685229073453},
     "takeOut": {"name": "Allison Park public ballfield area on Duncan Avenue", "latitude": 40.56033, "longitude": -79.95993},
     "logistics": {
       "distanceLabel": "About 6.6 mi",
@@ -108,11 +108,11 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "No on-route camping is verified; use nearby legal managed lodging or campgrounds and never camp on creek banks or park/private property.",
       "campingClassification": "nearby_basecamp",
       "summary": "A seasonal, advanced Little Pine Creek planning run with a North Park Lake start and a public Allison Park ballfield-area take-out.",
-      "accessCaveats": ["North Park coordinate is the official park location/boat-launch anchor, not a survey of the exact hand-carry launch.", "The Duncan Avenue coordinate is an approximate public ballfield anchor opposite St Ursula Church; verify current parking and take-out access on site.", "The 03049800 gauge is downstream near Etna; inspect actual water and hazards at the put-in."],
+      "accessCaveats": ["North Park coordinate is the official county Boathouse Lawn/boating-area anchor, not a survey of the exact hand-carry launch.", "The Duncan Avenue coordinate is an approximate public ballfield anchor opposite St Ursula Church; verify current parking and take-out access on site.", "The 03049800 gauge is downstream near Etna; inspect actual water and hazards at the put-in."],
       "watchFor": ["Old Wildwood Mine dam/spillway and ledges", "Fresh wood and strainers after storms", "Very low water outside heavy-rain/snowmelt windows", "Cold water", "Urban debris and private banks"]
     },
     "accessPoints": [
-      {"id": "north-park-lake-boat-launch", "name": "North Park Lake boat-launch area", "latitude": 40.611005, "longitude": -80.017122, "mileFromStart": 0, "segmentKind": "lake", "note": "Official Allegheny County park/boating anchor; follow current signs to the exact launch."},
+      {"id": "north-park-lake-boat-launch", "name": "North Park Lake boat-launch area", "latitude": 40.60499534620007, "longitude": -80.00685229073453, "mileFromStart": 0, "segmentKind": "lake", "note": "Official Allegheny County Boathouse Lawn/boating-area anchor; follow current signs to the exact launch."},
       {"id": "allison-park-duncan-ballfield", "name": "Allison Park public ballfield area on Duncan Avenue", "latitude": 40.56033, "longitude": -79.95993, "mileFromStart": 6.6, "segmentKind": "creek", "note": "Approximate public ballfield anchor opposite St Ursula Church; confirm legal parking and take-out conditions before use."}
     ]
   },
@@ -1111,7 +1111,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Willow Mill Park and take out at the PFBC Good Hope Access for a longer upper-middle Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day call on wood, current, and whether the creek looks too scrape-prone to justify the mileage.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.",
+        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
         "Willow Mill is an improved concrete ramp with parking and portable toilets, while Good Hope is a shallower PFBC launch with matting and more limited parking.",
         "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so expect low-water scraping rather than a generous margin."
       ],
@@ -1126,8 +1126,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "conodoguinet-creek-vincent-difilippo-acri-meadow": {
     "putIn": {
       "name": "Vincent DiFilippo Nature Preserve launch",
-      "latitude": 40.2576825,
-      "longitude": -77.0209403
+      "latitude": 40.2561,
+      "longitude": -77.0192
     },
     "takeOut": {
       "name": "Acri Meadow Park launch",
@@ -1143,7 +1143,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Vincent DiFilippo Nature Preserve and take out at Acri Meadow Park for a long middle-to-lower Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day call on current, wood, and whether the creek has enough depth to justify the full mileage.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.",
+        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
         "Vincent DiFilippo is listed as a concrete launch, while Acri Meadow is a municipal park with an unimproved launch area and steeper slope to the water.",
         "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so expect a slower low-water day if you go near the floor."
       ],
@@ -1175,7 +1175,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Willow Mill Park and take out at Acri Meadow Park for a full central Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a conservative same-day judgment on whether the creek has enough water and clear enough channels to justify the full 17.4-mile plan.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.",
+        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
         "Willow Mill is an improved concrete launch with parking, while Acri Meadow is a more basic municipal-park finish with an unimproved slope to the water.",
         "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so the app treats it as a marginal low-water full day rather than a routine green-light recommendation."
       ],
@@ -1195,8 +1195,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Vincent DiFilippo Nature Preserve launch",
-      "latitude": 40.2576825,
-      "longitude": -77.0209403
+      "latitude": 40.2561,
+      "longitude": -77.0192
     },
     "logistics": {
       "distanceLabel": "About 4.4 mi",
@@ -1207,7 +1207,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Willow Mill Park and take out at Vincent DiFilippo Nature Preserve for a short Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day visual call on wood, current, and bridge approaches.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.",
+        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
         "Willow Mill is an improved concrete ramp with parking and portable toilets, while Vincent DiFilippo is also listed as a concrete launch. Same-day mud, maintenance, and fallen trees can still change launch ease.",
         "The county says boating should be above 1.7 ft at Hogestown. Treat lower readings as a scrape-and-drag signal, not as a casual green light."
       ],
@@ -1222,8 +1222,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "conodoguinet-creek-vincent-difilippo-good-hope": {
     "putIn": {
       "name": "Vincent DiFilippo Nature Preserve launch",
-      "latitude": 40.2576825,
-      "longitude": -77.0209403
+      "latitude": 40.2561,
+      "longitude": -77.0192
     },
     "takeOut": {
       "name": "Good Hope Access",
@@ -1239,7 +1239,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Vincent DiFilippo Nature Preserve and take out at the PFBC Good Hope Access for a moderate-length Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day call on wood, current, and the Good Hope ramp condition.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.",
+        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
         "Good Hope is a PFBC site with a shallow earthen ramp improved by matting and about ten parking spaces. It is more basic than a broad municipal park launch.",
         "The county says boating should be above 1.7 ft at Hogestown. Treat lower readings as a drag-and-scrape signal and much higher readings as a caution flag for stronger current and more debris."
       ],
@@ -1271,7 +1271,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Good Hope Access and take out at Acri Meadow Park for a longer lower-central Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day visual call on current, wood, and bridge approaches.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.",
+        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
         "Good Hope is a smaller PFBC launch with a permit requirement, while Acri Meadow is a municipal park with an unimproved launch area and steeper slope to the water.",
         "The county says boating should be above 1.7 ft at Hogestown. PaddleToday keeps this route minimum-only because the county publishes a floor and flood-context stages, not a route-specific ideal high-water band."
       ],

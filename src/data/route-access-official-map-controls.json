@@ -990,6 +990,88 @@
           "coordinateText": "County site-map launch symbol transferred from the current county park pin to the adjacent Two Lick Creek bank and checked against NHD hydrography"
         }
       ]
+    },
+    {
+      "id": "nps_fort_niobrara_launch_site",
+      "name": "National Park Service / Fort Niobrara NWR Launch Site",
+      "state": "Nebraska",
+      "sourceUrl": "https://www.recreation.gov/camping/gateways/12803",
+      "sourceType": "official-federal-access-record",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "Recreation.gov publishes the Fort Niobrara Wilderness access GPS coordinate for the refuge canoe launch; the NPS identifies the same site as the public canoe/kayak launch adjacent to Cornell Bridge.",
+      "controls": [
+        {
+          "featureId": "fort-niobrara-nwr-launch-site",
+          "name": "Fort Niobrara NWR Launch Site near Cornell Bridge",
+          "aliases": [
+            "Fort Niobrara Launch Site",
+            "Fort Niobrara Wildlife Refuge Launch Site"
+          ],
+          "waterbody": "Niobrara River",
+          "latitude": 42.893222,
+          "longitude": -100.476967,
+          "uncertaintyFeet": 25
+        }
+      ]
+    },
+    {
+      "id": "cumberland_county_conodoguinet_b5",
+      "name": "Cumberland County Conodoguinet Creek Water Trail access table",
+      "state": "Pennsylvania",
+      "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024",
+      "sourceType": "official-coordinate-table",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "The current Cumberland County access table identifies B5, Vincent DiFilippo Nature Preserve, as a named concrete Conodoguinet launch and publishes 40.2561, -77.0192. The official table coordinate is retained as the shared launch pin; it is not projected to an NHD centerline.",
+      "controls": [
+        {
+          "featureId": "B5",
+          "name": "Vincent DiFilippo Nature Preserve launch",
+          "aliases": [
+            "Vincent DiFilippo Nature Preserve",
+            "DiFilippo Preserve launch"
+          ],
+          "waterbody": "Conodoguinet Creek",
+          "latitude": 40.2561,
+          "longitude": -77.0192,
+          "uncertaintyFeet": 75,
+          "coordinateText": "Cumberland County Conodoguinet Creek Water Trail access table, B5 coordinate"
+        }
+      ]
+    },
+    {
+      "id": "allegheny_county_north_park_lake_boat_launch",
+      "name": "Allegheny County North Park Lake boat-launch area",
+      "state": "Pennsylvania",
+      "sourceUrl": "https://www.alleghenycounty.us/Parks-and-Events/Special-Events/Campfire-Ghost-Stories/Campfire-Ghost-Stories-at-North-Park",
+      "sourceType": "official-park-access-record",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "Allegheny County identifies the 66-acre North Park Lake and boathouse as a kayaking/boating facility; its current Boathouse Lawn event page publishes 40.60499534620007, -80.00685229073453 for the named boating area. The county's North Park history explains that North Park Lake is fed by North Fork Pine Creek and empties into Pine Creek, documenting the connected-water relationship for this Little Pine Creek route start.",
+      "controls": [
+        {
+          "featureId": "north-park-lake-boat-launch",
+          "name": "North Park Lake boat-launch area",
+          "aliases": [
+            "North Park Lake boat launch",
+            "North Park boat-launch area"
+          ],
+          "waterbody": "North Park Lake",
+          "latitude": 40.60499534620007,
+          "longitude": -80.00685229073453,
+          "uncertaintyFeet": 50,
+          "terminalAlternateWaterbody": {
+            "routeWaterbody": "Little Pine Creek",
+            "relationship": "connected-water-trail-waterbody",
+            "sourceUrl": "https://www.alleghenycounty.us/Parks-and-Events/Parks/North-Park/History-of-North-Park"
+          },
+          "coordinateText": "Allegheny County Boathouse Lawn event-page coordinate for the lake boating area"
+        }
+      ]
     }
   ]
 }

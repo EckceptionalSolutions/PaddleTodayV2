@@ -4035,7 +4035,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "The county treats this as a warm-season creek route that needs enough depth at Hogestown to avoid scraping. Rain can quickly raise current, debris, and bridge-clearance consequences even when the baseline route is otherwise approachable.",
       "difficulty": "easy",
       "difficultyNotes": "This is a short moving-water creek link with improved public launches, but it still needs a same-day check for wood, dragging, and stronger post-rain current.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Willow Mill Park and Vincent DiFilippo Nature Preserve as named public Conodoguinet launches with official mile markers of 23.2 and 18.8, which define this 4.4-mile access pair. The same county page still says boating should be above 1.7 ft at the direct Hogestown gauge, while USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the current county access table does not publish launch lat/longs."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Willow Mill Park and Vincent DiFilippo Nature Preserve as named public Conodoguinet launches with official mile markers of 23.2 and 18.8, which define this 4.4-mile access pair. The same county page still says boating should be above 1.7 ft at the direct Hogestown gauge, while USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
     },
     "evidenceNotes": [
       {
@@ -4047,7 +4047,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Public access addresses",
         "value": "80 Willow Mill Park Road to 110 Sample Bridge Road",
-        "note": "Cumberland County identifies Willow Mill Park and Vincent DiFilippo Nature Preserve as named public launch sites with those official street addresses. Route coordinates are derived from those exact access addresses using the U.S. Census geocoder.",
+        "note": "Cumberland County identifies Willow Mill Park and Vincent DiFilippo Nature Preserve as named public launch sites and publishes access-table coordinates; those official coordinates are used instead of address geocoding.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
       },
       {
@@ -4141,7 +4141,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "This upper-middle Conodoguinet corridor works best in the warm season when the creek stays above the county floor. Thunderstorms can quickly raise current, move wood, and make bridge approaches more consequential on the same day.",
       "difficulty": "moderate",
       "difficultyNotes": "This is still broad-audience moving water, but the 9.6-mile length, shallow-floor posture, and mixed launch character make it more committed than the shorter Conodoguinet split routes.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Willow Mill Park and Good Hope Access as named public Conodoguinet launches at miles 23.2 and 13.6, which defines this 9.6-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft at 2026-07-13 15:30 EDT. The Good Hope endpoint legitimacy is especially strong because the county table identifies it as a PFBC access requiring the normal launch-permit or registration package. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Willow Mill Park and Good Hope Access as named public Conodoguinet launches at miles 23.2 and 13.6, which defines this 9.6-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft at 2026-07-13 15:30 EDT. The Good Hope endpoint legitimacy is especially strong because the county table identifies it as a PFBC access requiring the normal launch-permit or registration package. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
     },
     "evidenceNotes": [
       {
@@ -4153,7 +4153,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Public access addresses",
         "value": "80 Willow Mill Park Road to 700 Good Hope Road",
-        "note": "Cumberland County identifies both endpoints as named public launches with those official street addresses. Route coordinates are derived from those exact access addresses using the U.S. Census geocoder.",
+        "note": "Cumberland County identifies both endpoints as named public launches and publishes access-table coordinates; those official coordinates are used instead of address geocoding.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
       },
       {
@@ -4217,8 +4217,8 @@ export const pennsylvaniaRoutes: River[] = [
     "region": "South Central Pennsylvania",
     "summary": "Mid-creek Cumberland County Conodoguinet day from Vincent DiFilippo Nature Preserve to the PFBC Good Hope Access. The current county access table still defines the pair cleanly, and the same direct Hogestown gauge gives a current depth check for the whole corridor.",
     "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect dragging and shallow bridge approaches rather than a routine easy day.",
-    "latitude": 40.2576825,
-    "longitude": -77.0209403,
+    "latitude": 40.2561,
+    "longitude": -77.0192,
     "gaugeSource": {
       "id": "usgs-01570000",
       "provider": "usgs",
@@ -4265,7 +4265,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "This middle Conodoguinet corridor can work through much of the warm season when the creek is above the county low-water floor, but rain raises current and floating wood quickly on the same day.",
       "difficulty": "easy",
       "difficultyNotes": "The route stays in the easier creek-day bucket when Hogestown is above the county floor, but it still needs a real same-day check for wood, shallow bridge approaches, and the PFBC launch conditions at Good Hope.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilippo Nature Preserve and Good Hope Access as named public launches at miles 18.8 and 13.6, which defines this 5.2-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The Good Hope endpoint legitimacy is especially strong because the county table identifies it as a PFBC access requiring the normal launch-permit or registration package. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilippo Nature Preserve and Good Hope Access as named public launches at miles 18.8 and 13.6, which defines this 5.2-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The Good Hope endpoint legitimacy is especially strong because the county table identifies it as a PFBC access requiring the normal launch-permit or registration package. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
     },
     "evidenceNotes": [
       {
@@ -4341,8 +4341,8 @@ export const pennsylvaniaRoutes: River[] = [
     "region": "South Central Pennsylvania",
     "summary": "Long middle-to-lower Conodoguinet day from Vincent DiFilippo Nature Preserve to Acri Meadow Park. Cumberland County still publishes both named public launches, official mile markers, and the same direct Hogestown gauge floor for deciding whether this creek has enough depth to justify a longer day.",
     "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a slow scrape-prone run and treat the route as below the county floor.",
-    "latitude": 40.2576825,
-    "longitude": -77.0209403,
+    "latitude": 40.2561,
+    "longitude": -77.0192,
     "gaugeSource": {
       "id": "usgs-01570000",
       "provider": "usgs",
@@ -4376,7 +4376,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "This longer middle-to-lower corridor depends on enough depth at Hogestown to avoid repeated dragging. Rain can quickly add current, muddy banks, and bridge-area consequences on the same day.",
       "difficulty": "moderate",
       "difficultyNotes": "The route stays in the easier moving-water category when conditions are right, but the 13-mile length and shallow-floor posture make it a committed day rather than a casual park float.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilippo Nature Preserve and Acri Meadow Park as named public Conodoguinet launches at miles 18.8 and 5.8, which defines this 13-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft at 2026-07-13 15:30 EDT. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal band. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilippo Nature Preserve and Acri Meadow Park as named public Conodoguinet launches at miles 18.8 and 5.8, which defines this 13-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft at 2026-07-13 15:30 EDT. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal band. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
     },
     "evidenceNotes": [
       {
@@ -4388,7 +4388,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Public access addresses",
         "value": "110 Sample Bridge Road to 55 Acri Meadow Drive",
-        "note": "Cumberland County identifies both endpoints as named public launches with those official street addresses. Route coordinates are derived from those exact access addresses using the U.S. Census geocoder.",
+        "note": "Cumberland County identifies both endpoints as named public launches and publishes access-table coordinates; those official coordinates are used instead of address geocoding.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
       },
       {
@@ -4495,7 +4495,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "The lower-central creek stays usable in the warm season when depth clears the county floor, but rain raises current and bridge-area consequences quickly while broad urban-edge banks stay muddy after floods.",
       "difficulty": "easy",
       "difficultyNotes": "This is a straightforward creek day when Hogestown is above the minimum, but the 7.8-mile length, mixed launch quality, and bridge/wood scouting still make it more committed than a park pond outing.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Good Hope Access and Acri Meadow Park as named public launches at miles 13.6 and 5.8, which defines this 7.8-mile lower-central route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal high band. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Good Hope Access and Acri Meadow Park as named public launches at miles 13.6 and 5.8, which defines this 7.8-mile lower-central route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal high band. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
     },
     "evidenceNotes": [
       {
@@ -4606,7 +4606,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "The central creek can work in the warm season when the county floor is met, but this longer route amplifies same-day consequences from thunderstorms, bridge current, and debris shifts.",
       "difficulty": "moderate",
       "difficultyNotes": "This remains broad-audience moving water, but the 17.4-mile length, scrape-prone floor, and longer shuttle make it a serious full-day creek plan rather than a casual outing.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Willow Mill Park and Acri Meadow Park as named public Conodoguinet launches at miles 23.2 and 5.8, which defines this 17.4-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 6, 2026 values of 282 cfs and 1.71 ft at 2026-07-06 19:30 EDT. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal band. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Willow Mill Park and Acri Meadow Park as named public Conodoguinet launches at miles 23.2 and 5.8, which defines this 17.4-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 6, 2026 values of 282 cfs and 1.71 ft at 2026-07-06 19:30 EDT. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal band. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
     },
     "evidenceNotes": [
       {
@@ -4618,7 +4618,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Public access addresses",
         "value": "80 Willow Mill Park Road to 55 Acri Meadow Drive",
-        "note": "Cumberland County identifies both endpoints as named public launches with those official street addresses. Route coordinates are derived from those exact access addresses using the U.S. Census geocoder.",
+        "note": "Cumberland County identifies both endpoints as named public launches and publishes access-table coordinates; those official coordinates are used instead of address geocoding.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
       },
       {
@@ -5970,7 +5970,7 @@ export const pennsylvaniaRoutes: River[] = [
     "evidenceNotes": [
       {"label": "Route and threshold", "value": "North Park Lake to Allison Park, 6.6 mi; 2.2 ft minimum and 3 ft ideal upper reference", "note": "CanoeDraft documents the reach, access context, hazards, seasonal runnable conditions, and station-specific gauge table for USGS 03049800.", "sourceUrl": "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php"},
       {"label": "Live proxy gauge", "value": "USGS 03049800 Little Pine Creek near Etna", "note": "USGS provides the live stage telemetry and monitoring-location metadata; it is downstream of the reviewed reach.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03049800"},
-      {"label": "North Park boating context", "value": "North Park Lake boat-launch area", "note": "Allegheny County identifies North Park Lake boating and the park location at 303 Pearce Mill Road; follow current park signs and notices for the exact launch.", "sourceUrl": "https://www.alleghenycounty.us/parks/activities/boating/north-park"},
+      {"label": "North Park boating context", "value": "North Park Lake boat-launch area", "note": "Allegheny County identifies North Park Lake boating and publishes the current Boathouse Lawn location coordinate; follow current park signs and notices for the exact hand-carry launch.", "sourceUrl": "https://www.alleghenycounty.us/Parks-and-Events/Special-Events/Campfire-Ghost-Stories/Campfire-Ghost-Stories-at-North-Park"},
       {"label": "Allison Park take-out context", "value": "Public ballfield opposite St Ursula Church on Duncan Avenue", "note": "Hampton Township event materials identify the ballfield opposite St Ursula Church off Duncan Avenue; use the public ballfield area only and verify current parking/access.", "sourceUrl": "https://www.hampton-pa.gov/DocumentCenter/View/1135/Pine-Creek-Cleanup-Day-PDF"},
       {"label": "Hazards", "value": "Old Wildwood Mine dam/spillway and small ledges", "note": "CanoeDraft flags a possible old three-foot dam at Wildwood Mine and other ledges/wood; inspect and portage rather than run unknown features.", "sourceUrl": "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php"}
     ],
@@ -5978,7 +5978,7 @@ export const pennsylvaniaRoutes: River[] = [
       {"label": "CanoeDraft Little Pine Creek route", "url": "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php", "provider": "manual"},
       {"label": "CanoeDraft gauge table", "url": "https://canoedraft.shaw-weil.com/gauge/", "provider": "manual"},
       {"label": "USGS 03049800 monitoring location", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-03049800/", "provider": "usgs"},
-      {"label": "Allegheny County North Park boating", "url": "https://www.alleghenycounty.us/parks/activities/boating/north-park", "provider": "local"},
+      {"label": "Allegheny County North Park boating", "url": "https://www.alleghenycounty.us/Parks-and-Events/Parks/North-Park", "provider": "local"},
       {"label": "Hampton Township ballfield context", "url": "https://www.hampton-pa.gov/DocumentCenter/View/1135/Pine-Creek-Cleanup-Day-PDF", "provider": "local"}
     ]
   },

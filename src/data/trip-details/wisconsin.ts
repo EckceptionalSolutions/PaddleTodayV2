@@ -406,24 +406,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default public put-in in Rochester Park."
       },
       {
-        "id": "river-bend-dam-sheboygan",
-        "name": "River Bend Dam portage",
-        "latitude": 43.7287,
-        "longitude": -87.7865,
-        "mileFromStart": 2.5,
-        "segmentKind": "transition",
-        "note": "First marked dam portage."
-      },
-      {
-        "id": "walderhaus-dam-sheboygan",
-        "name": "Walderhaus Dam portage",
-        "latitude": 43.7308,
-        "longitude": -87.7735,
-        "mileFromStart": 3.7,
-        "segmentKind": "transition",
-        "note": "Second dam portage before the better riffle corridor."
-      },
-      {
         "id": "esslingen-park-sheboygan-river",
         "name": "Esslingen Park canoe access",
         "latitude": 43.741,
@@ -1066,15 +1048,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in in North Freedom."
-      },
-      {
-        "id": "kohlmeyer-road-bridge",
-        "name": "Kohlmeyer Road bridge",
-        "latitude": 43.4862,
-        "longitude": -89.8333,
-        "mileFromStart": 4.3,
-        "segmentKind": "creek",
-        "note": "Bridge landmark near the route's easy Class I riffle; not the default access."
       },
       {
         "id": "giese-park-canoe-launch",
@@ -5067,15 +5040,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in; Wisconsin DNR lists a public boat landing on Ludden Lake."
       },
       {
-        "id": "ludden-lake-dam-portage",
-        "name": "Ludden Lake dam portage",
-        "latitude": 42.8486,
-        "longitude": -90.2296,
-        "mileFromStart": 0.5,
-        "segmentKind": "transition",
-        "note": "Mandatory portage around the dam before the faster river section."
-      },
-      {
         "id": "highway-39-mineral-point-branch",
         "name": "Highway 39 bridge",
         "latitude": 42.8534,
@@ -5403,15 +5367,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "AW-listed put-in near the historic Cedarburg Mill / Rebellion Brewing patio."
       },
       {
-        "id": "highland-drive-columbia-mills-dam-portage",
-        "name": "Highland Drive / Columbia Mills Dam portage",
-        "latitude": 43.2982,
-        "longitude": -87.9762,
-        "mileFromStart": 0.68,
-        "segmentKind": "transition",
-        "note": "Mandatory dam portage with AW-described private-bank constraints; scout before launch."
-      },
-      {
         "id": "creek-view-court-cedar-creek-access",
         "name": "Creek View Court / Hoffmann Glen alternate access",
         "latitude": 43.2999,
@@ -5419,15 +5374,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0.69,
         "segmentKind": "creek",
         "note": "AW-listed alternate access that skips the first dam portage and city-park ledges."
-      },
-      {
-        "id": "nail-factory-dam-portage",
-        "name": "Nail Factory Dam portage",
-        "latitude": 43.2972,
-        "longitude": -87.9731,
-        "mileFromStart": 0.99,
-        "segmentKind": "transition",
-        "note": "Mandatory portage around the roughly 18.5-foot dam; relaunch footing is steep and flow-dependent."
       },
       {
         "id": "county-highway-t-lakefield-road-takeout",
@@ -5888,15 +5834,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Miles Paddled-listed put-in for the Tigerton Dells run."
-      },
-      {
-        "id": "tigerton-dells-south-branch-embarrass",
-        "name": "Tigerton Dells scout corridor",
-        "latitude": 44.7369,
-        "longitude": -89.0404,
-        "mileFromStart": 1.4,
-        "segmentKind": "creek",
-        "note": "Approximate AW-described dells/wood-check corridor; inspect for fresh blockages and portage needs."
       },
       {
         "id": "county-road-m-south-branch-embarrass",
@@ -7843,15 +7780,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in south/downstream of the Highway B bridge."
-      },
-      {
-        "id": "gays-mills-dam-portage",
-        "name": "Gays Mills low-head dam portage",
-        "latitude": 43.3144,
-        "longitude": -90.8485,
-        "mileFromStart": 4,
-        "segmentKind": "transition",
-        "note": "Mandatory east-bank portage around the dangerous low-head dam."
       },
       {
         "id": "robb-park-gays-mills",

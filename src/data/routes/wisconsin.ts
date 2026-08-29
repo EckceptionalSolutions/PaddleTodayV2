@@ -3134,24 +3134,6 @@ export const wisconsinRoutes: River[] = [
         "note": "Default public put-in in Rochester Park; WRT describes multiple launch options and a short carry from park parking."
       },
       {
-        "id": "river-bend-dam-sheboygan",
-        "name": "River Bend Dam portage",
-        "latitude": 43.7287,
-        "longitude": -87.7865,
-        "mileFromStart": 2.5,
-        "segmentKind": "transition",
-        "note": "First marked dam portage on the Kohler route."
-      },
-      {
-        "id": "walderhaus-dam-sheboygan",
-        "name": "Walderhaus Dam portage",
-        "latitude": 43.7308,
-        "longitude": -87.7735,
-        "mileFromStart": 3.7,
-        "segmentKind": "transition",
-        "note": "Second dam portage; WRT notes a straightforward take-out but steeper concrete steps for re-entry."
-      },
-      {
         "id": "esslingen-park-sheboygan-river",
         "name": "Esslingen Park canoe access",
         "latitude": 43.741,
@@ -15686,15 +15668,6 @@ export const wisconsinRoutes: River[] = [
         "note": "AW-listed put-in near the historic Cedarburg Mill / Rebellion Brewing patio; street parking and careful rockwork launch."
       },
       {
-        "id": "highland-drive-columbia-mills-dam-portage",
-        "name": "Highland Drive / Columbia Mills Dam portage",
-        "latitude": 43.2982,
-        "longitude": -87.9762,
-        "mileFromStart": 0.68,
-        "segmentKind": "transition",
-        "note": "Mandatory dam portage with AW-described private-bank constraints; scout before launch."
-      },
-      {
         "id": "creek-view-court-cedar-creek-access",
         "name": "Creek View Court / Hoffmann Glen alternate access",
         "latitude": 43.2999,
@@ -15702,15 +15675,6 @@ export const wisconsinRoutes: River[] = [
         "mileFromStart": 0.69,
         "segmentKind": "creek",
         "note": "AW-listed alternate access that skips the first dam portage and city-park ledges."
-      },
-      {
-        "id": "nail-factory-dam-portage",
-        "name": "Nail Factory Dam portage",
-        "latitude": 43.2972,
-        "longitude": -87.9731,
-        "mileFromStart": 0.99,
-        "segmentKind": "transition",
-        "note": "Mandatory portage around the roughly 18.5-foot dam; relaunch footing is steep and flow-dependent."
       },
       {
         "id": "county-highway-t-lakefield-road-takeout",
@@ -16890,15 +16854,6 @@ export const wisconsinRoutes: River[] = [
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Miles Paddled-listed put-in for the Tigerton Dells run."
-      },
-      {
-        "id": "tigerton-dells-south-branch-embarrass",
-        "name": "Tigerton Dells scout corridor",
-        "latitude": 44.7369,
-        "longitude": -89.0404,
-        "mileFromStart": 1.4,
-        "segmentKind": "creek",
-        "note": "Approximate AW-described dells/wood-check corridor; inspect for fresh blockages and portage needs."
       },
       {
         "id": "county-road-m-south-branch-embarrass",
@@ -20251,15 +20206,6 @@ export const wisconsinRoutes: River[] = [
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in south/downstream of the Highway B bridge; WRT and Crawford County list it as a public canoe landing, but expect mud."
-      },
-      {
-        "id": "gays-mills-dam-portage",
-        "name": "Gays Mills low-head dam portage",
-        "latitude": 43.3144,
-        "longitude": -90.8485,
-        "mileFromStart": 4,
-        "segmentKind": "transition",
-        "note": "Mandatory east-bank portage around the dangerous low-head dam. Robb Park below the dam can be used as an alternate put-in for the lower half."
       },
       {
         "id": "robb-park-gays-mills",
