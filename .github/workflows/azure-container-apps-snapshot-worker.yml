@@ -1,0 +1,84 @@
+name: Paddle Today Snapshot Worker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'infra/azure/container-apps-platform.bicep'
+      - 'infra/azure/container-apps-job.bicep'
+      - 'infra/azure/snapshot-worker/**'
+      - '.github/workflows/azure-container-apps-snapshot-worker.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  AZURE_RESOURCE_GROUP: paddletoday
+  AZURE_CONTAINER_REGISTRY: paddletodayjobs
+  AZURE_CONTAINER_APPS_ENVIRONMENT: paddletoday-jobs
+  AZURE_CONTAINER_APPS_JOB: paddletoday-river-snapshots
+  IMAGE_NAME: paddletoday/snapshot-worker
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Provision Container Apps platform
+        env:
+          SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
+        run: |
+          az deployment group create \
+            --resource-group "$AZURE_RESOURCE_GROUP" \
+            --template-file infra/azure/container-apps-job.bicep \
+            --parameters \
+              containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
+              containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
+              jobName="$AZURE_CONTAINER_APPS_JOB" \
+              snapshotContainerSasUrl="$SNAPSHOT_SAS_URL" \
+              image='' \
+            --output none
+
+      - name: Build worker image in Azure Container Registry
+        run: |
+          az acr build \
+            --registry "$AZURE_CONTAINER_REGISTRY" \
+            --image "$IMAGE_NAME:$GITHUB_SHA" \
+            --file infra/azure/snapshot-worker/Dockerfile \
+            .
+
+      - name: Deploy scheduled Container Apps Job
+        env:
+          SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
+        run: |
+          az deployment group create \
+            --resource-group "$AZURE_RESOURCE_GROUP" \
+            --template-file infra/azure/container-apps-job.bicep \
+            --parameters \
+              containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
+              containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
+              jobName="$AZURE_CONTAINER_APPS_JOB" \
+              snapshotContainerSasUrl="$SNAPSHOT_SAS_URL" \
+              image="$AZURE_CONTAINER_REGISTRY.azurecr.io/$IMAGE_NAME:$GITHUB_SHA" \
+            --output none
+
+      - name: Start one verification execution
+        run: |
+          az containerapp job start \
+            --name "$AZURE_CONTAINER_APPS_JOB" \
+            --resource-group "$AZURE_RESOURCE_GROUP" \
+            --output none

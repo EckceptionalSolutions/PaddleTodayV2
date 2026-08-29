@@ -1,0 +1,11 @@
+{
+  "name": "@paddletoday/snapshot-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@paddletoday/api-contract": "file:packages/api-contract",
+    "@paddletoday/geo": "file:packages/geo",
+    "tsx": "^4.23.1"
+  }
+}

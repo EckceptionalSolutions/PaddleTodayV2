@@ -1,0 +1,10 @@
+.git
+.github
+node_modules
+dist
+public
+apps
+docs
+tests
+tmp
+.local

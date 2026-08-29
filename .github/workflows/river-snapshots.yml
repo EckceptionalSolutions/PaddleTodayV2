@@ -1,15 +1,8 @@
 name: Paddle Today River Snapshots
 
 on:
-  workflow_run:
-    workflows:
-      - Paddle Today API
-    types:
-      - completed
-  schedule:
-    # Avoid GitHub Actions' high-load :00/:30 boundaries, where scheduled
-    # events can be delayed or dropped.
-    - cron: '7,37 * * * *'
+  # Azure Container Apps Job is the authoritative production scheduler.
+  # Keep this workflow for manual fallback and verification runs.
   workflow_dispatch:
 
 concurrency:
@@ -18,7 +11,6 @@ concurrency:
 
 jobs:
   refresh_snapshots:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     steps:
