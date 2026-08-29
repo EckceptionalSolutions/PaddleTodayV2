@@ -31,6 +31,9 @@ param cpu int = 1
 @description('Memory allocated to the worker replica.')
 param memory string = '2Gi'
 
+@description('Stable name for the job identity ACR pull role assignment.')
+param acrPullRoleAssignmentName string = 'cdea3635-c341-4003-a192-8744f24cdf67'
+
 resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-07-01' existing = {
   name: containerRegistryName
 }
@@ -103,7 +106,7 @@ resource job 'Microsoft.App/jobs@2025-01-01' = {
 }
 
 resource acrPullRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(containerRegistry.id, job.id, 'AcrPull')
+  name: acrPullRoleAssignmentName
   scope: containerRegistry
   properties: {
     principalId: job.identity.principalId

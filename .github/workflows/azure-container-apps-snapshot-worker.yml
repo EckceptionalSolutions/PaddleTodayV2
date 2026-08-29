@@ -44,13 +44,10 @@ jobs:
         run: |
           az deployment group create \
             --resource-group "$AZURE_RESOURCE_GROUP" \
-            --template-file infra/azure/container-apps-job.bicep \
+            --template-file infra/azure/container-apps-platform.bicep \
             --parameters \
               containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
               containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
-              jobName="$AZURE_CONTAINER_APPS_JOB" \
-              snapshotContainerSasUrl="$SNAPSHOT_SAS_URL" \
-              image='' \
             --output none
 
       - name: Build worker image in Azure Container Registry

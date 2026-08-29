@@ -15,7 +15,7 @@ Azure Container Apps scheduled job
 ```
 
 The worker uses one replica, a 30-minute UTC schedule at minute 7 and 37,
-an 1,800-second replica timeout, and three replica retries. The schedule is
+a 1,800-second replica timeout, and three replica retries. The schedule is
 intentionally offset from the GitHub Actions load boundaries that caused the
 previous gaps.
 
