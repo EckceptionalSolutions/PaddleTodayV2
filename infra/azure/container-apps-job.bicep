@@ -98,6 +98,10 @@ resource job 'Microsoft.App/jobs@2025-01-01' = {
               name: 'RIVER_SNAPSHOT_WRITE_CONCURRENCY'
               value: '24'
             }
+            {
+              name: 'UPSTREAM_MONITOR_IGNORED_PROVIDERS'
+              value: 'mapservices.weather.noaa.gov'
+            }
           ]
         }
       ]

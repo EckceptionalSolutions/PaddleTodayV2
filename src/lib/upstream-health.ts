@@ -8,6 +8,7 @@ export interface UpstreamHealthThresholds {
   minimumProviderRequests: number;
   maximumProviderFailureRate: number;
   maximumProviderConsecutiveFailures: number;
+  ignoredProviders?: string[];
 }
 
 export interface UpstreamHealthAssessment {
@@ -44,6 +45,10 @@ export function assessUpstreamHealth(
   }
 
   for (const provider of telemetry.providers) {
+    if (thresholds.ignoredProviders?.includes(provider.provider)) {
+      continue;
+    }
+
     if (
       provider.requests >= thresholds.minimumProviderRequests
       && provider.failureRate >= thresholds.maximumProviderFailureRate

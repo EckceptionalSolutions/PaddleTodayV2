@@ -62,6 +62,7 @@ function assertUpstreamHealth() {
       process.env.UPSTREAM_MONITOR_MAX_CONSECUTIVE_FAILURES,
       DEFAULT_UPSTREAM_HEALTH_THRESHOLDS.maximumProviderConsecutiveFailures,
     ),
+    ignoredProviders: csv(process.env.UPSTREAM_MONITOR_IGNORED_PROVIDERS),
   };
   const assessment = assessUpstreamHealth(telemetry, thresholds);
 
@@ -110,6 +111,13 @@ function positiveInteger(value: string | undefined, fallback: number) {
 function rate(value: string | undefined, fallback: number) {
   const parsed = Number(value);
   return Number.isFinite(parsed) && parsed >= 0 && parsed <= 1 ? parsed : fallback;
+}
+
+function csv(value: string | undefined) {
+  return value
+    ?.split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
 
 function percent(value: number) {

@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { assessUpstreamHealth, type UpstreamTelemetry } from './upstream-health';
+import {
+  assessUpstreamHealth,
+  DEFAULT_UPSTREAM_HEALTH_THRESHOLDS,
+  type UpstreamTelemetry,
+} from './upstream-health';
 
 function telemetry(overrides: Partial<UpstreamTelemetry> = {}): UpstreamTelemetry {
   return {
@@ -75,6 +79,28 @@ describe('upstream health assessment', () => {
       expect.stringContaining('failure rate'),
       expect.stringContaining('consecutive failures'),
     ]);
+  });
+
+  it('can ignore an optional provider when fallback data remains healthy', () => {
+    const base = telemetry();
+    const provider = {
+      ...base.providers[0]!,
+      provider: 'mapservices.weather.noaa.gov',
+      failures: 100,
+      successes: 0,
+      requests: 100,
+      failureRate: 1,
+      consecutiveFailures: 100,
+    };
+    const assessment = assessUpstreamHealth(
+      telemetry({ providers: [provider] }),
+      {
+        ...DEFAULT_UPSTREAM_HEALTH_THRESHOLDS,
+        ignoredProviders: ['mapservices.weather.noaa.gov'],
+      },
+    );
+
+    expect(assessment).toEqual({ ok: true, issues: [], observedProviders: 1 });
   });
 
   it('does not turn a tiny sample into an outage alert', () => {

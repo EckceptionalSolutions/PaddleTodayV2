@@ -42,7 +42,9 @@ The worker currently receives the existing
 `RIVER_SNAPSHOT_CONTAINER_SAS_URL` through a Container Apps secret. The next
 security hardening step is replacing that SAS-based Blob adapter with Azure
 Entra authentication and assigning the job and API only the required Blob
-data roles.
+data roles. Azure-hosted runs also treat the NOAA MRMS rainfall endpoint as an
+optional provider because its Azure responses currently return HTTP 403;
+NWS weather and gauge coverage remain protected by the normal quality gates.
 
 ## Operations
 
