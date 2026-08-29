@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T06:10:00Z",
+  "updatedAt": "2026-09-03T09:20:00Z",
   "runs": [
     {
       "id": "route-research-current-continuation-202609030535-co-usgs-09073005-screened-out",
@@ -11,7 +11,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073005",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073005"],
+      "gaugeKeys": [
+        "usgs:09073005"
+      ],
       "result": "Bounded same-state research verified 09073005 as the direct USGS Lincoln Creek below Grizzly Reservoir near Aspen gauge, immediately below the reservoir dam. Official materials describe the reach as a regulated headwater creek with steep bedrock canyons, major transbasin diversion effects, mining-related water-quality risk, and limited secondary data. Public recreation evidence supports road, camping, hiking, fishing, and current dam-project context but no named public paddling corridor, lawful launch/take-out pair, or station-specific recreational threshold. No route was added.",
       "evidence": [
         "docs/operations/gauge-inventory.json",
@@ -38,7 +40,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073005",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073005"],
+      "gaugeKeys": [
+        "usgs:09073005"
+      ],
       "result": "Independently verified the station identity, immediate below-dam location, long discharge record, regulated-flow and diversion context, current 2026 public-recreation restriction at the reservoir, and the absence of a named station-tied paddling corridor or recreational threshold. Confirmed that no route, access registry entry, gallery asset, or geometry asset was added for 09073005.",
       "routeAdded": false,
       "routeSlugs": [],
@@ -53,7 +57,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073005",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073005"],
+      "gaugeKeys": [
+        "usgs:09073005"
+      ],
       "result": "No-add decision passed evidence, safety/access screening, independent verification, focused tests, full typecheck, production build verification, and rollback visibility checks. Publication was correctly withheld because the direct gauge is a regulated headwater reach without a named public paddling corridor, lawful endpoint pair, or station-specific route package.",
       "validation": {
         "evidence": true,
@@ -76,9 +82,15 @@
       "taskId": "co-state-coverage-baseline-01",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073005"],
-      "activeTaskIds": ["co-state-coverage-baseline-01"],
-      "completedTaskIds": ["co-state-coverage-gauge-review-batch-09073005"],
+      "gaugeKeys": [
+        "usgs:09073005"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09073005"
+      ],
       "nextQueuePointer": "usgs:09073300",
       "queueWindow": {
         "active": 0,
@@ -110,7 +122,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09072550",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09072550"],
+      "gaugeKeys": [
+        "usgs:09072550"
+      ],
       "result": "Bounded same-state research verified 09072550 as the direct USGS Roaring Fork River above Lost Man Creek near Aspen mainstem gauge. USGS materials place it near Lost Man campground above Lost Man Creek; the Upper Roaring Fork plan documents a steep/cascade corridor and material transbasin-diversion effects. American Whitewater documents the nearby Weller Lake to Difficult Campground Class V+ run, but ties that run to direct gauge 09073300 rather than 09072550. No complete station-tied public endpoint, recreational threshold, access/safety/camping, imagery, or geometry package cleared publication, so no route was added.",
       "evidence": [
         "docs/operations/gauge-inventory.json",
@@ -136,7 +150,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09072550",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09072550"],
+      "gaugeKeys": [
+        "usgs:09072550"
+      ],
       "result": "Independently verified the station identity and upper Roaring Fork location context, the historical station description and diversion remarks, the American Whitewater alternate direct gauge 09073300 for the Weller-to-Difficult run, and the management-plan flow and morphology cautions. Confirmed that no route, access registry entry, gallery asset, or geometry asset was added for 09072550.",
       "routeAdded": false,
       "routeSlugs": [],
@@ -151,7 +167,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09072550",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09072550"],
+      "gaugeKeys": [
+        "usgs:09072550"
+      ],
       "result": "No-add decision passed evidence, safety/access screening, independent verification, focused tests, full typecheck, production build verification, and rollback visibility checks. Publication was correctly withheld because the direct gauge lacks a complete station-tied route package and the documented nearby run uses 09073300.",
       "validation": {
         "evidence": true,
@@ -174,9 +192,15 @@
       "taskId": "co-state-coverage-baseline-01",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09072550"],
-      "activeTaskIds": ["co-state-coverage-baseline-01"],
-      "completedTaskIds": ["co-state-coverage-gauge-review-batch-09072550"],
+      "gaugeKeys": [
+        "usgs:09072550"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09072550"
+      ],
       "nextQueuePointer": "usgs:09073005",
       "queueWindow": {
         "active": 0,
@@ -208,7 +232,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09071295",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09071295"],
+      "gaugeKeys": [
+        "usgs:09071295"
+      ],
       "result": "Bounded same-state research verified that 09071295 is the direct USGS Grizzly Creek near Grizzly Lake headwater station at 39.7176278,-107.3177194, elevation 10,492.73 feet, with a 6.07-square-mile drainage area and continuous data beginning in 2022. The Forest Service materials describe the upper Grizzly Creek corridor as hiking access; the named paddling corridor at the lower Grizzly Creek/Colorado River access is a distinct reach tied to 09070500. No station-tied paddling corridor, lawful endpoint pair, recreational threshold, camping treatment, imagery, or geometry package cleared. No route was added.",
       "evidence": [
         "docs/operations/gauge-inventory.json",
@@ -232,7 +258,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09071295",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09071295"],
+      "gaugeKeys": [
+        "usgs:09071295"
+      ],
       "result": "Independently verified the USGS station identity, coordinates, elevation, drainage area, and data window; confirmed that upper Grizzly Creek hiking evidence and the lower Colorado River whitewater package refer to distinct reaches and gauges. Confirmed that no route, access registry entry, gallery asset, or geometry asset was added for 09071295.",
       "routeAdded": false,
       "routeSlugs": [],
@@ -247,7 +275,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09071295",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09071295"],
+      "gaugeKeys": [
+        "usgs:09071295"
+      ],
       "result": "No-add decision passed evidence, safety/access screening, independent verification, focused tests, full typecheck, production build verification, and rollback visibility checks. Publication was correctly withheld because 09071295 is an alpine headwater station without a named public paddling corridor, lawful endpoint pair, or station-specific route package.",
       "validation": {
         "evidence": true,
@@ -270,9 +300,15 @@
       "taskId": "co-state-coverage-baseline-01",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09071295"],
-      "activeTaskIds": ["co-state-coverage-baseline-01"],
-      "completedTaskIds": ["co-state-coverage-gauge-review-batch-09071295"],
+      "gaugeKeys": [
+        "usgs:09071295"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09071295"
+      ],
       "nextQueuePointer": "usgs:09072550",
       "queueWindow": {
         "active": 0,
@@ -304,7 +340,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09070500",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09070500"],
+      "gaugeKeys": [
+        "usgs:09070500"
+      ],
       "result": "Bounded same-state research verified the named Grizzly Creek to Two Rivers Park corridor, its direct USGS 09070500 association, exact public endpoint coordinates, and a 900–8,600 cfs American Whitewater correlation. RiverBrain corroborates the 6-mile Class II–III reach and access cautions; Glenwood Springs and CDOT corroborate the public ramps and launch context; the CWCB exhibit supports a conservative 1,250–5,500 cfs preferred band. No endpoint camping was assumed. The complete route package cleared publication gates.",
       "evidence": [
         "docs/operations/gauge-inventory.json",
@@ -319,7 +357,9 @@
         "https://www.codot.gov/projects/studies/glenwoodcanyonrestareas"
       ],
       "routeAdded": true,
-      "routeSlugs": ["grizzly-creek-two-rivers"],
+      "routeSlugs": [
+        "grizzly-creek-two-rivers"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -331,10 +371,14 @@
       "taskId": "co-state-coverage-gauge-review-batch-09070500",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09070500"],
+      "gaugeKeys": [
+        "usgs:09070500"
+      ],
       "result": "Independently verified the route object, direct station identity, American Whitewater endpoint coordinates and flow correlation, public Grizzly Creek and Two Rivers access, explicit no-endpoint-camping treatment, safety profile, CC BY 4.0 gallery attribution, generated access registry, canonical geometry, and separation from the adjacent South Canyon route at the shared Two Rivers boundary.",
       "routeAdded": true,
-      "routeSlugs": ["grizzly-creek-two-rivers"],
+      "routeSlugs": [
+        "grizzly-creek-two-rivers"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -346,7 +390,9 @@
       "taskId": "co-state-coverage-gauge-review-batch-09070500",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09070500"],
+      "gaugeKeys": [
+        "usgs:09070500"
+      ],
       "result": "Publication gate passed: evidence, direct-gauge identity, access/safety, independent verification, focused tests, production build verification, and rollback visibility all passed. The route is publishable as grizzly-creek-two-rivers.",
       "validation": {
         "evidence": true,
@@ -357,7 +403,9 @@
         "rollback": true
       },
       "routeAdded": true,
-      "routeSlugs": ["grizzly-creek-two-rivers"],
+      "routeSlugs": [
+        "grizzly-creek-two-rivers"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -369,9 +417,15 @@
       "taskId": "co-state-coverage-baseline-01",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09070500"],
-      "activeTaskIds": ["co-state-coverage-baseline-01"],
-      "completedTaskIds": ["co-state-coverage-gauge-review-batch-09070500"],
+      "gaugeKeys": [
+        "usgs:09070500"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09070500"
+      ],
       "nextQueuePointer": "usgs:09071295",
       "queueWindow": {
         "active": 0,
@@ -391,7 +445,9 @@
       },
       "latestGatekeeperId": "gatekeeper-current-continuation-202609030325-co-usgs-09070500-published",
       "routeAdded": true,
-      "routeSlugs": ["grizzly-creek-two-rivers"],
+      "routeSlugs": [
+        "grizzly-creek-two-rivers"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266049,11 +266105,27 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073300",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073300"],
+      "gaugeKeys": [
+        "usgs:09073300"
+      ],
       "result": "Bounded same-state research verified the direct USGS 09073300 Roaring Fork River station and the American Whitewater Weller Lake to Difficult Campground Class V+ reach. The reach-specific recreational-use assessment maps the corridor to this gauge and supplies 100 cfs minimum navigable, 200 cfs minimum acceptable, 300–400 cfs preferred, and 600 cfs maximum acceptable planning guidance. Access, Forest Service camping context, safety, seasonal, imagery, and duplicate-separation evidence cleared a guarded route package.",
-      "evidence": ["docs/operations/gauge-inventory.json", "https://waterdata.usgs.gov/monitoring-location/USGS-09073300/", "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09073300", "https://www.americanwhitewater.org/content/River/view/river-detail/2288/main", "https://site-media.americanwhitewater.org/Document_6009.pdf", "https://www.recreation.gov/camping/poi/10074127", "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fseprd632717.pdf", "https://www.coloradosmp.org/wp-content/uploads/2020/05/Upper-Roaring-Fork-River-Management-Plan.pdf", "https://commons.wikimedia.org/wiki/File%3ARoaring_Fork_River_%28Grottos_Day_Use_Area%29_on_Independence_Pass%2C_Colorado_%2830624681277%29.jpg", "src/data/routes/colorado.ts", "src/data/trip-details/colorado.ts"],
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09073300/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09073300",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2288/main",
+        "https://site-media.americanwhitewater.org/Document_6009.pdf",
+        "https://www.recreation.gov/camping/poi/10074127",
+        "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fseprd632717.pdf",
+        "https://www.coloradosmp.org/wp-content/uploads/2020/05/Upper-Roaring-Fork-River-Management-Plan.pdf",
+        "https://commons.wikimedia.org/wiki/File%3ARoaring_Fork_River_%28Grottos_Day_Use_Area%29_on_Independence_Pass%2C_Colorado_%2830624681277%29.jpg",
+        "src/data/routes/colorado.ts",
+        "src/data/trip-details/colorado.ts"
+      ],
       "routeAdded": true,
-      "routeSlugs": ["upper-roaring-fork-weller-difficult"],
+      "routeSlugs": [
+        "upper-roaring-fork-weller-difficult"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266065,10 +266137,14 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073300",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073300"],
+      "gaugeKeys": [
+        "usgs:09073300"
+      ],
       "result": "Independently verified the station identity, direct discharge metrics, named Weller-to-Difficult corridor, Class V+ hazards, station-tied flow preferences, public access sequence, nearby developed-camping context, rights-clean image attribution, network-traced canonical geometry, and approximate endpoint-anchor caveats. Confirmed route coverage is distinct from 09072550, 09073005, and the lower Colorado River packages.",
       "routeAdded": true,
-      "routeSlugs": ["upper-roaring-fork-weller-difficult"],
+      "routeSlugs": [
+        "upper-roaring-fork-weller-difficult"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266080,11 +266156,22 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073300",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073300"],
+      "gaugeKeys": [
+        "usgs:09073300"
+      ],
       "result": "Publication gate passed. The route has direct station telemetry, named access and threshold evidence, explicit Class V+/wood/cold-water/steep-access/seasonal boundaries, nearby camping treatment, rights-clean imagery, network-traced geometry, coordinate review with no failures, independent verification, focused tests, full typecheck, production build, and rollback visibility. Two review-level endpoint offsets are retained as explicit access-anchor caveats; no coordinate failure was accepted.",
-      "validation": {"evidence": true, "safety": true, "verification": true, "tests": true, "build": true, "rollback": true},
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
       "routeAdded": true,
-      "routeSlugs": ["upper-roaring-fork-weller-difficult"],
+      "routeSlugs": [
+        "upper-roaring-fork-weller-difficult"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266096,16 +266183,38 @@
       "taskId": "co-state-coverage-baseline-01",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073300"],
-      "activeTaskIds": ["co-state-coverage-baseline-01"],
-      "completedTaskIds": ["co-state-coverage-gauge-review-batch-09073300", "route-opportunity-co-usgs-09073300"],
+      "gaugeKeys": [
+        "usgs:09073300"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09073300",
+        "route-opportunity-co-usgs-09073300"
+      ],
       "nextQueuePointer": "usgs:09073400",
-      "queueWindow": {"active": 0, "ready": 1, "researching": 0, "maxGlobal": 20, "maxPerState": 5},
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
       "result": "Published upper-roaring-fork-weller-difficult for direct gauge 09073300, recorded the durable covered/route_capable/direct disposition, and advanced the Colorado state-coverage pointer to the next actual unreviewed inventory gauge 09073400. Virginia W57 records and unrelated worktree changes were preserved.",
-      "validation": {"evidence": true, "safety": true, "verification": true, "tests": true, "build": true, "rollback": true},
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
       "latestGatekeeperId": "gatekeeper-current-continuation-202609030700-co-usgs-09073300-published",
       "routeAdded": true,
-      "routeSlugs": ["upper-roaring-fork-weller-difficult"],
+      "routeSlugs": [
+        "upper-roaring-fork-weller-difficult"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266117,10 +266226,14 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073400",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073400"],
+      "gaugeKeys": [
+        "usgs:09073400"
+      ],
       "result": "Confirmed station identity and direct discharge telemetry, then bounded the South Gate to North Star Pedestrian Bridge corridor using current Pitkin County access, closure, wildlife, private-bank, parking, shuttle, and take-out rules. Recorded the 20 cfs mandatory closure floor, 60–600 cfs normal planning band, 60 cfs Wildwood trigger, and approximately 1.3 river miles.",
       "routeAdded": true,
-      "routeSlugs": ["roaring-fork-south-gate-north-star"],
+      "routeSlugs": [
+        "roaring-fork-south-gate-north-star"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266132,10 +266245,14 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073400",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073400"],
+      "gaugeKeys": [
+        "usgs:09073400"
+      ],
       "result": "Independently verified the station identity, direct discharge relationship, named public endpoints, current closure/access/wildlife/parking controls, rights-clean image attribution, network-traced geometry, and separation from adjacent Roaring Fork and prior Colorado route packages.",
       "routeAdded": true,
-      "routeSlugs": ["roaring-fork-south-gate-north-star"],
+      "routeSlugs": [
+        "roaring-fork-south-gate-north-star"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266147,11 +266264,22 @@
       "taskId": "co-state-coverage-gauge-review-batch-09073400",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073400"],
+      "gaugeKeys": [
+        "usgs:09073400"
+      ],
       "result": "Publication gate passed after evidence, safety, independent verification, focused tests, full typecheck, production build, geometry, gallery, and rollback checks. The route retains explicit current-closure, cold-water, low-water, private-bank, designated-access, parking, shuttle, and no-camping boundaries.",
-      "validation": {"evidence": true, "safety": true, "verification": true, "tests": true, "build": true, "rollback": true},
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
       "routeAdded": true,
-      "routeSlugs": ["roaring-fork-south-gate-north-star"],
+      "routeSlugs": [
+        "roaring-fork-south-gate-north-star"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266163,16 +266291,38 @@
       "taskId": "co-state-coverage-baseline-01",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09073400"],
-      "activeTaskIds": ["co-state-coverage-baseline-01"],
-      "completedTaskIds": ["co-state-coverage-gauge-review-batch-09073400", "route-opportunity-co-usgs-09073400"],
+      "gaugeKeys": [
+        "usgs:09073400"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09073400",
+        "route-opportunity-co-usgs-09073400"
+      ],
       "nextQueuePointer": "usgs:09076300",
-      "queueWindow": {"active": 0, "ready": 1, "researching": 0, "maxGlobal": 20, "maxPerState": 5},
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
       "result": "Published roaring-fork-south-gate-north-star for direct gauge 09073400, recorded the durable covered/route_capable/direct disposition, and advanced the Colorado state-coverage pointer to the next actual unreviewed inventory gauge 09076300. Virginia W57 records and unrelated worktree changes were preserved.",
-      "validation": {"evidence": true, "safety": true, "verification": true, "tests": true, "build": true, "rollback": true},
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
       "latestGatekeeperId": "gatekeeper-current-continuation-202609030800-co-usgs-09073400-published",
       "routeAdded": true,
-      "routeSlugs": ["roaring-fork-south-gate-north-star"],
+      "routeSlugs": [
+        "roaring-fork-south-gate-north-star"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266184,10 +266334,14 @@
       "taskId": "co-state-coverage-gauge-review-batch-09076300",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09076300"],
+      "gaugeKeys": [
+        "usgs:09076300"
+      ],
       "result": "Confirmed station identity and direct discharge telemetry, then bounded the Henry Stein Park to Wilton Jaffee Sr. Park Slaughterhouse corridor using Pitkin County and City of Aspen public-access evidence, American Whitewater Class IV–V hazards, and the station-tied recreational assessment. Recorded 100 cfs minimum navigable, 450 cfs minimum acceptable, 800–1,700 cfs preferred, and 3,000 cfs maximum acceptable planning values.",
       "routeAdded": true,
-      "routeSlugs": ["roaring-fork-slaughterhouse"],
+      "routeSlugs": [
+        "roaring-fork-slaughterhouse"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266199,10 +266353,14 @@
       "taskId": "co-state-coverage-gauge-review-batch-09076300",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09076300"],
+      "gaugeKeys": [
+        "usgs:09076300"
+      ],
       "result": "Independently verified the station identity, direct discharge relationship, named public endpoints, current access/permit/parking rules, Slaughterhouse hazards, rights-clean image attribution, network-traced geometry, approximate endpoint-anchor treatment, and separation from North Star and downstream Woody Creek/Toothache opportunities.",
       "routeAdded": true,
-      "routeSlugs": ["roaring-fork-slaughterhouse"],
+      "routeSlugs": [
+        "roaring-fork-slaughterhouse"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266214,11 +266372,22 @@
       "taskId": "co-state-coverage-gauge-review-batch-09076300",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09076300"],
+      "gaugeKeys": [
+        "usgs:09076300"
+      ],
       "result": "Publication gate passed after evidence, safety, independent verification, focused tests, full typecheck, production build, geometry, gallery, and rollback checks. The route retains explicit expert-only, 100–3,000 cfs, Slaughterhouse Falls, bridge/wood, cold-water, private-bank, permit, designated-access, and no-camping boundaries.",
-      "validation": {"evidence": true, "safety": true, "verification": true, "tests": true, "build": true, "rollback": true},
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
       "routeAdded": true,
-      "routeSlugs": ["roaring-fork-slaughterhouse"],
+      "routeSlugs": [
+        "roaring-fork-slaughterhouse"
+      ],
       "validationStatus": "passed"
     },
     {
@@ -266230,18 +266399,235 @@
       "taskId": "co-state-coverage-baseline-01",
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
-      "gaugeKeys": ["usgs:09076300"],
-      "activeTaskIds": ["co-state-coverage-baseline-01"],
-      "completedTaskIds": ["co-state-coverage-gauge-review-batch-09076300", "route-opportunity-co-usgs-09076300"],
+      "gaugeKeys": [
+        "usgs:09076300"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09076300",
+        "route-opportunity-co-usgs-09076300"
+      ],
       "nextQueuePointer": "usgs:09080400",
-      "queueWindow": {"active": 0, "ready": 1, "researching": 0, "maxGlobal": 20, "maxPerState": 5},
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
       "result": "Published roaring-fork-slaughterhouse for direct gauge 09076300, recorded the durable covered/route_capable/direct disposition, and advanced the Colorado state-coverage pointer to the next actual unreviewed inventory gauge 09080400. Virginia W57 records and unrelated worktree changes were preserved.",
-      "validation": {"evidence": true, "safety": true, "verification": true, "tests": true, "build": true, "rollback": true},
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
       "latestGatekeeperId": "gatekeeper-current-continuation-202609030900-co-usgs-09076300-published",
       "routeAdded": true,
-      "routeSlugs": ["roaring-fork-slaughterhouse"],
+      "routeSlugs": [
+        "roaring-fork-slaughterhouse"
+      ],
       "validationStatus": "passed"
+    },
+    {
+      "id": "route-research-current-continuation-202609030912-co-usgs-09080400-blocked",
+      "kind": "route_research",
+      "startedAt": "2026-09-03T09:12:00Z",
+      "completedAt": "2026-09-03T09:15:00Z",
+      "status": "completed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09080400",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09080400"
+      ],
+      "result": "Bounded same-state research confirmed live direct USGS discharge and gage-height telemetry at Fryingpan River near Ruedi. Official USBR and watershed material establishes the 14-mile below-Ruedi recreational corridor and documents public-access limits, private-bank control, and release-driven flow conditions; American Whitewater and paddling references establish plausible Class IV whitewater use toward Basalt. No current station-tied public endpoint pair or recreational threshold package was verified, so no route was added.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09080400/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09080400",
+        "https://www.usbr.gov/gp/ecao/ruedi_final_ea.pdf",
+        "https://www.roaringfork.org/your-watershed/fryingpan-river/",
+        "https://pitkincounty.com/DocumentCenter/View/1350/Water-and-Its-Relationship-to-the-Economies-of-the-Headwaters-Counties-PDF?bidId=",
+        "https://www.americanwhitewater.org/accident/jun-21-2015-fryingpan/",
+        "https://www.southwestpaddler.com/docs/roaring7.html"
+      ],
+      "routeAdded": false,
+      "routeSlugs": [],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-current-continuation-202609030915-co-usgs-09080400-blocked",
+      "kind": "independent_verification",
+      "startedAt": "2026-09-03T09:15:00Z",
+      "completedAt": "2026-09-03T09:17:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09080400",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09080400"
+      ],
+      "result": "Independently verified the station identity, direct telemetry, below-Ruedi corridor, public recreation context, private-access limitations, cold-water and release-change hazards, and the distinction between reservoir ramps/fishing access and a lawful point-to-point tailwater launch sequence. Confirmed the evidence does not support a publishable station-specific threshold and endpoint package.",
+      "routeAdded": false,
+      "routeSlugs": [],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-current-continuation-202609030910-co-usgs-09080400-blocked",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-03T09:17:00Z",
+      "completedAt": "2026-09-03T09:19:00Z",
+      "status": "passed_no_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09080400",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09080400"
+      ],
+      "result": "No-add gate passed. The durable blocked/route-capable disposition is supported by direct current telemetry, precise retry blockers, independent verification, focused artifact checks, and a bounded rollback path. Publication was correctly withheld because endpoint and station-tied recreational-threshold gates remain unresolved.",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
+      "routeAdded": false,
+      "routeSlugs": [],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-current-continuation-202609030920-co-usgs-09080400-blocked",
+      "kind": "controller",
+      "startedAt": "2026-09-03T09:19:00Z",
+      "completedAt": "2026-09-03T09:20:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09080400"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09080400"
+      ],
+      "nextQueuePointer": "usgs:09081000",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "result": "Recorded the durable blocked/route-capable/direct disposition for 09080400, withheld route publication pending materially new station-tied endpoint and threshold evidence, and advanced the Colorado state-coverage pointer to the next actual unreviewed inventory gauge 09081000. Virginia W57 records and unrelated worktree changes were preserved.",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-current-continuation-202609030910-co-usgs-09080400-blocked",
+      "routeAdded": false,
+      "routeSlugs": [],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-20260829114951",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-29T11:49:13.580Z",
+      "completedAt": "2026-08-29T11:49:51.911Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260829115040",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-29T11:50:01.740Z",
+      "completedAt": "2026-08-29T11:50:40.553Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-20260829115606-no-work",
+      "kind": "independent_verifier",
+      "startedAt": "2026-08-29T11:56:06.657Z",
+      "completedAt": "2026-08-29T11:56:06.657Z",
+      "status": "no_work",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "wipLimit": "passed",
+        "eligibility": "passed",
+        "routeAndTripDetailCorpusRead": "passed",
+        "coordinateGeometrySafetyArtifactsParsed": "passed",
+        "existingWorkingTreePreserved": "passed"
+      },
+      "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 37 materialized consolidation tasks are terminal (36 completed, one blocked), zero reviews are active or ready, and five queue findings remain new medium-priority items without materialized tasks. Read all 23 route modules and 23 trip-detail modules, the route-corridor registry, and 1,193 coordinate, geometry, safety, access, and corridor JSON artifacts with zero parse failures. No route, corridor, queue, trip-detail, or audit record was changed by this run; pre-existing gauge, task, and future-dated operations edits were preserved. Focused audits and npm run operations:verify were skipped because no task was selected."
     }
-  ],
-  "updatedAt": "2026-09-03T09:10:00Z"
+  ]
 }

@@ -148,6 +148,15 @@ const roaringForkSlaughterhousePhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
 };
 
+const roaringForkBasaltCarbondalePhoto: RouteGalleryPhoto = {
+  id: 'roaring-fork-basalt-carbondale-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Roaring%20Fork%20River%20in%20Basalt%2C%20Colorado.JPG?width=1600',
+  alt: 'The Roaring Fork River in Basalt, Colorado, along the Basalt-to-Carbondale corridor.',
+  caption: 'Roaring Fork River in Basalt corridor context; not a rapid or endpoint image',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
 const arkansasGraniteBuenaVistaPhoto: RouteGalleryPhoto = {
   id: 'arkansas-granite-boat-chute-commons',
   src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Granite%20Boat%20Chute%203.JPG?width=1600',
@@ -299,6 +308,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'upper-roaring-fork-weller-difficult': [upperRoaringForkWellerDifficultPhoto],
   'roaring-fork-south-gate-north-star': [roaringForkSouthGateNorthStarPhoto],
   'roaring-fork-slaughterhouse': [roaringForkSlaughterhousePhoto],
+  'roaring-fork-basalt-carbondale': [roaringForkBasaltCarbondalePhoto],
   'grizzly-creek-two-rivers': [grizzlyCreekTwoRiversPhoto],
   'lower-colorado-two-rivers-south-canyon': [lowerColoradoTwoRiversSouthCanyonPhoto],
   'james-river-bent-creek-state-park': [

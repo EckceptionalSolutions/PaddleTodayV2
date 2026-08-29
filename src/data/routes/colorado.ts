@@ -97,6 +97,20 @@ const roaringForkSlaughterhouseSteinUrl = 'https://www.aspenrecreation.com/parks
 const roaringForkSlaughterhouseRulesUrl = 'https://pitkincounty.com/DocumentCenter/View/2289';
 const roaringForkSlaughterhouseGorgePlanUrl = 'https://pitkincounty.com/DocumentCenter/View/1318/Roaring-Fork-Gorge-Management-Plan-PDF';
 const roaringForkSlaughterhouseImageUrl = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Roaring%20Fork%20River%20in%20Aspen%20%2891197%29a.jpg?width=1600';
+const roaringForkBasaltCarbondaleAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/1463/main';
+const roaringForkBasaltCarbondaleUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-09081000/';
+const roaringForkBasaltCarbondaleUsgsHydrographUrl = 'https://waterdata.usgs.gov/co/nwis/uv/?site_no=09081000';
+const roaringForkBasaltCarbondaleAssessmentUrl = 'https://site-media.americanwhitewater.org/Document_6009.pdf';
+const roaringForkBasaltCarbondalePitkinAccessUrl = 'https://pitkincountyrivers.com/projects/fishermans-park-boat-ramp-boardwalk/';
+const roaringForkBasaltCarbondaleBasaltParksUrl = 'https://www.basalt.net/390/Parks';
+const roaringForkBasaltCarbondaleCpwUrl = 'https://cpw.state.co.us/state-wildlife-areas/bob-terrell-swa';
+const roaringForkBasaltCarbondaleCpwMapUrl = 'https://cpw.state.co.us/sites/default/files/dam/qcdqhuzbdi/bobterrell_roaringforkswa_geo.pdf';
+const roaringForkBasaltCarbondaleAwAccessUrl = 'https://www.americanwhitewater.org/content/Article/view/article_id/34473/display/full/';
+const roaringForkBasaltCarbondaleUserGuideUrl = 'https://roaringfork.org/media/2629/2023-lower-roaring-fork-river-user-guide_final.pdf';
+const roaringForkBasaltCarbondaleCarbondalePlanUrl = 'https://cms7files.revize.com/carbondale/Carbondale-Gateway-River-Park-Site-Plan-Master-Plan-Report.pdf';
+const roaringForkBasaltCarbondaleSafetyUrl = 'https://www.americanwhitewater.org/accident/jun-8-2024-roaring-fork/';
+const roaringForkBasaltCarbondaleRcmapUrl = 'https://www.usgs.gov/centers/colorado-water-science-center/science/rcmap-roaring-fork-river-basalt-colorado';
+const roaringForkBasaltCarbondaleImageUrl = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Roaring%20Fork%20River%20in%20Basalt%2C%20Colorado.JPG?width=1600';
 const clearCreekUpperAwUrl = 'https://www.americanwhitewater.org/content/River/view/river-detail/4257/main';
 const clearCreekUpperBoaterBetaUrl = 'https://www.boaterbetaco.com/segment_detail/frso-06_clear-creek_upper-canyon-kermits/';
 const clearCreekUpperUsgsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-06716500/';
@@ -2092,6 +2106,180 @@ export const coloradoRoutes: River[] = [
       { label: 'Pitkin County open-space regulations', url: roaringForkSlaughterhouseRulesUrl, provider: 'local' },
       { label: 'Pitkin County Roaring Fork Gorge Management Plan', url: roaringForkSlaughterhouseGorgePlanUrl, provider: 'local' },
       { label: 'Wikimedia Commons Roaring Fork River in Aspen image', url: roaringForkSlaughterhouseImageUrl, provider: 'manual' },
+    ],
+    scoreEligibility: 'scored',
+  },
+  {
+    id: 'roaring-fork-basalt-carbondale',
+    riverId: 'roaring-fork-river',
+    slug: 'roaring-fork-basalt-carbondale',
+    name: 'Roaring Fork River',
+    reach: 'Fisherman’s Park to Bob Terrell State Wildlife Area',
+    aliases: ['Basalt to Carbondale', 'Middle Roaring Fork', 'Fisherman’s Park to Bob Terrell'],
+    state: 'Colorado',
+    region: 'Roaring Fork Valley / Basalt to Carbondale',
+    routeType: 'whitewater',
+    summary: 'A guarded approximately 11.5-mile Class III+ Roaring Fork reach from the public Fisherman’s Park access in Basalt to the Bob Terrell State Wildlife Area take-out, paired directly with USGS 09081000 near Emma.',
+    statusText: 'Use direct USGS 09081000 Roaring Fork River near Emma for the flow check. The reach-specific recreational assessment maps Basalt to Carbondale to this station and reports 100 cfs minimum navigable, 450 cfs minimum acceptable, 800–3,000 cfs preferred, and 5,000 cfs maximum acceptable planning thresholds. Keep the route unavailable outside 100–5,000 cfs, when rapidly changing or unavailable, when the whitewater-park boundary or access is unclear, or when current scouting, cold-water/rescue readiness, and a lawful shuttle are inadequate. These values are planning thresholds, not a safety guarantee.',
+    latitude: 39.367508,
+    longitude: -107.035886,
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'fast_rise', 'cold_water', 'strainers', 'private_banks', 'access_uncertain', 'mandatory_takeout'],
+      safetyNotes: [
+        'American Whitewater rates the Basalt-to-Carbondale reach Class III+ and lists approximately 11.5 miles with the Emma gauge. This is a committed moving-water run for competent Class III boaters with rescue capability, not a beginner or casual flatwater float.',
+        'The assessment maps this reach to USGS 09081000 and reports 100 cfs minimum navigable, 450 cfs minimum acceptable, 800–3,000 cfs preferred, and 5,000 cfs maximum acceptable. The assessment cautions that gauge thresholds may not exactly represent every rapid because tributaries and diversions intervene; use the values as planning cues with a same-day local visual check.',
+        'Fisherman’s Park is at the east end of the Basalt Whitewater Park. The assessment excluded the whitewater-park structures from its reach evaluation while safety modifications were ongoing; inspect current signs and construction, and scout, portage, or postpone rather than treating the engineered features as automatically runnable.',
+        'Expect cold snowmelt, fast-rising weather response, bridge and pier hazards, strainers, limited intermediate recovery, private banks, and changing commercial or recreational traffic. Wear a properly fitted PFD and cold-water protection and carry communication and rescue equipment.',
+        'Use only the named Fisherman’s Park access and Bob Terrell SWA ramp. Bob Terrell requires the current CPW license/pass rules for visitors age 16 and older, prohibits personal-watercraft launch/takeout, and is not permission to land on private banks or improvise intermediate exits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-09081000',
+      provider: 'usgs',
+      siteId: '09081000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Roaring Fork River near Emma, CO',
+      detailUrl: roaringForkBasaltCarbondaleUsgsDetailUrl,
+      hydrographUrl: roaringForkBasaltCarbondaleUsgsHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      tooLow: 100,
+      idealMin: 800,
+      idealMax: 3000,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'Basalt to Carbondale reach-specific flow preferences',
+        url: roaringForkBasaltCarbondaleAssessmentUrl,
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes: 'Snowmelt, rainfall, diversions, debris, commercial traffic, and cold water can change conditions quickly. The reach is principally a late-spring through summer opportunity; check direct discharge and trend, weather, access status, and a same-day river visual before launching.',
+      difficulty: 'hard',
+      difficultyNotes: 'American Whitewater rates the reach Class III+ and the corridor includes a whitewater-park boundary, bridge/pier hazards, cold water, strainers, and limited recovery. Preserve experienced-paddler, scout/portage, and rescue-readiness framing.',
+      confidenceNotes: 'High corridor and direct-gauge confidence: American Whitewater names the 11.5-mile Basalt-to-Carbondale reach and 09081000 gauge, the station-tied assessment supplies flow preferences, Pitkin County/Basalt document Fisherman’s Park access, and CPW documents the Bob Terrell non-motorized boat ramp. Endpoint coordinates are public mapping anchors and must be checked against current signs, ramp conditions, and closures on site.',
+    },
+    putIn: {
+      name: 'Fisherman’s Park public boat ramp / Basalt Whitewater Park east end',
+      latitude: 39.367508,
+      longitude: -107.035886,
+    },
+    takeOut: {
+      name: 'Bob Terrell State Wildlife Area non-motorized boat ramp',
+      latitude: 39.4152,
+      longitude: -107.224,
+    },
+    logistics: {
+      distanceLabel: 'Approximately 11.5 river miles',
+      estimatedPaddleTime: 'Plan a full daylight window for Class III+ scouting, whitewater-park boundary review, bridge and wood review, cold-water preparation, breaks, and shuttle timing.',
+      shuttle: 'Stage the Bob Terrell SWA take-out, then shuttle to Fisherman’s Park through the Basalt/Carbondale corridor. Confirm current CPW access, license/pass, parking, ramp conditions, construction, traffic, and daylight before unloading.',
+      permits: 'Follow current Colorado Parks and Wildlife license/pass and State Wildlife Area rules, Town of Basalt/Pitkin County park and access rules, posted whitewater-park restrictions, commercial-use rules, and Colorado boating/PFD requirements. Bob Terrell allows non-motorized vessel launch/takeout but prohibits personal watercraft launch/takeout.',
+      camping: 'No endpoint or on-route camping is established. The named parks, ramp, and river guide are day-use access contexts, and camping is prohibited in the documented lower Roaring Fork corridor. Use separate lawful lodging or a designated campground reservation; never camp on private banks, at the ramp, or in the whitewater park.',
+      campingClassification: 'none',
+      summary: 'A guarded public Basalt-to-Carbondale reach with direct 09081000 telemetry, station-tied 100–5,000 cfs planning bounds and an 800–3,000 cfs preferred band, named public endpoints, whitewater-park and bridge hazards, CPW take-out rules, and no endpoint camping.',
+      accessCaveats: [
+        'Use Fisherman’s Park as the documented upstream public ramp and Bob Terrell SWA as the documented downstream non-motorized ramp. The Fisherman’s coordinate is an approximate river/bridge access anchor; verify the signed launch, parking, water entry, and current construction or closure status on site.',
+        'Fisherman’s Park sits at the east end of Basalt Whitewater Park. The reach assessment excludes the park structures while safety modifications were ongoing; do not assume every feature is open or appropriate. Scout, portage, or postpone under current signage and local direction.',
+        'Bob Terrell is a CPW State Wildlife Area access. Carry the current required license/pass for visitors age 16 and older, follow posted parking and vessel rules, and do not launch or take out personal watercraft there.',
+        'The Roaring Fork corridor includes private banks, bridges, diversions, commercial traffic, and limited intermediate public access. Stay on the water except at documented lawful access, do not trespass for scouting or portage, and end at Bob Terrell before the separate lower Roaring Fork/Colorado River corridors.',
+      ],
+      watchFor: [
+        'USGS 09081000 below 100 cfs, above 5,000 cfs, rapidly rising/falling, unavailable, or inconsistent with the reach assessment and local visual check',
+        'Class III+ current, Basalt Whitewater Park structures or construction, bridge/pier hazards, strainers, cold water, debris, commercial traffic, private banks, and limited recovery',
+        'Fisherman’s Park parking/access changes, CPW license/pass and Bob Terrell vessel restrictions, closures, and failure to exit at the named SWA ramp before continuing downstream',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'roaring-fork-basalt-carbondale-put-in',
+        name: 'Fisherman’s Park public boat ramp / Basalt Whitewater Park east end',
+        latitude: 39.367508,
+        longitude: -107.035886,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'Approximate Basalt riverfront mapping anchor for the Fisherman’s Park access context; it is not a surveyed ramp coordinate. Pitkin County and Basalt identify public river access and a boat launch; confirm the signed launch corridor, parking, water entry, and current whitewater-park construction or closure status on site.',
+      },
+      {
+        id: 'roaring-fork-basalt-carbondale-take-out',
+        name: 'Bob Terrell State Wildlife Area non-motorized boat ramp',
+        latitude: 39.4152,
+        longitude: -107.224,
+        mileFromStart: 11.5,
+        segmentKind: 'transition',
+        note: 'Approximate CPW mapping/directions anchor for the Bob Terrell non-motorized boat ramp. Carry the current CPW license/pass where required, obey posted vessel and parking rules, and verify the physical ramp and take-out before committing to the reach.',
+      },
+    ],
+    evidenceNotes: [
+      {
+        label: 'Named public corridor',
+        value: 'Basalt to Carbondale; approximately 11.5 miles; Class III+',
+        note: 'American Whitewater names the Basalt-to-Carbondale reach, its difficulty, length, and association with the Roaring Fork River near Emma gauge. The route record uses Fisherman’s Park and Bob Terrell as the documented public endpoint pair.',
+        sourceUrl: roaringForkBasaltCarbondaleAwUrl,
+      },
+      {
+        label: 'Direct live gauge and flow gate',
+        value: 'USGS 09081000; 100 cfs minimum navigable, 450 cfs minimum acceptable, 800–3,000 cfs preferred, 5,000 cfs maximum acceptable',
+        note: 'USGS provides continuous discharge and gage-height telemetry. The Roaring Fork recreational-use assessment maps Reach 7, Basalt to Carbondale, directly to 09081000 and reports station-tied user flow preferences, while cautioning that tributaries and diversions can make local conditions differ.',
+        sourceUrl: roaringForkBasaltCarbondaleAssessmentUrl,
+      },
+      {
+        label: 'Lawful endpoint access',
+        value: 'Fisherman’s Park public boat ramp to Bob Terrell SWA non-motorized boat ramp',
+        note: 'Pitkin County/Basalt document Fisherman’s Park river access and boat-launch improvements. CPW documents Bob Terrell as a non-motorized boat ramp and provides the access map and directions. Coordinates remain approximate planning anchors requiring on-site confirmation.',
+        sourceUrl: roaringForkBasaltCarbondalePitkinAccessUrl,
+      },
+      {
+        label: 'Safety boundary',
+        value: 'Advanced Class III+ reach; whitewater-park structures, bridge/pier, wood, cold-water, and limited-recovery hazards',
+        note: 'American Whitewater rates the reach Class III+. The assessment excludes Basalt Whitewater Park structures while safety modifications were ongoing, the USGS RCMAP documents bridge/pier hazards near the monitoring reach, and an American Whitewater incident record supports an explicit Basalt park hazard boundary.',
+        sourceUrl: roaringForkBasaltCarbondaleAwAccessUrl,
+      },
+      {
+        label: 'Launch rules and logistics',
+        value: 'Pitkin County/Basalt public ramp context; CPW Bob Terrell license/pass and non-motorized vessel rules',
+        note: 'Fisherman’s Park is a public river-access/boat-launch facility. CPW allows vessel launch and takeout at Bob Terrell subject to current State Wildlife Area rules and prohibits personal watercraft launch/takeout; stage the shuttle and verify signs before unloading.',
+        sourceUrl: roaringForkBasaltCarbondaleCpwUrl,
+      },
+      {
+        label: 'Camping and private-property context',
+        value: 'No endpoint camping; day-use public access and private-bank boundaries',
+        note: 'The lower Roaring Fork user guide identifies camping as prohibited in its managed corridor and documents bridge, parking, access, and river-user restrictions. This route uses a day-float model with separate lawful lodging or campground support and no private-bank landings.',
+        sourceUrl: roaringForkBasaltCarbondaleUserGuideUrl,
+      },
+      {
+        label: 'Rights-clean image decision',
+        value: 'Approved Wikimedia Commons CC BY 4.0 Roaring Fork River in Basalt image',
+        note: 'The selected Jeffrey Beall photograph depicts the Roaring Fork in Basalt and is used as corridor context, not as a claim that it shows a specific rapid or the Bob Terrell ramp. Retain the Commons attribution and CC BY 4.0 terms.',
+        sourceUrl: roaringForkBasaltCarbondaleImageUrl,
+      },
+      {
+        label: 'Duplicate separation',
+        value: 'Distinct Basalt-to-Carbondale 09081000 reach ending at Bob Terrell before lower Roaring Fork/Colorado River routes',
+        note: 'This route is separate from the upper 09076300 Slaughterhouse gorge and 09073400 North Star float, and it ends at Bob Terrell before the lower Roaring Fork and Colorado River route families. The station-tied assessment and endpoint pair define a separate reach.',
+        sourceUrl: roaringForkBasaltCarbondaleAwUrl,
+      },
+    ],
+    sourceLinks: [
+      { label: 'American Whitewater Basalt to Carbondale reach', url: roaringForkBasaltCarbondaleAwUrl, provider: 'american_whitewater' },
+      { label: 'USGS 09081000 monitoring location', url: roaringForkBasaltCarbondaleUsgsDetailUrl, provider: 'usgs' },
+      { label: 'USGS 09081000 current conditions', url: roaringForkBasaltCarbondaleUsgsHydrographUrl, provider: 'usgs' },
+      { label: 'Roaring Fork River Recreational Use Assessment', url: roaringForkBasaltCarbondaleAssessmentUrl, provider: 'american_whitewater' },
+      { label: 'Pitkin County Fisherman’s Park boat ramp project', url: roaringForkBasaltCarbondalePitkinAccessUrl, provider: 'local' },
+      { label: 'Town of Basalt parks and Fisherman’s Park access', url: roaringForkBasaltCarbondaleBasaltParksUrl, provider: 'local' },
+      { label: 'Colorado Parks and Wildlife Bob Terrell SWA', url: roaringForkBasaltCarbondaleCpwUrl, provider: 'local' },
+      { label: 'CPW Bob Terrell and Roaring Fork SWA map', url: roaringForkBasaltCarbondaleCpwMapUrl, provider: 'local' },
+      { label: 'American Whitewater Bob Terrell access article', url: roaringForkBasaltCarbondaleAwAccessUrl, provider: 'american_whitewater' },
+      { label: 'Roaring Fork lower-river user guide', url: roaringForkBasaltCarbondaleUserGuideUrl, provider: 'local' },
+      { label: 'Carbondale Gateway River Park site plan', url: roaringForkBasaltCarbondaleCarbondalePlanUrl, provider: 'local' },
+      { label: 'American Whitewater Basalt incident record', url: roaringForkBasaltCarbondaleSafetyUrl, provider: 'american_whitewater' },
+      { label: 'USGS Roaring Fork RCMAP safety context', url: roaringForkBasaltCarbondaleRcmapUrl, provider: 'usgs' },
+      { label: 'Wikimedia Commons Roaring Fork River in Basalt image', url: roaringForkBasaltCarbondaleImageUrl, provider: 'manual' },
     ],
     scoreEligibility: 'scored',
   },

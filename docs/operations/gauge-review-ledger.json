@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T09:10:00Z",
+  "updatedAt": "2026-09-03T09:20:00Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
@@ -113664,18 +113664,32 @@
     },
     {
       "key": "usgs:09080400",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
+      "status": "blocked",
+      "routeReadiness": "candidate",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-09-03T09:20:00Z",
+      "decisionReason": "Bounded same-state review confirms a live direct USGS gauge on the Fryingpan River below Ruedi Dam and a plausible whitewater corridor toward Basalt, but the route publication gates do not clear. The official USBR Ruedi assessment describes recreation and outfitter use below the dam while documenting limited public river access, private-bank control, and flow-management effects; American Whitewater records a Class IV Taylor Creek-to-Basalt reach and a high-water/cold-water incident, but no current station-tied public endpoint pair and recreational threshold package was verified for 09080400. Preserve as a route-capable retry candidate rather than inventing endpoints or thresholds.",
+      "decisionSource": "current_continuation_route_research",
       "routeSlugs": [],
       "scoredRouteSlugs": [],
-      "routeFamilies": [],
-      "blockers": [],
-      "evidence": []
+      "routeFamilies": ["Fryingpan River"],
+      "blockers": [
+        "No verified current public put-in/take-out pair is tied to the 09080400 station for a one-way paddling route; reservoir ramps and fishing access do not establish a tailwater endpoint package.",
+        "No station-tied recreational minimum/optimal/maximum flow thresholds were verified; available official flow values describe reservoir, fishery, or environmental management rather than paddleability.",
+        "Official material documents limited public access, alternating private-bank control, cold water, and release-driven flow changes; a complete route-specific access and safety treatment is not defensible without stronger endpoint evidence.",
+        "Camping/logistics, coordinate, imagery, and geometry gates cannot be completed responsibly until a lawful distinct endpoint pair and station-specific threshold model are established."
+      ],
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09080400/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09080400",
+        "https://www.usbr.gov/gp/ecao/ruedi_final_ea.pdf",
+        "https://www.roaringfork.org/your-watershed/fryingpan-river/",
+        "https://pitkincounty.com/DocumentCenter/View/1350/Water-and-Its-Relationship-to-the-Economies-of-the-Headwaters-Counties-PDF?bidId=",
+        "https://www.americanwhitewater.org/accident/jun-21-2015-fryingpan/",
+        "https://www.southwestpaddler.com/docs/roaring7.html"
+      ]
     },
     {
       "key": "usgs:09081000",

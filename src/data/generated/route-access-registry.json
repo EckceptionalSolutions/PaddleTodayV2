@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-29T11:34:26.704Z",
-  "auditGeneratedAt": "2026-08-29T11:22:04.439Z",
+  "generatedAt": "2026-08-29T11:59:56.898Z",
+  "auditGeneratedAt": "2026-08-29T11:34:45.187Z",
   "summary": {
-    "entryCount": 1846,
+    "entryCount": 1848,
     "repeatedEntryCount": 559,
     "conflictCount": 2,
     "distinctLocationNameCount": 0,
@@ -4587,6 +4587,86 @@
       ]
     },
     {
+      "id": "colorado--bob-terrell-state-wildlife-area-non-motorized-boat-ramp",
+      "state": "Colorado",
+      "name": "Bob Terrell State Wildlife Area non-motorized boat ramp",
+      "aliases": [
+        "Bob Terrell State Wildlife Area non-motorized boat ramp"
+      ],
+      "sourceIds": [
+        "roaring-fork-basalt-carbondale-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.4152,
+        "longitude": -107.224
+      },
+      "accessCoordinate": {
+        "latitude": 39.4152,
+        "longitude": -107.224
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.41520,-107.22400",
+          "coordinate": {
+            "latitude": 39.4152,
+            "longitude": -107.224
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "roaring-fork-basalt-carbondale"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roaring-fork-basalt-carbondale",
+          "routeName": "Roaring Fork River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "roaring-fork-basalt-carbondale-take-out",
+          "name": "Bob Terrell State Wildlife Area non-motorized boat ramp",
+          "latitude": 39.4152,
+          "longitude": -107.224,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roaring-fork-basalt-carbondale",
+          "routeName": "Roaring Fork River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "roaring-fork-basalt-carbondale-take-out",
+          "name": "Bob Terrell State Wildlife Area non-motorized boat ramp",
+          "latitude": 39.4152,
+          "longitude": -107.224,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "colorado--buena-vista-whitewater-park-public-boat-ramp",
       "state": "Colorado",
       "name": "Buena Vista Whitewater Park public boat ramp",
@@ -5387,6 +5467,86 @@
       ]
     },
     {
+      "id": "colorado--fisherman-s-park-public-boat-ramp-basalt-whitewater-park-east-end",
+      "state": "Colorado",
+      "name": "Fisherman’s Park public boat ramp / Basalt Whitewater Park east end",
+      "aliases": [
+        "Fisherman’s Park public boat ramp / Basalt Whitewater Park east end"
+      ],
+      "sourceIds": [
+        "roaring-fork-basalt-carbondale-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.367508,
+        "longitude": -107.035886
+      },
+      "accessCoordinate": {
+        "latitude": 39.367508,
+        "longitude": -107.035886
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.36751,-107.03589",
+          "coordinate": {
+            "latitude": 39.367508,
+            "longitude": -107.035886
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "roaring-fork-basalt-carbondale"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roaring-fork-basalt-carbondale",
+          "routeName": "Roaring Fork River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "roaring-fork-basalt-carbondale-put-in",
+          "name": "Fisherman’s Park public boat ramp / Basalt Whitewater Park east end",
+          "latitude": 39.367508,
+          "longitude": -107.035886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roaring-fork-basalt-carbondale",
+          "routeName": "Roaring Fork River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "roaring-fork-basalt-carbondale-put-in",
+          "name": "Fisherman’s Park public boat ramp / Basalt Whitewater Park east end",
+          "latitude": 39.367508,
+          "longitude": -107.035886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "colorado--forest-service-visitor-center-eagle-river-access",
       "state": "Colorado",
       "name": "Forest Service Visitor Center Eagle River access",
@@ -5811,13 +5971,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryCoordinate": {
+        "latitude": 39.2108556,
+        "longitude": -106.8395917
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
@@ -5845,9 +6008,9 @@
           "name": "Henry Stein Park / Slaughterhouse Bridge river access",
           "latitude": 39.2108556,
           "longitude": -106.8395917,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 24.873962808390008,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -5859,9 +6022,9 @@
           "name": "Henry Stein Park / Slaughterhouse Bridge river access",
           "latitude": 39.2108556,
           "longitude": -106.8395917,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 24.873962808390008,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -6131,16 +6294,13 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 39.1768333,
-        "longitude": -106.7961111
-      },
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": true,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
@@ -6168,9 +6328,9 @@
           "name": "North Star Pedestrian Bridge / Stillwater Bridge take-out",
           "latitude": 39.1768333,
           "longitude": -106.7961111,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 37.59428160130198,
-          "endpointOnWaterbody": false,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -6182,9 +6342,9 @@
           "name": "North Star Pedestrian Bridge / Stillwater Bridge take-out",
           "latitude": 39.1768333,
           "longitude": -106.7961111,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 37.59428160130198,
-          "endpointOnWaterbody": false,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -6615,7 +6775,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -6648,9 +6808,9 @@
           "name": "South Gate designated river access",
           "latitude": 39.168008,
           "longitude": -106.789942,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 181.36071133811978,
-          "endpointOnWaterbody": false,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -6662,9 +6822,9 @@
           "name": "South Gate designated river access",
           "latitude": 39.168008,
           "longitude": -106.789942,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 181.36071133811978,
-          "endpointOnWaterbody": false,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -7136,9 +7296,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": false,
+      "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -7169,9 +7329,9 @@
           "name": "Wilton Jaffee Sr. Park boat ramp",
           "latitude": 39.2582333,
           "longitude": -106.8822167,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 105.18490505775925,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
         {
@@ -7183,9 +7343,9 @@
           "name": "Wilton Jaffee Sr. Park boat ramp",
           "latitude": 39.2582333,
           "longitude": -106.8822167,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 105.18490505775925,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]

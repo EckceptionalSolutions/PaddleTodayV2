@@ -63,6 +63,7 @@ const routeOrder = [
   "upper-roaring-fork-weller-difficult",
   "roaring-fork-south-gate-north-star",
   "roaring-fork-slaughterhouse",
+  "roaring-fork-basalt-carbondale",
   "grizzly-creek-two-rivers",
   "lower-colorado-two-rivers-south-canyon",
   "upper-clear-creek-kermits-county-line",
