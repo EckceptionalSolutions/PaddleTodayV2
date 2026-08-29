@@ -157,6 +157,15 @@ const roaringForkBasaltCarbondalePhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC BY 4.0',
 };
 
+const crystalRiverMarbleRedstonePhoto: RouteGalleryPhoto = {
+  id: 'crystal-river-marble-redstone-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Crystal%20River%20in%20Gunnison%20County%2C%20Colorado.JPG?width=1600',
+  alt: 'The Crystal River flowing downstream from a bridge between Marble and Highway 133 in Colorado.',
+  caption: 'Crystal River corridor between Marble and Highway 133',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
 const arkansasGraniteBuenaVistaPhoto: RouteGalleryPhoto = {
   id: 'arkansas-granite-boat-chute-commons',
   src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Granite%20Boat%20Chute%203.JPG?width=1600',
@@ -309,6 +318,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'roaring-fork-south-gate-north-star': [roaringForkSouthGateNorthStarPhoto],
   'roaring-fork-slaughterhouse': [roaringForkSlaughterhousePhoto],
   'roaring-fork-basalt-carbondale': [roaringForkBasaltCarbondalePhoto],
+  'crystal-river-marble-redstone': [crystalRiverMarbleRedstonePhoto],
   'grizzly-creek-two-rivers': [grizzlyCreekTwoRiversPhoto],
   'lower-colorado-two-rivers-south-canyon': [lowerColoradoTwoRiversSouthCanyonPhoto],
   'james-river-bent-creek-state-park': [

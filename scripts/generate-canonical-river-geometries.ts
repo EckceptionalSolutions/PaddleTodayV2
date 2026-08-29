@@ -59,6 +59,9 @@ const officialNetworkWaypoints: Record<string, Array<{ latitude: number; longitu
   'rice-creek-peltier-to-long-lake': [
     { latitude: 45.1637486, longitude: -93.1154357 }, // Aqua Lane, after the northern lake chain.
   ],
+  'crystal-river-marble-redstone': [
+    { latitude: 39.0997096, longitude: -107.261717 }, // Bogan Flats Campground / mid-reach anchor.
+  ],
 };
 
 async function loadCuratedRouteGeometries(routes: River[], includeGenerated = false) {
@@ -378,7 +381,13 @@ async function main() {
         .filter((line): line is Point[] => Boolean(line)),
     );
     const namedTrace = route.putIn && route.takeOut
-      ? endpointSnappedRiverGeometry(stitchRiverLines(namedLines), [route.putIn, route.takeOut])
+      ? endpointSnappedRiverGeometry(
+        stitchRiverLines(
+          namedLines,
+          route.id === 'crystal-river-marble-redstone' ? 0.03 : undefined,
+        ),
+        [route.putIn, route.takeOut],
+      )
       : null;
     const namedErrors = traceEndpointErrors(namedTrace?.coordinates ?? [], route);
     let trustedNetworkTrace: ReturnType<typeof endpointSnappedRiverNetwork> = null;
@@ -409,7 +418,17 @@ async function main() {
       ) ?? false;
       trustedNetworkTrace = networkTrace && networkIncludesNamedRoute ? networkTrace : null;
     }
-    const lines = trustedNetworkTrace ? [trustedNetworkTrace.coordinates] : namedLines;
+    const namedFallbackCoordinates = namedTrace && route.putIn && route.takeOut
+      ? (pointDistanceMiles(namedTrace.coordinates[0], [route.putIn.longitude, route.putIn.latitude])
+        <= pointDistanceMiles(namedTrace.coordinates.at(-1)!, [route.putIn.longitude, route.putIn.latitude])
+        ? namedTrace.coordinates
+        : [...namedTrace.coordinates].reverse())
+      : null;
+    const lines = trustedNetworkTrace
+      ? [trustedNetworkTrace.coordinates]
+      : route.id === 'crystal-river-marble-redstone' && namedFallbackCoordinates
+        ? [namedFallbackCoordinates]
+        : namedLines;
     if (lines.length === 0) continue;
     const publishedErrors = trustedNetworkTrace
       ? traceEndpointErrors(trustedNetworkTrace.coordinates, route)

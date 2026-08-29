@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T09:20:00Z",
+  "updatedAt": "2026-09-03T11:05:00Z",
   "reviews": [
     {
       "key": "mn_dnr:01022001",
@@ -113693,33 +113693,68 @@
     },
     {
       "key": "usgs:09081000",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "routeReadiness": "published",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-09-03T10:05:00Z",
+      "decisionReason": "Bounded same-state review cleared the Fisherman’s Park to Bob Terrell State Wildlife Area Basalt-to-Carbondale reach for publication. American Whitewater names the approximately 11.5-mile Class III+ corridor and direct 09081000 gauge; the Roaring Fork recreational-use assessment maps the reach directly to 09081000 and supplies 100 cfs minimum navigable, 450 cfs minimum acceptable, 800–3,000 cfs preferred, and 5,000 cfs maximum acceptable planning thresholds. Pitkin County/Basalt document Fisherman’s Park access, CPW documents the Bob Terrell non-motorized ramp and rules, and the route is published with explicit whitewater-park, bridge/pier, cold-water, private-bank, approximate-coordinate, no-camping, and mandatory-takeout boundaries.",
+      "decisionSource": "current_continuation_route_research",
+      "routeSlugs": [
+        "roaring-fork-basalt-carbondale"
+      ],
+      "scoredRouteSlugs": [
+        "roaring-fork-basalt-carbondale"
+      ],
+      "routeFamilies": [
+        "Roaring Fork River"
+      ],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09081000/",
+        "https://waterdata.usgs.gov/co/nwis/uv/?site_no=09081000",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1463/main",
+        "https://site-media.americanwhitewater.org/Document_6009.pdf",
+        "https://pitkincountyrivers.com/projects/fishermans-park-boat-ramp-boardwalk/",
+        "https://www.basalt.net/390/Parks",
+        "https://cpw.state.co.us/state-wildlife-areas/bob-terrell-swa",
+        "https://cpw.state.co.us/sites/default/files/dam/qcdqhuzbdi/bobterrell_roaringforkswa_geo.pdf",
+        "https://www.americanwhitewater.org/content/Article/view/article_id/34473/display/full/",
+        "https://roaringfork.org/media/2629/2023-lower-roaring-fork-river-user-guide_final.pdf",
+        "https://cms7files.revize.com/carbondale/Carbondale-Gateway-River-Park-Site-Plan-Master-Plan-Report.pdf",
+        "https://www.americanwhitewater.org/accident/jun-8-2024-roaring-fork/",
+        "https://www.usgs.gov/centers/colorado-water-science-center/science/rcmap-roaring-fork-river-basalt-colorado",
+        "https://commons.wikimedia.org/wiki/File%3ARoaring_Fork_River_in_Basalt%2C_Colorado.JPG",
+        "src/data/routes/colorado.ts",
+        "src/data/trip-details/colorado.ts",
+        "public/data/canonical-river-geometries/routes/roaring-fork-basalt-carbondale.json"
+      ]
     },
     {
       "key": "usgs:09081600",
-      "status": "unreviewed",
-      "routeReadiness": "unreviewed",
-      "eligibility": "unknown",
-      "relationship": "none",
-      "checkedAt": null,
-      "decisionReason": "Gauge is known from route or audit evidence but has not been durably adjudicated.",
-      "decisionSource": "derived_route_inventory",
-      "routeSlugs": [],
-      "scoredRouteSlugs": [],
-      "routeFamilies": [],
+      "status": "covered",
+      "routeReadiness": "published",
+      "eligibility": "route_capable",
+      "relationship": "direct",
+      "checkedAt": "2026-09-03T11:05:00Z",
+      "decisionReason": "Published crystal-river-marble-redstone with direct USGS 09081600 telemetry after station-tied threshold, endpoint, access, safety, camping, coordinate, image, geometry, audit, build, verification, and rollback gates passed.",
+      "decisionSource": "manual_route_worker_publish",
+      "routeSlugs": ["crystal-river-marble-redstone"],
+      "scoredRouteSlugs": ["crystal-river-marble-redstone"],
+      "routeFamilies": ["Crystal River Colorado"],
       "blockers": [],
-      "evidence": []
+      "evidence": [
+        "src/data/routes/colorado.ts",
+        "src/data/trip-details/colorado.ts",
+        "src/data/route-gallery.ts",
+        "public/data/canonical-river-geometries/routes/crystal-river-marble-redstone.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09081600/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2105/main",
+        "https://site-media.americanwhitewater.org/Document_6008.pdf",
+        "https://www.recreation.gov/camping/campgrounds/232158",
+        "https://commons.wikimedia.org/wiki/File%3ACrystal_River_in_Gunnison_County%2C_Colorado.JPG"
+      ]
     },
     {
       "key": "usgs:09085000",

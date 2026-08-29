@@ -340,6 +340,35 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
       { "id": "roaring-fork-basalt-carbondale-take-out", "name": "Bob Terrell State Wildlife Area non-motorized boat ramp", "latitude": 39.4152, "longitude": -107.224, "mileFromStart": 11.5, "segmentKind": "transition", "note": "Approximate CPW mapping/directions anchor for the Bob Terrell non-motorized boat ramp. Carry the current CPW license/pass where required, obey posted vessel and parking rules, and verify the physical ramp and take-out before committing to the reach." }
     ]
   },
+  "crystal-river-marble-redstone": {
+    "putIn": { "id": "crystal-river-marble-redstone-put-in", "name": "Yule Quarry Bridge / Marble-area public access", "latitude": 39.069053, "longitude": -107.18738 },
+    "takeOut": { "id": "crystal-river-marble-redstone-take-out", "name": "Redstone Crystal River take-out", "latitude": 39.17658, "longitude": -107.240505 },
+    "logistics": {
+      "distanceLabel": "Approximately 11.5 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for continuous Class III–IV scouting, two mandatory culvert portages, wood checks, cold-water preparation, breaks, and shuttle timing.",
+      "shuttle": "Stage the Redstone take-out, then shuttle to the Yule Quarry Bridge/Marble access via the Crystal River valley. Verify road, parking, carry-down, private-property, and seasonal conditions before unloading.",
+      "permits": "Follow current Gunnison County, Pitkin County, White River National Forest, Colorado boating/PFD, campground, and posted access rules. Do not treat a roadside pullout or private bank as public access.",
+      "camping": "Bogan Flats Campground is a separate designated White River National Forest campground along the Crystal River and may support an overnight itinerary when reserved or otherwise lawfully available. It is not permission to camp on the riverbank or to use unmarked shoreline.",
+      "campingClassification": "on_route_campsite",
+      "summary": "A guarded public Marble-to-Redstone Crystal River whitewater reach with direct 09081600 telemetry, station-tied 100–3,000 cfs planning bounds and an 800–2,000 cfs preferred band, named access references, mandatory culvert portages, cold-water and wood hazards, and designated Bogan Flats camping support.",
+      "accessCaveats": [
+        "Use the Yule Quarry Bridge/Marble-area access and Redstone take-out only after confirming current signs, parking, carry-down, and lawful shoreline access. Coordinates are approximate planning anchors, not surveyed ramp points.",
+        "The Crystal valley includes private parcels and restricted fishing or shoreline areas. Do not trespass for a better put-in, scout, portage, take-out, or campsite; use only marked public access or a separately verified permission.",
+        "Scout both highway culverts from the road before launch. Treat each as a mandatory portage and carry around any wood, debris, or unsafe current; keep the crew together and preserve an alternate exit above the first culvert when feasible.",
+        "Bogan Flats is a designated campground with river-adjacent sites, but reservations, seasonal operations, fire restrictions, bear rules, and river-entry conditions change. Confirm the current Recreation.gov listing and do not assume a campsite is available or a formal boat ramp exists.",
+        "The route must end at the named Redstone take-out before the separate downstream Crystal reaches. Do not continue through private or unverified access areas."
+      ],
+      "watchFor": [
+        "USGS 09081600 below 100 cfs, above 3,000 cfs, rapidly rising, unavailable, or inconsistent with the reach assessment and local visual check",
+        "Class III–IV current, blind curves, undercuts, boulders, wood/strainers, cold water, mandatory culvert portages, high-water Class V escalation, and limited recovery",
+        "Gunnison County Road 3/Highway 133 access changes, private-property boundaries, campground reservations/fire restrictions, road closures, and failure to exit at Redstone"
+      ]
+    },
+    "accessPoints": [
+      { "id": "crystal-river-marble-redstone-put-in", "name": "Yule Quarry Bridge / Marble-area public access", "latitude": 39.069053, "longitude": -107.18738, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater and RiverBrain identify the Yule Quarry Bridge/Marble access for the Bogan Canyon reach. The coordinate is an approximate mapping anchor; confirm the signed public access, parking, carry-down, and current private-property boundaries before launch." },
+      { "id": "crystal-river-marble-redstone-take-out", "name": "Redstone Crystal River take-out", "latitude": 39.17658, "longitude": -107.240505, "mileFromStart": 11.5, "segmentKind": "transition", "note": "American Whitewater and RiverBrain identify Redstone as the standard longer-run take-out. The coordinate is an approximate mapping anchor; verify the lawful public exit, parking, and current signs before committing to the full reach." }
+    ]
+  },
   "grizzly-creek-two-rivers": {
     "putIn": {
       "id": "grizzly-creek-two-rivers-put-in",

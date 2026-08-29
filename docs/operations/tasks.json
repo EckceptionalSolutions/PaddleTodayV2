@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T09:20:00Z",
+  "updatedAt": "2026-09-03T10:15:00Z",
   "tasks": [
     {
       "id": "route-implementation-wi-usgs-04077630",
@@ -62917,7 +62917,7 @@
       "kind": "state_coverage",
       "owner": "gauge-coverage",
       "priority": "critical",
-      "summary": "Disposition every Colorado gauge in bounded batches; do not declare research complete until all durable statuses and a route-first discovery sweep are recorded. The 06716500, 06719505, 06752260, 07087050, 07091200, 07094500, 07099970, 09060799, 09063000, 09064000, 09064600, 09067020, 09070500, 09073300, 09073400, and 09076300 survivors are published; 06752280, 07124200, 09061600, 09063900, 09066300, 09071295, and 09073005 are screened_out, 06752450, 07103800, 07104000, and 07104905 are stale_or_unsupported, 06759500 is blocked after a decisive low-head-dam safety screen, 07096250, 07099050, 07099060, 07099230, 07099238, 07099973, 07103100, 07103700, 07103703, 07103780, 07103784, 07103791, 07103792, 07103797, 07103960, 07103980, 07103987, 07103990, 07105000, 07105490, 07105500, 07105530, 07105800, 07105900, 07106000, 07106300, 07106510, 07108900, 07116500, 07126200, 07130500, 07133000, 07134180, 07134990, 07135500, 07105600, 07105932, 07105940, 09010500, 09014050, 09019000 are screened_out after corridor-first screens, 07103970, 07119500, 07121500, 07124000, 07124410, 07126300, 07126485, 09034900, 09035500, and 09035700 are blocked as route-capable gauges lacking station-tied endpoint/threshold packages, 07109500 is an existing blocked/route_capable gauge awaiting a station-tied publishable package, and 07081200/07083710 remain blocked because their public corridors cannot be tied to station-specific thresholds. The invalid 07099235, 07103710, 07109000, 07134100, and 07135000 pointers were corrected because they are absent from the frozen inventory; 09065500, 09066000, 09066200, 09066325, 09067000, and 09070000 are blocked route-capable no-add candidates, 09072550 is blocked as a route-capable no-add candidate pending a station-tied upper Roaring Fork package, 09066300 is screened_out as an urban drainage reach, 09073300 is published as the upper Roaring Fork Weller Lake to Difficult Campground route, 09073400 is published as the South Gate to North Star Pedestrian Bridge route, 09076300 is published as the Henry Stein Park to Wilton Jaffee Sr. Park Slaughterhouse route, 09080400 is blocked as a route-capable retry candidate pending station-tied Fryingpan endpoint and threshold evidence, and the next pointer is usgs:09081000.",
+      "summary": "Disposition every Colorado gauge in bounded batches; do not declare research complete until all durable statuses and a route-first discovery sweep are recorded. The 06716500, 06719505, 06752260, 07087050, 07091200, 07094500, 07099970, 09060799, 09063000, 09064000, 09064600, 09067020, 09070500, 09073300, 09073400, 09076300, and 09081000 survivors are published; 06752280, 07124200, 09061600, 09063900, 09066300, 09071295, and 09073005 are screened_out, 06752450, 07103800, 07104000, and 07104905 are stale_or_unsupported, 06759500 is blocked after a decisive low-head-dam safety screen, 07096250, 07099050, 07099060, 07099230, 07099238, 07099973, 07103100, 07103700, 07103703, 07103780, 07103784, 07103791, 07103792, 07103797, 07103960, 07103980, 07103987, 07103990, 07105000, 07105490, 07105500, 07105530, 07105800, 07105900, 07106000, 07106300, 07106510, 07108900, 07116500, 07126200, 07130500, 07133000, 07134180, 07134990, 07135500, 07105600, 07105932, 07105940, 09010500, 09014050, 09019000 are screened_out after corridor-first screens, 07103970, 07119500, 07121500, 07124000, 07124410, 07126300, 07126485, 09034900, 09035500, and 09035700 are blocked as route-capable gauges lacking station-tied endpoint/threshold packages, 07109500 is an existing blocked/route_capable gauge awaiting a station-tied publishable package, and 07081200/07083710 remain blocked because their public corridors cannot be tied to station-specific thresholds. The invalid 07099235, 07103710, 07109000, 07134100, and 07135000 pointers were corrected because they are absent from the frozen inventory; 09065500, 09066000, 09066200, 09066325, 09067000, and 09070000 are blocked route-capable no-add candidates, 09072550 is blocked as a route-capable no-add candidate pending a station-tied upper Roaring Fork package, 09066300 is screened_out as an urban drainage reach, 09073300 is published as the upper Roaring Fork Weller Lake to Difficult Campground route, 09073400 is published as the South Gate to North Star Pedestrian Bridge route, 09076300 is published as the Henry Stein Park to Wilton Jaffee Sr. Park Slaughterhouse route, 09080400 is blocked as a route-capable retry candidate pending station-tied Fryingpan endpoint and threshold evidence, 09081000 is published as the Fisherman’s Park to Bob Terrell State Wildlife Area Basalt-to-Carbondale route, 09081600 is published as the Yule Quarry Bridge/Marble-area to Redstone Crystal River route, and the next pointer is usgs:09085000.",
       "evidence": [
         "docs/operations/gauge-inventory.json",
         "docs/operations/gauge-review-ledger.json",
@@ -62934,18 +62934,18 @@
       "baselineCounts": {
         "gauges": 338,
         "eligible": 218,
-        "reviewed": 95,
-        "unreviewed": 123,
+        "reviewed": 97,
+        "unreviewed": 121,
         "researching": 0,
-        "covered": 19,
+        "covered": 21,
         "blocked": 67,
         "screenedOut": 118,
         "staleOrUnsupported": 11
       },
-      "updatedAt": "2026-09-03T09:20:00Z",
-      "nextGaugePointer": "usgs:09081000",
-      "lastRunId": "route-worker-current-continuation-202609030920-co-usgs-09080400-blocked",
-      "latestGatekeeperId": "gatekeeper-current-continuation-202609030910-co-usgs-09080400-blocked",
+      "updatedAt": "2026-09-03T11:05:00Z",
+      "nextGaugePointer": "usgs:09085000",
+      "lastRunId": "route-worker-current-continuation-202609031100-co-usgs-09081600-published",
+      "latestGatekeeperId": "gatekeeper-current-continuation-202609031055-co-usgs-09081600-published",
       "validationStatus": "passed"
     },
     {
@@ -67745,11 +67745,11 @@
     {
       "id": "co-state-coverage-gauge-review-batch-09081000",
       "title": "Review next Colorado gauge from pointer",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "state_coverage",
       "owner": "gauge-coverage",
       "priority": "critical",
-      "summary": "Review the next actual unreviewed Colorado gauge, 09081000, after the durable 09080400 blocked/no-add decision. Apply the fast corridor, endpoint, direct-gauge, threshold, access, safety, camping, coordinate, image, and geometry screen; create a route task only if the station-tied package clears.",
+      "summary": "Completed the bounded route-first review of 09081000 and published the Fisherman’s Park to Bob Terrell State Wildlife Area Basalt-to-Carbondale route after the station-tied package cleared all publication gates.",
       "evidence": ["docs/operations/gauge-inventory.json", "docs/operations/gauge-review-ledger.json", "docs/operations/gate-policy.json"],
       "stateId": "CO",
       "inventoryId": "provider-baseline-202608272235",
@@ -67758,6 +67758,139 @@
       "routeOpportunity": true,
       "opportunitySource": "state_coverage",
       "createdAt": "2026-09-03T09:20:00Z",
+      "startedAt": "2026-09-03T09:25:00Z",
+      "completedAt": "2026-09-03T10:15:00Z",
+      "lastRunId": "route-worker-current-continuation-202609031015-co-usgs-09081000-published",
+      "latestGatekeeperId": "gatekeeper-current-continuation-202609031010-co-usgs-09081000-published",
+      "validationStatus": "passed",
+      "resultSummary": "Published roaring-fork-basalt-carbondale with direct USGS 09081000 telemetry, American Whitewater Class III+ corridor evidence, station-tied 100–5,000 cfs planning bounds with an 800–3,000 cfs preferred band, named public endpoints, explicit whitewater-park/bridge/wood/cold-water/private-bank boundaries, CPW Bob Terrell vessel rules, no endpoint camping, approximate-coordinate caveats, network-traced geometry, a rights-clean Commons image, independent verification, full audits, build, and rollback gates."
+    },
+    {
+      "id": "route-opportunity-co-usgs-09081000",
+      "title": "Implement Colorado Roaring Fork Basalt to Carbondale route",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "critical",
+      "summary": "Publish the Fisherman’s Park to Bob Terrell State Wildlife Area Basalt-to-Carbondale reach only after direct-gauge, station-tied flow, endpoint, access, safety, camping, imagery, geometry, audit, build, verification, and rollback gates pass.",
+      "evidence": [
+        "docs/operations/gauge-review-ledger.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09081000/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1463/main",
+        "https://site-media.americanwhitewater.org/Document_6009.pdf",
+        "https://pitkincountyrivers.com/projects/fishermans-park-boat-ramp-boardwalk/",
+        "https://cpw.state.co.us/state-wildlife-areas/bob-terrell-swa",
+        "https://www.americanwhitewater.org/content/Article/view/article_id/34473/display/full/",
+        "https://commons.wikimedia.org/wiki/File%3ARoaring_Fork_River_in_Basalt%2C_Colorado.JPG",
+        "public/data/canonical-river-geometries/routes/roaring-fork-basalt-carbondale.json"
+      ],
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081000"
+      ],
+      "frontierTier": 6,
+      "routeOpportunity": true,
+      "routeOpportunityScore": 97,
+      "opportunitySource": "gauge_review",
+      "createdAt": "2026-09-03T09:25:00Z",
+      "startedAt": "2026-09-03T09:25:00Z",
+      "completedAt": "2026-09-03T10:15:00Z",
+      "lastRunId": "route-worker-current-continuation-202609031015-co-usgs-09081000-published",
+      "latestGatekeeperId": "gatekeeper-current-continuation-202609031010-co-usgs-09081000-published",
+      "validationStatus": "passed",
+      "resultSummary": "Published roaring-fork-basalt-carbondale with direct station telemetry, named public endpoints, station-tied flow guidance, explicit whitewater-park/bridge/wood/cold-water/private-bank/CPW boundaries, no endpoint camping, approximate-coordinate caveats, network-traced geometry, rights-clean Commons image, independent verification, full audits, build, and rollback gates."
+    },
+    {
+      "id": "co-state-coverage-gauge-review-batch-09081600",
+      "title": "Review next Colorado gauge from pointer",
+      "lane": "completed",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "critical",
+      "summary": "Completed the bounded route-first review of 09081600. The direct Crystal River station, station-tied thresholds, named Marble-area and Redstone endpoints, Bogan Flats designated camping, safety boundaries, rights-clean imagery, and canonical geometry cleared publication; crystal-river-marble-redstone was added and the durable covered/direct disposition was recorded.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/gate-policy.json",
+        "src/data/routes/colorado.ts",
+        "src/data/trip-details/colorado.ts",
+        "public/data/canonical-river-geometries/routes/crystal-river-marble-redstone.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09081600/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2105/main",
+        "https://site-media.americanwhitewater.org/Document_6008.pdf",
+        "https://www.recreation.gov/camping/campgrounds/232158",
+        "https://commons.wikimedia.org/wiki/File%3ACrystal_River_in_Gunnison_County%2C_Colorado.JPG"
+      ],
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081600"
+      ],
+      "frontierTier": 6,
+      "routeOpportunity": true,
+      "opportunitySource": "state_coverage",
+      "createdAt": "2026-09-03T10:15:00Z",
+      "startedAt": "2026-09-03T10:20:00Z",
+      "completedAt": "2026-09-03T11:05:00Z",
+      "lastRunId": "route-worker-current-continuation-202609031100-co-usgs-09081600-published",
+      "latestGatekeeperId": "gatekeeper-current-continuation-202609031055-co-usgs-09081600-published",
+      "validationStatus": "passed",
+      "resultSummary": "Published crystal-river-marble-redstone with direct station telemetry, station-tied flow guidance, named public endpoints, explicit cold-water/wood/culvert/private-bank/high-water boundaries, designated-camping logistics, approximate-coordinate caveats, endpoint-ordered canonical geometry, rights-clean imagery, independent verification, full audits, build, and rollback gates."
+    },
+    {
+      "id": "route-opportunity-co-usgs-09081600",
+      "title": "Implement Crystal River Marble-to-Redstone route",
+      "lane": "completed",
+      "kind": "route_implementation",
+      "owner": "route-implementation",
+      "priority": "critical",
+      "summary": "Published crystal-river-marble-redstone after all station-tied evidence, safety, access, camping, coordinate, image, geometry, verification, test, build, and rollback gates passed.",
+      "evidence": [
+        "co-state-coverage-gauge-review-batch-09081600",
+        "crystal-river-marble-redstone",
+        "public/data/canonical-river-geometries/routes/crystal-river-marble-redstone.json",
+        "src/data/generated/route-access-registry.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09081600/",
+        "https://site-media.americanwhitewater.org/Document_6008.pdf",
+        "https://www.recreation.gov/camping/campgrounds/232158",
+        "https://commons.wikimedia.org/wiki/File%3ACrystal_River_in_Gunnison_County%2C_Colorado.JPG"
+      ],
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081600"
+      ],
+      "frontierTier": 6,
+      "routeOpportunity": true,
+      "metadata": {
+        "lastRunId": "route-worker-current-continuation-202609031100-co-usgs-09081600-published",
+        "latestGatekeeperId": "gatekeeper-current-continuation-202609031055-co-usgs-09081600-published",
+        "validationStatus": "passed"
+      }
+    },
+    {
+      "id": "co-state-coverage-gauge-review-batch-09085000",
+      "title": "Review next Colorado gauge from pointer",
+      "lane": "ready",
+      "kind": "state_coverage",
+      "owner": "gauge-coverage",
+      "priority": "critical",
+      "summary": "Review the next actual unreviewed Colorado gauge, 09085000, after publishing the 09081600 Crystal River Marble-to-Redstone reach. Apply the fast corridor, endpoint, direct-gauge, threshold, access, safety, camping, coordinate, image, and geometry screen; create a route task only if the station-tied package clears.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/operations/gate-policy.json"
+      ],
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09085000"
+      ],
+      "frontierTier": 6,
+      "routeOpportunity": true,
+      "opportunitySource": "state_coverage",
+      "createdAt": "2026-09-03T11:05:00Z",
       "validationStatus": "ready"
     },
     {

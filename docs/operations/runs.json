@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T09:20:00Z",
+  "updatedAt": "2026-09-03T11:05:00Z",
   "runs": [
     {
       "id": "route-research-current-continuation-202609030535-co-usgs-09073005-screened-out",
@@ -266628,6 +266628,352 @@
         "existingWorkingTreePreserved": "passed"
       },
       "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 37 materialized consolidation tasks are terminal (36 completed, one blocked), zero reviews are active or ready, and five queue findings remain new medium-priority items without materialized tasks. Read all 23 route modules and 23 trip-detail modules, the route-corridor registry, and 1,193 coordinate, geometry, safety, access, and corridor JSON artifacts with zero parse failures. No route, corridor, queue, trip-detail, or audit record was changed by this run; pre-existing gauge, task, and future-dated operations edits were preserved. Focused audits and npm run operations:verify were skipped because no task was selected."
+    },
+    {
+      "id": "gatekeeper-20260829121013",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-29T12:09:35.624Z",
+      "completedAt": "2026-08-29T12:10:13.540Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "route-research-current-continuation-202609030925-co-usgs-09081000-published",
+      "kind": "route_research",
+      "startedAt": "2026-09-03T09:25:00Z",
+      "completedAt": "2026-09-03T09:45:00Z",
+      "status": "completed_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09081000",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081000"
+      ],
+      "result": "Bounded same-state research confirmed the direct USGS 09081000 Roaring Fork River near Emma station, the American Whitewater Basalt-to-Carbondale Class III+ reach, and the station-tied 100 cfs minimum navigable, 450 cfs minimum acceptable, 800–3,000 cfs preferred, and 5,000 cfs maximum acceptable planning thresholds. Pitkin County/Basalt documented Fisherman’s Park public access and CPW documented the Bob Terrell non-motorized ramp and access rules. The route package includes explicit Basalt Whitewater Park, bridge/pier, wood, cold-water, private-bank, CPW, no-camping, approximate-coordinate, and mandatory-takeout boundaries.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09081000/",
+        "https://waterdata.usgs.gov/co/nwis/uv/?site_no=09081000",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1463/main",
+        "https://site-media.americanwhitewater.org/Document_6009.pdf",
+        "https://pitkincountyrivers.com/projects/fishermans-park-boat-ramp-boardwalk/",
+        "https://cpw.state.co.us/state-wildlife-areas/bob-terrell-swa",
+        "https://cpw.state.co.us/sites/default/files/dam/qcdqhuzbdi/bobterrell_roaringforkswa_geo.pdf",
+        "https://roaringfork.org/media/2629/2023-lower-roaring-fork-river-user-guide_final.pdf",
+        "https://www.americanwhitewater.org/accident/jun-8-2024-roaring-fork/",
+        "https://commons.wikimedia.org/wiki/File%3ARoaring_Fork_River_in_Basalt%2C_Colorado.JPG"
+      ],
+      "routeAdded": true,
+      "routeSlugs": [
+        "roaring-fork-basalt-carbondale"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-current-continuation-202609030945-co-usgs-09081000-published",
+      "kind": "independent_verification",
+      "startedAt": "2026-09-03T09:45:00Z",
+      "completedAt": "2026-09-03T10:00:00Z",
+      "status": "passed_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09081000",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081000"
+      ],
+      "result": "Independently verified the station identity and direct telemetry, the AW Basalt-to-Carbondale corridor and Class III+ rating, the reach-specific assessment thresholds, the Fisherman’s Park and Bob Terrell public endpoint evidence, CPW vessel/pass rules, whitewater-park and bridge hazards, no-camping treatment, rights-clean image, approximate coordinate caveat, and distinct separation from the upper and lower Roaring Fork route families. Focused coordinate, geometry, safety, gallery, typecheck, audit, and build artifacts parsed and passed; the one Bob Terrell coordinate review is an expected mapped-waterbody approximation, not a publication failure.",
+      "routeAdded": true,
+      "routeSlugs": [
+        "roaring-fork-basalt-carbondale"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-current-continuation-202609031010-co-usgs-09081000-published",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-03T10:00:00Z",
+      "completedAt": "2026-09-03T10:10:00Z",
+      "status": "passed_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09081000",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081000"
+      ],
+      "result": "Publication gate passed for roaring-fork-basalt-carbondale. Evidence, access, station-tied thresholds, safety, camping/logistics, coordinates, imagery, network-traced geometry, independent verification, tests, production build, and bounded rollback gates all passed; no safety exception or policy override was used.",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
+      "routeAdded": true,
+      "routeSlugs": [
+        "roaring-fork-basalt-carbondale"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-current-continuation-202609031015-co-usgs-09081000-published",
+      "kind": "controller",
+      "startedAt": "2026-09-03T10:10:00Z",
+      "completedAt": "2026-09-03T10:15:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081000"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09081000",
+        "route-opportunity-co-usgs-09081000"
+      ],
+      "nextQueuePointer": "usgs:09081600",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "result": "Recorded the durable covered/published/direct disposition for 09081000, published roaring-fork-basalt-carbondale after all route and merge gates passed, and advanced the Colorado state-coverage pointer to the next actual unreviewed inventory gauge 09081600. Virginia W57 records and unrelated worktree changes were preserved.",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-current-continuation-202609031010-co-usgs-09081000-published",
+      "routeAdded": true,
+      "routeSlugs": [
+        "roaring-fork-basalt-carbondale"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-research-current-continuation-202609031020-co-usgs-09081600-published",
+      "kind": "route_research",
+      "startedAt": "2026-09-03T10:20:00Z",
+      "completedAt": "2026-09-03T10:40:00Z",
+      "status": "completed_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09081600",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081600"
+      ],
+      "result": "Bounded same-state research confirmed the direct USGS 09081600 Crystal River above Avalanche Creek station, the American Whitewater Marble-to-Redstone/Bogan Canyon Class III–IV reach, and the station-tied 100 cfs minimum navigable, 550 cfs minimum acceptable, 800–2,000 cfs preferred, and 3,000 cfs maximum acceptable planning thresholds. Named Yule Quarry Bridge/Marble and Redstone access references, Bogan Flats designated camping, mandatory culvert portages, cold-water/wood/private-bank hazards, approximate coordinate anchors, and a rights-clean Commons image cleared the route package.",
+      "evidence": [
+        "docs/operations/gauge-inventory.json",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09081600/",
+        "https://waterdata.usgs.gov/nwis/uv/?agency_cd=USGS&referred_module=sw&site_no=09081600",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2105/main",
+        "https://site-media.americanwhitewater.org/Document_6008.pdf",
+        "https://www.riverbrain.com/run/show/406",
+        "https://marblecolorado.org/activities/kayaking/",
+        "https://www.recreation.gov/camping/campgrounds/232158",
+        "https://www.americanwhitewater.org/accident/may-31-2014-crystal/",
+        "https://commons.wikimedia.org/wiki/File%3ACrystal_River_in_Gunnison_County%2C_Colorado.JPG"
+      ],
+      "routeAdded": true,
+      "routeSlugs": [
+        "crystal-river-marble-redstone"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "independent-verifier-current-continuation-202609031040-co-usgs-09081600-published",
+      "kind": "independent_verification",
+      "startedAt": "2026-09-03T10:40:00Z",
+      "completedAt": "2026-09-03T10:55:00Z",
+      "status": "passed_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09081600",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081600"
+      ],
+      "result": "Independently verified station identity/direct telemetry, AW Marble-to-Redstone Class III–IV corridor, AW assessment thresholds, named endpoint/access and Bogan Flats camping evidence, two mandatory culvert portages, high-water incident boundary, private-property/cold-water hazards, coordinate audit (both endpoints ok), rights-clean image, endpoint-ordered canonical geometry, distinct Crystal reach separation, route audit, 13 operation tests, full typecheck, mobile typecheck, and 1,355-page production build.",
+      "routeAdded": true,
+      "routeSlugs": [
+        "crystal-river-marble-redstone"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-current-continuation-202609031055-co-usgs-09081600-published",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-03T10:55:00Z",
+      "completedAt": "2026-09-03T11:00:00Z",
+      "status": "passed_add",
+      "taskId": "co-state-coverage-gauge-review-batch-09081600",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081600"
+      ],
+      "result": "Publication gate passed for crystal-river-marble-redstone. Evidence, access, station-tied thresholds, safety, camping/logistics, coordinates, imagery, canonical geometry, independent verification, tests, production build, and bounded rollback gates all passed; no safety exception or policy override was used.",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
+      "routeAdded": true,
+      "routeSlugs": [
+        "crystal-river-marble-redstone"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "route-worker-current-continuation-202609031100-co-usgs-09081600-published",
+      "kind": "controller",
+      "startedAt": "2026-09-03T11:00:00Z",
+      "completedAt": "2026-09-03T11:05:00Z",
+      "status": "completed",
+      "taskId": "co-state-coverage-baseline-01",
+      "stateId": "CO",
+      "inventoryId": "provider-baseline-202608272235",
+      "gaugeKeys": [
+        "usgs:09081600"
+      ],
+      "activeTaskIds": [
+        "co-state-coverage-baseline-01"
+      ],
+      "completedTaskIds": [
+        "co-state-coverage-gauge-review-batch-09081600",
+        "route-opportunity-co-usgs-09081600"
+      ],
+      "nextQueuePointer": "usgs:09085000",
+      "queueWindow": {
+        "active": 0,
+        "ready": 1,
+        "researching": 0,
+        "maxGlobal": 20,
+        "maxPerState": 5
+      },
+      "result": "Recorded the durable covered/published/direct disposition for 09081600, published crystal-river-marble-redstone after all route and merge gates passed, and advanced the Colorado state-coverage pointer to the next actual unreviewed inventory gauge 09085000. Virginia W57 records and unrelated worktree changes were preserved.",
+      "validation": {
+        "evidence": true,
+        "safety": true,
+        "verification": true,
+        "tests": true,
+        "build": true,
+        "rollback": true
+      },
+      "latestGatekeeperId": "gatekeeper-current-continuation-202609031055-co-usgs-09081600-published",
+      "routeAdded": true,
+      "routeSlugs": [
+        "crystal-river-marble-redstone"
+      ],
+      "validationStatus": "passed"
+    },
+    {
+      "id": "gatekeeper-20260829121414",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-29T12:13:35.124Z",
+      "completedAt": "2026-08-29T12:14:14.217Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260829123959",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-08-29T12:39:18.749Z",
+      "completedAt": "2026-08-29T12:39:59.981Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5162 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
     }
   ]
 }
