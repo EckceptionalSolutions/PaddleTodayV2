@@ -40,6 +40,8 @@ interface CanonicalFeature {
 
 const root = process.cwd();
 const reviewMode = process.argv.includes('--review-all');
+const routeIdArgIndex = process.argv.indexOf('--route-id');
+const requestedRouteId = routeIdArgIndex >= 0 ? process.argv[routeIdArgIndex + 1] : null;
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-river-audit');
 const geometryOutputRoot = reviewMode
   ? path.join(root, 'node_modules', '.cache', 'route-coordinate-review-geometries')
@@ -59,7 +61,7 @@ const officialNetworkWaypoints: Record<string, Array<{ latitude: number; longitu
   ],
 };
 
-async function loadCuratedRouteGeometries(routes: River[]) {
+async function loadCuratedRouteGeometries(routes: River[], includeGenerated = false) {
   if (reviewMode) return [];
 
   const currentRouteIds = new Set(routes.map((route) => route.id));
@@ -80,7 +82,7 @@ async function loadCuratedRouteGeometries(routes: River[]) {
       if (
         feature.type === 'Feature'
         && currentRouteIds.has(routeId)
-        && feature.properties.source !== 'USGS NHD Flowline'
+        && (includeGenerated || feature.properties.source !== 'USGS NHD Flowline')
         && feature.geometry?.type === 'MultiLineString'
         && feature.geometry.coordinates.length > 0
       ) {
@@ -272,9 +274,14 @@ async function fetchNhdFeatures(route: River, bounds: NonNullable<ReturnType<typ
 }
 
 async function loadNhdFeatures(route: River) {
-  const files = (await readdir(cacheDir)).filter(
-    (file) => file.startsWith(`${route.id}__`) && file.endsWith('__all-named.json'),
-  );
+  let files: string[] = [];
+  try {
+    files = (await readdir(cacheDir)).filter(
+      (file) => file.startsWith(`${route.id}__`) && file.endsWith('__all-named.json'),
+    );
+  } catch {
+    // The cache is disposable and may not exist on a clean checkout.
+  }
   const file = files[0];
   let namedFeatures: NhdFeature[] = [];
   if (file) {
@@ -337,10 +344,19 @@ function traceEndpointErrors(coordinates: Point[], route: River) {
 }
 
 async function main() {
-  const routes = reviewMode ? listAllRiversForAudit() : listRivers();
-  const sourceFingerprint = routeDataFingerprint(routes);
+  const allRoutes = reviewMode ? listAllRiversForAudit() : listRivers();
+  const routes = allRoutes
+    .filter((route) => !requestedRouteId || route.id === requestedRouteId);
+  const outputRoutes = requestedRouteId && !reviewMode ? allRoutes : routes;
+  const sourceFingerprint = routeDataFingerprint(outputRoutes);
   const features: CanonicalFeature[] = [];
-  const curatedFeatures = await loadCuratedRouteGeometries(routes);
+  const existingFeatures = await loadCuratedRouteGeometries(
+    outputRoutes,
+    Boolean(requestedRouteId && !reviewMode),
+  );
+  const curatedFeatures = requestedRouteId && !reviewMode
+    ? existingFeatures.filter((feature) => feature.properties.routeId !== requestedRouteId)
+    : existingFeatures;
   let matchedRoutes = 0;
   let nextRouteIndex = 0;
 
@@ -425,9 +441,9 @@ async function main() {
   features.push(...curatedFeatures);
   features.sort((left, right) => left.properties.routeId.localeCompare(right.properties.routeId));
   const matchedRouteIds = new Set(features.map((feature) => feature.properties.routeId));
-  const unmatchedRouteIds = routes.map((route) => route.id).filter((routeId) => !matchedRouteIds.has(routeId));
+  const unmatchedRouteIds = outputRoutes.map((route) => route.id).filter((routeId) => !matchedRouteIds.has(routeId));
   const metadata = {
-    routeCount: routes.length,
+    routeCount: outputRoutes.length,
     matchedRouteCount: features.length,
     networkTracedRouteCount: features.filter((feature) => feature.properties.source === 'USGS NHD Flowline' && feature.properties.traceMode === 'network-traced').length,
     namedFallbackRouteCount: features.filter((feature) => feature.properties.source === 'USGS NHD Flowline' && feature.properties.traceMode === 'named-fallback').length,

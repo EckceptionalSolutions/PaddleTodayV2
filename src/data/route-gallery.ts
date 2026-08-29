@@ -49,6 +49,60 @@ const upperColoradoPumphouseStateBridgePhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC BY 2.0',
 };
 
+const upperColoradoStateBridgeCatamountPhoto: RouteGalleryPhoto = {
+  id: 'upper-colorado-state-bridge-catamount-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Colorado%20Recreational%20River%2C%20Colorado%2C%20Utah%20%2835842291953%29.jpg?width=1600',
+  alt: 'The Upper Colorado River flows through a scenic recreation corridor in Colorado.',
+  caption: 'Upper Colorado River recreation corridor near the State Bridge-to-Catamount reach',
+  credit: 'Bob Wick / Bureau of Land Management via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 2.0',
+};
+
+const eagleRiverCampHaleRedCliffPhoto: RouteGalleryPhoto = {
+  id: 'eagle-river-camp-hale-red-cliff-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Top%20of%20the%20Rockies%20-%20Mountain%20Backdrop%20at%20Camp%20Hale%20Memorial%20-%20NARA%20-%207722422.jpg?width=1600',
+  alt: 'Mountain backdrop at Camp Hale Memorial in the upper Eagle River corridor of Colorado.',
+  caption: 'Camp Hale Memorial in the upper Eagle River corridor',
+  credit: 'Sally Pearce / Federal Highway Administration via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: Public domain',
+};
+
+const homestakeCreekGoldParkPhoto: RouteGalleryPhoto = {
+  id: 'homestake-creek-gold-park-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Top%20of%20the%20Rockies%20-%20Mountain%20Backdrop%20at%20Camp%20Hale%20Memorial%20-%20NARA%20-%207722422.jpg?width=1600',
+  alt: 'Mountain backdrop at Camp Hale Memorial in the upper Eagle River watershed near Homestake Creek, Colorado.',
+  caption: 'Camp Hale Memorial and upper Eagle River watershed context for Homestake Creek',
+  credit: 'Sally Pearce / Federal Highway Administration via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: Public domain',
+};
+
+const eagleRiverMinturnTownRunPhoto: RouteGalleryPhoto = {
+  id: 'eagle-river-minturn-town-run-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Eagle_River_at_Minturn.JPG?width=1600',
+  alt: 'Eagle River at Minturn in the upper Eagle River corridor of Colorado.',
+  caption: 'Eagle River at Minturn corridor context',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
+const eagleRiverRiverbendEdwardsPhoto: RouteGalleryPhoto = {
+  id: 'eagle-river-riverbend-edwards-cc0',
+  src: 'https://images.paddling101.com/routes/6a1073321a7f6cd2cb2d9b1ba54e57ab.jpg',
+  alt: 'The Eagle River valley near Edwards, Colorado, along the Riverbend-to-Edwards whitewater corridor.',
+  caption: 'Eagle River valley near Edwards',
+  credit: 'Jeremy Thomas via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC0 1.0',
+};
+
+const crossCreekMinturnPhoto: RouteGalleryPhoto = {
+  id: 'cross-creek-minturn-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mountain%20of%20the%20Holy%20Cross.%20Eagle%20County,%20Colorado%20-%20NARA%20-%20517031.jpg?width=1600',
+  alt: 'Mount of the Holy Cross in Eagle County, Colorado, above the Cross Creek watershed.',
+  caption: 'Mount of the Holy Cross watershed context for Cross Creek',
+  credit: 'William Henry Jackson / National Archives via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: Public domain',
+};
+
 const lowerColoradoTwoRiversSouthCanyonPhoto: RouteGalleryPhoto = {
   id: 'lower-colorado-two-rivers-south-canyon-commons',
   src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Two_Rivers_Park_boat_ramp.JPG?width=1600',
@@ -56,6 +110,42 @@ const lowerColoradoTwoRiversSouthCanyonPhoto: RouteGalleryPhoto = {
   caption: 'Two Rivers Park boat ramp at the start of the South Canyon reach',
   credit: 'Jeffrey Beall via Wikimedia Commons',
   takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
+const grizzlyCreekTwoRiversPhoto: RouteGalleryPhoto = {
+  id: 'grizzly-creek-two-rivers-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Two_Rivers_Park_boat_ramp.JPG?width=1600',
+  alt: 'The Colorado River boat ramp at Two Rivers Park in Glenwood Springs, Colorado.',
+  caption: 'Two Rivers Park boat ramp at the end of the Grizzly Creek reach',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
+const upperRoaringForkWellerDifficultPhoto: RouteGalleryPhoto = {
+  id: 'upper-roaring-fork-weller-difficult-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Roaring%20Fork%20River%20(Grottos%20Day%20Use%20Area)%20on%20Independence%20Pass,%20Colorado%20(30624681277).jpg?width=1600',
+  alt: 'The Roaring Fork River at the Grottos Day Use Area near Aspen, Colorado.',
+  caption: 'Upper Roaring Fork corridor context near Aspen; not an endpoint or rapid image',
+  credit: 'Tony Webster via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 2.0',
+};
+
+const roaringForkSouthGateNorthStarPhoto: RouteGalleryPhoto = {
+  id: 'roaring-fork-south-gate-north-star-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/North%20Star%20Nature%20Preserve%20South%20Gate%20-%20Independence%20Pass%2C%20Aspen%20(44440094904).jpg?width=1600',
+  alt: 'The South Gate entrance to North Star Nature Preserve near Aspen, Colorado.',
+  caption: 'North Star Nature Preserve South Gate access context',
+  credit: 'Tony Webster via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 2.0',
+};
+
+const roaringForkSlaughterhousePhoto: RouteGalleryPhoto = {
+  id: 'roaring-fork-slaughterhouse-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Roaring%20Fork%20River%20in%20Aspen%20%2891197%29a.jpg?width=1600',
+  alt: 'The Roaring Fork River in Aspen, Colorado, used as general Slaughterhouse corridor context.',
+  caption: 'Roaring Fork River in Aspen corridor context; not a rapid or endpoint image',
+  credit: 'Rhododendrites via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
 };
 
 const arkansasGraniteBuenaVistaPhoto: RouteGalleryPhoto = {
@@ -200,6 +290,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'arkansas-river-browns-canyon-fishermans-stone': [arkansasBrownsCanyonPhoto],
   'arkansas-river-pueblo-whitewater-park': [puebloWhitewaterParkPhoto],
   'upper-colorado-pumphouse-state-bridge': [upperColoradoPumphouseStateBridgePhoto],
+  'upper-colorado-state-bridge-catamount': [upperColoradoStateBridgeCatamountPhoto],
+  'eagle-river-camp-hale-red-cliff': [eagleRiverCampHaleRedCliffPhoto],
+  'homestake-creek-gold-park': [homestakeCreekGoldParkPhoto],
+  'eagle-river-minturn-town-run': [eagleRiverMinturnTownRunPhoto],
+  'eagle-river-riverbend-edwards': [eagleRiverRiverbendEdwardsPhoto],
+  'cross-creek-minturn': [crossCreekMinturnPhoto],
+  'upper-roaring-fork-weller-difficult': [upperRoaringForkWellerDifficultPhoto],
+  'roaring-fork-south-gate-north-star': [roaringForkSouthGateNorthStarPhoto],
+  'roaring-fork-slaughterhouse': [roaringForkSlaughterhousePhoto],
+  'grizzly-creek-two-rivers': [grizzlyCreekTwoRiversPhoto],
   'lower-colorado-two-rivers-south-canyon': [lowerColoradoTwoRiversSouthCanyonPhoto],
   'james-river-bent-creek-state-park': [
     {
