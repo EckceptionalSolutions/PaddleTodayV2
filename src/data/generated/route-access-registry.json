@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-29T12:39:10.753Z",
-  "auditGeneratedAt": "2026-08-29T12:37:42.936Z",
+  "generatedAt": "2026-08-30T12:17:14.254Z",
+  "auditGeneratedAt": "2026-08-30T12:11:15.119Z",
   "summary": {
-    "entryCount": 1850,
-    "repeatedEntryCount": 559,
+    "entryCount": 1872,
+    "repeatedEntryCount": 561,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
-    "derivedWaterEntryCount": 1091,
+    "derivedWaterEntryCount": 1105,
     "authoritativeAccessCount": 345,
     "authoritativeWaterEntryCount": 20,
     "areaAnchorOnlyCount": 1,
@@ -4301,6 +4301,412 @@
       ]
     },
     {
+      "id": "colorado--almont-access",
+      "state": "Colorado",
+      "name": "Almont access",
+      "aliases": [
+        "Almont access"
+      ],
+      "sourceIds": [
+        "gunnison-river-almont-north-bridge-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.664833463427186,
+        "longitude": -106.84638183912354
+      },
+      "accessCoordinate": {
+        "latitude": 38.664833463427186,
+        "longitude": -106.84638183912354
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.66483,-106.84638",
+          "coordinate": {
+            "latitude": 38.664833463427186,
+            "longitude": -106.84638183912354
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "gunnison-river-almont-north-bridge"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunnison-river-almont-north-bridge",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "gunnison-river-almont-north-bridge-put-in",
+          "name": "Almont access",
+          "latitude": 38.664833463427186,
+          "longitude": -106.84638183912354,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 220.96587117585747,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "gunnison-river-almont-north-bridge",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "gunnison-river-almont-north-bridge-put-in",
+          "name": "Almont access",
+          "latitude": 38.664833463427186,
+          "longitude": -106.84638183912354,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 220.96587117585747,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--almont-highway-takeout",
+      "state": "Colorado",
+      "name": "Almont highway takeout",
+      "aliases": [
+        "Almont highway takeout"
+      ],
+      "sourceIds": [
+        "taylor-river-five-mile-almont-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.663285834603855,
+        "longitude": -106.84742186733735
+      },
+      "accessCoordinate": {
+        "latitude": 38.663285834603855,
+        "longitude": -106.84742186733735
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.66329,-106.84742",
+          "coordinate": {
+            "latitude": 38.663285834603855,
+            "longitude": -106.84742186733735
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "taylor-river-five-mile-almont"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "taylor-river-five-mile-almont",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "taylor-river-five-mile-almont-take-out",
+          "name": "Almont highway takeout",
+          "latitude": 38.663285834603855,
+          "longitude": -106.84742186733735,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 154.76561482011456,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "taylor-river-five-mile-almont",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "taylor-river-five-mile-almont-take-out",
+          "name": "Almont highway takeout",
+          "latitude": 38.663285834603855,
+          "longitude": -106.84742186733735,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 154.76561482011456,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--almont-river-access-area",
+      "state": "Colorado",
+      "name": "Almont River Access Area",
+      "aliases": [
+        "Almont River Access Area"
+      ],
+      "sourceIds": [
+        "east-river-cb-south-almont-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.6633,
+        "longitude": -106.8475
+      },
+      "accessCoordinate": {
+        "latitude": 38.6633,
+        "longitude": -106.8475
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.66330,-106.84750",
+          "coordinate": {
+            "latitude": 38.6633,
+            "longitude": -106.8475
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "east-river-cb-south-almont"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "east-river-cb-south-almont",
+          "routeName": "East River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "east-river-cb-south-almont-take-out",
+          "name": "Almont River Access Area",
+          "latitude": 38.6633,
+          "longitude": -106.8475,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 164.85822584965535,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "east-river-cb-south-almont",
+          "routeName": "East River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "east-river-cb-south-almont-take-out",
+          "name": "Almont River Access Area",
+          "latitude": 38.6633,
+          "longitude": -106.8475,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 164.85822584965535,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--beavertail-mountain-cutoff-beaver-tail-tunnel-parking-access",
+      "state": "Colorado",
+      "name": "Beavertail Mountain cutoff / Beaver Tail Tunnel parking access",
+      "aliases": [
+        "Beavertail Mountain cutoff / Beaver Tail Tunnel parking access"
+      ],
+      "sourceIds": [
+        "colorado-river-big-sur-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.1945,
+        "longitude": -108.265
+      },
+      "accessCoordinate": {
+        "latitude": 39.1945,
+        "longitude": -108.265
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 39.1945,
+        "longitude": -108.265
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.19450,-108.26500",
+          "coordinate": {
+            "latitude": 39.1945,
+            "longitude": -108.265
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "colorado-river-big-sur"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-big-sur",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "colorado-river-big-sur-put-in",
+          "name": "Beavertail Mountain cutoff / Beaver Tail Tunnel parking access",
+          "latitude": 39.1945,
+          "longitude": -108.265,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 14.429732674861606,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-big-sur",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "colorado-river-big-sur-put-in",
+          "name": "Beavertail Mountain cutoff / Beaver Tail Tunnel parking access",
+          "latitude": 39.1945,
+          "longitude": -108.265,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 14.429732674861606,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--black-bridge-county-road-109-access",
+      "state": "Colorado",
+      "name": "Black Bridge / County Road 109 access",
+      "aliases": [
+        "Black Bridge / County Road 109 access"
+      ],
+      "sourceIds": [
+        "roaring-fork-pink-to-black-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.47949268,
+        "longitude": -107.28640661
+      },
+      "accessCoordinate": {
+        "latitude": 39.47949268,
+        "longitude": -107.28640661
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 39.47949268,
+        "longitude": -107.28640661
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.47949,-107.28641",
+          "coordinate": {
+            "latitude": 39.47949268,
+            "longitude": -107.28640661
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "roaring-fork-pink-to-black"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roaring-fork-pink-to-black",
+          "routeName": "Roaring Fork River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "roaring-fork-pink-to-black-take-out",
+          "name": "Black Bridge / County Road 109 access",
+          "latitude": 39.47949268,
+          "longitude": -107.28640661,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 92.13537940612316,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roaring-fork-pink-to-black",
+          "routeName": "Roaring Fork River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "roaring-fork-pink-to-black-take-out",
+          "name": "Black Bridge / County Road 109 access",
+          "latitude": 39.47949268,
+          "longitude": -107.28640661,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 92.13537940612316,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "colorado--blm-catamount-bridge-boat-launch",
       "state": "Colorado",
       "name": "BLM Catamount Bridge Boat Launch",
@@ -4669,7 +5075,8 @@
         "Bob Terrell State Wildlife Area non-motorized boat ramp"
       ],
       "sourceIds": [
-        "roaring-fork-basalt-carbondale-take-out"
+        "roaring-fork-basalt-carbondale-take-out",
+        "roaring-fork-pink-to-black-put-in"
       ],
       "storedAccessCoordinate": {
         "latitude": 39.4152,
@@ -4691,11 +5098,11 @@
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
+      "coordinateStatus": "nearby-variants",
       "verificationStatus": "unverified",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
+      "maximumSeparationFeet": 512,
+      "occurrenceCount": 4,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "39.41520,-107.22400",
@@ -4707,6 +5114,18 @@
           "routeCount": 1,
           "routes": [
             "roaring-fork-basalt-carbondale"
+          ]
+        },
+        {
+          "key": "39.41491,-107.22222",
+          "coordinate": {
+            "latitude": 39.41490657,
+            "longitude": -107.22222269
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "roaring-fork-pink-to-black"
           ]
         }
       ],
@@ -4736,6 +5155,34 @@
           "longitude": -107.224,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 154.41260003950995,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roaring-fork-pink-to-black",
+          "routeName": "Roaring Fork River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "roaring-fork-pink-to-black-put-in",
+          "name": "Bob Terrell State Wildlife Area non-motorized boat ramp",
+          "latitude": 39.41490657,
+          "longitude": -107.22222269,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 99.3279774935832,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roaring-fork-pink-to-black",
+          "routeName": "Roaring Fork River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "roaring-fork-pink-to-black-put-in",
+          "name": "Bob Terrell State Wildlife Area non-motorized boat ramp",
+          "latitude": 39.41490657,
+          "longitude": -107.22222269,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 99.3279774935832,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -5145,6 +5592,285 @@
           "longitude": -105.39815197355,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 2.671810308450503,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--corn-lake-state-park-colorado-river-boat-ramp",
+      "state": "Colorado",
+      "name": "Corn Lake State Park Colorado River boat ramp",
+      "aliases": [
+        "Corn Lake State Park Colorado River boat ramp"
+      ],
+      "sourceIds": [
+        "colorado-river-corn-lake-redlands-put-in",
+        "colorado-river-riverbend-corn-lake-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.0552223,
+        "longitude": -108.460575
+      },
+      "accessCoordinate": {
+        "latitude": 39.0552223,
+        "longitude": -108.460575
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 39.0552223,
+        "longitude": -108.460575
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "39.05522,-108.46058",
+          "coordinate": {
+            "latitude": 39.0552223,
+            "longitude": -108.460575
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "colorado-river-corn-lake-redlands",
+            "colorado-river-riverbend-corn-lake"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-corn-lake-redlands",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "colorado-river-corn-lake-redlands-put-in",
+          "name": "Corn Lake State Park Colorado River boat ramp",
+          "latitude": 39.0552223,
+          "longitude": -108.460575,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 138.62191204387832,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-corn-lake-redlands",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "colorado-river-corn-lake-redlands-put-in",
+          "name": "Corn Lake State Park Colorado River boat ramp",
+          "latitude": 39.0552223,
+          "longitude": -108.460575,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 138.62191204387832,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-riverbend-corn-lake",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "colorado-river-riverbend-corn-lake-take-out",
+          "name": "Corn Lake State Park Colorado River boat ramp",
+          "latitude": 39.0552223,
+          "longitude": -108.460575,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 138.62191204387832,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-riverbend-corn-lake",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "colorado-river-riverbend-corn-lake-take-out",
+          "name": "Corn Lake State Park Colorado River boat ramp",
+          "latitude": 39.0552223,
+          "longitude": -108.460575,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 138.62191204387832,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--cr-748-rocky-brook-road-bridge-access",
+      "state": "Colorado",
+      "name": "CR 748 / Rocky Brook Road bridge access",
+      "aliases": [
+        "CR 748 / Rocky Brook Road bridge access"
+      ],
+      "sourceIds": [
+        "taylor-river-748-pieplant-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.924594,
+        "longitude": -106.601111
+      },
+      "accessCoordinate": {
+        "latitude": 38.924594,
+        "longitude": -106.601111
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.924594,
+        "longitude": -106.601111
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.92459,-106.60111",
+          "coordinate": {
+            "latitude": 38.924594,
+            "longitude": -106.601111
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "taylor-river-748-pieplant"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "taylor-river-748-pieplant",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "taylor-river-748-pieplant-put-in",
+          "name": "CR 748 / Rocky Brook Road bridge access",
+          "latitude": 38.924594,
+          "longitude": -106.601111,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 22.016163344523143,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "taylor-river-748-pieplant",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "taylor-river-748-pieplant-put-in",
+          "name": "CR 748 / Rocky Brook Road bridge access",
+          "latitude": 38.924594,
+          "longitude": -106.601111,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 22.016163344523143,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--crested-butte-south-wastewater-treatment-plant-access",
+      "state": "Colorado",
+      "name": "Crested Butte South wastewater-treatment-plant access",
+      "aliases": [
+        "Crested Butte South wastewater-treatment-plant access"
+      ],
+      "sourceIds": [
+        "east-river-cb-south-almont-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.806111,
+        "longitude": -106.8855
+      },
+      "accessCoordinate": {
+        "latitude": 38.806111,
+        "longitude": -106.8855
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.806111,
+        "longitude": -106.8855
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.80611,-106.88550",
+          "coordinate": {
+            "latitude": 38.806111,
+            "longitude": -106.8855
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "east-river-cb-south-almont"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "east-river-cb-south-almont",
+          "routeName": "East River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "east-river-cb-south-almont-put-in",
+          "name": "Crested Butte South wastewater-treatment-plant access",
+          "latitude": 38.806111,
+          "longitude": -106.8855,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 67.8186101616214,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "east-river-cb-south-almont",
+          "routeName": "East River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "east-river-cb-south-almont-put-in",
+          "name": "Crested Butte South wastewater-treatment-plant access",
+          "latitude": 38.806111,
+          "longitude": -106.8855,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 67.8186101616214,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -5637,6 +6363,89 @@
       ]
     },
     {
+      "id": "colorado--five-mile-access-boat-launch",
+      "state": "Colorado",
+      "name": "Five Mile Access boat launch",
+      "aliases": [
+        "Five Mile Access boat launch"
+      ],
+      "sourceIds": [
+        "taylor-river-five-mile-almont-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.7089919159467,
+        "longitude": -106.801771245825
+      },
+      "accessCoordinate": {
+        "latitude": 38.7089919159467,
+        "longitude": -106.801771245825
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.7089919159467,
+        "longitude": -106.801771245825
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.70899,-106.80177",
+          "coordinate": {
+            "latitude": 38.7089919159467,
+            "longitude": -106.801771245825
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "taylor-river-five-mile-almont"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "taylor-river-five-mile-almont",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "taylor-river-five-mile-almont-put-in",
+          "name": "Five Mile Access boat launch",
+          "latitude": 38.7089919159467,
+          "longitude": -106.801771245825,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 53.07420660099261,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "taylor-river-five-mile-almont",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "taylor-river-five-mile-almont-put-in",
+          "name": "Five Mile Access boat launch",
+          "latitude": 38.7089919159467,
+          "longitude": -106.801771245825,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 53.07420660099261,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "colorado--forest-service-visitor-center-eagle-river-access",
       "state": "Colorado",
       "name": "Forest Service Visitor Center Eagle River access",
@@ -5794,6 +6603,86 @@
           "longitude": -106.402845,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 199.66314276950558,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--garlic-mike-s-north-bridge-shady-island-boat-ramp",
+      "state": "Colorado",
+      "name": "Garlic Mike’s / North Bridge / Shady Island Boat Ramp",
+      "aliases": [
+        "Garlic Mike’s / North Bridge / Shady Island Boat Ramp"
+      ],
+      "sourceIds": [
+        "gunnison-river-almont-north-bridge-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.58286013426891,
+        "longitude": -106.92154660259921
+      },
+      "accessCoordinate": {
+        "latitude": 38.58286013426891,
+        "longitude": -106.92154660259921
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.58286,-106.92155",
+          "coordinate": {
+            "latitude": 38.58286013426891,
+            "longitude": -106.92154660259921
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "gunnison-river-almont-north-bridge"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunnison-river-almont-north-bridge",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "gunnison-river-almont-north-bridge-take-out",
+          "name": "Garlic Mike’s / North Bridge / Shady Island Boat Ramp",
+          "latitude": 38.58286013426891,
+          "longitude": -106.92154660259921,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 146.09624519887538,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "gunnison-river-almont-north-bridge",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "gunnison-river-almont-north-bridge-take-out",
+          "name": "Garlic Mike’s / North Bridge / Shady Island Boat Ramp",
+          "latitude": 38.58286013426891,
+          "longitude": -106.92154660259921,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 146.09624519887538,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -6040,6 +6929,169 @@
           "longitude": -107.251,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 37.24089844254046,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--gunnison-whitewater-park-downstream-exit",
+      "state": "Colorado",
+      "name": "Gunnison Whitewater Park downstream exit",
+      "aliases": [
+        "Gunnison Whitewater Park downstream exit"
+      ],
+      "sourceIds": [
+        "gunnison-river-whitewater-park-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.531,
+        "longitude": -106.951
+      },
+      "accessCoordinate": {
+        "latitude": 38.531,
+        "longitude": -106.951
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.531,
+        "longitude": -106.951
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.53100,-106.95100",
+          "coordinate": {
+            "latitude": 38.531,
+            "longitude": -106.951
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "gunnison-river-whitewater-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunnison-river-whitewater-park",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "gunnison-river-whitewater-park-take-out",
+          "name": "Gunnison Whitewater Park downstream exit",
+          "latitude": 38.531,
+          "longitude": -106.951,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 97.61232980027071,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "gunnison-river-whitewater-park",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "gunnison-river-whitewater-park-take-out",
+          "name": "Gunnison Whitewater Park downstream exit",
+          "latitude": 38.531,
+          "longitude": -106.951,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 97.61232980027071,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--gunnison-whitewater-park-put-in",
+      "state": "Colorado",
+      "name": "Gunnison Whitewater Park put-in",
+      "aliases": [
+        "Gunnison Whitewater Park put-in"
+      ],
+      "sourceIds": [
+        "gunnison-river-whitewater-park-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.533,
+        "longitude": -106.949
+      },
+      "accessCoordinate": {
+        "latitude": 38.533,
+        "longitude": -106.949
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.53300,-106.94900",
+          "coordinate": {
+            "latitude": 38.533,
+            "longitude": -106.949
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "gunnison-river-whitewater-park"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunnison-river-whitewater-park",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "gunnison-river-whitewater-park-put-in",
+          "name": "Gunnison Whitewater Park put-in",
+          "latitude": 38.533,
+          "longitude": -106.949,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 104.20528363149563,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "gunnison-river-whitewater-park",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "gunnison-river-whitewater-park-put-in",
+          "name": "Gunnison Whitewater Park put-in",
+          "latitude": 38.533,
+          "longitude": -106.949,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 104.20528363149563,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -6538,6 +7590,89 @@
       ]
     },
     {
+      "id": "colorado--pieplant-ranch-cr-742-8-access",
+      "state": "Colorado",
+      "name": "Pieplant Ranch / CR 742.8 access",
+      "aliases": [
+        "Pieplant Ranch / CR 742.8 access"
+      ],
+      "sourceIds": [
+        "taylor-river-748-pieplant-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.894754,
+        "longitude": -106.572554
+      },
+      "accessCoordinate": {
+        "latitude": 38.894754,
+        "longitude": -106.572554
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.894754,
+        "longitude": -106.572554
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.89475,-106.57255",
+          "coordinate": {
+            "latitude": 38.894754,
+            "longitude": -106.572554
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "taylor-river-748-pieplant"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "taylor-river-748-pieplant",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "taylor-river-748-pieplant-take-out",
+          "name": "Pieplant Ranch / CR 742.8 access",
+          "latitude": 38.894754,
+          "longitude": -106.572554,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 10.725218233395797,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "taylor-river-748-pieplant",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "taylor-river-748-pieplant-take-out",
+          "name": "Pieplant Ranch / CR 742.8 access",
+          "latitude": 38.894754,
+          "longitude": -106.572554,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 10.725218233395797,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "colorado--pillar-park-chapa-place-public-access",
       "state": "Colorado",
       "name": "Pillar Park / Chapa Place public access",
@@ -6615,6 +7750,89 @@
           "longitude": -104.62262304680479,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 12.417619894078493,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--put-in-above-todd-s-slot",
+      "state": "Colorado",
+      "name": "Put-in above Todd’s Slot",
+      "aliases": [
+        "Put-in above Todd’s Slot"
+      ],
+      "sourceIds": [
+        "taylor-river-todds-slot-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.751335,
+        "longitude": -106.695672
+      },
+      "accessCoordinate": {
+        "latitude": 38.751335,
+        "longitude": -106.695672
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.751335,
+        "longitude": -106.695672
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.75133,-106.69567",
+          "coordinate": {
+            "latitude": 38.751335,
+            "longitude": -106.695672
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "taylor-river-todds-slot"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "taylor-river-todds-slot",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "taylor-river-todds-slot-put-in",
+          "name": "Put-in above Todd’s Slot",
+          "latitude": 38.751335,
+          "longitude": -106.695672,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 0.09289389084510606,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "taylor-river-todds-slot",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "taylor-river-todds-slot-put-in",
+          "name": "Put-in above Todd’s Slot",
+          "latitude": 38.751335,
+          "longitude": -106.695672,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 0.09289389084510606,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -6699,6 +7917,86 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 3.3563612736591133,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--redlands-parkway-boat-ramp-blue-heron-access",
+      "state": "Colorado",
+      "name": "Redlands Parkway Boat Ramp / Blue Heron access",
+      "aliases": [
+        "Redlands Parkway Boat Ramp / Blue Heron access"
+      ],
+      "sourceIds": [
+        "colorado-river-corn-lake-redlands-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.05424545,
+        "longitude": -108.54589965
+      },
+      "accessCoordinate": {
+        "latitude": 39.05424545,
+        "longitude": -108.54589965
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.05425,-108.54590",
+          "coordinate": {
+            "latitude": 39.05424545,
+            "longitude": -108.54589965
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "colorado-river-corn-lake-redlands"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-corn-lake-redlands",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "colorado-river-corn-lake-redlands-take-out",
+          "name": "Redlands Parkway Boat Ramp / Blue Heron access",
+          "latitude": 39.05424545,
+          "longitude": -108.54589965,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 218.86203319324204,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-corn-lake-redlands",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "colorado-river-corn-lake-redlands-take-out",
+          "name": "Redlands Parkway Boat Ramp / Blue Heron access",
+          "latitude": 39.05424545,
+          "longitude": -108.54589965,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 218.86203319324204,
+          "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
       ]
@@ -6864,6 +8162,169 @@
           "longitude": -106.46343648,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 84.70172552810514,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--riverbend-park-harky-s-launch-boat-ramp",
+      "state": "Colorado",
+      "name": "Riverbend Park / Harky's Launch boat ramp",
+      "aliases": [
+        "Riverbend Park / Harky's Launch boat ramp"
+      ],
+      "sourceIds": [
+        "colorado-river-riverbend-corn-lake-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.1010701,
+        "longitude": -108.3614943
+      },
+      "accessCoordinate": {
+        "latitude": 39.1010701,
+        "longitude": -108.3614943
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.10107,-108.36149",
+          "coordinate": {
+            "latitude": 39.1010701,
+            "longitude": -108.3614943
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "colorado-river-riverbend-corn-lake"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-riverbend-corn-lake",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "colorado-river-riverbend-corn-lake-put-in",
+          "name": "Riverbend Park / Harky's Launch boat ramp",
+          "latitude": 39.1010701,
+          "longitude": -108.3614943,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 122.27532674022682,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-riverbend-corn-lake",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "colorado-river-riverbend-corn-lake-put-in",
+          "name": "Riverbend Park / Harky's Launch boat ramp",
+          "latitude": 39.1010701,
+          "longitude": -108.3614943,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 122.27532674022682,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--roller-dam-take-out-access",
+      "state": "Colorado",
+      "name": "Roller Dam take-out access",
+      "aliases": [
+        "Roller Dam take-out access"
+      ],
+      "sourceIds": [
+        "colorado-river-big-sur-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.1959,
+        "longitude": -108.28
+      },
+      "accessCoordinate": {
+        "latitude": 39.1959,
+        "longitude": -108.28
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 39.1959,
+        "longitude": -108.28
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.19590,-108.28000",
+          "coordinate": {
+            "latitude": 39.1959,
+            "longitude": -108.28
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "colorado-river-big-sur"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-big-sur",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "colorado-river-big-sur-take-out",
+          "name": "Roller Dam take-out access",
+          "latitude": 39.1959,
+          "longitude": -108.28,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 20.04905345600935,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "colorado-river-big-sur",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "colorado-river-big-sur-take-out",
+          "name": "Roller Dam take-out access",
+          "latitude": 39.1959,
+          "longitude": -108.28,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 20.04905345600935,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -7107,6 +8568,89 @@
           "longitude": -106.063342,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 29.993961794084065,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--take-out-below-todd-s-slot",
+      "state": "Colorado",
+      "name": "Take-out below Todd’s Slot",
+      "aliases": [
+        "Take-out below Todd’s Slot"
+      ],
+      "sourceIds": [
+        "taylor-river-todds-slot-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.74868679181054,
+        "longitude": -106.70309838554716
+      },
+      "accessCoordinate": {
+        "latitude": 38.74868679181054,
+        "longitude": -106.70309838554716
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 38.74868679181054,
+        "longitude": -106.70309838554716
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.74869,-106.70310",
+          "coordinate": {
+            "latitude": 38.74868679181054,
+            "longitude": -106.70309838554716
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "taylor-river-todds-slot"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "taylor-river-todds-slot",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "taylor-river-todds-slot-take-out",
+          "name": "Take-out below Todd’s Slot",
+          "latitude": 38.74868679181054,
+          "longitude": -106.70309838554716,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 2.7779393036787794,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "taylor-river-todds-slot",
+          "routeName": "Taylor River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "taylor-river-todds-slot-take-out",
+          "name": "Take-out below Todd’s Slot",
+          "latitude": 38.74868679181054,
+          "longitude": -106.70309838554716,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 2.7779393036787794,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -96680,6 +98224,89 @@
       ]
     },
     {
+      "id": "north-carolina--boone-s-cave-park-canoe-kayak-access",
+      "state": "North Carolina",
+      "name": "Boone’s Cave Park Canoe/Kayak Access",
+      "aliases": [
+        "Boone’s Cave Park Canoe/Kayak Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-us64-boones-cave-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 35.79994,
+        "longitude": -80.46816
+      },
+      "accessCoordinate": {
+        "latitude": 35.79994,
+        "longitude": -80.46816
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 35.79994,
+        "longitude": -80.46816
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "35.79994,-80.46816",
+          "coordinate": {
+            "latitude": 35.79994,
+            "longitude": -80.46816
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yadkin-river-us64-boones-cave"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-us64-boones-cave",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-us64-boones-cave-take-out",
+          "name": "Boone’s Cave Park Canoe/Kayak Access",
+          "latitude": 35.79994,
+          "longitude": -80.46816,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 71.31350986048783,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-us64-boones-cave",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Boone’s Cave Park Canoe/Kayak Access",
+          "latitude": 35.79994,
+          "longitude": -80.46816,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 71.31350986048783,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--business-220-access",
       "state": "North Carolina",
       "name": "Business 220 Access",
@@ -97070,6 +98697,89 @@
       ]
     },
     {
+      "id": "north-carolina--low-water-bridge-public-fishing-area",
+      "state": "North Carolina",
+      "name": "Low Water Bridge Public Fishing Area",
+      "aliases": [
+        "Low Water Bridge Public Fishing Area"
+      ],
+      "sourceIds": [
+        "uwharrie-river-low-water-bridge-hwy-109-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 35.48838,
+        "longitude": -80.0055
+      },
+      "accessCoordinate": {
+        "latitude": 35.48838,
+        "longitude": -80.0055
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 35.48838,
+        "longitude": -80.0055
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "35.48838,-80.00550",
+          "coordinate": {
+            "latitude": 35.48838,
+            "longitude": -80.0055
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "uwharrie-river-low-water-bridge-hwy-109"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "uwharrie-river-low-water-bridge-hwy-109",
+          "routeName": "Uwharrie River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "uwharrie-river-low-water-bridge-hwy-109-put-in",
+          "name": "Low Water Bridge Public Fishing Area",
+          "latitude": 35.48838,
+          "longitude": -80.0055,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 63.251293101547475,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "uwharrie-river-low-water-bridge-hwy-109",
+          "routeName": "Uwharrie River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Low Water Bridge Public Fishing Area",
+          "latitude": 35.48838,
+          "longitude": -80.0055,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 63.251293101547475,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--moratock-park-access",
       "state": "North Carolina",
       "name": "Moratock Park Access",
@@ -97131,6 +98841,89 @@
           "longitude": -80.195971,
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 86.06135371041593,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--nc-109-public-fishing-area",
+      "state": "North Carolina",
+      "name": "NC 109 Public Fishing Area",
+      "aliases": [
+        "NC 109 Public Fishing Area"
+      ],
+      "sourceIds": [
+        "uwharrie-river-low-water-bridge-hwy-109-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 35.43139,
+        "longitude": -80.01664
+      },
+      "accessCoordinate": {
+        "latitude": 35.43139,
+        "longitude": -80.01664
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 35.43139,
+        "longitude": -80.01664
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "35.43139,-80.01664",
+          "coordinate": {
+            "latitude": 35.43139,
+            "longitude": -80.01664
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "uwharrie-river-low-water-bridge-hwy-109"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "uwharrie-river-low-water-bridge-hwy-109",
+          "routeName": "Uwharrie River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "uwharrie-river-low-water-bridge-hwy-109-take-out",
+          "name": "NC 109 Public Fishing Area",
+          "latitude": 35.43139,
+          "longitude": -80.01664,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 68.9526662406922,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "uwharrie-river-low-water-bridge-hwy-109",
+          "routeName": "Uwharrie River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "NC 109 Public Fishing Area",
+          "latitude": 35.43139,
+          "longitude": -80.01664,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 68.9526662406922,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -97579,6 +99372,86 @@
           "longitude": -79.257469,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 188.98649825956298,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--us-64-yadkin-river-canoe-access",
+      "state": "North Carolina",
+      "name": "US 64 Yadkin River Canoe Access",
+      "aliases": [
+        "US 64 Yadkin River Canoe Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-us64-boones-cave-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 35.8558,
+        "longitude": -80.3853
+      },
+      "accessCoordinate": {
+        "latitude": 35.8558,
+        "longitude": -80.3853
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "35.85580,-80.38530",
+          "coordinate": {
+            "latitude": 35.8558,
+            "longitude": -80.3853
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yadkin-river-us64-boones-cave"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-us64-boones-cave",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-us64-boones-cave-put-in",
+          "name": "US 64 Yadkin River Canoe Access",
+          "latitude": 35.8558,
+          "longitude": -80.3853,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 145.51758224143458,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-us64-boones-cave",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "US 64 Yadkin River Canoe Access",
+          "latitude": 35.8558,
+          "longitude": -80.3853,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 145.51758224143458,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }

@@ -68,11 +68,13 @@ export function handleReady(
 }
 
 export async function handleRiverSummary(response: ServerResponse, requestId: string, includeBody: boolean) {
-  const snapshot = await getStoredRiverSummarySnapshot().catch(() => null);
+  const snapshot = await getStoredRiverSummarySnapshot({ allowStale: true }).catch(() => null);
   if (snapshot) {
     return sendJson(response, 200, {
       requestId,
       generatedAt: snapshot.generatedAt,
+      snapshotStatus: snapshot.snapshotStatus,
+      snapshotAgeSeconds: snapshot.snapshotAgeSeconds,
       riverCount: snapshot.riverCount,
       rivers: snapshot.rivers,
     }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
@@ -86,17 +88,21 @@ export async function handleRiverSummary(response: ServerResponse, requestId: st
   return sendJson(response, 200, {
     requestId,
     generatedAt,
+    snapshotStatus: 'live',
+    snapshotAgeSeconds: 0,
     riverCount: rivers.length,
     rivers,
   }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
 }
 
 export async function handleWeekendSummary(response: ServerResponse, requestId: string, includeBody: boolean) {
-  const snapshot = await getStoredWeekendSummarySnapshot().catch(() => null);
+  const snapshot = await getStoredWeekendSummarySnapshot({ allowStale: true }).catch(() => null);
   if (snapshot) {
     return sendJson(response, 200, {
       requestId,
       generatedAt: snapshot.generatedAt,
+      snapshotStatus: snapshot.snapshotStatus,
+      snapshotAgeSeconds: snapshot.snapshotAgeSeconds,
       label: snapshot.label,
       riverCount: snapshot.riverCount,
       withheldCount: snapshot.withheldCount,
@@ -116,6 +122,8 @@ export async function handleWeekendSummary(response: ServerResponse, requestId: 
   return sendJson(response, 200, {
     requestId,
     generatedAt,
+    snapshotStatus: 'live',
+    snapshotAgeSeconds: 0,
     label: rivers[0]?.weekend.label ?? 'Weekend',
     riverCount: rivers.length,
     withheldCount: Math.max(0, results.length - rivers.length),
@@ -136,13 +144,15 @@ export async function handleRiverDetail(
     return sendJson(response, 200, {
       requestId,
       generatedAt: new Date().toISOString(),
+      snapshotStatus: 'live',
+      snapshotAgeSeconds: 0,
       result: serializePlanningRoute(publicRiver, weather),
     }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
   }
 
   let snapshot: Awaited<ReturnType<typeof getStoredRiverDetailSnapshot>> = null;
   try {
-    snapshot = await getStoredRiverDetailSnapshot(slug);
+    snapshot = await getStoredRiverDetailSnapshot(slug, { allowStale: true });
   } catch (error) {
     console.error('[snapshots] detail read failed', {
       requestId,
@@ -151,10 +161,12 @@ export async function handleRiverDetail(
     });
   }
 
-  if (snapshot && (snapshotOnly || snapshot.result.liveData.overall !== 'offline')) {
+  if (snapshot && (snapshotOnly || snapshot.snapshotStatus === 'stale' || snapshot.result.liveData.overall !== 'offline')) {
     return sendJson(response, 200, {
       requestId,
       generatedAt: snapshot.generatedAt,
+      snapshotStatus: snapshot.snapshotStatus,
+      snapshotAgeSeconds: snapshot.snapshotAgeSeconds,
       result: snapshot.result,
     }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
   }
@@ -186,6 +198,8 @@ export async function handleRiverDetail(
       return sendJson(response, 200, {
         requestId,
         generatedAt: snapshot.generatedAt,
+        snapshotStatus: snapshot.snapshotStatus,
+        snapshotAgeSeconds: snapshot.snapshotAgeSeconds,
         result: snapshot.result,
       }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
     }
@@ -200,6 +214,8 @@ export async function handleRiverDetail(
     return sendJson(response, 200, {
       requestId,
       generatedAt: snapshot.generatedAt,
+      snapshotStatus: snapshot.snapshotStatus,
+      snapshotAgeSeconds: snapshot.snapshotAgeSeconds,
       result: snapshot.result,
     }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
   }
@@ -208,6 +224,8 @@ export async function handleRiverDetail(
   return sendJson(response, 200, {
     requestId,
     generatedAt,
+    snapshotStatus: 'live',
+    snapshotAgeSeconds: 0,
     result: serializeDetailResult({ ...result, generatedAt }),
   }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
 }
@@ -242,12 +260,14 @@ export async function handleRiverGroup(response: ServerResponse, requestId: stri
   }
   const planningRoutes = group.routes.filter((route) => route.scoreEligibility === 'planning');
   const snapshot = planningRoutes.length === 0
-    ? await getStoredRiverGroupSnapshot(riverId).catch(() => null)
+    ? await getStoredRiverGroupSnapshot(riverId, { allowStale: true }).catch(() => null)
     : null;
   if (snapshot) {
     return sendJson(response, 200, {
       requestId,
       generatedAt: snapshot.generatedAt,
+      snapshotStatus: snapshot.snapshotStatus,
+      snapshotAgeSeconds: snapshot.snapshotAgeSeconds,
       result: snapshot.result,
     }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
   }
@@ -261,6 +281,8 @@ export async function handleRiverGroup(response: ServerResponse, requestId: stri
   return sendJson(response, 200, {
     requestId,
     generatedAt,
+    snapshotStatus: 'live',
+    snapshotAgeSeconds: 0,
     result: serializeRiverGroupResult({
       riverId,
       routes: (results ?? []).map((route) => ({ ...route, generatedAt })),

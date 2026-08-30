@@ -24,9 +24,24 @@ export async function handleRiverTripPack(
   const points = routeAccessPoints(river);
   const putIn = selectPoint(points, requestUrl.searchParams.get('putin')) ?? points[0];
   const takeOut = selectPoint(points, requestUrl.searchParams.get('takeout')) ?? points.at(-1);
-  if (!putIn || !takeOut || putIn.mileFromStart >= takeOut.mileFromStart || !hasCoordinates(putIn) || !hasCoordinates(takeOut)) {
+  const putInIndex = putIn ? points.indexOf(putIn) : -1;
+  const takeOutIndex = takeOut ? points.indexOf(takeOut) : -1;
+  if (!putIn || !takeOut || putInIndex < 0 || takeOutIndex <= putInIndex || !hasCoordinates(putIn) || !hasCoordinates(takeOut)) {
     return sendJson(response, 400, { requestId, error: 'invalid_access_selection', message: 'Choose a put-in before the take-out.' }, includeBody);
   }
+
+  const measuredDistance = takeOut.mileFromStart - putIn.mileFromStart;
+  const measuredFullDistance = points.length >= 2
+    ? points[points.length - 1].mileFromStart - points[0].mileFromStart
+    : 0;
+  const distanceLabelMatch = river.logistics?.distanceLabel?.match(/(\d+(?:\.\d+)?)/);
+  const fullDistance = measuredFullDistance > 0
+    ? measuredFullDistance
+    : (distanceLabelMatch ? Number(distanceLabelMatch[1]) : null);
+  const proportionalDistance = fullDistance && points.length > 1
+    ? fullDistance * ((takeOutIndex - putInIndex) / (points.length - 1))
+    : null;
+  const distanceMiles = measuredDistance > 0 ? measuredDistance : proportionalDistance;
 
   const basePlan = {
     routeSlug: river.slug,
@@ -36,19 +51,19 @@ export async function handleRiverTripPack(
     putIn: toPackPoint(putIn),
     takeOut: toPackPoint(takeOut),
     intermediateAccessPoints: points
-      .filter((point) => point.mileFromStart > putIn.mileFromStart && point.mileFromStart < takeOut.mileFromStart && hasCoordinates(point))
+      .slice(putInIndex + 1, takeOutIndex)
+      .filter(hasCoordinates)
       .map(toPackPoint),
-    distanceMiles: Number((takeOut.mileFromStart - putIn.mileFromStart).toFixed(1)),
+    distanceMiles: distanceMiles ? Number(distanceMiles.toFixed(1)) : null,
     estimatedPaddleTime: river.logistics?.estimatedPaddleTime ?? null,
   };
 
   if (format === 'ics') {
-    const start = parseDate(requestUrl.searchParams.get('start'));
-    const end = parseDate(requestUrl.searchParams.get('end'));
-    if (!start || !end || end <= start) {
+    const schedule = calendarSchedule(requestUrl, river.logistics?.estimatedPaddleTime, distanceMiles);
+    if (!schedule) {
       return sendJson(response, 400, { requestId, error: 'invalid_schedule', message: 'Calendar export requires valid start and end times.' }, includeBody);
     }
-    const body = buildIcs({ ...basePlan, launchAt: start, expectedTakeOutAt: end });
+    const body = buildIcs({ ...basePlan, launchAt: schedule.start, expectedTakeOutAt: schedule.end });
     return sendBinary(
       response,
       200,
@@ -112,6 +127,27 @@ function parseDate(value: string | null) {
   if (!value) return null;
   const date = new Date(value);
   return Number.isFinite(date.getTime()) ? date : null;
+}
+
+function calendarSchedule(requestUrl: URL, paddleTimeLabel?: string, distanceMiles?: number | null) {
+  const startValue = requestUrl.searchParams.get('start');
+  const endValue = requestUrl.searchParams.get('end');
+  if (startValue || endValue) {
+    const start = parseDate(startValue);
+    const end = parseDate(endValue);
+    return start && end && end > start ? { start, end } : null;
+  }
+
+  const start = new Date();
+  start.setUTCHours(start.getUTCHours() + 1, 0, 0, 0);
+  const timeValues = (paddleTimeLabel?.match(/\d+(?:\.\d+)?/g) ?? []).map(Number);
+  const estimatedHours = timeValues.at(-1)
+    ?? (distanceMiles && distanceMiles > 0 ? distanceMiles / 2.2 : 3);
+  const durationMinutes = Math.max(60, Math.round((estimatedHours + 1) * 60));
+  return {
+    start,
+    end: new Date(start.getTime() + durationMinutes * 60 * 1000),
+  };
 }
 
 function flattenGeometry(geometry: { type?: string; coordinates?: unknown } | undefined): Coordinate[][] {

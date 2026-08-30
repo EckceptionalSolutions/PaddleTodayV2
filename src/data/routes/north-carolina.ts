@@ -22,6 +22,20 @@ const yadkinAccessListUrl = 'https://nctriadoutdoors.com/yadkin-river/';
 const yadkinAccessBrochureUrl = 'https://www.ptrc.org/home/showpublisheddocument/13283/638375432196800000';
 const kerrScottDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-0211139110/';
 const kerrScottHydrographUrl = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=0211139110&parameterCd=00060,00065&siteStatus=all';
+const danielBooneTrailUrl = 'https://www.partnc.org/DocumentCenter/View/2747/WilCoxBridgeRecArea';
+const boonesCaveParkUrl = 'https://www.co.davidson.nc.us/Facilities/Facility/Details/Boones-Cave-Park-10';
+const yadkinPiedmontUrl = 'https://www.piedmonttrails.org/paddlethepiedmont-yadkinriver/';
+const yadkinCollegeDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-02116500/';
+const yadkinCollegeHydrographUrl = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=02116500&parameterCd=00060,00065&siteStatus=all';
+const boonesCaveAccessMapUrl = 'https://mapcarta.com/N7446668346';
+const uwharrieCanoeClubUrl = 'https://www.carolinacanoeclub.org/events/uwharrie-river-low-water-bridge-to-hwy-109/';
+const uwharrieDiscoverUrl = 'https://www.discoveruwharrie.com/lakes-waterways/uwharrie-river';
+const uwharrieNcwrcAccessUrl = 'https://www.ncpaws.org/RsReports/IMAP/FishingAreasPDF.aspx?BoatRamp=0&CFP=0&CanoeAccess=0&FishingPier=0&ShorelineAccess=0&SpeciesGroupID=17&TLP=0&Universal=0&WaterType=1';
+const uwharrieForestGuideUrl = 'https://www.fs.usda.gov/sites/nfs/files/r08/northcarolina/publication/UWH%20--%20Uwharrie%20National%20Forest%20Recreation%20Guide.pdf';
+const uwharrieDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-02123500/';
+const uwharrieHydrographUrl = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=02123500&parameterCd=00060,00065&siteStatus=all';
+const uwharrieImageUrl = 'https://commons.wikimedia.org/wiki/File:Coggins_Bridge-27527.jpg';
+const yadkinElkinImageUrl = 'https://commons.wikimedia.org/wiki/File:Yadkin_River_Elkin.jpg';
 const hawTrailUrl = 'https://www.hawrivertrail.org/saxapahaw-mill-race-to-union-bridge';
 const hawGaugeGuidanceUrl = 'https://www.hawrivertrail.org/river-gauge';
 const hawOverviewUrl = 'https://www.hawrivertrail.org/paddle-trail-overview';
@@ -60,6 +74,243 @@ const neuseUspsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-
 const neuseHydrographUrl = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=02087183&parameterCd=00060,00065&siteStatus=all';
 
 export const northCarolinaRoutes: River[] = [
+  {
+    id: 'uwharrie-river-low-water-bridge-hwy-109',
+    riverId: 'uwharrie-river',
+    slug: 'uwharrie-river-low-water-bridge-hwy-109',
+    name: 'Uwharrie River',
+    reach: 'Low Water Bridge to NC 109 Access',
+    aliases: ['Low Water Bridge to Highway 109', 'Uwharrie River section 3'],
+    state: 'North Carolina',
+    region: 'Montgomery County',
+    routeType: 'recreational',
+    summary: 'A roughly seven-mile Uwharrie River moving-water run from the public Low Water Bridge canoe access to the NC 109 public canoe access, with Class I rapids, rock scraping, and a direct Eldorado gauge check.',
+    statusText: 'Use direct USGS 02123500 near Eldorado. The Carolina Canoe Club identifies 2.1 ft as the minimum good water level and says to revisit plans above 3.5 ft; these are planning cues, not a safety guarantee. Recheck stage, trend, rainfall, debris, daylight, access conditions, and craft suitability before launching.',
+    latitude: 35.43139,
+    longitude: -80.01664,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'low_water', 'fast_rise', 'strainers', 'cold_water', 'mandatory_takeout'],
+      safetyNotes: [
+        'This is a free-flowing moving-water reach with a dozen reported Class I rapids, rock scraping, and tricky passages. Use a properly fitted PFD, a maneuverable durable craft, and skill appropriate to current conditions; a novice should not treat the route as guaranteed flatwater.',
+        'The direct station-tied planning cue is 2.1 ft minimum good water at USGS Eldorado. Above 3.5 ft, the Carolina Canoe Club says to revisit plans and specifications; rapidly rising water, recent storms, strainers, and cold water can make the run unsuitable at any reading.',
+        'Low Water Bridge has a public downstream-right canoe entry. NC 109 has a public canoe/kayak slide and stairs; confirm the carry and landing on arrival and take out before committing to downstream water.',
+        'Do not run or attempt to pass under the low bridge at Low Water Road when using it as a downstream decision point. Leave a float plan, confirm daylight and emergency coverage, and do not improvise private-bank landings.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-02123500',
+      provider: 'usgs',
+      siteId: '02123500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Uwharrie River near Eldorado, NC',
+      detailUrl: uwharrieDetailUrl,
+      hydrographUrl: uwharrieHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2.1,
+      idealMin: 2.1,
+      idealMax: 3.5,
+      thresholdSource: {
+        label: 'Carolina Canoe Club Uwharrie River Low Water Bridge to NC 109 guidance',
+        url: uwharrieCanoeClubUrl,
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes: 'The reach is rainfall-sensitive and can move from scrape-prone to pushy quickly. Check stage, trend, recent and forecast rain, debris, water temperature, daylight, and both access sites immediately before launch.',
+      difficulty: 'moderate',
+      difficultyNotes: 'Mostly Class I moving water with recurring rocks, shallow scraping, and a few tricky passages. A narrow maneuverable boat, active line choice, and self-rescue readiness are more important than the nominal rapid class.',
+      confidenceNotes: 'High confidence in the distinct public seven-mile corridor and endpoint chain: Carolina Canoe Club publishes the exact reach, coordinates, distance, access descriptions, and station-specific stage guidance; NCWRC independently lists both public canoe sites; USGS provides direct stage and discharge telemetry. The 3.5 ft upper value is retained as a planning-review point rather than a safety ceiling.',
+    },
+    putIn: {
+      name: 'Low Water Bridge Public Fishing Area',
+      latitude: 35.48838,
+      longitude: -80.0055,
+    },
+    takeOut: {
+      name: 'NC 109 Public Fishing Area',
+      latitude: 35.43139,
+      longitude: -80.01664,
+    },
+    accessPoints: [
+      {
+        id: 'uwharrie-river-low-water-bridge-hwy-109-put-in',
+        name: 'Low Water Bridge Public Fishing Area',
+        latitude: 35.48838,
+        longitude: -80.0055,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'NCWRC lists this as public canoe access, and the Carolina Canoe Club describes the downstream-right river entry. Confirm the current carry, parking, signs, and water level before launching.',
+      },
+      {
+        id: 'uwharrie-river-low-water-bridge-hwy-109-take-out',
+        name: 'NC 109 Public Fishing Area',
+        latitude: 35.43139,
+        longitude: -80.01664,
+        mileFromStart: 7,
+        segmentKind: 'transition',
+        note: 'NCWRC lists this as public canoe access, and the Carolina Canoe Club describes a canoe/kayak slide and stairs. Use it as the planned take-out and confirm the landing and current access rules on site.',
+      },
+    ],
+    logistics: {
+      distanceLabel: 'approximately 7 river miles',
+      estimatedPaddleTime: 'approximately 5 hours depending on flow, scouting, rock scraping, breaks, and shuttle timing',
+      shuttle: 'Stage the downstream vehicle at the NC 109 public canoe access, then shuttle to Low Water Bridge. Confirm both lots, the downstream-right launch, the NC 109 slide/stairs, and current parking rules before unloading.',
+      permits: 'No route-specific paddling permit is identified for these public access sites. Follow current NCWRC, county, posted access, and boating-safety rules.',
+      camping: 'Neither endpoint is documented as an overnight river-access campground. Uwharrie National Forest offers designated campgrounds and dispersed camping under current Forest Service rules, but day-use and wildlife-access sites are not permission for riverbank camping; reserve or confirm a lawful site separately.',
+      campingClassification: 'none',
+      summary: 'A public seven-mile Uwharrie River day run with direct Eldorado stage telemetry, a 2.1 ft minimum-good-water cue, two public canoe accesses, and Class I rock and low-water hazards.',
+      accessCaveats: [
+        'NCWRC lists Low Water Bridge Public Fishing Area at approximately 35.4884, -80.0058 and NC 109 Public Fishing Area at 35.4314, -80.0165 as public canoe access. Treat the stored points as access anchors and follow signs, safe carries, and current closures on site.',
+        'The Carolina Canoe Club describes easy downstream-right entry at Low Water Bridge and a canoe/kayak slide with stairs at NC 109. Do not assume an unlisted bank or bridge landing is public.',
+        'Uwharrie National Forest camping rules distinguish dispersed camping from day-use sites and wildlife openings. Use a designated or currently lawful campsite away from the access launch and private banks.',
+      ],
+      watchFor: ['USGS 02123500 below 2.1 ft or above the 3.5 ft review point', 'rapidly rising stage', 'shallow rocks and scraping', 'Class I rapids and tricky passages', 'strainers', 'cold water', 'bridge and carry hazards', 'access parking or closure changes'],
+    },
+    evidenceNotes: [
+      { label: 'Named public corridor', value: 'Low Water Bridge to NC 109; approximately 7 miles', note: 'The Carolina Canoe Club publishes the exact reach and identifies it as section 3 of Uwharrie River in Paddling Eastern North Carolina.', sourceUrl: uwharrieCanoeClubUrl },
+      { label: 'Public endpoint access', value: 'Low Water Bridge canoe access to NC 109 canoe/kayak slide', note: 'NCWRC lists both sites as public canoe access, and the paddle-club page supplies endpoint coordinates, parking, and carry details.', sourceUrl: uwharrieNcwrcAccessUrl },
+      { label: 'Station-specific flow cue', value: '2.1 ft minimum good water; revisit plans above 3.5 ft on USGS Eldorado', note: 'The Carolina Canoe Club ties both planning cues to USGS Eldorado gauge 02123500. They are not a safety certification.', sourceUrl: uwharrieCanoeClubUrl },
+      { label: 'River hazards', value: 'Class I rapids, rock scraping, tricky passages, and a low-water bridge decision', note: 'Local destination guidance describes the recurring rapids and the need to land before the low bridge when it blocks passage.', sourceUrl: uwharrieDiscoverUrl },
+      { label: 'Direct live gauge', value: 'USGS 02123500 near Eldorado; reviewed at 1.85 ft and 15.5 cfs on 2026-08-29 18:00 EDT', note: 'The reviewed stage was below the published minimum-good-water cue, so the route should not score as currently favorable without a later recheck.', sourceUrl: uwharrieHydrographUrl },
+      { label: 'Camping and imagery decision', value: 'No endpoint camping; public-domain Coggins Low-water Bridge image selected', note: 'Nearby Forest Service camping is kept separate from river-access permissions. The image depicts the Uwharrie River at the route put-in and is released to the public domain by its photographer.', sourceUrl: uwharrieImageUrl },
+    ],
+    sourceLinks: [
+      { label: 'Carolina Canoe Club reach and flow guidance', url: uwharrieCanoeClubUrl, provider: 'local' },
+      { label: 'NCWRC public canoe-access listing', url: uwharrieNcwrcAccessUrl, provider: 'local' },
+      { label: 'Discover Uwharrie river hazards and access context', url: uwharrieDiscoverUrl, provider: 'local' },
+      { label: 'Uwharrie National Forest recreation and camping guide', url: uwharrieForestGuideUrl, provider: 'local' },
+      { label: 'Coggins Low-water Bridge / Uwharrie River image', url: uwharrieImageUrl, provider: 'manual' },
+      { label: 'USGS 02123500 monitoring location', url: uwharrieDetailUrl, provider: 'usgs' },
+      { label: 'USGS 02123500 current values', url: uwharrieHydrographUrl, provider: 'usgs' },
+    ],
+    scoreEligibility: 'scored',
+  },
+  {
+    id: 'yadkin-river-us64-boones-cave',
+    riverId: 'yadkin-river',
+    slug: 'yadkin-river-us64-boones-cave',
+    name: 'Yadkin River',
+    reach: 'US 64 Access to Boone’s Cave Park',
+    aliases: ['US 64 to Boone’s Cave Park', 'Daniel Boone Heritage Canoe Trail US 64 section'],
+    state: 'North Carolina',
+    region: 'Davidson County',
+    routeType: 'recreational',
+    summary: 'A roughly 12.9-mile beginner-to-intermediate Yadkin River paddle from the public US 64 canoe access to the carry-in canoe/kayak access at Boone’s Cave Park. The direct Yadkin College gauge and Daniel Boone Heritage Canoe Trail flow table provide a station-tied planning band.',
+    statusText: 'Use direct USGS 02116500 at Yadkin College. The Daniel Boone Heritage Canoe Trail publishes 1.0–4.0 ft and 1,000–5,000 cfs for the US 64 to Boone’s Cave Park segment; treat those as conservative planning bounds, not a safety certification. Recheck the live gauge, trend, rainfall, debris, daylight, access notices, and visual conditions before launching.',
+    latitude: 35.79994,
+    longitude: -80.46816,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'low_water', 'cold_water', 'mandatory_takeout'],
+      safetyNotes: [
+        'This is moving water with wood and sweeper hazards, not a guaranteed flatwater float. Wear a fitted PFD, stay within your skill and craft limits, and scout any rapid or obstruction from shore when conditions are elevated.',
+        'Use the Daniel Boone Heritage Canoe Trail’s 1,000–5,000 cfs and 1.0–4.0 ft band as the route’s planning envelope. Rising water, recent storms, and debris can make conditions unsafe even when the gauge is inside the published band.',
+        'The US 64 access is a bank/canoe entry near a bridge; confirm the carry, parking, and roadside conditions on arrival. Boone’s Cave Park is carry-in canoe/kayak access only, requires a parking pass for an overnight vehicle, and does not provide rentals or shuttle service.',
+        'Take out at Boone’s Cave Park. Do not continue into the downstream reservoir-influenced reach or improvise landings on private banks; leave a float plan and verify water temperature, weather, and emergency coverage.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-02116500',
+      provider: 'usgs',
+      siteId: '02116500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Yadkin River at Yadkin College, NC',
+      detailUrl: yadkinCollegeDetailUrl,
+      hydrographUrl: yadkinCollegeHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      tooLow: 1000,
+      idealMin: 1000,
+      idealMax: 4000,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'Daniel Boone Heritage Canoe Trail US 64 to Boone’s Cave Park flow table',
+        url: danielBooneTrailUrl,
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes: 'The published segment bounds are planning cues for the Yadkin College gauge. Recheck the trend, recent rain, debris, temperature, daylight, and access conditions; avoid treating the lower bound as a guarantee of adequate depth or the upper bound as a universal safe limit.',
+      difficulty: 'moderate',
+      difficultyNotes: 'The named segment is marketed as beginner-friendly, but it is a free-flowing river with sweepers, bridge-area access, low-water shoals, and changing current. Use conservative craft and skill matching.',
+      confidenceNotes: 'High confidence in the distinct public endpoint chain and direct gauge relationship: NCWRC lists both US 64 and Boone’s Cave Park as public canoe access, Davidson County confirms the park’s carry-in canoe/kayak trail and parking rules, the Piedmont access guide publishes the 4.9-mile section, and the Daniel Boone Heritage Canoe Trail ties the 1.0–4.0 ft / 1,000–5,000 cfs table directly to USGS 02116500. The stored 1,000–4,000 cfs broad-audience target stays inside that published envelope and keeps a conservative high-water buffer.',
+    },
+    putIn: {
+      name: 'US 64 Yadkin River Canoe Access',
+      latitude: 35.8558,
+      longitude: -80.3853,
+    },
+    takeOut: {
+      name: 'Boone’s Cave Park Canoe/Kayak Access',
+      latitude: 35.79994,
+      longitude: -80.46816,
+    },
+    accessPoints: [
+      {
+        id: 'yadkin-river-us64-boones-cave-put-in',
+        name: 'US 64 Yadkin River Canoe Access',
+        latitude: 35.8558,
+        longitude: -80.3853,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'NCWRC lists this as public bank/canoe access near US 64. Confirm the bridge-side carry, roadside conditions, parking, and safe river entry before unloading.',
+      },
+      {
+        id: 'yadkin-river-us64-boones-cave-take-out',
+        name: 'Boone’s Cave Park Canoe/Kayak Access',
+        latitude: 35.79994,
+        longitude: -80.46816,
+        mileFromStart: 12.9,
+        segmentKind: 'transition',
+        note: 'Davidson County describes this as carry-in canoe/kayak access with a parking pass required for an overnight vehicle. Confirm the carry, gate hours, parking, and current park rules before taking out.',
+      },
+    ],
+    logistics: {
+      distanceLabel: 'approximately 12.9 river miles',
+      estimatedPaddleTime: '4–6 hours depending on flow, wind, debris, boat type, and the take-out carry',
+      shuttle: 'Stage the downstream vehicle at Boone’s Cave Park, then drive to the US 64 access. Confirm the park parking pass, designated vehicle area, bridge-side carry, and river entry before unloading.',
+      permits: 'No route-specific paddling permit is identified for the public accesses. Boone’s Cave Park requires a parking pass if leaving a vehicle there; follow current county, North Carolina boating, and posted access rules.',
+      camping: 'Boone’s Cave Park offers primitive and semi-primitive campsites by reservation/fee. Camping is an endpoint facility, not an assumption of dispersed riverbank camping; confirm current availability, gate hours, and rules with the county before planning an overnight.',
+      campingClassification: 'endpoint_campground',
+      summary: 'A short Yadkin River day run with public canoe accesses, endpoint camping at Boone’s Cave Park, and a direct gauge-linked operating envelope.',
+      accessCaveats: [
+        'NCWRC lists US Hwy 64 at 35.8558, -80.3853 and Boone’s Cave Park access at 35.79994, -80.46816. The latter is the mapped river-entry point rather than the park-center coordinate; follow current signs and safe water-entry paths.',
+        'Davidson County says Boone’s Cave Park is canoe/kayak access only, does not offer rentals or shuttle service, and requires a parking pass for a vehicle left while paddling. Talk with park staff before unloading supplies.',
+      ],
+      watchFor: ['USGS 02116500 outside 1,000–5,000 cfs or 1.0–4.0 ft', 'rising trend', 'storm debris and sweepers', 'low-water shoals', 'bridge-area carry', 'private banks', 'cold water', 'Boone’s Cave Park parking and gate rules'],
+    },
+    evidenceNotes: [
+      { label: 'Public endpoint chain', value: 'US 64 to Concord Church 9.4 miles, then Concord Church to Boone’s Cave Park 3.5 miles; approximately 12.9 miles total', note: 'Piedmont Legacy Trails lists the consecutive access distances; the generated canonical river line measures approximately 12.84 miles between the named endpoint anchors.', sourceUrl: yadkinPiedmontUrl },
+      { label: 'Endpoint coordinates and canoe access', value: 'US Hwy 64: 35.8558, -80.3853; Boone’s Cave Park access: 35.79994, -80.46816', note: 'NCWRC identifies the park as canoe access; the mapped Boone’s Cave Access point provides the river-entry coordinate used here.', sourceUrl: boonesCaveAccessMapUrl },
+      { label: 'Boone’s Cave Park operations', value: 'Carry-in canoe/kayak access; parking pass required for a vehicle left during a paddle; primitive and semi-primitive camping', note: 'Davidson County publishes the access trail, no-rental/no-shuttle restriction, parking requirement, and campsite information.', sourceUrl: boonesCaveParkUrl },
+      { label: 'Station-specific flow table', value: '1.0–4.0 ft and 1,000–5,000 cfs for US 64 to Boone’s Cave Park', note: 'The Daniel Boone Heritage Canoe Trail identifies USGS 02116500 Yadkin River at Yadkin College as its stream-flow source and publishes the segment bounds.', sourceUrl: danielBooneTrailUrl },
+      { label: 'Direct live gauge', value: 'USGS 02116500; 1,260 cfs and 1.11 ft at 2026-08-29 17:15 EDT', note: 'The reviewed observation was just above the published lower shoulder; recheck the current value and trend before launch. A reading inside the band does not certify safe conditions.', sourceUrl: yadkinCollegeHydrographUrl },
+      { label: 'Image decision', value: 'Approved same-river Yadkin River context image selected', note: 'The route gallery uses the public-domain Yadkin River at Elkin image as same-river context; it is not presented as an endpoint photograph.', sourceUrl: yadkinElkinImageUrl },
+    ],
+    sourceLinks: [
+      { label: 'Daniel Boone Heritage Canoe Trail flow table', url: danielBooneTrailUrl, provider: 'local' },
+      { label: 'Davidson County Boone’s Cave Park facility', url: boonesCaveParkUrl, provider: 'local' },
+      { label: 'Piedmont Yadkin River access guide', url: yadkinPiedmontUrl, provider: 'local' },
+      { label: 'NC Wildlife public fishing and canoe access listing', url: ncwrcFishingAreasUrl, provider: 'local' },
+      { label: 'Boone’s Cave river-entry map point', url: boonesCaveAccessMapUrl, provider: 'local' },
+      { label: 'Yadkin River at Elkin image', url: yadkinElkinImageUrl, provider: 'manual' },
+      { label: 'USGS 02116500 monitoring location', url: yadkinCollegeDetailUrl, provider: 'usgs' },
+      { label: 'USGS 02116500 current values', url: yadkinCollegeHydrographUrl, provider: 'usgs' },
+    ],
+    scoreEligibility: 'scored',
+  },
   {
     id: 'roanoke-river-gaston-weldon-outtake',
     riverId: 'roanoke-river',

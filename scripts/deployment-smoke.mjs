@@ -19,8 +19,29 @@ if (firstSlug) {
     `/api/rivers/${encodeURIComponent(firstSlug)}.json`,
     (payload) => validateRiverDetail(payload, firstSlug),
   );
+  const putInId = summary.rivers[0]?.river?.putIn?.id;
+  const takeOutId = summary.rivers[0]?.river?.takeOut?.id;
+  const accessQuery = putInId && takeOutId
+    ? `?${new URLSearchParams({ putin: putInId, takeout: takeOutId })}`
+    : '';
+  await Promise.all([
+    checkAttachment(
+      'GPX export',
+      `/api/rivers/${encodeURIComponent(firstSlug)}/trip.gpx${accessQuery}`,
+      'application/gpx+xml',
+      '<gpx',
+    ),
+    checkAttachment(
+      'calendar export',
+      `/api/rivers/${encodeURIComponent(firstSlug)}/trip.ics${accessQuery}`,
+      'text/calendar',
+      'BEGIN:VCALENDAR',
+    ),
+  ]);
 } else {
   record('river detail', false, 'summary board did not include a route slug');
+  record('GPX export', false, 'summary board did not include a route slug');
+  record('calendar export', false, 'summary board did not include a route slug');
 }
 
 for (const check of checks) {
@@ -79,6 +100,20 @@ async function checkHtml(name, path) {
       contentType.toLowerCase().includes('text/html') &&
       /Paddle\s*Today/i.test(text) &&
       text.length > 1_000;
+    record(name, valid, valid ? `${text.length} bytes` : `HTTP ${response.status}, ${contentType || 'no content type'}`);
+  } catch (error) {
+    record(name, false, errorMessage(error));
+  }
+}
+
+async function checkAttachment(name, path, expectedContentType, marker) {
+  try {
+    const response = await fetchWithTimeout(new URL(path, baseUrl), {
+      headers: { accept: expectedContentType },
+    });
+    const text = await response.text();
+    const contentType = response.headers.get('content-type') ?? '';
+    const valid = response.ok && contentType.toLowerCase().includes(expectedContentType) && text.includes(marker);
     record(name, valid, valid ? `${text.length} bytes` : `HTTP ${response.status}, ${contentType || 'no content type'}`);
   } catch (error) {
     record(name, false, errorMessage(error));

@@ -34,9 +34,10 @@ import { mapWithConcurrency } from './async-concurrency';
 import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
-// Scheduled snapshots are expected every 30 minutes. Once the last successful
-// capture is more than two hours old, a stored "live" call is more misleading
-// than useful, so callers fall back to a fresh live read instead.
+// Scheduled snapshots are expected every 30 minutes. After two hours they are
+// stale and must be presented as degraded, but public request handlers may
+// still use them rather than fan out to every upstream provider during an
+// outage.
 const MAX_STORED_SNAPSHOT_AGE_MS = 2 * 60 * 60 * 1000;
 const MAX_STORED_SNAPSHOT_CLOCK_SKEW_MS = 5 * 60 * 1000;
 const MAX_SUMMARY_SNAPSHOT_BYTES = 4 * 1024 * 1024;
@@ -128,6 +129,19 @@ export interface RiverGroupSnapshot {
   result: RiverGroupApiResult;
 }
 
+export type StoredSnapshotStatus = 'fresh' | 'stale';
+
+export interface StoredSnapshotMetadata {
+  snapshotStatus: StoredSnapshotStatus;
+  snapshotAgeSeconds: number;
+}
+
+export interface StoredSnapshotReadOptions {
+  allowStale?: boolean;
+}
+
+type StoredSnapshot<T> = T & StoredSnapshotMetadata;
+
 export async function captureRiverSnapshots(args: {
   results: RiverScoreResult[];
   generatedAt?: string;
@@ -163,18 +177,21 @@ export async function captureRiverSnapshots(args: {
   };
 }
 
-export async function getStoredRiverSummarySnapshot(): Promise<RiverSummarySnapshot | null> {
+export async function getStoredRiverSummarySnapshot(
+  options: StoredSnapshotReadOptions = {},
+): Promise<StoredSnapshot<RiverSummarySnapshot> | null> {
   const snapshot = await readStoredOrLocalSummary();
-  if (!snapshot) {
-    return null;
-  }
-  if (!isStoredSnapshotFresh(snapshot)) {
+  const metadata = snapshot ? storedSnapshotMetadata(snapshot) : null;
+  if (!snapshot || !metadata || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
     return null;
   }
 
   return {
     ...snapshot,
-    rivers: snapshot.rivers.map(normalizeSummarySnapshotItem),
+    ...metadata,
+    rivers: snapshot.rivers
+      .map(normalizeSummarySnapshotItem)
+      .map((item) => metadata.snapshotStatus === 'stale' ? markSummarySnapshotItemStale(item) : item),
   };
 }
 
@@ -195,54 +212,65 @@ async function readLocalSummaryFallback(): Promise<RiverSummarySnapshot | null> 
   }
 }
 
-export async function getStoredRiverDetailSnapshot(slug: string): Promise<RiverDetailSnapshot | null> {
+export async function getStoredRiverDetailSnapshot(
+  slug: string,
+  options: StoredSnapshotReadOptions = {},
+): Promise<StoredSnapshot<RiverDetailSnapshot> | null> {
   const snapshot =
     (await snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug))) ??
     (await readSummaryDetailFallback(slug));
-  if (!snapshot) {
+  const metadata = snapshot ? storedSnapshotMetadata(snapshot) : null;
+  if (!snapshot || !metadata || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
     return null;
   }
-  if (!isStoredSnapshotFresh(snapshot)) {
-    return null;
-  }
+
+  const result = normalizeDetailSnapshotResult(snapshot.result);
 
   return {
     ...snapshot,
-    result: normalizeDetailSnapshotResult(snapshot.result),
+    ...metadata,
+    result: metadata.snapshotStatus === 'stale' ? markDetailSnapshotResultStale(result) : result,
   };
 }
 
-export async function getStoredWeekendSummarySnapshot(): Promise<WeekendSummarySnapshot | null> {
+export async function getStoredWeekendSummarySnapshot(
+  options: StoredSnapshotReadOptions = {},
+): Promise<StoredSnapshot<WeekendSummarySnapshot> | null> {
   const snapshot =
     (await snapshotStorage().readJson<WeekendSummarySnapshot>(weekendSummaryBlobName())) ??
     (await readSummaryWeekendFallback());
-  if (!snapshot) {
-    return null;
-  }
-  if (!isStoredSnapshotFresh(snapshot)) {
+  const metadata = snapshot ? storedSnapshotMetadata(snapshot) : null;
+  if (!snapshot || !metadata || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
     return null;
   }
 
   return {
     ...snapshot,
-    rivers: snapshot.rivers.map(normalizeWeekendSnapshotItem),
+    ...metadata,
+    rivers: snapshot.rivers
+      .map(normalizeWeekendSnapshotItem)
+      .map((item) => metadata.snapshotStatus === 'stale' ? markWeekendSnapshotItemStale(item) : item),
   };
 }
 
-export async function getStoredRiverGroupSnapshot(riverId: string): Promise<RiverGroupSnapshot | null> {
+export async function getStoredRiverGroupSnapshot(
+  riverId: string,
+  options: StoredSnapshotReadOptions = {},
+): Promise<StoredSnapshot<RiverGroupSnapshot> | null> {
   const snapshot = await readSummaryGroupFallback(riverId);
-  if (!snapshot) {
-    return null;
-  }
-  if (!isStoredSnapshotFresh(snapshot)) {
+  const metadata = snapshot ? storedSnapshotMetadata(snapshot) : null;
+  if (!snapshot || !metadata || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
     return null;
   }
 
   return {
     ...snapshot,
+    ...metadata,
     result: {
       ...snapshot.result,
-      routes: snapshot.result.routes.map(normalizeDetailSnapshotResult),
+      routes: snapshot.result.routes
+        .map(normalizeDetailSnapshotResult)
+        .map((result) => metadata.snapshotStatus === 'stale' ? markDetailSnapshotResultStale(result) : result),
     },
   };
 }
@@ -532,13 +560,85 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
 }
 
 export function isStoredSnapshotFresh(snapshot: { generatedAt: string }) {
+  return storedSnapshotMetadata(snapshot)?.snapshotStatus === 'fresh';
+}
+
+export function storedSnapshotMetadata(snapshot: { generatedAt: string }): StoredSnapshotMetadata | null {
   const generatedAt = Date.parse(snapshot.generatedAt);
   if (!Number.isFinite(generatedAt)) {
-    return false;
+    return null;
   }
 
   const ageMs = Date.now() - generatedAt;
-  return ageMs >= -MAX_STORED_SNAPSHOT_CLOCK_SKEW_MS && ageMs <= MAX_STORED_SNAPSHOT_AGE_MS;
+  if (ageMs < -MAX_STORED_SNAPSHOT_CLOCK_SKEW_MS) {
+    return null;
+  }
+
+  return {
+    snapshotStatus: ageMs <= MAX_STORED_SNAPSHOT_AGE_MS ? 'fresh' : 'stale',
+    snapshotAgeSeconds: Math.max(0, Math.floor(ageMs / 1000)),
+  };
+}
+
+function markSummarySnapshotItemStale(item: RiverSummaryApiItem): RiverSummaryApiItem {
+  const staleSummary = staleSnapshotMessage(item.generatedAt);
+  return {
+    ...item,
+    liveData: {
+      ...item.liveData,
+      overall: item.liveData.overall === 'offline' ? 'offline' : 'degraded',
+      summary: staleSummary,
+      gaugeState: item.liveData.gaugeState === 'unavailable' ? 'unavailable' : 'stale',
+      gaugeDetail: `${item.liveData.gaugeDetail} ${staleSummary}`,
+      weatherState: item.liveData.weatherState === 'unavailable' ? 'unavailable' : 'stale',
+      weatherDetail: `${item.liveData.weatherDetail} ${staleSummary}`,
+    },
+  };
+}
+
+function markWeekendSnapshotItemStale(item: WeekendSummaryApiItem): WeekendSummaryApiItem {
+  const staleSummary = staleSnapshotMessage(item.generatedAt);
+  return {
+    ...item,
+    liveData: {
+      ...item.liveData,
+      overall: item.liveData.overall === 'offline' ? 'offline' : 'degraded',
+      summary: staleSummary,
+      gaugeState: item.liveData.gaugeState === 'unavailable' ? 'unavailable' : 'stale',
+      gaugeDetail: `${item.liveData.gaugeDetail} ${staleSummary}`,
+      weatherState: item.liveData.weatherState === 'unavailable' ? 'unavailable' : 'stale',
+      weatherDetail: `${item.liveData.weatherDetail} ${staleSummary}`,
+    },
+  };
+}
+
+function markDetailSnapshotResultStale(result: RiverDetailApiResult): RiverDetailApiResult {
+  const staleSummary = staleSnapshotMessage(result.generatedAt);
+  return {
+    ...result,
+    liveData: {
+      ...result.liveData,
+      overall: result.liveData.overall === 'offline' ? 'offline' : 'degraded',
+      summary: staleSummary,
+      gauge: {
+        ...result.liveData.gauge,
+        state: result.liveData.gauge.state === 'unavailable' ? 'unavailable' : 'stale',
+        detail: `${result.liveData.gauge.detail} ${staleSummary}`,
+      },
+      weather: {
+        ...result.liveData.weather,
+        state: result.liveData.weather.state === 'unavailable' ? 'unavailable' : 'stale',
+        detail: `${result.liveData.weather.detail} ${staleSummary}`,
+      },
+    },
+  };
+}
+
+function staleSnapshotMessage(generatedAt: string) {
+  const metadata = storedSnapshotMetadata({ generatedAt });
+  const ageMinutes = Math.max(1, Math.round((metadata?.snapshotAgeSeconds ?? 0) / 60));
+  const ageLabel = ageMinutes >= 120 ? `${Math.round(ageMinutes / 60)} hours` : `${ageMinutes} minutes`;
+  return `The latest successful Paddle Today snapshot is ${ageLabel} old. Treat these conditions as stale and verify before driving or launching.`;
 }
 
 function normalizeWeekendSnapshotItem(item: WeekendSummaryApiItem): WeekendSummaryApiItem {

@@ -24,7 +24,6 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
-import { AreaNotificationCard } from '../components/area-notification-card';
 import { QualityPill, ratingColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -39,6 +38,7 @@ import { isRecord, parseJson } from '../lib/storage';
 import { routePreviewFactItems, routePreviewFactLine } from '../lib/route-facts';
 import {
   buildBoardSnapshot,
+  HOME_NEARBY_DISTANCE_MILES,
   selectBestNowPicks,
   selectNearbyPicks,
   type NearbyRiverPick,
@@ -100,7 +100,9 @@ export default function HomeScreen() {
   const scopedRoutes = location ? nearbyPicks : rivers;
   const snapshotRoutes = scopedRoutes;
   const snapshot = buildBoardSnapshot(snapshotRoutes);
-  const snapshotContext = location ? `In range near ${location.label}` : 'Across available routes';
+  const snapshotContext = location
+    ? `Within ${HOME_NEARBY_DISTANCE_MILES} mi of ${location.label}`
+    : 'Across available routes';
   const bestPicks = useMemo(
     () => selectBestNowPicks(scopedRoutes, undefined, 24),
     [scopedRoutes]
@@ -216,7 +218,6 @@ export default function HomeScreen() {
           onUseLocation={() => void requestLocation()}
           onSetLocation={() => setLocationSearchOpen(true)}
         />
-        <AreaNotificationCard location={location} />
         {locationOutOfRange ? (
           <OutOfRangeState
             locationLabel={location?.label ?? 'your area'}
@@ -412,47 +413,51 @@ function BoardHero({
                   {normalizeApiText(headline.summary.shortExplanation)}
                 </Text>
               </View>
-              {!hasLocation ? (
-                <View style={styles.heroLocationPrompt}>
-                  <Text style={styles.heroLocationPromptText}>
-                    {locationStatus === 'denied' ? 'Location is off — showing all routes.' : 'See the best routes near you.'}
-                  </Text>
-                  <Pressable
-                    style={[styles.heroPrimaryAction, requestingLocation ? styles.heroActionDisabled : null]}
-                    disabled={requestingLocation}
-                    onPress={(event) => {
-                      event.stopPropagation();
-                      onUseLocation();
-                    }}
-                    android_ripple={{ color: colors.accentSoft }}
-                  >
-                    <MaterialCommunityIcons name="crosshairs-gps" color={colors.accentDeep} size={18} />
-                    <Text style={styles.heroPrimaryActionText}>{requestingLocation ? 'Finding' : 'Use location'}</Text>
-                  </Pressable>
-                  <Pressable
-                    style={styles.heroLocationSearchAction}
-                    onPress={(event) => {
-                      event.stopPropagation();
-                      onSetLocation();
-                    }}
-                    accessibilityRole="button"
-                    accessibilityLabel="Set city or ZIP code"
-                  >
-                    <Text style={styles.heroLocationSearchActionText}>City or ZIP</Text>
-                  </Pressable>
-                </View>
-              ) : null}
             </Pressable>
           ) : null}
         </View>
       </ImageBackground>
+
+      {!hasLocation ? (
+        <View style={styles.heroLocationPrompt}>
+          <View style={styles.heroLocationIcon}>
+            <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accentDeep} size={22} />
+          </View>
+          <View style={styles.heroLocationCopy}>
+            <Text style={styles.heroLocationTitle}>Find the best paddles near you</Text>
+            <Text style={styles.heroLocationPromptText}>
+              {locationStatus === 'denied'
+                ? 'Location access is off, so this recommendation covers every route.'
+                : 'Set a starting point to rank routes and counts within 100 miles.'}
+            </Text>
+            <View style={styles.heroLocationActions}>
+              <Pressable
+                style={[styles.heroPrimaryAction, requestingLocation ? styles.heroActionDisabled : null]}
+                disabled={requestingLocation}
+                onPress={onUseLocation}
+                android_ripple={{ color: colors.accentSoft }}
+              >
+                <MaterialCommunityIcons name="crosshairs-gps" color={colors.surfaceStrong} size={18} />
+                <Text style={styles.heroPrimaryActionText}>{requestingLocation ? 'Finding you…' : 'Use my location'}</Text>
+              </Pressable>
+              <Pressable
+                style={styles.heroLocationSearchAction}
+                onPress={onSetLocation}
+                accessibilityRole="button"
+                accessibilityLabel="Set city or ZIP code"
+              >
+                <Text style={styles.heroLocationSearchActionText}>City or ZIP</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      ) : null}
 
       <View style={styles.snapshotSummary}>
         <Text style={styles.snapshotContext}>{snapshotContext}</Text>
         <View style={styles.snapshotRow}>
           <SnapshotPill label="Paddle" value={snapshot.paddleable} tone={styles.snapshotStrong} onPress={() => onOpenStatus('clean-now')} />
           <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} onPress={() => onOpenStatus('watch')} />
-          <SnapshotPill label="No call" value={snapshot.unavailable} tone={styles.snapshotUnavailable} onPress={() => onOpenStatus('no-call')} />
           <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} onPress={() => onOpenStatus('skip')} />
         </View>
       </View>
@@ -1532,7 +1537,7 @@ const styles = StyleSheet.create({
   heroPrimaryAction: {
     minHeight: 44,
     borderRadius: radius.pill,
-    backgroundColor: colors.surfaceStrong,
+    backgroundColor: colors.accent,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -1543,7 +1548,7 @@ const styles = StyleSheet.create({
     opacity: 0.65,
   },
   heroPrimaryActionText: {
-    color: colors.accentDeep,
+    color: colors.surfaceStrong,
     fontSize: 13,
     fontWeight: '900',
   },
@@ -1566,7 +1571,8 @@ const styles = StyleSheet.create({
   },
   snapshotPill: {
     flexGrow: 1,
-    flexBasis: '45%',
+    flexBasis: '28%',
+    minWidth: 92,
     borderRadius: radius.md,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.sm,
@@ -2102,37 +2108,57 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   heroLocationPrompt: {
-    minHeight: 44,
+    marginHorizontal: spacing.md,
+    padding: spacing.md,
     borderRadius: radius.md,
-    backgroundColor: 'rgba(15, 25, 22, 0.58)',
-    paddingLeft: spacing.sm,
-    paddingRight: 6,
-    paddingVertical: 6,
+    borderWidth: 1,
+    borderColor: '#BFD6CC',
+    backgroundColor: colors.accentSoft,
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    alignItems: 'flex-start',
     gap: spacing.sm,
   },
-  heroLocationPromptText: {
+  heroLocationIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.surfaceStrong,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heroLocationCopy: {
     flex: 1,
-    minWidth: 120,
-    color: colors.surfaceStrong,
+    gap: 5,
+  },
+  heroLocationTitle: {
+    color: colors.accentDeep,
+    fontSize: 16,
+    lineHeight: 20,
+    fontWeight: '900',
+  },
+  heroLocationPromptText: {
+    color: colors.text,
     fontSize: 12,
     lineHeight: 17,
-    fontWeight: '800',
+  },
+  heroLocationActions: {
+    marginTop: 5,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
   },
   heroLocationSearchAction: {
-    minHeight: 38,
+    minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.72)',
+    borderColor: colors.accent,
+    backgroundColor: colors.surfaceStrong,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 11,
   },
   heroLocationSearchActionText: {
-    color: colors.surfaceStrong,
+    color: colors.accentDeep,
     fontSize: 12,
     fontWeight: '900',
   },

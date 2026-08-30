@@ -78,6 +78,11 @@ describe('board status controller', () => {
     expect(elements.boardFetchDetail.textContent).toBe('Retry soon.');
     expect(elements.boardFetchBanner.classes).toContain('status-banner--offline');
 
+    controller.setBoardFetchBannerState('stale', 'Verify before launching.');
+    expect(elements.boardFetchTitle.textContent).toBe('Showing the last successful snapshot.');
+    expect(elements.boardFetchBanner.classes).toContain('status-banner--degraded');
+    expect(elements.boardFetchBanner.classes).not.toContain('status-banner--offline');
+
     controller.setBoardFetchBannerState('hidden');
     expect(elements.boardFetchBanner.hidden).toBe(true);
     expect(elements.boardStatusBanner.hidden).toBe(true);

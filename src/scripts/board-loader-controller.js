@@ -36,15 +36,22 @@ export function createBoardLoaderController({
     const generatedAt = typeof cached.payload?.generatedAt === 'string'
       ? cached.payload.generatedAt
       : null;
+    const staleSnapshot = cached.payload?.snapshotStatus === 'stale';
     setLoadedState({
       latestResults: rivers,
       hasLoadedBoardOnce: true,
       lastBoardSuccessAt: cached.fetchedAt,
       lastBoardGeneratedAt: generatedAt,
     });
-    setFetchBannerState('hidden');
+    setFetchBannerState(
+      staleSnapshot ? 'stale' : 'hidden',
+      staleSnapshot ? 'The snapshot worker is delayed. Verify conditions before driving or launching.' : undefined,
+    );
     renderBoard(rivers);
-    updateFreshness({ generatedAt, refreshing: true });
+    updateFreshness({
+      generatedAt,
+      ...(staleSnapshot ? { fallback: true } : { refreshing: true }),
+    });
     setCachedRefreshNote(cached.fetchedAt);
     return true;
   }
@@ -80,6 +87,7 @@ export function createBoardLoaderController({
       const generatedAt = typeof payload?.generatedAt === 'string'
         ? payload.generatedAt
         : null;
+      const staleSnapshot = payload?.snapshotStatus === 'stale';
       setLoadedState({
         latestResults: results,
         lastBoardGeneratedAt: generatedAt,
@@ -87,10 +95,19 @@ export function createBoardLoaderController({
         lastBoardSuccessAt: now(),
       });
       writeCache(cacheKey, payload);
-      setFetchBannerState('hidden');
-      setRefreshState('ready');
+      setFetchBannerState(
+        staleSnapshot ? 'stale' : 'hidden',
+        staleSnapshot ? 'The snapshot worker is delayed. Verify conditions before driving or launching.' : undefined,
+      );
+      setRefreshState(
+        staleSnapshot ? 'error' : 'ready',
+        staleSnapshot ? 'Latest snapshot is stale. The board will recover automatically after a successful worker run.' : undefined,
+      );
       renderBoard(results, { preserveMapViewport });
-      updateFreshness({ generatedAt });
+      updateFreshness({
+        generatedAt,
+        ...(staleSnapshot ? { fallback: true } : {}),
+      });
     } catch (error) {
       if (isAbortError(error) || !requestGuard.isCurrent(requestId)) {
         return;

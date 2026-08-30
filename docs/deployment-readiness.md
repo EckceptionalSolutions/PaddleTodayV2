@@ -8,6 +8,7 @@
 - The Node server reads:
   - `PORT` or `CANOE_API_PORT`
   - `CANOE_API_HOST`
+- The API initializes the Azure Monitor OpenTelemetry distro when `APPLICATIONINSIGHTS_CONNECTION_STRING` is present. Production also sets `OTEL_SERVICE_NAME=paddletoday-api` so request, dependency, exception, trace, and metric telemetry is grouped under the API role in Application Insights. The Linux App Service keeps codeless coverage active between deployments with `ApplicationInsightsAgent_EXTENSION_VERSION=~3` and `XDT_MicrosoftApplicationInsights_Mode=recommended`; the managed agent backs off when it detects the deployed SDK.
 - Umami Cloud web analytics loads with PaddleToday's public website ID by default. `PUBLIC_UMAMI_WEBSITE_ID` can override the ID and `PUBLIC_UMAMI_SCRIPT_SRC` can select a custom or self-hosted script. The public website ID is not a credential.
 
 ## Health endpoints
@@ -76,7 +77,7 @@ Run the complete smoke suite against any deployed origin:
 DEPLOYMENT_BASE_URL=https://paddletoday.com npm run deployment:smoke
 ```
 
-The suite checks readiness, health/cache/upstream telemetry, the static homepage, summary and weekend boards, a real route detail, JSON request IDs, and the response-header/body request-ID match. It defaults to `/api/health` and `/api/health/ready`, which work through both the linked frontend origin and the App Service origin. `DEPLOYMENT_HEALTH_PATH` and `DEPLOYMENT_READINESS_PATH` can override those paths for a nonstandard ingress. The API deployment workflow runs the same suite after deployment when the `AZURE_WEBAPP_URL` repository secret is configured, with bounded retries for App Service startup.
+The suite checks readiness, health/cache/upstream telemetry, the static homepage, summary and weekend boards, a real route detail, GPX and calendar attachments, JSON request IDs, and the response-header/body request-ID match. It defaults to `/api/health` and `/api/health/ready`, which work through both the linked frontend origin and the App Service origin. `DEPLOYMENT_HEALTH_PATH` and `DEPLOYMENT_READINESS_PATH` can override those paths for a nonstandard ingress. The API deployment workflow runs the same suite after deployment when the `AZURE_WEBAPP_URL` repository secret is configured, with bounded retries for App Service startup.
 
 ## Pre-release checklist
 
@@ -98,4 +99,4 @@ The suite checks readiness, health/cache/upstream telemetry, the static homepage
 - Application rate-limit buckets are process-local; use an edge limit for a shared quota across scaled instances.
 - No persistent job runner yet.
 - No database yet.
-- Summary, weekend, group, and detail endpoints use stored river snapshots when configured. A detail request can fall back to a stored snapshot after a live retry fails; without a usable stored snapshot, upstream failures still degrade the response in real time.
+- Summary, weekend, group, and detail endpoints use stored river snapshots when configured. Valid snapshots older than two hours are returned with `snapshotStatus: "stale"`, `snapshotAgeSeconds`, and degraded live-data states; the API does not fan out a full live-board recomputation merely because a stored snapshot is stale. If no valid stored snapshot exists at all, the endpoints retain their live fallback behavior.

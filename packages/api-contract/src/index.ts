@@ -772,14 +772,21 @@ export interface RiverHistoryApiResult {
   todayHourly: RiverHistorySnapshot[];
 }
 
-export interface RiverSummaryResponse {
+export type SnapshotStatus = 'live' | 'fresh' | 'stale';
+
+export interface SnapshotResponseMetadata {
+  snapshotStatus?: SnapshotStatus;
+  snapshotAgeSeconds?: number;
+}
+
+export interface RiverSummaryResponse extends SnapshotResponseMetadata {
   requestId: string;
   generatedAt: string;
   riverCount: number;
   rivers: RiverSummaryApiItem[];
 }
 
-export interface WeekendSummaryResponse {
+export interface WeekendSummaryResponse extends SnapshotResponseMetadata {
   requestId: string;
   generatedAt: string;
   label: string;
@@ -788,13 +795,13 @@ export interface WeekendSummaryResponse {
   rivers: WeekendSummaryApiItem[];
 }
 
-export interface RiverDetailResponse {
+export interface RiverDetailResponse extends SnapshotResponseMetadata {
   requestId: string;
   generatedAt: string;
   result: RiverDetailApiResult;
 }
 
-export interface RiverGroupResponse {
+export interface RiverGroupResponse extends SnapshotResponseMetadata {
   requestId: string;
   generatedAt: string;
   result: RiverGroupApiResult;

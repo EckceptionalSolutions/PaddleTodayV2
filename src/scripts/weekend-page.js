@@ -1471,7 +1471,10 @@ function renderWeekend(payload) {
   latestWeekendPayload = payload;
   lastGeneratedAt = typeof payload?.generatedAt === 'string' ? payload.generatedAt : null;
   setText(weekendDates, weekendDateRangeText(payload?.label));
-  updateFreshness({ generatedAt: lastGeneratedAt });
+  updateFreshness({
+    generatedAt: lastGeneratedAt,
+    fallback: payload?.snapshotStatus === 'stale',
+  });
   updateSnapshotLine(payload);
   updateOverviewCounts(payload, plan.inRangeRoutes);
   updateWeekendControls(plan);

@@ -340,6 +340,34 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
       { "id": "roaring-fork-basalt-carbondale-take-out", "name": "Bob Terrell State Wildlife Area non-motorized boat ramp", "latitude": 39.4152, "longitude": -107.224, "mileFromStart": 11.5, "segmentKind": "transition", "note": "Approximate CPW mapping/directions anchor for the Bob Terrell non-motorized boat ramp. Carry the current CPW license/pass where required, obey posted vessel and parking rules, and verify the physical ramp and take-out before committing to the reach." }
     ]
   },
+  "roaring-fork-pink-to-black": {
+    "putIn": { "id": "roaring-fork-pink-to-black-put-in", "name": "Bob Terrell State Wildlife Area non-motorized boat ramp", "latitude": 39.41490657, "longitude": -107.22222269 },
+    "takeOut": { "id": "roaring-fork-pink-to-black-take-out", "name": "Black Bridge / County Road 109 access", "latitude": 39.47949268, "longitude": -107.28640661 },
+    "logistics": {
+      "distanceLabel": "Approximately 7 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for moving-water scouting, cold-water preparation, wood and bridge review, breaks, and shuttle timing.",
+      "shuttle": "Stage the Black Bridge take-out, then shuttle to the Bob Terrell SWA ramp. Confirm current CPW access, license/pass, ramp conditions, high-clearance/4WD needs, shoulder parking, and daylight before unloading.",
+      "permits": "Follow current Colorado Parks and Wildlife State Wildlife Area rules, license/pass requirements, Colorado boating/PFD rules, county and posted access rules, and any current closure or private-property notices. Black Bridge parking and approach conditions must be checked on site.",
+      "camping": "Neither endpoint establishes route camping. RiverBrain identifies no camping at Bob Terrell and Black Bridge; the lower Roaring Fork user guide prohibits camping in the managed corridor. Use separate lawful lodging or designated campground reservations and never camp on private banks, at the ramp, or on the shoulder.",
+      "campingClassification": "none",
+      "summary": "A guarded public Pink-to-Black lower Roaring Fork reach with direct 09085000 telemetry, station-tied 100–8,000 cfs planning bounds and an 800–6,000 cfs preferred band, named endpoints, cold-water/wood/private-bank hazards, high-clearance Black Bridge access, and no endpoint camping.",
+      "accessCaveats": [
+        "Use the documented Bob Terrell concrete ramp and Black Bridge dirt/rock access only. Bob Terrell is a CPW State Wildlife Area and Black Bridge has limited shoulder parking; verify signs, ramp condition, vehicle suitability, parking, and lawful access before launch.",
+        "The lower Roaring Fork passes private or gated shoreline areas. Stay on the river except at documented lawful access, do not trespass for scouting or portage, and do not treat a visible bank, bridge, or fishing easement as public landing permission.",
+        "Black Bridge is the mandatory take-out for this route. The downstream Cemetery route is a separate package with higher-flow consequences and separate Veltus Park/Two Rivers logistics; do not drift past the take-out while relying on this route’s review.",
+        "No endpoint or on-route camping is established. Reserve separate lodging or designated camping and follow current CPW, county, and campground restrictions."
+      ],
+      "watchFor": [
+        "USGS 09085000 below 100 cfs, above 8,000 cfs, rapidly rising/falling, unavailable, or inconsistent with the reach assessment and local visual check",
+        "Class II/III current, cold water, wood/strainers, bridge hazards, changing river traffic, private/gated shoreline, and limited recovery",
+        "CPW license/pass and Bob Terrell rules, Black Bridge high-clearance/4WD and shoulder parking limitations, closures, and failure to exit before the separate Cemetery reach"
+      ]
+    },
+    "accessPoints": [
+      { "id": "roaring-fork-pink-to-black-put-in", "name": "Bob Terrell State Wildlife Area non-motorized boat ramp", "latitude": 39.41490657, "longitude": -107.22222269, "mileFromStart": 0, "segmentKind": "transition", "note": "RiverBrain identifies a wide concrete ramp with all-vehicle access, large parking, no camping, and approximate coordinates. CPW rules, current license/pass requirements, posted parking, and the physical launch corridor must be confirmed on site." },
+      { "id": "roaring-fork-pink-to-black-take-out", "name": "Black Bridge / County Road 109 access", "latitude": 39.47949268, "longitude": -107.28640661, "mileFromStart": 7, "segmentKind": "transition", "note": "RiverBrain identifies a dirt/rock ramp to a small rocky eddy, high-clearance/4WD access, no camping, and limited shoulder parking. Use this as the mandatory take-out only after scouting the landing and confirming lawful roadside parking." }
+    ]
+  },
   "crystal-river-marble-redstone": {
     "putIn": { "id": "crystal-river-marble-redstone-put-in", "name": "Yule Quarry Bridge / Marble-area public access", "latitude": 39.069053, "longitude": -107.18738 },
     "takeOut": { "id": "crystal-river-marble-redstone-take-out", "name": "Redstone Crystal River take-out", "latitude": 39.17658, "longitude": -107.240505 },
@@ -475,6 +503,120 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
         "segmentKind": "transition",
         "note": "BLM documents a concrete boat ramp, ample parking, restroom, no camping, and November 15–May 15 seasonal closure; 4WD is recommended for the access road."
       }
+    ]
+  },
+  "colorado-river-big-sur": {
+    "putIn": {
+      "id": "colorado-river-big-sur-put-in",
+      "name": "Beavertail Mountain cutoff / Beaver Tail Tunnel parking access",
+      "latitude": 39.1945,
+      "longitude": -108.265
+    },
+    "takeOut": {
+      "id": "colorado-river-big-sur-take-out",
+      "name": "Roller Dam take-out access",
+      "latitude": 39.1959,
+      "longitude": -108.28
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 1.2 river miles",
+      "estimatedPaddleTime": "Plan a daylight window for high-water scouting, safety-boat positioning, repeated feature review, cold-water preparation, and an immediate take-out before the dam.",
+      "shuttle": "Stage the Roller Dam take-out first and confirm a legal return route. The put-in is reached from an eastbound I-70 parking area; never use active lanes, railroad tracks, or an unmarked shoreline for the shuttle or walk-back.",
+      "permits": "Follow current Colorado boating/PFD rules, CDOT/I-70 access and parking rules, posted landowner or facility restrictions, and any current high-flow event or safety closures. Do not enter the Roller Dam or diversion facility.",
+      "camping": "Neither endpoint establishes camping. The accesses are a roadside/highway and dam-adjacent day-use context; use separate lawful lodging or designated campground reservations and never camp on the bank, at the access, or near the diversion structure.",
+      "campingClassification": "none",
+      "summary": "A guarded expert Big Sur high-water wave reach with direct 09095500 telemetry, 18,000–30,000 cfs planning bounds and a 20,000–24,000 cfs preferred band, named access points, a hard Roller Dam take-out, and no endpoint camping.",
+      "accessCaveats": [
+        "Use only the American Whitewater Beavertail/Beaver Tail Tunnel parking access and Roller Dam take-out contexts after confirming current signs, legal parking, river entry, and the physical landing. Coordinates are approximate planning anchors.",
+        "American Whitewater’s put-in directions require an eastbound I-70 parking area and a walk under the overpass on the concrete bike path. Do not stop in travel lanes, cross I-70, walk active railroad tracks, or substitute private access.",
+        "The Roller Dam is the mandatory endpoint boundary. Exit before the structure; a high-flow wave is not permission to approach, run, or swim toward the dam.",
+        "No on-route camping is established. Stage a lawful shuttle and separate lodging/campground plan before the high-flow window; do not rely on an overnight vehicle or riverbank camp."
+      ],
+      "watchFor": [
+        "USGS 09095500 below 18,000 cfs, above 30,000 cfs, rapidly rising/falling, unavailable, or inconsistent with the feature’s current visual shape and local advice",
+        "Powerful high-water current, wave hydraulics, cold water, floating debris, strainers, limited recovery, I-70/railroad exposure, and the Roller Dam",
+        "Eastbound parking/path legality, access closures, take-out visibility, safety-boat positioning, daylight, and failure to exit before the dam"
+      ]
+    },
+    "accessPoints": [
+      { "id": "colorado-river-big-sur-put-in", "name": "Beavertail Mountain cutoff / Beaver Tail Tunnel parking access", "latitude": 39.1945, "longitude": -108.265, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater publishes an approximate access coordinate and directs boaters to the signed eastbound I-70 parking area, then under the overpass on the concrete bike path. Confirm the legal parking and river entry on site; never stop in traffic lanes or use the railroad as a path." },
+      { "id": "colorado-river-big-sur-take-out", "name": "Roller Dam take-out access", "latitude": 39.1959, "longitude": -108.28, "mileFromStart": 1.2, "segmentKind": "transition", "note": "American Whitewater publishes an approximate take-out coordinate 0.1 miles from the reach endpoint. Treat this as a mandatory exit before Roller Dam; scout the landing from a legal location and verify current access, parking, and dam warnings before launching." }
+    ]
+  },
+  "colorado-river-riverbend-corn-lake": {
+    "putIn": {
+      "id": "colorado-river-riverbend-corn-lake-put-in",
+      "name": "Riverbend Park / Harky's Launch boat ramp",
+      "latitude": 39.1010701,
+      "longitude": -108.3614943
+    },
+    "takeOut": {
+      "id": "colorado-river-riverbend-corn-lake-take-out",
+      "name": "Corn Lake State Park Colorado River boat ramp",
+      "latitude": 39.0552223,
+      "longitude": -108.460575
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 6.5–7 river miles",
+      "estimatedPaddleTime": "Plan a daylight window of roughly 2–4 hours, with extra time for low-water dragging, current scouting, breaks, changing wind, and shuttle timing.",
+      "shuttle": "Stage the take-out at the Corn Lake State Park river ramp, then shuttle to Riverbend Park via the Palisade/Clifton road network. Confirm park hours, vehicle pass, parking, ramp carry, construction, and current traffic conditions before unloading.",
+      "permits": "Follow current Colorado boating and PFD rules, CPW James M. Robb State Park vehicle-pass and access rules, Town of Palisade park notices, posted ramp restrictions, and aquatic-nuisance-species requirements.",
+      "camping": "Riverbend Park and Corn Lake are day-use access contexts; Corn Lake expressly prohibits camping. Use separate lawful lodging or a designated campground such as the CPW overnight sections, and never camp on a private bank, at a ramp, or beside irrigation infrastructure.",
+      "campingClassification": "none",
+      "summary": "A guarded public Riverbend-to-Corn-Lake Colorado River float with direct 09106150 telemetry, conservative 500–30,000 cfs planning bounds and a 1,500–15,000 cfs preferred band, named public ramps, low-water/debris and bridge hazards, and no endpoint camping.",
+      "accessCaveats": [
+        "Use the public Riverbend Park / Harky's Launch ramp below the Grand Valley Diversion and the CPW Corn Lake river ramp only. The local guide's Rapid Creek Road launch is upstream of the diversion and is not interchangeable with this route.",
+        "Riverbend access coordinates are derived from the mapped River Bend Park boat-ramp feature; Corn Lake coordinates are the mapped river slipway. Confirm the physical carry, water level, parking, signs, and any construction or seasonal closure on site.",
+        "The Corn Lake section requires the applicable CPW vehicle pass and is day-use only. Stage the shuttle legally and do not leave vehicles overnight at either endpoint.",
+        "No private-bank landing, irrigation-canal access, or side-channel shortcut is authorized by this route. If the main channel is blocked by debris or the take-out cannot be reached safely, exit only at a verified lawful alternative and treat the route as unavailable."
+      ],
+      "watchFor": [
+        "USGS 09106150 below 500 cfs, above 30,000 cfs, rapidly rising/falling, unavailable, or inconsistent with the actual river and ramp conditions",
+        "Low-water gravel bars, submerged farm equipment near 39.075720, -108.418334, downed trees, strainers, bridge pilings, the boulder diversion, cold water, and high-flow changes to otherwise mellow water",
+        "PFD and river-equipment failures, board-leash entanglement, private-bank temptation, CPW vehicle-pass/parking rules, construction, ramp access, and failure to make the Corn Lake take-out before dark"
+      ]
+    },
+    "accessPoints": [
+      { "id": "colorado-river-riverbend-corn-lake-put-in", "name": "Riverbend Park / Harky's Launch boat ramp", "latitude": 39.1010701, "longitude": -108.3614943, "mileFromStart": 0, "segmentKind": "transition", "note": "The Colorado Mesa guide identifies Riverbend Park as the preferred public launch below the Grand Valley Diversion; the Riverbend riverfront map and mapped ramp feature identify the boat ramp and nearby parking/toilets. Verify the carry and current legal access before launching." },
+      { "id": "colorado-river-riverbend-corn-lake-take-out", "name": "Corn Lake State Park Colorado River boat ramp", "latitude": 39.0552223, "longitude": -108.460575, "mileFromStart": 6.5, "segmentKind": "transition", "note": "Colorado Parks and Wildlife identifies the Corn Lake river ramp at the southeast corner of Corn Lake, reached from 32 Road. The section is day-use only and prohibits camping; confirm the applicable vehicle pass, ramp condition, and take-out access." }
+    ]
+  },
+  "colorado-river-corn-lake-redlands": {
+    "putIn": {
+      "id": "colorado-river-corn-lake-redlands-put-in",
+      "name": "Corn Lake State Park Colorado River boat ramp",
+      "latitude": 39.0552223,
+      "longitude": -108.460575
+    },
+    "takeOut": {
+      "id": "colorado-river-corn-lake-redlands-take-out",
+      "name": "Redlands Parkway Boat Ramp / Blue Heron access",
+      "latitude": 39.05424545,
+      "longitude": -108.54589965
+    },
+    "logistics": {
+      "distanceLabel": "Approximately 10 river miles",
+      "estimatedPaddleTime": "Plan a daylight window of roughly 3–5 hours, with extra time for confluence scouting, the 29 Road rapid, current changes, breaks, and shuttle timing.",
+      "shuttle": "Stage the Redlands Parkway take-out first, then drive to the CPW Corn Lake ramp via 32 Road and the Grand Junction road network. Confirm the City ramp, parking, current signs, and CPW hours before unloading.",
+      "permits": "Follow current Colorado boating and PFD rules, CPW James M. Robb State Park vehicle-pass and access rules, City of Grand Junction park/ramp notices, posted river flags or closures, and aquatic-nuisance-species requirements.",
+      "camping": "Corn Lake is day-use only and the Redlands Parkway ramp is a city day-use facility; no endpoint or on-route camping is established. Use separate lawful lodging or a designated CPW campground and never camp on a private bank, ramp, island, or riverfront trail.",
+      "campingClassification": "none",
+      "summary": "A guarded public Corn Lake-to-Redlands Colorado River float with direct 09106485 telemetry near the take-out, conservative 810–30,000 cfs planning bounds and a 1,500–15,000 cfs preferred band, a mandatory confluence/29 Road hazard review, and no endpoint camping.",
+      "accessCaveats": [
+        "Use the CPW Corn Lake southeast-corner river ramp and the City of Grand Junction Redlands Parkway/Blue Heron ramp only. Verify current hours, pass requirements, parking, construction, signs, and physical carry before launching.",
+        "The 09106485 station is above the Gunnison confluence. Do not treat its discharge as the downstream flow after the Gunnison joins; compare the Gunnison gauge and inspect the confluence line and downstream bridge hydraulics.",
+        "Do not use the guide’s informal bridge scramble, private banks, canal edges, or Connected Lakes trail as an improvised endpoint. If the named Redlands ramp is closed or blocked, treat the route as unavailable unless a separately verified lawful take-out is selected.",
+        "No private-bank landing, island stop, or camping is authorized by this route. Stage the shuttle legally and finish within the public ramp and park hours."
+      ],
+      "watchFor": [
+        "USGS 09106485 below 810 cfs, above 30,000 cfs, rapidly changing, unavailable, or inconsistent with the Gunnison contribution and actual river conditions",
+        "Gunnison confluence waves, the 29 Road rapid, bridge hydraulics, low-water rocks/gravel bars, strainers, floating debris, cold water, high-water trail impacts, and private-bank temptations",
+        "PFD and equipment failures, city/CPW flags or closures, CPW vehicle-pass rules, Redlands ramp parking/carry, daylight, and failure to reach the mandatory take-out"
+      ]
+    },
+    "accessPoints": [
+      { "id": "colorado-river-corn-lake-redlands-put-in", "name": "Corn Lake State Park Colorado River boat ramp", "latitude": 39.0552223, "longitude": -108.460575, "mileFromStart": 0, "segmentKind": "transition", "note": "CPW identifies the river ramp at the southeast corner of the Corn Lake section, reached from 32 Road, with park hours and a vehicle-pass requirement. Confirm current access and carry before unloading." },
+      { "id": "colorado-river-corn-lake-redlands-take-out", "name": "Redlands Parkway Boat Ramp / Blue Heron access", "latitude": 39.05424545, "longitude": -108.54589965, "mileFromStart": 10, "segmentKind": "transition", "note": "The City of Grand Junction lists the Redlands Parkway Boat Ramp and directions to its parking lot before the bridge. OpenStreetMap maps the concrete slipway at this planning coordinate; verify current public access, ramp condition, and any closure on site." }
     ]
   },
   "arkansas-river-pueblo-whitewater-park": {
@@ -672,6 +814,174 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       { "id": "arkansas-granite-boat-chute-put-in", "name": "Granite Boat Chute AHRA river access", "latitude": 39.025903, "longitude": -106.244336, "mileFromStart": 0, "segmentKind": "transition", "note": "CPW lists Granite Boat Chute as a public AHRA river-access site with a boat ramp/slide and portage trail." },
       { "id": "arkansas-buena-vista-whitewater-park-take-out", "name": "Buena Vista Whitewater Park public boat ramp", "latitude": 38.842, "longitude": -106.131, "mileFromStart": 18, "segmentKind": "transition", "note": "CPW lists Buena Vista Whitewater Park as a public river-access site managed by the Town of Buena Vista." }
+    ]
+  },
+  "taylor-river-748-pieplant": {
+    "putIn": { "id": "taylor-river-748-pieplant-put-in", "name": "CR 748 / Rocky Brook Road bridge access", "latitude": 38.924594, "longitude": -106.601111 },
+    "takeOut": { "id": "taylor-river-748-pieplant-take-out", "name": "Pieplant Ranch / CR 742.8 access", "latitude": 38.894754, "longitude": -106.572554 },
+    "logistics": {
+      "distanceLabel": "Approximately 3 river miles",
+      "estimatedPaddleTime": "Allow a daylight window of roughly 2–3 hours, including scouting, cold-water preparation, breaks, and a remote-road shuttle.",
+      "shuttle": "Stage the Pieplant Ranch / CR 742.8 take-out first, then follow CR 742 and CR 748 to the bridge put-in as described by American Whitewater. Confirm road surface, seasonal opening, parking, and the physical landing before unloading.",
+      "permits": "American Whitewater lists no permit required for the reach. Follow current Colorado boating/PFD and aquatic-nuisance-species rules, Forest Service orders, posted Gunnison County road/access restrictions, and any current closure or landowner notices.",
+      "camping": "No endpoint or on-route camping is established. The Forest Service restricts dispersed camping in the Taylor River Canyon corridor and within 100 feet of the Taylor River in the upper area; use a separately verified developed campground or lawful lodging and never camp at the access points or on private banks.",
+      "campingClassification": "none",
+      "summary": "A guarded 3-mile high-alpine Taylor River whitewater reach with direct 09107000 discharge, a conservative 450 cfs low-water stop and 500 cfs preferred minimum, named access points, cold-water/wood/private-bank hazards, and no route camping.",
+      "accessCaveats": [
+        "American Whitewater identifies the CR 748 bridge put-in and Pieplant Ranch take-out with exact access coordinates. Treat both as planning anchors: verify current signage, parking, road condition, river landing, and lawful access before launching.",
+        "The take-out is mandatory. Do not continue downstream into the broader Taylor corridor, where sources identify low bridges, barbed wire, private-bank constraints, and different whitewater/access conditions.",
+        "No informal shoreline, private ranch, South Bank, or reservoir landing is included. If either named access is closed, occupied, unsafe, or unclear, the route is unavailable.",
+        "Use a separate lawful campground or lodging reservation. The Taylor River corridor is not a dispersed-camping exception, and the route does not authorize camping on public-looking banks or at bridges."
+      ],
+      "watchFor": [
+        "USGS 09107000 below 450 cfs, rapidly changing, unavailable, or inconsistent with the 500 cfs preferred minimum and the actual river",
+        "cataracts, Class III features, cold water, strainers/wood, shallow rough water, storms, snow, road closures, and limited recovery",
+        "private-bank boundaries, low bridges and barbed wire downstream of the route, parking/landing changes, and failure to exit at Pieplant before extending into a separate corridor"
+      ]
+    },
+    "accessPoints": [
+      { "id": "taylor-river-748-pieplant-put-in", "name": "CR 748 / Rocky Brook Road bridge access", "latitude": 38.924594, "longitude": -106.601111, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater identifies the CR 748 bridge as the put-in for the core 748 Bridge to Pieplant Ranch reach. Verify current road access, parking, signage, and the bridge-side river landing before unloading." },
+      { "id": "taylor-river-748-pieplant-take-out", "name": "Pieplant Ranch / CR 742.8 access", "latitude": 38.894754, "longitude": -106.572554, "mileFromStart": 3, "segmentKind": "transition", "note": "American Whitewater identifies this access as the 3-mile take-out. Use it as the mandatory exit after scouting the landing and confirming current lawful parking and downstream boundaries." }
+    ]
+  },
+  "taylor-river-todds-slot": {
+    "putIn": { "id": "taylor-river-todds-slot-put-in", "name": "Put-in above Todd’s Slot", "latitude": 38.751335, "longitude": -106.695672 },
+    "takeOut": { "id": "taylor-river-todds-slot-take-out", "name": "Take-out below Todd’s Slot", "latitude": 38.74868679181054, "longitude": -106.70309838554716 },
+    "logistics": {
+      "distanceLabel": "Approximately 0.54 river miles from above Todd’s Slot to below Todd’s Slot",
+      "estimatedPaddleTime": "Allow a daylight window for shuttle, cold-water preparation, detailed scouting, portage decisions, and a remote mountain-road exit; the short mileage does not reduce the consequence of the feature.",
+      "shuttle": "Stage the below-Todd’s-Slot access first, then follow the Taylor Canyon road to the above-Todd’s-Slot access. Confirm current parking, signage, landing, road condition, and posted landowner restrictions before unloading.",
+      "permits": "No route-specific permit claim is made. Follow current Colorado boating/PFD rules, Forest Service orders, posted access restrictions, and any current landowner or road notices.",
+      "camping": "No on-route camping is included. Use a separately verified developed campground or lawful lodging; do not camp at the river landing, bridge, private bank, or within restricted riparian areas.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A guarded technical Todd’s Slot feature with direct 09109000 discharge, conservative 200 cfs minimum-only planning, named above/below access records, Class IV/wood/private-bank hazards, and a mandatory exit below the feature.",
+      "accessCaveats": [
+        "American Whitewater provides named access records and exact coordinates for the access above and below Todd’s Slot. Treat them as planning anchors and verify current parking, signage, road condition, landing, and access permission on site.",
+        "The below-Todd’s-Slot access is mandatory. Do not extend downstream through the South Bank, Harmels, or lower private-property corridor from this route; the broader source description identifies private banks and manmade obstacles beyond the bounded endpoint.",
+        "The route is remote and road conditions can change seasonally. If either endpoint is closed, occupied, unsafe, or unclear, the route is unavailable.",
+        "Use a separately verified campground or lodging reservation. This route does not authorize riverside or private-bank camping."
+      ],
+      "watchFor": [
+        "USGS 09109000 below 200 cfs, rapidly changing, unavailable, or inconsistent with the actual river; 250 cfs is a preferred planning reference, not a guarantee",
+        "Todd’s Slot, Class IV moves, wood/strainers, cold water, limited recovery, and changing dam-release conditions",
+        "private-bank boundaries, cables/low obstacles downstream of the takeout, road closures, and failure to exit below Todd’s Slot"
+      ]
+    },
+    "accessPoints": [
+      { "id": "taylor-river-todds-slot-put-in", "name": "Put-in above Todd’s Slot", "latitude": 38.751335, "longitude": -106.695672, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater identifies this access above Todd’s Slot. Verify current road access, parking, signage, river landing, and posted restrictions before unloading." },
+      { "id": "taylor-river-todds-slot-take-out", "name": "Take-out below Todd’s Slot", "latitude": 38.74868679181054, "longitude": -106.70309838554716, "mileFromStart": 0.54, "segmentKind": "transition", "note": "American Whitewater identifies this access below Todd’s Slot. Treat it as the mandatory exit and confirm the landing, parking, and downstream private-property boundary before launching." }
+    ]
+  },
+  "taylor-river-five-mile-almont": {
+    "putIn": { "id": "taylor-river-five-mile-almont-put-in", "name": "Five Mile Access boat launch", "latitude": 38.7089919159467, "longitude": -106.801771245825 },
+    "takeOut": { "id": "taylor-river-five-mile-almont-take-out", "name": "Almont highway takeout", "latitude": 38.663285834603855, "longitude": -106.84742186733735 },
+    "logistics": {
+      "distanceLabel": "Approximately 5 river miles from Five Mile Access to Almont",
+      "estimatedPaddleTime": "Allow a daylight window of roughly 2–4 hours depending on flow, craft, group pace, scouting, cold-water preparation, and the Almont exit; mileage is approximate and does not remove river hazards.",
+      "shuttle": "Stage the Almont takeout first, then follow County Road 742 to the Five Mile Access boat launch. Confirm current parking, signage, landing, road condition, and any posted landowner restrictions before unloading.",
+      "permits": "No route-specific permit claim is made. Follow current Colorado boating/PFD rules, Forest Service orders, posted access restrictions, and current landowner or road notices.",
+      "camping": "No on-route camping is included. Use a separately verified developed campground or lawful lodging; GMUG restrictions prohibit dispersed camping in the Lower Taylor corridor, and the route does not authorize camping at the river, landing, bridge, or private bank.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A guarded Lower Taylor Class II float with direct 09110000 discharge, conservative 250 cfs minimum-only planning, named Five Mile and Almont access anchors, cold-water/wood/private-bank hazards, and a mandatory Almont exit.",
+      "accessCaveats": [
+        "Natural Atlas identifies Five Mile Access as a Taylor River boat launch in the Gunnison National Forest, and local guidance identifies it as the Class II boating start. Reconfirm current parking, launch condition, signage, and lawful access on site.",
+        "American Whitewater identifies the Almont takeout record; local guidance places Almont Access below the Taylor/East River confluence. Treat it as the mandatory exit and do not continue onto the Gunnison without a separate plan.",
+        "The gauge is on Taylor River at Almont, upstream of the East River confluence; use it as the direct Taylor-route gauge and account for the final confluence/takeout transition in planning.",
+        "If either endpoint is closed, occupied, unsafe, unclear, or inconsistent with current access signs, the route is unavailable. Use a separately verified campground or lodging reservation."
+      ],
+      "watchFor": [
+        "USGS 09110000 below 250 cfs, rapidly changing, unavailable, or inconsistent with the physical river; 300–1500 cfs is a preferred planning reference, not a guarantee",
+        "Class II current, wood/strainers, cold water, bridge and bend hazards, storms, and limited recovery",
+        "private-bank boundaries, changing road/parking conditions, the Taylor/East River confluence, and failure to exit at Almont"
+      ]
+    },
+    "accessPoints": [
+      { "id": "taylor-river-five-mile-almont-put-in", "name": "Five Mile Access boat launch", "latitude": 38.7089919159467, "longitude": -106.801771245825, "mileFromStart": 0, "segmentKind": "transition", "note": "Natural Atlas identifies this named Taylor River boat launch in the Gunnison National Forest, and local guidance identifies Five Mile Access as the Lower Taylor boating start. Verify current parking, signage, landing, and access conditions before unloading." },
+      { "id": "taylor-river-five-mile-almont-take-out", "name": "Almont highway takeout", "latitude": 38.663285834603855, "longitude": -106.84742186733735, "mileFromStart": 5, "segmentKind": "transition", "note": "American Whitewater identifies this Almont takeout record, and local guidance places Almont Access downstream of the Taylor/East River confluence. Treat it as the mandatory exit and confirm current landing, parking, and downstream boundaries." }
+    ]
+  },
+  "east-river-cb-south-almont": {
+    "putIn": { "id": "east-river-cb-south-almont-put-in", "name": "Crested Butte South wastewater-treatment-plant access", "latitude": 38.806111, "longitude": -106.8855 },
+    "takeOut": { "id": "east-river-cb-south-almont-take-out", "name": "Almont River Access Area", "latitude": 38.6633, "longitude": -106.8475 },
+    "logistics": {
+      "distanceLabel": "Approximately 12 river miles from CB South to Almont, with an optional Roaring Judy exit around 7.5 miles",
+      "estimatedPaddleTime": "Allow a daylight window of roughly 4–7 hours depending on flow, craft, group pace, scouting, wood, bridge decisions, and the final Almont exit; source mileage is approximate.",
+      "shuttle": "Stage the Almont takeout first, then drive north on Highway 135 to the Crested Butte South treatment-plant access. Confirm current parking, permission, signage, shoulder safety, landing, and road conditions before unloading.",
+      "permits": "No route-specific permit claim is made. The treatment-plant access has been described as sensitive; follow current operator permission, posted private-property boundaries, Colorado boating/PFD rules, and road notices.",
+      "camping": "No on-route camping is included. Use separately verified developed camping or lodging; do not camp at the treatment plant, Roaring Judy, Almont landing, bridge, or private bank.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A guarded Lower East Class I–III run with direct 09112200 discharge, 800 cfs minimum-only planning, optional Roaring Judy exit, increasing wood toward Almont, sensitive CB South access, and a mandatory Almont exit.",
+      "accessCaveats": [
+        "American Whitewater identifies the CB South wastewater-treatment plant as the put-in but says access has been sensitive. Confirm current permission, signage, parking, landing, and operator restrictions before launching.",
+        "The Roaring Judy fish hatchery is an optional exit around 7.5 miles; the selected endpoint is the Almont access area near the Taylor/East confluence. Verify the landing and exit in person.",
+        "The entire run is surrounded by private property according to American Whitewater. Do not use unverified shorelines, cross fences, or continue downstream without a separate lawful access plan.",
+        "If wood, barbed wire, low bridges, closure signs, unsafe landing, or unclear permission blocks either endpoint, the route is unavailable. Use a separately verified campground or lodging reservation."
+      ],
+      "watchFor": [
+        "USGS 09112200 below 800 cfs, rapidly changing, unavailable, or inconsistent with the physical river; 800–3000 cfs is planning context, not a safe-runnable certification",
+        "wood increasing toward Almont, strainers, barbed wire, low bridges, wave trains, cold water, private banks, and limited recovery",
+        "CB South treatment-plant permission, optional Roaring Judy exit, Taylor/East confluence, and failure to exit at Almont"
+      ]
+    },
+    "accessPoints": [
+      { "id": "east-river-cb-south-almont-put-in", "name": "Crested Butte South wastewater-treatment-plant access", "latitude": 38.806111, "longitude": -106.8855, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater identifies this as the Lower East put-in and a local news report documents conditional watercraft access. Confirm current operator permission, parking, signage, and landing before unloading." },
+      { "id": "east-river-cb-south-almont-take-out", "name": "Almont River Access Area", "latitude": 38.6633, "longitude": -106.8475, "mileFromStart": 12, "segmentKind": "transition", "note": "American Whitewater identifies the Almont access area below the Taylor/East confluence. Treat it as the mandatory exit and confirm current landing, parking, and downstream boundaries." }
+    ]
+  },
+  "gunnison-river-almont-north-bridge": {
+    "putIn": { "id": "gunnison-river-almont-north-bridge-put-in", "name": "Almont access", "latitude": 38.664833463427186, "longitude": -106.84638183912354 },
+    "takeOut": { "id": "gunnison-river-almont-north-bridge-take-out", "name": "Garlic Mike’s / North Bridge / Shady Island Boat Ramp", "latitude": 38.58286013426891, "longitude": -106.92154660259921 },
+    "logistics": {
+      "distanceLabel": "Approximately 8.2 river miles from Almont to Garlic Mike’s / North Bridge",
+      "estimatedPaddleTime": "Allow a daylight window of roughly 2–4 hours depending on flow, craft, group pace, scouting, cold-water preparation, and the takeout; source mileage is approximate.",
+      "shuttle": "Stage the North Bridge / Shady Island takeout first, then drive back to the Almont access. Confirm current parking, landing, signage, private-property boundaries, and road conditions before unloading.",
+      "permits": "No route-specific permit claim is made. Follow current Colorado boating/PFD rules, posted access notices, private-property restrictions, and local road or facility rules.",
+      "camping": "No on-route camping is included. Use separately verified developed camping or lawful lodging; do not camp at either access, bridge, whitewater feature, or private bank.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A guarded Class II Gunnison town-run segment with direct 09114500 discharge, 350–3000 cfs runnable planning context, named Almont and North Bridge accesses, and a mandatory exit before the whitewater park.",
+      "accessCaveats": [
+        "American Whitewater identifies Almont as the put-in and Garlic Mike’s / North Bridge / Shady Island as the 8.17-mile downstream access. Verify current landing, parking, signs, and lawful access on site.",
+        "End at the North Bridge / Shady Island access. The Gunnison Whitewater Park and downstream Psychedelic Falls are separate route features and are not included in this scored segment.",
+        "The local boating guide states that many Gunnison Valley rivers run through private property and that riverbed ownership can be private. Do not scout, stop, or exit on unverified banks.",
+        "If either endpoint is closed, occupied, unsafe, unclear, or inconsistent with current access signs, the route is unavailable. Use a separately verified campground or lodging reservation."
+      ],
+      "watchFor": [
+        "USGS 09114500 below 350 cfs, above 3000 cfs, rapidly changing, unavailable, or inconsistent with the physical river; the AW band is planning context, not a guarantee",
+        "cold water, wood/strainers, fast current, bridge clearance, private banks, limited recovery, and changing weather",
+        "the North Bridge / Shady Island takeout and the boundary before the Gunnison Whitewater Park"
+      ]
+    },
+    "accessPoints": [
+      { "id": "gunnison-river-almont-north-bridge-put-in", "name": "Almont access", "latitude": 38.664833463427186, "longitude": -106.84638183912354, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater identifies this as the town-run put-in. Verify current landing, parking, signage, and private-property boundaries before unloading." },
+      { "id": "gunnison-river-almont-north-bridge-take-out", "name": "Garlic Mike’s / North Bridge / Shady Island Boat Ramp", "latitude": 38.58286013426891, "longitude": -106.92154660259921, "mileFromStart": 8.17, "segmentKind": "transition", "note": "American Whitewater identifies this named access approximately 8.17 miles downstream. Treat it as the mandatory exit before the Gunnison Whitewater Park and confirm current landing and parking conditions." }
+    ]
+  },
+  "gunnison-river-whitewater-park": {
+    "putIn": { "id": "gunnison-river-whitewater-park-put-in", "name": "Gunnison Whitewater Park put-in", "latitude": 38.533, "longitude": -106.949 },
+    "takeOut": { "id": "gunnison-river-whitewater-park-take-out", "name": "Gunnison Whitewater Park downstream exit", "latitude": 38.531, "longitude": -106.951 },
+    "logistics": {
+      "distanceLabel": "Approximately 0.2 engineered river miles; American Whitewater lists the downstream access at approximately 0.5 miles",
+      "estimatedPaddleTime": "Allow a daylight window for parking, carrying, feature inspection, scouting, repeated laps, and a conservative exit; this is a short park course rather than a through-float.",
+      "shuttle": "No vehicle shuttle is required. Use the documented park parking and access, stage equipment before launching, and confirm the downstream exit and walk-back route before entering.",
+      "permits": "Follow current Gunnison County and park access rules, posted fees or closures, event controls, Colorado boating/PFD requirements, and all current river-use signs.",
+      "camping": "No route camping is included. The nearby Shady Island River Park has separate camping rules; do not camp at the whitewater course, riverbank, access, or downstream feature.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A short public Gunnison Whitewater Park play reach with direct 09114520 telemetry, survey-backed 600–5000 cfs acceptable flow guidance, named park access, and a mandatory conservative exit.",
+      "accessCaveats": [
+        "American Whitewater identifies the park put-in and downstream take-out access records; verify current parking, carry, landing, signs, fees, and any construction or event closure before unloading.",
+        "The course is a series of engineered features, not a casual float. Scout the top, middle, and bottom features and keep swimmers, surfers, downstream traffic, and rescue lanes clear.",
+        "Exit at the named downstream access before extending into the larger town-run reach or Psychedelic Falls. Do not infer a route extension from the nearby Almont-to-North-Bridge route.",
+        "If the park is closed, crowded beyond safe control, physically changed, inaccessible, or inconsistent with the current gauge and scouting, treat the route as unavailable."
+      ],
+      "watchFor": [
+        "USGS 09114520 below 600 cfs, above 5000 cfs, rapidly changing, unavailable, or inconsistent with feature inspection; the AW range is planning guidance, not a guarantee",
+        "sticky holes, rock structures, diversion behavior, cold water, strainers/debris, swimmers, surfers, crowding, and fast changes after storms or releases",
+        "posted closures, event traffic, parking or fee changes, private-bank boundaries, and failure to take out before downstream town-run hazards"
+      ]
+    },
+    "accessPoints": [
+      { "id": "gunnison-river-whitewater-park-put-in", "name": "Gunnison Whitewater Park put-in", "latitude": 38.533, "longitude": -106.949, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater identifies the named park put-in at 38.53300, -106.94900. Confirm current carry, parking, signs, and park operating conditions before launching." },
+      { "id": "gunnison-river-whitewater-park-take-out", "name": "Gunnison Whitewater Park downstream exit", "latitude": 38.531, "longitude": -106.951, "mileFromStart": 0.5, "segmentKind": "transition", "note": "American Whitewater identifies the downstream take-out access at 38.53100, -106.95100. Treat it as the mandatory exit and do not continue into the downstream town-run features without a separate plan." }
     ]
   }
 };

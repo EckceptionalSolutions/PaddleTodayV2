@@ -18,6 +18,8 @@ export interface NearbyRiverPick extends RiverSummaryApiItem {
   effectiveScore: number;
 }
 
+export const HOME_NEARBY_DISTANCE_MILES = 100;
+
 export function selectBestNowPicks(
   rivers: RiverSummaryApiItem[],
   location: StoredLocation | null | undefined,
@@ -50,7 +52,7 @@ export function selectNearbyPicks(
   limit = 5
 ): NearbyRiverPick[] {
   return withTravelContext(rivers, location)
-    .filter((river) => river.travelMinutes <= 180)
+    .filter((river) => river.distanceMiles <= HOME_NEARBY_DISTANCE_MILES)
     .sort((left, right) => {
       if (left.effectiveScore !== right.effectiveScore) {
         return right.effectiveScore - left.effectiveScore;

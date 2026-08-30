@@ -6,7 +6,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { useRiverSummaryQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
-import { AreaNotificationCard } from '../components/area-notification-card';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
@@ -15,7 +14,6 @@ import { resetWelcome } from '../lib/onboarding';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
-import { useStoredLocation } from '../hooks/use-stored-location';
 
 type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 
@@ -32,7 +30,6 @@ export default function SupportScreen() {
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
   const summaryQuery = useRiverSummaryQuery();
-  const { location } = useStoredLocation();
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
   const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
   const [selectedSupportedState, setSelectedSupportedState] = useState<string | null>(null);
@@ -129,10 +126,9 @@ export default function SupportScreen() {
         </View>
       </SectionCard>
 
-      <AreaNotificationCard location={location} />
-
       <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and app help.">
         <View style={styles.actionList}>
+          <ActionRow icon="bell-outline" title="Notification settings" body="Choose nearby Today and Weekend alerts." onPress={() => router.push('/notifications' as never)} />
           <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router)} />
           <ActionRow icon="message-text-outline" title="Send feedback" body="Share an idea, issue, or missing feature." onPress={openManualFeedback} />
           <ActionRow icon="email-outline" title="Email support" body="hello@paddletoday.com" onPress={() => openUrl('mailto:hello@paddletoday.com')} />

@@ -15,8 +15,23 @@ const demoRiver = {
   logistics: { distanceLabel: '8 mi', estimatedPaddleTime: 'About 3 to 4 hr' },
 };
 
+const inferredMileageRiver = {
+  ...demoRiver,
+  slug: 'inferred-mileage-river',
+  accessPoints: demoRiver.accessPoints.map((point) => ({ ...point, mileFromStart: 0 })),
+};
+
 vi.mock('../../lib/rivers', () => ({
-  getRiverBySlug: (slug: string) => slug === demoRiver.slug ? demoRiver : undefined,
+  getRiverBySlug: (slug: string) => [demoRiver, inferredMileageRiver].find((river) => river.slug === slug),
+}));
+
+vi.mock('./river-geometry', () => ({
+  loadRouteGeometry: async () => ({
+    geometry: {
+      type: 'LineString',
+      coordinates: [[-92, 44], [-92.05, 44.05], [-92.1, 44.1]],
+    },
+  }),
 }));
 
 function mockResponse() {
@@ -42,10 +57,31 @@ describe('trip-pack route', () => {
     expect(String(vi.mocked(response.end).mock.calls[0]?.[0])).toContain('BEGIN:VCALENDAR');
   });
 
-  it('rejects a calendar export without valid times', async () => {
+  it('builds a useful default calendar schedule when times are omitted', async () => {
     const response = mockResponse();
     await handleRiverTripPack(new URL('https://paddletoday.com/api/rivers/demo-river/trip.ics'), response, 'req_trip', true, 'demo-river', 'ics');
+    expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({ 'content-type': 'text/calendar; charset=utf-8' }));
+    expect(String(vi.mocked(response.end).mock.calls[0]?.[0])).toContain('BEGIN:VCALENDAR');
+  });
+
+  it('rejects a partially specified calendar schedule', async () => {
+    const response = mockResponse();
+    await handleRiverTripPack(new URL('https://paddletoday.com/api/rivers/demo-river/trip.ics?start=2026-09-05T14:00:00Z'), response, 'req_trip', true, 'demo-river', 'ics');
     expect(response.writeHead).toHaveBeenCalledWith(400, expect.objectContaining({ 'content-type': 'application/json; charset=utf-8' }));
+  });
+
+  it('exports routes whose ordered endpoints do not have measured mile markers', async () => {
+    const response = mockResponse();
+    await handleRiverTripPack(
+      new URL('https://paddletoday.com/api/rivers/inferred-mileage-river/trip.gpx?putin=put-in&takeout=take-out'),
+      response,
+      'req_trip',
+      true,
+      'inferred-mileage-river',
+      'gpx',
+    );
+    expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({ 'content-type': 'application/gpx+xml; charset=utf-8' }));
+    expect(String(vi.mocked(response.end).mock.calls[0]?.[0])).toContain('<gpx');
   });
 
   it('rejects a reversed access selection', async () => {

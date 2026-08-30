@@ -166,6 +166,78 @@ const crystalRiverMarbleRedstonePhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC BY 4.0',
 };
 
+const roaringForkPinkToBlackPhoto: RouteGalleryPhoto = {
+  id: 'roaring-fork-pink-to-black-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Satank%20Bridge%202012.JPG?width=1600',
+  alt: 'Satank Bridge over the Roaring Fork River near Carbondale and Glenwood Springs, Colorado.',
+  caption: 'Satank Bridge on the lower Roaring Fork corridor; not an endpoint image',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 3.0',
+};
+
+const coloradoRiverBigSurPhoto: RouteGalleryPhoto = {
+  id: 'colorado-river-big-sur-usgs',
+  src: 'https://usgs-nims-images.s3.amazonaws.com/720/CO_Colorado_River_near_Cameo/CO_Colorado_River_near_Cameo_newest.jpg',
+  alt: 'The Colorado River near Cameo, Colorado, at USGS streamgage 09095500.',
+  caption: 'Colorado River near Cameo corridor context; not a Big Sur wave or endpoint image',
+  credit: 'U.S. Geological Survey',
+  takenLabel: 'USGS public domain',
+};
+
+const coloradoRiverRiverbendCornLakePhoto: RouteGalleryPhoto = {
+  id: 'colorado-river-riverbend-corn-lake-usgs',
+  src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/MarysLoop.jpg',
+  alt: 'The Colorado River near Grand Junction, Colorado, in the Grand Valley corridor.',
+  caption: 'Colorado River near Grand Junction corridor context; not a Riverbend or Corn Lake endpoint image',
+  credit: 'U.S. Geological Survey',
+  takenLabel: 'USGS public domain',
+};
+
+const coloradoRiverCornLakeRedlandsPhoto: RouteGalleryPhoto = {
+  id: 'colorado-river-corn-lake-redlands-usgs',
+  src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/MarysLoop.jpg',
+  alt: 'The Colorado River near Grand Junction, Colorado, in the Grand Valley corridor.',
+  caption: 'Colorado River near Grand Junction corridor context; not a Corn Lake or Redlands endpoint image',
+  credit: 'U.S. Geological Survey',
+  takenLabel: 'USGS public domain',
+};
+
+const taylorRiver748PieplantPhoto: RouteGalleryPhoto = {
+  id: 'taylor-river-748-pieplant-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Taylor%20River%20%28Colorado%29.JPG?width=1600',
+  alt: 'The Taylor River flowing through a scenic Colorado mountain corridor.',
+  caption: 'Taylor River corridor context; not a specific rapid or endpoint image',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+};
+
+const eastRiverLowerPhoto: RouteGalleryPhoto = {
+  id: 'east-river-lower-usgs-public-domain',
+  src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/Image2.jpg',
+  alt: 'The East River flows through a rocky Colorado mountain channel below Crested Butte.',
+  caption: 'East River corridor context from a nearby USGS streamgage image; not a specific endpoint image',
+  credit: 'U.S. Geological Survey',
+  takenLabel: 'USGS public domain',
+};
+
+const gunnisonTownRunPhoto: RouteGalleryPhoto = {
+  id: 'gunnison-town-run-usgs-public-domain',
+  src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/20060427panorama.jpg',
+  alt: 'The Gunnison River flows past the Spann Diversion near Gunnison, Colorado.',
+  caption: 'Gunnison River corridor context at Spann Diversion; not a specific endpoint image',
+  credit: 'U.S. Geological Survey',
+  takenLabel: 'USGS public domain',
+};
+
+const uwharrieRiverLowWaterBridgePhoto: RouteGalleryPhoto = {
+  id: 'uwharrie-river-low-water-bridge-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Coggins%20Bridge-27527.jpg?width=1600',
+  alt: 'Coggins Low-water Bridge crosses the Uwharrie River in Montgomery County, North Carolina.',
+  caption: 'Coggins Low-water Bridge at the Uwharrie River put-in',
+  credit: 'Ken Thomas via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: public domain',
+};
+
 const arkansasGraniteBuenaVistaPhoto: RouteGalleryPhoto = {
   id: 'arkansas-granite-boat-chute-commons',
   src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Granite%20Boat%20Chute%203.JPG?width=1600',
@@ -319,6 +391,17 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'roaring-fork-slaughterhouse': [roaringForkSlaughterhousePhoto],
   'roaring-fork-basalt-carbondale': [roaringForkBasaltCarbondalePhoto],
   'crystal-river-marble-redstone': [crystalRiverMarbleRedstonePhoto],
+  'roaring-fork-pink-to-black': [roaringForkPinkToBlackPhoto],
+  'colorado-river-big-sur': [coloradoRiverBigSurPhoto],
+  'colorado-river-riverbend-corn-lake': [coloradoRiverRiverbendCornLakePhoto],
+  'colorado-river-corn-lake-redlands': [coloradoRiverCornLakeRedlandsPhoto],
+  'taylor-river-748-pieplant': [taylorRiver748PieplantPhoto],
+  'taylor-river-todds-slot': [taylorRiver748PieplantPhoto],
+  'taylor-river-five-mile-almont': [taylorRiver748PieplantPhoto],
+  'east-river-cb-south-almont': [eastRiverLowerPhoto],
+  'gunnison-river-almont-north-bridge': [gunnisonTownRunPhoto],
+  'gunnison-river-whitewater-park': [gunnisonTownRunPhoto],
+  'uwharrie-river-low-water-bridge-hwy-109': [uwharrieRiverLowWaterBridgePhoto],
   'grizzly-creek-two-rivers': [grizzlyCreekTwoRiversPhoto],
   'lower-colorado-two-rivers-south-canyon': [lowerColoradoTwoRiversSouthCanyonPhoto],
   'james-river-bent-creek-state-park': [

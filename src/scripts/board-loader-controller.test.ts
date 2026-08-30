@@ -72,6 +72,37 @@ describe('board loader controller', () => {
     expect(requestGuard.finish).toHaveBeenCalledOnce();
   });
 
+  it('renders a stale API snapshot while clearly marking it degraded', async () => {
+    const apiClient = {
+      getSummary: vi.fn().mockResolvedValue({
+        generatedAt: '2026-07-27T08:00:00.000Z',
+        snapshotStatus: 'stale',
+        snapshotAgeSeconds: 14_400,
+        rivers: [{ id: 'st-croix' }],
+      }),
+    };
+    const { loader, callbacks } = harness({ apiClient });
+
+    await loader.loadBoard();
+
+    expect(callbacks.renderBoard).toHaveBeenCalledWith(
+      [{ id: 'st-croix' }],
+      { preserveMapViewport: false },
+    );
+    expect(callbacks.setFetchBannerState).toHaveBeenCalledWith(
+      'stale',
+      expect.stringContaining('snapshot worker is delayed'),
+    );
+    expect(callbacks.setRefreshState).toHaveBeenCalledWith(
+      'error',
+      expect.stringContaining('Latest snapshot is stale'),
+    );
+    expect(callbacks.updateFreshness).toHaveBeenLastCalledWith({
+      generatedAt: '2026-07-27T08:00:00.000Z',
+      fallback: true,
+    });
+  });
+
   it('hydrates cached board state through the same render lifecycle', () => {
     const readCache = vi.fn(() => ({
       fetchedAt: 21,

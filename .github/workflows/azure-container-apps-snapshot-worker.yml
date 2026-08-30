@@ -61,6 +61,7 @@ jobs:
       - name: Deploy scheduled Container Apps Job
         env:
           SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
+          SNAPSHOT_ALERT_EMAIL: ${{ vars.SNAPSHOT_ALERT_EMAIL || 'hello@paddletoday.com' }}
         run: |
           az deployment group create \
             --resource-group "$AZURE_RESOURCE_GROUP" \
@@ -69,6 +70,7 @@ jobs:
               containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
               containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
               jobName="$AZURE_CONTAINER_APPS_JOB" \
+              snapshotAlertEmail="$SNAPSHOT_ALERT_EMAIL" \
               snapshotContainerSasUrl="$SNAPSHOT_SAS_URL" \
               image="$AZURE_CONTAINER_REGISTRY.azurecr.io/$IMAGE_NAME:$GITHUB_SHA" \
             --output none

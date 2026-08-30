@@ -22,32 +22,17 @@ export function AreaNotificationCard({ location }: { location: StoredLocation | 
   const busy = createMutation.isPending || updateMutation.isPending;
 
   useEffect(() => {
-    if (!selectedLocation || !preferences?.isActive || preferences.locationLabel === selectedLocation.label || updateMutation.isPending) return;
-    let cancelled = false;
-    void updateMutation.mutateAsync({
-      subscriptionId: preferences.id,
-      managementToken: preferences.managementToken,
-      latitude: selectedLocation.latitude,
-      longitude: selectedLocation.longitude,
-      locationLabel: selectedLocation.label,
-    }).then(async (response) => {
-      if (!cancelled) await savePreferences(areaNotificationPreferencesFromResponse(response));
-    }).catch(() => undefined);
-    return () => { cancelled = true; };
-  }, [preferences?.id, preferences?.isActive, preferences?.locationLabel, preferences?.managementToken, selectedLocation?.label, selectedLocation?.latitude, selectedLocation?.longitude, updateMutation.isPending]);
-
-  useEffect(() => {
     if (isHydrated && selectedLocation && !preferences?.isActive && !promptTracked.current) {
       promptTracked.current = true;
-      trackAppEvent('area_notification_prompt_shown', { source: 'today' });
+      trackAppEvent('area_notification_prompt_shown', { source: 'settings' });
     }
   }, [isHydrated, preferences?.isActive, selectedLocation]);
 
-  if (!isHydrated || (!location && !preferences?.isActive)) return null;
+  if (!isHydrated) return null;
 
   async function enable() {
     setMessage('');
-    trackAppEvent('area_notification_prompt_accepted', { source: 'today', has_location: true });
+    trackAppEvent('area_notification_prompt_accepted', { source: 'settings', has_location: Boolean(selectedLocation) });
     if (!selectedLocation) {
       setMessage('Set a planning location before turning on nearby alerts.');
       return;
@@ -100,7 +85,7 @@ export function AreaNotificationCard({ location }: { location: StoredLocation | 
     <View style={styles.card}>
       <View style={styles.icon}><MaterialCommunityIcons name="bell-ring-outline" color={colors.accentDeep} size={20} /></View>
       <View style={styles.copy}>
-        <Text style={styles.title}>{active ? 'Nearby paddle alerts' : `Get alerts near ${selectedLocation?.label ?? 'your planning location'}`}</Text>
+        <Text style={styles.title}>{active ? 'Nearby paddle alerts' : selectedLocation ? `Get alerts near ${selectedLocation.label}` : 'Nearby paddle alerts'}</Text>
         <Text style={styles.body}>
           {active ? 'We will check routes within about 2 hours of your planning location.' : 'We’ll let you know when routes within about 2 hours look good. Usually no more than twice a week.'}
         </Text>
@@ -111,8 +96,15 @@ export function AreaNotificationCard({ location }: { location: StoredLocation | 
             <Pressable disabled={busy} onPress={() => void update({ isActive: false })}><Text style={styles.disableText}>Turn off</Text></Pressable>
           </View>
         ) : (
-          <Pressable style={[styles.button, busy ? styles.buttonDisabled : null]} disabled={busy} onPress={() => void enable()}>
-            <Text style={styles.buttonText}>{busy ? 'Turning on...' : 'Turn on alerts'}</Text>
+          <Pressable
+            style={[styles.button, busy || !selectedLocation ? styles.buttonDisabled : null]}
+            disabled={busy || !selectedLocation}
+            onPress={() => void enable()}
+            accessibilityRole="button"
+          >
+            <Text style={styles.buttonText}>
+              {!selectedLocation ? 'Set a location first' : busy ? 'Turning on...' : 'Turn on alerts'}
+            </Text>
           </Pressable>
         )}
         {message ? <Text style={styles.message}>{message}</Text> : null}

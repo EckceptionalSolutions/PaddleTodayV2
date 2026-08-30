@@ -21,6 +21,7 @@ import {
   WELCOME_COMPLETED_STORAGE_KEY,
 } from '../src/lib/onboarding';
 import { FeedbackExperience } from '../src/components/feedback-experience';
+import { AreaNotificationOnboarding } from '../src/components/area-notification-onboarding';
 
 initObservability();
 configureNativeNotifications();
@@ -104,6 +105,7 @@ function RootLayout() {
 
   return (
     <AppProviders>
+      <AreaNotificationOnboarding active={onboardingChecked && pathname !== '/welcome'} />
       <ThemeProvider value={navigationTheme}>
         <StatusBar style="dark" />
         <Stack
@@ -125,6 +127,7 @@ function RootLayout() {
           <Stack.Screen name="river-hub/[riverId]" options={{ title: 'River hub' }} />
           <Stack.Screen name="contribute-photo/[slug]" options={{ title: 'Contribute photos' }} />
           <Stack.Screen name="request-route" options={{ title: 'Request route' }} />
+          <Stack.Screen name="notifications" options={{ title: 'Notifications' }} />
           <Stack.Screen name="privacy" options={{ title: 'Privacy' }} />
           <Stack.Screen name="terms" options={{ title: 'Terms' }} />
         </Stack>

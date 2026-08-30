@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-08-27T23:46:16.520Z.
+Generated 2026-08-29T15:40:57.030Z.
 
 - Defined corridors: 25
 - Routes covered by a corridor definition: 184
-- Remaining multi-route families: 155
+- Remaining multi-route families: 163
 
 ## Defined corridors
 
@@ -95,6 +95,6 @@ Generated 2026-08-27T23:46:16.520Z.
 | West Virginia | Elk River | 6 |
 | Kentucky | Kinniconick Creek | 6 |
 | Nebraska | Loup River | 6 |
-| Additional families omitted | See route data and overlap audit | 115 |
+| Additional families omitted | See route data and overlap audit | 123 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

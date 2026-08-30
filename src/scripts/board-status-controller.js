@@ -135,15 +135,20 @@ export function createBoardStatusController({
       boardStatusBanner.hidden = true;
     }
     boardFetchBanner.classList.remove(
+      'status-banner--offline',
       'status-banner--live',
       'status-banner--degraded',
       'status-banner--loading',
     );
-    boardFetchBanner.classList.add('status-banner--offline');
+    boardFetchBanner.classList.add(
+      kind === 'stale' ? 'status-banner--degraded' : 'status-banner--offline',
+    );
     if (boardFetchTitle) {
-      boardFetchTitle.textContent = kind === 'initial'
-        ? 'Live board could not be loaded.'
-        : 'Live board could not be refreshed.';
+      boardFetchTitle.textContent = kind === 'stale'
+        ? 'Showing the last successful snapshot.'
+        : kind === 'initial'
+          ? 'Live board could not be loaded.'
+          : 'Live board could not be refreshed.';
     }
     if (boardFetchDetail) {
       boardFetchDetail.textContent = detail;
