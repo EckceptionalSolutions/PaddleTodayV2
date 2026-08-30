@@ -211,7 +211,7 @@ export function recommendationSummaryText(item, nearbyReady, candidates = []) {
 export function exploreSortSummaryLabel(sortMode) {
   switch (sortMode) {
     case 'near-you':
-      return 'best by drive time';
+      return 'best nearby';
     case 'nearest':
       return 'closest first';
     case 'highest-confidence':

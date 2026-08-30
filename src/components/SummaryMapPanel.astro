@@ -97,6 +97,14 @@ const scoreLegendItems = [
           <p class="muted summary-map-results__note" data-summary-map-results-note>{note}</p>
         </div>
         <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
+        <button
+          class="filter-chip filter-chip--quiet summary-map-results__more"
+          type="button"
+          data-summary-map-show-more
+          hidden
+        >
+          Show more map results
+        </button>
       </div>
     )}
     <button class="filter-chip summary-map__toggle" type="button" data-summary-map-toggle hidden aria-expanded="true">Hide map</button>

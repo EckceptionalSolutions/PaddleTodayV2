@@ -60,6 +60,7 @@ const trackedRiverCount = riverGroups.length;
                 <form class="location-panel__form home-location-bar__form" data-location-form>
                   <button class="river-link river-link--inline home-location-bar__use" type="button" data-location-use aria-label="Use my location">
                     <FeatureIcon name="crosshair" size={17} />
+                    <span>Use GPS</span>
                   </button>
                   <label class="filter-search location-panel__search home-location-bar__search">
                     <span class="sr-only">Enter a city or ZIP code</span>
@@ -79,6 +80,41 @@ const trackedRiverCount = riverGroups.length;
                 </form>
                 <p class="sr-only" data-home-location-summary>Set your location</p>
                 <p class="sr-only" data-home-location-sort-summary hidden>Choose a location to compare nearby routes.</p>
+                <div class="explore-location-quick" data-explore-location-quick>
+                  <div class="explore-location-quick__heading">
+                    <span class="explore-location-quick__eyebrow">Quick filters</span>
+                    <span class="explore-location-quick__location" data-explore-location-quick-label></span>
+                  </div>
+                  <div class="explore-location-quick__actions" aria-label="Quick route filters">
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="best-nearby" aria-pressed="false">
+                      Best near me
+                    </button>
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="closest-paddle" aria-pressed="false">
+                      Closest paddle
+                    </button>
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="quick-float" aria-pressed="false">
+                      Quick float
+                    </button>
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="full-day" aria-pressed="false">
+                      Full day
+                    </button>
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="long-camping" aria-pressed="false">
+                      Long camping route
+                    </button>
+                    <button class="filter-chip filter-chip--quiet explore-location-quick__button" type="button" data-explore-preset="all-routes" aria-pressed="false">
+                      All routes
+                    </button>
+                  </div>
+                  <p class="explore-location-quick__summary" data-explore-location-quick-summary>
+                    <span data-explore-location-quick-summary-copy>Choose a shortcut to set the filters on the right.</span>
+                    <button class="explore-location-quick__expand" type="button" data-explore-expand-radius hidden></button>
+                  </p>
+                  <a class="explore-location-best" data-explore-best-match hidden href="#">
+                    <span class="explore-location-best__eyebrow">Best nearby match</span>
+                    <strong data-explore-best-title></strong>
+                    <span data-explore-best-detail></span>
+                  </a>
+                </div>
               </section>
             </section>
 
@@ -92,7 +128,7 @@ const trackedRiverCount = riverGroups.length;
                   <span class="sr-only">Sort the board</span>
                   <select class="filter-select__input" data-sort-select>
                     <option value="best-now">Top picks today</option>
-                    <option value="near-you">Best by drive time</option>
+                    <option value="near-you">Best nearby</option>
                     <option value="nearest">Closest first</option>
                     <option value="highest-confidence">Highest data confidence</option>
                     <option value="lowest-risk">Lowest-risk first</option>
@@ -131,11 +167,11 @@ const trackedRiverCount = riverGroups.length;
                 </select>
               </div>
 
-              <div class="board-filters__advanced">
-                <div class="board-filters__advanced-header">
+              <details class="board-filters__advanced" data-explore-advanced open>
+                <summary class="board-filters__advanced-header">
                   <h4 class="board-filters__advanced-heading">More filters</h4>
                   <span class="board-filters__advanced-note">State, difficulty, route type, camping, distance, time, score</span>
-                </div>
+                </summary>
                 <div class="board-filters__controls board-filters__controls--secondary">
                   <label class="filter-select">
                     <span class="sr-only">Filter by state</span>
@@ -203,7 +239,7 @@ const trackedRiverCount = riverGroups.length;
                     </select>
                   </label>
                 </div>
-              </div>
+              </details>
 
               <div class="board-filters__actions">
                 <button class="filter-chip filter-chip--quiet" type="button" data-explore-reset>Reset all filters</button>

@@ -144,7 +144,7 @@ describe('board presenters', () => {
   });
 
   it('labels every shared board sort mode', () => {
-    expect(exploreSortSummaryLabel('near-you')).toBe('best by drive time');
+    expect(exploreSortSummaryLabel('near-you')).toBe('best nearby');
     expect(exploreSortSummaryLabel('nearest')).toBe('closest first');
     expect(exploreSortSummaryLabel('highest-confidence')).toBe('highest data confidence');
     expect(exploreSortSummaryLabel('lowest-risk')).toBe('lowest-risk routes');

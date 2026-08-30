@@ -43,6 +43,7 @@ import {
   mixedResultsTitle,
 } from './board-copy.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
+import { trackEvent } from './analytics.js';
 import { conditionTierDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import {
   callStateForDecision,
@@ -270,6 +271,15 @@ const boardFetchDetail = document.querySelector('[data-board-fetch-detail]');
 const boardRefreshButton = document.querySelector('[data-board-refresh]');
 const boardRefreshNote = document.querySelector('[data-board-refresh-note]');
 const exploreResetButton = document.querySelector('[data-explore-reset]');
+const exploreLocationQuick = document.querySelector('[data-explore-location-quick]');
+const exploreLocationQuickLabel = document.querySelector('[data-explore-location-quick-label]');
+const exploreLocationQuickSummaryCopy = document.querySelector('[data-explore-location-quick-summary-copy]');
+const exploreLocationQuickExpand = document.querySelector('[data-explore-expand-radius]');
+const exploreBestMatch = document.querySelector('[data-explore-best-match]');
+const exploreBestMatchTitle = document.querySelector('[data-explore-best-title]');
+const exploreBestMatchDetail = document.querySelector('[data-explore-best-detail]');
+const explorePresetButtons = Array.from(document.querySelectorAll('[data-explore-preset]'));
+const exploreAdvancedFilters = document.querySelector('[data-explore-advanced]');
 
 const filterSummary = document.querySelector('[data-filter-summary]');
 const filterPills = document.querySelector('[data-filter-pills]');
@@ -322,6 +332,7 @@ const summaryMapMobileBackButton = document.querySelector('[data-summary-map-mob
 const summaryMapResultsTitle = document.querySelector('[data-summary-map-results-title]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
+const summaryMapShowMore = document.querySelector('[data-summary-map-show-more]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMode || 'explore') : 'explore';
 const summaryMapMobileLayout =
@@ -345,6 +356,9 @@ const activeFilters = {
   paddleLength: '',
   sort: 'best-now',
 };
+let activeExplorePreset = '';
+const EXPLORE_RADIUS_OPTIONS = ['25', '50', '75', '100', '150', '200'];
+const EXPLORE_MIN_PRESET_RESULTS = 2;
 
 const exploreFilterOptions = {
   rating: ['', 'all', 'Strong', 'Good', 'Fair', 'No-go'],
@@ -423,10 +437,49 @@ function syncExploreFilterControls() {
   updateRatingFilterButtons();
 }
 
-function commitExploreFilterChange() {
+function trackExplorePerformance(eventName, startedAt, properties = {}) {
+  if (!Number.isFinite(startedAt) || typeof performance === 'undefined') return;
+  trackEvent(eventName, {
+    duration_ms: Math.round(performance.now() - startedAt),
+    ...properties,
+  });
+}
+
+function scheduleExploreRender(options = {}) {
+  pendingExploreRenderOptions = {
+    ...(pendingExploreRenderOptions || {}),
+    ...options,
+  };
+  if (exploreSection instanceof HTMLElement) {
+    exploreSection.setAttribute('aria-busy', 'true');
+  }
+  if (exploreResultsCount instanceof HTMLElement) {
+    exploreResultsCount.textContent = 'Updating routes…';
+  }
+  if (exploreRenderFrame) return;
+
+  const render = () => {
+    exploreRenderFrame = 0;
+    const renderOptions = pendingExploreRenderOptions || {};
+    pendingExploreRenderOptions = null;
+    renderHomepage(latestResults, renderOptions);
+    if (exploreSection instanceof HTMLElement) {
+      exploreSection.setAttribute('aria-busy', 'false');
+    }
+  };
+
+  // Let the click/input event finish before the heavier board model and card
+  // work begins. The debounce also coalesces rapid typing/filter changes.
+  exploreRenderFrame = window.setTimeout(render, 150);
+}
+
+function commitExploreFilterChange({ preservePreset = false } = {}) {
+  if (!preservePreset) {
+    activeExplorePreset = '';
+  }
   saveStoredExploreFilters();
   currentExplorePage = 1;
-  renderHomepage(latestResults);
+  scheduleExploreRender({ renderReason: 'filter' });
 }
 
 let latestResults = [];
@@ -436,11 +489,18 @@ let mapRuntime = null;
 let summaryMapLibre = null;
 let mapMarkers = [];
 let mapMarkersByKey = new Map();
+let summaryMapMarkerSignatures = new Map();
+let summaryMapItemSetSignature = '';
+let summaryMapSourceItemCount = 0;
+let summaryMapInteractiveLimit = 100;
 let mapConditionMarkers = [];
 let summaryConditionMarkerRecords = null;
 let summaryConditionMarkerMode = null;
 let summaryConditionMarkerInstances = { zone: [], route: [] };
 let summaryMapRenderVersion = 0;
+let summaryMapRenderTimer = 0;
+let pendingSummaryMapItems = null;
+let pendingSummaryMapPreserveViewport = false;
 let selectedSummaryMapKey = null;
 let selectedSummaryMapZoneKey = null;
 let selectedSummaryMapZoneRoutes = null;
@@ -455,6 +515,10 @@ const stitchSummaryRiverLines = stitchRiverLines;
 let lastSummaryMapItems = [];
 let summaryTraceSignature = '';
 let summaryOverviewRiverSignature = '';
+let canonicalRiverOverviewCacheSignature = '';
+let canonicalRiverOverviewCacheData = null;
+let summaryOverviewRiverDataCacheSignature = '';
+let summaryOverviewRiverDataCache = null;
 let canonicalRiverGeometryPromise = null;
 let canonicalRiverGeometryByRoute = new Map();
 let canonicalRiverGeometryState = 'idle';
@@ -468,12 +532,36 @@ let nearbySortMode = 'best-score';
 let homeFilterSheetOpen = false;
 let currentExplorePage = 1;
 let lastExploreItems = [];
+let exploreRenderFrame = 0;
+let pendingExploreRenderOptions = null;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
 let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
 let summaryMapMobileView = summaryMapSupportsMobileViews && phoneBreakpoint.matches ? 'list' : 'map';
 let initialized = false;
+let cachedDistanceLocationKey = '';
+let cachedResultDistances = new WeakMap();
+
+function cachedResultDistance(result) {
+  const locationKey = userLocation
+    ? `${userLocation.latitude},${userLocation.longitude}`
+    : '';
+  if (locationKey !== cachedDistanceLocationKey) {
+    cachedDistanceLocationKey = locationKey;
+    cachedResultDistances = new WeakMap();
+  }
+  if (!locationKey || !result || typeof result !== 'object') {
+    return getDistanceForResult(result);
+  }
+  const cached = cachedResultDistances.get(result);
+  if (Number.isFinite(cached)) return cached;
+  const distance = getDistanceForResult(result);
+  if (Number.isFinite(distance)) cachedResultDistances.set(result, distance);
+  return distance;
+}
+const distanceForResult = cachedResultDistance;
+
 const { renderFeaturedMap } = createBoardFeaturedMapController({
   elements: {
     shell: featuredMapShell,
@@ -589,7 +677,7 @@ const {
   getActiveFilters: () => activeFilters,
 });
 const {
-  distanceForResult,
+  distanceForResult: getDistanceForResult,
   itemWithinSelectedRadius,
   resultWithinSelectedRadius,
   clearUserLocation,
@@ -755,6 +843,8 @@ const { hydrateBoardFromCache, loadBoard } = createBoardLoaderController({
 });
 const SUMMARY_ROUTE_MARKER_ZOOM_IN = 8.5;
 const SUMMARY_ROUTE_MARKER_ZOOM_OUT = 8.1;
+const SUMMARY_MAP_OVERVIEW_FALLBACK_MAX_ITEMS = 100;
+const SUMMARY_MAP_INTERACTIVE_ITEM_LIMIT = 100;
 
 function setText(scope, field, value) {
   const nodes = Array.from(scope.querySelectorAll(`[data-field="${field}"]`));
@@ -1011,8 +1101,17 @@ const buildDisplayItems = createBoardDisplayItemBuilder({
   buildGroupLink: buildGroupedRiverLink,
 });
 
+let routeGroupsCacheResults = null;
+let routeGroupsCache = null;
+
 function buildRouteMapItems(allResults, filteredResults, options = {}) {
-  const allByRiver = groupResultsByRiverId(allResults);
+  const allByRiver = allResults === routeGroupsCacheResults
+    ? routeGroupsCache
+    : groupResultsByRiverId(allResults);
+  if (allResults !== routeGroupsCacheResults) {
+    routeGroupsCacheResults = allResults;
+    routeGroupsCache = allByRiver;
+  }
   const filteredByRiver = groupResultsByRiverId(filteredResults);
 
   return [...filteredByRiver.entries()].flatMap(([groupKey, routes]) => {
@@ -1563,6 +1662,7 @@ function getFilteredResults(results) {
 }
 
 function resetExploreFilters({ rerender = true } = {}) {
+  activeExplorePreset = '';
   activeFilters.paddleable = true;
   activeFilters.rating = '';
   activeFilters.search = '';
@@ -1614,6 +1714,192 @@ function resetExploreFilters({ rerender = true } = {}) {
 
   if (rerender && latestResults.length > 0) {
     renderHomepage(latestResults);
+  }
+}
+
+function exploreRadiusCounts() {
+  const previousDistance = activeFilters.distance;
+  activeFilters.distance = '';
+  const candidates = getFilteredResults(latestResults);
+  activeFilters.distance = previousDistance;
+
+  const counts = new Map(EXPLORE_RADIUS_OPTIONS.map((radius) => [radius, 0]));
+  for (const result of candidates) {
+    const distance = distanceForResult(result);
+    for (const radius of EXPLORE_RADIUS_OPTIONS) {
+      if (distance <= Number(radius)) {
+        counts.set(radius, (counts.get(radius) || 0) + 1);
+      }
+    }
+  }
+  return counts;
+}
+
+function chooseExplorePresetRadius() {
+  if (!userLocation || latestResults.length === 0) return '50';
+
+  const counts = exploreRadiusCounts();
+  let firstAvailable = null;
+  for (const radius of EXPLORE_RADIUS_OPTIONS) {
+    const count = counts.get(radius) || 0;
+    if (count > 0 && firstAvailable === null) firstAvailable = radius;
+    if (count >= EXPLORE_MIN_PRESET_RESULTS) return radius;
+  }
+
+  return firstAvailable ?? '50';
+}
+
+function nextExploreRadiusWithResults() {
+  const currentIndex = EXPLORE_RADIUS_OPTIONS.indexOf(String(activeFilters.distance));
+  const startIndex = currentIndex >= 0 ? currentIndex + 1 : 0;
+  const counts = exploreRadiusCounts();
+  let firstNext = null;
+
+  for (let index = startIndex; index < EXPLORE_RADIUS_OPTIONS.length; index += 1) {
+    const radius = EXPLORE_RADIUS_OPTIONS[index];
+    if (firstNext === null) firstNext = radius;
+    if ((counts.get(radius) || 0) > 0) return radius;
+  }
+
+  return firstNext;
+}
+
+function explorePresetRequiresLocation(preset) {
+  return preset === 'best-nearby' || preset === 'closest-paddle';
+}
+
+function scrollToExploreResults() {
+  window.setTimeout(() => {
+    if (lastExploreItems.length === 0) return;
+    const target = phoneBreakpoint.matches ? summaryMapMobileSwitch : exploreGrid;
+    if (target instanceof HTMLElement) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 60);
+}
+
+function applyExplorePreset(preset) {
+  if (explorePresetRequiresLocation(preset) && !(userLocationState === 'ready' && userLocation)) {
+    locationInput?.focus();
+    return;
+  }
+
+  activeFilters.paddleable = true;
+  activeFilters.rating = '';
+  activeFilters.search = '';
+  activeFilters.state = '';
+  activeFilters.difficulty = '';
+  activeFilters.routeType = 'non-whitewater';
+  activeFilters.camping = '';
+  activeFilters.distance = '';
+
+  if (preset === 'best-nearby' || preset === 'closest-paddle') {
+    activeFilters.sort = preset === 'best-nearby' ? 'near-you' : 'nearest';
+    activeFilters.paddleTime = '';
+    activeFilters.paddleLength = '';
+    activeFilters.distance = chooseExplorePresetRadius();
+  } else if (preset === 'quick-float') {
+    activeFilters.difficulty = 'easy';
+    activeFilters.paddleTime = 'up-to-3';
+    activeFilters.sort = userLocationState === 'ready' && userLocation ? 'near-you' : 'best-now';
+    activeFilters.distance = userLocationState === 'ready' && userLocation ? chooseExplorePresetRadius() : '';
+  } else if (preset === 'full-day') {
+    activeFilters.paddleTime = '5-to-7';
+    activeFilters.sort = 'best-now';
+  } else if (preset === 'long-camping') {
+    activeFilters.camping = 'any-support';
+    activeFilters.paddleLength = '10-plus';
+    activeFilters.sort = 'best-now';
+  } else if (preset === 'all-routes') {
+    activeFilters.paddleable = false;
+    activeFilters.rating = 'all';
+    activeFilters.routeType = 'all';
+    activeFilters.paddleTime = '';
+    activeFilters.paddleLength = '';
+    activeFilters.sort = 'best-now';
+  } else {
+    return;
+  }
+
+  activeExplorePreset = preset;
+  syncExploreFilterControls();
+  commitExploreFilterChange({ preservePreset: true });
+  scrollToExploreResults();
+}
+
+function expandExploreRadius() {
+  if (!(userLocationState === 'ready' && userLocation)) return;
+  const nextRadius = nextExploreRadiusWithResults();
+  if (!nextRadius) return;
+
+  activeExplorePreset = '';
+  activeFilters.distance = nextRadius;
+  syncExploreFilterControls();
+  commitExploreFilterChange();
+  scrollToExploreResults();
+}
+
+function updateExploreLocationQuick() {
+  if (!(exploreLocationQuick instanceof HTMLElement)) return;
+
+  const locationReady = userLocationState === 'ready' && Boolean(userLocation);
+  exploreLocationQuick.hidden = false;
+
+  if (exploreLocationQuickLabel instanceof HTMLElement) {
+    exploreLocationQuickLabel.textContent = locationReady ? shortLocationLabel() : 'Set a location for nearby shortcuts';
+  }
+
+  const count = lastExploreItems.length;
+  const distance = activeFilters.distance;
+  const nearbySort = activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest';
+  const nextRadius = locationReady && distance && nearbySort && count === 0 ? nextExploreRadiusWithResults() : null;
+
+  if (exploreLocationQuickSummaryCopy instanceof HTMLElement) {
+    if (!locationReady) {
+      exploreLocationQuickSummaryCopy.textContent = 'Set your location to unlock nearby shortcuts. Other trip filters work without a location.';
+    } else if (distance && nearbySort) {
+      exploreLocationQuickSummaryCopy.textContent = count === 0
+        ? `No paddleable routes within ${distance} miles. Try a wider drive radius below.`
+        : `${count} paddleable ${count === 1 ? 'route' : 'routes'} within ${distance} miles.`;
+    } else {
+      exploreLocationQuickSummaryCopy.textContent = `${count} ${count === 1 ? 'route matches' : 'routes match'} the current filters. Choose a shortcut to change them.`;
+    }
+  }
+
+  if (exploreLocationQuickExpand instanceof HTMLButtonElement) {
+    exploreLocationQuickExpand.hidden = !nextRadius;
+    if (nextRadius) {
+      exploreLocationQuickExpand.textContent = `Try ${nextRadius} miles`;
+      exploreLocationQuickExpand.setAttribute('aria-label', `Try expanding to ${nextRadius} miles`);
+    }
+  }
+
+  const best = locationReady && nearbySort ? lastExploreItems[0] : null;
+  if (exploreBestMatch instanceof HTMLAnchorElement) {
+    exploreBestMatch.hidden = !best;
+    if (best) {
+      const route = best.cardRoute ?? {};
+      const river = route.river ?? {};
+      exploreBestMatch.href = best.link || '#';
+      if (exploreBestMatchTitle instanceof HTMLElement) {
+        exploreBestMatchTitle.textContent = river.name || 'Nearby paddle';
+      }
+      if (exploreBestMatchDetail instanceof HTMLElement) {
+        const score = Number.isFinite(route.score) ? `${route.score} ${ratingDisplayLabel(route.rating)}` : '';
+        exploreBestMatchDetail.textContent = [formatTravelLabel(best.travelMinutes), score].filter(Boolean).join(' · ');
+      }
+    }
+  }
+
+  for (const button of explorePresetButtons) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const preset = button.dataset.explorePreset;
+    const isActive = activeExplorePreset === preset;
+    const requiresLocation = explorePresetRequiresLocation(preset);
+    button.disabled = requiresLocation && !locationReady;
+    button.setAttribute('aria-disabled', button.disabled ? 'true' : 'false');
+    button.classList.toggle('filter-chip--active', isActive);
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
   }
 }
 
@@ -1811,6 +2097,8 @@ function updateLocationStatus() {
     locationForm.classList.toggle('location-panel__form--compact', false);
   }
 
+  updateExploreLocationQuick();
+
 }
 
 function setHomeFilterSheetOpen(nextOpen) {
@@ -1871,7 +2159,7 @@ function buildExploreFilterPills() {
 
   if (normalizedSortMode === 'near-you') {
     pills.push({
-      label: 'Best by drive time',
+      label: 'Best nearby',
       tone: 'sort',
     });
   } else if (normalizedSortMode === 'nearest') {
@@ -2451,8 +2739,27 @@ function summaryRiverLabelData(items) {
   };
 }
 
+function summaryMapItemsSignature(items) {
+  return items.map((item) => item.key).sort().join('|');
+}
+
 function syncSummarySupportedRivers(items) {
   if (!mapRuntime || !isSummaryMapStyleReady()) return;
+
+  if (items.length >= SUMMARY_MAP_OVERVIEW_FALLBACK_MAX_ITEMS) {
+    removeMapOverlay(mapRuntime, {
+      layerIds: ['summary-supported-rivers-overview', 'summary-route-lines', 'summary-route-lines-casing'],
+      sourceIds: ['summary-supported-rivers-overview', 'summary-route-lines'],
+    });
+    summaryOverviewRiverSignature = '';
+    syncActualRiverLayer(mapRuntime, 'summary-supported-rivers', items.map(summaryRiverName), {
+      lineColor: '#16758a',
+      lineWidth: 4.5,
+      lineOpacity: 0.58,
+      minZoom: 3,
+    });
+    return;
+  }
 
   ensureCanonicalRiverGeometries();
   if (canonicalRiverGeometryState === 'ready') {
@@ -2481,6 +2788,10 @@ function syncSummarySupportedRivers(items) {
 }
 
 function canonicalRiverOverviewData(items) {
+  const signature = summaryMapItemsSignature(items);
+  if (signature === canonicalRiverOverviewCacheSignature && canonicalRiverOverviewCacheData) {
+    return canonicalRiverOverviewCacheData;
+  }
   const groups = new Map();
   for (const item of items) {
     const river = item.cardRoute.river;
@@ -2500,7 +2811,7 @@ function canonicalRiverOverviewData(items) {
     groups.set(key, group);
   }
 
-  return {
+  const data = {
     type: 'FeatureCollection',
     features: [...groups.values()].flatMap((group) => group.lines.map((line) => ({
       type: 'Feature',
@@ -2508,6 +2819,9 @@ function canonicalRiverOverviewData(items) {
       geometry: { type: 'LineString', coordinates: line },
     }))),
   };
+  canonicalRiverOverviewCacheSignature = signature;
+  canonicalRiverOverviewCacheData = data;
+  return data;
 }
 
 function dataHasFeatures(data) {
@@ -2543,6 +2857,10 @@ function summaryOverviewRiverCandidates() {
 }
 
 function summaryOverviewRiverData(items) {
+  const signature = summaryMapItemsSignature(items);
+  if (signature === summaryOverviewRiverDataCacheSignature && summaryOverviewRiverDataCache) {
+    return summaryOverviewRiverDataCache;
+  }
   const candidates = stitchSummaryRiverLines(summaryOverviewRiverCandidates());
   const groups = new Map();
   for (const item of items) {
@@ -2571,7 +2889,7 @@ function summaryOverviewRiverData(items) {
     groups.set(key, group);
   }
 
-  return {
+  const data = {
     type: 'FeatureCollection',
     features: [...groups.values()].flatMap((group) => group.lines.map((line) => ({
       type: 'Feature',
@@ -2579,12 +2897,23 @@ function summaryOverviewRiverData(items) {
       geometry: { type: 'LineString', coordinates: line },
     }))),
   };
+  summaryOverviewRiverDataCacheSignature = signature;
+  summaryOverviewRiverDataCache = data;
+  return data;
 }
 
 function syncSummaryOverviewRiverLayer(items) {
   if (!mapRuntime || !isSummaryMapStyleReady() || !isRiverFirstExploreMap()) return;
   const sourceId = 'summary-supported-rivers-overview';
   const canonicalData = canonicalRiverGeometryState === 'ready' ? canonicalRiverOverviewData(items) : null;
+  if (!canonicalData && items.length >= SUMMARY_MAP_OVERVIEW_FALLBACK_MAX_ITEMS) {
+    removeMapOverlay(mapRuntime, {
+      layerIds: [sourceId],
+      sourceIds: [sourceId],
+    });
+    summaryOverviewRiverSignature = '';
+    return;
+  }
   const data = canonicalData && dataHasFeatures(canonicalData) ? canonicalData : summaryOverviewRiverData(items);
   const signature = `${items.map((item) => item.key).join('|')}|${canonicalRiverGeometryState}|${data.features.length}`;
   syncGeoJsonOverlay(mapRuntime, {
@@ -3053,7 +3382,10 @@ function summaryMapOverviewStatus(items) {
     0
   );
   const ratingCopy = activeFilters.paddleable ? 'Paddle routes' : 'all';
-  return `Showing ${routeCount} ${ratingCopy} ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'}. Zoom in to see individual route scores.`;
+  const shortlistCopy = summaryMapSourceItemCount > items.length
+    ? ` Showing the top ${items.length} of ${summaryMapSourceItemCount} results on the map.`
+    : '';
+  return `Showing ${routeCount} ${ratingCopy} ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'}.${shortlistCopy} Zoom in to see individual route scores.`;
 }
 
 function updateSummaryMarkerZoomMode() {
@@ -3181,11 +3513,47 @@ function scrollToHomeTarget(targetId) {
   }, 45);
 }
 
+function scheduleSummaryMapRender(items, { preserveViewport = false } = {}) {
+  pendingSummaryMapItems = items;
+  pendingSummaryMapPreserveViewport = pendingSummaryMapPreserveViewport || preserveViewport;
+  if (summaryMapRenderTimer) return;
+
+  const render = () => {
+    summaryMapRenderTimer = 0;
+    const nextItems = pendingSummaryMapItems || [];
+    const nextPreserveViewport = pendingSummaryMapPreserveViewport;
+    pendingSummaryMapItems = null;
+    pendingSummaryMapPreserveViewport = false;
+    renderSummaryMap(nextItems, { preserveViewport: nextPreserveViewport });
+  };
+
+  if (typeof window.requestIdleCallback === 'function') {
+    summaryMapRenderTimer = window.requestIdleCallback(render, { timeout: 180 });
+  } else {
+    summaryMapRenderTimer = window.setTimeout(render, 50);
+  }
+}
+
+function summaryMapMarkerSignature(item) {
+  const route = item?.cardRoute ?? {};
+  const river = route.river ?? {};
+  return [
+    item?.key,
+    route.score,
+    route.rating,
+    item?.matchingRouteCount,
+    item?.totalRouteCount,
+    river.latitude,
+    river.longitude,
+  ].join('|');
+}
+
 async function renderSummaryMap(items, { preserveViewport = false } = {}) {
   if (!(summaryMap instanceof HTMLElement)) {
     return;
   }
 
+  const mapRenderStartedAt = typeof performance !== 'undefined' ? performance.now() : null;
   const renderVersion = ++summaryMapRenderVersion;
 
   summaryMapStatusController.loading({ nearby: isNearbySummaryMapMode() });
@@ -3223,44 +3591,65 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       return;
     }
 
-    mapMarkers = clearMapMarkers(mapMarkers);
     clearSummaryConditionMarkers();
     summaryConditionMarkerRecords = null;
     summaryConditionMarkerMode = null;
     summaryConditionMarkerInstances = { zone: [], route: [] };
-    mapMarkersByKey = new Map();
+    const previousMarkersByKey = mapMarkersByKey;
+    const previousMarkerSignatures = summaryMapMarkerSignatures;
+    const nextMarkersByKey = new Map();
+    const nextMarkerSignatures = new Map();
+    const nextMarkers = [];
 
     const bounds = new maplibregl.LngLatBounds();
     let hasBounds = false;
+    const mapItems = items.length > summaryMapInteractiveLimit
+      ? items.slice(0, summaryMapInteractiveLimit)
+      : items;
+    summaryMapSourceItemCount = items.length;
+    if (summaryMapShowMore instanceof HTMLButtonElement) {
+      const hasMore = mapItems.length < items.length;
+      summaryMapShowMore.hidden = !hasMore;
+      if (hasMore) {
+        const nextLimit = Math.min(summaryMapInteractiveLimit + SUMMARY_MAP_INTERACTIVE_ITEM_LIMIT, items.length);
+        summaryMapShowMore.textContent = `Show ${nextLimit - mapItems.length} more map results`;
+      }
+    }
 
-    syncSummaryMapLayers(items);
+    syncSummaryMapLayers(mapItems);
 
-    for (const item of items) {
+    for (const item of mapItems) {
       const routePoints = summaryCoverageAccessPoints(item);
       const markerPoint = summaryCoverageAnchorForRoutes(item, routesForRiverItem(item)) ?? item.cardRoute.river;
       if (!isGroupedItem(item)) {
-        const marker = createBoardMapMarker({
-          maplibregl,
-          mapRuntime,
-          item,
-          point: markerPoint,
-          markerClassFor,
-          markerLabel: visibleMapMarkerLabel,
-          markerAriaLabel: mapMarkerAriaLabel,
-          popupMarkup,
-          includeDataKey: true,
-          onSelectedChange(selected, selectedItem) {
-            if (!selected) return;
-            updateSummaryMapSelection(selectedItem.key);
-            focusSummaryMapRoute(selectedItem.key);
-            focusSummaryMapCard(selectedItem.key);
-          },
-          onClick(selectedItem) {
-            openSummaryMapItem(selectedItem.key);
-          },
-        });
-        mapMarkers.push(marker);
-        mapMarkersByKey.set(item.key, marker);
+        const signature = summaryMapMarkerSignature(item);
+        let marker = previousMarkersByKey.get(item.key);
+        if (!marker || previousMarkerSignatures.get(item.key) !== signature) {
+          marker?.remove?.();
+          marker = createBoardMapMarker({
+            maplibregl,
+            mapRuntime,
+            item,
+            point: markerPoint,
+            markerClassFor,
+            markerLabel: visibleMapMarkerLabel,
+            markerAriaLabel: mapMarkerAriaLabel,
+            popupMarkup,
+            includeDataKey: true,
+            onSelectedChange(selected, selectedItem) {
+              if (!selected) return;
+              updateSummaryMapSelection(selectedItem.key);
+              focusSummaryMapRoute(selectedItem.key);
+              focusSummaryMapCard(selectedItem.key);
+            },
+            onClick(selectedItem) {
+              openSummaryMapItem(selectedItem.key);
+            },
+          });
+        }
+        nextMarkers.push(marker);
+        nextMarkersByKey.set(item.key, marker);
+        nextMarkerSignatures.set(item.key, signature);
       }
       if (routePoints.length > 1) {
         for (const point of routePoints) {
@@ -3272,9 +3661,19 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       hasBounds = true;
     }
 
-    lastSummaryMapItems = items;
+    for (const [key, marker] of previousMarkersByKey) {
+      if (!nextMarkersByKey.has(key)) marker?.remove?.();
+    }
+    mapMarkers = nextMarkers;
+    mapMarkersByKey = nextMarkersByKey;
+    summaryMapMarkerSignatures = nextMarkerSignatures;
+
+    lastSummaryMapItems = mapItems;
+    const itemSetSignature = mapItems.map((item) => item.key).sort().join('|');
+    const shouldPreserveViewport = preserveViewport || itemSetSignature === summaryMapItemSetSignature;
+    summaryMapItemSetSignature = itemSetSignature;
     syncSummaryConditionMarkers({ force: true });
-    summaryMapController.renderResults(items);
+    summaryMapController.renderResults(mapItems);
 
     if (hasBounds) {
       if (renderVersion !== summaryMapRenderVersion) {
@@ -3284,7 +3683,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       fitMapBounds(mapRuntime, bounds, {
         profile: 'results',
         compact,
-        preserveViewport,
+        preserveViewport: shouldPreserveViewport,
       });
       mapRuntime.resize();
       updateSummaryMarkerZoomMode();
@@ -3292,41 +3691,70 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
         updateSummaryMapSelection(null);
         summaryMapController.closePopups(mapMarkersByKey);
       }
-      summaryMapStatusController.ready({ message: summaryMapOverviewStatus(items) });
+      summaryMapStatusController.ready({ message: summaryMapOverviewStatus(mapItems) });
+      trackExplorePerformance('Explore map render', mapRenderStartedAt, {
+        status: 'ready',
+        result_count: summaryMapSourceItemCount,
+        interactive_result_count: mapItems.length,
+      });
       return;
     }
 
     if (renderVersion !== summaryMapRenderVersion) {
       return;
     }
+    summaryMapItemSetSignature = '';
+    summaryMapSourceItemCount = 0;
+    if (summaryMapShowMore instanceof HTMLButtonElement) {
+      summaryMapShowMore.hidden = true;
+    }
     summaryMapController.renderResults([]);
     summaryMapStatusController.empty({ nearby: isNearbySummaryMapMode() });
+    trackExplorePerformance('Explore map render', mapRenderStartedAt, {
+      status: 'empty',
+      result_count: 0,
+      interactive_result_count: 0,
+    });
   } catch (error) {
     console.error('Failed to load summary map.', error);
     summaryMapController.renderResults([]);
     summaryMapStatusController.unavailable({ nearby: isNearbySummaryMapMode() });
+    trackExplorePerformance('Explore map render', mapRenderStartedAt, {
+      status: 'error',
+      result_count: summaryMapSourceItemCount,
+      interactive_result_count: 0,
+    });
   }
 }
 
-function renderHomepage(results, { preserveMapViewport = false } = {}) {
+function renderHomepage(results, { preserveMapViewport = false, renderReason = 'initial' } = {}) {
+  const renderStartedAt = renderReason === 'filter' && typeof performance !== 'undefined'
+    ? performance.now()
+    : null;
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
+  const isExplorePage = Boolean(exploreSection);
   const defaultVisibleResults = results.filter(isDefaultVisibleRoute);
-  const overallItems = sortBoardItems(
-    buildDisplayItems(defaultVisibleResults, defaultVisibleResults, 'best-now'),
-    'best-now'
-  );
-  const nearbyPreferenceResults = defaultVisibleResults.filter(matchesHomeNearbyFilters);
-  const nearbyBaseItems = sortBoardItems(
-    buildDisplayItems(nearbyPreferenceResults, nearbyPreferenceResults, 'near-you', { useHomePreferences: true }),
-    'near-you',
-    { hasUserLocation: Boolean(userLocation) }
-  );
-  const nearbyItems = locationReady
-    ? nearbyBaseItems.filter(itemWithinSelectedRadius)
-    : nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
-  const summaryResults = locationReady
-    ? nearbyPreferenceResults.filter(resultWithinSelectedRadius)
-    : defaultVisibleResults;
+  let overallItems = [];
+  let nearbyItems = [];
+  let summaryResults = defaultVisibleResults;
+  if (!isExplorePage) {
+    overallItems = sortBoardItems(
+      buildDisplayItems(defaultVisibleResults, defaultVisibleResults, 'best-now'),
+      'best-now'
+    );
+    const nearbyPreferenceResults = defaultVisibleResults.filter(matchesHomeNearbyFilters);
+    const nearbyBaseItems = sortBoardItems(
+      buildDisplayItems(nearbyPreferenceResults, nearbyPreferenceResults, 'near-you', { useHomePreferences: true }),
+      'near-you',
+      { hasUserLocation: Boolean(userLocation) }
+    );
+    nearbyItems = locationReady
+      ? nearbyBaseItems.filter(itemWithinSelectedRadius)
+      : nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
+    summaryResults = locationReady
+      ? nearbyPreferenceResults.filter(resultWithinSelectedRadius)
+      : defaultVisibleResults;
+  }
 
   const filteredRoutes = getFilteredResults(results);
   const normalizedSortMode = normalizeBoardSortMode(
@@ -3360,7 +3788,13 @@ function renderHomepage(results, { preserveMapViewport = false } = {}) {
   updateFilterSummary(exploreItems);
   updateSummaryStatus(exploreItems, results);
   updateBoardStatusBanner(exploreItems);
-  renderSummaryMap(summaryMapItems, { preserveViewport: preserveMapViewport });
+  trackExplorePerformance('Explore filter render', renderStartedAt, {
+    result_count: exploreItems.length,
+    route_count: results.length,
+    page: currentExplorePage,
+  });
+  summaryMapInteractiveLimit = SUMMARY_MAP_INTERACTIVE_ITEM_LIMIT;
+  scheduleSummaryMapRender(summaryMapItems, { preserveViewport: preserveMapViewport });
   renderExploreList(exploreItems);
 }
 
@@ -3413,6 +3847,37 @@ function applyHomePreset(preset) {
 }
 
 function setupFilters() {
+  if (exploreAdvancedFilters instanceof HTMLDetailsElement) {
+    exploreAdvancedFilters.open = !phoneBreakpoint.matches;
+  }
+
+  if (exploreLocationQuickExpand instanceof HTMLButtonElement && exploreLocationQuickExpand.dataset.filterBound !== 'true') {
+    exploreLocationQuickExpand.dataset.filterBound = 'true';
+    exploreLocationQuickExpand.addEventListener('click', () => {
+      expandExploreRadius();
+    });
+  }
+
+  if (summaryMapShowMore instanceof HTMLButtonElement && summaryMapShowMore.dataset.filterBound !== 'true') {
+    summaryMapShowMore.dataset.filterBound = 'true';
+    summaryMapShowMore.addEventListener('click', () => {
+      summaryMapInteractiveLimit += SUMMARY_MAP_INTERACTIVE_ITEM_LIMIT;
+      trackEvent('Explore map results expanded', {
+        visible_results: summaryMapInteractiveLimit,
+        total_results: summaryMapSourceItemCount,
+      });
+      scheduleSummaryMapRender(lastExploreItems, { preserveViewport: true });
+    });
+  }
+
+  for (const button of explorePresetButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      applyExplorePreset(button.dataset.explorePreset || '');
+    });
+  }
+
   for (const button of glanceFilterButtons) {
     if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
     button.dataset.filterBound = 'true';
