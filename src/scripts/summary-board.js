@@ -493,6 +493,7 @@ let summaryMapMarkerSignatures = new Map();
 let summaryMapItemSetSignature = '';
 let summaryMapSourceItemCount = 0;
 let summaryMapInteractiveLimit = 100;
+let summaryMapViewportExtraCount = 0;
 let mapConditionMarkers = [];
 let summaryConditionMarkerRecords = null;
 let summaryConditionMarkerMode = null;
@@ -845,6 +846,7 @@ const SUMMARY_ROUTE_MARKER_ZOOM_IN = 8.5;
 const SUMMARY_ROUTE_MARKER_ZOOM_OUT = 8.1;
 const SUMMARY_MAP_OVERVIEW_FALLBACK_MAX_ITEMS = 100;
 const SUMMARY_MAP_INTERACTIVE_ITEM_LIMIT = 100;
+const SUMMARY_MAP_VIEWPORT_EXPANSION_ZOOM = 6.85;
 
 function setText(scope, field, value) {
   const nodes = Array.from(scope.querySelectorAll(`[data-field="${field}"]`));
@@ -2376,6 +2378,13 @@ function bindSummaryMapLayerRefresh() {
   mapRuntime.on('moveend', () => {
     syncSummaryRouteLine();
     updateSummaryMarkerZoomMode();
+    if (
+      isRiverFirstExploreMap()
+      && summaryMapSourceItemCount > summaryMapInteractiveLimit
+      && mapRuntime.getZoom() >= SUMMARY_MAP_VIEWPORT_EXPANSION_ZOOM
+    ) {
+      scheduleSummaryMapRender(lastExploreItems, { preserveViewport: true });
+    }
   });
 }
 
@@ -3382,9 +3391,11 @@ function summaryMapOverviewStatus(items) {
     0
   );
   const ratingCopy = activeFilters.paddleable ? 'Paddle routes' : 'all';
-  const shortlistCopy = summaryMapSourceItemCount > items.length
-    ? ` Showing the top ${items.length} of ${summaryMapSourceItemCount} results on the map.`
-    : '';
+  const shortlistCopy = summaryMapViewportExtraCount > 0
+    ? ` Showing the top ${items.length - summaryMapViewportExtraCount} plus ${summaryMapViewportExtraCount} routes in this map area.`
+    : summaryMapSourceItemCount > items.length
+      ? ` Showing the top ${items.length} of ${summaryMapSourceItemCount} results on the map.`
+      : '';
   return `Showing ${routeCount} ${ratingCopy} ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'}.${shortlistCopy} Zoom in to see individual route scores.`;
 }
 
@@ -3548,6 +3559,50 @@ function summaryMapMarkerSignature(item) {
   ].join('|');
 }
 
+function summaryMapItemsForViewport(items) {
+  summaryMapViewportExtraCount = 0;
+  const baseItems = items.length > summaryMapInteractiveLimit
+    ? items.slice(0, summaryMapInteractiveLimit)
+    : items;
+
+  if (
+    items.length <= summaryMapInteractiveLimit
+    || !mapRuntime
+    || !isRiverFirstExploreMap()
+    || mapRuntime.getZoom() < SUMMARY_MAP_VIEWPORT_EXPANSION_ZOOM
+  ) {
+    return baseItems;
+  }
+
+  const bounds = mapRuntime.getBounds?.();
+  if (!bounds || typeof bounds.contains !== 'function') {
+    return baseItems;
+  }
+
+  const includedKeys = new Set(baseItems.map((item) => item.key));
+  const viewportItems = [];
+  for (const item of items) {
+    if (includedKeys.has(item.key)) continue;
+
+    const routes = routesForRiverItem(item);
+    const candidates = routes.length > 0 ? routes : [item.cardRoute];
+    const inViewport = candidates.some((route) => {
+      const longitude = Number(route?.river?.longitude);
+      const latitude = Number(route?.river?.latitude);
+      return Number.isFinite(longitude)
+        && Number.isFinite(latitude)
+        && bounds.contains([longitude, latitude]);
+    });
+    if (!inViewport) continue;
+
+    includedKeys.add(item.key);
+    viewportItems.push(item);
+  }
+
+  summaryMapViewportExtraCount = viewportItems.length;
+  return [...baseItems, ...viewportItems];
+}
+
 async function renderSummaryMap(items, { preserveViewport = false } = {}) {
   if (!(summaryMap instanceof HTMLElement)) {
     return;
@@ -3603,9 +3658,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
 
     const bounds = new maplibregl.LngLatBounds();
     let hasBounds = false;
-    const mapItems = items.length > summaryMapInteractiveLimit
-      ? items.slice(0, summaryMapInteractiveLimit)
-      : items;
+    const mapItems = summaryMapItemsForViewport(items);
     summaryMapSourceItemCount = items.length;
     if (summaryMapShowMore instanceof HTMLButtonElement) {
       const hasMore = mapItems.length < items.length;
@@ -3687,7 +3740,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       });
       mapRuntime.resize();
       updateSummaryMarkerZoomMode();
-      if (!items.some((item) => item.key === selectedSummaryMapKey)) {
+      if (!mapItems.some((item) => item.key === selectedSummaryMapKey)) {
         updateSummaryMapSelection(null);
         summaryMapController.closePopups(mapMarkersByKey);
       }
