@@ -2,6 +2,83 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
+  "san-miguel-river-down-valley-specie-creek": {
+    "putIn": { "id": "san-miguel-down-valley-put-in", "name": "Down Valley Park public boat ramp", "latitude": 37.998985274562614, "longitude": -108.03468300332044 },
+    "takeOut": { "id": "san-miguel-specie-creek-take-out", "name": "BLM Specie Creek Boat Launch", "latitude": 38.03007, "longitude": -108.11093 },
+    "logistics": {
+      "distanceLabel": "Approximately 10.6 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for the Class III canyon reach, scouting, breaks, cold-water preparation, rescue readiness, and shuttle timing.",
+      "shuttle": "Stage the Specie Creek Boat Launch take-out, then shuttle to Down Valley Park via Highway 145. At Down Valley Park, unload river gear at the ramp and move vehicles to the designated parking lot; confirm seasonal road access, parking, and current site conditions before launch.",
+      "permits": "Follow current San Miguel County Down Valley Park policies, BLM access rules, Colorado boating/PFD requirements, invasive-species procedures, fire restrictions, and all posted closures. Do not treat a public ramp as permission to cross neighboring private property or use informal riverbank pullouts.",
+      "camping": "No endpoint camping. Down Valley Park prohibits overnight camping, and BLM identifies Specie Creek as day use only. Use separately confirmed lodging or a lawful designated campground away from the endpoints; never camp at the ramp or on an unmarked riverbank.",
+      "campingClassification": "none",
+      "summary": "A guarded 10.6-mile San Miguel Canyon run with direct 09172500 telemetry, station-linked 500–5,000 cfs guidance, public county and BLM boat access, named blind-corner/wood hazards, and a day-use-only Specie Creek take-out.",
+      "accessCaveats": ["San Miguel County identifies the Down Valley Park boat ramp at the far southern end of the service road and documents that vehicular access is limited to boating season when the park is open and the downstream gauge is at least 250 cfs. Unload quickly at the ramp and park only in the designated lot.", "The Down Valley Park coordinate is an official San Miguel County GIS park/water-access anchor corroborated by the county site map; treat it as a near-water planning point and verify the marked ramp, carry, gate, and parking on arrival.", "BLM identifies Specie Creek as the end of the Down Valley Park-to-Specie Creek run, with parking, a boat launch, no fee, and day-use-only posture. Confirm the M44 Road turn, current road condition, landing, and vehicle staging before committing.", "Do not substitute the adjacent private banks, roadside shoulders, informal beaches, or the downstream Specie Creek-to-Beaver Creek boundary for the named access sites. No endpoint camping or overnight staging is assumed."],
+      "watchFor": ["USGS 09172500 below 500 cfs, above 5,000 cfs, rapidly rising, unavailable, or inconsistent with the local river visual; Down Valley Park vehicular ramp access below the county 250 cfs gate", "Class III blind corners, strainers, spring-flood wood, cold water, limited recovery, changing canyon lines, and any log in the main flow near Specie Creek", "San Miguel County park hours or closures, ramp gate/parking changes, BLM M44 Road conditions, fire restrictions, private-property boundaries, and failure to take out at Specie Creek"]
+    },
+    "accessPoints": [
+      { "id": "san-miguel-down-valley-put-in", "name": "Down Valley Park public boat ramp", "latitude": 37.998985274562614, "longitude": -108.03468300332044, "mileFromStart": 0, "segmentKind": "transition", "note": "San Miguel County’s official facility page and site map identify the public park, service-road boat ramp, parking lot, and San Miguel River. The coordinate is the county GIS park/water-access anchor; verify the marked ramp, gate, carry, and parking before unloading." },
+      { "id": "san-miguel-specie-creek-take-out", "name": "BLM Specie Creek Boat Launch", "latitude": 38.03007, "longitude": -108.11093, "mileFromStart": 10.6, "segmentKind": "transition", "note": "BLM identifies Specie Creek as a public boat launch/day-use area and the end of the Down Valley Park-to-Specie Creek run. Confirm the M44 Road approach, current parking, landing, and take-out before launch." }
+    ]
+  },
+  "san-miguel-river-specie-beaver": {
+    "putIn": { "id": "san-miguel-specie-beaver-specie-put-in", "name": "BLM Specie Creek Boat Launch", "latitude": 38.030917, "longitude": -108.112915 },
+    "takeOut": { "id": "san-miguel-specie-beaver-upper-beaver-take-out", "name": "BLM Upper Beaver Creek Recreation Site", "latitude": 38.106897, "longitude": -108.187138 },
+    "logistics": {
+      "distanceLabel": "Approximately 9.3 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for the continuous Class II+ reach, scouting, breaks, cold-water preparation, rescue readiness, and shuttle timing.",
+      "shuttle": "Stage the Upper Beaver Creek Recreation Site take-out, then shuttle to Specie Creek via Highway 145. Confirm the easy-to-miss Beaver Creek turn, current parking, landing, and road conditions before committing.",
+      "permits": "Follow current BLM access rules, Colorado boating/PFD requirements, invasive-species procedures, fire restrictions, and all posted closures. Boat ramps are for loading and unloading; do not use adjacent private banks or informal roadside pullouts.",
+      "camping": "No endpoint camping. BLM identifies both Specie Creek and Upper Beaver as day-use sites. Caddis Flats and Lower Beaver are separate BLM camping options near the corridor; confirm current availability and rules separately.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A guarded 9.3-mile Lower San Miguel Canyon run with direct 09172500 telemetry, station-linked 500–5,000 cfs guidance, public BLM boat launches, continuous Class II+/III water, and a day-use Upper Beaver take-out.",
+      "accessCaveats": ["BLM documents Specie Creek as a public boat launch and day-use site. Confirm the M44 Road approach, current parking, landing, and day-use rules before unloading.", "BLM identifies Upper Beaver as a public boat-launch site with a restroom, cabanas, picnic tables, no fee, and day-use-only posture. The turn is easy to miss on Highway 145; verify the approach and vehicle staging before launch.", "The endpoint coordinates are authoritative near-water access points from the AW route record and matching BLM site pages, but they are not a survey of the exact waterline or carry. Verify the physical ramp, current channel, parking, and private-property boundaries on arrival.", "Do not substitute Caddis Flats, Lower Beaver, private banks, or the downstream Beaver Creek-to-Pinon Bridge reach for the named endpoint pair. No endpoint overnight staging is assumed."],
+      "watchFor": ["USGS 09172500 below 500 cfs, above 5,000 cfs, rapidly rising, unavailable, or inconsistent with the local river visual", "Continuous Class II/II+ current, Class III features, changing wood/strainers, cold water, bridge/channel hazards, and limited recovery", "BLM closures, fire restrictions, Highway 145 traffic, Specie Creek M44 Road conditions, the easy-to-miss Beaver Creek turn, private-property boundaries, and failure to take out at Upper Beaver"]
+    },
+    "accessPoints": [
+      { "id": "san-miguel-specie-beaver-specie-put-in", "name": "BLM Specie Creek Boat Launch", "latitude": 38.030917, "longitude": -108.112915, "mileFromStart": 0, "segmentKind": "transition", "note": "BLM documents Specie Creek as a public San Miguel River boat launch and day-use site. Confirm the M44 Road approach, current parking, landing, and take-out staging before launching." },
+      { "id": "san-miguel-specie-beaver-upper-beaver-take-out", "name": "BLM Upper Beaver Creek Recreation Site", "latitude": 38.106897, "longitude": -108.187138, "mileFromStart": 9.3, "segmentKind": "transition", "note": "BLM documents Upper Beaver as a public San Miguel River boat-launch site with parking-area amenities and day-use-only posture. Confirm the Highway 145 turn, landing, parking, and current waterline before committing." }
+    ]
+  },
+  "uncompahgre-river-ridgway-town-run": {
+    "putIn": { "id": "uncompahgre-ridgway-rollans-put-in", "name": "Rollans Park public Uncompahgre River access", "latitude": 38.152, "longitude": -107.752 },
+    "takeOut": { "id": "uncompahgre-ridgway-reservoir-take-out", "name": "Ridgway Reservoir / Pa-Co-Chu-Puk reservoir-side take-out anchor", "latitude": 38.191, "longitude": -107.748 },
+    "logistics": {
+      "distanceLabel": "Approximately 4.5 river miles",
+      "estimatedPaddleTime": "Plan 1.5–2.5 hours for the moving-water reach, with extra time for scouting, low-water carries, breaks, and the reservoir transition.",
+      "shuttle": "Stage at the Ridgway Reservoir endpoint, then shuttle to Rollans Park in Ridgway. Confirm current town parking, event restrictions, state-park entry/parking, and the final reservoir-side carry before launch.",
+      "permits": "Follow current Town of Ridgway, Ridgway State Park/CPW, county, boating, posted access, fire, and event rules. Do not treat the route source’s access coordinates as permission to park on shoulders or cross private land.",
+      "camping": "Ridgway State Park provides nearby designated campgrounds and facilities; reserve or confirm availability separately. Rollans Park and the reservoir-side endpoint are day-use access areas, not endpoint camping sites.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A guarded approximately 4.5-mile Ridgway Town Run with direct 09146200 telemetry, Class II–III park features, a 500–2,500 cfs planning correlation, public Rollans Park access, and a condition-dependent Ridgway Reservoir take-out.",
+      "accessCaveats": ["American Whitewater publishes the exact Rollans Park and reservoir endpoint coordinates. Treat them as planning anchors and verify the current public carry, parking, bank, water entry, and reservoir-side landing in person.", "Rollans Park is a public river-side town park with restroom/picnic context and local paddling activity; check town/event restrictions and do not unload from a roadway or private business frontage.", "The reservoir endpoint is not a promise of a maintained take-out ramp for this moving-water route. Confirm the waterline-to-vehicle carry and state-park access before committing; postpone if the final landing is unsafe or unlawful.", "Ridgway State Park camping is nearby basecamp context only. Follow reservations, park hours, fees, fire restrictions, and current closures separately.", "The route ends at the reservoir edge; do not continue into open reservoir travel or substitute a downstream private-bank landing."],
+      "watchFor": ["USGS 09146200 below 500 cfs, above 2,500 cfs, rapidly rising, unavailable, or inconsistent with the local river visual", "Ridgway Whitewater Park features, shallow cobble, exposed rocks, strainers, cold water, bridge/park users, and the reservoir transition/take-out", "Town events, parking changes, CPW/state-park fees or closures, stage 2 fire restrictions, private-property boundaries, water-quality advisories, and an unsafe reservoir-side carry"]
+    },
+    "accessPoints": [
+      { "id": "uncompahgre-ridgway-rollans-put-in", "name": "Rollans Park public Uncompahgre River access", "latitude": 38.152, "longitude": -107.752, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater identifies the Rollans Park put-in at this coordinate; local Ridgway sources identify the public river-side park. Confirm current parking, event restrictions, carry, and water entry before unloading." },
+      { "id": "uncompahgre-ridgway-reservoir-take-out", "name": "Ridgway Reservoir / Pa-Co-Chu-Puk reservoir-side take-out anchor", "latitude": 38.191, "longitude": -107.748, "mileFromStart": 4.5, "segmentKind": "transition", "note": "American Whitewater identifies the reservoir endpoint at this coordinate. Confirm the current river-to-reservoir transition, lawful landing, park access, and vehicle carry before launching; take out before open-reservoir travel." }
+    ]
+  },
+  "eagle-river-lower-edwards-eagle": {
+    "putIn": { "id": "eagle-river-lower-edwards-put-in", "name": "Edwards Water Treatment Plant Eagle River access", "latitude": 39.654168, "longitude": -106.62650943 },
+    "takeOut": { "id": "eagle-river-lower-chambers-take-out", "name": "Chambers Park / Eagle River Park public boat ramp", "latitude": 39.65755, "longitude": -106.828611 },
+    "logistics": {
+      "distanceLabel": "Approximately 15.8 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for a long Class II–III reach, scouting, breaks, cold-water preparation, rescue readiness, and shuttle timing.",
+      "shuttle": "Stage the Chambers Park / Eagle River Park take-out, then use the Highway 6 / I-70 corridor to reach the Edwards Water Treatment Plant put-in. Confirm current parking, traffic, signage, treatment-plant access, and the physical bank before unloading.",
+      "permits": "Follow current Eagle County, Town of Eagle, Colorado Parks and Wildlife, BLM, and posted river-access rules. Use only the named endpoints and do not step onto private riverbanks or river bottoms.",
+      "camping": "Wolcott Campground is a nearby upstream basecamp alternative with a seasonal BLM boat ramp; it is not the route endpoint. Chambers Park and the Edwards treatment plant are day-use access areas, not camping sites.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A guarded 15.8-mile Lower Eagle reach with direct Wolcott gauge telemetry, public Edwards and Chambers Park access anchors, seasonal BLM Wolcott camping nearby, named Class II–III hazards, and a mandatory take-out before Rumble Seat.",
+      "accessCaveats": ["The Edwards Water Treatment Plant coordinate is the existing verified access anchor and shared boundary with the separate Riverbend-to-Edwards route. Confirm current lawful public carry, parking, signage, bank condition, and treatment-plant restrictions before launch.", "The Chambers Park coordinate is an on/near-water park and boat-ramp anchor at 100 Fairgrounds Road, supported by Town of Eagle planning material and local park information. Verify the current ramp, river-right landing, parking, hours, and safe carry/exit on arrival.", "Wolcott BLM Campground has a seasonal boat ramp and first-come camping, but it is an optional mid-route access/basecamp context, not permission to camp at either endpoint or to change the published route boundary.", "Do not substitute informal pullouts or private-bank landings. End at Chambers Park before Rumble Seat, downstream park structures, and the separate continuation toward Gypsum.", "No endpoint camping is assumed. Arrange separate lawful lodging or the documented BLM campground reservation/availability and comply with fire, season, and closure rules."],
+      "watchFor": ["USGS 394220106431500 below 400 cfs, above 4,000 cfs, rapidly rising, unavailable, or inconsistent with the local river visual", "Trestle Rapid near Wolcott, Interstate Rapid, Dead Cow, strainers, cold water, bridge and whitewater-park structures, and difficult recovery from a swim", "Edwards treatment-plant access changes, Chambers Park closures or parking limits, Wolcott seasonal access, private-property boundaries, fire restrictions, and failure to take out before Rumble Seat"]
+    },
+    "accessPoints": [
+      { "id": "eagle-river-lower-edwards-put-in", "name": "Edwards Water Treatment Plant Eagle River access", "latitude": 39.654168, "longitude": -106.62650943, "mileFromStart": 0, "segmentKind": "transition", "note": "Existing RiverBrain/route access anchor and the downstream boundary of the Riverbend-to-Edwards route. Confirm current lawful public carry, parking, bank condition, and treatment-plant restrictions before unloading." },
+      { "id": "eagle-river-lower-wolcott-campground", "name": "Wolcott BLM Campground boat ramp / mid-route access", "latitude": 39.71183, "longitude": -106.69583, "mileFromStart": 6.6, "segmentKind": "transition", "note": "BLM identifies a seasonal boat ramp and first-come campground along the Eagle River. Treat it as optional mid-route access/basecamp context; confirm seasonal opening, parking, and current landing conditions." },
+      { "id": "eagle-river-lower-chambers-take-out", "name": "Chambers Park / Eagle River Park public boat ramp", "latitude": 39.65755, "longitude": -106.828611, "mileFromStart": 15.8, "segmentKind": "transition", "note": "Town of Eagle planning material identifies the Chambers Park boat ramp, and local park information identifies the public ramp at 100 Fairgrounds Road. Confirm the river-right landing, parking, hours, and current park rules; take out before Rumble Seat." }
+    ]
+  },
   "arkansas-river-parkdale-royal-gorge": {
     "putIn": { "id": "arkansas-royal-gorge-parkdale-put-in", "name": "Parkdale Recreation Site public access", "latitude": 38.48648, "longitude": -105.39004 },
     "takeOut": { "id": "arkansas-royal-gorge-centennial-take-out", "name": "Centennial Park Cañon City take-out", "latitude": 38.4368403, "longitude": -105.2405462 },
@@ -38,6 +115,82 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       { "id": "arkansas-browns-canyon-fishermans-put-in", "name": "Fisherman's Bridge AHRA access", "latitude": 38.767306, "longitude": -106.094928, "mileFromStart": 0, "segmentKind": "transition", "note": "AHRA/river guides identify Fisherman's Bridge off CR 301 as the public start of the Browns Canyon reach." },
       { "id": "arkansas-browns-canyon-stone-bridge-take-out", "name": "Stone Bridge Recreation Site boat launch", "latitude": 38.611481, "longitude": -106.063342, "mileFromStart": 13.3, "segmentKind": "transition", "note": "AHRA/BLM identify Stone Bridge as the public Browns Canyon take-out and boat launch; exit before the separate Salida reach." }
+    ]
+  },
+  "arkansas-river-stone-bridge-salida": {
+    "putIn": { "id": "arkansas-stone-bridge-salida-put-in", "name": "Stone Bridge Recreation Site boat launch", "latitude": 38.611481, "longitude": -106.063342 },
+    "takeOut": { "id": "arkansas-stone-bridge-salida-take-out", "name": "Riverside Park / F Street public river exit near Salida Whitewater Park", "latitude": 38.5380505, "longitude": -105.9910653 },
+    "logistics": {
+      "distanceLabel": "Approximately 9.5 river miles to the Riverside Park / F Street exit",
+      "estimatedPaddleTime": "Plan a full daylight window for moving-water scouting, the Salida feature line, breaks, cold-water preparation, and shuttle timing.",
+      "shuttle": "Stage the Riverside Park/F Street or nearby Salida Whitewater Park access area, then shuttle to Stone Bridge via US-285 and the AHRA road network. Confirm parking, carry, road, fee, and current access conditions before launch.",
+      "permits": "Follow current AHRA/CPW access rules, posted site fees, city-park rules, event closures, fire restrictions, PFD requirements, and any commercial-use restrictions.",
+      "camping": "No endpoint camping is assumed. Salida East, Point Barr, and Rincon are separate AHRA designated camping/access options along the broader Arkansas corridor; reserve or confirm them independently and never camp on an unmarked riverbank.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "A public Stone Bridge-to-Salida town run with direct 07091200 telemetry, corridor-linked flow planning, named AHRA and city access, a mandatory Salida exit, and nearby designated AHRA camping handled separately from the endpoint.",
+      "accessCaveats": ["Use the Stone Bridge Recreation Site boat launch and the Riverside Park/F Street or clearly signed Salida Whitewater Park river exit only. The take-out coordinate is an access-area/water-entry anchor; confirm the current carry, ramp, parking, and park rules on site.", "Salida Whitewater Park includes engineered features. The City directs boaters to scout from the river-right Coors boat ramp before the F Street approach; do not rely on an unscouted feature line or continue past the route boundary.", "AHRA camping at Salida East, Point Barr, and Rincon is separate from this route’s endpoint. Confirm reservations, fees, fire restrictions, and seasonal access rather than treating any riverbank or park space as camping.", "The flow band is planning guidance only. Keep the route unavailable when the direct gauge is outside the band, rapidly changing, unavailable, or inconsistent with visual conditions, access status, or group skill."],
+      "watchFor": ["USGS 07091200 below 300 cfs, above 5,000 cfs, rapidly rising, unavailable, or inconsistent with local conditions", "Class II–III rapids, Scout Wave and other engineered features, cold water, strainers, bridge hydraulics, debris, swimmers, crowding, and failure to reach the Salida exit", "AHRA/CPW or City of Salida closures, event restrictions, parking/carry changes, road conditions, fire restrictions, and camping-rule violations"]
+    },
+    "accessPoints": [
+      { "id": "arkansas-stone-bridge-salida-put-in", "name": "Stone Bridge Recreation Site boat launch", "latitude": 38.611481, "longitude": -106.063342, "mileFromStart": 0, "segmentKind": "transition", "note": "AHRA/BLM materials identify Stone Bridge as a public Arkansas River recreation-site launch and the downstream boundary of the separate Browns Canyon route." },
+      { "id": "arkansas-stone-bridge-salida-take-out", "name": "Riverside Park / F Street public river exit near Salida Whitewater Park", "latitude": 38.5380505, "longitude": -105.9910653, "mileFromStart": 9.5, "segmentKind": "transition", "note": "American Whitewater names the Riverside Park access downstream of the F Street Bridge; the City of Salida identifies the nearby Whitewater Park and Coors boat ramp, and OpenStreetMap maps the slipway water-entry anchor. Confirm the current water-entry/carry point and exit before launch." }
+    ]
+  },
+  "arkansas-river-salida-rincon": {
+    "putIn": { "id": "arkansas-salida-rincon-put-in", "name": "Riverside Park / F Street public river exit near Salida Whitewater Park", "latitude": 38.5380505, "longitude": -105.9910653 },
+    "takeOut": { "id": "arkansas-salida-rincon-take-out", "name": "Rincon AHRA boat ramp and campground", "latitude": 38.4726962, "longitude": -105.8660177 },
+    "logistics": {
+      "distanceLabel": "Approximately 10 river miles",
+      "estimatedPaddleTime": "Plan 4–6 daylight hours for moving-water scouting, breaks, cold-water preparation, and shuttle timing.",
+      "shuttle": "Stage the Rincon AHRA take-out, then shuttle to the Salida Riverside Park/F Street access via US-50. Confirm parking, carry, fee, road, and current access conditions at both sites before launch.",
+      "permits": "Follow current AHRA/CPW access rules, posted site fees, city-park rules, closures, fire restrictions, PFD requirements, and any commercial-use restrictions.",
+      "camping": "Rincon is a designated AHRA campground with basic sites; reserve or confirm a lawful campsite separately. Do not treat the Salida park, an unmarked riverbank, or an access pullout as overnight camping.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A public Salida-to-Rincon day run with direct 07091200 telemetry, official corridor flow guidance, named CPW and city endpoints, Class II–III hazards, and designated endpoint camping at Rincon.",
+      "accessCaveats": ["Use the public Riverside Park/F Street or clearly signed Salida Whitewater Park river exit only. Confirm the current carry, ramp, parking, and city rules on site.", "Rincon is a CPW/AHRA boat ramp, river access, parking, and campground. Confirm the current ramp, fee, reservation, road, and take-out conditions before launch; the OSM coordinate is a water-entry anchor, not a guarantee of current facilities.", "Treat the 300–5,000 cfs official band and approximately 400 cfs lower preference as planning guidance only. Keep the route unavailable when telemetry, access, visual conditions, or group skill are inconsistent.", "Exit at Rincon. Vallie Bridge and Rincon-to-Pinnacle Rock are separate downstream planning boundaries."],
+      "watchFor": ["USGS 07091200 below 300 cfs, below the preferred 400 cfs, above 5,000 cfs, rapidly rising, unavailable, or inconsistent with local conditions", "Bear Creek Rapid, Class II–III waves, cold water, strainers, debris, canyon walls, anglers, bridge effects, swimmers, and failure to reach the Rincon take-out", "CPW/AHRA or City of Salida closures, event restrictions, parking/carry changes, road conditions, fire restrictions, and campground reservation or fee changes"]
+    },
+    "accessPoints": [
+      { "id": "arkansas-salida-rincon-put-in", "name": "Riverside Park / F Street public river exit near Salida Whitewater Park", "latitude": 38.5380505, "longitude": -105.9910653, "mileFromStart": 0, "segmentKind": "transition", "note": "American Whitewater names Riverside Park downstream of the F Street Bridge; the City of Salida documents the adjacent public whitewater park and boat ramp. Confirm the current water-entry/carry point." },
+      { "id": "arkansas-salida-rincon-take-out", "name": "Rincon AHRA boat ramp and campground", "latitude": 38.4726962, "longitude": -105.8660177, "mileFromStart": 10, "segmentKind": "transition", "note": "CPW lists Rincon as a public boat ramp/slide, river access, parking, fee site, and campground; OpenStreetMap maps a nearby slipway water-entry anchor." }
+    ]
+  },
+  "arkansas-river-rincon-pinnacle-rock": {
+    "putIn": { "id": "arkansas-rincon-pinnacle-put-in", "name": "Rincon AHRA boat ramp and campground", "latitude": 38.4726962, "longitude": -105.8660177 },
+    "takeOut": { "id": "arkansas-rincon-pinnacle-take-out", "name": "Pinnacle Rock AHRA boat ramp and campground", "latitude": 38.4494979, "longitude": -105.5214111 },
+    "logistics": {
+      "distanceLabel": "Approximately 19.5 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window, typically 6–9 hours, for a long moving-water reach, breaks, scouting, and shuttle timing.",
+      "shuttle": "Stage the Pinnacle Rock take-out, then shuttle west on US-50 to Rincon. Confirm current parking, one-way highway approaches, fees, road, and access conditions at both AHRA sites.",
+      "permits": "Follow current AHRA/CPW access rules, posted fees, closures, fire restrictions, PFD requirements, and any commercial-use restrictions.",
+      "camping": "Designated camping is available at Rincon and Pinnacle Rock; reserve or confirm a lawful AHRA campsite separately. Do not camp at an unmarked access or private bank.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A long public Rincon-to-Pinnacle Rock reach with direct Parkdale telemetry, official corridor flow guidance, multiple named AHRA access sites, documented high-water rescue context, and designated endpoint camping.",
+      "accessCaveats": ["Use only the named Rincon and Pinnacle Rock AHRA sites as endpoints; intermediate sites are contingency access only after confirming current conditions.", "Pinnacle Rock’s water-entry coordinate follows the mapped Arkansas River channel beside the AHRA recreation site; confirm the marked ramp, carry, parking, and current site rules before launch.", "The 300–5,000 cfs band is planning guidance only. Keep the route unavailable when telemetry, access, visual conditions, or group skill are inconsistent.", "Exit at Pinnacle Rock before the separate Pinnacle Rock-to-Parkdale reach."],
+      "watchFor": ["USGS 07094500 below 300 cfs, above 5,000 cfs, rapidly rising, unavailable, or inconsistent with local conditions", "Three Rocks Rapid, lateral waves, holes, strainers, cold water, debris, canyon walls, anglers, and limited recovery", "AHRA closures, fees, fire restrictions, Highway 50 shuttle hazards, parking/carry changes, and failure to reach Pinnacle Rock"]
+    },
+    "accessPoints": [
+      { "id": "arkansas-rincon-pinnacle-put-in", "name": "Rincon AHRA boat ramp and campground", "latitude": 38.4726962, "longitude": -105.8660177, "mileFromStart": 0, "segmentKind": "transition", "note": "CPW lists Rincon as a public AHRA boat ramp/slide, river access, parking, fee site, and campground; OSM maps a nearby slipway water-entry anchor." },
+      { "id": "arkansas-rincon-pinnacle-take-out", "name": "Pinnacle Rock AHRA boat ramp and campground", "latitude": 38.4494979, "longitude": -105.5214111, "mileFromStart": 19.5, "segmentKind": "transition", "note": "CPW lists Pinnacle Rock as a public boat ramp/slide, river access, fee site, and camping location; the coordinate follows the mapped Arkansas River channel beside the site." }
+    ]
+  },
+  "arkansas-river-pinnacle-rock-parkdale": {
+    "putIn": { "id": "arkansas-pinnacle-parkdale-put-in", "name": "Pinnacle Rock AHRA boat ramp and campground", "latitude": 38.4494979, "longitude": -105.5214111 },
+    "takeOut": { "id": "arkansas-pinnacle-parkdale-take-out", "name": "Parkdale Recreation Site public access", "latitude": 38.48648, "longitude": -105.39004 },
+    "logistics": {
+      "distanceLabel": "Approximately 17.2 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window, typically 5–8 hours, for sustained Class III water, scouting, breaks, and shuttle timing.",
+      "shuttle": "Stage the Parkdale take-out, then shuttle west on US-50 to Pinnacle Rock. Confirm current parking, loading direction, fees, road, and access conditions at both AHRA sites.",
+      "permits": "Follow current AHRA/CPW access rules, posted fees, closures, fire restrictions, PFD requirements, and any commercial-use restrictions.",
+      "camping": "Designated camping is available at Pinnacle Rock and Parkdale; reserve or confirm a lawful campsite separately. No camping is assumed at the river boundary or Royal Gorge approach.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A guarded public Class III Pinnacle Rock-to-Parkdale reach with direct Parkdale telemetry, official corridor flow guidance, designated endpoints, and a hard mandatory exit before the Royal Gorge.",
+      "accessCaveats": ["Use the named Pinnacle Rock and Parkdale AHRA sites only. The Pinnacle coordinate follows the mapped Arkansas River channel beside the site; confirm the marked ramp, carry, and current rules.", "Parkdale is the mandatory exit before the separate Class IV–V Royal Gorge route. Do not continue downstream toward Cañon City.", "The 300–5,000 cfs official band is planning guidance only. Keep the route unavailable when telemetry, access, visual conditions, or group skill are inconsistent.", "Do not confuse the nearby CPW State Trust Lands parcel with the AHRA boating access; that parcel has separate seasonal public-access restrictions."],
+      "watchFor": ["USGS 07094500 below 300 cfs, above 5,000 cfs, rapidly rising, unavailable, or inconsistent with local conditions", "Class III rapids, lateral waves, strainers, cold water, debris, railroad/bridge hazards, limited recovery, and failure to exit at Parkdale", "AHRA closures, fees, fire restrictions, highway shuttle hazards, Parkdale access changes, and accidental continuation into Royal Gorge"]
+    },
+    "accessPoints": [
+      { "id": "arkansas-pinnacle-parkdale-put-in", "name": "Pinnacle Rock AHRA boat ramp and campground", "latitude": 38.4494979, "longitude": -105.5214111, "mileFromStart": 0, "segmentKind": "transition", "note": "CPW lists Pinnacle Rock as a public AHRA boat ramp/slide, river access, fee site, and camping location; confirm the marked water-entry point on site." },
+      { "id": "arkansas-pinnacle-parkdale-take-out", "name": "Parkdale Recreation Site public access", "latitude": 38.48648, "longitude": -105.39004, "mileFromStart": 17.2, "segmentKind": "transition", "note": "American Whitewater and CPW identify Parkdale as the public launch/take-out boundary immediately above the Royal Gorge." }
     ]
   },
   "upper-colorado-pumphouse-state-bridge": {
