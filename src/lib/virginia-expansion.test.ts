@@ -239,4 +239,183 @@ describe('Virginia corridor-first expansion', () => {
       expect(photos[0].credit, slug).not.toBe('Paddle Today');
     }
   });
+
+  it('publishes the Upper Pigg Blueway with an explicit proxy gauge and reviewed access anchors', () => {
+    const slug = 'pigg-river-waid-lynch';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.scoreEligibilityReason).toBe('proxy_gauge');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '02056900', metric: 'gage_height_ft', kind: 'proxy' });
+    expect(route?.fallbackGaugeSources?.[0]).toMatchObject({ provider: 'usgs', siteId: '02058400', kind: 'direct' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 2, idealMin: 2.6, idealMax: 3.5, tooHigh: 4 });
+    expect(route?.safetyProfile?.hazards).toContain('mandatory_takeout');
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
+    expect(trip?.putIn.name).toContain('Waid');
+    expect(trip?.takeOut.name).toContain('Lynch');
+    expect(trip?.continuityStatus).toBe('verified');
+  });
+
+  it('publishes the Danville Riverfront to Anglers corridor as planning-only proxy coverage', () => {
+    const slug = 'dan-river-danville-riverfront-anglers';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.scoreEligibilityReason).toBe('proxy_gauge');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '02075045', metric: 'discharge_cfs', kind: 'proxy' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'minimum-only' });
+    expect(route?.profile.tooLow).toBeUndefined();
+    expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['low_water', 'strainers', 'whitewater', 'urban_water_quality']));
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
+    expect(route?.logistics?.distanceLabel).toContain('3.3 river miles');
+    expect(trip?.putIn.name).toContain('Riverfront');
+    expect(trip?.takeOut.name).toContain('Anglers');
+    expect(trip?.continuityStatus).toBe('verified');
+  });
+
+  it('publishes the North Fork Holston Wadlow Gap to Yuma chain as planning-only proxy coverage', () => {
+    const slug = 'north-fork-holston-wadlow-yuma';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.scoreEligibilityReason).toBe('proxy_gauge');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '03490000', metric: 'discharge_cfs', kind: 'proxy' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'minimum-only' });
+    expect(route?.profile.tooLow).toBeUndefined();
+    expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['low_water', 'fast_rise', 'strainers', 'access_uncertain']));
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
+    expect(route?.logistics?.distanceLabel).toContain('4.4 river miles');
+    expect(route?.accessPoints).toHaveLength(3);
+    expect(trip?.putIn.name).toContain('Wadlow');
+    expect(trip?.takeOut.name).toContain('Yuma');
+    expect(trip?.continuityStatus).toBe('verified');
+  });
+
+  it('publishes the Banister King’s Bridge to Terry’s Bridge corridor as planning-only proxy coverage', () => {
+    const slug = 'banister-river-kings-bridge-terrys';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.scoreEligibilityReason).toBe('proxy_gauge');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '02077000', metric: 'gage_height_ft', kind: 'proxy' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'minimum-only' });
+    expect(route?.profile.tooLow).toBeUndefined();
+    expect(route?.safetyProfile?.hazards).toContain('low_water');
+    expect(route?.safetyProfile?.hazards).toContain('access_uncertain');
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
+    expect(route?.logistics?.distanceLabel).toContain('5 river miles');
+    expect(trip?.putIn.name).toContain('King');
+    expect(trip?.takeOut.name).toContain('Terry');
+    expect(trip?.continuityStatus).toBe('verified');
+  });
+
+  it('publishes the South Fork Holston Route 58 to Alvarado float with direct DWR flow guidance', () => {
+    const slug = 'south-fork-holston-route58-alvarado';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('scored');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '03473000', metric: 'gage_height_ft', kind: 'direct' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 3.5, idealMin: 3.5 });
+    expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['whitewater', 'fast_rise', 'strainers', 'dam', 'access_uncertain']));
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
+    expect(route?.logistics?.distanceLabel).toContain('3.5–3.8 river miles');
+    expect(route?.accessPoints).toHaveLength(2);
+    expect(trip?.putIn.name).toContain('Route 58');
+    expect(trip?.takeOut.name).toContain('Alvarado');
+    expect(trip?.continuityStatus).toBe('verified');
+  });
+
+  it('publishes the Chestnut Creek Galax to Byllesby reach as planning-only direct-gauge coverage', () => {
+    const slug = 'chestnut-creek-galax-byllesby';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '03165000', metric: 'discharge_cfs', kind: 'direct' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 200, thresholdSourceStrength: 'community' });
+    expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['whitewater', 'low_water', 'strainers', 'dam', 'access_uncertain']));
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
+    expect(route?.logistics?.distanceLabel).toContain('13.2 river miles');
+    expect(route?.accessPoints).toHaveLength(2);
+    expect(trip?.putIn.name).toContain('Galax');
+    expect(trip?.takeOut.name).toContain('Byllesby');
+    expect(trip?.continuityStatus).toBe('verified');
+  });
+
+  it("publishes the Upper Clinch Blackford Bridge to Puckett's Hole float as planning-only direct-gauge coverage", () => {
+    const slug = 'clinch-river-blackford-pucketts-hole';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '03524000', metric: 'discharge_cfs', kind: 'direct' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'minimum-only', thresholdSourceStrength: 'mixed' });
+    expect(route?.profile.tooLow).toBeUndefined();
+    expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['low_water', 'fast_rise', 'strainers', 'cold_water', 'private_banks', 'access_uncertain']));
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('none');
+    expect(route?.logistics?.distanceLabel).toContain('7.3 river miles');
+    expect(route?.accessPoints).toHaveLength(2);
+    expect(trip?.putIn.name).toContain('Blackford');
+    expect(trip?.takeOut.name).toContain("Puckett's Hole");
+    expect(trip?.continuityStatus).toBe('verified');
+  });
+
+  it('publishes the Smith River Bassett to Great Road section as planning-only direct-gauge coverage', () => {
+    const slug = 'smith-river-bassett-great-road';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '02072500', metric: 'discharge_cfs', kind: 'direct' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'minimum-only', thresholdSourceStrength: 'mixed' });
+    expect(route?.profile.tooLow).toBeUndefined();
+    expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['whitewater', 'low_water', 'fast_rise', 'dam', 'cold_water', 'access_uncertain']));
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('none');
+    expect(route?.logistics?.distanceLabel).toContain('5 river miles');
+    expect(route?.accessPoints).toHaveLength(2);
+    expect(trip?.putIn.name).toContain('Bassett');
+    expect(trip?.takeOut.name).toContain('Great Road');
+    expect(trip?.continuityStatus).toBe('verified');
+  });
+
+  it('publishes the Rivanna Crofton to Palmyra section as planning-only direct-gauge coverage', () => {
+    const slug = 'rivanna-river-crofton-palmyra';
+    const route = routeBySlug(slug);
+    const trip = riverTripDetails[slug];
+
+    expect(route?.state).toBe('Virginia');
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.gaugeSource).toMatchObject({ provider: 'usgs', siteId: '02034000', metric: 'discharge_cfs', kind: 'direct' });
+    expect(route?.profile).toMatchObject({ thresholdModel: 'minimum-only', thresholdSourceStrength: 'official' });
+    expect(route?.profile.tooLow).toBeUndefined();
+    expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['whitewater', 'low_water', 'fast_rise', 'strainers', 'cold_water', 'access_uncertain']));
+    expect(route?.safetyProfile?.reviewStatus).toBe('reviewed');
+    expect(route?.logistics?.campingClassification).toBe('none');
+    expect(route?.logistics?.distanceLabel).toContain('6.5 river miles');
+    expect(route?.accessPoints).toHaveLength(2);
+    expect(trip?.putIn.name).toContain('Crofton');
+    expect(trip?.takeOut.name).toContain('Palmyra');
+    expect(trip?.continuityStatus).toBe('verified');
+  });
 });

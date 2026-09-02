@@ -96331,24 +96331,26 @@
       ]
     },
     {
-      "status": "blocked_threshold_endpoint_package",
-      "screenedAt": "2026-08-30T20:00:00Z",
-      "lastReviewed": "2026-08-29",
-      "runId": "route-worker-current-continuation-202608302000-va-02077000-03167000",
-      "decisiveBlocker": "Direct Chestnut Creek telemetry and official New River Trail State Park canoe access/camping context establish a route family lead, but station-specific threshold, endpoints, route limits, and the full publication package remain incomplete.",
-      "blocker": "Incomplete station-tied threshold, endpoint, hazard, logistics, camping, imagery, coordinate, geometry, and verification package",
-      "thresholdEvidence": "USGS provides direct discharge/stage telemetry at 03165000, but no conservative recreational operating band tied to the station and exact Chestnut Creek corridor was validated.",
-      "endpointEvidence": "The state park documents canoe access and boating on Chestnut Creek, but the exact legal launch/takeout pair and station-to-reach mapping were not promoted.",
-      "campingEvidence": "The state park offers camping in the broader park system, but no exact route endpoint campsite was assumed.",
-      "safetyEvidence": "Chestnut Creek is a narrow, changing mountain-water corridor with park closures and current launch/shuttle conditions requiring verification.",
-      "imageDecision": "No image audit because blocked before implementation.",
-      "geometryDecision": "No geometry because blocked before implementation.",
-      "coordinateDecision": "No complete endpoint coordinates promoted.",
-      "routeSlugs": [],
-      "nextAction": "Reopen only after exact legal endpoints, station-tied threshold, hazard/shuttle package, camping decision, imagery, coordinates, geometry, verification, tests, build, and rollback gates all clear.",
-      "retryCondition": "Complete station-tied Chestnut Creek route package.",
-      "updatedAt": "2026-08-30T20:00:00Z",
-      "reviewCount": 1,
+      "status": "planning_only",
+      "screenedAt": "2026-09-02T19:30:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-chestnut-creek-package-20260902",
+      "decisiveBlocker": "The named Galax-to-Byllesby Chestnut Creek reach now has a bounded public access, direct USGS gauge, community flow-band, safety, camping, imagery, coordinate, and geometry package. It remains planning-only because the flow bands are community trip-report observations rather than an agency-certified threshold and the access-area anchors require field confirmation.",
+      "blocker": "No agency-certified station-specific recreational threshold; exact wetted-edge access, falls portage, and Byllesby boundary require current field confirmation",
+      "thresholdEvidence": "USGS provides direct discharge/stage telemetry at 03165000. American Whitewater trip reports describe 200–400 cfs as low, 400–600 cfs as medium, 600–800 cfs as high, and 800–1,000 cfs as very high; these are retained as clearly labeled community guidance, not a safe operating envelope.",
+      "endpointEvidence": "Virginia State Parks identifies the Galax U.S. 58/New River Trail access and the Byllesby Dam access setting; American Whitewater names the Galax-to-Byllesby reach. Stored coordinates are access-area anchors and must be checked at the wetted edge before launch.",
+      "campingEvidence": "Virginia State Parks documents designated primitive camping near the Chestnut Creek corridor at Cliffview and elsewhere in New River Trail State Park. Reservations and park rules apply; no dispersed shoreline camping is assumed.",
+      "safetyEvidence": "American Whitewater rates the reach I–III and documents technical ledges, holes, drops, an approximately eight-foot Chestnut Falls, changing lines, and the Byllesby/New River transition. PFD, cold-water, rapid-rise, debris, private-bank, closure, and shuttle checks remain mandatory.",
+      "imageDecision": "Approved CC BY 2.0 Virginia State Parks Chestnut Creek near Cliffview image added as same-river route context; it is not current endpoint proof.",
+      "geometryDecision": "Canonical geometry generated from the connected Chestnut Creek flowline using the bounded endpoint anchors; treat it as centerline context, not a surveyed paddling track.",
+      "coordinateDecision": "Official state-park map/reach anchors promoted with 250–300 ft uncertainty and explicit wetted-edge field-confirmation language.",
+      "routeSlugs": [
+        "chestnut-creek-galax-byllesby"
+      ],
+      "nextAction": "Keep the route planning-only. Re-review if an agency or route-specific source publishes a defensible threshold, or when field confirmation resolves the access, Chestnut Falls portage, and Byllesby boundary checks; retain all day-of flow, closure, weather, and rescue gates.",
+      "retryCondition": "Station-specific recreational threshold or independent route verification plus current access and hazard confirmation.",
+      "updatedAt": "2026-09-02T19:30:00Z",
+      "reviewCount": 2,
       "id": "va-chestnut-creek-galax-new-river-trail-20260830",
       "candidateId": "va-chestnut-creek-galax-new-river-trail-20260830",
       "river": "Chestnut Creek",
@@ -96357,12 +96359,17 @@
       "gaugeKeys": [
         "usgs:03165000"
       ],
-      "gaugeEvidence": "USGS current-services query returned 49.2 cfs and 1.47 ft at 03165000 during the review.",
+      "gaugeEvidence": "USGS 03165000 provides direct discharge and stage telemetry; current readings are provisional and must be checked immediately before launch.",
       "sourceLinks": [
         "docs/operations/gauge-inventory.json",
         "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=02077000,02079500,02079640,03165000,03167000&parameterCd=00060,00065&siteStatus=all&period=P1D",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03165000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03165000",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1915/main",
         "https://www.dcr.virginia.gov/state-parks/new-river-trail",
-        "https://www.dcr.virginia.gov/state-parks/document/newriver-trailguide-closures.pdf"
+        "https://www.dcr.virginia.gov/state-parks/document/maps/New-River-Trail-Avenza-Map.pdf",
+        "https://www.dcr.virginia.gov/state-parks/document/newriver-trailguide-closures.pdf",
+        "https://commons.wikimedia.org/wiki/File:Chestnut_Creek_near_Cliffview_at_New_River_Trail_State_Park_KB_(26792860054).jpg"
       ]
     },
     {
@@ -96965,6 +96972,401 @@
       "runId": "route-worker-current-continuation-202608310000-va-03488000-03531500",
       "reviewCount": 1,
       "updatedAt": "2026-08-31T00:00:00Z"
+    },
+    {
+      "id": "va-nottoway-river-double-bridge-route630-20260902",
+      "candidateId": "va-nottoway-river-double-bridge-route630-20260902",
+      "river": "Nottoway River",
+      "route": "Double Bridge (Route 619) to Route 630 Bridge",
+      "state": "VA",
+      "status": "planning_only",
+      "routeReadiness": "planning_only",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-nottoway-river-double-bridge-route630-package-20260902",
+      "gaugeKeys": [
+        "usgs:02044500"
+      ],
+      "blocker": "Virginia DWR establishes a named approximately five-mile float with two DWR ramps and Class I character, but no station-specific numeric recreational threshold was verified for USGS 02044500.",
+      "routeSlugs": [
+        "nottoway-river-double-bridge-route630"
+      ],
+      "nextAction": "Keep the route planning-only. Re-review if DWR, a local water-trail authority, or another authoritative paddling source publishes a numeric threshold calibrated to USGS 02044500 or a clearly labeled conservative minimum-only screen for this exact reach; then revalidate access, current hazards, camping, coordinates, geometry, imagery, and full production gates.",
+      "updatedAt": "2026-09-02T18:00:00Z"
+    },
+    {
+      "id": "va-reed-creek-kents-millers-blueway-20260902",
+      "candidateId": "va-reed-creek-kents-millers-blueway-20260902",
+      "river": "Reed Creek",
+      "route": "Kents Lane Portage Park to Millers Creek Portage Park",
+      "state": "VA",
+      "status": "planning_only",
+      "routeReadiness": "planning_only",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-reed-creek-kents-millers-blueway-package-20260902",
+      "gaugeKeys": [
+        "usgs:03167000"
+      ],
+      "blocker": "Wythe County establishes a named public Reed Creek Blueway with two maintained portage parks, but no station-specific numeric recreational threshold was verified for USGS 03167000; American Whitewater also documents downstream dam, wood, and water-quality hazards requiring current confirmation.",
+      "routeSlugs": [
+        "reed-creek-kents-millers-blueway"
+      ],
+      "nextAction": "Keep the route planning-only. Re-review if Wythe County, Virginia DWR, or another authoritative paddling source publishes a numeric threshold calibrated to USGS 03167000 or a clearly labeled conservative minimum-only screen for this exact Blueway reach; then revalidate current water quality, access, hazards, camping, coordinates, geometry, imagery, and full production gates.",
+      "updatedAt": "2026-09-02T19:00:00Z"
+    },
+    {
+      "id": "va-pigg-river-waid-lynch-20260902",
+      "candidateId": "va-pigg-river-waid-lynch-20260902",
+      "river": "Pigg River",
+      "route": "Upper Pigg River Blueway Waid Park to Lynch Park",
+      "state": "VA",
+      "status": "planning_only",
+      "screenedAt": "2026-09-02T13:00:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-pigg-river-package-20260902",
+      "gaugeKeys": [
+        "usgs:02056900",
+        "usgs:02058400"
+      ],
+      "decisiveBlocker": "Published as a planning route because the authoritative county flow guidance is tied to the Blackwater gauge proxy rather than a Pigg-specific threshold station.",
+      "blocker": "Planning-only proxy gauge posture; exact wetted-edge entry remains a field confirmation item for official facility-pin anchors.",
+      "gaugeEvidence": "Franklin County ties pleasant Upper Pigg floating to the Blackwater River gauge; USGS 02058400 supplies direct Pigg telemetry context.",
+      "thresholdEvidence": "Franklin County publishes 2–2.6 ft, 2.6–3.5 ft, 3.6–4 ft, and 4+ ft Upper Pigg bands and separately states that pleasant floating is anticipated at 2–3 ft on the Blackwater gauge proxy.",
+      "endpointEvidence": "Franklin County names Waid Park and Lynch Park as Pigg River access points; facility pages identify Waid kayak/canoe launch and Lynch kayak/canoe takeout. Official facility pins are retained as review-level access anchors.",
+      "campingEvidence": "No route or endpoint camping assumed; both facilities are dawn-to-dusk day-use sites and Lynch has no restrooms.",
+      "safetyEvidence": "Class I moving water with low-water portages, ledges, strainers, rapid-rise, cold-water, and mandatory Lynch takeout above the downstream deadly low-head dam hydraulic.",
+      "imageDecision": "Approved same-river Blackwater River context image used; no endpoint image implied.",
+      "geometryDecision": "Canonical route geometry generated and passed the geometry audit.",
+      "coordinateDecision": "Both official facility-pin endpoints passed with review severity and authoritative access-anchor provenance; exact water entry remains a field confirmation caveat.",
+      "routeSlugs": [
+        "pigg-river-waid-lynch"
+      ],
+      "sourceLinks": [
+        "https://www.playfranklincounty.com/200/Blueway-Access-Maps",
+        "https://www.playfranklincounty.com/203/Blueway-Water-Tables",
+        "https://www.playfranklincounty.com/DocumentCenter/View/401",
+        "https://www.playfranklincounty.com/facilities/facility/details/waidpark-2",
+        "https://playfranklincounty.com/Facilities/Facility/Details/Lynch-Park-6",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02056900/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02058400/"
+      ],
+      "nextAction": "Keep planning-only until a Pigg-specific threshold relationship or direct route station is validated; recheck facility status and exact water entry before any scored promotion.",
+      "retryCondition": "Validated Pigg-specific threshold relationship or direct route station, plus refreshed facility/water-entry confirmation.",
+      "updatedAt": "2026-09-02T13:00:00Z",
+      "reviewCount": 1
+    },
+    {
+      "id": "va-banister-river-kings-bridge-terrys-20260902",
+      "candidateId": "va-banister-river-kings-bridge-terrys-20260902",
+      "river": "Banister River",
+      "route": "Banister River Blueway King’s Bridge Landing to Terry’s Bridge / U.S. 360",
+      "state": "VA",
+      "status": "planning_only",
+      "screenedAt": "2026-09-02T14:00:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-banister-river-package-20260902",
+      "gaugeKeys": [
+        "usgs:02077000"
+      ],
+      "decisiveBlocker": "Published as a planning route because USGS 02077000 supplies direct Banister stage/discharge context but no station-specific numeric recreational threshold tied to this five-mile reach was validated.",
+      "blocker": "Planning-only threshold posture; U.S. 360/Terry’s Bridge is a public crossing with less-developed sandy/muddy bank and exact water-entry, parking, and carry conditions requiring field confirmation.",
+      "gaugeEvidence": "USGS 02077000 is the direct Banister River at Halifax station near the upstream access; live readings are retained as clearly labeled route-level proxy context only.",
+      "thresholdEvidence": "Halifax’s current Blueway supplies wet-season, low-water, distance, and duration guidance but no validated numeric operating threshold for this reach.",
+      "endpointEvidence": "Halifax names King’s Bridge Landing and U.S. 360 just south of Terry’s Bridge Road; Halifax’s facility page and access project identify the public King’s Bridge canoe/kayak hand launch, while the downstream crossing remains a less-developed public access anchor.",
+      "campingEvidence": "No route or endpoint camping assumed; the named public crossings are day-use access areas and nearby lodging/basecamp is required for overnight plans.",
+      "safetyEvidence": "Low-water portages, historic bateau sluices, rock ledges, fallen-tree strainers, bridge approaches, cold water, private banks, limited cell service, and uncertain downstream bank logistics are documented route hazards.",
+      "imageDecision": "Approved official Halifax tourism Banister River bridge image used as route-level context; it is not presented as current endpoint conditions.",
+      "geometryDecision": "Canonical route geometry generated and passed the geometry audit.",
+      "coordinateDecision": "King’s Bridge has a published public facility coordinate; Terry’s Bridge uses an on/near-water U.S. 360 crossing anchor with bounded uncertainty and field-confirmation caveat.",
+      "routeSlugs": [
+        "banister-river-kings-bridge-terrys"
+      ],
+      "sourceLinks": [
+        "https://gohalifaxva.com/the-banister-river-and-banister-lake/",
+        "https://gohalifaxva.com/directory/kings-bridge-landing/",
+        "https://illumination.duke-energy.com/water-resources-fund/banister-river-blueway-project-banister-lake-boat-landing-and-king-s-bridge-landing",
+        "https://www.danriver.org/event/2016-11-05-10-00/fso-float-on-banister-river",
+        "https://www.dcr.virginia.gov/recreational-planning/document/srreportban.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02077000/"
+      ],
+      "nextAction": "Keep planning-only until a current station-specific recreational threshold or conservative minimum is validated and Terry’s Bridge water-entry, parking, carry, and closure conditions are independently confirmed.",
+      "retryCondition": "Validated 02077000-to-reach flow relationship or route-specific operating band, plus refreshed Terry’s Bridge field/access confirmation.",
+      "updatedAt": "2026-09-02T14:00:00Z",
+      "reviewCount": 1
+    },
+    {
+      "id": "va-dan-river-danville-riverfront-anglers-20260902",
+      "candidateId": "va-dan-river-danville-riverfront-anglers-20260902",
+      "river": "Dan River",
+      "route": "Dan River Danville Riverfront Park to Anglers Park",
+      "state": "VA",
+      "status": "planning_only",
+      "screenedAt": "2026-09-02T15:00:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-dan-river-danville-package-20260902",
+      "gaugeKeys": [
+        "usgs:02075045"
+      ],
+      "decisiveBlocker": "Published as a planning route because USGS 02075045 is a nearby downstream station used as a clearly labeled proxy and no station-specific numeric recreational threshold was verified for this short urban reach.",
+      "blocker": "Planning-only threshold posture; confirm current Wynne’s Falls, bridge, debris, parking, and exact wetted-edge conditions before launch.",
+      "gaugeEvidence": "USGS 02075045 provides continuous Dan River telemetry near Danville; its downstream position means it is retained as route-level proxy context rather than a local guarantee.",
+      "thresholdEvidence": "The Dan River Basin Association publishes the exact 3.3-mile outing and says travel time varies with gage height and flow, but no conservative numeric band was verified for the Riverfront-to-Anglers reach.",
+      "endpointEvidence": "The Dan River Basin Association publishes Riverfront Park and Anglers Park endpoint names, coordinates, unloading/parking instructions, and the concrete public takeout ramp.",
+      "campingEvidence": "No route or endpoint camping assumed; Danville day-use parks require separate lodging or lawful regional campground planning.",
+      "safetyEvidence": "Published route guidance identifies Wynne’s Falls, brisk current, rock gardens, historic bridges, and Class I rapids; urban runoff, debris, cold water, and downstream structures require day-of checks.",
+      "imageDecision": "Approved Dan River Basin Association event image used as route-level context; it is not presented as current endpoint conditions.",
+      "geometryDecision": "Canonical route geometry generated and requires the standard geometry audit.",
+      "coordinateDecision": "Both published endpoint coordinates are retained as authoritative access-area anchors with field confirmation of exact carry and wetted-edge entry.",
+      "routeSlugs": [
+        "dan-river-danville-riverfront-anglers"
+      ],
+      "sourceLinks": [
+        "https://www.danriver.org/event/2026-09-05-9-00/sept-fso-paddle-on-the-dan-in-danville",
+        "https://www.danriver.org/our-watershed/trails-and-river-info/river-info",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02075045/",
+        "https://dwr.virginia.gov/boating/boaters-guide/enjoying-the-water/"
+      ],
+      "nextAction": "Keep planning-only until a route-specific operating threshold or conservative minimum is validated; recheck Wynne’s Falls, bridge/debris conditions, park access, and the published endpoint anchors.",
+      "retryCondition": "Validated 02075045-to-reach flow relationship or route-specific operating band, plus refreshed endpoint and hazard confirmation.",
+      "updatedAt": "2026-09-02T15:00:00Z",
+      "reviewCount": 1
+    },
+    {
+      "id": "va-north-fork-holston-wadlow-yuma-20260902",
+      "candidateId": "va-north-fork-holston-wadlow-yuma-20260902",
+      "river": "North Fork Holston River",
+      "route": "North Fork Holston Wadlow Gap to Yuma via Weber City",
+      "state": "VA",
+      "status": "planning_only",
+      "screenedAt": "2026-09-02T16:00:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-north-fork-holston-wadlow-yuma-package-20260902",
+      "gaugeKeys": [
+        "usgs:03490000"
+      ],
+      "decisiveBlocker": "Published as a planning route because USGS 03490000 provides direct North Fork Holston telemetry near Gate City but no station-specific recreational numeric threshold was verified for the 4.4-mile access chain.",
+      "blocker": "Planning-only threshold posture; confirm current Wadlow Gap, Weber City, and Yuma access conditions, exact wetted-edge entry, and flood/debris hazards before launch.",
+      "gaugeEvidence": "USGS 03490000 is the North Fork Holston River station near Gate City and supplies current discharge/stage telemetry; it is retained as clearly labeled route-level proxy context for recreation decisions.",
+      "thresholdEvidence": "Scott County publishes the 2.9-mile, 1.5-mile, and 4.4-mile access-chain distances, but no conservative numeric operating band was verified for this route.",
+      "endpointEvidence": "Scott County’s current boat-access page and embedded maps name Wadlow Gap, Weber City, and Yuma public small-boat access sites and provide directions and map coordinates.",
+      "campingEvidence": "No route or endpoint camping assumed; the county access sites are treated as day-use facilities and nearby basecamp only.",
+      "safetyEvidence": "The package preserves shallow-water, fast-rise, flood-debris, strainer, private-bank, cold-water, bridge, access, and no-unqualified-continuation hazards.",
+      "imageDecision": "Approved public-domain NOAA/USGS North Fork Holston image near Weber City used as route-level context; it is not presented as current endpoint conditions.",
+      "geometryDecision": "Canonical route geometry generated and requires the standard geometry audit.",
+      "coordinateDecision": "All three county embedded-map access anchors passed the route coordinate audit at review severity and remain field-confirmation anchors for exact water entry.",
+      "routeSlugs": [
+        "north-fork-holston-wadlow-yuma"
+      ],
+      "sourceLinks": [
+        "https://www.scottcountyva.gov/296/Boat-Access",
+        "https://www.scottcountyva.gov/DocumentCenter/View/408/Holston-River-Access",
+        "https://dwr.virginia.gov/wp-content/uploads/North-Fork-Holston-River-Report-2016.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03490000/",
+        "https://commons.wikimedia.org/wiki/File:North_Fork_Holston_River.jpg"
+      ],
+      "nextAction": "Keep planning-only until a route-specific operating threshold or conservative minimum is validated; recheck all three access sites, current water, flood debris, and posted county rules.",
+      "retryCondition": "Validated 03490000-to-reach flow relationship or route-specific operating band, plus refreshed access and hazard confirmation.",
+      "updatedAt": "2026-09-02T16:00:00Z",
+      "reviewCount": 1
+    },
+    {
+      "id": "va-south-fork-holston-route58-alvarado-20260902",
+      "candidateId": "va-south-fork-holston-route58-alvarado-20260902",
+      "river": "South Fork Holston River",
+      "route": "South Fork Holston Drowning Ford / Route 58 access to Alvarado Route 710",
+      "state": "VA",
+      "status": "scored",
+      "screenedAt": "2026-09-02T17:00:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-south-fork-holston-route58-alvarado-package-20260902",
+      "gaugeKeys": [
+        "usgs:03473000"
+      ],
+      "decisiveBlocker": "Published as a scored route with a conservative minimum-only screen because Virginia DWR ties the Route 58-to-Alvarado float to the direct Damascus gauge and says flows below 3.5 ft make floating difficult; current access and trail closure status remain day-of launch gates.",
+      "blocker": "Current Virginia Creeper Trail / Route 58 access, primitive Alvarado exit, and rapid/wood/mill-dam hazards require same-day confirmation; the 3.5 ft level is planning guidance, not a safe upper limit.",
+      "gaugeEvidence": "USGS 03473000 is the direct South Fork Holston station near Damascus; Virginia DWR reports Float 4 at 500 cfs and 3.5 ft and states that lower flows make floating difficult.",
+      "thresholdEvidence": "Virginia DWR names Float 4 from Route 58 to Route 710 at Alvarado and gives the 3.5 ft Damascus-gauge minimum-only planning screen; American Whitewater corroborates the named Damascus-to-Alvarado reach and higher-flow Class II(III) context.",
+      "endpointEvidence": "VDOT documents the permanent DWR/DCR kayak and canoe access adjacent to the former Route 58 bridge; DWR names Route 710 at Alvarado as the take-out and American Whitewater supplies access-area coordinates and arrival logistics.",
+      "campingEvidence": "No route or endpoint camping assumed; DWR’s nearby National Forest camping and Marion lodging are separate basecamp options requiring independent current checks.",
+      "safetyEvidence": "Package preserves Drowning Ford immediately below the put-in, Triple Drop/Three-Falls, mill-dam and bridge hazards, rising water, debris, cold water, private banks, trail/road closure, and hard South Holston Lake boundary.",
+      "imageDecision": "Approved public-domain South Holston Dam U.S. government image used as same-river reservoir-transition context; not current Route 58 or Alvarado conditions.",
+      "geometryDecision": "Canonical route geometry generated and requires the standard geometry audit.",
+      "coordinateDecision": "American Whitewater access-area coordinates for Route 58 and Alvarado are retained as authoritative access anchors corroborated by official DWR/VDOT route descriptions; exact wetted-edge entry and parking remain field-confirmation items.",
+      "routeSlugs": [
+        "south-fork-holston-route58-alvarado"
+      ],
+      "sourceLinks": [
+        "https://dwr.virginia.gov/waterbody/holston-river-south-fork/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/4185/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03473000/",
+        "https://www.vdot.virginia.gov/media/vdotvirginiagov/about/districts/2024-vdot-bristol-district-transportation-update_acc121124_PM.pdf",
+        "https://appalachiantrail.org/trail-updates/sw-virginia-va-creeper-trail-closure-detour/",
+        "https://commons.wikimedia.org/wiki/File:South-holston-dam-tva1.jpg"
+      ],
+      "nextAction": "Recheck USGS 03473000 height/trend, recent rain, current VDOT/DWR/Forest Service trail and road notices, Route 58 carry, Drowning Ford, Alvarado parking/exit, and all wood/mill-dam hazards before travel.",
+      "retryCondition": "Fresh closure/access change, materially revised DWR flow guidance, or a verified more precise route-level upper/lower operating band.",
+      "updatedAt": "2026-09-02T17:00:00Z",
+      "reviewCount": 1
+    },
+    {
+      "status": "planning_only",
+      "screenedAt": "2026-09-02T20:30:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-clinch-blackford-pucketts-hole-package-20260902",
+      "decisiveBlocker": "The official Clinch River access guide names the 7.3-mile Blackford Bridge to Puckett's Hole float, Virginia DWR provides public endpoint access records and coordinates, and USGS 03524000 provides direct telemetry. It remains planning-only because no station-specific numeric recreational threshold is published and the access coordinates are area anchors requiring current wetted-edge confirmation.",
+      "blocker": "No station-specific numeric recreational threshold; gravel/shoreline endpoint carry and legal boundary require current field confirmation",
+      "thresholdEvidence": "USGS 03524000 provides direct Clinch River discharge and stage telemetry. The official route source says high flows may be challenging but publishes no numeric operating band; no numeric threshold is inferred.",
+      "endpointEvidence": "Virginia DWR lists Blackford Bridge as a Clinch River gravel access at 36.9965, -81.9437 and Puckett's Hole as shoreline access at 36.9699, -82.0137. These are access-area anchors, not surveyed wetted-edge points.",
+      "campingEvidence": "Virginia DWR access rules prohibit camping at the access areas. Clinch River State Park provides day-use launch context and currently has no overnight facilities; no on-route camping is assumed.",
+      "safetyEvidence": "The official Clinch River guide warns that high flows may be challenging. Preserve low-water, rapid-rise, strainer, cold-water, private-bank, sensitive-habitat, access, weather, shuttle, and daylight controls.",
+      "imageDecision": "Existing approved public-domain Clinch River image retained as same-river route context; it is not current endpoint or condition proof.",
+      "geometryDecision": "Canonical geometry generated from the connected Clinch River flowline using the DWR endpoint anchors; treat it as centerline context, not a surveyed paddling track.",
+      "coordinateDecision": "Virginia DWR access anchors promoted with 250 ft uncertainty and explicit wetted-edge field-confirmation language.",
+      "routeSlugs": [
+        "clinch-river-blackford-pucketts-hole"
+      ],
+      "nextAction": "Keep the route planning-only. Re-review if a station-specific recreational threshold or current field/manager confirmation resolves the endpoint and high-flow controls; retain same-day gauge, visual, weather, debris, access, rescue, and private-bank gates.",
+      "retryCondition": "Station-specific recreational threshold or independent route verification plus current access and hazard confirmation.",
+      "updatedAt": "2026-09-02T20:30:00Z",
+      "reviewCount": 1,
+      "id": "va-clinch-river-blackford-pucketts-hole-20260902",
+      "candidateId": "va-clinch-river-blackford-pucketts-hole-20260902",
+      "river": "Clinch River",
+      "route": "Blackford Bridge to Puckett's Hole 7.3-mile public access float",
+      "state": "VA",
+      "gaugeKeys": [
+        "usgs:03524000"
+      ],
+      "gaugeEvidence": "USGS 03524000 provides direct discharge and stage telemetry; current readings are provisional and must be checked immediately before launch.",
+      "sourceLinks": [
+        "https://www.clinchriverva.com/visit-the-region/river-access/index.html",
+        "https://dwr.virginia.gov/boating/access?find_by_locality=563",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03524000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03524000",
+        "https://www.dcr.virginia.gov/state-parks/clinch-river",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1916/main"
+      ]
+    },
+    {
+      "status": "planning_only",
+      "screenedAt": "2026-09-02T21:00:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-smith-river-bassett-great-road-package-20260902",
+      "decisiveBlocker": "The Smith River Blueway and Henry County public access records establish the approximately five-mile Bassett-to-Great Road moving-water section, public endpoints, Class I–II context, direct Bassett telemetry, and Philpott generation controls. It remains planning-only because the 65–1,400 cfs value is a release context rather than a station-certified recreational threshold and the address/access-area coordinates require wetted-edge confirmation.",
+      "blocker": "No station-specific numeric recreational threshold; rustic endpoint carry and address-anchor coordinates require current field confirmation",
+      "thresholdEvidence": "The Henry County Smith River Blueway brochure documents a 65–1,400 cfs release context, while the public access pages require checking USGS gauges and the Philpott generation schedule. No safe operating envelope is inferred.",
+      "endpointEvidence": "Henry County and Smith River Blueway pages identify Bassett River Access at 271 Trent Hill Drive and The Great Road River Access at 4313 The Great Road as public paddling accesses. Stored coordinates are a DRBA Bassett anchor and an official-address anchor, not surveyed wetted-edge points.",
+      "campingEvidence": "The public access package documents day paddling, parking, shuttle, and release safety but no on-route or endpoint camping. Separate lawful regional lodging or designated camping is required.",
+      "safetyEvidence": "Henry County warns of Class I–II rapids, cold water, slippery/muddy rustic entrances, rapid Philpott releases, PFD requirements, and avoiding conditions beyond skill level; preserve the hard take-out and private/industrial-bank boundaries.",
+      "imageDecision": "Approved CC BY-SA 3.0 Smith River in Henry County image added as same-river route context; it is not current endpoint or flow proof.",
+      "geometryDecision": "Canonical geometry generated from the connected Smith River flowline using the public access anchors; treat it as centerline context, not a surveyed paddling track.",
+      "coordinateDecision": "Bassett and Great Road public-access/address anchors promoted with 250–500 ft uncertainty and explicit wetted-edge field-confirmation language.",
+      "routeSlugs": [
+        "smith-river-bassett-great-road"
+      ],
+      "nextAction": "Keep the route planning-only. Re-review if a station-specific recreational threshold or current field/manager confirmation resolves the release, access, and coordinate controls; retain same-day gauge, generation, weather, debris, cold-water, rescue, and shuttle gates.",
+      "retryCondition": "Station-specific recreational threshold or independent route verification plus current access and hazard confirmation.",
+      "updatedAt": "2026-09-02T21:00:00Z",
+      "reviewCount": 1,
+      "id": "va-smith-river-bassett-great-road-20260902",
+      "candidateId": "va-smith-river-bassett-great-road-20260902",
+      "river": "Smith River",
+      "route": "Bassett River Access to The Great Road River Access approximately five-mile Blueway float",
+      "state": "VA",
+      "gaugeKeys": [
+        "usgs:02072500"
+      ],
+      "gaugeEvidence": "USGS 02072500 at Bassett provides direct discharge and stage telemetry; current readings and Philpott release timing must be checked before launch.",
+      "sourceLinks": [
+        "https://www.smithriverblueway.com/access-points",
+        "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF",
+        "https://www.visitmartinsville.com/listing/smith-river-access-bassett/",
+        "https://www.visitmartinsville.com/listing/smith-river-access-the-great-road/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02072500/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02072500",
+        "https://dwr.virginia.gov/wp-content/uploads/media/Smith-River-Fisheries-Management-Report-2025.pdf",
+        "https://commons.wikimedia.org/wiki/File:Smith_River_in_fog_Henry_County_Virginia.JPG"
+      ]
+    },
+    {
+      "id": "va-rivanna-river-crofton-palmyra-20260902",
+      "candidateId": "va-rivanna-river-crofton-palmyra-20260902",
+      "river": "Rivanna River",
+      "route": "Crofton public landing to Palmyra public landing 6.5-mile float",
+      "state": "VA",
+      "status": "planning_only",
+      "screenedAt": "2026-09-02T22:00:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-rivanna-crofton-palmyra-package-20260902",
+      "gaugeKeys": [
+        "usgs:02034000"
+      ],
+      "decisiveBlocker": "The Virginia DWR public-landings map establishes the exact 6.5-mile Crofton-to-Palmyra novice float, both endpoints are in the current DWR maintained-access inventory, USGS 02034000 is at Palmyra, and the route has complete access, coordinate, safety, camping, imagery, and geometry controls. It remains planning-only because no station-specific numeric recreational threshold was verified for this lower reach.",
+      "blocker": "No station-specific numeric recreational threshold; current landing, bridge, debris, water-quality, and exact wetted-edge conditions require same-day confirmation",
+      "gaugeEvidence": "USGS 02034000 at Palmyra supplies direct downstream Rivanna discharge and stage telemetry; current values and trend must be checked immediately before launch.",
+      "thresholdEvidence": "Virginia DWR describes the exact Crofton-to-Palmyra section and one Class I-II drop but publishes no numeric operating band. American Whitewater's Palmyra minimum belongs to a different upstream Charlottesville-to-Shadwell reach and is not transferred.",
+      "endpointEvidence": "Virginia DWR names Crofton and Palmyra public landings; the maintained-access layer supplies the Crofton anchor and the official Palmyra page supplies 37.85776874, -78.26682016. Both are access-area anchors requiring exact wetted-edge confirmation.",
+      "campingEvidence": "No route or endpoint camping assumed; the DWR landings are treated as day-use facilities and separate lawful lodging or camping is required.",
+      "safetyEvidence": "DWR identifies a novice section with one Class I-II drop. The package preserves fast-rise, low-water, bridge, strainer, submerged-rock/wood, cold-water, private-bank, water-quality, landing, shuttle, and daylight controls.",
+      "imageDecision": "Approved public-domain Rivanna River at Union Mills image added as same-river route context; it is identified as looking downstream from Crofton Boat Ramp and is not current endpoint or flow evidence.",
+      "geometryDecision": "Canonical geometry generated from the connected Rivanna flowline using the two DWR access anchors; treat it as centerline context, not a surveyed paddling track.",
+      "coordinateDecision": "Crofton and Palmyra public-landing anchors promoted with 250 ft uncertainty and explicit wetted-edge field-confirmation language.",
+      "routeSlugs": [
+        "rivanna-river-crofton-palmyra"
+      ],
+      "sourceLinks": [
+        "https://dwr.virginia.gov/wp-content/uploads/rivanna-river-public-landings-float-map.pdf",
+        "https://dwr.virginia.gov/place/palmyra/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02034000/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02034000",
+        "https://services.dwr.virginia.gov/arcgis/rest/services/Public/BoatingAccessSites/FeatureServer",
+        "https://commons.wikimedia.org/wiki/File:Rivanna_River_at_Union_Mills.jpg"
+      ],
+      "nextAction": "Keep planning-only until a route-specific operating threshold or conservative minimum is validated; recheck both DWR landings, stage/trend, recent rain, bridge/wood hazards, water quality, private-bank constraints, shuttle, and daylight before travel.",
+      "retryCondition": "Validated 02034000-to-Crofton/Palmyra flow relationship or route-specific operating band, plus refreshed access, landing, water-quality, and hazard confirmation.",
+      "updatedAt": "2026-09-02T22:00:00Z",
+      "reviewCount": 1
+    },
+    {
+      "id": "va-jackson-river-statewide-inventory-20260902",
+      "candidateId": "va-jackson-river-statewide-inventory-20260902",
+      "river": "Jackson River",
+      "route": "Poor Farm Road to Hidden Valley and Low Moor to James/Rainbow Gap review",
+      "state": "VA",
+      "status": "blocked_threshold_endpoint_package",
+      "routeReadiness": "blocked",
+      "screenedAt": "2026-09-02T22:30:00Z",
+      "lastReviewed": "2026-09-02",
+      "runId": "virginia-goal-statewide-inventory-jackson-review-20260902",
+      "gaugeKeys": [
+        "usgs:02011400",
+        "usgs:02013100"
+      ],
+      "decisiveBlocker": "The statewide pass confirmed multiple public Jackson River access leads and two recognized moving-water reaches, but no single route cleared the strict publication package in the current evidence window. Poor Farm to Hidden Valley has public-access descriptions but no manager-grade exact endpoint-coordinate and water-entry package, while Low Moor to James/Rainbow Gap requires multi-gauge flow estimation and overlaps the existing James River Lick Run endpoint.",
+      "blocker": "Exact public endpoint coordinates and wetted-edge controls remain incomplete for the preferred Poor Farm reach; the alternate Low Moor reach needs a defensible multi-gauge threshold and cross-river route model",
+      "gaugeEvidence": "USGS 02011400 is the direct Jackson River near Bacova context named for Poor Farm to Hidden Valley; USGS 02013100 is direct Jackson River below Dunlap Creek at Covington and is named for the Low Moor to James/Rainbow Gap reach. Current telemetry alone does not establish a recreational operating band.",
+      "thresholdEvidence": "American Whitewater supplies reach-specific class and trip-report observations, including a 350 cfs report for Poor Farm to Hidden Valley and a 550 cfs low-bridge passage note for Low Moor to James, but no station-certified safe operating band was verified. The Low Moor source explicitly requires combining gauges for different points.",
+      "endpointEvidence": "DWR/USFS VBWT pages document public Jackson River access areas, and DWR’s maintained layer confirms Low Moor, Clifton Forge, Covington, and Island Ford II. The preferred Poor Farm and Hidden Valley endpoint water-entry coordinates were not confirmed by the current manager-grade source set; fishing access is not silently promoted to a PaddleToday launch/take-out.",
+      "campingEvidence": "Poor Farm and Hidden Valley have nearby public-land/recreation camping context, but no route or endpoint camping entitlement is assumed without confirming current land-manager rules and a water-access relationship.",
+      "safetyEvidence": "Reviewed hazards include a Class II/low III ledgy rapid, low bridge and possible portage, Rainbow Gap, fast/rising water, cold water, wood/debris, private-bank and cross-river boundaries, remote rescue, and uncertain exact water entry.",
+      "imageDecision": "No new route-gallery row added because no Jackson route reached implementation; retain existing approved Jackson River context only for future route review.",
+      "geometryDecision": "No canonical geometry generated because neither reviewed Jackson route cleared the exact endpoint and route-shape gate.",
+      "coordinateDecision": "DWR maintained-access coordinates are retained as inventory evidence only; no Poor Farm/Hidden Valley endpoint coordinates are promoted to route data, and the Low Moor alternate is not promoted across the Jackson/James transition.",
+      "routeSlugs": [],
+      "sourceLinks": [
+        "https://dwr.virginia.gov/vbwt/mountain-trail/mah/",
+        "https://dwr.virginia.gov/vbwt/sites/gathright-dam-jackson-river-float-trip/",
+        "https://dwr.virginia.gov/vbwt/sites/johnson-springs-jackson-river-float-trip/",
+        "https://dwr.virginia.gov/vbwt/sites/smith-bridge-jackson-river-float-trip/",
+        "https://dwr.virginia.gov/vbwt/sites/indian-draft-jackson-river-float-trip/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1947/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11668/main",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02011400/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02013100/"
+      ],
+      "nextAction": "Do not publish a Jackson route until a current land-manager or route authority supplies exact Poor Farm/Hidden Valley water-entry coordinates and operating controls, or a separate Low Moor-to-James route package resolves the multi-gauge relationship, cross-river route geometry, and shared Lick Run endpoint without duplicating the existing James card.",
+      "retryCondition": "Fresh manager-grade endpoint coordinates and public-access terms for Poor Farm/Hidden Valley plus a route-specific threshold, or a validated multi-gauge Low Moor-to-James package with current hazard, camping, imagery, and cross-river geometry evidence.",
+      "updatedAt": "2026-09-02T22:30:00Z",
+      "reviewCount": 1
     }
   ],
   "entries": [

@@ -2,7 +2,7 @@
   "generatedAt": "2026-08-30T12:17:14.254Z",
   "auditGeneratedAt": "2026-08-30T12:11:15.119Z",
   "summary": {
-    "entryCount": 1872,
+    "entryCount": 1895,
     "repeatedEntryCount": 561,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
@@ -128441,7 +128441,7 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 105.15120638809879,
           "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
           "routeId": "clinch-river-pucketts-hole-nash-ford",
@@ -128455,7 +128455,7 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 105.15120638809879,
           "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         }
       ]
     },
@@ -167472,6 +167472,1832 @@
           "distanceFeetToMatchedRiver": 83.22275494695599,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--anglers-park-public-concrete-boat-ramp",
+      "state": "Virginia",
+      "name": "Anglers Park public concrete boat ramp",
+      "aliases": [
+        "Anglers Park public concrete boat ramp"
+      ],
+      "sourceIds": [
+        "dan-river-danville-anglers-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.55893,
+        "longitude": -79.356529
+      },
+      "accessCoordinate": {
+        "latitude": 36.55893,
+        "longitude": -79.356529
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.55893,-79.35653",
+          "coordinate": {
+            "latitude": 36.55893,
+            "longitude": -79.356529
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "dan-river-danville-riverfront-anglers"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "dan-river-danville-riverfront-anglers",
+          "routeName": "Dan River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "dan-river-danville-anglers-take-out",
+          "name": "Anglers Park public concrete boat ramp",
+          "latitude": 36.55893,
+          "longitude": -79.356529,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 309.5124034961998,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "dan-river-danville-riverfront-anglers",
+          "routeName": "Dan River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Anglers Park public concrete boat ramp",
+          "latitude": 36.55893,
+          "longitude": -79.356529,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 309.5124034961998,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--bassett-river-access-north-bassett-canoe-access",
+      "state": "Virginia",
+      "name": "Bassett River Access / North Bassett Canoe Access",
+      "aliases": [
+        "Bassett River Access / North Bassett Canoe Access"
+      ],
+      "sourceIds": [
+        "smith-river-bassett-great-road-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.76992,
+        "longitude": -80.00147
+      },
+      "accessCoordinate": {
+        "latitude": 36.76992,
+        "longitude": -80.00147
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.76992,-80.00147",
+          "coordinate": {
+            "latitude": 36.76992,
+            "longitude": -80.00147
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "smith-river-bassett-great-road"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-bassett-great-road",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-bassett-great-road-put-in",
+          "name": "Bassett River Access / North Bassett Canoe Access",
+          "latitude": 36.76992,
+          "longitude": -80.00147,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 158.90504855839214,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "smith-river-bassett-great-road",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Bassett River Access / North Bassett Canoe Access",
+          "latitude": 36.76992,
+          "longitude": -80.00147,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 158.90504855839214,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--blackford-bridge-virginia-dwr-gravel-access",
+      "state": "Virginia",
+      "name": "Blackford Bridge Virginia DWR gravel access",
+      "aliases": [
+        "Blackford Bridge Virginia DWR gravel access"
+      ],
+      "sourceIds": [
+        "clinch-river-blackford-bridge-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.9965,
+        "longitude": -81.9437
+      },
+      "accessCoordinate": {
+        "latitude": 36.9965,
+        "longitude": -81.9437
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.99650,-81.94370",
+          "coordinate": {
+            "latitude": 36.9965,
+            "longitude": -81.9437
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "clinch-river-blackford-pucketts-hole"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "clinch-river-blackford-pucketts-hole",
+          "routeName": "Clinch River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "clinch-river-blackford-bridge-put-in",
+          "name": "Blackford Bridge Virginia DWR gravel access",
+          "latitude": 36.9965,
+          "longitude": -81.9437,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 59.8718414526408,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "clinch-river-blackford-pucketts-hole",
+          "routeName": "Clinch River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Blackford Bridge Virginia DWR gravel access",
+          "latitude": 36.9965,
+          "longitude": -81.9437,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 59.8718414526408,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--byllesby-dam-area-public-boat-ramp-park-access",
+      "state": "Virginia",
+      "name": "Byllesby Dam area public boat-ramp/park access",
+      "aliases": [
+        "Byllesby Dam area public boat-ramp/park access"
+      ],
+      "sourceIds": [
+        "chestnut-creek-byllesby-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.7846267,
+        "longitude": -80.9349067
+      },
+      "accessCoordinate": {
+        "latitude": 36.7846267,
+        "longitude": -80.9349067
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.78463,-80.93491",
+          "coordinate": {
+            "latitude": 36.7846267,
+            "longitude": -80.9349067
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "chestnut-creek-galax-byllesby"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "chestnut-creek-galax-byllesby",
+          "routeName": "Chestnut Creek",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "chestnut-creek-byllesby-take-out",
+          "name": "Byllesby Dam area public boat-ramp/park access",
+          "latitude": 36.7846267,
+          "longitude": -80.9349067,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 263.02234823639077,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "chestnut-creek-galax-byllesby",
+          "routeName": "Chestnut Creek",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Byllesby Dam area public boat-ramp/park access",
+          "latitude": 36.7846267,
+          "longitude": -80.9349067,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 263.02234823639077,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--crofton-public-landing",
+      "state": "Virginia",
+      "name": "Crofton public landing",
+      "aliases": [
+        "Crofton public landing"
+      ],
+      "sourceIds": [
+        "rivanna-river-crofton-palmyra-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.91874108,
+        "longitude": -78.29759086
+      },
+      "accessCoordinate": {
+        "latitude": 37.91874108,
+        "longitude": -78.29759086
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.91874,-78.29759",
+          "coordinate": {
+            "latitude": 37.91874108,
+            "longitude": -78.29759086
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "rivanna-river-crofton-palmyra"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "rivanna-river-crofton-palmyra",
+          "routeName": "Rivanna River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "rivanna-river-crofton-palmyra-put-in",
+          "name": "Crofton public landing",
+          "latitude": 37.91874108,
+          "longitude": -78.29759086,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 97.02622642898937,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "rivanna-river-crofton-palmyra",
+          "routeName": "Rivanna River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Crofton public landing",
+          "latitude": 37.91874108,
+          "longitude": -78.29759086,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 97.02622642898937,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--danville-riverfront-park-public-launch",
+      "state": "Virginia",
+      "name": "Danville Riverfront Park public launch",
+      "aliases": [
+        "Danville Riverfront Park public launch"
+      ],
+      "sourceIds": [
+        "dan-river-danville-riverfront-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.589727,
+        "longitude": -79.391976
+      },
+      "accessCoordinate": {
+        "latitude": 36.589727,
+        "longitude": -79.391976
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.58973,-79.39198",
+          "coordinate": {
+            "latitude": 36.589727,
+            "longitude": -79.391976
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "dan-river-danville-riverfront-anglers"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "dan-river-danville-riverfront-anglers",
+          "routeName": "Dan River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "dan-river-danville-riverfront-put-in",
+          "name": "Danville Riverfront Park public launch",
+          "latitude": 36.589727,
+          "longitude": -79.391976,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 508.50882827615817,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "dan-river-danville-riverfront-anglers",
+          "routeName": "Dan River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Danville Riverfront Park public launch",
+          "latitude": 36.589727,
+          "longitude": -79.391976,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 508.50882827615817,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--double-bridge-route-619-dwr-public-ramp",
+      "state": "Virginia",
+      "name": "Double Bridge / Route 619 DWR public ramp",
+      "aliases": [
+        "Double Bridge / Route 619 DWR public ramp"
+      ],
+      "sourceIds": [
+        "nottoway-river-double-bridge-route619-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.846961,
+        "longitude": -77.560697
+      },
+      "accessCoordinate": {
+        "latitude": 36.846961,
+        "longitude": -77.560697
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.84696,-77.56070",
+          "coordinate": {
+            "latitude": 36.846961,
+            "longitude": -77.560697
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "nottoway-river-double-bridge-route630"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "nottoway-river-double-bridge-route630",
+          "routeName": "Nottoway River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "nottoway-river-double-bridge-route619-put-in",
+          "name": "Double Bridge / Route 619 DWR public ramp",
+          "latitude": 36.846961,
+          "longitude": -77.560697,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 10.432758565889419,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "nottoway-river-double-bridge-route630",
+          "routeName": "Nottoway River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Double Bridge / Route 619 DWR public ramp",
+          "latitude": 36.846961,
+          "longitude": -77.560697,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 10.432758565889419,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--drowning-ford-route-58-permanent-kayak-and-canoe-access",
+      "state": "Virginia",
+      "name": "Drowning Ford / Route 58 permanent kayak and canoe access",
+      "aliases": [
+        "Drowning Ford / Route 58 permanent kayak and canoe access"
+      ],
+      "sourceIds": [
+        "south-fork-holston-route58-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.652367,
+        "longitude": -81.840151
+      },
+      "accessCoordinate": {
+        "latitude": 36.652367,
+        "longitude": -81.840151
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.65237,-81.84015",
+          "coordinate": {
+            "latitude": 36.652367,
+            "longitude": -81.840151
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-fork-holston-route58-alvarado"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-holston-route58-alvarado",
+          "routeName": "South Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "south-fork-holston-route58-put-in",
+          "name": "Drowning Ford / Route 58 permanent kayak and canoe access",
+          "latitude": 36.652367,
+          "longitude": -81.840151,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 1.3285533034158512,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "south-fork-holston-route58-alvarado",
+          "routeName": "South Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Drowning Ford / Route 58 permanent kayak and canoe access",
+          "latitude": 36.652367,
+          "longitude": -81.840151,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 1.3285533034158512,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--galax-u-s-58-new-river-trail-state-park-public-chestnut-creek-access",
+      "state": "Virginia",
+      "name": "Galax U.S. 58 / New River Trail State Park public Chestnut Creek access",
+      "aliases": [
+        "Galax U.S. 58 / New River Trail State Park public Chestnut Creek access"
+      ],
+      "sourceIds": [
+        "chestnut-creek-galax-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6681933,
+        "longitude": -80.9249417
+      },
+      "accessCoordinate": {
+        "latitude": 36.6681933,
+        "longitude": -80.9249417
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.66819,-80.92494",
+          "coordinate": {
+            "latitude": 36.6681933,
+            "longitude": -80.9249417
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "chestnut-creek-galax-byllesby"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "chestnut-creek-galax-byllesby",
+          "routeName": "Chestnut Creek",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "chestnut-creek-galax-put-in",
+          "name": "Galax U.S. 58 / New River Trail State Park public Chestnut Creek access",
+          "latitude": 36.6681933,
+          "longitude": -80.9249417,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 115.52221145010178,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "chestnut-creek-galax-byllesby",
+          "routeName": "Chestnut Creek",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Galax U.S. 58 / New River Trail State Park public Chestnut Creek access",
+          "latitude": 36.6681933,
+          "longitude": -80.9249417,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 115.52221145010178,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--kents-lane-portage-park-public-reed-creek-access",
+      "state": "Virginia",
+      "name": "Kents Lane Portage Park public Reed Creek access",
+      "aliases": [
+        "Kents Lane Portage Park public Reed Creek access"
+      ],
+      "sourceIds": [
+        "reed-creek-kents-millers-kents"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.9483187505498,
+        "longitude": -81.0252784830942
+      },
+      "accessCoordinate": {
+        "latitude": 36.9483187505498,
+        "longitude": -81.0252784830942
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.94832,-81.02528",
+          "coordinate": {
+            "latitude": 36.9483187505498,
+            "longitude": -81.0252784830942
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "reed-creek-kents-millers-blueway"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "reed-creek-kents-millers-blueway",
+          "routeName": "Reed Creek",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "reed-creek-kents-millers-kents",
+          "name": "Kents Lane Portage Park public Reed Creek access",
+          "latitude": 36.9483187505498,
+          "longitude": -81.0252784830942,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 413.87224454428326,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "reed-creek-kents-millers-blueway",
+          "routeName": "Reed Creek",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Kents Lane Portage Park public Reed Creek access",
+          "latitude": 36.9483187505498,
+          "longitude": -81.0252784830942,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 413.87224454428326,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--king-s-bridge-landing-public-canoe-kayak-hand-launch",
+      "state": "Virginia",
+      "name": "King’s Bridge Landing public canoe/kayak hand launch",
+      "aliases": [
+        "King’s Bridge Landing public canoe/kayak hand launch"
+      ],
+      "sourceIds": [
+        "banister-river-kings-bridge-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.776946,
+        "longitude": -78.916697
+      },
+      "accessCoordinate": {
+        "latitude": 36.776946,
+        "longitude": -78.916697
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.77695,-78.91670",
+          "coordinate": {
+            "latitude": 36.776946,
+            "longitude": -78.916697
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "banister-river-kings-bridge-terrys"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "banister-river-kings-bridge-terrys",
+          "routeName": "Banister River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "banister-river-kings-bridge-put-in",
+          "name": "King’s Bridge Landing public canoe/kayak hand launch",
+          "latitude": 36.776946,
+          "longitude": -78.916697,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 0.17760079362639958,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "banister-river-kings-bridge-terrys",
+          "routeName": "Banister River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "King’s Bridge Landing public canoe/kayak hand launch",
+          "latitude": 36.776946,
+          "longitude": -78.916697,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 0.17760079362639958,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--lynch-park-public-kayak-canoe-takeout",
+      "state": "Virginia",
+      "name": "Lynch Park public kayak/canoe takeout",
+      "aliases": [
+        "Lynch Park public kayak/canoe takeout"
+      ],
+      "sourceIds": [
+        "pigg-river-waid-lynch-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.9833235,
+        "longitude": -79.8894719
+      },
+      "accessCoordinate": {
+        "latitude": 36.9833235,
+        "longitude": -79.8894719
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.98332,-79.88947",
+          "coordinate": {
+            "latitude": 36.9833235,
+            "longitude": -79.8894719
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "pigg-river-waid-lynch"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigg-river-waid-lynch",
+          "routeName": "Pigg River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "pigg-river-waid-lynch-take-out",
+          "name": "Lynch Park public kayak/canoe takeout",
+          "latitude": 36.9833235,
+          "longitude": -79.8894719,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 181.90330939996016,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "pigg-river-waid-lynch",
+          "routeName": "Pigg River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Lynch Park public kayak/canoe takeout",
+          "latitude": 36.9833235,
+          "longitude": -79.8894719,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 181.90330939996016,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--millers-creek-portage-park-public-reed-creek-access",
+      "state": "Virginia",
+      "name": "Millers Creek Portage Park public Reed Creek access",
+      "aliases": [
+        "Millers Creek Portage Park public Reed Creek access"
+      ],
+      "sourceIds": [
+        "reed-creek-kents-millers-millers"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.9697960946874,
+        "longitude": -80.9438585391056
+      },
+      "accessCoordinate": {
+        "latitude": 36.9697960946874,
+        "longitude": -80.9438585391056
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.96980,-80.94386",
+          "coordinate": {
+            "latitude": 36.9697960946874,
+            "longitude": -80.9438585391056
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "reed-creek-kents-millers-blueway"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "reed-creek-kents-millers-blueway",
+          "routeName": "Reed Creek",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "reed-creek-kents-millers-millers",
+          "name": "Millers Creek Portage Park public Reed Creek access",
+          "latitude": 36.9697960946874,
+          "longitude": -80.9438585391056,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 109.62616313726484,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "reed-creek-kents-millers-blueway",
+          "routeName": "Reed Creek",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Millers Creek Portage Park public Reed Creek access",
+          "latitude": 36.9697960946874,
+          "longitude": -80.9438585391056,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 109.62616313726484,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--palmyra-public-landing",
+      "state": "Virginia",
+      "name": "Palmyra public landing",
+      "aliases": [
+        "Palmyra public landing"
+      ],
+      "sourceIds": [
+        "rivanna-river-crofton-palmyra-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.85776874,
+        "longitude": -78.26682016
+      },
+      "accessCoordinate": {
+        "latitude": 37.85776874,
+        "longitude": -78.26682016
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.85777,-78.26682",
+          "coordinate": {
+            "latitude": 37.85776874,
+            "longitude": -78.26682016
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "rivanna-river-crofton-palmyra"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "rivanna-river-crofton-palmyra",
+          "routeName": "Rivanna River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "rivanna-river-crofton-palmyra-take-out",
+          "name": "Palmyra public landing",
+          "latitude": 37.85776874,
+          "longitude": -78.26682016,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 129.1573669718602,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "rivanna-river-crofton-palmyra",
+          "routeName": "Rivanna River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Palmyra public landing",
+          "latitude": 37.85776874,
+          "longitude": -78.26682016,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 129.1573669718602,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--puckett-s-hole-virginia-dwr-shoreline-access",
+      "state": "Virginia",
+      "name": "Puckett's Hole Virginia DWR shoreline access",
+      "aliases": [
+        "Puckett's Hole Virginia DWR shoreline access"
+      ],
+      "sourceIds": [
+        "clinch-river-blackford-pucketts-hole-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.9699,
+        "longitude": -82.0137
+      },
+      "accessCoordinate": {
+        "latitude": 36.9699,
+        "longitude": -82.0137
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.96990,-82.01370",
+          "coordinate": {
+            "latitude": 36.9699,
+            "longitude": -82.0137
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "clinch-river-blackford-pucketts-hole"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "clinch-river-blackford-pucketts-hole",
+          "routeName": "Clinch River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "clinch-river-blackford-pucketts-hole-take-out",
+          "name": "Puckett's Hole Virginia DWR shoreline access",
+          "latitude": 36.9699,
+          "longitude": -82.0137,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 105.15120638809879,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "clinch-river-blackford-pucketts-hole",
+          "routeName": "Clinch River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Puckett's Hole Virginia DWR shoreline access",
+          "latitude": 36.9699,
+          "longitude": -82.0137,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 105.15120638809879,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--route-630-bridge-dwr-public-ramp",
+      "state": "Virginia",
+      "name": "Route 630 bridge DWR public ramp",
+      "aliases": [
+        "Route 630 bridge DWR public ramp"
+      ],
+      "sourceIds": [
+        "nottoway-river-route630-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.847497,
+        "longitude": -77.493189
+      },
+      "accessCoordinate": {
+        "latitude": 36.847497,
+        "longitude": -77.493189
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.84750,-77.49319",
+          "coordinate": {
+            "latitude": 36.847497,
+            "longitude": -77.493189
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "nottoway-river-double-bridge-route630"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "nottoway-river-double-bridge-route630",
+          "routeName": "Nottoway River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "nottoway-river-route630-take-out",
+          "name": "Route 630 bridge DWR public ramp",
+          "latitude": 36.847497,
+          "longitude": -77.493189,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 64.49686984432574,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "nottoway-river-double-bridge-route630",
+          "routeName": "Nottoway River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Route 630 bridge DWR public ramp",
+          "latitude": 36.847497,
+          "longitude": -77.493189,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 64.49686984432574,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--route-710-alvarado-crossing-take-out-area",
+      "state": "Virginia",
+      "name": "Route 710 Alvarado crossing take-out area",
+      "aliases": [
+        "Route 710 Alvarado crossing take-out area"
+      ],
+      "sourceIds": [
+        "south-fork-holston-alvarado-route710-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.651001,
+        "longitude": -81.887001
+      },
+      "accessCoordinate": {
+        "latitude": 36.651001,
+        "longitude": -81.887001
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.65100,-81.88700",
+          "coordinate": {
+            "latitude": 36.651001,
+            "longitude": -81.887001
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-fork-holston-route58-alvarado"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-holston-route58-alvarado",
+          "routeName": "South Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "south-fork-holston-alvarado-route710-take-out",
+          "name": "Route 710 Alvarado crossing take-out area",
+          "latitude": 36.651001,
+          "longitude": -81.887001,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 366.4647411197188,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "south-fork-holston-route58-alvarado",
+          "routeName": "South Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Route 710 Alvarado crossing take-out area",
+          "latitude": 36.651001,
+          "longitude": -81.887001,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 366.4647411197188,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--terry-s-bridge-u-s-360-public-crossing-takeout-area",
+      "state": "Virginia",
+      "name": "Terry’s Bridge / U.S. 360 public crossing takeout area",
+      "aliases": [
+        "Terry’s Bridge / U.S. 360 public crossing takeout area"
+      ],
+      "sourceIds": [
+        "banister-river-terrys-bridge-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.745717,
+        "longitude": -78.842443
+      },
+      "accessCoordinate": {
+        "latitude": 36.745717,
+        "longitude": -78.842443
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.74572,-78.84244",
+          "coordinate": {
+            "latitude": 36.745717,
+            "longitude": -78.842443
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "banister-river-kings-bridge-terrys"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "banister-river-kings-bridge-terrys",
+          "routeName": "Banister River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "banister-river-terrys-bridge-take-out",
+          "name": "Terry’s Bridge / U.S. 360 public crossing takeout area",
+          "latitude": 36.745717,
+          "longitude": -78.842443,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 15.424291706770788,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "banister-river-kings-bridge-terrys",
+          "routeName": "Banister River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Terry’s Bridge / U.S. 360 public crossing takeout area",
+          "latitude": 36.745717,
+          "longitude": -78.842443,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 15.424291706770788,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--the-great-road-river-access",
+      "state": "Virginia",
+      "name": "The Great Road River Access",
+      "aliases": [
+        "The Great Road River Access"
+      ],
+      "sourceIds": [
+        "smith-river-bassett-great-road-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.7272223,
+        "longitude": -79.9487802
+      },
+      "accessCoordinate": {
+        "latitude": 36.7272223,
+        "longitude": -79.9487802
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.72722,-79.94878",
+          "coordinate": {
+            "latitude": 36.7272223,
+            "longitude": -79.9487802
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "smith-river-bassett-great-road"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-bassett-great-road",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-bassett-great-road-take-out",
+          "name": "The Great Road River Access",
+          "latitude": 36.7272223,
+          "longitude": -79.9487802,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 129.62427786443774,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "smith-river-bassett-great-road",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "The Great Road River Access",
+          "latitude": 36.7272223,
+          "longitude": -79.9487802,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 129.62427786443774,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--wadlow-gap-public-small-boat-access",
+      "state": "Virginia",
+      "name": "Wadlow Gap public small-boat access",
+      "aliases": [
+        "Wadlow Gap public small-boat access"
+      ],
+      "sourceIds": [
+        "north-fork-holston-wadlow-gap-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6143659606,
+        "longitude": -82.5348148172
+      },
+      "accessCoordinate": {
+        "latitude": 36.6143659606,
+        "longitude": -82.5348148172
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.61437,-82.53481",
+          "coordinate": {
+            "latitude": 36.6143659606,
+            "longitude": -82.5348148172
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "north-fork-holston-wadlow-yuma"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-holston-wadlow-yuma",
+          "routeName": "North Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "north-fork-holston-wadlow-gap-put-in",
+          "name": "Wadlow Gap public small-boat access",
+          "latitude": 36.6143659606,
+          "longitude": -82.5348148172,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 116.49901257317647,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "north-fork-holston-wadlow-yuma",
+          "routeName": "North Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Wadlow Gap public small-boat access",
+          "latitude": 36.6143659606,
+          "longitude": -82.5348148172,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 116.49901257317647,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--waid-park-public-kayak-canoe-launch",
+      "state": "Virginia",
+      "name": "Waid Park public kayak/canoe launch",
+      "aliases": [
+        "Waid Park public kayak/canoe launch"
+      ],
+      "sourceIds": [
+        "pigg-river-waid-lynch-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.969965,
+        "longitude": -79.942977
+      },
+      "accessCoordinate": {
+        "latitude": 36.969965,
+        "longitude": -79.942977
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.96997,-79.94298",
+          "coordinate": {
+            "latitude": 36.969965,
+            "longitude": -79.942977
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "pigg-river-waid-lynch"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigg-river-waid-lynch",
+          "routeName": "Pigg River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "pigg-river-waid-lynch-put-in",
+          "name": "Waid Park public kayak/canoe launch",
+          "latitude": 36.969965,
+          "longitude": -79.942977,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 729.50367978132,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "pigg-river-waid-lynch",
+          "routeName": "Pigg River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Waid Park public kayak/canoe launch",
+          "latitude": 36.969965,
+          "longitude": -79.942977,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 729.50367978132,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--weber-city-public-small-boat-access",
+      "state": "Virginia",
+      "name": "Weber City public small-boat access",
+      "aliases": [
+        "Weber City public small-boat access"
+      ],
+      "sourceIds": [
+        "north-fork-holston-weber-city-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6083007,
+        "longitude": -82.5716634646
+      },
+      "accessCoordinate": {
+        "latitude": 36.6083007,
+        "longitude": -82.5716634646
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.60830,-82.57166",
+          "coordinate": {
+            "latitude": 36.6083007,
+            "longitude": -82.5716634646
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "north-fork-holston-wadlow-yuma"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-holston-wadlow-yuma",
+          "routeName": "North Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "north-fork-holston-weber-city-access",
+          "name": "Weber City public small-boat access",
+          "latitude": 36.6083007,
+          "longitude": -82.5716634646,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 101.0421481911314,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--yuma-public-small-boat-access",
+      "state": "Virginia",
+      "name": "Yuma public small-boat access",
+      "aliases": [
+        "Yuma public small-boat access"
+      ],
+      "sourceIds": [
+        "north-fork-holston-yuma-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6123199,
+        "longitude": -82.5875111
+      },
+      "accessCoordinate": {
+        "latitude": 36.6123199,
+        "longitude": -82.5875111
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.61232,-82.58751",
+          "coordinate": {
+            "latitude": 36.6123199,
+            "longitude": -82.5875111
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "north-fork-holston-wadlow-yuma"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-holston-wadlow-yuma",
+          "routeName": "North Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "north-fork-holston-yuma-take-out",
+          "name": "Yuma public small-boat access",
+          "latitude": 36.6123199,
+          "longitude": -82.5875111,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 220.96474965686656,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "north-fork-holston-wadlow-yuma",
+          "routeName": "North Fork Holston River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Yuma public small-boat access",
+          "latitude": 36.6123199,
+          "longitude": -82.5875111,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 220.96474965686656,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         }
       ]
     }

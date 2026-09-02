@@ -1,27 +1,290 @@
 [
-  {"corridorId":"mn-sauk-water-trail","status":"approved","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-21","notes":"Grouping is for condition discovery only; no continuous access chain asserted."},
-  {"corridorId":"wi-turtle-creek-upper","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Intermediate access chain is explicitly verified."},
-  {"corridorId":"ia-middle-river-water-trail","status":"approved","owner":"route-data-team","continuityStatus":"partial","nextReview":"2026-08-21","notes":"Reviewed chain covers the canonical Pammel-to-Holliwell span; upstream gaps remain."},
-  {"corridorId":"ia-upper-iowa-cattle-malanaphy","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Canonical access chain is explicitly verified; Kendallville-to-Bluffton remains a preserved upstream variant that shares the lower Cattle Creek-to-Bluffton section."},
-  {"corridorId":"ia-cedar-river-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Condition-family grouping only; source review required before continuity claims."},
-  {"corridorId":"mn-crow-wing-condition-family","status":"review","owner":"route-data-team","continuityStatus":"partial","nextReview":"2026-08-07","notes":"Canonical Mary Brown-to-Cottingham chain is verified; branching Huntersville, Old Wadena, and Green Oak options remain independent trip records."},
-  {"corridorId":"ia-des-moines-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Dam and gauge boundaries require family-level review."},
-  {"corridorId":"mn-minnesota-river-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Long multi-reach family; preserve independent access options."},
-  {"corridorId":"wi-wisconsin-river-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Gauge and dam boundaries require reach-specific review."},
-  {"corridorId":"ia-north-raccoon-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Condition grouping only until access continuity is source-reviewed."},
-  {"corridorId":"mn-cannon-lower","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Canonical Byllesby-to-Highway-61 route exposes Riverside, Miesville, and Welch as intermediate access points; Welch endpoint access remains a source-review item before any URL retirement."},
-  {"corridorId":"mn-little-fork-fiedler-lofgren","status":"approved","owner":"independent-verifier","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Independent review expanded the verified Map 2 family to Dentaybow, Fiedler, Devereaux, Lofgren Park, the Rainy River confluence, and Kuttes Landing. Canonical Fiedler-to-Lofgren route exposes Devereaux as the verified intermediate access; preserve all six route cards because endpoint pairs, gauge reach, camping, hazards, and Rainy River logistics differ."},
-  {"corridorId":"mn-little-fork-map-1","status":"approved","owner":"independent-verifier","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Independent review verified the Map 1 access chain from Veterans Park through Highway 73, Samuelson Park, and Silverdale using the official DNR map and recommended route evidence. Preserve all four route cards because the direct gauge context, mileage, camping support, bailout, hazards, and shuttle logistics differ."},
-  {"corridorId":"mn-pomme-de-terre-lower","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Canonical Pomme #1-to-Appleton route exposes Larson as the verified intermediate access and preserves the Larson-to-Appleton option."},
-  {"corridorId":"mn-mississippi-royalton-sartell","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Canonical Royalton-to-Sartell route exposes County Park and Walleye Road as verified intermediate accesses above Sartell Dam."},
-  {"corridorId":"mn-big-fork-lower","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Shared Ben Linn/Gowdy/Kueffners/Ivan corridor is grouped for discovery; keep the Reedy Flats and endpoint variants independent until access continuity is source-reviewed."},
-  {"corridorId":"mn-vermilion-condition-family","status":"review","owner":"route-data-team","continuityStatus":"condition-family","nextReview":"2026-08-07","notes":"Shively and Two Mile variants share the lower Eightmile reach but differ materially in upstream difficulty; preserve both route records."},
-  {"corridorId":"mn-devil-track-upper-lower","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"The upper take-out and lower put-in share the Maple Hill / County Road 60 handoff. Preserve both route records because the lower canyon is a separate expert-only commitment."},
-  {"corridorId":"wi-chippewa-upper","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Canonical County D-to-Highway-8 route exposes Imalone/County A as the verified handoff between the two component route records."},
-  {"corridorId":"ia-turkey-elkader-garber","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Canonical Elkader-to-Garber route exposes Motor Mill as the verified midpoint between the two component Turkey River records."},
-  {"corridorId":"ia-north-fork-maquoketa-cascade-caven","status":"approved","owner":"route-data-team","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Canonical Cascade-to-Caven route exposes D61 and Ozark as verified intermediate access points; shorter endpoint combinations remain available."},
-  {"corridorId":"tx-village-creek-paddling-trail","status":"approved","owner":"independent-verifier","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Verified five ordered public access points from FM 418 through TX 327, Baby Galvez, US 96, and Village Creek State Park. Preserve all eight atomic and composite route cards because distance, camping, shuttle, bailout, and state-park logistics differ by pair."},
-  {"corridorId":"in-wabash-wells-county","status":"approved","owner":"independent-verifier","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Verified ordered Wells County Wabash access points from Linn Grove through Vera Cruz, White Bridge, Kehoe Park, and Hale Street. Preserve all four route cards because distance, take-out handling, daylight commitment, and logistics differ by endpoint pair."},
-  {"corridorId":"wi-beaver-dam-cotton-mill-lowell","status":"approved","owner":"independent-verifier","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Verified the Beaver Dam River chain from Cotton Mill Park through County Road S/Leipsig and County Road J to the River Street Dam/Lowell take-out across the two preserved route packages. The registry records verified family membership; the cross-card access order is recorded in the task/run evidence because the current canonical-route edge validator only accepts access IDs present on one canonical route. Meadow Road remains a route-specific unverified alternate and is excluded from the verified core chain."},
-  {"corridorId":"ky-goose-creek-lower-manchester","status":"approved","owner":"independent-verifier","continuityStatus":"verified","nextReview":"2026-08-21","notes":"Verified the lower Manchester Goose Creek access chain from Jacks/Bowling Branch through Tobacco Road, Dump Hollow, and Laurel Branch using KDFWR access pages, shared Goose Creek geometry, and USGS 03281100 gauge evidence. Preserve all five atomic/composite route cards because distance, ford/bailout handling, hazards, and day-trip logistics differ. Laurel Branch is confirmed on the Goose Creek waterbody but remains a coordinate-audit review point rather than an exact flowline claim."}
+  {
+    "corridorId": "mn-sauk-water-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-08-21",
+    "notes": "Grouping is for condition discovery only; no continuous access chain asserted."
+  },
+  {
+    "corridorId": "wi-turtle-creek-upper",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Intermediate access chain is explicitly verified."
+  },
+  {
+    "corridorId": "ia-middle-river-water-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-08-21",
+    "notes": "Reviewed chain covers the canonical Pammel-to-Holliwell span; upstream gaps remain."
+  },
+  {
+    "corridorId": "ia-upper-iowa-cattle-malanaphy",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Canonical access chain is explicitly verified; Kendallville-to-Bluffton remains a preserved upstream variant that shares the lower Cattle Creek-to-Bluffton section."
+  },
+  {
+    "corridorId": "ia-cedar-river-condition-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-08-07",
+    "notes": "Condition-family grouping only; source review required before continuity claims."
+  },
+  {
+    "corridorId": "mn-crow-wing-condition-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-08-07",
+    "notes": "Canonical Mary Brown-to-Cottingham chain is verified; branching Huntersville, Old Wadena, and Green Oak options remain independent trip records."
+  },
+  {
+    "corridorId": "ia-des-moines-condition-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-08-07",
+    "notes": "Dam and gauge boundaries require family-level review."
+  },
+  {
+    "corridorId": "mn-minnesota-river-condition-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-08-07",
+    "notes": "Long multi-reach family; preserve independent access options."
+  },
+  {
+    "corridorId": "wi-wisconsin-river-condition-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-08-07",
+    "notes": "Gauge and dam boundaries require reach-specific review."
+  },
+  {
+    "corridorId": "ia-north-raccoon-condition-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-08-07",
+    "notes": "Condition grouping only until access continuity is source-reviewed."
+  },
+  {
+    "corridorId": "mn-cannon-lower",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Canonical Byllesby-to-Highway-61 route exposes Riverside, Miesville, and Welch as intermediate access points; Welch endpoint access remains a source-review item before any URL retirement."
+  },
+  {
+    "corridorId": "mn-little-fork-fiedler-lofgren",
+    "status": "approved",
+    "owner": "independent-verifier",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Independent review expanded the verified Map 2 family to Dentaybow, Fiedler, Devereaux, Lofgren Park, the Rainy River confluence, and Kuttes Landing. Canonical Fiedler-to-Lofgren route exposes Devereaux as the verified intermediate access; preserve all six route cards because endpoint pairs, gauge reach, camping, hazards, and Rainy River logistics differ."
+  },
+  {
+    "corridorId": "mn-little-fork-map-1",
+    "status": "approved",
+    "owner": "independent-verifier",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Independent review verified the Map 1 access chain from Veterans Park through Highway 73, Samuelson Park, and Silverdale using the official DNR map and recommended route evidence. Preserve all four route cards because the direct gauge context, mileage, camping support, bailout, hazards, and shuttle logistics differ."
+  },
+  {
+    "corridorId": "mn-pomme-de-terre-lower",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Canonical Pomme #1-to-Appleton route exposes Larson as the verified intermediate access and preserves the Larson-to-Appleton option."
+  },
+  {
+    "corridorId": "mn-mississippi-royalton-sartell",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Canonical Royalton-to-Sartell route exposes County Park and Walleye Road as verified intermediate accesses above Sartell Dam."
+  },
+  {
+    "corridorId": "mn-big-fork-lower",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-08-07",
+    "notes": "Shared Ben Linn/Gowdy/Kueffners/Ivan corridor is grouped for discovery; keep the Reedy Flats and endpoint variants independent until access continuity is source-reviewed."
+  },
+  {
+    "corridorId": "mn-vermilion-condition-family",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "condition-family",
+    "nextReview": "2026-08-07",
+    "notes": "Shively and Two Mile variants share the lower Eightmile reach but differ materially in upstream difficulty; preserve both route records."
+  },
+  {
+    "corridorId": "mn-devil-track-upper-lower",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "The upper take-out and lower put-in share the Maple Hill / County Road 60 handoff. Preserve both route records because the lower canyon is a separate expert-only commitment."
+  },
+  {
+    "corridorId": "wi-chippewa-upper",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Canonical County D-to-Highway-8 route exposes Imalone/County A as the verified handoff between the two component route records."
+  },
+  {
+    "corridorId": "ia-turkey-elkader-garber",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Canonical Elkader-to-Garber route exposes Motor Mill as the verified midpoint between the two component Turkey River records."
+  },
+  {
+    "corridorId": "ia-north-fork-maquoketa-cascade-caven",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Canonical Cascade-to-Caven route exposes D61 and Ozark as verified intermediate access points; shorter endpoint combinations remain available."
+  },
+  {
+    "corridorId": "tx-village-creek-paddling-trail",
+    "status": "approved",
+    "owner": "independent-verifier",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Verified five ordered public access points from FM 418 through TX 327, Baby Galvez, US 96, and Village Creek State Park. Preserve all eight atomic and composite route cards because distance, camping, shuttle, bailout, and state-park logistics differ by pair."
+  },
+  {
+    "corridorId": "in-wabash-wells-county",
+    "status": "approved",
+    "owner": "independent-verifier",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Verified ordered Wells County Wabash access points from Linn Grove through Vera Cruz, White Bridge, Kehoe Park, and Hale Street. Preserve all four route cards because distance, take-out handling, daylight commitment, and logistics differ by endpoint pair."
+  },
+  {
+    "corridorId": "wi-beaver-dam-cotton-mill-lowell",
+    "status": "approved",
+    "owner": "independent-verifier",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Verified the Beaver Dam River chain from Cotton Mill Park through County Road S/Leipsig and County Road J to the River Street Dam/Lowell take-out across the two preserved route packages. The registry records verified family membership; the cross-card access order is recorded in the task/run evidence because the current canonical-route edge validator only accepts access IDs present on one canonical route. Meadow Road remains a route-specific unverified alternate and is excluded from the verified core chain."
+  },
+  {
+    "corridorId": "ky-goose-creek-lower-manchester",
+    "status": "approved",
+    "owner": "independent-verifier",
+    "continuityStatus": "verified",
+    "nextReview": "2026-08-21",
+    "notes": "Verified the lower Manchester Goose Creek access chain from Jacks/Bowling Branch through Tobacco Road, Dump Hollow, and Laurel Branch using KDFWR access pages, shared Goose Creek geometry, and USGS 03281100 gauge evidence. Preserve all five atomic/composite route cards because distance, ford/bailout handling, hazards, and day-trip logistics differ. Laurel Branch is confirmed on the Goose Creek waterbody but remains a coordinate-audit review point rather than an exact flowline claim."
+  },
+  {
+    "corridorId": "va-pigg-river-waid-lynch",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Upper Pigg River Blueway Waid Park to Lynch Park planning route using Franklin County's named access list, Waid and Lynch facility pages, the county's eight-mile Class I float notes, route-specific water-table bands, a clearly labeled Blackwater River USGS 02056900 proxy, direct Pigg River USGS 02058400 telemetry context, and the mandatory Lynch takeout above Rocky Mount Dam. Preserve facility-pin coordinate anchors, dawn-to-dusk day-use posture, no-restroom Lynch logistics, low-water portage/ledge hazards, and the hard downstream dam boundary."
+  },
+  {
+    "corridorId": "va-south-fork-holston-route58-alvarado",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded South Fork Holston Drowning Ford/Route 58 to Route 710 Alvarado Float 4 using Virginia DWR’s named corridor, direct USGS 03473000 3.5-foot minimum-only guidance, VDOT’s permanent DWR/DCR kayak and canoe access record, American Whitewater’s access-area anchors and Class II(III) hazard context, and the cleared public-domain same-river image. Preserve the hard Drowning Ford, Triple Drop/Three-Falls, mill-dam, rapid-rise, cold-water, primitive Alvarado exit, Virginia Creeper Trail closure, and South Holston Lake boundary controls."
+  },
+  {
+    "corridorId": "va-dan-river-danville-riverfront-anglers",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Danville Riverfront Park to Anglers Park Dan River planning route using the Dan River Basin Association’s exact 3.3-mile public outing, published endpoint coordinates and retrieval logistics, route-specific Wynne’s Falls, rock-garden, bridge, current, and Class I guidance, and nearby USGS 02075045 telemetry used explicitly as a downstream proxy because no station-specific numeric recreational threshold was verified. Preserve limited Riverfront unloading/parking, exact wetted-edge confirmation, urban runoff/debris/cold-water checks, and the hard Anglers Park endpoint."
+  },
+  {
+    "corridorId": "va-north-fork-holston-wadlow-yuma",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded North Fork Holston Wadlow Gap to Yuma planning route via Weber City using Scott County’s named small-boat access page and map, its published 2.9-mile, 1.5-mile, and 4.4-mile access-chain distances, direct USGS 03490000 telemetry used explicitly as route-level proxy context, and the public-domain NOAA/USGS same-river image. Preserve the planning-only no-numeric-threshold posture, embedded-map coordinate anchors, day-use/nearby-basecamp posture, shallow-water, rapid-rise, flood-debris, strainer, bridge, private-bank, cold-water, and access-confirmation hazards, and the hard Yuma endpoint."
+  },
+  {
+    "corridorId": "va-banister-river-kings-bridge-terrys",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded King’s Bridge Landing to Terry’s Bridge/U.S. 360 Banister River Blueway planning route using Halifax’s named blueway section, the public King’s Bridge hand-launch facility, the public downstream crossing anchor, DCR wet-season and low-water guidance, and direct USGS 02077000 used explicitly as a proxy because no station-specific numeric recreational threshold was verified. Preserve the Terry’s Bridge field-confirmation caveat for legal parking, carry, bank stability, and exact water exit, plus fallen-tree, low-water, private-bank, bridge, and cold-water hazards."
+  },
+  {
+    "corridorId": "va-nottoway-river-double-bridge-route630",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Double Bridge/Route 619 to Route 630 Nottoway River planning float using Virginia DWR’s named approximately five-mile corridor, DWR ramp endpoints and Class I riffle guidance, direct USGS 02044500 current-condition context, and the approved CC BY-SA same-river image. Preserve the missing station-specific numeric threshold, DWR access-area coordinate anchors, day-use/no-camping posture, shallow-riffle, tree, cold-water, private-bank, rapid-rise, and current access checks."
+  },
+  {
+    "corridorId": "va-reed-creek-kents-millers-blueway",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Kents Lane Portage Park to Millers Creek Portage Park Reed Creek Blueway planning reach using Wythe County’s current public-access corridor and facility records, embedded county map anchors, direct USGS 03167000 context, American Whitewater’s dam/wood/water-quality warnings, and the approved public-domain Forest Service image. Preserve the missing station-specific numeric threshold, exact wetted-edge field confirmation, daylight/no-camping rules, private-property boundaries, and current water-quality, rising-flow, and debris checks."
+  },
+  {
+    "corridorId": "va-chestnut-creek-galax-byllesby",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Galax U.S. 58 trailhead to Byllesby Dam Chestnut Creek planning reach using Virginia State Parks public access-area and camping context, American Whitewater’s named approximately 13-mile I–III reach and community flow bands, direct USGS 03165000 telemetry, the approved CC BY 2.0 Virginia State Parks image, and generated canonical geometry. Preserve the lack of an agency-certified threshold, 250–300 ft access-anchor uncertainty, mandatory Chestnut Falls/Byllesby transition scouting, private-bank and closure controls, and nearby designated-camping-only posture."
+  },
+  {
+    "corridorId": "va-clinch-river-blackford-pucketts-hole",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded 7.3-mile Blackford Bridge to Puckett's Hole Upper Clinch River planning float using the official Clinch River access guide, Virginia DWR's public gravel and shoreline access inventory, direct USGS 03524000 telemetry, and the approved public-domain Clinch River image. Preserve the missing station-specific numeric threshold, 250 ft access-anchor uncertainty, high-flow caution, gravel/shoreline carry, no-camping/access-rule, private-bank, sensitive-habitat, cold-water, rapid-rise, debris, shuttle, and day-of closure controls."
+  },
+  {
+    "corridorId": "va-smith-river-bassett-great-road",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded approximately five-mile Bassett River Access to The Great Road Smith River Blueway planning section using Henry County and Blueway public access records, direct USGS 02072500 telemetry, the documented 65–1,400 cfs release context and Philpott generation controls, the DWR fisheries report, the approved CC BY-SA 3.0 same-river image, and generated canonical geometry. Preserve the missing station-specific threshold, 250–500 ft access/address-anchor uncertainty, rustic carry, rapid-release, cold-water, low-water, private/industrial-bank, shuttle, and hard Great Road take-out controls."
+  },
+  {
+    "corridorId": "va-rivanna-crofton-palmyra",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded 6.5-mile Crofton public landing to Palmyra public landing Rivanna River planning float using Virginia DWR's exact public-landings map, current maintained-access inventory, official Palmyra coordinate, direct downstream USGS 02034000 context, and the approved public-domain Crofton/Union Mills image. Preserve the no-numeric-threshold planning posture, 250 ft access-anchor uncertainty, Class I-II drop, bridge/wood/rapid-rise/cold-water/water-quality hazards, day-use/no-camping posture, and hard Palmyra take-out."
+  }
 ]

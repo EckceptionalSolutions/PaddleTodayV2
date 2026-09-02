@@ -23,7 +23,14 @@
           "matchedRiverDistanceFeet": 15.6,
           "layer": "Sheyenne Canoe",
           "layerFeatureIndex": 0,
-          "textMatrix": [11.91209, -0.04159, 0.04158, 11.9137, 148.77116, 178.41168],
+          "textMatrix": [
+            11.91209,
+            -0.04159,
+            0.04158,
+            11.9137,
+            148.77116,
+            178.41168
+          ],
           "glyphAnchor": "bottom-center"
         },
         {
@@ -37,7 +44,14 @@
           "matchedRiverDistanceFeet": 40.1,
           "layer": "Sheyenne Canoe",
           "layerFeatureIndex": 1,
-          "textMatrix": [11.91209, -0.04159, 0.04158, 11.9137, 261.34764, 278.8278],
+          "textMatrix": [
+            11.91209,
+            -0.04159,
+            0.04158,
+            11.9137,
+            261.34764,
+            278.8278
+          ],
           "glyphAnchor": "bottom-center"
         },
         {
@@ -51,7 +65,14 @@
           "matchedRiverDistanceFeet": 40.8,
           "layer": "Sheyenne Canoe",
           "layerFeatureIndex": 2,
-          "textMatrix": [11.91209, -0.04159, 0.04158, 11.9137, 547.50133, 458.58182],
+          "textMatrix": [
+            11.91209,
+            -0.04159,
+            0.04158,
+            11.9137,
+            547.50133,
+            458.58182
+          ],
           "glyphAnchor": "bottom-center"
         },
         {
@@ -65,7 +86,14 @@
           "matchedRiverDistanceFeet": 61.1,
           "layer": "Sheyenne Canoe",
           "layerFeatureIndex": 3,
-          "textMatrix": [11.91209, -0.04159, 0.04158, 11.9137, 945.57699, 484.11134],
+          "textMatrix": [
+            11.91209,
+            -0.04159,
+            0.04158,
+            11.9137,
+            945.57699,
+            484.11134
+          ],
           "glyphAnchor": "bottom-center"
         }
       ]
@@ -84,7 +112,9 @@
         {
           "featureId": "d0c93815-4d00-449c-823e-41c5ea788468",
           "name": "North Fraser Access",
-          "aliases": ["North Fraser Ramp"],
+          "aliases": [
+            "North Fraser Ramp"
+          ],
           "waterbody": "Des Moines River",
           "latitude": 42.128845280879865,
           "longitude": -93.9816575422718,
@@ -98,7 +128,9 @@
         {
           "featureId": "d0b9e2b8-0b4e-47af-8511-62923078a71d",
           "name": "South Fraser Access",
-          "aliases": ["South Fraser Ramp"],
+          "aliases": [
+            "South Fraser Ramp"
+          ],
           "waterbody": "Des Moines River",
           "latitude": 42.121928057011445,
           "longitude": -93.97000884977254,
@@ -151,7 +183,9 @@
         {
           "featureId": "a39ce3e3-b29c-4f3b-8334-4f19ff04c40c",
           "name": "Lekwa Access",
-          "aliases": ["Lekwa Access #242"],
+          "aliases": [
+            "Lekwa Access #242"
+          ],
           "waterbody": "South Skunk River",
           "latitude": 42.16589098352227,
           "longitude": -93.57800678866874,
@@ -310,7 +344,9 @@
         {
           "featureId": "laceyville-borough",
           "name": "Laceyville Borough Access",
-          "aliases": ["Laceyville Borough access"],
+          "aliases": [
+            "Laceyville Borough access"
+          ],
           "waterbody": "Susquehanna River",
           "latitude": 41.643447,
           "longitude": -76.163227,
@@ -324,7 +360,9 @@
         {
           "featureId": "wetlands-nature-area",
           "name": "Wetlands Nature Area Access",
-          "aliases": ["Wetlands Nature Area access"],
+          "aliases": [
+            "Wetlands Nature Area access"
+          ],
           "waterbody": "Susquehanna River",
           "latitude": 41.090993,
           "longitude": -76.131286,
@@ -351,7 +389,9 @@
         {
           "featureId": "PHA-NGPC-0000104",
           "name": "George D. Syas WMA",
-          "aliases": ["George D. Syas WMA fishing access"],
+          "aliases": [
+            "George D. Syas WMA fishing access"
+          ],
           "waterbody": "Loup River",
           "latitude": 41.43328221,
           "longitude": -97.68464875,
@@ -377,7 +417,9 @@
         {
           "featureId": "PFA-0052",
           "name": "George Syas WMA",
-          "aliases": ["George D. Syas WMA fishing access"],
+          "aliases": [
+            "George D. Syas WMA fishing access"
+          ],
           "waterbody": "Loup River",
           "latitude": 41.4356113,
           "longitude": -97.68947913,
@@ -403,10 +445,13 @@
         {
           "featureId": "1427",
           "name": "Lincoln Drive Park Landing",
-          "aliases": ["Lincoln Park", "South Forks Area"],
+          "aliases": [
+            "Lincoln Park",
+            "South Forks Area"
+          ],
           "waterbody": "Red River of the North",
           "latitude": 47.90888410499237,
-          "longitude": -97.02268528004571,
+          "longitude": -97.0226852800457,
           "riverMile": 304.1,
           "uncertaintyFeet": 20,
           "matchedRiverDistanceFeet": 9999,
@@ -429,7 +474,11 @@
         {
           "featureId": "1427-water-edge",
           "name": "Lincoln Drive Park Landing",
-          "aliases": ["Lincoln Park Boat Ramp", "Lincoln Park", "South Forks Area"],
+          "aliases": [
+            "Lincoln Park Boat Ramp",
+            "Lincoln Park",
+            "South Forks Area"
+          ],
           "waterbody": "Red River of the North",
           "latitude": 47.9086867,
           "longitude": -97.0228156,
@@ -553,7 +602,9 @@
         {
           "featureId": "monroe-access-point",
           "name": "Monroe Access Point",
-          "aliases": ["Monroe county access south of Monroe"],
+          "aliases": [
+            "Monroe county access south of Monroe"
+          ],
           "waterbody": "Loup River",
           "latitude": 41.461082,
           "longitude": -97.599121,
@@ -1070,6 +1121,479 @@
             "sourceUrl": "https://www.alleghenycounty.us/Parks-and-Events/Parks/North-Park/History-of-North-Park"
           },
           "coordinateText": "Allegheny County Boathouse Lawn event-page coordinate for the lake boating area"
+        }
+      ]
+    },
+    {
+      "id": "va_south_fork_holston_route58_alvarado_access",
+      "name": "South Fork Holston Route 58 and Alvarado Route 710 access anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://dwr.virginia.gov/waterbody/holston-river-south-fork/",
+      "sourceType": "official-dwr-float-guide-vdot-permanent-access-and-aw-access-anchors",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Virginia DWR names Float 4 from the Route 58 crossing to the Route 710 Alvarado bridge and gives the route-specific 3.5-foot Damascus gauge screen. VDOT documents a permanent DWR/DCR kayak and canoe access point adjacent to the former Route 58 bridge. American Whitewater supplies the Route 58 Drowning Ford and Alvarado access-area coordinates. Retain both as access anchors, not surveyed ramp or exact wetted-edge coordinates; verify current Hurricane Helene trail/road status, parking, carry, bank stability, and endpoint rules.",
+      "controls": [
+        {
+          "featureId": "south-fork-holston-route58-put-in",
+          "name": "Drowning Ford / Route 58 permanent kayak and canoe access",
+          "aliases": [
+            "Route 58 South Fork Holston access",
+            "Drowning Ford access",
+            "former Route 58 bridge access"
+          ],
+          "waterbody": "South Fork Holston River",
+          "latitude": 36.652367,
+          "longitude": -81.840151,
+          "riverMile": 0,
+          "uncertaintyFeet": 500,
+          "coordinateText": "American Whitewater access-area anchor at Drowning Ford/Route 58, corroborated by VDOT’s permanent kayak/canoe access record; verify current road, trail, parking, carry, and exact water entry"
+        },
+        {
+          "featureId": "south-fork-holston-alvarado-route710-take-out",
+          "name": "Route 710 Alvarado crossing take-out area",
+          "aliases": [
+            "Alvarado take-out",
+            "Route 710 bridge access",
+            "South Fork Holston Alvarado"
+          ],
+          "waterbody": "South Fork Holston River",
+          "latitude": 36.651001,
+          "longitude": -81.887001,
+          "riverMile": 3.8,
+          "uncertaintyFeet": 700,
+          "coordinateText": "American Whitewater access-area anchor for the Alvarado arrival; DWR names Route 710 as the Float 4 take-out; verify legal parking, carry, bank stability, water exit, and reservoir boundary"
+        }
+      ]
+    },
+    {
+      "id": "va_north_fork_holston_wadlow_yuma_access",
+      "name": "Scott County North Fork Holston Wadlow Gap, Weber City, and Yuma access anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://www.scottcountyva.gov/296/Boat-Access",
+      "sourceType": "official-county-small-boat-access-and-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Scott County’s current boat-access page identifies Wadlow Gap, Weber City, and Yuma as public small-boat access sites and provides site directions; the current Holston River access map defines Site 1–Site 2 as 2.9 miles, Site 2–Site 3 as 1.5 miles, and Site 1–Site 3 as 4.4 miles. The stored coordinates are the county’s embedded map anchors and require current verification of parking, carry, exact water entry, bank stability, and posted rules.",
+      "controls": [
+        {
+          "featureId": "north-fork-holston-wadlow-gap-put-in",
+          "name": "Wadlow Gap public small-boat access",
+          "aliases": [
+            "Wadlow Gap access",
+            "Wadlow Gap river bridge access"
+          ],
+          "waterbody": "North Fork Holston River",
+          "latitude": 36.6143659606,
+          "longitude": -82.5348148172,
+          "riverMile": 0,
+          "uncertaintyFeet": 400,
+          "coordinateText": "Scott County embedded map anchor for Wadlow Gap at Wadlow Gap Road/Nottingham Road river bridge; verify exact public carry and wetted-edge entry"
+        },
+        {
+          "featureId": "north-fork-holston-weber-city-access",
+          "name": "Weber City public small-boat access",
+          "aliases": [
+            "Weber City access",
+            "Weber City Public Boat Access",
+            "U.S. 23 Holston access"
+          ],
+          "waterbody": "North Fork Holston River",
+          "latitude": 36.6083007,
+          "longitude": -82.5716634646,
+          "riverMile": 2.9,
+          "uncertaintyFeet": 400,
+          "coordinateText": "Scott County embedded map anchor for Weber City at U.S. Highway 23 river bridge; verify current parking, carry, and public water entry"
+        },
+        {
+          "featureId": "north-fork-holston-yuma-take-out",
+          "name": "Yuma public small-boat access",
+          "aliases": [
+            "Yuma access",
+            "Yuma Public Boat Access",
+            "Apple Orchard/Warm Springs access"
+          ],
+          "waterbody": "North Fork Holston River",
+          "latitude": 36.6123199,
+          "longitude": -82.5875111,
+          "riverMile": 4.4,
+          "uncertaintyFeet": 400,
+          "coordinateText": "Scott County embedded map anchor for Yuma at Apple Orchard Road/Warm Springs Road, about one mile down Yuma Road; verify exact public carry and water exit"
+        }
+      ]
+    },
+    {
+      "id": "va_dan_river_danville_riverfront_anglers_access",
+      "name": "Danville Dan River Riverfront Park and Anglers Park access anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://www.danriver.org/event/2026-09-05-9-00/sept-fso-paddle-on-the-dan-in-danville",
+      "sourceType": "official-local-paddle-event-and-public-park-access",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The Dan River Basin Association publishes the bounded 3.3-mile Riverfront Park to Anglers Park outing, exact endpoint coordinates, unloading/parking logistics, public concrete-ramp retrieval, and route hazards. Stored points are the published launch-area anchors; confirm current park hours, carry, parking, and wetted-edge entry before travel.",
+      "controls": [
+        {
+          "featureId": "dan-river-danville-riverfront-put-in",
+          "name": "Danville Riverfront Park public launch",
+          "aliases": [
+            "Riverfront Park Dan River launch",
+            "Danville Riverfront Park put-in"
+          ],
+          "waterbody": "Dan River",
+          "latitude": 36.589727,
+          "longitude": -79.391976,
+          "riverMile": 0,
+          "uncertaintyFeet": 250,
+          "coordinateText": "DRBA published Riverfront Park launch-area coordinate; unload boats at the launch and verify exact water entry"
+        },
+        {
+          "featureId": "dan-river-danville-anglers-take-out",
+          "name": "Anglers Park public concrete boat ramp",
+          "aliases": [
+            "Angler’s Park boat access",
+            "Anglers Park takeout",
+            "Anglers Park public landing"
+          ],
+          "waterbody": "Dan River",
+          "latitude": 36.55893,
+          "longitude": -79.356529,
+          "riverMile": 3.3,
+          "uncertaintyFeet": 250,
+          "coordinateText": "DRBA published Anglers Park public boat-landing coordinate; concrete ramp and retrieval area require current field check"
+        }
+      ]
+    },
+    {
+      "id": "va_banister_river_kings_bridge_terrys_access",
+      "name": "Halifax Banister River Blueway King’s Bridge and Terry’s Bridge access anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://gohalifaxva.com/the-banister-river-and-banister-lake/",
+      "sourceType": "official-local-blueway-and-public-crossing",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Halifax’s current Banister River Blueway page names King’s Bridge Landing and the U.S. 360/Terry’s Bridge crossing as the endpoint pair. The King’s Bridge facility page and Halifax access project independently identify the public canoe/kayak hand launch. The downstream point is stored as a public highway-crossing/on-water anchor from the mapped Banister River crossing; the route retains an explicit field-confirmation caveat for legal parking, carry, bank stability, and water exit.",
+      "controls": [
+        {
+          "featureId": "banister-river-kings-bridge-put-in",
+          "name": "King’s Bridge Landing public canoe/kayak hand launch",
+          "aliases": [
+            "King’s Bridge Landing",
+            "King’s Bridge Access",
+            "Banister River King’s Bridge launch"
+          ],
+          "waterbody": "Banister River",
+          "latitude": 36.776946,
+          "longitude": -78.916697,
+          "riverMile": 0,
+          "uncertaintyFeet": 180,
+          "coordinateText": "Halifax public King’s Bridge Landing facility/hand-launch anchor; verify current carry and parking"
+        },
+        {
+          "featureId": "banister-river-terrys-bridge-take-out",
+          "name": "Terry’s Bridge / U.S. 360 public crossing takeout area",
+          "aliases": [
+            "Terry’s Bridge",
+            "U.S. 360 Banister River crossing",
+            "Highway 360 Banister takeout"
+          ],
+          "waterbody": "Banister River",
+          "latitude": 36.745717,
+          "longitude": -78.842443,
+          "riverMile": 5,
+          "uncertaintyFeet": 550,
+          "coordinateText": "Halifax Blueway U.S. 360/Terry’s Bridge public crossing anchor; local sources describe a sandy/muddy less-developed bank, so confirm legal parking, carry, and water exit before travel"
+        }
+      ]
+    },
+    {
+      "id": "va_pigg_river_waid_lynch_access",
+      "name": "Franklin County Upper Pigg River Blueway Waid-to-Lynch access anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://www.playfranklincounty.com/200/Blueway-Access-Maps",
+      "sourceType": "official-county-blueway-facility-access",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Franklin County's current Blueway access list names Waid Park and Lynch Park as Pigg River access points. The county facility pages independently identify Waid's kayak/canoe launch and Lynch's kayak/canoe takeout. Stored coordinates are official Google facility pins/access-area anchors; they establish a named public access area, not exact wetted-edge precision, so the route keeps the endpoint coordinate note and requires field confirmation of carry, parking, and water entry.",
+      "controls": [
+        {
+          "featureId": "pigg-river-waid-lynch-waid",
+          "name": "Waid Park public kayak/canoe launch",
+          "aliases": [
+            "Waid Park",
+            "Waid Park Pigg River access",
+            "Waid Park boat launch"
+          ],
+          "waterbody": "Pigg River",
+          "latitude": 36.969965,
+          "longitude": -79.942977,
+          "riverMile": 0,
+          "uncertaintyFeet": 800,
+          "coordinateText": "Franklin County Waid Park facility and Blueway access anchor; facility page identifies kayak/canoe launch and river access. Confirm exact carry and water entry on arrival."
+        },
+        {
+          "featureId": "pigg-river-waid-lynch-lynch",
+          "name": "Lynch Park public kayak/canoe takeout",
+          "aliases": [
+            "Lynch Park",
+            "Lynch Park Pigg River access",
+            "Lynch Park boat takeout"
+          ],
+          "waterbody": "Pigg River",
+          "latitude": 36.9833235,
+          "longitude": -79.8894719,
+          "riverMile": 8,
+          "uncertaintyFeet": 300,
+          "coordinateText": "Franklin County Lynch Park facility and Blueway access anchor; facility page identifies kayak/canoe takeout and river access. Confirm exact landing, parking, and no-restroom posture on arrival."
+        }
+      ]
+    },
+    {
+      "id": "va_reed_creek_kents_millers_access",
+      "name": "Wythe County Reed Creek Blueway Kents Lane and Millers Creek portage-park anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://www.wytheco.org/294/The-Reed-Creek-Blueway",
+      "sourceType": "official-county-facility-record-and-embedded-map",
+      "sourceDocumentDate": "2026-09-02",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Wythe County identifies Kents Lane Portage Park and Millers Creek Portage Park as public Reed Creek Blueway access points for kayaks, canoes, and other small watercraft. Coordinates use the embedded county facility map results and are access-area anchors, not a claim that every park point is a surveyed wetted-edge launch. Verify the current carry, landing, waterline, parking, daylight hours, and posted rules.",
+      "controls": [
+        {
+          "featureId": "reed-creek-kents-millers-kents",
+          "name": "Kents Lane Portage Park public Reed Creek access",
+          "aliases": [
+            "Kents Lane Portage Park",
+            "Kents Lane Reed Creek access",
+            "Kents Lane put-in"
+          ],
+          "waterbody": "Reed Creek",
+          "latitude": 36.9483187505498,
+          "longitude": -81.0252784830942,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Wythe County facility-map anchor for Kents Lane Portage Park at 161 Kents Lane; verify the actual carry and wetted-edge entry before launching"
+        },
+        {
+          "featureId": "reed-creek-kents-millers-millers",
+          "name": "Millers Creek Portage Park public Reed Creek access",
+          "aliases": [
+            "Millers Creek Portage Park",
+            "Millers Creek Road Reed Creek access",
+            "Millers Creek take-out"
+          ],
+          "waterbody": "Reed Creek",
+          "latitude": 36.9697960946874,
+          "longitude": -80.9438585391056,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Wythe County facility-map anchor for Millers Creek Portage Park at 121 Lampkins Road; verify the current carry, landing, and wetted-edge exit before relying on it"
+        }
+      ]
+    },
+    {
+      "id": "va_chestnut_creek_galax_byllesby_access",
+      "name": "Virginia State Parks Chestnut Creek Galax and Byllesby access-area anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://www.dcr.virginia.gov/state-parks/document/maps/New-River-Trail-Avenza-Map.pdf",
+      "sourceType": "official-state-park-map-and-reach-context",
+      "sourceDocumentDate": "2026-09-02",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Virginia State Parks identifies the Galax U.S. 58 trailhead where Chestnut Creek is crossed, boating/canoe access in New River Trail State Park, and the Byllesby Dam access setting. Coordinates are access-area anchors for the named American Whitewater reach, not surveyed wetted-edge launch points. Verify current carry, parking, water entry/exit, park closure status, and the hard downstream boundary before launching.",
+      "controls": [
+        {
+          "featureId": "chestnut-creek-galax-put-in",
+          "name": "Galax U.S. 58 / New River Trail State Park public Chestnut Creek access",
+          "aliases": [
+            "Galax trailhead",
+            "Galax Chestnut Creek access",
+            "Chestnut Creek Galax put-in"
+          ],
+          "waterbody": "Chestnut Creek",
+          "latitude": 36.6681933,
+          "longitude": -80.9249417,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Virginia State Parks Galax trailhead anchor where U.S. 58 crosses Chestnut Creek; verify the actual carry and wetted-edge entry"
+        },
+        {
+          "featureId": "chestnut-creek-byllesby-take-out",
+          "name": "Byllesby Dam area public boat-ramp/park access",
+          "aliases": [
+            "Byllesby Dam access",
+            "Byllesby boat ramp",
+            "Chestnut Creek Byllesby take-out"
+          ],
+          "waterbody": "Chestnut Creek / New River transition",
+          "latitude": 36.7846267,
+          "longitude": -80.9349067,
+          "uncertaintyFeet": 300,
+          "coordinateText": "Virginia State Parks Byllesby Dam access-area anchor and American Whitewater reach endpoint context; verify the current boat ramp, carry, waterline, and downstream boundary"
+        }
+      ]
+    },
+    {
+      "id": "va_smith_river_bassett_great_road_access",
+      "name": "Henry County Smith River Blueway Bassett and Great Road access anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://www.visitmartinsville.com/listing/smith-river/",
+      "sourceType": "official-county-tourism-blueway-access-records",
+      "sourceDocumentDate": "2026-09-02",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The Smith River Blueway and Henry County tourism access pages identify Bassett River Access and The Great Road River Access as public paddling accesses with addresses, distances, class guidance, parking, and safety instructions. Bassett coordinates are corroborated by a Dan River Basin Association outing record; The Great Road coordinates are an address/access-area anchor. Neither coordinate is asserted to be a surveyed wetted-edge point; verify the rustic carry, parking, entry/exit, and current public status.",
+      "controls": [
+        {
+          "featureId": "smith-river-bassett-great-road-put-in",
+          "name": "Bassett River Access / North Bassett Canoe Access",
+          "aliases": [
+            "Bassett River Access",
+            "North Bassett Canoe Access",
+            "Trent Hill Drive Smith River put-in"
+          ],
+          "waterbody": "Smith River",
+          "latitude": 36.76992,
+          "longitude": -80.00147,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Dan River Basin Association outing record and Henry County access page anchor for the public Bassett canoe access; verify the current carry and wetted-edge entry"
+        },
+        {
+          "featureId": "smith-river-bassett-great-road-take-out",
+          "name": "The Great Road River Access",
+          "aliases": [
+            "Great Road River Access",
+            "The Great Road Smith River access",
+            "Eastman Smith River take-out"
+          ],
+          "waterbody": "Smith River",
+          "latitude": 36.7272223,
+          "longitude": -79.9487802,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Henry County public access address anchor at 4313 The Great Road across from Eastman; verify the rustic carry, parking, and wetted-edge exit"
+        }
+      ]
+    },
+    {
+      "id": "va_clinch_river_blackford_pucketts_hole_access",
+      "name": "Virginia DWR Upper Clinch River Blackford Bridge and Puckett's Hole access anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://dwr.virginia.gov/boating/access?find_by_locality=563",
+      "sourceType": "official-state-maintained-access-inventory",
+      "sourceDocumentDate": "2026-09-02",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Virginia DWR lists Blackford Bridge on the Clinch River as a public gravel access and Puckett's Hole as a public shoreline access. Coordinates are access-area anchors, not surveyed wetted-edge launch points. Verify current carry, water entry/exit, parking, road conditions, legal boundaries, and posted rules before relying on either endpoint.",
+      "controls": [
+        {
+          "featureId": "clinch-river-blackford-bridge-put-in",
+          "name": "Blackford Bridge Virginia DWR gravel access",
+          "aliases": [
+            "Blackford Bridge",
+            "Blackford Bridge Clinch River access",
+            "Upper Clinch Blackford put-in"
+          ],
+          "waterbody": "Clinch River",
+          "latitude": 36.9965,
+          "longitude": -81.9437,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Virginia DWR public-access anchor for the Blackford Bridge gravel launch; verify the actual carry and wetted-edge entry"
+        },
+        {
+          "featureId": "clinch-river-blackford-pucketts-hole-take-out",
+          "name": "Puckett's Hole Virginia DWR shoreline access",
+          "aliases": [
+            "Puckett's Hole",
+            "Puckett's Hole Clinch River access",
+            "Upper Clinch Puckett's Hole take-out"
+          ],
+          "waterbody": "Clinch River",
+          "latitude": 36.9699,
+          "longitude": -82.0137,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Virginia DWR public-access anchor for the Puckett's Hole shoreline landing; verify the current carry, wetted-edge exit, parking, and legal take-out boundary"
+        }
+      ]
+    },
+    {
+      "id": "va_nottoway_double_bridge_route630_access",
+      "name": "Virginia DWR Nottoway River Double Bridge and Route 630 ramp anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://dwr.virginia.gov/waterbody/nottoway-river/",
+      "sourceType": "official-state-float-guide-and-maintained-access-dataset",
+      "sourceDocumentDate": "2026-09-02",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Virginia DWR names the Double Bridge to Route 630 float and identifies both endpoints as DWR ramps. Coordinates use the DWR public maintained-access map anchors associated with the official float map; they are access-area controls, not a claim that every bridge point is a surveyed wetted-edge launch. Verify current carry, parking, water entry, closure status, and posted rules.",
+      "controls": [
+        {
+          "featureId": "nottoway-river-double-bridge-route619-put-in",
+          "name": "Double Bridge / Route 619 DWR public ramp",
+          "aliases": [
+            "Double Bridge",
+            "Route 619 Nottoway ramp",
+            "Nottoway Double Bridge put-in"
+          ],
+          "waterbody": "Nottoway River",
+          "latitude": 36.846961,
+          "longitude": -77.560697,
+          "uncertaintyFeet": 250,
+          "coordinateText": "DWR map/access-area anchor for the Double Bridge put-in; verify the actual carry and wetted-edge entry before launching"
+        },
+        {
+          "featureId": "nottoway-river-route630-take-out",
+          "name": "Route 630 bridge DWR public ramp",
+          "aliases": [
+            "Route 630 Nottoway ramp",
+            "Nottoway Route 630 take-out"
+          ],
+          "waterbody": "Nottoway River",
+          "latitude": 36.847497,
+          "longitude": -77.493189,
+          "uncertaintyFeet": 250,
+          "coordinateText": "DWR map/access-area anchor for the Route 630 take-out; verify current parking, carry, and water entry before relying on it"
+        }
+      ]
+    },
+    {
+      "id": "va_rivanna_crofton_palmyra_access",
+      "name": "Virginia DWR Rivanna River Crofton and Palmyra public-landing anchors",
+      "state": "Virginia",
+      "sourceUrl": "https://dwr.virginia.gov/wp-content/uploads/rivanna-river-public-landings-float-map.pdf",
+      "sourceType": "official-state-float-map-and-maintained-access-inventory",
+      "sourceDocumentDate": "2026-09-02",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Virginia DWR's public-landings map names Crofton to Palmyra as a 6.5-mile float and its maintained access inventory supplies the Crofton anchor; DWR's official Palmyra place page supplies the downstream access coordinate. These are access-area anchors rather than surveyed wetted-edge points. Verify current carry, parking, water entry/exit, landing status, and the hard Palmyra take-out boundary before launching.",
+      "controls": [
+        {
+          "featureId": "rivanna-river-crofton-palmyra-put-in",
+          "name": "Crofton public landing",
+          "aliases": [
+            "Crofton Boat Ramp",
+            "Crofton Rivanna landing",
+            "Rivanna Crofton put-in"
+          ],
+          "waterbody": "Rivanna River",
+          "latitude": 37.91874108,
+          "longitude": -78.29759086,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Virginia DWR maintained-access anchor for Crofton, corroborated by the public-domain image description identifying the view downstream from Crofton Boat Ramp; verify the actual carry and wetted-edge entry"
+        },
+        {
+          "featureId": "rivanna-river-crofton-palmyra-take-out",
+          "name": "Palmyra public landing",
+          "aliases": [
+            "Palmyra Boat Landing",
+            "Palmyra Rivanna landing",
+            "Rivanna Palmyra take-out"
+          ],
+          "waterbody": "Rivanna River",
+          "latitude": 37.85776874,
+          "longitude": -78.26682016,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Virginia DWR official Palmyra public-access coordinate; verify the current carry, parking, wetted-edge exit, and day-use rules"
         }
       ]
     }

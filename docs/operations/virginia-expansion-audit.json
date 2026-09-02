@@ -1,10 +1,49 @@
 {
   "version": 1,
   "stateId": "VA",
-  "updatedAt": "2026-08-28T16:56:53.000Z",
-  "phase": "complete",
-  "executionStatus": "research_complete",
-  "pauseReason": "Virginia provider-baseline gauges are fully dispositioned, the bounded route-first sweep produced one additional published route, and all publication gates passed. Future work should only reopen on materially new evidence or a new expansion goal.",
+  "updatedAt": "2026-09-02T18:45:00Z",
+  "phase": "statewide_inventory_reconciled_validation_complete",
+  "executionStatus": "source_window_reconciled_absolute_completeness_not_claimed",
+  "pauseReason": "Formal statewide inventory pass completed for the current authoritative-source window. Absolute statewide completeness remains unclaimed because the DWR access layer is not a census and seven route-capable families remain explicitly blocked pending stronger endpoint, flow, safety, camping, imagery, or geometry evidence.",
+  "statewideInventoryPass": {
+    "status": "reconciled_for_current_source_window",
+    "sourceInventory": {
+      "dwrMaintainedAccessSites": 237,
+      "dwrRawWaterbodyLabels": 107,
+      "dwrNormalizedWaterbodyGroups": 106,
+      "dwrNamedRiverCatalogEntries": 41
+    },
+    "reconciliation": {
+      "unreconciledMovingWaterLabels": 0,
+      "pendingRouteCandidateWaterbodies": 0,
+      "catalogFamiliesWithoutDisposition": 0,
+      "stillOrOpenWaterGroupsExplicitlyScreenedOut": 51,
+      "currentVirginiaRouteCount": 35,
+      "currentVirginiaCandidateCount": 52,
+      "candidatePlanningOnlyWithoutRoute": 0,
+      "candidateRecordsMissingDispositionOrRetryAction": 0
+    },
+    "independentSourcesReviewed": [
+      "Virginia DWR maintained boating access FeatureServer",
+      "Virginia DWR Rivers & Streams catalog",
+      "Virginia DWR waterbody and boating safety guidance",
+      "Virginia DCR paddling and state-park river catalog",
+      "USGS Virginia current stream-gauge inventory",
+      "Virginia State Parks and USFS public-land access and camping pages",
+      "Local public-access and water-trail authorities for implemented or blocked corridors"
+    ],
+    "remainingBlockedFamilies": [
+      "Conway River",
+      "Dragon Run / Piankatank River",
+      "Mossy Creek",
+      "Occoquan River",
+      "Shenandoah River - Main Stem",
+      "St. Marys River",
+      "Jackson River"
+    ],
+    "absoluteCompletenessClaim": false,
+    "nextRetry": "Retry blocked families only when manager-grade endpoint and access controls, route-specific flow or tide guidance, safety, camping, coordinate, imagery, and geometry evidence changes."
+  },
   "corridorWindow": {
     "status": "complete",
     "candidateCount": 3,

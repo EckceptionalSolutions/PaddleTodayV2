@@ -11551,8 +11551,10 @@
       "relationship": "direct",
       "checkedAt": "2026-08-26T22:48:00Z",
       "decisionReason": "USGS 02034000 is a fresh direct gauge at the downstream endpoint of DWR's exact 6.5-mile novice Crofton-to-Palmyra float. Both endpoints remain current DWR-owned concrete ramps and the official float map documents one Class I-II drop. American Whitewater correlates this Palmyra gauge to a different upstream Charlottesville-to-Shadwell reach and reports an approximate minimum there, but the bounded screen found no numeric runnable guidance for the Crofton-to-Palmyra corridor itself. The route is a strong retryable opportunity, but transferring an upstream anecdotal threshold to this distinct lower reach would not meet the route-specific evidence gate.",
-      "decisionSource": "manual_gauge_review_202608262248",
-      "routeSlugs": [],
+      "decisionSource": "virginia-goal-rivanna-crofton-palmyra-package-20260902",
+      "routeSlugs": [
+        "rivanna-river-crofton-palmyra"
+      ],
       "scoredRouteSlugs": [],
       "routeFamilies": [
         "Rivanna River"

@@ -3628,6 +3628,14 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Nyttend via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: public domain',
   },
+  'rivanna-river': {
+    id: 'rivanna-river-crofton-union-mills-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Rivanna_River_at_Union_Mills.jpg?width=1600',
+    alt: 'The Rivanna River viewed downstream from Crofton Boat Ramp near Union Mills, Virginia.',
+    caption: 'Rivanna River at Crofton/Union Mills; same-river context',
+    credit: 'Nyttend via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
   'yadkin-river': {
     id: 'yadkin-river-elkin-noaa-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Yadkin%20River%20Elkin.jpg?width=1600',
